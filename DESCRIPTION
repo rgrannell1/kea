@@ -19,3 +19,4 @@ Suggests:
     reshape2
 Collate:
 	xUnit.R
+	xTake.R
