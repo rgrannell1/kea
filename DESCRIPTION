@@ -46,3 +46,4 @@ Collate:
     xNotFalse.R
     xNotNa.R
     xIsEmpty.R
+    xNegate.R
