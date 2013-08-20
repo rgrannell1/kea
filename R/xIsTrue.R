@@ -11,11 +11,11 @@
 #| function: xIsTrue version: 0.1 finished: true
 
 xIsTrue <- function (collection) {
-	# a -> boolean
+	# Collection a -> Vector boolean
 	# test which elements of a collection are true
 
 	pcall <- sys.call()
 	require_a("any", collection, pcall)
 
-	vapply(collection, isTRUE, TRUE)
+	vapply(collection, function (x) identical(x, TRUE), TRUE)
 }

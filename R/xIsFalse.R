@@ -13,13 +13,11 @@
 #| function: xIsFalse version: 0.1 finished: false
 
 xIsFalse <- function (collection) {
-	# Collection a -> boolean
+	# Collection a -> Vector boolean
 	# Is an element of a collection false?
 
 	pcall <- sys.call()
 	require_a("listy", collection, pcall)
 
-	vapply(collection, function (x) {
-		is.logical(x) && !is.na(x) && !x
-	}, TRUE)
+	vapply(collection, function (x) identical(x, False), TRUE)
 }

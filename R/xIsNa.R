@@ -14,7 +14,7 @@
 #| function: xIsNa version: 0.1 finished: false
 
 xIsNa <- function (collection) {
-	# a -> boolean
+	# Collection a -> Vector boolean
 	# Is an element of a collection na?
 
 	pcall <- sys.call()
