@@ -1,6 +1,6 @@
 
 [1] bug in xSubstring('', 1)
-[2] xLines '' == character(0)?
+[2] xLines and related function '' == character(0)? This may be wrong.
 
 [] testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
 
