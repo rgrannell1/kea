@@ -34,3 +34,4 @@ Collate:
     xLines.R
     xWords.R
     xChars.R
+    xCollapse.R
