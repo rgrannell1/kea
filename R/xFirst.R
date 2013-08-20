@@ -9,7 +9,6 @@
 #'     throws an error if \code{collection} has less than one element; this is
 #'     because any other corner case would violate the functions type-signature.
 #'
-#' @family arrow-selects
 #' @export
 
 #| function: xFirst version: 0.1 finished: false

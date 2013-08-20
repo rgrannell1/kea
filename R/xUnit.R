@@ -8,6 +8,8 @@
 #'
 #' @export
 
+#| function: xUnit version: 0.1 finished: false
+
 xUnit <- function (collection) {
 	# Collection any -> Collection
 	# return the neutral element of a collection.
