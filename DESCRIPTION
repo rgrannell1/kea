@@ -37,3 +37,4 @@ Collate:
     xCollapse.R
     xUnlines.R
     xUnwords.R
+    xUnchars.R
