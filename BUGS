@@ -1,2 +1,7 @@
 
 [1] bug in xSubstring('', 1)
+
+
+[2] testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
+
+
