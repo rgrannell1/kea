@@ -18,7 +18,10 @@ xSubstring <- function (string, indices) {
 	require_a("string", string, pcall)
 	require_a(c("numeric", "integer"), indices, pcall)
 	
-	chars <- strsplit(string, "")[[1]]
-	paste0(chars[indices], collapse = "")
-	
+	if (max(indices) > nchar(string)) {
+		stop("largest index larger than number of characters in string")
+	} else {
+		chars <- strsplit(string, "")[[1]]
+		paste0(chars[indices], collapse = "")		
+	}
 }
