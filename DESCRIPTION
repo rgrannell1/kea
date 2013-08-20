@@ -18,6 +18,7 @@ Suggests:
     ggplot2,
     reshape2
 Collate:
+    aliases.R
 	xUnit.R
 	xTake.R
 	xDrop.R
@@ -38,3 +39,4 @@ Collate:
     xUnlines.R
     xUnwords.R
     xUnchars.R
+    xIsTrue.R
