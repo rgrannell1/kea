@@ -32,4 +32,5 @@ Collate:
     xSubstring.R
     xSplit.R
     xLines.R
+    xWords.R
     
