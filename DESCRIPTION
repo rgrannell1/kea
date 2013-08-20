@@ -21,3 +21,4 @@ Collate:
 	xUnit.R
 	xTake.R
 	xDrop.R
+	xSplitAt.R
