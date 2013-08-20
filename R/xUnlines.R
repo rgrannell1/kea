@@ -3,17 +3,20 @@
 #'
 #' @param strings a character vector.
 #'
-#' @return a string.
+#' @return a length-one character vector.
 #'
 #' @export
 
 #| function: xUnlines version: 0.1 finished: false
 
 xUnlines <- function (strings) {
-	# [string] -> string
-	# collapse the collection strings with a newline.
+	# Collection string -> string;
+	# collapse the collection of strings with a newline.
 
 	pcall <- sys.call()
+	require_a("listy", strings, pcall)
+
+	strings <- unlist(strings)
 	require_a("character", strings, pcall)
 
 	paste0(strings, collapse = '\n')

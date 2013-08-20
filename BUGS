@@ -1,7 +1,4 @@
 
-
-
-
 Todo:
 
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))

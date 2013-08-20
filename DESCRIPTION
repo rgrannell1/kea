@@ -31,7 +31,7 @@ Collate:
     xLast.R
     xInitial.R
     xSubstring.R
-    xSplit.R
+    xSplitstring.R
     xLines.R
     xWords.R
     xChars.R

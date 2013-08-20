@@ -11,7 +11,7 @@
 #| function: xCollapse version: 0.1 finished: false
 
 xCollapse <- function (delimiter, strings) {
-	# string -> strings -> string
+	# string -> Vector string -> string
 	# Collapse a collection of strings into
 	# a string with by a delimiter.
 
