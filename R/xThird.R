@@ -21,9 +21,7 @@ xThird <- function (collection) {
 	require_a("listy", collection, pcall)
 
 	if (length(collection) < 3) {
-		stop(paste0(
-			paste0(deparse(pcall), collapse = ""),
-			": collection has less than three elements"))
+		stop('collection has less than three elements')
 	} else {
 		collection[[3]]
 	}
