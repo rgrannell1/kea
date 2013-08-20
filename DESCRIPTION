@@ -41,3 +41,4 @@ Collate:
     xUnchars.R
     xIsTrue.R
     xIsFalse.R
+    xIsNa.R
