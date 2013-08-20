@@ -40,3 +40,4 @@ Collate:
     xUnwords.R
     xUnchars.R
     xIsTrue.R
+    xIsFalse.R

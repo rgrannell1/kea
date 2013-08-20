@@ -1,0 +1,25 @@
+
+#' Is an element of a collection false?
+#'
+#' @param collection a list, pairlist, or vector of arbitrary values.
+#'
+#' @return a vector of true or false value.
+#'
+#' @section Corner Cases:
+#'     returns false if \code{x} is length-zero.
+#'
+#' @export
+
+#| function: xIsFalse version: 0.1 finished: false
+
+xIsFalse <- function (collection) {
+	# Collection a -> boolean
+	# Is an element of a collection false?
+
+	pcall <- sys.call()
+	require_a("listy", collection, pcall)
+
+	vapply(collection, function (x) {
+		is.logical(x) && !is.na(x) && !x
+	}, TRUE)
+}

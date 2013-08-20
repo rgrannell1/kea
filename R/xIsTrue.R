@@ -6,7 +6,6 @@
 #'
 #' @return a vector of true or false value.
 #'
-#' @family arrow-tests
 #' @export
 
 #| function: xIsTrue version: 0.1 finished: true
