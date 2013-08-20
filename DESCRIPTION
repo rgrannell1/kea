@@ -35,3 +35,4 @@ Collate:
     xWords.R
     xChars.R
     xCollapse.R
+    xUnlines.R
