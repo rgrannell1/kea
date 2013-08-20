@@ -42,3 +42,5 @@ Collate:
     xIsTrue.R
     xIsFalse.R
     xIsNa.R
+    xNotTrue.R
+    
