@@ -1,7 +1,12 @@
 
-[1] bug in xSubstring('', 1)
-[2] xLines and related function '' == character(0)? This may be wrong.
-
-[] testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
 
 
+
+Todo:
+
+- [ ] #2 bug in xSubstring('', 1)
+- [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
+
+Done:
+
+#1 [x] "xLines and related function '' == character(0)? This may be wrong."

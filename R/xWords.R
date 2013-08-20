@@ -10,12 +10,16 @@
 #| function: xWords version: 0.1 finished: false 
 
 xWords <- function (string) {
-	# string -> [string]
+	# string -> Vector string
 	# split a string at every whitespace character, returning 
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
 	require_a("string", string, pcall)
 
-	strsplit(string, split = "[ \n\t]+")[[1]]
+	if (nchar(string) == 0) {
+		''
+	} else {
+		strsplit(string, split = "[ \n\t]+")[[1]]
+	}
 }

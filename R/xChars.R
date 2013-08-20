@@ -10,12 +10,16 @@
 #| function: xChars version: 0.1 finished: false 
 
 xChars <- function (string) {
-	# string -> [string]
+	# string -> Vector string
 	# split string at every character, returning 
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
 	require_a("string", string, pcall)
 
-	strsplit(string, "")[[1]]
+	if (nchar(string) == 0) {
+		''
+	} else {
+		strsplit(string, "")[[1]]
+	}
 }

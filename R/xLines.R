@@ -9,12 +9,16 @@
 #| function: xLines version: 0.1 finished: false 
 
 xLines <- function (string) {
-	# string -> [string]
+	# string -> Vector string
 	# split string at every newline, returning 
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
 	require_a("string", string, pcall)
 
-	strsplit(string, split = "\n+")[[1]]
+	if (nchar(string) == 0) {
+		''
+	} else {
+		strsplit(string, split = "\n+")[[1]]
+	}
 }

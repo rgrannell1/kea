@@ -18,6 +18,9 @@ xSplit <- function (regexp, string) {
 	require_a("string", regexp, pcall)
 	require_a("string", string, pcall)
 
-	strsplit(string, regexp)[[1]]
-		
+	if (nchar(string) == 0) {
+		''
+	} else {
+		strsplit(string, regexp)[[1]]		
+	}		
 }
