@@ -20,3 +20,4 @@ Suggests:
 Collate:
 	xUnit.R
 	xTake.R
+	xDrop.R
