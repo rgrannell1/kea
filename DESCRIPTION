@@ -31,3 +31,5 @@ Collate:
     xInitial.R
     xSubstring.R
     xSplit.R
+    xLines.R
+    
