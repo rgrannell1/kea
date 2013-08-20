@@ -3,6 +3,7 @@ Todo:
 
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
 - [ ] #4 xRest's type signature should include non-list collections.
+- [ ] #5 possible issue in functions using vapply; names are sometimes preserved. Check every function, then close issue.
 
 Done:
 

@@ -1,5 +1,5 @@
 
-#' Is an element of a collection not true?
+#' Is an element of a collection not false?
 #'
 #' @param collection a list, pairlist, or vector of arbitrary values.
 #'
@@ -10,16 +10,16 @@
 #'
 #' @export
 
-#| function: xNotTrue version: 0.1 finished: false
+#| function: xNotFalse version: 0.1 finished: false
 
-xNotTrue <- function (collection) {
+xNotFalse <- function (collection) {
 	# Collection a -> Vector boolean
-	# Is an element of a collection not true?
+	# Is an element of a collection not false?
 
 	pcall <- sys.call()
 	require_a("listy", collection, pcall)
 
 	unname(vapply(collection, function (x) {
-		!identical(x, True)
+		!identical(x, False)
 	}, True))
 }
