@@ -19,5 +19,7 @@ xIsFalse <- function (collection) {
 	pcall <- sys.call()
 	require_a("collection", collection, pcall)
 
-	vapply(collection, function (x) identical(x, False), TRUE)
+	unname(vapply(collection, function (x) {
+		identical(x, False)
+	}, TRUE)
 }
