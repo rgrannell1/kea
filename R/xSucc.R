@@ -1,30 +1,30 @@
 
 #' Get the successor of a number or collection of numbers.
 #'
-#' @param numbers a collection of doubles or integers.
+#' @param nums a collection of doubles or integers.
 #' @return returns a collection of doubles or integers.
 #' @section Corner Cases:
-#'     if \code{numbers} is empty, then \code{numbers} is returned automatically. If
+#'     if \code{nums} is empty, then \code{nums} is returned automatically. If
 #'     a collection 
 #' @export
 
 #| function: xSucc version: 0.1 finished: false 
 
-xSucc <- function (numbers) {
+xSucc <- function (nums) {
 	# Collection number -> Vector number
-	# returns the successor of a vector of numbers.
+	# returns the successor of a vector of nums.
 
 	pcall <- sys.call()
 
-	require_a("collection_of_length_one", numbers, pcall)
+	require_a("collection_of_length_one", nums, pcall)
 
-	numbers <- unlist(numbers)
+	nums <- unlist(nums)
 
-	require_a(c('double', 'integer'), numbers, pcall)
+	require_a(c('double', 'integer'), nums, pcall)
 
-	if (length(numbers) == 0) {
-		numbers
+	if (length(nums) == 0) {
+		nums
 	} else {
-		numbers + 1		
+		nums + 1		
 	}
 }

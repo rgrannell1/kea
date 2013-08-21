@@ -1,7 +1,7 @@
 
-#' Split a string at every character.
+#' Split a str at every character.
 #'
-#' @param string a length-one character vector.
+#' @param str a length-one character vector.
 #'
 #' @return a character vector.
 #'
@@ -9,17 +9,17 @@
 
 #| function: xChars version: 0.1 finished: false 
 
-xChars <- function (string) {
-	# string -> Vector string
-	# split string at every character, returning 
+xChars <- function (str) {
+	# str -> Vector str
+	# split str at every character, returning 
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
-	require_a("string", string, pcall)
+	require_a("string", str, pcall)
 
-	if (nchar(string) == 0) {
+	if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(string, "")[[1]]
+		strsplit(str, "")[[1]]
 	}
 }

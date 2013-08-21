@@ -1,7 +1,7 @@
 
 #' Collapase a character vector with spaces as delimiters.
 #'
-#' @param strings a character vector, or list or pairlist of strings.
+#' @param strs a character vector, or list or pairlist of strs.
 #'
 #' @return a length-one character vector.
 #'
@@ -9,16 +9,16 @@
 
 #| function: xUnwords version: 0.1 finished: false
 
-xUnwords <- function (strings) {
-	# Collection string -> string
-	# collapse the collection strings with a space.
+xUnwords <- function (strs) {
+	# Collection str -> str
+	# collapse the collection strs with a space.
 
 	pcall <- sys.call()
-	require_a("collection_of_length_one", strings, pcall)
+	require_a("collection_of_length_one", strs, pcall)
 
-	strings <- unlist(strings)
+	strs <- unlist(strs)
 	
-	require_a("character", strings, pcall)
+	require_a("character", strs, pcall)
 
-	paste0(strings, collapse = ' ')
+	paste0(strs, collapse = ' ')
 }

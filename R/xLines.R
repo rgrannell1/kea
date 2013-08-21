@@ -1,6 +1,6 @@
-#' Split a string at newlines.
+#' Split a str at newlines.
 #'
-#' @param string a length-one character vector.
+#' @param str a length-one character vector.
 #'     
 #' @return a character vector, with one or more elements.
 #'
@@ -8,17 +8,17 @@
 
 #| function: xLines version: 0.1 finished: false 
 
-xLines <- function (string) {
-	# string -> Vector string
-	# split string at every newline, returning 
+xLines <- function (str) {
+	# str -> Vector str
+	# split str at every newline, returning 
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
-	require_a("string", string, pcall)
+	require_a("string", str, pcall)
 
-	if (nchar(string) == 0) {
+	if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(string, split = "\n+")[[1]]
+		strsplit(str, split = "\n+")[[1]]
 	}
 }

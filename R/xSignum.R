@@ -1,32 +1,32 @@
 
 #' Get the sign of a number or vector of numbers.
 #'
-#' @param numbers a vector of doubles or integers.
+#' @param nums a vector of doubles or integers.
 #' @return returns a vector of doubles or integers.
 #' @section Corner Cases:
-#'     If \code{numbers} is empty, then \code{numbers} is returned automatically. 
+#'     If \code{nums} is empty, then \code{nums} is returned automatically. 
 #'     The sign of zero is zero.
 #'
 #' @export
 
 #| function: xSignum version: 0.1 finished: false 
 
-xSignum <- function (numbers) {
+xSignum <- function (nums) {
 	# Collection number -> number
 	# returns the sign of a number.
 
 	pcall <- sys.call()
 	
-	require_a("collection_of_length_one", numbers, pcall)
+	require_a("collection_of_length_one", nums, pcall)
 
-	numbers <- unlist(numbers)
+	nums <- unlist(nums)
 
-	require_a("number", numbers, pcall)
+	require_a("number", nums, pcall)
 
-	if (length(numbers) == 0) {
-		numbers
+	if (length(nums) == 0) {
+		nums
 	} else {
-		sapply(numbers, function (n) {
+		sapply(nums, function (n) {
 			if (n > 0) +1 else if (n == 0) 0 else -1
 		})		
 	}

@@ -1,7 +1,7 @@
 
 #' Collapase a character vector with newlines as delimiters.
 #'
-#' @param strings a character vector.
+#' @param strs a character vector.
 #'
 #' @return a length-one character vector.
 #'
@@ -9,15 +9,15 @@
 
 #| function: xUnlines version: 0.1 finished: false
 
-xUnlines <- function (strings) {
-	# Collection string -> string;
-	# collapse the collection of strings with a newline.
+xUnlines <- function (strs) {
+	# Collection str -> str;
+	# collapse the collection of strs with a newline.
 
 	pcall <- sys.call()
-	require_a("collection_of_length_one", strings, pcall)
+	require_a("collection_of_length_one", strs, pcall)
 
-	strings <- unlist(strings)
-	require_a("character", strings, pcall)
+	strs <- unlist(strs)
+	require_a("character", strs, pcall)
 
-	paste0(strings, collapse = '\n')
+	paste0(strs, collapse = '\n')
 }

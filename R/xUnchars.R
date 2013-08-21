@@ -1,7 +1,7 @@
 
-#' Collapase a character vector with empty strings as delimiters.
+#' Collapase a character vector with empty strs as delimiters.
 #'
-#' @param strings a collection of strings.
+#' @param strs a collection of strs.
 #'
 #' @return a length-one character vector.
 #'
@@ -9,16 +9,16 @@
 
 #| function: xUnchars version: 0.1 finished: false
 
-xUnchars <- function (strings) {
-	# Collection string -> string
-	# collapse the collection strings with the empty string.
+xUnchars <- function (strs) {
+	# Collection str -> str
+	# collapse the collection strs with the empty str.
 
 	pcall <- sys.call()
-	require_a("collection_of_length_one", strings, pcall)
+	require_a("collection_of_length_one", strs, pcall)
 
-	strings <- unlist(strings)
+	strs <- unlist(strs)
 	
-	require_a("character", strings, pcall)
+	require_a("character", strs, pcall)
 
-	paste0(strings, collapse = '')
+	paste0(strs, collapse = '')
 }

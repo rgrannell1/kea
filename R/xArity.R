@@ -2,7 +2,7 @@
 #' Return the number of parameters a function has.
 #'
 #' @param fn an arbitrary function, or a 
-#'     symbol or string identifying such a function.
+#'     symbol or str identifying such a function.
 #'
 #' @return a positive whole number
 #'

@@ -1,7 +1,7 @@
 
 #' Take several elements from the head of a collection.
 #'
-#' @param number a nonnegative whole number.
+#' @param num a nonnegative whole number.
 #' @param collection a list, vector or pairlist.
 #'
 #' @section Corner Cases:
@@ -13,19 +13,19 @@
 
 #| function: xTake version: 0.1 finished: false
 
-xTake <- function (number, collection) {
+xTake <- function (num, collection) {
 	# Collection any -> [any]
-	# take the first number values of collection.
+	# take the first num values of collection.
 
 	pcall <- sys.call()
-	require_a("nonnegative whole", number, pcall)
+	require_a("nonnegative whole", num, pcall)
 	require_a("collection", collection, pcall)
 
-	if (length(collection) == 0 || number == 0) {
+	if (length(collection) == 0 || num == 0) {
 		list()
 	} else {
 
 		collection <- as.list(collection)
-		collection[seq_len( min(number, length(collection)) )]
+		collection[seq_len( min(num, length(collection)) )]
 	}
 }

@@ -1,26 +1,26 @@
 
-#' Split a string using a regexp.
+#' Split a str using a regexp.
 #'
 #' @param regexp a length-one character vector.
-#  @param string a length-one character vector.
+#  @param str a length-one character vector.
 #'
 #' @return a character vector.
 #'
 #' @export
 
-#| function: xSplitstring version: 0.1 finished: false 
+#| function: xSplitstr version: 0.1 finished: false 
 
-xSplitstring <- function (regexp, string) {
-	# string -> string -> Vector string
-	# split a string into substrings at a regexp.
+xSplitstr <- function (regexp, str) {
+	# str -> str -> Vector str
+	# split a str into substrs at a regexp.
 	
 	pcall <- sys.call()
 	require_a("string", regexp, pcall)
-	require_a("string", string, pcall)
+	require_a("string", str, pcall)
 
-	if (nchar(string) == 0) {
+	if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(string, regexp)[[1]]		
+		strsplit(str, regexp)[[1]]		
 	}		
 }

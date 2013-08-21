@@ -1,34 +1,34 @@
 
 #' Flip the sign of a number or vector of numbers.
 #'
-#' @param numbers a vector of doubles or integers.
+#' @param nums a vector of doubles or integers.
 #'
 #' @return returns a vector of doubles or integers.
 #'
 #' @section Corner Cases:
-#'     if \code{numbers} is empty, then \code{numbers} is returned automatically.
+#'     if \code{nums} is empty, then \code{nums} is returned automatically.
 #'
 #' @export
 
 #| function: xNegate version: 0.1 finished: false 
 
-xNegate <- function (numbers) {
+xNegate <- function (nums) {
 	# Vector number -> number
 	# returns the sign of a number, such that
 	# abs x * signum x == x
 
 	pcall <- sys.call()
 
-	require_a("collection_of_length_one", numbers, pcall)
+	require_a("collection_of_length_one", nums, pcall)
 
-	numbers <- unlist(numbers)
+	nums <- unlist(nums)
 
-	require_a(c('double', 'integer'), numbers, pcall)
+	require_a(c('double', 'integer'), nums, pcall)
 
-	if (length(numbers) == 0) {
-		numbers
+	if (length(nums) == 0) {
+		nums
 	} else {
-		-numbers
+		-nums
 	}
 }
 

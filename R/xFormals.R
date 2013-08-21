@@ -2,7 +2,7 @@
 #' Get the parameters and defaults of a function or primitive function.
 #'
 #' @param f An arbitrary function, or a 
-#'     symbol or string identifying such a function.
+#'     symbol or str identifying such a function.
 #' @return A named list, where each element's name is a parameter in f and each value
 #'     is the default value of that parameter.
 #' @section Corner Cases:

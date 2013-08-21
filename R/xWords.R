@@ -1,5 +1,5 @@
 
-#' Split a string at whitespace.
+#' Split a str at whitespace.
 #'
 #' @param s a length-one character vector.
 #'     
@@ -9,17 +9,17 @@
 
 #| function: xWords version: 0.1 finished: false 
 
-xWords <- function (string) {
-	# string -> Vector string
-	# split a string at every whitespace character, returning 
+xWords <- function (str) {
+	# str -> Vector str
+	# split a str at every whitespace character, returning 
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
-	require_a("string", string, pcall)
+	require_a("string", str, pcall)
 
-	if (nchar(string) == 0) {
+	if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(string, split = "[ \n\t]+")[[1]]
+		strsplit(str, split = "[ \n\t]+")[[1]]
 	}
 }
