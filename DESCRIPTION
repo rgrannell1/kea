@@ -57,3 +57,5 @@ Collate:
     xReject.R
     xPartition.R
     xTakeWhile.R
+    xDropWhile.R
+    
