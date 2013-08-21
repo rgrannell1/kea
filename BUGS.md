@@ -6,6 +6,8 @@
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
 - [ ] #11 rename all predicates to pred, functions to fn, collections to ?
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
+- [ ] #13 add a description to xSplitWith.
+- [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 
 ### Done:
 

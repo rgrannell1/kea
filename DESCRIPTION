@@ -58,4 +58,4 @@ Collate:
     xPartition.R
     xTakeWhile.R
     xDropWhile.R
-    
+    xSplitWith.R
