@@ -10,7 +10,6 @@
 #' @section Corner Cases:
 #' returns the empty list if no match is found, or \code{collection} is length-zero.
 #'
-#' @family arrow-filters
 #' @export
 
 #| function: xReject version: 0.1 finished: false 

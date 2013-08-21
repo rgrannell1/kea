@@ -55,3 +55,5 @@ Collate:
     xArity.R
     xSelect.R
     xReject.R
+    xPartition.R
+    
