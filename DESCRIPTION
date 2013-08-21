@@ -56,4 +56,4 @@ Collate:
     xSelect.R
     xReject.R
     xPartition.R
-    
+    xTakeWhile.R
