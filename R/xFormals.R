@@ -16,19 +16,19 @@
 
 #| function: xFormals version: 0.1 finished: false 
 
-xFormals <- function (f) {
+xFormals <- function (fn) {
 	# (a -> b) -> [a, b]
 	# get the formals of non-primitive functions, and
 	# the arguments of primitive functions.
 
 	pcall <- sys.call()
-	require_a("functionable", f, pcall)
+	require_a("functionable", fn, pcall)
 
-	f <- match.fun(f)
+	fn <- match.fun(fn)
 
-	if (is.primitive(f)) {
-		as.list( head(as.list(args(f)), -1) )
+	if (is.primitive(fn)) {
+		as.list( head(as.list(args(fn)), -1) )
 	} else {
-		as.list( formals(f) )
+		as.list( formals(fn) )
 	}
 }

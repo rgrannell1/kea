@@ -21,5 +21,5 @@ xIsFalse <- function (collection) {
 
 	unname(vapply(collection, function (x) {
 		identical(x, False)
-	}, TRUE)
+	}, TRUE))
 }

@@ -4,7 +4,8 @@
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
 - [ ] #8 replace the parameter name 'f' with something more descriptive (closure?).
 - [ ] #9 several benchmarks will throw errors; for example xArity has type function -> int, but it will be given a collection. This needs to be fixed eventually.
-- [ ] #10 move all tests over to property based testing.
+- [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
+- [ ] #11 rename all predicates to pred, functions to fn, collections to ?
 
 ### Done:
 
