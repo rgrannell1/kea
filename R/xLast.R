@@ -14,11 +14,11 @@
 
 xLast <- function (collection) {
 	# Collection any -> any
-	# return the last element of a listy x,
+	# return the last element of a collection x,
 	# using the subset operator
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (length(collection) == 0) {
 		stop('cannot return the last element of the empty list')

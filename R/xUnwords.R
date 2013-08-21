@@ -14,7 +14,7 @@ xUnwords <- function (strings) {
 	# collapse the collection strings with a space.
 
 	pcall <- sys.call()
-	require_a("listy_of_length_one", strings, pcall)
+	require_a("collection_of_length_one", strings, pcall)
 
 	strings <- unlist(strings)
 	

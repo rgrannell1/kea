@@ -15,10 +15,10 @@
 xInitial <- function (collection) {
 	# Collection any -> [any]
 	# return everything but the last element of a 
-	# listy x, using the subset operator.
+	# collection x, using the subset operator.
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (length(collection) == 0 || length(collection) == 1) {
 		list()

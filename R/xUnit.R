@@ -15,7 +15,7 @@ xUnit <- function (collection) {
 	# return the neutral element of a collection.
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (is.pairlist(collection)) {
 		NULL

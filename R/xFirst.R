@@ -15,10 +15,10 @@
 
 xFirst <- function (collection) {
 	# Collection any -> any
-	# return the first element of a listy x.
+	# return the first element of a collection x.
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (length(collection) < 1) {
 		stop('collection has less than one element')

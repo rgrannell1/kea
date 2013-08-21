@@ -15,10 +15,10 @@
 
 xSecond <- function (collection) {
 	# Collection any -> any
-	# return the second element of a listy x.
+	# return the second element of a collection x.
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (length(collection) < 2) {
 		stop('collection has less than two elements')

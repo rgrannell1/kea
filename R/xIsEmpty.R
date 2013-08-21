@@ -14,7 +14,7 @@ xIsEmpty <- function (collection) {
 	# is collection length == 0?
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	length(collection) == 0
 }

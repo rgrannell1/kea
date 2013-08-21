@@ -22,7 +22,7 @@ xSplitAt <- function (number, collection) {
 
 	pcall <- sys.call()
 	require_a("nonnegative whole", number, pcall)
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	list(
 		xTake(number, collection),

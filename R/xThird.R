@@ -15,10 +15,10 @@
 
 xThird <- function (collection) {
 	# Collection any -> any
-	# return the third element of a listy x.
+	# return the third element of a collection x.
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (length(collection) < 3) {
 		stop('collection has less than three elements')

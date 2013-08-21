@@ -15,10 +15,10 @@
 xRest <- function (collection) {
 	# Collection a -> [a]
 	# return everything but the first element of a 
-	# listy x.
+	# collection x.
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	if (length(collection) < 2) {
 		list()

@@ -10,6 +10,6 @@ test_that('xUnit returns the expected unit', {
 
 })
 
-test_that('xUnit operates on listy values only', {
+test_that('xUnit operates on collection values only', {
 	expect_error(xUnit( matrix(1:4, 2, 2) ))
 })

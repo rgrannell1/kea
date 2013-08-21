@@ -19,7 +19,7 @@ xNegate <- function (numbers) {
 
 	pcall <- sys.call()
 
-	require_a("listy_of_length_one", numbers, pcall)
+	require_a("collection_of_length_one", numbers, pcall)
 
 	numbers <- unlist(numbers)
 

@@ -17,7 +17,7 @@ xNotTrue <- function (collection) {
 	# Is an element of a collection not true?
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("collection", collection, pcall)
 
 	unname(vapply(collection, function (x) {
 		!identical(x, True)
