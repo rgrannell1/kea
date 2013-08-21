@@ -14,7 +14,7 @@ xUnchars <- function (strings) {
 	# collapse the collection strings with the empty string.
 
 	pcall <- sys.call()
-	require_a("listy", strings, pcall)
+	require_a("listy_of_length_one", strings, pcall)
 
 	strings <- unlist(strings)
 	

@@ -14,7 +14,7 @@ xUnlines <- function (strings) {
 	# collapse the collection of strings with a newline.
 
 	pcall <- sys.call()
-	require_a("listy", strings, pcall)
+	require_a("listy_of_length_one", strings, pcall)
 
 	strings <- unlist(strings)
 	require_a("character", strings, pcall)

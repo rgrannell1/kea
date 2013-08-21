@@ -1,11 +1,11 @@
 
-#' Get the successor of a number or vector of numbers.
+#' Get the successor of a number or collection of numbers.
 #'
-#' @param numbers a vector of doubles or integers.
-#' @return returns a vector of doubles or integers.
+#' @param numbers a collection of doubles or integers.
+#' @return returns a collection of doubles or integers.
 #' @section Corner Cases:
-#' if \code{numbers} is empty, then \code{numbers} is returned automatically.
-#'
+#'     if \code{numbers} is empty, then \code{numbers} is returned automatically. If
+#'     a collection 
 #' @export
 
 #| function: xSucc version: 0.1 finished: false 
@@ -16,7 +16,7 @@ xSucc <- function (numbers) {
 
 	pcall <- sys.call()
 
-	require_a("listy", numbers, pcall)
+	require_a("listy_of_length_one", numbers, pcall)
 
 	numbers <- unlist(numbers)
 

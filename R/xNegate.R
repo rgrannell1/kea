@@ -18,6 +18,11 @@ xNegate <- function (numbers) {
 	# abs x * signum x == x
 
 	pcall <- sys.call()
+
+	require_a("listy_of_length_one", numbers, pcall)
+
+	numbers <- unlist(numbers)
+
 	require_a(c('double', 'integer'), numbers, pcall)
 
 	if (length(numbers) == 0) {

@@ -13,7 +13,7 @@
 #| function: xRest version: 0.1 finished: false
 
 xRest <- function (collection) {
-	# [a] -> [a]
+	# Collection a -> [a]
 	# return everything but the first element of a 
 	# listy x.
 
