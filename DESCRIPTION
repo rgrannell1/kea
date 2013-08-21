@@ -48,3 +48,4 @@ Collate:
     xIsEmpty.R
     xNegate.R
     xSignum.R
+    xPred.R
