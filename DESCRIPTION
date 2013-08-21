@@ -59,3 +59,4 @@ Collate:
     xTakeWhile.R
     xDropWhile.R
     xSplitWith.R
+    xCompress.R

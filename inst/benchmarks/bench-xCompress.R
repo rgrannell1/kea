@@ -1,0 +1,2 @@
+
+bench$xCompress <- xCompress
