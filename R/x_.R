@@ -95,7 +95,11 @@ x_coll_proto <- local({
 	this$xMapAlong <-
 		function (fn) {
 			x_( xMapAlong(fn, thunk_()) )
-		}		
+		}
+	this$xMapWhen <-
+		function (pred, fn) {
+			x_( xMapWhen(pred, fn, thunk_()) )
+		}
 	this$xNegate <-
 		function () {
 			x_( xNegate(thunk_()) )
@@ -256,6 +260,10 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xMapAlong(thunk_(), coll) )
 		}
+	this$xMapWhen <-
+		function (fn, coll) {
+			x_( xMapWhen(thunk_(), fn, coll) )
+		}
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(thunk_(), init, coll) )
@@ -292,6 +300,8 @@ x_ <- function (x) {
 
 	method_name <- paste0(method)
 
+	print( method_name )
+
 	proto_ref <- 
 		if (is.function( obj[['x']] )) {
 			x_fn_proto
@@ -304,7 +314,7 @@ x_ <- function (x) {
 		}
 
 	if ( !(method_name %in% ls(proto_ref)) ) {
-		stop("the8 ")
+		stop("method not found")
 	}
 
 	fn <- proto_ref[[method_name]]

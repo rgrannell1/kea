@@ -13,6 +13,7 @@
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
     incorrect types are allowed.
 - [ ] #22 change map -> xmap in pluck
+- [ ] 23 aliase x...l methods with x ..., to prevent user typos.
 
 ### Done:
 

@@ -13,11 +13,12 @@ Arrow embrace R's better quirks - such as three-value logic and vectorisation - 
 # R base library.
 
 x_(ls("package:base"))$  
-xMap(get)$
-xFilter(is.function)$
-xMap(names %of% xFormals)$
-xReduce(union)$
-x
+xMap(function (x) get(x))$
+xSelect(is.function)$
+xMap( function (f) names(xFormals(f)) )$
+xReducel(union)$
+x()
+
 ```
 
 ## Licensing

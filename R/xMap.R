@@ -1,32 +1,32 @@
 
 #' Apply a function to each element of a collection.
 #'
-#' @param unary a unary function, or a
+#' @param fn a unary function, or a
 #'     symbol or name identifying such a function.
-#' @param collection a pairlist, list, or vector.
+#' @param coll a pairlist, list, or vector.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{collection} is length-zero.
+#'     returns the empty list if \code{coll} is length-zero.
 #'
-#' @return a list containing \code{unary} applied to each elements of \code{collection}.
+#' @return a list containing \code{fn} applied to each elements of \code{coll}.
 #' @export
 
 #| function: xMap version: 0.1 finished: false 
 
-xMap <- function (unary, collection) {
+xMap <- function (fn, coll) {
 	# (any -> any) -> Collection any -> [any]
 	# map a unary function over a listy x.
 
 	pcall <- sys.call()
-	require_a("functionable", unary, pcall)
-	require_a("collection", collection, pcall)
+	require_a("functionable", fn, pcall)
+	require_a("collection", coll, pcall)
 
-	unary <- match.fun(unary)
-	require_a("unary function", unary, pcall)
+	fn <- match.fun(fn)
+	require_a("unary function", fn, pcall)
 
-	if (length(collection) == 0) {
-		collection
+	if (length(coll) == 0) {
+		coll
 	} else {
-		lapply(collection, unary)
+		lapply(coll, fn)
 	}
 }
