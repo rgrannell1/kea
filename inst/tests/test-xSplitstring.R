@@ -1,10 +1,10 @@
 
-context('xSplitstring')
+context('xSplitString')
 
-test_that('xSplitstring', {
+test_that('xSplitString', {
 
-	expect_equal(xSplitstring('', 'ab'), c('a', 'b'))
-	expect_equal(xSplitstring('.', 'ab'), c('', ''))
-	expect_equal(xSplitstring('a', 'bacd'), c('b', 'cd'))
+	expect_equal(xSplitString('', 'ab'), c('a', 'b'))
+	expect_equal(xSplitString('.', 'ab'), c('', ''))
+	expect_equal(xSplitString('a', 'bacd'), c('b', 'cd'))
 	
 })

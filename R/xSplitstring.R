@@ -8,9 +8,9 @@
 #'
 #' @export
 
-#| function: xSplitstring version: 0.1 finished: false 
+#| function: xSplitString version: 0.1 finished: false 
 
-xSplitstring <- function (regexp, str) {
+xSplitString <- function (regexp, str) {
 	# str -> str -> Vector str
 	# split a str into substrs at a regexp.
 	

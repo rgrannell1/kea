@@ -10,9 +10,9 @@
 #'    the input str.
 #' @export
 
-#| function: xSubstring version: 0.1 finished: false 
+#| function: xSubString version: 0.1 finished: false 
 
-xSubstring <- function (str, iths) {
+xSubString <- function (str, iths) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 	
