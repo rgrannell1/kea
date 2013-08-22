@@ -1,4 +1,6 @@
 
+# -------------------------------- Collection methods -------------------------------- #
+
 x_coll_proto <- local({
 
 	this <- object()
@@ -28,7 +30,7 @@ x_coll_proto <- local({
 		}
 	this$xCompress <-
 		function () {
-			x_( xCompress(thunk_) )
+			x_( xCompress(thunk_()) )
 		}
 	this$xCount <-
 		function (fn) {
@@ -205,6 +207,8 @@ x_coll_proto <- local({
 	this
 })
 
+# -------------------------------- Function methods -------------------------------- #
+
 x_fn_proto <- local({
 
 	this <- object()
@@ -284,7 +288,7 @@ x_ <- function (x) {
 		}
 
 	if ( !(method_name %in% ls(proto_ref)) ) {
-		stop("the method does not exist")
+		stop("the8")
 	}
 
 	fn <- proto_ref[[method_name]]
