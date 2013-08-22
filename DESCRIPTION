@@ -63,4 +63,5 @@ Collate:
     xFoldl.R
     xFoldr.R
     xReducel.R
-      
+    xReducer.R
+    xScanl.R  

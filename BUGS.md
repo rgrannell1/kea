@@ -8,6 +8,7 @@
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
 - [ ] #13 add a description to xSplitWith.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
+- [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 
 ### Done:
 
