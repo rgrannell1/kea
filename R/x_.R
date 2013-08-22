@@ -88,6 +88,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xLines(thunk_()) )
 		}
+	this$xMap <-
+		function (fn) {
+			x_( xMap(fn, thunk_()) )
+		}
 	this$xNegate <-
 		function () {
 			x_( xNegate(thunk_()) )
@@ -240,6 +244,10 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xDropWhile(thunk_(), coll) )
 		}
+	this$xMap <-
+		function (coll) {
+			x_( xMap(thunk_(), coll) )
+		}	
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(thunk_(), init, coll) )
@@ -288,7 +296,7 @@ x_ <- function (x) {
 		}
 
 	if ( !(method_name %in% ls(proto_ref)) ) {
-		stop("the8")
+		stop("the8 ")
 	}
 
 	fn <- proto_ref[[method_name]]

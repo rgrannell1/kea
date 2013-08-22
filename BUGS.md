@@ -12,6 +12,7 @@
 - [ ] #19 implement a pairs to list function [a, b] -> {a: b}
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
     incorrect types are allowed.
+- [ ] #22 change map -> xmap in pluck
 
 ### Done:
 
