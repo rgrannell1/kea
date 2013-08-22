@@ -1,7 +1,6 @@
-
-#' Return the index of the first element in \code{coll} for which \code{predicate} returns true.
+#' Return the index of the last element in \code{collection} for which \code{pred} returns true.
 #'
-#' @param pred a unary function that returns a logical value, or a
+#' @param pred a unary function that returns a logical value, or a 
 #'     symbol or name identifying such a function.
 #' @param coll a list, pairlist, or vector.
 #'
@@ -12,12 +11,12 @@
 #'
 #' @export
 
-#| function: xPositionl version: 0.1 finished: false
+#| function: xPositionr version: 0.1 finished: false 
 
-xPositionl <- function (pred, coll) {
+xPositionr <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> integer
-	# returns the first index of collection that matches
-	# the predicate pred.
+	# returns the last index of collection that matches
+	# the predicate.
 
 	pcall <- sys.call()
 	require_a("functionable", pred, pcall)
@@ -29,17 +28,18 @@ xPositionl <- function (pred, coll) {
 	if (length(coll) == 0) {
 		integer(0)
 	} else {
-		ith <- 1
+		ith <- length(coll)
 
-		while (ith <= length(coll)) {
+		while (ith >= 1) {
 
 			res <- pred( coll[[ith]] )
-			
+
 			if (isTRUE(res)) {
 				return (ith)
 			}
-			ith <- ith + 1
+			ith <- ith - 1
 		}	
 		integer(0)
 	}
+
 }
