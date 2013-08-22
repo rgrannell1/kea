@@ -7,6 +7,11 @@
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 - [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
+- [ ] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
+- [ ] #18 move from requiring boolean to requiring logical functions, since it's more idiomatic.
+- [ ] #19 implement a pairs to list function [a, b] -> {a: b}
+- [ ] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
+- [ ] #21 
 
 ### Done:
 

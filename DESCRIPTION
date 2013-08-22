@@ -19,6 +19,7 @@ Suggests:
     reshape2
 Collate:
     aliases.R
+    tau.R
 	xUnit.R
 	xTake.R
 	xDrop.R
@@ -70,4 +71,4 @@ Collate:
     xCount.R
     xPositionl.R
     xPositionr.R
-    lambda.R
+    x_.R

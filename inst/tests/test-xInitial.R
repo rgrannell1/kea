@@ -1,10 +1,10 @@
 
-context('xInitial')
+context('xInit')
 
-test_that('xInitial', {
+test_that('xInit', {
 
-	expect_equal( xInitial(list(1)), list())
-	expect_equal( xInitial(list(1, 2)), list(1))
-	expect_equal( xInitial(list(1, 2, 3)), list(1, 2))
+	expect_equal( xInit(list(1)), list())
+	expect_equal( xInit(list(1, 2)), list(1))
+	expect_equal( xInit(list(1, 2, 3)), list(1, 2))
 
 })

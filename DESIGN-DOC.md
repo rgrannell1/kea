@@ -26,3 +26,6 @@ feature list;
 	- groupby, sortby, orderby, countby operators.
 
 	- logical quantifiers and cartesian products.
+
+    - All boolean functions should use kleene logic.
+

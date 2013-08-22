@@ -10,9 +10,9 @@
 #'
 #' @export
 
-#| function: xInitial version: 0.1 finished: false
+#| function: xInit version: 0.1 finished: false
 
-xInitial <- function (coll) {
+xInit <- function (coll) {
 	# Collection any -> [any]
 	# return everything but the last element of a 
 	# collection x, using the subset operator.

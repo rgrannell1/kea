@@ -5,7 +5,7 @@
 #' @param coll a list, vector or pairlist.
 #'
 #' @section Corner Cases:
-#'     if \code{coll} is zero is returned.
+#'     if \code{coll} length-zero zero is returned.
 #'
 #' @export
 
@@ -31,10 +31,13 @@ xCount <- function (pred, coll) {
 			
 			res <- pred( coll[[ith]] )
 			
+			if (!is.logical(res)) {
+				stop("pred returned a non-boolean value")
+			}
+
 			if (isTRUE(res)) {
 				count <- count + 1
 			}
-			
 			ith <- ith + 1
 		}
 		count

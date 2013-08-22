@@ -15,7 +15,7 @@
 #| function: xArity version: 0.1 finished: true
 
 xArity <- function (fn) {
-	# (a -> b) -> integer
+	# Function -> integer
 	# get the arity of a function.
 	# returns +Inf if fn is a variadic function.
 

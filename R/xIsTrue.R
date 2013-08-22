@@ -15,9 +15,9 @@ xIsTrue <- function (coll) {
 	# test which elements of a collection are true
 
 	pcall <- sys.call()
-	require_a("any", coll, pcall)
+	require_a("collection", coll, pcall)
 
 	unname(vapply(coll, function (x) {
-		identical(x, TRUE)
-	}, TRUE))
+		identical(x, True)
+	}, True))
 }

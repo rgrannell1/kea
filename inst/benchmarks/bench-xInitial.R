@@ -1,2 +1,2 @@
 
-bench$xInitial <- xInitial
+bench$xInit <- xInit
