@@ -9,6 +9,6 @@ False <- FALSE
 
 Truth <- function (x) True
 Falsity <- function (x) False
-NonApplicabity <- function (x) Na
+NonApplicability <- function (x) Na
 
 test_package('arrow')
