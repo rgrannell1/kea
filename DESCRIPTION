@@ -60,3 +60,4 @@ Collate:
     xDropWhile.R
     xSplitWith.R
     xCompress.R
+    xFoldl.R
