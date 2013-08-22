@@ -1,9 +1,8 @@
 #'
-#' Fold a function over a collection from left to right, with an initial value.
+#' Fold a function over a collection from right to length, with an initial value.
 #'
-#' @param fn a binary function that returns a value that 
-#'     \code{fn} can later take as its right argument,
-#'     or a string or symbol naming such a function.
+#' @param fn a binary function that returns a value that \code{fn} can later take as its right argument,
+#' or a string or symbol naming such a function.
 #' @param initial an arbitrary value.
 #' @param collection a list, pairlist or vector of any length.
 #'
@@ -14,13 +13,13 @@
 #'
 #' @export
 
-#| function: xFoldl version: 0.1 finished: false 
+#| function: xFoldr version: 0.1 finished: false 
 
-xFoldl <- function (fn, initial, collection) {
+xFoldr <- function (fn, initial, collection) {
 	# (any -> any -> any) -> any -> Collection any -> any
-	# fold a list, starting from the left"
+	# fold a list, starting from the right
 	
-	pcall <- sys.call()	
+	pcall <- sys.call()
 	require_a("functionable", fn, pcall)
 	require_a('any', initial, pcall)
 	require_a("collection", collection, pcall)
@@ -31,12 +30,11 @@ xFoldl <- function (fn, initial, collection) {
 	if (length(collection) == 0) {
 		initial
 	} else {
-		ind <- 1
-		len_collection <- length(collection)
+		ind <- length(collection)
 
-	    while (ind <= len_collection) {
-	    	initial <- fn( initial, collection[[ind]] )
-	    	ind <- ind + 1
+	    while (ind > 0) {
+	    	initial <- fn( collection[[ind]], initial )
+	    	ind <- ind - 1
 	    }
 	    initial
 	}
