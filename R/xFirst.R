@@ -1,29 +1,29 @@
 
 #' Return the first value of a collection.
 #'
-#' @param collection a pairlist, list, or vector.
+#' @param coll a pairlist, list, or vector.
 #'
-#' @return the first element in \code{collection}.
+#' @return the first element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     throws an error if \code{collection} has less than one element; this is
+#'     throws an error if \code{coll} has less than one element; this is
 #'     because any other corner case would violate the functions type-signature.
 #'
 #' @export
 
 #| function: xFirst version: 0.1 finished: false
 
-xFirst <- function (collection) {
+xFirst <- function (coll) {
 	# Collection any -> any
 	# return the first element of a collection x.
 
 	pcall <- sys.call()
-	require_a("collection", collection, pcall)
+	require_a("collection", coll, pcall)
 
-	if (length(collection) < 1) {
-		stop('collection has less than one element')
+	if (length(coll) < 1) {
+		stop('coll has less than one element')
 	} else {
-		collection[[1]]
+		coll[[1]]
 	}
 }
 

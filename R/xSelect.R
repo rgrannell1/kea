@@ -3,34 +3,34 @@
 #'
 #' @param p a unary function that returns a logical value, or a 
 #'     symbol or name identifying such a function.
-#' @param collection a list, pairlist, or vector.
+#' @param coll a list, pairlist, or vector.
 #'
-#' @return a list containing a subset of elements in \code{collection}.
+#' @return a list containing a subset of elements in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if no match is found, or \code{collection} is length-zero.
+#'     returns the empty list if no match is found, or \code{coll} is length-zero.
 #'
 #' @family arrow-filters
 #' @export
 
 #| function: xSelect version: 0.1 finished: false 
 
-xSelect <- function (pred, collection) {
+xSelect <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
-	# returns collection[i] such that 
-	# pred(collection[i]) is true
+	# returns coll[i] such that 
+	# pred(coll[i]) is true
 
 	pcall <- sys.call()
 	require_a("functionable", pred, pcall)
-	require_a("collection", collection, pcall)
+	require_a("collection", coll, pcall)
 
 	pred <- match.fun(pred)
 	require_a("unary function", pred)
 
-	if (length(collection) == 0) {
+	if (length(coll) == 0) {
 		list()
 	} else {
-		ind <- unlist(lapply(collection, pred))
-		as.list( collection[ !is.na(ind) & ind ] )
+		ind <- unlist(lapply(coll, pred))
+		as.list( coll[ !is.na(ind) & ind ] )
 	}
 }

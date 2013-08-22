@@ -1,29 +1,29 @@
 
 #' Return the second value of a collection.
 #'
-#' @param collection a pairlist, list, or vector.
+#' @param coll a pairlist, list, or vector.
 #'
-#' @return the second element in \code{collection}.
+#' @return the second element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     throws an error if \code{collection} has less than two elements; this is
+#'     throws an error if \code{coll} has less than two elements; this is
 #'     because there is no sensible definition of the function in this case.
 #'
 #' @export
 
 #| function: xSecond version: 0.1 finished: false
 
-xSecond <- function (collection) {
+xSecond <- function (coll) {
 	# Collection any -> any
 	# return the second element of a collection x.
 
 	pcall <- sys.call()
-	require_a("collection", collection, pcall)
+	require_a("collection", coll, pcall)
 
-	if (length(collection) < 2) {
-		stop('collection has less than two elements')
+	if (length(coll) < 2) {
+		stop('coll has less than two elements')
 
 	} else {
-		collection[[2]]
+		coll[[2]]
 	}
 }

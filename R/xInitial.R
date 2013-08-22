@@ -1,29 +1,29 @@
 
 #' Return every element in a collection except the last element.
 #'
-#' @param collection a pairlist, list, or vector.
+#' @param coll a pairlist, list, or vector.
 #'
-#' @return a list containing every element in \code{collection} except the last element.
+#' @return a list containing every element in \code{coll} except the last element.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{collection} is length-zero or length-one.
+#'     returns the empty list if \code{coll} is length-zero or length-one.
 #'
 #' @export
 
 #| function: xInitial version: 0.1 finished: false
 
-xInitial <- function (collection) {
+xInitial <- function (coll) {
 	# Collection any -> [any]
 	# return everything but the last element of a 
 	# collection x, using the subset operator.
 
 	pcall <- sys.call()
-	require_a("collection", collection, pcall)
+	require_a("collection", coll, pcall)
 
-	if (length(collection) == 0 || length(collection) == 1) {
+	if (length(coll) == 0 || length(coll) == 1) {
 		list()
 	} else {
-		collection <- as.list(collection)
-		collection[-length(collection)]
+		coll <- as.list(coll)
+		coll[-length(coll)]
 	}
 }

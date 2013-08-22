@@ -1,7 +1,7 @@
 
 #' Is an element of a collection not na?
 #'
-#' @param collection a list, pairlist, or vector of arbitrary values.
+#' @param coll a list, pairlist, or vector of arbitrary values.
 #'
 #' @return a vector of true or false value.
 #'
@@ -12,14 +12,14 @@
 
 #| function: xNotNa version: 0.1 finished: false
 
-xNotNa <- function (collection) {
+xNotNa <- function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection not na?
 
 	pcall <- sys.call()
-	require_a("any", collection, pcall)
+	require_a("any", coll, pcall)
 
-	unname(vapply(collection, function (x) {
+	unname(vapply(coll, function (x) {
 		!identical(x, Na)
 	}, True))
 }

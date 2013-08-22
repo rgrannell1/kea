@@ -1,7 +1,7 @@
 
 #' Remove all length-zero values from a collection.
 #'
-#' @param collection a list, pairlist, or vector.
+#' @param coll a list, pairlist, or vector.
 #'
 #' @return returns a list of elements in \code{collection}, 
 #'     with all length-zero values removed.
@@ -14,18 +14,18 @@
 
 #| function: xCompress version: 0.1 finished: false
 
-xCompress <- function (collection) {
+xCompress <- function (coll) {
 	# Collection any -> [any]
-	# remove all length-zero elements from a collection
+	# remove all length-zero elements from a coll
 
 	pcall <- sys.call()
-	require_a("listy", collection, pcall)
+	require_a("listy", coll, pcall)
 
-	if (length(collection) == 0) {
+	if (length(coll) == 0) {
 		list()
 	} else {
 		xReject(
 			function (x) length(x) == 0,
-			collection)
+			coll)
 	}
 }

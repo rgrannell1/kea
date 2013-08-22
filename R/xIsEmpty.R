@@ -1,7 +1,7 @@
 
 #' Test if a collection is empty.
 #'
-#' @param collection a list, pairlist, or vector of arbitrary values.
+#' @param coll a list, pairlist, or vector of arbitrary values.
 #'
 #' @return A true or false value.
 #'
@@ -9,12 +9,12 @@
 
 #| function: xIsEmpty version: 0.1 finished: false
 
-xIsEmpty <- function (collection) {
+xIsEmpty <- function (coll) {
 	# Collection -> boolean
 	# is collection length == 0?
 
 	pcall <- sys.call()
-	require_a("collection", collection, pcall)
+	require_a("collection", coll, pcall)
 
-	length(collection) == 0
+	length(coll) == 0
 }

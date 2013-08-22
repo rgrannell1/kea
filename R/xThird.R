@@ -1,28 +1,28 @@
 
 #' Return the third value of a collection.
 #'
-#' @param collection a pairlist, list, or vector.
+#' @param coll a pairlist, list, or vector.
 #'
-#' @return the third element in \code{collection}.
+#' @return the third element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     throws an error if \code{collection} has less than three elements; this is
+#'     throws an error if \code{coll} has less than three elements; this is
 #'     because there is no sensible definition of the function in this case.
 #'
 #' @export
 
 #| function: xThird version: 0.1 finished: false
 
-xThird <- function (collection) {
+xThird <- function (coll) {
 	# Collection any -> any
 	# return the third element of a collection x.
 
 	pcall <- sys.call()
-	require_a("collection", collection, pcall)
+	require_a("collection", coll, pcall)
 
-	if (length(collection) < 3) {
-		stop('collection has less than three elements')
+	if (length(coll) < 3) {
+		stop('coll has less than three elements')
 	} else {
-		collection[[3]]
+		coll[[3]]
 	}
 }
