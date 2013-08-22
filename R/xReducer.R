@@ -32,13 +32,13 @@ xReducer <- function (fn, coll) {
 	} else {
 		ind <- length(coll) - 1
 		
-		initial <- xFirst(coll)
+		init <- xFirst(coll)
 		coll <- xRest(coll)
 
 	    while (ind > 0) {
-	    	initial <- fn( coll[[ind]], initial )
+	    	init <- fn( coll[[ind]], init )
 	    	ind <- ind - 1
 	    }
-	    initial
+	    init
 	}
 }

@@ -32,15 +32,15 @@ xReducel <- function (fn, coll) {
 	} else {
 		ind <- 1
 		
-		initial <- xFirst(coll)
+		init <- xFirst(coll)
 		coll <- xRest(coll)
 
 		len_collection <- length(coll)
 
 	    while (ind <= len_collection) {
-	    	initial <- fn( initial, coll[[ind]] )
+	    	init <- fn( init, coll[[ind]] )
 	    	ind <- ind + 1
 	    }
-	    initial
+	    init
 	}
 }
