@@ -1,4 +1,4 @@
 
-bench$xSubstr <- function (x) {
-	xSubstr(x, seq_along(x))
+bench$xSubstring <- function (x) {
+	xSubstring(x, seq_along(x))
 }

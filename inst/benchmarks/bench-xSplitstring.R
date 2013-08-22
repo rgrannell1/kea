@@ -1,4 +1,4 @@
 
-bench$xSplit <- function (x) {
-	xSplit('', x)
+bench$xSplitstring <- function (x) {
+	xSplitstring('', x)
 }

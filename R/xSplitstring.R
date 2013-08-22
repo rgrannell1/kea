@@ -1,5 +1,5 @@
 
-#' Split a str using a regexp.
+#' Split a string using a regexp.
 #'
 #' @param regexp a length-one character vector.
 #  @param str a length-one character vector.
@@ -8,9 +8,9 @@
 #'
 #' @export
 
-#| function: xSplitstr version: 0.1 finished: false 
+#| function: xSplitstring version: 0.1 finished: false 
 
-xSplitstr <- function (regexp, str) {
+xSplitstring <- function (regexp, str) {
 	# str -> str -> Vector str
 	# split a str into substrs at a regexp.
 	

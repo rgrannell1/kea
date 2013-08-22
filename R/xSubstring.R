@@ -1,5 +1,5 @@
 
-#' Subset a str using normal R vector indexing.
+#' Subset a string using normal R vector indexing.
 #'
 #' @param str a length-one character vector.
 #' @param iths a collection of valid iths of the characters in \code{str}.
@@ -10,9 +10,9 @@
 #'    the input str.
 #' @export
 
-#| function: xSubstr version: 0.1 finished: false 
+#| function: xSubstring version: 0.1 finished: false 
 
-xSubstr <- function (str, iths) {
+xSubstring <- function (str, iths) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 	
