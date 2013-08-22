@@ -24,6 +24,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xChars(thunk_()) )
 		}
+	this$xConcatMap <-
+		function (fn) {
+			x_( xConcatMap(fn, thunk_()) )
+		}
 	this$xCollapse <-
 		function (delim) {
 			x_( xCollapse(delim, thunk_()) )
@@ -243,6 +247,10 @@ x_fn_proto <- local({
 	this$xArity <-
 		function () {
 			x_( xArity(thunk_()) )
+		}
+	this$xConcatMap <-
+		function (coll) {
+			x_( xConcatMap(thunk_(), coll) )
 		}
 	this$xCount <-
 		function (coll) {
