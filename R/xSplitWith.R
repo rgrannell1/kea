@@ -1,5 +1,6 @@
 
-#' Split a list into two lists
+#' Split a list into two lists; all the elements before the first time a predicate
+#' returns false, and all the elements including and after that point.
 #'
 #' @param pred a unary function that returns a logical value, or a 
 #'     symbol or name identifying such a function.

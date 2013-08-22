@@ -1,4 +1,4 @@
-	
+
 ### Todo:
 
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
@@ -6,7 +6,6 @@
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
 - [ ] #11 rename all predicates to pred, functions to fn, collections to ?
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
-- [ ] #13 add a description to xSplitWith.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 - [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 
@@ -19,3 +18,4 @@
 - [x] #4 xRest's type signature should include non-list collections.
 - [x] #5 possible issue in functions using vapply; names are sometimes preserved. Check every function, then close issue.
 - [x] #8 replace the parameter name 'f' with something more descriptive (closure?).
+- [x] #13 add a description to xSplitWith.
