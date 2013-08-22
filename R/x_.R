@@ -92,6 +92,10 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xMap(fn, thunk_()) )
 		}
+	this$xMapAlong <-
+		function (fn) {
+			x_( xMapAlong(fn, thunk_()) )
+		}		
 	this$xNegate <-
 		function () {
 			x_( xNegate(thunk_()) )
@@ -247,7 +251,11 @@ x_fn_proto <- local({
 	this$xMap <-
 		function (coll) {
 			x_( xMap(thunk_(), coll) )
-		}	
+		}
+	this$xMapAlong <-
+		function (coll) {
+			x_( xMapAlong(thunk_(), coll) )
+		}
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(thunk_(), init, coll) )
