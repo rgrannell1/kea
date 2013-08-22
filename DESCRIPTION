@@ -62,4 +62,5 @@ Collate:
     xCompress.R
     xFoldl.R
     xFoldr.R
-    
+    xReducel.R
+      
