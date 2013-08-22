@@ -28,10 +28,13 @@ xCount <- function (pred, coll) {
 		ith <- 1
 		count <- 0
 		while (ith <= length(coll)) {
+			
 			res <- pred( coll[[ith]] )
+			
 			if (isTRUE(res)) {
 				count <- count + 1
 			}
+			
 			ith <- ith + 1
 		}
 		count
