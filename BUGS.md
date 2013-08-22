@@ -10,8 +10,8 @@
 - [ ] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
 - [ ] #18 move from requiring boolean to requiring logical functions, since it's more idiomatic.
 - [ ] #19 implement a pairs to list function [a, b] -> {a: b}
-- [ ] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
-- [ ] #21 
+- [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
+    incorrect types are allowed.
 
 ### Done:
 
@@ -25,3 +25,4 @@
 - [x] #13 add a description to xSplitWith.
 - [x] #16 rename parameter "collection" to "coll".
 - [x] #11 rename all predicates to pred, functions to fn, collections to ?
+- [x] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
