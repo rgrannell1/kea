@@ -222,6 +222,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnwords(reciever_()) )
 		}
+	this$xUnzipWith <-
+		function (fn) {
+			x_( xUnzipWith(fn, reciever_()) )
+		}
 	this$xWords <-
 		function () {
 			x_( xWords(reciever_()) )
@@ -305,6 +309,10 @@ x_fn_proto <- local({
 	this$xUntil <-
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )
+		}
+	this$xUnzipWith <-
+		function (colls) {
+			x_( xUnzipWith(reciever_(), colls) )
 		}
 	this$xWhile <-
 		function (fn, coll) {

@@ -82,3 +82,4 @@ Collate:
     'xCompose.R'
     'xZipWith.R'
     'xZip.R'
+    'xUnzipWith.R'
