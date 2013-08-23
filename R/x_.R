@@ -234,6 +234,10 @@ x_coll_proto <- local({
 		function (fn, ...) {
 			x_( xZipWith(fn, reciever_(), ...) )
 		}
+	this$xZip <- 
+		function (...) {
+			x_( xZip(reciever_(), ...) )
+		}
 	this
 })
 
@@ -309,6 +313,10 @@ x_fn_proto <- local({
 	this$xZipWith <-
 		function (...) {
 			x_( xZipWith(reciever_(), ...) )
+		}
+	this$xZip <- 
+		function (...) {
+			x_( xZip(reciever_(), ...) )
 		}
 	this
 })
