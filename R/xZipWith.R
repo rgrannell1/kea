@@ -2,7 +2,7 @@
 
 #' Generate a list of n-element lists from n collections, and apply a function to each n-element list.
 #' 
-#' @param f an n-ary function, or a 
+#' @param fn an n-ary function, or a 
 #'     symbol or name identifying such a function.
 #' @param ... n-vectors, lists or pairlists.
 #'
@@ -13,19 +13,19 @@
 #'
 #' @export
 
-xZipWith <- function (f, ...) {
+xZipWith <- function (fn, ...) {
 	# function -> [any] -> ... -> [[any]]
 	# takes n lists/vectors, generates a list of n-tuples. 
 	# returns the result of applying f to each n-tuple.
 	# excess elements are discarded.
 
 	pcall <- sys.call()
-	require_a(c('function', 'string'), f, pcall)
+	require_a(c('function', 'string'), fn, pcall)
 
 	coll <- list(...)
-	f <- match.fun(f)
+	fn <- match.fun(fn)
 
-	stopifnot( xArity(f) %in% c(length(coll), +Inf) )
+	stopifnot( xArity(fn) %in% c(length(coll), +Inf) )
 	
 	xs_lengths <- sapply(coll, length)
 	min_length <- min(xs_lengths)
@@ -34,7 +34,7 @@ xZipWith <- function (f, ...) {
 		list()
 	} else {
 
-		do.call( Map, c(list(f), 
+		do.call( Map, c(list(fn), 
 			Map(
 				function (elem) {
 					head(elem, min_length)
