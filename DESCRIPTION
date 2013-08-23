@@ -86,3 +86,4 @@ Collate:
     'xUnzip.R'
     'xSegment.R'
     'xHasDefaults.R'
+    'xIsVariadic.R'
