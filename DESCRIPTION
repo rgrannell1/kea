@@ -89,3 +89,4 @@ Collate:
     'xIsVariadic.R'
     'xAsClosure.R'
     'xAsUnary.R'
+    'xAsVariadic.R'

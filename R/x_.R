@@ -271,6 +271,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xAsUnary(reciever_()) )
 		}
+	this$xAsVariadic <-
+		function () {
+			x_( xAsVariadic(reciever_()) )
+		}
 	this$xAll <- 
 		function (coll) {
 			x_( xAll(reciever_(), coll) )
