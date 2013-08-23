@@ -23,3 +23,7 @@ xNotNa <- function (coll) {
 		!identical(x, Na)
 	}, True))
 }
+
+#' @export
+
+xNotUnknown <- xNotNa

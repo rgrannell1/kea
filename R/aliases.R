@@ -1,7 +1,6 @@
 
 # I don't want all caps to frighten timid users
 
-Na <- NA
 Null <- NULL
 True <- TRUE
 False <- FALSE
