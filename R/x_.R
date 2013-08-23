@@ -222,6 +222,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnwords(reciever_()) )
 		}
+	this$xUnzip <-
+		function () {
+			x_( xUnzip(reciever_()) )
+		}
 	this$xUnzipWith <-
 		function (fn) {
 			x_( xUnzipWith(fn, reciever_()) )

@@ -83,3 +83,4 @@ Collate:
     'xZipWith.R'
     'xZip.R'
     'xUnzipWith.R'
+    'xUnzip.R'
