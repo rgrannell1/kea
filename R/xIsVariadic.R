@@ -15,7 +15,7 @@
 #| function: xIsVariadic version: 0.1 finished: true
 
 xIsVariadic <- function (fn) {
-	# (a -> b) -> [boolean]
+	# function -> Vector boolean
 	# is ... in fn's parameters?
 
 	pcall <- sys.call()
