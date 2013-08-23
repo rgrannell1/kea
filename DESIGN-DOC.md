@@ -27,5 +27,3 @@ feature list;
 
 	- logical quantifiers and cartesian products.
 
-    - All boolean functions should use kleene logic.
-

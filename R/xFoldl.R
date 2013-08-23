@@ -41,3 +41,7 @@ xFoldl <- function (fn, init, coll) {
 	    init
 	}
 }
+
+#' @export
+
+xFold <- xFoldl

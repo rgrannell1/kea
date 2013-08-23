@@ -44,3 +44,7 @@ xReducel <- function (fn, coll) {
 	    init
 	}
 }
+
+#' @export
+
+xReduce <- xReducel

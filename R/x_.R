@@ -56,6 +56,7 @@ x_coll_proto <- local({
 		function (fn, init) {
 			x_( xFoldl(fn, init, reciever_()) )
 		}
+	this$xFold <- this$xFoldl
 	this$xFoldr <-
 		function (fn, init) {
 			x_( xFoldr(fn, init, reciever_()) )
@@ -140,6 +141,7 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xReducel(fn, reciever_()) )
 		}
+	this$xReduce <- this$xReducel
 	this$xReducer <-
 		function (fn) {
 			x_( xReducer(fn, reciever_()) )
@@ -303,6 +305,7 @@ x_fn_proto <- local({
 	this
 })
 
+
 #' @param x any arbitrary value.
 
 #' @export
@@ -343,12 +346,11 @@ x_ <- function (x) {
 			list(
 				x = obj[['x']],
 				method = method_name))
+	} else {
+		fn <- proto_ref[[method_name]]
+
+		environment(fn)[['reciever_']] <- 
+			function () obj[['x']]
+		fn		
 	}
-
-	fn <- proto_ref[[method_name]]
-
-	environment(fn)[['reciever_']] <-
-		function () obj[['x']]
-
-	fn
 }
