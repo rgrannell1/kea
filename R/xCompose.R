@@ -1,9 +1,9 @@
 
-#' Compose two unary functions.
+#' Compose two function functions.
 #'
-#' @param f a unary function, or a 
+#' @param fn_1 a unary function, or a 
 #'     symbol or name identifying such a function.
-#' @param g a unary function, or a 
+#' @param fn_2 a unary function, or a 
 #'     symbol or name identifying such a function.
 #'
 #' @return A function with the same parameters as \code{g}.
@@ -14,7 +14,7 @@
 #| function: xCompose version: 0.1 finished: false 
 
 xCompose <- function (fn_1, fn_2) {
-	# (a -> b) -> (b -> c) -> (a -> c)
+	# function -> function -> function
 	# return a composite function f o g.
 	# constructed using a macro.
 	
