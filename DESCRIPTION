@@ -79,3 +79,4 @@ Collate:
     'say.R'
     'xUntil.R'
     'xWhile.R'
+    'xCompose.R'
