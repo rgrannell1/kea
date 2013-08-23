@@ -23,7 +23,7 @@ xAny <- function (pred, coll) {
 	require_a('unary function', pred)
 	
 	if (length(coll) == 0) {
-		False
+		Unknown
 	} else {
 		bools <- as.logical(lapply(coll, pred))
 

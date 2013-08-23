@@ -212,6 +212,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnlines(reciever_()) )
 		}
+	this$xUntil <-
+		function (pred, fn) {
+			x_( xUntil(pred, fn, reciever_()) )
+		}
 	this$xUnwords <- 
 		function () {
 			x_( xUnwords(reciever_()) )
@@ -283,6 +287,10 @@ x_fn_proto <- local({
 	this$xFormals <-
 		function () {
 			x_( xFormals(reciever_()) )
+		}
+	this$xUntil <-
+		function (fn, coll) {
+			x_( xUntil(reciever_(), fn, coll) )
 		}
 	this
 })

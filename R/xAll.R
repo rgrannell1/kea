@@ -24,14 +24,14 @@ xAll <- function (pred, coll) {
 	require_a('unary function', pred)
 
 	if (length(coll) == 0) {
-		True
+		Unknown
 	} else {
-		bools <- as.logical(lapply(coll, pred))
+		is_match <- as.logical(lapply(coll, pred))
 
-		if ( any(is.na(bools)) ) {
-			False
+		if ( any(xIsUnknown(is_match)) ) {
+			Unknown
 		} else {
-			all(bools)
+			all(is_match)
 		}
 	}
 }

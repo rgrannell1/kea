@@ -24,3 +24,7 @@ xIsNa <- function (coll) {
 		identical(x, NA)
 	}, TRUE))
 }
+
+#' @export
+
+xIsUnknown <- xIsNa
