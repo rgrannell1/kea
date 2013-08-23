@@ -141,7 +141,8 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xReducel(fn, reciever_()) )
 		}
-	this$xReduce <- this$xReducel
+	this$xReduce <- 
+		this$xReducel
 	this$xReducer <-
 		function (fn) {
 			x_( xReducer(fn, reciever_()) )
@@ -161,6 +162,10 @@ x_coll_proto <- local({
 	this$xSecond <-
 		function () {
 			x_( xSecond(reciever_()) )
+		}
+	this$xSegment <- 
+		function (num) {
+			x_( xSegment(num, reciever_()) )
 		}
 	this$xSelect <-
 		function (fn) {
