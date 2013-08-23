@@ -85,4 +85,4 @@ Collate:
     'xUnzipWith.R'
     'xUnzip.R'
     'xSegment.R'
-    'xIntersperse.R'
+    'xHasDefaults.R'

@@ -315,6 +315,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xFormals(reciever_()) )
 		}
+	this$xHasDefaults <-
+		function () {
+			x_( xHasDefaults(reciever_()) )
+		}
 	this$xUntil <-
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )

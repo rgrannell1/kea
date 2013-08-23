@@ -13,6 +13,7 @@
 - [ ] #22 change map -> xmap in pluck
 - [ ] #23 alias x...l methods with x ..., to prevent user typos.
 - [ ] #24 check xUntil and xWhile logical handling.
+- [ ] #25 check that functions that should return [A](0) do return such a value.
 
 ### Done:
 

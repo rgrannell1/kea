@@ -1,5 +1,5 @@
 
-#' Divide a collection into a list of num-element segments.
+#' Divide a collection into a list of num-element segments
 #' 
 #' @param coll a list, vector or pairlist of any length.
 #' @param num a nonnegative whole number.
