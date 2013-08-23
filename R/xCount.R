@@ -12,7 +12,7 @@
 #| function: xCount version: 0.1 finished: false 
 
 xCount <- function (pred, coll) {
-	# (any -> boolean) -> Collection any -> integer
+	# (any -> logical) -> Collection any -> integer
 	# return the number of elements for which a predicate is true.
 
 	pcall <- sys.call()
@@ -29,13 +29,11 @@ xCount <- function (pred, coll) {
 		count <- 0
 		while (ith <= length(coll)) {
 			
-			res <- pred( coll[[ith]] )
+			is_match <- pred( coll[[ith]] )
 			
-			if (!is.logical(res)) {
-				stop("pred returned a non-boolean value")
-			}
+			stopifnot(is.logical(is_match))
 
-			if (isTRUE(res)) {
+			if (isTRUE(is_match)) {
 				count <- count + 1
 			}
 			ith <- ith + 1

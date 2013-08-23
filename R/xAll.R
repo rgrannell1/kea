@@ -13,7 +13,7 @@
 #| function: xAll version: 0.1 finished: false 
 
 xAll <- function (pred, coll) {
-	# (any -> bool) -> Collection any -> bool
+	# (any -> logical) -> Collection any -> bool
 	# is a predicate true for every member of a collection?
 
 	pcall <- sys.call()
@@ -26,7 +26,7 @@ xAll <- function (pred, coll) {
 	if (length(coll) == 0) {
 		True
 	} else {
-		is_match <- as.logical(lapply(coll, pred))
+		is_match <- vapply(coll, pred, True)
 
 		if ( any(is.na(is_match)) ) {
 			False

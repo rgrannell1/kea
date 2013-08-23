@@ -17,7 +17,7 @@
 #| function: xDropWhile version: 0.1 finished: false
 
 xDropWhile <- function (pred, coll) {
-	# (any -> boolean) -> Collection any -> [any]
+	# (any -> logical) -> Collection any -> [any]
 	# take every element from the first element for which
 	# pred is false to the end of coll
 
@@ -35,6 +35,7 @@ xDropWhile <- function (pred, coll) {
 		while (ith <= length(coll)) {
 
 			is_match <- pred( coll[[ith]] )
+			stopifnot(is.logical(is_match))
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(coll[ith:length(coll)]) )

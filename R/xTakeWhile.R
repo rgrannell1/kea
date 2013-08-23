@@ -33,9 +33,10 @@ xTakeWhile <- function (pred, coll) {
 	} else {
 		while (ith <= length(coll)) {
 
-			isnt_match <- !isTRUE(pred( coll[[ith]] ))
+			is_match <- pred( coll[[ith]] )
+			stopifnot(is.logical(is_match))
 
-			if (isnt_match) {
+			if (!is_match) {
 				return ( as.list(head(coll, ith - 1)) )
 			}
 			ith <- ith + 1

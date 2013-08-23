@@ -29,7 +29,7 @@ xReject <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ind <- unlist(lapply(coll, pred))		
+		ind <- vapply(coll, pred, True)
 		as.list( coll[is.na(ind) | !ind ] )			
 	}
 }

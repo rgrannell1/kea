@@ -19,7 +19,7 @@
 #| function: xPartition version: 0.1 finished: false
 
 xPartition <- function (pred, coll) {
-	# (any -> boolean) -> Collection any -> [[any],[any]]
+	# (any -> logical) -> Collection any -> [[any],[any]]
 	# returns two lists; a list for which pred returns 
 	# true, and a list for which pred returns false
 	
@@ -33,7 +33,7 @@ xPartition <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list(list(), list())
 	} else {
-		ind <- unlist(lapply(coll, pred))
+		ind <- vapply(coll, pred, True)
 		true_ind <- !is.na(ind) & ind
 				
 		list(

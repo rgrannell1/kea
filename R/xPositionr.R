@@ -32,9 +32,10 @@ xPositionr <- function (pred, coll) {
 
 		while (ith >= 1) {
 
-			res <- pred( coll[[ith]] )
+			is_match <- pred( coll[[ith]] )
+			stopifnot(is.logical(is_match))
 
-			if (isTRUE(res)) {
+			if (is_match) {
 				return (ith)
 			}
 			ith <- ith - 1

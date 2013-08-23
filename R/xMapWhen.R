@@ -33,7 +33,10 @@ xMapWhen <- function (pred, fn, coll) {
 	require_a("unary function", fn, pcall)
 
 	composite <- function (x) {
-		if (pred(x)) fn(x) else x
+		is_match <- pred(x)
+		stopifnot(is.logical(is_match))
+
+		if (is_match) fn(x) else x
 	}
 
 	if (length(coll) == 0) {
