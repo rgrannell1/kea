@@ -21,6 +21,6 @@ call_with_params <- function (name, fn) {
 
 	as.call(
 		lapply(
-			c(name, names(formals(fn)) ),
+			c(name, names(xFormals(fn)) ),
 			as.symbol))
 }

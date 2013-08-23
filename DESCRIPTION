@@ -87,3 +87,5 @@ Collate:
     'xSegment.R'
     'xHasDefaults.R'
     'xIsVariadic.R'
+    'xAsClosure.R'
+    

@@ -263,6 +263,10 @@ x_fn_proto <- local({
 		function () {
 			reciever_()
 		} 
+	this$xAsClosure <-
+		function () {
+			x_( xAsClosure(reciever_()) )
+		}
 	this$xAll <- 
 		function (coll) {
 			x_( xAll(reciever_(), coll) )
