@@ -80,3 +80,4 @@ Collate:
     'xUntil.R'
     'xWhile.R'
     'xCompose.R'
+    'xZipWith.R'
