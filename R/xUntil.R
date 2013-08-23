@@ -5,13 +5,13 @@
 #'     symbol or name identifying such a function.
 #' @param unary a unary function function, or a
 #'     symbol or name identifying such a function.
-#' @param initial an arbitrary value.
+#' @param init an arbitrary value.
 #'
 #' @section Corner Cases:
-#'     length-zero values of \code{initial} are handled normally, since \code{initial} is 
+#'     length-zero values of \code{init} are handled normally, since \code{init} is 
 #'     an arbitrary value. Potentially non-terminating.
 #'
-#' @return the result of successively applying \code{f} to \code{initial}.
+#' @return the result of successively applying \code{f} to \code{init}.
 #' @family arrow-maps
 #' @export
 
@@ -19,7 +19,7 @@
 
 xUntil <- function (pred, fn, init) {
 	# (any -> boolean) -> (any -> any) -> any
-	# repeatedly apply function to initial, until predicate of 
+	# repeatedly apply function to init, until predicate of 
 	# the result is true.
 
 	pcall <- sys.call()
@@ -33,9 +33,13 @@ xUntil <- function (pred, fn, init) {
 	require_a('unary function', pred, pcall)
 	require_a('unary function', fn, pcall)
 
-	repeat {
-		if (pred(init)) break
-		init <- fn(init)
-	}
+		repeat {
+			is_match <- pred(init)
+
+			stopifnot(is.logical(is_match))
+
+			if (is_match) break
+			init <- fn(init)
+		}
 	init
 }

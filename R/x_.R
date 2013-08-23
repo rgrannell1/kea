@@ -224,6 +224,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xWords(reciever_()) )
 		}
+	this$xWhile <-
+		function (pred, fn) {
+			x_( xWhile(pred, fn, reciever_()) )
+		}
 	this
 })
 
@@ -291,6 +295,10 @@ x_fn_proto <- local({
 	this$xUntil <-
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )
+		}
+	this$xWhile <-
+		function (fn, coll) {
+			x_( xWhile(reciever_(), fn, coll) )
 		}
 	this
 })

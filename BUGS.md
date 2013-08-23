@@ -11,7 +11,8 @@
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
     incorrect types are allowed.
 - [ ] #22 change map -> xmap in pluck
-- [ ] 23 alias x...l methods with x ..., to prevent user typos.
+- [ ] #23 alias x...l methods with x ..., to prevent user typos.
+- [ ] #24 check xUntil and xWhile logical handling.
 
 ### Done:
 
@@ -27,7 +28,6 @@
 - [x] #11 rename all predicates to pred, functions to fn, collections to ?
 - [x] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
 - [x] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
-
-### Won't Fix:
-
 - [x] #18 move from requiring boolean to requiring logical functions, since it's more idiomatic.
+
+
