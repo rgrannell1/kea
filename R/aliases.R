@@ -5,13 +5,12 @@ Na <- NA
 Null <- NULL
 True <- TRUE
 False <- FALSE
-Unknown <- Na
 
 # to complete the following triad in the cleanest way;
-# if ( True ); if ( !False ), if( .(Unknown) )
+# if ( True ); if ( !False ), if( ._(Unknown) )
 # hopefully bquote() doesn't get sick over my code.
 
-. <- is.na
+._ <- is.na
 
 object <- function () {
 	new.env(parent = emptyenv())

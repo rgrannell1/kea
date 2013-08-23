@@ -12,7 +12,7 @@
 #| function: xAny version: 0.1 finished: false 
 
 xAny <- function (pred, coll) {
-	# (any -> bool) -> Collection any -> bool
+	# (any -> boolean) -> Collection any -> boolean
 	# is a predicate true for some member of a collection?
 
 	pcall <- sys.call()
@@ -25,12 +25,12 @@ xAny <- function (pred, coll) {
 	if (length(coll) == 0) {
 		False
 	} else {
-		bools <- as.logical(lapply(coll, pred))
+		is_match <- as.logical(lapply(coll, pred))
 
-		if ( all(is.na(bools)) ) {
+		if ( all(is.na(is_match)) ) {
 			False
 		} else {
-			any(bools)
+			any(is_match)
 		}
 	}
 }

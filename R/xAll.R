@@ -26,12 +26,12 @@ xAll <- function (pred, coll) {
 	if (length(coll) == 0) {
 		True
 	} else {
-		bools <- as.logical(lapply(coll, pred))
+		is_match <- as.logical(lapply(coll, pred))
 
-		if ( any(is.na(bools)) ) {
+		if ( any(is.na(is_match)) ) {
 			False
 		} else {
-			all(bools)
+			all(is_match)
 		}
 	}
 }
