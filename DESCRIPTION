@@ -88,4 +88,4 @@ Collate:
     'xHasDefaults.R'
     'xIsVariadic.R'
     'xAsClosure.R'
-    
+    'xAsUnary.R'
