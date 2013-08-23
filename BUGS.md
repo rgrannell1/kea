@@ -7,7 +7,6 @@
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 - [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
-- [ ] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
 - [ ] #19 implement a pairs to list function [a, b] -> {a: b}
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
     incorrect types are allowed.
@@ -27,6 +26,7 @@
 - [x] #16 rename parameter "collection" to "coll".
 - [x] #11 rename all predicates to pred, functions to fn, collections to ?
 - [x] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
+- [x] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
 
 ### Won't Fix:
 
