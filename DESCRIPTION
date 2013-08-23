@@ -76,3 +76,5 @@ Collate:
     xMapAlong.R
     xMapWhen.R
     xConcatMap.R
+    say.R
+    xUntil.R

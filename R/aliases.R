@@ -1,11 +1,10 @@
 
 # I don't want all caps to frighten timid users
 
-Na <- NA
 Null <- NULL
 True <- TRUE
 False <- FALSE
-Unknown <- Na
+Na <- Unknown <- NA
 
 # to complete the following triad in the cleanest way;
 # if ( True ); if ( !False ), if( .(Unknown) )
