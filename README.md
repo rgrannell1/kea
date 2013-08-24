@@ -39,8 +39,9 @@ identical(
 
 # transitively xMap vector == xMap pairlist
 ```
-Having a fixed output type makes arrow functions very easy to compose.
-Refreshingly, it also means that your code won't use ```if(is.na(x))``` like
+Having a fixed output type makes arrow functions very easy to compose; Functions that normally
+return integers will never return a NULL for some corner case.
+Refreshingly, it also means that your code won't use ```if(is.null(x))``` like
 full stops in an essay.
 
 ```javascript
