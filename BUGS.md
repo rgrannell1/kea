@@ -2,17 +2,27 @@
 ### Todo:
 
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
+
 - [ ] #9 several benchmarks will throw errors; for example xArity has type function -> int, but it will be given a collection. This needs to be fixed eventually.
+
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
+
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
+
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
+
 - [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
+
 - [ ] #19 implement a pairs to list function [a, b] -> {a: b}
+
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
+
     incorrect types are allowed.
-- [ ] #22 change map -> xmap in pluck
+
 - [ ] #23 alias x...l methods with x ..., to prevent user typos.
+
 - [ ] #24 check xUntil and xWhile logical handling.
+
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 
 ### Done:
@@ -31,4 +41,6 @@
 - [x] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
 - [x] #18 move from requiring boolean to requiring logical functions, since it's more idiomatic.
 
+### Won't Fix
 
+- [ ] #22 change map -> xmap in pluck

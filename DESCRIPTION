@@ -90,3 +90,4 @@ Collate:
     'xAsClosure.R'
     'xAsUnary.R'
     'xAsVariadic.R'
+    'xParameters.R'
