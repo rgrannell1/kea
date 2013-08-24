@@ -130,6 +130,7 @@ function (coll)
 ## Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
+
 [2] The worst example of overally mathematical code I saw while researching FP libraries was 
 a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but one with a horrible name.
 
