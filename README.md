@@ -57,11 +57,8 @@ of values.
 
 ### Functional
 
-Note that the user is not required to know lambda calculus, or to understand monoids
-in the category of endofunctors [1].
-
-Functions that return function preserve parameter names and produce human-readable code
-for the most part.
+Functions that return functions - like ```xCompose()``` - preserve parameter names 
+and produce human-readable code. 
 
 ```javascript
 
@@ -71,6 +68,9 @@ function (X, FUN, ...)
     fn_1(fn_2(X, FUN, ...))
 }
 ```
+
+Note that the user is not required to know the Lambda Calculus, or to understand monoids
+in the category of endofunctors [1] to use this library.
 
 ### Cascading Style
 
