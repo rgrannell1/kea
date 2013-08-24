@@ -121,6 +121,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xNotNa(reciever_()) )
 		}
+	this$xPartial <- 
+		function (fn) {
+			x_( xPartial(fn, reciever_()) )
+	}
 	this$xPartition <-
 		function (fn) {
 			x_( xPartition(fn, reciever_()) )
@@ -346,6 +350,10 @@ x_fn_proto <- local({
 	this$xParametres <-
 		function () {
 			x_( xParameters(reciever_()) )
+		}
+	this$xPartial <- 
+		function (coll) {
+			x_( xPartial(reciever_(), coll) )
 		}
 	this$xUntil <-
 		function (fn, coll) {

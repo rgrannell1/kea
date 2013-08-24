@@ -91,3 +91,4 @@ Collate:
     'xParameters.R'
     'xFixDefaults.R'
     'xVersion.R'
+    'xPartial.R'
