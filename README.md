@@ -31,11 +31,20 @@ help the user find the function they are looking for.
 In general **Arrow** functions are as generic with respect to input type as possible,
 though their output types are more rigidly defined.
 
-```
+```javascript
 identical(
     xMap( function (x) x, 1:10),
     xMap( function (x) x, as.list(1:10)) )
+identical(
+    xMap( function (x) x, 1:10),
+    xMap( function (x) x, as.pairlist(1:10)) )
+
+# transitively xMap vector == xMap pairlist
 ```
+The above property is useful since it makes it easy to anticipate
+
+
+
 
 ### Cascading Style
 
