@@ -65,6 +65,13 @@ function (X, FUN, ...)
 {
     fn_1(fn_2(X, FUN, ...))
 }
+
+xFixDefaults(Reduce)
+
+function (f, x, init) 
+{
+    fn(f, x, init, right = FALSE, accumulate = FALSE)
+}
 ```
 
 Functions that return functions - like ```xCompose()``` - preserve parameter names 
