@@ -1,4 +1,3 @@
-
 Arrow v0.1
 -----------------------------------
 
@@ -8,14 +7,13 @@ Arrow embrace R's better quirks - such as three-value logic and vectorisation - 
 
 ### Cascading Style
 
-```javascript
-# get every unique function parameter in the 
-# R base library.
+To get every 
 
+```javascript
 x_(ls("package:base"))$  
 xMap(function (x) get(x))$
 xSelect(is.function)$
-xMap( function (f) names(xFormals(f)) )$
+xMap(xParameters)$
 xReducel(union)$
 x()
 
