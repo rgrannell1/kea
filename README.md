@@ -90,7 +90,9 @@ the definition of the problem in terms of common patterns like filtering lists,
 or accumulating a value by recursing over a list.
 
 Note that the user is not required to know the Lambda Calculus, or to understand monoids
-in the category of endofunctors [1] to use this library.
+in the category of endofunctors [1] to use this library; functions are only 
+included in **Arrow** if they have a plausable use-case, and 
+even then their mathematical underpinnings are masked [2].
 
 ### Cascading Style
 
@@ -128,6 +130,8 @@ function (coll)
 ## Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
+[2] The worst example of overally mathematical code I saw while researching FP libraries was 
+a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but one with a horrible name.
 
 ## Licensing
 
