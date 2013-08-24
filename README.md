@@ -66,12 +66,6 @@ function (X, FUN, ...)
     fn_1(fn_2(X, FUN, ...))
 }
 
-xFixDefaults(Reduce)
-
-function (f, x, init) 
-{
-    fn(f, x, init, right = FALSE, accumulate = FALSE)
-}
 ```
 
 Functions that return functions - like ```xCompose()``` - preserve parameter names 
@@ -116,10 +110,18 @@ for normal R functions to operate on.
 
 ### Partial Application & Currying
 
+Specialising general functions like select and fold is simple in **Arrow**.
 
+```javascript
+# be gone, na values!
+xPartial(xReject, list(pred = is.na))
 
-
-
+function (coll) 
+{
+    fn(.Primitive("is.na"), coll)
+}
+<environment: 0x5e8eb38>
+```
 
 
 ## Footnotes
