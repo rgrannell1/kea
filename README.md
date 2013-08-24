@@ -112,8 +112,14 @@ for normal R functions to operate on.
 Specialising general functions like select and fold is simple in **Arrow**.
 
 ```javascript
+# be gone, na values!
 xPartial(xReject, list(pred = is.na))
 
+function (coll) 
+{
+    fn(.Primitive("is.na"), coll)
+}
+<environment: 0x5e8eb38>
 ```
 
 
