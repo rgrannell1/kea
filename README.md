@@ -126,6 +126,11 @@ function (coll)
 <environment: 0x5e8eb38>
 ```
 
+### Pattern Matching
+
+No functional programming library would be complete without a pattern matching function.
+
+
 
 ## Footnotes
 
