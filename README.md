@@ -41,8 +41,9 @@ identical(
 
 # transitively xMap vector == xMap pairlist
 ```
-The above property is useful since it makes it easy to anticipate
-
+Having a fixed output type makes arrow functions very easy to compose; corner
+cases handle themselves. In practical terms, your code won't be litted with 
+exceptions for null, na, and length zero checks.
 
 
 
