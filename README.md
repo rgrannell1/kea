@@ -1,8 +1,8 @@
 Arrow v0.1
 -----------------------------------
 
-**Arrow** is a functional framework that adds dozens of higher-order functions 
-and utility functions to the R language. 
+**Arrow** is a functional framework (inspired by Haskell, Clojure and JS), 
+that adds dozens of higher-order functions and utility functions to the R language.
 
 ## Installation
 
@@ -45,7 +45,7 @@ Having a fixed output type makes arrow functions very easy to compose.
 Refreshingly, it also means that your code won't use ```if(is.na(x))``` like
 full stops in an essay.
 
-```
+```javascript
 xNotTrue(c(TRUE, FALSE, 42))
 ```
 
@@ -54,6 +54,19 @@ vectors, so base functions operate on whole vectors as well as single values.
 **Arrow** is vectorisation-friendly; where possible functions operate on vectors 
 of values.
 
+### Functional
+
+Functions that return function preserve parameter names and produce human-readable code
+for the most part.
+
+```javascript
+
+unlapply <- unlist %of% lapply
+function (X, FUN, ...) 
+{
+    fn_1(fn_2(X, FUN, ...))
+}
+```
 
 ### Cascading Style
 
