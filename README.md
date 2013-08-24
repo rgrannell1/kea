@@ -45,8 +45,10 @@ Having a fixed output type makes arrow functions very easy to compose.
 Refreshingly, it also means that your code won't use ```if(is.na(x))``` like
 full stops in an essay.
 
-**Arrow** is also vectorisation-friendly; all functions that can (sensibly) operate
-on vectors do.
+R is unusual (in a good way) in that numbers and other values are always wrapped in 
+vectors, so base functions operate on whole vectors as well as single values.
+**Arrow** is vectorisation-friendly; all functions that can (sensibly) operate
+on vectors as well as single values do.
 
 ### Cascading Style
 
