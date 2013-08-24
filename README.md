@@ -94,7 +94,7 @@ in the category of endofunctors [1] to use this library.
 
 ### Cascading Style
 
-In this style data is fed into the type constructor ```x_```, and methods are called off that object. 
+In this style data is fed into the type constructor [1] ```x_```, and methods are called off that object. 
 This small program gets every parametre used in the R base library.
 
 ```javascript
