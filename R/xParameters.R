@@ -10,7 +10,6 @@
 #'     corresponding element in the retun value will be the empty symbol, 
 #'     which is identical to \code{quote(expr=)}.
 #'
-#' @family arrow-parameters
 #' @export
 
 #| function: xParameters version: 0.1 finished: false 
@@ -37,3 +36,7 @@ xParameters <- function (fn) {
 		names(formals_fn)
 	}
 }
+
+#' @export
+
+xParametres <- xParameters
