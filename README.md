@@ -1,12 +1,12 @@
 Arrow v0.1
 -----------------------------------
 
-*Arrow* is a functional framework that adds dozens of higher-order functions 
+**Arrow** is a functional framework that adds dozens of higher-order functions 
 and utility functions to the R language. 
 
 ## Installation
 
-As of late August 2013 *Arrow* is only available on Github. To install the development version, copy the
+As of late August 2013 **Arrow** is only available on Github. To install the development version, copy the
 following to an R console.
 
 ```javascript
@@ -30,7 +30,7 @@ Arrow
 
 ### x-Prefix
 
-All *Arrow* functions are prefixed with the letter x. This is to avoid conflicts with 
+All **Arrow** functions are prefixed with the letter x. This is to avoid conflicts with 
 the base library and to help the user find the function they are looking for. The only 
 exported value defying this rule is the constant tau.
 
@@ -52,6 +52,6 @@ for normal R functions to operate on.
 
 ## Licensing
 
-*Arrow* is released under the terms of the GNU General Public License version 3. 
+**Arrow** is released under the terms of the GNU General Public License version 3. 
 
 <img src="gpl3.png" height = "180"> </img>
