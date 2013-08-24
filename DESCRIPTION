@@ -14,9 +14,7 @@ Imports:
     needy
 Suggests:
     testthat,
-    microbenchmark,
-    ggplot2,
-    reshape2
+    microbenchmark
 Collate:
     'aliases.R'
     'tau.R'

@@ -27,7 +27,6 @@ xCompose <- function (fn_1, fn_2) {
 	fn_1 <- match.fun(fn_1)
 	fn_2 <- match.fun(fn_2)
 		
-	require_a("unary function", fn_1, pcall)
 	remove(pcall, pframe)
 
 	do.call("function", list(

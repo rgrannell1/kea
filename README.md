@@ -17,7 +17,7 @@ xMap(xParametres)$
 xReducel(union)$
 x()
 ```
-The final method - ```x()``` - takes the data out the object constructed by ```x_()```
+The final method - ```x()``` - takes the data out the object constructed by ```x_()``` for normal R functions to operate on.
 
 ## Licensing
 
