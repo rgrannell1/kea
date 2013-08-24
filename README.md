@@ -57,8 +57,11 @@ of values.
 
 ### Functional
 
+Arrow includes the standard map, select, fold, zip, flip, dropwhile, and position higher-order
+functions (among others) as well as function composition and partial application.
+
 Functions that return functions - like ```xCompose()``` - preserve parameter names 
-and produce human-readable code. 
+and produce human-readable code.
 
 ```javascript
 
@@ -67,6 +70,13 @@ function (X, FUN, ...)
 {
     fn_1(fn_2(X, FUN, ...))
 }
+```
+
+```javascript
+enumPrimesTo <- function (n) {
+    xReject(, 1:n)
+}
+enumPrimesTo(100)
 ```
 
 Note that the user is not required to know the Lambda Calculus, or to understand monoids
