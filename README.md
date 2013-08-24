@@ -45,6 +45,9 @@ Having a fixed output type makes arrow functions very easy to compose.
 Refreshingly, it also means that your code won't use ```if(is.na(x))``` like
 full stops in an essay.
 
+**Arrow** is also vectorisation-friendly; all functions that can (sensibly) operate
+on vectors do.
+
 ### Cascading Style
 
 In this style data is fed into the type constructor ```x_```, and methods are called off that object. 
