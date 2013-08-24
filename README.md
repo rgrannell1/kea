@@ -46,7 +46,8 @@ Refreshingly, it also means that your code won't use ```if(is.na(x))``` like
 full stops in an essay.
 
 ```javascript
-xNotTrue(c(TRUE, FALSE, 42))
+xSubString('alonzo-church', c(1:3, 5, 7))
+'alonoc'
 ```
 
 R is unusual (in a good way) in that numbers and other values are always wrapped in 
@@ -55,6 +56,9 @@ vectors, so base functions operate on whole vectors as well as single values.
 of values.
 
 ### Functional
+
+Note that the user is not required to know lambda calculus, or to understand monoids
+in the category of endofunctors [1].
 
 Functions that return function preserve parameter names and produce human-readable code
 for the most part.
