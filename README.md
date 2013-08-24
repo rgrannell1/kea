@@ -71,10 +71,10 @@ function (X, FUN, ...)
     fn_1(fn_2(X, FUN, ...))
 }
 ```
-functional programming allows a declarative style of programming; rather than using 
+FP allows a declarative style of programming; rather than using 
 looping and pushing and pulling values into and out of containers, you focus more on 
-the definition of the problem in terms of patterns like filtering lists, or tail
-recursing, accumulating a value.
+the definition of the problem in terms of common patterns like filtering lists, 
+or accumulating a value by recursing over a list.
 
 ```javascript
 enumPrimesTo <- function (to) {
