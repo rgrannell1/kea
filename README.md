@@ -7,7 +7,7 @@ Arrow embrace R's better quirks - such as three-value logic and vectorisation - 
 
 ### Cascading Style
 
-This small program gets every parametre used in the R language.
+In this style data is fed into the type constructor ```x_```, and methods are called off that object. This small program gets every parametre used in the R base library.
 
 ```javascript
 x_(ls("package:base"))$  
@@ -17,6 +17,8 @@ xMap(xParametres)$
 xReducel(union)$
 x()
 ```
+The final method - ```x()``` - takes the data out the object constructed by ```x_()```
+
 ## Licensing
 
 Arrow is released under the terms of the GNU General Public License version 3. 
