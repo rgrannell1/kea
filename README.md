@@ -19,6 +19,8 @@ require(devtools)
 # check that arrow installed.
 xVersion()
 ```
+All **Arrow** functions are prefixed with the letter x. This is to avoid conflicts with 
+other functions and to help the user find what they are looking for. 
 
 ## Features
 
@@ -26,13 +28,6 @@ xVersion()
 
 ### Generic & Idiomatic
   
-Arrow 
-
-### x-Prefix
-
-All **Arrow** functions are prefixed with the letter x. This is to avoid conflicts with 
-the base library and to help the user find the function they are looking for. The only 
-exported value defying this rule is the constant tau.
 
 ### Cascading Style
 
