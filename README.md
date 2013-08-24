@@ -1,9 +1,32 @@
 Arrow v0.1
 -----------------------------------
 
+Arrow is a functional framework that adds dozens of higher-order functions 
+and utility functions to the R language. 
+
+## Installation
+
+As of late August 2013 arrow is only available on Github. To install the development version, copy the
+following to an R console.
+
+```javascript
+install.packages('devtools')
+require(devtools)
+
+install_github("arrow", "rgrannell1", "develop")
+require(devtools)
+
+# check that arrow installed.
+xVersion()
+```
+
+## Features
+
+
+
 ### Generic & Idiomatic
   
-Arrow embrace R's better quirks - such as three-value logic and vectorisation - while . 
+Arrow 
 
 ### x-Prefix
 
