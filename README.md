@@ -88,6 +88,10 @@ x()
 The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
 for normal R functions to operate on.
 
+## Footnotes
+
+[1] I won't use *that* word; every mention of that word cuts the usership of an FP library by half.
+
 ## Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3. 
