@@ -112,12 +112,8 @@ for normal R functions to operate on.
 Specialising general functions like select and fold is simple in **Arrow**.
 
 ```javascript
-xFixDefaults(Reduce)
+xPartial(xReject, list(pred = is.na))
 
-function (f, x, init) 
-{
-    fn(f, x, init, right = FALSE, accumulate = FALSE)
-}
 ```
 
 
