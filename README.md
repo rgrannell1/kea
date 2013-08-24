@@ -7,7 +7,7 @@ that adds dozens of higher-order functions and utility functions to the R langua
 ## Installation
 
 As of late August 2013 **Arrow** is only available on Github. To install the development version, copy the
-following to an R console.
+following into an R console.
 
 ```javascript
 install.packages('devtools')
@@ -131,7 +131,7 @@ function (coll)
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
 
-[2] The worst example of overally mathematical code I saw while researching FP libraries was 
+[2] This is a good thing: the worst example of overally mathematical code I saw while researching FP libraries was 
 a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but one with a horrible name.
 
 ## Licensing
