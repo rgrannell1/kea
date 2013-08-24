@@ -27,6 +27,10 @@
 
 - [] #26 get does not work with xFixDefaults. Figure out why.
 
+- [ ] #26 implement autopartial, in a completely reliable way.
+
+- [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
+
 ### Done:
 
 - [x] #1 xLines and related function '' == character(0)? This may be wrong.
