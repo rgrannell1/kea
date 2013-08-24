@@ -60,9 +60,6 @@ of values.
 Arrow includes the standard map, select, fold, zip, flip, dropwhile, and position higher-order
 functions (among others) as well as function composition and partial application.
 
-Functions that return functions - like ```xCompose()``` - preserve parameter names 
-and produce human-readable code.
-
 ```javascript
 
 unlapply <- unlist %of% lapply
@@ -71,10 +68,9 @@ function (X, FUN, ...)
     fn_1(fn_2(X, FUN, ...))
 }
 ```
-FP allows a declarative style of programming; rather than using 
-looping and pushing and pulling values into and out of containers, you focus more on 
-the definition of the problem in terms of common patterns like filtering lists, 
-or accumulating a value by recursing over a list.
+
+Functions that return functions - like ```xCompose()``` - preserve parameter names 
+and produce human-readable code.
 
 ```javascript
 enumPrimesTo <- function (to) {
@@ -87,6 +83,11 @@ enumPrimesTo <- function (to) {
 }
 enumPrimesTo(100)
 ```
+
+FP allows a declarative style of programming; rather than using 
+looping and pushing and pulling values into and out of containers, you focus more on 
+the definition of the problem in terms of common patterns like filtering lists, 
+or accumulating a value by recursing over a list.
 
 Note that the user is not required to know the Lambda Calculus, or to understand monoids
 in the category of endofunctors [1] to use this library.
