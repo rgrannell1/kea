@@ -9,14 +9,13 @@
 #' @return A function with the same parameters as \code{g}.
 #'
 #' @export
-#'
 
 #| function: xCompose version: 0.1 finished: false 
 
 xCompose <- function (fn_1, fn_2) {
 	# function -> function -> function
-	# return a composite function f o g.
-	# constructed using a macro.
+	# a general purpose compose function;
+	# more poweful than \f.\g.\x.fgx
 	
 	pcall <- sys.call()
 	pframe <- parent.frame()

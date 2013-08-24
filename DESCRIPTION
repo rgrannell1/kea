@@ -92,3 +92,4 @@ Collate:
     'xFixDefaults.R'
     'xVersion.R'
     'xPartial.R'
+    'xBiCompose.R'

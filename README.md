@@ -127,6 +127,10 @@ function (coll)
 ```
 
 
+### Pattern Matching
+
+
+
 ## Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.

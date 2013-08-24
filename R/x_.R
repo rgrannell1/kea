@@ -295,6 +295,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xArity(reciever_()) )
 		}
+	this$xBiCompose <-
+		function (fn_2, fn_3) {
+			x_( xBiCompose(reciever_(), fn_2, fn_3) )
+		}
 	this$xConcatMap <-
 		function (coll) {
 			x_( xConcatMap(reciever_(), coll) )
