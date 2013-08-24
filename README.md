@@ -7,18 +7,16 @@ Arrow embrace R's better quirks - such as three-value logic and vectorisation - 
 
 ### Cascading Style
 
-To get every 
+This small program gets every parametre used in the R language.
 
 ```javascript
 x_(ls("package:base"))$  
 xMap(function (x) get(x))$
 xSelect(is.function)$
-xMap(xParameters)$
+xMap(xParametres)$
 xReducel(union)$
 x()
-
 ```
-
 ## Licensing
 
 Arrow is released under the terms of the GNU General Public License version 3. 
