@@ -339,6 +339,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xParameters(reciever_()) )
 		}
+	this$xParametres <-
+		function () {
+			x_( xParameters(reciever_()) )
+		}
 	this$xUntil <-
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )
