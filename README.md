@@ -19,15 +19,23 @@ require(devtools)
 # check that arrow installed.
 xVersion()
 ```
-All **Arrow** functions are prefixed with the letter x. This is to avoid conflicts with 
-other functions and to help the user find what they are looking for. 
+All **Arrow** functions are prefixed with the letter "x". This is to avoid naming conflicts and to 
+help the user find the function they are looking for.
 
 ## Features
 
 
 
 ### Generic & Idiomatic
-  
+
+In general **Arrow** functions are as generic with respect to input type as possible,
+though their output types are more rigidly defined.
+
+```
+identical(
+    xMap( function (x) x, 1:10),
+    xMap( function (x) x, as.list(1:10)) )
+```
 
 ### Cascading Style
 
