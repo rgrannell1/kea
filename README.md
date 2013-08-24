@@ -41,11 +41,9 @@ identical(
 
 # transitively xMap vector == xMap pairlist
 ```
-Having a fixed output type makes arrow functions very easy to compose; corner
-cases handle themselves. In practical terms, your code won't be litted with 
-exceptions for null, na, and length zero checks.
-
-
+Having a fixed output type makes arrow functions very easy to compose.
+Refreshingly, it also means that your code won't use ```if(is.na(x))``` like
+full stops in an essay.
 
 ### Cascading Style
 
