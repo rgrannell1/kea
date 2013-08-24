@@ -24,8 +24,6 @@ help the user find the function they are looking for.
 
 ## Features
 
-
-
 ### Generic & Idiomatic
 
 In general **Arrow** functions are as generic with respect to input type as possible,
@@ -108,9 +106,17 @@ x()
 The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
 for normal R functions to operate on.
 
+### Partial Application & Currying
+
+
+
+
+
+
+
 ## Footnotes
 
-[1] I won't use *that* word; every mention of that word cuts the usership of an FP library by half.
+[1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
 
 ## Licensing
 
