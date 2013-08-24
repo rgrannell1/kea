@@ -89,3 +89,5 @@ Collate:
     'xAsUnary.R'
     'xAsVariadic.R'
     'xParameters.R'
+    'xFixDefaults.R'
+    'xVersion.R'

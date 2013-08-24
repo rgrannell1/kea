@@ -315,6 +315,10 @@ x_fn_proto <- local({
 		function (fn, coll) {
 			x_( xMapWhen(reciever_(), fn, coll) )
 		}
+	this$xFixDefaults <-
+		function () {
+			x_( xFixDefaults(reciever_()) )
+		}
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(reciever_(), init, coll) )

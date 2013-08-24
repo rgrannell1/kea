@@ -25,6 +25,8 @@
 
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 
+- [] #26 get does not work with xFixDefaults. Figure out why.
+
 ### Done:
 
 - [x] #1 xLines and related function '' == character(0)? This may be wrong.
