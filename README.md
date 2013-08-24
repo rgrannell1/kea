@@ -73,8 +73,13 @@ function (X, FUN, ...)
 ```
 
 ```javascript
-enumPrimesTo <- function (n) {
-    xReject(, 1:n)
+enumPrimesTo <- function (to) {
+    
+    isPrime <- function (n) {
+        n == 2 || all(n %% 2:(n-1) != 0)
+    }
+    
+    xSelect(isPrime, 1:to)
 }
 enumPrimesTo(100)
 ```
