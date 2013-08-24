@@ -49,6 +49,12 @@ full stops in an essay.
 xNotTrue(c(TRUE, FALSE, 42))
 ```
 
+R is unusual (in a good way) in that numbers and other values are always wrapped in 
+vectors, so base functions operate on whole vectors as well as single values.
+**Arrow** is vectorisation-friendly; where possible functions operate on vectors 
+of values.
+
+
 ### Cascading Style
 
 In this style data is fed into the type constructor ```x_```, and methods are called off that object. 
