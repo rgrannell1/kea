@@ -7,7 +7,8 @@ Arrow embrace R's better quirks - such as three-value logic and vectorisation - 
 
 ### Cascading Style
 
-In this style data is fed into the type constructor ```x_```, and methods are called off that object. This small program gets every parametre used in the R base library.
+In this style data is fed into the type constructor ```x_```, and methods are called off that object.
+This small program gets every parametre used in the R base library.
 
 ```javascript
 x_(ls("package:base"))$  
