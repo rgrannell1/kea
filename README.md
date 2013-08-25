@@ -143,6 +143,14 @@ In fact combinators are so powerful that the ```xI``` (identity), ```xK```
 (return a constant function), and 
 ```xS``` (a substitution combinator) that they in themselves can define a programming language!
 
+```
+x_(1:100)$
+xSelect( xOr(
+    function (n) n^2 == 2^n,
+    function (n) n*2 == n*n
+) )
+```
+
 Of course, this is a less likely use of combinators than defining
 your own control structures for functions.
 
