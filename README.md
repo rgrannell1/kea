@@ -138,7 +138,7 @@ func_add(
     function (x) 2*x + x,
     function (x) 3*x + x
 )(1:100)
-``
+```
 
 ## Footnotes
 
