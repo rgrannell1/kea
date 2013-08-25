@@ -96,3 +96,4 @@ Collate:
     'xConst.R'
     'xIdentity.R'
     'xAnd.R'
+    'xOr.R'

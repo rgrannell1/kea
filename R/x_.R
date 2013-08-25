@@ -328,8 +328,8 @@ x_fn_proto <- local({
 			x_( xAll(reciever_(), coll) )
 		}
 	this$xAnd <-
-		function (fn_2) {
-			x_( xAnd(reciever_(), fn_2) )
+		function (pred_2) {
+			x_( xAnd(reciever_(), pred_2) )
 		}
 	this$xAny <- 
 		function (coll) {
@@ -423,6 +423,10 @@ x_fn_proto <- local({
 		}
 	# -------- N ------- #
 	# -------- O ------- #
+	this$xOr <-
+		function (pred_2) {
+			x_( xOr(reciever_(), pred_2) )
+		}
 	# -------- P ------- #
 	this$xParameters <-
 		function () {
