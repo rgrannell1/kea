@@ -129,7 +129,7 @@ function (coll)
 ### Combinators
 
 Combinators are powerful functions that combine functions in interesting ways. **Arrow** implements many 
-combinators, giving them formal name (eg. ```xPhi```), a descriptive name (eg. ```xBiCompose```) and
+combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg. ```xBiCompose```) and
 most importantly, an avian name (```xPhoenix```)[3].
 
 ```
@@ -140,8 +140,9 @@ func_add(
 )(1:100)
 ```
 
-In fact combinators are so powerful that the xI (identity), xK (return a constant function), and 
-xS (a substitution combinator) that they in themselves define a programming language!
+In fact combinators are so powerful that the ```xI``` (identity), ```xK```
+(return a constant function), and 
+```xS``` (a substitution combinator) that they in themselves can define a programming language!
 
 Of course, this is a less likely use of combinators than defining
 your own control structures for functions.
