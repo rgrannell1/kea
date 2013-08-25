@@ -8,6 +8,7 @@ x_coll_proto <- local({
 		function () {
 			reciever_()
 		} 
+	# -------- A ------- #
 	this$xAll <- 
 		function (fn) {
 			x_( xAll(fn, reciever_()) )
@@ -20,6 +21,8 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xApply(fn, reciever_()) )
 		}
+	# -------- B ------- #
+	# -------- C ------- #
 	this$xChars <-
 		function () {
 			x_( xChars(reciever_()) )
@@ -44,6 +47,8 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xCount(fn, reciever_()) )
 		}
+
+	# -------- D ------- #
 	this$xDrop <-
 		function (num) {
 			x_( xDrop(num, reciever_()) )
@@ -52,6 +57,8 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xDropWhile(fn, reciever_()) )
 		}
+	# -------- E ------- #
+	# -------- F ------- #
 	this$xFirst <-
 		function () {
 			x_( xFirst(reciever_()) )
@@ -69,6 +76,9 @@ x_coll_proto <- local({
 		function () {
 			x_( xFourth(reciever_()) )
 		}
+	# -------- G ------- #
+	# -------- H ------- #
+	# -------- I ------- #
 	this$xIdentity <-
 		function () {
 			x_( xIdentity(reciever_()) )
@@ -97,8 +107,11 @@ x_coll_proto <- local({
 		function () {
 			x_( xIsNa(reciever_()) )
 		}
+	# -------- J ------- #
+	# -------- K ------- #
 	this$xKestrel <-
 		this$xConst
+	# -------- L ------- #
 	this$xLast <-
 		function () {
 			x_( xLast(reciever_()) )
@@ -107,6 +120,7 @@ x_coll_proto <- local({
 		function () {
 			x_( xLines(reciever_()) )
 		}
+	# -------- M ------- #
 	this$xMap <-
 		function (fn) {
 			x_( xMap(fn, reciever_()) )
@@ -119,6 +133,7 @@ x_coll_proto <- local({
 		function (pred, fn) {
 			x_( xMapWhen(pred, fn, reciever_()) )
 		}
+	# -------- N ------- #
 	this$xNegate <-
 		function () {
 			x_( xNegate(reciever_()) )
@@ -135,8 +150,8 @@ x_coll_proto <- local({
 		function () {
 			x_( xNotNa(reciever_()) )
 		}
-	this$xKestrel <-
-		this$xConst
+	# -------- O ------- #
+	# -------- P ------- #
 	this$xPartial <- 
 		function (fn) {
 			x_( xPartial(fn, reciever_()) )
@@ -157,6 +172,8 @@ x_coll_proto <- local({
 		function () {
 			x_( xPred(reciever_()) )
 		}
+	# -------- Q ------- #
+	# -------- R ------- #
 	this$xReducel <-
 		function (fn) {
 			x_( xReducel(fn, reciever_()) )
@@ -175,6 +192,7 @@ x_coll_proto <- local({
 		function () {
 			x_( xRest(reciever_()) )
 		}
+	# -------- S ------- #
 	this$xScanl <-
 		function (fn, init) {
 			x_( xScanl(fn, init, reciever_()) )
@@ -217,6 +235,7 @@ x_coll_proto <- local({
 		function () {
 			x_( xSucc(reciever_()) )
 		}
+	# -------- T ------- #
 	this$xTake <- 
 		function (num) {
 			x_( xTake(num, reciever_()) )
@@ -229,6 +248,7 @@ x_coll_proto <- local({
 		function () {
 			x_( xThird(reciever_()) )
 		}
+	# -------- U ------- #
 	this$xUnchars <-
 		function () {
 			x_( xUnchars(reciever_()) )
@@ -257,6 +277,8 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xUnzipWith(fn, reciever_()) )
 		}
+	# -------- V ------- #
+	# -------- W ------- #
 	this$xWords <-
 		function () {
 			x_( xWords(reciever_()) )
@@ -265,6 +287,9 @@ x_coll_proto <- local({
 		function (pred, fn) {
 			x_( xWhile(pred, fn, reciever_()) )
 		}
+	# -------- X ------- #
+	# -------- Y ------- #
+	# -------- Z ------- #
 	this$xZipWith <-
 		function (fn, ...) {
 			x_( xZipWith(fn, reciever_(), ...) )
@@ -285,6 +310,7 @@ x_fn_proto <- local({
 		function () {
 			reciever_()
 		} 
+	# -------- A ------- #
 	this$xAsClosure <-
 		function () {
 			x_( xAsClosure(reciever_()) )
@@ -313,10 +339,12 @@ x_fn_proto <- local({
 		function () {
 			x_( xArity(reciever_()) )
 		}
+	# -------- B ------- #
 	this$xBiCompose <-
 		function (fn_2, fn_3) {
 			x_( xBiCompose(reciever_(), fn_2, fn_3) )
 		}
+	# -------- C ------- #
 	this$xConcatMap <-
 		function (coll) {
 			x_( xConcatMap(reciever_(), coll) )
@@ -329,22 +357,13 @@ x_fn_proto <- local({
 		function (val) {
 			x_( xConst(reciever_()) )
 		}
+	# -------- D ------- #
 	this$xDropWhile <-
 		function (coll) {
 			x_( xDropWhile(reciever_(), coll) )
 		}
-	this$xMap <-
-		function (coll) {
-			x_( xMap(reciever_(), coll) )
-		}
-	this$xMapAlong <-
-		function (coll) {
-			x_( xMapAlong(reciever_(), coll) )
-		}
-	this$xMapWhen <-
-		function (fn, coll) {
-			x_( xMapWhen(reciever_(), fn, coll) )
-		}
+	# -------- E ------- #
+	# -------- F ------- #
 	this$xFixDefaults <-
 		function () {
 			x_( xFixDefaults(reciever_()) )
@@ -361,10 +380,13 @@ x_fn_proto <- local({
 		function () {
 			x_( xFormals(reciever_()) )
 		}
+	# -------- G ------- #
+	# -------- H ------- #
 	this$xHasDefaults <-
 		function () {
 			x_( xHasDefaults(reciever_()) )
 		}
+	# -------- I ------- #
 	this$xIdentity <-
 		function () {
 			x_( xIdentity(reciever_()) )
@@ -377,6 +399,25 @@ x_fn_proto <- local({
 		function () {
 			x_( xIsVariadic(reciever_()) )
 		}
+	# -------- J ------- #
+	# -------- K ------- #
+	# -------- L ------- #
+	# -------- M ------- #
+	this$xMap <-
+		function (coll) {
+			x_( xMap(reciever_(), coll) )
+		}
+	this$xMapAlong <-
+		function (coll) {
+			x_( xMapAlong(reciever_(), coll) )
+		}
+	this$xMapWhen <-
+		function (fn, coll) {
+			x_( xMapWhen(reciever_(), fn, coll) )
+		}
+	# -------- N ------- #
+	# -------- O ------- #
+	# -------- P ------- #
 	this$xParameters <-
 		function () {
 			x_( xParameters(reciever_()) )
