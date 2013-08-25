@@ -69,6 +69,12 @@ x_coll_proto <- local({
 		function () {
 			x_( xFourth(reciever_()) )
 		}
+	this$xIdentity <-
+		function () {
+			x_( xIdentity(reciever_()) )
+		}
+	this$xIdiotBird <-
+		this$xIdentity
 	this$xInit <-
 		function () {
 			x_( xInit(reciever_()) )
@@ -357,6 +363,12 @@ x_fn_proto <- local({
 		function () {
 			x_( xHasDefaults(reciever_()) )
 		}
+	this$xIdentity <-
+		function () {
+			x_( xIdentity(reciever_()) )
+		}
+	this$xIdiotBird <-
+		this$xIdentity
 	this$xIsVariadic <-
 		function () {
 			x_( xIsVariadic(reciever_()) )

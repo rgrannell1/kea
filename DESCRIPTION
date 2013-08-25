@@ -94,3 +94,4 @@ Collate:
     'xPartial.R'
     'xBiCompose.R'
     'xConst.R'
+    'xIdentity.R'
