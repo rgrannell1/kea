@@ -75,6 +75,8 @@ x_coll_proto <- local({
 		}
 	this$xIdiotBird <-
 		this$xIdentity
+	this$xI <- 
+		this$xIdiotBird
 	this$xInit <-
 		function () {
 			x_( xInit(reciever_()) )
@@ -369,6 +371,8 @@ x_fn_proto <- local({
 		}
 	this$xIdiotBird <-
 		this$xIdentity
+	this$xI <- 
+		this$xIdiotBird
 	this$xIsVariadic <-
 		function () {
 			x_( xIsVariadic(reciever_()) )

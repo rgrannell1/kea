@@ -125,13 +125,28 @@ function (coll)
 }
 <environment: 0x5e8eb38>
 ```
+### Combinators
 
+Combinators are powerful functions that combine functions in interesting ways. **Arrow** implements many 
+combinators, giving them formal name (eg. ```xPhi```), a descriptive name (eg. ```xBiCompose```) and
+most importantly, an avian name (```xPhoenix```)[3].
+
+```
+func_add <- xPartial(xBiCompose, list(fn_1 = "+"))
+func_add(
+    function (x) 2*x + x,
+    function (x) 3*x + x
+)(1:100)
+```
 ## Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
 
 [2] This is a good thing: the worst example of overally mathematical code I saw while researching FP libraries was 
 a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but one with a horrible name.
+
+[3] Raymond Smullyan's incredible *To Mock a Mockingbird* aliases combinators like K with a 
+birdname (kestrel). These names are used fairly often, so I included them.
 
 ## Licensing
 
