@@ -327,6 +327,10 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xAll(reciever_(), coll) )
 		}
+	this$xAnd <-
+		function (fn_2) {
+			x_( xAnd(reciever_(), fn_2) )
+		}
 	this$xAny <- 
 		function (coll) {
 			x_( xAny(reciever_(), coll) )
@@ -401,6 +405,8 @@ x_fn_proto <- local({
 		}
 	# -------- J ------- #
 	# -------- K ------- #
+	this$xKestrel <-
+		this$xConst
 	# -------- L ------- #
 	# -------- M ------- #
 	this$xMap <-
@@ -432,10 +438,13 @@ x_fn_proto <- local({
 		}
 	this$xPhi <- 
 		this$xBiCompose
-	this$xKestrel <-
-		this$xConst
+	# -------- Q ------- #
+	# -------- R ------- #
+	# -------- S ------- #
 	this$xSprime <-
 		this$xKestrel
+	# -------- T ------- #
+	# -------- U ------- #
 	this$xUntil <-
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )
@@ -444,6 +453,8 @@ x_fn_proto <- local({
 		function (colls) {
 			x_( xUnzipWith(reciever_(), colls) )
 		}
+	# -------- V ------- #
+	# -------- W ------- #
 	this$xWhile <-
 		function (fn, coll) {
 			x_( xWhile(reciever_(), fn, coll) )
