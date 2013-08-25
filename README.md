@@ -146,6 +146,7 @@ In fact combinators are so powerful that the ```xI``` (identity), ```xK```
 ```
 x_(1:100)$
 xSelect( xOr(
+    # two uncommon properties
     function (n) n^2 == 2^n,
     function (n) n*2 == n*n
 ) )
