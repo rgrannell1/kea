@@ -126,10 +126,7 @@ function (coll)
 <environment: 0x5e8eb38>
 ```
 
-
 ### Pattern Matching
-
-
 
 ## Footnotes
 
