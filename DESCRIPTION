@@ -93,3 +93,4 @@ Collate:
     'xVersion.R'
     'xPartial.R'
     'xBiCompose.R'
+    'xConst.R'

@@ -25,3 +25,11 @@ xBiCompose <- function (fn_1, fn_2, fn_3) {
 		fn_1( fn_2(x), fn_3(x) )
 	}
 }
+
+#' @export
+
+xPhoenix <- xBiCompose
+
+#' @export
+
+xSprime <- xPhoenix

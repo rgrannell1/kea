@@ -36,6 +36,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xCompress(reciever_()) )
 		}
+	this$xConst <-
+		function (val) {
+			x_( xConst(reciever_()) )
+		}
 	this$xCount <-
 		function (fn) {
 			x_( xCount(fn, reciever_()) )
@@ -85,6 +89,8 @@ x_coll_proto <- local({
 		function () {
 			x_( xIsNa(reciever_()) )
 		}
+	this$xKestrel <-
+		this$xConst
 	this$xLast <-
 		function () {
 			x_( xLast(reciever_()) )
@@ -121,6 +127,8 @@ x_coll_proto <- local({
 		function () {
 			x_( xNotNa(reciever_()) )
 		}
+	this$xKestrel <-
+		this$xConst
 	this$xPartial <- 
 		function (fn) {
 			x_( xPartial(fn, reciever_()) )
@@ -191,6 +199,8 @@ x_coll_proto <- local({
 		function (pred) {
 			x_( xSplitWith(pred, reciever_()) )
 		}
+	this$xSprime <- 
+		this$xConst
 	this$xSubString <-
 		function (str) {
 			x_( xSubString(str, reciever_()) )
@@ -307,6 +317,10 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xCount(reciever_(), coll) )
 		}
+	this$xConst <-
+		function (val) {
+			x_( xConst(reciever_()) )
+		}
 	this$xDropWhile <-
 		function (coll) {
 			x_( xDropWhile(reciever_(), coll) )
@@ -359,6 +373,12 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xPartial(reciever_(), coll) )
 		}
+	this$xPhi <- 
+		this$xBiCompose
+	this$xKestrel <-
+		this$xConst
+	this$xSprime <-
+		this$xKestrel
 	this$xUntil <-
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )
