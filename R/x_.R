@@ -422,6 +422,10 @@ x_fn_proto <- local({
 			x_( xMapWhen(reciever_(), fn, coll) )
 		}
 	# -------- N ------- #
+	this$xNot <-
+		function () {
+			x_( xNot(reciever_()) )
+		}
 	# -------- O ------- #
 	this$xOr <-
 		function (pred_2) {
