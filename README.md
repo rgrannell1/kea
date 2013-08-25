@@ -140,6 +140,12 @@ func_add(
 )(1:100)
 ```
 
+In fact combinators are so powerful that the xI (identity), xK (return a constant function), and 
+xS (a substitution combinator) that they in themselves define a programming language!
+
+Of course, this is a less likely use of combinators than defining
+your own control structures for functions.
+
 ## Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
