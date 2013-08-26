@@ -508,7 +508,6 @@ x_fn_proto <- local({
 	this
 })
 
-
 #' @param x any arbitrary value.
 
 #' @export
