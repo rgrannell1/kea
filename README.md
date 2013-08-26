@@ -125,6 +125,20 @@ function (coll)
 }
 <environment: 0x5e8eb38>
 ```
+The crème de la crème of **Arrow** is that it implements flexible
+Haskell-style partial function application:
+
+```javascript
+
+sum2 <- xFoldl("+", 0)
+sum2(1:10)
+
+isOdd <- function (x) x %% 2 == 1
+getOdd <- xSelect(isOdd)
+getOdd(1:10)
+```
+This allows general functions like fold and select to be specialised, with no syntactic noise!
+
 ### 2.5 Combinators
 
 Combinators are powerful functions that combine functions in interesting ways. **Arrow** implements many 
