@@ -1,7 +1,7 @@
 
 xAutoPartial <- function (fn) {
 	# function -> function
-	# 
+	# partially apply a function
 
 	this <- list(
 		stored_args = 
@@ -11,7 +11,7 @@ xAutoPartial <- function (fn) {
 	)
 
 	if ('...' %in% xParametres(fn)) {
-		return(fn)
+		return (fn)
 	}
 	do.call('function', list(
 		as.pairlist(xFormals(fn)), quote({
@@ -19,27 +19,30 @@ xAutoPartial <- function (fn) {
 			# an underlying function.
 
 			this$def <- sys.function()
-			this$pcall <- sys.call()
+			this$pcall <- match.call(this$def, sys.call())
 			this$pframe <- parent.frame()
 
 			args <- Map(
 				function (name) {
-					eval(as.symbol(name), this$pframe)
+					# --- don't evaluate argument.
+					this$pcall[[name]]
 				},
-				names(this$pcall)
-			)
+				names(this$pcall))
 
 			if (length(args) == 0) {
 				return (this$def)
 			}
 
-			# --- Act One: construct a new accumulator
+			# --- Act One: construct a new accumulator.
 
 			accum <- this$def
 			environment(accum) <- ( function() {
 				# --- copy this$def, fix more arguments.
 
 				tmp <- new.env(parent = emptyenv())
+
+				# ERROR! LEXICAL SCOPING CAN OVERRIDE FUNCTIONS ('c')
+
 				tmp$this <- list(
 					fixed =
 						c(this$fixed, args),
@@ -54,7 +57,6 @@ xAutoPartial <- function (fn) {
 				params <- xParametres(this$underlying)
 				free <- !(params %in% names(this$fixed))
 				xFormals(this$underlying)[free]
-
 			} )()
 
 			# --- Act Two: If the accumulator is full,
@@ -68,7 +70,7 @@ xAutoPartial <- function (fn) {
 			} else {
 				accum
 			}
-	})) )
+	}) ))
 }
 
 xAutoPartial( function (a, b, c) a + b + c )
