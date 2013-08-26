@@ -19,7 +19,6 @@
 
     incorrect types are allowed.
 
-- [ ] #23 alias x...l methods with x ..., to prevent user typos.
 
 
 - [ ] #25 check that functions that should return [A](0) do return such a value.
@@ -46,7 +45,8 @@
 - [x] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
 - [x] #18 move from requiring boolean to requiring logical functions, since it's more idiomatic.
 - [x] #24 check xUntil and xWhile logical handling.
+- [x] #22 change map -> xmap in pluck
+- [x] #23 alias x...l methods with x ..., to prevent user typos.
 
 ### Won't Fix
 
-- [ ] #22 change map -> xmap in pluck
