@@ -4,7 +4,7 @@ Arrow v0.1
 **Arrow** is a functional framework (inspired by Haskell, Clojure and JS), 
 that adds dozens of higher-order functions and utility functions to the R language.
 
-## Installation
+## 1 Installation
 
 As of late August 2013 **Arrow** is only available on Github. To install the development version, copy the
 following into an R console.
@@ -22,9 +22,9 @@ xVersion()
 All **Arrow** functions are prefixed with the letter "x". This is to avoid naming conflicts and to 
 help the user find the function they are looking for.
 
-## Features
+## 2 Features
 
-### Generic & Idiomatic
+### 2.1 Generic & Idiomatic
 
 In general **Arrow** functions are as generic with respect to input type as possible,
 though their output types are more rigidly defined.
@@ -54,7 +54,7 @@ vectors, so base functions operate on whole vectors as well as single values.
 **Arrow** is vectorisation-friendly; where possible functions operate on vectors 
 of values.
 
-### Functional
+### 2.2 Functional
 
 Arrow includes the standard map, select, fold, zip, flip, dropwhile, and position higher-order
 functions (among others) as well as function composition and partial application.
@@ -94,7 +94,7 @@ in the category of endofunctors [1] to use this library; functions are only
 included in **Arrow** if they have a plausable use-case, and 
 even then their mathematical underpinnings are masked [2].
 
-### Cascading Style
+### 2.3 Cascading Style
 
 In this style data is fed into the type constructor [1] ```x_```, and methods are called off that object. 
 This small program gets every parametre used in the R base library.
@@ -111,7 +111,7 @@ x()
 The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
 for normal R functions to operate on.
 
-### Partial Application & Currying
+### 2.4 Partial Application & Currying
 
 Specialising general functions like select and fold is simple in **Arrow**.
 
@@ -125,7 +125,7 @@ function (coll)
 }
 <environment: 0x5e8eb38>
 ```
-### Combinators
+### 2.5 Combinators
 
 Combinators are powerful functions that combine functions in interesting ways. **Arrow** implements many 
 combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg. ```xBiCompose```) and
@@ -152,15 +152,15 @@ xSelect( xOr(
     function (n) n*2 == n*n
 ) )
 
-xMod( function (n) n^2, xK(3) )(1:4)  
-[1] 1 4 4 1 0 1
+xMod( function (n) n^2, xK(6) )(1:4)
+[1] 1 4 3 4
 ```
 
 Of course, this is a less likely use of combinators than defining
 your own control structures for functions. Arrow particularily emphasises 
 arithmetic on functions, with several functions with short names added for that purpose.
 
-## Footnotes
+## 3 Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
 
@@ -170,7 +170,7 @@ a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but
 [3] Raymond Smullyan's incredible *To Mock a Mockingbird* aliases combinators like K with a 
 birdname (kestrel). These names are used fairly often, so I included them.
 
-## Licensing
+## 4 Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3. 
 
