@@ -12,7 +12,7 @@
 
 #| function: xAll version: 0.1 finished: false 
 
-xAll <- function (pred, coll) {
+xAll <- xAutoPartial(function (pred, coll) {
 	# (any -> logical) -> Collection any -> bool
 	# is a predicate true for every member of a collection?
 
@@ -34,4 +34,4 @@ xAll <- function (pred, coll) {
 			all(is_match)
 		}
 	}
-}
+})

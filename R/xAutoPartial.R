@@ -17,14 +17,14 @@ xAutoPartial <- function (fn) {
 }
 
 acc_apply <- function (this) {
-	# list -> 
+	# list -> function | any
 
 	do.call('function', list(
 		as.pairlist(xFormals(this$fn)), quote({
 			# --- an accumulator function, wrapping 
 			# an underlying function.
 
-			# --- Act One: capture function information.
+			# --- Act One: capture function and call information.
 			this$def <- 
 				sys.function()
 			this$pcall <- 
@@ -48,9 +48,13 @@ acc_apply <- function (this) {
 				acc <- fix_args(this)
 				
 				# --- Act Three: If the accumulator is full,
-				#  invoke the underlying function. Or return accumulate.
+				#  call the underlying function. Or return accumulate.
 
-				maybe_invoke(acc, this)	
+				if (xArity(acc) == 0) {
+					do.call(this$fn, this$fixed)
+				} else {
+					acc
+				}
 			}
 		})
 	))
@@ -66,7 +70,6 @@ fix_args <- function (this) {
 		# --- fix more arguments.
 
 		tmp <- new.env(parent = this$pframe)
-
 		tmp$this <- list(
 			fixed =
 				c(this$fixed, this$args),
@@ -75,33 +78,14 @@ fix_args <- function (this) {
 		)
 		tmp
 	} )()
-
-	formals(acc) <- ( function () {
-		# --- set the formals to the unbound function.
-
-		this <- environment(acc)$this
-		
-		params <- names(formals(this$fn))
-		free <- setdiff(params, names(this$fixed))
-		xFormals(this$fn)[free]
-
-	} )()
-
-	acc
-}
-
-maybe_invoke <- function (acc, this) {
-	# function -> list -> function | any
-	# either invoke the underlying function,
-	# or return the updated accumulator.
-
+	
 	this <- environment(acc)$this
 
-	if (xArity(acc) == 0) {
-		do.call(
-			what = this$fn,
-			args = this$fixed)
-	} else {
-		acc
-	}
+	formals(acc) <- 
+		xFormals(this$fn)[
+			setdiff(
+				names(formals(this$fn)),
+				names(this$fixed)) 
+		]
+	acc
 }

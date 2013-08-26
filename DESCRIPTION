@@ -16,6 +16,7 @@ Suggests:
     testthat,
     microbenchmark
 Collate:
+    'xAutoPartial.R'
     'aliases.R'
     'tau.R'
     'xUnit.R'
@@ -106,5 +107,3 @@ Collate:
     'xDeepMap.R'
     'xFlip.R'
     'xPairsAsList.R'
-    'xAutoPartial.R'
-    'lambda.R'
