@@ -1,5 +1,6 @@
 
 # -------------------------------- Collection methods -------------------------------- #
+# these methods can be called off of x_() objects, with one argument fixed.
 
 x_coll_proto <- local({
 
@@ -443,6 +444,10 @@ x_fn_proto <- local({
 	this$xPartial <- 
 		function (coll) {
 			x_( xPartial(reciever_(), coll) )
+		}
+	this$xPlus <-
+		function (fn_2) {
+			x_( xPlus(reciever_(), fn_2) )
 		}
 	this$xPhi <- 
 		this$xBiCompose
