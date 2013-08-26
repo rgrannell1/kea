@@ -152,8 +152,8 @@ xSelect( xOr(
     function (n) n*2 == n*n
 ) )
 
-xMod( function (n) n^2, xK(3) )(1:4)  
-[1] 1 4 4 1 0 1
+xMod( function (n) n^2, xK(6) )(1:4)
+[1] 1 4 3 4
 ```
 
 Of course, this is a less likely use of combinators than defining
