@@ -1,6 +1,10 @@
 
 # -------------------------------- Collection methods -------------------------------- #
+#
 # these methods can be called off of x_() objects, with one argument fixed.
+# the meaning of the reciever function is changed upon the 
+# invocation of an x_()$method, chaning the the value of the x objects internal data.
+# No object copying or anything else nasty is done.
 
 x_coll_proto <- local({
 

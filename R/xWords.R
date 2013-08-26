@@ -20,6 +20,6 @@ xWords <- function (str) {
 	if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(str, split = "[ \n\t]+")[[1]]
+		strsplit(str, split = '[ \n\t]+')[[1]]
 	}
 }

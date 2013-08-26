@@ -106,3 +106,4 @@ Collate:
     'xDeepMap.R'
     'xFlip.R'
     'xPairsAsList.R'
+    'xAutoPartial.R'
