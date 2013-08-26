@@ -19,8 +19,6 @@
 
     incorrect types are allowed.
 
-
-
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 
 - [] #26 get does not work with xFixDefaults. Figure out why.

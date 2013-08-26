@@ -158,6 +158,10 @@ x_coll_proto <- local({
 		}
 	# -------- O ------- #
 	# -------- P ------- #
+	this$xPairsAsList <-
+		function () {
+			xPairsAsList(reciever_())
+		}
 	this$xPartial <- 
 		function (fn) {
 			x_( xPartial(fn, reciever_()) )

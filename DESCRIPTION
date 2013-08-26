@@ -105,3 +105,4 @@ Collate:
     'xMod.R'
     'xDeepMap.R'
     'xFlip.R'
+    'xPairsAsList.R'
