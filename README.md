@@ -64,7 +64,7 @@ functions (among others) as well as function composition and partial application
 unlapply <- unlist %of% lapply
 function (X, FUN, ...) 
 {
-    fn_1(fn_2(X, FUN, ...))
+    fn1(fn2(X, FUN, ...))
 }
 
 ```
@@ -132,7 +132,7 @@ combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg.
 most importantly, an avian name (```xPhoenix```)[3].
 
 ```
-func_add <- xPartial(xBiCompose, list(fn_1 = "+"))
+func_add <- xPartial(xBiCompose, list(fn1 = "+"))
 func_add(
     function (x) 2*x + x,
     function (x) 3*x + x

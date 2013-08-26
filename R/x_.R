@@ -329,8 +329,8 @@ x_fn_proto <- local({
 			x_( xAll(reciever_(), coll) )
 		}
 	this$xAnd <-
-		function (pred_2) {
-			x_( xAnd(reciever_(), pred_2) )
+		function (pred2) {
+			x_( xAnd(reciever_(), pred2) )
 		}
 	this$xAny <- 
 		function (coll) {
@@ -346,8 +346,8 @@ x_fn_proto <- local({
 		}
 	# -------- B ------- #
 	this$xBiCompose <-
-		function (fn_2, fn_3) {
-			x_( xBiCompose(reciever_(), fn_2, fn_3) )
+		function (fn2, fn3) {
+			x_( xBiCompose(reciever_(), fn2, fn3) )
 		}
 	# -------- C ------- #
 	this$xConcatMap <-
@@ -429,8 +429,8 @@ x_fn_proto <- local({
 		}
 	# -------- O ------- #
 	this$xOr <-
-		function (pred_2) {
-			x_( xOr(reciever_(), pred_2) )
+		function (pred2) {
+			x_( xOr(reciever_(), pred2) )
 		}
 	# -------- P ------- #
 	this$xParameters <-
@@ -446,8 +446,8 @@ x_fn_proto <- local({
 			x_( xPartial(reciever_(), coll) )
 		}
 	this$xPlus <-
-		function (fn_2) {
-			x_( xPlus(reciever_(), fn_2) )
+		function (fn2) {
+			x_( xPlus(reciever_(), fn2) )
 		}
 	this$xPhi <- 
 		this$xBiCompose
