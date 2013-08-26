@@ -73,15 +73,13 @@ Functions that return functions - like ```xCompose()``` - preserve parameter nam
 and produce human-readable code.
 
 ```javascript
-enumPrimesTo <- function (to) {
-    
-    isPrime <- function (n) {
-        n == 2 || all(n %% 2:(n-1) != 0)
-    }
-    
-    xSelect(isPrime, 1:to)
+isPrime <- function (n) {
+    n == 2 || all(n %% 2:(n-1) != 0)
 }
-enumPrimesTo(100)
+getPrimes <- xSelect(isPrime)
+getPrimes(1:1000)
+
+[1] 2  3  5  7 11 13 17 19 23 29 31 ...
 ```
 
 FP allows a declarative style of programming; rather than using 
