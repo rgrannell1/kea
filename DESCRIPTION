@@ -100,3 +100,5 @@ Collate:
     'xNot.R'
     'xPlus.R'
     'xMinus.R'
+    'xBy.R'
+    'xOver.R'

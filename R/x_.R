@@ -349,6 +349,10 @@ x_fn_proto <- local({
 		function (fn2, fn3) {
 			x_( xBiCompose(reciever_(), fn2, fn3) )
 		}
+	this$xBy <-
+		function (fn2) {
+			x_( xBy(reciever_(), fn2) )
+		}
 	# -------- C ------- #
 	this$xConcatMap <-
 		function (coll) {
@@ -435,6 +439,10 @@ x_fn_proto <- local({
 	this$xOr <-
 		function (pred2) {
 			x_( xOr(reciever_(), pred2) )
+		}
+	this$xOver <-
+		function (fn2) {
+			x_( xOver(reciever_(), fn2) )
 		}
 	# -------- P ------- #
 	this$xParameters <-
