@@ -386,6 +386,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xFixDefaults(reciever_()) )
 		}
+	this$xFlip <- 
+		function () {
+			x_( xFlip(reciever_()) )
+		}
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(reciever_(), init, coll) )

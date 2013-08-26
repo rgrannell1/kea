@@ -104,3 +104,4 @@ Collate:
     'xOver.R'
     'xMod.R'
     'xDeepMap.R'
+    'xFlip.R'
