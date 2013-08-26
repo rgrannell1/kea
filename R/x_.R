@@ -500,14 +500,14 @@ x_fn_proto <- local({
 
 #' @export
 
-x_ <- function (x) {
+x_ <- function (val) {
 	# Collection any -> Arrow any
 	# type constructor.
 
-	if ('arrow' %in% class(x)) {
-		x
+	if ('arrow' %in% class(val)) {
+		val
 	} else {
-		structure(list(x = x), class = 'arrow')
+		structure(list(x = val), class = 'arrow')
 	}
 }
 
