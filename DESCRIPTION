@@ -107,3 +107,4 @@ Collate:
     'xFlip.R'
     'xPairsAsList.R'
     'xAutoPartial.R'
+    'lambda.R'

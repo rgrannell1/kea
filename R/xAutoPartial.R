@@ -9,9 +9,9 @@ xAutoPartial <- function (fn) {
 		return (fn)
 	} else {
 		acc_apply(this = list(
-			stored_args = 
+			fixed = 
 				list(),
-			underlying = 
+			fn = 
 				xAsClosure(match.fun(fn)) ))
 	}
 }
@@ -20,7 +20,7 @@ acc_apply <- function (this) {
 	# list -> 
 
 	do.call('function', list(
-		as.pairlist(xFormals(this$underlying)), quote({
+		as.pairlist(xFormals(this$fn)), quote({
 			# --- an accumulator function, wrapping 
 			# an underlying function.
 
@@ -70,8 +70,8 @@ fix_args <- function (this) {
 		tmp$this <- list(
 			fixed =
 				c(this$fixed, this$args),
-			underlying = 
-				this$underlying
+			fn = 
+				this$fn
 		)
 		tmp
 	} )()
@@ -81,9 +81,9 @@ fix_args <- function (this) {
 
 		this <- environment(acc)$this
 		
-		params <- names(formals(this$underlying))
+		params <- names(formals(this$fn))
 		free <- setdiff(params, names(this$fixed))
-		xFormals(this$underlying)[free]
+		xFormals(this$fn)[free]
 
 	} )()
 
@@ -99,7 +99,7 @@ maybe_invoke <- function (acc, this) {
 
 	if (xArity(acc) == 0) {
 		do.call(
-			what = this$underlying,
+			what = this$fn,
 			args = this$fixed)
 	} else {
 		acc
