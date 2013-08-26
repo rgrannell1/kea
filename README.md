@@ -131,7 +131,7 @@ Combinators are powerful functions that combine functions in interesting ways. *
 combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg. ```xBiCompose```) and
 most importantly, an avian name (```xPhoenix```)[3].
 
-```
+```javascript
 func_add <- xPartial(xBiCompose, list(fn1 = "+"))
 # equivelant to the function xPlus()
 func_add(
@@ -144,7 +144,7 @@ In fact combinators are so powerful that the ```xI``` (identity), ```xK```
 (return a constant function), and 
 ```xS``` (a substitution combinator) that they in themselves can define a programming language!
 
-```
+```javascript
 x_(1:100)$
 xSelect( xOr(
     # two uncommon properties
