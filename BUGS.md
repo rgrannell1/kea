@@ -13,7 +13,6 @@
 
 - [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 
-- [ ] #19 implement a pairs to list function [a, b] -> {a: b}
 
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
 
@@ -23,9 +22,12 @@
 
 - [] #26 get does not work with xFixDefaults. Figure out why.
 
-- [ ] #26 implement autopartial, in a completely reliable way.
-
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
+
+- [ ] #28 implement autopartial, in a completely reliable way.
+
+
+- [ ] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
 
 ### Done:
 
@@ -45,6 +47,7 @@
 - [x] #24 check xUntil and xWhile logical handling.
 - [x] #22 change map -> xmap in pluck
 - [x] #23 alias x...l methods with x ..., to prevent user typos.
+- [x] #19 implement a pairs to list function [a, b] -> {a: b}
 
 ### Won't Fix
 
