@@ -62,7 +62,7 @@ fix_args <- function (this) {
 	environment(acc) <- ( function() {
 		# --- fix more arguments.
 
-		tmp <- new.env(parent = emptyenv())
+		tmp <- new.env(parent = this$pframe)
 		tmp$this <- list(
 			fixed =
 				c(this$fixed, this$args),
