@@ -21,7 +21,6 @@
 
 - [ ] #23 alias x...l methods with x ..., to prevent user typos.
 
-- [ ] #24 check xUntil and xWhile logical handling.
 
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 
@@ -46,6 +45,7 @@
 - [x] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
 - [x] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.
 - [x] #18 move from requiring boolean to requiring logical functions, since it's more idiomatic.
+- [x] #24 check xUntil and xWhile logical handling.
 
 ### Won't Fix
 
