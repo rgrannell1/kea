@@ -1,86 +1,102 @@
 
 xAutoPartial <- function (fn) {
 	# function -> function
-	# partially apply a function
+	# takes a n argument function to a function
+	# that can take less than n arguments at a time, 
+	# eventually passing them to fn.
 
-	this <- list(
-		stored_args = 
-			list(),
-		underlying = 
-			xAsClosure(match.fun(fn))
-	)
-
-	if ('...' %in% xParametres(fn)) {
+	if ( '...' %in% names(formals(fn)) ) {
 		return (fn)
+	} else {
+		acc_apply(this = list(
+			stored_args = 
+				list(),
+			underlying = 
+				xAsClosure(match.fun(fn)) ))
 	}
+}
+
+acc_apply <- function (this) {
+
 	do.call('function', list(
-		as.pairlist(xFormals(fn)), quote({
+		as.pairlist(xFormals(this$underlying)), quote({
 			# --- an accumulator function, wrapping 
 			# an underlying function.
 
-			this$def <- sys.function()
-			this$pcall <- match.call(this$def, sys.call())
-			this$pframe <- parent.frame()
-
-			this$args <- Map(
-				function (name) {
-					# --- don't evaluate argument.
-					this$pcall[[name]]
-				},
-				names(this$pcall))
+			# --- Act One: capture function information.
+			this$def <- 
+				sys.function()
+			this$pcall <- 
+				match.call(this$def, sys.call())[-1]
+			this$pframe <- 
+				parent.frame()
+			this$args <- 
+				lapply(
+					names(this$pcall),
+					function (name) {
+						this$pcall[[ name ]] #lazy
+					})
+			names(this$args) <-
+				names(this$pcall)
 
 			if (length(this$args) == 0) {
-				return (this$def)
-			}
+				this$def
+			} else {
+				# --- Act Two: construct a new accumulator,
+				# with more arguments fixed.
+				acc <- fix_args(this)
+				
+				# --- Act Three: If the accumulator is full,
+				#  invoke the underlying function. Or return accumulate.
 
-			maybe_invoke(
-				this,
-				accum = fix_args(this))
-	}) ))
+				maybe_invoke(acc, this)	
+			}
+		})
+	))
 }
 
 fix_args <- function (this) {
-	# defined seperately to dodge lexical scoping.
+	# list -> function
 
-	accum <- this$def
-	
-	environment(accum) <- ( function() {
-		# --- copy this$def, fix more arguments.
+	acc <- this$def
+	environment(acc) <- ( function() {
+		# --- fix more arguments.
 
 		tmp <- new.env(parent = emptyenv())
-
 		tmp$this <- list(
 			fixed =
-				c(this$fixed, args),
+				c(this$fixed, this$args),
 			underlying = 
 				this$underlying
 		)
 		tmp
 	} )()
 
-	formals(accum) <- ( function () {
-		# --- Act One: construct a new accumulator.
+	formals(acc) <- ( function () {
+		# --- set the formals to the unbound function.
 
+		this <- environment(acc)$this
 		params <- names(formals(this$underlying))
 		free <- setdiff(params, names(this$fixed))
 		xFormals(this$underlying)[free]
+
 	} )()
 
-	accum
+	acc
 }
 
-maybe_invoke <- function (this, accum) {
-	# --- Act Two: If the accumulator is full,
-	# --- invoke underlying function. Otherwise return.
+maybe_invoke <- function (acc, this) {
+	# function -> list -> function | any
+	# either invoke the underlying function,
+	# or return the updated accumulator.
 
-	if (xArity(accum) == 0) {
+	if (xArity(acc) == 0) {
 		do.call(
-			environment(accum)$this$underlying,
-			environment(accum)$this$fixed
-		)
+			what = environment(acc)$this$underlying,
+			args = environment(acc)$this$fixed)
 	} else {
-		accum
+		acc
 	}
 }
 
-xAutoPartial( function (a, b, c) a + b + c )
+#xAutoPartial( function (a, b, c) a + b + c )
