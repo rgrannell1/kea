@@ -13,9 +13,7 @@
 
 - [ ] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 
-
 - [ ] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
-
     incorrect types are allowed.
 
 - [ ] #25 check that functions that should return [A](0) do return such a value.
@@ -25,7 +23,6 @@
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
 
 - [ ] #28 implement autopartial, in a completely reliable way.
-
 
 - [ ] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
 
