@@ -430,6 +430,10 @@ x_fn_proto <- local({
 		function (fn2) {
 			x_( xMinus(reciever_(), fn2) )
 		}
+	this$xMod <-
+		function (fn2) {
+			x_( xMod(reciever_(), fn2) )
+		}		
 	# -------- N ------- #
 	this$xNot <-
 		function () {
