@@ -133,6 +133,7 @@ most importantly, an avian name (```xPhoenix```)[3].
 
 ```
 func_add <- xPartial(xBiCompose, list(fn1 = "+"))
+# equivelant to the function xPlus()
 func_add(
     function (x) 2*x + x,
     function (x) 3*x + x
@@ -153,7 +154,8 @@ xSelect( xOr(
 ```
 
 Of course, this is a less likely use of combinators than defining
-your own control structures for functions.
+your own control structures for functions. Arrow particularily emphasises 
+arithmetic on functions, with several functions with short names added for that purpose.
 
 ## Footnotes
 
