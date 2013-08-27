@@ -30,6 +30,8 @@ acc_apply <- function (this) {
 			this$args <- 
 				as.list( match.call(this$def, sys.call()) )[-1]
 			this$pframe <- parent.frame()
+			this$args <- 
+				lapply(args, function (x) eval(x, envir = this$pframe))
 
 			if (length(this$args) == 0) {
 				this$def
