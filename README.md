@@ -96,7 +96,7 @@ even then their mathematical underpinnings are masked [2].
 
 **Arrow** is a functional library, with arrow functions; a shorthand syntax for unary functions. [4]
 
-```
+```javascript
 # a polynomial equation
 xMap(x := 2*x^2 * 3*x + 1, 1:1000)
 
