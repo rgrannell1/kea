@@ -3,28 +3,26 @@ xAutoPartial <- function (fn) {
 	# function -> function
 	# takes a n argument function to a function
 	# that can take less than n arguments at a time, 
-	# eventually passing them to fn.
+	# eventually passing n arguments to fn.
 
 	if ( '...' %in% names(formals(fn)) ) {
 		return (fn)
 	} else {
-		acc_apply(this = list(
-			fixed = 
-				list(),
-			fn = 
-				xAsClosure(match.fun(fn)) ))
+		acc_apply( match.fun(fn) )
 	}
 }
 
-acc_apply <- function (this) {
+acc_apply <- function (fn) {
 	# list -> function | any
 
+	this <- list(fixed = list(), fn = fn)
+
 	do.call('function', list(
-		as.pairlist(xFormals(this$fn)), quote({
+		as.pairlist(xFormals(fn)), quote({
 			# --- an accumulator function, wrapping 
 			# an underlying function.
 
-			# --- Act One: capture function and call information.
+			# --- Act One: capture function call information.
 			this$def <- 
 				sys.function()
 			this$pcall <- 
@@ -46,7 +44,8 @@ acc_apply <- function (this) {
 				# --- Act Two: construct a new accumulator,
 				# with more arguments fixed.
 				acc <- fix_args(this)
-				
+				this <- environment(acc)$this
+
 				# --- Act Three: If the accumulator is full,
 				#  call the underlying function. Or return accumulate.
 
@@ -69,15 +68,17 @@ fix_args <- function (this) {
 	environment(acc) <- ( function() {
 		# --- fix more arguments.
 
-		tmp <- new.env(parent = this$pframe)
-		tmp$this <- list(
+		newobj <- new.env(parent = this$pframe)
+		newobj$this <- list(
 			fixed =
 				c(this$fixed, this$args),
 			fn = 
 				this$fn
 		)
-		tmp
+		newobj
 	} )()
+
+	# --- switch to the new definition of this.
 	
 	this <- environment(acc)$this
 
