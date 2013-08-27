@@ -6,7 +6,7 @@
 
 #' @export
 
-xAnd <- function (pred1, pred2) {
+xAnd <- xAutoPartial(function (pred1, pred2) {
 	# (a -> logical) -> (a -> logical) -> (a -> logical)
 	xPhoenix("&&", pred1, pred2)
-}
+})

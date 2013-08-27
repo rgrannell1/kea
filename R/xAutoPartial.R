@@ -54,9 +54,9 @@ acc_apply <- function (this) {
 
 new_acc <- function (this) {
 	# list -> function
-	# return a function with an environment containing the value
+	# return a function, with an environment containing the value
 	# 'this', inhereting from the parent frame of xAutoPartial.
-	# update the fixed arguments from those in this.
+	# update the fixed arguments from those in 'this'.
 
 	acc <- this$def
 	environment(acc) <- ( function() {

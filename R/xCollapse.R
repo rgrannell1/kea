@@ -1,4 +1,3 @@
-
 #' Collapse a character vector into a str with a delim.
 #'
 #' @param delim a length-one character vector.
@@ -10,7 +9,7 @@
 
 #| function: xCollapse version: 0.1 finished: false
 
-xCollapse <- function (delim, strs) {
+xCollapse <- xAutoPartial(function (delim, strs) {
 	# str -> Vector str -> str
 	# Collapse a collection of strs into
 	# a str with by a delim.
@@ -21,4 +20,4 @@ xCollapse <- function (delim, strs) {
 
 	paste0(strs, collapse = delim)
 
-}
+})

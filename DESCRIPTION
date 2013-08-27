@@ -16,8 +16,9 @@ Suggests:
     testthat,
     microbenchmark
 Collate:
-    'xAutoPartial.R'
     'aliases.R'
+    'xAutoPartial.R'
+    'xFormals.R'
     'tau.R'
     'xUnit.R'
     'xTake.R'
@@ -51,7 +52,6 @@ Collate:
     'xPred.R'
     'xSucc.R'
     'xApply.R'
-    'xFormals.R'
     'xArity.R'
     'xSelect.R'
     'xReject.R'
