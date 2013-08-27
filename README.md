@@ -92,7 +92,25 @@ in the category of endofunctors [1] to use this library; functions are only
 included in **Arrow** if they have a plausable use-case, and 
 even then their mathematical underpinnings are masked [2].
 
-### 2.3 Cascading Style
+### 2.3 Arrow Functions
+
+**Arrow** is a functional library, with arrow functions; a shorthand syntax for unary functions. [4]
+
+```javascript
+# a polynomial equation
+xMap(x := 2*x^2 * 3*x + 1, 1:1000)
+
+xSelect(
+    # grab all underscored vars in base.
+    name := {
+        grepl('_', name)
+    },
+    ls('package:base')
+)
+
+```
+
+### 2.4 Cascading Style
 
 In this style data is fed into the type constructor [1] ```x_```, and methods are called off that object. 
 This small program gets every parametre used in the R base library.
@@ -109,7 +127,7 @@ x()
 The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
 for normal R functions to operate on.
 
-### 2.4 Partial Application & Currying
+### 2.5 Partial Application & Currying
 
 Specialising general functions like select and fold is simple in **Arrow**.
 
@@ -136,7 +154,7 @@ getOdd(1:10)
 This allows general functions like fold and select to be specialised, 
 with no syntactic noise! 
 
-### 2.5 Combinators
+### 2.6 Combinators
 
 Combinators are powerful functions that combine functions in interesting ways. **Arrow** implements many 
 combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg. ```xBiCompose```) and
@@ -180,6 +198,8 @@ a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but
 
 [3] Raymond Smullyan's incredible *To Mock a Mockingbird* aliases combinators like K with a 
 birdname (kestrel). These names are used fairly often, so I included them.
+
+[4] Not to be confused with Arrows, the more general cousin of the Category-that-shall-not be named.
 
 ## 4 Licensing
 
