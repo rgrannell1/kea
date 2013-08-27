@@ -19,7 +19,6 @@ Collate:
     'aliases.R'
     'xAutoPartial.R'
     'xFormals.R'
-    'tau.R'
     'xUnit.R'
     'xTake.R'
     'xDrop.R'

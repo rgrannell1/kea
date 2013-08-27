@@ -24,3 +24,9 @@ call_with_params <- function (name, fn) {
 			c(name, names(xFormals(fn)) ),
 			as.symbol))
 }
+
+#' not included arbitrarily; I sometimes use this constant.
+#' @export
+
+tau <- 6.2831853071795864769252867
+

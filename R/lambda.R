@@ -4,6 +4,8 @@
 #' @param formal a symbol or string.
 #' @param body a valid function body, which 
 #'     will be lazily evaluated.
+#'
+#' @return returns a unary function.
 
 #' @export
 

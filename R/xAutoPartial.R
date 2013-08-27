@@ -27,11 +27,10 @@ acc_apply <- function (this) {
 			# --- Act One: capture function call information,
 			# to be added to a new accumulator later.
 			this$def <- sys.function()
+			# --- for the moment, let's be lazy.
 			this$args <- 
 				as.list( match.call(this$def, sys.call()) )[-1]
 			this$pframe <- parent.frame()
-			this$args <- 
-				lapply(args, function (x) eval(x, envir = this$pframe))
 
 			if (length(this$args) == 0) {
 				this$def
@@ -62,17 +61,16 @@ new_acc <- function (this) {
 
 	acc <- this$def
 	environment(acc) <- ( function() {
-		# --- copy the original accumulator's
-		# environment, and fix more arguments.
 
-		newobj <- new.env(parent = this$pframe)
-		newobj$this <- list(
+		# --- set to intermediate acc. environment
+		new_obj <- new.env(parent = this$pframe)
+		# --- add the important fields from this.
+		new_obj$this <- list(
 			fixed =
 				c(this$fixed, this$args),
 			fn = 
-				this$fn
-		)
-		newobj
+				this$fn)
+		new_obj
 	} )()
 
 	# --- switch to the new accumulator's 

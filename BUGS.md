@@ -24,7 +24,6 @@
 
 - [ ] #28 implement autopartial, in a completely reliable way.
 
-- [ ] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
 
 ### Done:
 
@@ -47,4 +46,7 @@
 - [x] #19 implement a pairs to list function [a, b] -> {a: b}
 
 ### Won't Fix
+
+- [x] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
+Broken for certain primitives (c).
 
