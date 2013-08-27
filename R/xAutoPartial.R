@@ -18,14 +18,18 @@ xAutoPartial <- function (fn) {
 
 acc_apply <- function (this) {
 	# list -> function | any
+	# if the underlying function is saturated with arguments, invoke.
+	# otherwise return a closure with some fixed arguments.
 
 	do.call('function', list(
 		as.pairlist(xFormals(this$fn)), quote({
 			# --- an accumulator function, wrapping 
 			# an underlying function.
 
+			# ----------------------------------------------------
 			# --- Act One: capture function call information,
 			# to be added to a new accumulator later.
+
 			this$def <- sys.function()
 			# --- for the moment, let's be lazy.
 			this$args <- 
@@ -35,14 +39,40 @@ acc_apply <- function (this) {
 			if (length(this$args) == 0) {
 				this$def
 			} else {
+				
+				# ----------------------------------------------------
 				# --- Act Two: construct a new accumulator,
 				# with more arguments fixed.
-				acc <- new_acc(this)
+
+				acc <- this$def
+				environment(acc) <- ( function() {
+
+					# --- set to intermediate acc. environment
+					new_obj <- new.env(parent = this$pframe)
+					# --- add the important fields from this.
+					new_obj$this <- list(
+						fixed =
+							c(this$fixed, this$args),
+						fn = 
+							this$fn)
+					new_obj
+				} )()
+
+				# --- switch to the new accumulator's 
+				# definition of this.
+				
 				this <- environment(acc)$this
+				formals(acc) <- 
+					xFormals(this$fn)[
+						setdiff(
+							names(formals(this$fn)),
+							names(this$fixed)) 
+					]
 
+				# ----------------------------------------------------
 				# --- Act Three: If the accumulator is full,
-				#  call the underlying function. Or return accumulate.
-
+				#  call the underlying function. Or return accumulator.
+				
 				if (xArity(acc) == 0) {
 					do.call(this$fn, this$fixed)
 				} else {
@@ -51,37 +81,4 @@ acc_apply <- function (this) {
 			}
 		})
 	))
-}
-
-new_acc <- function (this) {
-	# list -> function
-	# return a function, with an environment containing the value
-	# 'this', inhereting from the parent frame of xAutoPartial.
-	# update the fixed arguments from those in 'this'.
-
-	acc <- this$def
-	environment(acc) <- ( function() {
-
-		# --- set to intermediate acc. environment
-		new_obj <- new.env(parent = this$pframe)
-		# --- add the important fields from this.
-		new_obj$this <- list(
-			fixed =
-				c(this$fixed, this$args),
-			fn = 
-				this$fn)
-		new_obj
-	} )()
-
-	# --- switch to the new accumulator's 
-	# definition of this.
-	
-	this <- environment(acc)$this
-	formals(acc) <- 
-		xFormals(this$fn)[
-			setdiff(
-				names(formals(this$fn)),
-				names(this$fixed)) 
-		]
-	acc
 }
