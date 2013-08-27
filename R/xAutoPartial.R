@@ -26,21 +26,10 @@ acc_apply <- function (this) {
 
 			# --- Act One: capture function call information,
 			# to be added to a new accumulator later.
-			this$def <- 
-				sys.function()
-			this$pcall <- 
-				match.call(this$def, sys.call())[-1]
-			this$pframe <- 
-				parent.frame()
-
+			this$def <- sys.function()
 			this$args <- 
-				lapply(
-					names(this$pcall),
-					function (name) {
-						this$pcall[[ name ]] #lazy
-					})
-			names(this$args) <-
-				names(this$pcall)
+				as.list( match.call(this$def, sys.call()) )[-1]
+			this$pframe <- parent.frame()
 
 			if (length(this$args) == 0) {
 				this$def
