@@ -1,4 +1,6 @@
 
+require (needy)
+
 xAutoPartial <- function (fn) {
 	# function -> function
 	# takes a n argument function to a function
@@ -6,29 +8,31 @@ xAutoPartial <- function (fn) {
 	# eventually passing n arguments to fn.
 
 	if ( '...' %in% names(formals(fn)) ) {
-		return (fn)
+		fn
 	} else {
-		acc_apply( match.fun(fn) )
+		acc_apply( list(
+			fixed = list(), 
+			fn = match.fun(fn)) )
 	}
 }
 
-acc_apply <- function (fn) {
+acc_apply <- function (this) {
 	# list -> function | any
 
-	this <- list(fixed = list(), fn = fn)
-
 	do.call('function', list(
-		as.pairlist(xFormals(fn)), quote({
+		as.pairlist(xFormals(this$fn)), quote({
 			# --- an accumulator function, wrapping 
 			# an underlying function.
 
-			# --- Act One: capture function call information.
+			# --- Act One: capture function call information,
+			# to be added to a new accumulator later.
 			this$def <- 
 				sys.function()
 			this$pcall <- 
 				match.call(this$def, sys.call())[-1]
 			this$pframe <- 
 				parent.frame()
+
 			this$args <- 
 				lapply(
 					names(this$pcall),
@@ -43,7 +47,7 @@ acc_apply <- function (fn) {
 			} else {
 				# --- Act Two: construct a new accumulator,
 				# with more arguments fixed.
-				acc <- fix_args(this)
+				acc <- new_acc(this)
 				this <- environment(acc)$this
 
 				# --- Act Three: If the accumulator is full,
@@ -59,14 +63,16 @@ acc_apply <- function (fn) {
 	))
 }
 
-fix_args <- function (this) {
+new_acc <- function (this) {
 	# list -> function
-	# return an accumulator with some more arguments
-	# fixed
+	# return a function with an environment containing the value
+	# 'this', inhereting from the parent frame of xAutoPartial.
+	# update the fixed arguments from those in this.
 
 	acc <- this$def
 	environment(acc) <- ( function() {
-		# --- fix more arguments.
+		# --- copy the original accumulator's
+		# environment, and fix more arguments.
 
 		newobj <- new.env(parent = this$pframe)
 		newobj$this <- list(
@@ -78,10 +84,10 @@ fix_args <- function (this) {
 		newobj
 	} )()
 
-	# --- switch to the new definition of this.
+	# --- switch to the new accumulator's 
+	# definition of this.
 	
 	this <- environment(acc)$this
-
 	formals(acc) <- 
 		xFormals(this$fn)[
 			setdiff(
