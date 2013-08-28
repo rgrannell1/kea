@@ -1,17 +1,19 @@
 
-#' Selectively apply a function to each element of a collection.
+#' xMapWhen
 #'
-#' @param pred a unary function that returns a logical value, or a 
-#'	 symbol or name identifying such a function.
-#' @param fn a unary function, or a
-#'	 symbol or name identifying such a function.
-#' @param coll a pairlist, list, or vector.
+#' Selectively apply a function to elements in a collection.
+#' 
+#' @param pred a predicate function.
+#' @param fn a unary function.
+#' @param coll a collection.
 #'
-#' @section Corner Cases:
-#'	 returns the empty list if \code{coll} is length-zero.
+#' @return a list.
 #'
-#' @return a list containing \code{f} applied to some elements of \code{coll}.
-#' @family arrow-maps
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero}.
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xMapWhen version: 0.1 finished: false 

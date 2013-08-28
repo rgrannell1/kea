@@ -1,10 +1,15 @@
 
-#' Test if a collection is empty.
+#' xIsEmpty
+#' 
+#' Is a collection length-zero?
 #'
-#' @param coll a list, pairlist, or vector of arbitrary values.
+#' @param coll a collection.
 #'
-#' @return A true or false value.
+#' @return a boolean value.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xIsEmpty version: 0.1 finished: false

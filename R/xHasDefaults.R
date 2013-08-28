@@ -1,16 +1,19 @@
 
-#' Return a boolean vector showing which parameters 
-#'	 of f have default values.
+#' xHasDefaults
+#' 
+#' Return a boolean vector showing which parameters of a function has defaults.
 #'
-#' @param fn an arbitrary function, or a 
-#'	 symbol or string identifying such a function.
+#' @param fn an arbitrary function.
 #'
 #' @return a list of true of false value of the same length as the 
 #'	 arity of \code{fn}.
 #'
 #' @section Corner Cases:
-#'	 if \code{fn} is a unary function return the empty list.
-#' @family arrow-parameters
+#'     if \code{fn} is a unary function return the empty list.
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xHasDefaults version: 0.1 finished: false

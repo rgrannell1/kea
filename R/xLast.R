@@ -1,13 +1,19 @@
 
+#' xLast
+#' 
 #' Return the last element in a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection.
 #'
 #' @return the value of the last element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'	 returns the empty list if \code{coll} is length-zero.
+#'	 throws an error if \code{coll} has less than one element; this is
+#'	 because any other corner case would violate the function's type-signature.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xLast version: 0.1 finished: false

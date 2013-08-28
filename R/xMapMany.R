@@ -1,20 +1,17 @@
 
 #' xMapMany
 #' 
-#' Map an n-ary function over n-collections.
+#' Map an n-ary function over n-collections/
 #'
-#' @param fn
-#' @param ... n lists, pairlists or vectors.
+#' @param fn a n-ary function.
+#' @param ... n collections.
 #'
 #' @return a list.
 #'
-#' @section Corner Cases:
-#'	if the shortest collection is length-zero, the empty list is returned.
-#'	if the lengths of the the collections are not equal, then elements are recycled in 
-#'	the shorter vectors
-#'
-#' @family 
-#' @aliases
+#' @section Corner Cases: 
+#'     returns the empty list if any collection is length-zero. If the 
+#'     collection lengths are not equal then elements are recycles in the shorter collections.
+#' @template glossary
 #'
 #' @examples 
 #' @export

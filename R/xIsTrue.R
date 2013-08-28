@@ -1,11 +1,15 @@
 
-#'
+#' xIsTrue
+#' 
 #' Is an element of a collection true?
 #'
-#' @param coll a list, pairlist, or vector of arbitrary values.
+#' @param coll a collection.
 #'
-#' @return a vector of true or false value.
+#' @return a vector of boolean values.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xIsTrue version: 0.1 finished: true

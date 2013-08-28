@@ -1,13 +1,15 @@
 
+#' xIsFalse
+#' 
 #' Is an element of a collection false?
 #'
-#' @param coll a list, pairlist, or vector of arbitrary values.
+#' @param coll a collection.
 #'
-#' @return a vector of true or false value.
+#' @return a vector of boolean values.
 #'
-#' @section Corner Cases:
-#'	 returns false if \code{x} is length-zero.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xIsFalse version: 0.1 finished: false

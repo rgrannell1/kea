@@ -1,9 +1,15 @@
-#' Split a str at newlines.
+
+#' xLines
+#' 
+#' Split a string at every newline character.
 #'
-#' @param str a length-one character vector.
-#'	 
-#' @return a character vector, with one or more elements.
+#' @param str a string.
 #'
+#' @return a character vector.
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xLines version: 0.1 finished: false 

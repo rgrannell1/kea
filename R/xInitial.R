@@ -1,21 +1,23 @@
 
-#' Return every element in a collection except the last element.
+#' xInit
+#' 
+#' Remove the first element from a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection.
 #'
-#' @return a list containing every element in \code{coll} except the last element.
+#' @return a list.
 #'
-#' @section Corner Cases:
-#'	 returns the empty list if \code{coll} is length-zero or length-one.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xInit version: 0.1 finished: false
 
 xInit <- function (coll) {
 	# Collection any -> [any]
-	# return everything but the last element of a 
-	# collection x, using the subset operator.
+	# return everything but the first element of a 
+	# collection.
 
 	pcall <- sys.call()
 	require_a("collection", coll, pcall)

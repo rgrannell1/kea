@@ -1,8 +1,17 @@
 
-#' Compose two functions with subtraction.
-
-#' @param fn1 a function
-#' @param fn2 a function
+#' xMinus
+#' 
+#' Compose two function with multiplication/
+#'
+#' @param fn1 a function that returns a number.
+#' @param fn2 a function that returns a number.
+#'
+#' @return a unary function of x.
+#'
+#' @template glossary
+#'
+#' @examples 
+#' @export
 
 #' @export
 

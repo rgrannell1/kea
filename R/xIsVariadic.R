@@ -1,4 +1,19 @@
 
+#' xIsVariadic
+#' 
+#' Is a function variadic?
+#'
+#' @param fn an arbitrary function or primitive function.
+#'
+#' @return a boolean value.
+#'
+#' @template glossary
+#'
+#' @examples 
+#' @export
+
+
+
 #' Is a function variadic?
 #'
 #' @param fn an arbitrary function, or a

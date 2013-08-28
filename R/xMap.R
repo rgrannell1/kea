@@ -1,14 +1,19 @@
 
+#' xMap
+#' 
 #' Apply a function to each element of a collection.
 #'
-#' @param fn a unary function, or a
-#'	 symbol or name identifying such a function.
-#' @param coll a pairlist, list, or vector.
+#' @param fn a unary function.
+#' @param coll a collection.
 #'
-#' @section Corner Cases:
-#'	 returns the empty list if \code{coll} is length-zero.
+#' @return a list.
 #'
-#' @return a list containing \code{fn} applied to each elements of \code{coll}.
+#' @section Corner Cases: 
+#'     returns the empty list is \code{coll} is length-zero.
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xMap version: 0.1 finished: false 

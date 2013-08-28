@@ -24,8 +24,9 @@
 
 - [ ] #28 implement autopartial, in a completely reliable way.
 
-- [ ] #29 make chars generic to colleciton type.
+- [ ] #29 make chars and other string methods generic to collecton type.
 
+- [ ] #30 should has defaults return names? list?
 
 ### Done:
 
