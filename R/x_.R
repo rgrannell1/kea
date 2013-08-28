@@ -362,10 +362,6 @@ x_fn_proto <- local({
 		function () {
 			x_( xArity(reciever_()) )
 		}
-	this$xAutoPartial <-
-		function () {
-			x_( xAutoPartial(reciever_()) )
-		}
 	# -------- B ------- #
 	this$xBiCompose <-
 		function (fn2, fn3) {

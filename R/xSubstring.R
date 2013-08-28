@@ -26,6 +26,10 @@ xSubString <- function (str, inds) {
 	require_a("string", str, pcall)
 	require_a("numeric", inds, pcall)
 	
-	chars <- strsplit(str, "")[[1]]
-	paste0(chars[inds], collapse = "")		
+	if (max(inds) > nchar(str)) {
+		stop("subscript out of bounds")
+	} else {
+		chars <- strsplit(str, "")[[1]]
+		paste0(chars[inds], collapse = "")
+	}
 }

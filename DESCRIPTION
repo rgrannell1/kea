@@ -17,7 +17,6 @@ Suggests:
     microbenchmark
 Collate:
     'aliases.R'
-    'xAutoPartial.R'
     'xFormals.R'
     'xUnit.R'
     'xTake.R'

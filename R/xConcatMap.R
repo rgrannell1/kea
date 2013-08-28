@@ -17,7 +17,7 @@
 
 #| function: xConcatMap version: 0.1 finished: false 
 
-xConcatMap <- xAutoPartial(function (fn, coll) {
+xConcatMap <- function (fn, coll) {
 	# (any -> [any]) -> Collection any -> [any]
 	# map unary over collection, and collate the
 	# results using concatenation.
@@ -34,4 +34,4 @@ xConcatMap <- xAutoPartial(function (fn, coll) {
 	} else {	
 		as.list( xReducel(c, lapply(coll, fn)) )
 	}
-})
+}

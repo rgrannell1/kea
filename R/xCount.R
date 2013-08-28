@@ -15,7 +15,7 @@
 
 #| function: xCount version: 0.1 finished: false 
 
-xCount <- xAutoPartial(function (pred, coll) {
+xCount <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> integer
 	# return the number of elements for which a predicate is true.
 
@@ -44,4 +44,4 @@ xCount <- xAutoPartial(function (pred, coll) {
 		}
 		count
 	}
-})
+}

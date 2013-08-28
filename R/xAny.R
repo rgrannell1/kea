@@ -15,7 +15,7 @@
 
 #| function: xAny version: 0.1 finished: false 
 
-xAny <- xAutoPartial(function (pred, coll) {
+xAny <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> boolean
 	# is a predicate true for some member of a collection?
 
@@ -37,4 +37,4 @@ xAny <- xAutoPartial(function (pred, coll) {
 			any(is_match)
 		}
 	}
-})
+}

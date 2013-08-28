@@ -13,7 +13,7 @@
 #' @examples 
 #' @export
 
-xBy <- xAutoPartial(function (fn1, fn2) {
+xBy <- function (fn1, fn2) {
 	# (a -> number) -> (a -> number) -> (a -> number)
 	xPhoenix("*", fn1, fn2)
-})
+}

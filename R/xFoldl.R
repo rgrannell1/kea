@@ -39,7 +39,7 @@ xFoldl <- function (fn, init, coll) {
 		len_coll <- length(coll)
 
 		while (ith <= len_coll) {
-			init <- fn( init, coll[[ind]] )
+			init <- fn( init, coll[[ith]] )
 			ith <- ith + 1
 		}
 		init

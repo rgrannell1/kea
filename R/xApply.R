@@ -16,7 +16,7 @@
 
 #| function: xApply version: 0.1 finished: false 
 
-xApply <- xAutoPartial(function (fn, coll) {
+xApply <- function (fn, coll) {
 	# function -> [any] -> any
 	# call the function f with the list coll.
 
@@ -31,7 +31,7 @@ xApply <- xAutoPartial(function (fn, coll) {
 	eval(
 		as.call(c(fn, coll)),
 		envir = pframe)
-})
+}
 
 #' @export
 

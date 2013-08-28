@@ -17,7 +17,7 @@
 
 #' @export
 
-xBiCompose <- xAutoPartial(function (fn1, fn2, fn3) {
+xBiCompose <- function (fn1, fn2, fn3) {
 	# the phoenix or Phi combinator
 
 	pcall <- sys.call()
@@ -34,7 +34,7 @@ xBiCompose <- xAutoPartial(function (fn1, fn2, fn3) {
 	function (x) {
 		fn1( fn2(x), fn3(x) )
 	}
-})
+}
 
 #' @export
 

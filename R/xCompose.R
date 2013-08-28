@@ -23,7 +23,7 @@
 
 #| function: xCompose version: 0.1 finished: false 
 
-xCompose <- xAutoPartial(function (fn1, fn2) {
+xCompose <- function (fn1, fn2) {
 	# function -> function -> function
 	# a general purpose compose function;
 	# more poweful than \f.\g.\x.fgx
@@ -45,7 +45,7 @@ xCompose <- xAutoPartial(function (fn1, fn2) {
 			fn1(.( call_with_params("fn2", fn2) ))
 		})
 	))
-})
+}
 
 #' @export
 
