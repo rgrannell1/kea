@@ -1,14 +1,21 @@
 
-#' Divide a collection into a list of num-element segments
+#' xSegment
 #' 
-#' @param coll a list, vector or pairlist of any length.
-#' @param num a nonnegative whole number.
+#' Divide a collection into segments of fixed length.
 #'
-#' @return returns a list of n-element lists.
+#' @param num a nonnegative whole number.
+#' @param coll a collection
+#'
+#' @return a list of n-element lsits.
+#'
 #' @section Corner Cases:
 #'	 the final list in the return value will have less than \code{num}
 #'	 elements if \code{length(coll)} is not evenly divisible by \code{num}.
 #'	 if \code{coll} is length-zero, the empty list is returned.
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 xSegment <- function (num, coll) {

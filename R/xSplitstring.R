@@ -1,11 +1,18 @@
 
-#' Split a string using a regexp.
+#' xSplitString
+#' 
+#' Split a string into a character vector using a regular expression.
 #'
-#' @param regexp a length-one character vector.
-#  @param str a length-one character vector.
+#' @param regexp a regular expression.
+#' @param str a string.
 #'
 #' @return a character vector.
 #'
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero}.
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xSplitString version: 0.1 finished: false 

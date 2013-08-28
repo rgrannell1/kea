@@ -1,16 +1,19 @@
 
-#' Fold a function over a collection from left to right with an init value, keeping intermediate values.
+#' xScanl
 #'
-#' @param fn a binary function that returns a value that \code{f} can later take as its right argument,
-#' or a string or symbol naming such a function.
+#' Fold a function over a collection from left to right with an initital left value, keeping intermediate values.
+#'
+#' @param fn a binary function that returns a value that \code{fn} can later take as its right argument.
 #' @param init an arbitrary value.
-#' @param coll a list, pairlist or vector of any length.
+#' @param coll a collection.
 #'
 #' @return a list with its init element being \code{coll}, and 
 #'	 containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
 #'	 returns \code{list(init)} if \code{coll} is length-zero.
+#'
+#' @template glossary
 #'
 #' @export
 

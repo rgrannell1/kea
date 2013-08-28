@@ -1,11 +1,17 @@
 
-#' Get the successor of a number or collection of numbers.
+#' xSucc
+#' 
+#' Decrement a collection of numbers.
 #'
-#' @param nums a collection of doubles or integers.
-#' @return returns a collection of doubles or integers.
-#' @section Corner Cases:
-#'	 if \code{nums} is empty, then \code{nums} is returned automatically. If
-#'	 a collection 
+#' @param nums a collection of numbers.
+#'
+#' @return a vector of numbers.
+#'
+#' @section Corner Cases: 
+#'     If \code{nums} is empty then the unit of that vector is returned.
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xSucc version: 0.1 finished: false 

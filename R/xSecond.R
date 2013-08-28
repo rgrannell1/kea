@@ -1,14 +1,19 @@
 
-#' Return the second value of a collection.
+#' xSecond
+#' 
+#' Return the second element in a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection
 #'
 #' @return the second element in \code{coll}.
 #'
 #' @section Corner Cases:
 #'	 throws an error if \code{coll} has less than two elements; this is
-#'	 because there is no sensible definition of the function in this case.
+#'	 because any other corner case would violate the functions type-signature.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xSecond version: 0.1 finished: false

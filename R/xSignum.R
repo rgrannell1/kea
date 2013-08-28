@@ -1,18 +1,24 @@
 
-#' Get the sign of a number or vector of numbers.
+#' xSignum
+#' 
+#' Get the sign of a vector of numbers.
 #'
-#' @param nums a vector of doubles or integers.
-#' @return returns a vector of doubles or integers.
-#' @section Corner Cases:
-#'	 If \code{nums} is empty, then \code{nums} is returned automatically. 
+#' @param nums a vector of numbers.
+#'
+#' @return a vector of numbers.
+#'
+#' @section Corner Cases: 
+#'	 If \code{nums} is lenth-zero then the unit of that vector is returned. 
 #'	 The sign of zero is zero.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xSignum version: 0.1 finished: false 
 
 xSignum <- function (nums) {
-	# Collection number -> number
+	# Collection number -> Vector number
 	# returns the sign of a number.
 
 	pcall <- sys.call()

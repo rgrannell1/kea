@@ -8,8 +8,8 @@
 #' @return the fourth value in \code{coll}.
 #'
 #' @section Corner Cases:
-#'	 throws an error if \code{coll} has less than four elements; this is
-#'	 because there is no sensible definition of the function in this case.
+#'	 throws an error if \code{coll} has less than four element; this is
+#'	 because any other corner case would violate the functions type-signature.
 #'
 #' @template glossary
 #'

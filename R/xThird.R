@@ -1,14 +1,19 @@
 
-#' Return the third value of a collection.
+#' xThird
+#' 
+#' Return the third value in a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection
 #'
 #' @return the third element in \code{coll}.
 #'
 #' @section Corner Cases:
 #'	 throws an error if \code{coll} has less than three elements; this is
-#'	 because there is no sensible definition of the function in this case.
+#'	 because any other corner case would violate the function's type-signature.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xThird version: 0.1 finished: false

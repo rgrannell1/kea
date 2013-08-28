@@ -1,17 +1,19 @@
 
-#' Take every element in a collection from the start of the collection
-#' until the predicate is false or na.
+#' xTakeWhile
+#' 
+#' Take every element in a collection from the start until a predicate returns false.
 #'
-#' @param pred a unary function that returns a logical value, or a 
-#'	 symbol or name identifying such a function.
-#' @param coll a list, pairlist, or vector.
+#' @param pred a predicate.
+#' @param coll a collection
 #'
-#' @return returns a list containing a subset of the elements in \code{coll}.
+#' @return a list.
 #'
-#' @section Corner Cases:
-#' Returns the emty list if \code{coll} is length-zero.
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero} or the first element of 
+#'     \code{coll} returns false for the predicate. Na values are considered false.
+#' @template glossary
 #'
-#' @family arrow-filters
+#' @examples 
 #' @export
 
 #| function: xTakeWhile version: 0.1 finished: false

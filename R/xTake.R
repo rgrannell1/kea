@@ -1,15 +1,19 @@
 
+#' xTake
+#' 
 #' Take several elements from the head of a collection.
 #'
 #' @param num a nonnegative whole number.
-#' @param coll a list, vector or pairlist.
+#' @param coll a collection
+#'
+#' @return a list.
 #'
 #' @section Corner Cases:
 #'	 If \code{coll} is empty the empty list is returned.
+#' @template glossary
 #'
-#' @return a list of elements in \code{coll}.
+#' @examples 
 #' @export
-#' 
 
 #| function: xTake version: 0.1 finished: false
 
