@@ -4,7 +4,7 @@
 #' Subset a string using normal R vector indexing.
 #'
 #' @param str a string.
-#' @param iths indices of \code{str}.
+#' @param inds indices of \code{str}.
 #'
 #' @return a character vector.
 #'
@@ -17,15 +17,15 @@
 
 #| function: xSubString version: 0.1 finished: false 
 
-xSubString <- function (str, iths) {
+xSubString <- function (str, inds) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 	
 	pcall <- sys.call()
 
 	require_a("string", str, pcall)
-	require_a("numeric", iths, pcall)
+	require_a("numeric", inds, pcall)
 	
 	chars <- strsplit(str, "")[[1]]
-	paste0(chars[iths], collapse = "")		
+	paste0(chars[inds], collapse = "")		
 }

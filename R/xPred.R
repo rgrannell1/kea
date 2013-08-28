@@ -27,7 +27,7 @@ xPred <- function (nums) {
 
 	nums <- unlist(nums)
 
-	require_a(c("double", "integer") nums, pcall)
+	require_a(c("double", "integer"), nums, pcall)
 
 	if (length(nums) == 0) {
 		nums

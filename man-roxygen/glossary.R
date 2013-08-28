@@ -13,3 +13,4 @@
 #'     an arity of +Infinity,
 #'
 #' number: a double, integer or complex number, unless stated otherwise.
+#'
