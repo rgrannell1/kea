@@ -4,11 +4,11 @@
 #' @param colls a list or pairlist of n-vectors, lists or pairlists.
 #'
 #' @return returns a list of equal length to the shortest input collection,
-#'     where each element is a n-element list.
+#'	 where each element is a n-element list.
 #' @section Corner Cases:
-#'     the empty list is returned if the shortest collection has length-zero, or 
-#'     \code{collection} is the empty list.
-#'     Each collection is truncated to the length of the shortest collection.
+#'	 the empty list is returned if the shortest collection has length-zero, or 
+#'	 \code{collection} is the empty list.
+#'	 Each collection is truncated to the length of the shortest collection.
 #'
 #' @export
 

@@ -4,8 +4,8 @@
 #' @param nums a vector of doubles or integers.
 #' @return returns a vector of doubles or integers.
 #' @section Corner Cases:
-#'     If \code{nums} is empty, then \code{nums} is returned automatically. 
-#'     The sign of zero is zero.
+#'	 If \code{nums} is empty, then \code{nums} is returned automatically. 
+#'	 The sign of zero is zero.
 #'
 #' @export
 

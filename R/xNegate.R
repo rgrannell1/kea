@@ -6,7 +6,7 @@
 #' @return returns a vector of doubles or integers.
 #'
 #' @section Corner Cases:
-#'     if \code{nums} is empty, then \code{nums} is returned automatically.
+#'	 if \code{nums} is empty, then \code{nums} is returned automatically.
 #'
 #' @export
 

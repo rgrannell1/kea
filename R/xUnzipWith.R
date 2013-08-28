@@ -3,14 +3,14 @@
 #' and apply a function to each n-element list.
 #' 
 #' @param fn an n-ary function, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param colls a list or pairlist of n-vectors, lists or pairlists.
 #'
 #' @return returns a list of equal length to the shortest input collection.
 #' @section Corner Cases:
-#'     the empty list is returned if the shortest collection has length-zero, or 
-#'     \code{xs} is the empty list.
-#'     Each collection is truncated to the length of the shortest collection.
+#'	 the empty list is returned if the shortest collection has length-zero, or 
+#'	 \code{xs} is the empty list.
+#'	 Each collection is truncated to the length of the shortest collection.
 #'
 #' @export
 

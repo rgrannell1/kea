@@ -6,8 +6,8 @@
 #' @return the third element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     throws an error if \code{coll} has less than three elements; this is
-#'     because there is no sensible definition of the function in this case.
+#'	 throws an error if \code{coll} has less than three elements; this is
+#'	 because there is no sensible definition of the function in this case.
 #'
 #' @export
 

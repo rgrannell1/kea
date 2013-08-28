@@ -8,10 +8,10 @@
 #' @param coll a list, pairlist or vector of any length.
 #'
 #' @return a list with its init element being \code{coll}, and 
-#'     containing \code{length(coll) + 1}.
+#'	 containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
-#'     returns \code{list(init)} if \code{coll} is length-zero.
+#'	 returns \code{list(init)} if \code{coll} is length-zero.
 #'
 #' @export
 

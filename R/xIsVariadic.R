@@ -2,13 +2,13 @@
 #' Is a function variadic?
 #'
 #' @param fn an arbitrary function, or a
-#'     symbol or string identifying such a function.
+#'	 symbol or string identifying such a function.
 #'
 #' @return a list of true of false value of the same length as the 
-#'     arity of \code{fn}.
+#'	 arity of \code{fn}.
 #'
 #' @section Corner Cases:
-#'     If \code{fn} is a nullary function the result is false.
+#'	 If \code{fn} is a nullary function the result is false.
 #' @family arrow-parameters
 #' @export
 

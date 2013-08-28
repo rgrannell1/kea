@@ -2,7 +2,7 @@
 #' Partition elements in a collection based on a predicate function.
 #'
 #' @param predicate a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param coll a list, pairlist, or vector.
 #'
 #' @return Returns two lists; a list of elements in a collection for which a
@@ -10,9 +10,9 @@
 #' a predicate returns false or na.
 #'
 #' @section Corner Cases:
-#'     if \code{coll} is empty, a list of two empty lists is returned. If all the
-#'     elements return only true/only false, then one of two sublists will be the
-#'     empty list.
+#'	 if \code{coll} is empty, a list of two empty lists is returned. If all the
+#'	 elements return only true/only false, then one of two sublists will be the
+#'	 empty list.
 #'
 #' @export
 

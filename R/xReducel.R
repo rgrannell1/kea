@@ -2,15 +2,15 @@
 #' Fold a function over a collection from left to right.
 #'
 #' @param fn a binary function that returns a value 
-#'     that \code{fn} can later take as its left argument,
-#'     or a string or symbol naming such a function.
+#'	 that \code{fn} can later take as its left argument,
+#'	 or a string or symbol naming such a function.
 #' @param coll a list, pairlist or vector of any length.
 #'
 #' @return an arbitrary value, depending on the function \code{f}.
 #'
 #' @section Corner Cases:
-#'     returns \code{coll} if \code{coll} 
-#'     is length-zero or length-one.
+#'	 returns \code{coll} if \code{coll} 
+#'	 is length-zero or length-one.
 #'
 #' @export
 
@@ -37,11 +37,11 @@ xReducel <- function (fn, coll) {
 
 		len_collection <- length(coll)
 
-	    while (ind <= len_collection) {
-	    	init <- fn( init, coll[[ind]] )
-	    	ind <- ind + 1
-	    }
-	    init
+		while (ind <= len_collection) {
+			init <- fn( init, coll[[ind]] )
+			ind <- ind + 1
+		}
+		init
 	}
 }
 

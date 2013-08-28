@@ -5,7 +5,7 @@
 #' @param coll a list, vector or pairlist.
 #'
 #' @section Corner Cases:
-#'     If \code{coll} is empty the empty list is returned.
+#'	 If \code{coll} is empty the empty list is returned.
 #'
 #' @return a list of elements in \code{coll}.
 #' @export

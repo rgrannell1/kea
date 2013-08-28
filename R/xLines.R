@@ -1,7 +1,7 @@
 #' Split a str at newlines.
 #'
 #' @param str a length-one character vector.
-#'     
+#'	 
 #' @return a character vector, with one or more elements.
 #'
 #' @export

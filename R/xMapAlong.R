@@ -2,12 +2,12 @@
 #' Apply a function to each element of a collection and its indices.
 #'
 #' @param fn a binary function that takes a value as its left parameter 
-#'     and an index as its right parameter, or a
-#'     symbol or name identifying such a function.
+#'	 and an index as its right parameter, or a
+#'	 symbol or name identifying such a function.
 #' @param coll a pairlist, list, or vector.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'	 returns the empty list if \code{coll} is length-zero.
 #'
 #' @return a list containing \code{fn} applied to each elements of \code{coll}.
 #' @export

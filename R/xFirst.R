@@ -8,8 +8,8 @@
 #' @return the first element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     throws an error if \code{coll} has less than one element; this is
-#'     because any other corner case would violate the functions type-signature.
+#'	 throws an error if \code{coll} has less than one element; this is
+#'	 because any other corner case would violate the functions type-signature.
 #'
 #' @template glossary
 #'

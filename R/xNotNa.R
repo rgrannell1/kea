@@ -6,7 +6,7 @@
 #' @return a vector of true or false value.
 #'
 #' @section Corner Cases:
-#'     returns false if \code{x} is length-zero.
+#'	 returns false if \code{x} is length-zero.
 #'
 #' @export
 

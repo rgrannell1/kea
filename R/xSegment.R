@@ -6,9 +6,9 @@
 #'
 #' @return returns a list of n-element lists.
 #' @section Corner Cases:
-#'     the final list in the return value will have less than \code{num}
-#'     elements if \code{length(coll)} is not evenly divisible by \code{num}.
-#'     if \code{coll} is length-zero, the empty list is returned.
+#'	 the final list in the return value will have less than \code{num}
+#'	 elements if \code{length(coll)} is not evenly divisible by \code{num}.
+#'	 if \code{coll} is length-zero, the empty list is returned.
 #' @export
 
 xSegment <- function (num, coll) {

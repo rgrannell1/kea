@@ -9,9 +9,9 @@
 #' @return a list.
 #'
 #' @section Corner Cases:
-#'    if the shortest collection is length-zero, the empty list is returned.
-#'    if the lengths of the the collections are not equal, then elements are recycled in 
-#'    the shorter vectors
+#'	if the shortest collection is length-zero, the empty list is returned.
+#'	if the lengths of the the collections are not equal, then elements are recycled in 
+#'	the shorter vectors
 #'
 #' @family 
 #' @aliases

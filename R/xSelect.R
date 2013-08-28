@@ -2,13 +2,13 @@
 #' Include all elements from a collection matching a predicate.
 #'
 #' @param p a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param coll a list, pairlist, or vector.
 #'
 #' @return a list containing a subset of elements in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if no match is found, or \code{coll} is length-zero.
+#'	 returns the empty list if no match is found, or \code{coll} is length-zero.
 #'
 #' @family arrow-filters
 #' @export

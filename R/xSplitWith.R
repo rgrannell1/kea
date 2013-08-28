@@ -3,13 +3,13 @@
 #' returns false, and all the elements including and after that point.
 #'
 #' @param pred a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param coll a list, pairlist, or vector.
 #'
 #' @return returns a list containing a subset of the elements in \code{coll}.
 #'
 #' @section Corner Cases:
-#'     Returns the emty list if \code{coll} is length-zero.
+#'	 Returns the emty list if \code{coll} is length-zero.
 #'
 #' @export
 

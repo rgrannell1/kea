@@ -2,13 +2,13 @@
 #' Selectively apply a function to each element of a collection.
 #'
 #' @param pred a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param fn a unary function, or a
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param coll a pairlist, list, or vector.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'	 returns the empty list if \code{coll} is length-zero.
 #'
 #' @return a list containing \code{f} applied to some elements of \code{coll}.
 #' @family arrow-maps

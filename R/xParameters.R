@@ -2,13 +2,13 @@
 #' Get the parameter names of a function or primitive function.
 #'
 #' @param fn An arbitrary function, or a 
-#'     symbol or str identifying such a function.
+#'	 symbol or str identifying such a function.
 #' @return A character vector.
 #' @section Corner Cases:
-#'     If \code{f} is a primitive function a slightly clumsier method of obtaining 
-#'     formal arguments is used. If a parameter has no default, the value of the 
-#'     corresponding element in the retun value will be the empty symbol, 
-#'     which is identical to \code{quote(expr=)}.
+#'	 If \code{f} is a primitive function a slightly clumsier method of obtaining 
+#'	 formal arguments is used. If a parameter has no default, the value of the 
+#'	 corresponding element in the retun value will be the empty symbol, 
+#'	 which is identical to \code{quote(expr=)}.
 #'
 #' @export
 

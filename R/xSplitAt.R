@@ -4,13 +4,13 @@
 #' @param coll a pairlist, list, or vector.
 #'
 #' @return a list of two lists; the first list containing the first 
-#'     \code{ith} elements of \code{coll}, and the second list containing the 
-#'     remaining elements \code{coll}.
+#'	 \code{ith} elements of \code{coll}, and the second list containing the 
+#'	 remaining elements \code{coll}.
 #'
 #' @section Corner Cases:
-#'     If \code{ith} is zero then the first list in the returned value is empty.
-#'     Likewise, if \code{ith} is equal or larger than the length of \code{coll} then
-#'     the second return list is empty. If \code{coll} is length zero both lists are empty.
+#'	 If \code{ith} is zero then the first list in the returned value is empty.
+#'	 Likewise, if \code{ith} is equal or larger than the length of \code{coll} then
+#'	 the second return list is empty. If \code{coll} is length zero both lists are empty.
 #'
 #' @export
 

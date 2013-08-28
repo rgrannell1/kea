@@ -8,8 +8,8 @@
 #' @return a positive whole number.
 #'
 #' @section Corner Cases:
-#'     If \code{fn} is a variadic function of any kind
-#'     positive infinity is returned.
+#'	 If \code{fn} is a variadic function of any kind
+#'	 positive infinity is returned.
 #'
 #' @template glossary
 #'

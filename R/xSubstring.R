@@ -6,8 +6,8 @@
 #' @return a length-one character vector.
 #'
 #' @section Corner Cases:
-#'    throws an error if the largest index is larger than the number of characters in 
-#'    the input str.
+#'	throws an error if the largest index is larger than the number of characters in 
+#'	the input str.
 #' @export
 
 #| function: xSubString version: 0.1 finished: false 

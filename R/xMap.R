@@ -2,11 +2,11 @@
 #' Apply a function to each element of a collection.
 #'
 #' @param fn a unary function, or a
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param coll a pairlist, list, or vector.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'	 returns the empty list if \code{coll} is length-zero.
 #'
 #' @return a list containing \code{fn} applied to each elements of \code{coll}.
 #' @export

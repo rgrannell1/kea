@@ -1,15 +1,15 @@
 
 #' Return a boolean vector showing which parameters 
-#'     of f have default values.
+#'	 of f have default values.
 #'
 #' @param fn an arbitrary function, or a 
-#'     symbol or string identifying such a function.
+#'	 symbol or string identifying such a function.
 #'
 #' @return a list of true of false value of the same length as the 
-#'     arity of \code{fn}.
+#'	 arity of \code{fn}.
 #'
 #' @section Corner Cases:
-#'     if \code{fn} is a unary function return the empty list.
+#'	 if \code{fn} is a unary function return the empty list.
 #' @family arrow-parameters
 #' @export
 

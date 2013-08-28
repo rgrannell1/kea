@@ -2,14 +2,14 @@
 #' Fold a function over a collection from right to length, with an init value.
 #'
 #' @param fn a binary function that returns a value that 
-#'     \code{fn} can later take as its right argument
+#'	 \code{fn} can later take as its right argument
 #' @param init an arbitrary value.
 #' @param coll a collection.
 #'
 #' @return an arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
-#'     returns \code{init} if \code{coll} is length-zero.
+#'	 returns \code{init} if \code{coll} is length-zero.
 #'
 #' @export
 
@@ -32,10 +32,10 @@ xFoldr <- function (fn, init, coll) {
 	} else {
 		ith <- length(coll)
 
-	    while (ith > 0) {
-	    	init <- fn( coll[[ith]], init )
-	    	ith <- ith - 1
-	    }
-	    init
+		while (ith > 0) {
+			init <- fn( coll[[ith]], init )
+			ith <- ith - 1
+		}
+		init
 	}
 }

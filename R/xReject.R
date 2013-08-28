@@ -2,7 +2,7 @@
 #' Remove all elements from a collection matching a predicate.
 #'
 #' @param pred a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param coll a list, pairlist, or vector.
 #'
 #' @return a list containing a subset of elements in \code{coll}.

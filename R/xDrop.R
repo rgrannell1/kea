@@ -10,7 +10,7 @@
 #' @return a list.
 #'
 #' @section Corner Cases:
-#'     If \code{coll} is empty the empty list is returned.
+#'	 If \code{coll} is empty the empty list is returned.
 #'
 #' @template glossary
 #'

@@ -2,14 +2,14 @@
 #' Iteratively apply a function until a predicate is met.
 #'
 #' @param predicate a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param unary a unary function function, or a
-#'     symbol or name identifying such a function.
+#'	 symbol or name identifying such a function.
 #' @param init an arbitrary value.
 #'
 #' @section Corner Cases:
-#'     length-zero values of \code{init} are handled normally, since \code{init} is 
-#'     an arbitrary value. Potentially non-terminating.
+#'	 length-zero values of \code{init} are handled normally, since \code{init} is 
+#'	 an arbitrary value. Potentially non-terminating.
 #'
 #' @return the result of successively applying \code{f} to \code{init}.
 #' @family arrow-maps

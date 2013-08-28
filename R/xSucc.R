@@ -4,8 +4,8 @@
 #' @param nums a collection of doubles or integers.
 #' @return returns a collection of doubles or integers.
 #' @section Corner Cases:
-#'     if \code{nums} is empty, then \code{nums} is returned automatically. If
-#'     a collection 
+#'	 if \code{nums} is empty, then \code{nums} is returned automatically. If
+#'	 a collection 
 #' @export
 
 #| function: xSucc version: 0.1 finished: false 

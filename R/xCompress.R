@@ -6,11 +6,11 @@
 #' @param coll a collection.
 #'
 #' @return returns a list of elements in \code{coll}, 
-#'     with all length-zero values removed.
+#'	 with all length-zero values removed.
 #'
 #' @section Corner Cases:
-#'     Returns the emty list if \code{coll} is length-zero, 
-#'     or all elements in \code{coll} are length-zero.
+#'	 Returns the emty list if \code{coll} is length-zero, 
+#'	 or all elements in \code{coll} are length-zero.
 #'
 #' @template glossary
 #'

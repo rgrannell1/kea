@@ -10,8 +10,8 @@
 #' @template glossary
 #'
 #' @section Corner Cases: 
-#'     xAsClosure does not work for every primitive function (for example 'c'),
-#'     so caution should be used when using this function.
+#'	 xAsClosure does not work for every primitive function (for example 'c'),
+#'	 so caution should be used when using this function.
 #'
 #' @examples 
 #' @export

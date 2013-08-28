@@ -10,7 +10,7 @@
 #' @return a list.
 #'
 #' @section Corner Cases:
-#'     Returns the emty list if \code{coll} is length-zero.
+#'	 Returns the emty list if \code{coll} is length-zero.
 #'
 #' @template glossary
 #'

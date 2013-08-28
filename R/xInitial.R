@@ -6,7 +6,7 @@
 #' @return a list containing every element in \code{coll} except the last element.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero or length-one.
+#'	 returns the empty list if \code{coll} is length-zero or length-one.
 #'
 #' @export
 
