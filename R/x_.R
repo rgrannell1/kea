@@ -139,6 +139,11 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xMapAlong(fn, reciever_()) )
 		}
+	this$xMapMany <-
+		function (fn, ...) {
+			x_( xMapMany(fn, reciever_(), ...) )
+		}
+
 	this$xMapWhen <-
 		function (pred, fn) {
 			x_( xMapWhen(pred, fn, reciever_()) )
@@ -446,6 +451,10 @@ x_fn_proto <- local({
 	this$xMapAlong <-
 		function (coll) {
 			x_( xMapAlong(reciever_(), coll) )
+		}
+	this$xMapMany <-
+		function (...) {
+			x_( xMapMany(reciever_(), ...) )
 		}
 	this$xMapWhen <-
 		function (fn, coll) {
