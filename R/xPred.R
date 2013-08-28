@@ -3,12 +3,13 @@
 #' 
 #' Increment a vector of numbers.
 #'
-#' @param nums a vector of numbers.
+#' @param nums a vector of non-complex numbers.
 #'
-#' @return a vector of numbers.
+#' @return a vector of non-complex numbers.
 #'
 #' @section Corner Cases: 
 #'     returns the unit of the vector if \code{nums} is length-zero}.
+#'     
 #' @template glossary
 #'
 #' @examples 
@@ -26,7 +27,7 @@ xPred <- function (nums) {
 
 	nums <- unlist(nums)
 
-	require_a(c('double', 'integer'), nums, pcall)
+	require_a(c("double", "integer") nums, pcall)
 
 	if (length(nums) == 0) {
 		nums

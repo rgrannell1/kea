@@ -7,7 +7,6 @@
 #'
 #' @return a character vector of length \code{nchar(str)}.
 #'
-#'
 #' @template glossary
 #'
 #' @examples 
@@ -24,7 +23,7 @@ xChars <- function (str) {
 	require_a("string", str, pcall)
 
 	if (nchar(str) == 0) {
-		character(0)
+		""
 	} else {
 		strsplit(str, "")[[1]]
 	}

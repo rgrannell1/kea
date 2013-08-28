@@ -27,7 +27,7 @@
 #| function: xCollapse version: 0.1 finished: false
 
 xCollapse <- xAutoPartial(function (delim, strs) {
-	# str -> Vector str -> str
+	# string -> Vector string -> string
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
@@ -35,6 +35,9 @@ xCollapse <- xAutoPartial(function (delim, strs) {
 	require_a("string", delim, pcall)
 	require_a("character", strs, pcall)
 
-	paste0(strs, collapse = delim)
-
+	if (length(strs) == 0) {
+		character(0)
+	} else {
+		paste0(strs, collapse = delim)		
+	}
 })

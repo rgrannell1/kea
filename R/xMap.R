@@ -30,7 +30,7 @@ xMap <- function (fn, coll) {
 	require_a("unary function", fn, pcall)
 
 	if (length(coll) == 0) {
-		coll
+		list()
 	} else {
 		lapply(coll, fn)
 	}

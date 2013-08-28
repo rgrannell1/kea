@@ -27,7 +27,7 @@ xCount <- xAutoPartial(function (pred, coll) {
 	require_a('unary function', pred)
 	
 	if (length(coll) == 0) {
-		0
+		integer(0)
 	} else {
 		ith <- 1
 		count <- 0

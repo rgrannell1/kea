@@ -40,7 +40,7 @@ xPositionl <- function (pred, coll) {
 			stopifnot(is.logical(is_match))
 			
 			if (is_match) {
-				return (ith)
+				return (as.integer(ith))
 			}
 			ith <- ith + 1
 		}	

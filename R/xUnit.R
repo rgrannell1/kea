@@ -18,7 +18,7 @@ xUnit <- function (coll) {
 	require_a("collection", coll, pcall)
 
 	if (is.pairlist(coll)) {
-		NULL
+		Null
 	} else {
 		unname(head(coll, 0))
 	}

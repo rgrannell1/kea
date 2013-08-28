@@ -29,6 +29,6 @@ xLast <- function (coll) {
 	if (length(coll) == 0) {
 		stop('cannot return the last element of the empty list')
 	} else {
-		coll[[length(coll)]]
+		coll[[ length(coll) ]]
 	}
 }

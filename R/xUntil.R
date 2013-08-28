@@ -25,7 +25,7 @@ xUntil <- function (pred, fn, init) {
 	pcall <- sys.call()
 	require_a("functionable", pred, pcall)
 	require_a("functionable", fn, pcall)
-	require_a('any', init, pcall)
+	require_a("arbitrary", init, pcall)
 
 	pred <- match.fun(pred)
 	fn <- match.fun(fn)
