@@ -19,11 +19,11 @@
 	formal <- match.call()[-1]$formal
 	body <- match.call()[-1]$body
 
-	require_a("name", this$formal, pcall)
-	require_a("arbitrary", this$body, pcall)
+	require_a("name", formal, pcall)
+	require_a("arbitrary", body, pcall)
 
 	f <- function () {}
-	body(f) <- this$body
+	body(f) <- body
 	# ------ make f a default-free unary function ------
 	
 	formals(f) <- 
