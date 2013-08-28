@@ -1,17 +1,22 @@
 
-#' Get the parameters and defaults of a function or primitive function.
+#' xFormals
+#' 
+#' Get the parametres and defaults of a function or primitive function.
 #'
-#' @param f An arbitrary function, or a 
-#'     symbol or str identifying such a function.
+#' @param fn an arbitrary function.
+#'
 #' @return A named list, where each element's name is a parameter in f and each value
 #'     is the default value of that parameter.
+#'
 #' @section Corner Cases:
-#'     If \code{f} is a primitive function a slightly clumsier method of obtaining 
-#'     formal arguments is used. If a parameter has no default, the value of the 
+#'     If \code{fn} is a primitive function a heuristic is used to obtain 
+#'     its formals. If a parameter has no default, the value of the 
 #'     corresponding element in the retun value will be the empty symbol, 
 #'     which is identical to \code{quote(expr=)}.
 #'
-#' @family arrow-parameters
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xFormals version: 0.1 finished: false 

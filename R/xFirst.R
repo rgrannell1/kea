@@ -1,7 +1,9 @@
 
-#' Return the first value of a collection.
+#' xFirst
+#' 
+#' Return the first element of a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection
 #'
 #' @return the first element in \code{coll}.
 #'
@@ -9,6 +11,9 @@
 #'     throws an error if \code{coll} has less than one element; this is
 #'     because any other corner case would violate the functions type-signature.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xFirst version: 0.1 finished: false

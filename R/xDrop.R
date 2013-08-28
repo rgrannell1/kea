@@ -1,13 +1,20 @@
 
-#' Take several elements from the tail of a collection.
+
+#' xDrop
+#' 
+#' Take several elements from the front of a collection.
 #'
 #' @param num a nonnegative whole number.
-#' @param coll a list, vector or pairlist.
+#' @param coll a collection.
+#'
+#' @return a list.
 #'
 #' @section Corner Cases:
 #'     If \code{coll} is empty the empty list is returned.
 #'
-#' @return a list of elements in \code{coll}.
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xDrop version: 0.1 finished: false

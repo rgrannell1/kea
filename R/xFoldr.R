@@ -1,10 +1,10 @@
 #'
 #' Fold a function over a collection from right to length, with an init value.
 #'
-#' @param fn a binary function that returns a value that \code{fn} can later take as its right argument,
-#' or a string or symbol naming such a function.
+#' @param fn a binary function that returns a value that 
+#'     \code{fn} can later take as its right argument
 #' @param init an arbitrary value.
-#' @param coll a list, pairlist or vector of any length.
+#' @param coll a collection.
 #'
 #' @return an arbitrary value, depending on the function \code{fn}.
 #'
@@ -30,11 +30,11 @@ xFoldr <- function (fn, init, coll) {
 	if (length(coll) == 0) {
 		init
 	} else {
-		ind <- length(coll)
+		ith <- length(coll)
 
-	    while (ind > 0) {
-	    	init <- fn( coll[[ind]], init )
-	    	ind <- ind - 1
+	    while (ith > 0) {
+	    	init <- fn( coll[[ith]], init )
+	    	ith <- ith - 1
 	    }
 	    init
 	}

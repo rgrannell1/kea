@@ -1,17 +1,21 @@
-#'
-#' Fold a function over a collection from left to right, with an init value.
+
+#' xFoldl
+#' 
+#' Fold a function over a collection from left to right with an initial left value.
 #'
 #' @param fn a binary function that returns a value that 
-#'     \code{fn} can later take as its right argument,
-#'     or a string or symbol naming such a function.
+#'     \code{fn} can later take as its left argument.
 #' @param init an arbitrary value.
-#' @param coll a list, pairlist or vector of any length.
+#' @param coll a collection.
 #'
 #' @return an arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
 #'     returns \code{init} if \code{coll} is length-zero.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xFoldl version: 0.1 finished: false 
@@ -31,12 +35,12 @@ xFoldl <- function (fn, init, coll) {
 	if (length(coll) == 0) {
 		init
 	} else {
-		ind <- 1
+		ith <- 1
 		len_coll <- length(coll)
 
-	    while (ind <= len_coll) {
+	    while (ith <= len_coll) {
 	    	init <- fn( init, coll[[ind]] )
-	    	ind <- ind + 1
+	    	ith <- ith + 1
 	    }
 	    init
 	}

@@ -1,17 +1,20 @@
 
+#' xDropWhile
+#' 
 #' Take every element in a collection from the first time a predicate
 #' is false or na until the end of the collection.
 #'
-#' @param pred a unary function that returns a logical value, or a 
-#'     symbol or name identifying such a function.
-#' @param coll a list, pairlist, or vector.
+#' @param pred a unary predicate.
+#' @param coll a collection.
 #'
-#' @return returns a list containing a subset of the elements in \code{coll}.
+#' @return a list.
 #'
 #' @section Corner Cases:
-#' Returns the emty list if \code{coll} is length-zero.
+#'     Returns the emty list if \code{coll} is length-zero.
 #'
-#' @family arrow-filters
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xDropWhile version: 0.1 finished: false

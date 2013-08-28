@@ -8,5 +8,3 @@
 #'
 #' arity: The number of arguments a function can accept. Variadic functions have 
 #'     an arity of +Infinity,
-
-

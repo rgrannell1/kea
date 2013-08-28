@@ -18,6 +18,7 @@ xAutoPartial <- function (fn) {
 
 acc_apply <- function (this) {
 	# list -> function | any
+	# defined seperately to avoid lexical scoping.
 	# if the underlying function is saturated with arguments, invoke.
 	# otherwise return a closure with some fixed arguments.
 
@@ -58,15 +59,12 @@ acc_apply <- function (this) {
 					new_obj
 				} )()
 
-				# --- switch to the new accumulator's 
-				# definition of this.
+				# --- switch to the new accumulator's definition of this.
 				
 				this <- environment(acc)$this
 				formals(acc) <- 
 					xFormals(this$fn)[
-						setdiff(
-							names(formals(this$fn)),
-							names(this$fixed)) 
+						setdiff(names(formals(this$fn)), names(this$fixed)) 
 					]
 
 				# ----------------------------------------------------
@@ -74,7 +72,7 @@ acc_apply <- function (this) {
 				#  call the underlying function. Or return accumulator.
 				
 				if (xArity(acc) == 0) {
-					do.call(this$fn, this$fixed)
+						do.call(this$fn, this$fixed)
 				} else {
 					acc
 				}

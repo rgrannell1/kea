@@ -1,10 +1,17 @@
 
-# Map a function into a nested collection, preserving its structure.
-
-#' @param fn a unary function, or a
-#'     symbol or name identifying such a function.
-#' @param coll a pairlist, list, or vector.
+#' xDeepMap
 #'
+#' Recursively map a function into a nested collection, preserving its structure.
+#' 
+#' @param fn a unary function.
+#' @param coll a list or pairlist.
+#'
+#' @return a list or pairlist.
+#'
+#' @template glossary
+#'
+#' @examples 
+#' @export
 
 #| function: xDeepMap version: 0.1 finished: false 
 

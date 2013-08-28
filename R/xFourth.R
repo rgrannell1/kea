@@ -1,14 +1,19 @@
 
-#' Return the fourth value of a collection.
+#' xFourth
+#' 
+#' Return the fourth value in a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection/
 #'
-#' @return the second element in \code{coll}.
+#' @return the fourth value in \code{coll}.
 #'
 #' @section Corner Cases:
 #'     throws an error if \code{coll} has less than four elements; this is
 #'     because there is no sensible definition of the function in this case.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xFourth version: 0.1 finished: false
