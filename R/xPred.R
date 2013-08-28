@@ -1,11 +1,17 @@
 
-#' Get the predeccesor of a number or vector of numbers.
+#' xPred
+#' 
+#' Increment a vector of numbers.
 #'
-#' @param nums a vector of doubles or integers.
-#' @return returns a vector of doubles or integers.
-#' @section Corner Cases:
-#' if \code{nums} is empty, then \code{nums} is returned automatically.
+#' @param nums a vector of numbers.
 #'
+#' @return a vector of numbers.
+#'
+#' @section Corner Cases: 
+#'     returns the unit of the vector if \code{nums} is length-zero}.
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xPred version: 0.1 finished: false 

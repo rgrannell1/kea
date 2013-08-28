@@ -1,15 +1,18 @@
 
+#' xReject
+#' 
 #' Remove all elements from a collection matching a predicate.
 #'
-#' @param pred a unary function that returns a logical value, or a 
-#'	 symbol or name identifying such a function.
-#' @param coll a list, pairlist, or vector.
+#' @param pred a predicate.
+#' @param coll a collection
 #'
-#' @return a list containing a subset of elements in \code{coll}.
+#' @return a list.
 #'
-#' @section Corner Cases:
-#' returns the empty list if no match is found, or \code{coll} is length-zero.
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero}.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xReject version: 0.1 finished: false 

@@ -1,17 +1,20 @@
 
+#' xReducel
+#' 
 #' Fold a function over a collection from left to right.
 #'
 #' @param fn a binary function that returns a value 
-#'	 that \code{fn} can later take as its left argument,
-#'	 or a string or symbol naming such a function.
-#' @param coll a list, pairlist or vector of any length.
+#'	 that \code{fn} can later take as its left argument.
+#' @param coll a collection.
 #'
-#' @return an arbitrary value, depending on the function \code{f}.
+#' @return an arbitrary value, depending on the function \code{fn}.
 #'
-#' @section Corner Cases:
-#'	 returns \code{coll} if \code{coll} 
-#'	 is length-zero or length-one.
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll} is length-zero, and returns the 
+#'     value inside \code{coll} if coll is length-one.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xReducel version: 0.1 finished: false 
@@ -27,19 +30,21 @@ xReducel <- function (fn, coll) {
 	fn <- match.fun(fn)
 	require_a('binary function', fn, pcall)
 
-	if (length(coll) < 2) {
+	if (length(coll) == 0) {
 		coll
+	} else if (length(coll) == 1) {
+		coll[[1]]
 	} else {
-		ind <- 1
+		ith <- 1
 		
-		init <- xFirst(coll)
+		init <- coll[[1]]
 		coll <- xRest(coll)
 
 		len_collection <- length(coll)
 
-		while (ind <= len_collection) {
-			init <- fn( init, coll[[ind]] )
-			ind <- ind + 1
+		while (ith <= len_collection) {
+			init <- fn( init, coll[[ith]] )
+			ith <- ith + 1
 		}
 		init
 	}

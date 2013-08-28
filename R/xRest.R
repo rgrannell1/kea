@@ -1,13 +1,17 @@
 
-#' Return every element in a collection except the first element.
+#' xRest
+#' 
+#' Return a list excluding the first element of a collection.
 #'
-#' @param coll a pairlist, list, or vector.
+#' @param coll a collection
 #'
-#' @return a list containing every element in \code{coll} except the first element.
+#' @return a list.
 #'
-#' @section Corner Cases:
-#'	 returns the empty list if \code{coll} is length-zero.
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero}.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xRest version: 0.1 finished: false

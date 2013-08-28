@@ -1,9 +1,10 @@
 
-#' Partition elements in a collection based on a predicate function.
+#' xPartition
+#' 
+#' Divide elements in a collection into two sets based on a predicate function.
 #'
-#' @param predicate a unary function that returns a logical value, or a 
-#'	 symbol or name identifying such a function.
-#' @param coll a list, pairlist, or vector.
+#' @param pred a predicate.
+#' @param coll a collection.
 #'
 #' @return Returns two lists; a list of elements in a collection for which a
 #' predicate returns true, and a list of elements in a collection for which
@@ -13,7 +14,9 @@
 #'	 if \code{coll} is empty, a list of two empty lists is returned. If all the
 #'	 elements return only true/only false, then one of two sublists will be the
 #'	 empty list.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xPartition version: 0.1 finished: false

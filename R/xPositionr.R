@@ -1,14 +1,19 @@
-#' Return the index of the last element in \code{collection} for which \code{pred} returns true.
+
+
+#' xPositionr
 #'
-#' @param pred a unary function that returns a logical value, or a 
-#'	 symbol or name identifying such a function.
-#' @param coll a list, pairlist, or vector.
+#' Get the position of the last element for which a predicate returns true.
+#' 
+#' @param pred a predicate function.
+#' @coll a collection.
 #'
-#' @return a positive whole number which is an index in the indices of \code{coll}.
+#' @return an integer.
 #'
-#' @section Corner Cases:
-#' returns \code{integer(0)} if no match is found, or \code{coll} is length-zero.
+#' @section Corner Cases: 
+#'     returns integer(0) if no match is found.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xPositionr version: 0.1 finished: false 

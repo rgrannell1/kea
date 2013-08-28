@@ -1,5 +1,4 @@
 
-
 #' Fold a function over a collection from left to right with an init value, keeping intermediate values.
 #'
 #' @param fn a binary function that returns a value that \code{f} can later take as its right argument,

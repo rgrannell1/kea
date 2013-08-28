@@ -1,8 +1,17 @@
 
+#' xPlus
+#' 
 #' Compose two functions with addition.
-
-#' @param fn1 a function
-#' @param fn2 a function
+#'
+#' @param fn1 a unary function that returns a number.
+#' @param fn2 a unary function that returns a number.
+#'
+#' @template glossary
+#'
+#' @return a number.
+#'
+#' @examples 
+#' @export
 
 #' @export
 
