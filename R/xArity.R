@@ -1,15 +1,19 @@
 
-#' Return the number of parameters a function has.
+#' xArity
+#' 
+#' Return the arity of a function.
 #'
-#' @param fn an arbitrary function, or a 
-#'     symbol or str identifying such a function.
+#' @param fn an function of any arity.
 #'
-#' @return a positive whole number
+#' @return a positive whole number.
 #'
 #' @section Corner Cases:
 #'     If \code{fn} is a variadic function of any kind
 #'     positive infinity is returned.
-#' @family arrow-parameters
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xArity version: 0.1 finished: true

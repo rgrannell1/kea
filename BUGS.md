@@ -24,6 +24,8 @@
 
 - [ ] #28 implement autopartial, in a completely reliable way.
 
+- [ ] #29 make chars generic to colleciton type.
+
 
 ### Done:
 

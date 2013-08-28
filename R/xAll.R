@@ -1,13 +1,20 @@
 
+#' xAll
+#' 
 #' Are all elements in a collection true for a predicate?
 #'
-#' @param pred a unary function that returns a boolean value.
-#' @param coll a list, vector or pairlist.
+#' @param pred a predicate.
+#' @param coll a collection.
 #'
 #' @section Corner Cases:
 #'     if \code{coll} is length zero then \code{True} is returned. If any values
 #'     are na then false is automatically returned.
 #'
+#' @template glossary
+#'
+#' @return a boolean value.
+#'
+#' @examples 
 #' @export
 
 #| function: xAll version: 0.1 finished: false 

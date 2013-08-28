@@ -1,10 +1,15 @@
 
-#' Return a variadic function that passes its arguments as a list to its underlying function.
+#' xAsVariadic
+#' 
+#' Return a variadic function that passes its arguments as a list to ints underyling function.
 #'
-#' @param fn a unary function, or a 
-#'     symbol or string identifying such a function.
+#' @param fn a unary function.
+#'
 #' @return a variadic function.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xAsVariadic version: 0.1 finished: false 

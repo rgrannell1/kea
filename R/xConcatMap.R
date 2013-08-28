@@ -1,15 +1,18 @@
 
+#' xConcatMap
+#'
 #' Concatenate the results of applying a function to each element of a collection.
 #'
-#' @param fn a unary function, or a
-#'     symbol or name identifying such a function.
-#' @param coll a pairlist, list, or vector.
+#' @param fn a unary function.
+#' @param coll a collection.
+#'
+#' @return a list.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#' @return a list containing \code{fn} applied to some elements of \code{coll}.
-#' @family arrow-maps
+#' @template glossary
+#'
 #' @export
 
 #| function: xConcatMap version: 0.1 finished: false 

@@ -1,13 +1,18 @@
 
-#' Return a unary function that passes each element of its arguments as a parameter to 
-#'    its underlying function.
+#' xAsUnary
+#' 
+#' Create a function that takes one argument, and applies each element of
+#' that argument as a parameter of its underlying function.
 #'
-#' @param fn an arbitrary function, or a 
-#'     symbol or string identifying such a function.
-#' @return a unary function with a parameter 'args'.
+#' @param  fn an arbitrary function.
 #'
+#' @return a unary function of x.
+#'
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
-#'
 
 #| function: xAsUnary version: 0.1 finished: false 
 
@@ -23,7 +28,7 @@ xAsUnary <- function (fn) {
 	fn <- match.fun(fn)
 	remove(pcall)
 
-	function (args) {
-		xApply(fn, as.list(args))
+	function (x) {
+		xApply(fn, as.list(x))
 	}
 }

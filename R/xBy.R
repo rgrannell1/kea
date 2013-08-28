@@ -1,9 +1,16 @@
 
+#' xBy
+#' 
 #' Compose two functions with multiplication.
-
-#' @param fn1 a function
-#' @param fn2 a function
-
+#'
+#' @param fn1 a unary function that returns a number.
+#' @param fn2 a unary function that returns a number.
+#'
+#' @template glossary
+#'
+#' @return a number.
+#'
+#' @examples 
 #' @export
 
 xBy <- xAutoPartial(function (fn1, fn2) {

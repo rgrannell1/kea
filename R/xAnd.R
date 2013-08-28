@@ -1,9 +1,16 @@
 
-#' Return a function that tests if two functions are true for a particular value.
-
-#' @param pred1 a logical function.
-#' @param pred2 a logical function.
-
+#' xAnd
+#' 
+#' Return a function that tests if a pair of functions are true for its input.
+#'
+#' @param pred1 a predicate.
+#' @param pred2 a predicate.
+#'
+#' @return a unary predicate.
+#'
+#' @template glossary.
+#'
+#' @examples 
 #' @export
 
 xAnd <- xAutoPartial(function (pred1, pred2) {

@@ -1,15 +1,20 @@
 
+#' xCompress
+#' 
 #' Remove all length-zero values from a collection.
 #'
-#' @param coll a list, pairlist, or vector.
+#' @param coll a collection.
 #'
-#' @return returns a list of elements in \code{collection}, 
+#' @return returns a list of elements in \code{coll}, 
 #'     with all length-zero values removed.
 #'
 #' @section Corner Cases:
-#'     Returns the emty list if \code{collection} is length-zero, 
-#'     or all elements in \code{collection} are length zero.
+#'     Returns the emty list if \code{coll} is length-zero, 
+#'     or all elements in \code{coll} are length-zero.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xCompress version: 0.1 finished: false
@@ -24,8 +29,6 @@ xCompress <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		xReject(
-			function (x) length(x) == 0,
-			coll)
+		xReject(function (x) length(x) == 0, coll)
 	}
 }

@@ -1,14 +1,17 @@
 
-#' Apply a list of arguments to a function
+#' xApply
+#' 
+#' Call a function with a list of arguments.
 #'
-#' @param fn an arbitrary function, or a 
-#'     symbol or name identifying such a function. 
-#' @param coll a list or pairlist. The collection may be named, but
+#' @param fn an function of any arity.
+#' @param coll a list or pairlist. This may be named, but
 #'    all names must be parameters of \code{fn}.
 #'
-#' @return the result of caling \code{fn} with \code{coll}.
+#' @return the return value of \code{fn}.
 #'
-#' @family arrow-apply
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xApply version: 0.1 finished: false 

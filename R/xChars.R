@@ -1,10 +1,16 @@
 
-#' Split a str at every character.
+#' xChars
+#' 
+#' Split a single string into a vector of characters.
 #'
 #' @param str a length-one character vector.
 #'
-#' @return a character vector.
+#' @return a character vector of length \code{nchar(str)}.
 #'
+#'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xChars version: 0.1 finished: false 
@@ -18,7 +24,7 @@ xChars <- function (str) {
 	require_a("string", str, pcall)
 
 	if (nchar(str) == 0) {
-		''
+		character(0)
 	} else {
 		strsplit(str, "")[[1]]
 	}

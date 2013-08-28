@@ -1,9 +1,19 @@
 
-#' Compose a binary function with functions as its left and right arguments.
-
-#' @param fn1 
-#' @param fn2 
-#' @param fn3 
+#' xBiCompose
+#' 
+#' Compose a binary function with two other functions.
+#'
+#' @param fn1 a binary function.
+#' @param fn2 a unary function.
+#' @param fn3 a unary function.
+#'
+#' @return returns a unary function of x.
+#'
+#'
+#' @template glossary
+#'
+#' @examples 
+#' @export
 
 #' @export
 

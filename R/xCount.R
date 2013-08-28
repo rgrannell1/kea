@@ -1,12 +1,16 @@
 
-#' Count the number of elements in a collection for which a predicate is true.
+#' xCount
+#' 
+#' Count the number of times a function returns true when mapped over a collection.
 #'
-#' @param pred a unary function that returns a boolean value.
-#' @param coll a list, vector or pairlist.
+#' @param pred a unary predicate function.
+#' @param coll a collection.
 #'
-#' @section Corner Cases:
-#'     if \code{coll} length-zero zero is returned.
+#' @return a non-negative whole number.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xCount version: 0.1 finished: false 

@@ -1,12 +1,16 @@
 
-#' Are any elements in a collection true for a predicate?
+#' xAny
+#' 
+#' Return a function that tests if a either of pair of functions are true for its input.
 #'
-#' @param pred a unary function that returns a boolean value.
-#' @param coll a list, vector or pairlist.
+#' @param pred1 a predicate.
+#' @param pred2 a predicate.
 #'
-#' @section Corner Cases:
-#'     if \code{coll} is length zero then \code{FALSE} is returned.
+#' @return a unary predicate.
 #'
+#' @template glossary
+#'
+#' @examples 
 #' @export
 
 #| function: xAny version: 0.1 finished: false 
