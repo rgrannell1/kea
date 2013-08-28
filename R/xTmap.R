@@ -1,5 +1,5 @@
 
-#' xDeepMap
+#' xTmap
 #'
 #' Recursively map a function into a nested collection, preserving its structure.
 #' 
@@ -13,9 +13,9 @@
 #' @examples 
 #' @export
 
-#| function: xDeepMap version: 0.1 finished: false 
+#| function: xTmap version: 0.1 finished: false 
 
-xDeepMap <- function (fn, coll) {
+xTmap <- function (fn, coll) {
 	# (any -> any) -> List|Pairlist any -> [any]
 	# Map a function into a nested collection, 
 	# preserving its structure.	

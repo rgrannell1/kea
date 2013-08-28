@@ -1,8 +1,7 @@
 
-#' xMapf
+#' xFmap
 #' 
 #' Partially apply xMap with a function. 
-#'
 #'
 #' @param fn a unary function.
 #' @param coll a collection
@@ -16,7 +15,7 @@
 #' @examples 
 #' @export
 
-xMapf <- function (fn) {
+xFmap <- function (fn) {
 	function (x) {
 		if (length(x) == 0) {
 			list()

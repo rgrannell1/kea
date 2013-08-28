@@ -32,7 +32,6 @@
 
 - [ ] #32 document splitwith.
 
-- [ ] #33 implement a map vectorisation function.
 
 ### Done:
 
@@ -53,6 +52,7 @@
 - [x] #22 change map -> xmap in pluck
 - [x] #23 alias x...l methods with x ..., to prevent user typos.
 - [x] #19 implement a pairs to list function [a, b] -> {a: b}
+- [x] #33 implement a map vectorisation function.
 
 ### Won't Fix
 

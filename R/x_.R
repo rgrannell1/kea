@@ -54,9 +54,9 @@ x_coll_proto <- local({
 		}
 
 	# -------- D ------- #
-	this$xDeepMap <-
+	this$xTmap <-
 		function (fn) {
-			x_( xDeepMap(fn, reciever_()) )
+			x_( xTmap(fn, reciever_()) )
 		}
 
 	this$xDrop <-
@@ -385,9 +385,9 @@ x_fn_proto <- local({
 			x_( xConst(reciever_()) )
 		}
 	# -------- D ------- #
-	this$xDeepMap <-
+	this$xTmap <-
 		function (coll) {
-			x_( xDeepMap(reciever_(), coll) )
+			x_( xTmap(reciever_(), coll) )
 		}
 	this$xDropWhile <-
 		function (coll) {
@@ -448,9 +448,9 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xMapAlong(reciever_(), coll) )
 		}
-	this$xMapf <-
+	this$xFmap <-
 		function () {
-			x_( xMapf(reciever_(), coll) )
+			x_( xFmap(reciever_(), coll) )
 		}
 	this$xMapMany <-
 		function (...) {

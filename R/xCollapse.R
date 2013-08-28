@@ -14,16 +14,6 @@
 #' @examples 
 #' @export
 
-
-#' Collapse a character vector into a str with a delim.
-#'
-#' @param delim a length-one character vector.
-#' @param strs a character vector.
-#'
-#' @return a str.
-#'
-#' @export
-
 #| function: xCollapse version: 0.1 finished: false
 
 xCollapse <- function (delim, strs) {

@@ -38,4 +38,5 @@ xIsVariadic <- function (fn) {
 	f <- match.fun(fn)
 
 	"..." %in% names(xFormals(fn))
+
 }
