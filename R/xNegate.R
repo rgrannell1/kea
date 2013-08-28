@@ -1,29 +1,31 @@
 
-#' Flip the sign of a number or vector of numbers.
+#' Flip the sign of each number in a vector.
+#' 
+#' xNegate
 #'
-#' @param nums a vector of doubles or integers.
+#' @param nums a vector of numbers.
 #'
-#' @return returns a vector of doubles or integers.
+#' @return a vector of number.
 #'
-#' @section Corner Cases:
-#'	 if \code{nums} is empty, then \code{nums} is returned automatically.
+#' @section Corner Cases: 
+#'     If nums is empty then the unit of the collection is returned.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xNegate version: 0.1 finished: false 
 
 xNegate <- function (nums) {
-	# Vector number -> number
-	# returns the sign of a number, such that
-	# abs x * signum x == x
+	# Collection number -> number
+	# flips the sign of each number.
 
 	pcall <- sys.call()
 
 	require_a("collection_of_length_one", nums, pcall)
-
 	nums <- unlist(nums)
 
-	require_a(c('double', 'integer'), nums, pcall)
+	require_a(c('double', 'integer', 'complex'), nums, pcall)
 
 	if (length(nums) == 0) {
 		nums

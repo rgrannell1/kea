@@ -7,8 +7,8 @@
 #' @param coll a collection.
 #'
 #' @section Corner Cases:
-#'	 if \code{coll} is length zero then \code{True} is returned. If any values
-#'	 are na then false is automatically returned.
+#'	 if \code{coll} is length zero then logical(0) is returned. If any values
+#'	 are na then \code{False} is returned.
 #'
 #' @template glossary
 #'
@@ -31,7 +31,7 @@ xAll <- xAutoPartial(function (pred, coll) {
 	require_a('unary function', pred)
 
 	if (length(coll) == 0) {
-		True
+		logical(0)
 	} else {
 		is_match <- vapply(coll, pred, True)
 

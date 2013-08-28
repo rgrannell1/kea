@@ -28,6 +28,8 @@
 
 - [ ] #30 should has defaults return names? list?
 
+- [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
+
 ### Done:
 
 - [x] #1 xLines and related function '' == character(0)? This may be wrong.

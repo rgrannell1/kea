@@ -1,4 +1,21 @@
 
+#' xPartial
+#' 
+#' Partially apply a function.
+#'
+#' @param fn an arbitrary function.
+#' @param coll a collection
+#'
+#' @return A function of equal or lesser arity to \code{fn}.
+#'
+#' @section Corner Cases: 
+#'     Partial application also works for ellipses (eg list(... = 1)).
+#' @template glossary
+#'
+#' @examples 
+#' @export
+
+
 xPartial <- function (fn, coll) {
 
 	pcall <- sys.call()

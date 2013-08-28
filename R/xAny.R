@@ -27,7 +27,7 @@ xAny <- xAutoPartial(function (pred, coll) {
 	require_a('unary function', pred)
 	
 	if (length(coll) == 0) {
-		False
+		logical(0)
 	} else {
 		is_match <- vapply(coll, pred, True)
 

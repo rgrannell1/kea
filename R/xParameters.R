@@ -1,15 +1,18 @@
 
-#' Get the parameter names of a function or primitive function.
+#' xParametres
+#' 
+#' Get the parametre names of a function or primitive function.
 #'
-#' @param fn An arbitrary function, or a 
-#'	 symbol or str identifying such a function.
-#' @return A character vector.
+#' @param fn an arbitrary function or primitive function.
+#'
+#' @return a character vector/.
+#'
 #' @section Corner Cases:
-#'	 If \code{f} is a primitive function a slightly clumsier method of obtaining 
-#'	 formal arguments is used. If a parameter has no default, the value of the 
-#'	 corresponding element in the retun value will be the empty symbol, 
-#'	 which is identical to \code{quote(expr=)}.
+#'	 If \code{fn} is a primitive function a heuristic is used to obtain 
+#'	 its parameter names.
+#' @template glossary
 #'
+#' @examples 
 #' @export
 
 #| function: xParameters version: 0.1 finished: false 

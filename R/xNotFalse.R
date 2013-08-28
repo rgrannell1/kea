@@ -1,4 +1,19 @@
 
+#' xNotFalse
+#' 
+#' Is an element of a collection not false?
+#'
+#' @param coll a collection
+#'
+#' @return a vector of boolean values.
+#'
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero}.
+#' @template glossary
+#'
+#' @examples 
+#' @export
+
 #' Is an element of a collection not false?
 #'
 #' @param coll a list, pairlist, or vector of arbitrary values.
@@ -6,7 +21,7 @@
 #' @return a vector of true or false value.
 #'
 #' @section Corner Cases:
-#'	 returns false if \code{x} is length-zero.
+#'	 returns logical(0) if \code{x} is length-zero.
 #'
 #' @export
 
@@ -19,7 +34,11 @@ xNotFalse <- function (coll) {
 	pcall <- sys.call()
 	require_a("collection", coll, pcall)
 
-	unname(vapply(coll, function (x) {
-		!identical(x, False)
-	}, True))
+	if (length(coll) == 0) {
+		logical(0)
+	} else {
+		unname(vapply(coll, function (x) {
+			!identical(x, False)
+		}, True))		
+	}
 }

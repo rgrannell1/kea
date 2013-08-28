@@ -1,7 +1,16 @@
 
+#' xNot
+#' 
 #' Return the logical negation of a function.
-
-#' @param pred a logical function.
+#'
+#' @param pred a predicate of any arity.
+#'
+#' @return a logical value.
+#'
+#' @template glossary
+#'
+#' @examples 
+#' @export
 
 #' @export
 
