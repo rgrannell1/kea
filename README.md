@@ -141,18 +141,6 @@ function (coll)
 }
 <environment: 0x5e8eb38>
 ```
-The crème de la crème of **Arrow** is that it implements flexible
-Haskell-style partial function application:
-
-```javascript
-isOdd <- function (x) {
-    x %% 2 == 1
-}
-getOdd <- xSelect(isOdd)
-getOdd(1:10)
-```
-This allows general functions like fold and select to be specialised, 
-with no syntactic noise! 
 
 ### 2.6 Combinators
 
