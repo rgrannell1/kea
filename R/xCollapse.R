@@ -33,7 +33,11 @@ xCollapse <- function (delim, strs) {
 
 	pcall <- sys.call()
 	require_a("string", delim, pcall)
-	require_a("character", strs, pcall)
+	require_a("collection_of_length_one", nums, pcall)
+
+	nums <- unlist(nums)
+
+	require_a("character", nums, pcall)
 
 	if (length(strs) == 0) {
 		character(0)

@@ -448,6 +448,10 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xMapAlong(reciever_(), coll) )
 		}
+	this$xMapf <-
+		function () {
+			x_( xMapf(reciever_(), coll) )
+		}
 	this$xMapMany <-
 		function (...) {
 			x_( xMapMany(reciever_(), ...) )

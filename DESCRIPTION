@@ -107,3 +107,4 @@ Collate:
     'xPairsAsList.R'
     'lambda.R'
     'xMapMany.R'
+    'xMapf.R'

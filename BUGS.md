@@ -30,7 +30,9 @@
 
 - [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
 
-- [ ] #32 document splitwith
+- [ ] #32 document splitwith.
+
+- [ ] #33 implement a map vectorisation function.
 
 ### Done:
 
