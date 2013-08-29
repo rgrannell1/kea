@@ -108,3 +108,4 @@ Collate:
     'xZip.R'
     'xZipWith.R'
     'x_.R'
+    'xFlatten.R'

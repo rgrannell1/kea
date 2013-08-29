@@ -8,7 +8,6 @@
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
     incorrect types are allowed.
 - [ ] #25 check that functions that should return [A](0) do return such a value.
-- [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #29 make chars and other string methods generic to collecton type.
 - [ ] #30 should has defaults return names? list?
@@ -64,3 +63,5 @@ xConcatMap -> xFlatMap.
 Broken for certain primitives (c).
 - [x] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
 collections can be type indeterminate; should be runtime error, not a issue raised by x_()
+- [x] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
+Would hold up release.
