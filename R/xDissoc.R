@@ -19,7 +19,7 @@ xDissoc <- function (coll) {
 	# Named Collection any -> [[string, any]]
 
 	pcall <- sys.call()
-	require_a('named collection', coll, pcall)
+	require_a(c('named collection', 'length_zero collection'), coll, pcall)
 
 	if (length(coll) == 0) {
 		list()
