@@ -40,9 +40,9 @@ xMapMany <- function (fn, ...) {
 
 				tuple <- lapply(
 					colls,
-					function (elem) {
-						this_ind <- ( (ind-1) %% (length(elem)) )+1
-						elem[[this_ind]]
+					function (coll) {
+						this_ind <- ( (ind-1) %% (length(coll)) )+1
+						coll[[this_ind]]
 					}
 				)
 				do.call(fn, tuple)
