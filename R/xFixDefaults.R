@@ -24,7 +24,7 @@ xFixDefaults <- function (fn) {
 					as.symbol('fn'),
 					c(
 						lapply(
-							xParameters(fn)[!xHasDefaults(fn)],
+							xParams(fn)[!xHasDefaults(fn)],
 							as.symbol),
 						xFormals(fn)[xHasDefaults(fn)] )
 					)) 

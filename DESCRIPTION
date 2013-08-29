@@ -87,7 +87,7 @@ Collate:
     'xAsClosure.R'
     'xAsUnary.R'
     'xAsVariadic.R'
-    'xParameters.R'
+    'xParams.R'
     'xFixDefaults.R'
     'xVersion.R'
     'xPartial.R'

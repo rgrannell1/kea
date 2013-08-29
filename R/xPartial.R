@@ -25,7 +25,7 @@ xPartial <- function (fn, coll) {
 	fn <- match.fun(fn)
 	remove(pcall)
 
-	stopifnot( all(names(coll) %in% xParameters(fn)) )
+	stopifnot( all(names(coll) %in% xParams(fn)) )
 	stopifnot( length(unique(coll)) == length(coll) )
 
 	if (length(coll) == 0) {
@@ -34,7 +34,7 @@ xPartial <- function (fn, coll) {
 
 		do.call("function", list(
 			as.pairlist( xFormals(fn)[
-				!(xParameters(fn) %in% names(coll)) ] ),
+				!(xParams(fn) %in% names(coll)) ] ),
 			bquote({
 				# the fundemental unit of lisp-like 
 				# computation; LE PARENTHESIS!
@@ -43,7 +43,7 @@ xPartial <- function (fn, coll) {
 					as.call(c(
 						as.symbol('fn'),
 						lapply(
-							xParameters(fn),
+							xParams(fn),
 							function (param) {
 								if (param %in% names(coll)) {
 									coll[[param]]

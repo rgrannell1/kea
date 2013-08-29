@@ -1,5 +1,5 @@
 
-#' xParametres
+#' xParams
 #' 
 #' Get the parametre names of a function or primitive function.
 #'
@@ -15,9 +15,9 @@
 #' @examples 
 #' @export
 
-#| function: xParameters version: 0.1 finished: false 
+#| function: xParams version: 0.1 finished: false 
 
-xParameters <- function (fn) {
+xParams <- function (fn) {
 	# function -> Vector string
 	# get the formals of non-primitive functions, and
 	# the arguments of primitive functions.
@@ -42,4 +42,4 @@ xParameters <- function (fn) {
 
 #' @export
 
-xParametres <- xParameters
+xParams <- xParams

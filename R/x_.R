@@ -496,13 +496,9 @@ x_fn_proto <- local({
 			x_( xOver(reciever_(), fn2) )
 		}
 	# -------- P ------- #
-	this$xParameters <-
+	this$xParams <-
 		function () {
-			x_( xParameters(reciever_()) )
-		}
-	this$xParametres <-
-		function () {
-			x_( xParameters(reciever_()) )
+			x_( xParams(reciever_()) )
 		}
 	this$xPartial <- 
 		function (coll) {
