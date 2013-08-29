@@ -24,7 +24,7 @@ xUnzipWith <- function (fn, colls) {
 
 	pcall <- sys.call()	
 	require_a('functionable', fn, pcall)
-	require_a(c("list", "pairlist"), colls, pcall)
+	require_a("recursive", colls, pcall)
 
 	fn <- match.fun(fn)
 	colls <- as.list(colls)

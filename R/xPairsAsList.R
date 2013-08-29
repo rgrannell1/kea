@@ -19,10 +19,7 @@ xPairsAsList <- function (coll) {
 	# Collection Collection any -> list any
 
 	pcall <- sys.call()
-	require_a(c(
-		'list_of_length_two',
-		'pairlist_of_length_two'),
-		coll, pcall)
+	require_a('recursive_of_length_two', coll, pcall)
 
 	if (length(coll) == 0) {
 		list()

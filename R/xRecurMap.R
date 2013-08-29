@@ -22,7 +22,7 @@ xRecurMap <- function (fn, coll) {
 
 	pcall <- sys.call()
 	require_a("functionable", fn, pcall)
-	require_a(c("list", "pairlist"), coll, pcall)
+	require_a("recursive", coll, pcall)
 
 	fn <- match.fun(fn)
 	require_a("unary function", fn, pcall)

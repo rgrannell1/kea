@@ -1,6 +1,16 @@
 
-#' @param fn an arg
+#' xFixDefs
+#' 
+#' Fix function parametres with default arguments permanently.
 #'
+#' @param fn an arbitrary function.
+#'
+#' @return a function with arity equal or lesser than the arity of \code{fn}.
+#'
+#' @template glossary
+#'
+#' @examples 
+
 #' @export
 
 xFixDefs <- function (fn) {
@@ -27,7 +37,7 @@ xFixDefs <- function (fn) {
 							xParams(fn)[!xHasDefs(fn)],
 							as.symbol),
 						xFormals(fn)[xHasDefs(fn)] )
-					)) 
+				)) 
 			)
 		})
 	))
