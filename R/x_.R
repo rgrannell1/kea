@@ -32,25 +32,13 @@ x_coll_proto <- local({
 		function () {
 			x_( xChars(reciever_()) )
 		}
-	this$xFlatMap <-
-		function (fn) {
-			x_( xFlatMap(fn, reciever_()) )
-		}
 	this$xCollapse <-
 		function (delim) {
 			x_( xCollapse(delim, reciever_()) )
 		}
-	this$xPack <-
-		function () {
-			x_( xPack(reciever_()) )
-		}
 	this$xConst <-
 		function (val) {
 			x_( xConst(reciever_()) )
-		}
-	this$xPoll <-
-		function (fn) {
-			x_( xPoll(fn, reciever_()) )
 		}
 
 	# -------- D ------- #
@@ -58,7 +46,6 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xTmap(fn, reciever_()) )
 		}
-
 	this$xDrop <-
 		function (num) {
 			x_( xDrop(num, reciever_()) )
@@ -76,6 +63,10 @@ x_coll_proto <- local({
 	this$xFoldl <-
 		function (fn, init) {
 			x_( xFoldl(fn, init, reciever_()) )
+		}
+	this$xFlatMap <-
+		function (fn) {
+			x_( xFlatMap(fn, reciever_()) )
 		}
 	this$xFold <- this$xFoldl
 	this$xFoldr <-
@@ -181,6 +172,14 @@ x_coll_proto <- local({
 	this$xPairsAsList <-
 		function () {
 			xPairsAsList(reciever_())
+		}
+	this$xPack <-
+		function () {
+			x_( xPack(reciever_()) )
+		}
+	this$xPoll <-
+		function (fn) {
+			x_( xPoll(fn, reciever_()) )
 		}
 	this$xPartial <- 
 		function (fn) {
@@ -526,11 +525,6 @@ x_fn_proto <- local({
 			x_( xUnzipWith(reciever_(), colls) )
 		}
 	# -------- V ------- #
-	# -------- W ------- #
-	this$xWhile <-
-		function (fn, coll) {
-			x_( xWhile(reciever_(), fn, coll) )
-		}
 	this$xZipWith <-
 		function (...) {
 			x_( xZipWith(reciever_(), ...) )
@@ -538,6 +532,11 @@ x_fn_proto <- local({
 	this$xZip <- 
 		function (...) {
 			x_( xZip(reciever_(), ...) )
+		}
+	# -------- W ------- #
+	this$xWhile <-
+		function (fn, coll) {
+			x_( xWhile(reciever_(), fn, coll) )
 		}
 	this
 })
