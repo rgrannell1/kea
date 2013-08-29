@@ -3,7 +3,7 @@
 #' 
 #' Create a function that always returns the same value.
 #'
-#' @param val an arbitrary value.
+#' @param x an arbitrary value.
 #'
 #' @return a variadic function.
 #'
@@ -13,10 +13,10 @@
 #' @examples 
 #' @export
 
-xConst <- function (val) {
+xConst <- function (x) {
 	# return a function that closes over the variable x.
 	function (...) {
-		val
+		x
 	}
 }
 

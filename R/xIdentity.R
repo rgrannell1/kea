@@ -3,17 +3,17 @@
 #' 
 #' Return an argument without modification.
 #'
-#' @param val an arbitrary value.
+#' @param x an arbitrary value.
 #'
-#' @return returns \code{val}.
+#' @return returns \code{x}.
 #'
 #' @template glossary
 #'
 #' @examples 
 #' @export
 
-xIdentity <- function (val) {
-	val
+xIdentity <- function (x) {
+	x
 }
 
 #' @export

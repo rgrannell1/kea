@@ -37,7 +37,7 @@ x_coll_proto <- local({
 			x_( xCollapse(delim, reciever_()) )
 		}
 	this$xConst <-
-		function (val) {
+		function (x) {
 			x_( xConst(reciever_()) )
 		}
 
@@ -239,8 +239,8 @@ x_coll_proto <- local({
 			x_( xSplit(ith, reciever_()) )
 		}
 	this$xSplitStr <-
-		function (regexp) {
-			x_( xSplitStr(regexp, reciever_()) )
+		function (rexp) {
+			x_( xSplitStr(rexp, reciever_()) )
 		}
 	this$xSplitWith <-
 		function (pred) {
@@ -383,7 +383,7 @@ x_fn_proto <- local({
 			x_( xPoll(reciever_(), coll) )
 		}
 	this$xConst <-
-		function (val) {
+		function (x) {
 			x_( xConst(reciever_()) )
 		}
 	# -------- D ------- #
@@ -545,14 +545,14 @@ x_fn_proto <- local({
 
 #' @export
 
-x_ <- function (val) {
+x_ <- function (x) {
 	# Collection any -> Arrow any
 	# type constructor.
 
-	if ('arrow' %in% class(val)) {
-		val
+	if ('arrow' %in% class(x)) {
+		x
 	} else {
-		structure(list(x = val), class = 'arrow')
+		structure(list(x = x), class = 'arrow')
 	}
 }
 

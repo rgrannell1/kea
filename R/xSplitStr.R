@@ -3,7 +3,7 @@
 #' 
 #' Split a string into a character vector using a regular expression.
 #'
-#' @param regexp a regular expression.
+#' @param rexp a regular expression.
 #' @param str a string.
 #'
 #' @return a character vector.
@@ -17,17 +17,17 @@
 
 #| function: xSplitStr version: 0.1 finished: false 
 
-xSplitStr <- function (regexp, str) {
+xSplitStr <- function (rexp, str) {
 	# str -> str -> Vector str
-	# split a str into substrs at a regexp.
+	# split a str into substrs at a rexp.
 	
 	pcall <- sys.call()
-	require_a("string", regexp, pcall)
+	require_a("string", rexp, pcall)
 	require_a("string", str, pcall)
 
 	if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(str, regexp)[[1]]		
+		strsplit(str, rexp)[[1]]		
 	}		
 }
