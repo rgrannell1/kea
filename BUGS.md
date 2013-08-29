@@ -40,7 +40,7 @@
 - [x] #26 get does not work with xFixDefs. Figure out why.
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 - [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
-- [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xPairsAsList, 
+- [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc, 
 
 xSplitAt, xSplitStr, xSubStr, xRecurMap.
 xSplitAt -> xSplit. 
@@ -54,7 +54,7 @@ xFmap -> xPartMap.
 xParameters <- xParams
 xFixDefs -> xFixDefs.
 xHasDefs -> xHasDefs.
-xPairsAsList -> . 
+xAssoc -> . 
 xConcatMap -> xFlatMap.
 
 ### Won't Fix

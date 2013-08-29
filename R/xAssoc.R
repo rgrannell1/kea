@@ -1,5 +1,5 @@
 
-#' xPairsAsList
+#' xAssoc
 #' 
 #' Convert a list of name, value lists into a named list.
 #'
@@ -15,7 +15,7 @@
 #' @examples 
 #' @export
 
-xPairsAsList <- function (coll) {
+xAssoc <- function (coll) {
 	# Collection Collection any -> list any
 
 	pcall <- sys.call()

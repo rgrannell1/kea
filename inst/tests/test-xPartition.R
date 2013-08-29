@@ -9,7 +9,7 @@ test_that('xPartition', {
 
 	expect_that(
 		xPartition(Truth, list()),
-		equals( list(list(), list()) ))
+		equals( list() )
 
 	expect_that(
 		xPartition(Truth, list(1, 2, 3)),

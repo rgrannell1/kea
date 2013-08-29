@@ -9,7 +9,7 @@ test_that("xSplitWith", {
 
 	expect_that(
 		xSplitWith(Truth, list()), 
-		equals( list(list(), list()) ))
+		equals( list() ))
 	
 	expect_that(
 		xSplitWith(Truth, list(1,2,3)), 

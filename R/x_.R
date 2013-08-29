@@ -169,9 +169,9 @@ x_coll_proto <- local({
 		}
 	# -------- O ------- #
 	# -------- P ------- #
-	this$xPairsAsList <-
+	this$xAssoc <-
 		function () {
-			xPairsAsList(reciever_())
+			xAssoc(reciever_())
 		}
 	this$xPack <-
 		function () {

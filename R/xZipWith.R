@@ -34,12 +34,12 @@ xZipWith <- function (fn, ...) {
 		list()
 	} else {
 
-		do.call( Map, c(list(fn), 
+		unname(do.call( Map, c(list(fn), 
 			Map(
 				function (elem) {
 					head(elem, min_length)
 				},
 				coll
-		)) )
+		)) ))
 	}
 }

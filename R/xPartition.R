@@ -11,7 +11,7 @@
 #' a predicate returns false or na.
 #'
 #' @section Corner Cases:
-#'	 if \code{coll} is empty, a list of two empty lists is returned. If all the
+#'	 if \code{coll} is empty the empty list is returned. If all the
 #'	 elements return only true/only false, then one of two sublists will be the
 #'	 empty list.
 #' @template glossary
@@ -34,7 +34,7 @@ xPartition <- function (pred, coll) {
 	require_a("unary function", pred)
 
 	if (length(coll) == 0) {
-		list(list(), list())
+		list()
 	} else {
 		ind <- vapply(coll, pred, logical(1))
 		true_ind <- !is.na(ind) & ind

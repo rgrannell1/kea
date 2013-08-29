@@ -31,7 +31,7 @@ xSplitWith <- function (pred, coll) {
 
 	ith <- 1
 	if (length(coll) == 0) {
-		list(list(), list())
+		list()
 	} else {
 		list(
 			xTakeWhile(pred, coll),
