@@ -20,5 +20,9 @@ xUnchars <- function (strs) {
 	
 	require_a("character", strs, pcall)
 
-	paste0(strs, collapse = '')
+	if (length(strs) == 0) {
+		character(0)
+	} else {
+		paste0(strs, collapse = '')		
+	}
 }

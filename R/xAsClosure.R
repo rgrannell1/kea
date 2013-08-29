@@ -28,12 +28,12 @@ xAsClosure <- function (fn) {
 	fn <- match.fun(fn)
 
 	if (is.primitive(fn)) {
-	do.call("function", list(
-		as.pairlist(xFormals(fn)),
-		bquote({
-			.(call_with_params("fn", fn))
-		})
-	))
+		do.call("function", list(
+			as.pairlist(xFormals(fn)),
+			bquote({
+				.(call_with_params("fn", fn))
+			})
+		))
 	} else {
 		fn
 	}

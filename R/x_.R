@@ -42,9 +42,9 @@ x_coll_proto <- local({
 		}
 
 	# -------- D ------- #
-	this$xTmap <-
+	this$xRecurMap <-
 		function (fn) {
-			x_( xTmap(fn, reciever_()) )
+			x_( xRecurMap(fn, reciever_()) )
 		}
 	this$xDrop <-
 		function (num) {
@@ -387,9 +387,9 @@ x_fn_proto <- local({
 			x_( xConst(reciever_()) )
 		}
 	# -------- D ------- #
-	this$xTmap <-
+	this$xRecurMap <-
 		function (coll) {
-			x_( xTmap(reciever_(), coll) )
+			x_( xRecurMap(reciever_(), coll) )
 		}
 	this$xDropWhile <-
 		function (coll) {
@@ -460,9 +460,9 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xMapAlong(reciever_(), coll) )
 		}
-	this$xFmap <-
+	this$xPartMap <-
 		function () {
-			x_( xFmap(reciever_()) )
+			x_( xPartMap(reciever_()) )
 		}
 	this$xMapMany <-
 		function (...) {

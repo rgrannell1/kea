@@ -6,30 +6,11 @@
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
 - [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
-    incorrect types are allowed.
-- [ ] #25 check that functions that should return [A](0) do return such a value.
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
 - [ ] #28 implement autopartial, in a completely reliable way.
-- [ ] #29 make chars and other string methods generic to collecton type.
+- [ ] #29 make chars and other string methods generic to collection type.
 - [ ] #30 should has defaults return names? list?
-- [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
 - [ ] #33 implement flatten coll num.
-- [ ] #35 rename xCount, xFixDefs, xFmap, xHasDefs, xPairsAsList, 
-
-xSplitAt, xSplitStr, xSubStr, xTmap.
-xSplitAt -> xSplit. 
-xCount -> xPoll. 
-xPosition -> xLocate. 
-xCompress -> xPack.
-xSplitString -> xSplitStr. 
-xSubString -> xSubStr.
-xTmap -> . 
-xFmap -> . 
-xParameters <- xParams
-xFixDefs -> xFixDefs.
-xHasDefs -> xHasDefs.
-xPairsAsList -> . 
-xConcatMap -> xFlatMap.
 
 ### Done:
 
@@ -57,6 +38,24 @@ xConcatMap -> xFlatMap.
 - [x] #32 document splitwith.
 - [x] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 - [x] #26 get does not work with xFixDefs. Figure out why.
+- [ ] #25 check that functions that should return [A](0) do return such a value.
+- [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
+- [x] #35 rename xCount, xFixDefs, xPartMap, xHasDefs, xPairsAsList, 
+
+xSplitAt, xSplitStr, xSubStr, xRecurMap.
+xSplitAt -> xSplit. 
+xCount -> xPoll. 
+xPosition -> xLocate. 
+xCompress -> xPack.
+xSplitString -> xSplitStr. 
+xSubString -> xSubStr.
+xTMap -> xRecurMap. 
+xFmap -> xPartMap. 
+xParameters <- xParams
+xFixDefs -> xFixDefs.
+xHasDefs -> xHasDefs.
+xPairsAsList -> . 
+xConcatMap -> xFlatMap.
 
 ### Won't Fix
 

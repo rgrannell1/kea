@@ -7,9 +7,8 @@
 #' @param coll a collection.
 #'
 #' @section Corner Cases:
-#'	 if \code{coll} is length zero then logical(0) is returned.
-#'   If any values
-#'	 are na then \code{False} is returned. 
+#'	 if \code{coll} is length zero then True is returned.
+#'   If any values are na then \code{False} is returned. 
 #'
 #' @template glossary
 #'
