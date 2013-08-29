@@ -77,3 +77,6 @@ xConcatMap -> xFlatMap.
 - [x] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
 Broken for certain primitives (c).
 
+- [x] #34 "1: In if (nchar(deparse(x)) == 0) { :
+  the condition has length > 1 and only the first element will be used" is raised when x := { any } is called, 
+  possibly due to needy.

@@ -7,7 +7,7 @@ test_that('xAll', {
 		x %% 2 == 0
 	}
 
-	expect_equal(xAll(Truth, list()), True)
+	expect_equal(xAll(Truth, list()), logical(0))
 
 	expect_equal(xAll(Truth, 1:3), True)
 	expect_equal(xAll(Falsity, 1:3), False)

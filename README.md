@@ -119,7 +119,7 @@ This small program gets every parametre used in the R base library.
 x_(ls("package:base"))$  
 xMap(function (x) get(x))$
 xSelect(is.function)$
-xMap(xParametres)$
+xMap(xParams)$
 xReducel(union)$
 x()
 ```

@@ -11,7 +11,7 @@ test_that('xPartial', {
 		xPartial(Reduce, list(f = "+", right = TRUE))(1:10),
 		55)
 	expect_equal(
-		xParameters(xPartial( function (a, b, c){}, list(b =1) )),
+		xParams(xPartial( function (a, b, c){}, list(b =1) )),
 		c('a', 'c')
 	)
 
