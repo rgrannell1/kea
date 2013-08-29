@@ -37,8 +37,8 @@ xReducer <- function (fn, coll) {
 	} else {
 		ind <- length(coll) - 1
 		
-		init <- coll[[1]]
-		coll <- xRest(coll)
+		init <- coll[[ length(coll) ]]
+		coll <- xInit(coll)
 
 		while (ind > 0) {
 			init <- fn( coll[[ind]], init )
