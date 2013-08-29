@@ -18,7 +18,7 @@
 
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 
-- [] #26 get does not work with xFixDefaults. Figure out why.
+- [] #26 get does not work with xFixDefs. Figure out why.
 
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
 
@@ -34,7 +34,7 @@
 
 - [ ] #33 implement flatten coll num.
 
-- [ ] #34 rename xCount, xFixDefaults, xFmap, xHasDefaults, xPairsAsList, 
+- [ ] #34 rename xCount, xFixDefs, xFmap, xHasDefs, xPairsAsList, 
 
 xSplitAt, xSplitStr, xSubStr, xTmap.
 xSplitAt -> xSplit. 
@@ -46,8 +46,8 @@ xSubString -> xSubStr.
 xTmap -> . 
 xFmap -> . 
 xParameters <- xParams
-xFixDefaults -> .
-xHasDefaults -> .
+xFixDefs -> xFixDefs.
+xHasDefs -> xHasDefs.
 xPairsAsList -> . 
 xConcatMap -> xFlatMap.
 

@@ -1,5 +1,5 @@
 
-#' xHasDefaults
+#' xHasDefs
 #' 
 #' Return a boolean vector showing which parameters of a function has defaults.
 #'
@@ -16,9 +16,9 @@
 #' @examples 
 #' @export
 
-#| function: xHasDefaults version: 0.1 finished: false
+#| function: xHasDefs version: 0.1 finished: false
 
-xHasDefaults <- function (fn) {
+xHasDefs <- function (fn) {
 	# function -> named Vector boolean
 	# which of f's parameters have non-empty defaults?
 

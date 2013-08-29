@@ -3,7 +3,7 @@
 #'
 #' @export
 
-xFixDefaults <- function (fn) {
+xFixDefs <- function (fn) {
 	# function -> function
 	# returns a function with the default parameters
 	# fixed internally.
@@ -15,7 +15,7 @@ xFixDefaults <- function (fn) {
 	remove(pcall)
 
 	do.call("function", list(
-		as.pairlist( xFormals(fn)[!xHasDefaults(fn)] ),
+		as.pairlist( xFormals(fn)[!xHasDefs(fn)] ),
 		bquote({
 			# lisp-fans, rejoice!
 
@@ -24,9 +24,9 @@ xFixDefaults <- function (fn) {
 					as.symbol('fn'),
 					c(
 						lapply(
-							xParams(fn)[!xHasDefaults(fn)],
+							xParams(fn)[!xHasDefs(fn)],
 							as.symbol),
-						xFormals(fn)[xHasDefaults(fn)] )
+						xFormals(fn)[xHasDefs(fn)] )
 					)) 
 			)
 		})

@@ -398,9 +398,9 @@ x_fn_proto <- local({
 		}
 	# -------- E ------- #
 	# -------- F ------- #
-	this$xFixDefaults <-
+	this$xFixDefs <-
 		function () {
-			x_( xFixDefaults(reciever_()) )
+			x_( xFixDefs(reciever_()) )
 		}
 	this$xFlip <- 
 		function () {
@@ -420,9 +420,9 @@ x_fn_proto <- local({
 		}
 	# -------- G ------- #
 	# -------- H ------- #
-	this$xHasDefaults <-
+	this$xHasDefs <-
 		function () {
-			x_( xHasDefaults(reciever_()) )
+			x_( xHasDefs(reciever_()) )
 		}
 	# -------- I ------- #
 	this$xIdentity <-

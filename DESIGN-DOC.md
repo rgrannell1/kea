@@ -27,3 +27,5 @@ feature list;
 
 	- logical quantifiers and cartesian products.
 
+	- if a function is non-deterministic with respect to length,
+	return vector(0). If it fixed with respect to length, return a single value.
