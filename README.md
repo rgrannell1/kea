@@ -45,7 +45,7 @@ Refreshingly, it also means that your code won't use ```if(is.null(x))``` like
 full stops in an essay.
 
 ```javascript
-xSubString('alonzo-church', c(1:3, 5, 7))
+xSubStr('alonzo-church', c(1:3, 5, 7))
 'alonoc'
 ```
 

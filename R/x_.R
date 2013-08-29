@@ -239,9 +239,9 @@ x_coll_proto <- local({
 		function (ith) {
 			x_( xSplit(ith, reciever_()) )
 		}
-	this$xSplitString <-
+	this$xSplitStr <-
 		function (regexp) {
-			x_( xSplitString(regexp, reciever_()) )
+			x_( xSplitStr(regexp, reciever_()) )
 		}
 	this$xSplitWith <-
 		function (pred) {
@@ -249,9 +249,9 @@ x_coll_proto <- local({
 		}
 	this$xSprime <- 
 		this$xConst
-	this$xSubString <-
+	this$xSubStr <-
 		function (str) {
-			x_( xSubString(str, reciever_()) )
+			x_( xSubStr(str, reciever_()) )
 		}
 	this$xSucc <-
 		function () {
