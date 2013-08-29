@@ -1,15 +1,15 @@
 
-context("xConcatMap")
+context("xFlatMap")
 
-test_that("xConcatMap", {
+test_that("xFlatMap", {
 
 	expect_that(
-		xConcatMap(identity, list()),
+		xFlatMap(identity, list()),
 		equals(list())
 	)
 
 	expect_that(
-		xConcatMap(function (x) list(x+1), 1:3),
+		xFlatMap(function (x) list(x+1), 1:3),
 		equals(list(2, 3, 4))
 	)
 })

@@ -20,7 +20,7 @@
 
 xMap <- function (fn, coll) {
 	# (any -> any) -> Collection any -> [any]
-	# map a unary function over a listy x.
+	# map a unary function over a collection x.
 
 	pcall <- sys.call()
 	require_a("functionable", fn, pcall)

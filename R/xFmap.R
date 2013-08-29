@@ -16,12 +16,5 @@
 #' @export
 
 xFmap <- function (fn) {
-	function (x) {
-		if (length(x) == 0) {
-			list()
-		} else {
-			xMap(fn, x)
-		}
-	}
+	function (x) xMap(fn, x)
 }
-

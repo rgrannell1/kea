@@ -32,25 +32,25 @@ x_coll_proto <- local({
 		function () {
 			x_( xChars(reciever_()) )
 		}
-	this$xConcatMap <-
+	this$xFlatMap <-
 		function (fn) {
-			x_( xConcatMap(fn, reciever_()) )
+			x_( xFlatMap(fn, reciever_()) )
 		}
 	this$xCollapse <-
 		function (delim) {
 			x_( xCollapse(delim, reciever_()) )
 		}
-	this$xCompress <-
+	this$xPack <-
 		function () {
-			x_( xCompress(reciever_()) )
+			x_( xPack(reciever_()) )
 		}
 	this$xConst <-
 		function (val) {
 			x_( xConst(reciever_()) )
 		}
-	this$xCount <-
+	this$xPoll <-
 		function (fn) {
-			x_( xCount(fn, reciever_()) )
+			x_( xPoll(fn, reciever_()) )
 		}
 
 	# -------- D ------- #
@@ -130,6 +130,17 @@ x_coll_proto <- local({
 		function () {
 			x_( xLines(reciever_()) )
 		}
+
+	this$xLocatel <-
+		function (fn) {
+			x_( xLocatel(fn, reciever_()) )
+		}
+	this$xLocate <-
+		this$xLocatel
+	this$xLocater <-
+		function (fn) {
+			x_( xLocater(fn, reciever_()) )
+		}
 	# -------- M ------- #
 	this$xMap <-
 		function (fn) {
@@ -179,14 +190,6 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xPartition(fn, reciever_()) )
 		}
-	this$xPositionl <-
-		function (fn) {
-			x_( xPositionl(fn, reciever_()) )
-		}
-	this$xPositionr <-
-		function (fn) {
-			x_( xPositionr(fn, reciever_()) )
-		}
 	this$xPred <-
 		function () {
 			x_( xPred(reciever_()) )
@@ -232,9 +235,9 @@ x_coll_proto <- local({
 		function () {
 			x_( xSignum(reciever_()) )
 		}
-	this$xSplitAt <-
+	this$xSplit <-
 		function (ith) {
-			x_( xSplitAt(ith, reciever_()) )
+			x_( xSplit(ith, reciever_()) )
 		}
 	this$xSplitString <-
 		function (regexp) {
@@ -372,13 +375,13 @@ x_fn_proto <- local({
 			x_( xBy(reciever_(), fn2) )
 		}
 	# -------- C ------- #
-	this$xConcatMap <-
+	this$xFlatMap <-
 		function (coll) {
-			x_( xConcatMap(reciever_(), coll) )
+			x_( xFlatMap(reciever_(), coll) )
 		}
-	this$xCount <-
+	this$xPoll <-
 		function (coll) {
-			x_( xCount(reciever_(), coll) )
+			x_( xPoll(reciever_(), coll) )
 		}
 	this$xConst <-
 		function (val) {
@@ -439,6 +442,16 @@ x_fn_proto <- local({
 	this$xKestrel <-
 		this$xConst
 	# -------- L ------- #
+	this$xLocatel <-
+		function (coll) {
+			x_( xLocatel(reciever_(), coll) )
+		}
+	this$xLocate <-
+		this$xLocatel
+	this$xLocater <-
+		function (coll) {
+			x_( xLocater(reciever_(), coll) )
+		}
 	# -------- M ------- #
 	this$xMap <-
 		function (coll) {
@@ -450,7 +463,7 @@ x_fn_proto <- local({
 		}
 	this$xFmap <-
 		function () {
-			x_( xFmap(reciever_(), coll) )
+			x_( xFmap(reciever_()) )
 		}
 	this$xMapMany <-
 		function (...) {

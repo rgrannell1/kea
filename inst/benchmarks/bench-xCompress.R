@@ -1,2 +1,2 @@
 
-bench$xCompress <- xCompress
+bench$xPack <- xPack

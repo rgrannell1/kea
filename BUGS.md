@@ -32,6 +32,22 @@
 
 - [ ] #32 document splitwith.
 
+- [ ] #33 implement flatten coll num.
+
+- [ ] #34 rename xCount, xFixDefaults, xFmap, xHasDefaults, xPairsAsList, 
+
+xSplitAt, xSplitString, xSubString, xTmap.
+xSplitAt -> xSplit. 
+xCount -> xPoll. 
+xPosition -> xLocate. 
+xCompress -> xPack.
+xSplitString -> . 
+xSubString -> .
+xTmap -> . 
+xFmap -> . 
+xFixDefaults -> . xHasDefaults -> .
+xPairsAsList -> . 
+xConcatMap -> xFlatMap.
 
 ### Done:
 
