@@ -26,6 +26,10 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xApply(fn, reciever_()) )
 		}
+	this$xAssoc <-
+		function () {
+			x_( xAssoc(reciever_()) )
+		}
 	# -------- B ------- #
 	# -------- C ------- #
 	this$xChars <-
@@ -42,9 +46,9 @@ x_coll_proto <- local({
 		}
 
 	# -------- D ------- #
-	this$xRecurMap <-
-		function (fn) {
-			x_( xRecurMap(fn, reciever_()) )
+	this$xDissoc <-
+		function () {
+			x_( xAssoc(reciever_()) )
 		}
 	this$xDrop <-
 		function (num) {
@@ -169,10 +173,6 @@ x_coll_proto <- local({
 		}
 	# -------- O ------- #
 	# -------- P ------- #
-	this$xAssoc <-
-		function () {
-			xAssoc(reciever_())
-		}
 	this$xPack <-
 		function () {
 			x_( xPack(reciever_()) )
@@ -195,6 +195,10 @@ x_coll_proto <- local({
 		}
 	# -------- Q ------- #
 	# -------- R ------- #
+	this$xRecurMap <-
+		function (fn) {
+			x_( xRecurMap(fn, reciever_()) )
+		}
 	this$xReducel <-
 		function (fn) {
 			x_( xReducel(fn, reciever_()) )
@@ -246,7 +250,7 @@ x_coll_proto <- local({
 		function (pred) {
 			x_( xSplitWith(pred, reciever_()) )
 		}
-	this$xSprime <- 
+	this$xS. <- 
 		this$xConst
 	this$xSubStr <-
 		function (str) {
@@ -374,14 +378,6 @@ x_fn_proto <- local({
 			x_( xBy(reciever_(), fn2) )
 		}
 	# -------- C ------- #
-	this$xFlatMap <-
-		function (coll) {
-			x_( xFlatMap(reciever_(), coll) )
-		}
-	this$xPoll <-
-		function (coll) {
-			x_( xPoll(reciever_(), coll) )
-		}
 	this$xConst <-
 		function (x) {
 			x_( xConst(reciever_()) )
@@ -404,6 +400,10 @@ x_fn_proto <- local({
 	this$xFlip <- 
 		function () {
 			x_( xFlip(reciever_()) )
+		}
+	this$xFlatMap <-
+		function (coll) {
+			x_( xFlatMap(reciever_(), coll) )
 		}
 	this$xFoldl <-
 		function (init, coll) {
@@ -460,10 +460,6 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xMapAlong(reciever_(), coll) )
 		}
-	this$xPartMap <-
-		function () {
-			x_( xPartMap(reciever_()) )
-		}
 	this$xMapMany <-
 		function (...) {
 			x_( xMapMany(reciever_(), ...) )
@@ -499,9 +495,17 @@ x_fn_proto <- local({
 		function () {
 			x_( xParams(reciever_()) )
 		}
+	this$xPartMap <-
+		function () {
+			x_( xPartMap(reciever_()) )
+		}
 	this$xPartial <- 
 		function (coll) {
 			x_( xPartial(reciever_(), coll) )
+		}
+	this$xPoll <-
+		function (coll) {
+			x_( xPoll(reciever_(), coll) )
 		}
 	this$xPlus <-
 		function (fn2) {
@@ -512,7 +516,7 @@ x_fn_proto <- local({
 	# -------- Q ------- #
 	# -------- R ------- #
 	# -------- S ------- #
-	this$xSprime <-
+	this$xS. <-
 		this$xKestrel
 	# -------- T ------- #
 	# -------- U ------- #

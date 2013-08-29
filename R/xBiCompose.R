@@ -42,4 +42,4 @@ xPhoenix <- xBiCompose
 
 #' @export
 
-xSprime <- xPhoenix
+xS. <- xPhoenix
