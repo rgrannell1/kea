@@ -8,7 +8,7 @@ test_that('xPartial', {
 		6
 	)
 	expect_equal(
-		xPartial(Reduce, list(f = "+", right = TRUE))(1:10),
+		xPartial(Reduce, list(f = "+", right = True))(1:10),
 		55)
 	expect_equal(
 		xParams(xPartial( function (a, b, c){}, list(b =1) )),

@@ -31,7 +31,7 @@ xPairsAsList <- function (coll) {
 				stopifnot(is.character(key) && length(key) == 1)
 				key
 			},
-			'string!')
+			character(1))
 
 		structure(
 			Map( function (elem) elem[[2]], coll ),

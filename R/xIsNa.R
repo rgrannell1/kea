@@ -21,7 +21,7 @@ xIsNa <- function (coll) {
 	pcall <- sys.call()
 	require_a("collection", coll, pcall)
 
-	unname(vapply(coll, function (x) {
-		identical(x, NA)
-	}, TRUE))
+	vapply(coll, function (x) {
+		identical(x, Na)
+	}, logical(1), USE.NAMES = False)
 }

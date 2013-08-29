@@ -34,6 +34,6 @@ xHasDefs <- function (fn) {
 			function (param) {
 				!identical(param, quote(expr=))
 			},
-			True)		
+			logical(1))		
 	}
 }

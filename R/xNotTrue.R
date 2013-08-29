@@ -26,8 +26,8 @@ xNotTrue <- function (coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		unname(vapply(coll, function (x) {
+		vapply(coll, function (x) {
 			!identical(x, True)
-		}, True))		
+		}, logical(1), USE.NAMES = False)		
 	}
 }

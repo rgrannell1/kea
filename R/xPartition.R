@@ -36,7 +36,7 @@ xPartition <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list(list(), list())
 	} else {
-		ind <- vapply(coll, pred, True)
+		ind <- vapply(coll, pred, logical(1))
 		true_ind <- !is.na(ind) & ind
 				
 		list(

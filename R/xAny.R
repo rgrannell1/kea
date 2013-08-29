@@ -29,7 +29,7 @@ xAny <- function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		is_match <- vapply(coll, pred, True)
+		is_match <- vapply(coll, pred, logical(1))
 
 		if ( all(is.na(is_match)) ) {
 			False
