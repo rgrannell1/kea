@@ -1,7 +1,7 @@
 
 #' xConst
 #' 
-#' Create a function that always returns the same value.
+#' Create a function that returns a particular value.
 #'
 #' @param x an arbitrary value.
 #'

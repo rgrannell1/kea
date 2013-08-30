@@ -1,16 +1,36 @@
 
-### Todo:
+Issue Tracker
+=========================================
+
+### Features:
+
+- [ ] #33 implement flatten coll num.
+- [ ] #28 implement autopartial, in a completely reliable way.
+- [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines.
+- [ ] #36 implement sleep.
+- [ ] #37 implement limit, once.
+- [ ] #38 implement timer.
+- [ ] #39 implement cartesian product, and xExists.
+- [ ] #40 impleent shuffle.
+- [ ] #41 implement insertby.
+- [ ] #42 implement xForall.
+- [ ] #43 implement groupby.
+- [ ] #44 implement countby.
+
+### Improvements:
+
+- [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
+- [ ] #29 make chars and other string methods generic to collection type.
+- [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
+- [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
+
+### Bugs:
 
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
 - [ ] #9 several benchmarks will throw errors; for example xArity has type function -> int, but it will be given a collection. This needs to be fixed eventually.
-- [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
-- [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
-- [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
-- [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines for version 0.1.
-- [ ] #28 implement autopartial, in a completely reliable way.
-- [ ] #29 make chars and other string methods generic to collection type.
 - [ ] #30 should has defaults return names? list?
-- [ ] #33 implement flatten coll num.
+
+### Misc:
 
 ### Done:
 
@@ -41,21 +61,6 @@
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 - [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
 - [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc, 
-
-xSplitAt, xSplitStr, xSubStr, xRecurMap.
-xSplitAt -> xSplit. 
-xCount -> xPoll. 
-xPosition -> xLocate. 
-xCompress -> xPack.
-xSplitString -> xSplitStr. 
-xSubString -> xSubStr.
-xTMap -> xRecurMap. 
-xFmap -> xPartMap. 
-xParameters <- xParams
-xFixDefs -> xFixDefs.
-xHasDefs -> xHasDefs.
-xAssoc -> . 
-xConcatMap -> xFlatMap.
 
 ### Won't Fix
 

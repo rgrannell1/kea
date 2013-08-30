@@ -579,17 +579,12 @@ x_ <- function (x) {
 		}
 
 	if ( !(method_name %in% ls(proto_ref)) ) {
-
-		say$method_not_found(
-			pcall,
-			list(
-				x = obj[['x']],
-				method = method_name))
+		stop('method not found')
 	} else {
 		fn <- proto_ref[[method_name]]
 
 		environment(fn)[['reciever_']] <- 
 			function () obj[['x']]
-		fn		
+		fn
 	}
 }

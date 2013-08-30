@@ -16,7 +16,7 @@
 #' @export
 
 xAssoc <- function (coll) {
-	# Collection Collection any -> list any
+	# Collection Collection any -> [any]
 
 	pcall <- sys.call()
 	require_a('recursive_of_length_two', coll, pcall)
