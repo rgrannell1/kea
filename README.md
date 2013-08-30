@@ -165,9 +165,10 @@ In fact combinators are so powerful that the ```xI``` (identity), ```xK```
 x_(1:100)$
 xSelect( xOr(
     # two uncommon properties
-    function (n) n^2 == 2^n,
-    function (n) n*2 == n*n
-) )
+    n := {n^2 == 2^n},
+    n := {n*2 == n*n}
+))
+[1] 2 4
 
 xMod( function (n) n^2, xK(6) )(1:4)
 [1] 1 4 3 4
