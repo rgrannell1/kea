@@ -113,3 +113,4 @@ Collate:
     'xTimer.R'
     'xExists.R'
     'xForall.R'
+    'xSetProd.R'

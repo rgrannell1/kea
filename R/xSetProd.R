@@ -1,0 +1,56 @@
+
+#' xSetProd
+#' 
+#' Get the cartesian product of several collections.
+#'
+#' @param ... n collections.
+#'
+#' @return a list of n-element lists.
+#'
+#' @section Corner Cases: 
+#'     returns the empty list if \code{coll is length-zero}.
+#' @template glossary
+#'
+#' @examples 
+#' @export
+
+xSetProd <- function (...) {
+	# set the cartesian product of n collections
+
+	pcall <- sys.call()
+	colls <- list(...)
+
+	require_a('list_of_collection', colls, pcall)
+
+	coll_lengths <- sapply(colls, length)
+
+	if (length(colls) == 0 || min(coll_lengths) == 0) {
+		list()
+	} else {
+		modulo_iths <- function (n, mods) {
+			if (n > prod(mods)) {
+				stop("out of bounds")
+			} else {
+				as.numeric(arrayInd(n, .dim = mods))
+			}
+		}
+
+		tuples <- vector(mode = "list", prod(coll_lengths))
+
+		ith <- 1
+		while (ith <= prod(coll_lengths)) {
+
+			indices <- modulo_iths(ith, coll_lengths)
+
+			tuples[[ith]] <- Map(
+				function (coll_ith) {
+					choice <- indices[coll_ith]
+					colls[[coll_ith]][[choice]]
+				},
+				seq_along(colls)
+			)
+			ith <- ith + 1
+		}
+		tuples
+	}
+}

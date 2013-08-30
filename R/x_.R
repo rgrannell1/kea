@@ -238,6 +238,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xSecond(reciever_()) )
 		}
+	this$xSetProd <-
+		function (...) {
+			x_( xSetProd(reciever_(), ...) )
+		}
 	this$xSegment <- 
 		function (num) {
 			x_( xSegment(num, reciever_()) )

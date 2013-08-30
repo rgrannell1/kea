@@ -23,7 +23,6 @@ xExists <- function (pred, ...) {
 	require_a("functionable", pred, pcall)
 
 	pred <- match.fun(pred)
-
 	colls <- list(...)
 
 	require_a("list_of_collection", colls, pcall)
