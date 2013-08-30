@@ -100,7 +100,7 @@ even then their mathematical underpinnings are masked [2].
 # a polynomial equation
 
 f <- x := {
-    2*x^2 * 3*x + 
+    2*x^2 * 3*x + 10
 }
 g <- x := {
     x^2 + 2*x
@@ -190,6 +190,26 @@ xMod( function (n) n^2, xK(6) )(1:4)
 Of course, this is a less likely use of combinators than defining
 your own control structures for functions. Arrow particularily emphasises 
 arithmetic on functions, with several functions with short names added for that purpose.
+
+#### 2.7 Existential Quantifiers
+
+
+
+```
+xForall(
+    x := {
+        xExists(
+            y := {
+                x * y == y
+            },
+            1:1000
+        )
+    },
+    1:1000
+)
+```
+
+
 
 ## 3 Footnotes
 
