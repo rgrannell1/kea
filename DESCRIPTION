@@ -110,3 +110,4 @@ Collate:
     'x_.R'
     'xFlatten.R'
     'xWait.R'
+    'xTimer.R'

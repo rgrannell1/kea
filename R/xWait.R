@@ -19,7 +19,7 @@ xWait <- function (fn, num) {
 
 	pcall <- sys.call()
 	require_a("functionable", fn, pcall)
-	require_a("positive double", "positive integer", num, pcall)
+	require_a(c("positive double", "positive integer"), num, pcall)
 
 	fn <- match.fun(fn)
 	remove(pcall)
