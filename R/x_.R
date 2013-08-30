@@ -72,6 +72,10 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xFlatMap(fn, reciever_()) )
 		}
+	this$xFlatten <-
+		function (num) {
+			x_( xFlatten(fn, reciever_()) )
+		}
 	this$xFold <- this$xFoldl
 	this$xFoldr <-
 		function (fn, init) {

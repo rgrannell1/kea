@@ -18,7 +18,6 @@ Suggests:
 Collate:
     'aliases.R'
     'lambda.R'
-    'say.R'
     'xAll.R'
     'xAnd.R'
     'xAny.R'
@@ -107,5 +106,10 @@ Collate:
     'xWords.R'
     'xZip.R'
     'xZipWith.R'
+<<<<<<< HEAD
     'xDissoc.R'
     'x_.R'
+=======
+    'x_.R'
+    'xFlatten.R'
+>>>>>>> feat-xFlatten
