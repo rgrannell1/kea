@@ -194,14 +194,11 @@ arithmetic on functions, with several functions with short names added for that 
 #### 2.7 Existential Quantifiers
 
 
-
-```
+```javascript
 xForall(
     x := {
         xExists(
-            y := {
-                x * y == y
-            },
+            y := {x * y == y},
             1:1000
         )
     },
