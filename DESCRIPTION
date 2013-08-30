@@ -111,3 +111,4 @@ Collate:
     'xFlatten.R'
     'xWait.R'
     'xTimer.R'
+    'xExists.R'

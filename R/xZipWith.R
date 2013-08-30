@@ -27,8 +27,8 @@ xZipWith <- function (fn, ...) {
 
 	stopifnot( xArity(fn) %in% c(length(coll), +Inf) )
 	
-	xs_lengths <- sapply(coll, length)
-	min_length <- min(xs_lengths)
+	coll_lengths <- sapply(coll, length)
+	min_length <- min(coll_lengths)
 
 	if (length(coll) == 0 || min_length == 0) {
 		list()

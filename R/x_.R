@@ -59,6 +59,10 @@ x_coll_proto <- local({
 			x_( xDropWhile(fn, reciever_()) )
 		}
 	# -------- E ------- #
+	this$xExists <-
+		function (pred, ...) {
+			x_( xExists(pred, reciever_(), ...) )
+		}
 	# -------- F ------- #
 	this$xFirst <-
 		function () {
@@ -400,6 +404,10 @@ x_fn_proto <- local({
 			x_( xDropWhile(reciever_(), coll) )
 		}
 	# -------- E ------- #
+	this$xExists <-
+		function (...) {
+			x_( xExists(reciever_(), ...) )
+		}
 	# -------- F ------- #
 	this$xFixDefs <-
 		function () {
