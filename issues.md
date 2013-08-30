@@ -4,7 +4,6 @@ Issue Tracker
 
 ### Features:
 
-- [ ] #33 implement flatten coll num.
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines.
 - [ ] #36 implement sleep.
@@ -62,9 +61,10 @@ Issue Tracker
 - [x] #32 document splitwith.
 - [x] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 - [x] #26 get does not work with xFixDefs. Figure out why.
-- [ ] #25 check that functions that should return [A](0) do return such a value.
-- [ ] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
+- [x] #25 check that functions that should return [A](0) do return such a value.
+- [x] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
 - [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc, 
+- [x] #33 implement flatten coll num.
 
 ### Won't Fix
 

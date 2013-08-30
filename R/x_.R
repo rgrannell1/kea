@@ -542,6 +542,10 @@ x_fn_proto <- local({
 			x_( xZip(reciever_(), ...) )
 		}
 	# -------- W ------- #
+	this$xWait <-
+		function (num) {
+			x_( xWait(reciever_(), num) )
+		}
 	this$xWhile <-
 		function (fn, coll) {
 			x_( xWhile(reciever_(), fn, coll) )

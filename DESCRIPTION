@@ -106,10 +106,7 @@ Collate:
     'xWords.R'
     'xZip.R'
     'xZipWith.R'
-<<<<<<< HEAD
     'xDissoc.R'
     'x_.R'
-=======
-    'x_.R'
     'xFlatten.R'
->>>>>>> feat-xFlatten
+    'xWait.R'

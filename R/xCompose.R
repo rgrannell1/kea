@@ -29,7 +29,6 @@ xCompose <- function (fn1, fn2) {
 	# more poweful than \f.\g.\x.fgx
 	
 	pcall <- sys.call()
-	pframe <- parent.frame()
 
 	require_a("functionable", fn1, pcall)
 	require_a("functionable", fn2, pcall)
@@ -37,7 +36,7 @@ xCompose <- function (fn1, fn2) {
 	fn1 <- match.fun(fn1)
 	fn2 <- match.fun(fn2)
 		
-	remove(pcall, pframe)
+	remove(pcall)
 
 	do.call("function", list(
 		formals(fn2),
