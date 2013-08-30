@@ -6,7 +6,6 @@ Issue Tracker
 
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines.
-- [ ] #36 implement sleep.
 - [ ] #37 implement limit, once.
 - [ ] #38 implement timer.
 - [ ] #39 implement cartesian product, and xExists.
@@ -65,6 +64,7 @@ Issue Tracker
 - [x] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
 - [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc, 
 - [x] #33 implement flatten coll num.
+- [x] #36 implement sleep.
 
 ### Won't Fix
 
