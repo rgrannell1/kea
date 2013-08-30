@@ -80,6 +80,10 @@ x_coll_proto <- local({
 		function (num) {
 			x_( xFlatten(fn, reciever_()) )
 		}
+	this$xForall <-
+		function (pred, ...) {
+			xForall(pred, reciever_(), ...)
+		}
 	this$xFold <- this$xFoldl
 	this$xFoldr <-
 		function (fn, init) {
@@ -424,6 +428,10 @@ x_fn_proto <- local({
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(reciever_(), init, coll) )
+		}
+	this$xForall <-
+		function (...) {
+			xForall(reciever_(), ...)
 		}
 	this$xFold <- this$xFoldl
 	this$xFoldr <-

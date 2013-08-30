@@ -112,3 +112,4 @@ Collate:
     'xWait.R'
     'xTimer.R'
     'xExists.R'
+    'xForall.R'
