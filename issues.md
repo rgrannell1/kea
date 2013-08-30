@@ -7,7 +7,6 @@ Issue Tracker
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines.
 - [ ] #37 implement limit, once.
-- [ ] #38 implement timer.
 - [ ] #39 implement cartesian product, and xExists.
 - [ ] #40 impleent shuffle.
 - [ ] #41 implement insertby.
@@ -65,6 +64,7 @@ Issue Tracker
 - [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc, 
 - [x] #33 implement flatten coll num.
 - [x] #36 implement sleep.
+- [x] #38 implement timer.
 
 ### Won't Fix
 
