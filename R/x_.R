@@ -386,6 +386,10 @@ x_fn_proto <- local({
 		function (x) {
 			x_( xConst(reciever_()) )
 		}
+	this$xCompose <- 
+		function (fn1) {
+			x_( xCompose(fn1, reciever_()) )
+		}
 	# -------- D ------- #
 	this$xRecurMap <-
 		function (coll) {
@@ -413,6 +417,7 @@ x_fn_proto <- local({
 		function (init, coll) {
 			x_( xFoldl(reciever_(), init, coll) )
 		}
+	this$xFold <- this$xFoldl
 	this$xFoldr <-
 		function (init, coll) {
 			x_( xFoldr(reciever_(), init, coll) )
@@ -444,6 +449,8 @@ x_fn_proto <- local({
 	# -------- K ------- #
 	this$xKestrel <-
 		this$xConst
+	this$xK <-
+		this$xKestrel
 	# -------- L ------- #
 	this$xLocatel <-
 		function (coll) {
@@ -495,6 +502,10 @@ x_fn_proto <- local({
 			x_( xOver(reciever_(), fn2) )
 		}
 	# -------- P ------- #
+	this$xPartition <-
+		function (coll) {
+			x_( xPartition(reciever_(), coll) )
+		}
 	this$xParams <-
 		function () {
 			x_( xParams(reciever_()) )
@@ -515,14 +526,46 @@ x_fn_proto <- local({
 		function (fn2) {
 			x_( xPlus(reciever_(), fn2) )
 		}
+	this$xPhoenix <-
+		this$xBiCompose
 	this$xPhi <- 
 		this$xBiCompose
 	# -------- Q ------- #
 	# -------- R ------- #
+	this$xReducel <-
+		function (coll) {
+			x_( xReducel(reciever_(), coll) )
+		}
+	this$xReduce <- 
+		this$xReducel
+	this$xReducer <-
+		function (coll) {
+			x_( xReducer(reciever_(), coll) )
+		}
+	this$xReject <-
+		function (coll) {
+			x_( xReject(reciever_(), coll) ) 
+		}
 	# -------- S ------- #
+	this$xSelect <-
+		function (coll) {
+			x_( xSelect(reciever_(), coll) ) 
+		}	
+	this$xScanl <-
+		function (init, coll) {
+			x_( xScanl(reciever_(), init, coll) )
+		}
+	this$xSplitWith <-
+		function (coll) {
+			x_( xSplitWith(reciever_(), coll) )
+		}
 	this$xS. <-
 		this$xKestrel
 	# -------- T ------- #
+	this$xTakeWhile <-
+		function (coll) {
+			x_( xTakeWhile(reciever_(), coll) )
+		}
 	# -------- U ------- #
 	this$xUntil <-
 		function (fn, coll) {

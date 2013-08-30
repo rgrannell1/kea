@@ -20,6 +20,7 @@ Issue Tracker
 - [ ] #29 make chars and other string methods generic to collection type.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
+- [ ] #45 check all x methods are implemented.
 
 ### Bugs:
 
