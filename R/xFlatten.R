@@ -33,8 +33,8 @@ xFlatten <- function (num, coll) {
 
 			if (!is.recursive(xs)) {
 				xs
-			} else if (depth == num) {
-				unlist(xs)
+			} else if (depth == num - 1) {
+				as.list(unlist(xs))
 			} else {
 				lapply(xs, function (x) recur(depth + 1, x))
 			}
