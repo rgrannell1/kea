@@ -27,7 +27,11 @@ xNotNa <- function (coll) {
 		logical(0)
 	} else {
 		vapply(coll, function (x) {
-			!identical(x, Na)
+			!identical(x, NA) &&
+			!identical(x, NA_integer_) &&
+			!identical(x, NA_real_) &&
+			!identical(x, NA_character_) &&
+			!identical(x, NA_complex_)
 		}, logical(1), USE.NAMES = False)		
 	}
 }

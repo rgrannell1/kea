@@ -22,6 +22,11 @@ xIsNa <- function (coll) {
 	require_a("collection", coll, pcall)
 
 	vapply(coll, function (x) {
-		identical(x, Na)
+		identical(x, NA) ||
+		identical(x, NA_integer_) ||
+		identical(x, NA_real_) ||
+		identical(x, NA_character_) ||
+		identical(x, NA_complex_)
+
 	}, logical(1), USE.NAMES = False)
 }
