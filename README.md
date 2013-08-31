@@ -1,8 +1,11 @@
 Arrow v0.1
 -----------------------------------
 
-**Arrow** is a functional framework (inspired by Haskell, Clojure and JS), 
-that adds dozens of higher-order functions and utility functions to the R language.
+**Arrow** is a functional programming framework that adds partial application, 
+jQuery-like method calling, function composition, 
+and nearly one-hundred higher-order functions and utility functions to the R language.
+Arrow helps make R an elegant functional language with an emphasis on the composition
+of simple functions to create complex, expressive programs.
 
 ## 1 Installation
 
