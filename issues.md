@@ -10,12 +10,10 @@ Issue Tracker
 - [ ] #39 implement cartesian product, and xExists.
 - [ ] #40 impleent shuffle.
 - [ ] #41 implement insertby.
-- [ ] #42 implement xForall.
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
 - [ ] #47 implement pickone, sample/
 - [ ] #48 implement Juxtapose
-- [ ] #49 implement xNames; name a list.
 - [ ] #50 implement xSwap; wrap a function in a function 
 that swaps certain output values for others.
 
@@ -75,6 +73,8 @@ that swaps certain output values for others.
 - [x] #33 implement flatten coll num.
 - [x] #36 implement sleep.
 - [x] #38 implement timer.
+- [x] #42 implement xForall.
+- [x] #49 implement xNames; name a list.
 
 ### Won't Fix
 
