@@ -160,6 +160,8 @@ test_framework <- package := {
 	xSplitStr(", ")$
 	x()
 
+	print(linked)
+
 	intersect(linked, c('testthat', 'RUnit', 'assertive', 'needy'))
 }
 

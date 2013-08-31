@@ -15,6 +15,7 @@
 #' @export
 
 xName <- function (strs, coll) {
+	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 
 	pcall <- sys.call()
@@ -26,6 +27,7 @@ xName <- function (strs, coll) {
 	} else {
 
 		strs <- unlist(strs)
+		require_a("character", strs)
 
 		names(coll) <- strs
 		as.list(coll)
