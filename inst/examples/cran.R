@@ -7,6 +7,8 @@ opts <- list(
 		'/home/rgrannell1/Desktop/packages'
 )
 
+#------------------ CRAN data.
+
 cran_mirror <- ( function () {
 	# return a function that returns a random cran mirror.
 
@@ -36,7 +38,7 @@ cran_data <- xZipWith(
 	cran_raw_data[,'LinkingTo']
 )
 
-## functions used below.
+#------------------ Accessory functions used below.
 
 select_field <- field := {
 
@@ -50,10 +52,9 @@ select_field <- field := {
 grab_package <- package := {
 	# download each package as a tarball.
 
-	try(install.packages(
+	try(download.packages(
 		package, repos = cran_mirror(),
-		destdir = opts$target_dir, 
-		dependencies = False, Ncpus = 4), silent = True)
+		destdir = opts$target_dir), silent = True)
 }
 
 is_targz <- path := {
@@ -71,8 +72,7 @@ untarball <- path := {
 
 #--- grab each package
 
-x_(select_field('package'))$
-xMap(grab_package)
+x_(select_field('package'))$xMap(grab_package)
 
 #--- grab the .R files in each package
 
@@ -81,7 +81,7 @@ files <- list.files(
 	full.names = True
 )
 tarballs <- xSelect(is_targz, files)
-x_( tarballs )$xMap(untarball)
+x_( tarballs )$xDo(untarball)
 
 files <- list.files(
 	opts$target_dir,
@@ -91,7 +91,7 @@ folders <- xReject(is_targz, files)
 
 # recurse into each folder, grabbing R files.
 
-r_package <- x_(folders)$xMap(path := {
+r_package <- x_(folders)$xDo(path := {
 
 	list.files(
 		path,
@@ -140,7 +140,7 @@ is_roxygenated <- source := {
 	)
 }
 
-tested_by <- package := {
+test_framework <- package := {
 
 	package_data <- xFlatten(1, xSelect(
 		row := {
@@ -173,7 +173,6 @@ features <- x_(names(r_source))$xMap(package := {
 		nlines = 
 			length(unlist(source)),
 		test_package = 
-			tested_by(package)
-	)
+			test_framework(package))
 
 })$x()

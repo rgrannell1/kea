@@ -54,6 +54,10 @@ x_coll_proto <- local({
 		function (num) {
 			x_( xDrop(num, reciever_()) )
 		}
+	this$xDo <-
+		function (fn) {
+			x_( xDo(fn, reciever_()) )
+		}
 	this$xDropWhile <-
 		function (fn) {
 			x_( xDropWhile(fn, reciever_()) )
@@ -403,13 +407,14 @@ x_fn_proto <- local({
 			x_( xCompose(fn1, reciever_()) )
 		}
 	# -------- D ------- #
-	this$xRecurMap <-
-		function (coll) {
-			x_( xRecurMap(reciever_(), coll) )
-		}
+
 	this$xDropWhile <-
 		function (coll) {
 			x_( xDropWhile(reciever_(), coll) )
+		}
+	this$xDo <-
+		function (coll) {
+			x_( xDo(reciever_(), coll) )
 		}
 	# -------- E ------- #
 	this$xExists <-
@@ -552,6 +557,10 @@ x_fn_proto <- local({
 		this$xBiCompose
 	# -------- Q ------- #
 	# -------- R ------- #
+	this$xRecurMap <-
+		function (coll) {
+			x_( xRecurMap(reciever_(), coll) )
+		}
 	this$xReducel <-
 		function (coll) {
 			x_( xReducel(reciever_(), coll) )
