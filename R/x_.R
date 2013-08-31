@@ -171,6 +171,10 @@ x_coll_proto <- local({
 			x_( xMapWhen(pred, fn, reciever_()) )
 		}
 	# -------- N ------- #
+	this$xName <-
+		function (strs) {
+			x_( xName(strs, reciever_()) ) 
+		}
 	this$xNegate <-
 		function () {
 			x_( xNegate(reciever_()) )

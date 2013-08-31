@@ -72,7 +72,7 @@ untarball <- path := {
 
 #--- grab each package
 
-x_(select_field('package'))$xMap(grab_package)
+x_(select_field('package'))$xDo(grab_package)
 
 #--- grab the .R files in each package
 
@@ -141,11 +141,10 @@ is_roxygenated <- source := {
 }
 
 test_framework <- package := {
+	# what testing framework does the package use?
 
 	package_data <- xFlatten(1, xSelect(
-		row := {
-			row$package == package
-		},
+		row := {row$package == package},
 		cran_data
 	))
 
