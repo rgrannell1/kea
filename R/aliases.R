@@ -2,6 +2,7 @@
 # I don't want all caps to frighten timid users
 
 Null <- NULL
+Na <- NA
 True <- TRUE
 False <- FALSE
 
