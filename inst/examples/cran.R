@@ -107,12 +107,15 @@ r_source <- x_(r_package)$xMap(package := {
 		tryCatch(readLines(path), error = function (error) "")
 	})$x()
 
-})$x()
+})$
+xName(
+	# set the source file names 
+	# to the package they came from.
 
-names(r_source) <- x_(folders)$xMap(path := {
-	xLast( xSplitStr("/", path) )
-})$x()
-
+	x_(folders)$xMap(path := {
+		xLast( xSplitStr("/", path) )
+	})$x()
+)$x()
 
 #------------------ Act II: Generate a small feature space.
 
