@@ -12,3 +12,4 @@ Falsity <- function (x) False
 NonApplicability <- function (x) Na
 
 test_package('arrow')
+

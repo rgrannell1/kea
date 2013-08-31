@@ -32,6 +32,6 @@ xDo <- function (fn, coll) {
 			fn( coll[[ith]] )
 			ith <- ith + 1
 		}
-		invisible(NULL)
+		invisible (NULL)
 	}
 }

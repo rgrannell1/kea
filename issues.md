@@ -13,6 +13,11 @@ Issue Tracker
 - [ ] #42 implement xForall.
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
+- [ ] #47 implement pickone, sample/
+- [ ] #48 implement Juxtapose
+- [ ] #49 implement xNames; name a list.
+- [ ] #50 implement xSwap; wrap a function in a function 
+that swaps certain output values for others.
 
 ### Improvements:
 
@@ -21,6 +26,8 @@ Issue Tracker
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
 - [ ] #45 check all x methods are implemented.
+- [ ] #51 string corner cases not working well together.
+- [ ] #50 avoid picking up names randomly.
 
 ### Bugs:
 
@@ -31,6 +38,8 @@ Issue Tracker
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #29 make chars and other string methods generic to collecton type.
 - [ ] #30 should has defaults return names? list?
+- [ ] #46 Issue in xreject. Error in vapply(coll, pred, logical(1)) : values must be length 1,
+ but FUN(X[[1]]) result is length 0
 
 ### Misc:
 

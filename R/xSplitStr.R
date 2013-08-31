@@ -5,7 +5,7 @@
 #'
 #' @param rexp a regular expression.
 #' @param str a string.
-#'
+#'P
 #' @return a character vector.
 #'
 #' @section Corner Cases: 
@@ -22,12 +22,16 @@ xSplitStr <- function (rexp, str) {
 	# split a str into substrs at a rexp.
 	
 	pcall <- sys.call()
-	require_a("string", rexp, pcall)
-	require_a("string", str, pcall)
+	require_a(c("length_zero character", "string"), rexp, pcall)
+	require_a(c("length_zero character", "string"), str, pcall)
 
-	if (nchar(str) == 0) {
-		''
+	if (length(str) == 0) {
+		character(0)
 	} else {
-		strsplit(str, rexp)[[1]]		
-	}		
+		if (nchar(str) == 0) {
+			''
+		} else {
+			strsplit(str, rexp)[[1]]		
+		}				
+	}
 }
