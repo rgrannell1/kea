@@ -289,6 +289,10 @@ x_coll_proto <- local({
 			x_( xSucc(reciever_()) )
 		}
 	# -------- T ------- #
+	this$xTap <-
+		function (fn) {
+			x_( fn(reciever_()) )
+		}
 	this$xTake <- 
 		function (num) {
 			x_( xTake(num, reciever_()) )
@@ -603,6 +607,10 @@ x_fn_proto <- local({
 	this$xS. <-
 		this$xKestrel
 	# -------- T ------- #
+	this$xTap <-
+		function (fn) {
+			x_( fn(reciever_()) )
+		}
 	this$xTakeWhile <-
 		function (coll) {
 			x_( xTakeWhile(reciever_(), coll) )
