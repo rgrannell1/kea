@@ -6,7 +6,6 @@ Issue Tracker
 
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines.
-- [ ] #37 implement limit, once.
 - [ ] #41 implement insertby.
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
@@ -76,6 +75,7 @@ that swaps certain output values for others.
 - [x] #39 implement cartesian product, and xExists.
 - [x] #40 impleent shuffle.
 - [x] #12 make xDropWhile more memory efficient by writing in terms of tail.
+- [x] #37 implement limit, once.
 
 ### Won't Fix
 
