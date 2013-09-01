@@ -14,10 +14,12 @@
 #' @examples 
 #' @export
 
-xJuxtapose <- function (fns) {
+xJuxtapose <- function (...) {
 	# Recursive fns -> function
 
 	pcall <- sys.call()
+
+	fns <- list(...)
 	require_a('recursive_of_functionable', fns, pcall)
 
 	fns <- lapply(fns, match.fun)

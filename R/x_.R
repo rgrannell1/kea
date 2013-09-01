@@ -129,10 +129,6 @@ x_coll_proto <- local({
 			x_( xIsNa(reciever_()) )
 		}
 	# -------- J ------- #
-	this$xJuxtapose <-
-		function () {
-			x_( xJuxtapose(reciever_()) )
-		}
 	# -------- K ------- #
 	this$xKestrel <-
 		this$xConst
@@ -479,6 +475,10 @@ x_fn_proto <- local({
 			x_( xIsVariadic(reciever_()) )
 		}
 	# -------- J ------- #
+	this$xJuxtapose <-
+		function (...) {
+			x_( xJuxtapose(reciever_(), ...) )
+		}
 	# -------- K ------- #
 	this$xKestrel <-
 		this$xConst

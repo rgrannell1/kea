@@ -13,7 +13,6 @@ Issue Tracker
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
 - [ ] #47 implement pickone, sample/
-- [ ] #48 implement Juxtapose
 - [ ] #50 implement xSwap; wrap a function in a function 
 that swaps certain output values for others.
 
@@ -75,6 +74,7 @@ that swaps certain output values for others.
 - [x] #38 implement timer.
 - [x] #42 implement xForall.
 - [x] #49 implement xNames; name a list.
+- [x] #48 implement Juxtapose
 
 ### Won't Fix
 
