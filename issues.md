@@ -7,12 +7,10 @@ Issue Tracker
 - [ ] #28 implement autopartial, in a completely reliable way.
 - [ ] #27 implement pattern matching (see core.match documentation), spend up to 500 lines.
 - [ ] #37 implement limit, once.
-- [ ] #39 implement cartesian product, and xExists.
-- [ ] #40 impleent shuffle.
 - [ ] #41 implement insertby.
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
-- [ ] #50 implement xSwap; wrap a function in a function 
+- [ ] #50 implement xSwap; wrap a function in a function.
 that swaps certain output values for others.
 
 ### Improvements:
@@ -75,6 +73,8 @@ that swaps certain output values for others.
 - [x] #49 implement xNames; name a list.
 - [x] #48 implement Juxtapose
 - [x] #47 implement pickone, sample/
+- [x] #39 implement cartesian product, and xExists.
+- [x] #40 impleent shuffle.
 
 ### Won't Fix
 
