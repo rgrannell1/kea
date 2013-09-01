@@ -266,6 +266,10 @@ x_coll_proto <- local({
 		function (ith) {
 			x_( xSplit(ith, reciever_()) )
 		}
+	this$xShuffle <-
+		function () {
+			x_( xShuffle(reciever_()) )
+		}
 	this$xSplitStr <-
 		function (rexp) {
 			x_( xSplitStr(rexp, reciever_()) )
