@@ -493,6 +493,10 @@ x_fn_proto <- local({
 	this$xK <-
 		this$xKestrel
 	# -------- L ------- #
+	this$xLimit <-
+		function (num) {
+			x_( xLimit(num, reciever_()) )
+		}
 	this$xLocatel <-
 		function (coll) {
 			x_( xLocatel(reciever_(), coll) )

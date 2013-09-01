@@ -118,3 +118,4 @@ Collate:
     'xName.R'
     'xJuxtapose.R'
     'xShuffle.R'
+    'xLimit.R'
