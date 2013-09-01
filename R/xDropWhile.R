@@ -41,7 +41,7 @@ xDropWhile <- function (pred, coll) {
 			stopifnot(is.logical(is_match))
 
 			if (!isTRUE(is_match)) {
-				return ( as.list(coll[ith:length(coll)]) )
+				return ( as.list(tail(coll, length(coll) - (ith - 1))) )
 			} else {
 				ith <- ith + 1
 			}

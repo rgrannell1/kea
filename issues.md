@@ -15,13 +15,13 @@ that swaps certain output values for others.
 
 ### Improvements:
 
-- [ ] #12 make xDropWhile more memory efficient by writing in terms of tail.
 - [ ] #29 make chars and other string methods generic to collection type.
 - [ ] #14 Important; make xSplitWith more efficient; currently poorly implemented.
 - [ ] #10 move all tests over to property based testing. Contingent on me writing a decent generator combinator library first.
 - [ ] #45 check all x methods are implemented.
 - [ ] #51 string corner cases not working well together.
-- [ ] #50 avoid picking up names randomly.
+- [ ] #52 avoid picking up names randomly.
+- [ ] #53 decide which functions should be variadic.
 
 ### Bugs:
 
@@ -75,6 +75,7 @@ that swaps certain output values for others.
 - [x] #47 implement pickone, sample/
 - [x] #39 implement cartesian product, and xExists.
 - [x] #40 impleent shuffle.
+- [x] #12 make xDropWhile more memory efficient by writing in terms of tail.
 
 ### Won't Fix
 

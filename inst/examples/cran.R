@@ -170,12 +170,11 @@ features <- x_(names(r_source))$xMap(package := {
 
 	source <- r_source[[package]]
 
-	list(
-		roxygenated = 
+	xName(
+		c('roxygenated', 'nlines', 'test_framework'),
+		xJuxt(
 			xAny(xIdentity, x_(source)$xMap(is_roxygenated)$x()),
-		nlines = 
 			length(unlist(source)),
-		test_package = 
-			test_framework(package))
-
+			test_framework(package)) )
+	
 })$x()

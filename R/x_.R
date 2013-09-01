@@ -605,7 +605,7 @@ x_fn_proto <- local({
 			x_( xSplitWith(reciever_(), coll) )
 		}
 	this$xS. <-
-		this$xKestrel
+		this$xBiCompose
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
