@@ -22,7 +22,7 @@ xSucc <- function (nums) {
 
 	pcall <- sys.call()
 
-	require_a("collection_of_length_one", nums, pcall)
+	require_a("collection_of_double", nums, pcall)
 
 	nums <- unlist(nums)
 

@@ -14,10 +14,7 @@ xUnlines <- function (strs) {
 	# collapse the collection of strs with a newline.
 
 	pcall <- sys.call()
-	require_a("collection_of_length_one", strs, pcall)
-
-	strs <- unlist(strs)
-	require_a("character", strs, pcall)
+	require_a("collection_of_string", strs, pcall)
 
 	paste0(strs, collapse = '\n')
 }

@@ -10,7 +10,7 @@ Issue Tracker
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
 - [ ] #50 implement xSwap; wrap a function in a function.
-that swaps certain output values for others.
+    that swaps certain output values for others.
 
 ### Improvements:
 

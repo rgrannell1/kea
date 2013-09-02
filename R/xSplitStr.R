@@ -25,13 +25,11 @@ xSplitStr <- function (rexp, str) {
 	require_a(c("length_zero character", "string"), rexp, pcall)
 	require_a(c("length_zero character", "string"), str, pcall)
 
-	if (length(str) == 0) {
+	if (length(rexp) == 0 || length(str) == 0) {
 		character(0)
+	} else if (nchar(str) == 0) {
+		''
 	} else {
-		if (nchar(str) == 0) {
-			''
-		} else {
-			strsplit(str, rexp)[[1]]		
-		}				
+		strsplit(str, rexp)[[1]]		
 	}
 }

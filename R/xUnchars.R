@@ -14,11 +14,7 @@ xUnchars <- function (strs) {
 	# collapse the collection strs with the empty str.
 
 	pcall <- sys.call()
-	require_a("collection_of_length_one", strs, pcall)
-
-	strs <- unlist(strs)
-	
-	require_a("character", strs, pcall)
+	require_a("collection_of_string", strs, pcall)
 
 	if (length(strs) == 0) {
 		character(0)

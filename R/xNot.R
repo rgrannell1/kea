@@ -5,7 +5,7 @@
 #'
 #' @param pred a predicate of any arity.
 #'
-#' @return a logical value.
+#' @return a predicate function of val.
 #'
 #' @template glossary
 #'
@@ -17,5 +17,5 @@
 xNot <- function (pred) {
 	# function -> function
 	
-	xCompose(function (x) !x, pred)
+	xCompose(function (val) !val, pred)
 }

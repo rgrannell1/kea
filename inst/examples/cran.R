@@ -91,7 +91,7 @@ folders <- xReject(is_targz, files)
 
 # recurse into each folder, grabbing R files.
 
-r_package <- x_(folders)$xDo(path := {
+r_package <- x_(folders)$xMap(path := {
 
 	list.files(
 		path,

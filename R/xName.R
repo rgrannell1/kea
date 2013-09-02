@@ -19,16 +19,12 @@ xName <- function (strs, coll) {
 	# add names to a collection.
 
 	pcall <- sys.call()
-	require_a('collection_of_length_one', strs, pcall)
+	require_a('collection_of_string', strs, pcall)
 	require_a('collection', coll, pcall)
 
 	if (length(strs) != length(coll)) {
-		stop("names")
-	} else {
-
-		strs <- unlist(strs)
-		require_a("character", strs)
-
+		stop ("strs and coll should have equal length.")
+	} else {	
 		names(coll) <- strs
 		as.list(coll)
 	}

@@ -20,9 +20,11 @@ xLines <- function (str) {
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
-	require_a("string", str, pcall)
+	require_a(c('length_zero character', 'length_one character'), str, pcall)
 
-	if (nchar(str) == 0) {
+	if (length(str) == 0) {
+		character(0)
+	} else if (nchar(str) == 0) {
 		''
 	} else {
 		strsplit(str, split = "\n+")[[1]]

@@ -23,15 +23,11 @@ xCollapse <- function (delim, strs) {
 
 	pcall <- sys.call()
 	require_a("string", delim, pcall)
-	require_a("collection_of_length_one", strs, pcall)
+	require_a("collection_of_string", strs, pcall)
 
 	if (length(strs) == 0) {
 		character(0)
 	} else {
-		strs <- unlist(strs)
-
-		require_a("character", strs, pcall)
-
 		paste0(strs, collapse = delim)		
 	}
 }

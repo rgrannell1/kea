@@ -25,7 +25,7 @@ xNegate <- function (nums) {
 	require_a("collection_of_length_one", nums, pcall)
 	nums <- unlist(nums)
 
-	require_a(c('double', 'integer', 'complex'), nums, pcall)
+	require_a(c('double', 'integer'), nums, pcall)
 
 	if (length(nums) == 0) {
 		nums

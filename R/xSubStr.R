@@ -23,11 +23,13 @@ xSubStr <- function (str, inds) {
 	
 	pcall <- sys.call()
 
-	require_a(c('length_zero character', 'string'), str, pcall)
-	require_a('whole', inds, pcall)
+	require_a(c("length_zero character", "string"), str, pcall)
+	require_a(c('length_zero double', 'length_zero integer', 'whole'), inds, pcall)
 	
 	if (length(str) == 0) {
 		character(0)
+	} else if (length(inds) == 0) {
+		str
 	} else {
 		if (max(inds) > nchar(str)) {
 			stop('out of bounds')

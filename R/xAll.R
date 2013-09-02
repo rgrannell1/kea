@@ -35,7 +35,7 @@ xAll <- function (pred, coll) {
 	} else {
 		is_match <- vapply(coll, pred, logical(1))
 
-		if ( any(is.na(is_match)) ) {
+		if ( any(`_`(is_match)) ) {
 			False
 		} else {
 			all(is_match)

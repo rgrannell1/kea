@@ -14,11 +14,7 @@ xUnwords <- function (strs) {
 	# collapse the collection strs with a space.
 
 	pcall <- sys.call()
-	require_a("collection_of_length_one", strs, pcall)
-
-	strs <- unlist(strs)
-	
-	require_a("character", strs, pcall)
+	require_a("collection_of_string", strs, pcall)
 
 	paste0(strs, collapse = ' ')
 }

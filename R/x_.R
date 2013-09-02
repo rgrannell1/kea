@@ -3,7 +3,7 @@
 #
 # these methods can be called off of x_() objects, with one argument fixed.
 # the meaning of the reciever function is changed upon the 
-# invocation of an x_()$method, chaning the the value of the x objects internal data.
+# invocation of an x_()$method, changing to the value of the x objects internal data.
 # No object copying or anything else nasty is done.
 
 x_coll_proto <- local({
@@ -127,6 +127,10 @@ x_coll_proto <- local({
 	this$xIsNa <-
 		function () {
 			x_( xIsNa(reciever_()) )
+		}
+	this$xInsertBy <-
+		function (fn, val) {
+			x_( xInsertBy(fn, val, reciever_()) )
 		}
 	# -------- J ------- #
 	# -------- K ------- #
@@ -358,7 +362,23 @@ x_coll_proto <- local({
 	this
 })
 
+
+
+
+
+
+
+
+
 # -------------------------------- Function methods -------------------------------- #
+
+
+
+
+
+
+
+
 
 x_fn_proto <- local({
 
@@ -481,6 +501,10 @@ x_fn_proto <- local({
 	this$xIsVariadic <-
 		function () {
 			x_( xIsVariadic(reciever_()) )
+		}
+	this$xInsertBy <-
+		function (val, coll) {
+			x_( xInsertBy(reciever_(), val, coll) )
 		}
 	# -------- J ------- #
 	this$xJuxtapose <-
@@ -649,18 +673,19 @@ x_fn_proto <- local({
 	this
 })
 
-#' @param x any arbitrary value.
+
+#' @param val any arbitrary value.
 
 #' @export
 
-x_ <- function (x) {
+x_ <- function (val) {
 	# Collection any -> Arrow any
 	# type constructor.
 
-	if ('arrow' %in% class(x)) {
-		x
+	if ('arrow' %in% class(val)) {
+		val
 	} else {
-		structure(list(x = x), class = 'arrow')
+		structure(list(x = val), class = 'arrow')
 	}
 }
 

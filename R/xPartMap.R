@@ -6,7 +6,7 @@
 #' @param fn a unary function.
 #' @param coll a collection
 #'
-#' @return a unary function of x.
+#' @return a unary function of val.
 #'
 #' @section Corner Cases: 
 #'     returns the empty list if \code{coll is length-zero}.
@@ -16,5 +16,5 @@
 #' @export
 
 xPartMap <- function (fn) {
-	function (x) xMap(fn, x)
+	function (val) xMap(fn, val)
 }
