@@ -41,12 +41,12 @@ cran_data <- xZipWith(
 #------------------ Accessory functions used below.
 
 select_field <- field := {
+	# get a field in a row of cran data.
 
 	x_(cran_data)$
 	xMap(row := row[[field]] )$
 	xReject(xIsNa)$
 	x()
-
 }
 
 grab_package <- package := {
@@ -78,15 +78,15 @@ x_(select_field('package'))$xDo(grab_package)
 
 files <- list.files(
 	opts$target_dir,
-	full.names = True
-)
+	full.names = True)
+
 tarballs <- xSelect(is_targz, files)
 x_( tarballs )$xDo(untarball)
 
 files <- list.files(
 	opts$target_dir,
-	full.names = True
-)
+	full.names = True)
+
 folders <- xReject(is_targz, files)
 
 # recurse into each folder, grabbing R files.
@@ -104,18 +104,14 @@ r_package <- x_(folders)$xMap(path := {
 r_source <- x_(r_package)$xMap(package := {
 	
 	x_(package)$xMap(path := {
-		tryCatch(readLines(path), error = function (error) "")
+		readLines(path, warn = 'false')
 	})$x()
 
-})$
-xName(
-	# set the source file names 
-	# to the package they came from.
+})$x()
 
-	x_(folders)$xMap(path := {
-		xLast( xSplitStr("/", path) )
-	})$x()
-)$x()
+names(r_source) <- x_(folders)$
+xMap(path := { xLast( xSplitStr("/", path) )} )$
+x()
 
 #------------------ Act II: Generate a small feature space.
 
@@ -139,8 +135,7 @@ is_roxygenated <- source := {
 		line := {
 			any( grepl(roxygen_pattern, line) )
 		},
-		source
-	)
+		source)
 }
 
 test_framework <- package := {
@@ -160,8 +155,6 @@ test_framework <- package := {
 	xSplitStr(", ")$
 	x()
 
-	print(linked)
-
 	intersect(linked, c('testthat', 'RUnit', 'assertive', 'needy'))
 }
 
@@ -170,11 +163,9 @@ features <- x_(names(r_source))$xMap(package := {
 
 	source <- r_source[[package]]
 
-	xName(
-		c('roxygenated', 'nlines', 'test_framework'),
-		xJuxt(
-			xAny(xIdentity, x_(source)$xMap(is_roxygenated)$x()),
-			length(unlist(source)),
-			test_framework(package)) )
-	
+	xJuxtapose(
+		xAny(xIdentity, x_(source)$xMap(is_roxygenated)$x()),
+		length(unlist(source)),
+		test_framework(package))
+
 })$x()

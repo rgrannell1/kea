@@ -3,6 +3,7 @@
 #' 
 #' Flatten a nested list or pairlist.
 #'
+#' @param num a nonnegative whole-number.
 #' @param coll a list or pairlist.
 #'
 #' @return a list.
@@ -15,7 +16,8 @@
 #' @export
 
 xFlatten <- function (num, coll) {
-	# -> [any]
+	# integer -> Collection any-> [any]
+	# flatten a collection to an arbitrary depth.
 
 	pcall <- sys.call()
 	require_a(c('positive whole', 'positive infinite'), num, pcall)
@@ -30,7 +32,6 @@ xFlatten <- function (num, coll) {
 	} else {
 
 		recur <- function (depth, xs) {
-
 			if (!is.recursive(xs)) {
 				xs
 			} else if (depth == num - 1) {

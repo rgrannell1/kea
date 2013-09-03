@@ -26,7 +26,7 @@ xFoldl <- function (fn, init, coll) {
 	
 	pcall <- sys.call()	
 	require_a("functionable", fn, pcall)
-	require_a('any', init, pcall)
+	require_a('arbitrary', init, pcall)
 	require_a("collection", coll, pcall)
 
 	fn <- match.fun(fn)

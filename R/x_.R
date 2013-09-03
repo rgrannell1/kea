@@ -169,7 +169,6 @@ x_coll_proto <- local({
 		function (fn, ...) {
 			x_( xMapMany(fn, reciever_(), ...) )
 		}
-
 	this$xMapWhen <-
 		function (pred, fn) {
 			x_( xMapWhen(pred, fn, reciever_()) )

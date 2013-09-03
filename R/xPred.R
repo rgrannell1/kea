@@ -23,11 +23,8 @@ xPred <- function (nums) {
 
 	pcall <- sys.call()
 
-	require_a("collection_of_length_one", nums, pcall)
-
+	require_a(c("collection_of_double", "collection_of_integer"), nums, pcall)
 	nums <- unlist(nums)
-
-	require_a(c("double", "integer"), nums, pcall)
 
 	if (length(nums) == 0) {
 		nums

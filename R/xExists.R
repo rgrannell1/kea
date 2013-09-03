@@ -32,9 +32,13 @@ xExists <- function (pred, ...) {
 		False
 	} else {
 
+		stopifnot (
+			xIsVariadic(pred) == Inf || 
+			xArity(pred) == length(colls))
+
 		modulo_iths <- function (n, mods) {
 			if (n > prod(mods)) {
-				stop("out of bounds")
+				stop ("subscript out of bounds")
 			} else {
 				as.numeric(arrayInd(n, .dim = mods))
 			}
@@ -56,7 +60,7 @@ xExists <- function (pred, ...) {
 			is_match <- do.call(pred, tuple)
 
 			if (!is.logical(is_match)) {
-				stop("non-logical value produced")
+				stop ("non-logical value produced")
 			}
 
 			if (is_match) {
