@@ -120,3 +120,4 @@ Collate:
     'xShuffle.R'
     'xLimit.R'
     'xInsertBy.R'
+    'xEqual.R'

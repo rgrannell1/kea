@@ -31,8 +31,8 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	fn2 <- match.fun(fn2)
 	fn3 <- match.fun(fn3)
 
-	function (x) {
-		fn1( fn2(x), fn3(x) )
+	function (...) {
+		fn1( fn2(...), fn3(...) )
 	}
 }
 

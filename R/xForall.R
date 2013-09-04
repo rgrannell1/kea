@@ -23,7 +23,6 @@ xForall <- function (pred, ...) {
 	require_a("functionable", pred, pcall)
 
 	pred <- match.fun(pred)
-
 	colls <- list(...)
 
 	require_a("list_of_collection", colls, pcall)
@@ -35,7 +34,7 @@ xForall <- function (pred, ...) {
 
 		modulo_iths <- function (n, mods) {
 			if (n > prod(mods)) {
-				stop("out of bounds")
+				stop ("subscript out of bounds")
 			} else {
 				as.numeric(arrayInd(n, .dim = mods))
 			}
@@ -57,7 +56,7 @@ xForall <- function (pred, ...) {
 			is_match <- do.call(pred, tuple)
 
 			if (!is.logical(is_match)) {
-				stop("non-logical value produced")
+				stop ("non-logical value produced")
 			}
 
 			if (!is_match) {

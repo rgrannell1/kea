@@ -438,7 +438,6 @@ x_fn_proto <- local({
 			x_( xCompose(fn1, reciever_()) )
 		}
 	# -------- D ------- #
-
 	this$xDropWhile <-
 		function (coll) {
 			x_( xDropWhile(reciever_(), coll) )
@@ -448,6 +447,10 @@ x_fn_proto <- local({
 			x_( xDo(reciever_(), coll) )
 		}
 	# -------- E ------- #
+	this$xEqual <-
+		function (fn2) {
+			x_( xEqual(reciever_(), fn2) )
+		}
 	this$xExists <-
 		function (...) {
 			x_( xExists(reciever_(), ...) )

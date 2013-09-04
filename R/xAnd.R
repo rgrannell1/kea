@@ -3,10 +3,10 @@
 #' 
 #' Return a function that tests if a pair of functions are true for its input.
 #'
-#' @param pred1 a predicate.
-#' @param pred2 a predicate.
+#' @param pred1 an n-ary predicate.
+#' @param pred2 an n-ary predicate.
 #'
-#' @return a unary predicate.
+#' @return a n-ary predicate.
 #'
 #' @template glossary.
 #'
