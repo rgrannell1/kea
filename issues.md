@@ -21,6 +21,7 @@ Issue Tracker
 - [ ] #51 string corner cases not working well together.
 - [ ] #52 avoid picking up names randomly.
 - [ ] #53 decide which functions should be variadic.
+- [ ] #54 functions that return functions should be variadic if it would make them more general.
 
 ### Bugs:
 
