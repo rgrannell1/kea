@@ -30,7 +30,6 @@ xDrop <- function (num, coll) {
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()
 	} else {
-		coll <- as.list(coll)		
-		coll[(num + 1) : length(coll)]
+		as.list(coll)[(num + 1) : length(coll)]
 	}
 }

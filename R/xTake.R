@@ -28,8 +28,6 @@ xTake <- function (num, coll) {
 	if (length(coll) == 0 || num == 0) {
 		list()
 	} else {
-
-		coll <- as.list(coll)
-		coll[seq_len( min(num, length(coll)) )]
+		as.list(coll)[seq_len( min(num, length(coll)) )]
 	}
 }

@@ -1,9 +1,9 @@
 
 #' xSwap
 #' 
-#' Return a function that substitutes certain values of an underlying function.
+#' Return a function that substitutes certain values of its underlying function with new values.
 #'
-#' @param coll a collection of two element lists, value, value
+#' @param ... any arbitrary number of \code{list(value, value)}.
 #'
 #' @return a list.
 #'
@@ -14,18 +14,22 @@
 #' @examples 
 #' @export
 
-xSwap <- function (fn, coll) {
+xSwap <- function (fn, ...) {
 	# function -> Recursive Recursive any -> any
+	# 
+
 	pcall <- sys.call()
-	
+
 	require_a('functionable', fn, pcall)
-	require_a(c(
-		'recursive_of_length_two', 
-		'recursive_of_recursive'), coll, pcall)
+
+
+	colls <- list(...)
+	require_a('list_of_recursive', colls, pcall)
+	require_a('list_of_length_two', colls, pcall)
 
 	fn <- match.fun(fn)
 
-	if (length(coll) == 0) {
+	if (length(colls) == 0) {
 		fn
 	} else {
 	
@@ -35,7 +39,7 @@ xSwap <- function (fn, coll) {
 
 				out <- .(call_with_params("fn", fn))
 
-				for (pair in coll) {
+				for (pair in colls) {
 					if (identical( pair[[1]], out )) {
 						return ( pair[[2]] )
 					}
@@ -43,7 +47,6 @@ xSwap <- function (fn, coll) {
 
 				out
 			})
-		))		
-	
+		))
 	}
 }
