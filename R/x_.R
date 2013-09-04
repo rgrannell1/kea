@@ -291,6 +291,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xSucc(reciever_()) )
 		}
+	this$xSwap <- 
+		function (fn) {
+			x_( xSwap(fn, reciever_()) )
+		}
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
@@ -622,6 +626,8 @@ x_fn_proto <- local({
 			x_( xReject(reciever_(), coll) ) 
 		}
 	# -------- S ------- #
+	this$xS. <-
+		this$xBiCompose
 	this$xSelect <-
 		function (coll) {
 			x_( xSelect(reciever_(), coll) ) 
@@ -634,8 +640,7 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xSplitWith(reciever_(), coll) )
 		}
-	this$xS. <-
-		this$xBiCompose
+
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
