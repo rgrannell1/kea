@@ -9,8 +9,6 @@ Issue Tracker
 - [ ] #41 implement insertby.
 - [ ] #43 implement groupby.
 - [ ] #44 implement countby.
-- [ ] #50 implement xSwap; wrap a function in a function.
-    that swaps certain output values for others.
 
 ### Improvements:
 
@@ -78,6 +76,8 @@ Issue Tracker
 - [x] #40 impleent shuffle.
 - [x] #12 make xDropWhile more memory efficient by writing in terms of tail.
 - [x] #37 implement limit, once.
+- [ x] #50 implement xSwap; wrap a function in a function.
+    that swaps certain output values for others.
 
 ### Won't Fix
 

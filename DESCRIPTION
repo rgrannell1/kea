@@ -99,8 +99,6 @@ Collate:
     'xUnlines.R'
     'xUntil.R'
     'xUnwords.R'
-    'xUnzip.R'
-    'xUnzipWith.R'
     'xVersion.R'
     'xWhile.R'
     'xWords.R'

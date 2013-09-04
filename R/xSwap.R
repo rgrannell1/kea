@@ -15,8 +15,9 @@
 #' @export
 
 xSwap <- function (fn, coll) {
-
+	# function -> Recursive Recursive any -> any
 	pcall <- sys.call()
+	
 	require_a('functionable', fn, pcall)
 	require_a(c(
 		'recursive_of_length_two', 
