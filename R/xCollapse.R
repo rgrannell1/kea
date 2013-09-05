@@ -4,7 +4,7 @@
 #' Concatenate a character vector into a string with a delimiter.
 #'
 #' @param delim a string to use as a delimiter.
-#' @param strs a character vector of strings.
+#' @param ... a number of character vectors.
 #'
 #' @return a length-one character vector.
 #'
@@ -16,13 +16,14 @@
 
 #| function: xCollapse version: 0.1 finished: false
 
-xCollapse <- function (delim, strs) {
+xCollapse <- function (delim, ...) {
 	# string -> Vector string -> string
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
 	pcall <- sys.call()
 	require_a("string", delim, pcall)
+	strs <- c(...)
 	require_a("collection_of_string", strs, pcall)
 
 	if (length(strs) == 0) {

@@ -37,8 +37,8 @@ x_coll_proto <- local({
 			x_( xChars(reciever_()) )
 		}
 	this$xCollapse <-
-		function (delim) {
-			x_( xCollapse(delim, reciever_()) )
+		function (delim, ...) {
+			x_( xCollapse(delim, reciever_(), ...) )
 		}
 	this$xConst <-
 		function (x) {

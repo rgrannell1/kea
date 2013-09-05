@@ -20,7 +20,6 @@ xFlatten <- function (num, coll) {
 	# flatten a collection to an arbitrary depth.
 
 	pcall <- sys.call()
-
 	require_a(c('positive whole', 'positive infinite'), num, pcall)
 	require_a('recursive', coll, pcall)
 

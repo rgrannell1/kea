@@ -14,7 +14,7 @@ xWords <- function (str) {
 	# split a str at every whitespace character, returning 
 	# a character vector of equal or greater length.
 	
-	pcall <- sys.call()	
+	pcall <- sys.call()
 	require_a("string", str, pcall)
 
 	if (nchar(str) == 0) {
