@@ -26,4 +26,11 @@ test_that('method chaining works as expected', {
 		equals(2)
 	)
 
+	expect_that(
+		x_(list(1, 2, 3))$
+		xMap( function (x) x + 1 )$
+		x(),
+		equals(list(2, 3, 4))
+	)
+
 })
