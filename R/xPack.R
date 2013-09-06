@@ -17,8 +17,6 @@
 #' @examples 
 #' @export
 
-#| function: xPack version: 0.1 finished: false
-
 xPack <- function (coll) {
 	# Collection any -> [any]
 	# remove all length-zero elements from a coll

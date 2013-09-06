@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xIsTrue version: 0.1 finished: true
-
 xIsTrue <- function (coll) {
 	# Collection a -> Vector boolean
 	# test which elements of a collection are true

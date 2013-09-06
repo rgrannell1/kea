@@ -7,8 +7,6 @@
 #'
 #' @export
 
-#| function: xWords version: 0.1 finished: false 
-
 xWords <- function (str) {
 	# str -> Vector str
 	# split a str at every whitespace character, returning 

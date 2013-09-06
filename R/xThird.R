@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xThird version: 0.1 finished: false
-
 xThird <- function (coll) {
 	# Collection any -> any
 	# return the third element of a collection x.

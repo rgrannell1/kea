@@ -12,9 +12,7 @@
 #' @examples 
 #' @export
 
-xIdentity <- function (val) {
-	val
-}
+xIdentity <- function (val) val
 
 #' @export
 

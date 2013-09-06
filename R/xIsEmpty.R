@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xIsEmpty version: 0.1 finished: false
-
 xIsEmpty <- function (coll) {
 	# Collection -> boolean
 	# is collection length == 0?

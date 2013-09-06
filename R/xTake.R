@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xTake version: 0.1 finished: false
-
 xTake <- function (num, coll) {
 	# Collection any -> [any]
 	# take the first num values of collection.

@@ -19,8 +19,6 @@
 #' @examples 
 #' @export
 
-#| function: xFormals version: 0.1 finished: false 
-
 xFormals <- function (fn) {
 	# (a -> b) -> [a, b]
 	# get the formals of non-primitive functions, and

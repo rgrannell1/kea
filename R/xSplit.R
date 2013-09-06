@@ -20,8 +20,6 @@
 #' @examples 
 #' @export
 
-#| function: xSplit version: 0.1 finished: false
-
 xSplit <- function (ind, coll) {
 	# number -> Collection any -> [[any], [any]]
 	# take the first n values of collection.

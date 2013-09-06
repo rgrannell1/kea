@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xCollapse version: 0.1 finished: false
-
 xCollapse <- function (delim, ...) {
 	# string -> Vector string -> string
 	# Collapse a collection of strs into

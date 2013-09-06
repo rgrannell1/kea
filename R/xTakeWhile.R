@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xTakeWhile version: 0.1 finished: false
-
 xTakeWhile <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
 	# take every element until pred returns false
@@ -29,16 +27,16 @@ xTakeWhile <- function (pred, coll) {
 	pred <- match.fun(pred)
 	require_a("unary function", pred)
 
-	ith <- 1
 	if (length(coll) == 0) {
 		list()
 	} else {
+		ith <- 1
 		while (ith <= length(coll)) {
 
 			is_match <- pred( coll[[ith]] )
 			stopifnot(is.logical(is_match))
 
-			if (!is_match) {
+			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )
 			}
 			ith <- ith + 1

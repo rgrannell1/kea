@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xNotFalse version: 0.1 finished: false
-
 xNotFalse <- function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection not false?

@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xFirst version: 0.1 finished: false
-
 xFirst <- function (coll) {
 	# Collection any -> any
 	# return the first element of a collection x.

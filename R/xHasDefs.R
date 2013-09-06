@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xHasDefs version: 0.1 finished: false
-
 xHasDefs <- function (fn) {
 	# function -> named Vector boolean
 	# which of f's parameters have non-empty defaults?

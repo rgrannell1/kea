@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xLocater version: 0.1 finished: false 
-
 xLocater <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> integer
 	# returns the last index of collection that matches

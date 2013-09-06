@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xChars version: 0.1 finished: false 
-
 xChars <- function (str) {
 	# str -> Vector str
 	# split str at every character, returning 

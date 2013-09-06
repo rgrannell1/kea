@@ -15,8 +15,6 @@
 #' @family arrow-maps
 #' @export
 
-#| function: xUntil version: 0.1 finished: false 
-
 xUntil <- function (pred, fn, init) {
 	# (any -> boolean) -> (any -> any) -> any
 	# repeatedly apply function to init, until predicate of 

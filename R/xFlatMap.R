@@ -15,8 +15,6 @@
 #'
 #' @export
 
-#| function: xFlatMap version: 0.1 finished: false 
-
 xFlatMap <- function (fn, coll) {
 	# (any -> [any]) -> Collection any -> [any]
 	# map unary over collection, and collate the

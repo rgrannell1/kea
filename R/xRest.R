@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xRest version: 0.1 finished: false
-
 xRest <- function (coll) {
 	# Collection a -> [a]
 	# return everything but the first element of a 

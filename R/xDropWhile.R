@@ -17,8 +17,6 @@
 #' @examples 
 #' @export
 
-#| function: xDropWhile version: 0.1 finished: false
-
 xDropWhile <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> [any]
 	# take every element from the first element for which

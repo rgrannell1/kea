@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xSplitStr version: 0.1 finished: false 
-
 xSplitStr <- function (rexp, str) {
 	# str -> str -> Vector str
 	# split a str into substrs at a rexp.

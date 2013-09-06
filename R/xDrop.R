@@ -17,8 +17,6 @@
 #' @examples 
 #' @export
 
-#| function: xDrop version: 0.1 finished: false
-
 xDrop <- function (num, coll) {
 	# Collection any -> [any]
 	# take the first num values of collection.

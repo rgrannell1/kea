@@ -13,8 +13,6 @@
 #' @examples 
 #' @export
 
-#| function: xAny version: 0.1 finished: false 
-
 xAny <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> boolean
 	# is a predicate true for some member of a collection?

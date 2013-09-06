@@ -21,8 +21,6 @@
 #' @examples 
 #' @export
 
-#| function: xCompose version: 0.1 finished: false 
-
 xCompose <- function (fn1, fn2) {
 	# function -> function -> function
 	# a general purpose compose function;

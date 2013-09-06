@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xMapAlong version: 0.1 finished: false 
-
 xMapAlong <- function (fn, coll) {
 	# (integer -> any -> any) -> Collection any -> [any]
 

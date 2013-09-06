@@ -13,8 +13,6 @@
 #' @examples 
 #' @export
 
-#| function: xPoll version: 0.1 finished: false 
-
 xPoll <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> integer
 	# return the number of elements for which a predicate is true.

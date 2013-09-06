@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xAsClosure version: 0.1 finished: false 
-
 xAsClosure <- function (fn) {
 	# (a -> b) -> (a -> b)
 	# convert a primitive function to a closure.

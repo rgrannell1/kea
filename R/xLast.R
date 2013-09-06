@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xLast version: 0.1 finished: false
-
 xLast <- function (coll) {
 	# Collection any -> any
 	# return the last element of a collection x,

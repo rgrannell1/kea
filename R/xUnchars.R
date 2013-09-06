@@ -7,15 +7,13 @@
 #'
 #' @export
 
-#| function: xUnchars version: 0.1 finished: false
-
 xUnchars <- function (...) {
 	# Collection str -> str
 	# collapse the collection strs with the empty str.
 
 	pcall <- sys.call()
 	strs <- c(...)
-	require_a("collection_of_string", strs pcall)
+	require_a("collection_of_string", strs, pcall)
 
 	if (length(strs) == 0) {
 		character(0)

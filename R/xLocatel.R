@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xLocatel version: 0.1 finished: false
-
 xLocatel <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> integer
 	# returns the first index of collection that matches

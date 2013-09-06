@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xSecond version: 0.1 finished: false
-
 xSecond <- function (coll) {
 	# Collection any -> any
 	# return the second element of a collection x.

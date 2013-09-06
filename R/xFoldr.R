@@ -13,8 +13,6 @@
 #'
 #' @export
 
-#| function: xFoldr version: 0.1 finished: false 
-
 xFoldr <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the right

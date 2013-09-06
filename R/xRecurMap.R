@@ -13,8 +13,6 @@
 #' @examples 
 #' @export
 
-#| function: xRecurMap version: 0.1 finished: false 
-
 xRecurMap <- function (fn, coll) {
 	# (any -> any) -> List|Pairlist any -> [any]
 	# Map a function into a nested collection, 

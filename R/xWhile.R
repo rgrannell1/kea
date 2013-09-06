@@ -15,8 +15,6 @@
 #' @family arrow-maps
 #' @export
 
-#| function: xWhile version: 0.1 finished: false 
-
 xWhile <- function (pred, fn, init) {
 		# (any -> boolean) -> (any -> any) -> any
 		# repeatedly apply unary to x, until p of 

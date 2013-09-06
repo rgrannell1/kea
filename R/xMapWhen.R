@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xMapWhen version: 0.1 finished: false 
-
 xMapWhen <- function (pred, fn, coll) {
 	# (any -> boolean) -> (any -> any) -> Collection any -> [any]
 	# apply the function pred to collection, and apply f to

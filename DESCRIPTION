@@ -117,6 +117,5 @@ Collate:
     'xJuxtapose.R'
     'xShuffle.R'
     'xLimit.R'
-    'xInsertBy.R'
     'xEqual.R'
     'xSwap.R'

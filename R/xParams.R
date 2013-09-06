@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xParams version: 0.1 finished: false 
-
 xParams <- function (fn) {
 	# function -> Vector string
 	# get the formals of non-primitive functions, and

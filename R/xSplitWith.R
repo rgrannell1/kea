@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xSplitWith version: 0.1 finished: false
-
 xSplitWith <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [[any] [any]]
 	# take every element until pred returns false

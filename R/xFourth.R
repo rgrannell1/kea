@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xFourth version: 0.1 finished: false
-
 xFourth <- function (coll) {
 	# Collection any -> any
 	# return the fourth element of a collection x.

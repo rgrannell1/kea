@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xAsUnary version: 0.1 finished: false 
-
 xAsUnary <- function (fn) {
 	# (... -> b) -> (a -> b)
 	# dual to xAsVariadic. 

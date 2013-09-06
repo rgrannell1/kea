@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xArity version: 0.1 finished: true
-
 xArity <- function (fn) {
 	# Function -> integer
 	# get the arity of a function.

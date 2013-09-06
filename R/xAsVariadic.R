@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xAsVariadic version: 0.1 finished: false 
-
 xAsVariadic <- function (fn) {
 	# (a -> b) -> (... -> b)
 	# Return a variadic function that passes its arguments 

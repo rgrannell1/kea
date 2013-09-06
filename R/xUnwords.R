@@ -7,8 +7,6 @@
 #'
 #' @export
 
-#| function: xUnwords version: 0.1 finished: false
-
 xUnwords <- function (...) {
 	# Collection str -> str
 	# collapse the collection strs with a space.

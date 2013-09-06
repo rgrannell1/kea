@@ -18,8 +18,6 @@
 #' @examples 
 #' @export
 
-#| function: xFoldl version: 0.1 finished: false 
-
 xFoldl <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the left"

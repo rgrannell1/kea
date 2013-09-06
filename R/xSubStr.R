@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xSubStr version: 0.1 finished: false 
-
 xSubStr <- function (str, inds) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.

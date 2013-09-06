@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xLines version: 0.1 finished: false 
-
 xLines <- function (str) {
 	# str -> Vector str
 	# split str at every newline, returning 

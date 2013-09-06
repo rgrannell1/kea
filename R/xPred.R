@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xPred version: 0.1 finished: false 
-
 xPred <- function (nums) {
 	# Collection number -> Vector number
 	# returns the predeccesor of a vector of nums.

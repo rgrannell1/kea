@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xReject version: 0.1 finished: false 
-
 xReject <- function (pred, coll) {
 	# (a -> boolean) -> Collection a -> [a]
 	# returns collection[i] such that 

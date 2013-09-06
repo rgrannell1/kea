@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xSelect version: 0.1 finished: false 
-
 xSelect <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
 	# returns coll[i] such that 

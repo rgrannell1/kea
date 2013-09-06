@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xNegate version: 0.1 finished: false 
-
 xNegate <- function (nums) {
 	# Collection number -> number
 	# flips the sign of each number.

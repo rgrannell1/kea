@@ -7,8 +7,6 @@
 #'
 #' @export
 
-#| function: xUnlines version: 0.1 finished: false
-
 xUnlines <- function (strs) {
 	# Collection str -> str;
 	# collapse the collection of strs with a newline.

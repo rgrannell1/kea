@@ -15,8 +15,6 @@
 #' @examples 
 #' @export
 
-#| function: xSignum version: 0.1 finished: false 
-
 xSignum <- function (nums) {
 	# Collection number -> Vector number
 	# returns the sign of a number.

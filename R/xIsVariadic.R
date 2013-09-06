@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xIsVariadic version: 0.1 finished: true
-
 xIsVariadic <- function (fn) {
 	# function -> Vector boolean
 	# is ... in fn's parameters?

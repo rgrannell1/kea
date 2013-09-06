@@ -17,8 +17,6 @@
 #'
 #' @export
 
-#| function: xScanl version: 0.1 finished: false 
-
 xScanl <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.

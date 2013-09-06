@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xSucc version: 0.1 finished: false 
-
 xSucc <- function (nums) {
 	# Collection number -> Vector number
 	# returns the successor of a vector of nums.

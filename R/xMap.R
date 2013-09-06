@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xMap version: 0.1 finished: false 
-
 xMap <- function (fn, coll) {
 	# (any -> any) -> Collection any -> [any]
 	# map a unary function over a collection x.

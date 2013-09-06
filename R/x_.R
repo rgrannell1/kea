@@ -128,10 +128,6 @@ x_coll_proto <- local({
 		function () {
 			x_( xIsNa(reciever_()) )
 		}
-	this$xInsertBy <-
-		function (fn, val) {
-			x_( xInsertBy(fn, val, reciever_()) )
-		}
 	# -------- J ------- #
 	# -------- K ------- #
 	this$xKestrel <-
@@ -499,10 +495,6 @@ x_fn_proto <- local({
 	this$xIsVariadic <-
 		function () {
 			x_( xIsVariadic(reciever_()) )
-		}
-	this$xInsertBy <-
-		function (val, coll) {
-			x_( xInsertBy(reciever_(), val, coll) )
 		}
 	# -------- J ------- #
 	this$xJuxtapose <-

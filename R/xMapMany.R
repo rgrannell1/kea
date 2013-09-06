@@ -16,8 +16,6 @@
 #' @examples 
 #' @export
 
-#| function: xMapMany version: 0.1 finished: false
-
 xMapMany <- function (fn, ...) {
 	# function -> Collection any .... -> [any]
 

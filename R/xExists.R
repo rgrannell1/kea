@@ -31,12 +31,13 @@ xExists <- function (pred, ...) {
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		False
 	} else {
-
 		stopifnot (
 			xIsVariadic(pred) == Inf || 
 			xArity(pred) == length(colls))
 
 		modulo_iths <- function (n, mods) {
+			# get the nth expanded index of an oddly-shaped array.
+
 			if (n > prod(mods)) {
 				stop ("subscript out of bounds")
 			} else {

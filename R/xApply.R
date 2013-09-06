@@ -14,8 +14,6 @@
 #' @examples 
 #' @export
 
-#| function: xApply version: 0.1 finished: false 
-
 xApply <- function (fn, coll) {
 	# function -> [any] -> any
 	# call the function f with the list coll.

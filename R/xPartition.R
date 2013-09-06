@@ -19,8 +19,6 @@
 #' @examples 
 #' @export
 
-#| function: xPartition version: 0.1 finished: false
-
 xPartition <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> [[any],[any]]
 	# returns two lists; a list for which pred returns 

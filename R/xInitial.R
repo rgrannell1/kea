@@ -12,8 +12,6 @@
 #' @examples 
 #' @export
 
-#| function: xInit version: 0.1 finished: false
-
 xInit <- function (coll) {
 	# Collection any -> [any]
 	# return everything but the first element of a 
