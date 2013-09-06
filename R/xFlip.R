@@ -27,3 +27,11 @@ xFlip <- function (fn) {
 		body(fn)
 	))
 }
+
+#' @export
+
+xCardinal <- xFlip
+
+#' @export
+
+xC <- xFlip

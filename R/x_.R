@@ -412,6 +412,10 @@ x_fn_proto <- local({
 			x_( xArity(reciever_()) )
 		}
 	# -------- B ------- #
+	this$xCardinal <- 
+		function () {
+			x_( xFlip(reciever_()) )
+		}
 	this$xBiCompose <-
 		function (fn2, fn3) {
 			x_( xBiCompose(reciever_(), fn2, fn3) )
@@ -421,6 +425,8 @@ x_fn_proto <- local({
 			x_( xBy(reciever_(), fn2) )
 		}
 	# -------- C ------- #
+	this$xC <-
+		this$xCardinal
 	this$xConst <-
 		function (x) {
 			x_( xConst(reciever_()) )
@@ -453,9 +459,7 @@ x_fn_proto <- local({
 			x_( xFixDefs(reciever_()) )
 		}
 	this$xFlip <- 
-		function () {
-			x_( xFlip(reciever_()) )
-		}
+		this$xCardinal
 	this$xFlatMap <-
 		function (coll) {
 			x_( xFlatMap(reciever_(), coll) )
