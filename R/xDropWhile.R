@@ -31,10 +31,10 @@ xDropWhile <- function (pred, coll) {
 	pred <- match.fun(pred)
 	require_a("unary function", pred)
 
-	ith <- 1
 	if (length(coll) == 0) {
 		list()
 	} else {
+		ith <- 1
 		while (ith <= length(coll)) {
 
 			is_match <- pred( coll[[ith]] )

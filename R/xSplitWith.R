@@ -33,9 +33,22 @@ xSplitWith <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		list(
-			xTakeWhile(pred, coll),
-			xDropWhile(pred, coll)
-		)
+		ith <- 1
+		coll <- as.list(coll)
+		while (ith <= length(coll)) {
+
+			is_match <- pred( coll[[ith]] )
+			stopifnot(is.logical(is_match))
+
+			if (!is_match) {
+				return ( 
+					list(
+						head(coll, ith - 1),
+						tail(coll, length(coll) - (ith - 1)) 
+				))
+			}
+			ith <- ith + 1
+		}
+		list(coll, list())
 	}
 }
