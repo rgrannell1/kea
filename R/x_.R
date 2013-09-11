@@ -128,6 +128,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xIsNa(reciever_()) )
 		}
+	this$xIsNull <-
+		function () {
+			x_( xIsNull(reciever_()) )
+		}
 	# -------- J ------- #
 	# -------- K ------- #
 	this$xKestrel <-
