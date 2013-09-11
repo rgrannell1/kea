@@ -17,7 +17,7 @@ xIsFalse <- function (coll) {
 	# Is an element of a collection false?
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	vapply(coll, function (x) {
 		identical(x, False)

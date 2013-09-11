@@ -26,7 +26,15 @@ call_with_params <- function (name, fn) {
 			as.symbol))
 }
 
-#' not included arbitrarily; I sometimes use this constant.
+# not included arbitrarily; I sometimes use this constant.
 #' @export
 
 tau <- 6.2831853071795864769252867
+
+# to make error messages clearer.
+
+traits <- list(
+	functionable = c('function', 'string', 'symbol'),
+	collection = c('list', 'pairlist', 'vector'),
+	recursive = c('list', 'pairlist'))
+

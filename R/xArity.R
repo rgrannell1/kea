@@ -22,7 +22,7 @@ xArity <- function (fn) {
 	# returns +Inf if fn is a variadic function.
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	
 	fn <- match.fun(fn)
 	fn_params <- names(xFormals(fn))

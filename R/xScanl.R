@@ -22,9 +22,9 @@ xScanl <- function (fn, init, coll) {
 	# scan across list, starting from the right.
 	
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	require_a('arbitrary', init, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	fn <- match.fun(fn)
 	require_a('binary function', fn, pcall)
@@ -33,15 +33,11 @@ xScanl <- function (fn, init, coll) {
 
 	if (length(coll) == 0) {
 		init
-	} else {
-	
+	} else {	
 		ith <- 1
 		while (ith <= length(coll)) {
 			
-			scanned[[ith + 1]] <- fn(
-				scanned[[ith]],
-				coll[[ith]]
-			)
+			scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
 			ith <- ith + 1
 		}
 		scanned

@@ -22,7 +22,7 @@ xPack <- function (coll) {
 	# remove all length-zero elements from a coll
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	if (length(coll) == 0) {
 		list()

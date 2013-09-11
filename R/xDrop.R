@@ -23,7 +23,7 @@ xDrop <- function (num, coll) {
 	
 	pcall <- sys.call()
 	require_a("nonnegative whole", num, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()

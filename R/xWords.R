@@ -16,7 +16,7 @@ xWords <- function (str) {
 	require_a("string", str, pcall)
 
 	if (nchar(str) == 0) {
-		''
+		""
 	} else {
 		strsplit(str, split = '[ \n\t]+')[[1]]
 	}

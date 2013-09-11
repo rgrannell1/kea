@@ -19,7 +19,7 @@
 xPartial <- function (fn, coll) {
 
 	pcall <- sys.call()
-	require_a('functionable', fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	require_a('collection', coll, pcall)
 
 	fn <- match.fun(fn)

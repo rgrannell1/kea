@@ -21,8 +21,8 @@ xReject <- function (pred, coll) {
 	# pred(collection[i]) is false
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$collection, coll, pcall)
 	
 	pred <- match.fun(pred)
 	require_a("unary function", pred)
@@ -30,7 +30,7 @@ xReject <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ind <- vapply(coll, pred, logical(1))
+		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
 		as.list( coll[`_`(ind) | !ind ] )			
 	}
 }

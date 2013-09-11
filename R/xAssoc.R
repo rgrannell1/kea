@@ -1,7 +1,7 @@
 
 #' xAssoc
 #' 
-#' Convert a list of name, value lists into a named list.
+#' Convert a list of name:value lists into a named list.
 #'
 #' @param coll a list or pairlist of list or pairlist pairs, with the first element being a 
 #'	string and the second element being any value.
@@ -31,7 +31,7 @@ xAssoc <- function (coll) {
 				stopifnot(is.character(key) && length(key) == 1)
 				key
 			},
-			character(1))
+			character(1), USE.NAMES = False)
 
 		structure(
 			Map( function (elem) elem[[2]], coll ),

@@ -81,6 +81,7 @@ files <- list.files(
 	full.names = True)
 
 tarballs <- xSelect(is_targz, files)
+
 x_( tarballs )$xDo(untarball)
 
 files <- list.files(
@@ -91,7 +92,7 @@ folders <- xReject(is_targz, files)
 
 #--- recurse into each folder, grabbing R files.
 
-r_package <- x_(folders)$xMap(path := {
+package_source_paths <- x_(folders)$xMap(path := {
 
 	list.files(
 		path,
@@ -101,16 +102,18 @@ r_package <- x_(folders)$xMap(path := {
 
 })$x()
 
-r_source <- x_(r_package)$xMap(package := {
-	
-	x_(package)$xMap(path := {
-		readLines(path, warn = 'false')
-	})$x()
+# grab each 
+read_lines <- path := {
+	paste0(readLines(path, warn = 'false'), collapse = '\n')
+}
 
+r_source <- x_(package_source_paths)$xMap(paths := {
+	x_(paths)$xMap(read_lines)$x()
 })$x()
-
-names(r_source) <- x_(folders)$
-xMap(path := { xLast( xSplitStr("/", path) )} )$x()
+names(r_source) <-
+	x_(folders)$xMap(path := {
+		xLast( xSplitStr("/", path) )
+	} )$x()
 
 #------------------ Act II: Count the occurrences of nasty words.
 is_rude <- ( function () {
@@ -171,25 +174,21 @@ is_rude <- ( function () {
 		 "white power", "women rapping", "wrapping men", "wrinkled starfish", "xx", "xxx", 
 		 "yaoi", "yellow showers", "yiffy", "zoophilia"))$x()
 
-	function (word) {
-		is.element(word, swears)
+	function (line) {
+		is.element(xWords(line), swears)
 	}
 } )()
 
-#------ extract every swear word in a package & make a freq-table by package.
+#------ extract every swear word in a package & 
+#------ make a freq-table by package.
 
 swear_by_package <- 
 	x_(r_source)$
 	xMap(package := {
 
-		observations <- x_(paste0(package, collapse = " "))$
-		xWords()$
+		x_(package)$
+		xFlatten(1)$
+		xLines()$
 		xSelect(is_rude)$x()
 
-		if (length(observations) > 0) {
-			as.list(table(observations))
-		} else {
-			list()
-		}
-	})
-
+	})$x()

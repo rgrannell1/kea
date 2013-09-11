@@ -1,4 +1,4 @@
-
+	
 context("x_ monad laws")
 
 test_that("Type constructor doesn't screw with data (left identity)", {
@@ -15,9 +15,9 @@ test_that("Type constructor flattens nested x_() inputs (right identity)", {
 
 })
 
-context("x_")
+context("x_ methods")
 
-test_that('method chaining works as expected', {
+test_that('method chaining works as expected, for some methods.', {
 
 	expect_that(
 		x_(function (a, b) a + b)$

@@ -1,7 +1,7 @@
 
 #' xDo
 #' 
-#' Map over a collection, but discard the results.
+#' Map (a possibly side-effectful) function over a collection and discard the results.
 #'
 #' @param fn a unary function, usually side-effectful.
 #' @param coll a collection
@@ -14,11 +14,12 @@
 #' @export
 
 xDo <- function (fn, coll) {
+	# function -> Collection any -> NULL
 	# apply a function to each element of a collection.
 	# and discard the results.
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	require_a("collection", coll, pcall)
 
 	fn <- match.fun(fn)

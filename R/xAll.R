@@ -22,8 +22,7 @@ xAll <- function (pred, coll) {
 	# is a predicate true for every member of a collection?
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	pred <- match.fun(pred)
 	require_a('unary function', pred)
@@ -31,7 +30,7 @@ xAll <- function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		is_match <- vapply(coll, pred, logical(1))
+		is_match <- vapply(coll, pred, logical(1), USE.NAMES = False)
 
 		if ( any(`_`(is_match)) ) {
 			False

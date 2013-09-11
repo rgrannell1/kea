@@ -22,8 +22,8 @@ xLocater <- function (pred, coll) {
 	# the predicate.
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$collection, coll)
 	
 	pred <- match.fun(pred)
 	require_a('unary function', pred, pcall)

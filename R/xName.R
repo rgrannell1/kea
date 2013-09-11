@@ -25,7 +25,8 @@ xName <- function (strs, coll) {
 	if (length(strs) != length(coll)) {
 		stop ("strs and coll should have equal length.")
 	} else {	
-		names(coll) <- strs
-		as.list(coll)
+		structure(
+			as.list(coll), 
+			names = unlist(strs))
 	}
 }

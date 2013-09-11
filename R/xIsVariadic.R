@@ -17,7 +17,7 @@ xIsVariadic <- function (fn) {
 	# is ... in fn's parameters?
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	f <- match.fun(fn)
 
 	"..." %in% names(xFormals(fn))

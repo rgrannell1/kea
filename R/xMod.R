@@ -15,5 +15,6 @@
 
 xMod <- function (fn1, fn2) {
 	# (a -> logical) -> (a -> logical) -> (a -> logical)
+	
 	xPhoenix("%%", fn1, fn2)
 }

@@ -17,7 +17,7 @@ xFlip <- function (fn) {
 	#' reverse the parameters of a function.
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 	remove(pcall)

@@ -17,7 +17,7 @@ xIsTrue <- function (coll) {
 	# test which elements of a collection are true
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	vapply(coll, function (x) {
 		identical(x, True)

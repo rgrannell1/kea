@@ -5,7 +5,7 @@
 #'
 #' @param fns a list or pairlist of functions.
 #'
-#' @return a unary function of x.
+#' @return a variadic function.
 #'
 #' @section Corner Cases: 
 #'
@@ -24,7 +24,7 @@ xJuxtapose <- function (...) {
 
 	fns <- lapply(fns, match.fun)
 
-	function (x) {
-		lapply(fns, function (fn) fn(x))
+	function (...) {
+		lapply(fns, function (fn) fn(...))
 	}
 }

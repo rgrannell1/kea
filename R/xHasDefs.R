@@ -21,7 +21,7 @@ xHasDefs <- function (fn) {
 	# which of f's parameters have non-empty defaults?
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	fn <- match.fun(fn)
 
 	if (xArity(fn) == 0) {

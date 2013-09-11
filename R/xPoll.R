@@ -18,8 +18,8 @@ xPoll <- function (pred, coll) {
 	# return the number of elements for which a predicate is true.
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	pred <- match.fun(pred)
 	require_a('unary function', pred)

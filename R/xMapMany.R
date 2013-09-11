@@ -20,7 +20,7 @@ xMapMany <- function (fn, ...) {
 	# function -> Collection any .... -> [any]
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 	colls <- list(...)

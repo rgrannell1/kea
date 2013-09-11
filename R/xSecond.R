@@ -21,7 +21,7 @@ xSecond <- function (coll) {
 	# return the second element of a collection x.
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	if (length(coll) < 2) {
 		stop('coll has less than two elements')

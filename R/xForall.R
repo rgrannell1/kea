@@ -20,7 +20,7 @@ xForall <- function (pred, ...) {
 	# pred such that pred is false?
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
+	require_a(traits$functionable, pred, pcall)
 
 	pred <- match.fun(pred)
 	colls <- list(...)

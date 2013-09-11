@@ -21,7 +21,7 @@ xApply <- function (fn, coll) {
 	pcall <- sys.call()
 	pframe <- parent.frame()
 	
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	require_a(c("list", "pairlist"), coll, pcall)
 
 	fn <- match.fun(fn)

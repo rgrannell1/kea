@@ -1,5 +1,5 @@
 
-#' xLocatel
+#' xLocate
 #'
 #' Get the position of the first element for which a predicate returns true.
 #' 
@@ -15,14 +15,14 @@
 #' @examples 
 #' @export
 
-xLocatel <- function (pred, coll) {
+xLocate <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> integer
 	# returns the first index of collection that matches
 	# the predicate pred.
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$collection, coll, pcall)
 	
 	pred <- match.fun(pred)
 	require_a('unary function', pred, pcall)
@@ -48,4 +48,4 @@ xLocatel <- function (pred, coll) {
 
 #' @export
 
-xLocate <- xLocatel
+xLocatel <- xLocate

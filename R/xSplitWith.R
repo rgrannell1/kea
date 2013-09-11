@@ -21,8 +21,8 @@ xSplitWith <- function (pred, coll) {
 	# take every element until pred returns false
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	pred <- match.fun(pred)
 	require_a("unary function", pred)

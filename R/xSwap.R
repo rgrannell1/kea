@@ -16,12 +16,12 @@
 
 xSwap <- function (fn, ...) {
 	# function -> Recursive Recursive any -> any
-	# 
+	# wrap a function in another function that substitutes 
+	# certain values for other values.
 
 	pcall <- sys.call()
 
-	require_a('functionable', fn, pcall)
-
+	require_a(traits$functionable, fn, pcall)
 
 	colls <- list(...)
 	require_a('list_of_recursive', colls, pcall)
@@ -36,7 +36,6 @@ xSwap <- function (fn, ...) {
 		do.call("function", list(
 			as.pairlist(formals(fn)),
 			bquote({
-
 				out <- .(call_with_params("fn", fn))
 
 				for (pair in colls) {
@@ -44,7 +43,6 @@ xSwap <- function (fn, ...) {
 						return ( pair[[2]] )
 					}
 				}
-
 				out
 			})
 		))

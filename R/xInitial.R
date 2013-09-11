@@ -18,7 +18,7 @@ xInit <- function (coll) {
 	# collection.
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	if (length(coll) == 0 || length(coll) == 1) {
 		list()

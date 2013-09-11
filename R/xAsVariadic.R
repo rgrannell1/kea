@@ -18,7 +18,7 @@ xAsVariadic <- function (fn) {
 	# as a list to its underlying function.
 	
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 	require_a("unary function", fn, pcall)

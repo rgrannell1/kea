@@ -19,7 +19,7 @@ xFixDefs <- function (fn) {
 	# fixed internally.
 
 	pcall <- sys.call()
-	require_a('functionable', fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 	remove(pcall)

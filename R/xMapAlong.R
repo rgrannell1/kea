@@ -20,8 +20,8 @@ xMapAlong <- function (fn, coll) {
 	# (integer -> any -> any) -> Collection any -> [any]
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, fn, pcall)
+	require_a(traits$collection, coll, pcall)
 	
 	fn <- match.fun(fn)
 	require_a('binary function', fn, pcall)

@@ -21,7 +21,7 @@ xParams <- function (fn) {
 	# the arguments of primitive functions.
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 

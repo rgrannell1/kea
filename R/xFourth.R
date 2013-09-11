@@ -21,7 +21,7 @@ xFourth <- function (coll) {
 	# return the fourth element of a collection x.
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	if (length(coll) < 4) {
 		stop('coll has less than four elements')

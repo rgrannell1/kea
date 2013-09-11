@@ -18,9 +18,9 @@ xFoldr <- function (fn, init, coll) {
 	# fold a list, starting from the right
 	
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	require_a('arbitrary', init, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	fn <- match.fun(fn)
 	require_a('binary function', fn, pcall)

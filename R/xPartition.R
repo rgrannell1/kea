@@ -25,8 +25,8 @@ xPartition <- function (pred, coll) {
 	# true, and a list for which pred returns false
 	
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	pred <- match.fun(pred)
 	require_a("unary function", pred)
@@ -34,7 +34,7 @@ xPartition <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ind <- vapply(coll, pred, logical(1))
+		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
 		true_ind <- !`_`(ind) & ind
 				
 		list(

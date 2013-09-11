@@ -17,7 +17,7 @@ xIsNa <- function (coll) {
 	# Is an element of a collection na?
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	vapply(coll, function (x) {
 		identical(x, NA) ||

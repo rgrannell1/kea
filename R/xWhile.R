@@ -21,8 +21,8 @@ xWhile <- function (pred, fn, init) {
 		# the result is true"
 
 		pcall <- sys.call()
-		require_a("functionable", pred, pcall)
-		require_a("functionable", fn, pcall)
+		require_a(traits$functionable, pred, pcall)
+		require_a(traits$functionable, fn, pcall)
 		require_a("arbitrary", init, pcall)
 
 		fn <- match.fun(fn)

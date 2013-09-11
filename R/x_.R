@@ -82,7 +82,7 @@ x_coll_proto <- local({
 		}
 	this$xFlatten <-
 		function (num) {
-			x_( xFlatten(fn, reciever_()) )
+			x_( xFlatten(num, reciever_()) )
 		}
 	this$xForall <-
 		function (pred, ...) {
@@ -137,6 +137,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xLast(reciever_()) )
 		}
+	this$xLength <-
+		function () {
+			x_( xLength(reciever_()) )
+		}
 	this$xLines <-
 		function () {
 			x_( xLines(reciever_()) )
@@ -172,7 +176,7 @@ x_coll_proto <- local({
 	# -------- N ------- #
 	this$xName <-
 		function (strs) {
-			x_( xName(strs, reciever_()) ) 
+			x_( xName(strs, coll = reciever_()) )
 		}
 	this$xNegate <-
 		function () {
@@ -330,6 +334,10 @@ x_coll_proto <- local({
 			x_( xUnwords(reciever_()) )
 		}
 	# -------- V ------- #
+	this$xVersion <-
+		function () {
+			x_( xVersion() )
+		}
 	# -------- W ------- #
 	this$xWords <-
 		function () {
@@ -594,6 +602,10 @@ x_fn_proto <- local({
 	this$xPhi <- 
 		this$xBiCompose
 	# -------- Q ------- #
+	this$xQueer <-
+		this$xCompose
+	this$xQ <-
+		this$xCompose
 	# -------- R ------- #
 	this$xRecurMap <-
 		function (coll) {
@@ -703,8 +715,7 @@ x_ <- function (val) {
 	} else {
 		fn <- proto_ref[[method_name]]
 
-		environment(fn)[['reciever_']] <- 
-			function () obj[['x']]
+		environment(fn)[['reciever_']] <- function () obj[['x']]
 		fn
 	}
 }

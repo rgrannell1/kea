@@ -23,9 +23,9 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	pcall <- sys.call()
 	pframe <- parent.frame()
 
-	require_a("functionable", fn1, pcall)
-	require_a("functionable", fn2, pcall)
-	require_a("functionable", fn3, pcall)
+	require_a(traits$functionable, fn1, pcall)
+	require_a(traits$functionable, fn2, pcall)
+	require_a(traits$functionable, fn3, pcall)
 
 	fn1 <- match.fun(fn1)
 	fn2 <- match.fun(fn2)

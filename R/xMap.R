@@ -21,8 +21,8 @@ xMap <- function (fn, coll) {
 	# map a unary function over a collection x.
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, fn, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	fn <- match.fun(fn)
 	require_a("unary function", fn, pcall)

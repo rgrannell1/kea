@@ -22,9 +22,9 @@ xMapWhen <- function (pred, fn, coll) {
 	# the elements for which pred returned true.
 
 	pcall <- sys.call()
-	require_a("functionable", pred, pcall)
-	require_a("functionable", fn, pcall)
-	require_a("collection", coll, pcall)
+	require_a(traits$functionable, pred, pcall)
+	require_a(traits$functionable, fn, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	pred <- match.fun(pred)
 	fn <- match.fun(fn)

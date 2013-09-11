@@ -17,7 +17,7 @@ xIsEmpty <- function (coll) {
 	# is collection length == 0?
 
 	pcall <- sys.call()
-	require_a("collection", coll, pcall)
+	require_a(traits$collection, coll, pcall)
 
 	length(coll) == 0
 }

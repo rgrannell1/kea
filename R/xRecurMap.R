@@ -19,7 +19,7 @@ xRecurMap <- function (fn, coll) {
 	# preserving its structure.	
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 	require_a("recursive", coll, pcall)
 
 	fn <- match.fun(fn)

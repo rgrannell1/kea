@@ -18,7 +18,7 @@ xLimit <- function (num, fn) {
 
 	pcall <- sys.call()
 	require_a('positive whole', num, pcall)
-	require_a('functionable', fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 

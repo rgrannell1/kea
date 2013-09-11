@@ -21,7 +21,7 @@ xAsClosure <- function (fn) {
 	# convert a primitive function to a closure.
 
 	pcall <- sys.call()
-	require_a("functionable", fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	fn <- match.fun(fn)
 
