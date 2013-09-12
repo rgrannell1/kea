@@ -20,7 +20,8 @@ xName <- function (strs, coll) {
 
 	pcall <- sys.call()
 	require_a('collection_of_string', strs, pcall)
-	require_a('collection', coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(strs) != length(coll)) {
 		stop ("strs and coll should have equal length.")

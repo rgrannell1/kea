@@ -19,7 +19,8 @@ xNotTrue <- function (coll) {
 	# Is an element of a collection not true?
 
 	pcall <- sys.call()
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0) {
 		logical(0)

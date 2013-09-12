@@ -17,7 +17,8 @@
 xIsNull <- function (coll) {
 
 	pcall <- sys.call()
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0 && is.null(coll)) {
 		# empty pairlist.

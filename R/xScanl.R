@@ -22,9 +22,14 @@ xScanl <- function (fn, init, coll) {
 	# scan across list, starting from the right.
 	
 	pcall <- sys.call()
-	require_a(traits$functionable, fn, pcall)
+
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
+
 	require_a('arbitrary', init, pcall)
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	fn <- match.fun(fn)
 	require_a('binary function', fn, pcall)

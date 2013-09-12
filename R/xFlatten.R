@@ -21,7 +21,8 @@ xFlatten <- function (num, coll) {
 
 	pcall <- sys.call()
 	require_a(c('positive whole', 'positive infinite'), num, pcall)
-	require_a('recursive', coll, pcall)
+	assert(
+		is.list(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0) {
 		list()

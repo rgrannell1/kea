@@ -24,8 +24,10 @@ xSegment <- function (num, coll) {
 	# when possible.
 
 	pcall <- sys.call()	
-	require_a('collection', coll, pcall)
+
 	require_a('positive whole', num, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0) {
 		list()

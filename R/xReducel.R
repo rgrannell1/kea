@@ -22,8 +22,13 @@ xReducel <- function (fn, coll) {
 	# fold a list, starting from the left.
 	
 	pcall <- sys.call()
-	require_a(traits$functionable, fn, pcall)
-	require_a(traits$collection, coll, pcall)
+
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
+
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	fn <- match.fun(fn)
 	require_a('binary function', fn, pcall)

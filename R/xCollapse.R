@@ -20,9 +20,14 @@ xCollapse <- function (delim, ...) {
 	# a str with by a delim.
 
 	pcall <- sys.call()
-	require_a("string", delim, pcall)
+	
+	assert(
+		is.character(delim) && length(delim) == 1, pcall)
+	
 	strs <- c(...)
-	require_a(traits$collection_of_string, strs, pcall)
+	
+	assert(
+		is.vector(strs) || is.pairlist(strs) && is.character(unlist(strs)), pcall)
 
 	if (length(strs) == 0) {
 		character(0)

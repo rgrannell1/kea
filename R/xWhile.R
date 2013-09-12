@@ -21,20 +21,25 @@ xWhile <- function (pred, fn, init) {
 		# the result is true"
 
 		pcall <- sys.call()
-		require_a(traits$functionable, pred, pcall)
-		require_a(traits$functionable, fn, pcall)
-		require_a("arbitrary", init, pcall)
+		assert(
+			is.function(pred) || is.symbol(pred) || 
+			(is.character(pred) && length(pred) == 1), pcall)
+		assert(
+			is.function(fn) || is.symbol(fn) || 
+			(is.character(fn) && length(fn) == 1), pcall)
 
 		fn <- match.fun(fn)
 		pred <- match.fun(pred)
 
-		require_a('unary function', pred, pcall)
-		require_a('unary function', fn, pcall)
+		assert(
+			xArity(pred) %in% c(1, +Inf), pcall)
+		assert(
+			xArity(fn) %in% c(1, +Inf), pcall)
 
 		repeat {
 			is_match <- pred(init)
 
-			stopifnot(is.logical(is_match))
+			assert(is.logical(is_match), pcall)
 
 			if (!is_match) break
 			init <- fn(init)

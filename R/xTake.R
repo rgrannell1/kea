@@ -20,8 +20,12 @@ xTake <- function (num, coll) {
 	# take the first num values of collection.
 
 	pcall <- sys.call()
-	require_a("nonnegative whole", num, pcall)
-	require_a(traits$collection, coll, pcall)
+	
+	assert(
+		length(num) == 1 && is.numeric(num) && num >= 0, pcall)
+
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0 || num == 0) {
 		list()

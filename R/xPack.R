@@ -22,7 +22,8 @@ xPack <- function (coll) {
 	# remove all length-zero elements from a coll
 
 	pcall <- sys.call()
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0) {
 		list()

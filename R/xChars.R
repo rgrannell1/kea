@@ -18,7 +18,8 @@ xChars <- function (str) {
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
-	require_a("string", str, pcall)
+	assert(
+		is.character(str) && length(str) == 1, pcall)
 
 	if (nchar(str) == 0) {
 		""

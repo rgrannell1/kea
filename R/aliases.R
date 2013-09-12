@@ -26,6 +26,24 @@ call_with_params <- function (name, fn) {
 			as.symbol))
 }
 
+assert <- function (bool, pcall) {
+	args <- as.list(match.call())[-1]
+
+	if (!bool) {
+		call <- if (missing(pcall)) {
+			'assert()'
+		} else {
+			paste0(deparse(pcall), collapse = '')
+		}
+		stop(
+			call,
+			": the assertion\n",
+			"    ", paste0(deparse(args$bool), collapse = ''), "\n",
+			"failed.",
+			call. = False)
+	}
+}
+
 # not included arbitrarily; I sometimes use this constant.
 #' @export
 
@@ -40,8 +58,7 @@ traits <- list(
 		paste0('list_of_', c('list', 'pairlist')),
 	collection_of_string = 
 		paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'string'),
-	collection_of_number = 
-		c(
+	collection_of_number = c(
 			paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'integer'),
 			paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'double')),
 	positive_number = 
@@ -51,5 +68,5 @@ traits <- list(
 	collection = 
 		c('list', 'pairlist', 'vector'),
 	recursive = 
-		c('list', 'pairlist'))
-
+		c('list', 'pairlist')
+)

@@ -12,7 +12,9 @@ xUnlines <- function (strs) {
 	# collapse the collection of strs with a newline.
 
 	pcall <- sys.call()
-	require_a(traits$collection_of_string, strs, pcall)
+	assert(
+		is.vector(strs) || is.pairlist(strs) && 
+		is.character(unlist(strs)), pcall)
 
 	paste0(strs, collapse = '\n')
 }

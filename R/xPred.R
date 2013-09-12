@@ -21,7 +21,9 @@ xPred <- function (nums) {
 
 	pcall <- sys.call()
 
-	require_a(c("collection_of_double", "collection_of_integer"), nums, pcall)
+	assert(
+		is.vector(nums) || is.pairlist(nums) && is.numeric(unlist(nums)), pcall)
+	
 	nums <- unlist(nums)
 
 	if (length(nums) == 0) {

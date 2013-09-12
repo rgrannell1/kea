@@ -21,11 +21,17 @@ xTakeWhile <- function (pred, coll) {
 	# take every element until pred returns false
 
 	pcall <- sys.call()
-	require_a(traits$functionable, pred, pcall)
-	require_a(traits$collection, coll, pcall)
+	
+	assert(
+		is.function(pred) || is.symbol(pred) || 
+		(is.character(pred) && length(pred) == 1), pcall)
+
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	pred <- match.fun(pred)
-	require_a("unary function", pred)
+	assert(
+		xArity(pred) %in% c(1, Inf), pcall)
 
 	if (length(coll) == 0) {
 		list()

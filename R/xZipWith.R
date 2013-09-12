@@ -20,12 +20,15 @@ xZipWith <- function (fn, ...) {
 	# excess elements are discarded.
 
 	pcall <- sys.call()
-	require_a(traits$functionable, fn, pcall)
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
 
 	coll <- list(...)
 	fn <- match.fun(fn)
 
-	stopifnot( xArity(fn) %in% c(length(coll), +Inf) )
+	assert(
+		xArity(fn) %in% c(length(coll), +Inf), pcall)
 	
 	coll_lengths <- sapply(coll, length)
 	min_length <- min(coll_lengths)

@@ -21,8 +21,13 @@ xLocate <- function (pred, coll) {
 	# the predicate pred.
 
 	pcall <- sys.call()
-	require_a(traits$functionable, pred, pcall)
-	require_a(traits$collection, coll, pcall)
+
+	assert(
+		is.function(pred) || is.symbol(pred) || 
+		(is.character(pred) && length(pred) == 1), pcall)
+
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 	
 	pred <- match.fun(pred)
 	require_a('unary function', pred, pcall)

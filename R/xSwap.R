@@ -21,8 +21,10 @@ xSwap <- function (fn, ...) {
 
 	pcall <- sys.call()
 
-	require_a(traits$functionable, fn, pcall)
-
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
+	
 	colls <- list(...)
 	require_a(traits$list_of_recursive, colls, pcall)
 	require_a("list_of_length_two", colls, pcall)

@@ -18,8 +18,13 @@ xWait <- function (fn, num) {
 	# function -> number -> function
 
 	pcall <- sys.call()
-	require_a(traits$functionable, fn, pcall)
-	require_a(traits$positive_number, num, pcall)
+	
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
+
+	assert(
+		is.numeric(num) && num >= 0, pcall)
 
 	fn <- match.fun(fn)
 	remove(pcall)

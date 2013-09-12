@@ -20,7 +20,9 @@ xExists <- function (pred, ...) {
 	# pred such that pred is true?
 
 	pcall <- sys.call()
-	require_a(traits$functionable, pred, pcall)
+	assert(
+		is.function(pred) || is.symbol(pred) || 
+		(is.character(pred) && length(pred) == 1), pcall)
 
 	pred <- match.fun(pred)
 	colls <- list(...)

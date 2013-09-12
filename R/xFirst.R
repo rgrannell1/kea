@@ -21,7 +21,8 @@ xFirst <- function (coll) {
 	# return the first element of a collection x.
 
 	pcall <- sys.call()
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) < 1) {
 		stop('coll has less than one element')

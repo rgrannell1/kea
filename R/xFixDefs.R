@@ -19,8 +19,11 @@ xFixDefs <- function (fn) {
 	# fixed internally.
 
 	pcall <- sys.call()
-	require_a(traits$functionable, fn, pcall)
 
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
+	
 	fn <- match.fun(fn)
 	remove(pcall)
 

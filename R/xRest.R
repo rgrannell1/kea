@@ -20,7 +20,8 @@ xRest <- function (coll) {
 	# collection x.
 
 	pcall <- sys.call()
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) < 2) {
 		list()

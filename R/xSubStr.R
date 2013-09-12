@@ -21,8 +21,10 @@ xSubStr <- function (str, inds) {
 	
 	pcall <- sys.call()
 
-	require_a(c("length_zero character", "string"), str, pcall)
-	require_a(c('length_zero double', 'length_zero integer', 'whole'), inds, pcall)
+	assert(
+		is.character(str) && length(str) < 2, pcall)
+	assert(
+		is.numeric(inds) && all(round(inds) == inds), pcall)
 	
 	if (length(str) == 0) {
 		character(0)

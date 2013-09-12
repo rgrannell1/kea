@@ -19,8 +19,13 @@ xRecurMap <- function (fn, coll) {
 	# preserving its structure.	
 
 	pcall <- sys.call()
-	require_a(traits$functionable, fn, pcall)
-	require_a("recursive", coll, pcall)
+
+	assert(
+		is.function(fn) || is.symbol(fn) || 
+		(is.character(fn) && length(fn) == 1), pcall)
+	
+	assert(
+		is.list(coll) || is.pairlist(coll), pcall)
 
 	fn <- match.fun(fn)
 	require_a("unary function", fn, pcall)

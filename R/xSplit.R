@@ -26,7 +26,8 @@ xSplit <- function (ind, coll) {
 
 	pcall <- sys.call()
 	require_a("nonnegative whole", ind, pcall)
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	list(
 		xTake(ind, coll),

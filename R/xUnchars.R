@@ -13,7 +13,9 @@ xUnchars <- function (...) {
 
 	pcall <- sys.call()
 	strs <- c(...)
-	require_a(traits$collection_of_string, strs, pcall)
+	assert(
+		is.vector(strs) || is.pairlist(strs) && 
+		is.character(unlist(strs)), pcall)
 
 	if (length(strs) == 0) {
 		character(0)

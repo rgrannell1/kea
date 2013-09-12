@@ -17,7 +17,8 @@ xIsEmpty <- function (coll) {
 	# is collection length == 0?
 
 	pcall <- sys.call()
-	require_a(traits$collection, coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	length(coll) == 0
 }
