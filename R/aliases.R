@@ -19,7 +19,7 @@ call_with_params <- function (name, fn) {
 	# string -> function -> call
 	# create call for a function with
 	# the arguments of another function.
-
+	
 	as.call(
 		lapply(
 			c(name, names(xFormals(fn)) ),
@@ -34,7 +34,22 @@ tau <- 6.2831853071795864769252867
 # to make error messages clearer.
 
 traits <- list(
-	functionable = c('function', 'string', 'symbol'),
-	collection = c('list', 'pairlist', 'vector'),
-	recursive = c('list', 'pairlist'))
+	list_of_collections = 
+		paste0('list_of_', c('list', 'pairlist', 'vector')),
+	list_of_recursive = 
+		paste0('list_of_', c('list', 'pairlist')),
+	collection_of_string = 
+		paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'string'),
+	collection_of_number = 
+		c(
+			paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'integer'),
+			paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'double')),
+	positive_number = 
+		c("positive double", "positive integer"),
+	functionable = 
+		c('function', 'string', 'symbol'),
+	collection = 
+		c('list', 'pairlist', 'vector'),
+	recursive = 
+		c('list', 'pairlist'))
 

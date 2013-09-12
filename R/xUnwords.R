@@ -13,7 +13,7 @@ xUnwords <- function (...) {
 
 	pcall <- sys.call()
 	strs <- c(...)
-	require_a("collection_of_string", strs, pcall)
+	require_a(traits$collection_of_string, strs, pcall)
 
 	paste0(..., collapse = ' ')
 }

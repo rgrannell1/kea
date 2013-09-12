@@ -25,7 +25,7 @@ xExists <- function (pred, ...) {
 	pred <- match.fun(pred)
 	colls <- list(...)
 
-	require_a("list_of_collection", colls, pcall)
+	require_a(traits$list_of_collection, colls, pcall)
 	coll_lengths <- sapply(colls, length)
 
 	if (length(colls) == 0 || min(coll_lengths) == 0) {

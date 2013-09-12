@@ -22,7 +22,7 @@ xCollapse <- function (delim, ...) {
 	pcall <- sys.call()
 	require_a("string", delim, pcall)
 	strs <- c(...)
-	require_a("collection_of_string", strs, pcall)
+	require_a(traits$collection_of_string, strs, pcall)
 
 	if (length(strs) == 0) {
 		character(0)

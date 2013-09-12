@@ -19,7 +19,9 @@ xAssoc <- function (coll) {
 	# Collection Collection any -> [any]
 
 	pcall <- sys.call()
-	require_a('recursive_of_length_two', coll, pcall)
+	require_a(c(
+		'list_of_length_two', 
+		'recursive_of_length_two'), coll, pcall)
 
 	if (length(coll) == 0) {
 		list()

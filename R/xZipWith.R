@@ -20,7 +20,7 @@ xZipWith <- function (fn, ...) {
 	# excess elements are discarded.
 
 	pcall <- sys.call()
-	require_a(c('function', 'string'), fn, pcall)
+	require_a(traits$functionable, fn, pcall)
 
 	coll <- list(...)
 	fn <- match.fun(fn)

@@ -24,8 +24,8 @@ xSwap <- function (fn, ...) {
 	require_a(traits$functionable, fn, pcall)
 
 	colls <- list(...)
-	require_a('list_of_recursive', colls, pcall)
-	require_a('list_of_length_two', colls, pcall)
+	require_a(traits$list_of_recursive, colls, pcall)
+	require_a("list_of_length_two", colls, pcall)
 
 	fn <- match.fun(fn)
 

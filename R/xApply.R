@@ -22,7 +22,7 @@ xApply <- function (fn, coll) {
 	pframe <- parent.frame()
 	
 	require_a(traits$functionable, fn, pcall)
-	require_a(c("list", "pairlist"), coll, pcall)
+	require_a(traits$recursive, coll, pcall)
 
 	fn <- match.fun(fn)
 
