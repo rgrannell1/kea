@@ -20,9 +20,12 @@ xNegate <- function (nums) {
 
 	pcall <- sys.call()
 
-	require_a(c(
-		"collection_of_double", 
-		"collection_of_integer"), nums, pcall)
+	assert(
+		is.vector(nums) || is.pairlist(nums), pcall)
+	assert(
+		all(sapply(nums, length) == 1), pcall)
+	assert(
+		is.numeric(unlist(nums)))
 
 	nums <- unlist(nums)
 

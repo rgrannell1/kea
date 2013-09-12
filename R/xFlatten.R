@@ -20,7 +20,10 @@ xFlatten <- function (num, coll) {
 	# flatten a collection to an arbitrary depth.
 
 	pcall <- sys.call()
-	require_a(c('positive whole', 'positive infinite'), num, pcall)
+
+	assert(
+		is.numeric(num) || is.infinite(num) && num > 0, pcall)
+
 	assert(
 		is.list(coll) || is.pairlist(coll), pcall)
 

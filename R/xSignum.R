@@ -21,11 +21,15 @@ xSignum <- function (nums) {
 
 	pcall <- sys.call()
 	
-	require_a("collection_of_length_one", nums, pcall)
+	assert(
+		is.vector(nums) || is.pairlist(nums), pcall)
+	assert(
+		all(sapply(nums, length) == 1), pcall)
 
 	nums <- unlist(nums)
 
-	require_a(c("double", "integer"), nums, pcall)
+	assert(
+		is.numeric(unlist(nums)), pcall)
 
 	if (length(nums) == 0) {
 		nums

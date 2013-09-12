@@ -27,7 +27,11 @@ xExists <- function (pred, ...) {
 	pred <- match.fun(pred)
 	colls <- list(...)
 
-	require_a(traits$list_of_collection, colls, pcall)
+	assert(
+		all( sapply(colls, function (coll) {
+			is.vector(coll) || is.pairlist(coll) 
+		}) ), pcall)
+
 	coll_lengths <- sapply(colls, length)
 
 	if (length(colls) == 0 || min(coll_lengths) == 0) {

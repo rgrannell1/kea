@@ -25,7 +25,10 @@ xSegment <- function (num, coll) {
 
 	pcall <- sys.call()	
 
-	require_a('positive whole', num, pcall)
+	assert(length(num) == 1, pcall)
+	assert(is.numeric(num), pcall)
+	assert(num >= 0, pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

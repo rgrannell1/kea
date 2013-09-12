@@ -20,7 +20,13 @@ xJuxtapose <- function (...) {
 	pcall <- sys.call()
 
 	fns <- list(...)
-	require_a('recursive_of_functionable', fns, pcall)
+
+	assert(is.recursive(fns))
+
+	# is every element a function or function name?
+	assert(all( sapply(fns, function (fn) {
+		is.function(fn) || is.symbol(fn) || (is.character(fn) && length(fn) == 1)
+	}) ), pcall)
 
 	fns <- lapply(fns, match.fun)
 

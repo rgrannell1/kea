@@ -26,6 +26,7 @@ xAll <- function (pred, coll) {
 	assert(
 		is.function(pred) || is.symbol(pred) || 
 		(is.character(pred) && length(pred) == 1), pcall)
+	
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

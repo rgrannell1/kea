@@ -30,7 +30,9 @@ xLocate <- function (pred, coll) {
 		is.vector(coll) || is.pairlist(coll), pcall)
 	
 	pred <- match.fun(pred)
-	require_a('unary function', pred, pcall)
+	
+	assert(
+		xArity(pred) %in% c(1, Inf), pcall)
 
 	if (length(coll) == 0) {
 		integer(0)

@@ -19,19 +19,18 @@
 	formal <- match.call()[-1]$formal
 	body <- match.call()[-1]$body
 
-	require_a("name", formal, pcall)
-	require_a("arbitrary", body, pcall)
+	assert(is.name(formal), pcall)
 
-	f <- function () {}
-	body(f) <- body
+	lambda <- function () {}
+	body(lambda) <- body
 	# ------ make f a default-free unary function ------
 	
-	formals(f) <- 
+	formals(lambda) <- 
 		structure(
 			list(quote(expr=)),
 			names = match.call()[-1]$formal)
 
 	# ------ make sure lexical scoping works is as expected ------
-	environment(f) <- pframe
-	f
+	environment(lambda) <- pframe
+	lambda
 }

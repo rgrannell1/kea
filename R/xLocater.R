@@ -31,7 +31,9 @@ xLocater <- function (pred, coll) {
 		is.vector(coll) || is.pairlist(coll), pcall)
 	
 	pred <- match.fun(pred)
-	require_a('unary function', pred, pcall)
+	
+	assert(
+		xArity(pred) %in% c(1, Inf), pcall)
 
 	if (length(coll) == 0) {
 		integer(0)
@@ -41,7 +43,8 @@ xLocater <- function (pred, coll) {
 		while (ith >= 1) {
 
 			is_match <- pred( coll[[ith]] )
-			stopifnot(is.logical(is_match))
+			
+			assert(is.logical(is_match), pcall)
 
 			if (is_match) {
 				return (as.integer(ith))

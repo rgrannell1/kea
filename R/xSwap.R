@@ -26,8 +26,12 @@ xSwap <- function (fn, ...) {
 		(is.character(fn) && length(fn) == 1), pcall)
 	
 	colls <- list(...)
-	require_a(traits$list_of_recursive, colls, pcall)
-	require_a("list_of_length_two", colls, pcall)
+
+	assert(
+		all(sapply(colls, is.recursive)), pcall)
+
+	assert(
+		all(sapply(colls, length) == 2), pcall)
 
 	fn <- match.fun(fn)
 

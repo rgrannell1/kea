@@ -11,7 +11,7 @@
 #'
 #' @section Corner Cases: 
 #'	 xAsClosure does not work for every primitive function (for example 'c'),
-#'	 so caution should be used when using this function.
+#'	 so caution should be taken when using this function.
 #'
 #' @examples 
 #' @export
@@ -29,12 +29,14 @@ xAsClosure <- function (fn) {
 	fn <- match.fun(fn)
 
 	if (is.primitive(fn)) {
+
 		do.call("function", list(
 			as.pairlist(xFormals(fn)),
 			bquote({
 				.(call_with_params("fn", fn))
 			})
 		))
+		
 	} else {
 		fn
 	}

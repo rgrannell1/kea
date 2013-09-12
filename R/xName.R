@@ -19,15 +19,17 @@ xName <- function (strs, coll) {
 	# add names to a collection.
 
 	pcall <- sys.call()
-	require_a('collection_of_string', strs, pcall)
+	
+	assert(
+		is.vector(strs) || is.pairlist(strs) && 
+		is.character(unlist(strs)), pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	if (length(strs) != length(coll)) {
-		stop ("strs and coll should have equal length.")
-	} else {	
-		structure(
-			as.list(coll), 
-			names = unlist(strs))
-	}
+	assert(length(strs) == length(coll), pcall)
+
+	structure(
+		as.list(coll), 
+		names = unlist(strs))
 }

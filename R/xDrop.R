@@ -22,7 +22,11 @@ xDrop <- function (num, coll) {
 	# take the first num values of collection.
 	
 	pcall <- sys.call()
-	require_a("nonnegative whole", num, pcall)
+
+	assert(length(num) == 1, pcall)
+	assert(is.numeric(num) && num >= 0, pcall)
+	assert(round(num) == num, pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

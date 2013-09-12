@@ -26,9 +26,11 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	assert(
 		is.function(fn1) || is.symbol(fn1) || 
 		(is.character(fn1) && length(fn1) == 1), pcall)
+	
 	assert(
 		is.function(fn2) || is.symbol(fn2) || 
 		(is.character(fn2) && length(fn2) == 1), pcall)
+
 	assert(
 		is.function(fn3) || is.symbol(fn3) || 
 		(is.character(fn3) && length(fn3) == 1), pcall)

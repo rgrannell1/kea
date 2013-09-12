@@ -16,10 +16,12 @@
 
 xLength <- function (coll) {
 	# Collection a -> integer
-	# 
+	# get the length of a collection.
 
 	pcall <- sys.call()
-	require_a('collection', coll, pcall)
+
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	length(pcall)
 }

@@ -16,16 +16,15 @@
 #' @export
 
 xSplitStr <- function (rexp, str) {
-	# str -> str -> Vector str
+	# Vector string -> Vector string -> Vector str
 	# split a str into substrs at a rexp.
 	
 	pcall <- sys.call()
-	require_a(c("length_zero character", "string"), rexp, pcall)
-	require_a(c("length_zero character", "string"), str, pcall)
 
-	if (length(rexp) == 0 || length(str) == 0) {
-		character(0)
-	} else if (nchar(str) == 0) {
+	assert(is.character(rexp) && length(rexp) == 1, pcall)
+	assert(is.character(str) && length(str) == 1, pcall)
+
+	if (nchar(str) == 0) {
 		''
 	} else {
 		strsplit(str, rexp)[[1]]		

@@ -20,7 +20,10 @@ xSetProd <- function (...) {
 	pcall <- sys.call()
 	colls <- list(...)
 
-	require_a('list_of_collection', colls, pcall)
+	assert(
+		all( sapply(colls, function (coll) {
+			is.vector(coll) || is.pairlist(coll) 
+		}) ), pcall)
 
 	coll_lengths <- sapply(colls, length)
 

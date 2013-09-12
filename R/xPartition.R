@@ -34,7 +34,9 @@ xPartition <- function (pred, coll) {
 		is.vector(coll) || is.pairlist(coll), pcall)
 
 	pred <- match.fun(pred)
-	require_a("unary function", pred)
+	
+	assert(
+		xArity(pred) %in% c(1, Inf), pcall)
 
 	if (length(coll) == 0) {
 		list()

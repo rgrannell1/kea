@@ -37,8 +37,12 @@ xMapWhen <- function (pred, fn, coll) {
 	pred <- match.fun(pred)
 	fn <- match.fun(fn)
 
-	require_a("unary function", pred, pcall)
-	require_a("unary function", fn, pcall)
+	
+	assert(
+		xArity(fn) %in% c(1, Inf), pcall)
+	
+	assert(
+		xArity(pred) %in% c(1, Inf), pcall)
 
 	composite <- function (x) {
 		is_match <- pred(x)

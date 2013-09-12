@@ -23,7 +23,9 @@ xAsVariadic <- function (fn) {
 		(is.character(fn) && length(fn) == 1), pcall)
 
 	fn <- match.fun(fn)
-	require_a("unary function", fn, pcall)
+	
+	assert(
+		xArity(fn) %in% c(1, Inf), pcall)
 
 	function (...) {
 		fn(list(...))

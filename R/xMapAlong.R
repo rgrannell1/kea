@@ -29,7 +29,9 @@ xMapAlong <- function (fn, coll) {
 		is.vector(coll) || is.pairlist(coll), pcall)
 	
 	fn <- match.fun(fn)
-	require_a('binary function', fn, pcall)
+	
+	assert(
+		xArity(fn) %in% c(2, Inf), pcall)
 
 	if (length(coll) == 0) {
 		list()

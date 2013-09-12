@@ -24,13 +24,13 @@ xPartial <- function (fn, coll) {
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)
 
-	require_a('collection', coll, pcall)
+	assert(
+		is.vector(coll) || is.pairlist(coll), pcall)
 
 	fn <- match.fun(fn)
 	remove(pcall)
 
-	stopifnot( all(names(coll) %in% xParams(fn)) )
-	stopifnot( length(unique(coll)) == length(coll) )
+	assert( all(names(coll) %in% xParams(fn)), pcall)
 
 	if (length(coll) == 0) {
 		fn

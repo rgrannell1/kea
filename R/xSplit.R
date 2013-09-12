@@ -25,7 +25,11 @@ xSplit <- function (ind, coll) {
 	# take the first n values of collection.
 
 	pcall <- sys.call()
-	require_a("nonnegative whole", ind, pcall)
+
+	assert(length(ind) == 1, pcall)
+	assert(is.numeric(ind), pcall)
+	assert(ind >= 0, pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

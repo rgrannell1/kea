@@ -17,13 +17,15 @@ xLines <- function (str) {
 	# split str at every newline, returning 
 	# a character vector of equal or greater length.
 	
-	pcall <- sys.call()	
-	require_a(c('length_zero character', 'length_one character'), str, pcall)
+	pcall <- sys.call()
+
+	assert(is.character(str), pcall)
+	assert(length(str) == 1, pcall)
 
 	if (length(str) == 0) {
 		character(0)
 	} else if (nchar(str) == 0) {
-		''
+		""
 	} else {
 		strsplit(str, split = "\n+")[[1]]
 	}
