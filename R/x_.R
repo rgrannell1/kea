@@ -40,6 +40,10 @@ x_coll_proto <- local({
 		function (delim, ...) {
 			x_( xCollapse(delim, reciever_(), ...) )
 		}
+	this$xCombinations <-
+		function (num) {
+			x_( xCombinations(num, reciever_()) )
+		}
 	this$xConst <-
 		function (x) {
 			x_( xConst(reciever_()) )
