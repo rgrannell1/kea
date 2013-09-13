@@ -679,6 +679,12 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xTakeWhile(reciever_(), coll) )
 		}
+	this$xThrush <-
+		function (fn2) {
+			x_( xWrap(reciever_(), fn2) )
+		}
+	this$xT <-
+		this$xThrush
 	# -------- U ------- #
 	this$xUntil <-
 		function (fn, coll) {
@@ -706,6 +712,8 @@ x_fn_proto <- local({
 		function (fn, coll) {
 			x_( xWhile(reciever_(), fn, coll) )
 		}
+	this$xWrap <-
+		this$xThrush
 	this
 })
 
