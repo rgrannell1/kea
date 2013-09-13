@@ -128,3 +128,4 @@ Collate:
     'xUnionLift.R'
     'xUnion.R'
     'xDiffer.R'
+    'xInter.R'

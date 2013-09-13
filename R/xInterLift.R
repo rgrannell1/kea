@@ -16,5 +16,5 @@
 
 xInterLift <- function (fn1, fn2) {
 	
-	xPhoenix('intersect', fn1, fn2)
+	xPhoenix(xInterLift, fn1, fn2)
 }

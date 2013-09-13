@@ -16,5 +16,5 @@
 
 xDifferLift <- function (fn1, fn2) {
 
-	xPhoenix('setdiff', fn1, fn2)
+	xPhoenix(xDiffer, fn1, fn2)
 }

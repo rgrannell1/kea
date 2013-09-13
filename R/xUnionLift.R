@@ -18,5 +18,5 @@
 
 xUnionLift <- function (fn1, fn2) {
 
-	xPhoenix('union', fn1, fn2)
+	xPhoenix(xUnion, fn1, fn2)
 }
