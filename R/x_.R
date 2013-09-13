@@ -328,6 +328,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xThird(reciever_()) )
 		}
+	this$xThread <- 
+		function (...) {
+			x_( xThread(reciever_(), ...) )
+		}
 	# -------- U ------- #
 	this$xUnchars <-
 		function () {
@@ -678,6 +682,10 @@ x_fn_proto <- local({
 	this$xTakeWhile <-
 		function (coll) {
 			x_( xTakeWhile(reciever_(), coll) )
+		}
+	this$xThread <- 
+		function (...) {
+			x_( xThread(reciever_(), ...) )
 		}
 	this$xThrush <-
 		function (fn2) {

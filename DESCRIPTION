@@ -130,3 +130,4 @@ Collate:
     'xDiffer.R'
     'xInter.R'
     'xWrap.R'
+    'xThread.R'
