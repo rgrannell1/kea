@@ -329,6 +329,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnchars(reciever_()) )
 		}
+	this$xUnion <- 
+		function (coll2) {
+			x_( xUnion(reciever_(), coll2) )
+		} 
 	this$xUnit <-
 		function () {
 			x_( xUnit(reciever_())	)	
