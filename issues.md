@@ -20,6 +20,7 @@ Issue Tracker
 - [ ] #52 avoid picking up names randomly.
 - [ ] #53 decide which functions should be variadic.
 - [ ] #54 functions that return functions should be variadic if it would make them more general.
+- [ ] #56 type convert phoenix function output.
 
 ### Bugs:
 
@@ -32,7 +33,7 @@ Issue Tracker
 - [ ] #30 should has defaults return names? list?
 - [ ] #46 Issue in xreject. Error in vapply(coll, pred, logical(1)) : values must be length 1,
  but FUN(X[[1]]) result is length 0
- - [] #54 xNames in cran example ins't working.
+ - [] #55 xNames in cran example ins't working.
 
 ### Misc:
 

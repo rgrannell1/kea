@@ -1,5 +1,5 @@
 
-#' xPlus
+#' xPlusLift
 #' 
 #' Compose two functions with addition.
 #'
@@ -15,7 +15,7 @@
 
 #' @export
 
-xPlus <- function (fn1, fn2) {
+xPlusLift <- function (fn1, fn2) {
 	# (a -> number) -> (a -> number) -> (a -> number)
 	
 	xPhoenix("+", fn1, fn2)

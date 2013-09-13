@@ -1,5 +1,5 @@
 
-#' xEqual
+#' xEqualLift
 #' 
 #' Return a function that tests if a pair of functions are equal for its input.
 #'
@@ -16,7 +16,7 @@
 #' @export
 
 
-xEqual <- function (fn1, fn2) {
+xEqualLift <- function (fn1, fn2) {
 	# function -> function -> function
 
 	xPhoenix('==', fn1, fn2)

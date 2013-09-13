@@ -27,9 +27,8 @@ xPartial <- function (fn, coll) {
 		is.vector(coll) || is.pairlist(coll), pcall)
 
 	fn <- match.fun(fn)
-	remove(pcall)
-
 	assert( all(names(coll) %in% xParams(fn)), pcall)
+	remove(pcall)
 
 	if (length(coll) == 0) {
 		fn

@@ -110,7 +110,7 @@ g <- x := {
 }
 
 # Map a composite polynomial function over a vector.
-xMap(xPlus(f, g), 1:1000)
+xMap(xPlusLift(f, g), 1:1000)
 
 # grab all underscored vars in base.
 xSelect(
@@ -166,7 +166,7 @@ most importantly, an avian name (```xPhoenix```)[3].
 
 ```javascript
 func_add <- xPartial(xBiCompose, list(fn1 = "+"))
-# equivelant to the function xPlus()
+# equivelant to the function xPlusLift()
 func_add(
     function (x) 2*x + x,
     function (x) 3*x + x
@@ -179,14 +179,14 @@ In fact combinators are so powerful that the ```xI``` (identity), ```xK```
 
 ```javascript
 x_(1:100)$
-xSelect( xOr(
+xSelect( xOrLift(
     # two uncommon properties
     n := {n^2 == 2^n},
     n := {n*2 == n*n}
 ))
 [1] 2 4
 
-xMod( function (n) n^2, xK(6) )(1:4)
+xModLift( function (n) n^2, xK(6) )(1:4)
 [1] 1 4 3 4
 ```
 

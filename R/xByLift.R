@@ -1,5 +1,5 @@
 
-#' xBy
+#' xByLift
 #' 
 #' Compose two functions with multiplication.
 #'
@@ -8,12 +8,12 @@
 #'
 #' @template glossary
 #'
-#' @return a number.
+#' @return a unary function.
 #'
 #' @examples 
 #' @export
 
-xBy <- function (fn1, fn2) {
+xByLift <- function (fn1, fn2) {
 	# (a -> number) -> (a -> number) -> (a -> number)
 	
 	xPhoenix("*", fn1, fn2)

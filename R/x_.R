@@ -40,12 +40,16 @@ x_coll_proto <- local({
 		function (delim, ...) {
 			x_( xCollapse(delim, reciever_(), ...) )
 		}
+	this$xContains <- 
+		function (val) {
+			x_( xContains(reciever_(), val) )
+		}
 	this$xCombinations <-
 		function (num) {
 			x_( xCombinations(num, reciever_()) )
 		}
 	this$xConst <-
-		function (x) {
+		function (val) {
 			x_( xConst(reciever_()) )
 		}
 
@@ -341,6 +345,7 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnwords(reciever_()) )
 		}
+
 	# -------- V ------- #
 	this$xVersion <-
 		function () {
@@ -411,9 +416,9 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xAll(reciever_(), coll) )
 		}
-	this$xAnd <-
+	this$xAndLift <-
 		function (pred2) {
-			x_( xAnd(reciever_(), pred2) )
+			x_( xAndLift(reciever_(), pred2) )
 		}
 	this$xAny <- 
 		function (coll) {
@@ -436,9 +441,9 @@ x_fn_proto <- local({
 		function (fn2, fn3) {
 			x_( xBiCompose(reciever_(), fn2, fn3) )
 		}
-	this$xBy <-
+	this$xByLift <-
 		function (fn2) {
-			x_( xBy(reciever_(), fn2) )
+			x_( xByLift(reciever_(), fn2) )
 		}
 	# -------- C ------- #
 	this$xC <-
@@ -452,6 +457,10 @@ x_fn_proto <- local({
 			x_( xCompose(fn1, reciever_()) )
 		}
 	# -------- D ------- #
+	this$xDifferLift <-
+		function (fn2) {
+			x_( xDifferLift(fn1, fn2) )
+		}
 	this$xDropWhile <-
 		function (coll) {
 			x_( xDropWhile(reciever_(), coll) )
@@ -461,9 +470,9 @@ x_fn_proto <- local({
 			x_( xDo(reciever_(), coll) )
 		}
 	# -------- E ------- #
-	this$xEqual <-
+	this$xEqualLift <-
 		function (fn2) {
-			x_( xEqual(reciever_(), fn2) )
+			x_( xEqualLift(reciever_(), fn2) )
 		}
 	this$xExists <-
 		function (...) {
@@ -512,6 +521,10 @@ x_fn_proto <- local({
 		this$xIdentity
 	this$xI <- 
 		this$xIdiotBird
+	this$xInterLift <-
+		function (fn2) {
+			x_( xInterLift(reciever_(), fn2) )
+		}
 	this$xIsVariadic <-
 		function () {
 			x_( xIsVariadic(reciever_()) )
@@ -558,13 +571,13 @@ x_fn_proto <- local({
 		function (fn, coll) {
 			x_( xMapWhen(reciever_(), fn, coll) )
 		}
-	this$xMinus <-
+	this$xMinusLift <-
 		function (fn2) {
-			x_( xMinus(reciever_(), fn2) )
+			x_( xMinusLift(reciever_(), fn2) )
 		}
-	this$xMod <-
+	this$xModLift <-
 		function (fn2) {
-			x_( xMod(reciever_(), fn2) )
+			x_( xModLift(reciever_(), fn2) )
 		}		
 	# -------- N ------- #
 	this$xNot <-
@@ -572,13 +585,13 @@ x_fn_proto <- local({
 			x_( xNot(reciever_()) )
 		}
 	# -------- O ------- #
-	this$xOr <-
+	this$xOrLift <-
 		function (pred2) {
-			x_( xOr(reciever_(), pred2) )
+			x_( xOrLift(reciever_(), pred2) )
 		}
-	this$xOver <-
+	this$xOverLift <-
 		function (fn2) {
-			x_( xOver(reciever_(), fn2) )
+			x_( xOverLift(reciever_(), fn2) )
 		}
 	# -------- P ------- #
 	this$xPartition <-
@@ -601,9 +614,9 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xPoll(reciever_(), coll) )
 		}
-	this$xPlus <-
+	this$xPlusLift <-
 		function (fn2) {
-			x_( xPlus(reciever_(), fn2) )
+			x_( xPlusLift(reciever_(), fn2) )
 		}
 	this$xPhoenix <-
 		this$xBiCompose
@@ -663,6 +676,10 @@ x_fn_proto <- local({
 		function (fn, coll) {
 			x_( xUntil(reciever_(), fn, coll) )
 		}
+	this$xUnionLift <-
+		function (fn2) {
+			x_( xUnionLift(reciever_(), fn2) )
+		}
 	# -------- V ------- #
 	this$xZipWith <-
 		function (...) {
@@ -683,6 +700,17 @@ x_fn_proto <- local({
 		}
 	this
 })
+
+
+
+
+
+
+
+
+# -------------------------------- Type Constructor -------------------------------- #
+
+
 
 
 #' @param val any arbitrary value.

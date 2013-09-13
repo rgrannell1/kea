@@ -45,7 +45,7 @@ feature list;
 
 	Anywhere a vector is required, the empty vector should be handled.
 
-
+	should xAll -> logical(0)?
 
 
 

@@ -1,5 +1,5 @@
 
-#' xMinus
+#' xMinusLift
 #' 
 #' Compose two function with subtraction
 #'
@@ -13,7 +13,7 @@
 #' @examples 
 #' @export
 
-xMinus <- function (fn1, fn2) {
+xMinusLift <- function (fn1, fn2) {
 	# (a -> number) -> (a -> number) -> (a -> number)
 	# compose two functions with subtraction
 

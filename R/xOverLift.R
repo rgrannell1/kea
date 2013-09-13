@@ -1,5 +1,5 @@
 
-#' xOver
+#' xOverLift
 #' 
 #' Compose two functions with division.
 #'
@@ -13,8 +13,8 @@
 #' @examples 
 #' @export
 
-
-xOver <- function (fn1, fn2) {
+xOverLift <- function (fn1, fn2) {
 	# (a -> number) -> (a -> number) -> (a -> number)
+
 	xPhoenix("/", fn1, fn2)
 }

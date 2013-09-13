@@ -1,5 +1,5 @@
 
-#' xModulo
+#' xModLiftulo
 #'
 #' Compose two function with the modulo operator.
 #' 
@@ -13,7 +13,7 @@
 #' @examples 
 #' @export
 
-xMod <- function (fn1, fn2) {
+xModLift <- function (fn1, fn2) {
 	# (a -> logical) -> (a -> logical) -> (a -> logical)
 	
 	xPhoenix("%%", fn1, fn2)

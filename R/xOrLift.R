@@ -1,5 +1,5 @@
 
-#' xOr
+#' xOrLift
 #' 
 #' Return a function that tests if either of two functions are true for a particular value.
 #'
@@ -13,7 +13,7 @@
 #' @examples 
 #' @export
 
-xOr <- function (pred1, pred2) {
+xOrLift <- function (pred1, pred2) {
 	# (a -> logical) -> (a -> logical) -> (a -> logical)
 	
 	xPhoenix("||", pred1, pred2)
