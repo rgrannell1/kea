@@ -42,16 +42,3 @@ xThread <- function (init, ...) {
 #' @export
 
 '=>' <- xThread
-
-'=>'(
-	10,
-	num := {num + num},
-	num := {num + 2},
-	num := {num^3},
-	identity,
-	identity
-)
-
-
-
-
