@@ -39,12 +39,13 @@ xForall <- function (pred, ...) {
 		True
 	} else {
 
+		assert (
+			xArity(pred) %in% c(length(colls), Inf), pcall)
+		
 		modulo_iths <- function (n, mods) {
-			if (n > prod(mods)) {
-				stop ("subscript out of bounds")
-			} else {
-				as.numeric(arrayInd(n, .dim = mods))
-			}
+			
+			assert(n <= prod(mods), pcall)
+			as.numeric(arrayInd(n, .dim = mods))
 		}
 
 		ith <- 1
@@ -62,10 +63,8 @@ xForall <- function (pred, ...) {
 
 			is_match <- do.call(pred, tuple)
 
-			if (!is.logical(is_match)) {
-				stop ("non-logical value produced")
-			}
-
+			assert(is.logical(is_match), pcall)
+			
 			if (!is_match) {
 				return (False)
 			} else {

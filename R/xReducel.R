@@ -1,5 +1,5 @@
 
-#' xReducel
+#' xReduce
 #' 
 #' Fold a function over a collection from left to right.
 #'
@@ -17,7 +17,7 @@
 #' @examples 
 #' @export
 
-xReducel <- function (fn, coll) {
+xReduce <- function (fn, coll) {
 	# (any -> any -> any) -> Collection any -> any
 	# fold a list, starting from the left.
 	
@@ -57,4 +57,4 @@ xReducel <- function (fn, coll) {
 
 #' @export
 
-xReduce <- xReducel
+xReducel <- xReduce

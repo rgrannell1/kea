@@ -30,7 +30,7 @@ xAssoc <- function (coll) {
 			coll,
 			function (elem) {
 				key <- elem[[1]]
-				stopifnot(is.character(key) && length(key) == 1)
+				assert(is.character(key) && length(key) == 1, pcall)
 				key
 			},
 			character(1), USE.NAMES = False)

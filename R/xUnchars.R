@@ -13,9 +13,11 @@ xUnchars <- function (...) {
 
 	pcall <- sys.call()
 	strs <- c(...)
+	
 	assert(
-		is.vector(strs) || is.pairlist(strs) && 
-		is.character(unlist(strs)), pcall)
+		is.vector(strs) || is.pairlist(strs), pcall)
+	assert(
+		length(strs) == 0 || is.character(unlist(strs)), pcall)
 
 	if (length(strs) == 0) {
 		character(0)

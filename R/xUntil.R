@@ -41,7 +41,7 @@ xUntil <- function (pred, fn, init) {
 		repeat {
 			is_match <- pred(init)
 
-			stopifnot(is.logical(is_match))
+			assert(is.logical(is_match), pcall)
 
 			if (is_match) break
 			init <- fn(init)

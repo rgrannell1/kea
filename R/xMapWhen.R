@@ -46,7 +46,7 @@ xMapWhen <- function (pred, fn, coll) {
 
 	composite <- function (x) {
 		is_match <- pred(x)
-		stopifnot(is.logical(is_match))
+		assert(is.logical(is_match), pcall)
 
 		if (is_match) fn(x) else x
 	}

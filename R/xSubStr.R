@@ -31,9 +31,8 @@ xSubStr <- function (str, inds) {
 	} else if (length(inds) == 0) {
 		str
 	} else {
-		if (max(inds) > nchar(str)) {
-			stop('out of bounds')
-		}
+		assert(
+			max(inds) <= nchar(str))
 
 		chars <- strsplit(str, "")[[1]]
 		paste0(chars[inds], collapse = "")

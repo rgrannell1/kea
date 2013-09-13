@@ -25,9 +25,6 @@ xLast <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 	
-	if (length(coll) == 0) {
-		stop('cannot return the last element of the empty list')
-	} else {
-		coll[[ length(coll) ]]
-	}
+	assert(length(coll) > 0, pcall)
+	coll[[ length(coll) ]]
 }

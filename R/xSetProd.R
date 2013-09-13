@@ -31,11 +31,9 @@ xSetProd <- function (...) {
 		list()
 	} else {
 		modulo_iths <- function (n, mods) {
-			if (n > prod(mods)) {
-				stop("out of bounds")
-			} else {
-				as.numeric(arrayInd(n, .dim = mods))
-			}
+					
+			assert(n <= prod(mods), pcall)
+			as.numeric(arrayInd(n, .dim = mods))
 		}
 
 		tuples <- vector(mode = "list", prod(coll_lengths))

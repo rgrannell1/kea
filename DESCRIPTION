@@ -121,4 +121,4 @@ Collate:
     'xSwap.R'
     'xLength.R'
     'xIsNull.R'
-    
+    'xCombinations.R'

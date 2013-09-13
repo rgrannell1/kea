@@ -30,3 +30,34 @@ feature list;
 
 	- if a function is non-deterministic with respect to length,
 	return vector(0). If it fixed with respect to length, return a single value.
+
+	< character > needs two corner cases:
+		<    > or
+		< '' >
+
+	so functions that require a string really require 
+		f( length-one < string > )
+		Vector string -> ...
+
+		xMaybeFirst
+			[ ] = [ ]
+			[ 1 ] = 12
+
+	Anywhere a vector is required, the empty vector should be handled.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

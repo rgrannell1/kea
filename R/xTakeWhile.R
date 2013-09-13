@@ -41,7 +41,7 @@ xTakeWhile <- function (pred, coll) {
 		while (ith <= length(coll)) {
 
 			is_match <- pred( coll[[ith]] )
-			stopifnot(is.logical(is_match))
+			assert(is.logical(is_match), pcall)
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )

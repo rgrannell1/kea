@@ -27,7 +27,7 @@ xCombinations <- function (num, coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)	
 
-	if (num == 0) {
+	if (num == 0 || coll == 0) {
 		list()
 	} else {
 		num <- min(length(coll), num)

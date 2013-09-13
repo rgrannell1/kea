@@ -15,5 +15,6 @@
 
 xOr <- function (pred1, pred2) {
 	# (a -> logical) -> (a -> logical) -> (a -> logical)
+	
 	xPhoenix("||", pred1, pred2)
 }

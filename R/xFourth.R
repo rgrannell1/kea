@@ -24,9 +24,6 @@ xFourth <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	if (length(coll) < 4) {
-		stop('coll has less than four elements')
-	} else {
-		coll[[4]]
-	}
+	assert(length(coll) >= 4, pcall)
+	coll[[4]]
 }

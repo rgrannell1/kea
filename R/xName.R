@@ -21,15 +21,20 @@ xName <- function (strs, coll) {
 	pcall <- sys.call()
 	
 	assert(
-		is.vector(strs) || is.pairlist(strs) && 
-		is.character(unlist(strs)), pcall)
+		is.vector(strs) || is.pairlist(strs), pcall)
+	assert(
+		length(strs) == 0 || is.character(unlist(strs)), pcall)
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
 	assert(length(strs) == length(coll), pcall)
 
-	structure(
-		as.list(coll), 
-		names = unlist(strs))
+	if (length(strs) == 0) {
+		structure(coll, names = character(0))
+	} else {
+		structure(
+			as.list(coll), 
+			names = unlist(strs))		
+	}
 }

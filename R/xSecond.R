@@ -24,10 +24,6 @@ xSecond <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	if (length(coll) < 2) {
-		stop('coll has less than two elements')
-
-	} else {
-		coll[[2]]
-	}
+	assert(length(coll) >= 2, pcall)
+	coll[[2]]
 }

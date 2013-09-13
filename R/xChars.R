@@ -18,10 +18,14 @@ xChars <- function (str) {
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()	
-	assert(
-		is.character(str) && length(str) == 1, pcall)
 
-	if (nchar(str) == 0) {
+	assert(length(str) %in% c(0, 1), pcall)
+	assert(
+		length(str) == 0 || is.character(unlist(str)), pcall)
+
+	if (length(str) == 0) {
+		character(0)
+	} else if (nchar(str) == 0) {
 		""
 	} else {
 		strsplit(str, "")[[1]]

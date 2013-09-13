@@ -24,10 +24,7 @@ xFirst <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	if (length(coll) < 1) {
-		stop('coll has less than one element')
-	} else {
-		coll[[1]]
-	}
+	assert(length(coll) >= 1, pcall)
+	coll[[1]]
 }
 

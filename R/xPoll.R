@@ -40,7 +40,7 @@ xPoll <- function (pred, coll) {
 			
 			is_match <- pred( coll[[ith]] )
 			
-			stopifnot(is.logical(is_match))
+			assert(is.logical(is_match), pcall)
 
 			if (isTRUE(is_match)) {
 				count <- count + 1

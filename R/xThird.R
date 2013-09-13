@@ -24,9 +24,7 @@ xThird <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	if (length(coll) < 3) {
-		stop('coll has less than three elements')
-	} else {
-		coll[[3]]
-	}
+	assert(length(coll) >= 3, pcall)
+
+	coll[[3]]
 }

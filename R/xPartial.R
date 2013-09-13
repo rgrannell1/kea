@@ -15,7 +15,6 @@
 #' @examples 
 #' @export
 
-
 xPartial <- function (fn, coll) {
 
 	pcall <- sys.call()
