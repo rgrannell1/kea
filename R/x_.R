@@ -58,6 +58,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xAssoc(reciever_()) )
 		}
+	this$xDiffer <-
+		function (coll2) {
+			x_( xDiffer(reciever_(), coll2) )
+		}
 	this$xDrop <-
 		function (num) {
 			x_( xDrop(num, reciever_()) )
