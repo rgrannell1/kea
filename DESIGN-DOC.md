@@ -47,17 +47,28 @@ feature list;
 
 	should xAll -> logical(0)?
 
+Partition Methods
+
+divides a set into mutually exclusive sets of elements.
+disjoint union.
+
+	partition a set by a unary predicate function.
+	partition a set by a binary equivelance operator.
+	partition a set by a the output of a unary function.
+
+xPartition <- function (pred, coll) {
+	# binary -> [ [any] ]	
+	# equivelance relation
+}
+
+xPartitionWith <- function () {
+	# pred -> [ [any] ]
+	# use predicate to match.
 
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
+xPartitionBy <- function () {
+	# unary 
+	# use output.
+}

@@ -72,7 +72,7 @@ Collate:
     'xAssoc.R'
     'xParams.R'
     'xPartial.R'
-    'xPartition.R'
+    'xPartitionWith.R'
     'xPlusLift.R'
     'xPoll.R'
     'xPred.R'

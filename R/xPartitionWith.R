@@ -1,5 +1,5 @@
 
-#' xPartition
+#' xPartitionWith
 #' 
 #' Divide elements in a collection into two sets based on a predicate function.
 #'
@@ -19,7 +19,7 @@
 #' @examples 
 #' @export
 
-xPartition <- function (pred, coll) {
+xPartitionWith <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> [[any],[any]]
 	# returns two lists; a list for which pred returns 
 	# true, and a list for which pred returns false
