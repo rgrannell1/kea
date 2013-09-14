@@ -228,9 +228,14 @@ x_coll_proto <- local({
 		function (str) {
 			x_( xPluck(str, reciever_()) )
 		}
+
 	this$xPartition <-
+		function (pred) {
+			x_( xPartition(pred, reciever_()) )
+		}		
+	this$xPartitionWith <-
 		function (fn) {
-			x_( xPartition(fn, reciever_()) )
+			x_( xPartitionWith(fn, reciever_()) )
 		}
 	this$xPred <-
 		function () {
@@ -613,6 +618,10 @@ x_fn_proto <- local({
 	this$xPartition <-
 		function (coll) {
 			x_( xPartition(reciever_(), coll) )
+		}
+	this$xPartitionWith <-
+		function (coll) {
+			x_( xPartitionWith(reciever_(), coll) )
 		}
 	this$xParams <-
 		function () {

@@ -133,3 +133,4 @@ Collate:
     'xThread.R'
     'xGet.R'
     'xPluck.R'
+    'xPartition.R'
