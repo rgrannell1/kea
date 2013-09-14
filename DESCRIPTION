@@ -131,3 +131,4 @@ Collate:
     'xInter.R'
     'xWrap.R'
     'xThread.R'
+    'xGet.R'

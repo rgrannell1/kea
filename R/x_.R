@@ -760,7 +760,7 @@ x_ <- function (val) {
 	pcall <- paste0('$', method_name)
 
 	proto_ref <-
-		if (is.obj[['x']] ) {
+		if (is.function( obj[['x']] )) {
 			x_fn_proto
 		} else if (is.vector( obj[['x']] )){
 			x_coll_proto
