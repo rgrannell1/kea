@@ -42,6 +42,8 @@ xWrap <- function (fn1, fn2) {
 	}
 }
 
+# Wrap is definitely A T-combinator, 
+# if not necessarily the canonical one.
 #' @export
 
 xThrush <- xWrap

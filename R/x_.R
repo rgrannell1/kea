@@ -461,7 +461,7 @@ x_fn_proto <- local({
 	this$xC <-
 		this$xCardinal
 	this$xConst <-
-		function (x) {
+		function (...) {
 			x_( xConst(reciever_()) )
 		}
 	this$xCompose <- 
@@ -759,8 +759,8 @@ x_ <- function (val) {
 	method_name <- paste0(method)
 	pcall <- paste0('$', method_name)
 
-	proto_ref <- 
-		if (is.function( obj[['x']] )) {
+	proto_ref <-
+		if (is.obj[['x']] ) {
 			x_fn_proto
 		} else if (is.vector( obj[['x']] )){
 			x_coll_proto

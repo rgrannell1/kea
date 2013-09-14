@@ -21,16 +21,20 @@
 
 	assert(is.name(formal), pcall)
 
-	lambda <- function () {}
-	body(lambda) <- body
+	new_fn <- function () {}
+	body(new_fn) <- body
 	# ------ make f a default-free unary function ------
 	
-	formals(lambda) <- 
+	formals(new_fn) <- 
 		structure(
 			list(quote(expr=)),
 			names = match.call()[-1]$formal)
 
 	# ------ make sure lexical scoping works is as expected ------
-	environment(lambda) <- pframe
-	lambda
+	environment(new_fn) <- pframe
+	new_fn
 }
+
+#' @export
+
+xLambda <- ':='

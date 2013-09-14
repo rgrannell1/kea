@@ -15,6 +15,7 @@
 
 xConst <- function (val) {
 	# return a function that closes over the variable val.
+	
 	function (...) {
 		val
 	}

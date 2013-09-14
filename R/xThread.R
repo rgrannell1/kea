@@ -8,7 +8,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases: q
 #'     returns the empty list if \code{coll is length-zero}.
 #' @template glossary
 #'
@@ -17,6 +17,7 @@
 
 xThread <- function (init, ...) {
 	# any -> .... -> any
+	# iteratively apply a value to each function in a list.
 
 	pcall <- sys.call()
 
