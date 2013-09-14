@@ -224,6 +224,10 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xPartial(fn, reciever_()) )
 	}
+	this$xPluck <-
+		function (str) {
+			x_( xPluck(str, reciever_()) )
+		}
 	this$xPartition <-
 		function (fn) {
 			x_( xPartition(fn, reciever_()) )

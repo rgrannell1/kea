@@ -17,6 +17,11 @@
 xGet <- function (str) {
 	# Vector string -> (Collection -> [any])
 
+	pcall <- sys.call()
+	
+	assert(
+		is.character(str) && length(str) == 1, pcall)
+
 	function (coll) {
 		as.list( coll[[str]] )
 	}
