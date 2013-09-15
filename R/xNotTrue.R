@@ -8,7 +8,7 @@
 #' @return a vector of boolean values.
 #'
 #' @section Corner Cases: 
-#'     returns logical(0) if \code{coll is length-zero}.
+#'     returns logical(0) if \code{coll} is length-zero.
 #' @template glossary
 #'
 #' @examples 

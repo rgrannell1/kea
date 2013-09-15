@@ -6,10 +6,10 @@
 #' @param pred a binary predicate function.
 #' @param coll a collection
 #'
-#' @return a list.
+#' @return a list of lists.
 #'
 #' @section Corner Cases: 
-#'     returns the empty list if \code{coll is length-zero}.
+#'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
 #' @examples 

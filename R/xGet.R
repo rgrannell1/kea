@@ -8,7 +8,7 @@
 #' @return a unary function that takes a collection.
 #'
 #' @section Corner Cases: 
-#'     returns the empty list if \code{coll is length-zero}.
+#'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
 #' @examples 

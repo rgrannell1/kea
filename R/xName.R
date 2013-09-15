@@ -8,7 +8,7 @@
 #' @return a named list.
 #'
 #' @section Corner Cases: 
-#'     returns the empty list if \code{coll is length-zero}.
+#'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
 #' @examples 

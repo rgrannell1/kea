@@ -9,7 +9,7 @@
 #' @return a list.
 #'
 #' @section Corner Cases: 
-#'     returns the empty list if \code{coll is length-zero} or the first element of 
+#'     returns the empty list if \code{coll} is length-zero or the first element of 
 #'     \code{coll} returns false for the predicate. Na values are considered false.
 #' @template glossary
 #'

@@ -9,7 +9,7 @@
 
 #' @export
 
-':=' <- function (formal, body) {
+xLambda <- function (formal, body) {
 	# symbol -> any -> function
 	# construct a function from a symbol and
 	# a function body.
@@ -37,4 +37,4 @@
 
 #' @export
 
-xLambda <- ':='
+':=' <- xLambda
