@@ -15,12 +15,12 @@ x_coll_proto <- local({
 		} 
 	# -------- A ------- #
 	this$xAll <- 
-		function (fn) {
-			x_( xAll(fn, reciever_()) )
+		function (pred) {
+			x_( xAll(pred, reciever_()) )
 		}
 	this$xAny <- 
-		function (fn) {
-			x_( xAny(fn, reciever_()) )
+		function (pred) {
+			x_( xAny(pred, reciever_()) )
 		}
 	this$xApply <-
 		function (fn) {
@@ -37,8 +37,8 @@ x_coll_proto <- local({
 			x_( xChars(reciever_()) )
 		}
 	this$xCollapse <-
-		function (delim, ...) {
-			x_( xCollapse(delim, reciever_(), ...) )
+		function (str, ...) {
+			x_( xCollapse(str, reciever_(), ...) )
 		}
 	this$xContains <- 
 		function (val) {
@@ -49,7 +49,7 @@ x_coll_proto <- local({
 			x_( xCombinations(num, reciever_()) )
 		}
 	this$xConst <-
-		function (val) {
+		function () {
 			x_( xConst(reciever_()) )
 		}
 
@@ -71,8 +71,8 @@ x_coll_proto <- local({
 			x_( xDo(fn, reciever_()) )
 		}
 	this$xDropWhile <-
-		function (fn) {
-			x_( xDropWhile(fn, reciever_()) )
+		function (pred) {
+			x_( xDropWhile(pred, reciever_()) )
 		}
 	# -------- E ------- #
 	this$xExists <-
@@ -163,14 +163,14 @@ x_coll_proto <- local({
 		}
 
 	this$xLocatel <-
-		function (fn) {
-			x_( xLocatel(fn, reciever_()) )
+		function (pred) {
+			x_( xLocatel(pred, reciever_()) )
 		}
 	this$xLocate <-
 		this$xLocatel
 	this$xLocater <-
-		function (fn) {
-			x_( xLocater(fn, reciever_()) )
+		function (pred) {
+			x_( xLocater(pred, reciever_()) )
 		}
 	# -------- M ------- #
 	this$xMap <-
@@ -217,8 +217,8 @@ x_coll_proto <- local({
 			x_( xPack(reciever_()) )
 		}
 	this$xPoll <-
-		function (fn) {
-			x_( xPoll(fn, reciever_()) )
+		function (pred) {
+			x_( xPoll(pred, reciever_()) )
 		}
 	this$xPartial <- 
 		function (fn) {
@@ -234,8 +234,8 @@ x_coll_proto <- local({
 			x_( xPartition(pred, reciever_()) )
 		}		
 	this$xPartitionWith <-
-		function (fn) {
-			x_( xPartitionWith(fn, reciever_()) )
+		function (pred) {
+			x_( xPartitionWith(pred, reciever_()) )
 		}
 	this$xPred <-
 		function () {
@@ -258,8 +258,8 @@ x_coll_proto <- local({
 			x_( xReducer(fn, reciever_()) )
 		}
 	this$xReject <-
-		function (fn) {
-			x_( xReject(fn, reciever_()) )
+		function (pred) {
+			x_( xReject(pred, reciever_()) )
 		}
 	this$xRest <-
 		function () {
@@ -283,16 +283,16 @@ x_coll_proto <- local({
 			x_( xSegment(num, reciever_()) )
 		}
 	this$xSelect <-
-		function (fn) {
-			x_( xSelect(fn, reciever_()) )
+		function (pred) {
+			x_( xSelect(pred, reciever_()) )
 		}
 	this$xSignum <-
 		function () {
 			x_( xSignum(reciever_()) )
 		}
 	this$xSplit <-
-		function (ith) {
-			x_( xSplit(ith, reciever_()) )
+		function (num) {
+			x_( xSplit(num, reciever_()) )
 		}
 	this$xShuffle <-
 		function () {
@@ -470,7 +470,7 @@ x_fn_proto <- local({
 	this$xC <-
 		this$xCardinal
 	this$xConst <-
-		function (...) {
+		function () {
 			x_( xConst(reciever_()) )
 		}
 	this$xCompose <- 
@@ -705,8 +705,8 @@ x_fn_proto <- local({
 		this$xThrush
 	# -------- U ------- #
 	this$xUntil <-
-		function (fn, coll) {
-			x_( xUntil(reciever_(), fn, coll) )
+		function (fn, init) {
+			x_( xUntil(reciever_(), fn, init) )
 		}
 	this$xUnionLift <-
 		function (fn2) {
@@ -727,8 +727,8 @@ x_fn_proto <- local({
 			x_( xWait(reciever_(), num) )
 		}
 	this$xWhile <-
-		function (fn, coll) {
-			x_( xWhile(reciever_(), fn, coll) )
+		function (fn, init) {
+			x_( xWhile(reciever_(), fn, init) )
 		}
 	this$xWrap <-
 		this$xThrush
