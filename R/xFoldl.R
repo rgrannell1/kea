@@ -39,12 +39,8 @@ xFoldl <- function (fn, init, coll) {
 	if (length(coll) == 0) {
 		init
 	} else {
-		ith <- 1
-		len_coll <- length(coll)
-
-		while (ith <= len_coll) {
-			init <- fn( init, coll[[ith]] )
-			ith <- ith + 1
+		for (ith in length(coll)) {
+			init <- fn( init, coll[[ith]] )			
 		}
 		init
 	}

@@ -20,8 +20,11 @@ xGet <- function (str) {
 	pcall <- sys.call()
 	
 	assert(
-		is.character(str) && length(str) == 1, pcall)
+		is.character(str) && length(str) %in% c(0, 1), pcall)
 
+	if (length(str) == 0) {
+		str <- ""
+	}
 	function (coll) {
 		as.list( coll[[str]] )
 	}

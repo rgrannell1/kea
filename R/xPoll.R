@@ -34,9 +34,8 @@ xPoll <- function (pred, coll) {
 	if (length(coll) == 0) {
 		0
 	} else {
-		ith <- 1
 		count <- 0
-		while (ith <= length(coll)) {
+		for (ith in seq_along(coll)) {
 			
 			is_match <- pred( coll[[ith]] )
 			
@@ -45,7 +44,6 @@ xPoll <- function (pred, coll) {
 			if (isTRUE(is_match)) {
 				count <- count + 1
 			}
-			ith <- ith + 1
 		}
 		count
 	}

@@ -38,6 +38,6 @@ xSelect <- function (pred, coll) {
 		list()
 	} else {
 		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
-		as.list( coll[ !`_`(ind) & ind ] )
+		as.list( coll[ !is.na(ind) & ind ] )
 	}
 }

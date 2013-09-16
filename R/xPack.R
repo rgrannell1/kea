@@ -22,6 +22,7 @@ xPack <- function (coll) {
 	# remove all length-zero elements from a coll
 
 	pcall <- sys.call()
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

@@ -4,7 +4,7 @@
 #' Subset a string using normal R vector indexing.
 #'
 #' @param str a string.
-#' @param inds indices of \code{str}.
+#' @param nums indices of \code{str}.
 #'
 #' @return a character vector.
 #'
@@ -15,7 +15,7 @@
 #' @examples 
 #' @export
 
-xSubStr <- function (str, inds) {
+xSubStr <- function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 	
@@ -24,17 +24,17 @@ xSubStr <- function (str, inds) {
 	assert(
 		is.character(str) && length(str) < 2, pcall)
 	assert(
-		is.numeric(inds) && all(round(inds) == inds), pcall)
+		is.numeric(nums) && all(round(nums) == nums), pcall)
 	
 	if (length(str) == 0) {
 		character(0)
-	} else if (length(inds) == 0) {
+	} else if (length(nums) == 0) {
 		str
 	} else {
 		assert(
-			max(inds) <= nchar(str))
+			max(nums) <= nchar(str))
 
 		chars <- strsplit(str, "")[[1]]
-		paste0(chars[inds], collapse = "")
+		paste0(chars[nums], collapse = "")
 	}
 }

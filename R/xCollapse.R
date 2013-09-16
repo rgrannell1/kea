@@ -3,7 +3,7 @@
 #' 
 #' Concatenate a character vector into a string with a delimiter.
 #'
-#' @param delim a string to use as a delimiter.
+#' @param str a string to use as a delimiter.
 #' @param ... a number of character vectors.
 #'
 #' @return a length-one character vector.
@@ -14,15 +14,15 @@
 #' @examples 
 #' @export
 
-xCollapse <- function (delim, ...) {
+xCollapse <- function (str, ...) {
 	# string -> Vector string -> string
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
 	pcall <- sys.call()
 	
-	assert(is.character(delim), pcall)
-	assert(length(delim) %in% c(0, 1))
+	assert(is.character(str), pcall)
+	assert(length(str) %in% c(0, 1))
 
 	strs <- c(...)
 	
@@ -32,9 +32,10 @@ xCollapse <- function (delim, ...) {
 
 	if (length(strs) == 0) {
 		character(0)
-	} else if (length(delim) == 0) {
-		delim = ""
 	} else {
-		paste0(strs, collapse = delim)		
+		if (length(str) == 0) {
+			str <- ""
+		}
+		paste0(strs, collapse = str)		
 	}
 }

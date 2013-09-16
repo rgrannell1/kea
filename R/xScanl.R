@@ -40,11 +40,8 @@ xScanl <- function (fn, init, coll) {
 	if (length(coll) == 0) {
 		init
 	} else {	
-		ith <- 1
-		while (ith <= length(coll)) {
-			
+		for (ith in seq_along(coll)) {			
 			scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
-			ith <- ith + 1
 		}
 		scanned
 	}

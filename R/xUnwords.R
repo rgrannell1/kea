@@ -13,8 +13,12 @@ xUnwords <- function (...) {
 
 	pcall <- sys.call()
 	strs <- c(...)
+	
+	assert(
+		is.vector(strs) || is.pairlist(strs), pcall)
+
 	assert(
 		is.character(strs), pcall)
 
-	paste0(..., collapse = ' ')
+	paste0(strs, collapse = ' ')
 }

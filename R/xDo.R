@@ -33,10 +33,8 @@ xDo <- function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ith <- 1
-		while (ith <= length(coll)) {
+		for (ith in seq_along(coll)) {
 			fn( coll[[ith]] )
-			ith <- ith + 1
 		}
 		invisible (NULL)
 	}

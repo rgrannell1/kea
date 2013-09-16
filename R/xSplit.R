@@ -3,16 +3,16 @@
 #' 
 #' Split a collection into elements before and upto an index, and after that index.
 #'
-#' @param ind a nonnegative whole number.
+#' @param num a nonnegative whole number.
 #' @param coll a collection
 #'
 #' @return a list of two lists; the first list containing the first 
-#'	 \code{ind} elements of \code{coll}, and the second list containing the 
+#'	 \code{num} elements of \code{coll}, and the second list containing the 
 #'	 remaining elements \code{coll}.
 #'
 #' @section Corner Cases:
-#'	 If \code{ind} is zero then the first list in the returned value is empty.
-#'	 Likewise, if \code{ind} is equal or larger than the length of \code{coll} then
+#'	 If \code{num} is zero then the first list in the returned value is empty.
+#'	 Likewise, if \code{num} is equal or larger than the length of \code{coll} then
 #'	 the second return list is empty. If \code{coll} is length zero both lists are empty.
 #'
 #' @template glossary
@@ -20,21 +20,21 @@
 #' @examples 
 #' @export
 
-xSplit <- function (ind, coll) {
+xSplit <- function (num, coll) {
 	# number -> Collection any -> [[any], [any]]
 	# take the first n values of collection.
 
 	pcall <- sys.call()
 
-	assert(length(ind) == 1, pcall)
-	assert(is.numeric(ind), pcall)
-	assert(ind >= 0, pcall)
+	assert(length(num) == 1, pcall)
+	assert(is.numeric(num), pcall)
+	assert(num >= 0, pcall)
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
 	list(
-		xTake(ind, coll),
-		xDrop(ind, coll)
+		xTake(num, coll),
+		xDrop(num, coll)
 	)
 }

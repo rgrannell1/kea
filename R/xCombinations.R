@@ -20,9 +20,12 @@ xCombinations <- function (num, coll) {
 
 	pcall <- sys.call()
 
-	assert(length(num) == 1, pcall)
-	assert(is.numeric(num) && num >= 0, pcall)
-	assert(round(num) == num, pcall)
+	assert(
+		length(num) == 1, pcall)
+	assert(
+		is.numeric(num) && num >= 0, pcall)
+	assert(
+		round(num) == num, pcall)
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)	

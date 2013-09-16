@@ -37,9 +37,8 @@ xLocate <- function (pred, coll) {
 	if (length(coll) == 0) {
 		integer(0)
 	} else {
-		ith <- 1
 
-		while (ith <= length(coll)) {
+		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
 			assert(is.logical(is_match), pcall)
@@ -47,7 +46,6 @@ xLocate <- function (pred, coll) {
 			if (is_match) {
 				return (as.integer(ith))
 			}
-			ith <- ith + 1
 		}	
 		integer(0)
 	}

@@ -40,16 +40,12 @@ xReduce <- function (fn, coll) {
 	} else if (length(coll) == 1) {
 		coll[[1]]
 	} else {
-		ith <- 1
 		
 		init <- coll[[1]]
 		coll <- xRest(coll)
 
-		len_collection <- length(coll)
-
-		while (ith <= len_collection) {
+		for (ith in seq_along(coll)) {
 			init <- fn( init, coll[[ith]] )
-			ith <- ith + 1
 		}
 		init
 	}

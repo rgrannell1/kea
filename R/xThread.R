@@ -31,11 +31,9 @@ xThread <- function (init, ...) {
 	assert(
 		all(sapply(fns, xArity) %in% c(1, Inf)), pcall)
 
-	ith <- 1
-	while (ith <= length(fns)) {
+	for (ith in seq_along(fns)) {
 
 		init <- fns[[ith]]( init )
-		ith <- ith + 1
 	}
 	init
 }

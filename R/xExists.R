@@ -47,8 +47,7 @@ xExists <- function (pred, ...) {
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 
-		ith <- 1
-		while (ith <= prod(coll_lengths)) {
+		for ( ith in seq_len(prod(coll_lengths)) ) {
 
 			indices <- modulo_iths(ith, coll_lengths)
 
@@ -66,8 +65,6 @@ xExists <- function (pred, ...) {
 
 			if (is_match) {
 				return (True)
-			} else {
-				ith <- ith + 1
 			}
 		}
 		False

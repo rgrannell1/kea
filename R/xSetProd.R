@@ -38,8 +38,7 @@ xSetProd <- function (...) {
 
 		tuples <- vector(mode = "list", prod(coll_lengths))
 
-		ith <- 1
-		while (ith <= prod(coll_lengths)) {
+		for ( ith in seq_len(prod(coll_lengths)) ) {
 
 			indices <- modulo_iths(ith, coll_lengths)
 
@@ -48,9 +47,8 @@ xSetProd <- function (...) {
 					choice <- indices[coll_ith]
 					colls[[coll_ith]][[choice]]
 				},
-				seq_along(colls)
-			)
-			ith <- ith + 1
+				seq_along(colls))
+			
 		}
 		tuples
 	}

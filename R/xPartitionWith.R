@@ -42,7 +42,7 @@ xPartitionWith <- function (pred, coll) {
 		list()
 	} else {
 		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
-		true_ind <- !`_`(ind) & ind
+		true_ind <- !is.na(ind) & ind
 				
 		list(
 			as.list(coll[true_ind]),

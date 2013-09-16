@@ -33,13 +33,11 @@ xSplitWith <- function (pred, coll) {
 	assert(
 		xArity(pred) %in% c(1, Inf), pcall)
 
-	ith <- 1
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ith <- 1
 		coll <- as.list(coll)
-		while (ith <= length(coll)) {
+		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
 			assert(is.logical(is_match), pcall)
@@ -48,10 +46,8 @@ xSplitWith <- function (pred, coll) {
 				return ( 
 					list(
 						head(coll, ith - 1),
-						tail(coll, length(coll) - (ith - 1)) 
-				))
+						tail(coll, length(coll) - (ith - 1)) ))
 			}
-			ith <- ith + 1
 		}
 		list(coll, list())
 	}

@@ -43,26 +43,24 @@ xPartition <- function (pred, coll) {
 		parts[[1]] <- list( coll[[1]] )
 		colls <- coll[ 2:length(coll) ]
 
-		ith <- 2
-		while (ith <= length(coll)) {
+		for (ith in 2:length(coll)) {
 
 			elem <- coll[[ith]]
-
-			jth <- 1
 			is_match <- False
-			while (jth <= length(parts) && !is_match) {
 
+			for (jth in seq_along(parts)) {
 				if (pred( elem, parts[[jth]][[1]] )) {
 					parts[[jth]] <- c( parts[[jth]], elem )
 					is_match <- True
 				}
-				jth <- jth + 1
+				if (is_match) {
+					break
+				}
 			}
 			if (!is_match) {
 				parts <- c(parts, list(elem))
 			}
 
-			ith <- ith + 1
 		}
 		parts
 	}

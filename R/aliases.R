@@ -7,9 +7,9 @@ True <- TRUE
 False <- FALSE
 
 # to complete the following triad in the cleanest way;
-# if ( True ); if ( !False ), if( `_`(Na) )
+# if ( True ); if ( !False ), if( is.na(Na) )
 
-`_` <- is.na
+is.na <- is.na
 
 object <- function () {
 	new.env(parent = emptyenv())

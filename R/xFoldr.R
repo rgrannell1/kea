@@ -34,11 +34,8 @@ xFoldr <- function (fn, init, coll) {
 	if (length(coll) == 0) {
 		init
 	} else {
-		ith <- length(coll)
-
-		while (ith > 0) {
+		for (ith in length(coll):1) {
 			init <- fn( coll[[ith]], init )
-			ith <- ith - 1
 		}
 		init
 	}

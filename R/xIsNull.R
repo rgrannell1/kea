@@ -24,11 +24,10 @@ xIsNull <- function (coll) {
 		# empty pairlist.
 		True
 	} else {
-		ith <- 1
 		res <- vector(mode = 'logical', length(coll))
-		while (ith <= length(coll)) {
+
+		for (ith in seq_along(coll)) {
 			res[ith] <- identical(coll[[ith]], Null)
-			ith <- ith + 1
 		}
 		res		
 	}

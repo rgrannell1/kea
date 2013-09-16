@@ -36,7 +36,7 @@ xAny <- function (pred, coll) {
 	} else {
 		is_match <- vapply(coll, pred, logical(1), USE.NAMES = False)
 
-		if ( all(`_`(is_match)) ) {
+		if ( all(is.na(is_match)) ) {
 			False
 		} else {
 			any(is_match)

@@ -39,15 +39,13 @@ xDropWhile <- function (pred, coll) {
 		list()
 	} else {
 		ith <- 1
-		while (ith <= length(coll)) {
-
+		for (ith in seq_along(coll)) {
+			
 			is_match <- pred( coll[[ith]] )
 			assert(is.logical(is_match), pcall)
 
 			if (!isTRUE(is_match)) {
 				return (as.list( tail(coll, length(coll) - (ith - 1)) ))
-			} else {
-				ith <- ith + 1
 			}
 		}
 		list()	

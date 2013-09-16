@@ -40,14 +40,12 @@ xReducer <- function (fn, coll) {
 	} else if (length(coll) == 1) {
 		coll[[1]]
 	} else {
-		ind <- length(coll) - 1
 		
 		init <- coll[[ length(coll) ]]
 		coll <- xInit(coll)
 
-		while (ind > 0) {
-			init <- fn( coll[[ind]], init )
-			ind <- ind - 1
+		for (ith in (length(coll) - 1):1) {
+			init <- fn( coll[[ith]], init )
 		}
 		init
 	}
