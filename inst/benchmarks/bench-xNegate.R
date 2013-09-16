@@ -1,2 +1,0 @@
-
-bench$xNegate <- xNegate
