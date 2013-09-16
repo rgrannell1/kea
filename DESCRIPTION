@@ -134,3 +134,4 @@ Collate:
     'xGet.R'
     'xPluck.R'
     'xPartition.R'
+    'xConcat.R'

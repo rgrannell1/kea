@@ -72,26 +72,3 @@ test_that('method chaining works as expected, for some methods.', {
 		equals(list(2, 3, 4)) )
  
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

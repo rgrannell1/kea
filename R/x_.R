@@ -44,6 +44,10 @@ x_coll_proto <- local({
 		function (val) {
 			x_( xContains(reciever_(), val) )
 		}
+	this$xConcat <-
+		function (...) {
+			x_( xConcat(reciever_(), ...) )
+		}
 	this$xCombinations <-
 		function (num) {
 			x_( xCombinations(num, reciever_()) )
