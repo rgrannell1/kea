@@ -58,7 +58,7 @@ xPartition <- function (pred, coll) {
 				}
 			}
 			if (!is_match) {
-				parts <- c(parts, list(elem))
+				parts <- c( parts, list(list(elem)) )
 			}
 
 		}

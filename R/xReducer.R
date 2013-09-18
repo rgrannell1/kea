@@ -44,7 +44,7 @@ xReducer <- function (fn, coll) {
 		init <- coll[[ length(coll) ]]
 		coll <- xInit(coll)
 
-		for (ith in (length(coll) - 1):1) {
+		for (ith in length(coll):1) {
 			init <- fn( coll[[ith]], init )
 		}
 		init
