@@ -136,3 +136,4 @@ Collate:
     'xPartition.R'
     'xConcat.R'
     'xAsFunction.R'
+    'xRepeat.R'

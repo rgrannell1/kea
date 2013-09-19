@@ -265,6 +265,10 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xReducer(fn, reciever_()) )
 		}
+	this$xRepeat <-
+		function (num) {
+			x_( xRepeat(num, reciever_()) )
+		}
 	this$xReject <-
 		function (pred) {
 			x_( xReject(pred, reciever_()) )
