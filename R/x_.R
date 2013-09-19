@@ -22,6 +22,10 @@ x_coll_proto <- local({
 		function (pred) {
 			x_( xAny(pred, reciever_()) )
 		}
+	this$xAsFunction <- 
+		function () {
+			x_( xAsFunction(reciever_()) )
+		}
 	this$xApply <-
 		function (fn) {
 			x_( xApply(fn, reciever_()) )
