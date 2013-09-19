@@ -19,7 +19,7 @@ context("x_ methods")
 
 test_that('type signitures are almost the same between free functions and methods', {
 
-	funcs <- ls('package:arrow', pattern = 'x[A-Z][a-z0-9]+')
+	funcs <- ls(environment(xAll), pattern = 'x[A-Z][a-z0-9]+') 
 
 	Map(
 		function (name) {
