@@ -10,8 +10,8 @@ x_coll_proto <- local({
 
 	this <- object()
 	this$x <- 
-		function () {
-			reciever_()
+		function (mode = 'any') {
+			as.vector(reciever_(), mode)
 		} 
 	# -------- A ------- #
 	this$xAll <- 
@@ -746,7 +746,6 @@ x_fn_proto <- local({
 		this$xThrush
 	this
 })
-
 
 
 
