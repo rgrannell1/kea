@@ -120,6 +120,14 @@ xSelect(
     ls('package:base')
 )
 
+# get the largest value in a list
+xReduce(
+    (acc : new) := {
+        max(acc, new)
+    },
+    list(1:1000)
+)
+
 ```
 
 Curly braces are usually syntactically optional, but they make the function more readable. At the 
