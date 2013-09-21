@@ -378,7 +378,12 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnwords(reciever_()) )
 		}
-
+	this$xUnfold <- 
+		function (fn, pred) {
+			x_( xUnfold(fn, pred, reciever_()) )
+		}
+	this$xUnfoldl <-
+		this$xUnfold
 	# -------- V ------- #
 	this$xVersion <-
 		function () {
@@ -724,6 +729,12 @@ x_fn_proto <- local({
 		function (fn2) {
 			x_( xUnionLift(reciever_(), fn2) )
 		}
+	this$xUnfold <-
+		function (fn, init) {
+			x_( xUnfold(reciever_(), fn, init) )
+		}
+		this$xUnfoldl <-
+			this$xUnfold
 	# -------- V ------- #
 	this$xZipWith <-
 		function (...) {
