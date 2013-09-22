@@ -77,7 +77,6 @@ even then their mathematical underpinnings are masked [2].
 }
 
 x := x^2
-
 ```
 
 is equivalent to
@@ -89,7 +88,6 @@ function (a, b, c) {
 }
 
 function (x) x^2
-
 ```
 The shorter form is especicially useful given that **Arrow** is a function heavy library. 
 Curly braces are almost always syntactically optional, but I include them for readability.
@@ -97,19 +95,25 @@ Curly braces are almost always syntactically optional, but I include them for re
 ### 2.4 Cascading Style
 
 In this style data is fed into the type constructor [1] ```x_```, and methods are called off that object. 
-This small program gets every parametre used in the R base library.
 
 ```javascript
-x_(ls("package:base"))$  
-xMap(function (x) get(x))$
-xSelect(is.function)$
-xMap(xParams)$
-xReducel(union)$
+
+x_(1:100)$
+xSetProd(1:100)$
+xMap(
+    xAsUnary( 
+        (a : b) := {
+            a^b + b^a
+        }
+    )
+)$
+xSelect(
+    a := {
+        a %% 2
+    }
+)$
 x()
 ```
-
-The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
-for normal R functions to operate on.
 
 ### 2.5 Partial Application
 
