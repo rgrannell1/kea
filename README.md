@@ -181,21 +181,20 @@ func_add(
 )(1:100)
 ```
 
-In fact combinators are so powerful that the ```xI``` (identity), ```xK```
-(return a constant function), and 
-```xS``` (a substitution combinator) that they in themselves can define a programming language!
 
 ```javascript
 x_(1:100)$
 xSelect( xOrLift(
-    # two uncommon properties
-    n := {n^2 == 2^n},
-    n := {n*2 == n*n}
+    # find numbers with at one of these two uncommon properties
+    n := {
+        n^2 == 2^n
+    },
+    n := {
+        n*2 == n*n
+    }
 ))
 [1] 2 4
 
-xModLift( function (n) n^2, xK(6) )(1:4)
-[1] 1 4 3 4
 ```
 
 Of course, this is a less likely use of combinators than defining
