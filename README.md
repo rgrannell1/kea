@@ -29,34 +29,6 @@ help the user find the function they are looking for.
 
 ### 2.1 Generic & Idiomatic
 
-In general **Arrow** functions are as generic with respect to input type as possible,
-though their output types are more rigidly defined.
-
-```javascript
-identical(
-    xMap( function (x) x, 1:10),
-    xMap( function (x) x, as.list(1:10)) )
-identical(
-    xMap( function (x) x, 1:10),
-    xMap( function (x) x, as.pairlist(1:10)) )
-
-# transitively xMap vector == xMap pairlist
-```
-Having a fixed output type makes arrow functions very easy to compose; Functions that normally
-return integers will never return a NULL for some corner case.
-Refreshingly, it also means that your code won't use ```if(is.null(x))``` like
-full stops in an essay.
-
-```javascript
-xSubStr('alonzo-church', c(1:3, 5, 7))
-'alonoc'
-```
-
-R is unusual (in a good way) in that numbers and other values are always wrapped in 
-vectors, so base functions operate on whole vectors as well as single values.
-**Arrow** is vectorisation-friendly; where possible functions operate on vectors 
-of values.
-
 ### 2.2 Functional
 
 Arrow includes the standard map, select, fold, zip, flip, dropwhile, and position higher-order
