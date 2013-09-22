@@ -19,7 +19,11 @@ xCombinations <- function (num, coll) {
 	# number -> Collection
 
 	pcall <- sys.call()
-
+	
+	assert(
+		!missing(num), pcall)
+	assert(
+		!missing(coll), pcall)
 	assert(
 		length(num) == 1, pcall)
 	assert(

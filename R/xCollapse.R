@@ -21,8 +21,12 @@ xCollapse <- function (str, ...) {
 
 	pcall <- sys.call()
 	
-	assert(is.character(str), pcall)
-	assert(length(str) %in% c(0, 1))
+	assert(
+		!missing(str), pcall)
+	assert(
+		is.character(str), pcall)
+	assert(
+		length(str) %in% c(0, 1))
 
 	strs <- c(...)
 	

@@ -22,6 +22,11 @@ xFlatten <- function (num, coll) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(num), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
 		is.numeric(num) || is.infinite(num) && num > 0, pcall)
 
 	assert(

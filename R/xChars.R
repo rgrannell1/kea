@@ -19,6 +19,9 @@ xChars <- function (str) {
 	
 	pcall <- sys.call()	
 
+	assert(
+		!missing(str), pcall)
+
 	assert(length(str) %in% c(0, 1), pcall)
 	assert(
 		length(str) == 0 || is.character(unlist(str)), pcall)

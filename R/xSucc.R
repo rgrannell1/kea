@@ -21,6 +21,9 @@ xSucc <- function (nums) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(nums), pcall)
+
+	assert(
 		is.vector(nums) || is.pairlist(nums) && is.numeric(unlist(nums)), pcall)
 
 	nums <- unlist(nums)

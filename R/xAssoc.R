@@ -20,8 +20,12 @@ xAssoc <- function (coll) {
 
 	pcall <- sys.call()
 
-	assert(is.recursive(coll), pcall)
-	assert(all(sapply(coll, length) == 2), pcall)
+	assert(
+		!missing(coll), pcall)
+	assert(
+		is.recursive(coll), pcall)
+	assert(
+		all(sapply(coll, length) == 2), pcall)
 
 	if (length(coll) == 0) {
 		list()

@@ -18,9 +18,17 @@ xLimit <- function (num, fn) {
 
 	pcall <- sys.call()
 
-	assert(length(num) == 1, pcall)
-	assert(is.numeric(num), pcall)
-	assert(num > 0, pcall)
+	assert(
+		!missing(num), pcall)
+	assert(
+		!missing(fn), pcall)
+
+	assert(
+		length(num) == 1, pcall)
+	assert(
+		is.numeric(num), pcall)
+	assert(
+		num > 0, pcall)
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 

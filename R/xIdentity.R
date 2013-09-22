@@ -13,6 +13,12 @@
 #' @export
 
 xIdentity <- function (val) {
+
+	pcall <- sys.call()
+
+	assert(
+		!missing(val), pcall)
+
 	val
 }
 #' @export

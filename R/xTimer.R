@@ -15,6 +15,9 @@
 xTimer <- function (num) {
 	# integer -> function
 
+	assert(
+		!missing(num), sys.call())
+
 	genesis <- Sys.time()
 	function (...) {
 		difftime(Sys.time(), genesis) < num

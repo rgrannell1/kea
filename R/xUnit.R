@@ -13,6 +13,10 @@ xUnit <- function (coll) {
 	# return the neutral element of a collection.
 
 	pcall <- sys.call()
+	
+	assert(
+		!missing(coll), pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

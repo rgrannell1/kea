@@ -20,6 +20,11 @@ xContains <- function (coll, val) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(coll), pcall)
+	assert(
+		!missing(val), pcall)
+
+	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
 	if (length(coll) == 0) {

@@ -18,6 +18,10 @@ xShuffle <- function (coll) {
 	# Collection any -> [any]
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(coll), pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

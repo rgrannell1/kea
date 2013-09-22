@@ -21,6 +21,11 @@ xDiffer <- function (coll1, coll2) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(coll1), pcall)
+	assert(
+		!missing(coll2), pcall)
+
+	assert(
 		is.vector(coll1) || is.pairlist(coll1), pcall)
 	
 	assert(

@@ -19,8 +19,16 @@ xLines <- function (str) {
 	
 	pcall <- sys.call()
 
-	assert(is.character(str), pcall)
-	assert(length(str) %in% c(0, 1), pcall)
+	assert(
+		!missing(str), pcall)
+
+	assert(
+		!missing(str), pcall)
+
+	assert(
+		is.character(str), pcall)
+	assert(
+		length(str) %in% c(0, 1), pcall)
 
 	if (length(str) == 0) {
 		character(0)

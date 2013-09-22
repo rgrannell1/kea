@@ -23,6 +23,11 @@ xPluck <- function (str, coll) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(str), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
 		is.character(str) && length(str) == 1, pcall)
 
 	assert(

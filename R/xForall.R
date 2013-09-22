@@ -22,6 +22,9 @@ xForall <- function (pred, ...) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(pred), pcall)
+
+	assert(
 		is.function(pred) || is.symbol(pred) || 
 		(is.character(pred) && length(pred) == 1), pcall)
 	

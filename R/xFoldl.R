@@ -25,6 +25,13 @@ xFoldl <- function (fn, init, coll) {
 	pcall <- sys.call()	
 
 	assert(
+		!missing(fn), pcall)
+	assert(
+		!missing(init), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)
 	

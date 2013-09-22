@@ -26,9 +26,17 @@ xSplit <- function (num, coll) {
 
 	pcall <- sys.call()
 
-	assert(length(num) == 1, pcall)
-	assert(is.numeric(num), pcall)
-	assert(num >= 0, pcall)
+	assert(
+		!missing(num), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
+		length(num) == 1, pcall)
+	assert(
+		is.numeric(num), pcall)
+	assert(
+		num >= 0, pcall)
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)

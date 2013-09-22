@@ -29,6 +29,10 @@ xCompose <- function (fn1, fn2) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(fn1), pcall)
+	assert(
+		!missing(fn2), pcall)
+	assert(
 		is.function(fn1) || is.symbol(fn1) || 
 		(is.character(fn1) && length(fn1) == 1), pcall)
 	assert(

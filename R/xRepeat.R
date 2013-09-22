@@ -20,9 +20,17 @@ xRepeat <- function (num, coll) {
 
 	pcall <- sys.call()
 
-	assert(length(num) == 1, pcall) 
-	assert(is.numeric(num) && num >= 0, pcall)
-	assert(round(num) == num, pcall)
+	assert(
+		!missing(num), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
+		length(num) == 1, pcall) 
+	assert(
+		is.numeric(num) && num >= 0, pcall)
+	assert(
+		round(num) == num, pcall)
 
 	if (num == 0) {
 		list()

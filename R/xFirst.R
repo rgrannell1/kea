@@ -21,6 +21,10 @@ xFirst <- function (coll) {
 	# return the first element of a collection x.
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(coll), pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

@@ -20,6 +20,9 @@ xGet <- function (str) {
 	pcall <- sys.call()
 	
 	assert(
+		!missing(str), pcall)
+
+	assert(
 		is.character(str) && length(str) %in% c(0, 1), pcall)
 
 	if (length(str) == 0) {

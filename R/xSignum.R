@@ -20,6 +20,9 @@ xSignum <- function (nums) {
 	# returns the sign of a number.
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(nums), pcall)
 	
 	assert(
 		is.vector(nums) || is.pairlist(nums), pcall)

@@ -14,6 +14,9 @@ xUnlines <- function (strs) {
 	pcall <- sys.call()
 	
 	assert(
+		!missing(strs), pcall)
+
+	assert(
 		is.vector(strs) || is.pairlist(strs), pcall)
 	assert(
 		length(strs) == 0 || is.character(unlist(strs)), pcall)

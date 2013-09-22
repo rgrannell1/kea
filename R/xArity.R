@@ -22,6 +22,10 @@ xArity <- function (fn) {
 	# returns +Inf if fn is a variadic function.
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(fn), pcall)
+
 	assert(
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)
