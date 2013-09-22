@@ -207,13 +207,11 @@ arithmetic on functions, with several functions with short names added for that 
 
 ```javascript
 xForall(
-    x := {
-        xExists(
-            y := {x * y == y},
-            1:1000
-        )
+    (x : y) := {
+        x + y == y + x
     },
-    1:1000
+    1:100,
+    1:100
 )
 ```
 
@@ -231,6 +229,11 @@ a <- 'will fail'
 Error: cannot change value of locked binding for 'a'
 ```
 **Arrow** also has utility functions for modifying values.
+
+
+
+
+
 
 ## 3 Footnotes
 
