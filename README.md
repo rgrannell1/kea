@@ -218,28 +218,16 @@ xForall(
     1:100
 )
 ```
-Or even
+
+In the above case, the set product of 1...100 x 1...100 is checked to see 
+if each combination (a, b) holds true.
 
 ```javascript
-xForall(
-    a := {
-        xExists(
-            b := {
-                a + b == b + a 
-            }, 
-            1:100
-        )
-    },
-    1:100
-)
+x_(1:1000)$
+xExists( n := {
+    n^2 == 5*n
+} )
 ```
-
-
-
-
-
-
-
 ### 2.8 Immutable Values
 
 Using immutable values can make reasoning about code easier.
