@@ -69,42 +69,30 @@ even then their mathematical underpinnings are masked [2].
 
 ### 2.3 Arrow Functions
 
-**Arrow** includes a shorthand syntax for unary functions; arrow functions. [4]
+**Arrow** includes a useful shorthand for function definitions; arrow functions. [4]
 
 ```javascript
-# a polynomial equation
-
-f <- x := {
-    2*x^2 * 3*x + 10
-}
-g <- x := {
-    x^2 + 2*x
+(a: b : c) := {
+    a > b && a > c
 }
 
-# Map a composite polynomial function over a vector.
-xMap(xPlusLift(f, g), 1:1000)
-
-# grab all underscored vars in base.
-xSelect(
-    name := {
-        grepl('_', name)
-    },
-    ls('package:base')
-)
-
-# get the largest value in a list
-xReduce(
-    (acc : new) := {
-        max(acc, new)
-    },
-    list(1:1000)
-)
+x := x^2
 
 ```
 
-Curly braces are usually syntactically optional, but they make the function more readable. At the 
-moment I know of no acceptable way of extending this syntax to functions of higher arity, though 
-this may be included at a later date.
+is equivalent to
+
+```javascript
+
+function (a, b, c) {
+    a > b && a > c
+}
+
+function (x) x^2
+
+```
+The shorter form is especicially useful given that **Arrow** is a function heavy library. 
+Curly braces are almost always syntactically optional, but I include them for readability.
 
 ### 2.4 Cascading Style
 
