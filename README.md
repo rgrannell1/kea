@@ -151,20 +151,32 @@ x()
 The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
 for normal R functions to operate on.
 
-### 2.5 Partial Application & Currying
+### 2.5 Partial Application
 
 Specialising general functions like select and fold is simple in **Arrow**.
 
 ```javascript
-# be gone, na values!
-xPartial(xReject, list(pred = is.na))
+# be gone, na values and nan!
 
+strip_na <- xPartial(xReject, list(pred = xIsNa))
+strip_nan <- xPartial(xReject, list(pred = is.nan))
+
+# compose both functions, and call.
+(strip_nan %of% strip_na)(
+    list(1, 2, NaN, NA, 3, 4))
+
+```
+Is this case, the general function ``xReject`` was specialised into two functions that remove Na and NaN values
+respectively.
+
+```javascript
 function (coll) 
 {
     fn(.Primitive("is.na"), coll)
 }
 <environment: 0x5e8eb38>
 ```
+
 
 ### 2.6 Combinators
 
