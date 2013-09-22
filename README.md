@@ -217,7 +217,19 @@ xForall(
 )
 ```
 
+### 2.8 Immutable Values
 
+R provides a mechanism for permenantly binding a value to a name, but it it somewhat clumsy. **Arrow** wraps these 
+native functions.
+
+```javascript
+
+xVal(a, 'try change me!')
+a <- 'will fail'
+
+Error: cannot change value of locked binding for 'a'
+```
+**Arrow** also has utility functions for modifying values.
 
 ## 3 Footnotes
 
