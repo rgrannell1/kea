@@ -3,13 +3,13 @@ Arrow v0.1
 
 **Arrow** is a functional programming framework that adds partial application, 
 jQuery-like method calling, function composition, 
-and nearly one-hundred higher-order functions and utility functions to the R language.
+and over one-hundred higher-order functions and utility functions to the R language.
 Arrow helps make R an elegant functional language with an emphasis on the composition
-of simple functions to create complex, expressive programs.
+of simple functions to create complex but expressive programs.
 
 ## 1 Installation
 
-As of late August 2013 **Arrow** is only available on Github. To install the development version, copy the
+As of late September 2013 **Arrow** is only available on Github. To install the development version, copy the
 following into an R console.
 
 ```javascript
