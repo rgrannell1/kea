@@ -25,6 +25,11 @@ xPartitionWith <- function (pred, coll) {
 	# true, and a list for which pred returns false
 	
 	pcall <- sys.call()
+
+	assert(
+		!missing(pred), pcall)
+	assert(
+		!missing(coll), pcall)
 	
 	assert(
 		is.function(pred) || is.symbol(pred) || 

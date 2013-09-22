@@ -17,6 +17,10 @@ xIsTrue <- function (coll) {
 	# test which elements of a collection are true
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(coll), pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

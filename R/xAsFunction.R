@@ -7,6 +7,9 @@ xAsFunction <- function (coll) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(coll), pcall)
+
+	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
 	function (...) {

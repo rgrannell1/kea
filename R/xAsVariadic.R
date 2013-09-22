@@ -18,6 +18,10 @@ xAsVariadic <- function (fn) {
 	# as a list to its underlying function.
 	
 	pcall <- sys.call()
+
+	assert(
+		!missing(fn), pcall)
+	
 	assert(
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)

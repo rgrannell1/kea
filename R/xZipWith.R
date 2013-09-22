@@ -20,6 +20,10 @@ xZipWith <- function (fn, ...) {
 	# excess elements are discarded.
 
 	pcall <- sys.call()
+	
+	assert(
+		!missing(fn), pcall)
+
 	assert(
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)

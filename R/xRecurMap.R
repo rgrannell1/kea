@@ -21,6 +21,11 @@ xRecurMap <- function (fn, coll) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(fn), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)
 	

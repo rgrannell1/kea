@@ -21,6 +21,9 @@ xThread <- function (init, ...) {
 
 	pcall <- sys.call()
 
+	assert(
+		!missing(init), pcall)
+
 	fns <- list(...)
 
 	# are all fns functions/function names?

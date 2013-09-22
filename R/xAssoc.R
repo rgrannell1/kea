@@ -22,6 +22,7 @@ xAssoc <- function (coll) {
 
 	assert(
 		!missing(coll), pcall)
+	
 	assert(
 		is.recursive(coll), pcall)
 	assert(

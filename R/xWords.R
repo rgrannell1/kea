@@ -13,6 +13,9 @@ xWords <- function (str) {
 	# a character vector of equal or greater length.
 	
 	pcall <- sys.call()
+
+	assert(
+		!missing(str), pcall)
 	
 	assert(
 		is.character(str) && length(str) == 1, pcall)

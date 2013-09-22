@@ -22,6 +22,11 @@ xSubStr <- function (str, nums) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(str), pcall)
+	assert(
+		!missing(nums), pcall)
+
+	assert(
 		is.character(str) && length(str) < 2, pcall)
 	assert(
 		is.numeric(nums) && all(round(nums) == nums), pcall)

@@ -21,6 +21,10 @@ xAsUnary <- function (fn) {
 	# makes it into a function that takes one list.
 
 	pcall <- sys.call()
+	
+	assert(
+		!missing(fn), pcall)
+
 	assert(
 		is.function(fn) || is.symbol(fn) || 
 		(is.character(fn) && length(fn) == 1), pcall)

@@ -17,6 +17,10 @@ xIsEmpty <- function (coll) {
 	# is collection length == 0?
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(coll), pcall)
+
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 

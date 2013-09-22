@@ -24,6 +24,13 @@ xMapWhen <- function (pred, fn, coll) {
 	pcall <- sys.call()
 
 	assert(
+		!missing(pred), pcall)
+	assert(
+		!missing(fn), pcall)
+	assert(
+		!missing(coll), pcall)
+
+	assert(
 		is.function(pred) || is.symbol(pred) || 
 		(is.character(pred) && length(pred) == 1), pcall)
 

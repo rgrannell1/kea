@@ -21,6 +21,11 @@ xTakeWhile <- function (pred, coll) {
 	# take every element until pred returns false
 
 	pcall <- sys.call()
+
+	assert(
+		!missing(pred), pcall)
+	assert(
+		!missing(coll), pcall)
 	
 	assert(
 		is.function(pred) || is.symbol(pred) || 

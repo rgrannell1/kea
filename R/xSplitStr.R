@@ -21,8 +21,15 @@ xSplitStr <- function (rexp, str) {
 	
 	pcall <- sys.call()
 
-	assert(is.character(rexp) && length(rexp) == 1, pcall)
-	assert(is.character(str) && length(str) == 1, pcall)
+	assert(
+		!missing(rexp), pcall)
+	assert(
+		!missing(str), pcall)
+
+	assert(
+		is.character(rexp) && length(rexp) == 1, pcall)
+	assert(
+		is.character(str) && length(str) == 1, pcall)
 
 	if (nchar(str) == 0) {
 		''

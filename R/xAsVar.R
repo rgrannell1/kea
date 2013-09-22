@@ -5,6 +5,9 @@ xAsVar <- function (str) {
 	pcall <- sys.call()
 	pframe <- parent.frame()
 
+	assert(
+		!missing(str), pcall)
+
 	str <- toString(match.call()$str)
 
 	assert(

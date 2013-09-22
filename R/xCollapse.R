@@ -23,6 +23,7 @@ xCollapse <- function (str, ...) {
 	
 	assert(
 		!missing(str), pcall)
+	
 	assert(
 		is.character(str), pcall)
 	assert(
