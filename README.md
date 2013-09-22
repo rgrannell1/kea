@@ -145,11 +145,12 @@ combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg.
 most importantly, an avian name (```xPhoenix```)[3].
 
 ```javascript
-func_add <- xPartial(xBiCompose, list(fn1 = "+"))
-# equivelant to the function xPlusLift()
-func_add(
-    function (x) 2*x + x,
-    function (x) 3*x + x
+add_fn <- xPartial(xBiCompose, list(fn1 = "+"))
+
+# equivalant to the function xPlusLift()
+add_fn(
+    x := 2*x + x,
+    x := 3*x + x
 )(1:100)
 ```
 
