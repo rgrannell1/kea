@@ -219,6 +219,7 @@ xForall(
 
 ### 2.8 Immutable Values
 
+Using immutable values can make reasoning about code easier.
 R provides a mechanism for permenantly binding a value to a name, but it it somewhat clumsy. **Arrow** wraps these 
 native functions.
 
