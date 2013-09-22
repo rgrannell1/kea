@@ -204,16 +204,41 @@ arithmetic on functions, with several functions with short names added for that 
 
 #### 2.7 Existential Quantifiers
 
+**Arrow** includes the powerful quantifiers `xForall` and `xExists`, as well
+as other quantifier functions.
+
+For example, to verify that addition is commutative, you could write:
 
 ```javascript
 xForall(
-    (x : y) := {
-        x + y == y + x
-    },
+    (a : b) := {
+        a + b == b + a
+    }
     1:100,
     1:100
 )
 ```
+Or even
+
+```javascript
+xForall(
+    a := {
+        xExists(
+            b := {
+                a + b == b + a 
+            }, 
+            1:100
+        )
+    },
+    1:100
+)
+```
+
+
+
+
+
+
 
 ### 2.8 Immutable Values
 
@@ -229,11 +254,6 @@ a <- 'will fail'
 Error: cannot change value of locked binding for 'a'
 ```
 **Arrow** also has utility functions for modifying values.
-
-
-
-
-
 
 ## 3 Footnotes
 
