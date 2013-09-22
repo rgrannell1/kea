@@ -37,7 +37,3 @@ xThread <- function (init, ...) {
 	}
 	init
 }
-
-#' @export
-
-'=>' <- xThread

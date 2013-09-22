@@ -138,3 +138,6 @@ Collate:
     'xAsFunction.R'
     'xRepeat.R'
     'xUnfoldl.R'
+    'xVal.R'
+    'xIsVal.R'
+    'xAsVar.R'
