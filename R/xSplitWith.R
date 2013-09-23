@@ -14,9 +14,6 @@
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xSplitWith <- function (pred, coll) {

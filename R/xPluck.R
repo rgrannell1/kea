@@ -15,9 +15,6 @@
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xPluck <- function (str, coll) {

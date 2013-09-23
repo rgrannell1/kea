@@ -11,9 +11,6 @@
 #' @return a number.
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xOverLift <- function (fn1, fn2) {

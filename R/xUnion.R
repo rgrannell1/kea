@@ -13,9 +13,6 @@
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xUnion <- function (coll1, coll2) {

@@ -13,7 +13,7 @@
 #' @template glossary
 #' @template fam-fromcoll
 #'
-#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.Rinst/examples/blank.R
 #' @export
 
 xIsNan <- function (coll) {

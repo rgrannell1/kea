@@ -16,9 +16,6 @@
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xFoldl <- function (fn, init, coll) {

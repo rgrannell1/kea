@@ -1,5 +1,4 @@
 
-
 #' xDrop
 #' 
 #' Take several elements from the front of a collection.
@@ -15,9 +14,6 @@
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xDrop <- function (num, coll) {

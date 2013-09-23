@@ -11,9 +11,6 @@
 #' @return a unary function.
 #'
 #' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R
-#' @examples inst/examples/blank.R 
 #' @export
 
 xByLift <- function (fn1, fn2) {
