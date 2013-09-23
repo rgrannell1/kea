@@ -229,7 +229,7 @@ xAsVal(b)
 To access the documentation  simply put a question mark in front of a function of interest.
 
 ```
-?xAll
+?xSelect
 ```
 
 
