@@ -18,9 +18,7 @@ Suggests:
 Collate:
     'aliases.R'
     'lambda.R'
-    'xAll.R'
     'xAndLift.R'
-    'xAny.R'
     'xApply.R'
     'xArity.R'
     'xAsClosure.R'
