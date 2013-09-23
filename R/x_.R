@@ -214,6 +214,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xNotNa(reciever_()) )
 		}
+	this$xNotNan <-
+		function () {
+			x_( xNotNan(reciever_()) )
+		}
 	# -------- O ------- #
 	# -------- P ------- #
 	this$xPack <-

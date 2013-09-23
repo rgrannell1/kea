@@ -141,3 +141,4 @@ Collate:
     'xAsVar.R'
     'xAsVal.R'
     'xIsNan.R'
+    'xNotNan.R'
