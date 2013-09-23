@@ -10,7 +10,10 @@
 #'
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xMinusLift <- function (fn1, fn2) {

@@ -11,7 +11,10 @@
 #'     various types of NA are not-distinguished between. Type conversion is not carried out.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xContains <- function (coll, val) {

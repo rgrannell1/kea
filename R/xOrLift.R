@@ -10,7 +10,10 @@
 #'
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xOrLift <- function (pred1, pred2) {

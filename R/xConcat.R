@@ -12,7 +12,10 @@
 #'    to another list returns the second list, without modification.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xConcat <- function (...) {

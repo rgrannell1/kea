@@ -11,7 +11,10 @@
 #'     If \code{nums} is empty then the unit of that vector is returned.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xSucc <- function (nums) {

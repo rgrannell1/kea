@@ -12,7 +12,10 @@
 #'     Partial application also works for ellipses (eg list(... = 1)).
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xPartial <- function (fn, coll) {

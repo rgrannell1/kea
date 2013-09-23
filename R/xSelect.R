@@ -12,7 +12,10 @@
 #'     returns the empty list if \code{coll} is length-zero, or no match is found.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xSelect <- function (pred, coll) {

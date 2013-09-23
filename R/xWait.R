@@ -11,7 +11,10 @@
 #'     if \code{num} is zero then \code{fn} is returned untouched.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xWait <- function (fn, num) {

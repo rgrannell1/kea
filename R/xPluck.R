@@ -14,7 +14,10 @@
 #'     then the empty string "" is used to match key-names.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xPluck <- function (str, coll) {

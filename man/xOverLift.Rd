@@ -1,0 +1,37 @@
+\name{xOverLift}
+\alias{xOverLift}
+\title{xOverLift}
+\usage{
+  xOverLift(fn1, fn2)
+}
+\arguments{
+  \item{fn1}{a unary function that returns a number.}
+
+  \item{fn2}{a unary function that returns a number.}
+}
+\value{
+  a number.
+}
+\description{
+  Compose two functions with division.
+}
+\section{Glossary}{
+  function: a closure or primitive function.  A symbol or
+  string refering to such a function may also be used.
+
+  predicate: A function that returns a logical value
+  (unary, unless stated otherwise).  A symbol or string
+  refering to such a function may also be used.
+
+  collection: A list, pairlist or vector of any type.
+
+  arity: The number of arguments a function can accept.
+  Variadic functions have an arity of +Infinity,
+
+  number: a double, integer or complex number, unless
+  stated otherwise.
+}
+\examples{
+inst/examples/blank.R
+}
+

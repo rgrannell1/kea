@@ -13,7 +13,10 @@
 #'     returns the empty list if \code{init} is length-zero.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xUnfold <- function (pred, fn, init) {

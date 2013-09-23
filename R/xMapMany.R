@@ -13,7 +13,10 @@
 #'     collection lengths are not equal then elements are recycles in the shorter collections.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xMapMany <- function (fn, ...) {

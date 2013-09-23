@@ -12,7 +12,10 @@
 #' @section Corner Cases: 
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 # fn2 takes func to wrap, extra args.

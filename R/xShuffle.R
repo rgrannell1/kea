@@ -11,7 +11,10 @@
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xShuffle <- function (coll) {

@@ -8,9 +8,9 @@
 #'
 #' @return a n-ary predicate.
 #'
-#' @template glossary.
+#' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R 
 #' @export
 
 xAndLift <- function (pred1, pred2) {

@@ -11,7 +11,10 @@
 #'     throws an error if attempting to convert a variable that doesn't exist (in the parent frame).
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xAsVal <- function (str) {

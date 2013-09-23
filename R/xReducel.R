@@ -14,7 +14,10 @@
 #'     value inside \code{coll} if coll is length-one.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xReduce <- function (fn, coll) {

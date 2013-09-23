@@ -12,7 +12,10 @@
 #'     returns integer(0) if no match is found.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xLocate <- function (pred, coll) {

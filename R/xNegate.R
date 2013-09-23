@@ -11,7 +11,10 @@
 #'     If nums is empty then the unit of the collection is returned.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xNegate <- function (nums) {

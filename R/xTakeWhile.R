@@ -13,7 +13,10 @@
 #'     \code{coll} returns false for the predicate. Na values are considered false.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xTakeWhile <- function (pred, coll) {

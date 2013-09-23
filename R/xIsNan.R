@@ -9,9 +9,11 @@
 #'
 #' @section Corner Cases: 
 #'     returns True if coll is length-zero.
-#' @template glossary
 #'
-#' @examples 
+#' @template glossary
+#' @template fam-fromcoll
+#'
+#' @examples inst/examples/blank.R
 #' @export
 
 xIsNan <- function (coll) {

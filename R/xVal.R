@@ -12,7 +12,10 @@
 #'     throws an error if a value already exists called str.
 #' @template glossary
 #'
-#' @examples 
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.R 
 #' @export
 
 xVal <- function (str, val) {
