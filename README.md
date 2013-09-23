@@ -150,10 +150,13 @@ most importantly, an avian name (```xPhoenix```)[3].
 
 ```javascript
 # compose two functions with addition
-xPlusLift(
+g <- xPlusLift(
     x := 2*x + x,
     x := 3*x + x
 )(1:100)
+
+# in this case g is equal to 5*x + 2*x
+
 ```
 ```javascript
 x_(1:100)$
