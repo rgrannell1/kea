@@ -3,13 +3,13 @@ Arrow v0.1
 
 **Arrow** is a functional programming framework that adds partial application, 
 jQuery-like method calling, function composition, 
-and nearly one-hundred higher-order functions and utility functions to the R language.
+and over one-hundred higher-order functions and utility functions to the R language.
 Arrow helps make R an elegant functional language with an emphasis on the composition
-of simple functions to create complex, expressive programs.
+of simple functions to create complex but expressive programs.
 
 ## 1 Installation
 
-As of late August 2013 **Arrow** is only available on Github. To install the development version, copy the
+As of late September 2013 **Arrow** is only available on Github. To install the development version, copy the
 following into an R console.
 
 ```javascript
@@ -28,34 +28,6 @@ help the user find the function they are looking for.
 ## 2 Features
 
 ### 2.1 Generic & Idiomatic
-
-In general **Arrow** functions are as generic with respect to input type as possible,
-though their output types are more rigidly defined.
-
-```javascript
-identical(
-    xMap( function (x) x, 1:10),
-    xMap( function (x) x, as.list(1:10)) )
-identical(
-    xMap( function (x) x, 1:10),
-    xMap( function (x) x, as.pairlist(1:10)) )
-
-# transitively xMap vector == xMap pairlist
-```
-Having a fixed output type makes arrow functions very easy to compose; Functions that normally
-return integers will never return a NULL for some corner case.
-Refreshingly, it also means that your code won't use ```if(is.null(x))``` like
-full stops in an essay.
-
-```javascript
-xSubStr('alonzo-church', c(1:3, 5, 7))
-'alonoc'
-```
-
-R is unusual (in a good way) in that numbers and other values are always wrapped in 
-vectors, so base functions operate on whole vectors as well as single values.
-**Arrow** is vectorisation-friendly; where possible functions operate on vectors 
-of values.
 
 ### 2.2 Functional
 
@@ -97,74 +69,78 @@ even then their mathematical underpinnings are masked [2].
 
 ### 2.3 Arrow Functions
 
-**Arrow** includes a shorthand syntax for unary functions; arrow functions. [4]
+**Arrow** includes a useful shorthand for function definitions; arrow functions. [4]
 
 ```javascript
-# a polynomial equation
-
-f <- x := {
-    2*x^2 * 3*x + 10
-}
-g <- x := {
-    x^2 + 2*x
+(a: b : c) := {
+    a > b && a > c
 }
 
-# Map a composite polynomial function over a vector.
-xMap(xPlusLift(f, g), 1:1000)
-
-# grab all underscored vars in base.
-xSelect(
-    name := {
-        grepl('_', name)
-    },
-    ls('package:base')
-)
-
-# get the largest value in a list
-xReduce(
-    (acc : new) := {
-        max(acc, new)
-    },
-    list(1:1000)
-)
-
+x := x^2
 ```
 
-Curly braces are usually syntactically optional, but they make the function more readable. At the 
-moment I know of no acceptable way of extending this syntax to functions of higher arity, though 
-this may be included at a later date.
+is equivalent to
+
+```javascript
+
+function (a, b, c) {
+    a > b && a > c
+}
+
+function (x) x^2
+```
+The shorter form is especicially useful given that **Arrow** is a function heavy library. 
+Curly braces are almost always syntactically optional, but I include them for readability.
 
 ### 2.4 Cascading Style
 
 In this style data is fed into the type constructor [1] ```x_```, and methods are called off that object. 
-This small program gets every parametre used in the R base library.
 
 ```javascript
-x_(ls("package:base"))$  
-xMap(function (x) get(x))$
-xSelect(is.function)$
-xMap(xParams)$
-xReducel(union)$
+
+x_(1:100)$
+xSetProd(1:100)$
+xMap(
+    xAsUnary( 
+        (a : b) := {
+            a^b + b^a
+        }
+    )
+)$
+xSelect(
+    a := {
+        a %% 2
+    }
+)$
 x()
 ```
 
-The final method - ```x()``` - takes the data out the object constructed by ```x_()``` 
-for normal R functions to operate on.
-
-### 2.5 Partial Application & Currying
+### 2.5 Partial Application
 
 Specialising general functions like select and fold is simple in **Arrow**.
 
 ```javascript
-# be gone, na values!
-xPartial(xReject, list(pred = is.na))
+# be gone, na values and nan!
 
+strip_na <- xPartial(xReject, list(pred = xIsNa))
+strip_nan <- xPartial(xReject, list(pred = is.nan))
+
+# compose both functions, and call.
+(strip_nan %of% strip_na)(
+    list(1, 2, NaN, NA, 3, 4))
+
+```
+Is this case, the general function ``xReject`` was specialised into two functions that remove Na and NaN values
+respectively.
+
+```javascript
 function (coll) 
 {
     fn(.Primitive("is.na"), coll)
 }
 <environment: 0x5e8eb38>
 ```
+
 
 ### 2.6 Combinators
 
@@ -173,29 +149,29 @@ combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg.
 most importantly, an avian name (```xPhoenix```)[3].
 
 ```javascript
-func_add <- xPartial(xBiCompose, list(fn1 = "+"))
-# equivelant to the function xPlusLift()
-func_add(
-    function (x) 2*x + x,
-    function (x) 3*x + x
+add_fn <- xPartial(xBiCompose, list(fn1 = "+"))
+
+# equivalant to the function xPlusLift()
+add_fn(
+    x := 2*x + x,
+    x := 3*x + x
 )(1:100)
 ```
 
-In fact combinators are so powerful that the ```xI``` (identity), ```xK```
-(return a constant function), and 
-```xS``` (a substitution combinator) that they in themselves can define a programming language!
 
 ```javascript
 x_(1:100)$
 xSelect( xOrLift(
-    # two uncommon properties
-    n := {n^2 == 2^n},
-    n := {n*2 == n*n}
+    # find numbers with at one of these two uncommon properties
+    n := {
+        n^2 == 2^n
+    },
+    n := {
+        n*2 == n*n
+    }
 ))
 [1] 2 4
 
-xModLift( function (n) n^2, xK(6) )(1:4)
-[1] 1 4 3 4
 ```
 
 Of course, this is a less likely use of combinators than defining
@@ -204,20 +180,50 @@ arithmetic on functions, with several functions with short names added for that 
 
 #### 2.7 Existential Quantifiers
 
+**Arrow** includes the powerful quantifiers `xForall` and `xExists`, as well
+as other quantifier functions.
+
+For example, to verify that addition is commutative, you could write:
 
 ```javascript
 xForall(
-    x := {
-        xExists(
-            y := {x * y == y},
-            1:1000
-        )
-    },
-    1:1000
+    (a : b) := {
+        a + b == b + a
+    }
+    1:100,
+    1:100
 )
 ```
 
+In the above case, the set product of 1...100 x 1...100 is checked to see 
+if each combination (a, b) holds true.
 
+```javascript
+x_(1:1000)$
+xExists( n := {
+    n^2 == 5*n
+} )
+```
+### 2.8 Immutable Values
+
+Using immutable values can make reasoning about code easier.
+R provides a mechanism for permenantly binding a value to a name, but it it somewhat clumsy. **Arrow** wraps these 
+native functions.
+
+```javascript
+
+xVal(a, 'try change me!')
+a <- 'will fail'
+
+Error: cannot change value of locked binding for 'a'
+```
+
+It is also possible to 'lock' and 'unlock' variabes after creation:
+
+```
+b <- "try change me!"
+xAsVal(b)
+```
 
 ## 3 Footnotes
 
