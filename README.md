@@ -217,7 +217,13 @@ a <- 'will fail'
 
 Error: cannot change value of locked binding for 'a'
 ```
-**Arrow** also has utility functions for modifying values.
+
+It is also possible to 'lock' and 'unlock' variabes after creation:
+
+```
+b <- "try change me!"
+xAsVal(b)
+```
 
 ## 3 Footnotes
 
