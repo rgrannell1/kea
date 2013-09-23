@@ -149,16 +149,15 @@ combinators, giving them a formal name (eg. ```xPhi```), a descriptive name (eg.
 most importantly, an avian name (```xPhoenix```)[3].
 
 ```javascript
-add_fn <- xPartial(xBiCompose, list(fn1 = "+"))
-
-# equivalant to the function xPlusLift()
-add_fn(
+# compose two functions with addition
+g <- xPlusLift(
     x := 2*x + x,
     x := 3*x + x
 )(1:100)
+
+# in this case g is equal to 5*x + 2*x
+
 ```
-
-
 ```javascript
 x_(1:100)$
 xSelect( xOrLift(
@@ -178,7 +177,7 @@ Of course, this is a less likely use of combinators than defining
 your own control structures for functions. Arrow particularily emphasises 
 arithmetic on functions, with several functions with short names added for that purpose.
 
-#### 2.7 Existential Quantifiers
+### 2.7 Existential Quantifiers
 
 **Arrow** includes the powerful quantifiers `xForall` and `xExists`, as well
 as other quantifier functions.
