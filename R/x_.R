@@ -758,8 +758,20 @@ x_fn_proto <- local({
 
 # -------------------------------- Type Constructor -------------------------------- #
 
-
-
+#' x_
+#' 
+#' Generate a chainable arrow object
+#'
+#' @param val a function, collection, or arbitrary value.
+#'
+#' @return an arrow object.
+#'
+#' @section Corner Cases: 
+#'     asd.
+#' @template glossary
+#'
+#' @examples inst/examples/blank.R
+#' @export
 
 #' @param val any arbitrary value.
 

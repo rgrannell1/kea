@@ -8,7 +8,7 @@
 #' @return a vector of non-complex numbers.
 #'
 #' @section Corner Cases: 
-#'     returns the unit of the vector if \code{nums} is length-zero}.
+#'     returns the unit of the vector if \code{nums} is length-zero.
 #'     
 #' @template glossary
 #'
