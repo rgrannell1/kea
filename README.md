@@ -178,7 +178,7 @@ Of course, this is a less likely use of combinators than defining
 your own control structures for functions. Arrow particularily emphasises 
 arithmetic on functions, with several functions with short names added for that purpose.
 
-#### 2.7 Existential Quantifiers
+### 2.7 Existential Quantifiers
 
 **Arrow** includes the powerful quantifiers `xForall` and `xExists`, as well
 as other quantifier functions.
