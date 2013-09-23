@@ -14,14 +14,6 @@ x_coll_proto <- local({
 			as.vector(reciever_(), mode)
 		} 
 	# -------- A ------- #
-	this$xAll <- 
-		function (pred) {
-			x_( xAll(pred, reciever_()) )
-		}
-	this$xAny <- 
-		function (pred) {
-			x_( xAny(pred, reciever_()) )
-		}
 	this$xAsFunction <- 
 		function () {
 			x_( xAsFunction(reciever_()) )
@@ -143,6 +135,10 @@ x_coll_proto <- local({
 	this$xIsTrue <-
 		function () {
 			x_( xIsTrue(reciever_()) )
+		}
+	this$xIsNan <-
+		function () {
+			x_( xIsNan(reciever_()) )
 		}
 	this$xIsNa <-
 		function () {
@@ -450,17 +446,9 @@ x_fn_proto <- local({
 		function () {
 			x_( xAsVariadic(reciever_()) )
 		}
-	this$xAll <- 
-		function (coll) {
-			x_( xAll(reciever_(), coll) )
-		}
 	this$xAndLift <-
 		function (pred2) {
 			x_( xAndLift(reciever_(), pred2) )
-		}
-	this$xAny <- 
-		function (coll) {
-			x_( xAny(reciever_(), coll) )
 		}
 	this$xApply <-
 		function (coll) {

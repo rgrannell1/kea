@@ -1,20 +1,20 @@
 
-#' xIsNull
+#' xIsNan
 #' 
-#' Is an element of a collection null?
+#' Is an element in a collection NaN?
 #'
 #' @param coll a collection
 #'
 #' @return a list.
 #'
 #' @section Corner Cases: 
-#'     returns True if coll is Null.
+#'     returns True if coll is length-zero.
 #' @template glossary
 #'
 #' @examples 
 #' @export
 
-xIsNull <- function (coll) {
+xIsNan <- function (coll) {
 	# collection any -> vector Boolean
 
 	pcall <- sys.call()
@@ -25,7 +25,7 @@ xIsNull <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	if (length(coll) == 0 && is.null(coll)) {
+	if (length(coll) == 0 || is.nan(coll)) {
 		# empty pairlist.
 		True
 	} else {
