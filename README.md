@@ -224,7 +224,17 @@ b <- "try change me!"
 xAsVal(b)
 ```
 
-## 3 Footnotes
+## 3 Help
+
+To access the documentation  simply put a question mark in front of a function of interest.
+
+```
+?xAll
+```
+
+
+
+## 4 Footnotes
 
 [1] I won't use *that* word; every mention of *that* word cuts the usership of an FP library by half.
 
@@ -236,7 +246,7 @@ birdname (kestrel). These names are used fairly often, so I included them.
 
 [4] Not to be confused with Arrows, the more general cousin of the Category-that-shall-not be named.
 
-## 4 Licensing
+## 5 Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3. 
 
