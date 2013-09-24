@@ -16,6 +16,8 @@
 #' @export
 
 xConcat <- function (...) {
+	# Collection any ... -> [any]
+	# Concatenate several collections.
 
 	pcall <- sys.call()
 

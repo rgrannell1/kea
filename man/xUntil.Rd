@@ -26,6 +26,6 @@
   non-terminating.
 }
 \seealso{
-  Other arrow-maps: \code{\link{xWhile}}
+  Other arrow.maps: \code{\link{xWhile}}
 }
 

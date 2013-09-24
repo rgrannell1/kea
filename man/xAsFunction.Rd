@@ -1,20 +1,20 @@
-\name{xIsNan}
-\alias{xIsNan}
-\title{xIsNan}
+\name{xAsFunction}
+\alias{xAsFunction}
+\title{xAsFunction}
 \usage{
-  xIsNan(coll)
+  xAsFunction(coll)
 }
 \arguments{
   \item{coll}{a collection}
 }
 \value{
-  a list.
+  a function that takes one or more indices.
 }
 \description{
-  Is an element in a collection NaN?
+  Convert a collection to a function that takes an index.
 }
 \section{Corner Cases}{
-  returns True if coll is length-zero.
+  returns the empty list if \code{coll is length-zero}.
 }
 
 \section{Glossary}{
@@ -34,6 +34,6 @@
   stated otherwise.
 }
 \examples{
-inst/examples/blank.Rinst/examples/blank.R
+inst/examples/blank.R
 }
 
