@@ -26,5 +26,5 @@ xLength <- function (coll) {
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall)
 
-	length(pcall)
+	length(coll)
 }
