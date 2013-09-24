@@ -146,3 +146,4 @@ Collate:
     'xAsVal.R'
     'xIsNan.R'
     'xNotNan.R'
+    'xAutoPartial.R'

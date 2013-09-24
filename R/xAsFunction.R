@@ -32,9 +32,9 @@ xAsFunction <- function (coll) {
 		nums <- c(...)
 
 		assert(
-			is.numeric(nums)), pcall)
+			is.numeric(nums), pcall)
 		assert(
-			all(round(nums) == nums, pcall)
+			all(round(nums) == nums), pcall)
 		assert(
 			max(nums) <= length(coll), pcall)
 		assert(
