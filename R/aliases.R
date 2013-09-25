@@ -49,28 +49,30 @@ assert <- function (bool, pcall) {
 
 tau <- 6.2831853071795864769252867
 
-# to make error messages clearer.
-
-traits <- list(
-	list_of_collections = 
-		paste0('list_of_', c('list', 'pairlist', 'vector')),
-	list_of_recursive = 
-		paste0('list_of_', c('list', 'pairlist')),
-	collection_of_string = 
-		paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'string'),
-	collection_of_number = c(
-			paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'integer'),
-			paste0(c('list_of_', 'vector_of_', 'pairlist_of_'), 'double')),
-	positive_number = 
-		c("positive double", "positive integer"),
-	functionable = 
-		c('function', 'string', 'symbol'),
-	collection = 
-		c('list', 'pairlist', 'vector'),
-	recursive = 
-		c('list', 'pairlist')
-)
-
-# 
-
 cc <- list
+
+ith_suffix <- function (num) {
+
+	last <- as.numeric(substr(
+		toString(num), 
+		nchar(toString(num)), 
+		nchar(toString(num)) ))
+
+	suffix <- 
+	if (num == 2) {
+		"nd"
+	} else if (num == 3) { 
+		"rd"
+	} else if (num == 11 || num == 12 || num == 13) {
+		"th"
+	} else if (last == 1) {
+		"st"
+	} else if (last == 2) {
+		"nd"
+	} else if (last == 3) {
+		"rd"
+	} else {
+		"th"
+	}
+	paste0(num, suffix)
+}

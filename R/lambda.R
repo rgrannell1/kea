@@ -18,8 +18,22 @@ xLambda <- function (formals, body) {
 	formals <- match.call()$formals
 	body <- match.call()$body
 
-	pcall <- paste(
-		paste0(deparse(formals), collapse = ''), ":= { }"  )
+	pcall <- "xLambda:"
+
+	say <- list(
+		bad_symbol = 
+			function (call, unexpected) {
+				paste(call, "unexpected symbol in", paste0(unexpected, collapse = ""))
+			},
+		bad_param =
+			function (call, unexpected, which) {
+
+				paste(
+					call, "unexpected", 
+					paste0(class(unexpected), collapse = ""), 
+					"constant at the", ith_suffix(which), "parameter")
+			}
+	)
 
 	new_fn <- function () {}
 	body(new_fn) <- body
@@ -33,29 +47,32 @@ xLambda <- function (formals, body) {
 				names = match.call()[-1]$formals)
 
 	} else {
-		# ------ try parse the formals ------
+		# ------ try parse the bracket-enclosed formals ------
 
-		params <- c()
+		params <- character(0)
 		parse_tree <- formals
 		delim <- ':'
 
-
 		if (!paste( parse_tree[[1]] ) == '(') {
-			stop(pcall, ":", 'unexpected symbol in ', parse_tree[[1]], call. = False )
+			stop(
+				say$bad_symbol( pcall, parse_tree[[1]] ), call. = False )
 		}
 
+		# ------ remove the formal contents from the brackets
 		parse_tree <- parse_tree[[2]]
 
 		while (is.call(parse_tree) || is.name(parse_tree)) {
 
+			param_ith <- length(params) + 1
+
 			if (is.name(parse_tree)) {
-				# at the end of the parse tree
+				# ------ we've looped through the parse tree to the last symbol
 
 				formal <- paste(parse_tree)
 				parse_tree <- Null
 
 			} else {
-				# check that params are | delimitied
+				# ------ check that each parameter is delimited using colons
 
 				subtree <- list(
 					delim = paste( parse_tree[[1]] ),
@@ -64,21 +81,27 @@ xLambda <- function (formals, body) {
 				)
 
 				if (!subtree$delim == delim) {
-					stop(pcall, ":", 'unexpected symbol in ',subtree$param, call. = False)
+					stop(
+						say$bad_symbol(pcall, subtree$param),
+						call. = False )
 				} else {
+					
 					if (!is.name(subtree$param)) {
-						stop(pcall, ":", "non-symbol following ':'", call. = False)
+						stop(
+							say$bad_param(
+								pcall, subtree$param, param_ith),
+								call. = False)
 					} else {
-
 						parse_tree <- subtree$rest
 						formal <- paste(subtree$param)
-					}					
+					}
 				}
 			}
 
 			params <- c(formal, params)
 		}
 
+		# ------ set the formals to the parsed param names ------
 		formals(new_fn) <- 
 			structure(
 				rep(list(quote(expr=)), length(params)),
