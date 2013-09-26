@@ -1,10 +1,12 @@
 
 # -------------------------------- Collection methods -------------------------------- #
 #
-# these methods can be called off of x_() objects, with one argument fixed.
-# the meaning of the reciever function is changed upon the 
-# invocation of an x_()$method, changing to the value of the x objects internal data.
-# No object copying or anything else nasty is done.
+# these prototypes contain methods that can be called by an x_() object, using an 
+# overloaded definition of the $ function.
+
+# upon invocation of an x_()$method, the reciever_ function is updated to return the 
+# value contained in the x_() object. The reciever_ function should be unbound unless it is called by an x_() function,
+# so an error is thrown if these prototypes are called directly.
 
 x_coll_proto <- local({
 
@@ -760,21 +762,31 @@ x_fn_proto <- local({
 
 #' x_
 #' 
-#' Generate a chainable arrow object
+#' Generate a chainable arrow object, that can use methods.
 #'
 #' @param val a function, collection, or arbitrary value.
 #'
-#' @return an arrow object.
+#' @return an object of class "arrow", with a single field 'x' that contains val.
 #'
 #' @section Corner Cases: 
-#'     asd.
-#' @template glossary
+#' 		The methods that can be used by x_() object varies depending on the type of val.
+#' 		Some methods are specific to functions or collections. If a non-function and non-collection is
+#' 		supplied then very few methods can be used.
+#' 		
+#' 		Because the definition of $ was overloaded to allow method chaining, the 
+#' 		field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
+#'		x_()$x() is required.
 #'
+#'
+#' @details
+#'
+#' Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow 
+#' method (using $) has a small amount overhead, since the definition of $ 
+#' has been overloading to allow method calling.
+#'
+#' @template glossary
+#' 
 #' @examples inst/examples/blank.R
-#' @export
-
-#' @param val any arbitrary value.
-
 #' @export
 
 x_ <- function (val) {
