@@ -20,21 +20,6 @@ xLambda <- function (formals, body) {
 
 	pcall <- "xLambda:"
 
-	say <- list(
-		bad_symbol = 
-			function (call, unexpected) {
-				paste(call, "unexpected symbol in", paste0(unexpected, collapse = ""))
-			},
-		bad_param =
-			function (call, unexpected, which) {
-
-				paste(
-					call, "unexpected", 
-					paste0(class(unexpected), collapse = ""), 
-					"constant at the", ith_suffix(which), "parameter")
-			}
-	)
-
 	new_fn <- function () {}
 	body(new_fn) <- body
 	
@@ -49,57 +34,86 @@ xLambda <- function (formals, body) {
 	} else {
 		# ------ try parse the bracket-enclosed formals ------
 
-		params <- character(0)
-		parse_tree <- formals
-		delim <- ':'
+		collect_params <- function ( tree, state = list(pos = 1, params = character(0)) ) {
+			# recur into the formals parse tree, accumulating 
+			# parameter names and validating the tree.
 
-		if (!paste( parse_tree[[1]] ) == '(') {
-			stop(
-				say$bad_symbol( pcall, parse_tree[[1]] ), call. = False )
-		}
-
-		# ------ remove the formal contents from the brackets
-		parse_tree <- parse_tree[[2]]
-
-		while (is.call(parse_tree) || is.name(parse_tree)) {
-
-			param_ith <- length(params) + 1
-
-			if (is.name(parse_tree)) {
-				# ------ we've looped through the parse tree to the last symbol
-
-				formal <- paste(parse_tree)
-				parse_tree <- Null
-
+			if (is.name(tree)) {
+				c(paste(tree), state$params)
 			} else {
-				# ------ check that each parameter is delimited using colons
 
-				subtree <- list(
-					delim = paste( parse_tree[[1]] ),
-					rest = parse_tree[[2]],
-					param = parse_tree[[3]]
-				)
+				if (get$delim(tree) != token$delim()) {
+					# ------ the parameters aren't delimited with ":" ------
 
-				if (!subtree$delim == delim) {
-					stop(
-						say$bad_symbol(pcall, subtree$param),
-						call. = False )
-				} else {
-					
-					if (!is.name(subtree$param)) {
-						stop(
-							say$bad_param(
-								pcall, subtree$param, param_ith),
-								call. = False)
-					} else {
-						parse_tree <- subtree$rest
-						formal <- paste(subtree$param)
-					}
+					msg <- pcall + 
+						" the " + ith_suffix(state$pos + 1) + 
+						" delimiter should be " + dQuote(token$delim(False)) + "."
+
+					stop (msg, call. = False)
 				}
-			}
 
-			params <- c(formal, params)
+				if ( !is.name(get$param(tree)) ) {
+					# ------ the parameter name is invalid ------
+
+					msg <- pcall + 
+						" the " + ith_suffix(state$pos + 1) + 
+						" parameter is a non-symbol."
+
+					stop (msg, call. = False)
+				}
+
+				new_state <- list(
+					pos = 
+						state$pos + 1,
+					params = 
+						c(get$param(tree, True), state$params) )
+
+				collect_params(get$rest(tree), new_state)
+
+			}
 		}
+
+		# ------ tokens of particular importance ------
+
+		token <- list(
+			open = 
+				function (symbol = True) {
+					(if (symbol) as.symbol else paste)( "(" )
+				},
+			delim =
+				function (symbol = True) {
+					(if (symbol) as.symbol else paste)( ":" )
+				}
+		)
+
+		# ------ grab different parts of the parse tree ------
+
+		get <- list(
+			delim = 
+				function (tree, symbol = True) {
+					(if (symbol) identity else paste)( tree[[1]] )
+				},
+			param = 
+				function (tree, symbol = True) {
+					(if (symbol) identity else paste)( tree[[3]] )
+				},
+			rest = 
+				function (tree, symbol = True) {
+					(if (symbol) identity else paste)( tree[[2]] )			
+				}
+		)
+
+		# ------
+
+		if (get$delim(formals) != token$open()) {
+		
+			msg <- pcall + " the formals for non-unary functions" + 
+				" must be enclosed in parentheses."
+
+			stop (msg, call. = False)
+		}
+
+		params <- collect_params( formals[[2]] )
 
 		# ------ set the formals to the parsed param names ------
 		formals(new_fn) <- 
