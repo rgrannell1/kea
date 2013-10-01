@@ -1,120 +1,122 @@
 
 # -------------------------------- Collection methods -------------------------------- #
 #
-# these methods can be called off of x_() objects, with one argument fixed.
-# the meaning of the reciever function is changed upon the 
-# invocation of an x_()$method, changing to the value of the x objects internal data.
-# No object copying or anything else nasty is done.
+# these prototypes contain methods that can be called by an x_() object, using an 
+# overloaded definition of the $ function.
+
+# upon invocation of an x_()$method, the self_ function is updated to return the 
+# value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
+# so an error is thrown if these prototypes are called directly.
 
 x_coll_proto <- local({
 
 	this <- object()
 	this$x <- 
 		function (mode = 'any') {
-			as.vector(reciever_(), mode)
+			as.vector(self_(), mode)
 		} 
 	# -------- A ------- #
 	this$xAsFunction <- 
 		function () {
-			x_( xAsFunction(reciever_()) )
+			x_( xAsFunction(self_()) )
 		}
 	this$xApply <-
 		function (fn) {
-			x_( xApply(fn, reciever_()) )
+			x_( xApply(fn, self_()) )
 		}
 	this$xAssoc <-
 		function () {
-			x_( xAssoc(reciever_()) )
+			x_( xAssoc(self_()) )
 		}
 	# -------- B ------- #
 	# -------- C ------- #
 	this$xChars <-
 		function () {
-			x_( xChars(reciever_()) )
+			x_( xChars(self_()) )
 		}
 	this$xCollapse <-
 		function (str, ...) {
-			x_( xCollapse(str, reciever_(), ...) )
+			x_( xCollapse(str, self_(), ...) )
 		}
 	this$xContains <- 
 		function (val) {
-			x_( xContains(reciever_(), val) )
+			x_( xContains(self_(), val) )
 		}
 	this$xConcat <-
 		function (...) {
-			x_( xConcat(reciever_(), ...) )
+			x_( xConcat(self_(), ...) )
 		}
 	this$xCombinations <-
 		function (num) {
-			x_( xCombinations(num, reciever_()) )
+			x_( xCombinations(num, self_()) )
 		}
 	this$xConst <-
 		function () {
-			x_( xConst(reciever_()) )
+			x_( xConst(self_()) )
 		}
 
 	# -------- D ------- #
 	this$xDissoc <-
 		function () {
-			x_( xAssoc(reciever_()) )
+			x_( xAssoc(self_()) )
 		}
 	this$xDiffer <-
 		function (coll2) {
-			x_( xDiffer(reciever_(), coll2) )
+			x_( xDiffer(self_(), coll2) )
 		}
 	this$xDrop <-
 		function (num) {
-			x_( xDrop(num, reciever_()) )
+			x_( xDrop(num, self_()) )
 		}
 	this$xDo <-
 		function (fn) {
-			x_( xDo(fn, reciever_()) )
+			x_( xDo(fn, self_()) )
 		}
 	this$xDropWhile <-
 		function (pred) {
-			x_( xDropWhile(pred, reciever_()) )
+			x_( xDropWhile(pred, self_()) )
 		}
 	# -------- E ------- #
 	this$xExists <-
 		function (pred, ...) {
-			x_( xExists(pred, reciever_(), ...) )
+			x_( xExists(pred, self_(), ...) )
 		}
 	# -------- F ------- #
 	this$xFirst <-
 		function () {
-			x_( xFirst(reciever_()) )
+			x_( xFirst(self_()) )
 		}
 	this$xFoldl <-
 		function (fn, init) {
-			x_( xFoldl(fn, init, reciever_()) )
+			x_( xFoldl(fn, init, self_()) )
 		}
 	this$xFlatMap <-
 		function (fn) {
-			x_( xFlatMap(fn, reciever_()) )
+			x_( xFlatMap(fn, self_()) )
 		}
 	this$xFlatten <-
 		function (num) {
-			x_( xFlatten(num, reciever_()) )
+			x_( xFlatten(num, self_()) )
 		}
 	this$xForall <-
 		function (pred, ...) {
-			xForall(pred, reciever_(), ...)
+			xForall(pred, self_(), ...)
 		}
 	this$xFold <- this$xFoldl
 	this$xFoldr <-
 		function (fn, init) {
-			x_( xFoldr(fn, init, reciever_()) )
+			x_( xFoldr(fn, init, self_()) )
 		}
 	this$xFourth <-
 		function () {
-			x_( xFourth(reciever_()) )
+			x_( xFourth(self_()) )
 		}
 	# -------- G ------- #
 	# -------- H ------- #
 	# -------- I ------- #
 	this$xIdentity <-
 		function () {
-			x_( xIdentity(reciever_()) )
+			x_( xIdentity(self_()) )
 		}
 	this$xIdiotBird <-
 		this$xIdentity
@@ -122,31 +124,31 @@ x_coll_proto <- local({
 		this$xIdiotBird
 	this$xInit <-
 		function () {
-			x_( xInit(reciever_()) )
+			x_( xInit(self_()) )
 		}
 	this$xIsEmpty <-
 		function () {
-			x_( xIsEmpty(reciever_()) )
+			x_( xIsEmpty(self_()) )
 		}
 	this$xIsFalse <-
 		function () {
-			x_( xIsFalse(reciever_()) )
+			x_( xIsFalse(self_()) )
 		}
 	this$xIsTrue <-
 		function () {
-			x_( xIsTrue(reciever_()) )
+			x_( xIsTrue(self_()) )
 		}
 	this$xIsNan <-
 		function () {
-			x_( xIsNan(reciever_()) )
+			x_( xIsNan(self_()) )
 		}
 	this$xIsNa <-
 		function () {
-			x_( xIsNa(reciever_()) )
+			x_( xIsNa(self_()) )
 		}
 	this$xIsNull <-
 		function () {
-			x_( xIsNull(reciever_()) )
+			x_( xIsNull(self_()) )
 		}
 	# -------- J ------- #
 	# -------- K ------- #
@@ -155,232 +157,232 @@ x_coll_proto <- local({
 	# -------- L ------- #
 	this$xLast <-
 		function () {
-			x_( xLast(reciever_()) )
+			x_( xLast(self_()) )
 		}
 	this$xLength <-
 		function () {
-			x_( xLength(reciever_()) )
+			x_( xLength(self_()) )
 		}
 	this$xLines <-
 		function () {
-			x_( xLines(reciever_()) )
+			x_( xLines(self_()) )
 		}
 
 	this$xLocatel <-
 		function (pred) {
-			x_( xLocatel(pred, reciever_()) )
+			x_( xLocatel(pred, self_()) )
 		}
 	this$xLocate <-
 		this$xLocatel
 	this$xLocater <-
 		function (pred) {
-			x_( xLocater(pred, reciever_()) )
+			x_( xLocater(pred, self_()) )
 		}
 	# -------- M ------- #
 	this$xMap <-
 		function (fn) {
-			x_( xMap(fn, reciever_()) )
+			x_( xMap(fn, self_()) )
 		}
 	this$xMapAlong <-
 		function (fn) {
-			x_( xMapAlong(fn, reciever_()) )
+			x_( xMapAlong(fn, self_()) )
 		}
 	this$xMapMany <-
 		function (fn, ...) {
-			x_( xMapMany(fn, reciever_(), ...) )
+			x_( xMapMany(fn, self_(), ...) )
 		}
 	this$xMapWhen <-
 		function (pred, fn) {
-			x_( xMapWhen(pred, fn, reciever_()) )
+			x_( xMapWhen(pred, fn, self_()) )
 		}
 	# -------- N ------- #
 	this$xName <-
 		function (strs) {
-			x_( xName(strs, coll = reciever_()) )
+			x_( xName(strs, coll = self_()) )
 		}
 	this$xNegate <-
 		function () {
-			x_( xNegate(reciever_()) )
+			x_( xNegate(self_()) )
 		}
 	this$xNotFalse <-
 		function () {
-			x_( xNotFalse(reciever_()) )
+			x_( xNotFalse(self_()) )
 		}
 	this$xNotTrue <-
 		function () {
-			x_( xNotTrue(reciever_()) )
+			x_( xNotTrue(self_()) )
 		}
 	this$xNotNa <-
 		function () {
-			x_( xNotNa(reciever_()) )
+			x_( xNotNa(self_()) )
 		}
 	this$xNotNan <-
 		function () {
-			x_( xNotNan(reciever_()) )
+			x_( xNotNan(self_()) )
 		}
 	# -------- O ------- #
 	# -------- P ------- #
 	this$xPack <-
 		function () {
-			x_( xPack(reciever_()) )
+			x_( xPack(self_()) )
 		}
 	this$xPoll <-
 		function (pred) {
-			x_( xPoll(pred, reciever_()) )
+			x_( xPoll(pred, self_()) )
 		}
 	this$xPartial <- 
 		function (fn) {
-			x_( xPartial(fn, reciever_()) )
+			x_( xPartial(fn, self_()) )
 	}
 	this$xPluck <-
 		function (str) {
-			x_( xPluck(str, reciever_()) )
+			x_( xPluck(str, self_()) )
 		}
 
 	this$xPartition <-
 		function (pred) {
-			x_( xPartition(pred, reciever_()) )
+			x_( xPartition(pred, self_()) )
 		}		
 	this$xPartitionWith <-
 		function (pred) {
-			x_( xPartitionWith(pred, reciever_()) )
+			x_( xPartitionWith(pred, self_()) )
 		}
 	this$xPred <-
 		function () {
-			x_( xPred(reciever_()) )
+			x_( xPred(self_()) )
 		}
 	# -------- Q ------- #
 	# -------- R ------- #
 	this$xRecurMap <-
 		function (fn) {
-			x_( xRecurMap(fn, reciever_()) )
+			x_( xRecurMap(fn, self_()) )
 		}
 	this$xReducel <-
 		function (fn) {
-			x_( xReducel(fn, reciever_()) )
+			x_( xReducel(fn, self_()) )
 		}
 	this$xReduce <- 
 		this$xReducel
 	this$xReducer <-
 		function (fn) {
-			x_( xReducer(fn, reciever_()) )
+			x_( xReducer(fn, self_()) )
 		}
 	this$xRepeat <-
 		function (num) {
-			x_( xRepeat(num, reciever_()) )
+			x_( xRepeat(num, self_()) )
 		}
 	this$xReject <-
 		function (pred) {
-			x_( xReject(pred, reciever_()) )
+			x_( xReject(pred, self_()) )
 		}
 	this$xRest <-
 		function () {
-			x_( xRest(reciever_()) )
+			x_( xRest(self_()) )
 		}
 	# -------- S ------- #
 	this$xScanl <-
 		function (fn, init) {
-			x_( xScanl(fn, init, reciever_()) )
+			x_( xScanl(fn, init, self_()) )
 		}
 	this$xSecond <-
 		function () {
-			x_( xSecond(reciever_()) )
+			x_( xSecond(self_()) )
 		}
 	this$xSetProd <-
 		function (...) {
-			x_( xSetProd(reciever_(), ...) )
+			x_( xSetProd(self_(), ...) )
 		}
 	this$xSegment <- 
 		function (num) {
-			x_( xSegment(num, reciever_()) )
+			x_( xSegment(num, self_()) )
 		}
 	this$xSelect <-
 		function (pred) {
-			x_( xSelect(pred, reciever_()) )
+			x_( xSelect(pred, self_()) )
 		}
 	this$xSignum <-
 		function () {
-			x_( xSignum(reciever_()) )
+			x_( xSignum(self_()) )
 		}
 	this$xSplit <-
 		function (num) {
-			x_( xSplit(num, reciever_()) )
+			x_( xSplit(num, self_()) )
 		}
 	this$xShuffle <-
 		function () {
-			x_( xShuffle(reciever_()) )
+			x_( xShuffle(self_()) )
 		}
 	this$xSplitStr <-
 		function (rexp) {
-			x_( xSplitStr(rexp, reciever_()) )
+			x_( xSplitStr(rexp, self_()) )
 		}
 	this$xSplitWith <-
 		function (pred) {
-			x_( xSplitWith(pred, reciever_()) )
+			x_( xSplitWith(pred, self_()) )
 		}
 	this$xS. <- 
 		this$xConst
 	this$xSubStr <-
 		function (str) {
-			x_( xSubStr(str, reciever_()) )
+			x_( xSubStr(str, self_()) )
 		}
 	this$xSucc <-
 		function () {
-			x_( xSucc(reciever_()) )
+			x_( xSucc(self_()) )
 		}
 	this$xSwap <- 
 		function (fn) {
-			x_( xSwap(fn, reciever_()) )
+			x_( xSwap(fn, self_()) )
 		}
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
-			x_( fn(reciever_()) )
+			x_( fn(self_()) )
 		}
 	this$xTake <- 
 		function (num) {
-			x_( xTake(num, reciever_()) )
+			x_( xTake(num, self_()) )
 		}
 	this$xTakeWhile <-
 		function (pred) {
-			x_( xTakeWhile(pred, reciever_()) )
+			x_( xTakeWhile(pred, self_()) )
 		}
 	this$xThird <-
 		function () {
-			x_( xThird(reciever_()) )
+			x_( xThird(self_()) )
 		}
 	this$xThread <- 
 		function (...) {
-			x_( xThread(reciever_(), ...) )
+			x_( xThread(self_(), ...) )
 		}
 	# -------- U ------- #
 	this$xUnchars <-
 		function () {
-			x_( xUnchars(reciever_()) )
+			x_( xUnchars(self_()) )
 		}
 	this$xUnion <- 
 		function (coll2) {
-			x_( xUnion(reciever_(), coll2) )
+			x_( xUnion(self_(), coll2) )
 		} 
 	this$xUnit <-
 		function () {
-			x_( xUnit(reciever_())	)	
+			x_( xUnit(self_())	)	
 		}
 	this$xUnlines <- 
 		function () {
-			x_( xUnlines(reciever_()) )
+			x_( xUnlines(self_()) )
 		}
 	this$xUntil <-
 		function (pred, fn) {
-			x_( xUntil(pred, fn, reciever_()) )
+			x_( xUntil(pred, fn, self_()) )
 		}
 	this$xUnwords <- 
 		function () {
-			x_( xUnwords(reciever_()) )
+			x_( xUnwords(self_()) )
 		}
 	this$xUnfold <- 
 		function (fn, pred) {
-			x_( xUnfold(fn, pred, reciever_()) )
+			x_( xUnfold(fn, pred, self_()) )
 		}
 	this$xUnfoldl <-
 		this$xUnfold
@@ -392,22 +394,22 @@ x_coll_proto <- local({
 	# -------- W ------- #
 	this$xWords <-
 		function () {
-			x_( xWords(reciever_()) )
+			x_( xWords(self_()) )
 		}
 	this$xWhile <-
 		function (pred, fn) {
-			x_( xWhile(pred, fn, reciever_()) )
+			x_( xWhile(pred, fn, self_()) )
 		}
 	# -------- X ------- #
 	# -------- Y ------- #
 	# -------- Z ------- #
 	this$xZipWith <-
 		function (fn, ...) {
-			x_( xZipWith(fn, reciever_(), ...) )
+			x_( xZipWith(fn, self_(), ...) )
 		}
 	this$xZip <- 
 		function (...) {
-			x_( xZip(reciever_(), ...) )
+			x_( xZip(self_(), ...) )
 		}
 	this
 })
@@ -435,56 +437,56 @@ x_fn_proto <- local({
 	this <- object()
 	this$x <- 
 		function () {
-			reciever_()
+			self_()
 		} 
 	# -------- A ------- #
 	this$xAsClosure <-
 		function () {
-			x_( xAsClosure(reciever_()) )
+			x_( xAsClosure(self_()) )
 		}
 	this$xAsUnary <-
 		function () {
-			x_( xAsUnary(reciever_()) )
+			x_( xAsUnary(self_()) )
 		}
 	this$xAsVariadic <-
 		function () {
-			x_( xAsVariadic(reciever_()) )
+			x_( xAsVariadic(self_()) )
 		}
 	this$xAndLift <-
 		function (pred2) {
-			x_( xAndLift(reciever_(), pred2) )
+			x_( xAndLift(self_(), pred2) )
 		}
 	this$xApply <-
 		function (coll) {
-			x_( xApply(reciever_(), coll) )
+			x_( xApply(self_(), coll) )
 		}
 	this$xArity <-
 		function () {
-			x_( xArity(reciever_()) )
+			x_( xArity(self_()) )
 		}
 	# -------- B ------- #
 	this$xCardinal <- 
 		function () {
-			x_( xFlip(reciever_()) )
+			x_( xFlip(self_()) )
 		}
 	this$xBiCompose <-
 		function (fn2, fn3) {
-			x_( xBiCompose(reciever_(), fn2, fn3) )
+			x_( xBiCompose(self_(), fn2, fn3) )
 		}
 	this$xByLift <-
 		function (fn2) {
-			x_( xByLift(reciever_(), fn2) )
+			x_( xByLift(self_(), fn2) )
 		}
 	# -------- C ------- #
 	this$xC <-
 		this$xCardinal
 	this$xConst <-
 		function () {
-			x_( xConst(reciever_()) )
+			x_( xConst(self_()) )
 		}
 	this$xCompose <- 
 		function (fn1) {
-			x_( xCompose(fn1, reciever_()) )
+			x_( xCompose(fn1, self_()) )
 		}
 	# -------- D ------- #
 	this$xDifferLift <-
@@ -493,59 +495,59 @@ x_fn_proto <- local({
 		}
 	this$xDropWhile <-
 		function (coll) {
-			x_( xDropWhile(reciever_(), coll) )
+			x_( xDropWhile(self_(), coll) )
 		}
 	this$xDo <-
 		function (coll) {
-			x_( xDo(reciever_(), coll) )
+			x_( xDo(self_(), coll) )
 		}
 	# -------- E ------- #
 	this$xEqualLift <-
 		function (fn2) {
-			x_( xEqualLift(reciever_(), fn2) )
+			x_( xEqualLift(self_(), fn2) )
 		}
 	this$xExists <-
 		function (...) {
-			x_( xExists(reciever_(), ...) )
+			x_( xExists(self_(), ...) )
 		}
 	# -------- F ------- #
 	this$xFixDefs <-
 		function () {
-			x_( xFixDefs(reciever_()) )
+			x_( xFixDefs(self_()) )
 		}
 	this$xFlip <- 
 		this$xCardinal
 	this$xFlatMap <-
 		function (coll) {
-			x_( xFlatMap(reciever_(), coll) )
+			x_( xFlatMap(self_(), coll) )
 		}
 	this$xFoldl <-
 		function (init, coll) {
-			x_( xFoldl(reciever_(), init, coll) )
+			x_( xFoldl(self_(), init, coll) )
 		}
 	this$xForall <-
 		function (...) {
-			xForall(reciever_(), ...)
+			xForall(self_(), ...)
 		}
 	this$xFold <- this$xFoldl
 	this$xFoldr <-
 		function (init, coll) {
-			x_( xFoldr(reciever_(), init, coll) )
+			x_( xFoldr(self_(), init, coll) )
 		}
 	this$xFormals <-
 		function () {
-			x_( xFormals(reciever_()) )
+			x_( xFormals(self_()) )
 		}
 	# -------- G ------- #
 	# -------- H ------- #
 	this$xHasDefs <-
 		function () {
-			x_( xHasDefs(reciever_()) )
+			x_( xHasDefs(self_()) )
 		}
 	# -------- I ------- #
 	this$xIdentity <-
 		function () {
-			x_( xIdentity(reciever_()) )
+			x_( xIdentity(self_()) )
 		}
 	this$xIdiotBird <-
 		this$xIdentity
@@ -553,16 +555,16 @@ x_fn_proto <- local({
 		this$xIdiotBird
 	this$xInterLift <-
 		function (fn2) {
-			x_( xInterLift(reciever_(), fn2) )
+			x_( xInterLift(self_(), fn2) )
 		}
 	this$xIsVariadic <-
 		function () {
-			x_( xIsVariadic(reciever_()) )
+			x_( xIsVariadic(self_()) )
 		}
 	# -------- J ------- #
 	this$xJuxtapose <-
 		function (...) {
-			x_( xJuxtapose(reciever_(), ...) )
+			x_( xJuxtapose(self_(), ...) )
 		}
 	# -------- K ------- #
 	this$xKestrel <-
@@ -572,85 +574,85 @@ x_fn_proto <- local({
 	# -------- L ------- #
 	this$xLimit <-
 		function (num) {
-			x_( xLimit(num, reciever_()) )
+			x_( xLimit(num, self_()) )
 		}
 	this$xLocatel <-
 		function (coll) {
-			x_( xLocatel(reciever_(), coll) )
+			x_( xLocatel(self_(), coll) )
 		}
 	this$xLocate <-
 		this$xLocatel
 	this$xLocater <-
 		function (coll) {
-			x_( xLocater(reciever_(), coll) )
+			x_( xLocater(self_(), coll) )
 		}
 	# -------- M ------- #
 	this$xMap <-
 		function (coll) {
-			x_( xMap(reciever_(), coll) )
+			x_( xMap(self_(), coll) )
 		}
 	this$xMapAlong <-
 		function (coll) {
-			x_( xMapAlong(reciever_(), coll) )
+			x_( xMapAlong(self_(), coll) )
 		}
 	this$xMapMany <-
 		function (...) {
-			x_( xMapMany(reciever_(), ...) )
+			x_( xMapMany(self_(), ...) )
 		}
 	this$xMapWhen <-
 		function (fn, coll) {
-			x_( xMapWhen(reciever_(), fn, coll) )
+			x_( xMapWhen(self_(), fn, coll) )
 		}
 	this$xMinusLift <-
 		function (fn2) {
-			x_( xMinusLift(reciever_(), fn2) )
+			x_( xMinusLift(self_(), fn2) )
 		}
 	this$xModLift <-
 		function (fn2) {
-			x_( xModLift(reciever_(), fn2) )
+			x_( xModLift(self_(), fn2) )
 		}		
 	# -------- N ------- #
 	this$xNot <-
 		function () {
-			x_( xNot(reciever_()) )
+			x_( xNot(self_()) )
 		}
 	# -------- O ------- #
 	this$xOrLift <-
 		function (pred2) {
-			x_( xOrLift(reciever_(), pred2) )
+			x_( xOrLift(self_(), pred2) )
 		}
 	this$xOverLift <-
 		function (fn2) {
-			x_( xOverLift(reciever_(), fn2) )
+			x_( xOverLift(self_(), fn2) )
 		}
 	# -------- P ------- #
 	this$xPartition <-
 		function (coll) {
-			x_( xPartition(reciever_(), coll) )
+			x_( xPartition(self_(), coll) )
 		}
 	this$xPartitionWith <-
 		function (coll) {
-			x_( xPartitionWith(reciever_(), coll) )
+			x_( xPartitionWith(self_(), coll) )
 		}
 	this$xParams <-
 		function () {
-			x_( xParams(reciever_()) )
+			x_( xParams(self_()) )
 		}
 	this$xPartMap <-
 		function () {
-			x_( xPartMap(reciever_()) )
+			x_( xPartMap(self_()) )
 		}
 	this$xPartial <- 
 		function (coll) {
-			x_( xPartial(reciever_(), coll) )
+			x_( xPartial(self_(), coll) )
 		}
 	this$xPoll <-
 		function (coll) {
-			x_( xPoll(reciever_(), coll) )
+			x_( xPoll(self_(), coll) )
 		}
 	this$xPlusLift <-
 		function (fn2) {
-			x_( xPlusLift(reciever_(), fn2) )
+			x_( xPlusLift(self_(), fn2) )
 		}
 	this$xPhoenix <-
 		this$xBiCompose
@@ -664,86 +666,86 @@ x_fn_proto <- local({
 	# -------- R ------- #
 	this$xRecurMap <-
 		function (coll) {
-			x_( xRecurMap(reciever_(), coll) )
+			x_( xRecurMap(self_(), coll) )
 		}
 	this$xReducel <-
 		function (coll) {
-			x_( xReducel(reciever_(), coll) )
+			x_( xReducel(self_(), coll) )
 		}
 	this$xReduce <- 
 		this$xReducel
 	this$xReducer <-
 		function (coll) {
-			x_( xReducer(reciever_(), coll) )
+			x_( xReducer(self_(), coll) )
 		}
 	this$xReject <-
 		function (coll) {
-			x_( xReject(reciever_(), coll) ) 
+			x_( xReject(self_(), coll) ) 
 		}
 	# -------- S ------- #
 	this$xS. <-
 		this$xBiCompose
 	this$xSelect <-
 		function (coll) {
-			x_( xSelect(reciever_(), coll) ) 
+			x_( xSelect(self_(), coll) ) 
 		}	
 	this$xScanl <-
 		function (init, coll) {
-			x_( xScanl(reciever_(), init, coll) )
+			x_( xScanl(self_(), init, coll) )
 		}
 	this$xSplitWith <-
 		function (coll) {
-			x_( xSplitWith(reciever_(), coll) )
+			x_( xSplitWith(self_(), coll) )
 		}
 
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
-			x_( fn(reciever_()) )
+			x_( fn(self_()) )
 		}
 	this$xTakeWhile <-
 		function (coll) {
-			x_( xTakeWhile(reciever_(), coll) )
+			x_( xTakeWhile(self_(), coll) )
 		}
 
 	this$xThrush <-
 		function (fn2) {
-			x_( xWrap(reciever_(), fn2) )
+			x_( xWrap(self_(), fn2) )
 		}
 	this$xT <-
 		this$xThrush
 	# -------- U ------- #
 	this$xUntil <-
 		function (fn, init) {
-			x_( xUntil(reciever_(), fn, init) )
+			x_( xUntil(self_(), fn, init) )
 		}
 	this$xUnionLift <-
 		function (fn2) {
-			x_( xUnionLift(reciever_(), fn2) )
+			x_( xUnionLift(self_(), fn2) )
 		}
 	this$xUnfold <-
 		function (fn, init) {
-			x_( xUnfold(reciever_(), fn, init) )
+			x_( xUnfold(self_(), fn, init) )
 		}
 		this$xUnfoldl <-
 			this$xUnfold
 	# -------- V ------- #
 	this$xZipWith <-
 		function (...) {
-			x_( xZipWith(reciever_(), ...) )
+			x_( xZipWith(self_(), ...) )
 		}
 	this$xZip <- 
 		function (...) {
-			x_( xZip(reciever_(), ...) )
+			x_( xZip(self_(), ...) )
 		}
 	# -------- W ------- #
 	this$xWait <-
 		function (num) {
-			x_( xWait(reciever_(), num) )
+			x_( xWait(self_(), num) )
 		}
 	this$xWhile <-
 		function (fn, init) {
-			x_( xWhile(reciever_(), fn, init) )
+			x_( xWhile(self_(), fn, init) )
 		}
 	this$xWrap <-
 		this$xThrush
@@ -760,21 +762,31 @@ x_fn_proto <- local({
 
 #' x_
 #' 
-#' Generate a chainable arrow object
+#' Generate a chainable arrow object, that can use methods.
 #'
 #' @param val a function, collection, or arbitrary value.
 #'
-#' @return an arrow object.
+#' @return an object of class "arrow", with a single field 'x' that contains val.
 #'
 #' @section Corner Cases: 
-#'     asd.
-#' @template glossary
+#' 		The methods that can be used by x_() object varies depending on the type of val.
+#' 		Some methods are specific to functions or collections. If a non-function and non-collection is
+#' 		supplied then very few methods can be used.
+#' 		
+#' 		Because the definition of $ was overloaded to allow method chaining, the 
+#' 		field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
+#'		x_()$x() is required.
 #'
+#'
+#' @details
+#'
+#' Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow 
+#' method (using $) has a small amount overhead, since the definition of $ 
+#' has been overloading to allow method calling.
+#'
+#' @template glossary
+#' 
 #' @examples inst/examples/blank.R
-#' @export
-
-#' @param val any arbitrary value.
-
 #' @export
 
 x_ <- function (val) {
@@ -811,6 +823,6 @@ x_ <- function (val) {
 
 	fn <- proto_ref[[method_name]]
 
-	environment(fn)[['reciever_']] <- function () obj[['x']]
+	environment(fn)[['self_']] <- function () obj[['x']]
 	fn
 }
