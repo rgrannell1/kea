@@ -34,7 +34,7 @@ xLambda <- function (formals, body) {
 	} else {
 		# ------ try parse the bracket-enclosed formals ------
 
-		collect_params <- function ( tree, state = list(pos = 1, params = character(0)) ) {
+		collect_params <- function (tree, state) {
 			# recur into the formals parse tree, accumulating 
 			# parameter names and validating the tree.
 
@@ -46,8 +46,9 @@ xLambda <- function (formals, body) {
 					# ------ the parameters aren't delimited with ":" ------
 
 					msg <- pcall + 
-						" the " + ith_suffix(state$pos + 1) + 
-						" delimiter should be " + dQuote(token$delim(False)) + "."
+						" the " + ith_suffix(state$pos) + 
+						" delimiter should be " + 
+						dQuote(token$delim(False)) + "."
 
 					stop (msg, call. = False)
 				}
@@ -113,7 +114,9 @@ xLambda <- function (formals, body) {
 			stop (msg, call. = False)
 		}
 
-		params <- collect_params( formals[[2]] )
+		params <- collect_params(
+			tree = formals[[2]], 
+			state = list(pos = 1, params = character(0)) )
 
 		# ------ set the formals to the parsed param names ------
 		formals(new_fn) <- 
