@@ -14,14 +14,13 @@ Author: Ryan Grannell
 Maintainer: Ryan Grannell <r.grannell2@gmail.com>
 ByteCompile: yes
 License: GPL-3
-Imports:
-    needy
 Suggests:
     testthat,
     microbenchmark
 Collate:
     'aliases.R'
-    'lambda.R'
+    'Foldable.R'
+    'xLambda.R'
     'xAndLift.R'
     'xApply.R'
     'xArity.R'
@@ -146,4 +145,3 @@ Collate:
     'xAsVal.R'
     'xIsNan.R'
     'xNotNan.R'
-    'xAutoPartial.R'
