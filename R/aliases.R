@@ -21,21 +21,32 @@ call_with_params <- function (name, fn) {
 			as.symbol))
 }
 
-assert <- function (bool, pcall) {
+assert <- function (bool, pcall, message) {
 	args <- as.list(match.call())[-1]
 
 	if (!bool) {
 		call <- if (missing(pcall)) {
 			'assert()'
 		} else {
-			paste0(deparse(pcall), collapse = '')
+			if (is.character(pcall)) {
+				pcall
+			} else {
+				paste0(deparse(pcall), collapse = '')				
+			}
 		}
-		stop(
-			call,
-			": the assertion\n",
-			"    ", paste0(deparse(args$bool), collapse = ''), "\n",
-			"failed.",
-			call. = False)
+
+		if (missing(message)) {
+
+			stop(
+				call,
+				": the assertion\n",
+				"    ", paste0(deparse(args$bool), collapse = ''), "\n",
+				"failed.",
+				call. = False)
+						
+		} else {
+			stop(call, ": ", message, call. = False)
+		}
 	}
 }
 
