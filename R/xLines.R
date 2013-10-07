@@ -24,7 +24,9 @@ xLines <- function (str) {
 		exclaim$parameter_missing(str))
 
 	assert(
-		is.character(str), pcall)
+		is.character(str), pcall,
+		exclaim$must_be_character(str))
+	
 	assert(
 		length(str) %in% c(0, 1), pcall)
 

@@ -27,7 +27,8 @@ xLimit <- function (num, fn) {
 		exclaim$parameter_missing(fn))
 
 	assert(
-		length(num) == 1, pcall)
+		length(num) == 1, pcall,
+		exclaim$must_have_length(num, 1))
 
 	assert(
 		(is.numeric(num) || is.infinite(num)) && num > 0, pcall,

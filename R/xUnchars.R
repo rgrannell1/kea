@@ -17,6 +17,7 @@ xUnchars <- function (...) {
 	assert(
 		is.vector(strs) || is.pairlist(strs), pcall,
 		exclaim$must_be_collection(strs))
+
 	assert(
 		length(strs) == 0 || is.character(unlist(strs)), pcall)
 

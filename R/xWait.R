@@ -22,6 +22,7 @@ xWait <- function (fn, num) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
@@ -32,7 +33,8 @@ xWait <- function (fn, num) {
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.numeric(num) && num >= 0, pcall)
+		is.numeric(num) && num >= 0, pcall,
+		exclaim$must_be_larger_than(num, 0))
 
 	fn <- match.fun(fn)
 	remove(pcall)

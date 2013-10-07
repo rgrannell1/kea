@@ -17,7 +17,8 @@ xConst <- function (val) {
 	# return a function that closes over the variable val.
 
 	assert(
-		!missing(val), sys.call())
+		!missing(val), sys.call(),
+		exclaim$parameter_missing(val))
 
 	function (...) {
 		val

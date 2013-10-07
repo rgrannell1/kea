@@ -24,7 +24,11 @@ xGet <- function (str) {
 		exclaim$parameter_missing(str))
 
 	assert(
-		is.character(str) && length(str) %in% c(0, 1), pcall)
+		is.character(str), pcall,
+		exclaim$must_be_character(str))
+
+	assert(
+		length(str) %in% c(0, 1), pcall)
 
 	if (length(str) == 0) {
 		str <- ""

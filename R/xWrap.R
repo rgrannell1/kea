@@ -26,6 +26,7 @@ xWrap <- function (fn1, fn2) {
 	assert(
 		!missing(fn1), pcall,
 		exclaim$parameter_missing(fn1))
+
 	assert(
 		!missing(fn2), pcall,
 		exclaim$parameter_missing(fn2))

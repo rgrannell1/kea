@@ -70,6 +70,15 @@ exclaim <- list(
 			" must be a double or an integer."
 
 		},
+	must_be_character = 
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " + param + 
+			" must be a character vector."
+
+		},
 	must_be_whole =
 		function (param) {
 
