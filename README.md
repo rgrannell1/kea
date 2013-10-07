@@ -177,6 +177,21 @@ Of course, this is a less likely use of combinators than defining
 your own control structures for functions. Arrow particularily emphasises 
 arithmetic on functions, with several functions with short names added for that purpose.
 
+A combinator that will be particularily useful to data scientists is ```xJuxtapose```.
+```xJuxtapose``` encapsulates the pattern of taking a data-set and obtaining several summary 
+statistics of the dataset at the same time, but factors out all the boilerplate required to do this. 
+For example,
+
+```javascript
+
+mySummary <- xJuxtapose( mean, sd, max, min, dataset := any(is.na(dataset)) )
+dataset <- runif(8)
+
+dput(mySummary(dataset))
+list(0.566412215383025, 0.3106537, 0.9962860, 0.01440951, FALSE)
+
+```
+
 ### 2.7 Existential Quantifiers
 
 **Arrow** includes the powerful quantifiers `xForall` and `xExists`, as well

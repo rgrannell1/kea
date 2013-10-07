@@ -29,7 +29,7 @@ xThread <- function (init, ...) {
 
 	# are all fns functions/function names?
 	assert(all(sapply(fns, function (fn) {
-		is.function(fn) || is.symbol(fn) || (is.character(fn) && length(fn) == 1)
+		is_fn_matchable(fn)
 	}) ), pcall)
 
 	assert(

@@ -93,3 +93,19 @@ ith_suffix <- function (num) {
 		.Primitive("+")(x,y)
 	}
 }
+
+
+
+is_fn_matchable <- function (val) {
+	is.function(val) || is.symbol(val) || (is.character(val) && length(val) == 1)
+}
+
+
+
+
+
+
+
+
+
+
