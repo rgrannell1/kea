@@ -23,14 +23,16 @@ xTakeWhile <- function (pred, coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(pred), pcall)
+		!missing(pred), pcall,
+		exclaim$parameter_missing(pred))
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 	
 	assert(
 		is.function(pred) || is.symbol(pred) || 
-		(is.character(pred) && length(pred) == 1), pcall)
+		(is.character(pred) && length(pred) == 1), pcall,
+		exclaim$must_be_matchable(pred))
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall,
@@ -39,7 +41,8 @@ xTakeWhile <- function (pred, coll) {
 	pred <- match.fun(pred)
 	
 	assert(
-		xArity(pred) %in% c(1, Inf), pcall)
+		xArity(pred) %in% c(1, Inf), pcall,
+		exclaim$must_be_unary(pred))
 
 	if (length(coll) == 0) {
 		list()

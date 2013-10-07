@@ -22,11 +22,13 @@ xForall <- function (pred, ...) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(pred), pcall)
+		!missing(pred), pcall,
+		exclaim$parameter_missing(pred))
 
 	assert(
 		is.function(pred) || is.symbol(pred) || 
-		(is.character(pred) && length(pred) == 1), pcall)
+		(is.character(pred) && length(pred) == 1), pcall,
+		exclaim$must_be_matchable(pred))
 	
 	pred <- match.fun(pred)
 	colls <- list(...)

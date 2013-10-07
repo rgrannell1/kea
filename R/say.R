@@ -34,5 +34,12 @@ exclaim <- list(
 
 			"the function matching " + param +
 			" must be a binary function."			
-		}
+		},
+	must_be_recursive =
+	function (param) {
+		param <- paste(match.call()$param)
+
+		"the argument matching " + param +
+		" must be a list or a pairlist."
+	}
 )

@@ -23,7 +23,8 @@ xUnfold <- function (pred, fn, init) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(pred), pcall)
+		!missing(pred), pcall,
+		exclaim$parameter_missing(pred))
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
@@ -33,7 +34,8 @@ xUnfold <- function (pred, fn, init) {
 
 	assert(
 		is.function(pred) || is.symbol(pred) || 
-		(is.character(pred) && length(pred) == 1), pcall)
+		(is.character(pred) && length(pred) == 1), pcall,
+		exclaim$must_be_matchable(pred))
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 
@@ -46,7 +48,8 @@ xUnfold <- function (pred, fn, init) {
 	assert(
 		xArity(fn) %in% c(1, Inf), pcall)
 	assert(
-		xArity(pred) %in% c(1, Inf), pcall)
+		xArity(pred) %in% c(1, Inf), pcall,
+		exclaim$must_be_unary(pred))
 
 	acc <- list(init)
 
