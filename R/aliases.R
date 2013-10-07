@@ -83,6 +83,8 @@ ith_suffix <- function (num) {
 	paste0(num, suffix)
 }
 
+# I'm sorry for overwriting a sealed class, but it's kinda essential.
+
 "+" <- function (x, y) {
 	if (is.character(x) | is.character(y)) {
 		return (paste0(x , y, sep = ""))

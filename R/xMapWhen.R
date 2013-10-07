@@ -26,9 +26,11 @@ xMapWhen <- function (pred, fn, coll) {
 	assert(
 		!missing(pred), pcall)
 	assert(
-		!missing(fn), pcall)
+		!missing(fn), pcall, 
+		exclaim$parameter_missing(fn))
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		is.function(pred) || is.symbol(pred) || 
@@ -36,10 +38,12 @@ xMapWhen <- function (pred, fn, coll) {
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall)
+		(is.character(fn) && length(fn) == 1), pcall, 
+		exclaim$must_be_matchable(fn))
 			
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall)
+		is.vector(coll) || is.pairlist(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
 	fn <- match.fun(fn)

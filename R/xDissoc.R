@@ -21,7 +21,8 @@ xDissoc <- function (coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		length(names(coll)) == length(coll), pcall)

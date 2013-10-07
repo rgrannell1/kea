@@ -25,9 +25,11 @@ xUntil <- function (pred, fn, init) {
 	assert(
 		!missing(pred), pcall)
 	assert(
-		!missing(fn), pcall)
+		!missing(fn), pcall, 
+		exclaim$parameter_missing(fn))
 	assert(
-		!missing(init), pcall)
+		!missing(init), pcall, 
+		exclaim$parameter_missing(init))
 
 	assert(
 		is.function(pred) || is.symbol(pred) || 
@@ -35,7 +37,8 @@ xUntil <- function (pred, fn, init) {
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall)
+		(is.character(fn) && length(fn) == 1), pcall, 
+		exclaim$must_be_matchable(fn))
 
 	pred <- match.fun(pred)
 	fn <- match.fun(fn)

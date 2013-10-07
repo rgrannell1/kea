@@ -28,7 +28,8 @@ xSegment <- function (num, coll) {
 	assert(
 		!missing(num), pcall)
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		length(num) == 1, pcall)
@@ -38,7 +39,8 @@ xSegment <- function (num, coll) {
 		num >= 0, pcall)
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall)
+		is.vector(coll) || is.pairlist(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {
 		list()

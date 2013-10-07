@@ -20,16 +20,20 @@ xPartial <- function (fn, coll) {
 	pcall <- sys.call()
 	
 	assert(
-		!missing(fn), pcall)
+		!missing(fn), pcall, 
+		exclaim$parameter_missing(fn))
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall)
+		(is.character(fn) && length(fn) == 1), pcall, 
+		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall)
+		is.vector(coll) || is.pairlist(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
 	assert( all(names(coll) %in% xParams(fn)), pcall)

@@ -21,10 +21,12 @@ xNotFalse <- function (coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall)
+		is.vector(coll) || is.pairlist(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {
 		logical(0)

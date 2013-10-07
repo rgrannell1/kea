@@ -25,23 +25,29 @@ xFoldl <- function (fn, init, coll) {
 	pcall <- sys.call()	
 
 	assert(
-		!missing(fn), pcall)
+		!missing(fn), pcall, 
+		exclaim$parameter_missing(fn))
 	assert(
-		!missing(init), pcall)
+		!missing(init), pcall, 
+		exclaim$parameter_missing(init))
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall)
+		(is.character(fn) && length(fn) == 1), pcall, 
+		exclaim$must_be_matchable(fn))
 	
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall)
+		is.vector(coll) || is.pairlist(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
 	
 	assert(
-		xArity(fn) %in% c(2, Inf), pcall)
+		xArity(fn) %in% c(2, Inf), pcall,
+		exclaim$must_be_binary(fn))
 
 	if (length(coll) == 0) {
 		init

@@ -21,13 +21,16 @@ xRecurMap <- function (fn, coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(fn), pcall)
+		!missing(fn), pcall, 
+		exclaim$parameter_missing(fn))
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall)
+		(is.character(fn) && length(fn) == 1), pcall, 
+		exclaim$must_be_matchable(fn))
 	
 	assert(
 		is.list(coll) || is.pairlist(coll), pcall)

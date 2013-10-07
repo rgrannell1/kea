@@ -25,7 +25,8 @@ xPluck <- function (str, coll) {
 	assert(
 		!missing(str), pcall)
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		is.character(str) && length(str) == 1, pcall)

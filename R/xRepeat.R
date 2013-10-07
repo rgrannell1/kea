@@ -23,7 +23,8 @@ xRepeat <- function (num, coll) {
 	assert(
 		!missing(num), pcall)
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 
 	assert(
 		length(num) == 1, pcall) 

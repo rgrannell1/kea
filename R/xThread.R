@@ -22,7 +22,8 @@ xThread <- function (init, ...) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(init), pcall)
+		!missing(init), pcall, 
+		exclaim$parameter_missing(init))
 
 	fns <- list(...)
 

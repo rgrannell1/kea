@@ -22,14 +22,16 @@ xPoll <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall)
 	assert(
-		!missing(coll), pcall)
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
 	
 	assert(
 		is.function(pred) || is.symbol(pred) || 
 		(is.character(pred) && length(pred) == 1), pcall)
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall)
+		is.vector(coll) || is.pairlist(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
 	

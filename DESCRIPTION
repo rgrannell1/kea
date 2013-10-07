@@ -19,7 +19,7 @@ Suggests:
     microbenchmark
 Collate:
     'aliases.R'
-    'Foldable.R'
+    'say.R'
     'xLambda.R'
     'xAndLift.R'
     'xApply.R'
