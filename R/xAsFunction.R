@@ -42,8 +42,8 @@ xAsFunction <- function (coll) {
 			exclaim$must_be_whole(nums))
 
 		assert(
-			max(nums) <= length(coll), pcall,
-			exclaim$)
+			length(coll) >= max(nums), pcall,
+			exclaim$must_be_grequal_than("length(coll)", max(nums)))
 
 		assert(
 			min(nums) >= 0, pcall,
