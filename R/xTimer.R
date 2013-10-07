@@ -16,7 +16,8 @@ xTimer <- function (num) {
 	# integer -> function
 
 	assert(
-		!missing(num), sys.call())
+		!missing(num), sys.call(),
+		exclaim$parameter_missing(num))
 
 	genesis <- Sys.time()
 	

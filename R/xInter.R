@@ -21,15 +21,20 @@ xInter <- function (coll1, coll2) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(coll1), pcall)
+		!missing(coll1), pcall,
+		exclaim$parameter_missing(coll1))
+	
 	assert(
-		!missing(coll2), pcall)
+		!missing(coll2), pcall,
+		exclaim$parameter_missing(coll2))
 
 	assert(
-		is.vector(coll1) || is.pairlist(coll1), pcall)
+		is.vector(coll1) || is.pairlist(coll1), pcall,
+		exclaim$must_be_collection(coll1))
 
 	assert(
-		is.vector(coll2) || is.pairlist(coll2), pcall)
+		is.vector(coll2) || is.pairlist(coll2), pcall,
+		exclaim$must_be_collection(coll2))
 
 	coll1 <- as.list(coll1)
 	coll2 <- as.list(coll2)

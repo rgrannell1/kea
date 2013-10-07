@@ -21,7 +21,8 @@ xUnion <- function (coll1, coll2) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(coll1), pcall)
+		!missing(coll1), pcall,
+		exclaim$parameter_missing(coll1))
 	assert(
 		!missing(coll2), pcall)
 

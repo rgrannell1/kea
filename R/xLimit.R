@@ -21,6 +21,7 @@ xLimit <- function (num, fn) {
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
+	
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
