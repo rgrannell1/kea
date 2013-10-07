@@ -18,7 +18,8 @@ xNot <- function (pred) {
 	# function -> function
 	
 	assert(
-		!missing(pred), sys.call())
+		!missing(pred), sys.call(),
+		exclaim$parameter_missing(pred))
 
 	xCompose(function (val) !val, pred)
 }

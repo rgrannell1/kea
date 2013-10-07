@@ -21,7 +21,9 @@ xName <- function (strs, coll) {
 	pcall <- sys.call()
 	
 	assert(
-		!missing(strs), pcall)
+		!missing(strs), pcall,
+		exclaim$parameter_missing(strs))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
@@ -29,6 +31,7 @@ xName <- function (strs, coll) {
 	assert(
 		is.vector(strs) || is.pairlist(strs), pcall,
 		exclaim$must_be_collection(strs))
+	
 	assert(
 		length(strs) == 0 || is.character(unlist(strs)), pcall)
 

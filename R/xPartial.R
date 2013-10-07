@@ -22,6 +22,7 @@ xPartial <- function (fn, coll) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
@@ -36,7 +37,10 @@ xPartial <- function (fn, coll) {
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
-	assert( all(names(coll) %in% xParams(fn)), pcall)
+	
+	assert(
+		all(names(coll) %in% xParams(fn)), pcall)
+	
 	remove(pcall)
 
 	if (length(coll) == 0) {

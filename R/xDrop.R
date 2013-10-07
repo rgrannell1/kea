@@ -25,13 +25,22 @@ xDrop <- function (num, coll) {
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
-	assert(length(num) == 1, pcall)
-	assert(is.numeric(num) && num >= 0, pcall)
-	assert(round(num) == num, pcall)
+	assert(
+		length(num) == 1, pcall,
+		exclaim$must_have_length(num, 1))
+	
+	assert(
+		is.numeric(num) && num >= 0, pcall,
+		exclaim$must_be_numeric(num))
+	
+	assert(
+		round(num) == num, pcall,
+		exclaim$must_be_whole(num))
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall,

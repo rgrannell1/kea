@@ -24,14 +24,18 @@ xTake <- function (num, coll) {
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
 	assert(
-		length(num) == 1, pcall) 
+		length(num) == 1, pcall,
+		exclaim$must_have_length(num, 1))
+
 	assert(
-		is.numeric(num) && num >= 0, pcall)
+		is.numeric(num) && num >= 0, pcall,
+		exclaim$must_be_larger_than(num, 0))
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall,

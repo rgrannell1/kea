@@ -34,7 +34,7 @@ xApply <- function (fn, coll) {
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.list(coll) || is.pairlist(coll), pcall)
+		is.recursive(coll), pcall)
 
 	fn <- match.fun(fn)
 

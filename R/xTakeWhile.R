@@ -25,6 +25,7 @@ xTakeWhile <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))

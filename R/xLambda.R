@@ -20,13 +20,16 @@ xLambda <- function (formals, body) {
 
 	pcall <- "xLambda:"
 
-	new_fn <- function () {}
-	body(new_fn) <- body
+	lambda <- function () {
+
+	}
+	
+	body(lambda) <- body
 	
 	if (is.name(formals)) {
 		# ------ make f a default-free unary function ------ #
 
-		formals(new_fn) <- 
+		formals(lambda) <- 
 			structure(
 				list(quote(expr=)),
 				names = match.call()[-1]$formals)
@@ -121,7 +124,7 @@ xLambda <- function (formals, body) {
 			state = list(pos = 1, params = character(0)) )
 
 		# ------ set the formals to the parsed param names ------ #
-		formals(new_fn) <- 
+		formals(lambda) <- 
 			structure(
 				rep(list(quote(expr=)), length(params)),
 				names = params)
@@ -129,8 +132,8 @@ xLambda <- function (formals, body) {
 	}
 
 	# ------ make sure lexical scoping works is as expected ------ #
-	environment(new_fn) <- pframe
-	new_fn
+	environment(lambda) <- pframe
+	lambda
 }
 
 #' @export

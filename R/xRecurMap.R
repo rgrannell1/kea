@@ -23,6 +23,7 @@ xRecurMap <- function (fn, coll) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
@@ -33,7 +34,8 @@ xRecurMap <- function (fn, coll) {
 		exclaim$must_be_matchable(fn))
 	
 	assert(
-		is.list(coll) || is.pairlist(coll), pcall)
+		is.recursive(coll), pcall,
+		exclaim$must_be_recursive(coll))
 
 	fn <- match.fun(fn)
 	

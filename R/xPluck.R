@@ -33,7 +33,7 @@ xPluck <- function (str, coll) {
 		is.character(str) && length(str) == 1, pcall)
 
 	assert(
-		is.list(coll) || is.pairlist(coll), pcall)
+		is.recursive(coll), pcall)
 
 	assert(
 		all( sapply(coll, is.recursive) ), pcall)
