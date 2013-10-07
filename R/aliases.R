@@ -6,11 +6,6 @@ Na <- NA
 True <- TRUE
 False <- FALSE
 
-# to complete the following triad in the cleanest way;
-# if ( True ); if ( !False ), if( is.na(Na) )
-
-is.na <- is.na
-
 object <- function () {
 	new.env(parent = emptyenv())
 }
@@ -75,4 +70,12 @@ ith_suffix <- function (num) {
 		"th"
 	}
 	paste0(num, suffix)
+}
+
+"+" <- function (x, y) {
+	if (is.character(x) | is.character(y)) {
+		return (paste0(x , y, sep = ""))
+	} else {
+		.Primitive("+")(x,y)
+	}
 }
