@@ -11,7 +11,8 @@ exclaim <- list(
 			param <- paste(match.call()$param)
 
 			"the argument matching " + param + 
-			" must be a function, or a symbol or string that can be looked-up as a function."
+			" must be a function, or a symbol or string" + 
+			" that can be looked-up as a function."
 		},
 	must_be_collection =
 		function (param) {
@@ -56,8 +57,53 @@ exclaim <- list(
 			param <- paste(match.call()$param)
 
 			"the arguments matching " + param + 
-			" must all be functions, or symbols or strings that can be looked-up as functions."
+			" must all be functions, or symbols or strings" +
+			" that can be looked-up as functions."
+
+		},
+	must_be_numeric =
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " + param + 
+			" must be a double or an integer."
+
+		},
+	must_be_whole =
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " + param + 
+			" must be a whole number."
+		},
+	must_have_length =
+		function (param, length) {
+
+			param <- paste(match.call()$param)
+ 
+			"the argument matching " + param + 
+			" must have length" + length
+
+		},
+	must_be_longer_than =
+		function (param, length) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " + param + 
+			" must have length longer than " + length
+
+		},
+	must_be_larger_than =
+		function (param, size) {
+
+			param <- paste(match.call()$param)
+
+			"the number matching " + param + 
+			" must be larger than " + size
 
 		}
- )
+)
 

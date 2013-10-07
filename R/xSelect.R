@@ -1,4 +1,4 @@
-
+	
 #' xSelect
 #' 
 #' Include all elements from a collection matching a predicate.

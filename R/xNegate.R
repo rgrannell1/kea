@@ -24,11 +24,13 @@ xNegate <- function (nums) {
 		!missing(nums), pcall)
 
 	assert(
-		is.vector(nums) || is.pairlist(nums), pcall)
+		is.vector(nums) || is.pairlist(nums), pcall,
+		exclaim$must_be_collection(nums))
 	assert(
 		all(sapply(nums, length) == 1), pcall)
 	assert(
-		is.numeric(unlist(nums)))
+		is.numeric(unlist(nums)), pcall, 
+		exclaim$must_be_numeric( "unlist(nums)" ))
 
 	nums <- unlist(nums)
 

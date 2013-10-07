@@ -30,7 +30,10 @@ xFirst <- function (coll) {
 		is.vector(coll) || is.pairlist(coll), pcall,
 		exclaim$must_be_collection(coll))
 
-	assert(length(coll) >= 1, pcall)
+	assert(
+		length(coll) >= 1, pcall,
+		exclaim$must_be_longer_than(coll, 1))
+	
 	coll[[1]]
 }
 

@@ -27,10 +27,10 @@ xLimit <- function (num, fn) {
 
 	assert(
 		length(num) == 1, pcall)
+
 	assert(
-		is.numeric(num), pcall)
-	assert(
-		num > 0, pcall)
+		(is.numeric(num) || is.infinite(num)) && num > 0, pcall,
+		exclaim$must_be_poswhole_or_inf(num))
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 

@@ -24,11 +24,13 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	pframe <- parent.frame()
 
 	assert(
-		!missing(fn1), pcall)
+		!missing(fn1), pcall,
+		exclaim$parameter_missing(fn1))
 	assert(
 		!missing(fn2), pcall)
 	assert(
-		!missing(fn3), pcall)
+		!missing(fn3), pcall,
+		exclaim$parameter_missing(fn3))
 
 	assert(
 		is.function(fn1) || is.symbol(fn1) || 

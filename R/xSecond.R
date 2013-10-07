@@ -30,6 +30,9 @@ xSecond <- function (coll) {
 		is.vector(coll) || is.pairlist(coll), pcall,
 		exclaim$must_be_collection(coll))
 
-	assert(length(coll) >= 2, pcall)
+	assert(
+		length(coll) >= 2, pcall,
+		exclaim$must_be_longer_than(coll, 2))
+	
 	coll[[2]]
 }

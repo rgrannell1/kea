@@ -34,7 +34,9 @@ xThird <- function (coll) {
 		is.vector(coll) || is.pairlist(coll), pcall,
 		exclaim$must_be_collection(coll))
 
-	assert(length(coll) >= 3, pcall)
+	assert(
+		length(coll) >= 3, pcall, 
+		exclaim$must_be_longer_than(coll, 3))
 
 	coll[[3]]
 }
