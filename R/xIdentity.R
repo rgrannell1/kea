@@ -17,7 +17,8 @@ xIdentity <- function (val) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(val), pcall)
+		!missing(val), pcall,
+		exclaim$parameter_missing(val))
 
 	val
 }

@@ -83,7 +83,8 @@ ith_suffix <- function (num) {
 	paste0(num, suffix)
 }
 
-# I'm sorry for overwriting a sealed class, but it's kinda essential.
+# I'm sorry for overwriting a sealed class, but error message construction is horrid without
+# using + for strings.
 
 "+" <- function (x, y) {
 	if (is.character(x) | is.character(y)) {

@@ -22,7 +22,8 @@ xIsVal <- function (str) {
 	pframe <- parent.frame()
 
 	assert(
-		!missing(str), pcall)
+		!missing(str), pcall,
+		exclaim$parameter_missing(str))
 
 	str <- match.call()$str
 

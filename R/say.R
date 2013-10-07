@@ -36,10 +36,28 @@ exclaim <- list(
 			" must be a binary function."			
 		},
 	must_be_recursive =
-	function (param) {
-		param <- paste(match.call()$param)
+		function (param) {
+			param <- paste(match.call()$param)
 
-		"the argument matching " + param +
-		" must be a list or a pairlist."
-	}
-)
+			"the argument matching " + param +
+			" must be a list or a pairlist."
+		},
+	must_be_poswhole_or_inf =
+		function (param) {
+			param <- paste(match.call()$param)
+
+			"the argument matching " + param +
+			" must be a positive whole number or positive infinite."
+
+		},
+	must_be_recursive_of_matchable = 
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the arguments matching " + param + 
+			" must all be functions, or symbols or strings that can be looked-up as functions."
+
+		}
+ )
+

@@ -21,7 +21,8 @@ xCombinations <- function (num, coll) {
 	pcall <- sys.call()
 	
 	assert(
-		!missing(num), pcall)
+		!missing(num), pcall,
+		exclaim$parameter_missing(num))
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))

@@ -23,7 +23,8 @@ xContains <- function (coll, val) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 	assert(
-		!missing(val), pcall)
+		!missing(val), pcall,
+		exclaim$parameter_missing(val))
 
 	assert(
 		is.vector(coll) || is.pairlist(coll), pcall,

@@ -27,7 +27,8 @@ xName <- function (strs, coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.vector(strs) || is.pairlist(strs), pcall)
+		is.vector(strs) || is.pairlist(strs), pcall,
+		exclaim$must_be_collection(strs))
 	assert(
 		length(strs) == 0 || is.character(unlist(strs)), pcall)
 
@@ -35,7 +36,8 @@ xName <- function (strs, coll) {
 		is.vector(coll) || is.pairlist(coll), pcall,
 		exclaim$must_be_collection(coll))
 
-	assert(length(strs) == length(coll), pcall)
+	assert(
+		length(strs) == length(coll), pcall)
 
 	if (length(strs) == 0) {
 		structure(coll, names = character(0))

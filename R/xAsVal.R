@@ -20,7 +20,8 @@ xAsVal <- function (str) {
 	pframe <- parent.frame()
 
 	assert(
-		!missing(str), pcall)
+		!missing(str), pcall,
+		exclaim$parameter_missing(str))
 
 	str <- toString(match.call()$str)
 

@@ -22,7 +22,8 @@ xSubStr <- function (str, nums) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(str), pcall)
+		!missing(str), pcall,
+		exclaim$parameter_missing(str))
 	assert(
 		!missing(nums), pcall)
 

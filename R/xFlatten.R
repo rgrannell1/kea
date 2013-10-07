@@ -22,16 +22,20 @@ xFlatten <- function (num, coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(num), pcall)
+		!missing(num), pcall,
+		exclaim$parameter_missing(num))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.numeric(num) || is.infinite(num) && num > 0, pcall)
+		(is.numeric(num) || is.infinite(num)) && num > 0, pcall,
+		exclaim$must_be_poswhole_or_inf(num))
 
 	assert(
-		is.list(coll) || is.pairlist(coll), pcall)
+		is.recursive(coll), pcall,
+		exclaim$must_be_recursive(coll))
 
 	if (length(coll) == 0) {
 		list()

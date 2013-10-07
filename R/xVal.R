@@ -22,9 +22,11 @@ xVal <- function (str, val) {
 	pframe <- parent.frame()
 
 	assert(
-		!missing(str), pcall)
+		!missing(str), pcall,
+		exclaim$parameter_missing(str))
 	assert(
-		!missing(val), pcall)
+		!missing(val), pcall,
+		exclaim$parameter_missing(val))
 
 	str <- toString(match.call()$str)
 

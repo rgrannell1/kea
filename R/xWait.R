@@ -23,7 +23,8 @@ xWait <- function (fn, num) {
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
 	assert(
-		!missing(num), pcall)
+		!missing(num), pcall,
+		exclaim$parameter_missing(num))
 
 	assert(
 		is.function(fn) || is.symbol(fn) || 

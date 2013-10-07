@@ -39,8 +39,10 @@ xLambda <- function (formals, body) {
 			# parameter names and validating the tree.
 
 			if (is.name(tree)) {
+			
 				c(paste(tree), state$params)
-			} else {
+			
+			} else if (is.call(tree)) {
 
 				if (get$delim(tree) != token$delim()) {
 					# ------ the parameters aren't delimited with ":" ------ #

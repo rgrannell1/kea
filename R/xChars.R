@@ -20,7 +20,8 @@ xChars <- function (str) {
 	pcall <- sys.call()	
 
 	assert(
-		!missing(str), pcall)
+		!missing(str), pcall,
+		exclaim$parameter_missing(str))
 
 	assert(length(str) %in% c(0, 1), pcall)
 	assert(

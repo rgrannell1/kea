@@ -15,7 +15,8 @@ xWords <- function (str) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(str), pcall)
+		!missing(str), pcall,
+		exclaim$parameter_missing(str))
 	
 	assert(
 		is.character(str) && length(str) == 1, pcall)
