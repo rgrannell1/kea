@@ -40,7 +40,7 @@ xSegment <- function (num, coll) {
 		num >= 0, pcall)
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {

@@ -22,7 +22,7 @@ xSetProd <- function (...) {
 
 	assert(
 		all( sapply(colls, function (coll) {
-			is.vector(coll) || is.pairlist(coll) 
+			is_collection(coll) 
 		}) ), pcall)
 
 	coll_lengths <- sapply(colls, length)

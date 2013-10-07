@@ -35,8 +35,7 @@ xLimit <- function (num, fn) {
 		exclaim$must_be_poswhole_or_inf(num))
 
 	assert(
-		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall, 
+		is_fn_matchable(strs), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

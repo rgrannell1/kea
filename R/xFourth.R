@@ -27,12 +27,12 @@ xFourth <- function (coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	assert(
 		length(coll) >= 4, pcall, 
-		exclaim$must_be_longer_than(coll, 4))
+		exclaim$must_be_longer_than(coll, 3))
 	
 	coll[[4]]
 }

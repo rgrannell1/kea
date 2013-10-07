@@ -43,7 +43,7 @@ xDrop <- function (num, coll) {
 		exclaim$must_be_whole(num))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0 || num >= length(coll)) {

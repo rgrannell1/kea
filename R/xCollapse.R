@@ -32,7 +32,7 @@ xCollapse <- function (str, ...) {
 
 	strs <- c(...)
 	
-	assert(is.vector(strs) || is.pairlist(strs))
+	assert(is_collection(strs))
 	assert(
 		length(strs) == 0 || is.character(unlist(strs)), pcall)
 

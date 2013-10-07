@@ -97,7 +97,12 @@ ith_suffix <- function (num) {
 
 
 is_fn_matchable <- function (val) {
-	is.function(val) || is.symbol(val) || (is.character(val) && length(val) == 1)
+	is.function(val) || is.symbol(val) || 
+	(is.character(val) && length(val) == 1)
+}
+
+is_collection <- function (val) {
+	is.vector(val) || is.pairlist(val)
 }
 
 

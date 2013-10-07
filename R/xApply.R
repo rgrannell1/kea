@@ -29,8 +29,7 @@ xApply <- function (fn, coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall, 
+		is_fn_matchable(strs), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	assert(

@@ -26,8 +26,7 @@ xExists <- function (pred, ...) {
 		exclaim$parameter_missing(pred))
 
 	assert(
-		is.function(pred) || is.symbol(pred) || 
-		(is.character(pred) && length(pred) == 1), pcall,
+		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))
 
 	pred <- match.fun(pred)
@@ -35,7 +34,7 @@ xExists <- function (pred, ...) {
 
 	assert(
 		all( sapply(colls, function (coll) {
-			is.vector(coll) || is.pairlist(coll) 
+			is_collection(coll) 
 		}) ), pcall)
 
 	coll_lengths <- sapply(colls, length)

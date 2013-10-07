@@ -31,12 +31,11 @@ xFlatMap <- function (fn, coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall, 
+		is_fn_matchable(strs), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)

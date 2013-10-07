@@ -25,7 +25,7 @@ xConcat <- function (...) {
 
 	assert(
 		all( sapply(colls, function (coll) {
-			is.vector(coll) || is.pairlist(coll) 
+			is_collection(coll) 
 		}) ), pcall)
 
 	as.list(do.call(c, colls))

@@ -105,7 +105,16 @@ exclaim <- list(
 			" must have length longer than " + length
 
 		},
-	must_be_larger_than =
+	must_be_lequal_than =
+			function (param, length) {
+
+				param <- paste(match.call()$param)
+
+				"the argument matching " + param + 
+				" must have length equal or longer than " + length
+
+			},
+	must_be_greater_than =
 		function (param, size) {
 
 			param <- paste(match.call()$param)
@@ -113,6 +122,24 @@ exclaim <- list(
 			"the number matching " + param + 
 			" must be larger than " + size
 
-		}
+		},
+		must_be_greater_than =
+			function (param, size) {
+
+				param <- paste(match.call()$param)
+
+				"the number matching " + param + 
+				" must be greater than " + size
+
+			},
+		must_be_grequal_than =
+			function (param, size) {
+
+				param <- paste(match.call()$param)
+
+				"the number matching " + param + 
+				" must be greater or equal to " + size
+
+			}
 )
 

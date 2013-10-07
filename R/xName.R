@@ -29,14 +29,14 @@ xName <- function (strs, coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.vector(strs) || is.pairlist(strs), pcall,
+		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
 	
 	assert(
 		length(strs) == 0 || is.character(unlist(strs)), pcall)
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	assert(

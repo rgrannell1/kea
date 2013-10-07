@@ -26,7 +26,7 @@ xAsFunction <- function (coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	function (...) {
@@ -34,13 +34,20 @@ xAsFunction <- function (coll) {
 		nums <- c(...)
 
 		assert(
-			is.numeric(nums), pcall)
+			is.numeric(nums), pcall,
+			exclaim$must_be_numeric(nums))
+
 		assert(
-			all(round(nums) == nums), pcall)
+			all(round(nums) == nums), pcall,
+			exclaim$must_be_whole(nums))
+
 		assert(
-			max(nums) <= length(coll), pcall)
+			max(nums) <= length(coll), pcall,
+			exclaim$)
+
 		assert(
-			min(nums) >= 0, pcall)
+			min(nums) >= 0, pcall,
+			exclaim$must_be_greater_than("min(nums)", 0))
 
 		as.list(coll[nums])
 	}

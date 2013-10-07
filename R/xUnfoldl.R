@@ -33,13 +33,11 @@ xUnfold <- function (pred, fn, init) {
 		exclaim$parameter_missing(init))
 
 	assert(
-		is.function(pred) || is.symbol(pred) || 
-		(is.character(pred) && length(pred) == 1), pcall,
+		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall, 
+		is_fn_matchable(strs), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

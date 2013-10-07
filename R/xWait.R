@@ -28,13 +28,12 @@ xWait <- function (fn, num) {
 		exclaim$parameter_missing(num))
 
 	assert(
-		is.function(fn) || is.symbol(fn) || 
-		(is.character(fn) && length(fn) == 1), pcall, 
+		is_fn_matchable(strs), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	assert(
 		is.numeric(num) && num >= 0, pcall,
-		exclaim$must_be_larger_than(num, 0))
+		exclaim$must_be_greater_than(num, 0))
 
 	fn <- match.fun(fn)
 	remove(pcall)

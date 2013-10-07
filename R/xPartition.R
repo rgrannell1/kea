@@ -23,13 +23,13 @@ xPartition <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.function(pred) || is.symbol(pred) || 
-		(is.character(pred) && length(pred) == 1), pcall,
+		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))
 	
 	pred <- match.fun(pred)
@@ -38,7 +38,7 @@ xPartition <- function (pred, coll) {
 		xArity(pred) %in% c(2, Inf), pcall)
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {

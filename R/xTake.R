@@ -35,10 +35,10 @@ xTake <- function (num, coll) {
 
 	assert(
 		is.numeric(num) && num >= 0, pcall,
-		exclaim$must_be_larger_than(num, 0))
+		exclaim$must_be_greater_than(num, 0))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0 || num == 0) {

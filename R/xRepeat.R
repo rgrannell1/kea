@@ -23,16 +23,26 @@ xRepeat <- function (num, coll) {
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
 	assert(
-		length(num) == 1, pcall) 
+		is.numeric(num), pcall,
+		exclaim$must_be_numeric(num))
+
 	assert(
-		is.numeric(num) && num >= 0, pcall)
+		length(num) == 1, pcall,
+		exclaim$must_have_length(num, 1))
+
 	assert(
-		round(num) == num, pcall)
+		num >= 0, pcall,
+		exclaim$must_be_grequal_than(num, 0))
+
+	assert(
+		round(num) == num, pcall,
+		exclaim$must_be_whole(num))
 
 	if (num == 0) {
 		list()
@@ -40,3 +50,4 @@ xRepeat <- function (num, coll) {
 		rep(as.list(coll), num)		
 	}
 }
+**

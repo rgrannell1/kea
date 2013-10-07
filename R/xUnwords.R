@@ -15,7 +15,7 @@ xUnwords <- function (...) {
 	strs <- c(...)
 	
 	assert(
-		is.vector(strs) || is.pairlist(strs), pcall,
+		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
 
 	assert(

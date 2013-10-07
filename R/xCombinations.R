@@ -38,14 +38,14 @@ xCombinations <- function (num, coll) {
 
 	assert(
 		num >= 0, pcall,
-		exclaim$must_be_larger_than(num, 0))
+		exclaim$must_be_greater_than(num, 0))
 
 	assert(
 		round(num) == num, pcall,
 		exclaim$must_be_whole(num))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))	
 
 	if (num == 0 || coll == 0) {

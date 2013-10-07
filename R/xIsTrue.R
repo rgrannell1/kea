@@ -23,7 +23,7 @@ xIsTrue <- function (coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is.vector(coll) || is.pairlist(coll), pcall,
+		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	vapply(coll, function (x) {
