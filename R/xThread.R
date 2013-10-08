@@ -27,10 +27,7 @@ xThread <- function (init, ...) {
 
 	fns <- list(...)
 
-	# are all fns functions/function names?
-	assert(all(sapply(fns, function (fn) {
-		is_fn_matchable(fn)
-	}) ), pcall)
+	assert(all(sapply(fns, is_fn_matchable)), pcall)
 
 	assert(
 		all(sapply(fns, xArity) %in% c(1, Inf)), pcall)

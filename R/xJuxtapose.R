@@ -25,10 +25,7 @@ xJuxtapose <- function (...) {
 		is.recursive(fns), pcall,
 		exclaim$must_be_recursive)
 
-	# is every element a function or function name?
-	assert(all( sapply(fns, function (fn) {
-			is_fn_matchable(fn)
-		}) ), pcall,
+	assert(all(sapply(fns, is_fn_matchable)), pcall,
 		exclaim$must_be_recursive_of_matchable("...")
 	)
 

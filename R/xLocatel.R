@@ -4,7 +4,7 @@
 #' Get the position of the first element for which a predicate returns true.
 #' 
 #' @param pred a predicate function.
-#' @coll a collection.
+#' @param coll a collection.
 #'
 #' @return an integer.
 #'
