@@ -1,6 +1,6 @@
 Package: arrow
 Type: Package
-Title: 
+Title: Arrow
 Description: **Arrow** is a functional programming framework that adds partial
     application, jQuery-like method calling, function composition, and nearly
     one-hundred higher-order functions and utility functions to the R language.

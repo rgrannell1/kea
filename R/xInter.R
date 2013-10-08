@@ -29,11 +29,11 @@ xInter <- function (coll1, coll2) {
 		exclaim$parameter_missing(coll2))
 
 	assert(
-		is.vector(coll1) || is.pairlist(coll1), pcall,
+		is_collection(coll1), pcall,
 		exclaim$must_be_collection(coll1))
 
 	assert(
-		is.vector(coll2) || is.pairlist(coll2), pcall,
+		is_collection(coll2), pcall,
 		exclaim$must_be_collection(coll2))
 
 	coll1 <- as.list(coll1)

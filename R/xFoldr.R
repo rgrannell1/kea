@@ -22,9 +22,11 @@ xFoldr <- function (fn, init, coll) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+	
 	assert(
 		!missing(init), pcall, 
 		exclaim$parameter_missing(init))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))

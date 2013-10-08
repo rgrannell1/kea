@@ -23,6 +23,7 @@ xDo <- function (fn, coll) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
@@ -30,6 +31,7 @@ xDo <- function (fn, coll) {
 	assert(
 		is_fn_matchable(strs), pcall, 
 		exclaim$must_be_matchable(fn))
+	
 	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))

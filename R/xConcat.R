@@ -24,9 +24,8 @@ xConcat <- function (...) {
 	colls <- list(...)
 
 	assert(
-		all( sapply(colls, function (coll) {
-			is_collection(coll) 
-		}) ), pcall)
+		all(sapply(colls, is_collection)), pcall,
+		exclaim$must_be_recursive_of_collections(colls))
 
 	as.list(do.call(c, colls))
 
