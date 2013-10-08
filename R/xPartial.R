@@ -28,7 +28,7 @@ xPartial <- function (fn, coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is_fn_matchable(strs), pcall, 
+		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	assert(

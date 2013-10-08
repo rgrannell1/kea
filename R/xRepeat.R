@@ -50,4 +50,3 @@ xRepeat <- function (num, coll) {
 		rep(as.list(coll), num)		
 	}
 }
-**

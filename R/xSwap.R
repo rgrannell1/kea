@@ -26,7 +26,7 @@ xSwap <- function (fn, ...) {
 		exclaim$parameter_missing(fn))
 
 	assert(
-		is_fn_matchable(strs), pcall, 
+		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
 	
 	colls <- list(...)

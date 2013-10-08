@@ -37,7 +37,7 @@ xUntil <- function (pred, fn, init) {
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_fn_matchable(strs), pcall, 
+		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	pred <- match.fun(pred)

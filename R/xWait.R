@@ -28,7 +28,7 @@ xWait <- function (fn, num) {
 		exclaim$parameter_missing(num))
 
 	assert(
-		is_fn_matchable(strs), pcall, 
+		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	assert(
