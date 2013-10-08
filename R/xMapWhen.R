@@ -26,9 +26,11 @@ xMapWhen <- function (pred, fn, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+	
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))

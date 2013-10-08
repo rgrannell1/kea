@@ -33,9 +33,8 @@ xExists <- function (pred, ...) {
 	colls <- list(...)
 
 	assert(
-		all( sapply(colls, function (coll) {
-			is_collection(coll) 
-		}) ), pcall)
+		all(sapply(colls, is_collection)), pcall,
+		exclaim$must_be_recursive_of_collections(colls))
 
 	coll_lengths <- sapply(colls, length)
 

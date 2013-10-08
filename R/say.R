@@ -140,6 +140,14 @@ exclaim <- list(
 				"the number matching " + param + 
 				" must be greater or equal to " + size
 
+			},
+		must_be_recursive_of_collections = 
+			function (param) {
+
+				param <- paste(match.call()$param)
+
+				"the arguments matching " + param + 
+				" must all be lists, vectors or pairlists."
+
 			}
 )
-
