@@ -29,9 +29,15 @@ xFlatten <- function (num, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	num <- coerce_to_vector(num, 'numeric')
+
 	assert(
-		(is.numeric(num) || is.infinite(num)) && num > 0, pcall,
-		exclaim$must_be_poswhole_or_inf(num))
+		num > 0, pcall,
+		exclaim$must_be_greater_than(num, 0))
+
+	assert(
+		round(num) == num, pcall,
+		exclaim$must_be_whole(num))
 
 	assert(
 		is.recursive(coll), pcall,

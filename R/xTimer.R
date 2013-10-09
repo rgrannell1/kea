@@ -19,6 +19,12 @@ xTimer <- function (num) {
 		!missing(num), sys.call(),
 		exclaim$parameter_missing(num))
 
+	num <- coerce_to_vector(num, 'numeric')
+
+	assert(
+		num > 0, pcall,
+		exclaim$must_be_greater_than(num, 0))
+
 	genesis <- Sys.time()
 	
 	function (...) {

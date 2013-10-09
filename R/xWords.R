@@ -17,9 +17,12 @@ xWords <- function (str) {
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
-	
+
+	str <- coerce_to_vector(str, 'character')
+
 	assert(
-		is.character(str) && length(str) == 1, pcall)
+		length(str) %in% c(0, 1), pcall,
+		exclaim$must_have_length(str, c(0, 1)))
 
 	if (nchar(str) == 0) {
 		""

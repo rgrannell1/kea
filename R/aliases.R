@@ -113,7 +113,7 @@ coerce_to_vector <- function (coll, mode) {
 		double = 
 			is.double,
 		numeric =
-			is.double,
+			is.numeric,
 		character = 
 			is.character,
 		raw = 

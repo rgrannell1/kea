@@ -12,7 +12,7 @@
 #'	 If \code{coll} is empty the empty list is returned.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @examples inst/examples/blank.returned
 #' @export
 
 xTake <- function (num, coll) {

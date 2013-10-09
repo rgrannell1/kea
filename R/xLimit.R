@@ -26,13 +26,15 @@ xLimit <- function (num, fn) {
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
 
+	num <- coerce_to_vector(num, 'numeric')
+
 	assert(
 		length(num) == 1, pcall,
 		exclaim$must_have_length(num, 1))
 
 	assert(
-		(is.numeric(num) || is.infinite(num)) && num > 0, pcall,
-		exclaim$must_be_poswhole_or_inf(num))
+		num > 0, pcall,
+		exclaim$must_be_whole(num))
 
 	assert(
 		is_fn_matchable(fn), pcall, 
@@ -49,6 +51,6 @@ xLimit <- function (num, fn) {
 			if (.count < num) {
 				.count <<- .count + 1
 				.( call_with_params('fn', fn) )
-			} else NULL )
+			} else Null )
 	))
 }
