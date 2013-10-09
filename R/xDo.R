@@ -1,4 +1,3 @@
-
 #' xDo
 #' 
 #' Map (a possibly side-effectful) function over a collection and discard the results.
@@ -29,7 +28,7 @@ xDo <- function (fn, coll) {
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is_fn_matchable(strs), pcall, 
+		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
 	
 	assert(
@@ -38,9 +37,6 @@ xDo <- function (fn, coll) {
 
 	fn <- match.fun(fn)
 	
-	assert(
-		xArity(fn) %in% c(1, Inf), pcall)
-
 	if (length(coll) == 0) {
 		list()
 	} else {

@@ -44,9 +44,6 @@ xWrap <- function (fn1, fn2) {
 	fn1 <- match.fun(fn1)
 	fn2 <- match.fun(fn2)
 
-	assert(
-		xArity(fn2) %in% c(2, Inf), pcall)
-
 	function (...) {
 		fn2(fn1, ...)
 	}

@@ -42,9 +42,6 @@ xForall <- function (pred, ...) {
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		True
 	} else {
-
-		assert (
-			xArity(pred) %in% c(length(colls), Inf), pcall)
 		
 		modulo_iths <- function (n, mods) {
 			

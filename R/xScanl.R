@@ -42,9 +42,6 @@ xScanl <- function (fn, init, coll) {
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
-	
-	assert(
-		xArity(fn) %in% c(2, Inf), pcall)
 
 	scanned <- c( init, vector("list", length(coll)) )
 

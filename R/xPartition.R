@@ -35,9 +35,6 @@ xPartition <- function (pred, coll) {
 	pred <- match.fun(pred)
 
 	assert(
-		xArity(pred) %in% c(2, Inf), pcall)
-
-	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 

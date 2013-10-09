@@ -36,10 +36,6 @@ xPoll <- function (pred, coll) {
 
 	pred <- match.fun(pred)
 	
-	assert(
-		xArity(pred) %in% c(1, Inf), pcall,
-		exclaim$must_be_unary(pred))
-	
 	if (length(coll) == 0) {
 		0
 	} else {

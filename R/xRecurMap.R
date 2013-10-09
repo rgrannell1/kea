@@ -37,9 +37,6 @@ xRecurMap <- function (fn, coll) {
 		exclaim$must_be_recursive(coll))
 
 	fn <- match.fun(fn)
-	
-	assert(
-		xArity(fn) %in% c(1, Inf), pcall)
 
 	recur <- function (xs) {
 

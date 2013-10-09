@@ -31,9 +31,6 @@ xZipWith <- function (fn, ...) {
 
 	coll <- list(...)
 	fn <- match.fun(fn)
-
-	assert(
-		xArity(fn) %in% c(length(coll), +Inf), pcall)
 	
 	coll_lengths <- sapply(coll, length)
 	min_length <- min(coll_lengths)

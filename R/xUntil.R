@@ -43,19 +43,14 @@ xUntil <- function (pred, fn, init) {
 	pred <- match.fun(pred)
 	fn <- match.fun(fn)
 
-	assert(
-		xArity(pred) %in% c(1, Inf), pcall,
-		exclaim$must_be_unary(pred))
-	assert(
-		xArity(fn) %in% c(1, Inf), pcall)
+	repeat {
+		is_match <- pred(init)
 
-		repeat {
-			is_match <- pred(init)
+		assert(is.logical(is_match), pcall)
 
-			assert(is.logical(is_match), pcall)
+		if (is_match) break
+		init <- fn(init)
+	}
 
-			if (is_match) break
-			init <- fn(init)
-		}
 	init
 }

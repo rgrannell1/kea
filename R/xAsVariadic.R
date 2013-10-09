@@ -28,9 +28,6 @@ xAsVariadic <- function (fn) {
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
-	
-	assert(
-		xArity(fn) %in% c(1, Inf), pcall)
 
 	function (...) {
 		fn(list(...))

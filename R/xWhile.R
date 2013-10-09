@@ -39,11 +39,6 @@ xWhile <- function (pred, fn, init) {
 		fn <- match.fun(fn)
 		pred <- match.fun(pred)
 
-		assert(
-			xArity(pred) %in% c(1, +Inf), pcall)
-		assert(
-			xArity(fn) %in% c(1, +Inf), pcall)
-
 		repeat {
 			is_match <- pred(init)
 

@@ -45,10 +45,6 @@ xFoldl <- function (fn, init, coll) {
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
-	
-	assert(
-		xArity(fn) %in% c(2, Inf), pcall,
-		exclaim$must_be_binary(fn))
 
 	if (length(coll) == 0) {
 		init

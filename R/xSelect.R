@@ -39,10 +39,6 @@ xSelect <- function (pred, coll) {
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
-	
-	assert(
-		xArity(pred) %in% c(1, Inf), pcall,
-		exclaim$must_be_unary(pred))
 
 	if (length(coll) == 0) {
 		list()

@@ -42,12 +42,6 @@ xUnfold <- function (pred, fn, init) {
 
 	fn <- match.fun(fn)
 	pred <- match.fun(pred)
-	
-	assert(
-		xArity(fn) %in% c(1, Inf), pcall)
-	assert(
-		xArity(pred) %in% c(1, Inf), pcall,
-		exclaim$must_be_unary(pred))
 
 	acc <- list(init)
 
