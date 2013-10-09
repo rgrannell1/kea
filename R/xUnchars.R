@@ -18,8 +18,7 @@ xUnchars <- function (...) {
 		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
 
-	assert(
-		length(strs) == 0 || is.character(unlist(strs)), pcall)
+	strs <- coerce_to_vector(strs, 'character')
 
 	if (length(strs) == 0) {
 		character(0)

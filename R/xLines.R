@@ -22,13 +22,12 @@ xLines <- function (str) {
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
-
-	assert(
-		is.character(str), pcall,
-		exclaim$must_be_character(str))
 	
 	assert(
-		length(str) %in% c(0, 1), pcall)
+		length(str) %in% c(0, 1), pcall,
+		exclaim$must_have_length(0, 1))
+
+	str <- coerce_to_vector(str, 'character')
 
 	if (length(str) == 0) {
 		character(0)

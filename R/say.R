@@ -88,12 +88,14 @@ exclaim <- list(
 			" must be a whole number."
 		},
 	must_have_length =
-		function (param, length) {
+		function (param, lengths) {
 
 			param <- paste(match.call()$param)
  
+			lengths <- paste(lengths, collapse = " or ")
+
 			"the argument matching " + param + 
-			" must have length" + length
+			" must have length " + lengths
 
 		},
 	must_be_longer_than =
@@ -123,31 +125,41 @@ exclaim <- list(
 			" must be larger than " + size
 
 		},
-		must_be_greater_than =
-			function (param, size) {
+	must_be_greater_than =
+		function (param, size) {
 
-				param <- paste(match.call()$param)
+			param <- paste(match.call()$param)
 
-				"the number matching " + param + 
-				" must be greater than " + size
+			"the number matching " + param + 
+			" must be greater than " + size
 
-			},
-		must_be_grequal_than =
-			function (param, size) {
+		},
+	must_be_grequal_than =
+		function (param, size) {
 
-				param <- paste(match.call()$param)
+			param <- paste(match.call()$param)
 
-				"the number matching " + param + 
-				" must be greater or equal to " + size
+			"the number matching " + param + 
+			" must be greater or equal to " + size
 
-			},
-		must_be_recursive_of_collections = 
-			function (param) {
+		},
+	must_be_recursive_of_collections = 
+		function (param) {
 
-				param <- paste(match.call()$param)
+			param <- paste(match.call()$param)
 
-				"the arguments matching " + param + 
-				" must all be lists, vectors or pairlists."
+			"the arguments matching " + param + 
+			" must all be lists, vectors or pairlists."
 
-			}
+		},
+	type_coersion_failed =
+		function (param, mode) {
+
+			param <- paste(match.call()$param)
+
+			"the arguments matching " + param + 
+			" must be a list or pairlist of " + mode + "s" +
+			" or a " + mode + " vector."
+
+		}
 )

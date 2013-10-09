@@ -24,17 +24,16 @@ xCollapse <- function (str, ...) {
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
-	
-	assert(
-		is.character(str), pcall)
-	assert(
-		length(str) %in% c(0, 1))
 
-	strs <- c(...)
-	
-	assert(is_collection(strs))
 	assert(
-		length(strs) == 0 || is.character(unlist(strs)), pcall)
+		is_collection(strs), pcall,
+		exclaim$must_be_collection(strs))
+
+	assert(
+		length(str) %in% c(0, 1),
+		exclaim$must_have_length( str, c(0, 1)) )
+
+	strs <- coerce_to_vector(c(...), 'character')
 
 	if (length(strs) == 0) {
 		character(0)

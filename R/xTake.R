@@ -33,8 +33,10 @@ xTake <- function (num, coll) {
 		length(num) == 1, pcall,
 		exclaim$must_have_length(num, 1))
 
+	num <- coerce_to_vector(num, 'numeric')
+
 	assert(
-		is.numeric(num) && num >= 0, pcall,
+		num >= 0, pcall,
 		exclaim$must_be_greater_than(num, 0))
 
 	assert(

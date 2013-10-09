@@ -28,7 +28,10 @@ xGet <- function (str) {
 		exclaim$must_be_character(str))
 
 	assert(
-		length(str) %in% c(0, 1), pcall)
+		length(str) %in% c(0, 1), pcall,
+		exclaim$must_have_length( str, c(0, 1)) )
+
+	str <- coerce_to_vector(str, 'character')
 
 	if (length(str) == 0) {
 		str <- ""

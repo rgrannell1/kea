@@ -31,13 +31,8 @@ xName <- function (strs, coll) {
 	assert(
 		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
-	
-	assert(
-		length(strs) == 0 || is.character(unlist(strs)), pcall)
 
-	assert(
-		is_collection(coll), pcall,
-		exclaim$must_be_collection(coll))
+	strs <- coerce_to_vector(strs, 'character')
 
 	assert(
 		length(strs) == length(coll), pcall)

@@ -72,3 +72,46 @@ xPartitionBy <- function () {
 	# unary 
 	# use output.
 }
+
+
+
+
+Every function that can take a vector can take 
+a homogenous list of the correct type.
+
+Every function that can take a vector can take the empty vector.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

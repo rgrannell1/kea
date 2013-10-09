@@ -19,8 +19,8 @@ xUnlines <- function (strs) {
 	assert(
 		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
-	assert(
-		length(strs) == 0 || is.character(unlist(strs)), pcall)
+
+	strs <- coerce_to_vector(strs, 'character')
 
 	paste0(strs, collapse = '\n')
 }

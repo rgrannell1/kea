@@ -23,9 +23,11 @@ xChars <- function (str) {
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
 
-	assert(length(str) %in% c(0, 1), pcall)
 	assert(
-		length(str) == 0 || is.character(unlist(str)), pcall)
+		length(str) %in% c(0, 1), pcall,
+		exclaim$must_have_length( str, c(0, 1)) )
+
+	str <- coerce_to_vector(str, 'character')
 
 	if (length(str) == 0) {
 		character(0)

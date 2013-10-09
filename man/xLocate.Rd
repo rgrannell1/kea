@@ -6,6 +6,8 @@
 }
 \arguments{
   \item{pred}{a predicate function.}
+
+  \item{coll}{a collection.}
 }
 \value{
   an integer.

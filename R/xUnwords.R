@@ -18,8 +18,7 @@ xUnwords <- function (...) {
 		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
 
-	assert(
-		is.character(strs), pcall)
+	strs <- coerce_to_vector(strs, 'character')
 
 	paste0(strs, collapse = ' ')
 }

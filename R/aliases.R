@@ -94,8 +94,6 @@ ith_suffix <- function (num) {
 	}
 }
 
-
-
 is_fn_matchable <- function (val) {
 	is.function(val) || is.symbol(val) || 
 	(is.character(val) && length(val) == 1)
@@ -105,7 +103,32 @@ is_collection <- function (val) {
 	is.vector(val) || is.pairlist(val)
 }
 
+coerce_to_vector <- function (coll, mode) {
 
+	types <- list(
+		logical = 
+			is.logical,
+		integer = 
+			is.integer,
+		double = 
+			is.double,
+		numeric =
+			is.double,
+		character = 
+			is.character,
+		raw = 
+			is.raw
+	)
+
+	type_test <- types[[mode]]
+	is_homogenous <- all(sapply(coll, type_test))
+
+	if (is_homogenous) {
+		as.vector(coll, mode)
+	} else {
+		exclaim$type_coersion_failed(coll, mode)
+	}
+}
 
 
 
