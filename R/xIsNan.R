@@ -35,7 +35,7 @@ xIsNan <- function (coll) {
 		res <- vector(mode = 'logical', length(coll))
 
 		for (ith in seq_along(coll)) {
-			res[ith] <- identical(coll[[ith]], Null)
+			res[ith] <- identical(coll[[ith]], NaN)
 		}
 		res		
 	}

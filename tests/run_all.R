@@ -1,6 +1,10 @@
 
-require(needy)
 require(testthat)
+
+Null <- NULL
+Na <- NA
+True <- TRUE
+False <- FALSE
 
 Truth <- 
 	function (...) True

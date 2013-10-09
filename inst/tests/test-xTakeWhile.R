@@ -1,6 +1,12 @@
 
 context("xTakeWhile")
 
+
+Truth <- 
+	function (...) True
+Falsity <- 
+	function (...) False
+
 test_that("xTakeWhile", {
 
 	expect_that(

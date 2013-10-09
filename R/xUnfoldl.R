@@ -25,9 +25,11 @@ xUnfold <- function (pred, fn, init) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(init), pcall, 
 		exclaim$parameter_missing(init))
@@ -48,9 +50,6 @@ xUnfold <- function (pred, fn, init) {
 	while (pred( acc[[ length(acc) ]]  )) {
 		
 		fn_out <- fn( acc[[ length(acc) ]] )
-
-		assert(
-			length(fn_out) == 2, pcall)
 
 		acc[length(acc)] <- fn_out[[1]]
 		acc[length(acc) + 1] <- fn_out[[2]]

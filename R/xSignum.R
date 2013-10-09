@@ -22,24 +22,24 @@ xSignum <- function (nums) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(nums), pcall)
+		!missing(nums), pcall,
+		exclaim$parameter_missing(nums))
 	
 	assert(
-		is.vector(nums) || is.pairlist(nums), pcall,
+		is_collection(nums), pcall,
 		exclaim$must_be_collection(nums))
-	assert(
-		all(sapply(nums, length) == 1), pcall)
-
-	nums <- unlist(nums)
 
 	assert(
-		is.numeric(unlist(nums)), pcall)
+		all(sapply(nums, length) == 1), pcall,
+		exclaim$must_be_collection_of_length(nums, 1))
+
+	nums <- coerce_to_vector(nums, 'numeric')
 
 	if (length(nums) == 0) {
 		nums
 	} else {
-		sapply(nums, function (n) {
-			if (n > 0) +1 else if (n == 0) 0 else -1
+		sapply(nums, function (num) {
+			if (num > 0) +1 else if (num == 0) 0 else -1
 		})		
 	}
 }

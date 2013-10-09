@@ -83,16 +83,15 @@ ith_suffix <- function (num) {
 	paste0(num, suffix)
 }
 
-# I'm sorry for overwriting a sealed class, but error message construction is horrid without
-# using + for strings.
-
-"+" <- function (x, y) {
-	if (is.character(x) | is.character(y)) {
-		return (paste0(x , y, sep = ""))
-	} else {
-		.Primitive("+")(x,y)
-	}
+"%+%" <- function (x, y) {
+	paste0(x, y, sep = "")
 }
+
+
+
+
+
+
 
 is_fn_matchable <- function (val) {
 	is.function(val) || is.symbol(val) || 

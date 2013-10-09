@@ -46,7 +46,9 @@ xTakeWhile <- function (pred, coll) {
 		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
-			assert(is.logical(is_match), pcall)
+			
+			assert(
+				is.logical(is_match), pcall)
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )

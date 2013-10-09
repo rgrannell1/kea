@@ -1,6 +1,5 @@
 
 require (arrow)
-require (needy)
 
 opts <- list(
 	target_dir = 
