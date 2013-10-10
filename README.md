@@ -4,8 +4,7 @@ Arrow v0.1
 **Arrow** is a functional programming framework that adds partial application, 
 jQuery-like method calling, function composition, 
 and over one-hundred higher-order functions and utility functions to the R language.
-Arrow helps make R an elegant functional language with an emphasis on the composition
-of simple functions to create complex but expressive programs.
+Arrow helps make R an elegant functional language with powerful operations on collections.
 
 ## 1 Installation
 
@@ -21,9 +20,13 @@ require(devtools)
 
 # check that arrow installed.
 xVersion()
+
 ```
-All **Arrow** functions are prefixed with the letter "x". This is to avoid naming conflicts and to 
+Almost all **Arrow** functions are prefixed with the letter "x". This is to avoid naming conflicts and to 
 help the user find the function they are looking for.
+
+At the moment (October 10th 2013) a release is scheduled for around December 2013. Most of the core functionality is
+fine, but more tests and documentation need to be written.
 
 ## 2 Features
 
@@ -77,19 +80,17 @@ even then their mathematical underpinnings are masked [2].
 }
 
 x := x^2
-```
 
-is equivalent to
-
-```javascript
+# is equivalent to
 
 function (a, b, c) {
     a > b && a > c
 }
 
 function (x) x^2
+
 ```
-The shorter form is especicially useful given that **Arrow** is a function heavy library. 
+The shorter form is especicially useful given that **Arrow** is a function-kbheavy library. 
 Curly braces are almost always syntactically optional, but I include them for readability.
 
 ### 2.4 Cascading Style
@@ -115,6 +116,8 @@ xSelect(
 x()
 ```
 
+This form is particularily useful for operating on a collection in a stepwise manner.
+
 ### 2.5 Partial Application
 
 Specialising general functions like select and fold is simple in **Arrow**.
@@ -133,15 +136,6 @@ strip_nan <- xPartial(xReject, list(pred = is.nan))
 Is this case, the general function ``xReject`` was specialised into two functions that remove Na and NaN values
 respectively.
 
-```javascript
-function (coll) 
-{
-    fn(.Primitive("is.na"), coll)
-}
-<environment: 0x5e8eb38>
-```
-
-
 ### 2.6 Combinators
 
 Combinators are powerful functions that combine functions in interesting ways. **Arrow** implements many 
@@ -157,8 +151,6 @@ g <- xPlusLift(
 
 # in this case g is equal to 5*x + 2*x
 
-```
-```javascript
 x_(1:100)$
 xSelect( xOrLift(
     # find numbers with at one of these two uncommon properties
@@ -173,9 +165,9 @@ xSelect( xOrLift(
 
 ```
 
-Of course, this is a less likely use of combinators than defining
-your own control structures for functions. Arrow particularily emphasises 
-arithmetic on functions, with several functions with short names added for that purpose.
+The 'Lift' family of combinators define basic control structures on functions.
+Arrow particularily emphasises arithmetic on functions, with several 
+functions with short names added for that purpose.
 
 A combinator that will be particularily useful to data scientists is ```xJuxtapose```.
 ```xJuxtapose``` encapsulates the pattern of taking a data-set and obtaining several summary 
@@ -184,11 +176,18 @@ For example,
 
 ```javascript
 
-mySummary <- xJuxtapose( mean, sd, max, min, dataset := any(is.na(dataset)) )
-dataset <- runif(8)
+mySummary <- xJuxtapose(
+    mean, 
+    sd, 
+    max, 
+    min, 
+    dataset := {
+        any(is.na(dataset))
+    }
+)
 
-dput(mySummary(dataset))
-list(0.566412215383025, 0.3106537, 0.9962860, 0.01440951, FALSE)
+dput(mySummary( runif(8) ))
+list(0.566, 0.310, 0.996, 0.014, FALSE)
 
 ```
 
@@ -220,7 +219,7 @@ xExists( n := {
 ```
 ### 2.8 Immutable Values
 
-Using immutable values can make reasoning about code easier.
+Using immutable valuescan make reasoning about code easier.
 R provides a mechanism for permenantly binding a value to a name, but it it somewhat clumsy. **Arrow** wraps these 
 native functions.
 
@@ -234,7 +233,7 @@ Error: cannot change value of locked binding for 'a'
 
 It is also possible to 'lock' and 'unlock' variabes after creation:
 
-```
+```javascript
 b <- "try change me!"
 xAsVal(b)
 ```
