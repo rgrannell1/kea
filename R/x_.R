@@ -112,6 +112,18 @@ x_coll_proto <- local({
 			x_( xFourth(self_()) )
 		}
 	# -------- G ------- #
+
+	this$xGraft <-
+		function (str, fn) {
+
+			chainable <- function (...) {
+				x_(fn(self_(), ...))
+			}
+
+			x_fn_proto[[str]] <<- chainable
+			x_coll_proto[[str]] <<- chainable
+
+		}
 	# -------- H ------- #
 	# -------- I ------- #
 	this$xIdentity <-

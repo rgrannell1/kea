@@ -27,20 +27,26 @@
 }
 
 \section{Glossary}{
-  function: a closure or primitive function.  A symbol or
-  string refering to such a function may also be used.
+  \bold{Function}: a closure or primitive function.  A
+  symbol or string refering to such a function may also be
+  used.
 
-  predicate: A function that returns a logical value
+  \bold{Predicate}: A function that returns a logical value
   (unary, unless stated otherwise).  A symbol or string
   refering to such a function may also be used.
 
-  collection: A list, pairlist or vector of any type.
+  \bold{Collection}: A list, pairlist or a typed vector.
 
-  arity: The number of arguments a function can accept.
-  Variadic functions have an arity of +Infinity,
+  \bold{Arity}: The number of arguments a function can
+  accept.  Unary (1), Binary (2), Trinary (3), Quaternary
+  (4), ...., Variadic (Inf).
 
-  number: a double, integer or complex number, unless
-  stated otherwise.
+  \bold{Number}: a double, integer or complex number,
+  unless stated otherwise.
+
+  \bold{Higher Order Function}: a function that takes a
+  function as one of its arguments, and/or returns a
+  function.
 }
 \examples{
 inst/examples/blank.R

@@ -1,16 +1,23 @@
 
 #' @section Glossary:
 #'
-#' function: a closure or primitive function.  A symbol or string refering to 
+#' \bold{Function}: a closure or primitive function.  A symbol or string refering to 
 #'    such a function may also be used.
 #'
-#' predicate: A function that returns a logical value (unary, unless stated otherwise).
+#' \bold{Predicate}: A function that returns a logical value (unary, unless stated otherwise).
 #'    A symbol or string refering to such a function may also be used.
 #'
-#' collection: A list, pairlist or vector of any type.
+#' \bold{Collection}: A list, pairlist or a typed vector.
 #'
-#' arity: The number of arguments a function can accept. Variadic functions have 
-#'     an arity of +Infinity,
+#' \bold{Arity}: The number of arguments a function can accept. 
 #'
-#' number: a double, integer or complex number, unless stated otherwise.
+#' \bold{Nullary}: a function with arity zero.
+#' \bold{Unary}: a function with arity one.
+#' \bold{Binary}: a function with arity two.
+#' \bold{Trinary}: a function with arity three.
+#'
+#' \bold{Number}: a double, integer or complex number, unless stated otherwise.
+#'
+#' \bold{Higher Order Function}: a function that takes a function as one of its arguments, and/or 
+#'     returns a function.
 #'

@@ -75,22 +75,23 @@ even then their mathematical underpinnings are masked [2].
 **Arrow** includes a useful shorthand for function definitions; arrow functions. [4]
 
 ```javascript
+
+x := x^2
+
 (a: b : c) := {
     a > b && a > c
 }
 
-x := x^2
-
 # is equivalent to
+
+function (x) x^2
 
 function (a, b, c) {
     a > b && a > c
 }
 
-function (x) x^2
-
 ```
-The shorter form is especicially useful given that **Arrow** is a function-kbheavy library. 
+The shorter form is especicially useful given that **Arrow** is a function-heavy library. 
 Curly braces are almost always syntactically optional, but I include them for readability.
 
 ### 2.4 Cascading Style
@@ -116,7 +117,19 @@ xSelect(
 x()
 ```
 
-This form is particularily useful for operating on a collection in a stepwise manner.
+This form is particularily useful for operating on a collection in a stepwise manner. Custom methods
+can be added to the type constructor using ```xGraft```
+
+```javascript
+
+x_()$xGraft('mean', mean)
+
+x_(1:100)$
+mean
+$x()
+
+50.5
+```
 
 ### 2.5 Partial Application
 

@@ -1,0 +1,336 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>README</title></head><body><h2 id="arrow-v01">Arrow v0.1</h2>
+<p><strong>Arrow</strong> is a functional programming framework that adds partial application, 
+jQuery-like method calling, function composition, 
+and over one-hundred higher-order functions and utility functions to the R language.
+Arrow helps make R an elegant functional language with powerful operations on collections.</p>
+<h2 id="1-installation">1 Installation</h2>
+<p>As of late September 2013 <strong>Arrow</strong> is only available on Github. To install the development version, copy the
+following into an R console.</p>
+<pre><code class="javascript">install.packages('devtools')
+require(devtools)
+
+install_github(&quot;arrow&quot;, &quot;rgrannell1&quot;, &quot;develop&quot;)
+require(devtools)
+
+# check that arrow installed.
+xVersion()
+
+</code></pre>
+
+<p>Almost all <strong>Arrow</strong> functions are prefixed with the letter "x". This is to avoid naming conflicts and to 
+help the user find the function they are looking for.</p>
+<p>At the moment (October 10th 2013) a release is scheduled for around December 2013. Most of the core functionality is
+fine, but more tests and documentation need to be written.</p>
+<h2 id="2-features">2 Features</h2>
+<h3 id="21-generic-idiomatic">2.1 Generic &amp; Idiomatic</h3>
+<h3 id="22-functional">2.2 Functional</h3>
+<p>Arrow includes the standard map, select, fold, zip, flip, dropwhile, and position higher-order
+functions (among others) as well as function composition and partial application.</p>
+<pre><code class="javascript">
+unlapply &lt;- unlist %of% lapply
+function (X, FUN, ...) 
+{
+    fn1(fn2(X, FUN, ...))
+}
+
+</code></pre>
+
+<p>Functions that return functions - like <code>xCompose()</code> - preserve parameter names 
+and produce human-readable code.</p>
+<pre><code class="javascript">isPrime &lt;- function (n) {
+    n == 2 || all(n %% 2:(n-1) != 0)
+}
+getPrimes &lt;- xSelect(isPrime)
+getPrimes(1:1000)
+
+[1] 2  3  5  7 11 13 17 19 23 29 31 ...
+</code></pre>
+
+<p>FP allows a declarative style of programming; rather than using 
+looping and pushing and pulling values into and out of containers, you focus more on 
+the definition of the problem in terms of common patterns like filtering lists, 
+or accumulating a value by recursing over a list.</p>
+<p>Note that the user is not required to know the Lambda Calculus, or to understand monoids
+in the category of endofunctors [1] to use this library; functions are only 
+included in <strong>Arrow</strong> if they have a plausable use-case, and 
+even then their mathematical underpinnings are masked [2].</p>
+<h3 id="23-arrow-functions">2.3 Arrow Functions</h3>
+<p><strong>Arrow</strong> includes a useful shorthand for function definitions; arrow functions. [4]</p>
+<pre><code class="javascript">(a: b : c) := {
+    a &gt; b &amp;&amp; a &gt; c
+}
+
+x := x^2
+
+# is equivalent to
+
+function (a, b, c) {
+    a &gt; b &amp;&amp; a &gt; c
+}
+
+function (x) x^2
+
+</code></pre>
+
+<p>The shorter form is especicially useful given that <strong>Arrow</strong> is a function-heavy library. 
+Curly braces are almost always syntactically optional, but I include them for readability.</p>
+<h3 id="24-cascading-style">2.4 Cascading Style</h3>
+<p>In this style data is fed into the type constructor [1] <code>x_</code>, and methods are called off that object. </p>
+<pre><code class="javascript">
+x_(1:100)$
+xSetProd(1:100)$
+xMap(
+    xAsUnary( 
+        (a : b) := {
+            a^b + b^a
+        }
+    )
+)$
+xSelect(
+    a := {
+        a %% 2
+    }
+)$
+x()
+</code></pre>
+
+<h3 id="25-partial-application">2.5 Partial Application</h3>
+<p>Specialising general functions like select and fold is simple in <strong>Arrow</strong>.</p>
+<pre><code class="javascript"># be gone, na values and nan!
+
+strip_na &lt;- xPartial(xReject, list(pred = xIsNa))
+strip_nan &lt;- xPartial(xReject, list(pred = is.nan))
+
+# compose both functions, and call.
+(strip_nan %of% strip_na)(
+    list(1, 2, NaN, NA, 3, 4))
+
+</code></pre>
+
+<p>Is this case, the general function <code>xReject</code> was specialised into two functions that remove Na and NaN values
+respectively.</p>
+<pre><code class="javascript">function (coll) 
+{
+    fn(.Primitive(&quot;is.na&quot;), coll)
+}
+&lt;environment: 0x5e8eb38&gt;
+</code></pre>
+
+<h3 id="26-combinators">2.6 Combinators</h3>
+<p>Combinators are powerful functions that combine functions in interesting ways. <strong>Arrow</strong> implements many 
+combinators, giving them a formal name (eg. <code>xPhi</code>), a descriptive name (eg. <code>xBiCompose</code>) and
+most importantly, an avian name (<code>xPhoenix</code>)[3].</p>
+<pre><code class="javascript"># compose two functions with addition
+g &lt;- xPlusLift(
+    x := 2*x + x,
+    x := 3*x + x
+)(1:100)
+
+# in this case g is equal to 5*x + 2*x
+
+</code></pre>
+
+<pre><code class="javascript">x_(1:100)$
+xSelect( xOrLift(
+    # find numbers with at one of these two uncommon properties
+    n := {
+        n^2 == 2^n
+    },
+    n := {
+        n*2 == n*n
+    }
+))
+[1] 2 4
+
+</code></pre>
+
+<p>Of course, this is a less likely use of combinators than defining
+your own control structures for functions. Arrow particularily emphasises 
+arithmetic on functions, with several functions with short names added for that purpose.</p>
+<p>A combinator that will be particularily useful to data scientists is <code>xJuxtapose</code>.
+<code>xJuxtapose</code> encapsulates the pattern of taking a data-set and obtaining several summary 
+statistics of the dataset at the same time, but factors out all the boilerplate required to do this. 
+For example,</p>
+<pre><code class="javascript">
+mySummary &lt;- xJuxtapose( mean, sd, max, min, dataset := any(is.na(dataset)) )
+dataset &lt;- runif(8)
+
+dput(mySummary(dataset))
+list(0.566412215383025, 0.3106537, 0.9962860, 0.01440951, FALSE)
+
+</code></pre>
+
+<h3 id="27-existential-quantifiers">2.7 Existential Quantifiers</h3>
+<p><strong>Arrow</strong> includes the powerful quantifiers <code>xForall</code> and <code>xExists</code>, as well
+as other quantifier functions.</p>
+<p>For example, to verify that addition is commutative, you could write:</p>
+<pre><code class="javascript">xForall(
+    (a : b) := {
+        a + b == b + a
+    }
+    1:100,
+    1:100
+)
+</code></pre>
+
+<p>In the above case, the set product of 1...100 x 1...100 is checked to see 
+if each combination (a, b) holds true.</p>
+<pre><code class="javascript">x_(1:1000)$
+xExists( n := {
+    n^2 == 5*n
+} )
+</code></pre>
+
+<h3 id="28-immutable-values">2.8 Immutable Values</h3>
+<p>Using immutable values can make reasoning about code easier.
+R provides a mechanism for permenantly binding a value to a name, but it it somewhat clumsy. <strong>Arrow</strong> wraps these 
+native functions.</p>
+<pre><code class="javascript">
+xVal(a, 'try change me!')
+a &lt;- 'will fail'
+
+Error: cannot change value of locked binding for 'a'
+</code></pre>
+
+<p>It is also possible to 'lock' and 'unlock' variabes after creation:</p>
+<pre><code class="javascript">b &lt;- &quot;try change me!&quot;
+xAsVal(b)
+</code></pre>
+
+<h2 id="3-help">3 Help</h2>
+<p>To access the documentation  simply put a question mark in front of a function of interest.</p>
+<pre><code>?xSelect
+</code></pre>
+
+<h2 id="4-footnotes">4 Footnotes</h2>
+<p>[1] I won't use <em>that</em> word; every mention of <em>that</em> word cuts the usership of an FP library by half.</p>
+<p>[2] This is a good thing: the worst example of overally mathematical code I saw while researching FP libraries was 
+a function called a zygohistomorphic propremorpism. Useful concept I'm sure, but one with a horrible name.</p>
+<p>[3] Raymond Smullyan's incredible <em>To Mock a Mockingbird</em> aliases combinators like K with a 
+birdname (kestrel). These names are used fairly often, so I included them.</p>
+<p>[4] Not to be confused with Arrows, the more general cousin of the Category-that-shall-not be named.</p>
+<h2 id="5-licensing">5 Licensing</h2>
+<p><strong>Arrow</strong> is released under the terms of the GNU General Public License version 3. </p>
+<p><img src="file:///home/ryan/Code/Arrow/arrow-clean/gpl3.png" height = "180"> </img></p></body></html>

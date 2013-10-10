@@ -1,7 +1,7 @@
 
 #' xPartitionWith
 #' 
-#' Divide elements in a collection into two sets based on a predicate function.
+#' Divide elements in a collection into two collections based on a predicate function.
 #'
 #' @param pred a predicate.
 #' @param coll a collection.
@@ -29,6 +29,7 @@ xPartitionWith <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
