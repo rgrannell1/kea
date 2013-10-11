@@ -118,17 +118,30 @@ x()
 ```
 
 This form is particularily useful for operating on a collection in a stepwise manner. Custom methods
-can be added to the type constructor using ```xGraft```
+can be added to the type constructor using ```xGraft```.
 
 ```javascript
 
-x_()$xGraft('mean', mean)
+x_()$xGraft('xMean', mean)
 
 x_(1:100)$
-mean
+xMean
 $x()
 
 50.5
+```
+
+Anonymous functions can be injected into the chain using ```xTap```.
+
+```javascript
+
+x_(1:5)$
+xTap( x := {
+    x^2
+} )$
+x()
+
+[1]   1   4   9  16  25
 ```
 
 ### 2.5 Partial Application

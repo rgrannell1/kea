@@ -87,11 +87,10 @@ ith_suffix <- function (num) {
 	paste0(x, y, sep = "")
 }
 
+join_env <- function (a, b) {
 
-
-
-
-
+	as.environment( c(as.list( a ), as.list( b )) )
+}
 
 is_fn_matchable <- function (val) {
 	is.function(val) || is.symbol(val) || 

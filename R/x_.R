@@ -1,5 +1,5 @@
 
-# -------------------------------- Collection methods -------------------------------- #
+# -------------------------------- Universal methods -------------------------------- #
 #
 # these prototypes contain methods that can be called by an x_() object, using an 
 # overloaded definition of the $ function.
@@ -7,6 +7,106 @@
 # upon invocation of an x_()$method, the self_ function is updated to return the 
 # value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
 # so an error is thrown if these prototypes are called directly.
+
+
+
+
+
+
+
+
+
+x_any_proto <- local({
+
+	this <- object()
+
+	# -------- A ------- #
+
+	# -------- B ------- #
+
+	# -------- C ------- #
+
+	# -------- D ------- #
+
+	# -------- E ------- #
+
+	# -------- F ------- #
+
+	# -------- G ------- #
+	this$xGraft <-
+		function (str, fn) {
+
+			chainable <- function (...) {
+				x_(fn(self_(), ...))
+			}
+
+			x_fn_proto[[str]] <<- chainable
+			x_coll_proto[[str]] <<- chainable
+
+		}
+	# -------- H ------- #
+
+	# -------- I ------- #
+
+	# -------- J ------- #
+
+	# -------- K ------- #
+
+	# -------- L ------- #
+
+	# -------- M ------- #
+
+	# -------- N ------- #
+
+	# -------- O ------- #
+
+	# -------- P ------- #
+
+	# -------- Q ------- #
+
+	# -------- R ------- #
+
+	# -------- S ------- #
+
+	# -------- T ------- #
+	this$xTap <-
+		function (fn) {
+			x_( fn(self_()) )
+		}
+	# -------- U ------- #
+
+	# -------- V ------- #
+	this$xVersion <-
+		function () {
+			x_( xVersion() )
+		}
+	# -------- W ------- #
+
+	# -------- X ------- #
+
+	# -------- Y ------- #
+
+	# -------- Z ------- #
+
+	this
+})
+
+
+
+
+
+
+
+
+
+# -------------------------------- Collection methods -------------------------------- #
+
+
+
+
+
+
+
 
 x_coll_proto <- local({
 
@@ -112,18 +212,6 @@ x_coll_proto <- local({
 			x_( xFourth(self_()) )
 		}
 	# -------- G ------- #
-
-	this$xGraft <-
-		function (str, fn) {
-
-			chainable <- function (...) {
-				x_(fn(self_(), ...))
-			}
-
-			x_fn_proto[[str]] <<- chainable
-			x_coll_proto[[str]] <<- chainable
-
-		}
 	# -------- H ------- #
 	# -------- I ------- #
 	this$xIdentity <-
@@ -250,7 +338,6 @@ x_coll_proto <- local({
 		function (str) {
 			x_( xPluck(str, self_()) )
 		}
-
 	this$xPartition <-
 		function (pred) {
 			x_( xPartition(pred, self_()) )
@@ -347,10 +434,6 @@ x_coll_proto <- local({
 			x_( xSwap(fn, self_()) )
 		}
 	# -------- T ------- #
-	this$xTap <-
-		function (fn) {
-			x_( fn(self_()) )
-		}
 	this$xTake <- 
 		function (num) {
 			x_( xTake(num, self_()) )
@@ -399,10 +482,6 @@ x_coll_proto <- local({
 	this$xUnfoldl <-
 		this$xUnfold
 	# -------- V ------- #
-	this$xVersion <-
-		function () {
-			x_( xVersion() )
-		}
 	# -------- W ------- #
 	this$xWords <-
 		function () {
@@ -423,7 +502,9 @@ x_coll_proto <- local({
 		function (...) {
 			x_( xZip(self_(), ...) )
 		}
-	this
+	
+	as.environment(
+		c(as.list(this), as.list(x_any_proto)) )
 })
 
 
@@ -761,7 +842,10 @@ x_fn_proto <- local({
 		}
 	this$xWrap <-
 		this$xThrush
-	this
+	
+
+	as.environment(
+		c(as.list(this), as.list(x_any_proto)) )
 })
 
 
@@ -827,11 +911,12 @@ x_ <- function (val) {
 		} else if (is.pairlist( obj[['x']] )) {
 			x_coll_proto
 		} else {
-			object()
+			x_any_proto
 		}
 
 	assert(
-		method_name %in% ls(proto_ref), pcall)
+		method_name %in% ls(proto_ref), pcall,
+		exclaim$method_not_found(method_name))
 
 	fn <- proto_ref[[method_name]]
 

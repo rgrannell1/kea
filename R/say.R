@@ -162,5 +162,10 @@ exclaim <- list(
 			" must be a list or pairlist of " %+% mode %+% "s" %+%
 			" or a " %+% mode %+% " vector."
 
+		},
+	method_not_found = 
+		function (name) {
+
+			"could not find the method " %+% name %+% "."
 		}
 )
