@@ -136,9 +136,7 @@ Anonymous functions can be injected into the chain using ```xTap```.
 ```javascript
 
 x_(1:5)$
-xTap( x := {
-    x^2
-} )$
+xTap( x := x^2 )$
 x()
 
 [1]   1   4   9  16  25
