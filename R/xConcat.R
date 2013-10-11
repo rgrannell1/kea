@@ -1,9 +1,9 @@
 
 #' xConcat
 #' 
-#' Concatenate several collections into one collectino.
+#' Concatenate several collections into one collection.
 #'
-#' @param coll a collection
+#' @param ... several collections.
 #'
 #' @return a list.
 #'

@@ -3,14 +3,14 @@
 #' 
 #' Create a function that applies an argument to a list of underlying functions.
 #'
-#' @param fns a list or pairlist of functions.
+#' @param ... a list or pairlist of functions.
 #'
 #' @return a variadic function.
 #'
 #' @section Corner Cases: 
+#'    If no functions are provided the empty list is returned.
 #'
 #' @template glossary
-#'
 #'
 #' @family higher_order_function
 #'
@@ -33,7 +33,11 @@ xJuxtapose <- function (...) {
 
 	fns <- lapply(fns, match.fun)
 
-	function (...) {
-		lapply(fns, function (fn) fn(...))
+	if (length(fns) == 0) {
+		list()
+	} else {
+		function (...) {
+			lapply(fns, function (fn) fn(...))
+		}		
 	}
 }

@@ -3,6 +3,7 @@
 #' 
 #' Add names to a collection.
 #'
+#' @param strs a collection of strings.
 #' @param coll a collection
 #'
 #' @return a named list.

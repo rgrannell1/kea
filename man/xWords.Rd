@@ -5,7 +5,7 @@
   xWords(str)
 }
 \arguments{
-  \item{s}{a length-one character vector.}
+  \item{str}{a length-one character vector.}
 }
 \value{
   a character vector, with one or more elements.

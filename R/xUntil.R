@@ -1,10 +1,10 @@
 
 #' Iteratively apply a function until a predicate is met.
 #'
-#' @param predicate a unary function that returns a logical value, or a 
-#'	 symbol or name identifying such a function.
-#' @param unary a unary function function, or a
-#'	 symbol or name identifying such a function.
+#' @param pred a predicate function.
+#'
+#' @param fn a function.
+#'
 #' @param init an arbitrary value.
 #'
 #' @section Corner Cases:

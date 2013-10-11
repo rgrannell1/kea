@@ -5,7 +5,9 @@
   xContains(coll, val)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{coll}{a collection.}
+
+  \item{val}{an arbitrary value.}
 }
 \value{
   a list.
@@ -14,7 +16,7 @@
   Check if a collection contains a value.
 }
 \section{Corner Cases}{
-  various types of NA are not-distinguished between. Type
+  various types of NA are not-distinguished between.  Type
   conversion is not carried out.
 }
 

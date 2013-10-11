@@ -3,10 +3,8 @@
 #' 
 #' Compose two functions. 
 #'
-#' @param fn1 a unary function, or a 
-#'	 symbol or name identifying such a function.
-#' @param fn2 a unary function, or a 
-#'	 symbol or name identifying such a function.
+#' @param fn1 a unary function.
+#' @param fn2 a unary function.
 #'
 #' @details Unlike some other functions that return functions in Arrow,
 #'	 \code{xCompose} preserves the parameters of one of its input functions (the right function).
@@ -14,10 +12,9 @@
 #'	 \code{xCompose} as the function is ubiquitous and should be as powerful as possible, even at
 #'	 the risk of making Arrow less consistent.
 #'
-#' @return A function with the same parameters as \code{g}.
+#' @return A function with the same parameters as \code{fn2}.
 #'
 #' @template glossary
-#'
 #'
 #' @family higher_order_function
 #'

@@ -5,7 +5,7 @@
   xRepeat(num, coll)
 }
 \arguments{
-  \item{a}{nonnegative positive number}
+  \item{num}{a nonnegative positive number}
 
   \item{coll}{a collection}
 }

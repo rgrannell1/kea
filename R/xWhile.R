@@ -5,7 +5,7 @@
 #'	 symbol or name identifying such a function.
 #' @param fn an arbitrary function, or a
 #'	 symbol or name identifying such a function.
-#' @param x an arbitrary value.
+#' @param init an arbitrary value.
 #'
 #' @section Corner Cases:
 #'	 length-zero values of \code{x} are handled normally, since \code{x} is 

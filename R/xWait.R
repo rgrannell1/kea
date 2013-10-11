@@ -1,9 +1,10 @@
 
 #' xWait
 #' 
-#' Delay the evalution of a function after invokation for a set amount of time/
+#' Delay the evalution of a function after invokation for a set amount of time.
 #'
 #' @param fn an arbitrary function.
+#' @param num a nonnegative whole number.
 #'
 #' @return a function with the same parameters as \code{fn}.
 #'

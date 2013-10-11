@@ -3,12 +3,14 @@
 #' 
 #' Check if a collection contains a value.
 #'
-#' @param coll a collection
+#' @param coll a collection.
+#' @param val an arbitrary value.
 #'
 #' @return a list.
 #'
 #' @section Corner Cases: 
-#'     various types of NA are not-distinguished between. Type conversion is not carried out.
+#'     various types of NA are not-distinguished between. 
+#'     Type conversion is not carried out.
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R

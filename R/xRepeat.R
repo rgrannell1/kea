@@ -3,7 +3,7 @@
 #' 
 #' Repeat a collection several times.
 #'
-#' @param a nonnegative positive number
+#' @param num a nonnegative positive number
 #' @param coll a collection
 #'
 #' @return a list.

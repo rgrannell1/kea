@@ -9,7 +9,6 @@
 #'
 #' @return a variadic function.
 #'
-#' @section Corner Cases: 
 #' @template glossary
 #'
 #' @family higher_order_function

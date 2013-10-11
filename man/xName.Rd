@@ -5,6 +5,8 @@
   xName(strs, coll)
 }
 \arguments{
+  \item{strs}{a collection of strings.}
+
   \item{coll}{a collection}
 }
 \value{

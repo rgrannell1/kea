@@ -15,6 +15,8 @@
 xTimer <- function (num) {
 	# integer -> function
 
+	pcall <- sys.call()	
+
 	assert(
 		!missing(num), sys.call(),
 		exclaim$parameter_missing(num))

@@ -3,7 +3,8 @@
 #' 
 #' Compose two function with the set intersection.
 #'
-#' @param fn1 a unary function.
+#' @param fn1 a unary function
+#' @param fn2 a unary function
 #'
 #' @return a unary function.
 #'

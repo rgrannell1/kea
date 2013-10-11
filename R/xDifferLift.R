@@ -4,6 +4,7 @@
 #' Compose two functions with the set difference.
 #'
 #' @param fn1 a unary function
+#' @param fn2 a unary function
 #'
 #' @return fn1 a unary function.
 #'

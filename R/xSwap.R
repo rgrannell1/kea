@@ -3,6 +3,7 @@
 #' 
 #' Return a function that substitutes certain values of its underlying function with new values.
 #'
+#' @param fn a function.
 #' @param ... any arbitrary number of \code{list(value, value)}.
 #'
 #' @return a list.
