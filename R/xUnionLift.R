@@ -8,13 +8,16 @@
 #'
 #' @return a unary function.
 #'
+#'
 #' @section Corner Cases: 
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
+#' @family function_lifting
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
-
 
 xUnionLift <- function (fn1, fn2) {
 

@@ -47,7 +47,14 @@ x_any_proto <- local({
 	# -------- H ------- #
 
 	# -------- I ------- #
-
+	this$xIdentity <-
+		function () {
+			x_( xIdentity(self_()) )
+		}
+	this$xIdiotBird <-
+		this$xIdentity
+	this$xI <- 
+		this$xIdiotBird
 	# -------- J ------- #
 
 	# -------- K ------- #
@@ -100,8 +107,10 @@ x_any_proto <- local({
 
 
 # -------------------------------- Collection methods -------------------------------- #
-
-
+#
+# methods specific to vectors, lists or pairlists.
+#
+#
 
 
 
@@ -114,7 +123,8 @@ x_coll_proto <- local({
 	this$x <- 
 		function (mode = 'any') {
 			as.vector(self_(), mode)
-		} 
+		}
+
 	# -------- A ------- #
 	this$xAsFunction <- 
 		function () {
@@ -154,7 +164,6 @@ x_coll_proto <- local({
 		function () {
 			x_( xConst(self_()) )
 		}
-
 	# -------- D ------- #
 	this$xDissoc <-
 		function () {
@@ -214,14 +223,6 @@ x_coll_proto <- local({
 	# -------- G ------- #
 	# -------- H ------- #
 	# -------- I ------- #
-	this$xIdentity <-
-		function () {
-			x_( xIdentity(self_()) )
-		}
-	this$xIdiotBird <-
-		this$xIdentity
-	this$xI <- 
-		this$xIdiotBird
 	this$xInit <-
 		function () {
 			x_( xInit(self_()) )
@@ -531,7 +532,8 @@ x_fn_proto <- local({
 	this$x <- 
 		function () {
 			self_()
-		} 
+		}
+
 	# -------- A ------- #
 	this$xAsClosure <-
 		function () {
@@ -638,14 +640,6 @@ x_fn_proto <- local({
 			x_( xHasDefs(self_()) )
 		}
 	# -------- I ------- #
-	this$xIdentity <-
-		function () {
-			x_( xIdentity(self_()) )
-		}
-	this$xIdiotBird <-
-		this$xIdentity
-	this$xI <- 
-		this$xIdiotBird
 	this$xInterLift <-
 		function (fn2) {
 			x_( xInterLift(self_(), fn2) )

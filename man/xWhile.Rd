@@ -26,6 +26,6 @@
   non-terminating.
 }
 \seealso{
-  Other arrow.maps: \code{\link{xUntil}}
+  Other arrow-maps: \code{\link{xUntil}}
 }
 

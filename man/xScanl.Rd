@@ -36,8 +36,11 @@
   \bold{Collection}: A list, pairlist or a typed vector.
 
   \bold{Arity}: The number of arguments a function can
-  accept.  Unary (1), Binary (2), Trinary (3), Quaternary
-  (4), ...., Variadic (Inf).
+  accept.
+
+  \bold{Nullary}: a function with arity zero. \bold{Unary}:
+  a function with arity one. \bold{Binary}: a function with
+  arity two. \bold{Trinary}: a function with arity three.
 
   \bold{Number}: a double, integer or complex number,
   unless stated otherwise.

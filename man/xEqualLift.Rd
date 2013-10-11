@@ -32,8 +32,11 @@
   \bold{Collection}: A list, pairlist or a typed vector.
 
   \bold{Arity}: The number of arguments a function can
-  accept.  Unary (1), Binary (2), Trinary (3), Quaternary
-  (4), ...., Variadic (Inf).
+  accept.
+
+  \bold{Nullary}: a function with arity zero. \bold{Unary}:
+  a function with arity one. \bold{Binary}: a function with
+  arity two. \bold{Trinary}: a function with arity three.
 
   \bold{Number}: a double, integer or complex number,
   unless stated otherwise.
@@ -44,5 +47,19 @@
 }
 \examples{
 inst/examples/blank.R
+}
+\seealso{
+  Other function_lifting: \code{\link{xAndLift}},
+  \code{\link{xByLift}}, \code{\link{xInterLift}},
+  \code{\link{xMinusLift}}, \code{\link{xModLift}},
+  \code{\link{xOrLift}}, \code{\link{xOverLift}},
+  \code{\link{xPlusLift}}, \code{\link{xUnionLift}}
+
+  Other higher_order_function: \code{\link{xAndLift}},
+  \code{\link{xByLift}}, \code{\link{xDifferLift}},
+  \code{\link{xInterLift}}, \code{\link{xMinusLift}},
+  \code{\link{xModLift}}, \code{\link{xOrLift}},
+  \code{\link{xOverLift}}, \code{\link{xPlusLift}},
+  \code{\link{xUnionLift}}
 }
 

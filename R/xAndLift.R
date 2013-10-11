@@ -10,6 +10,9 @@
 #'
 #' @template glossary
 #'
+#' @family function_lifting
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R 
 #' @export
 

@@ -8,6 +8,9 @@
 #'
 #' @return a number.
 #'
+#' @family function_lifting
+#' @family higher_order_function
+#'
 #' @template glossary
 #'
 #' @examples inst/examples/blank.R

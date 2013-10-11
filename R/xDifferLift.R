@@ -10,6 +10,10 @@
 #' @section Corner Cases: 
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
+#'   67 6687-
+
+#' @family function_liftin
+#' @family higher_order_function
 #'
 #' @examples inst/examples/blank.R
 #' @export
