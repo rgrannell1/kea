@@ -21,7 +21,8 @@ xNegate <- function (nums) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(nums), pcall)
+		!missing(nums), pcall,
+		exclaim$parameter_missing(nums))
 
 	assert(
 		is.vector(nums) || is.pairlist(nums), pcall,

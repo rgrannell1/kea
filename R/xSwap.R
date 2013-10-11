@@ -35,7 +35,8 @@ xSwap <- function (fn, ...) {
 	colls <- list(...)
 
 	assert(
-		all(sapply(colls, is.recursive)), pcall)
+		all(sapply(colls, is.recursive)), pcall,
+		exclaim$must_be_recursive_of_collections(colls))
 
 	assert(
 		all(sapply(colls, length) == 2), pcall)
