@@ -87,6 +87,7 @@ x_()$xGraft('xMean', mean)
 x_(1:100)$xMean$x()
 x_(1:199)$xTap(mean)$x()
 ```
+
 ### 2.5 Partial Application
 
 General functions like ```xSelect``` and ```xFold``` can be 
