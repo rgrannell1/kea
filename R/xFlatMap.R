@@ -13,6 +13,9 @@
 #'
 #' @template glossary
 #'
+#'
+#' @family higher_order_function
+#'
 #' @export
 
 xFlatMap <- function (fn, coll) {

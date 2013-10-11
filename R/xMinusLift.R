@@ -10,7 +10,6 @@
 #'
 #' @template glossary
 #'
-#'
 #' @family function_lifting
 #' @family higher_order_function
 #'

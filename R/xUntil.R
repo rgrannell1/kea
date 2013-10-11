@@ -12,7 +12,9 @@
 #'	 an arbitrary value. Potentially non-terminating.
 #'
 #' @return the result of successively applying \code{f} to \code{init}.
-#' @family arrow-maps
+#'
+#' @family higher_order_function
+#'
 #' @export
 
 xUntil <- function (pred, fn, init) {

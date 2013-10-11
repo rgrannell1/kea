@@ -12,6 +12,8 @@
 #'     if any collection is length zero (or no collections are given), then False is returned.
 #' @template glossary
 #'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

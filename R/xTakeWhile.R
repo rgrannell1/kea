@@ -13,6 +13,9 @@
 #'     \code{coll} returns false for the predicate. Na values are considered false.
 #' @template glossary
 #'
+#'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

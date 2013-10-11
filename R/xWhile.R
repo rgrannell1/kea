@@ -12,7 +12,9 @@
 #'	 an arbitrary value. Potentially non-terminating.
 #'
 #' @return the result of successively applying \code{fn} to \code{x}.
-#' @family arrow-maps
+#'
+#' @family higher_order_function
+#'
 #' @export
 
 xWhile <- function (pred, fn, init) {

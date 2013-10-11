@@ -15,6 +15,8 @@
 #'
 #' @template glossary
 #'
+#' @family higher_order_function
+#'
 #' @export
 
 xScanl <- function (fn, init, coll) {

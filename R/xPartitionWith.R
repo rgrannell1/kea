@@ -14,7 +14,11 @@
 #'	 if \code{coll} is empty the empty list is returned. If all the
 #'	 elements return only true/only false, then one of two sublists will be the
 #'	 empty list.
+#'
 #' @template glossary
+#'
+#'
+#' @family higher_order_function
 #'
 #' @examples inst/examples/blank.R
 #' @export

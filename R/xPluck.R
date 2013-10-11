@@ -14,6 +14,9 @@
 #'     then the empty string "" is used to match key-names.
 #' @template glossary
 #'
+#'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

@@ -16,8 +16,6 @@
 #' @examples inst/examples/blank.R
 #' @export
 
-#' @export
-
 xPlusLift <- function (fn1, fn2) {
 	# (a -> number) -> (a -> number) -> (a -> number)
 	

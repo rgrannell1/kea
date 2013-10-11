@@ -14,6 +14,8 @@
 #'
 #' @template glossary
 #'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

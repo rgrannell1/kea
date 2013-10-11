@@ -13,6 +13,9 @@
 #'     returns integer(0) if no match is found.
 #' @template glossary
 #'
+#'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

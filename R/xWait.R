@@ -11,6 +11,8 @@
 #'     if \code{num} is zero then \code{fn} is returned untouched.
 #' @template glossary
 #'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

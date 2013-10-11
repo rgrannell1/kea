@@ -13,6 +13,9 @@
 #'     collection lengths are not equal then elements are recycles in the shorter collections.
 #' @template glossary
 #'
+#'
+#' @family higher_order_function
+#'
 #' @examples inst/examples/blank.R
 #' @export
 

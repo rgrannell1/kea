@@ -11,6 +11,9 @@
 #'	  the empty list is returned if the shortest collection has length-zero, or no collections
 #'	  are included. Each collection is truncated to the length of the shortest collection.
 #'
+#'
+#' @family higher_order_function
+#'
 #' @export
 
 xZipWith <- function (fn, ...) {
