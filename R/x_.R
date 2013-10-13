@@ -517,8 +517,10 @@ x_coll_proto <- local({
 
 
 # -------------------------------- Function methods -------------------------------- #
-
-
+#
+# These methods operate on functions wrapped in the arrow object.
+# I anticipate that these methods will be less used, but there's no reason to exclude them
+# entirely. Methods such as Apply work nicely with this style.
 
 
 
@@ -876,7 +878,7 @@ x_fn_proto <- local({
 #'
 #' @template glossary
 #' 
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 x_ <- function (val) {
