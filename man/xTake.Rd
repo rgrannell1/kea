@@ -45,6 +45,6 @@
   function.
 }
 \examples{
-inst/examples/blank.returned
+inst/examples/blank
 }
 

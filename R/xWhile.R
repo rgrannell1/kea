@@ -40,7 +40,6 @@ xWhile <- function (pred, fn, init) {
 	fn <- dearrowise(fn)
 	init <- dearrowise(init)
 
-
 	assert(
 		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))

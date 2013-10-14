@@ -5,14 +5,12 @@
   xCompose(fn1, fn2)
 }
 \arguments{
-  \item{fn1}{a unary function, or a symbol or name
-  identifying such a function.}
+  \item{fn1}{a unary function.}
 
-  \item{fn2}{a unary function, or a symbol or name
-  identifying such a function.}
+  \item{fn2}{a unary function.}
 }
 \value{
-  A function with the same parameters as \code{g}.
+  A function with the same parameters as \code{fn2}.
 }
 \description{
   Compose two functions.

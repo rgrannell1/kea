@@ -131,7 +131,7 @@ xExists(
 permanently, making them easier to use.
 
 ```javascript
-xVal(n, 1:10)
+xVal(n, 10)
 n <- 11
 
 Error: cannot change value of locked binding for 'n'

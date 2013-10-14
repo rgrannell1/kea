@@ -49,10 +49,7 @@ xPartition <- function (pred, coll) {
 	} else if (length(coll) == 1) {
 		list( coll[[1]] )
 	} else {
-
-		parts <- list()
-
-		parts[[1]] <- list( coll[[1]] )
+		parts <- list( coll[[1]] )
 		colls <- coll[ 2:length(coll) ]
 
 		for (ith in 2:length(coll)) {
