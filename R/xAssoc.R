@@ -24,6 +24,8 @@ xAssoc <- function (coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 	
+	coll <- dearrowise(coll)
+
 	assert(
 		is.recursive(coll), pcall,
 		exclaim$must_be_recursive(coll))

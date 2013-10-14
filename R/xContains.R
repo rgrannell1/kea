@@ -28,6 +28,9 @@ xContains <- function (coll, val) {
 		!missing(val), pcall,
 		exclaim$parameter_missing(val))
 
+	coll <- dearrowise(coll)
+	val <- dearrowise(val)
+
 	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))

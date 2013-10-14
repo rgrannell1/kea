@@ -23,6 +23,8 @@ xGet <- function (str) {
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
 
+	str <- dearrowise(str)
+
 	assert(
 		is.character(str), pcall,
 		exclaim$must_be_character(str))

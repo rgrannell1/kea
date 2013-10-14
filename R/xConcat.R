@@ -21,7 +21,7 @@ xConcat <- function (...) {
 
 	pcall <- sys.call()
 
-	colls <- list(...)
+	colls <- lapply(list(...), dearrowise)
 
 	assert(
 		all(sapply(colls, is_collection)), pcall,

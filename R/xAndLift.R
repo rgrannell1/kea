@@ -20,6 +20,6 @@ xAndLift <- function (pred1, pred2) {
 	# (a -> logical) -> (a -> logical) -> (a -> logical)
 	# Return a function that then tests if a
 	# pair of functions are true for its input.
-	
+
 	xPhoenix("&&", pred1, pred2)
 }

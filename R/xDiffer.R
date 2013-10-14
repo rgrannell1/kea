@@ -28,6 +28,9 @@ xDiffer <- function (coll1, coll2) {
 		!missing(coll2), pcall,
 		exclaim$parameter_missing(coll2))
 
+	coll1 <- dearrowise(coll1)
+	coll2 <- dearrowise(coll2)
+
 	assert(
 		is_collection(coll1), pcall,
 		exclaim$must_be_collection(coll1))

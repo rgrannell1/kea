@@ -27,6 +27,8 @@ xLast <- function (coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	coll <- dearrowise(coll)
+
 	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))

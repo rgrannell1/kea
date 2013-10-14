@@ -21,11 +21,13 @@ xCollapse <- function (str, ...) {
 
 	pcall <- sys.call()
 	
-	strs <- list(...)
+	strs <- lapply(list(...), dearrowise)
 
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
+
+	str <- dearrowise(str)
 
 	assert(
 		is_collection(str), pcall,
@@ -42,8 +44,6 @@ xCollapse <- function (str, ...) {
 	assert(
 		length(str) %in% c(0, 1),
 		exclaim$must_have_length( str, c(0, 1)) )
-
-	strs <- coerce_to_vector(c(...), 'character')
 
 	if (length(strs) == 0) {
 		character(0)

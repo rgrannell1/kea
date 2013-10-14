@@ -30,6 +30,9 @@ xDrop <- function (num, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	num <- dearrowise(num)
+	coll <- dearrowise(coll)
+
 	assert(
 		length(num) == 1, pcall,
 		exclaim$must_have_length(num, 1))

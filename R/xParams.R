@@ -28,6 +28,8 @@ xParams <- function (fn) {
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
 
+	fn <- dearrowise(fn)
+
 	assert(
 		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))

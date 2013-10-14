@@ -26,23 +26,30 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	assert(
 		!missing(fn1), pcall,
 		exclaim$parameter_missing(fn1))
+	
 	assert(
-		!missing(fn2), pcall)
+		!missing(fn2), pcall,
+		exclaim$parameter_missing(fn2))
+	
 	assert(
 		!missing(fn3), pcall,
 		exclaim$parameter_missing(fn3))
 
-	assert(
-		is.function(fn1) || is.symbol(fn1) || 
-		(is.character(fn1) && length(fn1) == 1), pcall)
-	
-	assert(
-		is.function(fn2) || is.symbol(fn2) || 
-		(is.character(fn2) && length(fn2) == 1), pcall)
+	fn1 <- dearrowise(fn1)
+	fn2 <- dearrowise(fn2)
+	fn3 <- dearrowise(fn3)
 
 	assert(
-		is.function(fn3) || is.symbol(fn3) || 
-		(is.character(fn3) && length(fn3) == 1), pcall)
+		is_fn_matchable(fn1), pcall,
+		exclaim$must_be_matchable(fn1))
+	
+	assert(
+		is_fn_matchable(fn2), pcall,
+		exclaim$must_be_matchable(fn2))
+
+	assert(
+		is_fn_matchable(fn3), pcall,
+		exclaim$must_be_matchable(fn3))
 
 	fn1 <- match.fun(fn1)
 	fn2 <- match.fun(fn2)

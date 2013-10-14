@@ -28,6 +28,9 @@ xLimit <- function (num, fn) {
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
 
+	num <- dearrowise(num)
+	fn <- dearrowise(fn)
+
 	num <- coerce_to_vector(num, 'numeric')
 
 	assert(

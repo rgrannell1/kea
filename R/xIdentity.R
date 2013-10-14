@@ -20,6 +20,8 @@ xIdentity <- function (val) {
 		!missing(val), pcall,
 		exclaim$parameter_missing(val))
 
+	val <- dearrowise(val)
+
 	val
 }
 #' @export

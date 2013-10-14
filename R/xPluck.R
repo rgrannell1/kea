@@ -32,11 +32,16 @@ xPluck <- function (str, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
-	assert(
-		is.character(str) && length(str) == 1, pcall)
+	str <- dearrowise(str)
+	coll <- dearrowise(coll)
 
 	assert(
-		is.recursive(coll), pcall)
+		is.character(str) && length(str) == 1, pcall,
+		exclaim$must_be_string(str))
+
+	assert(
+		is.recursive(coll), pcall,
+		exclaim$must_be_recursive(coll))
 
 	assert(
 		all( sapply(coll, is.recursive) ), pcall)

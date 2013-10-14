@@ -38,6 +38,10 @@ xFoldl <- function (fn, init, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	fn <- dearrowise(fn)
+	init <- dearrowise(init)
+	coll <- dearrowise(coll)
+
 	assert(
 		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))

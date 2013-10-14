@@ -22,7 +22,7 @@ xJuxtapose <- function (...) {
 
 	pcall <- sys.call()
 
-	fns <- list(...)
+	fns <- lapply(list(...), dearrowise)
 
 	assert(
 		is.recursive(fns), pcall,

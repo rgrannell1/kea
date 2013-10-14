@@ -92,6 +92,18 @@ join_env <- function (a, b) {
 	as.environment( c(as.list( a ), as.list( b )) )
 }
 
+is_arrow <- function (val) {
+	class(val) == "arrow"
+}
+
+dearrowise <- function (val) {
+	if (is_arrow(val)) {
+		val$x()
+	} else {
+		val
+	}
+}
+
 is_fn_matchable <- function (val) {
 	is.function(val) || is.symbol(val) || 
 	(is.character(val) && length(val) == 1)

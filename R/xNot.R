@@ -21,5 +21,7 @@ xNot <- function (pred) {
 		!missing(pred), sys.call(),
 		exclaim$parameter_missing(pred))
 
+	pred <- dearrowise(pred)
+
 	xCompose(function (val) !val, pred)
 }

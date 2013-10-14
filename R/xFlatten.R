@@ -29,6 +29,9 @@ xFlatten <- function (num, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	num <- dearrowise(num)
+	coll <- dearrowise(coll)
+
 	num <- coerce_to_vector(num, 'numeric')
 
 	assert(

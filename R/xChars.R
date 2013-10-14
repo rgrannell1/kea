@@ -26,6 +26,8 @@ xChars <- function (str) {
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
 
+	str <- dearrowise(str)
+
 	assert(
 		length(str) %in% c(0, 1), pcall,
 		exclaim$must_have_length( str, c(0, 1)) )

@@ -21,5 +21,5 @@
 
 xInterLift <- function (fn1, fn2) {
 	
-	xPhoenix(xInterLift, fn1, fn2)
+	xPhoenix(xInter, fn1, fn2)
 }

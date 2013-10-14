@@ -30,6 +30,9 @@ xPartial <- function (fn, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	fn <- dearrowise(fn)
+	coll <- dearrowise(coll)
+
 	assert(
 		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
