@@ -11,7 +11,7 @@
 #'     If \code{nums} is empty then the unit of that vector is returned.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xSucc <- function (nums) {
@@ -21,12 +21,14 @@ xSucc <- function (nums) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(nums), pcall)
+		!missing(nums), pcall,
+		exclaim$parameter_missing(nums))
 
 	assert(
-		is.vector(nums) || is.pairlist(nums) && is.numeric(unlist(nums)), pcall)
-
-	nums <- unlist(nums)
+		is_collection(nums), pcall,
+		exclaim$must_be_collection(nums))
+	
+	nums <- coerce_to_vector(nums, 'numeric')
 
 	if (length(nums) == 0) {
 		nums

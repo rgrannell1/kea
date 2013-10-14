@@ -12,7 +12,7 @@
 #'     returns the empty list if \code{coll} is length-zero or num is zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xRepeat <- function (num, coll) {

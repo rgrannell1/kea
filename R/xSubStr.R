@@ -12,7 +12,7 @@
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xSubStr <- function (str, nums) {
@@ -24,11 +24,14 @@ xSubStr <- function (str, nums) {
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
+
 	assert(
-		!missing(nums), pcall)
+		!missing(nums), pcall,
+		exclaim$parameter_missing(nums))
 
 	assert(
 		is.character(str) && length(str) < 2, pcall)
+	
 	assert(
 		is.numeric(nums) && all(round(nums) == nums), pcall)
 	

@@ -12,7 +12,7 @@
 #'     returns the empty list if \code{num} is zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xCombinations <- function (num, coll) {

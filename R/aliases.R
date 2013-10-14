@@ -124,7 +124,7 @@ coerce_to_vector <- function (coll, mode) {
 	if (is_homogenous) {
 		as.vector(coll, mode)
 	} else {
-		exclaim$type_coersion_failed(coll, mode)
+		stop(exclaim$type_coersion_failed(coll, mode))
 	}
 }
 

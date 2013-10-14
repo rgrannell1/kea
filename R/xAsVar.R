@@ -13,7 +13,8 @@ xAsVar <- function (str) {
 
 	assert(
 		(is.character(str) && length(str) == 1) || 
-		is.name(str), pcall)
+		is.name(str), pcall,
+		exclaim$must_be_nameable(str))
 
 	if (exists(str, envir = pframe)) {
 		unlockBinding(str, pframe)

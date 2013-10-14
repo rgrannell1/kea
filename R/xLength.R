@@ -11,7 +11,7 @@
 #'     returns 0 if \code{coll} is empty.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xLength <- function (coll) {

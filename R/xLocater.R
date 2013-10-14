@@ -1,5 +1,4 @@
 
-
 #' xLocater
 #'
 #' Get the position of the last element for which a predicate returns true.
@@ -16,7 +15,7 @@
 #'
 #' @family higher_order_function
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xLocater <- function (pred, coll) {

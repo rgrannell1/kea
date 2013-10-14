@@ -12,7 +12,7 @@
 #'
 #' @template glossary
 #'
-#' @examples inst/examples/blank.Rinst/examples/blank.R
+#' @example inst/examples/blank.Rinst/examples/blank.R
 #' @export
 
 xIsNan <- function (coll) {

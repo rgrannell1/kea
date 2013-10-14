@@ -14,7 +14,7 @@
 #'
 #' @family higher_order_function
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xSwap <- function (fn, ...) {
@@ -39,7 +39,8 @@ xSwap <- function (fn, ...) {
 		exclaim$must_be_recursive_of_collections(colls))
 
 	assert(
-		all(sapply(colls, length) == 2), pcall)
+		all(sapply(colls, length) == 2), pcall,
+		exclaim$must_be_collection_of_length(colls))
 
 	fn <- match.fun(fn)
 

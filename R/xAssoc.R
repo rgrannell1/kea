@@ -1,7 +1,7 @@
 
 #' xAssoc
 #' 
-#' Convert a list of name : value lists into a named list.
+#' Convert a list of name : value collections into a named list.
 #'
 #' @param coll a list or pairlist of list or pairlist pairs, with the first element being a 
 #'	string and the second element being any value.
@@ -12,7 +12,7 @@
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xAssoc <- function (coll) {
@@ -29,7 +29,8 @@ xAssoc <- function (coll) {
 		exclaim$must_be_recursive(coll))
 	
 	assert(
-		all(sapply(coll, length) == 2), pcall)
+		all(sapply(coll, length) == 2), pcall,
+		exclaim$must_be_collection_of_length(coll, 2))
 
 	if (length(coll) == 0) {
 		list()
@@ -38,7 +39,11 @@ xAssoc <- function (coll) {
 			coll,
 			function (elem) {
 				key <- elem[[1]]
-				assert(is.character(key) && length(key) == 1, pcall)
+
+				assert(
+					is.character(key) && length(key) == 1, pcall,
+					exclaim$must_be_string(key))
+				
 				key
 			},
 			character(1), USE.NAMES = False)
@@ -48,3 +53,11 @@ xAssoc <- function (coll) {
 			names = keys)		
 	}
 }
+
+
+
+
+
+
+
+

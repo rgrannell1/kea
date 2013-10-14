@@ -11,7 +11,7 @@
 #'     returns True if coll is Null.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xIsNull <- function (coll) {

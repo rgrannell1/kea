@@ -902,9 +902,7 @@ x_ <- function (val) {
 	proto_ref <-
 		if (is.function( obj[['x']] )) {
 			x_fn_proto
-		} else if (is.vector( obj[['x']] )){
-			x_coll_proto
-		} else if (is.pairlist( obj[['x']] )) {
+		} else if (is.vector( obj[['x']] ) || is.pairlist( obj[['x']] )){
 			x_coll_proto
 		} else {
 			x_any_proto

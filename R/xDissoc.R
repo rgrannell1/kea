@@ -12,7 +12,7 @@
 #'     returns \code{list()} if \code{coll} is length-zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xDissoc <- function (coll) {

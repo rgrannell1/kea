@@ -13,7 +13,7 @@
 #'
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xModLift <- function (fn1, fn2) {

@@ -13,7 +13,7 @@
 #'     Type conversion is not carried out.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xContains <- function (coll, val) {

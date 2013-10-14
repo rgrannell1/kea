@@ -14,7 +14,7 @@
 #' @family function_lifting
 #' @family higher_order_function
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xOverLift <- function (fn1, fn2) {

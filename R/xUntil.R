@@ -27,9 +27,11 @@ xUntil <- function (pred, fn, init) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+	
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+	
 	assert(
 		!missing(init), pcall, 
 		exclaim$parameter_missing(init))

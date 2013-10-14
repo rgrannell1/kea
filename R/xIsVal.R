@@ -11,7 +11,7 @@
 #'     If a variable isn't assigned, then \code{false} is returned.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xIsVal <- function (str) {

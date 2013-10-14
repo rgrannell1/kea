@@ -14,6 +14,13 @@ exclaim <- list(
 			" must be a function, or a symbol or string" %+% 
 			" that can be looked-up as a function."
 		},
+	must_be_nameable = 
+		function (param) {
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% param %+% 
+			" a symbol or string."
+		},
 	must_be_collection =
 		function (param) {
 			param <- paste(match.call()$param)
@@ -78,6 +85,15 @@ exclaim <- list(
 
 			"the argument matching " %+% param %+% 
 			" must be a character vector."
+
+		},
+	must_be_string	 = 
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% param %+% 
+			" must be a length one character vector."
 
 		},
 	must_be_whole =
@@ -160,7 +176,7 @@ exclaim <- list(
 
 			"the arguments matching " %+% param %+% 
 			" must be a list or pairlist of " %+% mode %+% "s" %+%
-			" or a " %+% mode %+% " vector."
+			", or a " %+% mode %+% " vector."
 
 		},
 	method_not_found = 

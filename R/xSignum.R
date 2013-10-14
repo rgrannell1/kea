@@ -12,7 +12,7 @@
 #'	 The sign of zero is zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xSignum <- function (nums) {

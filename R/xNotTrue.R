@@ -11,7 +11,7 @@
 #'     returns logical(0) if \code{coll} is length-zero.
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xNotTrue <- function (coll) {

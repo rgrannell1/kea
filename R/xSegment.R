@@ -15,7 +15,7 @@
 #'
 #' @template glossary
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 xSegment <- function (num, coll) {

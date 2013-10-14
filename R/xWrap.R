@@ -13,7 +13,7 @@
 #'
 #' @family higher_order_function
 #'
-#' @examples inst/examples/blank.R
+#' @example inst/examples/blank.R
 #' @export
 
 # fn2 takes func to wrap, extra args.
