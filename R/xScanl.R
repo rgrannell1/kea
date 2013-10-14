@@ -28,12 +28,18 @@ xScanl <- function (fn, init, coll) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(init), pcall, 
 		exclaim$parameter_missing(init))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
+
+	fn <- dearrowise(fn)
+	init <- dearrowise(init)
+	coll <- dearrowise(coll)
 
 	assert(
 		is_fn_matchable(fn), pcall, 

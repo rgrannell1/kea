@@ -36,6 +36,10 @@ xUntil <- function (pred, fn, init) {
 		!missing(init), pcall, 
 		exclaim$parameter_missing(init))
 
+	pred <- dearrowise(pred)
+	fn <- dearrowise(fn)
+	init <- dearrowise(init)
+
 	assert(
 		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))

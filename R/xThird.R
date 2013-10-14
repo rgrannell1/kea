@@ -26,9 +26,7 @@ xThird <- function (coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
-	assert(
-		!missing(coll), pcall, 
-		exclaim$parameter_missing(coll))
+	coll <- dearrowise(coll)
 
 	assert(
 		is_collection(coll), pcall,

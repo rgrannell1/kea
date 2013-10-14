@@ -28,12 +28,14 @@ xMapMany <- function (fn, ...) {
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
 
+	fn <- dearrowise(fn)
+
 	assert(
 		is_fn_matchable(fn), pcall, 
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
-	colls <- list(...)
+	colls <- lapply(list(...), dearrowise)
 
 	coll_lens <- sapply(colls, length)
 

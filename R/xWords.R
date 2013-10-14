@@ -18,6 +18,8 @@ xWords <- function (str) {
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
 
+	str <- dearrowise(str)
+
 	str <- coerce_to_vector(str, 'character')
 
 	assert(

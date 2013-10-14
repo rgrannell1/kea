@@ -26,9 +26,13 @@ xMapAlong <- function (fn, coll) {
 	assert(
 		!missing(fn), pcall, 
 		exclaim$parameter_missing(fn))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
+
+	fn <- dearrowise(fn)
+	coll <- dearrowise(coll)
 
 	assert(
 		is_fn_matchable(fn), pcall, 

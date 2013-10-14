@@ -25,7 +25,8 @@ xThread <- function (init, ...) {
 		!missing(init), pcall, 
 		exclaim$parameter_missing(init))
 
-	fns <- list(...)
+	init <- dearrowise(init)
+	fns <- lapply(list(...), dearrowise)
 
 	assert(all(sapply(fns, is_fn_matchable)), pcall)
 

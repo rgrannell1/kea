@@ -21,6 +21,7 @@ xTimer <- function (num) {
 		!missing(num), sys.call(),
 		exclaim$parameter_missing(num))
 
+	num <- dearrowise(num)
 	num <- coerce_to_vector(num, 'numeric')
 
 	assert(

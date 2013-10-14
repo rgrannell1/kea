@@ -25,10 +25,14 @@ xPoll <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
+	
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 	
+	pred <- dearrowise(pred)
+	coll <- dearrowise(coll)
+
 	assert(
 		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))

@@ -44,7 +44,8 @@ xPluck <- function (str, coll) {
 		exclaim$must_be_recursive(coll))
 
 	assert(
-		all( sapply(coll, is.recursive) ), pcall)
+		all( sapply(coll, is.recursive) ), pcall,
+		exclaim$must_be_recursive_of_collections(coll))
 
 	if (length(coll) == 0) {
 		list()

@@ -23,9 +23,13 @@ xUnion <- function (coll1, coll2) {
 	assert(
 		!missing(coll1), pcall,
 		exclaim$parameter_missing(coll1))
+
 	assert(
 		!missing(coll2), pcall,
 		exclaim$parameter_missing(coll2))
+
+	coll1 <- dearrowise(coll1)
+	coll2 <- dearrowise(coll2)
 
 	assert(
 		is_collection(coll1), pcall,

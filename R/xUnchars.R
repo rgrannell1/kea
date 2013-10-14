@@ -12,7 +12,7 @@ xUnchars <- function (...) {
 	# collapse the collection strs with the empty str.
 
 	pcall <- sys.call()
-	strs <- c(...)
+	strs <- lapply(c(...), dearrowise)
 	
 	assert(
 		is_collection(strs), pcall,

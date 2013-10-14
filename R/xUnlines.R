@@ -14,7 +14,10 @@ xUnlines <- function (strs) {
 	pcall <- sys.call()
 	
 	assert(
-		!missing(strs), pcall)
+		!missing(strs), pcall,
+		exclaim$parameter_missing(strs))
+
+	strs <- dearrowise(strs)
 
 	assert(
 		is_collection(strs), pcall,

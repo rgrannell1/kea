@@ -18,36 +18,47 @@
 #' @export
 
 xWhile <- function (pred, fn, init) {
-		# (any -> boolean) -> (any -> any) -> any
-		# repeatedly apply unary to x, until p of 
-		# the result is true"
+	# (any -> boolean) -> (any -> any) -> any
+	# repeatedly apply unary to x, until p of 
+	# the result is true"
 
-		pcall <- sys.call()
+	pcall <- sys.call()
 
-		assert(
-			!missing(pred), pcall)
-		assert(
-			!missing(fn), pcall)
-		assert(
-			!missing(init), pcall)
+	assert(
+		!missing(pred), pcall,
+		exclaim$parameter_missing(pred))
 
-		assert(
-			is.function(pred) || is.symbol(pred) || 
-			(is.character(pred) && length(pred) == 1), pcall)
-		assert(
-			is.function(fn) || is.symbol(fn) || 
-			(is.character(fn) && length(fn) == 1), pcall)
+	assert(
+		!missing(fn), pcall,
+		exclaim$parameter_missing(fn))
 
-		fn <- match.fun(fn)
-		pred <- match.fun(pred)
+	assert(
+		!missing(init), pcall,
+		exclaim$parameter_missing(init))
 
-		repeat {
-			is_match <- pred(init)
+	pred <- dearrowise(pred)
+	fn <- dearrowise(fn)
+	init <- dearrowise(init)
 
-			assert(is.logical(is_match), pcall)
 
-			if (!is_match) break
-			init <- fn(init)
-		}
-		init
+	assert(
+		is_fn_matchable(pred), pcall,
+		exclaim$must_be_matchable(pred))
+
+	assert(
+		is_fn_matchable(fn), pcall,
+		exclaim$must_be_matchable(fn))
+
+	fn <- match.fun(fn)
+	pred <- match.fun(pred)
+
+	repeat {
+		is_match <- pred(init)
+
+		assert(is.logical(is_match), pcall)
+
+		if (!is_match) break
+		init <- fn(init)
+	}
+	init
 }

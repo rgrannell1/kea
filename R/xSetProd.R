@@ -18,7 +18,12 @@ xSetProd <- function (...) {
 	# set the cartesian product of n collections
 
 	pcall <- sys.call()
-	colls <- list(...)
+
+	assert(
+		!missing(coll), pcall, 
+		exclaim$parameter_missing(coll))
+	
+	colls <- lapply(list(...), dearrowise)
 
 	assert(
 		all( sapply(colls, function (coll) {

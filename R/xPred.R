@@ -25,6 +25,8 @@ xPred <- function (nums) {
 		!missing(nums), pcall,
 		exclaim$parameter_missing(nums))
 
+	nums <- dearrowise(nums)
+
 	assert(
 		is_collection(nums), pcall,
 		exclaim$must_be_collection(nums))

@@ -28,16 +28,23 @@ xSegment <- function (num, coll) {
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
+
 	assert(
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	num <- dearrowise(num)
+	coll <- dearrowise(coll)
+
 	assert(
-		length(num) == 1, pcall)
+		length(num) == 1, pcall,
+		exclaim$must_have_length(num, 1))
+
+	num <- coerce_to_vector(num, 'numeric')
+	
 	assert(
-		is.numeric(num), pcall)
-	assert(
-		num >= 0, pcall)
+		num >= 0, pcall,
+		exclaim$must_be_grequal_than(num, 0))
 
 	assert(
 		is_collection(coll), pcall,

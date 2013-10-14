@@ -24,6 +24,7 @@ xVal <- function (str, val) {
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
+
 	assert(
 		!missing(val), pcall,
 		exclaim$parameter_missing(val))

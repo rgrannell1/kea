@@ -23,9 +23,13 @@ xSplitStr <- function (rexp, str) {
 
 	assert(
 		!missing(rexp), pcall)
+
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
+
+	rexp <- dearrowise(rexp)
+	str <- dearrowise(str)
 
 	assert(
 		is.character(rexp) && length(rexp) == 1, pcall)

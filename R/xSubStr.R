@@ -29,6 +29,9 @@ xSubStr <- function (str, nums) {
 		!missing(nums), pcall,
 		exclaim$parameter_missing(nums))
 
+	str <- dearrowise(str)
+	nums <- dearrowise(nums)
+
 	assert(
 		is.character(str) && length(str) < 2, pcall)
 	

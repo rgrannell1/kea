@@ -28,6 +28,9 @@ xRepeat <- function (num, coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
+	num <- dearrowise(num)
+	coll <- dearrowise(coll)
+
 	assert(
 		is.numeric(num), pcall,
 		exclaim$must_be_numeric(num))

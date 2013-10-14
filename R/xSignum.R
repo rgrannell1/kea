@@ -24,14 +24,12 @@ xSignum <- function (nums) {
 	assert(
 		!missing(nums), pcall,
 		exclaim$parameter_missing(nums))
+
+	nums <- dearrowise(nums)
 	
 	assert(
 		is_collection(nums), pcall,
 		exclaim$must_be_collection(nums))
-
-	assert(
-		all(sapply(nums, length) == 1), pcall,
-		exclaim$must_be_collection_of_length(nums, 1))
 
 	nums <- coerce_to_vector(nums, 'numeric')
 
