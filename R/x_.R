@@ -121,11 +121,11 @@ x_matrix_proto <- local({
 	# -------- A ------- #
 	this$xAsCols <-
 		function () {
-
+			x_( apply(self_(), 2, as.list) )
 		}
 	this$xAsRows <-
 		function () {
-
+			x_( apply(self_(), 1, as.list) )
 		}
 	# -------- B ------- #
 
@@ -136,11 +136,11 @@ x_matrix_proto <- local({
 	# -------- E ------- #
 	this$xElemsByCols <-
 		function () {
-
+			x_( as.list(self_()) )
 		}
 	this$xElemsByRows <-
 		function () {
-			
+			x_(as.list( t(self_()) ))			
 		}
 	# -------- F ------- #
 
@@ -1122,6 +1122,8 @@ x_ <- function (val) {
 			x_fn_proto
 		} else if (is.vector( obj[['x']] ) || is.pairlist( obj[['x']] )){
 			x_coll_proto
+		} else if (is.matrix( obj[['x']] )) {
+			x_matrix_proto
 		} else {
 			x_any_proto
 		}
