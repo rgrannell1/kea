@@ -121,11 +121,33 @@ x_matrix_proto <- local({
 	# -------- A ------- #
 	this$xAsCols <-
 		function () {
-			x_( apply(self_(), 2, as.list) )
+
+			dims <- dim(self_())
+
+			if (dims[1] == 0 && dims[0] == 0) {
+				list()
+			} else if (dims[2] == 0) {
+				list()
+			} else if (dims[1] == 0) {
+				replicate( max(dims), list() )
+			} else {
+				x_( apply(self_(), 2, as.list) )
+			}	
 		}
+
 	this$xAsRows <-
 		function () {
-			x_( apply(self_(), 1, as.list) )
+			dims <- dim(self_())
+
+			if (dims[1] == 0 && dims[0] == 0) {
+				list()
+			} else if (dims[1] == 0) {
+				list()
+			} else if (dims[2] == 0) {
+				replicate( max(dims), list() )
+			} else {
+				x_( apply(self_(), 1, as.list) )
+			}
 		}
 	# -------- B ------- #
 
@@ -136,15 +158,23 @@ x_matrix_proto <- local({
 	# -------- E ------- #
 	this$xElemsByCols <-
 		function () {
-			x_( as.list(self_()) )
+			if (prod(dim(self_()) == 0)) {
+				list()
+			} else {
+				x_( as.list(self_()) )				
+			}
 		}
 	this$xElemsByRows <-
 		function () {
-			x_(as.list( t(self_()) ))			
+			if (prod(dim(self_()) == 0)) {
+				list()
+			} else {
+				x_(as.list( t(self_()) ))		
+			}
 		}
 	# -------- F ------- #
 
-	# -------- G ------- #
+	# -------- G ------- #	
 
 	# -------- H ------- #
 
