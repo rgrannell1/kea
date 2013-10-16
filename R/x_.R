@@ -1158,9 +1158,23 @@ x_ <- function (val) {
 			x_any_proto
 		}
 
-	assert(
-		method_name %in% ls(proto_ref), pcall,
-		exclaim$method_not_found(method_name))
+	if (!method_name %in% ls(proto_ref)) {
+
+		# a cheap and nasty heuristic for finding the 'best' match
+		similar <- 
+			agrep(
+				pattern = method_name, 
+				x = ls(proto_ref), 
+				fixed = False, 
+				value = True)
+
+		similar <- similar[ which.min(nchar(similar)) ]
+
+		assert(
+			method_name %in% ls(proto_ref), pcall,
+			exclaim$method_not_found(method_name, similar))
+	}
+
 
 	fn <- proto_ref[[method_name]]
 
