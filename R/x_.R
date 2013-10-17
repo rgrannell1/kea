@@ -119,7 +119,7 @@ x_matrix_proto <- local({
 	this <- object()
 
 	# -------- A ------- #
-	this$xAsCols <-
+	this$xByCols <-
 		function () {
 
 			dims <- dim(self_())
@@ -135,7 +135,7 @@ x_matrix_proto <- local({
 			}	
 		}
 
-	this$xAsRows <-
+	this$xByRows <-
 		function () {
 			dims <- dim(self_())
 
@@ -291,67 +291,6 @@ x_data_frame_proto <- local({
 
 
 
-x_table_proto <- local({
-
-	this <- object()
-
-	# -------- A ------- #
-
-	# -------- B ------- #
-
-	# -------- C ------- #
-
-	# -------- D ------- #
-
-	# -------- E ------- #
-
-	# -------- F ------- #
-
-	# -------- G ------- #
-
-	# -------- H ------- #
-
-	# -------- I ------- #
-
-	# -------- J ------- #
-
-	# -------- K ------- #
-
-	# -------- L ------- #
-
-	# -------- M ------- #
-
-	# -------- N ------- #
-
-	# -------- O ------- #
-
-	# -------- P ------- #
-
-	# -------- Q ------- #
-
-	# -------- R ------- #
-
-	# -------- S ------- #
-
-	# -------- T ------- #
-
-	# -------- U ------- #
-
-	# -------- V ------- #
-
-	# -------- W ------- #
-
-	# -------- X ------- #
-
-	# -------- Y ------- #
-
-	# -------- Z ------- #
-
-	
-	as.environment(
-		c(as.list(this), as.list(x_any_proto)) )
-
-})
 
 
 # -------------------------------- Collection methods -------------------------------- #
@@ -1160,13 +1099,16 @@ x_ <- function (val) {
 
 	if (!method_name %in% ls(proto_ref)) {
 
-		# a cheap and nasty heuristic for finding the 'best' match
+		# a cheap and nasty heuristic for finding the 'best' match.
+		# should eventually fine-tune the parameters for agrep.
+
 		similar <- 
 			agrep(
 				pattern = method_name, 
 				x = ls(proto_ref), 
 				fixed = False, 
-				value = True)
+				value = True,
+				max.distance = 1/35)
 
 		similar <- similar[ which.min(nchar(similar)) ]
 
