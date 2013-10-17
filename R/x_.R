@@ -110,7 +110,7 @@ x_any_proto <- local({
 # -------------------------------- Not-quite-a-collection methods -------------------------------- #
 #
 # methods for non-canonical data types in arrow; data frames, tables, matrices and other odd and 
-# sometimes awkward structures. Almost exclusively conversion methods. Data.table conversion would be nice too.
+# sometimes awkward structures. Almost exclusively conversion and reshaping methods. 
 #
 #
 
@@ -201,7 +201,10 @@ x_matrix_proto <- local({
 	# -------- S ------- #
 
 	# -------- T ------- #
-
+	this$xTranspose <-
+		function () {
+			x_( t(self_()) )
+		}
 	# -------- U ------- #
 
 	# -------- V ------- #
@@ -1100,7 +1103,6 @@ x_ <- function (val) {
 	if (!method_name %in% ls(proto_ref)) {
 
 		# a cheap and nasty heuristic for finding the 'best' match.
-		# should eventually fine-tune the parameters for agrep.
 
 		similar <- 
 			agrep(
@@ -1108,7 +1110,14 @@ x_ <- function (val) {
 				x = ls(proto_ref), 
 				fixed = False, 
 				value = True,
-				max.distance = 1/35)
+				max.distance = list(
+					cost = 0.1
+				),
+				cost = list(
+					insertions = 2,
+					deletions = 4,
+					substitutions = 1
+				))
 
 		similar <- similar[ which.min(nchar(similar)) ]
 
@@ -1116,7 +1125,6 @@ x_ <- function (val) {
 			method_name %in% ls(proto_ref), pcall,
 			exclaim$method_not_found(method_name, similar))
 	}
-
 
 	fn <- proto_ref[[method_name]]
 
