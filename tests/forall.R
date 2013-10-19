@@ -1,4 +1,42 @@
 
+G <- local({
+
+	gcombine <- function (...) {
+
+		fns <- list(...)
+
+		function () {
+			sample(fns, size = 1)()
+		}
+	}
+
+	this <- list()
+	this$logical_functions <-
+		function () {
+			sample(list(
+				function () True,
+				function () False,
+				function () Na), size = 1)
+		}
+	this$recursive_zero <-
+		function () {
+			sample(list(NULL, list()), size = 1)
+		}
+	this$typed_vector_zero <-
+		function () {
+			sample(
+				list(
+					integer(), character(),
+					raw(), logical(), numeric()), size = 1)
+		}
+	this$collection_zero <-
+		gcombine(
+			this$typed_vector_zero, 
+			this$recursive_zero)
+
+	this
+})
+
 forall <- function (cases, expect, given, max_time = 0.1) {
 
 	pcall <- sys.call()
@@ -30,7 +68,7 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 	body(expect) <- expect_expr
 	body(given) <- given_expr
 	
-	# ----- 
+	# ----- check that the expectation is true for a range of cases
 
 	state <- list(
 		tests_run = 0,
@@ -68,28 +106,3 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 			state$failed_after, 
 			state$failed))
 }
-
-
-
-forall(
-	list(xs = function () 1, ys = function () 2),
-	True
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
