@@ -235,7 +235,10 @@ x_data_frame_proto <- local({
 	# -------- A ------- #
 
 	# -------- B ------- #
-
+	this$xByCols <-
+		function () {
+			unname( as.list(self_()) )
+		}
 	# -------- C ------- #
 
 	# -------- D ------- #
@@ -385,6 +388,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xFirst(self_()) )
 		}
+	this$xFilter <-
+		function (coll) {
+			x_( xFilter(self_(), coll) )
+		} 
 	this$xFoldl <-
 		function (fn, init) {
 			x_( xFoldl(fn, init, self_()) )
@@ -802,6 +809,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xFixDefs(self_()) )
 		}
+	this$xFilter <-
+		function (pred) {
+			x_( xFilter(pred, self_()) )
+		}
 	this$xFlip <- 
 		this$xCardinal
 	this$xFlatMap <-
@@ -1102,8 +1113,6 @@ x_ <- function (val) {
 
 	if (!method_name %in% ls(proto_ref)) {
 
-		# a cheap and nasty heuristic for finding the 'best' match.
-
 		similar <- 
 			agrep(
 				pattern = method_name, 
@@ -1111,13 +1120,15 @@ x_ <- function (val) {
 				fixed = False, 
 				value = True,
 				max.distance = list(
-					cost = 0.1
+					cost = 0.07
 				),
 				cost = list(
 					insertions = 2,
 					deletions = 4,
 					substitutions = 1
 				))
+
+		# a cheap and nasty heuristic for finding the 'best' match.
 
 		similar <- similar[ which.min(nchar(similar)) ]
 

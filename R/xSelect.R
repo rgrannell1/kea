@@ -52,3 +52,7 @@ xSelect <- function (pred, coll) {
 		as.list( coll[ !is.na(ind) & ind ] )
 	}
 }
+
+#' @export
+
+xFilter <- xSelect

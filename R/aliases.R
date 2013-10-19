@@ -10,6 +10,13 @@ object <- function () {
 	new.env(parent = emptyenv())
 }
 
+as_parametres <- function (names) {
+	structure(
+		replicate(length(names), quote(expr=)),
+		names = names
+	)
+}
+
 call_with_params <- function (name, fn) {
 	# string -> function -> call
 	# create call for a function with

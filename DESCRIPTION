@@ -145,3 +145,4 @@ Collate:
     'xAsVal.R'
     'xIsNan.R'
     'xNotNan.R'
+    'forall.R'

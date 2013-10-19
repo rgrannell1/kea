@@ -1,4 +1,9 @@
  
+# -------------------------------- exclaim -------------------------------- #
+#
+# error messages for the forall testing function.
+#
+
 exclaim <- list(
 	parameter_missing = 
 		function (param) {
@@ -190,3 +195,48 @@ exclaim <- list(
 			}
 		}
 )
+
+
+
+# -------------------------------- lament -------------------------------- #
+#
+# error messages for the forall testing function.
+#
+
+ddparse <- function (val, collapse = "") {
+	paste0(deparse(val), collapse = collapse)
+}
+newline <- function (val) {
+	paste0(val, collapse = "\n")
+}
+
+lament <- list(
+	non_function_cases =
+		function () {
+
+			param <- paste(match.call()$param)
+
+			stop(
+				dQuote("cases"), " must be a list of functions.", 
+				call. = False)
+		},
+	non_boolean_expectation = 
+		function (case) {
+
+			stop(
+				"expectation returned a non-boolean ", 
+				"value when called with \n\n", 
+				ddparse(case), call. = False)
+		},
+	failed_cases = 
+		function (after, failed) {
+
+			cases <- sapply(lapply(failed, unname), ddparse)
+			cases <- newline(cases[ 1:min(10, length(cases)) ])
+
+			stop(
+				"failed after ", after, " cases!\n", cases, 
+				call. = False)
+		}
+)
+
