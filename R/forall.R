@@ -11,7 +11,7 @@ G <- local({
 
 		this <- list()
 		
-		this$oneof <- 
+		this$one_of <- 
 			function (coll) {
 			# select a single value from a collection.
 
@@ -31,7 +31,7 @@ G <- local({
 						all( sapply(cases, is.function) ), pcall,
 						lament$non_function_cases(info))
 
-					oneof(fns)()
+					one_of(fns)()
 				}
 			}
 
@@ -46,7 +46,7 @@ G <- local({
 
 	this$letters <-
 		function () {
-			oneof(letters)
+			one_of(letters)
 		}
 
 	# -------- logical values -------- #
@@ -74,26 +74,29 @@ G <- local({
 		function () {
 			function () False
 		}
+	# beats 'nonapplicability'.
 	this$mu <-
 		function () {
 			function () Na
 		}
 
 	this$boolean_functions <-
-		tools$gcombine(this$truth, this$falsity)
+		tools$gcombine(
+			this$truth, this$falsity)
 
 	this$logical_functions <-
-		tools$gcombine(this$boolean_functions, this$mu)
+		tools$gcombine(
+			this$boolean_functions, this$mu)
 
 	# -------- empty data structures -------- #
 
 	this$recursive_zero <-
 		function () {
-			oneof( list(NULL, list()) )
+			one_of( list(NULL, list()) )
 		}
 	this$typed_vector_zero <-
 		function () {
-			oneof(list(
+			one_of(list(
 				integer(), character(), 
 				raw(), logical(), numeric()) )
 		}
@@ -102,10 +105,25 @@ G <- local({
 			this$typed_vector_zero,
 			this$recursive_zero)
 
+
+
+
 	# ---------------- parameterised functions ---------------- #
+	#
+	# these function generators need additional parameters to  
+	# construct their return function. This usually includes
+	# the standard deviation of the length or magnitude of
+	# their ultimate return value. 
+	#
 
 	# -------- number functions -------- #
 
+	this$integer <-
+		function (sd = 20) {
+			function () {
+				round(rnorm(1, 0, sd), 0)
+			}
+		}
 	this$nonnegative <-
 		function (sd = 20) {
 			function () {
@@ -131,7 +149,7 @@ G <- local({
 			}
 		}
 
-	# -------- collection functions -------- #
+	# -------- collection-generating-functions -------- #
 
 	this$vector_of <-
 		function (fn, sd = 20) {
@@ -147,6 +165,27 @@ G <- local({
 				coll
 			}
 		}
+	this$list_of <-
+		function (fn, sd = 20) {
+			function () {
+					
+				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				coll <- list()
+				while (length(coll) < len) {
+					val <- list( fn()[[ 1 ]] )
+					coll <- c(coll, val)
+				}
+				coll
+			}
+		}
+
+	# -------- collection functions -------- #
+
+	this$words <-
+		this$vector_of(this$word)
+	this$integers <-
+		this$vector_of(this$integer)
 
 
 
@@ -154,7 +193,7 @@ G <- local({
 
 
 
-		
+
 	this
 })
 
@@ -175,6 +214,9 @@ G <- local({
 forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	pcall <- sys.call()
+
+
+	print( match.call() )
 
 	assert(
 		all( sapply(cases, is.function) ), pcall,
