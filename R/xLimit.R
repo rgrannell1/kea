@@ -31,7 +31,7 @@ xLimit <- function (num, fn) {
 	num <- dearrowise(num)
 	fn <- dearrowise(fn)
 
-	num <- coerce_to_vector(num, 'numeric')
+	num <- coerce_to_typed_vector(num, 'numeric')
 
 	assert(
 		length(num) == 1, pcall,

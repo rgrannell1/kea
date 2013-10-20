@@ -32,7 +32,7 @@ xFlatten <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- coerce_to_vector(num, 'numeric')
+	num <- coerce_to_typed_vector(num, 'numeric')
 
 	assert(
 		num > 0, pcall,

@@ -20,7 +20,7 @@ xWords <- function (str) {
 
 	str <- dearrowise(str)
 
-	str <- coerce_to_vector(str, 'character')
+	str <- coerce_to_typed_vector(str, 'character')
 
 	assert(
 		length(str) %in% c(0, 1), pcall,

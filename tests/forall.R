@@ -1,4 +1,10 @@
 
+# -------------------------------- G -------------------------------- #
+#
+# this structure contains random-testcase generating thunks.
+# these are primarily going to be used for forall-based testing.
+#
+
 G <- local({
 
 	gcombine <- function (...) {
@@ -6,6 +12,11 @@ G <- local({
 		fns <- list(...)
 
 		function () {
+
+			assert(
+				all( sapply(cases, is.function) ), pcall,
+				lament$non_function_cases(info))
+
 			sample(fns, size = 1)[[1]]()
 		}
 	}
@@ -31,11 +42,16 @@ G <- local({
 		}
 	this$collection_zero <-
 		gcombine(
-			this$typed_vector_zero, 
+			this$typed_vector_zero,
 			this$recursive_zero)
 
 	this
 })
+
+
+# -------------------------------- forall -------------------------------- #
+#
+# forall tests if an expression holds true over a range of random test-cases.
 
 forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
@@ -43,8 +59,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	assert(
 		all( sapply(cases, is.function) ), pcall,
-		lament$non_function_cases(info)
-	)
+		lament$non_function_cases(info))
 
 	# ----- capture the expect and given expressions as functions
 

@@ -7,14 +7,21 @@ True <- TRUE
 False <- FALSE
 
 object <- function () {
+	# construct an empty environment.
+
 	new.env(parent = emptyenv())
 }
 
 '%equals%' <- function (a, b) {
+	# are two values identical?
+
 	identical(a, b)
 }
 
 as_parametres <- function (names) {
+	# takes a string of names and converts them to
+	# a pairlist of formals with no defaults.
+
 	structure(
 		replicate(length(names), quote(expr=)),
 		names = names
@@ -32,10 +39,13 @@ call_with_params <- function (name, fn) {
 			as.symbol))
 }
 
-assert <- function (bool, pcall, message) {
+assert <- function (expr, pcall, message) {
+	# does an expression evaluate to true?
+	# if not, throw a lovely error.
+
 	args <- as.list(match.call())[-1]
 
-	if (!bool) {
+	if (!expr) {
 		call <- if (missing(pcall)) {
 			'assert()'
 		} else {
@@ -51,7 +61,7 @@ assert <- function (bool, pcall, message) {
 			stop(
 				call,
 				": the assertion\n",
-				"    ", paste0(deparse(args$bool), collapse = ''), "\n",
+				"    ", paste0(deparse(args$expr), collapse = ''), "\n",
 				"failed.",
 				call. = False)
 						
@@ -69,6 +79,8 @@ tau <- 6.2831853071795864769252867
 cc <- list
 
 ith_suffix <- function (num) {
+	# takes a number i, adds the 
+	# appropriate suffix (ith, ind, ist)
 
 	last <- as.numeric(substr(
 		toString(num), 
@@ -76,25 +88,28 @@ ith_suffix <- function (num) {
 		nchar(toString(num)) ))
 
 	suffix <- 
-	if (num == 2) {
-		"nd"
-	} else if (num == 3) { 
-		"rd"
-	} else if (num == 11 || num == 12 || num == 13) {
-		"th"
-	} else if (last == 1) {
-		"st"
-	} else if (last == 2) {
-		"nd"
-	} else if (last == 3) {
-		"rd"
-	} else {
-		"th"
-	}
+		if (num == 2) {
+			"nd"
+		} else if (num == 3) { 
+			"rd"
+		} else if (num == 11 || num == 12 || num == 13) {
+			"th"
+		} else if (last == 1) {
+			"st"
+		} else if (last == 2) {
+			"nd"
+		} else if (last == 3) {
+			"rd"
+		} else {
+			"th"
+		}
+
 	paste0(num, suffix)
 }
 
 "%+%" <- function (x, y) {
+	# javascript-style string concatenation.
+
 	paste0(x, y, sep = "")
 }
 
@@ -113,6 +128,7 @@ join_env <- function (x, y) {
 }
 
 is_arrow <- function (val) {
+	# is a function an arrow object?
 
 	if (missing(val)) {
 		exclaim$parameter_missing(val)
@@ -122,6 +138,9 @@ is_arrow <- function (val) {
 }
 
 dearrowise <- function (val) {
+	# if a value is in an arrow object, take it out. 
+	# otherwise do nothing.
+
 	if (is_arrow(val)) {
 		val$x()
 	} else {
@@ -130,15 +149,22 @@ dearrowise <- function (val) {
 }
 
 is_fn_matchable <- function (val) {
+	# is a value a function or matchable as a function?
+
 	is.function(val) || is.symbol(val) || 
 	(is.character(val) && length(val) == 1)
 }
 
 is_collection <- function (val) {
+	# is a value a pairlist, list or typed vector?
+
 	is.vector(val) || is.pairlist(val)
 }
 
-coerce_to_vector <- function (coll, mode) {
+coerce_to_typed_vector <- function (coll, mode) {
+	# coerces an R vector (pairlist, list, or typed vector)
+	# to another mode, if the vector is homogenously typed.
+	# this makes list("a") ~ "a", making arrow more generic.
 
 	types <- list(
 		logical = 
@@ -164,11 +190,3 @@ coerce_to_vector <- function (coll, mode) {
 		stop(exclaim$type_coersion_failed(coll, mode))
 	}
 }
-
-
-
-
-
-
-
-

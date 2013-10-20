@@ -22,7 +22,7 @@ xTimer <- function (num) {
 		exclaim$parameter_missing(num))
 
 	num <- dearrowise(num)
-	num <- coerce_to_vector(num, 'numeric')
+	num <- coerce_to_typed_vector(num, 'numeric')
 
 	assert(
 		num > 0, pcall,

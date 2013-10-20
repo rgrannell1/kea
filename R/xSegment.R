@@ -40,7 +40,7 @@ xSegment <- function (num, coll) {
 		length(num) == 1, pcall,
 		exclaim$must_have_length(num, 1))
 
-	num <- coerce_to_vector(num, 'numeric')
+	num <- coerce_to_typed_vector(num, 'numeric')
 	
 	assert(
 		num >= 0, pcall,
