@@ -18,6 +18,7 @@ G <- local({
 			ith <- sample(seq_along(coll), size = 1)
 			coll[[ith]]
 		}
+
 		this$gcombine <-
 			function (...) {
 				# combine several thunks into one thunk, that
@@ -32,6 +33,36 @@ G <- local({
 						lament$non_function_cases(info))
 
 					one_of(fns)()
+				}
+			}
+
+		this$vector_of <-
+			function (fn, sd = 20) {
+				function () {
+					
+					len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+					coll <- vector()
+					while (length(coll) < len) {
+						val <- fn()
+						coll <- c(coll, val)
+					}
+					coll
+				}
+			}
+		
+		this$list_of <-
+			function (fn, sd = 20) {
+				function () {
+						
+					len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+					coll <- list()
+					while (length(coll) < len) {
+						val <- list( fn()[[ 1 ]] )
+						coll <- c(coll, val)
+					}
+					coll
 				}
 			}
 
@@ -149,43 +180,12 @@ G <- local({
 			}
 		}
 
-	# -------- collection-generating-functions -------- #
-
-	this$vector_of <-
-		function (fn, sd = 20) {
-			function () {
-				
-				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
-
-				coll <- vector()
-				while (length(coll) < len) {
-					val <- fn()[[ 1 ]]
-					coll <- c(coll, val)
-				}
-				coll
-			}
-		}
-	this$list_of <-
-		function (fn, sd = 20) {
-			function () {
-					
-				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
-
-				coll <- list()
-				while (length(coll) < len) {
-					val <- list( fn()[[ 1 ]] )
-					coll <- c(coll, val)
-				}
-				coll
-			}
-		}
-
 	# -------- collection functions -------- #
 
 	this$words <-
-		this$vector_of(this$word)
+		tools$vector_of(this$word)
 	this$integers <-
-		this$vector_of(this$integer)
+		tools$vector_of(this$integer)
 
 
 
