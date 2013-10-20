@@ -1,12 +1,184 @@
 
-forall <- function (cases, expect, given, max_time = 0.1) {
+# -------------------------------- G -------------------------------- #
+#
+# this structure contains random-testcase generating thunks.
+# these are primarily going to be used for forall-based testing.
+#
+
+G <- local({
+
+	tools <- local({
+
+		this <- list()
+		
+		this$oneof <- 
+			function (coll) {
+			# select a single value from a collection.
+
+			ith <- sample(seq_along(coll), size = 1)
+			coll[[ith]]
+		}
+		this$gcombine <-
+			function (...) {
+				# combine several thunks into one thunk, that
+				# yields one of the underlying thunks. thunk thunk thunk.
+
+				fns <- list(...)
+
+				function () {
+
+					assert(
+						all( sapply(cases, is.function) ), pcall,
+						lament$non_function_cases(info))
+
+					oneof(fns)()
+				}
+			}
+
+		this
+	})
+
+	this <- list()
+
+	# ---------------- non-parameterised functions ---------------- #
+
+	# -------- letters -------- #
+
+	this$letters <-
+		function () {
+			oneof(letters)
+		}
+
+	# -------- logical values -------- #
+
+	this$true <-
+		function () {
+			True
+		}
+	this$false <-
+		function () {
+			False
+		}
+	this$na <-
+		function () {
+			Na
+		}
+
+	# -------- logical functions -------- #
+	
+	this$truth <-
+		function () {
+			function () True
+		}
+	this$falsity <-
+		function () {
+			function () False
+		}
+	this$mu <-
+		function () {
+			function () Na
+		}
+
+	this$boolean_functions <-
+		tools$gcombine(this$truth, this$falsity)
+
+	this$logical_functions <-
+		tools$gcombine(this$boolean_functions, this$mu)
+
+	# -------- empty data structures -------- #
+
+	this$recursive_zero <-
+		function () {
+			oneof( list(NULL, list()) )
+		}
+	this$typed_vector_zero <-
+		function () {
+			oneof(list(
+				integer(), character(), 
+				raw(), logical(), numeric()) )
+		}
+	this$collection_zero <-
+		tools$gcombine(
+			this$typed_vector_zero,
+			this$recursive_zero)
+
+	# ---------------- parameterised functions ---------------- #
+
+	# -------- number functions -------- #
+
+	this$nonnegative <-
+		function (sd = 20) {
+			function () {
+				abs(round(rnorm(1, 0, sd), 0))				
+			}
+		}
+	this$positive <-
+		function (sd = 20) {
+			function () {
+				abs(round(rnorm(1, 0, sd), 0)) + 1				
+			}
+		}
+
+	# -------- character functions -------- #
+
+	this$word <-
+		function (sd = 20) {
+			function () {
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				paste0(
+					sample(letters, size = size, replace = True),
+					collapse = "")
+			}
+		}
+
+	# -------- collection functions -------- #
+
+	this$vector_of <-
+		function (fn, sd = 20) {
+			function () {
+				
+				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				coll <- vector()
+				while (length(coll) < len) {
+					val <- fn()[[ 1 ]]
+					coll <- c(coll, val)
+				}
+				coll
+			}
+		}
+
+
+
+
+
+
+
+		
+	this
+})
+
+
+
+
+
+
+
+
+
+
+
+# -------------------------------- forall -------------------------------- #
+#
+# forall tests if an expression holds true over a range of random test-cases.
+
+forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	pcall <- sys.call()
 
 	assert(
 		all( sapply(cases, is.function) ), pcall,
-		lament$non_function_cases()
-	)
+		lament$non_function_cases(info))
 
 	# ----- capture the expect and given expressions as functions
 
@@ -30,7 +202,7 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 	body(expect) <- expect_expr
 	body(given) <- given_expr
 	
-	# ----- 
+	# ----- check that the expectation is true for a range of cases
 
 	state <- list(
 		tests_run = 0,
@@ -49,7 +221,7 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 
 			assert(
 				result %in% c(True, False), pcall,
-				lament$non_boolean_expectation(case))
+				lament$non_boolean_expectation(info, case))
 
 			if (!result) {
 				state$failed_after <- 
@@ -65,31 +237,9 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 		length(state$failed) == 0,
 		pcall,
 		lament$failed_cases(
+			info,
 			state$failed_after, 
 			state$failed))
+
+	message(info, " passed!")
 }
-
-
-
-forall(
-	list(xs = function () 1, ys = function () 2),
-	True
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

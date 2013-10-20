@@ -8,9 +8,9 @@
 G <- local({
 
 	tools <- local({
-		# functions for combining thunks.
 
 		this <- list()
+		
 		this$oneof <- 
 			function (coll) {
 			# select a single value from a collection.
@@ -35,13 +35,19 @@ G <- local({
 				}
 			}
 
-
 		this
 	})
 
 	this <- list()
 
 	# ---------------- non-parameterised functions ---------------- #
+
+	# -------- letters -------- #
+
+	this$letters <-
+		function () {
+			oneof(letters)
+		}
 
 	# -------- logical values -------- #
 
@@ -72,8 +78,10 @@ G <- local({
 		function () {
 			function () Na
 		}
+
 	this$boolean_functions <-
 		tools$gcombine(this$truth, this$falsity)
+
 	this$logical_functions <-
 		tools$gcombine(this$boolean_functions, this$mu)
 
@@ -81,7 +89,7 @@ G <- local({
 
 	this$recursive_zero <-
 		function () {
-			oneof(list(NULL, list())
+			oneof( list(NULL, list()) )
 		}
 	this$typed_vector_zero <-
 		function () {
@@ -111,10 +119,42 @@ G <- local({
 			}
 		}
 
+	# -------- character functions -------- #
+
+	this$word <-
+		function (sd = 20) {
+			function () {
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				paste0(
+					sample(letters, size = size, replace = True),
+					collapse = "")
+			}
+		}
+
+	# -------- collection functions -------- #
+
+	this$vector_of <-
+		function (fn, sd = 20) {
+			function () {
+				
+				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				coll <- vector()
+				while (length(coll) < len) {
+					val <- fn()[[ 1 ]]
+					coll <- c(coll, val)
+				}
+				coll
+			}
+		}
 
 
 
 
+
+
+
+		
 	this
 })
 
