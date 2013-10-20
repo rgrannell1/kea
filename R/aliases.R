@@ -117,7 +117,7 @@ join_env <- function (x, y) {
 	# do not use this often; it's a very slow
 	# way of joining two environments.
 
-	if (missing(x) {
+	if (missing(x)) {
 		exclaim$parameter_missing(x)
 	}
 	if (missing(y)) {

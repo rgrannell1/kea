@@ -7,46 +7,125 @@
 
 G <- local({
 
-	gcombine <- function (...) {
+	tools <- local({
+		# functions for combining thunks.
 
-		fns <- list(...)
+		this <- list()
+		this$oneof <- 
+			function (coll) {
+			# select a single value from a collection.
 
-		function () {
-
-			assert(
-				all( sapply(cases, is.function) ), pcall,
-				lament$non_function_cases(info))
-
-			sample(fns, size = 1)[[1]]()
+			ith <- sample(seq_along(coll), size = 1)
+			coll[[ith]]
 		}
-	}
+		this$gcombine <-
+			function (...) {
+				# combine several thunks into one thunk, that
+				# yields one of the underlying thunks. thunk thunk thunk.
+
+				fns <- list(...)
+
+				function () {
+
+					assert(
+						all( sapply(cases, is.function) ), pcall,
+						lament$non_function_cases(info))
+
+					oneof(fns)()
+				}
+			}
+
+
+		this
+	})
 
 	this <- list()
-	this$logical_functions <-
+
+	# ---------------- non-parameterised functions ---------------- #
+
+	# -------- logical values -------- #
+
+	this$true <-
 		function () {
-			sample(list(
-				function () True,
-				function () False,
-				function () Na), size = 1)[[1]]
+			True
 		}
+	this$false <-
+		function () {
+			False
+		}
+	this$na <-
+		function () {
+			Na
+		}
+
+	# -------- logical functions -------- #
+	
+	this$truth <-
+		function () {
+			function () True
+		}
+	this$falsity <-
+		function () {
+			function () False
+		}
+	this$mu <-
+		function () {
+			function () Na
+		}
+	this$boolean_functions <-
+		tools$gcombine(this$truth, this$falsity)
+	this$logical_functions <-
+		tools$gcombine(this$boolean_functions, this$mu)
+
+	# -------- empty data structures -------- #
+
 	this$recursive_zero <-
 		function () {
-			sample(list(NULL, list()), size = 1)[[1]]
+			oneof(list(NULL, list())
 		}
 	this$typed_vector_zero <-
 		function () {
-			sample(
-				list(
-					integer(), character(),
-					raw(), logical(), numeric()), size = 1)[[1]]
+			oneof(list(
+				integer(), character(), 
+				raw(), logical(), numeric()) )
 		}
 	this$collection_zero <-
-		gcombine(
+		tools$gcombine(
 			this$typed_vector_zero,
 			this$recursive_zero)
 
+	# ---------------- parameterised functions ---------------- #
+
+	# -------- number functions -------- #
+
+	this$nonnegative <-
+		function (sd = 20) {
+			function () {
+				abs(round(rnorm(1, 0, sd), 0))				
+			}
+		}
+	this$positive <-
+		function (sd = 20) {
+			function () {
+				abs(round(rnorm(1, 0, sd), 0)) + 1				
+			}
+		}
+
+
+
+
+
 	this
 })
+
+
+
+
+
+
+
+
+
 
 
 # -------------------------------- forall -------------------------------- #
