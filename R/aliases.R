@@ -10,6 +10,10 @@ object <- function () {
 	new.env(parent = emptyenv())
 }
 
+'%equals%' <- function (a, b) {
+	identical(a, b)
+}
+
 as_parametres <- function (names) {
 	structure(
 		replicate(length(names), quote(expr=)),
@@ -94,12 +98,26 @@ ith_suffix <- function (num) {
 	paste0(x, y, sep = "")
 }
 
-join_env <- function (a, b) {
+join_env <- function (x, y) {
+	# do not use this often; it's a very slow
+	# way of joining two environments.
 
-	as.environment( c(as.list( a ), as.list( b )) )
+	if (missing(x) {
+		exclaim$parameter_missing(x)
+	}
+	if (missing(y)) {
+		exclaim$parameter_missing(y)
+	}
+
+	as.environment( c(as.list( x ), as.list( y )) )
 }
 
 is_arrow <- function (val) {
+
+	if (missing(val)) {
+		exclaim$parameter_missing(val)
+	}
+
 	class(val) == "arrow"
 }
 

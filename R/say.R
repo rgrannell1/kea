@@ -212,29 +212,29 @@ newline <- function (val) {
 
 lament <- list(
 	non_function_cases =
-		function () {
+		function (info) {
 
 			param <- paste(match.call()$param)
 
-			stop(
+			stop(info, "\n:",
 				dQuote("cases"), " must be a list of functions.", 
 				call. = False)
 		},
 	non_boolean_expectation = 
-		function (case) {
+		function (info, case) {
 
-			stop(
+			stop(info, "\n:",
 				"expectation returned a non-boolean ", 
 				"value when called with \n\n", 
 				ddparse(case), call. = False)
 		},
 	failed_cases = 
-		function (after, failed) {
+		function (info, after, failed) {
 
 			cases <- sapply(lapply(failed, unname), ddparse)
 			cases <- newline(cases[ 1:min(10, length(cases)) ])
 
-			stop(
+			stop(info, "\n:",
 				"failed after ", after, " cases!\n", cases, 
 				call. = False)
 		}

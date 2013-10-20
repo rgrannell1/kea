@@ -6,7 +6,7 @@ G <- local({
 		fns <- list(...)
 
 		function () {
-			sample(fns, size = 1)()
+			sample(fns, size = 1)[[1]]()
 		}
 	}
 
@@ -16,18 +16,18 @@ G <- local({
 			sample(list(
 				function () True,
 				function () False,
-				function () Na), size = 1)
+				function () Na), size = 1)[[1]]
 		}
 	this$recursive_zero <-
 		function () {
-			sample(list(NULL, list()), size = 1)
+			sample(list(NULL, list()), size = 1)[[1]]
 		}
 	this$typed_vector_zero <-
 		function () {
 			sample(
 				list(
 					integer(), character(),
-					raw(), logical(), numeric()), size = 1)
+					raw(), logical(), numeric()), size = 1)[[1]]
 		}
 	this$collection_zero <-
 		gcombine(
@@ -37,13 +37,13 @@ G <- local({
 	this
 })
 
-forall <- function (cases, expect, given, max_time = 0.1) {
+forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	pcall <- sys.call()
 
 	assert(
 		all( sapply(cases, is.function) ), pcall,
-		lament$non_function_cases()
+		lament$non_function_cases(info)
 	)
 
 	# ----- capture the expect and given expressions as functions
@@ -87,7 +87,7 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 
 			assert(
 				result %in% c(True, False), pcall,
-				lament$non_boolean_expectation(case))
+				lament$non_boolean_expectation(info, case))
 
 			if (!result) {
 				state$failed_after <- 
@@ -103,6 +103,9 @@ forall <- function (cases, expect, given, max_time = 0.1) {
 		length(state$failed) == 0,
 		pcall,
 		lament$failed_cases(
+			info,
 			state$failed_after, 
 			state$failed))
+
+	message(info, " passed!")
 }

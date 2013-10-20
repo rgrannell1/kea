@@ -26,8 +26,8 @@ test_that("xSelect", {
 forall(
 	list(
 		fn = G$logical_functions,
-		coll = G$collection_empty),
-	xSelect(fn, coll)
+		coll = G$collection_zero),
+	xSelect(fn, coll) %equals% list()
 )
 
 
