@@ -224,6 +224,7 @@ G <- local({
 						function () function (n) n %% 2 == 0,
 					coll =
 						G$integers()
+			
 				)
 			}
 
@@ -308,6 +309,10 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 			
 			state$tests_run <- state$tests_run + 1
 			result <- do.call(expect, case)
+
+			assert(
+				length(result) == 1, pcall,
+				lament$non_singular_expectation(info, length(result)) )
 
 			assert(
 				result %in% c(True, False), pcall,

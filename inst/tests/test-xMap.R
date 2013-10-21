@@ -1,10 +1,25 @@
 
-context("xMap")
+context("xMap: positive controls")
 
-test_that("xMap", {
+forall(
+	"the empty collection always yields the empty list.",
+	list(fn = G$logical_functions, coll = G$collection_zero),
+	xMap(fn, coll) %equals% list()
+)
 
-	expect_equal(xMap(mean, list()), list())
-	expect_equal(xMap(identity, 1:3), list(1, 2, 3))
-	expect_equal(xMap(function (x) x * x, 1:3), list(1, 4, 9))
+forall(
+	"mapping identity over the list preserves its contents & length.",
+	list(coll = G$collection),
+	xMap(identity, coll) %equals% as.list(coll) &&
+	length(xMap(identity, coll)) == length(coll)
+)
 
-})
+forall(
+	"mapping increment increments the list",
+	list(
+		fn = function () {
+			function (x) x + 1
+		}, 
+		coll = G$integers()),
+	all( unlist(xMap(fn, coll)) == unlist(coll) + 1 )
+)

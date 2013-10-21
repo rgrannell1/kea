@@ -228,6 +228,13 @@ lament <- list(
 				"value when called with \n\n", 
 				ddparse(case), call. = False)
 		},
+	non_singular_expectation =
+		function (info, len) {
+			
+			stop(info, "\n",
+				"expectation returned a non-length-one ", 
+				"value (actual length was ", len , ")", call. = False)
+		},
 	failed_cases = 
 		function (info, after, failed) {
 
