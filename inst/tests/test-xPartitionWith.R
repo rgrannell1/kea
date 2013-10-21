@@ -1,24 +1,59 @@
 
-context('xPartitionWith')
+context("xPartitionWith: positive controls")
 
-test_that('xPartitionWith', {
+forall(
+	"the empty collection always yields the empty list.",
+	list(fn = G$logical_functions, coll = G$collection_zero),
+	xPartitionWith(fn, coll) %equals% list()
+)
 
-	isOdd <- function (x) {
-		x %% 2 == 0
-	}
+forall(
+	"a truth function is [list collection, list unit].",
+	G$standard$truth_with_coll(),
+	expect = 
+		xPartitionWith(fn, coll) %equals% 
+			list( as.list(coll), list() ),
+	given = 
+		length(coll) > 0
+)
 
-	expect_equal(xPartitionWith(Truth, list()), list())
+forall(
+	"a falsity function is [list unit, list collection].",
+	G$standard$falsity_with_coll(),
+	xPartitionWith(fn, coll) %equals% 
+		list( list(), as.list(coll) ),
+)
 
-	expect_equal(
-		xPartitionWith(Truth, list(1, 2, 3)),
-		list(list(1, 2, 3), list()) )
+forall(
+	"a na function is [list unit, list collection].",
+	G$standard$mu_with_coll(),
+	xPartitionWith(fn, coll) %equals% 
+		list( list(), as.list(coll) )
+)
 
-	expect_equal(
-		xPartitionWith(Falsity, list(1, 2, 3)),
-		list(list(), list(1, 2, 3)) )
+forall(
+	"partitioning the integers by evenness works as expected, and ordering is preserved.",
+	G$standard$mod2_over_ints(),
+	xPartitionWith(fn, coll) %equals% 
+		list( 
+			as.list(coll[coll %% 2 == 0]), 
+			as.list(coll[coll %% 2 == 1]) )
+)
 
-	expect_equal(
-		xPartitionWith(isOdd, list(1, 2, 3, 4)),
-		list(list(2, 4), list(1, 3)) )
+forall(
+	"collection.xPartitionWith partitions into even and odd-numbers.",
+	G$standard$mod2_over_ints(),
+	x_(coll)$xPartitionWith(fn)$x() %equals% 
+		list( 
+			as.list(coll[coll %% 2 == 0]), 
+			as.list(coll[coll %% 2 == 1]) )
+)
 
-})
+forall(
+	"function.xPartitionWith partitions into even and odd-numbers.",
+	G$standard$mod2_over_ints(),
+	x_(fn)$xPartitionWith(coll)$x() %equals% 
+		list( 
+			as.list(coll[coll %% 2 == 0]), 
+			as.list(coll[coll %% 2 == 1]) )
+)
