@@ -29,21 +29,21 @@ forall(
 	xSelect(fn, coll) %equals% list()
 )
 
-
 forall(
-	"a truth function is list identity for collection."
+	"a truth function is list identity for collection.",
 	list(fn = G$truth, coll = G$collection),
-	xSelect(fn, coll) %equals% coll
+	expect = xSelect(fn, coll) %equals% coll,
+	given = length(coll) > 0
 )
 
 forall(
-	"a falsity function is list unit for collection."
+	"a falsity function is list unit for collection.",
 	list(fn = G$falsity, coll = G$collection),
 	xSelect(fn, coll) %equals% list()
 )
 
 forall(
-	"a na function is list unit for collection."
+	"a na function is list unit for collection.",
 	list(fn = G$mu, coll = G$collection),
 	xSelect(fn, coll) %equals% list()
 )
@@ -54,6 +54,6 @@ forall(
 		fn = function () {
 			function (x) x %% 2 == 0
 		},
-		coll = G$integers),
+		coll = G$integers()),
 	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
 )
