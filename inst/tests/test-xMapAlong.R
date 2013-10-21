@@ -36,11 +36,30 @@ forall(
 
 forall(
 	"mapalong's can increment correctly.",
-	list(
-		fn = function () {
-			function (val, ind) val + 1
-		},
-		coll = G$integers()
-	),
+	G$standard$inc2_over_ints,
 	all( unlist(xMapAlong(fn, coll)) == unlist(coll) + 1 )
 )
+
+
+context("arrow $ xMapAlong: positive controls")
+
+forall(
+	"collection.xMapAlong increments correctly.",
+	G$standard$inc2_over_ints,
+	{
+		all( unlist(x_(coll)$xMapAlong(fn)$x()) == unlist(coll) + 1 )
+	}
+)
+
+forall(
+	"function.xMapAlong increments correctly.",
+	G$standard$inc2_over_ints,
+	{
+		all( unlist(x_(fn)$xMapAlong(coll)$x()) == unlist(coll) + 1 )
+	}
+)
+
+
+
+
+
