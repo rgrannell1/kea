@@ -22,13 +22,17 @@ forall(
 	G$standard$falsity_with_coll(),
 	xPartitionWith(fn, coll) %equals% 
 		list( list(), as.list(coll) ),
+	given = 
+		length(coll) > 0
 )
 
 forall(
 	"a na function is [list unit, list collection].",
 	G$standard$mu_with_coll(),
 	xPartitionWith(fn, coll) %equals% 
-		list( list(), as.list(coll) )
+		list( list(), as.list(coll) ),
+	given = 
+		length(coll) > 0
 )
 
 forall(
