@@ -9,7 +9,7 @@ forall(
 
 forall(
 	"a truth function is list identity for collection.",
-	list(fn = G$truth, coll = G$collection),
+	G$standard$truth_with_coll(),
 	expect = 
 		xSelect(fn, coll) %equals% coll,
 	given = 
@@ -18,45 +18,32 @@ forall(
 
 forall(
 	"a falsity function is list unit for collection.",
-	list(fn = G$falsity, coll = G$collection),
+	G$standard$falsity_with_coll(),
 	xSelect(fn, coll) %equals% list()
 )
 
 forall(
 	"a na function is list unit for collection.",
-	list(fn = G$mu, coll = G$collection),
+	G$standard$mu_with_coll(),
 	xSelect(fn, coll) %equals% list()
 )
 
 forall(
-	"selecting the odd-numbers works as expected, and ordering is preserved.",
-	list(
-		fn = function () {
-			function (x) x %% 2 == 0
-		},
-		coll = G$integers()
-	),
+	"selecting the even-numbers works as expected, and ordering is preserved.",
+	G$standard$mod2_over_ints(),
 	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
 )
 
 forall(
-	"collection.xSelect works as expected.",
-	list(
-		fn = function () {
-			function (x) x %% 2 == 0
-		},
-		coll = G$integers()
-	),
-	x_(coll)$xSelect(fn)$x() %equals% as.list(coll[coll %% 2 == 0])
+	"collection.xSelect selects even-numbers.",
+	G$standard$mod2_over_ints(),
+	x_(coll)$xSelect(fn)$x() %equals% 
+		as.list(coll[coll %% 2 == 0])
 )
 
 forall(
-	"function.xSelect works as expected.",
-	list(
-		fn = function () {
-			function (x) x %% 2 == 0
-		},
-		coll = G$integers()
-	),
-	x_(fn)$xSelect(coll)$x() %equals% as.list(coll[coll %% 2 == 0])
+	"function.xSelect selects even-numbers.",
+	G$standard$mod2_over_ints(),
+	x_(fn)$xSelect(coll)$x() %equals% 
+		as.list(coll[coll %% 2 == 0])
 )

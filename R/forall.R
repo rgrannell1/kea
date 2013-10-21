@@ -205,15 +205,49 @@ G <- local({
 			}
 		}
 
+	# -------- standard -------- #
+	#
+	# this structure contains 'pre-approved' test cases for reuse
+	# between different functions. It is important that shared 
+	# test-case generators are used, to reduce the points of failure for 
+	# each unit test.
+	#
 
+	this$standard <- local({
 
+		this <- list()
 
+		this$mod2_over_ints <- 
+			function () {
+				list(
+					fn = 
+						function () function (n) n %% 2 == 0,
+					coll =
+						G$integers()
+				)
+			}
+
+		this$truth_with_coll <- 
+			function () {
+				list(fn = G$truth, coll = G$collection)
+			}
+
+		this$falsity_with_coll <- 
+			function () {
+				list(fn = G$falsity, coll = G$collection)
+			}
+		
+		this$mu_with_coll <- 
+			function () {
+				list(fn = G$mu, coll = G$collection)
+			}
+
+		this
+	})
 
 
 	this
 })
-
-
 
 
 
