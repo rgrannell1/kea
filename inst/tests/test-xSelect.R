@@ -1,27 +1,5 @@
 
-context("xSelect")
-
-test_that("xSelect", {
-
-	odds <- function (x) {
-		x %% 2 == 0
-	}
-
-	expect_that(
-		xSelect(Truth, pairlist()), equals(list()) )
-	expect_that(
-		xSelect(Truth, list(1, 2, 3)), equals(list(1, 2, 3)) )
-	expect_that(
-		xSelect(Falsity, list(1, 2, 3)), equals(list()) )
-	expect_that(
-		xSelect(odds, as.list(1:6)), equals(list(2, 4, 6)) )
-	expect_that(
-		xSelect(odds, 1:6), equals(list(2, 4, 6)) )
-	
-})
-
-
-
+context("xSelect: positive controls")
 
 forall(
 	"the empty collection always yields the empty list.",
@@ -32,8 +10,10 @@ forall(
 forall(
 	"a truth function is list identity for collection.",
 	list(fn = G$truth, coll = G$collection),
-	expect = xSelect(fn, coll) %equals% coll,
-	given = length(coll) > 0
+	expect = 
+		xSelect(fn, coll) %equals% coll,
+	given = 
+		length(coll) > 0
 )
 
 forall(
@@ -49,11 +29,34 @@ forall(
 )
 
 forall(
-	"selecting the odd-numbers works as expected",
+	"selecting the odd-numbers works as expected, and ordering is preserved.",
 	list(
 		fn = function () {
 			function (x) x %% 2 == 0
 		},
-		coll = G$integers()),
+		coll = G$integers()
+	),
 	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
+)
+
+forall(
+	"collection.xSelect works as expected.",
+	list(
+		fn = function () {
+			function (x) x %% 2 == 0
+		},
+		coll = G$integers()
+	),
+	x_(coll)$xSelect(fn)$x() %equals% as.list(coll[coll %% 2 == 0])
+)
+
+forall(
+	"function.xSelect works as expected.",
+	list(
+		fn = function () {
+			function (x) x %% 2 == 0
+		},
+		coll = G$integers()
+	),
+	x_(fn)$xSelect(coll)$x() %equals% as.list(coll[coll %% 2 == 0])
 )
