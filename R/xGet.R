@@ -39,6 +39,6 @@ xGet <- function (str) {
 		str <- ""
 	}
 	function (coll) {
-		as.list( coll[[str]] )
+		unname(as.list( coll )[names(coll) == str])
 	}
 }

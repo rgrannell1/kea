@@ -836,6 +836,7 @@ x_fn_proto <- local({
 			x_( xFormals(self_()) )
 		}
 	# -------- G ------- #
+
 	# -------- H ------- #
 	this$xHasDefs <-
 		function () {

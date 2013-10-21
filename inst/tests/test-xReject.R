@@ -34,6 +34,8 @@ forall(
 	xReject(fn, coll) %equals% as.list(coll[coll %% 2 == 1])
 )
 
+context("arrow $ xReject: positive controls")
+
 forall(
 	"collection.xReject selects odd-numbers.",
 	G$standard$mod2_over_ints(),

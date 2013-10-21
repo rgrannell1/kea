@@ -44,6 +44,8 @@ forall(
 			as.list(coll[coll %% 2 == 1]) )
 )
 
+context("arrow $ xPartitionWith: positive controls")
+
 forall(
 	"collection.xPartitionWith partitions into even and odd-numbers.",
 	G$standard$mod2_over_ints(),

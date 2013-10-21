@@ -1,14 +1,28 @@
 
-context("xGet")
+context("xGet: positive controls")
 
-test_that("xGet", {
+forall("getting from list with two identical keys returns both.",
+	list(key = G$word()),
+	{
+		xGet(key)(list()) %equals% list()
+	}
+)
 
-	expect_that(
-		xGet('a')(list(1)),
-		equals(list()) )
+forall("getting from list with two identical keys returns both.",
+	list(key = G$word()),
+	{
+		coll <- structure(list(1, 2), names = c(key, key))
+		xGet(key)(coll) %equals% list(1, 2)
+	}
+)
 
-	expect_that(
-		xGet('a')(list(a = 1)),
-		equals(list(1)) )
+forall("only correct matches are returned.",
+	list(key = G$word()),
+	{
+		coll <- structure(
+			list(1, 2, 3), 
+			names = c(key, paste(key, '2'), key))
 
-})
+		xGet(key)(coll) %equals% list(1, 3)
+	}
+)

@@ -95,6 +95,20 @@ G <- local({
 			Na
 		}
 
+	this$positive_infinity <-
+		function () {
+			+Inf
+		}
+
+	this$negative_infinity <-
+		function () {
+			-Inf
+		}
+	this$infinity <-
+		tools$combine(
+			this$positive_infinity, 
+			this$negative_infinity)	
+
 	# -------- logical functions -------- #
 	
 	this$truth <-
@@ -168,7 +182,6 @@ G <- local({
 				abs(round(rnorm(1, 0, sd), 0)) + 1				
 			}
 		}
-
 	# -------- character functions -------- #
 
 	this$word <-
@@ -226,6 +239,15 @@ G <- local({
 						G$integers()
 			
 				)
+			}
+
+		this$inc_over_ints <-
+			function () {
+				list(
+					fn = function () {
+						function (x) x + 1
+					}, 
+					coll = G$integers())
 			}
 
 		this$truth_with_coll <- 

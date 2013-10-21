@@ -1,10 +1,20 @@
 
-context('xInit')
+context("xInit: positive controls")
 
-test_that('xInit', {
+forall(
+	"init of an empty collection always yields the empty list.",
+	list(coll = G$collection),
+	expect =
+		xInit(coll) %equals% list(),
+	given =
+		length(coll) == 0 
+)
 
-	expect_equal( xInit(list(1)), list())
-	expect_equal( xInit(list(1, 2)), list(1))
-	expect_equal( xInit(list(1, 2, 3)), list(1, 2))
-
-})
+forall(
+	"init of a list shortens the list by one (usually)",
+	list(coll = G$collection),
+	expect =
+		length(xInit(coll)) == length(coll) - 1,
+	given =
+		length(coll) > 0 
+)

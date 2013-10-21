@@ -34,6 +34,8 @@ forall(
 	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
 )
 
+context("arrow $ xSelect: positive controls")
+
 forall(
 	"collection.xSelect selects even-numbers.",
 	G$standard$mod2_over_ints(),
