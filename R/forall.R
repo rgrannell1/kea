@@ -182,12 +182,19 @@ G <- local({
 		}
 
 	# -------- collection functions -------- #
+	#
+	# this functions take length-one and length-zero generators,
+	# and combine them to create vectors of arbitrary length and/or/depth.
 
 	this$words <-
-		tools$vector_of(this$word)
+		function (sd = 20) {
+			tools$vector_of(this$word, sd)			
+		}
 
 	this$integers <-
-		tools$vector_of(this$integer)
+		function (sd = 20) {
+			tools$vector_of(this$integer, sd)			
+		}
 
 	this$integer_seq <-
 		function (sd = 20) {
