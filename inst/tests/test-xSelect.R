@@ -20,6 +20,9 @@ test_that("xSelect", {
 	
 })
 
+
+
+
 forall(
 	"the empty collection always yields the empty list.",
 	list(fn = G$logical_functions, coll = G$collection_zero),
@@ -45,13 +48,12 @@ forall(
 	xSelect(fn, coll) %equals% list()
 )
 
-
-
-
-
-
-
-
-
-
-
+forall(
+	"selecting the odd-numbers works as expected",
+	list(
+		fn = function () {
+			function (x) x %% 2 == 0
+		},
+		coll = G$integers),
+	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
+)

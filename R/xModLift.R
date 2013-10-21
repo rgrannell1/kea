@@ -1,5 +1,5 @@
 
-#' xModLiftulo
+#' xModLift
 #'
 #' Compose two function with the modulo operator.
 #' 

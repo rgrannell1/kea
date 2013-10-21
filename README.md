@@ -66,7 +66,7 @@ isPrime <- function (n) {
 getPrimes <- xSelect(isPrime)
 getPrimes(1:1000)
 
-[1] 2  3  5  7 11 13 17 19 23 29 31 ...
+[1] 2 3 5 7 11 13 17 19 23 29 31 ...
 ```
 ### 2.4 Method Chaining:
 
@@ -85,7 +85,7 @@ Custom methods or anonymous functions can be added to the ```x_()``` object.
 x_()$xGraft('xMean', mean)
 
 x_(1:100)$xMean$x()
-x_(1:199)$xTap(mean)$x()
+x_(1:100)$xTap(mean)$x()
 ```
 
 ### 2.5 Partial Application
@@ -102,8 +102,8 @@ Combinators combine functions into other functions or control structures. These
 can be used to define arithmetic, logical and set operations "on functions".
 
 ```javascript
-mean <- xJuxtapose(mean, sd)
-mean(1:10)
+my_mean <- xJuxtapose(mean, sd)
+my_mean(1:10)
 
 # add two functions together
 f <- xPlusLift(
@@ -139,7 +139,7 @@ Error: cannot change value of locked binding for 'n'
 
 ## 3 Help
 
-To access the documentation  simply put a question mark in front of a function of interest.
+To get the documentation for a particular function from an R console simply prefix that function with a question mark.
 
 ```
 ?xSelect

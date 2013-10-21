@@ -217,7 +217,6 @@ x_matrix_proto <- local({
 
 	# -------- Z ------- #
 
-	
 	as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 

@@ -19,7 +19,7 @@ G <- local({
 			coll[[ith]]
 		}
 
-		this$gcombine <-
+		this$combine <-
 			function (...) {
 				# combine several thunks into one thunk, that
 				# yields one of the underlying thunks. thunk thunk thunk.
@@ -29,10 +29,10 @@ G <- local({
 				function () {
 
 					assert(
-						all( sapply(cases, is.function) ), pcall,
+						all( sapply(functions, is.function) ), pcall,
 						lament$non_function_cases(info))
 
-					one_of(fns)()
+					this$one_of(fns)()
 				}
 			}
 
@@ -44,7 +44,7 @@ G <- local({
 
 					coll <- vector()
 					while (length(coll) < len) {
-						val <- fn()
+						val <- fn()()
 						coll <- c(coll, val)
 					}
 					coll
@@ -75,9 +75,9 @@ G <- local({
 
 	# -------- letters -------- #
 
-	this$letters <-
+	this$letter <-
 		function () {
-			one_of(letters)
+			tools$one_of(letters)
 		}
 
 	# -------- logical values -------- #
@@ -112,29 +112,30 @@ G <- local({
 		}
 
 	this$boolean_functions <-
-		tools$gcombine(
+		tools$combine(
 			this$truth, this$falsity)
 
 	this$logical_functions <-
-		tools$gcombine(
+		tools$combine(
 			this$boolean_functions, this$mu)
 
 	# -------- empty data structures -------- #
 
 	this$recursive_zero <-
 		function () {
-			one_of( list(NULL, list()) )
+			tools$one_of( list(NULL, list()) )
 		}
 	this$typed_vector_zero <-
 		function () {
-			one_of(list(
+			tools$one_of(list(
 				integer(), character(), 
 				raw(), logical(), numeric()) )
 		}
 	this$collection_zero <-
-		tools$gcombine(
+		tools$combine(
 			this$typed_vector_zero,
 			this$recursive_zero)
+
 
 
 
@@ -184,10 +185,17 @@ G <- local({
 
 	this$words <-
 		tools$vector_of(this$word)
+
 	this$integers <-
 		tools$vector_of(this$integer)
 
-
+	this$integer_seq <-
+		function (sd = 20) {
+			function () {
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				seq_len(size)
+			}
+		}
 
 
 
@@ -210,13 +218,11 @@ G <- local({
 # -------------------------------- forall -------------------------------- #
 #
 # forall tests if an expression holds true over a range of random test-cases.
+#
 
 forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	pcall <- sys.call()
-
-
-	print( match.call() )
 
 	assert(
 		all( sapply(cases, is.function) ), pcall,
