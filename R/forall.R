@@ -29,7 +29,7 @@ G <- local({
 				function () {
 
 					assert(
-						all( sapply(functions, is.function) ), pcall,
+						all( sapply(fns, is.function) ), pcall,
 						lament$non_function_cases(info))
 
 					this$one_of(fns)()
@@ -185,6 +185,7 @@ G <- local({
 	#
 	# this functions take length-one and length-zero generators,
 	# and combine them to create vectors of arbitrary length and/or/depth.
+	#
 
 	this$words <-
 		function (sd = 20) {
@@ -296,5 +297,5 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 			state$failed_after, 
 			state$failed))
 
-	message(info, " passed!")
+	message(info, " passed!", " (", state$tests_run, ")")
 }
