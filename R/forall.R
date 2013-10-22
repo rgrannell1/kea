@@ -6,7 +6,13 @@
 #
 
 G <- local({
-	
+
+	# ---------------- accessory functions ---------------- #
+	# 
+	# functions that combine generators, or are generally useful for 
+	# creating generators.
+	#
+
 	one_of <- function (coll) {
 		# select a single value from a collection.
  
@@ -126,24 +132,6 @@ G <- local({
 		combine(
 			this$boolean_functions, this$mu)
 
-	# -------- empty data structures -------- #
-
-	this$recursive_zero <-
-		function () {
-			one_of( list(NULL, list()) )
-		}
-	this$typed_vector_zero <-
-		function () {
-			one_of(
-				list(
-					integer(), character(), 
-					raw(), logical(), numeric()) )
-		}
-	this$collection_zero <-
-		combine(
-			this$typed_vector_zero,
-			this$recursive_zero)
-
 	# ---------------- parameterised functions ---------------- #
 	#
 	# these function generators need additional parameters to  
@@ -185,30 +173,61 @@ G <- local({
 			}
 		}
 
+	# -------- empty data structures -------- #
+
+	this$recursive_zero <-
+		function () {
+			one_of( list(NULL, list()) )
+		}
+
+	this$vector_zero <-
+		function () {
+			one_of(
+				list(
+					integer(), character(), 
+					raw(), logical(), numeric()) )
+		}
+
+	this$collection_zero <-
+		combine(
+			this$vector_zero,
+			this$recursive_zero)
+
 	# -------- collection functions -------- #
 	#
 	# this functions take length-one and length-zero generators,
 	# and combine them to create vectors of arbitrary length and/or/depth.
 	#
 
-	this$words <-
+	# -------- typed vectors -------- # 
+
+	this$words <- 
 		function (sd = 20) {
-			vector_of(this$word, sd)			
+			combine(
+				vector_of(this$word, sd),
+				function () character())
 		}
 
-	this$integers <-
+	this$integers <- 
 		function (sd = 20) {
-			vector_of(this$integer, sd)			
+			combine(
+				vector_of(this$integer, sd),
+				function () integer())
 		}
 
 	this$logicals <-
 		function (sd = 20) {
-			vector_of(this$logical_functions, sd)
+			combine(
+				vector_of(this$logical_functions, sd),
+				function () logical())
 		}
 
 	this$vector <-
-			combine(
-				this$words, this$integers, this$logicals)
+		combine(
+			this$words, this$integers, 
+			this$logicals, this$vector_zero)
+
+	# -------- generic vectors -------- # 
 
 	this$collection <- 
 		combine(this$vector)
@@ -217,8 +236,7 @@ G <- local({
 		function (sd = 20) {
 			function () {
 
-				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
-				
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1		
 				seq_len(size)
 			}
 		}
@@ -241,8 +259,7 @@ G <- local({
 					fn = 
 						function () function (n) n %% 2 == 0,
 					coll =
-						G$integers()
-			
+						G$integers()		
 				)
 			}
 

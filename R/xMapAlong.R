@@ -1,7 +1,7 @@
 
 #' xMapAlong
 #' 
-#' Apply a binary function to each element of a collection. and its indices.
+#' Apply a binary function to each element of a collection and its indices.
 #'
 #' @param fn a binary function.
 #' @param coll a collection.
