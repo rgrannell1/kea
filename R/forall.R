@@ -134,9 +134,10 @@ G <- local({
 		}
 	this$typed_vector_zero <-
 		function () {
-			one_of(list(
-				integer(), character(), 
-				raw(), logical(), numeric()) )
+			one_of(
+				list(
+					integer(), character(), 
+					raw(), logical(), numeric()) )
 		}
 	this$collection_zero <-
 		combine(
@@ -177,6 +178,7 @@ G <- local({
 		function (sd = 20) {
 			function () {
 				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				
 				paste0(
 					sample(letters, size = size, replace = True),
 					collapse = "")
@@ -204,10 +206,19 @@ G <- local({
 			vector_of(this$logical_functions, sd)
 		}
 
+	this$vector <-
+			combine(
+				this$words, this$integers, this$logicals)
+
+	this$collection <- 
+		combine(this$vector)
+
 	this$integer_seq <-
 		function (sd = 20) {
 			function () {
+
 				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				
 				seq_len(size)
 			}
 		}
