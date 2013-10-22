@@ -190,3 +190,4 @@ coerce_to_typed_vector <- function (coll, mode) {
 		stop(exclaim$type_coersion_failed(coll, mode))
 	}
 }
+

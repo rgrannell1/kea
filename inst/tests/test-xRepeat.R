@@ -1,14 +1,14 @@
 
 context("xRepeat")
 
-test_that("xRepeat", {
+forall(
+	"repeating the empty list yields the empty list.",
+	list(num = G$positive(), coll = G$collection_zero),
+	xRepeat(num, coll) %equals% list()
+)
 
-	expect_that(
-		xRepeat(0, 1:10), equals(list()) )
-	expect_that(
-		xRepeat(1, 1:10), equals(as.list(1:10)) )
-	expect_that(
-		xRepeat(2, 1:5), equals( as.list(c(1:5, 1:5)) ) )
-
-})
-
+forall(
+	"repeating a collection is done by end-to-end concatenation.",
+	list(num = G$positive(), coll = G$collection),
+	xRepeat(num, coll) %equals% 
+)

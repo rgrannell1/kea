@@ -6,68 +6,57 @@
 #
 
 G <- local({
+	
+	one_of <- function (coll) {
+		# select a single value from a collection.
+ 
+		ith <- sample(seq_along(coll), size = 1)
+		coll[[ith]]
+	}
 
-	tools <- local({
+	combine <- function (...) {
+		# combine several thunks into one thunk, that
+		# yields one of the underlying thunks. thunk thunk thunk.
 
-		this <- list()
-		
-		this$one_of <- 
-			function (coll) {
-			# select a single value from a collection.
+		fns <- list(...)
 
-			ith <- sample(seq_along(coll), size = 1)
-			coll[[ith]]
+		function () {
+
+			assert(
+				all( sapply(fns, is.function) ), pcall,
+				lament$non_function_cases(info))
+			one_of(fns)()
+
 		}
+	}
 
-		this$combine <-
-			function (...) {
-				# combine several thunks into one thunk, that
-				# yields one of the underlying thunks. thunk thunk thunk.
+	vector_of <- function (fn, sd = 20) {
+		function () {
+			
+			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
-				fns <- list(...)
-
-				function () {
-
-					assert(
-						all( sapply(fns, is.function) ), pcall,
-						lament$non_function_cases(info))
-
-					this$one_of(fns)()
-				}
+			coll <- vector()
+			while (length(coll) < len) {
+				val <- fn()()
+				coll <- c(coll, val)
 			}
-
-		this$vector_of <-
-			function (fn, sd = 20) {
-				function () {
-					
-					len <- abs(round(rnorm(1, 0, sd), 0)) + 1
-
-					coll <- vector()
-					while (length(coll) < len) {
-						val <- fn()()
-						coll <- c(coll, val)
-					}
-					coll
-				}
-			}
+			coll
+		}
+	}
 		
-		this$list_of <-
-			function (fn, sd = 20) {
-				function () {
-						
-					len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+	list_of <- function (fn, sd = 20) {
+		function () {
+				
+			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
-					coll <- list()
-					while (length(coll) < len) {
-						val <- list( fn()[[ 1 ]] )
-						coll <- c(coll, val)
-					}
-					coll
-				}
+			coll <- list()
+			while (length(coll) < len) {
+				val <- list( fn()[[ 1 ]] )
+				coll <- c(coll, val)
 			}
-
-		this
-	})
+			coll
+		}
+	}
 
 	this <- list()
 
@@ -77,7 +66,7 @@ G <- local({
 
 	this$letter <-
 		function () {
-			tools$one_of(letters)
+			one_of(letters)
 		}
 
 	# -------- logical values -------- #
@@ -94,6 +83,10 @@ G <- local({
 		function () {
 			Na
 		}
+	this$logical <- 
+		function () {
+			one_of(c(True, False, Na))
+		}
 
 	this$positive_infinity <-
 		function () {
@@ -105,7 +98,7 @@ G <- local({
 			-Inf
 		}
 	this$infinity <-
-		tools$combine(
+		combine(
 			this$positive_infinity, 
 			this$negative_infinity)	
 
@@ -126,33 +119,29 @@ G <- local({
 		}
 
 	this$boolean_functions <-
-		tools$combine(
+		combine(
 			this$truth, this$falsity)
 
 	this$logical_functions <-
-		tools$combine(
+		combine(
 			this$boolean_functions, this$mu)
 
 	# -------- empty data structures -------- #
 
 	this$recursive_zero <-
 		function () {
-			tools$one_of( list(NULL, list()) )
+			one_of( list(NULL, list()) )
 		}
 	this$typed_vector_zero <-
 		function () {
-			tools$one_of(list(
+			one_of(list(
 				integer(), character(), 
 				raw(), logical(), numeric()) )
 		}
 	this$collection_zero <-
-		tools$combine(
+		combine(
 			this$typed_vector_zero,
 			this$recursive_zero)
-
-
-
-
 
 	# ---------------- parameterised functions ---------------- #
 	#
@@ -202,12 +191,17 @@ G <- local({
 
 	this$words <-
 		function (sd = 20) {
-			tools$vector_of(this$word, sd)			
+			vector_of(this$word, sd)			
 		}
 
 	this$integers <-
 		function (sd = 20) {
-			tools$vector_of(this$integer, sd)			
+			vector_of(this$integer, sd)			
+		}
+
+	this$logicals <-
+		function (sd = 20) {
+			vector_of(this$logical_functions, sd)
 		}
 
 	this$integer_seq <-
