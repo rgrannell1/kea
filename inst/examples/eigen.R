@@ -1,5 +1,8 @@
 
 monic_polynomial_roots <- function (free, max_int) {
+	# get the roots of every monic polynomial
+	# with a set number of coefficients, with
+	# coefficients within a range of integer magnitudes.
 
 	as_companion <- ( function () {
 

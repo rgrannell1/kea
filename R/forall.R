@@ -38,7 +38,9 @@ G <- local({
 
 	vector_of <- function (fn, sd = 20) {
 		function () {
-			
+			# given a generator for a single element,
+			# generate a vector of elements.
+
 			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
 			coll <- vector()
@@ -52,6 +54,8 @@ G <- local({
 		
 	list_of <- function (fn, sd = 20) {
 		function () {
+			# given a generator for a single list element,
+			# generate a list of elements.
 				
 			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
@@ -224,13 +228,12 @@ G <- local({
 
 	this$vector <-
 		combine(
-			this$words, this$integers, 
-			this$logicals, this$vector_zero)
+			this$words, this$integers, this$logicals)
 
 	# -------- generic vectors -------- # 
 
 	this$collection <- 
-		combine(this$vector)
+		this$vector
 
 	this$integer_seq <-
 		function (sd = 20) {

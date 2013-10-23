@@ -1,17 +1,20 @@
 
 context("xInter")
 
-test_that("xInter", {
+forall(
+	"the intersection with an empty collection is an empty list",
+	list(coll1 = G$collection, coll2 = G$collection),
+	expect = 
+		xInter(coll1, coll2) %equals% list(),
+	given =
+		length(coll1) == 0 || length(coll2) == 0
+)
 
-	expect_equal(xInter(list(), list()), list())
-	expect_equal(xInter(list(), list(1)), list())
-	expect_equal(xInter(list(1), list()), list())
-
-	expect_equal(
-		xInter(list(1, 2), list(1)), 
-		list(1))
-	
-	expect_equal(
-		xInter(list(1, 2, 3, 4), list(1, 2)), 
-		list(1, 2))
-})
+forall(
+	"the intersection in general behaves the same as R's intersection",
+	list(coll1 = G$collection, coll2 = G$collection),
+	expect = 
+		xInter(coll1, coll2) %equals% as.list(intersect(coll1, coll2)),
+	given =
+		length(coll1) > 0 || length(coll2) > 0
+)
