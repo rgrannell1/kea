@@ -1,5 +1,5 @@
 
-context("xReject: positive controls")
+context("xReject")
 
 forall(
 	"the empty collection always yields the empty list.",
@@ -34,7 +34,7 @@ forall(
 	xReject(fn, coll) %equals% as.list(coll[coll %% 2 == 1])
 )
 
-context("arrow $ xReject: positive controls")
+context("arrow $ xReject")
 
 forall(
 	"collection.xReject selects odd-numbers.",

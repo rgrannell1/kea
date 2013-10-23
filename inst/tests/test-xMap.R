@@ -1,5 +1,5 @@
 
-context("xMap: positive controls")
+context("xMap")
 
 forall(
 	"the empty collection always yields the empty list.",
@@ -24,7 +24,7 @@ forall(
 	}
 )
 
-context("arrow $ xMap: positive controls")
+context("arrow $ xMap")
 
 forall(
 	"collection.xMap selects even-numbers.",

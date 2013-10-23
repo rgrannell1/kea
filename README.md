@@ -147,15 +147,15 @@ To get the documentation for a particular function from an R console simply pref
 
 ## 4 Style Guide
 
-**Arrow** is a very broad library, and (despite my best efforts) it is possible to 
-write bad code using it. Based on my own use of the library I've come up with a few
-recommendations:
+**Arrow** is a very broad library, and (despite my best efforts) it can be 
+used to write bad code. Based on my own use of the library I've come up with a few
+semantic recommendations:
 
 
 1. Avoid using the Lift family of functions with anonymous functions, 
 in place of a single anonymous function or simpler call to the Lift function.
 
-Good
+**Good**
 ```javascript
 xSelect(
     x := {
@@ -171,7 +171,7 @@ xSelect(
     sample(1:100))
 ```
 
-Bad
+**Bad**
 ```javascript
 xSelect(
     xEqualLift(
@@ -183,7 +183,26 @@ xSelect(
         c(1, 2, 3),
         c(1, 10)) )b
 ```
-* Minimise the nesting of ```x_()``` call-chains
+2. Minimise the nesting of ```x_()``` call-chains
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

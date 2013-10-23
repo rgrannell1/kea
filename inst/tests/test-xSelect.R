@@ -1,5 +1,5 @@
 
-context("xSelect: positive controls")
+context("xSelectfalsity_with_coll")
 
 forall(
 	"the empty collection always yields the empty list.",
@@ -34,7 +34,7 @@ forall(
 	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
 )
 
-context("arrow $ xSelect: positive controls")
+context("arrow $ xSelectfalsity_with_coll")
 
 forall(
 	"collection.xSelect selects even-numbers.",

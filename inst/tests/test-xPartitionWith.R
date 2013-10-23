@@ -1,5 +1,5 @@
 
-context("xPartitionWith: positive controls")
+context("xPartitionWith")
 
 forall(
 	"the empty collection always yields the empty list.",
@@ -44,7 +44,7 @@ forall(
 			as.list(coll[coll %% 2 == 1]) )
 )
 
-context("arrow $ xPartitionWith: positive controls")
+context("arrow $ xPartitionWith")
 
 forall(
 	"collection.xPartitionWith partitions into even and odd-numbers.",

@@ -1,9 +1,10 @@
 
 context('xFourth')
 
-test_that('xFourth', {
-
-	expect_error( xFourth(list(1, 2, 3)) )
-	expect_equal( xFourth(list(1, 2, 3, 4)), 4)
-	expect_equal( xFourth(list(1, 2, 3, 4, 5)), 4)
-})
+forall("fourth always returns the fourth element of a collection",
+	list(coll = G$collection),
+	expect =
+		xFourth(coll) %equals% coll[[4]],
+	given = 
+		length(coll) <= 4
+)

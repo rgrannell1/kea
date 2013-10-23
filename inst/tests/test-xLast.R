@@ -1,9 +1,10 @@
 
 context('xLast')
 
-test_that('xLast', {
-
-	expect_error( xLast(list()) )
-	expect_equal( xLast(list(1)), 1)
-	expect_equal( xLast(list(1, 2)), 2)
-})
+forall("first always returns the last element of a collection",
+	list(coll = G$collection),
+	expect =
+		xLast(coll) %equals% coll[[length(coll)]],
+	given = 
+		length(coll) <= 1
+)

@@ -1,5 +1,5 @@
 
-context("xInit: positive controls")
+context("xInit")
 
 forall(
 	"init of an empty collection always yields the empty list.",

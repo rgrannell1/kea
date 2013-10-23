@@ -1,11 +1,20 @@
 
-context('xRest')
+context("xRest")
 
-test_that('xRest', {
+forall(
+	"xRest of an empty collection always yields the empty list.",
+	list(coll = G$collection),
+	expect =
+		xRest(coll) %equals% list(),
+	given =
+		length(coll) == 0 
+)
 
-	expect_equal( xRest(list()), list())
-	expect_equal( xRest(list(1)), list())
-	expect_equal( xRest(list(1, 2)), list(2))
-	expect_equal( xRest(list(1, 2, 3)), list(2, 3))
-
-})
+forall(
+	"xRest of a list shortens the list by one (usually)",
+	list(coll = G$collection),
+	expect =
+		length(xRest(coll)) == length(coll) - 1,
+	given =
+		length(coll) > 0 
+)

@@ -26,7 +26,7 @@ xFourth <- function (coll) {
 		!missing(coll), pcall, 
 		exclaim$parameter_missing(coll))
 
-	fn <- dearrowise(fn)
+	coll <- dearrowise(coll)
 
 	assert(
 		is_collection(coll), pcall,

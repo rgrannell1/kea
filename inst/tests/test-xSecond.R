@@ -1,9 +1,10 @@
 
 context('xSecond')
 
-test_that('xSecond', {
-
-	expect_error( xSecond(list(1)) )
-	expect_equal( xSecond(list(1, 2)), 2)
-	expect_equal( xSecond(list(1, 2, 3)), 2)
-})
+forall("second always returns the second element of a collection",
+	list(coll = G$collection),
+	expect =
+		xSecond(coll) %equals% coll[[2]],
+	given = 
+		length(coll) <= 2
+)

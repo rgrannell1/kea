@@ -1,9 +1,10 @@
 
 context('xFirst')
 
-test_that('xFirst', {
-
-	expect_error( xFirst(list()) )
-	expect_equal( xFirst(list(1)), 1)
-	expect_equal( xFirst(list(1, 2)), 1)
-})
+forall("first always returns the first element of a collection",
+	list(coll = G$collection),
+	expect =
+		xFirst(coll) %equals% coll[[1]],
+	given = 
+		length(coll) <= 1
+)

@@ -1,5 +1,5 @@
 
-context("xMapAlong: positive controls")
+context("xMapAlong")
 
 forall(
 	"mapalong the empty collection always yields the empty list.",
@@ -41,7 +41,7 @@ forall(
 )
 
 
-context("arrow $ xMapAlong: positive controls")
+context("arrow $ xMapAlong")
 
 forall(
 	"collection.xMapAlong increments correctly.",
