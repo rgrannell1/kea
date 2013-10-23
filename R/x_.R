@@ -642,10 +642,6 @@ x_coll_proto <- local({
 		function () {
 			x_( xSucc(self_()) )
 		}
-	this$xSwap <- 
-		function (fn) {
-			x_( xSwap(fn, self_()) )
-		}
 	# -------- T ------- #
 	this$xTake <- 
 		function (num) {

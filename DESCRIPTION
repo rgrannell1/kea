@@ -119,7 +119,6 @@ Collate:
     'xShuffle.R'
     'xLimit.R'
     'xEqualLift.R'
-    'xSwap.R'
     'xLength.R'
     'xIsNull.R'
     'xCombinations.R'
