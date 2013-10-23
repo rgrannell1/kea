@@ -174,7 +174,7 @@ function (X, FUN, ...)
 getPrimes &lt;- xSelect(isPrime)
 getPrimes(1:1000)
 
-[1] 2  3  5  7 11 13 17 19 23 29 31 ...
+[1] 2 3 5 7 11 13 17 19 23 29 31 ...
 </code></pre>
 
 <h3 id="24-method-chaining">2.4 Method Chaining:</h3>
@@ -189,7 +189,7 @@ xReduce(&quot;+&quot;)$x()
 <pre><code class="javascript">x_()$xGraft('xMean', mean)
 
 x_(1:100)$xMean$x()
-x_(1:199)$xTap(mean)$x()
+x_(1:100)$xTap(mean)$x()
 </code></pre>
 
 <h3 id="25-partial-application">2.5 Partial Application</h3>
@@ -201,8 +201,8 @@ specialised by fixing some of their arguments permenantly. </p>
 <h3 id="26-combinators">2.6 Combinators</h3>
 <p>Combinators combine functions into other functions or control structures. These
 can be used to define arithmetic, logical and set operations "on functions".</p>
-<pre><code class="javascript">mean &lt;- xJuxtapose(mean, sd)
-mean(1:10)
+<pre><code class="javascript">my_mean &lt;- xJuxtapose(mean, sd)
+my_mean(1:10)
 
 # add two functions together
 f &lt;- xPlusLift(
@@ -231,12 +231,50 @@ Error: cannot change value of locked binding for 'n'
 </code></pre>
 
 <h2 id="3-help">3 Help</h2>
-<p>To access the documentation  simply put a question mark in front of a function of interest.</p>
+<p>To get the documentation for a particular function from an R console simply prefix that function with a question mark.</p>
 <pre><code>?xSelect
 </code></pre>
 
-<h2 id="4-authors">4 Authors</h2>
+<h2 id="4-style-guide">4 Style Guide</h2>
+<p><strong>Arrow</strong> is a very broad library, and (despite my best efforts) it is possible to 
+write bad code using it. Based on my own use of the library I've come up with a few
+recommendations:</p>
+<ol>
+<li>Avoid using the Lift family of functions with anonymous functions, 
+in place of a single anonymous function or simpler call to the Lift function.</li>
+</ol>
+<p>Good</p>
+<pre><code class="javascript">xSelect(
+    x := {
+        x[[1]] == 10
+    },
+    sample(1:100)
+)
+
+# or, if you want to use equalift...
+
+xSelect(
+    xEqualLift( xFirst, xConst(10) ),
+    sample(1:100))
+</code></pre>
+
+<p>Bad</p>
+<pre><code class="javascript">xSelect(
+    xEqualLift(
+        x := {
+            x[[1]]
+        }, 
+        xConst( 10 ) ),
+    list(
+        c(1, 2, 3),
+        c(1, 10)) )b
+</code></pre>
+
+<ul>
+<li>Minimise the nesting of <code>x_()</code> call-chains</li>
+</ul>
+<h2 id="5-authors">5 Authors</h2>
 <p>Ryan Grannell.</p>
-<h2 id="5-licensing">5 Licensing</h2>
+<h2 id="6-licensing">6 Licensing</h2>
 <p><strong>Arrow</strong> is released under the terms of the GNU General Public License version 3. </p>
 <p><img src="file:///home/ryan/Code/Arrow/arrow-clean/gpl3.png" height = "180"> </img></p></body></html>

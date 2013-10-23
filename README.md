@@ -145,11 +145,53 @@ To get the documentation for a particular function from an R console simply pref
 ?xSelect
 ```
 
-## 4 Authors
+## 4 Style Guide
+
+**Arrow** is a very broad library, and (despite my best efforts) it is possible to 
+write bad code using it. Based on my own use of the library I've come up with a few
+recommendations:
+
+
+1. Avoid using the Lift family of functions with anonymous functions, 
+in place of a single anonymous function or simpler call to the Lift function.
+
+Good
+```javascript
+xSelect(
+    x := {
+        x[[1]] == 10
+    },
+    sample(1:100)
+)
+
+# or, if you want to use equalift...
+
+xSelect(
+    xEqualLift( xFirst, xConst(10) ),
+    sample(1:100))
+```
+
+Bad
+```javascript
+xSelect(
+    xEqualLift(
+        x := {
+            x[[1]]
+        }, 
+        xConst( 10 ) ),
+    list(
+        c(1, 2, 3),
+        c(1, 10)) )b
+```
+* Minimise the nesting of ```x_()``` call-chains
+
+
+
+## 5 Authors
 
 Ryan Grannell.
 
-## 5 Licensing
+## 6 Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3. 
 
