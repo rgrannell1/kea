@@ -290,6 +290,19 @@ G <- local({
 				list(fn = G$mu, coll = G$collection)
 			}
 
+		this$two_colls <-
+			function () {
+				list(coll1 = G$collection(), coll2 = G$collection())
+			}
+
+		this$two_colls_left_empty <-
+			function () {
+				list(coll1 = G$collection_zero, coll2 = G$collection())
+			}
+		this$two_colls_right_empty <-
+			function () {
+				list(coll1 = G$collection(), coll2 = G$collection_zero)
+			}
 		this
 	})
 

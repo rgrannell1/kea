@@ -1,19 +1,29 @@
 
 context("xDiffer")
 
-test_that("xDiffer", {
+forall(
+	"the set difference with an left empty collection is the empty list",
+	G$standard$two_colls_right_empty(),
+	expect = 
+		xDiffer(coll1, coll2) %equals% list(),
+	given =
+		length(coll1) == 0
+)
 
-	expect_that(
-		xDiffer(list(), list()),
-		equals(list()) )
+forall(
+	"the set difference with an right empty collection is identiy for left",
+	G$standard$two_colls_left_empty(),
+	expect = 
+		xDiffer(coll1, coll2) %equals% as.list(coll1),
+	given =
+		length(coll2) == 0
+)
 
-	expect_that(
-		xDiffer(1:5, list()),
-		equals(as.list(1:5)) )
-
-	expect_that(
-		xDiffer(1:6, c(2, 4, 6)),
-		equals(list(1, 3, 5)) )
-
-})
-
+forall(
+	"the set difference behaves the same as R's",
+	G$standard$two_colls(),
+	expect =
+		xDiffer(coll1, coll2) %equals% as.list(setdiff(coll1, coll2)),
+	given =
+		length(coll1) > 0 && length(coll2)
+)
