@@ -18,10 +18,6 @@ xSetProd <- function (...) {
 	# set the cartesian product of n collections
 
 	pcall <- sys.call()
-
-	assert(
-		!missing(coll), pcall, 
-		exclaim$parameter_missing(coll))
 	
 	colls <- lapply(list(...), dearrowise)
 
@@ -53,7 +49,7 @@ xSetProd <- function (...) {
 					colls[[coll_ith]][[choice]]
 				},
 				seq_along(colls))
-			
+1			
 		}
 		tuples
 	}
