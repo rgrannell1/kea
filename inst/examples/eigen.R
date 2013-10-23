@@ -27,22 +27,22 @@ monic_polynomial_roots <- function (free, max_int) {
 }
 
 
-x_(monic_polynomial_roots(3, 13))$
+x_(monic_polynomial_roots(3, 20))$
 xReject( root := {
 	Im(root) == 0
 } )$
-xDoTap(
+xJustDo(
 	function () {
 		par(bg = 'black')
 		plot(
 			x = 0, y = 0,
-			xlim = c(-8, +8), ylim = c(-3, +3), 
+			xlim = c(-8, +8), ylim = c(-4, +4), 
 			type = 'n')		
 	}
 )$
 xDo(root := {
 	points(
 		x = Re(root), y = Im(root), 
-		col = "white", cex = 0.2, 
-		pch = 20)
+		col = "white", cex = 0.1, 
+		pch = 15)
 })

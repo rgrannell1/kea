@@ -27,7 +27,7 @@ x_any_proto <- local({
 	# -------- C ------- #
 
 	# -------- D ------- #
-	this$xDoTap <-
+	this$xJustDo <-
 		function (fn) {
 			fn()
 			x_(self_())
