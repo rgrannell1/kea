@@ -27,18 +27,25 @@ x_any_proto <- local({
 	# -------- C ------- #
 
 	# -------- D ------- #
-	this$xJustDo <-
+
+	# -------- E ------- #
+	this$xExecute <-
 		function (fn) {
+			# execute a side-effectful function 
+			# before using the previous x_ monad
+			# for further chaining.
+
 			fn()
 			x_(self_())
 		}
-	# -------- E ------- #
-
 	# -------- F ------- #
 
 	# -------- G ------- #
 	this$xGraft <-
 		function (str, fn) {
+			# add a function to the x_
+			# call chain for the 
+			# current R session.
 
 			chainable <- function (...) {
 				x_(fn(self_(), ...))
@@ -82,6 +89,11 @@ x_any_proto <- local({
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
+			# call an arbitrary function with self,
+			# effectively allowing anonymous function
+			# to execute arbitrary code before shunting 
+			# the output data back into the x_ monad.
+
 			x_( fn(self_()) )
 		}
 	# -------- U ------- #

@@ -27,11 +27,11 @@ monic_polynomial_roots <- function (free, max_int) {
 }
 
 
-x_(monic_polynomial_roots(3, 20))$
+x_(monic_polynomial_roots(3, 16))$
 xReject( root := {
 	Im(root) == 0
 } )$
-xJustDo(
+xExecute(
 	function () {
 		par(bg = 'black')
 		plot(
