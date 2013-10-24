@@ -37,28 +37,25 @@ xReject( root := {
 	Im(root) == 0
 	False
 } )$
-xTap(
-	roots := {
+xTap(roots := {
 
-		xMap(
-			root_1 := {
-				complex_distance <- function (root_2) {
-					sqrt(
-						(Re(root_1) - Re(root_2))^2 + 
-						(Im(root_1) - Im(root_2))^2 )
-				}
+	xMap(
+		root_1 := {
+			complex_distance <- function (root_2) {
+				sqrt(
+					(Re(root_1) - Re(root_2))^2 + 
+					(Im(root_1) - Im(root_2))^2 )
+			}
+			sample_points <- roots[sample.int(length(roots), size = 600)]
 
-				sample_points <- roots[sample.int(length(roots), size = 600)]
+			mean_dist <- x_(sample_points)$
+				xMap(complex_distance)$
+				xReduce('+')$x() / 300
 
-				mean_dist <- x_(sample_points)$
-					xMap(complex_distance)$
-					xReduce('+')$x() / 300
-
-				list(root_1, mean_dist)
-			},
-		roots)
-	}
-)$
+			list(root_1, mean_dist)
+		},
+	roots)
+})$
 x()
 
 par(bg = 'black')
