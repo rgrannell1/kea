@@ -12,8 +12,11 @@
 #' \bold{Arity}: The number of arguments a function can accept. 
 #'
 #' \bold{Nullary}: a function with arity zero.
+#'
 #' \bold{Unary}: a function with arity one.
+#'
 #' \bold{Binary}: a function with arity two.
+#'
 #' \bold{Trinary}: a function with arity three.
 #'
 #' \bold{Number}: a double, integer or complex number, unless stated otherwise.

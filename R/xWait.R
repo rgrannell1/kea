@@ -12,7 +12,7 @@
 #'     if \code{num} is zero then \code{fn} is returned untouched.
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

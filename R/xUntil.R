@@ -13,7 +13,7 @@
 #'
 #' @return the result of successively applying \code{f} to \code{init}.
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @export
 

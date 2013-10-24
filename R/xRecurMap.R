@@ -10,13 +10,13 @@
 #'
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions map_like_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
 
 xRecurMap <- function (fn, coll) {
-	# (any -> any) -> List|Pairlist any -> [any]
+	# (any -> any) -> Recursive any -> [any]
 	# Map a function into a nested collection, 
 	# preserving its structure.	
 

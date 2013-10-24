@@ -13,7 +13,7 @@
 #'
 #' @return the result of successively applying \code{fn} to \code{x}.
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @export
 

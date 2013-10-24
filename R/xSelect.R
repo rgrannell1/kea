@@ -12,7 +12,7 @@
 #'     returns the empty list if \code{coll} is length-zero, or no match is found.
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

@@ -1,7 +1,7 @@
 
 #' xMapMany
 #' 
-#' Map an n-ary function over n-collections/
+#' Map a function across many collections simultaneously.
 #'
 #' @param fn a n-ary function.
 #' @param ... n collections.
@@ -10,17 +10,18 @@
 #'
 #' @section Corner Cases: 
 #'     returns the empty list if any collection is length-zero. If the 
-#'     collection lengths are not equal then elements are recycles in the shorter collections.
+#'     collection lengths are not equal then elements are recycled in the shorter collections.
 #' @template glossary
 #'
 #'
-#' @family higher_order_function
+#' @family higher_order_functions map_like_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
 
 xMapMany <- function (fn, ...) {
 	# function -> Collection any .... -> [any]
+	# Map a function across many collections simultaneously.
 
 	pcall <- sys.call()
 

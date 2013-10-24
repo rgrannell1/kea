@@ -12,7 +12,7 @@
 #'
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions map_like_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

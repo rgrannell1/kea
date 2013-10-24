@@ -50,7 +50,7 @@ inst/examples/blank.R
   \code{\link{xOrLift}}, \code{\link{xOverLift}},
   \code{\link{xPlusLift}}, \code{\link{xUnionLift}}
 
-  Other higher_order_function: \code{\link{xAndLift}},
+  Other higher_order_functions: \code{\link{xAndLift}},
   \code{\link{xApply}}, \code{\link{xArity}},
   \code{\link{xAsUnary}}, \code{\link{xByLift}},
   \code{\link{xChars}}, \code{\link{xCompose}},

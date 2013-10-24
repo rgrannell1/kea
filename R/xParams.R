@@ -12,7 +12,7 @@
 #'	 its parameter names.
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

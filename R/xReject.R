@@ -13,7 +13,7 @@
 #'     Throws an error if pred returns a non-boolean value.
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

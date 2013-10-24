@@ -9,7 +9,7 @@
 #' @return a number.
 #'
 #' @family function_lifting
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @template glossary
 #'

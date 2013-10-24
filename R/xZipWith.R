@@ -12,7 +12,7 @@
 #'	  are included. Each collection is truncated to the length of the shortest collection.
 #'
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @export
 

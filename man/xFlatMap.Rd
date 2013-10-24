@@ -46,7 +46,7 @@
   function.
 }
 \seealso{
-  Other higher_order_function: \code{\link{xAndLift}},
+  Other higher_order_functions: \code{\link{xAndLift}},
   \code{\link{xApply}}, \code{\link{xArity}},
   \code{\link{xAsUnary}}, \code{\link{xByLift}},
   \code{\link{xChars}}, \code{\link{xCompose}},

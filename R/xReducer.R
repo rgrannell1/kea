@@ -14,7 +14,7 @@
 #'     value inside \code{coll} if coll is length-one.
 #' @template glossary
 #'
-#' @family higher_order_function
+#' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
