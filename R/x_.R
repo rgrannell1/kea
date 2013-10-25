@@ -1,10 +1,10 @@
 
 # -------------------------------- Universal methods -------------------------------- #
 #
-# these prototypes contain methods that can be called by an x_() object, using an 
+# these prototypes contain methods that can be called by an x_() object, using an
 # overloaded definition of the $ function.
 
-# upon invocation of an x_()$method, the self_ function is updated to return the 
+# upon invocation of an x_()$method, the self_ function is updated to return the
 # value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
 # so an error is thrown if these prototypes are called directly.
 
@@ -31,7 +31,7 @@ x_any_proto <- local({
 	# -------- E ------- #
 	this$xExecute <-
 		function (fn) {
-			# execute a side-effectful function 
+			# execute a side-effectful function
 			# before using the previous x_ monad
 			# for further chaining.
 
@@ -44,16 +44,15 @@ x_any_proto <- local({
 	this$xGraft <-
 		function (str, fn) {
 			# add a function to the x_
-			# call chain for the 
+			# call chain for the
 			# current R session.
 
 			chainable <- function (...) {
 				x_(fn(self_(), ...))
 			}
 
-			x_fn_proto[[str]] <<- chainable
-			x_coll_proto[[str]] <<- chainable
-
+			proto_ref <- get_proto_ref(self_())
+			assign(str, chainable, envir = proto_ref)
 		}
 	# -------- H ------- #
 
@@ -64,7 +63,7 @@ x_any_proto <- local({
 		}
 	this$xIdiotBird <-
 		this$xIdentity
-	this$xI <- 
+	this$xI <-
 		this$xIdiotBird
 	# -------- J ------- #
 
@@ -91,7 +90,7 @@ x_any_proto <- local({
 		function (fn) {
 			# call an arbitrary function with self,
 			# effectively allowing anonymous function
-			# to execute arbitrary code before shunting 
+			# to execute arbitrary code before shunting
 			# the output data back into the x_ monad.
 
 			x_( fn(self_()) )
@@ -106,7 +105,10 @@ x_any_proto <- local({
 	# -------- W ------- #
 
 	# -------- X ------- #
-
+	this$x <-
+		function (mode = 'any') {
+			as.vector(self_(), mode)
+		}
 	# -------- Y ------- #
 
 	# -------- Z ------- #
@@ -125,8 +127,8 @@ x_any_proto <- local({
 
 # -------------------------------- Not-quite-a-collection methods -------------------------------- #
 #
-# methods for non-canonical data types in arrow; data frames, tables, matrices and other odd and 
-# sometimes awkward structures. Almost exclusively conversion and reshaping methods. 
+# methods for non-canonical data types in arrow; data frames, tables, matrices and other odd and
+# sometimes awkward structures. Almost exclusively conversion and reshaping methods.
 #
 #
 
@@ -148,7 +150,7 @@ x_matrix_proto <- local({
 				replicate( max(dims), list() )
 			} else {
 				x_( apply(self_(), 2, as.list) )
-			}	
+			}
 		}
 
 	this$xByRows <-
@@ -168,7 +170,10 @@ x_matrix_proto <- local({
 	# -------- B ------- #
 
 	# -------- C ------- #
-
+	this$xColUnit <-
+		function () {
+			x_(matrix(nrow = nrow(self_()), ncol = 0))
+		}
 	# -------- D ------- #
 
 	# -------- E ------- #
@@ -177,7 +182,7 @@ x_matrix_proto <- local({
 			if (prod(dim(self_()) == 0)) {
 				list()
 			} else {
-				x_( as.list(self_()) )				
+				x_( as.list(self_()) )
 			}
 		}
 	this$xElemsByRows <-
@@ -185,12 +190,12 @@ x_matrix_proto <- local({
 			if (prod(dim(self_()) == 0)) {
 				list()
 			} else {
-				x_(as.list( t(self_()) ))		
+				x_(as.list( t(self_()) ))
 			}
 		}
 	# -------- F ------- #
 
-	# -------- G ------- #	
+	# -------- G ------- #
 
 	# -------- H ------- #
 
@@ -213,7 +218,10 @@ x_matrix_proto <- local({
 	# -------- Q ------- #
 
 	# -------- R ------- #
-
+	this$xRowUnit <-
+		function () {
+			x_(matrix( nrow = 0, ncol = ncol(self_()) ))
+		}
 	# -------- S ------- #
 
 	# -------- T ------- #
@@ -222,7 +230,10 @@ x_matrix_proto <- local({
 			x_( t(self_()) )
 		}
 	# -------- U ------- #
-
+	this$xUnit <-
+		function () {
+			x_( matrix(nrow = 0, ncol = 0) )
+		}
 	# -------- V ------- #
 
 	# -------- W ------- #
@@ -255,7 +266,10 @@ x_data_frame_proto <- local({
 			unname( as.list(self_()) )
 		}
 	# -------- C ------- #
+	this$xColUnit <-
+		function () {
 
+		}
 	# -------- D ------- #
 
 	# -------- E ------- #
@@ -285,13 +299,19 @@ x_data_frame_proto <- local({
 	# -------- Q ------- #
 
 	# -------- R ------- #
+	this$xRowUnit <-
+		function () {
 
+		}
 	# -------- S ------- #
 
 	# -------- T ------- #
 
 	# -------- U ------- #
+	this$xUnit <-
+		function () {
 
+		}
 	# -------- V ------- #
 
 	# -------- W ------- #
@@ -302,7 +322,6 @@ x_data_frame_proto <- local({
 
 	# -------- Z ------- #
 
-	
 	as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 
@@ -328,13 +347,8 @@ x_data_frame_proto <- local({
 x_coll_proto <- local({
 
 	this <- object()
-	this$x <- 
-		function (mode = 'any') {
-			as.vector(self_(), mode)
-		}
-
 	# -------- A ------- #
-	this$xAsFunction <- 
+	this$xAsFunction <-
 		function () {
 			x_( xAsFunction(self_()) )
 		}
@@ -356,7 +370,7 @@ x_coll_proto <- local({
 		function (str, ...) {
 			x_( xCollapse(str, self_(), ...) )
 		}
-	this$xContains <- 
+	this$xContains <-
 		function (val) {
 			x_( xContains(self_(), val) )
 		}
@@ -406,7 +420,7 @@ x_coll_proto <- local({
 	this$xFilter <-
 		function (coll) {
 			x_( xFilter(self_(), coll) )
-		} 
+		}
 	this$xFoldl <-
 		function (fn, init) {
 			x_( xFoldl(fn, init, self_()) )
@@ -543,7 +557,7 @@ x_coll_proto <- local({
 		function (pred) {
 			x_( xPoll(pred, self_()) )
 		}
-	this$xPartial <- 
+	this$xPartial <-
 		function (fn) {
 			x_( xPartial(fn, self_()) )
 	}
@@ -554,7 +568,7 @@ x_coll_proto <- local({
 	this$xPartition <-
 		function (pred) {
 			x_( xPartition(pred, self_()) )
-		}		
+		}
 	this$xPartitionWith <-
 		function (pred) {
 			x_( xPartitionWith(pred, self_()) )
@@ -573,7 +587,7 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xReducel(fn, self_()) )
 		}
-	this$xReduce <- 
+	this$xReduce <-
 		this$xReducel
 	this$xReducer <-
 		function (fn) {
@@ -604,7 +618,7 @@ x_coll_proto <- local({
 		function (...) {
 			x_( xSetProd(self_(), ...) )
 		}
-	this$xSegment <- 
+	this$xSegment <-
 		function (num) {
 			x_( xSegment(num, self_()) )
 		}
@@ -632,7 +646,7 @@ x_coll_proto <- local({
 		function (pred) {
 			x_( xSplitWith(pred, self_()) )
 		}
-	this$xS. <- 
+	this$xS. <-
 		this$xConst
 	this$xSubStr <-
 		function (str) {
@@ -643,7 +657,7 @@ x_coll_proto <- local({
 			x_( xSucc(self_()) )
 		}
 	# -------- T ------- #
-	this$xTake <- 
+	this$xTake <-
 		function (num) {
 			x_( xTake(num, self_()) )
 		}
@@ -655,7 +669,7 @@ x_coll_proto <- local({
 		function () {
 			x_( xThird(self_()) )
 		}
-	this$xThread <- 
+	this$xThread <-
 		function (...) {
 			x_( xThread(self_(), ...) )
 		}
@@ -664,15 +678,15 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnchars(self_()) )
 		}
-	this$xUnion <- 
+	this$xUnion <-
 		function (coll2) {
 			x_( xUnion(self_(), coll2) )
-		} 
+		}
 	this$xUnit <-
 		function () {
-			x_( xUnit(self_())	)	
+			x_( xUnit(self_())	)
 		}
-	this$xUnlines <- 
+	this$xUnlines <-
 		function () {
 			x_( xUnlines(self_()) )
 		}
@@ -680,11 +694,11 @@ x_coll_proto <- local({
 		function (pred, fn) {
 			x_( xUntil(pred, fn, self_()) )
 		}
-	this$xUnwords <- 
+	this$xUnwords <-
 		function () {
 			x_( xUnwords(self_()) )
 		}
-	this$xUnfold <- 
+	this$xUnfold <-
 		function (fn, pred) {
 			x_( xUnfold(fn, pred, self_()) )
 		}
@@ -707,11 +721,11 @@ x_coll_proto <- local({
 		function (fn, ...) {
 			x_( xZipWith(fn, self_(), ...) )
 		}
-	this$xZip <- 
+	this$xZip <-
 		function (...) {
 			x_( xZip(self_(), ...) )
 		}
-	
+
 	as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 })
@@ -739,7 +753,7 @@ x_coll_proto <- local({
 x_fn_proto <- local({
 
 	this <- object()
-	this$x <- 
+	this$x <-
 		function () {
 			self_()
 		}
@@ -770,7 +784,7 @@ x_fn_proto <- local({
 			x_( xArity(self_()) )
 		}
 	# -------- B ------- #
-	this$xCardinal <- 
+	this$xCardinal <-
 		function () {
 			x_( xFlip(self_()) )
 		}
@@ -789,7 +803,7 @@ x_fn_proto <- local({
 		function () {
 			x_( xConst(self_()) )
 		}
-	this$xCompose <- 
+	this$xCompose <-
 		function (fn1) {
 			x_( xCompose(fn1, self_()) )
 		}
@@ -824,7 +838,7 @@ x_fn_proto <- local({
 		function (pred) {
 			x_( xFilter(pred, self_()) )
 		}
-	this$xFlip <- 
+	this$xFlip <-
 		this$xCardinal
 	this$xFlatMap <-
 		function (coll) {
@@ -912,7 +926,7 @@ x_fn_proto <- local({
 	this$xModLift <-
 		function (fn2) {
 			x_( xModLift(self_(), fn2) )
-		}		
+		}
 	# -------- N ------- #
 	this$xNot <-
 		function () {
@@ -944,7 +958,7 @@ x_fn_proto <- local({
 		function () {
 			x_( xPartMap(self_()) )
 		}
-	this$xPartial <- 
+	this$xPartial <-
 		function (coll) {
 			x_( xPartial(self_(), coll) )
 		}
@@ -958,7 +972,7 @@ x_fn_proto <- local({
 		}
 	this$xPhoenix <-
 		this$xBiCompose
-	this$xPhi <- 
+	this$xPhi <-
 		this$xBiCompose
 	# -------- Q ------- #
 	this$xQueer <-
@@ -974,7 +988,7 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xReducel(self_(), coll) )
 		}
-	this$xReduce <- 
+	this$xReduce <-
 		this$xReducel
 	this$xReducer <-
 		function (coll) {
@@ -982,15 +996,15 @@ x_fn_proto <- local({
 		}
 	this$xReject <-
 		function (coll) {
-			x_( xReject(self_(), coll) ) 
+			x_( xReject(self_(), coll) )
 		}
 	# -------- S ------- #
 	this$xS. <-
 		this$xBiCompose
 	this$xSelect <-
 		function (coll) {
-			x_( xSelect(self_(), coll) ) 
-		}	
+			x_( xSelect(self_(), coll) )
+		}
 	this$xScanl <-
 		function (init, coll) {
 			x_( xScanl(self_(), init, coll) )
@@ -1036,7 +1050,7 @@ x_fn_proto <- local({
 		function (...) {
 			x_( xZipWith(self_(), ...) )
 		}
-	this$xZip <- 
+	this$xZip <-
 		function (...) {
 			x_( xZip(self_(), ...) )
 		}
@@ -1051,13 +1065,27 @@ x_fn_proto <- local({
 		}
 	this$xWrap <-
 		this$xThrush
-	
+
 
 	as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 })
 
+get_proto_ref <- function (val) {
+	# get the reference to the appropriate
+	# methods.
 
+	proto_ref <-
+	if (is.function( val )) {
+		x_fn_proto
+	} else if (is.vector( val ) || is.pairlist( val )){
+		x_coll_proto
+	} else if (is.matrix( val )) {
+		x_matrix_proto
+	} else {
+		x_any_proto
+	}
+}
 
 
 
@@ -1066,31 +1094,31 @@ x_fn_proto <- local({
 # -------------------------------- Type Constructor -------------------------------- #
 
 #' x_
-#' 
+#'
 #' Generate a chainable arrow object, that can use methods.
 #'
 #' @param val a function, collection, or arbitrary value.
 #'
 #' @return an object of class "arrow", with a single field 'x' that contains val.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #' 		The methods that can be used by x_() object varies depending on the type of val.
 #' 		Some methods are specific to functions or collections. If a non-function and non-collection is
 #' 		supplied then very few methods can be used.
-#' 		
-#' 		Because the definition of $ was overloaded to allow method chaining, the 
+#'
+#' 		Because the definition of $ was overloaded to allow method chaining, the
 #' 		field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
 #'		x_()$x() is required.
 #'
 #'
 #' @details
 #'
-#' Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow 
-#' method (using $) has a small amount overhead, since the definition of $ 
+#' Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow
+#' method (using $) has a small amount overhead, since the definition of $
 #' has been overloading to allow method calling.
 #'
 #' @template glossary
-#' 
+#'
 #' @example inst/examples/blank.R
 #' @export
 
@@ -1112,24 +1140,15 @@ x_ <- function (val) {
 	method_name <- paste0(method)
 	pcall <- paste0('$', method_name)
 
-	proto_ref <-
-		if (is.function( obj[['x']] )) {
-			x_fn_proto
-		} else if (is.vector( obj[['x']] ) || is.pairlist( obj[['x']] )){
-			x_coll_proto
-		} else if (is.matrix( obj[['x']] )) {
-			x_matrix_proto
-		} else {
-			x_any_proto
-		}
+	proto_ref <- get_proto_ref( obj[['x']] )
 
 	if (!method_name %in% ls(proto_ref)) {
 
-		similar <- 
+		similar <-
 			agrep(
-				pattern = method_name, 
-				x = ls(proto_ref), 
-				fixed = False, 
+				pattern = method_name,
+				x = ls(proto_ref),
+				fixed = False,
 				value = True,
 				max.distance = list(
 					cost = 0.07
