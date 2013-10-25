@@ -1071,6 +1071,14 @@ x_fn_proto <- local({
 		c(as.list(this), as.list(x_any_proto)) )
 })
 
+
+
+
+
+
+
+
+
 get_proto_ref <- function (val) {
 	# get the reference to the appropriate
 	# methods.
@@ -1087,9 +1095,33 @@ get_proto_ref <- function (val) {
 	}
 }
 
+suggest_similar_method <- function (val, method_name, pcall) {
 
+	proto_ref <- get_proto_ref(val)
 
+	similar <-
+		agrep(
+			pattern = method_name,
+			x = ls(proto_ref),
+			fixed = False,
+			value = True,
+			max.distance = list(
+				cost = 0.07
+			),
+			cost = list(
+				deletions = 4,
+				insertions = 2,
+				substitutions = 1
+			))
 
+	# a cheap and nasty heuristic for finding the 'best' match.
+
+	similar <- similar[ which.min(nchar(similar)) ]
+
+	assert(
+		method_name %in% ls(proto_ref), pcall,
+		exclaim$method_not_found(method_name, similar))
+}
 
 # -------------------------------- Type Constructor -------------------------------- #
 
@@ -1109,7 +1141,6 @@ get_proto_ref <- function (val) {
 #' 		Because the definition of $ was overloaded to allow method chaining, the
 #' 		field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
 #'		x_()$x() is required.
-#'
 #'
 #' @details
 #'
@@ -1143,33 +1174,11 @@ x_ <- function (val) {
 	proto_ref <- get_proto_ref( obj[['x']] )
 
 	if (!method_name %in% ls(proto_ref)) {
-
-		similar <-
-			agrep(
-				pattern = method_name,
-				x = ls(proto_ref),
-				fixed = False,
-				value = True,
-				max.distance = list(
-					cost = 0.07
-				),
-				cost = list(
-					insertions = 2,
-					deletions = 4,
-					substitutions = 1
-				))
-
-		# a cheap and nasty heuristic for finding the 'best' match.
-
-		similar <- similar[ which.min(nchar(similar)) ]
-
-		assert(
-			method_name %in% ls(proto_ref), pcall,
-			exclaim$method_not_found(method_name, similar))
+		suggest_similar_method(
+			obj[['x']], method_name, pcall)
 	}
 
 	fn <- proto_ref[[method_name]]
 
 	environment(fn)[['self_']] <- function () obj[['x']]
-	fn
 }

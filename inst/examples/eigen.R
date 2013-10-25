@@ -7,7 +7,7 @@ monic_polynomial_roots <- function (free, max_int) {
 	as_companion <- ( function () {
 
 		template <- matrix(0, free, free - 1)
-		template[row(template)-1 == col(template)] <- 1	
+		template[row(template)-1 == col(template)] <- 1
 
 		constants := {
 			cbind(template, as.integer(constants))
@@ -43,7 +43,7 @@ xTap(roots := {
 		root_1 := {
 			complex_distance <- function (root_2) {
 				sqrt(
-					(Re(root_1) - Re(root_2))^2 + 
+					(Re(root_1) - Re(root_2))^2 +
 					(Im(root_1) - Im(root_2))^2 )
 			}
 			sample_points <- roots[sample.int(length(roots), size = 600)]
@@ -61,8 +61,8 @@ x()
 par(bg = 'black')
 plot(
 	x = 0, y = 0,
-	xlim = c(-8, +8), ylim = c(-4, +4), 
-	type = 'n')		
+	xlim = c(-8, +8), ylim = c(-4, +4),
+	type = 'n')
 
 as_colour <- ( function () {
 	# convert the distance to a colour.
@@ -78,7 +78,7 @@ as_colour <- ( function () {
 
 x_(monic_roots)$xDo(root := {
 	points(
-		x = Re(xFirst(root)), y = Im(xFirst(root)), 
-		col = as_colour(xSecond(root)), 
+		x = Re(xFirst(root)), y = Im(xFirst(root)),
+		col = as_colour(xSecond(root)),
 		cex = 0.1, pch = 15)
 })
