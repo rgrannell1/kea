@@ -1179,6 +1179,6 @@ x_ <- function (val) {
 	}
 
 	fn <- proto_ref[[method_name]]
-
 	environment(fn)[['self_']] <- function () obj[['x']]
+	fn
 }
