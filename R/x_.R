@@ -1076,53 +1076,6 @@ x_fn_proto <- local({
 
 
 
-
-
-
-get_proto_ref <- function (val) {
-	# get the reference to the appropriate
-	# methods.
-
-	proto_ref <-
-	if (is.function( val )) {
-		x_fn_proto
-	} else if (is.vector( val ) || is.pairlist( val )){
-		x_coll_proto
-	} else if (is.matrix( val )) {
-		x_matrix_proto
-	} else {
-		x_any_proto
-	}
-}
-
-suggest_similar_method <- function (val, method_name, pcall) {
-
-	proto_ref <- get_proto_ref(val)
-
-	similar <-
-		agrep(
-			pattern = method_name,
-			x = ls(proto_ref),
-			fixed = False,
-			value = True,
-			max.distance = list(
-				cost = 0.07
-			),
-			cost = list(
-				deletions = 4,
-				insertions = 2,
-				substitutions = 1
-			))
-
-	# a cheap and nasty heuristic for finding the 'best' match.
-
-	similar <- similar[ which.min(nchar(similar)) ]
-
-	assert(
-		method_name %in% ls(proto_ref), pcall,
-		exclaim$method_not_found(method_name, similar))
-}
-
 # -------------------------------- Type Constructor -------------------------------- #
 
 #' x_
@@ -1164,21 +1117,72 @@ x_ <- function (val) {
 	}
 }
 
-'$.arrow' <- function (obj, method) {
-	# Arrow a -> symbol -> function
-	# return an arrow method associated with the type a.
+'$.arrow' <- local({
 
-	method_name <- paste0(method)
-	pcall <- paste0('$', method_name)
+	get_proto_ref <- function (val) {
+		# get the reference to the appropriate
+		# methods.
 
-	proto_ref <- get_proto_ref( obj[['x']] )
-
-	if (!method_name %in% ls(proto_ref)) {
-		suggest_similar_method(
-			obj[['x']], method_name, pcall)
+		proto_ref <-
+		if (is.function( val )) {
+			x_fn_proto
+		} else if (is.vector( val ) || is.pairlist( val )){
+			x_coll_proto
+		} else if (is.matrix( val )) {
+			x_matrix_proto
+		} else {
+			x_any_proto
+		}
 	}
 
-	fn <- proto_ref[[method_name]]
-	environment(fn)[['self_']] <- function () obj[['x']]
-	fn
-}
+	suggest_similar_method <- function (val, method_name, pcall) {
+		# given an incorrect method name throw an error
+		# suggesting a similar method.
+
+		proto_ref <- get_proto_ref(val)
+
+		similar <-
+			agrep(
+				pattern = method_name,
+				x = ls(proto_ref),
+				fixed = False,
+				value = True,
+				max.distance = list(
+					cost = 0.07
+				),
+				cost = list(
+					deletions = 4,
+					insertions = 2,
+					substitutions = 1
+				))
+
+		# a cheap and nasty heuristic for finding the 'best' match.
+
+		similar <- similar[ which.min(nchar(similar)) ]
+
+		assert(
+			method_name %in% ls(proto_ref), pcall,
+			exclaim$method_not_found(method_name, similar))
+	}
+
+	function (obj, method) {
+		# Arrow a -> symbol -> function
+		# return an arrow method associated with the type a.
+
+		method_name <- paste0(method)
+		pcall <- paste0('$', method_name)
+
+		proto_ref <- get_proto_ref( obj[['x']] )
+
+		if (!method_name %in% ls(proto_ref)) {
+			suggest_similar_method(
+				obj[['x']], method_name, pcall)
+		}
+
+		fn <- proto_ref[[method_name]]
+		environment(fn)[['self_']] <- function () obj[['x']]
+		fn
+	}
+})
+
+
