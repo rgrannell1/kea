@@ -6,11 +6,11 @@ Na <- NA
 True <- TRUE
 False <- FALSE
 
-Mu <- 
+Mu <-
 	function (...) Na
-Truth <- 
+Truth <-
 	function (...) True
-Falsity <- 
+Falsity <-
 	function (...) False
 
 test_package('arrow')

@@ -32,7 +32,7 @@ call_with_params <- function (name, fn) {
 	# string -> function -> call
 	# create call for a function with
 	# the arguments of another function.
-	
+
 	as.call(
 		lapply(
 			c(name, names(xFormals(fn)) ),
@@ -52,7 +52,7 @@ assert <- function (expr, pcall, message) {
 			if (is.character(pcall)) {
 				pcall
 			} else {
-				paste0(deparse(pcall), collapse = '')				
+				paste0(deparse(pcall), collapse = '')
 			}
 		}
 
@@ -64,7 +64,7 @@ assert <- function (expr, pcall, message) {
 				"    ", paste0(deparse(args$expr), collapse = ''), "\n",
 				"failed.",
 				call. = False)
-						
+
 		} else {
 			stop(call, ": ", message, call. = False)
 		}
@@ -79,18 +79,18 @@ tau <- 6.2831853071795864769252867
 cc <- list
 
 ith_suffix <- function (num) {
-	# takes a number i, adds the 
+	# takes a number i, adds the
 	# appropriate suffix (ith, ind, ist)
 
 	last <- as.numeric(substr(
-		toString(num), 
-		nchar(toString(num)), 
+		toString(num),
+		nchar(toString(num)),
 		nchar(toString(num)) ))
 
-	suffix <- 
+	suffix <-
 		if (num == 2) {
 			"nd"
-		} else if (num == 3) { 
+		} else if (num == 3) {
 			"rd"
 		} else if (num == 11 || num == 12 || num == 13) {
 			"th"
@@ -138,7 +138,7 @@ is_arrow <- function (val) {
 }
 
 dearrowise <- function (val) {
-	# if a value is in an arrow object, take it out. 
+	# if a value is in an arrow object, take it out.
 	# otherwise do nothing.
 
 	if (is_arrow(val)) {
@@ -151,7 +151,7 @@ dearrowise <- function (val) {
 is_fn_matchable <- function (val) {
 	# is a value a function or matchable as a function?
 
-	is.function(val) || is.symbol(val) || 
+	is.function(val) || is.symbol(val) ||
 	(is.character(val) && length(val) == 1)
 }
 
@@ -167,17 +167,17 @@ coerce_to_typed_vector <- function (coll, mode) {
 	# this makes list("a") ~ "a", making arrow more generic.
 
 	types <- list(
-		logical = 
+		logical =
 			is.logical,
-		integer = 
+		integer =
 			is.integer,
-		double = 
+		double =
 			is.double,
 		numeric =
 			is.numeric,
-		character = 
+		character =
 			is.character,
-		raw = 
+		raw =
 			is.raw
 	)
 

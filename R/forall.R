@@ -8,14 +8,14 @@
 G <- local({
 
 	# ---------------- accessory functions ---------------- #
-	# 
-	# functions that combine generators, or are generally useful for 
+	#
+	# functions that combine generators, or are generally useful for
 	# creating generators.
 	#
 
 	one_of <- function (coll) {
 		# select a single value from a collection.
- 
+
 		ith <- sample(seq_along(coll), size = 1)
 		coll[[ith]]
 	}
@@ -51,12 +51,12 @@ G <- local({
 			coll
 		}
 	}
-		
+
 	list_of <- function (fn, sd = 20) {
 		function () {
 			# given a generator for a single list element,
 			# generate a list of elements.
-				
+
 			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
 			coll <- list()
@@ -93,7 +93,7 @@ G <- local({
 		function () {
 			Na
 		}
-	this$logical <- 
+	this$logical <-
 		function () {
 			one_of(c(True, False, Na))
 		}
@@ -109,11 +109,11 @@ G <- local({
 		}
 	this$infinity <-
 		combine(
-			this$positive_infinity, 
-			this$negative_infinity)	
+			this$positive_infinity,
+			this$negative_infinity)
 
 	# -------- logical functions -------- #
-	
+
 	this$truth <-
 		function () {
 			function () True
@@ -138,10 +138,10 @@ G <- local({
 
 	# ---------------- parameterised functions ---------------- #
 	#
-	# these function generators need additional parameters to  
+	# these function generators need additional parameters to
 	# construct their return function. This usually includes
 	# the standard deviation of the length or magnitude of
-	# their ultimate return value. 
+	# their ultimate return value.
 	#
 
 	# -------- number functions -------- #
@@ -155,13 +155,13 @@ G <- local({
 	this$nonnegative <-
 		function (sd = 20) {
 			function () {
-				abs(round(rnorm(1, 0, sd), 0))				
+				abs(round(rnorm(1, 0, sd), 0))
 			}
 		}
 	this$positive <-
 		function (sd = 20) {
 			function () {
-				abs(round(rnorm(1, 0, sd), 0)) + 1				
+				abs(round(rnorm(1, 0, sd), 0)) + 1
 			}
 		}
 	# -------- character functions -------- #
@@ -170,7 +170,7 @@ G <- local({
 		function (sd = 20) {
 			function () {
 				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
-				
+
 				paste0(
 					sample(letters, size = size, replace = True),
 					collapse = "")
@@ -181,14 +181,14 @@ G <- local({
 
 	this$recursive_zero <-
 		function () {
-			one_of( list(NULL, list()) )
+			one_of( list(Null, list()) )
 		}
 
 	this$vector_zero <-
 		function () {
 			one_of(
 				list(
-					integer(), character(), 
+					integer(), character(),
 					raw(), logical(), numeric()) )
 		}
 
@@ -203,16 +203,16 @@ G <- local({
 	# and combine them to create vectors of arbitrary length and/or/depth.
 	#
 
-	# -------- typed vectors -------- # 
+	# -------- typed vectors -------- #
 
-	this$words <- 
+	this$words <-
 		function (sd = 20) {
 			combine(
 				vector_of(this$word, sd),
 				function () character())
 		}
 
-	this$integers <- 
+	this$integers <-
 		function (sd = 20) {
 			combine(
 				vector_of(this$integer, sd),
@@ -230,16 +230,16 @@ G <- local({
 		combine(
 			this$words, this$integers, this$logicals)
 
-	# -------- generic vectors -------- # 
+	# -------- generic vectors -------- #
 
-	this$collection <- 
+	this$collection <-
 		this$vector
 
 	this$integer_seq <-
 		function (sd = 20) {
 			function () {
 
-				size <- abs(round(rnorm(1, 0, sd), 0)) + 1		
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
 				seq_len(size)
 			}
 		}
@@ -247,8 +247,8 @@ G <- local({
 	# -------- standard -------- #
 	#
 	# this structure contains 'pre-approved' test cases for reuse
-	# between different functions. It is important that shared 
-	# test-case generators are used, to reduce the points of failure for 
+	# between different functions. It is important that shared
+	# test-case generators are used, to reduce the points of failure for
 	# each unit test.
 	#
 
@@ -256,13 +256,13 @@ G <- local({
 
 		this <- list()
 
-		this$mod2_over_ints <- 
+		this$mod2_over_ints <-
 			function () {
 				list(
-					fn = 
+					fn =
 						function () function (n) n %% 2 == 0,
 					coll =
-						G$integers()		
+						G$integers()
 				)
 			}
 
@@ -271,21 +271,21 @@ G <- local({
 				list(
 					fn = function () {
 						function (x) x + 1
-					}, 
+					},
 					coll = G$integers())
 			}
 
-		this$truth_with_coll <- 
+		this$truth_with_coll <-
 			function () {
 				list(fn = G$truth, coll = G$collection)
 			}
 
-		this$falsity_with_coll <- 
+		this$falsity_with_coll <-
 			function () {
 				list(fn = G$falsity, coll = G$collection)
 			}
-		
-		this$mu_with_coll <- 
+
+		this$mu_with_coll <-
 			function () {
 				list(fn = G$mu, coll = G$collection)
 			}
@@ -304,7 +304,7 @@ G <- local({
 			function () {
 				list(coll1 = G$collection_zero, coll2 = G$collection())
 			}
-			
+
 		this$two_colls_right_empty <-
 			function () {
 				list(coll1 = G$collection(), coll2 = G$collection_zero)
@@ -340,14 +340,14 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 	# ----- capture the expect and given expressions as functions
 
 	expect_expr <- match.call()$expect
-	given_expr <- 
+	given_expr <-
 		if (missing(given)) {
-			True 
+			True
 		} else {
 			match.call()$given
 		}
 
-	expect <- given <- 
+	expect <- given <-
 		function () {}
 
 	formals(expect) <-
@@ -358,7 +358,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	body(expect) <- expect_expr
 	body(given) <- given_expr
-	
+
 	# ----- check that the expectation is true for a range of cases
 
 	state <- list(
@@ -372,7 +372,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 		case <- lapply(cases, function (fn) fn())
 
 		if (do.call(given, case)) {
-			
+
 			state$tests_run <- state$tests_run + 1
 			result <- do.call(expect, case)
 
@@ -385,10 +385,10 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 				lament$non_boolean_expectation(info, case))
 
 			if (!result) {
-				state$failed_after <- 
+				state$failed_after <-
 					min(state$failed_after, state$tests_run)
 
-				state$failed <- 
+				state$failed <-
 					c(state$failed, list(case))
 			}
 		}
@@ -399,7 +399,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 		pcall,
 		lament$failed_cases(
 			info,
-			state$failed_after, 
+			state$failed_after,
 			state$failed))
 
 	message(info, " passed!", " (", state$tests_run, ")")

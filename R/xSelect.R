@@ -1,14 +1,22 @@
-	
+
 #' xSelect
-#' 
+#'
 #' Include all elements from a collection matching a predicate.
+#'
+#' @section Uses:
+#'     The select function is useful for taking a collection,
+#'     and returning values that meet certain criteria. Likely
+#'     uses include selecting rows in a (converted) data frame
+#'     that contain a certain value, selecting strings that
+#'     match a regular expression, or selecting records
+#'     based on a value in a particular field.
 #'
 #' @param pred a predicate.
 #' @param coll a collection
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero, or no match is found.
 #' @template glossary
 #'
@@ -19,7 +27,7 @@
 
 xSelect <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
-	# returns coll[i] such that 
+	# returns coll[i] such that
 	# pred(coll[i]) is true
 
 	pcall <- sys.call()
@@ -27,9 +35,9 @@ xSelect <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)

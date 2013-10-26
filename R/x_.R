@@ -1046,14 +1046,6 @@ x_fn_proto <- local({
 		this$xUnfoldl <-
 			this$xUnfold
 	# -------- V ------- #
-	this$xZipWith <-
-		function (...) {
-			x_( xZipWith(self_(), ...) )
-		}
-	this$xZip <-
-		function (...) {
-			x_( xZip(self_(), ...) )
-		}
 	# -------- W ------- #
 	this$xWait <-
 		function (num) {
@@ -1065,7 +1057,17 @@ x_fn_proto <- local({
 		}
 	this$xWrap <-
 		this$xThrush
-
+	# -------- X ------- #
+	# -------- Y ------- #
+	# -------- Z ------- #
+	this$xZipWith <-
+		function (...) {
+			x_( xZipWith(self_(), ...) )
+		}
+	this$xZip <-
+		function (...) {
+			x_( xZip(self_(), ...) )
+		}
 
 	as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
@@ -1184,5 +1186,3 @@ x_ <- function (val) {
 		fn
 	}
 })
-
-

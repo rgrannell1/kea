@@ -1,18 +1,24 @@
 
 #' xMap
-#' 
+#'
 #' Apply a function to each element of a collection.
+#'
+#' @section Uses:
+#'     Map is used to apply the same modification to every
+#'     element in a collection. For example, map can be
+#'     used to convert every integer in a list to a string,
+#'     to lookup every URL in a list of URLs, or to
+#'     multiply every integer in a list by two.
 #'
 #' @param fn a unary function.
 #' @param coll a collection.
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list is \code{coll} is length-zero.
 #'
 #' @template glossary
-#'
 #'
 #' @family higher_order_functions map_like_functions
 #'
@@ -26,18 +32,18 @@ xMap <- function (fn, coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
 
 	assert(

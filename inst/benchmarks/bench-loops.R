@@ -14,60 +14,60 @@ bench$loops <-
 	xZipWith(
 		function (test, control, name) {
 			list(
-				test = test, 
-				control = control, 
+				test = test,
+				control = control,
 				name = name,
 				N = 10000,
 				times = 5000)
 		},
 		list(
-			"repeat" = 
+			"repeat" =
 				function (N) {
-				
+
 					ith <-1
 					repeat {
 						if (ith >= N) break
 						ith <- ith + 1
 					}
 				},
-			"forin" = 
+			"forin" =
 				function (N) {
 					for (i in 1:N) {
-						
+
 					}
-				}, 
-			"while" = 
+				},
+			"while" =
 				function (N) {
 					ith <- 1
 					while (ith <= N) {
 						ith <- ith + 1
 					}
-				}, 
+				},
 			"lapply" =
 				function (N) {
-					lapply(1:N, function (x) NULL)
-				}, 
-			"map" = 
+					lapply(1:N, function (x) Null)
+				},
+			"map" =
 				function (N) {
-					Map(function (x) NULL, 1:N)
-				}, 
-			"vapply" = 
+					Map(function (x) Null, 1:N)
+				},
+			"vapply" =
 				function (N) {
 					vapply(1:N, function (x) 1L, integer(1))
 				}
 		),
 		list(
-			"repeat" = 
+			"repeat" =
 				repeat_control,
-			"forin" = 
-				repeat_control, 
-			"while" = 
-				repeat_control, 
-			"lapply" = 
-				repeat_control, 
-			"map" = 
-				repeat_control, 
-			"vapply" = 
+			"forin" =
+				repeat_control,
+			"while" =
+				repeat_control,
+			"lapply" =
+				repeat_control,
+			"map" =
+				repeat_control,
+			"vapply" =
 				repeat_control
 		),
 		list(
