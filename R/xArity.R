@@ -1,7 +1,14 @@
 
 #' xArity
-#' 
+#'
 #' Return the arity of a function.
+#'
+#' @section Uses:
+#' \code{xArity} is primarily intended for use with
+#' higher-order functions that require functions with a
+#' particular arity. For example, a strict version of
+#' map might use \code{xArity} to throw an error if
+#' its input function is not unary.
 #'
 #' @param fn an function of any arity.
 #'
@@ -27,20 +34,20 @@ xArity <- function (fn) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
-	
+
 	fn <- match.fun(fn)
 	fn_params <- names(xFormals(fn))
 
 	if ("..." %in% fn_params) {
-		+Inf		
+		+Inf
 	} else {
 		length(fn_params)
 	}

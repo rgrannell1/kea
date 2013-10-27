@@ -1,6 +1,6 @@
 
 #' xPoll
-#' 
+#'
 #' Count the number of times a function returns true when mapped over a collection.
 #'
 #' @param pred a unary predicate function.
@@ -21,15 +21,15 @@ xPoll <- function (pred, coll) {
 	# return the number of elements for which a predicate is true.
 
 	pcall <- sys.call()
-	
+
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
-	
+
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
@@ -42,15 +42,15 @@ xPoll <- function (pred, coll) {
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
-	
+
 	if (length(coll) == 0) {
 		0
 	} else {
 		count <- 0
 		for (ith in seq_along(coll)) {
-			
+
 			is_match <- pred( coll[[ith]] )
-			
+
 			assert(is.logical(is_match), pcall)
 
 			if (isTRUE(is_match)) {

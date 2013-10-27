@@ -1,7 +1,15 @@
 
 #' xApply
-#' 
+#'
 #' Call a function with a list of arguments.
+#'
+#' @section Uses:
+#' \code{xApply} is an adaptor function that allows variadic functions
+#' to be called with a variable number of arguments at runtime.
+#' For example, if \code{xConcat} is invoked directly it has
+#' to be given a fixed number of lists to concatenate.
+#' If \code{xConcat} is invoked with \code{xApply} then
+#' xConcat can be invoked with any number of lists dynamically.
 #'
 #' @param fn an function of any arity.
 #' @param coll a list or pairlist. This may be named, but
@@ -22,20 +30,20 @@ xApply <- function (fn, coll) {
 
 	pcall <- sys.call()
 	pframe <- parent.frame()
-	
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
 
 	assert(

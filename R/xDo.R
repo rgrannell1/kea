@@ -4,15 +4,15 @@
 #'
 #' @section Uses:
 #'
-#'    \code{xDo} behaves similarily to \code{xMap}; it applies a
-#'    function to every element of a collection. However,
-#'    \code{xDo} is primarily meant for use with side-effectful
-#'    functions, and is more memory efficient for \code{xDo}
-#'    for this task. \code{xDo} can be used for plotting
-#'    every point in a list of xy coordinates, or for
-#'    printing every value in a list. It is also possible
-#'    to use \code{xDo} for side-effectfully updating values,
-#'    but this can lead to stateful, tangled code.
+#' \code{xDo} behaves similarily to \code{xMap}; it applies a
+#' function to every element of a collection. However,
+#' \code{xDo} is primarily meant for use with side-effectful
+#' functions, and is more memory efficient for \code{xDo}
+#' for this task. \code{xDo} can be used for plotting
+#' every point in a list of xy coordinates, or for
+#' printing every value in a list. It is also possible
+#' to use \code{xDo} for side-effectfully updating values,
+#' but this can lead to stateful, tangled code.
 #'
 #' @param fn a unary function, usually side-effectful.
 #' @param coll a collection

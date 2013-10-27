@@ -3,16 +3,6 @@
 #'
 #' Apply a binary function to each element of a collection and its indices.
 #'
-#' @section Uses:
-#'     \code{xMapAlong} is slightly more general than
-#'     \code{xMap}
-#'
-#'
-#'
-#'
-#'
-#'
-#'
 #' @param fn a binary function.
 #' @param coll a collection.
 #'

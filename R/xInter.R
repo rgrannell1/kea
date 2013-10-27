@@ -1,6 +1,6 @@
 
 #' xInter
-#' 
+#'
 #' Get the set intersection of two collections.
 #'
 #' @param coll1 a collection
@@ -8,7 +8,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -23,7 +23,7 @@ xInter <- function (coll1, coll2) {
 	assert(
 		!missing(coll1), pcall,
 		exclaim$parameter_missing(coll1))
-	
+
 	assert(
 		!missing(coll2), pcall,
 		exclaim$parameter_missing(coll2))
