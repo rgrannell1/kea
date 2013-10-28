@@ -1,12 +1,16 @@
 
 #' xSegment
-#' 
+#'
 #' Divide a collection into segments of fixed length.
+#'
+#' @section Uses:
+#' \code{xSegment} is useful for reshaping a collection into pairs, triples,
+#' or larger groups before applying a function to each group.
 #'
 #' @param num a nonnegative whole number.
 #' @param coll a collection
 #'
-#' @return a list of n-element lsits.
+#' @return a list of n-element lists.
 #'
 #' @section Corner Cases:
 #'	 the final list in the return value will have less than \code{num}
@@ -23,14 +27,14 @@ xSegment <- function (num, coll) {
 	# groups coll into chunks of num,
 	# when possible.
 
-	pcall <- sys.call()	
+	pcall <- sys.call()
 
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
@@ -41,7 +45,7 @@ xSegment <- function (num, coll) {
 		exclaim$must_have_length(num, 1))
 
 	num <- coerce_to_typed_vector(num, 'numeric')
-	
+
 	assert(
 		num >= 0, pcall,
 		exclaim$must_be_grequal_than(num, 0))

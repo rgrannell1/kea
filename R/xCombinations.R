@@ -1,33 +1,38 @@
 
-#' xCombinations
-#' 
-#' Generate all ways of choosing several elements from a column.
+#' xCombos
+#'
+#' Generate all ways of choosing several elements from a collection.
+#'
+#' @section Uses:
+#' \code{xCombos} .
 #'
 #' @param num a nonnegative whole number.
 #' @param coll a collection
 #'
 #' @return a list of lists, with each list containing \code{num} elements.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{num} is zero.
 #' @template glossary
+#'
+#' @family combinatoric_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
 
-xCombinations <- function (num, coll) {
+xCombos <- function (num, coll) {
 	# number -> Collection
 
 	pcall <- sys.call()
-	
+
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
-	
+
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
@@ -36,7 +41,7 @@ xCombinations <- function (num, coll) {
 		exclaim$must_have_length(num, 1))
 
 	assert(
-		is.numeric(num), pcall, 
+		is.numeric(num), pcall,
 		exclaim$must_be_numeric(num))
 
 	assert(
@@ -49,12 +54,12 @@ xCombinations <- function (num, coll) {
 
 	assert(
 		is_collection(coll), pcall,
-		exclaim$must_be_collection(coll))	
+		exclaim$must_be_collection(coll))
 
 	if (num == 0 || coll == 0) {
 		list()
 	} else {
 		num <- min(length(coll), num)
-		apply(combn(coll, num), 2, as.list)			
+		apply(combn(coll, num), 2, as.list)
 	}
 }

@@ -1,8 +1,8 @@
-\name{xCombinations}
-\alias{xCombinations}
-\title{xCombinations}
+\name{xCombos}
+\alias{xCombos}
+\title{xCombos}
 \usage{
-  xCombinations(num, coll)
+  xCombos(num, coll)
 }
 \arguments{
   \item{num}{a nonnegative whole number.}

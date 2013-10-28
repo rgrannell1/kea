@@ -378,9 +378,9 @@ x_coll_proto <- local({
 		function (...) {
 			x_( xConcat(self_(), ...) )
 		}
-	this$xCombinations <-
+	this$xCombos <-
 		function (num) {
-			x_( xCombinations(num, self_()) )
+			x_( xCombos(num, self_()) )
 		}
 	this$xConst <-
 		function () {

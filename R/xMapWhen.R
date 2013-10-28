@@ -2,14 +2,15 @@
 #' xMapWhen
 #'
 #' Selectively apply a function to elements in a collection.
-#' 
+#'
+#'
 #' @param pred a predicate function.
 #' @param fn a unary function.
 #' @param coll a collection.
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -29,13 +30,13 @@ xMapWhen <- function (pred, fn, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
-	
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
@@ -47,9 +48,9 @@ xMapWhen <- function (pred, fn, coll) {
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
-			
+
 	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))

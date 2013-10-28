@@ -1,15 +1,17 @@
 
 #' xSetProd
-#' 
+#'
 #' Get the cartesian product of several collections.
 #'
 #' @param ... n collections.
 #'
 #' @return a list of n-element lists.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
+#'
+#' @family combinatoric_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
@@ -18,12 +20,12 @@ xSetProd <- function (...) {
 	# set the cartesian product of n collections
 
 	pcall <- sys.call()
-	
+
 	colls <- lapply(list(...), dearrowise)
 
 	assert(
 		all( sapply(colls, function (coll) {
-			is_collection(coll) 
+			is_collection(coll)
 		}) ), pcall)
 
 	coll_lengths <- sapply(colls, length)
@@ -32,7 +34,7 @@ xSetProd <- function (...) {
 		list()
 	} else {
 		modulo_iths <- function (n, mods) {
-					
+
 			assert(n <= prod(mods), pcall)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
@@ -49,7 +51,7 @@ xSetProd <- function (...) {
 					colls[[coll_ith]][[choice]]
 				},
 				seq_along(colls))
-1			
+1
 		}
 		tuples
 	}
