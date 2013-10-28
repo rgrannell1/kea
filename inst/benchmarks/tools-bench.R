@@ -22,7 +22,7 @@ stats <- list(
 
 			# bootstrap to find median diff, within confidence intervals.
 			boot_data <- boot.ci(
-				two.boot(free_data, control_data, median, R = 100000),
+				two.boot(free_data, control_data, median, R = 2000),
 				conf = 0.95, type = 'bca')
 
 			# convert to a multiplier of control data set.
@@ -118,22 +118,22 @@ visualise_tprofile <- function (results) {
 
 	reshaped['value'] <- as.numeric( unlist(reshaped['value']) )
 
-	ggplot(reshaped, aes(profiled, y = value, fill = variable)) +
-	geom_bar(stat = 'identity')
+	ggplot(reshaped, aes(profiled, y = value, colour = variable)) +
+	geom_bar(stat = 'identity', position = 'identity', alpha = 0) +
+	xlab('') + ylab('times faster than control') +
+	ggtitle('benchmarks')
 
-	#	ggplot(reshaped, aes(y = variable)) +
-	#	geom_bar(stat = 'identity')
 }
 
 test <- list(
 	tprofile(
 		info = "1",
-		free = function () Sys.sleep(0.1),
-		control = function () Sys.sleep(0.03)),
+		free = function () Sys.sleep(0.01),
+		control = function () Sys.sleep(0.003)),
 	tprofile(
 		info = "2",
-		free = function () Sys.sleep(0.2),
-		control = function () Sys.sleep(0.15))
+		free = function () Sys.sleep(0.02),
+		control = function () Sys.sleep(0.015))
 )
 
 visualise_tprofile(test)
