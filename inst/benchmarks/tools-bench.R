@@ -11,6 +11,7 @@ stats <- list(
 		},
 	median_diff_ci =
 		function (free_data, control_data) {
+
 			# how many times slower is the free
 			# data set from the control data set, within error bars.
 
@@ -20,12 +21,16 @@ stats <- list(
 				data
 			}
 
-			# bootstrap to find median diff, within confidence intervals.
+			# what is the median distance between
+			# the median of the free data, and the control data?
+
 			boot_data <- boot.ci(
 				two.boot(free_data, control_data, median, R = 2000),
 				conf = 0.95, type = 'bca')
 
-			# convert to a multiplier of control data set.
+			# how many times faster is the test group than
+			# the control group, within 95% significance bounds?
+
 			list(
 				lower =
 					boot_data$bca[4] / median(control_data),
@@ -120,7 +125,8 @@ visualise_tprofile <- function (results) {
 
 	ggplot(reshaped, aes(profiled, y = value, colour = variable)) +
 	geom_bar(stat = 'identity', position = 'identity', alpha = 0) +
-	xlab('') + ylab('times faster than control') +
+	xlab('') +
+	ylab('times faster than control') +
 	ggtitle('benchmarks')
 
 }
