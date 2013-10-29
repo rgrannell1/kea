@@ -1,6 +1,6 @@
 
 #' xUnfold
-#' 
+#'
 #' Generate a list of values from an initial value.
 #'
 #' @param pred a unary function.
@@ -9,7 +9,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{init} is length-zero.
 #' @template glossary
 #'
@@ -30,11 +30,11 @@ xUnfold <- function (pred, fn, init) {
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), pcall, 
+		!missing(init), pcall,
 		exclaim$parameter_missing(init))
 
 	pred <- dearrowise(pred)
@@ -46,7 +46,7 @@ xUnfold <- function (pred, fn, init) {
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
@@ -55,17 +55,17 @@ xUnfold <- function (pred, fn, init) {
 	acc <- list(init)
 
 	while (pred( acc[[ length(acc) ]]  )) {
-		
+
 		fn_out <- fn( acc[[ length(acc) ]] )
 
 		acc[length(acc)] <- fn_out[[1]]
 		acc[length(acc) + 1] <- fn_out[[2]]
 	}
 	acc
-	
+
 }
 
-#' @export 
+#' @export
 
 xUnfoldl <- xUnfold
 
