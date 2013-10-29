@@ -51,7 +51,7 @@ tprofile <- function (info = '', free, control, max_time = 1) {
 	iters <- floor(max_time / median_seconds)
 
 	if (iters == 0) {
-		stop('more time needed!')
+		stop("max_time was too low to allow for a single iteration.")
 	}
 
 	report <- list(

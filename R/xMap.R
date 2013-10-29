@@ -55,6 +55,8 @@ xMap <- function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+
+		environment(fn)$xReturn <-xReturn
 		lapply(coll, fn)
 	}
 }
