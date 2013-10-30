@@ -1,5 +1,5 @@
 
-context("xSelectfalsity_with_coll")
+context("xSelect")
 
 forall(
 	"the empty collection always yields the empty list.",
@@ -10,9 +10,9 @@ forall(
 forall(
 	"a truth function is list identity for collection.",
 	G$standard$truth_with_coll(),
-	expect = 
+	expect =
 		xSelect(fn, coll) %equals% coll,
-	given = 
+	given =
 		length(coll) > 0
 )
 
@@ -34,18 +34,18 @@ forall(
 	xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
 )
 
-context("arrow $ xSelectfalsity_with_coll")
+context("arrow $ xSelect")
 
 forall(
 	"collection.xSelect selects even-numbers.",
 	G$standard$mod2_over_ints(),
-	x_(coll)$xSelect(fn)$x() %equals% 
+	x_(coll)$xSelect(fn)$x() %equals%
 		as.list(coll[coll %% 2 == 0])
 )
 
 forall(
 	"function.xSelect selects even-numbers.",
 	G$standard$mod2_over_ints(),
-	x_(fn)$xSelect(coll)$x() %equals% 
+	x_(fn)$xSelect(coll)$x() %equals%
 		as.list(coll[coll %% 2 == 0])
 )

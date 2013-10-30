@@ -13,6 +13,7 @@
 #' @section Corner Cases:
 #'	 returns \code{init} if \code{coll} is length-zero.
 #'
+#' @template Return
 #' @template glossary
 #'
 #' @family higher_order_functions

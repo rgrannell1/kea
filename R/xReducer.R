@@ -12,9 +12,11 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero, and returns the
 #'     value inside \code{coll} if coll is length-one.
-#' @template glossary
 #'
 #' @family higher_order_functions
+#'
+#' @template Return
+#' @template glossary
 #'
 #' @example inst/examples/blank.R
 #' @export

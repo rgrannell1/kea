@@ -5,10 +5,6 @@ require(simpleboot)
 require(microbenchmark)
 
 stats <- list(
-	percent_mad =
-		function (data) {
-			100 * (mad(data) / median(data))
-		},
 	median_diff_ci =
 		function (free_data, control_data) {
 
@@ -28,14 +24,30 @@ stats <- list(
 				two.boot(free_data, control_data, median, R = 2000),
 				conf = 0.95, type = 'bca')
 
+			print( boot_data$bca )
+			print( median(free_data) )
+			print( median(control_data) )
+
 			# how many times faster is the test group than
 			# the control group, within 95% significance bounds?
 
-			list(
-				lower =
-					boot_data$bca[4] / median(control_data),
-				upper =
-					boot_data$bca[5] / median(control_data))
+			#### FIX METHODS:
+			#### not estimating mult. within error bars
+
+			if (median(control_data) > median(free_data)) {
+				list(
+					lower =
+						boot_data$bca[4] / median(control_data),
+					upper =
+						boot_data$bca[5] / median(control_data))
+
+			} else {
+				list(
+					lower =
+						boot_data$bca[4] / median(control_data),
+					upper =
+						boot_data$bca[5] / median(control_data))
+			}
 		}
 )
 
@@ -62,32 +74,25 @@ tprofile <- function (info = '', free, control, max_time = 1) {
 			data = mb(control(), times = iters)$time)
 	)
 
-	# get the median, percentage mad
-	# (measure of spread) and number of iterations.
+	# get the median, and number of iterations.
 
 	report$free <- c(
 		report$free, list(
 			median =
 				median(report$free$data),
-			percent_mad =
-				stats$percent_mad(report$free$data),
 			iters = iters) )
 
 	report$control <- c(report$control,
 		list(
 			median =
 				median(report$control$data),
-			percent_mad =
-				stats$percent_mad(report$control$data),
 			iters = iters) )
 
-	# get the confidence intervals between
-	# the two data sets.
+	# get the confidence intervals between the two data sets.
 
 	report$difference <-
 		stats$median_diff_ci(
-			report$free$data,
-			report$control$data)
+			report$free$data, report$control$data)
 
 	report
 }
@@ -114,16 +119,19 @@ visualise_tprofile <- function (results) {
 		})
 	)
 
+	# each row is an observation, each col is a property
+	# of that observation: lower and upper are the conf. interval bounds.
 	reshaped <- as.data.frame(reshaped)
-	colnames(reshaped) <- c('profiled', 'lower', 'upper')
+	colnames(reshaped) <- c('info', 'lower', 'upper')
 
+	# melt the data for ggplot2 consumption.
 	reshaped <- melt(
-		reshaped, id.vars = 'profiled',
+		reshaped, id.vars = 'info',
 		measured = c("lower", "upper"))
 
 	reshaped['value'] <- as.numeric( unlist(reshaped['value']) )
 
-	ggplot(reshaped, aes(profiled, y = value, colour = variable)) +
+	ggplot(reshaped, aes(info, y = value, colour = variable)) +
 	geom_bar(stat = 'identity', position = 'identity', alpha = 0) +
 	xlab('') +
 	ylab('times faster than control') +

@@ -1,29 +1,43 @@
 
 context('xApply')
 
-test_that('xApply', {
+forall(
+	"applying to an list function identity yields the list",
+	G$standard$coll,
+	xApply(list, argscoll) %equals% coll
+)
 
-	expect_equal( xApply(identity, list(1)), 1 )
-	expect_equal(
-		xApply( function (...) list(...), list(1,2,3) ),
-		 list(1,2,3) )
-	expect_equal(
-		xApply( function (a, ...) list(a, ...), list(1,2,3) ),
-		list(1,2,3) )
+forall(
+	"lazy-evaluation doesn't interfere with call evaluation",
+	list(a = G$integer(), b = G$integer()),
+	{
 
-	expect_error( xApply( function () Null , list(1) ))
-	expect_error( xApply( function (a) Null , list(1, 2) ))
+		f <- function (a) {
+			( function (b) {
 
-})
+				xApply( function (c) 2 * c  )
 
-test_that('lazy-evaluation doesnt interfere with call evaluation', {
+			})(a)
+		}
 
-	f = function (a) {
-		( function (b) {
+		f(a) %equals% (2 * a)
 
-			xApply( function (c) c + c, list(b) )
-
-		} )(a)
 	}
-	expect_equal(f(10), 20)
-})
+)
+
+context("arrow $ xApply")
+
+forall(
+	"coll arrow list identity",
+	G$standard$coll,
+	x_(coll)$xApply(list) %equals% coll
+)
+
+context("fn $ xApply")
+
+forall(
+	"fn arrow list identity",
+	G$standard$coll,
+	x_(list)$xApply(coll) %equals% coll
+)
+`
