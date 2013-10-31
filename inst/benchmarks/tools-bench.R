@@ -11,43 +11,16 @@ stats <- list(
 			# how many times slower is the free
 			# data set from the control data set, within error bars.
 
-			sampleset <- if (length(data) > 1000) {
-				sample(data, size = 1000)
-			} else {
-				data
-			}
+			free_report <- unname(quantile(free_data))
+			control_report <- unname(quantile(control_data))
 
-			# what is the median distance between
-			# the median of the free data, and the control data?
-
-			boot_data <- boot.ci(
-				two.boot(free_data, control_data, median, R = 2000),
-				conf = 0.95, type = 'bca')
-
-			print( boot_data$bca )
-			print( median(free_data) )
-			print( median(control_data) )
-
-			# how many times faster is the test group than
-			# the control group, within 95% significance bounds?
-
-			#### FIX METHODS:
-			#### not estimating mult. within error bars
-
-			if (median(control_data) > median(free_data)) {
-				list(
-					lower =
-						boot_data$bca[4] / median(control_data),
-					upper =
-						boot_data$bca[5] / median(control_data))
-
-			} else {
-				list(
-					lower =
-						boot_data$bca[4] / median(control_data),
-					upper =
-						boot_data$bca[5] / median(control_data))
-			}
+			list(
+				info =
+					"",
+				lower =
+					free_report[2] / control_report[4],
+				upper =
+					free_report[4] / control_report[2])
 		}
 )
 
@@ -104,6 +77,8 @@ visualise_tprofile <- function (results) {
 	# visualise the results of several time
 	# profiles simultaneously.
 
+	print(results)
+
 	reshaped <- Reduce(
 		function (acc, new) {
 			unname(rbind(acc, new))
@@ -111,6 +86,8 @@ visualise_tprofile <- function (results) {
 		lapply(
 			results,
 			function (result) {
+
+				print(result$difference$lower)
 
 				c(
 					result$info,
@@ -143,7 +120,7 @@ test <- list(
 	tprofile(
 		info = "1",
 		free = function () Sys.sleep(0.01),
-		control = function () Sys.sleep(0.003)),
+		control = function () Sys.sleep(0.03)),
 	tprofile(
 		info = "2",
 		free = function () Sys.sleep(0.02),
