@@ -1,13 +1,13 @@
 
 #' xGet
-#' 
+#'
 #' Return a function that selects a key from a collection.
 #'
 #' @param str a string.
 #'
 #' @return a unary function that takes a collection.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -18,7 +18,7 @@ xGet <- function (str) {
 	# Vector string -> (Collection -> [any])
 
 	pcall <- sys.call()
-	
+
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
@@ -38,6 +38,7 @@ xGet <- function (str) {
 	if (length(str) == 0) {
 		str <- ""
 	}
+
 	function (coll) {
 		unname(as.list( coll )[names(coll) == str])
 	}

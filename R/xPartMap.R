@@ -1,13 +1,13 @@
 
 #' xPartMap
-#' 
-#' Partially apply xMap with a function. 
+#'
+#' Partially apply xMap with a function.
 #'
 #' @param fn a unary function.
 #'
-#' @return a unary function of val.
+#' @return a unary function of coll.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
 #' @template glossary
@@ -18,5 +18,23 @@
 #' @export
 
 xPartMap <- function (fn) {
-	function (val) xMap(fn, val)
+	# shorthand for partially applying map.
+
+	pcall <- sys.call()
+
+	assert(
+		!missing(fn), pcall,
+		exclaim$parameter_missing(fn))
+
+	fn <- dearrowise(fn)
+
+	assert(
+		is_fn_matchable(fn), pcall,
+		exclaim$must_be_matchable(fn))
+
+	fn <- match.fun(fn)
+
+	function (coll) {
+		xMap(fn, coll)
+	}
 }

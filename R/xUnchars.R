@@ -1,4 +1,6 @@
 
+#' xUnchars
+#'
 #' Collapase a character vector with empty strs as delimiters.
 #'
 #' @param ... several character vectors.
@@ -13,7 +15,7 @@ xUnchars <- function (...) {
 
 	pcall <- sys.call()
 	strs <- lapply(c(...), dearrowise)
-	
+
 	assert(
 		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
@@ -23,6 +25,6 @@ xUnchars <- function (...) {
 	if (length(strs) == 0) {
 		character(0)
 	} else {
-		paste0(strs, collapse = '')		
+		paste0(strs, collapse = '')
 	}
 }

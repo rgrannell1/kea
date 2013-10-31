@@ -1,13 +1,13 @@
 
 #' xJuxtapose
-#' 
+#'
 #' Create a function that applies an argument to a list of underlying functions.
 #'
 #' @param ... a list or pairlist of functions.
 #'
 #' @return a variadic function.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'    If no functions are provided the empty list is returned.
 #'
 #' @template glossary
@@ -26,9 +26,10 @@ xJuxtapose <- function (...) {
 
 	assert(
 		is.recursive(fns), pcall,
-		exclaim$must_be_recursive)
+		exclaim$must_be_recursive(fns))
 
-	assert(all(sapply(fns, is_fn_matchable)), pcall,
+	assert(
+		all(sapply(fns, is_fn_matchable)), pcall,
 		exclaim$must_be_recursive_of_matchable("..."))
 
 	fns <- lapply(fns, match.fun)
@@ -38,6 +39,6 @@ xJuxtapose <- function (...) {
 	} else {
 		function (...) {
 			lapply(fns, function (fn) fn(...))
-		}		
+		}
 	}
 }

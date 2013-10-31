@@ -1,6 +1,6 @@
 
 #' xThread
-#' 
+#'
 #' Iteratively apply a value to list of functions.
 #'
 #' @param init an arbitrary value
@@ -22,16 +22,15 @@ xThread <- function (init, ...) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(init), pcall, 
+		!missing(init), pcall,
 		exclaim$parameter_missing(init))
 
 	init <- dearrowise(init)
 	fns <- lapply(list(...), dearrowise)
 
-	assert(all(sapply(fns, is_fn_matchable)), pcall)
-
 	assert(
-		all(sapply(fns, xArity) %in% c(1, Inf)), pcall)
+		all(sapply(fns, is_fn_matchable)), pcall,
+		exclaim$must_be_recursive_of_matchable(fns))
 
 	for (ith in seq_along(fns)) {
 

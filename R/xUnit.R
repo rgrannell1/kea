@@ -1,4 +1,6 @@
 
+#' xUnit
+#'
 #' Return the neutral element of a collection.
 #'
 #' @param coll an list, pairlist, or vector of any length.
@@ -13,9 +15,9 @@ xUnit <- function (coll) {
 	# return the neutral element of a collection.
 
 	pcall <- sys.call()
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)

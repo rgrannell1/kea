@@ -1023,11 +1023,6 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xTakeWhile(self_(), coll) )
 		}
-
-	this$xThrush <-
-		function (fn2) {
-			x_( xWrap(self_(), fn2) )
-		}
 	this$xT <-
 		this$xThrush
 	# -------- U ------- #
@@ -1055,8 +1050,6 @@ x_fn_proto <- local({
 		function (fn, init) {
 			x_( xWhile(self_(), fn, init) )
 		}
-	this$xWrap <-
-		this$xThrush
 	# -------- X ------- #
 	# -------- Y ------- #
 	# -------- Z ------- #

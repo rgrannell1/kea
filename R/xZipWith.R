@@ -1,16 +1,15 @@
 
 
 #' Generate a list of n-element lists from n collections, and apply a function to each n-element list.
-#' 
-#' @param fn an n-ary function, or a 
+#'
+#' @param fn an n-ary function, or a
 #'	 symbol or name identifying such a function.
 #' @param ... n-vectors, lists or pairlists.
 #'
 #' @return returns a list of equal length to the shortest input collection.
 #' @section Corner Cases:
-#'	  the empty list is returned if the shortest collection has length-zero, or no collections
-#'	  are included. Each collection is truncated to the length of the shortest collection.
-#'
+#' the empty list is returned if the shortest collection has length-zero, or no collections
+#' are included. Each collection is truncated to the length of the shortest collection.
 #'
 #' @family higher_order_functions
 #'
@@ -18,25 +17,25 @@
 
 xZipWith <- function (fn, ...) {
 	# function -> [any] -> ... -> [[any]]
-	# takes n lists/vectors, generates a list of n-tuples. 
+	# takes n lists/vectors, generates a list of n-tuples.
 	# returns the result of applying f to each n-tuple.
 	# excess elements are discarded.
 
 	pcall <- sys.call()
-	
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
 
 	coll <- lapply(list(...), dearrowise)
 	fn <- match.fun(fn)
-	
+
 	coll_lengths <- sapply(coll, length)
 	min_length <- min(coll_lengths)
 
@@ -44,7 +43,7 @@ xZipWith <- function (fn, ...) {
 		list()
 	} else {
 
-		unname(do.call( Map, c(list(fn), 
+		unname(do.call( Map, c(list(fn),
 			Map(
 				function (elem) {
 					head(elem, min_length)

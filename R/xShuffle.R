@@ -1,13 +1,13 @@
 
 #' xShuffle
-#' 
+#'
 #' Permute a collection.
 #'
 #' @param coll a collection
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -20,7 +20,7 @@ xShuffle <- function (coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)

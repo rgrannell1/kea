@@ -4,12 +4,12 @@
 #' Include all elements from a collection matching a predicate.
 #'
 #' @section Uses:
-#'     The select function is useful for taking a collection,
-#'     and returning values that meet certain criteria. Likely
-#'     uses include selecting rows in a (converted) data frame
-#'     that contain a certain value, selecting strings that
-#'     match a regular expression, or selecting records
-#'     based on a value in a particular field.
+#' The select function is useful for taking a collection,
+#' and returning values that meet certain criteria. Likely
+#' uses include selecting rows in a (converted) data frame
+#' that contain a certain value, selecting strings that
+#' match a regular expression, or selecting records
+#' based on a value in a particular field.
 #'
 #' @param pred a predicate.
 #' @param coll a collection

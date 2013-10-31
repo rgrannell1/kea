@@ -1,13 +1,13 @@
 
 #' Flip the sign of each number in a vector.
-#' 
+#'
 #' xNegate
 #'
 #' @param nums a vector of numbers.
 #'
 #' @return a vector of number.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     If nums is empty then the unit of the collection is returned.
 #' @template glossary
 #'
@@ -29,9 +29,8 @@ xNegate <- function (nums) {
 	assert(
 		is_collection(nums), pcall,
 		exclaim$must_be_collection(nums))
-	
-	nums <- coerce_to_typed_vector(nums, 'numeric')
 
+	nums <- coerce_to_typed_vector(nums, 'numeric')
 	nums <- unlist(nums)
 
 	if (length(nums) == 0) {
