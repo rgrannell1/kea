@@ -82,6 +82,8 @@ visualise_tprofile <- function (results) {
 			results,
 			function (result) {
 
+				print(result$difference$lower)
+
 				c(
 					result$info,
 					result$difference$lower,
@@ -108,3 +110,13 @@ visualise_tprofile <- function (results) {
 	ggtitle('benchmarks')
 
 }
+
+
+
+
+
+
+
+
+
+

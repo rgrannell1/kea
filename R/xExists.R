@@ -1,6 +1,6 @@
 
 #' xExists
-#' 
+#'
 #' Does any selection of arguments satisfy a predicate?
 #'
 #' @param pred an n-ary predicate.
@@ -8,7 +8,7 @@
 #'
 #' @return a boolean value.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     if any collection is length zero (or no collections are given), then False is returned.
 #' @template glossary
 #'
@@ -18,7 +18,7 @@
 #' @export
 
 xExists <- function (pred, ...) {
-	# does there exist any choice of bindings for 
+	# does there exist any choice of bindings for
 	# pred such that pred is true?
 
 	pcall <- sys.call()
@@ -27,7 +27,7 @@ xExists <- function (pred, ...) {
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
 
-	pred <- dearrowise(predd)
+	pred <- dearrowise(pred)
 
 	assert(
 		is_fn_matchable(pred), pcall,

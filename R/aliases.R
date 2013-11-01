@@ -6,6 +6,16 @@ Na <- NA
 True <- TRUE
 False <- FALSE
 
+Truth <- function (...) {
+	True
+}
+Falsity <- function (...) {
+	False
+}
+Moot <- function (...) {
+	Na
+}
+
 object <- function () {
 	# construct an empty environment.
 

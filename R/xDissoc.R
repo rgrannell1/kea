@@ -1,14 +1,14 @@
 
 #' xDissoc
-#' 
+#'
 #' Split a named list into a list of name: value lists.
 #'
-#' @param coll a list or pairlist of list or pairlist pairs, with the first element being a 
+#' @param coll a list or pairlist of list or pairlist pairs, with the first element being a
 #'	string and the second element being any value.
 #'
 #' @return a named list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns \code{list()} if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -21,13 +21,14 @@ xDissoc <- function (coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		length(names(coll)) == length(coll), pcall)
+		length(names(coll)) == length(coll), pcall,
+		exclaim$must_be_named(coll))
 
 	if (length(coll) == 0) {
 		list()
