@@ -1,10 +1,19 @@
 
 message('xDrop')
 
-test_that('xDrop always returns a list, with no out-of-bounds', {
+forall(
+	"the empty collection always yields the empty list.",
+	list(num = G$nonnegative(), coll = G$collection_zero),
+	xDrop(num, coll) %equals% list()
+)
 
-	expect_equal(xDrop(1000, list()), list())
-	expect_equal(xDrop(0, 1:10), as.list(1:10))
-	expect_equal(xDrop(100, 1:10), list())
-
-})
+forall(
+	"dropping yields the correct collection.",
+	list(num = G$positive(), coll = G$collection()),
+	{
+		ind <- min(length(coll), num)
+		xDrop(num, coll) %equals% as.list(coll[1:ind])
+	},
+	given =
+		length(coll) > 0
+)

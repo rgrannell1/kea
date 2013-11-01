@@ -14,14 +14,14 @@ forall(
 
 		names(coll) <- rep(key, length(col))
 
-		dissoc <- lapply(
+		dissociated <- lapply(
 			seq_along(coll),
 			function (ind) {
 				list( names(coll)[[ind]], coll[[ind]] )
 			}
 		)
 
-		xDissoc(coll) %equals% dissoc
+		xDissoc(coll) %equals% dissociated
 	},
 	given = length(coll) > 0
 )
