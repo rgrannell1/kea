@@ -1,31 +1,28 @@
 
 require(ggplot2)
 require(reshape2)
-require(simpleboot)
 require(microbenchmark)
 
-stats <- list(
-	median_diff_ci =
-		function (free_data, control_data) {
-
-			# how many times slower is the free
-			# data set from the control data set, within error bars.
-
-			free_report <- unname(quantile(free_data))
-			control_report <- unname(quantile(control_data))
-
-			list(
-				info =
-					"",
-				lower =
-					free_report[2] / control_report[4],
-				upper =
-					free_report[4] / control_report[2])
-		}
-)
 
 tprofile <- function (info = '', free, control, max_time = 1) {
 	# profile the performance for several functions
+
+	multiplier <- function (free_data, control_data) {
+
+		# how many times slower is the free
+		# data set from the control data set, within error bars.
+
+		free_report <- unname(quantile(free_data))
+		control_report <- unname(quantile(control_data))
+
+		list(
+			info =
+				"",
+			lower =
+				free_report[2] / control_report[4],
+			upper =
+				free_report[4] / control_report[2])
+	}
 
 	mb <- microbenchmark
 
@@ -64,7 +61,7 @@ tprofile <- function (info = '', free, control, max_time = 1) {
 	# get the confidence intervals between the two data sets.
 
 	report$difference <-
-		stats$median_diff_ci(
+		multiplier(
 			report$free$data, report$control$data)
 
 	report
@@ -77,8 +74,6 @@ visualise_tprofile <- function (results) {
 	# visualise the results of several time
 	# profiles simultaneously.
 
-	print(results)
-
 	reshaped <- Reduce(
 		function (acc, new) {
 			unname(rbind(acc, new))
@@ -86,8 +81,6 @@ visualise_tprofile <- function (results) {
 		lapply(
 			results,
 			function (result) {
-
-				print(result$difference$lower)
 
 				c(
 					result$info,
@@ -115,16 +108,3 @@ visualise_tprofile <- function (results) {
 	ggtitle('benchmarks')
 
 }
-
-test <- list(
-	tprofile(
-		info = "1",
-		free = function () Sys.sleep(0.01),
-		control = function () Sys.sleep(0.03)),
-	tprofile(
-		info = "2",
-		free = function () Sys.sleep(0.02),
-		control = function () Sys.sleep(0.015))
-)
-
-visualise_tprofile(test)

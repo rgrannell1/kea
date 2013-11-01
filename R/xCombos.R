@@ -21,7 +21,9 @@
 #' @export
 
 xCombos <- function (num, coll) {
-	# number -> Collection
+	# number -> Collection any
+	# generate all ways of choosing several
+	# elements from a collection.
 
 	pcall <- sys.call()
 
