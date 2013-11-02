@@ -11,14 +11,5 @@ xUnwords <- function (...) {
 	# Collection str -> str
 	# collapse the collection strs with a space.
 
-	pcall <- sys.call()
-	strs <- c(...)
-	
-	assert(
-		is_collection(strs), pcall,
-		exclaim$must_be_collection(strs))
-
-	strs <- coerce_to_typed_vector(strs, 'character')
-
-	paste0(strs, collapse = ' ')
+	xCollapse(" ", ...)
 }

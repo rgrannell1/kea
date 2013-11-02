@@ -1,6 +1,6 @@
 
 #' xDrop
-#' 
+#'
 #' Take several elements from the front of a collection.
 #'
 #' @param num a nonnegative whole number.
@@ -19,30 +19,30 @@
 xDrop <- function (num, coll) {
 	# Collection any -> [any]
 	# take the first num values of collection.
-	
+
 	pcall <- sys.call()
 
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
 	assert(
-		length(num) == 1, pcall,
-		exclaim$must_have_length(num, 1))
+		length(num) %in% 0:1, pcall,
+		exclaim$must_have_length(num, 0:1))
 
-	num <- coerce_to_typed_vector(num, 'numeric')
-	
+	num <- coerce_to_typed_vector(num, 'numeric', True)
+
 	assert(
 		num >= 0, pcall,
 		exclaim$must_be_numeric(num))
-	
+
 	assert(
 		round(num) == num, pcall,
 		exclaim$must_be_whole(num))

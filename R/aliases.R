@@ -171,7 +171,7 @@ is_collection <- function (val) {
 	is.vector(val) || is.pairlist(val)
 }
 
-coerce_to_typed_vector <- function (coll, mode, single_only = False) {
+coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
 	# coerces an R vector (pairlist, list, or typed vector)
 	# to another mode, if the vector is homogenously typed.
 	# this makes list("a") ~ "a", making arrow more generic.
@@ -194,16 +194,26 @@ coerce_to_typed_vector <- function (coll, mode, single_only = False) {
 	type_test <- types[[mode]]
 	is_homogenous <- all(sapply(coll, type_test))
 
-	if (is_homogenous) {
-		out <- as.vector(coll, mode)
-
-		if (single_only && length(coll) != 1) {
-			stop(exclaim$must_have_length(coll, 1))
-		}
-		out
-
-	} else {
+	if (!is_homogenous) {
 		stop(exclaim$type_coersion_failed(coll, mode))
+	}
+
+	coll <- as.vector(coll, mode)
+
+	if (value_unit && length(coll) == 0) {
+		if (is.numeric(coll)) {
+			0
+		} else if (is.character(coll)) {
+			""
+		} else if (is.logical(coll)) {
+			False
+		} else if (is.raw(coll)) {
+			as.raw(00)
+		} else {
+			stop("")
+		}
+	} else {
+		coll
 	}
 }
 

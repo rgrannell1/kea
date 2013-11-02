@@ -1,13 +1,12 @@
 
 #' xCollapse
-#' 
+#'
 #' Concatenate a character vector into a string with a delimiter.
 #'
 #' @param str a string to use as a delimiter.
 #' @param ... a number of character vectors.
 #'
 #' @return a length-one character vector.
-#'
 #'
 #' @template glossary
 #'
@@ -20,7 +19,7 @@ xCollapse <- function (str, ...) {
 	# a str with by a delim.
 
 	pcall <- sys.call()
-	
+
 	strs <- lapply(list(...), dearrowise)
 
 	assert(
@@ -33,24 +32,29 @@ xCollapse <- function (str, ...) {
 		is_collection(str), pcall,
 		exclaim$must_be_collection(str))
 
-	str <- coerce_to_typed_vector(str, 'character')
+	str <- coerce_to_typed_vector(
+		str, 'character', True)
 
 	assert(
 		is_collection(strs), pcall,
 		exclaim$must_be_collection(strs))
 
-	strs <- coerce_to_typed_vector(strs, 'character')
+	strs <- coerce_to_typed_vector(
+		strs, 'character')
 
 	assert(
-		length(str) %in% c(0, 1),
-		exclaim$must_have_length( str, c(0, 1)) )
+		length(str) %in% 0:1,
+		exclaim$must_have_length(str, 0:1) )
 
 	if (length(strs) == 0) {
-		character(0)
+		character()
 	} else {
-		if (length(str) == 0) {
-			str <- ""
-		}
-		paste0(strs, collapse = str)		
+		paste(
+			xReject(
+				function (x) {
+					nchar(x) == 0 || length(x) == 0
+				},
+				strs),
+			collapse = str)
 	}
 }

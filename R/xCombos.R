@@ -39,15 +39,15 @@ xCombos <- function (num, coll) {
 	coll <- dearrowise(coll)
 
 	num <- coerce_to_typed_vector(num,  'numeric')
+	num <- length_unit_to_value_unit(num)
 
 	assert(
-		length(num) == 1, pcall,
-		exclaim$must_have_length(num, 1))
+		length(num) %in% 0:1, pcall,
+		exclaim$must_have_length(num, 0:1))
 
 	assert(
 		num >= 0, pcall,
 		exclaim$must_be_greater_than(num, 0))
-
 	assert(
 		round(num) == num, pcall,
 		exclaim$must_be_whole(num))
@@ -56,7 +56,7 @@ xCombos <- function (num, coll) {
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
-	if (num == 0 || length(coll) == 0) {
+	if (num == 0) {
 		list()
 	} else {
 		num <- min(length(coll), num)

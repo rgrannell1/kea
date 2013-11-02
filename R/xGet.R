@@ -30,14 +30,10 @@ xGet <- function (str) {
 		exclaim$must_be_character(str))
 
 	assert(
-		length(str) %in% c(0, 1), pcall,
-		exclaim$must_have_length( str, c(0, 1)) )
+		length(str) %in% 0:1, pcall,
+		exclaim$must_have_length( str, 0:1) )
 
-	str <- coerce_to_typed_vector(str, 'character')
-
-	if (length(str) == 0) {
-		str <- ""
-	}
+	str <- coerce_to_typed_vector(str, 'character', True)
 
 	function (coll) {
 		unname(as.list( coll )[names(coll) == str])

@@ -1,6 +1,6 @@
 
 #' xChars
-#' 
+#'
 #' Split a single string into a vector of characters.
 #'
 #' @param str a length-one character vector.
@@ -17,10 +17,10 @@
 
 xChars <- function (str) {
 	# str -> Vector str
-	# split str at every character, returning 
+	# split str at every character, returning
 	# a character vector of equal or greater length.
-	
-	pcall <- sys.call()	
+
+	pcall <- sys.call()
 
 	assert(
 		!missing(str), pcall,
@@ -32,7 +32,7 @@ xChars <- function (str) {
 		length(str) %in% c(0, 1), pcall,
 		exclaim$must_have_length( str, c(0, 1)) )
 
-	str <- coerce_to_typed_vector(str, 'character')
+	str <- coerce_to_typed_vector(str, 'character', True)
 
 	if (length(str) == 0) {
 		character(0)
