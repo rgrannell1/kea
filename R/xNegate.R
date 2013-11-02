@@ -31,7 +31,6 @@ xNegate <- function (nums) {
 		exclaim$must_be_collection(nums))
 
 	nums <- coerce_to_typed_vector(nums, 'numeric')
-	nums <- unlist(nums)
 
 	if (length(nums) == 0) {
 		nums

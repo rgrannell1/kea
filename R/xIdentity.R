@@ -25,6 +25,8 @@ xIdentity <- function (val) {
 		!missing(val), pcall,
 		exclaim$parameter_missing(val))
 
+	# arguably revoking the status of this
+	# function as identity.
 	val <- dearrowise(val)
 
 	val
