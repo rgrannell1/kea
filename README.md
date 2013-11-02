@@ -1,6 +1,11 @@
 Arrow v0.1
 -----------------------------------
 
+<div id = "disclaimer"> 
+    Arrow is still in heavy development.
+</div>
+
+
 **Arrow** is a functional programming framework that adds partial application, 
 jQuery-like method chaining, function composition, 
 and over one-hundred higher-order- and utility-functions to the R language.
@@ -163,3 +168,4 @@ Ryan Grannell.
 **Arrow** is released under the terms of the GNU General Public License version 3. 
 
 <img src="gpl3.png" height = "180"> </img>
+
