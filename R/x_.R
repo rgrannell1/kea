@@ -477,6 +477,10 @@ x_coll_proto <- local({
 		function () {
 			x_( xIsNull(self_()) )
 		}
+	this$xIterate <-
+		function (fn) {
+			x_( xIterate(fn, self_()) )
+		}
 	# -------- J ------- #
 	# -------- K ------- #
 	this$xKestrel <-
@@ -690,10 +694,6 @@ x_coll_proto <- local({
 		function () {
 			x_( xUnlines(self_()) )
 		}
-	this$xUntil <-
-		function (pred, fn) {
-			x_( xUntil(pred, fn, self_()) )
-		}
 	this$xUnwords <-
 		function () {
 			x_( xUnwords(self_()) )
@@ -709,10 +709,6 @@ x_coll_proto <- local({
 	this$xWords <-
 		function () {
 			x_( xWords(self_()) )
-		}
-	this$xWhile <-
-		function (pred, fn) {
-			x_( xWhile(pred, fn, self_()) )
 		}
 	# -------- X ------- #
 	# -------- Y ------- #
@@ -877,6 +873,10 @@ x_fn_proto <- local({
 		function () {
 			x_( xIsVariadic(self_()) )
 		}
+	this$xIterate <-
+		function (iter) {
+			x_( xIterate(self_(), iter) )
+		}
 	# -------- J ------- #
 	this$xJuxtapose <-
 		function (...) {
@@ -1026,10 +1026,6 @@ x_fn_proto <- local({
 	this$xT <-
 		this$xThrush
 	# -------- U ------- #
-	this$xUntil <-
-		function (fn, init) {
-			x_( xUntil(self_(), fn, init) )
-		}
 	this$xUnionLift <-
 		function (fn2) {
 			x_( xUnionLift(self_(), fn2) )
@@ -1045,10 +1041,6 @@ x_fn_proto <- local({
 	this$xWait <-
 		function (num) {
 			x_( xWait(self_(), num) )
-		}
-	this$xWhile <-
-		function (fn, init) {
-			x_( xWhile(self_(), fn, init) )
 		}
 	# -------- X ------- #
 	# -------- Y ------- #

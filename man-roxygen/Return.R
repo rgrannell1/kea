@@ -8,3 +8,7 @@
 #' the fold/reduce is halted, and that value is yielded as the result of
 #' that proceedure. This allows fold/reduce to have sub-O(n) efficiency.
 #'
+#' \code{Return()} essentially acts as a higher-order return function,
+#' that breaks "further" than the normal return statement.
+#'
+#'
