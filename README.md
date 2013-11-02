@@ -125,7 +125,7 @@ xExists(
 )
 ```
 
-### 2.7 Immutable Values
+### 2.8 Immutable Values
 
 **Arrow** wraps native R code for locking variable names to a single value 
 permanently, making them easier to use.
@@ -145,11 +145,14 @@ To get the documentation for a particular function from an R console simply pref
 ?xSelect
 ```
 
-## 4 Authors
+## 4 Contributing
+
+
+## 5 Authors
 
 Ryan Grannell.
 
-## 5 Licensing
+## 6 Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3. 
 
