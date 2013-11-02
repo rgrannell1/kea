@@ -16,6 +16,7 @@
 
 xGet <- function (str) {
 	# Vector string -> (Collection -> [any])
+	# Return a function that selects a key from a collection.
 
 	pcall <- sys.call()
 

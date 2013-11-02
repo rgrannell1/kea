@@ -1,6 +1,6 @@
 
 #' xSplitStr
-#' 
+#'
 #' Split a string into a character vector using a regular expression.
 #'
 #' @param rexp a regular expression.
@@ -8,7 +8,7 @@
 #'P
 #' @return a character vector.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -18,7 +18,7 @@
 xSplitStr <- function (rexp, str) {
 	# Vector string -> Vector string -> Vector str
 	# split a str into substrs at a rexp.
-	
+
 	pcall <- sys.call()
 
 	assert(
@@ -31,14 +31,20 @@ xSplitStr <- function (rexp, str) {
 	rexp <- dearrowise(rexp)
 	str <- dearrowise(str)
 
+	str <- coerce_to_typed_vector(str, "character", True)
+	rexp <- coerce_to_typed_vector(rexp, "character", True)
+
 	assert(
-		is.character(rexp) && length(rexp) == 1, pcall)
+		length(rexp) %in% 0:1,
+		exclaim$must_have_length(rexp, 0:1) )
+
 	assert(
-		is.character(str) && length(str) == 1, pcall)
+		length(str) %in% 0:1,
+		exclaim$must_have_length(str, 0:1) )
 
 	if (nchar(str) == 0) {
-		''
+		""
 	} else {
-		strsplit(str, rexp)[[1]]		
+		strsplit(str, rexp)[[1]]
 	}
 }

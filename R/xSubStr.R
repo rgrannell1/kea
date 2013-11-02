@@ -1,6 +1,6 @@
 
 #' xSubStr
-#' 
+#'
 #' Subset a string using normal R vector indexing.
 #'
 #' @param str a string.
@@ -8,7 +8,7 @@
 #'
 #' @return a character vector.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -18,7 +18,7 @@
 xSubStr <- function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
-	
+
 	pcall <- sys.call()
 
 	assert(
@@ -32,19 +32,22 @@ xSubStr <- function (str, nums) {
 	str <- dearrowise(str)
 	nums <- dearrowise(nums)
 
+	str <- coerce_to_typed_vector(str, "character", True)
+	nums <- coerce_to_typed_vector(nums, "numeric", False)
+
 	assert(
 		is.character(str) && length(str) < 2, pcall)
-	
+
 	assert(
-		is.numeric(nums) && all(round(nums) == nums), pcall)
-	
+		all(round(nums) == nums), pcall)
+
 	if (length(str) == 0) {
 		character(0)
 	} else if (length(nums) == 0) {
 		str
 	} else {
 		assert(
-			max(nums) <= nchar(str))
+			max(nums) <= nchar(str), pcall)
 
 		chars <- strsplit(str, "")[[1]]
 		paste0(chars[nums], collapse = "")

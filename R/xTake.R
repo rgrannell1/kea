@@ -1,6 +1,6 @@
 
 #' xTake
-#' 
+#'
 #' Take several elements from the head of a collection.
 #'
 #' @param num a nonnegative whole number.
@@ -21,23 +21,23 @@ xTake <- function (num, coll) {
 	# take the first num values of collection.
 
 	pcall <- sys.call()
-	
+
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	assert(
-		length(num) == 1, pcall,
-		exclaim$must_have_length(num, 1))
-
 	num <- coerce_to_typed_vector(num, 'numeric')
+
+	assert(
+		length(num) %in% 0:1, pcall,
+		exclaim$must_have_length(num, 0:1))
 
 	assert(
 		num >= 0, pcall,

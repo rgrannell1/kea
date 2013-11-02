@@ -1,6 +1,6 @@
 
 #' xRepeat
-#' 
+#'
 #' Repeat a collection several times.
 #'
 #' @param num a nonnegative positive number
@@ -8,7 +8,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero or num is zero.
 #' @template glossary
 #'
@@ -25,19 +25,17 @@ xRepeat <- function (num, coll) {
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	assert(
-		is.numeric(num), pcall,
-		exclaim$must_be_numeric(num))
+	num <- coerce_to_typed_vector(num, "numeric", True)
 
 	assert(
-		length(num) == 1, pcall,
-		exclaim$must_have_length(num, 1))
+		length(num) %in% 0:1, pcall,
+		exclaim$must_have_length(num, 0:1))
 
 	assert(
 		num >= 0, pcall,
@@ -47,9 +45,11 @@ xRepeat <- function (num, coll) {
 		round(num) == num, pcall,
 		exclaim$must_be_whole(num))
 
+	# a lot of assertions for a very simple function :/
+
 	if (num == 0) {
 		list()
 	} else {
-		rep(as.list(coll), num)		
+		rep(as.list(coll), num)
 	}
 }

@@ -201,6 +201,13 @@ exclaim <- list(
 
 			"the argument matching " %+% param %+%
 			" must be a named collection."
+		},
+	variable_non_existent =
+		function (name) {
+
+			name <- paste(match.call()$param)
+
+			"no variable exists by the name " %+% name
 		}
 )
 

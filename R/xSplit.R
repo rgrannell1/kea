@@ -37,17 +37,22 @@ xSplit <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- coerce_to_typed_vector(num, "numeric")
+	num <- coerce_to_typed_vector(num, "numeric", True)
+
 	assert(
-		length(num) == 1,
-		exclaim$must_have_length(num, 1))
+		length(num) %in% 0:1,
+		exclaim$must_have_length(num, 0:1))
 
 	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
 	list(
-		xTake(num, coll),
-		xDrop(num, coll)
+		as.list(coll)[seq_len( min(num, length(coll)) )],
+		if (num < length(coll)) {
+			as.list(coll)[(num + 1) : length(coll)]
+		} else {
+			list()
+		}
 	)
 }

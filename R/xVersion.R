@@ -1,9 +1,10 @@
 
 #' xVersion
-#' 
+#'
 #' Get the current version number of Arrow.
 #'
-#' @return a string '(major num).(minor num).(patch num)'
+#' @return a three-number vector, containing the
+#' major release number, minor release number and patch number.
 #'
 #' @template glossary
 #'
@@ -13,5 +14,5 @@
 #' @export
 
 xVersion <- function () {
-	'0.1.0'
+	c(0, 1, 0)
 }

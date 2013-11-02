@@ -1,13 +1,13 @@
-	
+
 #' xAsVal
-#' 
+#'
 #' Convert a normal R variable to a constant value.
 #'
 #' @param str a string or symbol.
 #'
 #' @return Null; used for side-effect.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     throws an error if attempting to convert a variable that doesn't exist (in the parent frame).
 #' @template glossary
 #'
@@ -25,10 +25,12 @@ xAsVal <- function (str) {
 
 	str <- toString(match.call()$str)
 
-	assert(exists(str, envir = pframe))
+	assert(
+		exists(str, envir = pframe),
+		exclaim$variable_non_existent(str))
 
 	assert(
-		(is.character(str) && length(str) == 1) || 
+		(is.character(str) && length(str) == 1) ||
 		is.name(str), pcall)
 
 	lockBinding(str, pframe)

@@ -1,6 +1,6 @@
 
 #' xFlatten
-#' 
+#'
 #' Flatten a nested list or pairlist.
 #'
 #' @param num a nonnegative whole-number.
@@ -8,7 +8,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -24,15 +24,15 @@ xFlatten <- function (num, coll) {
 	assert(
 		!missing(num), pcall,
 		exclaim$parameter_missing(num))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- coerce_to_typed_vector(num, 'numeric')
+	num <- coerce_to_typed_vector(num, 'numeric', True)
 
 	assert(
 		num > 0, pcall,
@@ -63,6 +63,6 @@ xFlatten <- function (num, coll) {
 				lapply(xs, function (x) recur(depth + 1, x))
 			}
 		}
-		as.list(recur(0, coll))		
+		as.list(recur(0, coll))
 	}
 }

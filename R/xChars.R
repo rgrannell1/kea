@@ -9,7 +9,6 @@
 #'
 #' @template glossary
 #'
-#'
 #' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
@@ -29,10 +28,10 @@ xChars <- function (str) {
 	str <- dearrowise(str)
 
 	assert(
-		length(str) %in% c(0, 1), pcall,
-		exclaim$must_have_length( str, c(0, 1)) )
+		length(str) %in% 0:1, pcall,
+		exclaim$must_have_length( str, 0:1) )
 
-	str <- coerce_to_typed_vector(str, 'character', True)
+	str <- coerce_to_typed_vector(str, 'character')
 
 	if (length(str) == 0) {
 		character(0)
