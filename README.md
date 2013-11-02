@@ -1,6 +1,8 @@
 Arrow v0.1
 -----------------------------------
 
+**DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
+
 **Arrow** is a functional programming framework that adds partial application, 
 jQuery-like method chaining, function composition, 
 and over one-hundred higher-order- and utility-functions to the R language.
@@ -125,7 +127,7 @@ xExists(
 )
 ```
 
-### 2.7 Immutable Values
+### 2.8 Immutable Values
 
 **Arrow** wraps native R code for locking variable names to a single value 
 permanently, making them easier to use.
@@ -145,12 +147,22 @@ To get the documentation for a particular function from an R console simply pref
 ?xSelect
 ```
 
-## 4 Authors
+## 4 Contributing
+
+Contributions are welcome, particularily in the following areas:
+
+* developing haskell-like partial application.
+* documentation (obviously).
+* developing the forall testing tool.
+* benchmarking and efficiency improvements.
+
+## 5 Authors
 
 Ryan Grannell.
 
-## 5 Licensing
+## 6 Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3. 
 
 <img src="gpl3.png" height = "180"> </img>
+
