@@ -1,6 +1,6 @@
 
 #' xLines
-#' 
+#'
 #' Split a string at every newline character.
 #'
 #' @param str a string.
@@ -14,18 +14,18 @@
 
 xLines <- function (str) {
 	# str -> Vector str
-	# split str at every newline, returning 
+	# split str at every newline, returning
 	# a character vector of equal or greater length.
-	
+
 	pcall <- sys.call()
 
 	assert(
 		!missing(str), pcall,
 		exclaim$parameter_missing(str))
-	
+
 	assert(
-		length(str) %in% c(0, 1), pcall,
-		exclaim$must_have_length(0, 1))
+		length(str) %in% 0:1, pcall,
+		exclaim$must_have_length(0:1))
 
 	str <- coerce_to_typed_vector(str, 'character')
 

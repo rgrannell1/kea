@@ -1,13 +1,13 @@
 
 #' xIsVal
-#' 
+#'
 #' Is a name binding locked?
 #'
 #' @param str a string or symbol.
 #'
 #' @return a boolean value.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     If a variable isn't assigned, then \code{false} is returned.
 #' @template glossary
 #'
@@ -28,9 +28,10 @@ xIsVal <- function (str) {
 	str <- match.call()$str
 
 	assert(
-		(is.character(str) && length(str) == 1) || 
-		is.name(str), pcall)
+		(is.character(str) && length(str) == 1) ||
+		is.name(str), pcall,
+		exclaim$must_be_string(str))
 
-	exists(toString(str), pframe) && 
+	exists(toString(str), pframe) &&
 		bindingIsLocked(str, pframe)
 }

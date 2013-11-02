@@ -954,9 +954,9 @@ x_fn_proto <- local({
 		function () {
 			x_( xParams(self_()) )
 		}
-	this$xPartMap <-
+	this$xFmap <-
 		function () {
-			x_( xPartMap(self_()) )
+			x_( xFmap(self_()) )
 		}
 	this$xPartial <-
 		function (coll) {

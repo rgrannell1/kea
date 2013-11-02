@@ -1,5 +1,5 @@
 
-#' xPartMap
+#' xFmap
 #'
 #' Partially apply xMap with a function.
 #'
@@ -17,7 +17,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xPartMap <- function (fn) {
+xFmap <- function (fn) {
 	# shorthand for partially applying map.
 
 	pcall <- sys.call()

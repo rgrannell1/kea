@@ -40,11 +40,11 @@ xSegment <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	assert(
-		length(num) == 1, pcall,
-		exclaim$must_have_length(num, 1))
+	num <- coerce_to_typed_vector(num, 'numeric', True)
 
-	num <- coerce_to_typed_vector(num, 'numeric')
+	assert(
+		length(num) %in% 0:1, pcall,
+		exclaim$must_have_length(num, 0:1))
 
 	assert(
 		num >= 0, pcall,

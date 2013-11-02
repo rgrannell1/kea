@@ -39,7 +39,7 @@ Collate:
     'xFixDefs.R'
     'xFlatMap.R'
     'xFlip.R'
-    'xPartMap.R'
+    'xFmap.R'
     'xFoldl.R'
     'xFoldr.R'
     'xFormals.R'
