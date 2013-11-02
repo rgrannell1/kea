@@ -1,14 +1,7 @@
 Arrow v0.1
 -----------------------------------
 
-<div id = "disclaimer" style = "
-    background-color: rgb(242, 222, 222);
-    border-color: rgb(238, 211, 215);
-    color: rgb(185, 74, 72);
-"> 
-    Arrow is still in heavy development.
-</div>
-
+**DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
 **Arrow** is a functional programming framework that adds partial application, 
 jQuery-like method chaining, function composition, 
