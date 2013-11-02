@@ -147,6 +147,12 @@ To get the documentation for a particular function from an R console simply pref
 
 ## 4 Contributing
 
+Contributions are welcome, particularily in the following areas:
+
+* developing haskell-like partial application.
+* documentation (obviously).
+* developing the forall testing tool.
+* benchmarking and efficiency improvements.
 
 ## 5 Authors
 
