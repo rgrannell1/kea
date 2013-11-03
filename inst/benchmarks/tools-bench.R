@@ -1,4 +1,3 @@
-
 require(ggplot2)
 require(reshape2)
 require(microbenchmark)
@@ -66,33 +65,6 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 	report
 }
 
-
-
-
-visualise_time_profile <- function (results) {
-	# visualise the results of several time
-	# profiles simultaneously.
-
-	reshaped <- Reduce(
-		function (acc, new) {
-			unname(rbind(acc, new))
-		},
-		lapply(
-			results,
-			function (result) {
-
-				data.frame(
-					info =
-						result$info,
-					upper =
-						result$diff$upper,
-					lower =
-						result$diff$lower)
-		})
-	)
-
-	stop("FINISH ME PLEASE!")
-}
 
 O_n <- function (N) {
 	lapply(seq_len(N), function (x) {})
