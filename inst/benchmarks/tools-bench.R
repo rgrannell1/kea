@@ -29,7 +29,7 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 	warmup_data <- mb(free(), times = 10)$time
 	median_seconds <- median(warmup_data) / 10^9
 
-	iters <- max(400, floor(max_time / median_seconds))
+	iters <- max(floor(max_time / median_seconds), 400)
 
 	if (iters < 20) {
 		warnning ("max_time was too low to provide useful results.")
@@ -43,7 +43,8 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 			data = mb(control(), times = iters)$time)
 	)
 
-	# remove the worst outliers.
+	# remove the worst outliers; massive outliers
+	# seem to appear at the start of testing occasionally (garbage collection?).
 
 	quantiles <- list(
 		free = quantile(

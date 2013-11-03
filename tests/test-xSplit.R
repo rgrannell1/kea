@@ -1,10 +1,24 @@
 
 message('xSplit')
 
-test_that('xSplit', {
+forall(
+	"splitting an empty collection yields the empty list",
+	list(ind = G$nonnegative(), coll = G$collection_zero),
+	xSplit(ind, coll) %equals% list()
+)
 
-	expect_equal( xSplit(0, 1:4), list(list(), as.list(1:4)) )
-	expect_equal( xSplit(100, 1:4), list(as.list(1:4), list()) )
-	expect_equal( xSplit(2, 1:4), list(as.list(1:2), as.list(3:4)) )
+forall(
+	"splitting with 0 yields an empty list and the list",
+	list(coll = G$collection()),
+	xSplit(0, coll) %equals% list(list(), as.list(coll)),
+	given =
+		length(coll) > 0
+)
 
-})
+forall(
+	"splitting with a large number yields the list and an empty list",
+	list(coll = G$collection()),
+	xSplit(length(coll) + 1, coll) %equals% list(as.list(coll), list()),
+	given =
+		length(coll) > 0
+)

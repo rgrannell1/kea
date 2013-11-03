@@ -47,12 +47,16 @@ xSplit <- function (num, coll) {
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
 
-	list(
-		as.list(coll)[seq_len( min(num, length(coll)) )],
-		if (num < length(coll)) {
-			as.list(coll)[(num + 1) : length(coll)]
-		} else {
-			list()
-		}
-	)
+	if (length(coll) == 0) {
+		list()
+	} else {
+		list(
+			as.list(coll)[seq_len( min(num, length(coll)) )],
+			if (num < length(coll)) {
+				as.list(coll)[(num + 1) : length(coll)]
+			} else {
+				list()
+			}
+		)
+	}
 }
