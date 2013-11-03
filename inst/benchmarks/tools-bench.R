@@ -22,16 +22,17 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 				free_report[4] / control_report[2])
 	}
 
-	mb <- microbenchmark
-
 	cat(".")
+
+	mb <- microbenchmark
 
 	warmup_data <- mb(free(), times = 10)$time
 	median_seconds <- median(warmup_data) / 10^9
-	iters <- floor(max_time / median_seconds)
 
-	if (iters < 3) {
-		stop("max_time was too low to provide useful results.")
+	iters <- max(400, floor(max_time / median_seconds))
+
+	if (iters < 20) {
+		warnning ("max_time was too low to provide useful results.")
 	}
 
 	report <- list(
@@ -41,6 +42,32 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 		control = list(
 			data = mb(control(), times = iters)$time)
 	)
+
+	# remove the worst outliers.
+
+	quantiles <- list(
+		free = quantile(
+			report$free$data, probs = c(.05, .95)),
+		control = quantile(
+			report$control$data, probs = c(.05, .95)) )
+
+	report$free$data <- report$free$data[
+		report$free$data > quantiles$free[[1]] &
+		report$free$data < quantiles$free[[2]] ]
+
+	report$control$data <- report$control$data[
+		report$control$data > quantiles$control[[1]] &
+		report$control$data < quantiles$control[[2]] ]
+
+	# warn if the data set is too variable after kicking out outliers.
+
+	free_sd <- sd(report$free$data) / median(report$free$data) * 100
+
+	if (free_sd > 95) {
+		message(
+			info, ":timing data has an exceedingly high percentage standard-deviation (",
+			round(free_sd, 0), "% of median)")
+	}
 
 	# get the median, and number of iterations.
 
@@ -65,6 +92,7 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 	report
 }
 
+# Big-O emulating functions.
 
 O_n <- function (N) {
 	lapply(seq_len(N), function (x) {})

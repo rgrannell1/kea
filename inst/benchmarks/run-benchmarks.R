@@ -22,7 +22,7 @@ if (Sys.info()["user"] == "ryan") {
 	time_series <- do.call(rbind, unname(Map(
 		function (fn_name) {
 
-			N_values <- 2^(1:11)
+			N_values <- 2^(1:10)
 			fn <- match.fun(fn_name)
 
 			do.call(rbind, lapply(N_values, function (N) {
@@ -45,9 +45,19 @@ if (Sys.info()["user"] == "ryan") {
 
 	ggplot(time_series) +
 	geom_line(
-		aes(x = N, y = mean_multiplier, group = info, colour = info, alpha = 1/mean_multiplier)) +
+		aes(
+			x = N,
+			y = mean_multiplier,
+			group = info,
+			colour = info,
+			alpha = 1/mean_multiplier)) +
 	geom_point(
-		aes(x = N, y = mean_multiplier, group = info, colour = info, alpha = 1/mean_multiplier)) +
+		aes(
+			x = N,
+			y = mean_multiplier,
+			group = info,
+			colour = info,
+			alpha = 1/mean_multiplier)) +
 	xlab("N") + ylab("times slower than control") +
 	ggtitle("runtime(profiled) / runtime(control) versus changes in N")
 

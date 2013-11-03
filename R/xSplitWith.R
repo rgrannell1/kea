@@ -1,6 +1,6 @@
 
 #' xSplitWith
-#' 
+#'
 #' Split a list into two lists; all the elements before the first time a predicate
 #' returns false, and all the elements including and after that point.
 #'
@@ -9,7 +9,7 @@
 #'
 #' @return a list of two lists.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -30,16 +30,16 @@ xSplitWith <- function (pred, coll) {
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
-	
+
 	assert(
 		is_fn_matchable(pred), pcall,
 		exclaim$must_be_matchable(pred))
-	
+
 	assert(
 		is_collection(coll), pcall,
 		exclaim$must_be_collection(coll))
@@ -56,7 +56,7 @@ xSplitWith <- function (pred, coll) {
 			assert(is.logical(is_match), pcall)
 
 			if (!is_match) {
-				return ( 
+				return (
 					list(
 						head(coll, ith - 1),
 						tail(coll, length(coll) - (ith - 1)) ))

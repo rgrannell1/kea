@@ -14,7 +14,7 @@
 #' @template glossary
 #'
 #' @family higher_order_functions map_like_functions
-#' 
+#'
 #' @export
 
 xFlatMap <- function (fn, coll) {
@@ -25,18 +25,18 @@ xFlatMap <- function (fn, coll) {
 	pcall <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
 
 	assert(
@@ -47,7 +47,7 @@ xFlatMap <- function (fn, coll) {
 
 	if (length(coll) == 0) {
 		list()
-	} else {	
-		as.list( xReducel(c, lapply(coll, fn)) )
+	} else {
+		as.list( do.call(c, lapply(coll, fn)) )
 	}
 }

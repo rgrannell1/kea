@@ -1,6 +1,6 @@
 
 #' xTakeWhile
-#' 
+#'
 #' Take every element in a collection from the start until a predicate returns false.
 #'
 #' @param pred a predicate.
@@ -8,8 +8,8 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
-#'     returns the empty list if \code{coll} is length-zero or the first element of 
+#' @section Corner Cases:
+#'     returns the empty list if \code{coll} is length-zero or the first element of
 #'     \code{coll} returns false for the predicate. Na values are considered false.
 #' @template glossary
 #'
@@ -28,11 +28,11 @@ xTakeWhile <- function (pred, coll) {
 	assert(
 		!missing(pred), pcall,
 		exclaim$parameter_missing(pred))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
-	
+
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
@@ -52,14 +52,13 @@ xTakeWhile <- function (pred, coll) {
 		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
-			
-			assert(
-				is.logical(is_match), pcall)
+
+			stopifnot(is.logical(is_match))
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )
 			}
 		}
-		coll		
+		coll
 	}
 }

@@ -24,21 +24,21 @@ xLocate <- function (pred, coll) {
 
 	pcall <- sys.call()
 
-	#assert(
-	#	!missing(pred), pcall,
-	#	exclaim$parameter_missing(pred))
+	assert(
+		!missing(pred), pcall,
+		exclaim$parameter_missing(pred))
 
-	#assert(
-	#	!missing(coll), pcall,
-	#	exclaim$parameter_missing(coll))
+	assert(
+		!missing(coll), pcall,
+		exclaim$parameter_missing(coll))
 
-	#assert(
-	#	is_fn_matchable(pred), pcall,
-	#	exclaim$must_be_matchable(pred))
+	assert(
+		is_fn_matchable(pred), pcall,
+		exclaim$must_be_matchable(pred))
 
-	#assert(
-	#	is_collection(coll), pcall,
-	#	exclaim$must_be_collection(coll))
+	assert(
+		is_collection(coll), pcall,
+		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
 
@@ -48,9 +48,9 @@ xLocate <- function (pred, coll) {
 
 		for (ith in seq_along(coll)) {
 
+			is_match <- pred(coll[[ith]])
 
-			#assert(
-			#	is.logical(is_match), pcall)
+			stopifnot(is.logical(is_match))
 
 			if (is_match) {
 				return (as.integer(ith))
