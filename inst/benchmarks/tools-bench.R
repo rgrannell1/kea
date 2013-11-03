@@ -25,14 +25,14 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 
 	mb <- microbenchmark
 
-	message('--- ', info)
+	cat(".")
 
 	warmup_data <- mb(free(), times = 10)$time
 	median_seconds <- median(warmup_data) / 10^9
 	iters <- floor(max_time / median_seconds)
 
-	if (iters == 0) {
-		stop("max_time was too low to allow for a single iteration.")
+	if (iters < 3) {
+		stop("max_time was too low to provide useful results.")
 	}
 
 	report <- list(
