@@ -1,10 +1,10 @@
 
-bench_xSelect <- function (N) {
+bench_xMap <- function (N) {
 
 	time_profile(
 		free =
 			function () {
-				xSelect(function (x) False, seq_len(N))
+				xMap(function (x) Null, seq_len(N))
 			},
 		control =
 			function () {

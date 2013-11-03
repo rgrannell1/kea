@@ -182,7 +182,7 @@ x_matrix_proto <- local({
 			if (prod(dim(self_()) == 0)) {
 				list()
 			} else {
-				x_( as.list(self_()) )
+				x_( as.xLinest(self_()) )
 			}
 		}
 	this$xElemsByRows <-

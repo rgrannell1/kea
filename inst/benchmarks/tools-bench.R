@@ -3,8 +3,7 @@ require(ggplot2)
 require(reshape2)
 require(microbenchmark)
 
-
-tprofile <- function (info = '', free, control, max_time = 1) {
+time_profile <- function (info = '', free, control, max_time = 1) {
 	# profile the performance for several functions
 
 	multiplier <- function (free_data, control_data) {
@@ -60,7 +59,7 @@ tprofile <- function (info = '', free, control, max_time = 1) {
 
 	# get the confidence intervals between the two data sets.
 
-	report$difference <-
+	report$diff <-
 		multiplier(
 			report$free$data, report$control$data)
 
@@ -70,7 +69,7 @@ tprofile <- function (info = '', free, control, max_time = 1) {
 
 
 
-visualise_tprofile <- function (results) {
+visualise_time_profile <- function (results) {
 	# visualise the results of several time
 	# profiles simultaneously.
 
@@ -82,41 +81,27 @@ visualise_tprofile <- function (results) {
 			results,
 			function (result) {
 
-				print(result$difference$lower)
-
-				c(
-					result$info,
-					result$difference$lower,
-					result$difference$upper)
+				data.frame(
+					info =
+						result$info,
+					upper =
+						result$diff$upper,
+					lower =
+						result$diff$lower)
 		})
 	)
 
-	# each row is an observation, each col is a property
-	# of that observation: lower and upper are the conf. interval bounds.
-	reshaped <- as.data.frame(reshaped)
-	colnames(reshaped) <- c('info', 'lower', 'upper')
-
-	# melt the data for ggplot2 consumption.
-	reshaped <- melt(
-		reshaped, id.vars = 'info',
-		measured = c("lower", "upper"))
-
-	reshaped['value'] <- as.numeric( unlist(reshaped['value']) )
-
-	ggplot(reshaped, aes(info, y = value, colour = variable)) +
-	geom_bar(stat = 'identity', position = 'identity', alpha = 0) +
-	xlab('') +
-	ylab('times faster than control') +
-	ggtitle('benchmarks')
-
+	stop("FINISH ME PLEASE!")
 }
 
+O_n <- function (N) {
+	lapply(seq_len(N), function (x) {})
+}
 
-
-
-
-
-
-
-
-
+#visualise_time_profile(
+#	list(time_profile(
+#		"",
+#		function () Sys.sleep(0.01) ,
+#		function () Sys.sleep(0.02)
+#	))
+#)

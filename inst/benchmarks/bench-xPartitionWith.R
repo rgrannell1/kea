@@ -1,10 +1,10 @@
 
-bench_xSelect <- function (N) {
+bench_xPartitionWith <- function (N) {
 
 	time_profile(
 		free =
 			function () {
-				xSelect(function (x) False, seq_len(N))
+				xPartitionWith(function (x) True, seq_len(N))
 			},
 		control =
 			function () {
