@@ -19,3 +19,11 @@ forall(
 
 message("arrow $ xIterate")
 
+forall(
+	"function $ xIterate",
+	list(upper = G$positive()),
+
+	x_( function (n) if (n == upper) Return(n) else n + 1)$
+	xIterate(0) %equals% upper
+)
+

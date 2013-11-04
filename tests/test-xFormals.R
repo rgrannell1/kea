@@ -1,14 +1,22 @@
 
 message('xFormals')
 
-test_that('xFormals', {
+forall(
+	"nullary functions yield the empty list.",
+	list(),
+	xFormals(function () {}) %equals% list()
+)
 
-	expect_equal( xFormals(function () {}), list() )
-	expect_equal( xFormals(function (a) {}), list(a = quote(expr=)) )
-	expect_equal( xFormals(function (a = 1, b) {}), list(a = 1, b = quote(expr=)) )
+forall(
+	"formals work for non-primitive functions.",
+	list(words = G$words()),
+	{
+		f <- function () {}
+		formals(f) <- structure(words, names = words)
 
-	expect_equal( xFormals(function (...) {} ), list("..." = quote(expr=)) )
-
-	expect_equal( xFormals('+'), list(e1 = quote(expr=), e2 = quote(expr=)) )
-
-})
+		names(xFormals(f)) %equals% words &&
+		all(unlist(words) == words)
+	},
+	given =
+		length(words)
+)

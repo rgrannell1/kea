@@ -1,5 +1,5 @@
 
-message("xLocatel")
+message("xLocater")
 
 forall(
 	"the empty collection yields integer(0)",
