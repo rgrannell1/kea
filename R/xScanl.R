@@ -7,7 +7,7 @@
 #' @param init an arbitrary value.
 #' @param coll a collection.
 #'
-#' @return a list with its init element being \code{coll}, and 
+#' @return a list with its init element being \code{coll}, and
 #'	 containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
@@ -22,19 +22,19 @@
 xScanl <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.
-	
+
 	pcall <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), pcall,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), pcall, 
+		!missing(init), pcall,
 		exclaim$parameter_missing(init))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), pcall,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
@@ -42,7 +42,7 @@ xScanl <- function (fn, init, coll) {
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), pcall,
 		exclaim$must_be_matchable(fn))
 
 	assert(
@@ -55,10 +55,14 @@ xScanl <- function (fn, init, coll) {
 
 	if (length(coll) == 0) {
 		init
-	} else {	
-		for (ith in seq_along(coll)) {			
+	} else {
+		for (ith in seq_along(coll)) {
 			scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
 		}
 		scanned
 	}
 }
+
+#' @export
+
+xScan <- xScanl

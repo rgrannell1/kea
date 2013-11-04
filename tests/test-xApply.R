@@ -13,15 +13,10 @@ forall(
 	{
 
 		f <- function (a) {
-			( function (b) {
-
-				xApply( function (c) 2 * c  )
-
-			})(a)
+			( function (b) xApply( function (c) 2 * c  ) )(a)
 		}
 
 		f(a) %equals% (2 * a)
-
 	}
 )
 

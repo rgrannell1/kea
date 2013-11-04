@@ -1,15 +1,23 @@
 
 message("xJuxtapose")
 
-test_that("xJuxtapose", {
+forall(
+	"juxtaposing preserves identities within the list",
+	list(val = G$integers()),
+	xJuxtapose(identity)(val) %equals% list(val)
+)
 
-	expect_that(
-		xJuxtapose(identity, function (x) x + 1, function (x) x + 2)(1),
-		equals(list(1, 2, 3)) )
+forall(
+	"juxtaposing can apply multiple functions",
+	list(val = G$integers()),
+	xJuxtapose(identity, identity)(val) %equals% list(val, val)
+)
 
-	expect_that(
-		xJuxtapose()(1),
-		equals(list()) )
+forall(
+	"juxtaposing works with incrementing",
+	G$standard$inc_over_ints(),
+	xJuxtapose(fn)(coll) %equals% coll + 1
+)
 
-})
+message("arrow $ xJuxtapose")
 

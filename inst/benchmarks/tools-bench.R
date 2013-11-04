@@ -32,7 +32,7 @@ time_profile <- function (info = '', free, control, max_time = 1) {
 	iters <- max(floor(max_time / median_seconds), 400)
 
 	if (iters < 20) {
-		warnning ("max_time was too low to provide useful results.")
+		warning ("max_time was too low to provide useful results.")
 	}
 
 	report <- list(

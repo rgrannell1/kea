@@ -40,7 +40,6 @@ if (Sys.info()["user"] == "ryan") {
 		ls(pattern = 'bench_')
 	)) )
 
-
 	require(ggplot2)
 
 	ggplot(time_series) +
@@ -50,15 +49,16 @@ if (Sys.info()["user"] == "ryan") {
 			y = mean_multiplier,
 			group = info,
 			colour = info,
-			alpha = 1/mean_multiplier)) +
+			alpha = 1 / mean_multiplier)) +
 	geom_point(
 		aes(
 			x = N,
 			y = mean_multiplier,
 			group = info,
 			colour = info,
-			alpha = 1/mean_multiplier)) +
+			alpha = 1 / mean_multiplier)) +
 	xlab("N") + ylab("times slower than control") +
 	ggtitle("runtime(profiled) / runtime(control) versus changes in N")
 
 }
+
