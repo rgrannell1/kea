@@ -151,10 +151,11 @@ To get the documentation for a particular function from an R console simply pref
 
 Contributions are welcome, particularily in the following areas:
 
-* developing haskell-like partial application.
-* documentation (obviously).
-* developing the forall testing tool.
-* benchmarking and efficiency improvements.
+* developing a stable function decorator that behaves like haskell's autocurrying.
+* developing tools for testing and profiling arrow code, such as ```forall()``` and ```time_profile()```
+* improving efficiency, consistency, and composability of functions.
+* improving exception handing within arrow.
+* tests, benchmarks and documentation (obviously!)
 
 ## 5 Authors
 
