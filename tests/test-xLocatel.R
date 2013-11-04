@@ -1,15 +1,36 @@
 
 message("xLocatel")
 
-test_that('xLocatel', {
+forall(
+	"the empty collection yields integer(0)",
+	list(pred = G$logical_functions, coll = G$collection_zero),
+	xLocate(pred, coll) %equals% integer()
+)
 
-	isEven <- function (n) {
-		n %% 2 == 0
-	}
+forall(
+	"a false function yields integer(0)",
+	list(pred = G$falsity, coll = G$collection()),
+	xLocate(pred, coll) %equals% integer()
+)
 
-	expect_equal(xLocatel(Truth, list()), integer(0))
-	expect_equal(xLocatel(Falsity, 1:10), integer(0))
-	expect_equal(xLocatel(Truth, 1:10), 1)
-	expect_equal(xLocatel(isEven, 1:10), 2)
+forall(
+	"a true function yields 1",
+	list(pred = G$truth, coll = G$collection()),
+	xLocate(pred, coll) %equals% 1,
+	given =
+		length(coll) > 0
+)
 
-})
+message("arrow $ xLocatel")
+
+forall(
+	"fn $ xLocatel",
+	list(coll = G$collection()),
+	x_(identity)$xLocatel(coll) %equals% coll
+)
+
+forall(
+	"coll $ xLocatel",
+	list(coll = G$collection()),
+	x_(coll)$xLocatel(identity) %equals% coll
+)

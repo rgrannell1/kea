@@ -21,3 +21,10 @@ forall(
 
 message("arrow $ xJuxtapose")
 
+forall(
+	"fn $ xJuxtapose",
+	G$standard$inc_over_ints(),
+	{
+		x_(fn)$xJuxtapose()$x()(coll) %equals% coll + 1
+	}
+)

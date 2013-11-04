@@ -116,16 +116,16 @@ G <- local({
 
 	this$truth <-
 		function () {
-			function () True
+			function (...) True
 		}
 	this$falsity <-
 		function () {
-			function () False
+			function (...) False
 		}
 	# beats 'nonapplicability'.
 	this$mu <-
 		function () {
-			function () Na
+			function (...) Na
 		}
 
 	this$boolean_functions <-

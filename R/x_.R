@@ -106,8 +106,8 @@ x_any_proto <- local({
 
 	# -------- X ------- #
 	this$x <-
-		function (mode = 'any') {
-			as.vector(self_(), mode)
+		function () {
+			self_()
 		}
 	# -------- Y ------- #
 
@@ -749,10 +749,6 @@ x_coll_proto <- local({
 x_fn_proto <- local({
 
 	this <- object()
-	this$x <-
-		function () {
-			self_()
-		}
 
 	# -------- A ------- #
 	this$xAsClosure <-
