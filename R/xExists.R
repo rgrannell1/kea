@@ -67,9 +67,10 @@ xExists <- function (pred, ...) {
 
 			is_match <- do.call(pred, tuple)
 
-			assert(is.logical(is_match), parent_call)
+			assert(
+				is.logical(is_match), parent_call)
 
-			if (is_match) {
+			if (isTRUE(is_match)) {
 				return (True)
 			}
 		}
