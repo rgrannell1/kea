@@ -39,9 +39,5 @@ xName <- function (strs, coll) {
 		length(strs) == length(coll), parent_call,
 		exclaim$must_have_equal_lengths(strs, colls))
 
-	if (length(strs) == 0) {
-		structure(coll, names = character(0))
-	} else {
-		structure(as.list(coll), names = strs)
-	}
+	structure(as.list(coll), names = strs)
 }

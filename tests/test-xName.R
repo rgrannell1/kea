@@ -13,3 +13,4 @@ test_that("xName", {
 		equals(list(a = 1, b = 2)) )
 
 })
+
