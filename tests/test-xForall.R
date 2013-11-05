@@ -1,10 +1,57 @@
 
 message("xForall")
 
-test_that("xForall", {
+forall(
+	"xForall of truth is true`",
+	list(coll = G$collection()),
+	xForall(Truth, coll, coll),
+	given =
+		length(coll) > 0
+)
 
-	expect_equal(xForall(identity), True)
-	expect_equal(xForall(function (x) x^2 == x, 1:10), False)
-	expect_equal(xForall(function (x, y) x+y == y+x, 1:10, 1:10), True)
+forall(
+	"xForall of falsity is false",
+	list(coll = G$collection()),
+	!xForall(Falsity, coll, coll),
+	given =
+		length(coll) > 0
+)
 
-})
+forall(
+	"xForall of moot is false",
+	list(coll = G$collection()),
+	!xForall(Moot, coll, coll),
+	given =
+		length(coll) > 0
+)
+
+# might occasionally fail!
+
+forall(
+	"xForall of a function that sometimes yields true is false",
+	list(ints = G$integers()),
+	!xForall(
+		function (a, b) {
+			a %% 2 == 0 || b %% 2 == 1
+		}, ints, ints),
+	given =
+		length(ints) > 0
+)
+
+message("arrow $ xForall")
+
+forall(
+	"fn $ xForall",
+	list(coll = G$collection()),
+	x_(Truth)$xForall(coll, coll)$x(),
+	given =
+		length(coll) > 0
+)
+
+forall(
+	"coll $ xForall",
+	list(coll = G$collection()),
+	x_(coll)$xForall(Truth)$x(),
+	given =
+		length(coll) > 0
+)

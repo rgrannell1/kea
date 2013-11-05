@@ -1,23 +1,47 @@
 
 message("xPoll")
 
-test_that("xPoll", {
+forall(
+	"polling the empty collection returns 0",
+	list(coll = G$collection_zero),
+	xPoll(Truth, coll) == 0)
 
-	expect_that(
-		xPoll(Truth, list()),
-		equals(0)
-	)
-	expect_that(
-		xPoll(Truth, 1:4),
-		equals(4)
-	)
-	expect_that(
-		xPoll(Falsity, 1:4),
-		equals(0)
-	)
-	expect_that(
-		xPoll(function (x) x %% 2 == 0, 1:4),
-		equals(2)
-	)
+forall(
+	"polling with truth returns length coll",
+	list(coll = G$collection()),
+	xPoll(Truth, coll) == length(coll),
+	given =
+		length(coll) > 0)
 
-})
+forall(
+	"polling with falsity returns 0",
+	list(coll = G$collection()),
+	xPoll(Falsity, coll) == 0,
+	given =
+		length(coll) > 0)
+
+forall(
+	"polling with moot returns 0",
+	list(coll = G$collection()),
+	xPoll(Moot, coll) == 0,
+	given =
+		length(coll) > 0)
+
+forall(
+	"polling counts true occurrences",
+	G$standard$mod2_over_ints(),
+	xPoll(fn, coll) == length(which(coll %% 2 == 0)) )
+
+message("arrow $ xPoll")
+
+forall(
+	"fn $ xPoll",
+	G$standard$mod2_over_ints(),
+	x_(fn)$xPoll(coll)$x() == length(which(coll %% 2 == 0))
+)
+
+forall(
+	"coll $ xPoll",
+	G$standard$mod2_over_ints(),
+	x_(coll)$xPoll(fn)$x() == length(which(coll %% 2 == 0))
+)

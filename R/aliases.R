@@ -81,13 +81,6 @@ assert <- function (expr, parent_call, message) {
 	}
 }
 
-# not included arbitrarily; I sometimes use this constant.
-#' @export
-
-tau <- 6.2831853071795864769252867
-
-cc <- list
-
 ith_suffix <- function (num) {
 	# takes a number i, adds the
 	# appropriate suffix (ith, ind, ist)

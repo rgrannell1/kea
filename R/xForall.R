@@ -69,7 +69,7 @@ xForall <- function (pred, ...) {
 
 			assert(is.logical(is_match), parent_call)
 
-			if (!is_match) {
+			if (!isTRUE(is_match)) {
 				return (False)
 			}
 		}
