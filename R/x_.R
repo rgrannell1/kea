@@ -8,9 +8,12 @@
 # value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
 # so an error is thrown if these prototypes are called directly.
 
-
-
-
+# Inheritance Diagram
+#
+# any proto-- ---------------- x_[ any ]
+#            |
+#            other proto ----- x_[ other ]
+#
 
 
 
@@ -19,6 +22,9 @@
 x_any_proto <- local({
 
 	this <- object()
+	this$private <- list(
+		contains = "arbitrary values"
+	)
 
 	# -------- A ------- #
 
@@ -135,9 +141,6 @@ x_any_proto <- local({
 x_matrix_proto <- local({
 
 	this <- object()
-	this$private <- list(
-		contains = "matrices"
-	)
 
 	# -------- A ------- #
 	this$xByCols <-
@@ -247,9 +250,12 @@ x_matrix_proto <- local({
 
 	# -------- Z ------- #
 
-	as.environment(
+	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
-
+	this$private <- list(
+		contains = "matrices"
+	)
+	this
 })
 
 
@@ -328,9 +334,12 @@ x_data_frame_proto <- local({
 
 	# -------- Z ------- #
 
-	as.environment(
+	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
-
+	this$private <- list(
+		contains = "data.frames"
+	)
+	this
 })
 
 
@@ -353,9 +362,6 @@ x_data_frame_proto <- local({
 x_coll_proto <- local({
 
 	this <- object()
-	this$private <- list(
-		contains = "collections"
-	)
 
 	# -------- A ------- #
 	this$xAsFunction <-
@@ -732,8 +738,12 @@ x_coll_proto <- local({
 			x_( xZip(self_(), ...) )
 		}
 
-	as.environment(
+	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contains = "collections"
+	)
+	this
 })
 
 
@@ -759,10 +769,6 @@ x_coll_proto <- local({
 x_fn_proto <- local({
 
 	this <- object()
-	this$private <- list(
-		contains = "functions"
-	)
-
 	# -------- A ------- #
 	this$xAsClosure <-
 		function () {
@@ -1064,8 +1070,12 @@ x_fn_proto <- local({
 			x_( xZip(self_(), ...) )
 		}
 
-	as.environment(
+	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contains = "functions"
+	)
+	this
 })
 
 
