@@ -135,6 +135,9 @@ x_any_proto <- local({
 x_matrix_proto <- local({
 
 	this <- object()
+	this$private <- list(
+		contains = "matrices"
+	)
 
 	# -------- A ------- #
 	this$xByCols <-
@@ -257,6 +260,9 @@ x_matrix_proto <- local({
 x_data_frame_proto <- local({
 
 	this <- object()
+	this$private <- list(
+		contains = "data.frames"
+	)
 
 	# -------- A ------- #
 
@@ -347,6 +353,10 @@ x_data_frame_proto <- local({
 x_coll_proto <- local({
 
 	this <- object()
+	this$private <- list(
+		contains = "collections"
+	)
+
 	# -------- A ------- #
 	this$xAsFunction <-
 		function () {
@@ -749,6 +759,9 @@ x_coll_proto <- local({
 x_fn_proto <- local({
 
 	this <- object()
+	this$private <- list(
+		contains = "functions"
+	)
 
 	# -------- A ------- #
 	this$xAsClosure <-
@@ -1119,7 +1132,7 @@ x_ <- function (val) {
 		}
 	}
 
-	suggest_similar_method <- function (val, method_name, parent_call) {
+	suggest_similar_method <- function (val, method_name, contains, parent_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar method.
 
@@ -1128,7 +1141,7 @@ x_ <- function (val) {
 		similar <-
 			agrep(
 				pattern = method_name,
-				x = ls(proto_ref),
+				x = setdiff(ls(proto_ref), 'private'),
 				fixed = False,
 				value = True,
 				max.distance = list(
@@ -1145,8 +1158,8 @@ x_ <- function (val) {
 		similar <- similar[ which.min(nchar(similar)) ]
 
 		assert(
-			method_name %in% ls(proto_ref), parent_call,
-			exclaim$method_not_found(method_name, similar))
+			False, parent_call,
+			exclaim$method_not_found(method_name, contains, similar))
 	}
 
 	function (obj, method) {
@@ -1158,13 +1171,17 @@ x_ <- function (val) {
 
 		proto_ref <- get_proto_ref( obj[['x']] )
 
-		if (!method_name %in% ls(proto_ref)) {
-			suggest_similar_method(
-				obj[['x']], method_name, parent_call)
-		}
+		if (!method_name %in% ls(proto_ref) || method_name == "private") {
 
-		fn <- proto_ref[[method_name]]
-		environment(fn)[['self_']] <- function () obj[['x']]
-		fn
+			contains <- proto_ref[['private']][['contains']]
+
+			suggest_similar_method(
+				obj[['x']], method_name, contains, parent_call)
+
+		} else {
+			fn <- proto_ref[[method_name]]
+			environment(fn)[['self_']] <- function () obj[['x']]
+			fn
+		}
 	}
 })

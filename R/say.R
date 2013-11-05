@@ -185,12 +185,14 @@ exclaim <- list(
 
 		},
 	method_not_found =
-		function (name, similar) {
+		function (name, holds, similar) {
 
 			if (length(similar) == 0) {
 				"could not find the method " %+% name %+% "."
 			} else {
-				"could not find the method " %+% dQuote(name) %+% ":\n" %+%
+				"could not find the method " %+% dQuote(name) %+%
+				" in the methods available for " %+% holds %+%
+				":\n" %+%
 				"did you mean " %+% sample(similar, size = 1) %+% "?"
 			}
 		},
