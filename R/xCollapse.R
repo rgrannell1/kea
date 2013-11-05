@@ -18,25 +18,25 @@ xCollapse <- function (str, ...) {
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	strs <- lapply(list(...), dearrowise)
 
 	assert(
-		!missing(str), pcall,
+		!missing(str), parent_call,
 		exclaim$parameter_missing(str))
 
 	str <- dearrowise(str)
 
 	assert(
-		is_collection(str), pcall,
+		is_collection(str), parent_call,
 		exclaim$must_be_collection(str))
 
 	str <- coerce_to_typed_vector(
 		str, 'character', True)
 
 	assert(
-		is_collection(strs), pcall,
+		is_collection(strs), parent_call,
 		exclaim$must_be_collection(strs))
 
 	strs <- coerce_to_typed_vector(

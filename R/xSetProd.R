@@ -19,14 +19,14 @@
 xSetProd <- function (...) {
 	# set the cartesian product of n collections
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	colls <- lapply(list(...), dearrowise)
 
 	assert(
 		all( sapply(colls, function (coll) {
 			is_collection(coll)
-		}) ), pcall)
+		}) ), parent_call)
 
 	coll_lengths <- sapply(colls, length)
 
@@ -35,7 +35,7 @@ xSetProd <- function (...) {
 	} else {
 		modulo_iths <- function (n, mods) {
 
-			assert(n <= prod(mods), pcall)
+			assert(n <= prod(mods), parent_call)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 

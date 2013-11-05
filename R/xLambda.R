@@ -2,7 +2,7 @@
 #' Syntactic sugar for creating unary functions.
 
 #' @param formals a symbol or string.
-#' @param body a valid function body, which 
+#' @param body a valid function body, which
 #'	 will be lazily evaluated.
 #'
 #' @return returns a unary function.
@@ -18,18 +18,18 @@ xLambda <- function (formals, body) {
 	formals <- match.call()$formals
 	body <- match.call()$body
 
-	pcall <- "xLambda:"
+	parent_call <- "xLambda:"
 
 	lambda <- function () {
 
 	}
-	
+
 	body(lambda) <- body
-	
+
 	if (is.name(formals)) {
 		# ------ make f a default-free unary function ------ #
 
-		formals(lambda) <- 
+		formals(lambda) <-
 			structure(
 				list(quote(expr=)),
 				names = match.call()[-1]$formals)
@@ -38,21 +38,21 @@ xLambda <- function (formals, body) {
 		# ------ try parse the bracket-enclosed formals ------ #
 
 		collect_params <- function (tree, state) {
-			# recur into the formals parse tree, accumulating 
+			# recur into the formals parse tree, accumulating
 			# parameter names and validating the tree.
 
 			if (is.name(tree)) {
-			
+
 				c(paste(tree), state$params)
-			
+
 			} else if (is.call(tree)) {
 
 				if (get$delim(tree) != token$delim()) {
 					# ------ the parameters aren't delimited with ":" ------ #
 
-					msg <- pcall + 
-						" the " + ith_suffix(state$pos) + 
-						" delimiter should be " + 
+					msg <- parent_call +
+						" the " + ith_suffix(state$pos) +
+						" delimiter should be " +
 						dQuote(token$delim(False)) + "."
 
 					stop (msg, call. = False)
@@ -61,17 +61,17 @@ xLambda <- function (formals, body) {
 				if ( !is.name(get$param(tree)) ) {
 					# ------ the parameter name is invalid ------ #
 
-					msg <- pcall + 
-						" the " + ith_suffix(state$pos + 1) + 
+					msg <- parent_call +
+						" the " + ith_suffix(state$pos + 1) +
 						" parameter is a non-symbol."
 
 					stop (msg, call. = False)
 				}
 
 				new_state <- list(
-					pos = 
+					pos =
 						state$pos + 1,
-					params = 
+					params =
 						c(get$param(tree, True), state$params) )
 
 				collect_params(get$rest(tree), new_state)
@@ -82,7 +82,7 @@ xLambda <- function (formals, body) {
 		# ------ tokens of particular importance ------ #
 
 		token <- list(
-			open = 
+			open =
 				function (symbol = True) {
 					(if (symbol) as.symbol else paste)( "(" )
 				},
@@ -95,36 +95,36 @@ xLambda <- function (formals, body) {
 		# ------ grab different parts of the parse tree ------ #
 
 		get <- list(
-			delim = 
+			delim =
 				function (tree, symbol = True) {
 					(if (symbol) identity else paste)( tree[[1]] )
 				},
-			param = 
+			param =
 				function (tree, symbol = True) {
 					(if (symbol) identity else paste)( tree[[3]] )
 				},
-			rest = 
+			rest =
 				function (tree, symbol = True) {
-					(if (symbol) identity else paste)( tree[[2]] )			
+					(if (symbol) identity else paste)( tree[[2]] )
 				}
 		)
 
 		# ------ check the formals are bracket-enclosed ------ #
 
 		if (get$delim(formals) != token$open()) {
-		
-			msg <- pcall + " the formals for non-unary functions" + 
+
+			msg <- parent_call + " the formals for non-unary functions" +
 				" must be enclosed in parentheses."
 
 			stop (msg, call. = False)
 		}
 
 		params <- collect_params(
-			tree = formals[[2]], 
+			tree = formals[[2]],
 			state = list(pos = 1, params = character(0)) )
 
 		# ------ set the formals to the parsed param names ------ #
-		formals(lambda) <- 
+		formals(lambda) <-
 			structure(
 				rep(list(quote(expr=)), length(params)),
 				names = params)

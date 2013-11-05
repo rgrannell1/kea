@@ -19,14 +19,14 @@ xSubStr <- function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(str), pcall,
+		!missing(str), parent_call,
 		exclaim$parameter_missing(str))
 
 	assert(
-		!missing(nums), pcall,
+		!missing(nums), parent_call,
 		exclaim$parameter_missing(nums))
 
 	str <- dearrowise(str)
@@ -36,10 +36,10 @@ xSubStr <- function (str, nums) {
 	nums <- coerce_to_typed_vector(nums, "numeric", False)
 
 	assert(
-		is.character(str) && length(str) < 2, pcall)
+		is.character(str) && length(str) < 2, parent_call)
 
 	assert(
-		all(round(nums) == nums), pcall)
+		all(round(nums) == nums), parent_call)
 
 	if (length(str) == 0) {
 		character(0)
@@ -47,7 +47,7 @@ xSubStr <- function (str, nums) {
 		str
 	} else {
 		assert(
-			max(nums) <= nchar(str), pcall)
+			max(nums) <= nchar(str), parent_call)
 
 		chars <- strsplit(str, "")[[1]]
 		paste0(chars[nums], collapse = "")

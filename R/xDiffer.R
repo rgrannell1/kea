@@ -1,6 +1,6 @@
 
 #' xDiffer
-#' 
+#'
 #' Get the asymettric set difference of two collections.
 #'
 #' @param coll1 a collection
@@ -8,7 +8,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -18,25 +18,25 @@
 xDiffer <- function (coll1, coll2) {
 	# Collection any -> Collection any -> Collection any
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll1), pcall,
+		!missing(coll1), parent_call,
 		exclaim$parameter_missing(coll1))
-	
+
 	assert(
-		!missing(coll2), pcall,
+		!missing(coll2), parent_call,
 		exclaim$parameter_missing(coll2))
 
 	coll1 <- dearrowise(coll1)
 	coll2 <- dearrowise(coll2)
 
 	assert(
-		is_collection(coll1), pcall,
+		is_collection(coll1), parent_call,
 		exclaim$must_be_collection(coll1))
-	
+
 	assert(
-		is_collection(coll2), pcall,
+		is_collection(coll2), parent_call,
 		exclaim$must_be_collection(coll2))
 
 	coll1 <- as.list(coll1)

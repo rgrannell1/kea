@@ -1,6 +1,6 @@
 
 #' xPartitionWith
-#' 
+#'
 #' Divide elements in a collection into two collections based on a predicate function.
 #'
 #' @param pred a predicate.
@@ -25,28 +25,28 @@
 
 xPartitionWith <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> [[any],[any]]
-	# returns two lists; a list for which pred returns 
+	# returns two lists; a list for which pred returns
 	# true, and a list for which pred returns false
-	
-	pcall <- sys.call()
+
+	parent_call <- sys.call()
 
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
-	
+
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
-	
+
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
@@ -56,7 +56,7 @@ xPartitionWith <- function (pred, coll) {
 	} else {
 		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
 		true_ind <- !is.na(ind) & ind
-				
+
 		list(
 			as.list(coll[true_ind]),
 			as.list(coll[!true_ind]) )

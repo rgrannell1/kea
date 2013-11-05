@@ -18,16 +18,16 @@ xNegate <- function (nums) {
 	# Collection number -> number
 	# flips the sign of each number.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(nums), pcall,
+		!missing(nums), parent_call,
 		exclaim$parameter_missing(nums))
 
 	nums <- dearrowise(nums)
 
 	assert(
-		is_collection(nums), pcall,
+		is_collection(nums), parent_call,
 		exclaim$must_be_collection(nums))
 
 	nums <- coerce_to_typed_vector(nums, 'numeric')

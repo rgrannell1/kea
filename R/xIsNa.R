@@ -2,7 +2,7 @@
 #' xIsNa
 #'
 #' Is an element of a collection na?
-#' 
+#'
 #' @param coll a collection.
 #'
 #' @return a vector of boolean values.
@@ -16,16 +16,16 @@ xIsNa <- function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection na?
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	vapply(coll, function (x) {

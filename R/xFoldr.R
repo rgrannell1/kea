@@ -22,18 +22,18 @@ xFoldr <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the right
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall,
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), pcall,
+		!missing(init), parent_call,
 		exclaim$parameter_missing(init))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
@@ -41,11 +41,11 @@ xFoldr <- function (fn, init, coll) {
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall,
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)

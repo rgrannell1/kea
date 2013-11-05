@@ -1,6 +1,6 @@
 
 #' xAsVariadic
-#' 
+#'
 #' Return a variadic function that passes its arguments as a list to ints underyling function.
 #'
 #' @param fn a unary function.
@@ -14,19 +14,19 @@
 
 xAsVariadic <- function (fn) {
 	# (a -> b) -> (... -> b)
-	# Return a variadic function that passes its arguments 
+	# Return a variadic function that passes its arguments
 	# as a list to its underlying function.
-	
-	pcall <- sys.call()
+
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
-	
+
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

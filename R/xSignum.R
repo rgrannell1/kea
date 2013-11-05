@@ -1,14 +1,14 @@
 
 #' xSignum
-#' 
+#'
 #' Get the sign of a vector of numbers.
 #'
 #' @param nums a vector of non-complex numbers.
 #'
 #' @return a vector of elements in the set \code{-1, 0, +1}.
 #'
-#' @section Corner Cases: 
-#'	 If \code{nums} is lenth-zero then the unit of that vector is returned. 
+#' @section Corner Cases:
+#'	 If \code{nums} is lenth-zero then the unit of that vector is returned.
 #'	 The sign of zero is zero.
 #' @template glossary
 #'
@@ -19,16 +19,16 @@ xSignum <- function (nums) {
 	# Collection number -> Vector number
 	# returns the sign of a number.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(nums), pcall,
+		!missing(nums), parent_call,
 		exclaim$parameter_missing(nums))
 
 	nums <- dearrowise(nums)
-	
+
 	assert(
-		is_collection(nums), pcall,
+		is_collection(nums), parent_call,
 		exclaim$must_be_collection(nums))
 
 	nums <- coerce_to_typed_vector(nums, 'numeric')
@@ -38,6 +38,6 @@ xSignum <- function (nums) {
 	} else {
 		sapply(nums, function (num) {
 			if (num > 0) +1 else if (num == 0) 0 else -1
-		})		
+		})
 	}
 }

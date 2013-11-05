@@ -1,6 +1,6 @@
 
 #' xParams
-#' 
+#'
 #' Get the parametre names of a function or primitive function.
 #'
 #' @param fn an arbitrary function or primitive function.
@@ -8,7 +8,7 @@
 #' @return a character vector/.
 #'
 #' @section Corner Cases:
-#'	 If \code{fn} is a primitive function a heuristic is used to obtain 
+#'	 If \code{fn} is a primitive function a heuristic is used to obtain
 #'	 its parameter names.
 #' @template glossary
 #'
@@ -22,16 +22,16 @@ xParams <- function (fn) {
 	# get the formals of non-primitive functions, and
 	# the arguments of primitive functions.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

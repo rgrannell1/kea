@@ -18,16 +18,16 @@
 xDissoc <- function (coll) {
 	# Named Collection any -> [[string, any]]
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		length(names(coll)) == length(coll), pcall,
+		length(names(coll)) == length(coll), parent_call,
 		exclaim$must_be_named(coll))
 
 	if (length(coll) == 0) {

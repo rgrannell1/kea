@@ -15,7 +15,7 @@
 xTimer <- function (num) {
 	# integer -> function
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
 		!missing(num), sys.call(),
@@ -25,11 +25,11 @@ xTimer <- function (num) {
 	num <- coerce_to_typed_vector(num, 'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, pcall,
+		length(num) %in% 0:1, parent_call,
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		num > 0, pcall,
+		num > 0, parent_call,
 		exclaim$must_be_greater_than(num, 0))
 
 	genesis <- Sys.time()

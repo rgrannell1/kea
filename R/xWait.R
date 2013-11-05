@@ -1,6 +1,6 @@
 
 #' xWait
-#' 
+#'
 #' Delay the evalution of a function after invokation for a set amount of time.
 #'
 #' @param fn an arbitrary function.
@@ -8,7 +8,7 @@
 #'
 #' @return a function with the same parameters as \code{fn}.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     if \code{num} is zero then \code{fn} is returned untouched.
 #' @template glossary
 #'
@@ -20,29 +20,29 @@
 xWait <- function (fn, num) {
 	# function -> number -> function
 
-	pcall <- sys.call()
-	
+	parent_call <- sys.call()
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(num), pcall,
+		!missing(num), parent_call,
 		exclaim$parameter_missing(num))
 
 	fn <- dearrowise(fn)
 	num <- dearrowise(num)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.numeric(num) && num >= 0, pcall,
+		is.numeric(num) && num >= 0, parent_call,
 		exclaim$must_be_greater_than(num, 0))
 
 	fn <- match.fun(fn)
-	remove(pcall)
+	remove(parent_call)
 
 	if (num == 0) {
 		fn
@@ -53,6 +53,6 @@ xWait <- function (fn, num) {
 				Sys.sleep(num)
 				.( call_with_params("fn", fn) )
 			})
-		))		
+		))
 	}
 }

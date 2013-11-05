@@ -1,6 +1,6 @@
 
 #' xPartial
-#' 
+#'
 #' Partially apply a function.
 #'
 #' @param fn an arbitrary function.
@@ -8,7 +8,7 @@
 #'
 #' @return A function of equal or lesser arity to \code{fn}.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     Partial application also works for ellipses (eg list(... = 1)).
 #' @template glossary
 #'
@@ -20,33 +20,33 @@
 
 xPartial <- function (fn, coll) {
 
-	pcall <- sys.call()
-	
+	parent_call <- sys.call()
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
-	
+
 	assert(
-		all(names(coll) %in% xParams(fn)), pcall)
-	
-	remove(pcall)
+		all(names(coll) %in% xParams(fn)), parent_call)
+
+	remove(parent_call)
 
 	if (length(coll) == 0) {
 		fn
@@ -56,10 +56,10 @@ xPartial <- function (fn, coll) {
 			as.pairlist( xFormals(fn)[
 				!(xParams(fn) %in% names(coll)) ] ),
 			bquote({
-				# the fundemental unit of lisp-like 
+				# the fundemental unit of lisp-like
 				# computation; LE PARENTHESIS!
 
-				.( 
+				.(
 					as.call(c(
 						as.symbol('fn'),
 						lapply(

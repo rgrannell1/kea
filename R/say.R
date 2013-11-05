@@ -202,6 +202,15 @@ exclaim <- list(
 			"the argument matching " %+% param %+%
 			" must be a named collection."
 		},
+	must_have_equal_lengths =
+		function (name1, name2) {
+
+			name1 <- paste(match.call()$name1)
+			name2 <- paste(match.call()$name2)
+
+			"both " %+% name1 %+% " and " %+% name2 %+%
+			" must have equal lengths."
+		},
 	variable_non_existent =
 		function (name) {
 

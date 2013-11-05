@@ -1,6 +1,6 @@
 
 #' xFirst
-#' 
+#'
 #' Return the first element of a collection.
 #'
 #' @param coll a collection
@@ -20,22 +20,22 @@ xFirst <- function (coll) {
 	# Collection any -> any
 	# return the first element of a collection x.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	assert(
-		length(coll) >= 1, pcall,
+		length(coll) >= 1, parent_call,
 		exclaim$must_be_longer_than(coll, 1))
-	
+
 	coll[[1]]
 }
 

@@ -21,16 +21,16 @@ xZipWith <- function (fn, ...) {
 	# returns the result of applying f to each n-tuple.
 	# excess elements are discarded.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall,
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall,
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	coll <- lapply(list(...), dearrowise)

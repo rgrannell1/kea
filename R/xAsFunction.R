@@ -1,13 +1,13 @@
 
 #' xAsFunction
-#' 
+#'
 #' Convert a collection to a function that takes an index.
 #'
 #' @param coll a collection
 #'
 #' @return a function that takes one or more indices.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll is length-zero}.
 #' @template glossary
 #'
@@ -19,16 +19,16 @@ xAsFunction <- function (coll) {
 	# enclose a collection in a function, and
 	# allow access by supplying indices.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	function (...) {
@@ -36,19 +36,19 @@ xAsFunction <- function (coll) {
 		nums <- c(...)
 
 		assert(
-			is.numeric(nums), pcall,
+			is.numeric(nums), parent_call,
 			exclaim$must_be_numeric(nums))
 
 		assert(
-			all(round(nums) == nums), pcall,
+			all(round(nums) == nums), parent_call,
 			exclaim$must_be_whole(nums))
 
 		assert(
-			length(coll) >= max(nums), pcall,
+			length(coll) >= max(nums), parent_call,
 			exclaim$must_be_grequal_than("length(coll)", max(nums)))
 
 		assert(
-			min(nums) >= 0, pcall,
+			min(nums) >= 0, parent_call,
 			exclaim$must_be_greater_than("min(nums)", 0))
 
 		as.list(coll[nums])

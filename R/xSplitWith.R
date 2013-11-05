@@ -23,25 +23,25 @@ xSplitWith <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [[any] [any]]
 	# take every element until pred returns false
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
@@ -53,7 +53,7 @@ xSplitWith <- function (pred, coll) {
 		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
-			assert(is.logical(is_match), pcall)
+			assert(is.logical(is_match), parent_call)
 
 			if (!is_match) {
 				return (

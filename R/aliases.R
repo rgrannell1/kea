@@ -49,20 +49,20 @@ call_with_params <- function (name, fn) {
 			as.symbol))
 }
 
-assert <- function (expr, pcall, message) {
+assert <- function (expr, parent_call, message) {
 	# does an expression evaluate to true?
 	# if not, throw a lovely error.
 
 	args <- as.list(match.call())[-1]
 
 	if (!expr) {
-		call <- if (missing(pcall)) {
+		call <- if (missing(parent_call)) {
 			'assert()'
 		} else {
-			if (is.character(pcall)) {
-				pcall
+			if (is.character(parent_call)) {
+				parent_call
 			} else {
-				paste0(deparse(pcall), collapse = '')
+				paste0(deparse(parent_call), collapse = '')
 			}
 		}
 
@@ -212,6 +212,7 @@ coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
 		} else {
 			stop("")
 		}
+
 	} else {
 		coll
 	}

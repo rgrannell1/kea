@@ -24,14 +24,14 @@ xSplit <- function (num, coll) {
 	# number -> Collection any -> [[any], [any]]
 	# take the first n values of collection.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(num), pcall,
+		!missing(num), parent_call,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
@@ -44,7 +44,7 @@ xSplit <- function (num, coll) {
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {

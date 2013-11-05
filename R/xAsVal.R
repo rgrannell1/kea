@@ -16,11 +16,11 @@
 
 xAsVal <- function (str) {
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 	pframe <- parent.frame()
 
 	assert(
-		!missing(str), pcall,
+		!missing(str), parent_call,
 		exclaim$parameter_missing(str))
 
 	str <- toString(match.call()$str)
@@ -31,7 +31,7 @@ xAsVal <- function (str) {
 
 	assert(
 		(is.character(str) && length(str) == 1) ||
-		is.name(str), pcall)
+		is.name(str), parent_call)
 
 	lockBinding(str, pframe)
 }

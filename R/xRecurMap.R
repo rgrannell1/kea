@@ -2,7 +2,7 @@
 #' xRecurMap
 #'
 #' Recursively map a function into a nested collection, preserving its structure.
-#' 
+#'
 #' @param fn a unary function.
 #' @param coll a list or pairlist.
 #'
@@ -17,28 +17,28 @@
 
 xRecurMap <- function (fn, coll) {
 	# (any -> any) -> Recursive any -> [any]
-	# Map a function into a nested collection, 
-	# preserving its structure.	
+	# Map a function into a nested collection,
+	# preserving its structure.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
-	
+
 	assert(
-		is.recursive(coll), pcall,
+		is.recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
 	fn <- match.fun(fn)

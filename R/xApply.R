@@ -28,26 +28,26 @@ xApply <- function (fn, coll) {
 	# function -> [any] -> any
 	# call the function f with the list coll.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 	pframe <- parent.frame()
 
 	assert(
-		!missing(fn), pcall,
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall,
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.recursive(coll), pcall)
+		is.recursive(coll), parent_call)
 
 	fn <- match.fun(fn)
 

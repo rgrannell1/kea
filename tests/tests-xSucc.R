@@ -10,3 +10,9 @@ test_that('xSucc', {
 	expect_equal( xSucc(-Inf), -Inf )
 
 })
+
+forall(
+	"the successor of an empty typed vector is an empty typed vector",
+	list(coll = G$integers()),
+	xSucc(coll) %equals% as.double(coll)
+)

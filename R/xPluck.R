@@ -1,6 +1,6 @@
 
 #' xPluck
-#' 
+#'
 #' Map over a collection of lists or pairlists,
 #'     selecting fields in each element by name.
 #'
@@ -9,7 +9,7 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero. If str is length-zero
 #'     then the empty string "" is used to match key-names.
 #' @template glossary
@@ -23,28 +23,28 @@
 xPluck <- function (str, coll) {
 	# Vector string -> Collection any -> Collection [any]
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(str), pcall,
+		!missing(str), parent_call,
 		exclaim$parameter_missing(str))
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	str <- dearrowise(str)
 	coll <- dearrowise(coll)
 
 	assert(
-		is.character(str) && length(str) == 1, pcall,
+		is.character(str) && length(str) == 1, parent_call,
 		exclaim$must_be_string(str))
 
 	assert(
-		is.recursive(coll), pcall,
+		is.recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
 	assert(
-		all( sapply(coll, is.recursive) ), pcall,
+		all( sapply(coll, is.recursive) ), parent_call,
 		exclaim$must_be_recursive_of_collections(coll))
 
 	if (length(coll) == 0) {

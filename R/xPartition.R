@@ -1,6 +1,6 @@
 
 #' xPartition
-#' 
+#'
 #' Divide elements in a collection into lists based on an equivelence predicate.
 #'
 #' @param pred a binary predicate function.
@@ -8,7 +8,7 @@
 #'
 #' @return a list of lists.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -21,27 +21,27 @@
 xPartition <- function (pred, coll) {
 	# partition a set into an equivalence class.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
-	
+
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
-	
+
 	pred <- match.fun(pred)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {

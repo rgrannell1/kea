@@ -1,14 +1,14 @@
 
 #' xConcat
-#' 
+#'
 #' Concatenate several collections into one collection.
 #'
 #' @param ... several collections.
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
-#'     empty collections act as a unit for concatenation; concatenating the empty list 
+#' @section Corner Cases:
+#'     empty collections act as a unit for concatenation; concatenating the empty list
 #'    to another list returns the second list, without modification.
 #' @template glossary
 #'
@@ -19,12 +19,12 @@ xConcat <- function (...) {
 	# Collection any ... -> [any]
 	# Concatenate several collections.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	colls <- lapply(list(...), dearrowise)
 
 	assert(
-		all(sapply(colls, is_collection)), pcall,
+		all(sapply(colls, is_collection)), parent_call,
 		exclaim$must_be_recursive_of_collections(colls))
 
 	as.list(do.call(c, colls))

@@ -1,6 +1,6 @@
 
 #' xIsTrue
-#' 
+#'
 #' Is an element of a collection true?
 #'
 #' @param coll a collection.
@@ -16,16 +16,16 @@ xIsTrue <- function (coll) {
 	# Collection a -> Vector boolean
 	# test which elements of a collection are true
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	vapply(coll, function (x) {

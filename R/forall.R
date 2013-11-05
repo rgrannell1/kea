@@ -29,7 +29,7 @@ G <- local({
 		function () {
 
 			assert(
-				all( sapply(fns, is.function) ), pcall,
+				all( sapply(fns, is.function) ), parent_call,
 				lament$non_function_cases(info))
 			one_of(fns)()
 
@@ -331,10 +331,10 @@ G <- local({
 
 forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		all( sapply(cases, is.function) ), pcall,
+		all( sapply(cases, is.function) ), parent_call,
 		lament$non_function_cases(info))
 
 	# ----- capture the expect and given expressions as functions
@@ -377,11 +377,11 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 			result <- do.call(expect, case)
 
 			assert(
-				length(result) == 1, pcall,
+				length(result) == 1, parent_call,
 				lament$non_singular_expectation(info, length(result)) )
 
 			assert(
-				result %in% c(True, False), pcall,
+				result %in% c(True, False), parent_call,
 				lament$non_boolean_expectation(info, case))
 
 			if (!result) {
@@ -396,7 +396,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	assert(
 		length(state$failed) == 0,
-		pcall,
+		parent_call,
 		lament$failed_cases(
 			info,
 			state$failed_after,

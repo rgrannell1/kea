@@ -31,25 +31,25 @@ xDo <- function (fn, coll) {
 	# apply a function to each element of a collection.
 	# and discard the results.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall,
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), pcall,
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)

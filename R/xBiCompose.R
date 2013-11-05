@@ -1,6 +1,6 @@
 
 #' xBiCompose
-#' 
+#'
 #' Compose a binary function with two other functions.
 #'
 #' @param fn1 a binary function.
@@ -20,19 +20,19 @@
 xBiCompose <- function (fn1, fn2, fn3) {
 	# the phoenix or Phi combinator
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 	pframe <- parent.frame()
 
 	assert(
-		!missing(fn1), pcall,
+		!missing(fn1), parent_call,
 		exclaim$parameter_missing(fn1))
-	
+
 	assert(
-		!missing(fn2), pcall,
+		!missing(fn2), parent_call,
 		exclaim$parameter_missing(fn2))
-	
+
 	assert(
-		!missing(fn3), pcall,
+		!missing(fn3), parent_call,
 		exclaim$parameter_missing(fn3))
 
 	fn1 <- dearrowise(fn1)
@@ -40,15 +40,15 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	fn3 <- dearrowise(fn3)
 
 	assert(
-		is_fn_matchable(fn1), pcall,
+		is_fn_matchable(fn1), parent_call,
 		exclaim$must_be_matchable(fn1))
-	
+
 	assert(
-		is_fn_matchable(fn2), pcall,
+		is_fn_matchable(fn2), parent_call,
 		exclaim$must_be_matchable(fn2))
 
 	assert(
-		is_fn_matchable(fn3), pcall,
+		is_fn_matchable(fn3), parent_call,
 		exclaim$must_be_matchable(fn3))
 
 	fn1 <- match.fun(fn1)

@@ -1,6 +1,6 @@
 
 #' xForall
-#' 
+#'
 #' Does ever selection of arguments satisfy a predicate?
 #'
 #' @param pred an n-ary predicate.
@@ -8,7 +8,7 @@
 #'
 #' @return a boolean value.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     if any collection is length zero (or no collections are given), then False is returned.
 #' @template glossary
 #'
@@ -18,38 +18,38 @@
 #' @export
 
 xForall <- function (pred, ...) {
-	# does there not exist any choice of bindings for 
+	# does there not exist any choice of bindings for
 	# pred such that pred is false?
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
 
 	fn <- dearrowise(pred)
 
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
-	
+
 	pred <- match.fun(pred)
 	colls <- lapply(list(...), dearrowise)
 
 	assert(
 		all( sapply(colls, function (coll) {
-			is_collection(coll) 
-		}) ), pcall)
+			is_collection(coll)
+		}) ), parent_call)
 
 	coll_lengths <- sapply(colls, length)
 
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		True
 	} else {
-		
+
 		modulo_iths <- function (n, mods) {
-			
-			assert(n <= prod(mods), pcall)
+
+			assert(n <= prod(mods), parent_call)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 
@@ -67,8 +67,8 @@ xForall <- function (pred, ...) {
 
 			is_match <- do.call(pred, tuple)
 
-			assert(is.logical(is_match), pcall)
-			
+			assert(is.logical(is_match), parent_call)
+
 			if (!is_match) {
 				return (False)
 			}

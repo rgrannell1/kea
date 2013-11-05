@@ -19,17 +19,17 @@ xThread <- function (init, ...) {
 	# any -> .... -> any
 	# iteratively apply a value to each function in a list.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(init), pcall,
+		!missing(init), parent_call,
 		exclaim$parameter_missing(init))
 
 	init <- dearrowise(init)
 	fns <- lapply(list(...), dearrowise)
 
 	assert(
-		all(sapply(fns, is_fn_matchable)), pcall,
+		all(sapply(fns, is_fn_matchable)), parent_call,
 		exclaim$must_be_recursive_of_matchable(fns))
 
 	for (ith in seq_along(fns)) {

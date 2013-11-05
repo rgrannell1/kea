@@ -22,22 +22,22 @@ xLocate <- function (pred, coll) {
 	# returns the first index of collection that matches
 	# the predicate pred.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)

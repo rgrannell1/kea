@@ -842,6 +842,7 @@ x_fn_proto <- local({
 		}
 	this$xForall <-
 		function (...) {
+
 			xForall(self_(), ...)
 		}
 	this$xFold <- this$xFoldl
@@ -870,8 +871,8 @@ x_fn_proto <- local({
 			x_( xIsVariadic(self_()) )
 		}
 	this$xIterate <-
-		function (init) {
-			x_( xIterate(self_(), init) )
+		function (iter) {
+			x_( xIterate(self_(), iter) )
 		}
 	# -------- J ------- #
 	this$xJuxtapose <-
@@ -1118,7 +1119,7 @@ x_ <- function (val) {
 		}
 	}
 
-	suggest_similar_method <- function (val, method_name, pcall) {
+	suggest_similar_method <- function (val, method_name, parent_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar method.
 
@@ -1144,7 +1145,7 @@ x_ <- function (val) {
 		similar <- similar[ which.min(nchar(similar)) ]
 
 		assert(
-			method_name %in% ls(proto_ref), pcall,
+			method_name %in% ls(proto_ref), parent_call,
 			exclaim$method_not_found(method_name, similar))
 	}
 
@@ -1153,13 +1154,13 @@ x_ <- function (val) {
 		# return an arrow method associated with the type a.
 
 		method_name <- paste0(method)
-		pcall <- paste0('$', method_name)
+		parent_call <- paste0('$', method_name)
 
 		proto_ref <- get_proto_ref( obj[['x']] )
 
 		if (!method_name %in% ls(proto_ref)) {
 			suggest_similar_method(
-				obj[['x']], method_name, pcall)
+				obj[['x']], method_name, parent_call)
 		}
 
 		fn <- proto_ref[[method_name]]

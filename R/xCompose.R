@@ -26,31 +26,31 @@ xCompose <- function (fn1, fn2) {
 	# a general purpose compose function;
 	# more poweful than \f.\g.\x.fgx
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn1), pcall,
+		!missing(fn1), parent_call,
 		exclaim$parameter_missing(fn1))
 
 	assert(
-		!missing(fn2), pcall,
+		!missing(fn2), parent_call,
 		exclaim$parameter_missing(fn2))
 
 	fn1 <- dearrowise(fn1)
 	fn2 <- dearrowise(fn2)
 
 	assert(
-		is_fn_matchable(fn1), pcall,
+		is_fn_matchable(fn1), parent_call,
 		exclaim$must_be_matchable(fn1))
 
 	assert(
-		is_fn_matchable(fn2), pcall,
+		is_fn_matchable(fn2), parent_call,
 		exclaim$must_be_matchable(fn2))
 
 	fn1 <- match.fun(fn1)
 	fn2 <- match.fun(fn2)
 
-	remove(pcall)
+	remove(parent_call)
 
 	do.call("function", list(
 		formals(fn2),

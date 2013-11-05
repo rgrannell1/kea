@@ -1,6 +1,6 @@
 
 #' xFourth
-#' 
+#'
 #' Return the fourth value in a collection.
 #'
 #' @param coll a collection/
@@ -20,21 +20,21 @@ xFourth <- function (coll) {
 	# Collection any -> any
 	# return the fourth element of a collection x.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	assert(
-		length(coll) >= 4, pcall, 
+		length(coll) >= 4, parent_call,
 		exclaim$must_be_longer_than(coll, 3))
-	
+
 	coll[[4]]
 }

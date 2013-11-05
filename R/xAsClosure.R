@@ -1,6 +1,6 @@
 
 #' xAsClosure
-#' 
+#'
 #' Convert a primitive function to a closure.
 #'
 #' @param fn an arbitrary function.
@@ -9,7 +9,7 @@
 #'
 #' @template glossary
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'	 xAsClosure does not work for every primitive function (for example 'c'),
 #'	 so caution should be taken when using this function.
 #'
@@ -20,16 +20,16 @@ xAsClosure <- function (fn) {
 	# (a -> b) -> (a -> b)
 	# convert a primitive function to a closure.
 
-	pcall <- sys.call()
-	
+	parent_call <- sys.call()
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
-	
+
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
@@ -42,7 +42,7 @@ xAsClosure <- function (fn) {
 				.(call_with_params("fn", fn))
 			})
 		))
-		
+
 	} else {
 		fn
 	}

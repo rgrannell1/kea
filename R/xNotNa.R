@@ -1,13 +1,13 @@
 
 #' xNotNa
-#' 
+#'
 #' Is an element of a collection not na?
 #'
 #' @param coll a collection.
 #'
 #' @return a vector of boolean values.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns logical(0) if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -18,16 +18,16 @@ xNotNa <- function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection not na?
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {
@@ -39,6 +39,6 @@ xNotNa <- function (coll) {
 			!identical(x, NA_real_) &&
 			!identical(x, NA_character_) &&
 			!identical(x, NA_complex_)
-		}, logical(1), USE.NAMES = False)		
+		}, logical(1), USE.NAMES = False)
 	}
 }

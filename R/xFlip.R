@@ -1,6 +1,6 @@
 
 #' xFlip
-#' 
+#'
 #' Reverse the formal parametres of a function.
 #'
 #' @param fn an arbitrary function.
@@ -18,20 +18,20 @@ xFlip <- function (fn) {
 	# function -> function
 	#' reverse the parameters of a function.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
-	
+
 	fn <- match.fun(fn)
-	remove(pcall)
+	remove(parent_call)
 
 	do.call('function', list(
 		as.pairlist(rev( xFormals(fn) )),

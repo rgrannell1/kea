@@ -21,23 +21,23 @@ xExists <- function (pred, ...) {
 	# does there exist any choice of bindings for
 	# pred such that pred is true?
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
 
 	pred <- dearrowise(pred)
 
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
 
 	pred <- match.fun(pred)
 	colls <- lapply(list(...), dearrowise)
 
 	assert(
-		all(sapply(colls, is_collection)), pcall,
+		all(sapply(colls, is_collection)), parent_call,
 		exclaim$must_be_recursive_of_collections(colls))
 
 	coll_lengths <- sapply(colls, length)
@@ -49,7 +49,7 @@ xExists <- function (pred, ...) {
 		modulo_iths <- function (n, mods) {
 			# get the nth expanded index of an oddly-shaped array.
 
-			assert(n <= prod(mods), pcall)
+			assert(n <= prod(mods), parent_call)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 
@@ -67,7 +67,7 @@ xExists <- function (pred, ...) {
 
 			is_match <- do.call(pred, tuple)
 
-			assert(is.logical(is_match), pcall)
+			assert(is.logical(is_match), parent_call)
 
 			if (is_match) {
 				return (True)

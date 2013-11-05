@@ -1,6 +1,6 @@
 
 #' xMapMany
-#' 
+#'
 #' Map a function across many collections simultaneously.
 #'
 #' @param fn a n-ary function.
@@ -8,8 +8,8 @@
 #'
 #' @return a list.
 #'
-#' @section Corner Cases: 
-#'     returns the empty list if any collection is length-zero. If the 
+#' @section Corner Cases:
+#'     returns the empty list if any collection is length-zero. If the
 #'     collection lengths are not equal then elements are recycled in the shorter collections.
 #' @template glossary
 #'
@@ -23,16 +23,16 @@ xMapMany <- function (fn, ...) {
 	# function -> Collection any .... -> [any]
 	# Map a function across many collections simultaneously.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

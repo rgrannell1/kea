@@ -20,14 +20,14 @@ xTake <- function (num, coll) {
 	# Collection any -> [any]
 	# take the first num values of collection.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(num), pcall,
+		!missing(num), parent_call,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
@@ -36,15 +36,15 @@ xTake <- function (num, coll) {
 	num <- coerce_to_typed_vector(num, 'numeric')
 
 	assert(
-		length(num) %in% 0:1, pcall,
+		length(num) %in% 0:1, parent_call,
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		num >= 0, pcall,
+		num >= 0, parent_call,
 		exclaim$must_be_greater_than(num, 0))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0 || num == 0) {

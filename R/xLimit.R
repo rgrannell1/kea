@@ -18,14 +18,14 @@
 xLimit <- function (num, fn) {
 	# integer -> function -> function
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(num), pcall,
+		!missing(num), parent_call,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(fn), pcall,
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	num <- dearrowise(num)
@@ -34,15 +34,15 @@ xLimit <- function (num, fn) {
 	num <- coerce_to_typed_vector(num, 'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, pcall,
+		length(num) %in% 0:1, parent_call,
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		num > 0, pcall,
+		num > 0, parent_call,
 		exclaim$must_be_whole(num))
 
 	assert(
-		is_fn_matchable(fn), pcall,
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

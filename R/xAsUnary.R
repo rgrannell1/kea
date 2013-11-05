@@ -1,6 +1,6 @@
 
 #' xAsUnary
-#' 
+#'
 #' Create a function that takes one argument, and applies each element of
 #' that argument as a parameter of its underlying function.
 #'
@@ -19,24 +19,24 @@
 
 xAsUnary <- function (fn) {
 	# (... -> b) -> (a -> b)
-	# dual to xAsVariadic. 
-	# takes a function that takes a many values and 
+	# dual to xAsVariadic.
+	# takes a function that takes a many values and
 	# makes it into a function that takes one list.
 
-	pcall <- sys.call()
-	
+	parent_call <- sys.call()
+
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
-	remove(pcall)
+	remove(parent_call)
 
 	function (x) {
 		xApply(fn, as.list(x))

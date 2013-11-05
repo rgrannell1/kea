@@ -1,6 +1,6 @@
 
 #' xFormals
-#' 
+#'
 #' Get the parametres and defaults of a function or primitive function.
 #'
 #' @param fn an arbitrary function.
@@ -9,9 +9,9 @@
 #'	 is the default value of that parameter.
 #'
 #' @section Corner Cases:
-#'	 If \code{fn} is a primitive function a heuristic is used to obtain 
-#'	 its formals. If a parameter has no default, the value of the 
-#'	 corresponding element in the retun value will be the empty symbol, 
+#'	 If \code{fn} is a primitive function a heuristic is used to obtain
+#'	 its formals. If a parameter has no default, the value of the
+#'	 corresponding element in the retun value will be the empty symbol,
 #'	 which is identical to \code{quote(expr=)}.
 #'
 #' @template glossary
@@ -24,16 +24,16 @@ xFormals <- function (fn) {
 	# get the formals of non-primitive functions, and
 	# the arguments of primitive functions.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(fn), pcall, 
+		!missing(fn), parent_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
-	
+
 	assert(
-		is_fn_matchable(fn), pcall, 
+		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

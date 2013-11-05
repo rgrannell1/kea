@@ -1,6 +1,6 @@
 
 #' xInit
-#' 
+#'
 #' Remove the first element from a collection.
 #'
 #' @param coll a collection.
@@ -14,19 +14,19 @@
 
 xInit <- function (coll) {
 	# Collection any -> [any]
-	# return everything but the first element of a 
+	# return everything but the first element of a
 	# collection.
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0 || length(coll) == 1) {

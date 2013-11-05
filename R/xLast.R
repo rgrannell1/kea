@@ -21,18 +21,18 @@ xLast <- function (coll) {
 	# return the last element of a collection x,
 	# using the subset operator
 
-	pcall <- sys.call()
+	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), pcall,
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	assert(length(coll) > 0, pcall)
+	assert(length(coll) > 0, parent_call)
 	coll[[ length(coll) ]]
 }

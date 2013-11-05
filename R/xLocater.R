@@ -2,13 +2,13 @@
 #' xLocater
 #'
 #' Get the position of the last element for which a predicate returns true.
-#' 
+#'
 #' @param pred a predicate function.
 #' @param coll a collection.
 #'
 #' @return an integer.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns integer(0) if no match is found.
 #' @template glossary
 #'
@@ -23,24 +23,24 @@ xLocater <- function (pred, coll) {
 	# returns the last index of collection that matches
 	# the predicate.
 
-	pcall <- sys.call()
-	
+	parent_call <- sys.call()
+
 	assert(
-		!missing(pred), pcall,
+		!missing(pred), parent_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
-	
+
 	assert(
-		is_fn_matchable(pred), pcall,
+		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_collection(coll), pcall,
+		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
-	
+
 	pred <- match.fun(pred)
 
 	if (length(coll) == 0) {
@@ -49,8 +49,8 @@ xLocater <- function (pred, coll) {
 
 		for (ith in length(coll):1) {
 			is_match <- pred( coll[[ith]] )
-			
-			assert(is.logical(is_match), pcall)
+
+			assert(is.logical(is_match), parent_call)
 
 			if (is_match) {
 				return (as.integer(ith))

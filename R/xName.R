@@ -1,6 +1,6 @@
 
 #' xName
-#' 
+#'
 #' Add names to a collection.
 #'
 #' @param strs a collection of strings.
@@ -8,7 +8,7 @@
 #'
 #' @return a named list.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
@@ -19,30 +19,29 @@ xName <- function (strs, coll) {
 	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 
-	pcall <- sys.call()
-	
+	parent_call <- sys.call()
+
 	assert(
-		!missing(strs), pcall,
+		!missing(strs), parent_call,
 		exclaim$parameter_missing(strs))
 
 	assert(
-		!missing(coll), pcall, 
+		!missing(coll), parent_call,
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is_collection(strs), pcall,
+		is_collection(strs), parent_call,
 		exclaim$must_be_collection(strs))
 
 	strs <- coerce_to_typed_vector(strs, 'character')
 
 	assert(
-		length(strs) == length(coll), pcall)
+		length(strs) == length(coll), parent_call,
+		exclaim$must_have_equal_lengths(strs, colls))
 
 	if (length(strs) == 0) {
 		structure(coll, names = character(0))
 	} else {
-		structure(
-			as.list(coll), 
-			names = unlist(strs))		
+		structure(as.list(coll), names = strs)
 	}
 }
