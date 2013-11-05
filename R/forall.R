@@ -256,6 +256,10 @@ G <- local({
 
 		this <- list()
 
+		this$empty <-
+			function () {
+				list(coll = G$collection_zero)
+			}
 		this$mod2_over_ints <-
 			function () {
 				list(
