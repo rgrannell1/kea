@@ -41,7 +41,7 @@ xPartial <- function (fn, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	assert(
 		all(names(coll) %in% xParams(fn)), parent_call,

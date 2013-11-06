@@ -49,8 +49,8 @@ xUnfold <- function (pred, fn, init) {
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
-	fn <- match.fun(fn)
-	pred <- match.fun(pred)
+	fn <- match_fn(fn)
+	pred <- match_fn(pred)
 
 	acc <- list(init)
 

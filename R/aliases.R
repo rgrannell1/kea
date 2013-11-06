@@ -211,3 +211,33 @@ coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
 	}
 }
 
+match_fn <- function (fn_name) {
+	# lookup a function from the environment,
+	# (very much similar to match_fn, but with my own
+	# error messages)
+
+	parent_call <- sys.call()
+
+	if (is.function(fn_name)) {
+		fn_name
+	} else {
+		# look-up the function by name.
+
+		fn_name <- match.call()$fn_name
+		parent_frame <- parent.frame(2)
+
+		if (!is.symbol(fn_name)) {
+			if (!(is.character(fn_name) && length(fn_name) == 1)) {
+				exclaim$must_be_matchable(fn_name)
+			}
+		}
+
+		fn <- get(toString(fn_name), envir = parent_frame)
+
+		assert(
+			is.function(fn), parent_call,
+			exclaim$must_be_function(fn))
+
+		fn
+	}
+}

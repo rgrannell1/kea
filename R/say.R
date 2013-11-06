@@ -28,10 +28,20 @@ exclaim <- list(
 		},
 	must_be_collection =
 		function (param) {
+
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% param %+%
 			" must be a list, a pairlist or a typed vector."
+		},
+	must_be_function =
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% param %+%
+			" must be a function."
+
 		},
 	must_be_collection_of_length =
 		function (param, length) {
@@ -229,7 +239,6 @@ exclaim <- list(
 		},
 	must_be_params_of =
 		function (names, fn) {
-
 
 			names <- paste(match.call()$names)
 			fn <- paste(match.call()$fn)

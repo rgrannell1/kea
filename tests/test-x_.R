@@ -24,7 +24,7 @@ message("x_ methods")
 #	Map(
 #		function (name) {
 #
-#			free <- match.fun(name)
+#			free <- match_fn(name)
 #
 #			methods <- list(
 #				coll =

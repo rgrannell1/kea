@@ -43,7 +43,7 @@ xArity <- function (fn) {
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 	fn_params <- names(xFormals(fn))
 
 	if ("..." %in% fn_params) {

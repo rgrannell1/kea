@@ -44,7 +44,7 @@ xSplitWith <- function (pred, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	pred <- match.fun(pred)
+	pred <- match_fn(pred)
 
 	if (length(coll) == 0) {
 		list()

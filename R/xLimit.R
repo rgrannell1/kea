@@ -45,7 +45,7 @@ xLimit <- function (num, fn) {
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	.count <- 0
 

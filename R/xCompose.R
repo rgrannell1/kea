@@ -47,8 +47,8 @@ xCompose <- function (fn1, fn2) {
 		is_fn_matchable(fn2), parent_call,
 		exclaim$must_be_matchable(fn2))
 
-	fn1 <- match.fun(fn1)
-	fn2 <- match.fun(fn2)
+	fn1 <- match_fn(fn1)
+	fn2 <- match_fn(fn2)
 
 	remove(parent_call)
 

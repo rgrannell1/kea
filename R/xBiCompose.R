@@ -51,9 +51,9 @@ xBiCompose <- function (fn1, fn2, fn3) {
 		is_fn_matchable(fn3), parent_call,
 		exclaim$must_be_matchable(fn3))
 
-	fn1 <- match.fun(fn1)
-	fn2 <- match.fun(fn2)
-	fn3 <- match.fun(fn3)
+	fn1 <- match_fn(fn1)
+	fn2 <- match_fn(fn2)
+	fn3 <- match_fn(fn3)
 
 	function (...) {
 		fn1( fn2(...), fn3(...) )

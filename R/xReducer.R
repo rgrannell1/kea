@@ -46,7 +46,7 @@ xReducer <- function (fn, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	if (length(coll) == 0) {
 		coll

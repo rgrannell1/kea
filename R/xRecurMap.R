@@ -41,7 +41,7 @@ xRecurMap <- function (fn, coll) {
 		is.recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	recur <- function (xs) {
 

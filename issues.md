@@ -58,14 +58,14 @@ Issue Tracker
 - [x] #19 implement a pairs to list function [a, b] -> {a: b}
 - [x] #33 implement a map vectorisation function.
 - [x] #34 "1: In if (nchar(deparse(x)) == 0) { :
-  the condition has length > 1 and only the first element will be used" is raised when x := { any } is called, 
+  the condition has length > 1 and only the first element will be used" is raised when x := { any } is called,
   possibly due to needy.
 - [x] #32 document splitwith.
 - [x] #15 Possible bug in xReducer: xReducer c 10:1 != 1:10. Investigate, fix, then close.
 - [x] #26 get does not work with xFixDefs. Figure out why.
 - [x] #25 check that functions that should return [A](0) do return such a value.
 - [x] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
-- [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc, 
+- [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc,
 - [x] #33 implement flatten coll num.
 - [x] #36 implement sleep.
 - [x] #38 implement timer.
@@ -82,7 +82,7 @@ Issue Tracker
 
 ### Won't Fix
 
-- [x] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
+- [x] #29 wrap all match_fn statements with xAsClosure(), for genericitiy.
 Broken for certain primitives (c).
 - [x] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
 collections can be type indeterminate; should be runtime error, not a issue raised by x_()

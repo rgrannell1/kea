@@ -32,7 +32,7 @@ xJuxtapose <- function (...) {
 		all(sapply(fns, is_fn_matchable)), parent_call,
 		exclaim$must_be_recursive_of_matchable("..."))
 
-	fns <- lapply(fns, match.fun)
+	fns <- lapply(fns, match_fn)
 
 	if (length(fns) == 0) {
 		list()
