@@ -1,4 +1,3 @@
-
 xAsVar <- function (str) {
 	# unlock a constant binding
 
@@ -12,7 +11,7 @@ xAsVar <- function (str) {
 	str <- toString(match.call()$str)
 
 	assert(
-		length(str) == 1), parent_call,
+		length(str) == 1, parent_call,
 		exclaim$must_have_length(str, 1))
 
 	if (exists(str, envir = pframe)) {
