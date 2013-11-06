@@ -30,14 +30,12 @@ xVal <- function (str, val) {
 		exclaim$parameter_missing(val))
 
 	str <- toString(match.call()$str)
-
-	assert(
-		(is.character(str) && length(str) == 1) ||
-		is.name(str), parent_call)
+	str <- coerce_to_typed_vector(str, 'character', True)
 
 	if (exists(str, envir = pframe)) {
 		assert(
-			!bindingIsLocked(str, pframe), parent_call)
+			!bindingIsLocked(str, pframe), parent_call,
+			exclaim$binding_is_locked(str))
 	}
 
 	assign(str, val, envir = pframe)

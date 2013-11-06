@@ -26,7 +26,8 @@ xSetProd <- function (...) {
 	assert(
 		all( sapply(colls, function (coll) {
 			is_collection(coll)
-		}) ), parent_call)
+		}) ), parent_call,
+		exclaim$must_be_collection_of_length(...))
 
 	coll_lengths <- sapply(colls, length)
 

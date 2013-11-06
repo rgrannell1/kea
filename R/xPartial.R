@@ -44,7 +44,8 @@ xPartial <- function (fn, coll) {
 	fn <- match.fun(fn)
 
 	assert(
-		all(names(coll) %in% xParams(fn)), parent_call)
+		all(names(coll) %in% xParams(fn)), parent_call,
+		exclaim$must_be_params_of(names(coll), fn) )
 
 	remove(parent_call)
 

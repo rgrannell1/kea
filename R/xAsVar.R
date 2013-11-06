@@ -12,9 +12,8 @@ xAsVar <- function (str) {
 	str <- toString(match.call()$str)
 
 	assert(
-		(is.character(str) && length(str) == 1) ||
-		is.name(str), parent_call,
-		exclaim$must_be_nameable(str))
+		length(str) == 1), parent_call,
+		exclaim$must_have_length(str, 1))
 
 	if (exists(str, envir = pframe)) {
 		unlockBinding(str, pframe)

@@ -121,6 +121,7 @@ body{font-size:16px;}
   h2, h3 { page-break-after: avoid; }
 }
 </style><title>README</title></head><body><h2 id="arrow-v01">Arrow v0.1</h2>
+<p><strong>DISCLAIMER: Arrow is in heavy development and is highly liable to change.</strong></p>
 <p><strong>Arrow</strong> is a functional programming framework that adds partial application, 
 jQuery-like method chaining, function composition, 
 and over one-hundred higher-order- and utility-functions to the R language.
@@ -221,7 +222,7 @@ elements in a collection, or the set product of multiple collections.</p>
 )
 </code></pre>
 
-<h3 id="27-immutable-values">2.7 Immutable Values</h3>
+<h3 id="28-immutable-values">2.8 Immutable Values</h3>
 <p><strong>Arrow</strong> wraps native R code for locking variable names to a single value 
 permanently, making them easier to use.</p>
 <pre><code class="javascript">xVal(n, 10)
@@ -235,44 +236,18 @@ Error: cannot change value of locked binding for 'n'
 <pre><code>?xSelect
 </code></pre>
 
-<h2 id="4-style-guide">4 Style Guide</h2>
-<p><strong>Arrow</strong> is a very broad library, and (despite my best efforts) it can be 
-used to write bad code. Based on my own use of the library I've come up with a few
-semantic recommendations:</p>
-<ol>
-<li>Avoid using the Lift family of functions with anonymous functions, 
-in place of a single anonymous function or simpler call to the Lift function.</li>
-</ol>
-<p>Good</p>
-<pre><code class="javascript">xSelect(
-    x := {
-        x[[1]] == 10
-    },
-    sample(1:100)
-)
-
-# or, if you want to use equalift...
-
-xSelect(
-    xEqualLift( xFirst, xConst(10) ),
-    sample(1:100))
-</code></pre>
-
-<p>Bad</p>
-<pre><code class="javascript">xSelect(
-    xEqualLift(
-        x := {
-            x[[1]]
-        }, 
-        xConst( 10 ) ),
-    list(
-        c(1, 2, 3),
-        c(1, 10)) )b
-</code></pre>
-
-<ol>
-<li>Minimise the nesting of <code>x_()</code> call-chains</li>
-</ol>
+<h2 id="4-contributing">4 Contributing</h2>
+<p>Contributions are welcome, particularily in the following areas:</p>
+<ul>
+<li>developing a stable function decorator that behaves like haskell's autocurrying.</li>
+<li>developing tools for testing and profiling arrow code, such as <code>forall()</code> and <code>time_profile()</code></li>
+<li>improving efficiency and composability of functions.</li>
+<li>consistency and idiomaticy police.</li>
+<li>improving exception handing within arrow.</li>
+<li>tests, benchmarks and documentation (obviously!)</li>
+<li>suggestions for functions to implement.</li>
+<li>bug reports.</li>
+</ul>
 <h2 id="5-authors">5 Authors</h2>
 <p>Ryan Grannell.</p>
 <h2 id="6-licensing">6 Licensing</h2>

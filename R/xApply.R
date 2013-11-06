@@ -47,7 +47,8 @@ xApply <- function (fn, coll) {
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.recursive(coll), parent_call)
+		is.recursive(coll), parent_call,
+		exclaim$must_be_recursive(coll))
 
 	fn <- match.fun(fn)
 

@@ -23,7 +23,7 @@ x_any_proto <- local({
 
 	this <- object()
 	this$private <- list(
-		contains = "arbitrary values"
+		contents_are = "arbitrary values"
 	)
 
 	# -------- A ------- #
@@ -253,7 +253,7 @@ x_matrix_proto <- local({
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 	this$private <- list(
-		contains = "matrices"
+		contents_are = "matrices"
 	)
 	this
 })
@@ -267,7 +267,7 @@ x_data_frame_proto <- local({
 
 	this <- object()
 	this$private <- list(
-		contains = "data.frames"
+		contents_are = "data.frames"
 	)
 
 	# -------- A ------- #
@@ -337,7 +337,7 @@ x_data_frame_proto <- local({
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 	this$private <- list(
-		contains = "data.frames"
+		contents_are = "data.frames"
 	)
 	this
 })
@@ -386,9 +386,9 @@ x_coll_proto <- local({
 		function (str, ...) {
 			x_( xCollapse(str, self_(), ...) )
 		}
-	this$xContains <-
+	this$contents_are <-
 		function (val) {
-			x_( xContains(self_(), val) )
+			x_( contents_are(self_(), val) )
 		}
 	this$xConcat <-
 		function (...) {
@@ -741,7 +741,7 @@ x_coll_proto <- local({
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 	this$private <- list(
-		contains = "collections"
+		contents_are = "collections"
 	)
 	this
 })
@@ -1073,7 +1073,7 @@ x_fn_proto <- local({
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 	this$private <- list(
-		contains = "functions"
+		contents_are = "functions"
 	)
 	this
 })
@@ -1091,7 +1091,7 @@ x_fn_proto <- local({
 #'
 #' @param val a function, collection, or arbitrary value.
 #'
-#' @return an object of class "arrow", with a single field 'x' that contains val.
+#' @return an object of class "arrow", with a single field 'x' that contents_are val.
 #'
 #' @section Corner Cases:
 #' 		The methods that can be used by x_() object varies depending on the type of val.
@@ -1142,7 +1142,7 @@ x_ <- function (val) {
 		}
 	}
 
-	suggest_similar_method <- function (val, method_name, contains, parent_call) {
+	suggest_similar_method <- function (val, method_name, contents_are, parent_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar method.
 
@@ -1158,18 +1158,21 @@ x_ <- function (val) {
 					cost = 0.07
 				),
 				cost = list(
-					deletions = 4,
-					insertions = 2,
-					substitutions = 1
+					deletions =
+						4,
+					insertions =
+						2,
+					substitutions =
+						1
 				))
 
 		# a cheap and nasty heuristic for finding the 'best' match.
 
-		similar <- similar[ which.min(nchar(similar)) ]
+		similar <- similar[
+			which.min(diff( c(nchar(similar), nchar(method_name)) )) ]
 
-		assert(
-			False, parent_call,
-			exclaim$method_not_found(method_name, contains, similar))
+		stop(
+			exclaim$method_not_found(method_name, contents_are, similar), call. = False)
 	}
 
 	function (obj, method) {
@@ -1182,16 +1185,18 @@ x_ <- function (val) {
 		proto_ref <- get_proto_ref( obj[['x']] )
 
 		if (!method_name %in% ls(proto_ref) || method_name == "private") {
+			# the invoked method wasn't found,
+			# so we should give a suggestion.
 
-			contains <- proto_ref[['private']][['contains']]
+			contents_are <- proto_ref[['private']][['contents_are']]
 
 			suggest_similar_method(
-				obj[['x']], method_name, contains, parent_call)
+				obj[['x']], method_name, contents_are, parent_call)
 
-		} else {
-			fn <- proto_ref[[method_name]]
-			environment(fn)[['self_']] <- function () obj[['x']]
-			fn
 		}
+
+		fn <- proto_ref[[method_name]]
+		environment(fn)[['self_']] <- function () obj[['x']]
+		fn
 	}
 })

@@ -25,13 +25,13 @@ xIsVal <- function (str) {
 		!missing(str), parent_call,
 		exclaim$parameter_missing(str))
 
-	str <- match.call()$str
+	str <- toString(match.call()$str)
+	str <- coerce_to_typed_vector(str, "character", True)
 
 	assert(
-		(is.character(str) && length(str) == 1) ||
-		is.name(str), parent_call,
-		exclaim$must_be_string(str))
+		length(str) == 1), parent_call,
+		exclaim$must_have_length(str, 1))
 
-	exists(toString(str), pframe) &&
+	exists(str, pframe) &&
 		bindingIsLocked(str, pframe)
 }

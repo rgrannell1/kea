@@ -36,10 +36,12 @@ xSubStr <- function (str, nums) {
 	nums <- coerce_to_typed_vector(nums, "numeric", False)
 
 	assert(
-		is.character(str) && length(str) < 2, parent_call)
+		length(str) < 2, parent_call,
+		exclaim$must_be_lequal_than(str, 2))
 
 	assert(
-		all(round(nums) == nums), parent_call)
+		all(round(nums) == nums), parent_call,
+		exclaim$must_be_whole(nums))
 
 	if (length(str) == 0) {
 		character(0)

@@ -33,6 +33,9 @@ xLast <- function (coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	assert(length(coll) > 0, parent_call)
+	assert(
+		length(coll) > 0, parent_call,
+		exclaim$must_be_lequal_than(coll, 0))
+
 	coll[[ length(coll) ]]
 }

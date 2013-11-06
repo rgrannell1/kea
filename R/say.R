@@ -32,7 +32,6 @@ exclaim <- list(
 
 			"the argument matching " %+% param %+%
 			" must be a list, a pairlist or a typed vector."
-
 		},
 	must_be_collection_of_length =
 		function (param, length) {
@@ -185,13 +184,13 @@ exclaim <- list(
 
 		},
 	method_not_found =
-		function (name, holds, similar) {
+		function (name, contents_are, similar) {
 
 			if (length(similar) == 0) {
 				"could not find the method " %+% name %+% "."
 			} else {
 				"could not find the method " %+% dQuote(name) %+%
-				" in the methods available for " %+% holds %+%
+				" in the methods available for " %+% contents_are %+%
 				":\n" %+%
 				"did you mean " %+% sample(similar, size = 1) %+% "?"
 			}
@@ -219,6 +218,24 @@ exclaim <- list(
 			name <- paste(match.call()$param)
 
 			"no variable exists by the name " %+% name
+		},
+	binding_is_locked =
+		function (param) {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% param %+%
+			" cannot point to a locked variable."
+		},
+	must_be_params_of =
+		function (names, fn) {
+
+
+			names <- paste(match.call()$names)
+			fn <- paste(match.call()$fn)
+
+			"the elements of " %+% names %+%
+			" must be parametre names of " %+% fn
 		}
 )
 
@@ -226,7 +243,8 @@ exclaim <- list(
 
 # -------------------------------- lament -------------------------------- #
 #
-# error messages for the forall testing function.
+# error messages for the forall testing function. When these are thrown
+# I will be considerably sadder than the exclaim messages, hence the name
 #
 
 ddparse <- function (val, collapse = "") {

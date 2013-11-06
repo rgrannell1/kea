@@ -22,7 +22,8 @@ xSplitStr <- function (rexp, str) {
 	parent_call <- sys.call()
 
 	assert(
-		!missing(rexp), parent_call)
+		!missing(rexp), parent_call,
+		exclaim$parameter_missing(rexp))
 
 	assert(
 		!missing(str), parent_call,
