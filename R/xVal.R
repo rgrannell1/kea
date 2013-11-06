@@ -9,7 +9,7 @@
 #' @return Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
-#'    overwrites the value referenced by \code{str} if the variable
+#'    overwrites the value referenced by \code{str}r if the variable
 #' already exists in the parent frame.
 #' @template glossary
 #'

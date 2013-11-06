@@ -17,6 +17,8 @@
 
 xAssoc <- function (coll) {
 	# Collection Collection any -> [any]
+	# take a collection of name:value pairs and associate
+	# them into a named list.
 
 	parent_call <- sys.call()
 
@@ -40,11 +42,13 @@ xAssoc <- function (coll) {
 		keys <- vapply(
 			coll,
 			function (elem) {
+
 				key <- elem[[1]]
+				key <- coerce_to_typed_vector(key, "character")
 
 				assert(
-					is.character(key) && length(key) == 1, parent_call,
-					exclaim$must_be_string(key))
+					length(key) == 1, parent_call,
+					exclaim$must_be_lequal_than(key, 1))
 
 				key
 			},

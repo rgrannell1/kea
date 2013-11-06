@@ -33,6 +33,12 @@ xDissoc <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		xZip( names(coll), unname(coll) )
+
+		lapply(seq_along(coll), function (ith) {
+
+			list(
+				names( coll )[[ith]],
+				unname( coll[[ith]] ))
+		})
 	}
 }

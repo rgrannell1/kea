@@ -27,7 +27,7 @@ xAsVal <- function (str) {
 	str <- coerce_to_typed_vector(str, "character", True)
 
 	assert(
-		length(str) == 1), parent_call,
+		length(str) == 1, parent_call,
 		exclaim$must_have_length(str, 1))
 
 	assert(
