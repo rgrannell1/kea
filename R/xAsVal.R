@@ -27,12 +27,12 @@ xAsVal <- function (str) {
 	str <- coerce_to_typed_vector(str, "character", True)
 
 	assert(
-		exists(str, envir = pframe),
-		exclaim$variable_non_existent(str))
-
-	assert(
 		length(str) == 1), parent_call,
 		exclaim$must_have_length(str, 1))
+
+	assert(
+		exists(str, envir = pframe),
+		exclaim$variable_non_existent(str))
 
 	lockBinding(str, pframe)
 }

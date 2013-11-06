@@ -9,7 +9,8 @@
 #' @return Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
-#'     throws an error if a value already exists called str.
+#'    overwrites the value referenced by \code{str} if the variable
+#' already exists in the parent frame.
 #' @template glossary
 #'
 #' @example inst/examples/blank.R
