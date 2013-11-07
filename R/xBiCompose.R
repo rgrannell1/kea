@@ -21,7 +21,7 @@ xBiCompose <- function (fn1, fn2, fn3) {
 	# the phoenix or Phi combinator
 
 	parent_call <- sys.call()
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 
 	assert(
 		!missing(fn1), parent_call,

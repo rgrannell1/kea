@@ -396,7 +396,7 @@ x_coll_proto <- local({
 		}
 	this$xCombos <-
 		function (num) {
-			x_( xCombos(num, self_()) )
+			x_( xCombos(self_(), num) )
 		}
 	this$xConst <-
 		function () {
@@ -413,7 +413,7 @@ x_coll_proto <- local({
 		}
 	this$xDrop <-
 		function (num) {
-			x_( xDrop(num, self_()) )
+			x_( xDrop(self_(), num) )
 		}
 	this$xDo <-
 		function (fn) {
@@ -679,7 +679,7 @@ x_coll_proto <- local({
 	# -------- T ------- #
 	this$xTake <-
 		function (num) {
-			x_( xTake(num, self_()) )
+			x_( xTake(self_(), num) )
 		}
 	this$xTakeWhile <-
 		function (pred) {

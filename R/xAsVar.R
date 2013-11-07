@@ -18,7 +18,7 @@ xAsVar <- function (str) {
 	# unlock a constant binding
 
 	parent_call <- sys.call()
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 
 	assert(
 		!missing(str), parent_call,
@@ -31,10 +31,10 @@ xAsVar <- function (str) {
 		exclaim$must_have_length(str, 1))
 
 	assert(
-		exists(str, envir = pframe),
+		exists(str, envir = parent_frame),
 		exclaim$variable_non_existent(str))
 
-	if (exists(str, envir = pframe)) {
-		unlockBinding(str, pframe)
+	if (exists(str, envir = parent_frame)) {
+		unlockBinding(str, parent_frame)
 	}
 }

@@ -38,9 +38,7 @@ xCombos <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- coerce_to_typed_vector(num,  'numeric')
-	num <- length_unit_to_value_unit(num)
-
+	num <- coerce_to_typed_vector(num,  'numeric', True)
 	assert(
 		length(num) %in% 0:1, parent_call,
 		exclaim$must_have_length(num, 0:1))

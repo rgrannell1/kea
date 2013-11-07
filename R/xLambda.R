@@ -14,7 +14,7 @@ xLambda <- function (formals, body) {
 	# construct a function from a symbol and
 	# a function body.
 
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 	formals <- match.call()$formals
 	body <- match.call()$body
 
@@ -132,7 +132,7 @@ xLambda <- function (formals, body) {
 	}
 
 	# ------ make sure lexical scoping works is as expected ------ #
-	environment(lambda) <- pframe
+	environment(lambda) <- parent_frame
 	lambda
 }
 

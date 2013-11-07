@@ -5,16 +5,16 @@ lock <- function (name) {
 
 	name <- match.call()$name
 
-	pframe <- parent.frame()
-	lockBinding(name, pframe)
+	parent_frame <- parent.frame()
+	lockBinding(name, parent_frame)
 }
 
 unlock <- function (name) {
 
 	name <- match.call()$name
 
-	pframe <- parent.frame()
-	unlockBinding(name, pframe)
+	parent_frame <- parent.frame()
+	unlockBinding(name, parent_frame)
 }
 
 test_that("xAsVar", {

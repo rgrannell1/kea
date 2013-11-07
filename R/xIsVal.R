@@ -19,7 +19,7 @@ xIsVal <- function (str) {
 	# is a name binding locked?
 
 	parent_call <- sys.call()
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 
 	assert(
 		!missing(str), parent_call,
@@ -32,6 +32,6 @@ xIsVal <- function (str) {
 		length(str) == 1, parent_call,
 		exclaim$must_have_length(str, 1))
 
-	exists(str, pframe) &&
-		bindingIsLocked(str, pframe)
+	exists(str, parent_frame) &&
+		bindingIsLocked(str, parent_frame)
 }

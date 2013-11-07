@@ -17,7 +17,7 @@
 xAsVal <- function (str) {
 
 	parent_call <- sys.call()
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 
 	assert(
 		!missing(str), parent_call,
@@ -31,8 +31,8 @@ xAsVal <- function (str) {
 		exclaim$must_have_length(str, 1))
 
 	assert(
-		exists(str, envir = pframe),
+		exists(str, envir = parent_frame),
 		exclaim$variable_non_existent(str))
 
-	lockBinding(str, pframe)
+	lockBinding(str, parent_frame)
 }

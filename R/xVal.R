@@ -20,7 +20,7 @@ xVal <- function (str, val) {
 	# assign a constant value to the calling environment.
 
 	parent_call <- sys.call()
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 
 	assert(
 		!missing(str), parent_call,
@@ -33,13 +33,13 @@ xVal <- function (str, val) {
 	str <- toString(match.call()$str)
 	str <- coerce_to_typed_vector(str, 'character', True)
 
-	if (exists(str, envir = pframe)) {
+	if (exists(str, envir = parent_frame)) {
 		assert(
-			!bindingIsLocked(str, pframe), parent_call,
+			!bindingIsLocked(str, parent_frame), parent_call,
 			exclaim$binding_is_locked(str))
 	}
 
-	assign(str, val, envir = pframe)
-	lockBinding(str, pframe)
+	assign(str, val, envir = parent_frame)
+	lockBinding(str, parent_frame)
 
 }

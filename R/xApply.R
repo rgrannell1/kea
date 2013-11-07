@@ -29,7 +29,7 @@ xApply <- function (fn, coll) {
 	# call the function f with the list coll.
 
 	parent_call <- sys.call()
-	pframe <- parent.frame()
+	parent_frame <- parent.frame()
 
 	assert(
 		!missing(fn), parent_call,
@@ -54,7 +54,7 @@ xApply <- function (fn, coll) {
 
 	eval(
 		as.call(c(fn, coll)),
-		envir = pframe)
+		envir = parent_frame)
 }
 
 #' @export
