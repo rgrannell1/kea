@@ -1,12 +1,22 @@
 
-# -------------------------------- Universal methods -------------------------------- #
+# -------------------------------- x_( ) -------------------------------- #
 #
-# these prototypes contain methods that can be called by an x_() object, using an
-# overloaded definition of the $ function.
-
+# this object is very large, so I'll give a summary of what it does and how its
+# made.
+#
+# The x_() function is a constructor that wraps a datum, and allows methods
+# to be called on that datum. The constructor returns a monad, so the
+# methods can be chained indefinetly until the $x() method is used to pull the
+# data out of the monad (much like unlist for the list monad).
+#
+# The methods that are attatched to a datum depends on its class;
+# these blocks of methods are stored in "proto" objects, that
+# consist of the methods, a private object, and methods inherited from
+# a universal method object.
+#
 # upon invocation of an x_()$method, the self_ function is updated to return the
 # value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
-# so an error is thrown if these prototypes are called directly.
+# so an error is thrown if these prototypes are called directly. This workaround is to keep memory usage low by only customising the method when it is being called, rather than when the arrow monad is created.
 
 # Inheritance Diagram
 #
@@ -18,6 +28,11 @@
 
 
 
+
+# -------------------------------- Universal methods -------------------------------- #
+#
+# these prototypes contain methods that can be called by an x_() object, using an
+# overloaded definition of the $ function.
 
 x_any_proto <- local({
 
