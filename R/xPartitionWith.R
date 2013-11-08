@@ -62,3 +62,7 @@ xPartitionWith <- function (pred, coll) {
 			as.list(coll[!true_ind]) )
 	}
 }
+
+xPartitionWith... <- function (pred, ...) {
+	xPartitionWith(pred, list(...))
+}

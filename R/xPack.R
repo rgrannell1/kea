@@ -41,3 +41,9 @@ xPack <- function (coll) {
 		xReject(function (x) length(x) == 0, coll)
 	}
 }
+
+#' @export
+
+xPack... <- function (...) {
+	xPack(list(...))
+}

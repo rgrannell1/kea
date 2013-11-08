@@ -62,3 +62,9 @@ xSplit <- function (num, coll) {
 		)
 	}
 }
+
+#' @export
+
+xSplit... <- function (num, ...) {
+	xSplit(num, list(...))
+}

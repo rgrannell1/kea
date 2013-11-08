@@ -44,3 +44,9 @@ xNotNa <- function (coll) {
 		}, logical(1), USE.NAMES = False)
 	}
 }
+
+#' @export
+
+xNotNa... <- function (...) {
+	xNotNa(list(...))
+}

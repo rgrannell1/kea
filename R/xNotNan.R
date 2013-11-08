@@ -40,3 +40,9 @@ xNotNan <- function (coll) {
 		}, logical(1), USE.NAMES = False)
 	}
 }
+
+#' @export
+
+xNotNan... <- function (...) {
+	xNotNan(list(...))
+}

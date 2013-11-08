@@ -63,3 +63,13 @@ xLocate <- function (pred, coll) {
 #' @export
 
 xLocatel <- xLocate
+
+#' @export
+
+xLocatel... <- function (pred, ...) {
+	xLocatel(pred, list(...))
+}
+
+#' @export
+
+xLocate... <- xLocatel...

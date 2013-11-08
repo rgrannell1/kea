@@ -60,3 +60,9 @@ xDrop <- function (num, coll) {
 		as.list(coll)[(num + 1) : length(coll)]
 	}
 }
+
+#' @export
+
+xDrop... <- function (num, ...) {
+	xDrop(num, list(...))
+}

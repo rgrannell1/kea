@@ -3,7 +3,7 @@
 #'
 #' Create a function that applies an argument to a list of underlying functions.
 #'
-#' @param ... a list or pairlist of functions.
+#' @param fns a list or pairlist of functions.
 #'
 #' @return a variadic function.
 #'
@@ -17,12 +17,12 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xJuxtapose <- function (...) {
+xJuxtapose <- function (fns) {
 	# Recursive fns -> function
 
 	parent_call <- sys.call()
 
-	fns <- lapply(list(...), dearrowise)
+	fns <- lapply(list(fns), dearrowise)
 
 	assert(
 		is.recursive(fns), parent_call,
@@ -41,4 +41,10 @@ xJuxtapose <- function (...) {
 			lapply(fns, function (fn) fn(...))
 		}
 	}
+}
+
+#' @export
+
+xJuxtapose... <- function (...) {
+	xJuxtapose(list(...))
 }

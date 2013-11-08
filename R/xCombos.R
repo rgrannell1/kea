@@ -3,9 +3,6 @@
 #'
 #' Generate all ways of choosing several elements from a collection.
 #'
-#' @section Uses:
-#' \code{xCombos} .
-#'
 #' @param num a nonnegative whole number.
 #' @param coll a collection
 #'
@@ -39,6 +36,7 @@ xCombos <- function (num, coll) {
 	coll <- dearrowise(coll)
 
 	num <- coerce_to_typed_vector(num,  'numeric', True)
+
 	assert(
 		length(num) %in% 0:1, parent_call,
 		exclaim$must_have_length(num, 0:1))
@@ -60,4 +58,10 @@ xCombos <- function (num, coll) {
 		num <- min(length(coll), num)
 		apply(combn(coll, num), 2, as.list)
 	}
+}
+
+#' @export
+
+xCombos... <- function (num, ...) {
+	xCombos(num, list(...))
 }

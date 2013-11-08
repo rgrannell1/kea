@@ -63,3 +63,9 @@ xDropWhile <- function (pred, coll) {
 		list()
 	}
 }
+
+#' @export
+
+xDropWhile... <- function (pred, ...) {
+	xDropWhile(pred, list(...))
+}

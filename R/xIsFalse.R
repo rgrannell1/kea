@@ -34,3 +34,9 @@ xIsFalse <- function (coll) {
 		identical(x, False)
 	}, logical(1), USE.NAMES = False)
 }
+
+#' @export
+
+xIsFalse... <- function (...) {
+	xIsFalse(list(...))
+}

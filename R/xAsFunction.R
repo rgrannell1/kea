@@ -56,3 +56,9 @@ xAsFunction <- function (coll) {
 		as.list(coll[nums])
 	}
 }
+
+#' @export
+
+xAsFunction... <- function (...) {
+	xAsFunction(list(...))
+}

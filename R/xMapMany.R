@@ -4,7 +4,7 @@
 #' Map a function across many collections simultaneously.
 #'
 #' @param fn a n-ary function.
-#' @param ... n collections.
+#' @param colls n collections.
 #'
 #' @return a list.
 #'
@@ -19,7 +19,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xMapMany <- function (fn, ...) {
+xMapMany <- function (fn, colls) {
 	# function -> Collection any .... -> [any]
 	# Map a function across many collections simultaneously.
 
@@ -36,7 +36,7 @@ xMapMany <- function (fn, ...) {
 		exclaim$must_be_matchable(fn))
 
 	fn <- match_fn(fn)
-	colls <- lapply(list(...), dearrowise)
+	colls <- lapply(colls, dearrowise)
 
 	coll_lens <- sapply(colls, length)
 
@@ -59,4 +59,10 @@ xMapMany <- function (fn, ...) {
 				do.call(fn, tuple)
 		})
 	}
+}
+
+#' @export
+
+xMapMany... <- function (fn, ...) {
+	xMapMany(fn, list(...))
 }

@@ -55,3 +55,9 @@ xTake <- function (num, coll) {
 		as.list(coll)[seq_len( min(num, length(coll)) )]
 	}
 }
+
+#' @export
+
+xTake... <- function (num, ...) {
+	xTake(num, list(...))
+}

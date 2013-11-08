@@ -39,3 +39,9 @@ xPred <- function (nums) {
 		nums - 1
 	}
 }
+
+#' @export
+
+xPred... <- function (...) {
+	xPred(list(...))
+}

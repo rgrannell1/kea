@@ -37,3 +37,9 @@ xShuffle <- function (coll) {
 		as.list(sample(coll))
 	}
 }
+
+#' @export
+
+xShuffle... <- function (...) {
+	xShuffle(list(...))
+}

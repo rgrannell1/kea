@@ -51,3 +51,9 @@ xFlatMap <- function (fn, coll) {
 		as.list( do.call(c, lapply(coll, fn)) )
 	}
 }
+
+#' @export
+
+xFlatMap... <- function (fn, ...) {
+	xFlatMap(fn, list(...))
+}

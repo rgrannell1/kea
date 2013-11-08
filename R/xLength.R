@@ -35,3 +35,9 @@ xLength <- function (coll) {
 
 	length(coll)
 }
+
+#' @export
+
+xLength... <- function (...) {
+	xLength(list(...))
+}

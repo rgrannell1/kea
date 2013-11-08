@@ -60,3 +60,9 @@ xApply <- function (fn, coll) {
 #' @export
 
 "%$%" <- xApply
+
+#' @export
+
+xApply... <- function (fn, ...) {
+	xApply(fn, list(...))
+}

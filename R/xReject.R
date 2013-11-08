@@ -57,3 +57,9 @@ xReject <- function (pred, coll) {
 		as.list( coll[is.na(ind) | !ind ] )
 	}
 }
+
+#' @export
+
+xReject... <- function (pred, ...) {
+	xReject(pred, list(...))
+}

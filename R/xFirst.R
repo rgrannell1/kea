@@ -13,7 +13,6 @@
 #'
 #' @template glossary
 #'
-#'
 #' @family collection_functions
 #'
 #' @example inst/examples/blank.R
@@ -42,3 +41,8 @@ xFirst <- function (coll) {
 	coll[[1]]
 }
 
+#' @export
+
+xFirst... <- function (...) {
+	xFirst(list(...))
+}

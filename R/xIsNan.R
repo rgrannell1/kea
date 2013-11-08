@@ -45,3 +45,8 @@ xIsNan <- function (coll) {
 	}
 }
 
+#' @export
+
+xIsNan... <- function (...) {
+	xIsNan(list(...))
+}

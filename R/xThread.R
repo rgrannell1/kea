@@ -4,7 +4,7 @@
 #' Iteratively apply a value to list of functions.
 #'
 #' @param init an arbitrary value
-#' @param ... several unary functions.
+#' @param fns several unary functions.
 #'
 #' @return a list.
 #'
@@ -15,7 +15,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xThread <- function (init, ...) {
+xThread <- function (init, fns) {
 	# any -> .... -> any
 	# iteratively apply a value to each function in a list.
 
@@ -26,7 +26,7 @@ xThread <- function (init, ...) {
 		exclaim$parameter_missing(init))
 
 	init <- dearrowise(init)
-	fns <- lapply(list(...), dearrowise)
+	fns <- lapply(fns, dearrowise)
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), parent_call,
@@ -37,4 +37,10 @@ xThread <- function (init, ...) {
 		init <- fns[[ith]]( init )
 	}
 	init
+}
+
+#' @export
+
+xThread... <- function (init, ...) {
+	xThread(init, list(...))
 }

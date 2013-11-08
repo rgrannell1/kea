@@ -17,7 +17,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xAssoc <- function (coll) {
+xAssoc <- function (colls) {
 	# Collection Collection any -> [any]
 	# take a collection of name:value pairs and associate
 	# them into a named list.
@@ -25,27 +25,27 @@ xAssoc <- function (coll) {
 	parent_call <- sys.call()
 
 	assert(
-		!missing(coll), parent_call,
-		exclaim$parameter_missing(coll))
+		!missing(colls), parent_call,
+		exclaim$parameter_missing(colls))
 
-	coll <- dearrowise(coll)
-
-	assert(
-		is.recursive(coll), parent_call,
-		exclaim$must_be_recursive(coll))
+	colls <- dearrowise(colls)
 
 	assert(
-		all(sapply(coll, length) == 2), parent_call,
-		exclaim$must_be_collection_of_length(coll, 2))
+		is.recursive(colls), parent_call,
+		exclaim$must_be_recursive(colls))
 
-	if (length(coll) == 0) {
+	assert(
+		all(sapply(colls, length) == 2), parent_call,
+		exclaim$must_be_collection_of_length(colls, 2))
+
+	if (length(colls) == 0) {
 		list()
 	} else {
 		keys <- vapply(
-			coll,
-			function (elem) {
+			colls,
+			function (coll) {
 
-				key <- elem[[1]]
+				key <- coll[[1]]
 				key <- coerce_to_typed_vector(key, "character")
 
 				assert(
@@ -62,10 +62,8 @@ xAssoc <- function (coll) {
 	}
 }
 
+#' @export
 
-
-
-
-
-
-
+xAssoc... <- function (...) {
+	xAssoc(list(...))
+}

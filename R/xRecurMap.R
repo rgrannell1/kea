@@ -53,3 +53,9 @@ xRecurMap <- function (fn, coll) {
 	}
 	recur(as.list(coll))
 }
+
+#' @export
+
+xRecurMap... <- function (fn, ...) {
+	xRecurMap(fn, list(...))
+}

@@ -73,3 +73,9 @@ xPartition <- function (pred, coll) {
 		parts
 	}
 }
+
+#' @export
+
+xPartition... <- function (pred, ...) {
+	xPartition(pred, list(...))
+}

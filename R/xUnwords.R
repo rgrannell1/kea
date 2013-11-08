@@ -13,3 +13,9 @@ xUnwords <- function (...) {
 
 	xCollapse(" ", ...)
 }
+
+#' @export
+
+xUnwords... <- function (...) {
+	xUnwords(list(...))
+}

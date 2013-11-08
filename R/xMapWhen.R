@@ -70,3 +70,9 @@ xMapWhen <- function (pred, fn, coll) {
 		xMap(composite, coll)
 	}
 }
+
+#' @export
+
+xMapWhen... <- function (pred, fn, ...) {
+	xMapWhen(pred, fn, list(...))
+}

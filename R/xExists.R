@@ -4,7 +4,7 @@
 #' Does any selection of arguments satisfy a predicate?
 #'
 #' @param pred an n-ary predicate.
-#' @param ... n collections.
+#' @param colls n collections.
 #'
 #' @return a boolean value.
 #'
@@ -17,7 +17,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xExists <- function (pred, ...) {
+xExists <- function (pred, colls) {
 	# does there exist any choice of bindings for
 	# pred such that pred is true?
 
@@ -34,7 +34,7 @@ xExists <- function (pred, ...) {
 		exclaim$must_be_matchable(pred))
 
 	pred <- match_fn(pred)
-	colls <- lapply(list(...), dearrowise)
+	colls <- lapply(colls, dearrowise)
 
 	assert(
 		all(sapply(colls, is_collection)), parent_call,
@@ -76,4 +76,10 @@ xExists <- function (pred, ...) {
 		}
 		False
 	}
+}
+
+#' @export
+
+xExists... <- function (pred, ...) {
+	xExists(pred, list(...))
 }

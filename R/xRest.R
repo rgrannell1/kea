@@ -39,3 +39,9 @@ xRest <- function (coll) {
 		as.list( coll[-1] )
 	}
 }
+
+#' @export
+
+xRest... <- function (...) {
+	xRest(list(...))
+}

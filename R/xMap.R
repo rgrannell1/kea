@@ -58,3 +58,9 @@ xMap <- function (fn, coll) {
 		lapply(coll, fn)
 	}
 }
+
+#' @export
+
+xMap... <- function (fn, ...) {
+	xMap(fn, list(...))
+}

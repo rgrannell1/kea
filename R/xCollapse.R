@@ -4,7 +4,7 @@
 #' Concatenate a character vector into a string with a delimiter.
 #'
 #' @param str a string to use as a delimiter.
-#' @param ... a number of character vectors.
+#' @param strs a number of character vectors.
 #'
 #' @return a length-one character vector.
 #'
@@ -13,14 +13,14 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xCollapse <- function (str, ...) {
+xCollapse <- function (str, strs) {
 	# string -> Vector string -> string
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
 	parent_call <- sys.call()
 
-	strs <- lapply(list(...), dearrowise)
+	strs <- lapply(strs, dearrowise)
 
 	assert(
 		!missing(str), parent_call,
@@ -57,4 +57,10 @@ xCollapse <- function (str, ...) {
 				strs),
 			collapse = str)
 	}
+}
+
+#' @export
+
+xCollapse... <- function (str, ...) {
+	xCollapse(str, list(...))
 }

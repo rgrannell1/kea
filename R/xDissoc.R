@@ -45,3 +45,9 @@ xDissoc <- function (coll) {
 		})
 	}
 }
+
+#' @export
+
+xDissoc... <- function (...) {
+	xDissoc(list(...))
+}

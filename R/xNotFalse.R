@@ -40,3 +40,9 @@ xNotFalse <- function (coll) {
 		}, logical(1), USE.NAMES = False)
 	}
 }
+
+#' @export
+
+xNotFalse... <- function (...) {
+	xNotFalse(list(...))
+}

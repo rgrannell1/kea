@@ -55,3 +55,9 @@ xMapAlong <- function (fn, coll) {
 		)
 	}
 }
+
+#' @export
+
+xMapAlong... <- function (fn, ...) {
+	xMapAlong(fn, list(...))
+}

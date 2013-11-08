@@ -40,3 +40,9 @@ xFourth <- function (coll) {
 
 	coll[[4]]
 }
+
+#' @export
+
+xFourth... <- function (...) {
+	xFourth(list(...))
+}

@@ -7,9 +7,15 @@
 #'
 #' @export
 
-xUnlines <- function (...) {
+xUnlines <- function (strs) {
 	# Collection str -> str;
 	# collapse the collection of strs with a newline.
 
-	xCollapse("\n", ...)
+	xCollapse("\n", strs)
+}
+
+#' @export
+
+xUnlines... <- function (...) {
+	xUnlines(list(...))
 }

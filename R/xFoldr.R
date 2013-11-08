@@ -69,3 +69,9 @@ xFoldr <- function (fn, init, coll) {
 
 	}
 }
+
+#' @export
+
+xFoldr... <- function (fn, init, ...) {
+	xFoldr(fn, init, list(...))
+}

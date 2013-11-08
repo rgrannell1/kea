@@ -76,3 +76,11 @@ xReduce <- function (fn, coll) {
 #' @export
 
 xReducel <- xReduce
+
+#' @export
+
+xReducel... <- function (fn, ...) {
+	xReduce(fn, list(...))
+}
+
+xReduce... <- xReducel...

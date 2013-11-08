@@ -55,3 +55,9 @@ xRepeat <- function (num, coll) {
 		rep(as.list(coll), num)
 	}
 }
+
+#' @export
+
+xRepeat... <- function (num, ...) {
+	xRepeat(num, list(...))
+}

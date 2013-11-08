@@ -75,3 +75,9 @@ xFoldl <- function (fn, init, coll) {
 #' @export
 
 xFold <- xFoldl
+
+#' @export
+
+xFoldl... <- function (fn, init, ...) {
+	xFoldl(fn, init, list(...))
+}

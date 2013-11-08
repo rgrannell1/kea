@@ -3,7 +3,7 @@
 #'
 #' Get the cartesian product of several collections.
 #'
-#' @param ... n collections.
+#' @param colls n collections.
 #'
 #' @return a list of n-element lists.
 #'
@@ -16,18 +16,18 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xSetProd <- function (...) {
+xSetProd <- function (colls) {
 	# set the cartesian product of n collections
 
 	parent_call <- sys.call()
 
-	colls <- lapply(list(...), dearrowise)
+	colls <- lapply(colls, dearrowise)
 
 	assert(
 		all( sapply(colls, function (coll) {
 			is_collection(coll)
 		}) ), parent_call,
-		exclaim$must_be_collection_of_length(...))
+		exclaim$must_be_collection_of_length(colls))
 
 	coll_lengths <- sapply(colls, length)
 
@@ -52,8 +52,14 @@ xSetProd <- function (...) {
 					colls[[coll_ith]][[choice]]
 				},
 				seq_along(colls))
-1
+
 		}
 		tuples
 	}
+}
+
+#' @export
+
+xSetProd... <- function (...) {
+	xSetProd(list(...))
 }

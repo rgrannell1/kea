@@ -76,3 +76,8 @@ xPartial <- function (fn, coll) {
 	}
 }
 
+#' @export
+
+xPartial... <- function (fn, ...) {
+	xPartial(fn, list(...))
+}

@@ -38,3 +38,9 @@ xSucc <- function (nums) {
 		nums + 1
 	}
 }
+
+#' @export
+
+xSucc... <- function (...) {
+	xSucc(list(...))
+}

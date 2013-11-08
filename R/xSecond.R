@@ -40,3 +40,9 @@ xSecond <- function (coll) {
 
 	coll[[2]]
 }
+
+#' @export
+
+xSecond... <- function (...) {
+	xSecond(list(...))
+}

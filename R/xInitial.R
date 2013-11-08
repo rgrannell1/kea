@@ -39,3 +39,9 @@ xInit <- function (coll) {
 		coll[-length(coll)]
 	}
 }
+
+#' @export
+
+xInit... <- function (...) {
+	xInit(list(...))
+}

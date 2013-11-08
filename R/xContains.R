@@ -13,7 +13,6 @@
 #'     Type conversion is not carried out.
 #' @template glossary
 #'
-#'
 #' @family collection_functions
 #'
 #' @example inst/examples/blank.R
@@ -55,4 +54,10 @@ xContains <- function (coll, val) {
 			any(is_match)
 		}
 	}
+}
+
+#' @export
+
+xContains... <- function (..., val) {
+	xContains(list(...), val)
 }

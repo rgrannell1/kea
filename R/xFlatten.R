@@ -69,3 +69,9 @@ xFlatten <- function (num, coll) {
 		as.list(recur(0, coll))
 	}
 }
+
+#' @export
+
+xFlatten... <- function (num, ...) {
+	xFlatten(num, list(...))
+}

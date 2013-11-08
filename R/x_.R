@@ -906,7 +906,7 @@ x_fn_proto <- local({
 	# -------- L ------- #
 	this$xLimit <-
 		function (num) {
-			x_( xLimit(num, self_()) )
+			x_( xLimit(self_(), num) )
 		}
 	this$xLocatel <-
 		function (coll) {

@@ -5,7 +5,7 @@
 #'
 #' @param rexp a regular expression.
 #' @param str a string.
-#'P
+#'
 #' @return a character vector.
 #'
 #' @section Corner Cases:

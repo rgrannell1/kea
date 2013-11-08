@@ -3,15 +3,21 @@
 #'
 #' Collapase a character vector with empty strs as delimiters.
 #'
-#' @param ... several character vectors.
+#' @param strs several character vectors.
 #'
 #' @return a length-one character vector.
 #'
 #' @export
 
-xUnchars <- function (...) {
+xUnchars <- function (strs) {
 	# Collection str -> str
 	# collapse the collection strs with the empty str.
 
-	xCollapse("", ...)
+	xCollapse("", strs)
+}
+
+#' @export
+
+xUnchars... <- function (...) {
+	xUnchars(list(...))
 }

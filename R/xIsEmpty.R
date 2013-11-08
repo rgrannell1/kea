@@ -32,3 +32,9 @@ xIsEmpty <- function (coll) {
 
 	length(coll) == 0
 }
+
+#' @export
+
+xIsEmpty... <- function (...) {
+	xIsEmpty(list(...))
+}

@@ -62,3 +62,9 @@ xTakeWhile <- function (pred, coll) {
 		coll
 	}
 }
+
+#' @export
+
+xTakeWhile... <- function (pred, ...) {
+	xTakeWhile(pred, list(...))
+}

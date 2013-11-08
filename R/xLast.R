@@ -42,3 +42,9 @@ xLast <- function (coll) {
 
 	coll[[ length(coll) ]]
 }
+
+#' @export
+
+xLast... <- function (...) {
+	xLast(list(...))
+}

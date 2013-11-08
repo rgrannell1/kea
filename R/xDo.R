@@ -63,3 +63,9 @@ xDo <- function (fn, coll) {
 		invisible (Null)
 	}
 }
+
+#' @export
+
+xDo... <- function (fn, ...) {
+	xDo(fn, list(...))
+}

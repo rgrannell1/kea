@@ -66,3 +66,9 @@ xSegment <- function (num, coll) {
 		})
 	}
 }
+
+#' @export
+
+xSegment... <- function (num, ...) {
+	xSegment(num, list(...))
+}

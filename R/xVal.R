@@ -41,5 +41,4 @@ xVal <- function (str, val) {
 
 	assign(str, val, envir = parent_frame)
 	lockBinding(str, parent_frame)
-
 }

@@ -66,3 +66,9 @@ xScanl <- function (fn, init, coll) {
 #' @export
 
 xScan <- xScanl
+
+#' @export
+
+xScanl... <- function (fn, init, ...) {
+	xScanl(fn, init, list(...))
+}

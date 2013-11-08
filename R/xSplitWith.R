@@ -64,3 +64,9 @@ xSplitWith <- function (pred, coll) {
 		list(coll, list())
 	}
 }
+
+#' @export
+
+xSplitWith... <- function (pred, ...) {
+	xSplitWith(pred, list(...))
+}

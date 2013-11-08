@@ -3,7 +3,7 @@
 #'
 #' Concatenate several collections into one collection.
 #'
-#' @param ... several collections.
+#' @param colls several collections.
 #'
 #' @return a list.
 #'
@@ -15,13 +15,13 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xConcat <- function (...) {
-	# Collection any ... -> [any]
+xConcat <- function (colls) {
+	# Collection any coll -> [any]
 	# Concatenate several collections.
 
 	parent_call <- sys.call()
 
-	colls <- lapply(list(...), dearrowise)
+	colls <- lapply(colls, dearrowise)
 
 	assert(
 		all(sapply(colls, is_collection)), parent_call,
@@ -29,4 +29,10 @@ xConcat <- function (...) {
 
 	as.list(do.call(c, colls))
 
+}
+
+#' @export
+
+xConcat... <- function (...) {
+	xConcat(list(...))
 }

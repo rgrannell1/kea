@@ -55,3 +55,9 @@ xSubStr <- function (str, nums) {
 		paste0(chars[nums], collapse = "")
 	}
 }
+
+#' @export
+
+xSubStr... <- function (str, ...) {
+	xSubStr(str, list(...))
+}

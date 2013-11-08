@@ -43,3 +43,9 @@ xSignum <- function (nums) {
 		sapply(nums, get_sign)
 	}
 }
+
+#' @export
+
+xSignum... <- function (...) {
+	xSignum(list(...))
+}

@@ -59,3 +59,9 @@ xPoll <- function (pred, coll) {
 		count
 	}
 }
+
+#' @export
+
+xPoll... <- function (pred, ...) {
+	xPoll(pred, list(...))
+}

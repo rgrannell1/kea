@@ -3,8 +3,8 @@
 #'
 #' Create a function that can call its underlying function a limited number of times.
 #'
-#' @param num a positive whole number.
 #' @param fn an arbitrary function.
+#' @param num a positive whole number.
 #'
 #' @return a function with the same parameters as \code{fn}.
 #'
@@ -15,7 +15,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xLimit <- function (num, fn) {
+xLimit <- function (fn, num) {
 	# integer -> function -> function
 
 	parent_call <- sys.call()

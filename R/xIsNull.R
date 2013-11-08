@@ -44,3 +44,8 @@ xIsNull <- function (coll) {
 	}
 }
 
+#' @export
+
+xIsNull... <- function (...) {
+	xIsNull(list(...))
+}

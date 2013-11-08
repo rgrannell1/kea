@@ -39,3 +39,9 @@ xIsNa <- function (coll) {
 
 	}, logical(1), USE.NAMES = False)
 }
+
+#' @export
+
+xIsNa... <- function (...) {
+	xIsNa(list(...))
+}

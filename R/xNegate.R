@@ -39,4 +39,8 @@ xNegate <- function (nums) {
 	}
 }
 
+#' @export
 
+xNegate... <- function (...) {
+	xNegate(list(...))
+}

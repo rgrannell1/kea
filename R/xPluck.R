@@ -56,3 +56,9 @@ xPluck <- function (str, coll) {
 		})
 	}
 }
+
+#' @export
+
+xPluck... <- function (str, ...) {
+	xPluck(str, list(...))
+}
