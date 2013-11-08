@@ -36,8 +36,10 @@ xSignum <- function (nums) {
 	if (length(nums) == 0) {
 		nums
 	} else {
-		sapply(nums, function (num) {
+		get_sign <- function (num) {
 			if (num > 0) +1 else if (num == 0) 0 else -1
-		})
+		}
+
+		sapply(nums, get_sign)
 	}
 }

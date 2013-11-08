@@ -35,26 +35,23 @@ xPluck <- function (str, coll) {
 	str <- dearrowise(str)
 	coll <- dearrowise(coll)
 
+	str <- coerce_to_typed_vector(str, "character", True)
+
 	assert(
-		is.character(str) && length(str) == 1, parent_call,
-		exclaim$must_be_string(str))
+		length(str) == 1, parent_call,
+		exclaim$must_have_length(str, 1))
 
 	assert(
 		is.recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
 	assert(
-		all( sapply(coll, is.recursive) ), parent_call,
+		all(sapply(coll, is.recursive)), parent_call,
 		exclaim$must_be_recursive_of_collections(coll))
 
 	if (length(coll) == 0) {
 		list()
 	} else {
-
-		if (length(str) == 0) {
-			str <- ""
-		}
-
 		lapply( coll, function (elem) {
 			as.list( elem[[str]] )
 		})
