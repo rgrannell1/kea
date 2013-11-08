@@ -13,6 +13,9 @@
 #'
 #' @template glossary
 #'
+#'
+#' @family collection_functions
+#'
 #' @example inst/examples/blank.R
 #' @export
 
@@ -36,8 +39,8 @@ xDrop <- function (num, coll) {
 	num <- coerce_to_typed_vector(num, 'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, parent_call,
-		exclaim$must_have_length(num, 0:1))
+		length(num) == 1, parent_call,
+		exclaim$must_have_length(num, 1))
 
 	assert(
 		num >= 0, parent_call,

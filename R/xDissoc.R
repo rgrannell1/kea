@@ -12,11 +12,14 @@
 #'     returns \code{list()} if \code{coll} is length-zero.
 #' @template glossary
 #'
+#' @family collection_functions
+#'
 #' @example inst/examples/blank.R
 #' @export
 
 xDissoc <- function (coll) {
 	# Named Collection any -> [[string, any]]
+	# split a list into its names and values.
 
 	parent_call <- sys.call()
 

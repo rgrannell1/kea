@@ -15,7 +15,7 @@
 #'     returns the empty list if \code{num} is zero.
 #' @template glossary
 #'
-#' @family combinatoric_functions
+#' @family combinatoric_functions collection_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

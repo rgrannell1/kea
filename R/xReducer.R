@@ -13,7 +13,7 @@
 #'     returns the empty list if \code{coll} is length-zero, and returns the
 #'     value inside \code{coll} if coll is length-one.
 #'
-#' @family higher_order_functions
+#' @family higher_order_functions collection_functions
 #'
 #' @template Return
 #' @template glossary

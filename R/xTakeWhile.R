@@ -13,8 +13,7 @@
 #'     \code{coll} returns false for the predicate. Na values are considered false.
 #' @template glossary
 #'
-#'
-#' @family higher_order_functions
+#' @family higher_order_functions collection_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
@@ -53,7 +52,8 @@ xTakeWhile <- function (pred, coll) {
 
 			is_match <- pred( coll[[ith]] )
 
-			stopifnot(is.logical(is_match))
+			assert(
+				is.logical(is_match), parent_call)
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )

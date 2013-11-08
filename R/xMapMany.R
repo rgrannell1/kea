@@ -14,7 +14,7 @@
 #' @template glossary
 #'
 #'
-#' @family higher_order_functions map_like_functions
+#' @family higher_order_functions map_like_functions collection_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

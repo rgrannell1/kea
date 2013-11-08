@@ -11,6 +11,8 @@
 #'     returns True if coll is Null.
 #' @template glossary
 #'
+#' @family collection_functions
+#'
 #' @example inst/examples/blank.R
 #' @export
 

@@ -8,6 +8,8 @@
 #' @return Returns null if \code{coll} is a pairlist, a typed vector of length zero if \code{coll}
 #'	 is a vector, and the empty list if \code{coll} is a list.
 #'
+#' @family collection_functions
+#'
 #' @export
 
 xUnit <- function (coll) {

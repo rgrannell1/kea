@@ -11,7 +11,7 @@
 #'     returns the empty list if \code{coll} is length-zero.
 #' @template glossary
 #'
-#' @family combinatoric_functions
+#' @family combinatoric_functions collection_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

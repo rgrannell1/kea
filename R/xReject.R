@@ -17,7 +17,7 @@
 #'     Throws an error if pred returns a non-boolean value.
 #' @template glossary
 #'
-#' @family higher_order_functions
+#' @family higher_order_functions collection_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

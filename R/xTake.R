@@ -12,6 +12,8 @@
 #'	 If \code{coll} is empty the empty list is returned.
 #' @template glossary
 #'
+#' @family collection_functions
+#'
 #' @example inst/examples/blank.R
 #'
 #' @export
@@ -33,11 +35,11 @@ xTake <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- coerce_to_typed_vector(num, 'numeric')
+	num <- coerce_to_typed_vector(num, 'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, parent_call,
-		exclaim$must_have_length(num, 0:1))
+		length(num) == 1, parent_call,
+		exclaim$must_have_length(num, 1))
 
 	assert(
 		num >= 0, parent_call,

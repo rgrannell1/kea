@@ -21,7 +21,7 @@
 #'
 #' @template glossary
 #'
-#' @family higher_order_functions
+#' @family higher_order_functions collection_functions
 #'
 #' @example inst/examples/blank.R
 #' @export

@@ -13,6 +13,9 @@
 #'     Type conversion is not carried out.
 #' @template glossary
 #'
+#'
+#' @family collection_functions
+#'
 #' @example inst/examples/blank.R
 #' @export
 

@@ -14,6 +14,7 @@
 
 xTimer <- function (num) {
 	# integer -> function
+	# create a timer predicate function.
 
 	parent_call <- sys.call()
 
