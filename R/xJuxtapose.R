@@ -10,7 +10,7 @@
 #' @section Corner Cases:
 #'    If no functions are provided the empty list is returned.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'

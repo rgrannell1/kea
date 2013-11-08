@@ -1,6 +1,6 @@
 
 #' xAndLift
-#' 
+#'
 #' Return a function that then tests if a pair of functions are true for its input.
 #'
 #' @param pred1 an n-ary predicate.
@@ -8,12 +8,12 @@
 #'
 #' @return a n-ary predicate.
 #'
-#' @template glossary
+#'
 #'
 #' @family function_lifting
 #' @family higher_order_functions
 #'
-#' @example inst/examples/blank.R 
+#' @example inst/examples/blank.R
 #' @export
 
 xAndLift <- function (pred1, pred2) {

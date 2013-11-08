@@ -7,7 +7,7 @@
 #'
 #' @return a boolean value.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

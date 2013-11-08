@@ -7,7 +7,7 @@
 #'
 #' @return a list.
 #'
-#' @template glossary
+#'
 #'
 #'
 #' @family collection_functions

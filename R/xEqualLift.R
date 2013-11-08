@@ -1,6 +1,6 @@
 
 #' xEqualLift
-#' 
+#'
 #' Return a function that tests if a pair of functions are equal for its input.
 #'
 #' @param fn1 an arbitrary function
@@ -8,9 +8,9 @@
 #'
 #' @return an n-ary predicate.
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-#' @template glossary
+#'
 #'
 #' @family function_lifting
 #'

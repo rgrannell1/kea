@@ -11,7 +11,7 @@
 #'	 throws an error if \code{coll} has less than one element; this is
 #'	 because any other corner case would violate the function's type-signature.
 #'
-#' @template glossary
+#'
 #'
 #'
 #' @family collection_functions

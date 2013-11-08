@@ -7,7 +7,7 @@
 #'
 #' @return a variadic function.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

@@ -9,7 +9,7 @@
 #' @return a unary function of x.
 #'
 #'
-#' @template glossary
+#'
 #'
 #'
 #' @family higher_order_functions

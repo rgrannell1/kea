@@ -9,7 +9,7 @@
 #'
 #' @section Corner Cases:
 #'     If nums is empty then the unit of the collection is returned.
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

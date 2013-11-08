@@ -9,7 +9,7 @@
 #'
 #' @section Corner Cases:
 #'     returns True if coll is Null.
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

@@ -1,6 +1,6 @@
 
 #' xUnionLift
-#' 
+#'
 #' Compose two function with the set union.
 #'
 #' @param fn1 a unary function that returns a collection.
@@ -9,10 +9,9 @@
 #' @return a unary function.
 #'
 #'
-#' @section Corner Cases: 
+#' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-#' @template glossary
-#'
+
 #' @family function_lifting
 #' @family higher_order_functions
 #'

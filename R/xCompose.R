@@ -14,8 +14,6 @@
 #'
 #' @return A function with the same parameters as \code{fn2}.
 #'
-#' @template glossary
-#'
 #' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R

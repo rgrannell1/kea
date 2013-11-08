@@ -11,7 +11,7 @@
 #' @section Corner Cases:
 #'     various types of NA are not-distinguished between.
 #'     Type conversion is not carried out.
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

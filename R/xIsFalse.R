@@ -7,7 +7,7 @@
 #'
 #' @return a vector of boolean values.
 #'
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

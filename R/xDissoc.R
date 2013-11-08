@@ -10,7 +10,7 @@
 #'
 #' @section Corner Cases:
 #'     returns \code{list()} if \code{coll} is length-zero.
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

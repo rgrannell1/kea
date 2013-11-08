@@ -14,8 +14,7 @@
 #'	 If \code{num} is zero then the first list in the returned value is empty.
 #'	 Likewise, if \code{num} is equal or larger than the length of \code{coll} then
 #'	 the second return list is empty. If \code{coll} is length zero both lists are empty.
-#'
-#' @template glossary
+
 #'
 #' @family collection_functions
 #'

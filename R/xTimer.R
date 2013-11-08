@@ -6,8 +6,7 @@
 #' @param num a positive number.
 #'
 #' @return a variadic function that ignores its arguments.
-#'
-#' @template glossary
+
 #'
 #' @example inst/examples/blank.R
 #' @export

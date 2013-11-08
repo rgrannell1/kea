@@ -1,12 +1,12 @@
 
 #' xOverLift
-#' 
+#'
 #' Compose two functions with division.
 #'
 #' @param fn1 a unary function that returns a number.
 #' @param fn2 a unary function that returns a number.
 #'
-#' @template glossary
+#'
 #'
 #' @return a number.
 #'

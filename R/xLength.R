@@ -9,7 +9,7 @@
 #'
 #' @section Corner Cases:
 #'     returns 0 if \code{coll} is empty.
-#' @template glossary
+#'
 #'
 #'
 #' @family collection_functions

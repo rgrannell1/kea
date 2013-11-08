@@ -8,7 +8,7 @@
 #'
 #' @return a list or pairlist.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions map_like_functions collection_functions
 #'

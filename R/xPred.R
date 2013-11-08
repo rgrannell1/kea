@@ -10,7 +10,7 @@
 #' @section Corner Cases:
 #'     returns the unit of the vector if \code{nums} is length-zero.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

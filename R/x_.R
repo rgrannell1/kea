@@ -925,8 +925,8 @@ x_coll_proto <- local({
 		}
 
 	this$xSetProd <-
-		function (colls) {
-			x_( xSetProd(self_(), colls) )
+		function () {
+			x_( xSetProd(self_()) )
 		}
 	this$xSetProd... <-
 		function (...) {
@@ -1489,7 +1489,7 @@ x_fn_proto <- local({
 #' method (using $) has a small amount overhead, since the definition of $
 #' has been overloading to allow method calling.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

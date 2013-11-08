@@ -10,7 +10,7 @@
 #'
 #' @section Corner Cases:
 #'     if any collection is length zero (or no collections are given), then False is returned.
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

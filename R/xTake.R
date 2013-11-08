@@ -10,8 +10,7 @@
 #'
 #' @section Corner Cases:
 #'	 If \code{coll} is empty the empty list is returned.
-#' @template glossary
-#'
+
 #' @family collection_functions
 #'
 #' @example inst/examples/blank.R

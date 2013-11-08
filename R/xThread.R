@@ -10,8 +10,7 @@
 #'
 #' @section Corner Cases: q
 #'     returns the empty list if \code{coll} is length-zero.
-#' @template glossary
-#'
+
 #' @example inst/examples/blank.R
 #' @export
 

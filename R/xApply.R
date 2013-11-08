@@ -17,7 +17,7 @@
 #'
 #' @return the return value of \code{fn}.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

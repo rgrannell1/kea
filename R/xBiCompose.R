@@ -10,7 +10,7 @@
 #' @return returns a unary function of x.
 #'
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

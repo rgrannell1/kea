@@ -5,8 +5,7 @@
 #'
 #' @return a three-number vector, containing the
 #' major release number, minor release number and patch number.
-#'
-#' @template glossary
+
 #'
 #' @example inst/examples/blank.R
 #' @export

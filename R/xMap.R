@@ -18,7 +18,7 @@
 #' @section Corner Cases:
 #'     returns the empty list is \code{coll} is length-zero.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions map_like_functions collection_functions
 #'
@@ -41,6 +41,7 @@ xMap <- function (fn, coll) {
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
+
 
 	assert(
 		is_fn_matchable(fn), parent_call,

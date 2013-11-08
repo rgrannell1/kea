@@ -11,8 +11,7 @@
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{init} is length-zero.
-#' @template glossary
-#'
+
 #'
 #' @family higher_order_functions
 #'

@@ -7,7 +7,7 @@
 #'
 #' @return a character vector of length \code{nchar(str)}.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'

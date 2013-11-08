@@ -17,7 +17,7 @@
 #'	 elements if \code{length(coll)} is not evenly divisible by \code{num}.
 #'	 if \code{coll} is length-zero, the empty list is returned.
 #'
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

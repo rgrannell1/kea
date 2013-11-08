@@ -10,7 +10,7 @@
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{num} is zero.
-#' @template glossary
+#'
 #'
 #' @family combinatoric_functions collection_functions
 #'

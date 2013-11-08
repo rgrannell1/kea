@@ -12,7 +12,7 @@
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions map_like_functions collection_functions
 #'

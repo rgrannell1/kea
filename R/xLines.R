@@ -7,7 +7,7 @@
 #'
 #' @return a character vector.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

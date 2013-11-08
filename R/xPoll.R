@@ -8,7 +8,7 @@
 #'
 #' @return a non-negative whole number.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

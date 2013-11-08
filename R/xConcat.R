@@ -10,7 +10,7 @@
 #' @section Corner Cases:
 #'     empty collections act as a unit for concatenation; concatenating the empty list
 #'    to another list returns the second list, without modification.
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

@@ -14,7 +14,7 @@
 #'     value inside \code{coll} if coll is length-one.
 #'
 #' @template Return
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

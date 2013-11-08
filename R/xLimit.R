@@ -8,7 +8,7 @@
 #'
 #' @return a function with the same parameters as \code{fn}.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'

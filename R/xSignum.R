@@ -10,8 +10,7 @@
 #' @section Corner Cases:
 #'	 If \code{nums} is lenth-zero then the unit of that vector is returned.
 #'	 The sign of zero is zero.
-#' @template glossary
-#'
+
 #' @example inst/examples/blank.R
 #' @export
 

@@ -16,7 +16,7 @@
 #'
 #' @return a predicate function of val.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'

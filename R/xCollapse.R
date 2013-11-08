@@ -8,7 +8,7 @@
 #'
 #' @return a length-one character vector.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

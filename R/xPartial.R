@@ -10,7 +10,7 @@
 #'
 #' @section Corner Cases:
 #'     Partial application also works for ellipses (eg list(... = 1)).
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

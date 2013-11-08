@@ -11,7 +11,7 @@
 #' @section Corner Cases:
 #'     if \code{fn} is nullary \code{logical(0)} is returned.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

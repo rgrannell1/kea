@@ -10,7 +10,7 @@
 #' @section Corner Cases:
 #'     returns True if coll is length-zero.
 #'
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

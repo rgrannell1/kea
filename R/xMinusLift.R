@@ -1,6 +1,6 @@
 
 #' xMinusLift
-#' 
+#'
 #' Compose two function with subtraction
 #'
 #' @param fn1 a function that returns a number.
@@ -8,7 +8,7 @@
 #'
 #' @return a unary function of x.
 #'
-#' @template glossary
+#'
 #'
 #' @family function_lifting
 #' @family higher_order_functions

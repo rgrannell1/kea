@@ -12,7 +12,7 @@
 #' @section Corner Cases:
 #'	 Returns the emty list if \code{coll} is length-zero.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

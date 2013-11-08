@@ -7,7 +7,7 @@
 #'
 #' @return a function with arity equal or lesser than the arity of \code{fn}.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'

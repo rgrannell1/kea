@@ -9,8 +9,7 @@
 #'
 #' @section Corner Cases:
 #'     If \code{nums} is empty then the unit of that vector is returned.
-#' @template glossary
-#'
+
 #' @example inst/examples/blank.R
 #' @export
 

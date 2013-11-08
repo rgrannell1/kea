@@ -15,7 +15,7 @@
 #'	 elements return only true/only false, then one of two sublists will be the
 #'	 empty list.
 #'
-#' @template glossary
+#'
 #'
 #'
 #' @family higher_order_functions collection_functions

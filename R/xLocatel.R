@@ -10,7 +10,7 @@
 #'
 #' @section Corner Cases:
 #'     returns integer(0) if no match is found.
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions collection_functions
 #'

@@ -11,7 +11,7 @@
 #' @section Corner Cases:
 #'     returns the empty list if any collection is length-zero. If the
 #'     collection lengths are not equal then elements are recycled in the shorter collections.
-#' @template glossary
+#'
 #'
 #'
 #' @family higher_order_functions map_like_functions collection_functions

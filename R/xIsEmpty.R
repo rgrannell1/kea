@@ -7,7 +7,7 @@
 #'
 #' @return a boolean value.
 #'
-#' @template glossary
+#'
 #'
 #' @family collection_functions
 #'

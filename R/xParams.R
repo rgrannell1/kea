@@ -10,7 +10,7 @@
 #' @section Corner Cases:
 #'	 If \code{fn} is a primitive function a heuristic is used to obtain
 #'	 its parameter names.
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'

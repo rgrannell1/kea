@@ -18,7 +18,7 @@
 #'	 If \code{fn} is a variadic function of any kind
 #'	 positive infinity is returned.
 #'
-#' @template glossary
+#'
 #'
 #'
 #' @family higher_order_functions

@@ -11,8 +11,7 @@
 #' @section Corner Cases:
 #'    overwrites the value referenced by \code{str}r if the variable
 #' already exists in the parent frame.
-#' @template glossary
-#'
+
 #' @example inst/examples/blank.R
 #' @export
 

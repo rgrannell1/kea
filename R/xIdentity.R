@@ -12,7 +12,7 @@
 #'
 #' @return returns \code{val}.
 #'
-#' @template glossary
+#'
 #'
 #' @example inst/examples/blank.R
 #' @export

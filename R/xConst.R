@@ -16,7 +16,7 @@
 #'
 #' @return a variadic function.
 #'
-#' @template glossary
+#'
 #'
 #' @family higher_order_functions
 #'
