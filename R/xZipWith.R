@@ -4,7 +4,7 @@
 #'
 #' @param fn an n-ary function, or a
 #'	 symbol or name identifying such a function.
-#' @param ... n-vectors, lists or pairlists.
+#' @param colls n-vectors, lists or pairlists.
 #'
 #' @return returns a list of equal length to the shortest input collection.
 #' @section Corner Cases:
@@ -15,7 +15,7 @@
 #'
 #' @export
 
-xZipWith <- function (fn, ...) {
+xZipWith <- function (fn, colls) {
 	# function -> [any] -> ... -> [[any]]
 	# takes n lists/vectors, generates a list of n-tuples.
 	# returns the result of applying f to each n-tuple.
@@ -33,13 +33,13 @@ xZipWith <- function (fn, ...) {
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
-	coll <- lapply(list(...), dearrowise)
+	colls <- lapply(colls, dearrowise)
 	fn <- match_fn(fn)
 
-	coll_lengths <- sapply(coll, length)
-	min_length <- min(coll_lengths)
+	colls_lengths <- sapply(colls, length)
+	min_length <- min(colls_lengths)
 
-	if (length(coll) == 0 || min_length == 0) {
+	if (length(colls) == 0 || min_length == 0) {
 		list()
 	} else {
 
@@ -48,7 +48,13 @@ xZipWith <- function (fn, ...) {
 				function (elem) {
 					head(elem, min_length)
 				},
-				coll
+				colls
 		)) ))
 	}
+}
+
+#' @export
+
+xZipWith... <- function (fn, ...) {
+	xZipWith(fn, list(...))
 }
