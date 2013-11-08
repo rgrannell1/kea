@@ -427,7 +427,7 @@ x_coll_proto <- local({
 		}
 	this$xContains... <-
 		function (..., val) {
-			x_( xContains...(..., self_(), val) )
+			x_( xContains...(self_(), ..., val) )
 		}
 
 	this$xConcat <-
@@ -444,7 +444,7 @@ x_coll_proto <- local({
 			x_( xCombos(self_(), num) )
 		}
 	this$xCombos... <-
-		function (num) {
+		function (num, ...) {
 			x_( xCombos...(num, self_(), ...) )
 		}
 
@@ -473,7 +473,7 @@ x_coll_proto <- local({
 		}
 	this$xDrop... <-
 		function (num, ...) {
-			x_( xDrop...(num, ..., self_()) )
+			x_( xDrop...(num, self_(), ...) )
 		}
 
 	this$xDo <-
@@ -491,7 +491,7 @@ x_coll_proto <- local({
 		}
 	this$xDropWhile... <-
 		function (pred, ...) {
-			x_( xDropWhile...(pred, ..., self_()) )
+			x_( xDropWhile...(pred, self_(), ...) )
 		}
 
 	# -------- E ------- #
@@ -587,7 +587,7 @@ x_coll_proto <- local({
 		}
 	this$xInit... <-
 		function (...) {
-			x_( xInit...(self_()) )
+			x_( xInit...(self_(), ...) )
 		}
 
 	this$xIsEmpty <-
@@ -892,6 +892,10 @@ x_coll_proto <- local({
 			x_( xRepeat...(num, self_(), ...) )
 		}
 
+	this$xReject <-
+		function (pred) {
+			x_( xReject(pred, self_()) )
+		}
 	this$xReject... <-
 		function (pred, ...) {
 			x_( xReject...(pred, self_(), ...) )
@@ -982,6 +986,7 @@ x_coll_proto <- local({
 		function (rexp) {
 			x_( xSplitStr(rexp, self_()) )
 		}
+
 	this$xSplitWith <-
 		function (pred) {
 			x_( xSplitWith(pred, self_()) )
@@ -1110,15 +1115,6 @@ x_coll_proto <- local({
 			x_( xZipWith(fn, self_(), ...) )
 		}
 
-	this$xZip <-
-		function () {
-			x_( xZip(self_()) )
-		}
-	this$xZip... <-
-		function (...) {
-			x_( xZip...(self_(), ...) )
-		}
-
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 	this$private <- list(
@@ -1167,10 +1163,16 @@ x_fn_proto <- local({
 		function (pred2) {
 			x_( xAndLift(self_(), pred2) )
 		}
+
 	this$xApply <-
 		function (coll) {
 			x_( xApply(self_(), coll) )
 		}
+	this$xApply... <-
+		function (...) {
+			x_( xApply...(self_(), ...) )
+		}
+
 	this$xArity <-
 		function () {
 			x_( xArity(self_()) )
@@ -1204,52 +1206,98 @@ x_fn_proto <- local({
 		function (fn2) {
 			x_( xDifferLift(fn1, fn2) )
 		}
+
 	this$xDropWhile <-
 		function (coll) {
 			x_( xDropWhile(self_(), coll) )
 		}
+	this$xDropWhile... <-
+		function (...) {
+			x_( xDropWhile...(self_(), ...) )
+		}
+
 	this$xDo <-
 		function (coll) {
 			x_( xDo(self_(), coll) )
 		}
+	this$xDo... <-
+		function (...) {
+			x_( xDo...(self_(), ...) )
+		}
+
 	# -------- E ------- #
 	this$xEqualLift <-
 		function (fn2) {
 			x_( xEqualLift(self_(), fn2) )
 		}
+
 	this$xExists <-
+		function (colls) {
+			x_( xExists(self_(), colls) )
+		}
+	this$xExists... <-
 		function (...) {
-			x_( xExists(self_(), ...) )
+			x_( xExists...(self_(), ...) )
 		}
 	# -------- F ------- #
 	this$xFixDefs <-
 		function () {
 			x_( xFixDefs(self_()) )
 		}
+
 	this$xFilter <-
-		function (pred) {
-			x_( xFilter(pred, self_()) )
+		function (coll) {
+			x_( xFilter(self_(), coll) )
 		}
+	this$xFilter... <-
+		function (...) {
+			x_( xFilter...(self_(), ...) )
+		}
+
 	this$xFlip <-
 		this$xCardinal
+
 	this$xFlatMap <-
 		function (coll) {
 			x_( xFlatMap(self_(), coll) )
 		}
+	this$xFlatMap... <-
+		function (...) {
+			x_( xFlatMap...(self_(), ...) )
+		}
+
 	this$xFoldl <-
 		function (init, coll) {
 			x_( xFoldl(self_(), init, coll) )
 		}
-	this$xForall <-
-		function (...) {
-
-			xForall(self_(), ...)
+	this$xFoldl... <-
+		function (init, ...) {
+			x_( xFoldl...(self_(), init, ...) )
 		}
-	this$xFold <- this$xFoldl
+
+	this$xForall <-
+		function (colls) {
+			x_( xForall(self_(), colls) )
+		}
+	this$xForall... <-
+		function (...) {
+			x_( xForall...(self_(), ...) )
+		}
+
+	this$xFold <-
+		this$xFoldl
+	this$xFold... <-
+		this$xFoldl...
+
 	this$xFoldr <-
 		function (init, coll) {
 			x_( xFoldr(self_(), init, coll) )
 		}
+	this$xFoldr... <-
+		function (init, ...) {
+			x_( xFoldr...(self_(), init, ...) )
+		}
+
 	this$xFormals <-
 		function () {
 			x_( xFormals(self_()) )
@@ -1276,8 +1324,12 @@ x_fn_proto <- local({
 		}
 	# -------- J ------- #
 	this$xJuxtapose <-
+		function (fns) {
+			x_( xJuxtapose(self_()) )
+		}
+	this$xJuxtapose... <-
 		function (...) {
-			x_( xJuxtapose(self_(), ...) )
+			x_( xJuxtapose...(self_(), ...) )
 		}
 	# -------- K ------- #
 	this$xKestrel <-
@@ -1289,33 +1341,66 @@ x_fn_proto <- local({
 		function (num) {
 			x_( xLimit(self_(), num) )
 		}
+
 	this$xLocatel <-
 		function (coll) {
 			x_( xLocatel(self_(), coll) )
 		}
+	this$xLocatel... <-
+		function (...) {
+			x_( xLocatel...(self_(), ...) )
+		}
+
 	this$xLocate <-
 		this$xLocatel
+	this$xLocate... <-
+		this$xLocatel...
+
 	this$xLocater <-
 		function (coll) {
 			x_( xLocater(self_(), coll) )
+		}
+	this$xLocater... <-
+		function (...) {
+			x_( xLocater...(self_(), ...) )
 		}
 	# -------- M ------- #
 	this$xMap <-
 		function (coll) {
 			x_( xMap(self_(), coll) )
 		}
+	this$xMap... <-
+		function (...) {
+			x_( xMap...(self_(), ...) )
+		}
+
 	this$xMapAlong <-
 		function (coll) {
 			x_( xMapAlong(self_(), coll) )
 		}
-	this$xMapMany <-
+	this$xMapAlong... <-
 		function (...) {
-			x_( xMapMany(self_(), ...) )
+			x_( xMapAlong...(self_(), ...) )
 		}
+
+	this$xMapMany <-
+		function (colls) {
+			x_( xMapMany(self_(), colls) )
+		}
+	this$xMapMany... <-
+		function (...) {
+			x_( xMapMany...(self_(), ...) )
+		}
+
 	this$xMapWhen <-
 		function (fn, coll) {
 			x_( xMapWhen(self_(), fn, coll) )
 		}
+	this$xMapWhen... <-
+		function (fn, ...) {
+			x_( xMapWhen...(self_(), fn, ...) )
+		}
+
 	this$xMinusLift <-
 		function (fn2) {
 			x_( xMinusLift(self_(), fn2) )
@@ -1343,10 +1428,20 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xPartition(self_(), coll) )
 		}
+	this$xPartition... <-
+		function (...) {
+			x_( xPartition...(self_(), ...) )
+		}
+
 	this$xPartitionWith <-
 		function (coll) {
 			x_( xPartitionWith(self_(), coll) )
 		}
+	this$xPartitionWith... <-
+		function (...) {
+			x_( xPartitionWith...(self_(), ...) )
+		}
+
 	this$xParams <-
 		function () {
 			x_( xParams(self_()) )
@@ -1355,14 +1450,25 @@ x_fn_proto <- local({
 		function () {
 			x_( xFmap(self_()) )
 		}
+
 	this$xPartial <-
 		function (coll) {
 			x_( xPartial(self_(), coll) )
 		}
+	this$xPartial... <-
+		function (...) {
+			x_( xPartial...(self_(), ...) )
+		}
+
 	this$xPoll <-
 		function (coll) {
 			x_( xPoll(self_(), coll) )
 		}
+	this$xPoll... <-
+		function (...) {
+			x_( xPoll...(self_(), ...) )
+		}
+
 	this$xPlusLift <-
 		function (fn2) {
 			x_( xPlusLift(self_(), fn2) )
@@ -1381,34 +1487,71 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xRecurMap(self_(), coll) )
 		}
+	this$xRecurMap... <-
+		function (...) {
+			x_( xRecurMap...(self_(), ...) )
+		}
+
 	this$xReducel <-
 		function (coll) {
 			x_( xReducel(self_(), coll) )
 		}
+	this$xReducel... <-
+		function (...) {
+			x_( xReducel...(self_(), ...) )
+		}
+
 	this$xReduce <-
 		this$xReducel
+	this$xReduce... <-
+		this$xReducel...
+
 	this$xReducer <-
 		function (coll) {
 			x_( xReducer(self_(), coll) )
 		}
+	this$xReducer... <-
+		function (...) {
+			x_( xReducer...(self_(), ...) )
+		}
+
 	this$xReject <-
 		function (coll) {
 			x_( xReject(self_(), coll) )
 		}
+	this$xReject... <-
+		function (...) {
+			x_( xReject...(self_(), ...) )
+		}
 	# -------- S ------- #
 	this$xS. <-
 		this$xBiCompose
+
 	this$xSelect <-
 		function (coll) {
 			x_( xSelect(self_(), coll) )
 		}
+	this$xSelect... <-
+		function (...) {
+			x_( xSelect...(self_(), ...) )
+		}
+
 	this$xScanl <-
 		function (init, coll) {
 			x_( xScanl(self_(), init, coll) )
 		}
+	this$xScanl... <-
+		function (init, ...) {
+			x_( xScanl...(self_(), init, ...) )
+		}
+
 	this$xSplitWith <-
 		function (coll) {
 			x_( xSplitWith(self_(), coll) )
+		}
+	this$xSplitWith... <-
+		function (...) {
+			x_( xSplitWith...(self_(), ...) )
 		}
 
 	# -------- T ------- #
@@ -1416,10 +1559,16 @@ x_fn_proto <- local({
 		function (fn) {
 			x_( fn(self_()) )
 		}
+
 	this$xTakeWhile <-
 		function (coll) {
 			x_( xTakeWhile(self_(), coll) )
 		}
+	this$xTakeWhile... <-
+		function (...) {
+			x_( xTakeWhile...(self_(), ...) )
+		}
+
 	this$xT <-
 		this$xThrush
 	# -------- U ------- #
@@ -1431,8 +1580,8 @@ x_fn_proto <- local({
 		function (fn, init) {
 			x_( xUnfold(self_(), fn, init) )
 		}
-		this$xUnfoldl <-
-			this$xUnfold
+	this$xUnfoldl <-
+		this$xUnfold
 	# -------- V ------- #
 	# -------- W ------- #
 	this$xWait <-
@@ -1443,12 +1592,21 @@ x_fn_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 	this$xZipWith <-
-		function (...) {
-			x_( xZipWith(self_(), ...) )
+		function (colls) {
+			x_( xZipWith(self_(), colls) )
 		}
-	this$xZip <-
+	this$xZipWith... <-
 		function (...) {
-			x_( xZip(self_(), ...) )
+			x_( xZipWith...(self_(), ...) )
+		}
+
+	this$xZip <-
+		function () {
+			x_( xZip(self_()) )
+		}
+	this$xZip... <-
+		function (...) {
+			x_( xZip...(self_(), ...) )
 		}
 
 	this <- as.environment(
