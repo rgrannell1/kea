@@ -41,3 +41,6 @@ forall(
 		all( unlist(x_(fn)$xMap(coll)$x()) == unlist(coll) + 1 )
 	}
 )
+
+message("arrow $ xMap...")
+

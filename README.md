@@ -3,8 +3,8 @@ Arrow v0.1
 
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
-**Arrow** is a functional programming framework that adds partial application, 
-jQuery-like method chaining, function composition, 
+**Arrow** is a functional programming framework that adds partial application,
+jQuery-like method chaining, function composition,
 and over one-hundred higher-order- and utility-functions to the R language.
 Arrow helps make R an elegant functional language with powerful operations on collections.
 
@@ -59,7 +59,7 @@ function (X, FUN, ...)
 ```
 ### 2.3 Collection Manipulation
 
-Most functions in **Arrow** are for manipulating collections of values. 
+Most functions in **Arrow** are for manipulating collections of values.
 
 ```javascript
 isPrime <- function (n) {
@@ -92,11 +92,11 @@ x_(1:100)$xTap(mean)$x()
 
 ### 2.5 Partial Application
 
-General functions like ```xSelect``` and ```xFold``` can be 
-specialised by fixing some of their arguments permenantly. 
+General functions like ```xSelect``` and ```xFold``` can be
+specialised by fixing some of their arguments permenantly.
 
 ```javascript
-strip_na <- xPartial( xReject, list(fn = is.na) )
+strip_na <- xPartial...(xReject, fn = is.na)
 ```
 ### 2.6 Combinators
 
@@ -109,7 +109,7 @@ my_mean(1:10)
 
 # add two functions together
 f <- xPlusLift(
-    n := n^2, 
+    n := n^2,
     n := n + n)
 ```
 
@@ -129,7 +129,7 @@ xExists(
 
 ### 2.8 Immutable Values
 
-**Arrow** wraps native R code for locking variable names to a single value 
+**Arrow** wraps native R code for locking variable names to a single value
 permanently, making them easier to use.
 
 ```javascript
@@ -167,7 +167,7 @@ Ryan Grannell.
 
 ## 6 Licensing
 
-**Arrow** is released under the terms of the GNU General Public License version 3. 
+**Arrow** is released under the terms of the GNU General Public License version 3.
 
 <img src="gpl3.png" height = "180"> </img>
 

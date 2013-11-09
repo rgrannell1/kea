@@ -18,8 +18,6 @@
 #' @section Corner Cases:
 #'     returns the empty list is \code{coll} is length-zero.
 #'
-#'
-#'
 #' @family higher_order_functions map_like_functions collection_functions
 #'
 #' @example inst/examples/blank.R
