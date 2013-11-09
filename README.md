@@ -35,7 +35,7 @@ xVersion()
 
 ## 2 Examples
 
-# 2.1 Arrow Functions:
+#### 2.1 Arrow Functions:
 
 **Arrow** included a shorthand function constructor like that
  included in Scala or ECMAscript-6.
