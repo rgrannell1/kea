@@ -149,16 +149,19 @@ To get the documentation for a particular function from an R console simply pref
 
 ## 4 Contributing
 
-Contributions are welcome, particularily in the following areas:
+Arrow is an extremely large project, so contributions are welcome, particularily in the following areas:
 
 * developing a stable function decorator that behaves like haskell's autocurrying.
 * developing tools for testing and profiling arrow code, such as ```forall()``` and ```time_profile()```
 * improving efficiency and composability of functions.
-* consistency and idiomaticy police.
 * improving exception handing within arrow.
+
+* consistency and idiomaticy police.
 * tests, benchmarks and documentation (obviously!)
 * suggestions for functions to implement.
 * bug reports.
+
+* logo design.
 
 
 ## 5 Authors
