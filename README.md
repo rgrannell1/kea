@@ -159,17 +159,26 @@ To get the documentation for a particular function from an R console simply pref
 
 Arrow is an extremely large project, so contributions are welcome, particularily in the following areas:
 
+#### 4.1 Library Development
 * developing a stable function decorator that behaves like haskell's autocurrying.
-* developing tools for testing and profiling arrow code, such as ```forall()``` and ```time_profile()```
 * improving efficiency and composability of functions.
 * improving exception handing within arrow.
 
-* consistency and idiomaticy police.
-* tests, benchmarks and documentation (obviously!)
-* suggestions for functions to implement.
-* bug reports.
+#### 4.2 Tools Development
+* Improving the ```forall``` testing tool, and test case generators.
+* Improving the ```time_profile``` benchmarking tool.
+* Contributing to ```roxygen2``` and ```devtools```, which **Arrow** currently uses.
 
-* logo design.
+#### 4.3 Miscelleneous Tasks
+* consistency and idiomaticy police; are there any corner cases that need tweaking, or functions that need renaming.
+* improving tests, benchmarks and documentation (obviously!)
+* suggestions for functions to implement.
+* general feedback.
+* filing bug reports.
+
+#### 4.4 Design
+* setting up a Github page for **Arrow**, possibly using ``staticdocs`` and bootstrap.
+* designing a logo for **Arrow**.
 
 
 ## 5 Authors
