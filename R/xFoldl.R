@@ -51,7 +51,7 @@ xFoldl <- function (fn, init, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	if (length(coll) == 0) {
 		init
@@ -59,10 +59,12 @@ xFoldl <- function (fn, init, coll) {
 
 		callCC(function (Return) {
 
-			clone_env <- new.env(parent = environment(fn))
-			clone_env$Return <- Return
+			if (!is.primitive(fn)) {
+				clone_env <- new.env(parent = environment(fn))
+				clone_env$Return <- Return
 
-			environment(fn) <- clone_env
+				environment(fn) <- clone_env
+			}
 
 			for (ith in seq_along(coll)) {
 				init <- fn( init, coll[[ith]] )

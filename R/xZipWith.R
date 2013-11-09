@@ -34,7 +34,7 @@ xZipWith <- function (fn, colls) {
 		exclaim$must_be_matchable(fn))
 
 	colls <- lapply(colls, dearrowise)
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	colls_lengths <- sapply(colls, length)
 	min_length <- min(colls_lengths)

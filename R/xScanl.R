@@ -49,7 +49,7 @@ xScanl <- function (fn, init, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	scanned <- c( init, vector("list", length(coll)) )
 

@@ -37,7 +37,7 @@ xPartition <- function (pred, coll) {
 		is_fn_matchable(pred), parent_call,
 		exclaim$must_be_matchable(pred))
 
-	pred <- match_fn(pred)
+	pred <- match.fun(pred)
 
 	assert(
 		is_collection(coll), parent_call,

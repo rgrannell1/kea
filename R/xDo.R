@@ -52,7 +52,7 @@ xDo <- function (fn, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	if (length(coll) == 0) {
 		list()

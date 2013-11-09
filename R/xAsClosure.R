@@ -32,7 +32,7 @@ xAsClosure <- function (fn) {
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	if (is.primitive(fn)) {
 

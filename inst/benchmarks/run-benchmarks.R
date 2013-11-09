@@ -23,7 +23,7 @@ if (Sys.info()["user"] == "ryan") {
 		function (fn_name) {
 
 			N_values <- 2^(1:10)
-			fn <- match_fn(fn_name)
+			fn <- match.fun(fn_name)
 
 			do.call(rbind, lapply(N_values, function (N) {
 

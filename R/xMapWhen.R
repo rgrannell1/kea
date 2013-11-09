@@ -54,8 +54,8 @@ xMapWhen <- function (pred, fn, coll) {
 		is_collection(coll), parent_call,
 		exclaim$must_be_collection(coll))
 
-	pred <- match_fn(pred)
-	fn <- match_fn(fn)
+	pred <- match.fun(pred)
+	fn <- match.fun(fn)
 
 	composite <- function (x) {
 		is_match <- pred(x)

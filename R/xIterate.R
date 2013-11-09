@@ -29,6 +29,9 @@ xIterate <- function (fn, init) {
 		!missing(init), parent_call,
 		exclaim$parameter_missing(init))
 
+	assert(
+		!is.primitive(fn), parent_call)
+
 	fn <- dearrowise(fn)
 	init <- dearrowise(init)
 
@@ -36,7 +39,7 @@ xIterate <- function (fn, init) {
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	callCC(function (Return) {
 

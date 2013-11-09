@@ -50,7 +50,7 @@ xApply <- function (fn, coll) {
 		is.recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 
 	eval(
 		as.call(c(fn, coll)),

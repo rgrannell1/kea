@@ -5,17 +5,17 @@ xSelect(n := {n %% 2 == 0}, 1:5)
 
 list(2L, 4L)
 
-# select names matching a regular expression
+# select names containing the letter "U".
 
 xSelect(
 	name := {
-		grepl("_", name)
+		grepl("u|U", name)
 	},
 	c("Church", "Turing", "Godel"))
 
 list("Church", "Turing")
 
-# select employees over 30
+# select employees over 30.
 
 xSelect(
 	record := {

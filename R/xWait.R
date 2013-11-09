@@ -40,7 +40,7 @@ xWait <- function (fn, num) {
 		is.numeric(num) && num >= 0, parent_call,
 		exclaim$must_be_greater_than(num, 0))
 
-	fn <- match_fn(fn)
+	fn <- match.fun(fn)
 	remove(parent_call)
 
 	if (num == 0) {
