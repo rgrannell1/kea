@@ -8,6 +8,21 @@ jQuery-like method chaining, function composition,
 and over one-hundred higher-order- and utility-functions to the R language.
 Arrow helps make R an elegant functional language with powerful operations on collections.
 
+## 0 Goal
+
+R is an excellent statistical platform, but it isn't a great general purpose programming language.
+Libraries like ```plyr``` and ```stringr``` help, but they don't go far enough. I've 
+always felt that the best aspects of the R language are its powerful functions, vectorisation and 
+list data structure. Arrow is an attempt to build a 
+
+
+
+
+
+
+
+
+
 ## 1 Installation
 
 As of late September 2013 **Arrow** is only available on Github. To install the development version, copy the
