@@ -157,12 +157,13 @@ To get the documentation for a particular function from an R console simply pref
 
 ## 4 Contributing
 
-Arrow is an extremely large project, so contributions are welcome, particularily in the following areas:
+I'm (as of November 2013) working on **Arrow** alone. However, the library is very large and I feel that it
+would benefit from community contribution, ranging from feedback to active development. 
 
 #### 4.1 Library Development
 * developing a stable function decorator that behaves like haskell's autocurrying.
 * improving efficiency and composability of functions.
-* improving exception handing within arrow.
+* improving exception handing within **Arrow**.
 
 #### 4.2 Tools Development
 * Improving the ```forall``` testing tool, and test case generators.
@@ -175,6 +176,8 @@ Arrow is an extremely large project, so contributions are welcome, particularily
 * suggestions for functions to implement.
 * general feedback.
 * filing bug reports.
+
+For information about contributing, send me a message at @RyanGrannell on twitter.
 
 #### 4.4 Design
 * setting up a Github page for **Arrow**, possibly using ``staticdocs`` and bootstrap.
