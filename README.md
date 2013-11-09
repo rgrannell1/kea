@@ -14,7 +14,7 @@ R is an excellent statistical platform, but it isn't a great general purpose pro
 Libraries like ```plyr``` and ```stringr``` help, but they don't go far enough. I've 
 always felt that the best aspects of the R language are its powerful functions, vectorisation and 
 list data structure. Arrow is an attempt to build upon these aspects of R and to generalise
-them into a pleasent, composable functional language.
+them into a pleasant, composable functional language.
 
 ## 1 Installation
 
