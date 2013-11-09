@@ -35,7 +35,7 @@ xVersion()
 
 ## 2 Examples
 
-### 2.1 Arrow Functions:
+# 2.1 Arrow Functions:
 
 **Arrow** included a shorthand function constructor like that
  included in Scala or ECMAscript-6.
@@ -52,7 +52,7 @@ function (a, b) {
     a + b
 }
 ```
-### 2.2 Function Composition:
+#### 2.2 Function Composition:
 
 **Arrow** includes powerful function-composition functions.
 These functions produce human-readable code.
@@ -65,7 +65,7 @@ function (X, FUN, ...)
     fn1(fn2(X, FUN, ...))
 }
 ```
-### 2.3 Collection Manipulation
+#### 2.3 Collection Manipulation
 
 Most functions in **Arrow** are for manipulating collections of values.
 
@@ -78,7 +78,7 @@ getPrimes(1:1000)
 
 [1] 2 3 5 7 11 13 17 19 23 29 31 ...
 ```
-### 2.4 Method Chaining:
+#### 2.4 Method Chaining:
 
 **Arrow** includes jQuery-style method chaining for stepwise manipulation
 of collections.
@@ -98,7 +98,7 @@ x_(1:100)$xMean$x()
 x_(1:100)$xTap(mean)$x()
 ```
 
-### 2.5 Partial Application
+#### 2.5 Partial Application
 
 General functions like ```xSelect``` and ```xFold``` can be
 specialised by fixing some of their arguments permenantly.
@@ -106,7 +106,7 @@ specialised by fixing some of their arguments permenantly.
 ```javascript
 strip_na <- xPartial...(xReject, fn = is.na)
 ```
-### 2.6 Combinators
+#### 2.6 Combinators
 
 Combinators combine functions into other functions or control structures. These
 can be used to define arithmetic, logical and set operations "on functions".
@@ -121,7 +121,7 @@ f <- xPlusLift(
     n := n + n)
 ```
 
-### 2.7 Existential Quantifiers
+#### 2.7 Existential Quantifiers
 
 Existential quantifiers test whether a predicate is true for any or all
 elements in a collection, or the set product of multiple collections.
@@ -135,7 +135,7 @@ xExists(
 )
 ```
 
-### 2.8 Immutable Values
+#### 2.8 Immutable Values
 
 **Arrow** wraps native R code for locking variable names to a single value
 permanently, making them easier to use.
