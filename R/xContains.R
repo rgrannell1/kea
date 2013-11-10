@@ -12,7 +12,6 @@
 #'     various types of NA are not-distinguished between.
 #'     Type conversion is not carried out.
 #'
-#'
 #' @family collection_functions
 #'
 #' @example inst/examples/blank.R

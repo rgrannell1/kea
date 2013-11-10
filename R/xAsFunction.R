@@ -10,7 +10,6 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll is length-zero}.
 #'
-#'
 #' @family collection_functions
 #'
 #' @example inst/examples/blank.R

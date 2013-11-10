@@ -1240,10 +1240,6 @@ x_fn_proto <- local({
 			x_( xExists...(self_(), ...) )
 		}
 	# -------- F ------- #
-	this$xFixDefs <-
-		function () {
-			x_( xFixDefs(self_()) )
-		}
 
 	this$xFilter <-
 		function (coll) {

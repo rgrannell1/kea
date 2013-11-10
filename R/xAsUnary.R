@@ -8,10 +8,6 @@
 #'
 #' @return a unary function of x.
 #'
-#'
-#'
-#'
-#'
 #' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R

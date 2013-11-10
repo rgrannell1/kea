@@ -11,7 +11,6 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{num} is zero.
 #'
-#'
 #' @family combinatoric_functions collection_functions
 #'
 #' @example inst/examples/blank.R

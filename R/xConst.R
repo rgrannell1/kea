@@ -16,8 +16,6 @@
 #'
 #' @return a variadic function.
 #'
-#'
-#'
 #' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R

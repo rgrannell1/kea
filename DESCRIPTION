@@ -36,7 +36,6 @@ Collate:
     'xDrop.R'
     'xDropWhile.R'
     'xFirst.R'
-    'xFixDefs.R'
     'xFlatMap.R'
     'xFlip.R'
     'xFmap.R'
