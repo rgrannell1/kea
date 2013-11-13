@@ -47,11 +47,15 @@ xSplitWith <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+
 		coll <- as.list(coll)
+
 		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
-			assert(is.logical(is_match), parent_call)
+
+			assert(
+				is.logical(is_match), parent_call)
 
 			if (!is_match) {
 				return (

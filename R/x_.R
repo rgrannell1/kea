@@ -467,6 +467,11 @@ x_coll_proto <- local({
 			x_( xDiffer(self_(), coll2) )
 		}
 
+	this$xDigits <-
+		function () {
+			x_( xDigits(self_()) )
+		}
+
 	this$xDrop <-
 		function (num) {
 			x_( xDrop(self_(), num) )
