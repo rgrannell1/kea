@@ -1,4 +1,3 @@
-
 #' xChars
 #'
 #' Split a single string into a vector of characters.
@@ -26,12 +25,11 @@ xChars <- function (str) {
 		exclaim$parameter_missing(str))
 
 	str <- dearrowise(str)
+	str <- coerce_to_typed_vector(str, 'character')
 
 	assert(
 		length(str) %in% 0:1, parent_call,
 		exclaim$must_have_length( str, 0:1) )
-
-	str <- coerce_to_typed_vector(str, 'character')
 
 	if (length(str) == 0) {
 		character(0)
