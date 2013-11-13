@@ -1,4 +1,3 @@
-
 #' xDigits
 #'
 #' Split a single string into a vector of characters.
@@ -6,10 +5,6 @@
 #' @param str a length-one character vector.
 #'
 #' @return a character vector of length \code{nchar(str)}.
-#'
-#'
-#'
-#' @family higher_order_functions
 #'
 #' @example inst/examples/blank.R
 #' @export
