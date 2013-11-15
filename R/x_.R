@@ -1747,10 +1747,13 @@ print.arrow <- function (val, ...) {
 	proto_ref <- get_proto_ref( val[['x']] )
 	contents_are <- proto_ref[['private']][['contents_are']]
 
+	double_newline <- '\n\n'
+
 	cat(
-		'[ an arrow object with methods for ' %+% contents_are %+% '. ]' %+% '\n\n' %+%
-		'$x()' %+% '\n\n')
+		'[ an arrow object with methods for ' %+%
+			contents_are %+%
+		'. ]'  %+% double_newline %+%
+		'$x()' %+% double_newline)
 
 	print(val$x())
-
 }
