@@ -467,11 +467,6 @@ x_coll_proto <- local({
 			x_( xDiffer(self_(), coll2) )
 		}
 
-	this$xDigits <-
-		function () {
-			x_( xDigits(self_()) )
-		}
-
 	this$xDrop <-
 		function (num) {
 			x_( xDrop(self_(), num) )
@@ -1664,23 +1659,24 @@ x_ <- function (val) {
 	}
 }
 
+get_proto_ref <- function (val) {
+	# get the reference to the appropriate
+	# methods.
+
+	proto_ref <-
+	if (is.function( val )) {
+		x_fn_proto
+	} else if (is.vector( val ) || is.pairlist( val )){
+		x_coll_proto
+	} else if (is.matrix( val )) {
+		x_matrix_proto
+	} else {
+		x_any_proto
+	}
+}
+
 '$.arrow' <- local({
 
-	get_proto_ref <- function (val) {
-		# get the reference to the appropriate
-		# methods.
-
-		proto_ref <-
-		if (is.function( val )) {
-			x_fn_proto
-		} else if (is.vector( val ) || is.pairlist( val )){
-			x_coll_proto
-		} else if (is.matrix( val )) {
-			x_matrix_proto
-		} else {
-			x_any_proto
-		}
-	}
 
 	suggest_similar_method <- function (val, method_name, contents_are, parent_call) {
 		# given an incorrect method name throw an error
@@ -1740,3 +1736,21 @@ x_ <- function (val) {
 		fn
 	}
 })
+
+# -------------------------------- Print Method -------------------------------- #
+
+#' @export
+
+print.arrow <- function (val, ...) {
+	# custom print statement for the arrow object.
+
+	proto_ref <- get_proto_ref( val[['x']] )
+	contents_are <- proto_ref[['private']][['contents_are']]
+
+	cat(
+		'[ an arrow object with methods for ' %+% contents_are %+% '. ]' %+% '\n\n' %+%
+		'$x()' %+% '\n\n')
+
+	print(val$x())
+
+}
