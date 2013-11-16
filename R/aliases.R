@@ -164,6 +164,10 @@ is_collection <- function (val) {
 	is.vector(val) || is.pairlist(val)
 }
 
+is_recursive <- function (val) {
+	is.list(val) || is.pairlist(val)
+}
+
 coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
 	# coerces an R vector (pairlist, list, or typed vector)
 	# to another mode, if the vector is homogenously typed.

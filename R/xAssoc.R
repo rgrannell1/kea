@@ -30,7 +30,7 @@ xAssoc <- function (colls) {
 	colls <- dearrowise(colls)
 
 	assert(
-		is.recursive(colls), parent_call,
+		is_recursive(colls), parent_call,
 		exclaim$must_be_recursive(colls))
 
 	assert(

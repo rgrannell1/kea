@@ -18,6 +18,8 @@
 #' @export
 
 xPartial <- function (fn, coll) {
+	# function -> recursive any -> any
+	# partially apply a function.
 
 	parent_call <- sys.call()
 

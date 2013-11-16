@@ -25,7 +25,7 @@ xJuxtapose <- function (fns) {
 	fns <- lapply(list(fns), dearrowise)
 
 	assert(
-		is.recursive(fns), parent_call,
+		is_recursive(fns), parent_call,
 		exclaim$must_be_recursive(fns))
 
 	assert(

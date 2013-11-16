@@ -1745,7 +1745,7 @@ print.arrow <- function (val, ...) {
 	# custom print statement for the arrow object.
 
 	proto_ref <- get_proto_ref( val[['x']] )
-	contents_are <- proto_ref[['private']][['contents_are']]
+	contents_are <- proto_ref[['private']] [['contents_are']]
 
 	double_newline <- '\n\n'
 

@@ -41,11 +41,11 @@ xPluck <- function (str, coll) {
 		exclaim$must_have_length(str, 1))
 
 	assert(
-		is.recursive(coll), parent_call,
+		is_recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
 	assert(
-		all(sapply(coll, is.recursive)), parent_call,
+		all(sapply(coll, is_recursive)), parent_call,
 		exclaim$must_be_recursive_of_collections(coll))
 
 	if (length(coll) == 0) {

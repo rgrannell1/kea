@@ -46,7 +46,7 @@ xFlatten <- function (num, coll) {
 		exclaim$must_be_whole(num))
 
 	assert(
-		is.recursive(coll), parent_call,
+		is_recursive(coll), parent_call,
 		exclaim$must_be_recursive(coll))
 
 	if (length(coll) == 0) {
@@ -58,7 +58,7 @@ xFlatten <- function (num, coll) {
 	} else {
 
 		recur <- function (depth, xs) {
-			if (!is.recursive(xs)) {
+			if (!is_recursive(xs)) {
 				xs
 			} else if (depth == num - 1) {
 				as.list(unlist(xs))

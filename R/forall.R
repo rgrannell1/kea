@@ -232,6 +232,11 @@ G <- local({
 
 	# -------- generic vectors -------- #
 
+	this$to_recursive <-
+		function () {
+			one_of(list(as.list, as.pairlist))
+		}
+
 	this$collection <-
 		this$vector
 
