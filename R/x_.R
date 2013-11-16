@@ -1752,7 +1752,7 @@ print.arrow <- function (val, ...) {
 	cat(
 		'[ an arrow object with methods for ' %+%
 			contents_are %+%
-		'. ]'  %+% double_newline %+%
+		' ]'  %+% double_newline %+%
 		'$x()' %+% double_newline)
 
 	print(val$x())
