@@ -648,6 +648,11 @@ x_coll_proto <- local({
 		function (fn) {
 			x_( xIterate(fn, self_()) )
 		}
+
+	this$xInter <-
+		function (coll2) {
+			x_( xInter(self_(), coll2) )
+		}
 	# -------- J ------- #
 	# -------- K ------- #
 	this$xKestrel <-
@@ -1306,6 +1311,9 @@ x_fn_proto <- local({
 			x_( xHasDefs(self_()) )
 		}
 	# -------- I ------- #
+
+
+
 	this$xInterLift <-
 		function (fn2) {
 			x_( xInterLift(self_(), fn2) )
@@ -1675,12 +1683,14 @@ get_proto_ref <- function (val) {
 	}
 }
 
-'$.arrow' <- local({
+#' @method $ arrow
 
+'$.arrow' <- local({
 
 	suggest_similar_method <- function (val, method_name, contents_are, parent_call) {
 		# given an incorrect method name throw an error
-		# suggesting a similar method.
+		# suggesting a similarexport(xAndLift)
+ method.
 
 		proto_ref <- get_proto_ref(val)
 
@@ -1739,7 +1749,7 @@ get_proto_ref <- function (val) {
 
 # -------------------------------- Print Method -------------------------------- #
 
-#' @export
+#' @method print arrow
 
 print.arrow <- function (val, ...) {
 	# custom print statement for the arrow object.
@@ -1747,13 +1757,14 @@ print.arrow <- function (val, ...) {
 	proto_ref <- get_proto_ref( val[['x']] )
 	contents_are <- proto_ref[['private']] [['contents_are']]
 
+	single_newline <- '\n'
 	double_newline <- '\n\n'
 
 	cat(
 		'[ an arrow object with methods for ' %+%
 			contents_are %+%
 		' ]'  %+% double_newline %+%
-		'$x()' %+% double_newline)
+		'$x()' %+% single_newline)
 
 	print(val$x())
 }
