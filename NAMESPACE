@@ -1,6 +1,7 @@
 export(":=")
 export("%$%")
 export("%of%")
+export("%|>%")
 export(x_)
 export(xAndLift)
 export(xApply...)

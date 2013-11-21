@@ -63,3 +63,7 @@ xMap <- function (fn, coll) {
 xMap... <- function (fn, ...) {
 	xMap(fn, list(...))
 }
+
+#' @export
+
+'%|>%' <- xMap
