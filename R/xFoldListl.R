@@ -1,5 +1,5 @@
 
-#' xScanl
+#' xFoldListl
 #'
 #' Fold a function over a collection from left to right with an initital left value, keeping intermediate values.
 #'
@@ -19,7 +19,7 @@
 #'
 #' @export
 
-xScanl <- function (fn, init, coll) {
+xFoldListl <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.
 
@@ -65,10 +65,16 @@ xScanl <- function (fn, init, coll) {
 
 #' @export
 
-xScan <- xScanl
+xFoldList <- xFoldListl
 
 #' @export
 
-xScanl... <- function (fn, init, ...) {
-	xScanl(fn, init, list(...))
+xFoldListl... <- function (fn, init, ...) {
+	xFoldListl(fn, init, list(...))
+}
+
+#' @export
+
+xFoldList... <- function (fn, init, ...) {
+	xFoldList(fn, init, list(...))
 }

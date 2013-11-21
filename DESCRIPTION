@@ -80,7 +80,7 @@ Collate:
     'xReducer.R'
     'xReject.R'
     'xRest.R'
-    'xScanl.R'
+    'xFoldListl.R'
     'xSecond.R'
     'xSegment.R'
     'xSelect.R'

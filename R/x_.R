@@ -569,6 +569,22 @@ x_coll_proto <- local({
 		function (fn, init, ...) {
 			x_( xFoldr...(fn, init, self_(), ...) )
 		}
+	this$xFoldListl <-
+		function (fn, init) {
+			x_( xFoldListl(fn, init, self_()) )
+		}
+	this$xFoldListl... <-
+		function (fn, init, ...) {
+			x_( xFoldListl...(fn, init, self_(), ...) )
+		}
+	this$xFoldList <-
+		function (fn, init) {
+			x_( xFoldList(fn, init, self_()) )
+		}
+	this$xFoldList... <-
+		function (fn, init, ...) {
+			x_( xFoldList...(fn, init, self_(), ...) )
+		}
 
 	this$xFourth <-
 		function () {
@@ -915,14 +931,6 @@ x_coll_proto <- local({
 			x_( xRest...(self_(), ...) )
 		}
 	# -------- S ------- #
-	this$xScanl <-
-		function (fn, init) {
-			x_( xScanl(fn, init, self_()) )
-		}
-	this$xScanl... <-
-		function (fn, init, ...) {
-			x_( xScanl...(fn, init, self_(), ...) )
-		}
 
 	this$xSecond <-
 		function () {
@@ -1299,6 +1307,25 @@ x_fn_proto <- local({
 			x_( xFoldr...(self_(), init, ...) )
 		}
 
+	this$xFoldListl <-
+		function (init, coll) {
+			x_( xFoldListl(self_(), init, coll) )
+		}
+	this$xFoldListl... <-
+		function (init, ...) {
+			x_( xFoldListl...(self_(), init, ...) )
+		}
+
+	this$xFoldList <-
+		function (init, coll) {
+			x_( xFoldList(self_(), init, coll) )
+		}
+	this$xFoldList... <-
+		function (init, ...) {
+			x_( xFoldList...(self_(), init, ...) )
+		}
+
+
 	this$xFormals <-
 		function () {
 			x_( xFormals(self_()) )
@@ -1311,8 +1338,6 @@ x_fn_proto <- local({
 			x_( xHasDefs(self_()) )
 		}
 	# -------- I ------- #
-
-
 
 	this$xInterLift <-
 		function (fn2) {
@@ -1540,14 +1565,6 @@ x_fn_proto <- local({
 			x_( xSelect...(self_(), ...) )
 		}
 
-	this$xScanl <-
-		function (init, coll) {
-			x_( xScanl(self_(), init, coll) )
-		}
-	this$xScanl... <-
-		function (init, ...) {
-			x_( xScanl...(self_(), init, ...) )
-		}
 
 	this$xSplitWith <-
 		function (coll) {
