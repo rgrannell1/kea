@@ -1,10 +1,30 @@
 
 message('xNegate')
 
-test_that('xNegate', {
+forall(
+	'the negation of the empty collection is double.',
+	test_cases$collection_zero,
+	xNegate(coll) %equals% double()
+)
 
-	expect_equal(xNegate(numeric(0)), numeric(0))
-	expect_equal(xNegate(c(0, 0)), c(0, 0))
-	expect_equal(xNegate(c(1, -1)), c(-1, 1))
+forall(
+	'zero is an identity',
+	test_cases$integers,
+	xNegate(coll %% coll) %equals% as.double(coll %% coll)
+)
 
-})
+message('arrow $ xNegate')
+
+forall(
+	'collection $ xNegate',
+	test_cases$integers,
+	x_(coll %% coll)$xNegate()$x() %equals% as.double(coll %% coll)
+)
+
+message('arrow $ xNegate...')
+
+forall(
+	'collection $ xNegate...',
+	test_cases$integers,
+	x_(coll %% coll)$xApply(xNegate...)$x() %equals% as.double(coll %% coll)
+)

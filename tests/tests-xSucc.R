@@ -14,7 +14,7 @@ forall(
 )
 
 forall(
-	"the successor is doubles",
+	"infinity acts acts an identity",
 	test_cases$infinity,
 	xSucc(coll) %equals% as.double(coll)
 )
@@ -31,6 +31,6 @@ message('arrow $ xSucc...')
 
 forall(
 	"arrow.xSucc... is doubles",
-	test_cases$infinity,
-	x_(coll)$xApply(xSucc...)$x() %equals% as.double(coll)
+	test_cases$integers,
+	x_(coll)$xApply(xSucc...)$x() %equals% as.double(coll + 1)
 )

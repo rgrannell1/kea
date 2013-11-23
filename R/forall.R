@@ -326,6 +326,14 @@ test_cases <- local({
 			},
 			coll = compounds$integers())
 
+	# --------------------- Num + Coll ----------------------------- #
+
+	this$positive_with_collection <-
+		list(
+			num = atoms$positive_integer,
+			coll = compounds$collection)
+
+
 	# --------------------- Logical-Fun + Coll --------------------- #
 
 	this$truth_with_coll <-

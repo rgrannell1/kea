@@ -1,11 +1,36 @@
 
 message('xPred')
 
-test_that('xPred', {
+forall(
+	"the predeccesor of an empty collection is an empty double",
+	test_cases$collection_zero,
+	xPred(coll) %equals% as.double(coll)
+)
 
-	expect_equal( xPred(1), 0 )
-	expect_equal( xPred(c(1, 0)), c(0, -1) )
-	expect_equal( xPred(list(1, 2)), c(0, 1) )
-	expect_equal( xPred(Inf), Inf )
-	expect_equal( xPred(-Inf), -Inf )
-})
+forall(
+	"the predeccesor is doubles",
+	test_cases$integers,
+	xPred(coll) %equals% as.double(coll - 1)
+)
+
+forall(
+	"infinity acts as an identity",
+	test_cases$infinity,
+	xPred(coll) %equals% as.double(coll)
+)
+
+message('arrow $ xPred')
+
+forall(
+	"arrow.xPred is doubles",
+	test_cases$infinity,
+	x_(coll)$xPred()$x() %equals% as.double(coll)
+)
+
+message('arrow $ xPred...')
+
+forall(
+	"arrow.xPred... is doubles",
+	test_cases$integers,
+	x_(coll)$xApply(xPred...)$x() %equals% as.double(coll - 1)
+)
