@@ -1,5 +1,5 @@
 
-#' xMapAlong
+#' xMapIndexed
 #'
 #' Apply a binary function to each element of a collection and its indices.
 #'
@@ -18,7 +18,7 @@
 #' @example inst/examples/blank.R
 #' @export
 
-xMapAlong <- function (fn, coll) {
+xMapIndexed <- function (fn, coll) {
 	# (integer -> any -> any) -> Collection any -> [any]
 
 	parent_call <- sys.call()
@@ -58,6 +58,6 @@ xMapAlong <- function (fn, coll) {
 
 #' @export
 
-xMapAlong... <- function (fn, ...) {
-	xMapAlong(fn, list(...))
+xMapIndexed... <- function (fn, ...) {
+	xMapIndexed(fn, list(...))
 }

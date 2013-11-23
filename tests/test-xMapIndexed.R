@@ -1,5 +1,5 @@
 
-message("xMapAlong")
+message("xMapIndexed")
 
 forall(
 	"mapalong the empty collection always yields the empty list.",
@@ -9,7 +9,7 @@ forall(
 		},
 		coll = G$collection_zero
 	),
-	xMapAlong(fn, coll) %equals% list()
+	xMapIndexed(fn, coll) %equals% list()
 )
 
 forall(
@@ -20,7 +20,7 @@ forall(
 		},
 		coll = G$collection
 	),
-	xMapAlong(fn, coll) %equals% as.list(seq_along(coll))
+	xMapIndexed(fn, coll) %equals% as.list(seq_along(coll))
 )
 
 forall(
@@ -31,31 +31,31 @@ forall(
 		},
 		coll = G$collection
 	),
-	xMapAlong(fn, coll) %equals% as.list(coll)
+	xMapIndexed(fn, coll) %equals% as.list(coll)
 )
 
 forall(
 	"mapalong's can increment correctly.",
 	G$standard$inc2_over_ints,
-	all( unlist(xMapAlong(fn, coll)) == unlist(coll) + 1 )
+	all( unlist(xMapIndexed(fn, coll)) == unlist(coll) + 1 )
 )
 
 
-message("arrow $ xMapAlong")
+message("arrow $ xMapIndexed")
 
 forall(
-	"collection.xMapAlong increments correctly.",
+	"collection.xMapIndexed increments correctly.",
 	G$standard$inc2_over_ints,
 	{
-		all( unlist(x_(coll)$xMapAlong(fn)$x()) == unlist(coll) + 1 )
+		all( unlist(x_(coll)$xMapIndexed(fn)$x()) == unlist(coll) + 1 )
 	}
 )
 
 forall(
-	"function.xMapAlong increments correctly.",
+	"function.xMapIndexed increments correctly.",
 	G$standard$inc2_over_ints,
 	{
-		all( unlist(x_(fn)$xMapAlong(coll)$x()) == unlist(coll) + 1 )
+		all( unlist(x_(fn)$xMapIndexed(coll)$x()) == unlist(coll) + 1 )
 	}
 )
 

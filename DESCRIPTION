@@ -56,7 +56,7 @@ Collate:
     'xLocatel.R'
     'xLocater.R'
     'xMap.R'
-    'xMapAlong.R'
+    'xMapIndexed.R'
     'xMapMany.R'
     'xMapWhen.R'
     'xMinusLift.R'

@@ -1,10 +1,10 @@
 
-bench_xMapAlong <- function (N) {
+bench_xMapIndexed <- function (N) {
 
 	time_profile(
 		free =
 			function () {
-				xMapAlong(function (val, ind) {}, seq_len(N))
+				xMapIndexed(function (val, ind) {}, seq_len(N))
 			},
 		control =
 			function () {

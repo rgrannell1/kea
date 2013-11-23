@@ -3,7 +3,7 @@
 id <- c()
 id <- c()
 
-xMapAlong(
+xMapIndexed(
 	function (id, index) {
 		c()
 	},

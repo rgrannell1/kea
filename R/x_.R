@@ -729,13 +729,13 @@ x_coll_proto <- local({
 			x_( xMap...(fn, self_(), ...) )
 		}
 
-	this$xMapAlong <-
+	this$xMapIndexed <-
 		function (fn) {
-			x_( xMapAlong(fn, self_()) )
+			x_( xMapIndexed(fn, self_()) )
 		}
-	this$xMapAlong... <-
+	this$xMapIndexed... <-
 		function (fn, ...) {
-			x_( xMapAlong...(fn, self_(), ...) )
+			x_( xMapIndexed...(fn, self_(), ...) )
 		}
 
 	this$xMapMany <-
@@ -1403,13 +1403,13 @@ x_fn_proto <- local({
 			x_( xMap...(self_(), ...) )
 		}
 
-	this$xMapAlong <-
+	this$xMapIndexed <-
 		function (coll) {
-			x_( xMapAlong(self_(), coll) )
+			x_( xMapIndexed(self_(), coll) )
 		}
-	this$xMapAlong... <-
+	this$xMapIndexed... <-
 		function (...) {
-			x_( xMapAlong...(self_(), ...) )
+			x_( xMapIndexed...(self_(), ...) )
 		}
 
 	this$xMapMany <-

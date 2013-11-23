@@ -3,7 +3,7 @@ message("xReject")
 
 forall(
 	"the empty collection always yields the empty list.",
-	list(fn = G$logical_functions, coll = G$collection_zero),
+	G$standard$logical_with_collection_zero,
 	xReject(fn, coll) %equals% list()
 )
 

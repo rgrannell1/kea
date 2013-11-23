@@ -1,9 +1,157 @@
 
-# -------------------------------- G -------------------------------- #
-#
-# this structure contains random-testcase generating thunks.
-# these are primarily going to be used for forall-based testing.
-#
+atoms <- local({
+
+	this <- object()
+
+	# --------------------- Boolean --------------------- #
+
+	this$true <-
+		function () {
+			True
+		}
+	this$false <-
+		function () {
+			False
+		}
+	this$na <-
+		function () {
+			Na
+		}
+
+	# multiple logical values.
+
+	this$boolean <-
+		function () {
+			one_of(c(True, False))
+		}
+	this$logical <-
+		function () {
+			one_of(c(True, False, Na))
+		}
+
+	# single logical functions.
+
+	this$truth <-
+		function () {
+			function (...) True
+		}
+	this$falsity <-
+		function () {
+			function (...) False
+		}
+	this$moot <-
+		function () {
+			function (...) Na
+		}
+
+	# multiple logical functions.
+
+	this$logical_function <-
+		function () {
+			one_of(
+				function () True,
+				function () False,
+				function () Na
+			)
+		}
+
+	this$boolean_function <-
+		function () {
+			one_of(
+				function () True,
+				function () False
+			)
+		}
+
+	# --------------------- Infinity --------------------- #
+
+	this$positive_infinity <-
+		function () {
+			+Inf
+		}
+
+	this$negative_infinity <-
+		function () {
+			-Inf
+		}
+
+	# multiple logical values.
+
+	this$infinity <-
+		function () {
+			one_of(c(-Inf, +Inf))
+		}
+
+	# --------------------- Number --------------------- #
+
+	# integers.
+
+	this$integer <-
+		function (sd = 20) {
+			function () {
+				round(rnorm(1, 0, sd), 0)
+			}
+		}
+	this$nonnegative_integer <-
+		function (sd = 20) {
+			function () {
+				abs(round(rnorm(1, 0, sd), 0))
+			}
+		}
+	this$positive_integer <-
+		function (sd = 20) {
+			function () {
+				abs(round(rnorm(1, 0, sd), 0)) + 1
+			}
+		}
+
+	# --------------------- Character --------------------- #
+
+	this$letter <-
+		function () {
+			one_of(letters)
+		}
+
+	this$word <-
+		function (sd = 20) {
+			function () {
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				paste0(
+					sample(letters, size = size, replace = True),
+					collapse = "")
+			}
+		}
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 G <- local({
 
@@ -13,12 +161,7 @@ G <- local({
 	# creating generators.
 	#
 
-	one_of <- function (coll) {
-		# select a single value from a collection.
 
-		ith <- sample(seq_along(coll), size = 1)
-		coll[[ith]]
-	}
 
 	combine <- function (...) {
 		# combine several thunks into one thunk, that
@@ -74,67 +217,10 @@ G <- local({
 
 	# -------- letters -------- #
 
-	this$letter <-
-		function () {
-			one_of(letters)
-		}
+
 
 	# -------- logical values -------- #
 
-	this$true <-
-		function () {
-			True
-		}
-	this$false <-
-		function () {
-			False
-		}
-	this$na <-
-		function () {
-			Na
-		}
-	this$logical <-
-		function () {
-			one_of(c(True, False, Na))
-		}
-
-	this$positive_infinity <-
-		function () {
-			+Inf
-		}
-
-	this$negative_infinity <-
-		function () {
-			-Inf
-		}
-	this$infinity <-
-		combine(
-			this$positive_infinity,
-			this$negative_infinity)
-
-	# -------- logical functions -------- #
-
-	this$truth <-
-		function () {
-			function (...) True
-		}
-	this$falsity <-
-		function () {
-			function (...) False
-		}
-	# beats 'nonapplicability'.
-	this$mu <-
-		function () {
-			function (...) Na
-		}
-
-	this$boolean_functions <-
-		combine(
-			this$truth, this$falsity)
-
-	this$logical_functions <-
-		combine(
-			this$boolean_functions, this$mu)
 
 	# ---------------- parameterised functions ---------------- #
 	#
@@ -146,36 +232,9 @@ G <- local({
 
 	# -------- number functions -------- #
 
-	this$integer <-
-		function (sd = 20) {
-			function () {
-				round(rnorm(1, 0, sd), 0)
-			}
-		}
-	this$nonnegative <-
-		function (sd = 20) {
-			function () {
-				abs(round(rnorm(1, 0, sd), 0))
-			}
-		}
-	this$positive <-
-		function (sd = 20) {
-			function () {
-				abs(round(rnorm(1, 0, sd), 0)) + 1
-			}
-		}
+
 	# -------- character functions -------- #
 
-	this$word <-
-		function (sd = 20) {
-			function () {
-				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
-
-				paste0(
-					sample(letters, size = size, replace = True),
-					collapse = "")
-			}
-		}
 
 	# -------- empty data structures -------- #
 
@@ -298,6 +357,12 @@ G <- local({
 			function () {
 				list(fn = G$mu, coll = G$collection)
 			}
+
+		this$logical_with_collection_zero <-
+			list(
+				fn = G$logical_functions,
+				coll = G$collection_zero
+			)
 
 		this$coll <-
 			function () {

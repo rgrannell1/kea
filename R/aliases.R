@@ -16,6 +16,13 @@ Moot <- function (...) {
 	Na
 }
 
+one_of <- function (coll) {
+	# select a single value from a collection.
+
+	ith <- sample(seq_along(coll), size = 1)
+	coll[[ith]]
+}
+
 object <- function () {
 	# construct an empty environment.
 
