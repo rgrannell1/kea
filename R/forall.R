@@ -54,19 +54,19 @@ atoms <- local({
 
 	this$logical_function <-
 		function () {
-			one_of(
+			one_of(list(
 				function () True,
 				function () False,
 				function () Na
-			)
+			))
 		}
 
 	this$boolean_function <-
 		function () {
-			one_of(
+			one_of(list(
 				function () True,
 				function () False
-			)
+			))
 		}
 
 	# --------------------- Infinity --------------------- #
@@ -214,7 +214,7 @@ compounds <- local({
 
 	this$vector_zero <-
 		function () {
-			one_of(list(
+			one_of( list(
 				integer(), character(),
 				raw(), logical(), numeric()) )
 		}
@@ -236,9 +236,9 @@ compounds <- local({
 		function (sd = 20) {
 			function () {
 
-				one_of(
+				one_of( list(
 					function () character(),
-					as_coll$vector_of(atoms$word, sd))(  )
+					as_coll$vector_of(atoms$word, sd)) )(  )
 			}
 		}
 
@@ -246,9 +246,9 @@ compounds <- local({
 		function (sd = 20) {
 			function () {
 
-				one_of(
+				one_of( list(
 					function () integer(),
-					as_coll$vector_of(atoms$integer, sd))(  )
+					as_coll$vector_of(atoms$integer, sd)) )(  )
 			}
 		}
 
@@ -256,9 +256,9 @@ compounds <- local({
 		function (sd = 20) {
 			function () {
 
-				one_of(
+				one_of( list(
 					function () logical(),
-					as_coll$vector_of(atoms$logical, sd))(  )
+					as_coll$vector_of(atoms$logical, sd)) )(  )
 			}
 		}
 
@@ -273,7 +273,7 @@ compounds <- local({
 		}
 
 	this$collection <-
-		function (sd) {
+		function (sd = 20) {
 
 			as.list(one_of(list(
 				this$words(sd),
@@ -308,8 +308,6 @@ test_cases <- local({
 
 	this <- object()
 
-	this$empty <-
-		list(coll = G$collection_zero)
 
 	this$mod2_over_ints <-
 		list(
@@ -320,6 +318,16 @@ test_cases <- local({
 			coll =
 				compounds$integers()
 		)
+
+	this$succ_over_ints <-
+		list(
+			fn = function () {
+				function (x) x + 1
+			},
+			coll = compounds$integers())
+
+	# --------------------- Logical-Fun + Coll --------------------- #
+
 	this$truth_with_coll <-
 		list(
 			fn = atoms$truth,
@@ -330,84 +338,33 @@ test_cases <- local({
 			fn = atoms$falsity,
 			coll = compounds$collection)
 
-	this$moot_with_coll <-
+	this$moot_with_collection <-
 		list(
-			fn = atoms$mu,
+			fn = atoms$moot,
 			coll = compounds$collection)
 
-	this$inc_over_ints <-
+	this$logical_functions_with_collection_zero <-
 		list(
-			fn = function () {
-				function (x) x + 1
-			},
-			coll = compounds$integers())
+			fn = atoms$logical_functions,
+			coll = compounds$collection_zero
+		)
 
+	# --------------------- Coll-Only --------------------- #
 
+	this$collection_zero <-
+		list(coll = compounds$collection_zero)
 
+	this$collection <-
+		list(coll = compounds$collection())
 
-	this
-})
+	this$integers <-
+		list(coll = compounds$integers())
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-G <- local({
-
-	this$standard <- local({
-
-		this <- list()
-
-
-
-
-
-
-
-		this$logical_with_collection_zero <-
-			list(
-				fn = G$logical_functions,
-				coll = G$collection_zero
-			)
-
-		this$coll <-
-			function () {
-				list(coll = G$collection())
-			}
-
-		this$two_colls <-
-			function () {
-				list(coll1 = G$collection(), coll2 = G$collection())
-			}
-
-		this$two_colls_left_empty <-
-			function () {
-				list(coll1 = G$collection_zero, coll2 = G$collection())
-			}
-
-		this$two_colls_right_empty <-
-			function () {
-				list(coll1 = G$collection(), coll2 = G$collection_zero)
-			}
-		this
-	})
-
+	this$infinity <-
+		list(coll = atoms$infinity)
 
 	this
 })
-
-
 
 
 
