@@ -22,7 +22,7 @@ xJuxtapose <- function (fns) {
 
 	parent_call <- sys.call()
 
-	fns <- lapply(list(fns), dearrowise)
+	fns <- lapply(fns, dearrowise)
 
 	assert(
 		is_recursive(fns), parent_call,
@@ -30,7 +30,7 @@ xJuxtapose <- function (fns) {
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), parent_call,
-		exclaim$must_be_recursive_of_matchable("..."))
+		exclaim$must_be_recursive_of_matchable("fns"))
 
 	fns <- lapply(fns, match.fun)
 

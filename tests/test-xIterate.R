@@ -22,7 +22,7 @@ forall(
 message("arrow $ xIterate")
 
 forall(
-	"incrementing to a value works",
+	"function $ xIterate",
 	test_cases$num_positive_integer,
 	x_(
 		function (n) {

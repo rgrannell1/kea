@@ -319,7 +319,7 @@ test_cases <- local({
 				compounds$integers()
 		)
 
-	this$succ_over_ints <-
+	this$succ_over_integers <-
 		list(
 			fn = function () {
 				function (x) x + 1

@@ -3,28 +3,36 @@ message("xJuxtapose")
 
 forall(
 	"juxtaposing preserves identities within the list",
-	list(val = G$integers()),
-	xJuxtapose(identity)(val) %equals% list(val)
+	test_cases$num_positive_integer,
+	xJuxtapose(list(identity))(num) %equals% list(num)
 )
 
 forall(
 	"juxtaposing can apply multiple functions",
-	list(val = G$integers()),
-	xJuxtapose(identity, identity)(val) %equals% list(val, val)
+	test_cases$num_positive_integer,
+	xJuxtapose(list(identity, identity))(num) %equals% list(num, num)
 )
 
 forall(
 	"juxtaposing works with incrementing",
-	G$standard$inc_over_ints(),
-	xJuxtapose(fn)(coll) %equals% coll + 1
+	test_cases$succ_over_integers,
+	xJuxtapose(list(fn))(coll) %equals% list(coll + 1)
 )
 
 message("arrow $ xJuxtapose")
 
 forall(
-	"fn $ xJuxtapose",
-	G$standard$inc_over_ints(),
+	"collection $ xJuxtapose",
+	test_cases$succ_over_integers,
 	{
-		x_(fn)$xJuxtapose()$x()(coll) %equals% coll + 1
+		x_(list(fn))$xJuxtapose()$x()(coll) %equals% coll + 1
+	}
+)
+
+forall(
+	"fn $ xJuxtapose...",
+	test_cases$succ_over_integers,
+	{
+		x_(fn)$xJuxtapose...()$x()(coll) %equals% coll + 1
 	}
 )
