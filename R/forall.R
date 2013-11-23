@@ -1,4 +1,9 @@
 
+
+
+
+
+
 atoms <- local({
 	# functions that generate a single value.
 
@@ -134,9 +139,19 @@ atoms <- local({
 })
 
 
-combinators <- local({
+
+
+
+
+
+
+
+
+as_coll <- local({
 	# combine atomic generators into generators
 	# for a collections of atoms
+
+	this <- object()
 
 	this$vector_of <-
 		function (fn, sd = 20) {
@@ -171,6 +186,9 @@ combinators <- local({
 	this
 
 })
+
+
+
 
 
 
@@ -212,8 +230,68 @@ compounds <- local({
 			))
 		}
 
+	# --------------------- Typed Vectors --------------------- #
 
+	this$words <-
+		function (sd = 20) {
+			function () {
 
+				one_of(
+					function () character(),
+					as_coll$vector_of(atoms$word, sd))(  )
+			}
+		}
+
+	this$integers <-
+		function (sd = 20) {
+			function () {
+
+				one_of(
+					function () integer(),
+					as_coll$vector_of(atoms$integer, sd))(  )
+			}
+		}
+
+	this$logicals <-
+		function (sd = 20) {
+			function () {
+
+				one_of(
+					function () logical(),
+					as_coll$vector_of(atoms$logical, sd))(  )
+			}
+		}
+
+	this$vector <-
+		function (sd) {
+
+			one_of(list(
+				this$words(sd),
+				this$integers(sd),
+				this$logicals(sd)
+			))(  )
+		}
+
+	this$collection <-
+		function (sd) {
+
+			as.list(one_of(list(
+				this$words(sd),
+				this$integers(sd),
+				this$logicals(sd)
+			))(  ))
+		}
+
+	# --------------------- Special Collections --------------------- #
+
+	this$integer_seq <-
+		function (sd = 20) {
+			function () {
+
+				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				seq_len(size)
+			}
+		}
 
 	this
 
@@ -221,11 +299,53 @@ compounds <- local({
 
 
 
+
+
+
+
 test_cases <- local({
+	# pre-approved test cases.
 
 	this <- object()
 
+	this$empty <-
+		list(coll = G$collection_zero)
 
+	this$mod2_over_ints <-
+		list(
+			fn =
+				function () {
+					function (num) num %% 2 == 0
+				},
+			coll =
+				compounds$integers()
+		)
+	this$truth_with_coll <-
+		list(
+			fn = atoms$truth,
+			coll = compounds$collection)
+
+	this$falsity_with_coll <-
+		list(
+			fn = atoms$falsity,
+			coll = compounds$collection)
+
+	this$moot_with_coll <-
+		list(
+			fn = atoms$mu,
+			coll = compounds$collection)
+
+	this$inc_over_ints <-
+		list(
+			fn = function () {
+				function (x) x + 1
+			},
+			coll = compounds$integers())
+
+
+
+
+	this
 })
 
 
@@ -245,143 +365,15 @@ test_cases <- local({
 
 G <- local({
 
-	# ---------------- accessory functions ---------------- #
-	#
-	# functions that combine generators, or are generally useful for
-	# creating generators.
-	#
-
-
-
-	this <- list()
-
-	# ---------------- non-parameterised functions ---------------- #
-
-	# -------- letters -------- #
-
-
-
-	# -------- logical values -------- #
-
-
-	# ---------------- parameterised functions ---------------- #
-	#
-	# these function generators need additional parameters to
-	# construct their return function. This usually includes
-	# the standard deviation of the length or magnitude of
-	# their ultimate return value.
-	#
-
-	# -------- number functions -------- #
-
-
-	# -------- character functions -------- #
-
-
-	# -------- empty data structures -------- #
-
-
-	# -------- collection functions -------- #
-	#
-	# this functions take length-one and length-zero generators,
-	# and combine them to create vectors of arbitrary length and/or/depth.
-	#
-
-	# -------- typed vectors -------- #
-
-	this$words <-
-		function (sd = 20) {
-			combine(
-				vector_of(this$word, sd),
-				function () character())
-		}
-
-	this$integers <-
-		function (sd = 20) {
-			combine(
-				vector_of(this$integer, sd),
-				function () integer())
-		}
-
-	this$logicals <-
-		function (sd = 20) {
-			combine(
-				vector_of(this$logical_functions, sd),
-				function () logical())
-		}
-
-	this$vector <-
-		combine(
-			this$words, this$integers, this$logicals)
-
-	# -------- generic vectors -------- #
-
-	this$to_recursive <-
-		function () {
-			one_of(list(as.list, as.pairlist))
-		}
-
-	this$collection <-
-		this$vector
-
-	this$integer_seq <-
-		function (sd = 20) {
-			function () {
-
-				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
-				seq_len(size)
-			}
-		}
-
-	# -------- standard -------- #
-	#
-	# this structure contains 'pre-approved' test cases for reuse
-	# between different functions. It is important that shared
-	# test-case generators are used, to reduce the points of failure for
-	# each unit test.
-	#
-
 	this$standard <- local({
 
 		this <- list()
 
-		this$empty <-
-			function () {
-				list(coll = G$collection_zero)
-			}
-		this$mod2_over_ints <-
-			function () {
-				list(
-					fn =
-						function () function (n) n %% 2 == 0,
-					coll =
-						G$integers()
-				)
-			}
 
-		this$inc_over_ints <-
-			function () {
-				list(
-					fn = function () {
-						function (x) x + 1
-					},
-					coll = G$integers())
-			}
 
-		this$truth_with_coll <-
-			function () {
-				list(fn = G$truth, coll = G$collection)
-			}
 
-		this$falsity_with_coll <-
-			function () {
-				list(fn = G$falsity, coll = G$collection)
-			}
 
-		this$mu_with_coll <-
-			function () {
-				list(fn = G$mu, coll = G$collection)
-			}
+
 
 		this$logical_with_collection_zero <-
 			list(
