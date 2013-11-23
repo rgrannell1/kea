@@ -1,5 +1,6 @@
 
 atoms <- local({
+	# functions that generate a single value.
 
 	this <- object()
 
@@ -107,10 +108,14 @@ atoms <- local({
 
 	# --------------------- Character --------------------- #
 
+	# single letters.
+
 	this$letter <-
 		function () {
 			one_of(letters)
 		}
+
+	# single words.
 
 	this$word <-
 		function (sd = 20) {
@@ -125,6 +130,45 @@ atoms <- local({
 
 
 
+	this
+})
+
+
+combinators <- local({
+	# combine atomic generators into generators
+	# for a collections of atoms
+
+	this$vector_of <-
+		function (fn, sd = 20) {
+			function () {
+
+				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				coll <- vector()
+				while (length(coll) < len) {
+					val <- fn()()
+					coll <- c(coll, val)
+				}
+				coll
+			}
+		}
+
+	this$list_of <-
+		function (fn, sd = 20) {
+			function () {
+
+				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				coll <- list()
+				while (length(coll) < len) {
+					val <- list( fn()[[ 1 ]] )
+					coll <- c(coll, val)
+				}
+				coll
+			}
+		}
+
+	this
 
 })
 
@@ -133,10 +177,56 @@ atoms <- local({
 
 
 
+compounds <- local({
+	# functions that return vectors and recursive data types.
+	# these collections themselves are generated using
+	# the atomic generator functions.
+
+	this <- object()
+
+	# --------------------- Empty Collections --------------------- #
+
+	# empty recursive structures.
+
+	this$recursive_zero <-
+		function () {
+			one_of( list(Null, list()) )
+		}
+	# empty vectors.
+
+	this$vector_zero <-
+		function () {
+			one_of(list(
+				integer(), character(),
+				raw(), logical(), numeric()) )
+		}
+
+	# empty vectors or recursives.
+
+	this$collection_zero <-
+		function () {
+			one_of(list(
+				Null, list(), integer(),
+				character(), logical(),
+				raw(), numeric()
+			))
+		}
 
 
 
 
+	this
+
+})
+
+
+
+test_cases <- local({
+
+	this <- object()
+
+
+})
 
 
 
@@ -162,54 +252,6 @@ G <- local({
 	#
 
 
-
-	combine <- function (...) {
-		# combine several thunks into one thunk, that
-		# yields one of the underlying thunks. thunk thunk thunk.
-
-		fns <- list(...)
-
-		function () {
-
-			assert(
-				all( sapply(fns, is.function) ), parent_call,
-				lament$non_function_cases(info))
-			one_of(fns)()
-
-		}
-	}
-
-	vector_of <- function (fn, sd = 20) {
-		function () {
-			# given a generator for a single element,
-			# generate a vector of elements.
-
-			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
-
-			coll <- vector()
-			while (length(coll) < len) {
-				val <- fn()()
-				coll <- c(coll, val)
-			}
-			coll
-		}
-	}
-
-	list_of <- function (fn, sd = 20) {
-		function () {
-			# given a generator for a single list element,
-			# generate a list of elements.
-
-			len <- abs(round(rnorm(1, 0, sd), 0)) + 1
-
-			coll <- list()
-			while (length(coll) < len) {
-				val <- list( fn()[[ 1 ]] )
-				coll <- c(coll, val)
-			}
-			coll
-		}
-	}
 
 	this <- list()
 
@@ -238,23 +280,6 @@ G <- local({
 
 	# -------- empty data structures -------- #
 
-	this$recursive_zero <-
-		function () {
-			one_of( list(Null, list()) )
-		}
-
-	this$vector_zero <-
-		function () {
-			one_of(
-				list(
-					integer(), character(),
-					raw(), logical(), numeric()) )
-		}
-
-	this$collection_zero <-
-		combine(
-			this$vector_zero,
-			this$recursive_zero)
 
 	# -------- collection functions -------- #
 	#
