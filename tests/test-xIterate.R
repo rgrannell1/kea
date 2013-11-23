@@ -3,27 +3,31 @@ message("xIterate")
 
 forall(
 	"Return is the identity function",
-	list(init = G$integers()),
-	xIterate(function (n) Return(n), init) %equals% init
+	test_cases$num_positive_integer,
+	xIterate(function (n) Return(n), num) %equals% num
 )
 
 forall(
 	"incrementing to a value works",
-	list(upper = G$positive()),
+	test_cases$num_positive_integer,
 	xIterate(
 		function (n) {
-			if (n == upper) Return(n) else n + 1
+			if (n == num) Return(n) else n + 1
 		},
-		0) %equals% upper
+		0) %equals% num,
+	given =
+		length(num) > 0
 )
 
 message("arrow $ xIterate")
 
 forall(
-	"function $ xIterate",
-	list(upper = G$positive()),
-
-	x_( function (n) if (n == upper) Return(n) else n + 1)$
-	xIterate(0) %equals% upper
+	"incrementing to a value works",
+	test_cases$num_positive_integer,
+	x_(
+		function (n) {
+			if (n == num) Return(n) else n + 1
+		})$xIterate(0)$x() %equals% num,
+	given =
+		length(num) > 0
 )
-

@@ -275,11 +275,11 @@ compounds <- local({
 	this$collection <-
 		function (sd = 20) {
 
-			as.list(one_of(list(
+			one_of(list(
 				this$words(sd),
 				this$integers(sd),
 				this$logicals(sd)
-			))(  ))
+			))(  )
 		}
 
 	# --------------------- Special Collections --------------------- #
@@ -363,13 +363,19 @@ test_cases <- local({
 		list(coll = compounds$collection_zero)
 
 	this$collection <-
-		list(coll = compounds$collection())
+		list(coll = compounds$collection)
 
 	this$integers <-
 		list(coll = compounds$integers())
 
 	this$infinity <-
 		list(coll = atoms$infinity)
+
+	# --------------------- num-Only --------------------- #
+
+	this$num_positive_integer <-
+		list(num = atoms$positive_integer())
+
 
 	this
 })

@@ -1348,8 +1348,8 @@ x_fn_proto <- local({
 			x_( xIsVariadic(self_()) )
 		}
 	this$xIterate <-
-		function (iter) {
-			x_( xIterate(self_(), iter) )
+		function (init) {
+			x_( xIterate(self_(), init ) )
 		}
 	# -------- J ------- #
 	this$xJuxtapose <-

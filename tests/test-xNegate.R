@@ -1,6 +1,9 @@
 
 message('xNegate')
 
+assert(
+	xNegate(c(-1, 0, +1)) %equals% c(+1, 0, -1) )
+
 forall(
 	'the negation of the empty collection is double.',
 	test_cases$collection_zero,
