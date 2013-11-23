@@ -85,4 +85,10 @@ xReducel... <- function (fn, ...) {
 	xReduce(fn, list(...))
 }
 
+#' @export
+
 xReduce... <- xReducel...
+
+#' @export
+
+'%(+)%' <- xReducel

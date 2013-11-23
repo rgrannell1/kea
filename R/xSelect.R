@@ -65,13 +65,8 @@ xSelect <- function (pred, coll) {
 
 xFilter <- xSelect
 
-
-
-
-
-
+#' @export
 
 xSelect... <- function (pred, ...) {
 	do.call(xSelect, list(pred, list(...)))
 }
-
