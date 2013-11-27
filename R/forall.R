@@ -133,8 +133,6 @@ atoms <- local({
 			}
 		}
 
-
-
 	this
 })
 
@@ -161,7 +159,7 @@ as_coll <- local({
 
 				coll <- vector()
 				while (length(coll) < len) {
-					val <- fn()()
+					val <- fn()
 					coll <- c(coll, val)
 				}
 				coll

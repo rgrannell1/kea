@@ -91,6 +91,7 @@ assert <- function (expr, parent_call, message) {
 ith_suffix <- function (num) {
 	# takes a number i, adds the
 	# appropriate suffix (ith, ind, ist)
+	# useful for error messages.
 
 	last <- as.numeric(substr(
 		toString(num),
@@ -180,6 +181,8 @@ coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
 	# to another mode, if the vector is homogenously typed.
 	# this makes list("a") ~ "a", making arrow more generic.
 
+	coll_symbol <- match.call()$coll
+
 	types <- list(
 		logical =
 			is.logical,
@@ -199,7 +202,7 @@ coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
 	is_homogenous <- all(sapply(coll, type_test))
 
 	if (!is_homogenous) {
-		stop(exclaim$type_coersion_failed(coll, mode))
+		stop(exclaim$type_coersion_failed(coll_symbol, mode))
 	}
 
 	coll <- as.vector(coll, mode)

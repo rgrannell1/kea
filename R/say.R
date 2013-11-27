@@ -186,7 +186,7 @@ exclaim <- list(
 	type_coersion_failed =
 		function (param, mode) {
 
-			param <- paste(match.call()$param)
+			# does not match param; param is handed in as a symbol.
 
 			"the arguments matching " %+% param %+%
 			" must be a list or pairlist of " %+% mode %+% "s" %+%
