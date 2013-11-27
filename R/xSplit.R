@@ -38,7 +38,7 @@ xSplit <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- coerce_to_typed_vector(num, "numeric", True)
+	num <- as_typed_vector(num, "numeric", True)
 
 	assert(
 		length(num) %in% 0:1,

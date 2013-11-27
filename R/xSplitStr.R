@@ -31,8 +31,8 @@ xSplitStr <- function (rexp, str) {
 	rexp <- dearrowise(rexp)
 	str <- dearrowise(str)
 
-	str <- coerce_to_typed_vector(str, "character", True)
-	rexp <- coerce_to_typed_vector(rexp, "character", True)
+	str <- as_typed_vector(str, "character", True)
+	rexp <- as_typed_vector(rexp, "character", True)
 
 	assert(
 		length(rexp) %in% 0:1,

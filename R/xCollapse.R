@@ -32,14 +32,14 @@ xCollapse <- function (str, strs) {
 		is_collection(str), parent_call,
 		exclaim$must_be_collection(str))
 
-	str <- coerce_to_typed_vector(
+	str <- as_typed_vector(
 		str, 'character', True)
 
 	assert(
 		is_collection(strs), parent_call,
 		exclaim$must_be_collection(strs))
 
-	strs <- coerce_to_typed_vector(
+	strs <- as_typed_vector(
 		strs, 'character')
 
 	assert(

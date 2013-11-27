@@ -45,7 +45,7 @@ xAssoc <- function (colls) {
 			function (coll) {
 
 				key <- coll[[1]]
-				key <- coerce_to_typed_vector(key, "character")
+				key <- as_typed_vector(key, "character")
 
 				assert(
 					length(key) == 1, parent_call,

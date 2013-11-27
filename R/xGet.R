@@ -34,7 +34,7 @@ xGet <- function (str) {
 		length(str) %in% 0:1, parent_call,
 		exclaim$must_have_length( str, 0:1) )
 
-	str <- coerce_to_typed_vector(str, 'character', True)
+	str <- as_typed_vector(str, 'character', True)
 
 	function (coll) {
 		unname(as.list( coll )[names(coll) == str])

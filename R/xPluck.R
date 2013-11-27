@@ -34,7 +34,7 @@ xPluck <- function (str, coll) {
 	str <- dearrowise(str)
 	coll <- dearrowise(coll)
 
-	str <- coerce_to_typed_vector(str, "character", True)
+	str <- as_typed_vector(str, "character", True)
 
 	assert(
 		length(str) == 1, parent_call,

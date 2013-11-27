@@ -35,7 +35,7 @@ xName <- function (strs, coll) {
 		is_collection(strs), parent_call,
 		exclaim$must_be_collection(strs))
 
-	strs <- coerce_to_typed_vector(strs, 'character')
+	strs <- as_typed_vector(strs, 'character')
 
 	assert(
 		length(strs) == length(coll), parent_call,

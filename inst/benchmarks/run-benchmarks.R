@@ -6,7 +6,7 @@ if (Sys.info()["user"] == "ryan") {
 
 	suffix_regex <- "^bench[-][^-]+[^.]+[.][rR]"
 
-	path <- "/home/ryan/Code/Arrow/arrow-clean/inst/benchmarks"
+	path <- "/home/ryan/Code/Arrow/arrow/inst/benchmarks"
 
 	all_benchmarks <- paste0(path, "/", list.files(
 		path,

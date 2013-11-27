@@ -25,7 +25,7 @@ xChars <- function (str) {
 		exclaim$parameter_missing(str))
 
 	str <- dearrowise(str)
-	str <- coerce_to_typed_vector(str, 'character')
+	str <- as_typed_vector(str, 'character')
 
 	assert(
 		length(str) %in% 0:1, parent_call,

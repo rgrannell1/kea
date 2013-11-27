@@ -30,7 +30,7 @@ xVal <- function (str, val) {
 		exclaim$parameter_missing(val))
 
 	str <- toString(match.call()$str)
-	str <- coerce_to_typed_vector(str, 'character', True)
+	str <- as_typed_vector(str, 'character', True)
 
 	if (exists(str, envir = parent_frame)) {
 		assert(

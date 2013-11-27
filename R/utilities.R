@@ -44,6 +44,11 @@ call_with_params <- function (name, fn) {
 			as.symbol))
 }
 
+"%+%" <- function (x, y) {
+	# javascript-style string concatenation.
+
+	paste0(x, y, sep = "")
+}
 
 # --------------------- environment manipulation --------------------- #
 
@@ -128,7 +133,7 @@ as_parametres <- function (names) {
 	)
 }
 
-coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
+as_typed_vector <- function (coll, mode, value_unit = False) {
 	# coerces an R vector (pairlist, list, or typed vector)
 	# to another mode, if the vector is homogenously typed.
 	# this makes list("a") ~ "a", making arrow more generic.
@@ -243,10 +248,4 @@ ith_suffix <- function (num) {
 		}
 
 	paste0(num, suffix)
-}
-
-"%+%" <- function (x, y) {
-	# javascript-style string concatenation.
-
-	paste0(x, y, sep = "")
 }

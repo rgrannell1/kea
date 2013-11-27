@@ -30,7 +30,7 @@ xNegate <- function (nums) {
 		is_collection(nums), parent_call,
 		exclaim$must_be_collection(nums))
 
-	nums <- coerce_to_typed_vector(nums, 'numeric')
+	nums <- as_typed_vector(nums, 'numeric')
 
 	if (length(nums) == 0) {
 		nums

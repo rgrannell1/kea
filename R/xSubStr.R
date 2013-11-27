@@ -31,8 +31,8 @@ xSubStr <- function (str, nums) {
 	str <- dearrowise(str)
 	nums <- dearrowise(nums)
 
-	str <- coerce_to_typed_vector(str, "character", True)
-	nums <- coerce_to_typed_vector(nums, "numeric", False)
+	str <- as_typed_vector(str, "character", True)
+	nums <- as_typed_vector(nums, "numeric", False)
 
 	assert(
 		length(str) < 2, parent_call,

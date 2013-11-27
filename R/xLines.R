@@ -27,7 +27,7 @@ xLines <- function (str) {
 		length(str) %in% 0:1, parent_call,
 		exclaim$must_have_length(0:1))
 
-	str <- coerce_to_typed_vector(str, 'character')
+	str <- as_typed_vector(str, 'character')
 
 	if (length(str) == 0) {
 		character(0)

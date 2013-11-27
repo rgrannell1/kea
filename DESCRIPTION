@@ -18,7 +18,7 @@ Suggests:
     testthat,
     microbenchmark
 Collate:
-    'aliases.R'
+    'utilities.R'
     'say.R'
     'xLambda.R'
     'xAndLift.R'
