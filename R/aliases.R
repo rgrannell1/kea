@@ -1,5 +1,5 @@
 
-# I don't want all caps to frighten timid users
+# --------------------- shorthand logical functions --------------------- #
 
 Null <- NULL
 Na <- NA
@@ -16,17 +16,14 @@ Moot <- function (...) {
 	Na
 }
 
+
+# --------------------- misc. tools --------------------- #
+
 one_of <- function (coll) {
 	# select a single value from a collection.
 
 	ith <- sample(seq_along(coll), size = 1)
 	coll[[ith]]
-}
-
-object <- function () {
-	# construct an empty environment.
-
-	new.env(parent = emptyenv())
 }
 
 '%equals%' <- function (a, b) {
@@ -35,15 +32,6 @@ object <- function () {
 	identical(a, b)
 }
 
-as_parametres <- function (names) {
-	# takes a string of names and converts them to
-	# a pairlist of formals with no defaults.
-
-	structure(
-		replicate(length(names), quote(expr=)),
-		names = names
-	)
-}
 
 call_with_params <- function (name, fn) {
 	# string -> function -> call
@@ -55,6 +43,145 @@ call_with_params <- function (name, fn) {
 			c(name, names(xFormals(fn)) ),
 			as.symbol))
 }
+
+
+# --------------------- environment manipulation --------------------- #
+
+object <- function () {
+	# construct an empty environment.
+
+	new.env(parent = emptyenv())
+}
+
+join_env <- function (x, y) {
+	# do not use this often; it's a very slow
+	# way of joining two environments.
+
+	if (missing(x)) {
+		exclaim$parameter_missing(x)
+	}
+	if (missing(y)) {
+		exclaim$parameter_missing(y)
+	}
+
+	as.environment( c(as.list( x ), as.list( y )) )
+}
+
+# --------------------- the arrow container --------------------- #
+
+is_arrow <- function (val) {
+	# is a function an arrow object?
+
+	if (missing(val)) {
+		exclaim$parameter_missing(val)
+	}
+
+	class(val) == "arrow"
+}
+
+dearrowise <- function (val) {
+	# if a value is in an arrow object, take it out.
+	# otherwise do nothing.
+
+	if (is_arrow(val)) {
+		val$x()
+	} else {
+		val
+	}
+}
+
+
+
+
+# --------------------- property tests --------------------- #
+
+is_fn_matchable <- function (val) {
+	# is a value a function or matchable as a function?
+
+	is.function(val) || is.symbol(val) ||
+	(is.character(val) && length(val) == 1)
+}
+
+is_collection <- function (val) {
+	# is a value a pairlist, list or typed vector?
+
+	is.vector(val) || is.pairlist(val)
+}
+
+is_recursive <- function (val) {
+	is.list(val) || is.pairlist(val)
+}
+
+
+
+
+
+# --------------------- coercion functions --------------------- #
+
+as_parametres <- function (names) {
+	# takes a string of names and converts them to
+	# a pairlist of formals with no defaults.
+
+	structure(
+		replicate(length(names), quote(expr=)),
+		names = names
+	)
+}
+
+coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
+	# coerces an R vector (pairlist, list, or typed vector)
+	# to another mode, if the vector is homogenously typed.
+	# this makes list("a") ~ "a", making arrow more generic.
+
+	coll_symbol <- match.call()$coll
+
+	types <- list(
+		logical =
+			is.logical,
+		integer =
+			is.integer,
+		double =
+			is.double,
+		numeric =
+			is.numeric,
+		character =
+			is.character,
+		raw =
+			is.raw
+	)
+
+	type_test <- types[[mode]]
+	is_homogenous <- all(sapply(coll, type_test))
+
+	if (!is_homogenous) {
+		stop(exclaim$type_coersion_failed(coll_symbol, mode))
+	}
+
+	coll <- as.vector(coll, mode)
+
+	# coerce the length-zero collection to a unit-value.
+	# this doesn't always make sense to do.
+
+	if (value_unit && length(coll) == 0) {
+		if (is.numeric(coll)) {
+			0
+		} else if (is.character(coll)) {
+			""
+		} else if (is.logical(coll)) {
+			False
+		} else if (is.raw(coll)) {
+			as.raw(00)
+		} else {
+			stop("")
+		}
+
+	} else {
+		coll
+	}
+}
+
+# --------------------- testing & message functions --------------------- #
+
 
 assert <- function (expr, parent_call, message) {
 	# does an expression evaluate to true?
@@ -122,105 +249,4 @@ ith_suffix <- function (num) {
 	# javascript-style string concatenation.
 
 	paste0(x, y, sep = "")
-}
-
-join_env <- function (x, y) {
-	# do not use this often; it's a very slow
-	# way of joining two environments.
-
-	if (missing(x)) {
-		exclaim$parameter_missing(x)
-	}
-	if (missing(y)) {
-		exclaim$parameter_missing(y)
-	}
-
-	as.environment( c(as.list( x ), as.list( y )) )
-}
-
-is_arrow <- function (val) {
-	# is a function an arrow object?
-
-	if (missing(val)) {
-		exclaim$parameter_missing(val)
-	}
-
-	class(val) == "arrow"
-}
-
-dearrowise <- function (val) {
-	# if a value is in an arrow object, take it out.
-	# otherwise do nothing.
-
-	if (is_arrow(val)) {
-		val$x()
-	} else {
-		val
-	}
-}
-
-is_fn_matchable <- function (val) {
-	# is a value a function or matchable as a function?
-
-	is.function(val) || is.symbol(val) ||
-	(is.character(val) && length(val) == 1)
-}
-
-is_collection <- function (val) {
-	# is a value a pairlist, list or typed vector?
-
-	is.vector(val) || is.pairlist(val)
-}
-
-is_recursive <- function (val) {
-	is.list(val) || is.pairlist(val)
-}
-
-coerce_to_typed_vector <- function (coll, mode, value_unit = False) {
-	# coerces an R vector (pairlist, list, or typed vector)
-	# to another mode, if the vector is homogenously typed.
-	# this makes list("a") ~ "a", making arrow more generic.
-
-	coll_symbol <- match.call()$coll
-
-	types <- list(
-		logical =
-			is.logical,
-		integer =
-			is.integer,
-		double =
-			is.double,
-		numeric =
-			is.numeric,
-		character =
-			is.character,
-		raw =
-			is.raw
-	)
-
-	type_test <- types[[mode]]
-	is_homogenous <- all(sapply(coll, type_test))
-
-	if (!is_homogenous) {
-		stop(exclaim$type_coersion_failed(coll_symbol, mode))
-	}
-
-	coll <- as.vector(coll, mode)
-
-	if (value_unit && length(coll) == 0) {
-		if (is.numeric(coll)) {
-			0
-		} else if (is.character(coll)) {
-			""
-		} else if (is.logical(coll)) {
-			False
-		} else if (is.raw(coll)) {
-			as.raw(00)
-		} else {
-			stop("")
-		}
-
-	} else {
-		coll
-	}
 }

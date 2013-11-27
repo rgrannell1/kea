@@ -70,3 +70,7 @@ xFilter <- xSelect
 xSelect... <- function (pred, ...) {
 	do.call(xSelect, list(pred, list(...)))
 }
+
+#' @export
+
+xFilter... <- xSelect...
