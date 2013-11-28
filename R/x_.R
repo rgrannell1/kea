@@ -1707,7 +1707,6 @@ get_proto_ref <- function (val) {
 	suggest_similar_method <- function (val, method_name, contents_are, parent_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similarexport(xAndLift)
- method.
 
 		proto_ref <- get_proto_ref(val)
 

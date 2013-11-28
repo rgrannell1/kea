@@ -159,6 +159,10 @@ as_coll <- local({
 
 				coll <- vector()
 				while (length(coll) < len) {
+
+					# the function should return
+					# an instance immediately.
+
 					val <- fn()
 					coll <- c(coll, val)
 				}
@@ -174,7 +178,11 @@ as_coll <- local({
 
 				coll <- list()
 				while (length(coll) < len) {
-					val <- list( fn()[[ 1 ]] )
+
+					# the function should return
+					# an instance immediately.
+
+					val <- list( fn() )
 					coll <- c(coll, val)
 				}
 				coll
@@ -236,7 +244,7 @@ compounds <- local({
 
 				one_of( list(
 					function () character(),
-					as_coll$vector_of(atoms$word, sd)) )(  )
+					as_coll$vector_of(atoms$word(), sd)) )(  )
 			}
 		}
 
@@ -246,7 +254,7 @@ compounds <- local({
 
 				one_of( list(
 					function () integer(),
-					as_coll$vector_of(atoms$integer, sd)) )(  )
+					as_coll$vector_of(atoms$integer(), sd)) )(  )
 			}
 		}
 
@@ -351,7 +359,7 @@ test_cases <- local({
 
 	this$logical_functions_with_collection_zero <-
 		list(
-			fn = atoms$logical_functions,
+			fn = atoms$logical_function,
 			coll = compounds$collection_zero
 		)
 
