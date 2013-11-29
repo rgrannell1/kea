@@ -69,6 +69,14 @@ atoms <- local({
 			))
 		}
 
+	# --------------------- Linear Function --------------------- #
+
+	this$linear_function <-
+		function (sd = 20) {
+			factor <- abs(round(rnorm(1, 0, sd), 0)) + 1
+			function (num) factor * num
+		}
+
 	# --------------------- Infinity --------------------- #
 
 	this$positive_infinity <-
@@ -339,6 +347,8 @@ test_cases <- local({
 			num = atoms$positive_integer,
 			coll = compounds$collection)
 
+	this$positive_with_linear_function <-
+		list(fn = atoms$linear_function, num = atoms$positive_integer)
 
 	# --------------------- Logical-Fun + Coll --------------------- #
 
