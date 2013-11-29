@@ -1,6 +1,7 @@
 
 message("xLimit")
 
+
 test_that("xLimit", {
 
 	f <- xLimit(2, function (x) x)

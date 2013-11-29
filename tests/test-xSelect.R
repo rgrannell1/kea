@@ -11,7 +11,7 @@ forall(
 	"a truth function is list identity for collection.",
 	test_cases$truth_with_coll,
 	expect =
-		xSelect(fn, coll) %equals% coll,
+		xSelect(fn, coll) %equals% as.list(coll),
 	given =
 		length(coll) > 0
 )
@@ -49,3 +49,5 @@ forall(
 	x_(fn)$xSelect(coll)$x() %equals%
 		as.list(coll[coll %% 2 == 0])
 )
+
+message("arrow $ xSelect...")

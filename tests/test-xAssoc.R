@@ -1,14 +1,15 @@
 
 message("xAssoc")
 
-test_that("xAssoc", {
+forall(
+	"associating the empty list is the named empty list",
+	test_cases$recursive_zero,
+	xAssoc(coll) %equals% list(a = 1)[0]
+)
 
-	expect_equal(
-		xAssoc( list(list('a', 1), list('b', 2)) ),
-		list(a = 1, b = 2))
+message("arrow $ xAssoc")
 
-	expect_equal(
-		xAssoc( list(list('ab', list(1, 2)), list('b', 2)) ),
-		list(ab = list(1, 2), b = 2))
-
-})
+forall(
+	"collection.xAssoc works",
+	x_(coll)$xAssoc()$x() %equals% False
+)

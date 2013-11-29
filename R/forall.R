@@ -352,7 +352,7 @@ test_cases <- local({
 			fn = atoms$falsity,
 			coll = compounds$collection)
 
-	this$moot_with_collection <-
+	this$moot_with_coll <-
 		list(
 			fn = atoms$moot,
 			coll = compounds$collection)
@@ -364,6 +364,9 @@ test_cases <- local({
 		)
 
 	# --------------------- Coll-Only --------------------- #
+
+	this$recursive_zero <-
+		list(coll = compounds$recursive_zero)
 
 	this$collection_zero <-
 		list(coll = compounds$collection_zero)
