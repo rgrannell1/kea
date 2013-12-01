@@ -1,9 +1,4 @@
 
-
-
-
-
-
 atoms <- local({
 	# functions that generate a single value.
 

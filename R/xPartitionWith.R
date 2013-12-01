@@ -15,9 +15,6 @@
 #'	 elements return only true/only false, then one of two sublists will be the
 #'	 empty list.
 #'
-#'
-#'
-#'
 #' @family higher_order_functions collection_functions
 #'
 #' @example inst/examples/blank.R

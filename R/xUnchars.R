@@ -19,5 +19,5 @@ xUnchars <- function (strs) {
 #' @export
 
 xUnchars... <- function (...) {
-	xUnchars(list(...))
+	xCollapse("", list(...))
 }

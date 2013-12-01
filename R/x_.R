@@ -1639,6 +1639,12 @@ x_ <- function (val) {
 	# Collection any -> Arrow any
 	# type constructor.
 
+	parent_call <- sys.call()
+
+	assert(
+		!missing(val), parent_call,
+		exclaim$parameter_missing(val))
+
 	if ('arrow' %in% class(val)) {
 		val
 	} else {
