@@ -348,7 +348,7 @@ test_cases <- local({
 			coll = compounds$collection)
 
 	this$positive_with_linear_function <-
-		list(fn = atoms$linear_function, num = atoms$positive_integer)
+		list(fn = atoms$linear_function, num = atoms$positive_integer())
 
 	# --------------------- Logical-Fun + Coll --------------------- #
 

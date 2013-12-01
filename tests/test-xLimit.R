@@ -1,12 +1,10 @@
 
 message("xLimit")
 
+forall("limiting to infinity is indistinguisable")
 
-test_that("xLimit", {
+forall("limiting to 0 is the null function")
 
-	f <- xLimit(2, function (x) x)
-	expect_that(f(1), equals(1))
-	expect_that(f(1), equals(1))
-	expect_that(f(1), equals(Null))
+forall("limiting returns null after the expected time")
 
-})
+message("arrow$xLimit")
