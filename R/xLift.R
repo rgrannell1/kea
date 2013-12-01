@@ -3,61 +3,55 @@
 #'
 #' Compose a binary function with two other functions.
 #'
-#' @param fn1 a binary function.
-#' @param fn2 a unary function.
-#' @param fn3 a unary function.
+#' @param fn a binary function.
+#' @param fns a list of binary functions.
+#'
 #'
 #' @return returns a unary function of x.
-#'
-#'
-#'
 #'
 #' @example inst/examples/blank.R
 #' @export
 
 #' @export
 
-xLift <- function (fn1, fn2, fn3) {
+xLift <- function (fn, fns) {
 	# the phoenix or Phi combinator
 
 	parent_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(fn1), parent_call,
-		exclaim$parameter_missing(fn1))
+		!missing(fn), parent_call,
+		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(fn2), parent_call,
-		exclaim$parameter_missing(fn2))
+		!missing(fns), parent_call,
+		exclaim$parameter_missing(fns))
+
+	fn <- dearrowise(fn)
+	fns <- dearrowise(fns)
 
 	assert(
-		!missing(fn3), parent_call,
-		exclaim$parameter_missing(fn3))
-
-	fn1 <- dearrowise(fn1)
-	fn2 <- dearrowise(fn2)
-	fn3 <- dearrowise(fn3)
+		is_fn_matchable(fn), parent_call,
+		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_fn_matchable(fn1), parent_call,
-		exclaim$must_be_matchable(fn1))
+		all(sapply(fns, is_fn_matchable)), parent_call,
+		exclaim$must_be_recursive_of_matchable("fns"))
 
-	assert(
-		is_fn_matchable(fn2), parent_call,
-		exclaim$must_be_matchable(fn2))
-
-	assert(
-		is_fn_matchable(fn3), parent_call,
-		exclaim$must_be_matchable(fn3))
-
-	fn1 <- match.fun(fn1)
-	fn2 <- match.fun(fn2)
-	fn3 <- match.fun(fn3)
+	fn <- match.fun(fn)
+	fns <- lapply(fns, match.fun)
 
 	function (...) {
-		fn1( fn2(...), fn3(...) )
+		do.call(fn,
+			lapply(fns, function (lifted) lifted(...)) )
 	}
+}
+
+#' @export
+
+xLift... <- function (fn, ...) {
+	do.call( xLift, list(fn, list(...)) )
 }
 
 #' @export

@@ -1192,10 +1192,13 @@ x_fn_proto <- local({
 			x_( xFlip(self_()) )
 		}
 	this$xLift <-
-		function (fn2, fn3) {
-			x_( xLift(self_(), fn2, fn3) )
+		function (fns) {
+			x_( xLift(self_(), fns) )
 		}
-
+	this$xLift... <-
+		function (...) {
+			x_( xLift...(self_(), ...) )
+		}
 	# -------- C ------- #
 	this$xC <-
 		this$xCardinal
