@@ -1,5 +1,5 @@
 
-#' xBiCompose
+#' xLift
 #'
 #' Compose a binary function with two other functions.
 #'
@@ -17,7 +17,7 @@
 
 #' @export
 
-xBiCompose <- function (fn1, fn2, fn3) {
+xLift <- function (fn1, fn2, fn3) {
 	# the phoenix or Phi combinator
 
 	parent_call <- sys.call()
@@ -62,7 +62,7 @@ xBiCompose <- function (fn1, fn2, fn3) {
 
 #' @export
 
-xPhoenix <- xBiCompose
+xPhoenix <- xLift
 
 #' @export
 

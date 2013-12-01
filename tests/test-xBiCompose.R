@@ -1,8 +1,8 @@
 
-message("xBiCompose")
+message("xLift")
 
-test_that("xBiCompose", {
+test_that("xLift", {
 
-	expect_equal(xBiCompose("+", identity, identity)(10), 20)
+	expect_equal(xLift("+", identity, identity)(10), 20)
 
 })

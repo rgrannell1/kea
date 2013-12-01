@@ -1172,10 +1172,6 @@ x_fn_proto <- local({
 		function () {
 			x_( xAsVariadic(self_()) )
 		}
-	this$xAndLift <-
-		function (pred2) {
-			x_( xAndLift(self_(), pred2) )
-		}
 
 	this$xApply <-
 		function (coll) {
@@ -1195,14 +1191,11 @@ x_fn_proto <- local({
 		function () {
 			x_( xFlip(self_()) )
 		}
-	this$xBiCompose <-
+	this$xLift <-
 		function (fn2, fn3) {
-			x_( xBiCompose(self_(), fn2, fn3) )
+			x_( xLift(self_(), fn2, fn3) )
 		}
-	this$xByLift <-
-		function (fn2) {
-			x_( xByLift(self_(), fn2) )
-		}
+
 	# -------- C ------- #
 	this$xC <-
 		this$xCardinal
@@ -1215,10 +1208,6 @@ x_fn_proto <- local({
 			x_( xCompose(fn1, self_()) )
 		}
 	# -------- D ------- #
-	this$xDifferLift <-
-		function (fn2) {
-			x_( xDifferLift(fn1, fn2) )
-		}
 
 	this$xDropWhile <-
 		function (coll) {
@@ -1239,10 +1228,6 @@ x_fn_proto <- local({
 		}
 
 	# -------- E ------- #
-	this$xEqualLift <-
-		function (fn2) {
-			x_( xEqualLift(self_(), fn2) )
-		}
 
 	this$xExists <-
 		function (colls) {
@@ -1339,10 +1324,6 @@ x_fn_proto <- local({
 		}
 	# -------- I ------- #
 
-	this$xInterLift <-
-		function (fn2) {
-			x_( xInterLift(self_(), fn2) )
-		}
 	this$xIsVariadic <-
 		function () {
 			x_( xIsVariadic(self_()) )
@@ -1430,28 +1411,13 @@ x_fn_proto <- local({
 			x_( xMapWhen...(self_(), fn, ...) )
 		}
 
-	this$xMinusLift <-
-		function (fn2) {
-			x_( xMinusLift(self_(), fn2) )
-		}
-	this$xModLift <-
-		function (fn2) {
-			x_( xModLift(self_(), fn2) )
-		}
 	# -------- N ------- #
 	this$xNot <-
 		function () {
 			x_( xNot(self_()) )
 		}
 	# -------- O ------- #
-	this$xOrLift <-
-		function (pred2) {
-			x_( xOrLift(self_(), pred2) )
-		}
-	this$xOverLift <-
-		function (fn2) {
-			x_( xOverLift(self_(), fn2) )
-		}
+
 	# -------- P ------- #
 	this$xPartition <-
 		function (coll) {
@@ -1498,14 +1464,10 @@ x_fn_proto <- local({
 			x_( xPoll...(self_(), ...) )
 		}
 
-	this$xPlusLift <-
-		function (fn2) {
-			x_( xPlusLift(self_(), fn2) )
-		}
 	this$xPhoenix <-
-		this$xBiCompose
+		this$xLift
 	this$xPhi <-
-		this$xBiCompose
+		this$xLift
 	# -------- Q ------- #
 	this$xQueer <-
 		this$xCompose
@@ -1554,7 +1516,7 @@ x_fn_proto <- local({
 		}
 	# -------- S ------- #
 	this$xS. <-
-		this$xBiCompose
+		this$xLift
 
 	this$xSelect <-
 		function (coll) {
@@ -1593,10 +1555,7 @@ x_fn_proto <- local({
 	this$xT <-
 		this$xThrush
 	# -------- U ------- #
-	this$xUnionLift <-
-		function (fn2) {
-			x_( xUnionLift(self_(), fn2) )
-		}
+
 	this$xUnfold <-
 		function (fn, init) {
 			x_( xUnfold(self_(), fn, init) )
@@ -1706,7 +1665,7 @@ get_proto_ref <- function (val) {
 
 	suggest_similar_method <- function (val, method_name, contents_are, parent_call) {
 		# given an incorrect method name throw an error
-		# suggesting a similarexport(xAndLift)
+		# suggesting a similar
 
 		proto_ref <- get_proto_ref(val)
 
