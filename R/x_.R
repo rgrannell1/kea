@@ -1689,17 +1689,17 @@ get_proto_ref <- function (val) {
 				),
 				cost = list(
 					deletions =
-						4,
+						3,
 					insertions =
-						2,
+						3,
 					substitutions =
-						1
+						2
 				))
 
 		# a cheap and nasty heuristic for finding the 'best' match.
 
 		similar <- similar[
-			which.min(diff( c(nchar(similar), nchar(method_name)) )) ]
+			which.min(abs( c(nchar(similar) - nchar(method_name)) )) ]
 
 		stop(
 			exclaim$method_not_found(method_name, contents_are, similar), call. = False)
