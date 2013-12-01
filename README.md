@@ -1,4 +1,4 @@
-Arrow v0.1
+Arrow v0.1.0
 -----------------------------------
 
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**

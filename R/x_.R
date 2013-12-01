@@ -1678,28 +1678,14 @@ get_proto_ref <- function (val) {
 
 		proto_ref <- get_proto_ref(val)
 
-		similar <-
-			agrep(
-				pattern = method_name,
-				x = setdiff(ls(proto_ref), 'private'),
-				fixed = False,
-				value = True,
-				max.distance = list(
-					cost = 0.07
-				),
-				cost = list(
-					deletions =
-						3,
-					insertions =
-						3,
-					substitutions =
-						2
-				))
+		candidate_methds <- setdiff(ls(proto_ref), 'private')
+		distances <- adist(method_name, candidate_methds)
 
-		# a cheap and nasty heuristic for finding the 'best' match.
-
-		similar <- similar[
-			which.min(abs( c(nchar(similar) - nchar(method_name)) )) ]
+		similar <- if (min(distances) < nchar(method_name) / 2) {
+			candidate_methds[which.min(distances)]
+		} else {
+			character(0)
+		}
 
 		stop(
 			exclaim$method_not_found(method_name, contents_are, similar), call. = False)
