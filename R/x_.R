@@ -862,6 +862,15 @@ x_coll_proto <- local({
 			x_( xPartitionWith...(pred, self_(), ...) )
 		}
 
+	this$xPermute <-
+		function (coll) {
+			x_( xPermute(coll, self_()) )
+		}
+	this$xPermute... <-
+		function (coll, ...) {
+			x_( xPermute(coll, self_(), ...) )
+		}
+
 	this$xPred <-
 		function () {
 			x_( xPred(self_()) )
@@ -1682,7 +1691,9 @@ get_proto_ref <- function (val) {
 		distances <- adist(method_name, candidate_methds)
 
 		similar <- if (min(distances) < nchar(method_name) / 2) {
+
 			candidate_methds[which.min(distances)]
+
 		} else {
 			character(0)
 		}
