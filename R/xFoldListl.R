@@ -55,7 +55,9 @@ xFoldListl <- function (fn, init, coll) {
 		init
 	} else {
 		for (ith in seq_along(coll)) {
-			scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
+			scanned[[ith + 1]] <- try_higher_order(
+				fn( scanned[[ith]], coll[[ith]] ),
+				parent_call)
 		}
 		scanned
 	}

@@ -11,7 +11,6 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#'
 #' @family higher_order_functions collection_functions
 #'
 #' @example inst/examples/blank.R
@@ -57,7 +56,13 @@ xPartition <- function (pred, coll) {
 			is_match <- False
 
 			for (jth in seq_along(parts)) {
-				if (pred( elem, parts[[jth]][[1]] )) {
+
+				is_member <- try_higher_order(
+					pred( elem, parts[[jth]][[1]] ),
+					parent_call)
+
+				if (is_member) {
+
 					parts[[jth]] <- c( parts[[jth]], elem )
 					is_match <- True
 				}

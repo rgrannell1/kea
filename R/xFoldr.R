@@ -63,7 +63,11 @@ xFoldr <- function (fn, init, coll) {
 			}
 
 			for (ith in length(coll):1) {
-				init <- fn( coll[[ith]], init )
+
+				init <- try_higher_order(
+					fn( coll[[ith]], init ),
+					parent_call)
+
 			}
 			init
 		})

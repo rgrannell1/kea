@@ -47,7 +47,10 @@ xLocater <- function (pred, coll) {
 	} else {
 
 		for (ith in length(coll):1) {
-			is_match <- pred( coll[[ith]] )
+
+			is_match <- try_higher_order(
+				pred( coll[[ith]] ),
+				parent_call)
 
 			assert(is.logical(is_match), parent_call)
 

@@ -53,7 +53,11 @@ xReject <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
+
+		ind <- try_higher_order(
+			vapply(coll, pred, logical(1), USE.NAMES = False),
+			parent_call)
+
 		as.list( coll[is.na(ind) | !ind ] )
 	}
 }

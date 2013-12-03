@@ -58,7 +58,8 @@ xDo <- function (fn, coll) {
 		list()
 	} else {
 		for (ith in seq_along(coll)) {
-			fn( coll[[ith]] )
+			try_higher_order(
+				fn( coll[[ith]] ), parent_call)
 		}
 		invisible (Null)
 	}

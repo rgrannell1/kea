@@ -48,7 +48,9 @@ xLocate <- function (pred, coll) {
 
 		for (ith in seq_along(coll)) {
 
-			is_match <- pred(coll[[ith]])
+			is_match <- try_higher_order(
+				pred( coll[[ith]] ),
+				parent_call)
 
 			stopifnot(is.logical(is_match))
 

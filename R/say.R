@@ -245,6 +245,20 @@ exclaim <- list(
 
 			"the elements of " %+% names %+%
 			" must be parametre names of " %+% fn
+		},
+	warning_higher_order =
+		function (fn, warn) {
+
+			"a warning occurred while executing a function passed to " %+% fn %+% ":\n" %+%
+			dQuote(warn$message)
+
+		},
+	error_higher_order =
+		function (fn, err) {
+
+			"an error occurred while executing a function passed to " %+% fn %+% ":\n\n" %+%
+			dQuote(err$message)
+
 		}
 )
 

@@ -55,7 +55,9 @@ xUnfold <- function (pred, fn, init) {
 
 	while (pred( acc[[ length(acc) ]]  )) {
 
-		fn_out <- fn( acc[[ length(acc) ]] )
+		fn_out <- try_higher_order(
+			fn( acc[[ length(acc) ]] ),
+			parent_call)
 
 		acc[length(acc)] <- fn_out[[1]]
 		acc[length(acc) + 1] <- fn_out[[2]]

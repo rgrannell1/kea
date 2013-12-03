@@ -50,9 +50,11 @@ xApply <- function (fn, coll) {
 
 	fn <- match.fun(fn)
 
-	eval(
-		as.call(c(fn, coll)),
-		envir = parent_frame)
+	try_higher_order(
+		eval(
+			as.call(c(fn, coll)),
+			envir = parent_frame),
+		parent_call)
 }
 
 #' @export

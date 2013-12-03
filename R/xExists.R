@@ -65,7 +65,9 @@ xExists <- function (pred, colls) {
 				seq_along(colls)
 			)
 
-			is_match <- do.call(pred, tuple)
+			is_match <- try_higher_order(
+				do.call(pred, tuple),
+				parent_call)
 
 			assert(
 				is.logical(is_match), parent_call)

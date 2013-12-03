@@ -40,7 +40,6 @@ xMap <- function (fn, coll) {
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
-
 	assert(
 		is_fn_matchable(fn), parent_call,
 		exclaim$must_be_matchable(fn))
@@ -54,7 +53,9 @@ xMap <- function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		lapply(coll, fn)
+
+		try_higher_order(
+			lapply(coll, fn), parent_call)
 	}
 }
 

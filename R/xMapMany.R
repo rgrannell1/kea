@@ -56,7 +56,9 @@ xMapMany <- function (fn, colls) {
 						coll[[this_ind]]
 					}
 				)
-				do.call(fn, tuple)
+				try_higher_order(
+					do.call(fn, tuple),
+					parent_call)
 		})
 	}
 }

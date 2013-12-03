@@ -185,6 +185,29 @@ as_typed_vector <- function (coll, mode, value_unit = False) {
 	}
 }
 
+try_higher_order <- function (expr, parent_call) {
+	# provide a good error message if a higher-order function
+	# fails because the user provided a dodgy function.
+
+	tryCatch(
+		expr,
+		warning = function (warn) {
+
+			assert(
+				False, parent_call,
+				exclaim$warning_higher_order( parent_call[[1]], warn ))
+
+		},
+		error = function (err) {
+
+			assert(
+				False, parent_call,
+				exclaim$error_higher_order( parent_call[[1]], err  ))
+
+		}
+	)
+}
+
 # --------------------- testing & message functions --------------------- #
 
 

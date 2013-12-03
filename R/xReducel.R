@@ -67,7 +67,10 @@ xReduce <- function (fn, coll) {
 			}
 
 			for (ith in seq_along(coll)) {
-				init <- fn( init, coll[[ith]] )
+
+				init <- try_higher_order(
+					fn( init, coll[[ith]] ),
+					parent_call)
 			}
 			init
 		})

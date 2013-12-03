@@ -48,7 +48,9 @@ xPoll <- function (pred, coll) {
 		count <- 0
 		for (ith in seq_along(coll)) {
 
-			is_match <- pred( coll[[ith]] )
+			is_match <- try_higher_order(
+				pred( coll[[ith]] ),
+				parent_call)
 
 			assert(is.logical(is_match), parent_call)
 

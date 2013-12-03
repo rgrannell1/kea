@@ -49,7 +49,11 @@ xMapIndexed <- function (fn, coll) {
 	} else {
 		Map(
 			function (ind) {
-				fn( coll[[ind]], ind )
+
+				try_higher_order(
+					fn( coll[[ind]], ind ),
+					parent_call)
+
 			},
 			seq_along(coll)
 		)
