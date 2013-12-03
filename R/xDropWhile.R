@@ -53,8 +53,13 @@ xDropWhile <- function (pred, coll) {
 		ith <- 1
 		for (ith in seq_along(coll)) {
 
-			is_match <- pred( coll[[ith]] )
-			assert(is.logical(is_match), invoking_call)
+			is_match <- try_higher_order(
+				pred( coll[[ith]] ),
+				invoking_call
+			)
+
+			assert(
+				is.logical(is_match), invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return (as.list( tail(coll, length(coll) - (ith - 1)) ))

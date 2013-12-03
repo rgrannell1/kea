@@ -67,7 +67,9 @@ xMapWhen <- function (pred, fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		xMap(composite, coll)
+		try_higher_order(
+			lapply(coll, composite),
+			invoking_call)
 	}
 }
 

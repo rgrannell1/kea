@@ -11,8 +11,6 @@
 #' @section Corner Cases:
 #'	 returns the empty list if \code{coll} is length-zero.
 #'
-#'
-#'
 #' @family higher_order_functions map_like_functions collection_functions
 #'
 #' @export
@@ -48,7 +46,9 @@ xFlatMap <- function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		as.list( do.call(c, lapply(coll, fn)) )
+		try_higher_order(
+			as.list( do.call(c, lapply(coll, fn)) ),
+			invoking_call)
 	}
 }
 

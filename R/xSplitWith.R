@@ -52,7 +52,9 @@ xSplitWith <- function (pred, coll) {
 
 		for (ith in seq_along(coll)) {
 
-			is_match <- pred( coll[[ith]] )
+			is_match <- try_higher_order(
+				pred( coll[[ith]] ),
+				invoking_call)
 
 			assert(
 				is.logical(is_match), invoking_call)

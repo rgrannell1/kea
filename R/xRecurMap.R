@@ -48,9 +48,11 @@ xRecurMap <- function (fn, coll) {
 		if (is.list(xs) || is.pairlist(xs)) {
 			lapply(xs, recur)
 		} else {
-			fn(xs)
+			try_higher_order(
+				fn(xs), invoking_call)
 		}
 	}
+
 	recur(as.list(coll))
 }
 

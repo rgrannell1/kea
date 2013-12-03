@@ -47,6 +47,7 @@ xMapIndexed <- function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+
 		Map(
 			function (ind) {
 

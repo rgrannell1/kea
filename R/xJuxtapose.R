@@ -37,8 +37,11 @@ xJuxtapose <- function (fns) {
 	if (length(fns) == 0) {
 		list()
 	} else {
+
 		function (...) {
-			lapply(fns, function (fn) fn(...))
+			try_higher_order(
+				lapply(fns, function (fn) fn(...)),
+				invoking_call)
 		}
 	}
 }

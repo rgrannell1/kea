@@ -49,7 +49,9 @@ xIterate <- function (fn, init) {
 		environment(fn) <- clone_env
 
 		repeat {
-			init <- fn(init)
+			init <- try_higher_order(
+				fn(init),
+				invoking_call)
 		}
 	})
 }
