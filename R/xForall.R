@@ -21,16 +21,16 @@ xForall <- function (pred, colls) {
 	# does there not exist any choice of bindings for
 	# pred such that pred is false?
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	fn <- dearrowise(pred)
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	pred <- match.fun(pred)
@@ -39,7 +39,7 @@ xForall <- function (pred, colls) {
 	assert(
 		all( sapply(colls, function (coll) {
 			is_collection(coll)
-		}) ), parent_call)
+		}) ), invoking_call)
 
 	coll_lengths <- sapply(colls, length)
 
@@ -49,7 +49,7 @@ xForall <- function (pred, colls) {
 
 		modulo_iths <- function (n, mods) {
 
-			assert(n <= prod(mods), parent_call)
+			assert(n <= prod(mods), invoking_call)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 
@@ -67,9 +67,9 @@ xForall <- function (pred, colls) {
 
 			is_match <- try_higher_order(
 				do.call(pred, tuple),
-				parent_call)
+				invoking_call)
 
-			assert(is.logical(is_match), parent_call)
+			assert(is.logical(is_match), invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return (False)

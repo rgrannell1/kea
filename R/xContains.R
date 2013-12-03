@@ -20,20 +20,20 @@
 xContains <- function (coll, val) {
 	# Collection any -> any -> Vector logical
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 	assert(
-		!missing(val), parent_call,
+		!missing(val), invoking_call,
 		exclaim$parameter_missing(val))
 
 	coll <- dearrowise(coll)
 	val <- dearrowise(val)
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {

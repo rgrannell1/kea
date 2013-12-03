@@ -17,17 +17,17 @@
 xAsVar <- function (str) {
 	# unlock a constant binding
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
 	str <- toString(match.call()$str)
 
 	assert(
-		length(str) == 1, parent_call,
+		length(str) == 1, invoking_call,
 		exclaim$must_have_length(str, 1))
 
 	assert(

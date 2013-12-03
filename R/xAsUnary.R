@@ -19,20 +19,20 @@ xAsUnary <- function (fn) {
 	# takes a function that takes a many values and
 	# makes it into a function that takes one list.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
-	remove(parent_call)
+	remove(invoking_call)
 
 	function (x) {
 		xApply(fn, as.list(x))

@@ -21,18 +21,18 @@ xFoldListl <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), parent_call,
+		!missing(init), invoking_call,
 		exclaim$parameter_missing(init))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
@@ -40,11 +40,11 @@ xFoldListl <- function (fn, init, coll) {
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
@@ -57,7 +57,7 @@ xFoldListl <- function (fn, init, coll) {
 		for (ith in seq_along(coll)) {
 			scanned[[ith + 1]] <- try_higher_order(
 				fn( scanned[[ith]], coll[[ith]] ),
-				parent_call)
+				invoking_call)
 		}
 		scanned
 	}

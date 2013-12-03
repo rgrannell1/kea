@@ -23,16 +23,16 @@ xMapMany <- function (fn, colls) {
 	# function -> Collection any .... -> [any]
 	# Map a function across many collections simultaneously.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
@@ -58,7 +58,7 @@ xMapMany <- function (fn, colls) {
 				)
 				try_higher_order(
 					do.call(fn, tuple),
-					parent_call)
+					invoking_call)
 		})
 	}
 }

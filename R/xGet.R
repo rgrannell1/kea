@@ -18,20 +18,20 @@ xGet <- function (str) {
 	# Vector string -> (Collection -> [any])
 	# Return a function that selects a key from a collection.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
 	str <- dearrowise(str)
 
 	assert(
-		is.character(str), parent_call,
+		is.character(str), invoking_call,
 		exclaim$must_be_character(str))
 
 	assert(
-		length(str) %in% 0:1, parent_call,
+		length(str) %in% 0:1, invoking_call,
 		exclaim$must_have_length( str, 0:1) )
 
 	str <- as_typed_vector(str, 'character', True)

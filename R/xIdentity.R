@@ -19,10 +19,10 @@
 
 xIdentity <- function (val) {
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(val), parent_call,
+		!missing(val), invoking_call,
 		exclaim$parameter_missing(val))
 
 	# arguably revoking the status of this

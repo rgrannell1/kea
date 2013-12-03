@@ -21,24 +21,24 @@ xName <- function (strs, coll) {
 	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(strs), parent_call,
+		!missing(strs), invoking_call,
 		exclaim$parameter_missing(strs))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is_collection(strs), parent_call,
+		is_collection(strs), invoking_call,
 		exclaim$must_be_collection(strs))
 
 	strs <- as_typed_vector(strs, 'character')
 
 	assert(
-		length(strs) == length(coll), parent_call,
+		length(strs) == length(coll), invoking_call,
 		exclaim$must_have_equal_lengths(strs, colls))
 
 	structure(as.list(coll), names = strs)

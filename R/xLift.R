@@ -17,26 +17,26 @@
 xLift <- function (fn, fns) {
 	# the phoenix or Phi combinator
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(fns), parent_call,
+		!missing(fns), invoking_call,
 		exclaim$parameter_missing(fns))
 
 	fn <- dearrowise(fn)
 	fns <- dearrowise(fns)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		all(sapply(fns, is_fn_matchable)), parent_call,
+		all(sapply(fns, is_fn_matchable)), invoking_call,
 		exclaim$must_be_recursive_of_matchable("fns"))
 
 	fn <- match.fun(fn)

@@ -19,27 +19,27 @@
 xPartition <- function (pred, coll) {
 	# partition a set into an equivalence class.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	pred <- match.fun(pred)
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {
@@ -59,7 +59,7 @@ xPartition <- function (pred, coll) {
 
 				is_member <- try_higher_order(
 					pred( elem, parts[[jth]][[1]] ),
-					parent_call)
+					invoking_call)
 
 				if (is_member) {
 

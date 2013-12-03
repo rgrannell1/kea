@@ -21,16 +21,16 @@ xDissoc <- function (coll) {
 	# Named Collection any -> [[string, any]]
 	# split a list into its names and values.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		length(names(coll)) == length(coll), parent_call,
+		length(names(coll)) == length(coll), invoking_call,
 		exclaim$must_be_named(coll))
 
 	if (length(coll) == 0) {

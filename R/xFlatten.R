@@ -22,14 +22,14 @@ xFlatten <- function (num, coll) {
 	# integer -> Collection any-> [any]
 	# flatten a collection to an arbitrary depth.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(num), parent_call,
+		!missing(num), invoking_call,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
@@ -38,15 +38,15 @@ xFlatten <- function (num, coll) {
 	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(
-		num > 0, parent_call,
+		num > 0, invoking_call,
 		exclaim$must_be_greater_than(num, 0))
 
 	assert(
-		round(num) == num, parent_call,
+		round(num) == num, invoking_call,
 		exclaim$must_be_whole(num))
 
 	assert(
-		is_recursive(coll), parent_call,
+		is_recursive(coll), invoking_call,
 		exclaim$must_be_recursive(coll))
 
 	if (length(coll) == 0) {

@@ -20,14 +20,14 @@
 xPermute <- function (coll, colls) {
 #' Permute several collections using indices.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	assert(
-		!missing(colls), parent_call,
+		!missing(colls), invoking_call,
 		exclaim$parameter_missing(colls))
 
 	coll <- dearrowise(coll)
@@ -36,7 +36,7 @@ xPermute <- function (coll, colls) {
 	coll <- as_typed_vector(coll, 'numeric')
 
 	assert(
-		all(sapply(colls, length) == length(coll)), parent_call,
+		all(sapply(colls, length) == length(coll)), invoking_call,
 		exclaim$must_be_collection_of_length(colls, length(coll)) )
 
 	if (length(coll) == 0) {

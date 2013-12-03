@@ -21,25 +21,25 @@
 xDiffer <- function (coll1, coll2) {
 	# Collection any -> Collection any -> Collection any
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll1), parent_call,
+		!missing(coll1), invoking_call,
 		exclaim$parameter_missing(coll1))
 
 	assert(
-		!missing(coll2), parent_call,
+		!missing(coll2), invoking_call,
 		exclaim$parameter_missing(coll2))
 
 	coll1 <- dearrowise(coll1)
 	coll2 <- dearrowise(coll2)
 
 	assert(
-		is_collection(coll1), parent_call,
+		is_collection(coll1), invoking_call,
 		exclaim$must_be_collection(coll1))
 
 	assert(
-		is_collection(coll2), parent_call,
+		is_collection(coll2), invoking_call,
 		exclaim$must_be_collection(coll2))
 
 	coll1 <- as.list(coll1)

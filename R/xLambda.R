@@ -18,7 +18,7 @@ xLambda <- function (formals, body) {
 	formals <- match.call()$formals
 	body <- match.call()$body
 
-	parent_call <- "xLambda:"
+	invoking_call <- "xLambda:"
 
 	lambda <- function () {
 
@@ -50,7 +50,7 @@ xLambda <- function (formals, body) {
 				if (get$delim(tree) != token$delim()) {
 					# ------ the parameters aren't delimited with ":" ------ #
 
-					msg <- parent_call +
+					msg <- invoking_call +
 						" the " + ith_suffix(state$pos) +
 						" delimiter should be " +
 						dQuote(token$delim(False)) + "."
@@ -61,7 +61,7 @@ xLambda <- function (formals, body) {
 				if ( !is.name(get$param(tree)) ) {
 					# ------ the parameter name is invalid ------ #
 
-					msg <- parent_call +
+					msg <- invoking_call +
 						" the " + ith_suffix(state$pos + 1) +
 						" parameter is a non-symbol."
 
@@ -113,7 +113,7 @@ xLambda <- function (formals, body) {
 
 		if (get$delim(formals) != token$open()) {
 
-			msg <- parent_call + " the formals for non-unary functions" +
+			msg <- invoking_call + " the formals for non-unary functions" +
 				" must be enclosed in parentheses."
 
 			stop (msg, call. = False)

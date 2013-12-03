@@ -30,25 +30,25 @@ xSelect <- function (pred, coll) {
 	# returns coll[i] such that
 	# pred(coll[i]) is true
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
@@ -56,7 +56,11 @@ xSelect <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
+
+		ind <- try_higher_order(
+			vapply(coll, pred, logical(1), USE.NAMES = False),
+			invoking_call)
+
 		as.list( coll[ !is.na(ind) & ind ] )
 	}
 }

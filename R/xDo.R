@@ -31,25 +31,25 @@ xDo <- function (fn, coll) {
 	# apply a function to each element of a collection.
 	# and discard the results.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
@@ -59,7 +59,7 @@ xDo <- function (fn, coll) {
 	} else {
 		for (ith in seq_along(coll)) {
 			try_higher_order(
-				fn( coll[[ith]] ), parent_call)
+				fn( coll[[ith]] ), invoking_call)
 		}
 		invisible (Null)
 	}

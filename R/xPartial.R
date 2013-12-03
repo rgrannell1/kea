@@ -21,34 +21,34 @@ xPartial <- function (fn, coll) {
 	# function -> recursive any -> any
 	# partially apply a function.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
 
 	assert(
-		all(names(coll) %in% xParams(fn)), parent_call,
+		all(names(coll) %in% xParams(fn)), invoking_call,
 		exclaim$must_be_params_of(names(coll), fn) )
 
-	remove(parent_call)
+	remove(invoking_call)
 
 	if (length(coll) == 0) {
 		fn

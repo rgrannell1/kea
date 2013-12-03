@@ -18,17 +18,17 @@ xChars <- function (str) {
 	# split str at every character, returning
 	# a character vector of equal or greater length.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
 	str <- dearrowise(str)
 	str <- as_typed_vector(str, 'character')
 
 	assert(
-		length(str) %in% 0:1, parent_call,
+		length(str) %in% 0:1, invoking_call,
 		exclaim$must_have_length( str, 0:1) )
 
 	if (length(str) == 0) {

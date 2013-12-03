@@ -18,20 +18,20 @@ xFlip <- function (fn) {
 	# function -> function
 	#' reverse the parameters of a function.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	fn <- dearrowise(fn)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
-	remove(parent_call)
+	remove(invoking_call)
 
 	do.call('function', list(
 		as.pairlist(rev( xFormals(fn) )),

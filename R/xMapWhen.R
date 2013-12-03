@@ -24,18 +24,18 @@ xMapWhen <- function (pred, fn, coll) {
 	# apply the function pred to collection, and apply f to
 	# the elements for which pred returned true.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
@@ -43,15 +43,15 @@ xMapWhen <- function (pred, fn, coll) {
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
@@ -59,7 +59,7 @@ xMapWhen <- function (pred, fn, coll) {
 
 	composite <- function (x) {
 		is_match <- pred(x)
-		assert(is.logical(is_match), parent_call)
+		assert(is.logical(is_match), invoking_call)
 
 		if (is_match) fn(x) else x
 	}

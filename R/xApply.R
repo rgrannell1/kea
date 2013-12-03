@@ -26,26 +26,26 @@ xApply <- function (fn, coll) {
 	# function -> [any] -> any
 	# call the function f with the list coll.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
@@ -54,7 +54,7 @@ xApply <- function (fn, coll) {
 		eval(
 			as.call(c(fn, coll)),
 			envir = parent_frame),
-		parent_call)
+		invoking_call)
 }
 
 #' @export

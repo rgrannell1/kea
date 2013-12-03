@@ -20,14 +20,14 @@
 xRepeat <- function (num, coll) {
 	# number -> Collection any -> [any]
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(num), parent_call,
+		!missing(num), invoking_call,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
@@ -36,15 +36,15 @@ xRepeat <- function (num, coll) {
 	num <- as_typed_vector(num, "numeric", True)
 
 	assert(
-		length(num) == 1, parent_call,
+		length(num) == 1, invoking_call,
 		exclaim$must_have_length(num, 1))
 
 	assert(
-		num >= 0, parent_call,
+		num >= 0, invoking_call,
 		exclaim$must_be_grequal_than(num, 0))
 
 	assert(
-		round(num) == num, parent_call,
+		round(num) == num, invoking_call,
 		exclaim$must_be_whole(num))
 
 	# a lot of assertions for a very simple function :/

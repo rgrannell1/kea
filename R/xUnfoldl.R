@@ -22,18 +22,18 @@ xUnfold <- function (pred, fn, init) {
 	# (any -> boolean) -> (any -> [any, any]) -> any -> [any]
 	# generate a list of values from an initial value.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), parent_call,
+		!missing(init), invoking_call,
 		exclaim$parameter_missing(init))
 
 	pred <- dearrowise(pred)
@@ -41,11 +41,11 @@ xUnfold <- function (pred, fn, init) {
 	init <- dearrowise(init)
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)
@@ -57,7 +57,7 @@ xUnfold <- function (pred, fn, init) {
 
 		fn_out <- try_higher_order(
 			fn( acc[[ length(acc) ]] ),
-			parent_call)
+			invoking_call)
 
 		acc[length(acc)] <- fn_out[[1]]
 		acc[length(acc) + 1] <- fn_out[[2]]

@@ -18,12 +18,12 @@ xConcat <- function (colls) {
 	# Collection any coll -> [any]
 	# Concatenate several collections.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	colls <- lapply(colls, dearrowise)
 
 	assert(
-		all(sapply(colls, is_collection)), parent_call,
+		all(sapply(colls, is_collection)), invoking_call,
 		exclaim$must_be_recursive_of_collections(colls))
 
 	as.list(do.call(c, colls))

@@ -23,16 +23,16 @@ xPack <- function (coll) {
 	# Collection any -> [any]
 	# remove all length-zero elements from a coll
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	if (length(coll) == 0) {

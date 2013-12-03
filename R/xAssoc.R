@@ -21,20 +21,20 @@ xAssoc <- function (colls) {
 	# take a collection of name:value pairs and associate
 	# them into a named list.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(colls), parent_call,
+		!missing(colls), invoking_call,
 		exclaim$parameter_missing(colls))
 
 	colls <- dearrowise(colls)
 
 	assert(
-		is_recursive(colls), parent_call,
+		is_recursive(colls), invoking_call,
 		exclaim$must_be_recursive(colls))
 
 	assert(
-		all(sapply(colls, length) == 2), parent_call,
+		all(sapply(colls, length) == 2), invoking_call,
 		exclaim$must_be_collection_of_length(colls, 2))
 
 	if (length(colls) == 0) {
@@ -48,7 +48,7 @@ xAssoc <- function (colls) {
 				key <- as_typed_vector(key, "character")
 
 				assert(
-					length(key) == 1, parent_call,
+					length(key) == 1, invoking_call,
 					exclaim$must_be_lequal_than(key, 1))
 
 				key

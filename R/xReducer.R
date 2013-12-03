@@ -25,25 +25,25 @@ xReducer <- function (fn, coll) {
 	# (any -> any -> any) -> Collection any -> any
 	# fold a list, starting from the left.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
@@ -69,7 +69,7 @@ xReducer <- function (fn, coll) {
 			for (ith in length(coll):1) {
 				init <- try_higher_order(
 					fn( coll[[ith]], init ),
-					parent_call)
+					invoking_call)
 			}
 			init
 		})

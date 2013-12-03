@@ -22,22 +22,22 @@ xLocater <- function (pred, coll) {
 	# returns the last index of collection that matches
 	# the predicate.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
@@ -50,9 +50,9 @@ xLocater <- function (pred, coll) {
 
 			is_match <- try_higher_order(
 				pred( coll[[ith]] ),
-				parent_call)
+				invoking_call)
 
-			assert(is.logical(is_match), parent_call)
+			assert(is.logical(is_match), invoking_call)
 
 			if (is_match) {
 				return (as.integer(ith))

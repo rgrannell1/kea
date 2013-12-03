@@ -17,14 +17,14 @@ xLines <- function (str) {
 	# split str at every newline, returning
 	# a character vector of equal or greater length.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
 	assert(
-		length(str) %in% 0:1, parent_call,
+		length(str) %in% 0:1, invoking_call,
 		exclaim$must_have_length(0:1))
 
 	str <- as_typed_vector(str, 'character')

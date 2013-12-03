@@ -18,14 +18,14 @@ xSplitStr <- function (rexp, str) {
 	# Vector string -> Vector string -> Vector str
 	# split a str into substrs at a rexp.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(rexp), parent_call,
+		!missing(rexp), invoking_call,
 		exclaim$parameter_missing(rexp))
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
 	rexp <- dearrowise(rexp)

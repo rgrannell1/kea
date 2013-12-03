@@ -19,24 +19,24 @@ xIterate <- function (fn, init) {
 	# (any -> any) -> any
 	# iterate until higher-order returned.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), parent_call,
+		!missing(init), invoking_call,
 		exclaim$parameter_missing(init))
 
 	assert(
-		!is.primitive(fn), parent_call)
+		!is.primitive(fn), invoking_call)
 
 	fn <- dearrowise(fn)
 	init <- dearrowise(init)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	fn <- match.fun(fn)

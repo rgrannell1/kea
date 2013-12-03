@@ -21,18 +21,18 @@ xFoldr <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the right
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(init), parent_call,
+		!missing(init), invoking_call,
 		exclaim$parameter_missing(init))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	fn <- dearrowise(fn)
@@ -40,11 +40,11 @@ xFoldr <- function (fn, init, coll) {
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	fn <- match.fun(fn)
@@ -66,7 +66,7 @@ xFoldr <- function (fn, init, coll) {
 
 				init <- try_higher_order(
 					fn( coll[[ith]], init ),
-					parent_call)
+					invoking_call)
 
 			}
 			init

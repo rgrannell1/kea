@@ -22,13 +22,13 @@
 xPluck <- function (str, coll) {
 	# Vector string -> Collection any -> Collection [any]
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	str <- dearrowise(str)
@@ -37,15 +37,15 @@ xPluck <- function (str, coll) {
 	str <- as_typed_vector(str, "character", True)
 
 	assert(
-		length(str) == 1, parent_call,
+		length(str) == 1, invoking_call,
 		exclaim$must_have_length(str, 1))
 
 	assert(
-		is_recursive(coll), parent_call,
+		is_recursive(coll), invoking_call,
 		exclaim$must_be_recursive(coll))
 
 	assert(
-		all(sapply(coll, is_recursive)), parent_call,
+		all(sapply(coll, is_recursive)), invoking_call,
 		exclaim$must_be_recursive_of_collections(coll))
 
 	if (length(coll) == 0) {

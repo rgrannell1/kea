@@ -21,14 +21,14 @@ xCombos <- function (num, coll) {
 	# generate all ways of choosing several
 	# elements from a collection.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(num), parent_call,
+		!missing(num), invoking_call,
 		exclaim$parameter_missing(num))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	num <- dearrowise(num)
@@ -37,18 +37,18 @@ xCombos <- function (num, coll) {
 	num <- as_typed_vector(num,  'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, parent_call,
+		length(num) %in% 0:1, invoking_call,
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		num >= 0, parent_call,
+		num >= 0, invoking_call,
 		exclaim$must_be_greater_than(num, 0))
 	assert(
-		round(num) == num, parent_call,
+		round(num) == num, invoking_call,
 		exclaim$must_be_whole(num))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	if (num == 0) {

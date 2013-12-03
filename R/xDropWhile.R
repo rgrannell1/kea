@@ -24,25 +24,25 @@ xDropWhile <- function (pred, coll) {
 	# take every element from the first element for which
 	# pred is false to the end of coll
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(pred), parent_call,
+		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	pred <- dearrowise(pred)
 	coll <- dearrowise(coll)
 
 	assert(
-		is_fn_matchable(pred), parent_call,
+		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	pred <- match.fun(pred)
@@ -54,7 +54,7 @@ xDropWhile <- function (pred, coll) {
 		for (ith in seq_along(coll)) {
 
 			is_match <- pred( coll[[ith]] )
-			assert(is.logical(is_match), parent_call)
+			assert(is.logical(is_match), invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return (as.list( tail(coll, length(coll) - (ith - 1)) ))

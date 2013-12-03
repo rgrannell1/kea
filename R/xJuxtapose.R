@@ -20,16 +20,16 @@
 xJuxtapose <- function (fns) {
 	# Recursive fns -> function
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	fns <- lapply(fns, dearrowise)
 
 	assert(
-		is_recursive(fns), parent_call,
+		is_recursive(fns), invoking_call,
 		exclaim$must_be_recursive(fns))
 
 	assert(
-		all(sapply(fns, is_fn_matchable)), parent_call,
+		all(sapply(fns, is_fn_matchable)), invoking_call,
 		exclaim$must_be_recursive_of_matchable("fns"))
 
 	fns <- lapply(fns, match.fun)

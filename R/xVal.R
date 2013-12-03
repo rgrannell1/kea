@@ -18,15 +18,15 @@
 xVal <- function (str, val) {
 	# assign a constant value to the calling environment.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(str), parent_call,
+		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
 	assert(
-		!missing(val), parent_call,
+		!missing(val), invoking_call,
 		exclaim$parameter_missing(val))
 
 	str <- toString(match.call()$str)
@@ -34,7 +34,7 @@ xVal <- function (str, val) {
 
 	if (exists(str, envir = parent_frame)) {
 		assert(
-			!bindingIsLocked(str, parent_frame), parent_call,
+			!bindingIsLocked(str, parent_frame), invoking_call,
 			exclaim$binding_is_locked(str))
 	}
 

@@ -1648,10 +1648,10 @@ x_ <- function (val) {
 	# Collection any -> Arrow any
 	# type constructor.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(val), parent_call,
+		!missing(val), invoking_call,
 		exclaim$parameter_missing(val))
 
 	if ('arrow' %in% class(val)) {
@@ -1681,7 +1681,7 @@ get_proto_ref <- function (val) {
 
 '$.arrow' <- local({
 
-	suggest_similar_method <- function (val, method_name, contents_are, parent_call) {
+	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar
 
@@ -1707,7 +1707,7 @@ get_proto_ref <- function (val) {
 		# return an arrow method associated with the type a.
 
 		method_name <- paste0(method)
-		parent_call <- paste0('$', method_name)
+		invoking_call <- paste0('$', method_name)
 
 		proto_ref <- get_proto_ref( obj[['x']] )
 
@@ -1718,7 +1718,7 @@ get_proto_ref <- function (val) {
 			contents_are <- proto_ref[['private']][['contents_are']]
 
 			suggest_similar_method(
-				obj[['x']], method_name, contents_are, parent_call)
+				obj[['x']], method_name, contents_are, invoking_call)
 
 		}
 

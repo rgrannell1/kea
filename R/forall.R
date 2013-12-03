@@ -407,10 +407,10 @@ test_cases <- local({
 
 forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		all( sapply(cases, is.function) ), parent_call,
+		all( sapply(cases, is.function) ), invoking_call,
 		lament$non_function_cases(info))
 
 	# ----- capture the expect and given expressions as functions
@@ -453,11 +453,11 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 			result <- do.call(expect, case)
 
 			assert(
-				length(result) == 1, parent_call,
+				length(result) == 1, invoking_call,
 				lament$non_singular_expectation(info, length(result)) )
 
 			assert(
-				result %in% c(True, False), parent_call,
+				result %in% c(True, False), invoking_call,
 				lament$non_boolean_expectation(info, case))
 
 			if (!result) {
@@ -472,7 +472,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	assert(
 		length(state$failed) == 0,
-		parent_call,
+		invoking_call,
 		lament$failed_cases(
 			info,
 			state$failed_after,

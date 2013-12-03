@@ -185,7 +185,7 @@ as_typed_vector <- function (coll, mode, value_unit = False) {
 	}
 }
 
-try_higher_order <- function (expr, parent_call) {
+try_higher_order <- function (expr, invoking_call) {
 	# provide a good error message if a higher-order function
 	# fails because the user provided a dodgy function.
 
@@ -194,15 +194,15 @@ try_higher_order <- function (expr, parent_call) {
 		warning = function (warn) {
 
 			assert(
-				False, parent_call,
-				exclaim$warning_higher_order( parent_call[[1]], warn ))
+				False, invoking_call,
+				exclaim$warning_higher_order( invoking_call[[1]], warn ))
 
 		},
 		error = function (err) {
 
 			assert(
-				False, parent_call,
-				exclaim$error_higher_order( parent_call[[1]], err  ))
+				False, invoking_call,
+				exclaim$error_higher_order( invoking_call[[1]], err  ))
 
 		}
 	)
@@ -211,20 +211,20 @@ try_higher_order <- function (expr, parent_call) {
 # --------------------- testing & message functions --------------------- #
 
 
-assert <- function (expr, parent_call, message) {
+assert <- function (expr, invoking_call, message) {
 	# does an expression evaluate to true?
 	# if not, throw a lovely error.
 
 	args <- as.list(match.call())[-1]
 
 	if (!expr) {
-		call <- if (missing(parent_call)) {
+		call <- if (missing(invoking_call)) {
 			'assert()'
 		} else {
-			if (is.character(parent_call)) {
-				parent_call
+			if (is.character(invoking_call)) {
+				invoking_call
 			} else {
-				paste0(deparse(parent_call), collapse = '')
+				paste0(deparse(invoking_call), collapse = '')
 			}
 		}
 
@@ -271,4 +271,8 @@ ith_suffix <- function (num) {
 		}
 
 	paste0(num, suffix)
+}
+
+modify_call <- function (invoking_call) {
+
 }

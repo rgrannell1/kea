@@ -19,29 +19,29 @@
 xWait <- function (fn, num) {
 	# function -> number -> function
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn), parent_call,
+		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
 	assert(
-		!missing(num), parent_call,
+		!missing(num), invoking_call,
 		exclaim$parameter_missing(num))
 
 	fn <- dearrowise(fn)
 	num <- dearrowise(num)
 
 	assert(
-		is_fn_matchable(fn), parent_call,
+		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
 	assert(
-		is.numeric(num) && num >= 0, parent_call,
+		is.numeric(num) && num >= 0, invoking_call,
 		exclaim$must_be_greater_than(num, 0))
 
 	fn <- match.fun(fn)
-	remove(parent_call)
+	remove(invoking_call)
 
 	if (num == 0) {
 		fn

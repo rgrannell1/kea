@@ -21,20 +21,20 @@ xThird <- function (coll) {
 	# Collection any -> any
 	# return the third element of a collection x.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), parent_call,
+		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
 	coll <- dearrowise(coll)
 
 	assert(
-		is_collection(coll), parent_call,
+		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
 	assert(
-		length(coll) >= 3, parent_call,
+		length(coll) >= 3, invoking_call,
 		exclaim$must_be_longer_than(coll, 3))
 
 	coll[[3]]

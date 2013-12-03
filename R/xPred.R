@@ -19,16 +19,16 @@ xPred <- function (nums) {
 	# Collection number -> Vector number
 	# returns the predeccesor of a vector of nums.
 
-	parent_call <- sys.call()
+	invoking_call <- sys.call()
 
 	assert(
-		!missing(nums), parent_call,
+		!missing(nums), invoking_call,
 		exclaim$parameter_missing(nums))
 
 	nums <- dearrowise(nums)
 
 	assert(
-		is_collection(nums), parent_call,
+		is_collection(nums), invoking_call,
 		exclaim$must_be_collection(nums))
 
 	nums <- as_typed_vector(nums, 'numeric')
