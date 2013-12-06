@@ -1,10 +1,18 @@
+
 message("xContains")
 
-test_that("xContains", {
+forall("")
 
-	expect_that( xContains(list(), 1), equals(logical(0)) )
-	expect_that(xContains(c(1), 1), equals(True))
-	expect_that(xContains(c(1:3), 2L), equals(True))
-	expect_that(xContains(c(1:3), 4L), equals(False))
+forall("")
 
-})
+forall("")
+
+message("arrow $ xContains")
+
+forall("")
+
+message("coll $ xContains")
+
+forall("")
+
+message("coll $ xContains...")
