@@ -157,14 +157,12 @@ as_coll <- local({
 	this$vector_of <-
 		function (fn, sd = 20) {
 			function () {
+				# convert a atom function to a vector of such atoms.
 
 				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
 				coll <- vector()
 				while (length(coll) < len) {
-
-					# the function should return
-					# an instance immediately.
 
 					val <- fn()
 					coll <- c(coll, val)
@@ -176,16 +174,47 @@ as_coll <- local({
 	this$list_of <-
 		function (fn, sd = 20) {
 			function () {
+				# convert a atom function to a list of such atoms.
 
 				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
 
 				coll <- list()
 				while (length(coll) < len) {
 
+					val <- list( fn() )
+					coll <- c(coll, val)
+				}
+				coll
+			}
+		}
+
+	this$collection_of <-
+		function (fn, sd = 20) {
+			function () {
+				# convert a atom function to a collection of such atoms.
+
+				to_vector <- sample(c(True, False), size = 1)
+
+				coll_fn <- if (to_vector) {
+					as.vector
+				} else {
+					list
+				}
+
+				coll <- if (to_vector) {
+					vector()
+				} else {
+					list()
+				}
+
+				len <- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+				while (length(coll) < len) {
+
 					# the function should return
 					# an instance immediately.
 
-					val <- list( fn() )
+					val <- coll_fn( fn() )
 					coll <- c(coll, val)
 				}
 				coll
@@ -289,6 +318,15 @@ compounds <- local({
 				this$integers(sd),
 				this$logicals(sd)
 			))(  )
+		}
+
+	this$collection_of_length_zero <-
+		function (sd = 20) {
+
+
+
+
+
 		}
 
 	# --------------------- Special Collections --------------------- #
