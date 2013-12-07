@@ -72,6 +72,36 @@ atoms <- local({
 			function (num) factor * num
 		}
 
+	# --------------------- Base Functions --------------------- #
+
+	this$base_primitive <- local({
+
+		fns <- Filter(
+			function (fn) {
+				is.function(fn) && is.primitive(fn)
+			},
+			lapply(ls('package:base'), get)
+		)
+
+		function () {
+			one_of(fns)
+		}
+	})
+
+	this$base_function <- local({
+
+		fns <- Filter(
+			function (fn) {
+				is.function(fn) && !is.primitive(fn)
+			},
+			lapply(ls('package:base'), get)
+		)
+
+		function () {
+			one_of(fns)
+		}
+	})
+
 	# --------------------- Infinity --------------------- #
 
 	this$positive_infinity <-
@@ -322,9 +352,9 @@ compounds <- local({
 
 	this$collection_of_length_zero <-
 		function (sd = 20) {
+			# generate a collection of length-zero values.
 
-
-
+			as_coll$list_of(this$collection_zero, sd)
 
 
 		}
@@ -355,7 +385,6 @@ test_cases <- local({
 
 	this <- object()
 
-
 	this$mod2_over_ints <-
 		list(
 			fn =
@@ -374,6 +403,7 @@ test_cases <- local({
 			coll = compounds$integers())
 
 	# --------------------- Num + Coll ----------------------------- #
+
 
 	this$positive_with_collection <-
 		list(
@@ -414,6 +444,9 @@ test_cases <- local({
 	this$collection_zero <-
 		list(coll = compounds$collection_zero)
 
+	this$collection_of_length_zero <-
+		list(coll = compounds$collection_of_length_zero())
+
 	this$collection <-
 		list(coll = compounds$collection)
 
@@ -425,9 +458,18 @@ test_cases <- local({
 
 	# --------------------- num-Only --------------------- #
 
+	this$num_integer <-
+		list(
+			num = atoms$integer())
 	this$num_positive_integer <-
 		list(num = atoms$positive_integer())
 
+	# --------------------- fn-Only --------------------- #
+
+	this$base_primitive <-
+		list(fn = atoms$base_primitive)
+	this$base_function <-
+		list(fn = atoms$base_function)
 
 	this
 })

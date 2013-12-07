@@ -1732,10 +1732,10 @@ get_proto_ref <- function (val) {
 
 #' @method print arrow
 
-print.arrow <- function (val, ...) {
+print.arrow <- function (x, ...) {
 	# custom print statement for the arrow object.
 
-	proto_ref <- get_proto_ref( val[['x']] )
+	proto_ref <- get_proto_ref( x[['x']] )
 	contents_are <- proto_ref[['private']] [['contents_are']]
 
 	single_newline <- '\n'
@@ -1747,5 +1747,5 @@ print.arrow <- function (val, ...) {
 		' ]'  %+% double_newline %+%
 		'$x()' %+% single_newline)
 
-	print(val$x())
+	print(x$x())
 }
