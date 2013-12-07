@@ -34,7 +34,7 @@ xChars <- function (str) {
 	if (length(str) == 0) {
 		character(0)
 	} else if (nchar(str) == 0) {
-		""
+		character(0)
 	} else {
 		strsplit(str, "")[[1]]
 	}

@@ -8,8 +8,6 @@
 #'
 #' @return a length-one character vector.
 #'
-#'
-#'
 #' @example inst/examples/blank.R
 #' @export
 

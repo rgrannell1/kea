@@ -1,27 +1,42 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message('xCollapse')
 
-forall(
-	"collapsing with character() is the same as collapsing with ''",
-	list(words = G$words()),
-	{
+	forall(
+		"collapsing with character() is the same as collapsing with ''",
+		test_cases$str_words,
+		{
+			xCollapse('', strs) %equals%
+			xCollapse(character(0), strs)
+		}
+	)
 
-		do.call( xCollapse, c(str = "", list(words)) ) %equals%
-		do.call( xCollapse, c(str = list(character()), list(words)) )
-	}
-)
+	forall(
+		"collapsing character() and '' acts as identity ",
+		test_cases$str_word_and_words,
+		{
+			xCollapse(str, strs) %equals%
+			xCollapse(str, strs[length(strs) != 0])
+		}
+	)
 
-forall(
-	"collapsing character() and '' acts as identity ",
-	list(delim = G$word(), words = G$words()),
-	{
-		stripped_words <-
-			Filter(function (x) nchar(x) > 0 && length(x) > 0, words)
+message('xCollapse...')
 
-		do.call( xCollapse, c(delim, list(words)) ) %equals%
-		do.call( xCollapse, c(delim, list(stripped_words)) )
-	}
-)
 
-message('Arrow $ xCollapse')
+
+
+message('arrow $ xCollapse')
+
+	forall(
+		"collapsing with character() is the same as collapsing with ''",
+		test_cases$str_words,
+		{
+			x_(strs)$xCollapse('')$x() %equals%
+			x_(strs)$xCollapse(character(0))$x()
+		}
+	)
+
+message('arrow $ xCollapse...')
 

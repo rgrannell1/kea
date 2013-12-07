@@ -158,7 +158,7 @@ atoms <- local({
 	this$word <-
 		function (sd = 20) {
 			function () {
-				size <- abs(round(rnorm(1, 0, sd), 0)) + 1
+				size <- abs(round(rnorm(1, 0, sd), 0))
 
 				paste0(
 					sample(letters, size = size, replace = True),
@@ -404,6 +404,10 @@ test_cases <- local({
 
 	# --------------------- Num + Coll ----------------------------- #
 
+	this$nonnegative_with_collection_zero <-
+		list(
+			num = atoms$nonnegative_integer(),
+			coll = compounds$collection_zero)
 
 	this$positive_with_collection <-
 		list(
@@ -470,6 +474,19 @@ test_cases <- local({
 		list(fn = atoms$base_primitive)
 	this$base_function <-
 		list(fn = atoms$base_function)
+
+	# --------------------- str-Only --------------------- #
+
+	this$str_word <-
+		list(str = atoms$word())
+
+	this$str_words <-
+		list(strs = compounds$words())
+
+	# --------------------- str-str --------------------- #
+
+	this$str_word_and_words <-
+		list(str = atoms$word(), strs = compounds$words())
 
 	this
 })
