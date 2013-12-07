@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xDissoc")
 
 forall(
@@ -9,7 +12,7 @@ forall(
 
 forall(
 	"disassociating names from a list works",
-	list(coll = G$collection(), key = G$word()),
+	list(coll = test_cases$collection, key = G$word()),
 	{
 
 		names(coll) <- rep(key, length(col))

@@ -1,36 +1,43 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xLocatel")
 
-forall(
-	"the empty collection yields integer(0)",
-	list(pred = G$logical_functions, coll = G$collection_zero),
-	xLocate(pred, coll) %equals% integer()
-)
+	forall(
+		"the empty collection yields integer(0)",
+		test_cases$logical_functions_with_collection_zero,
+		xLocatel(fn, coll) %equals% integer(0)
+	)
 
-forall(
-	"a false function yields integer(0)",
-	list(pred = G$falsity, coll = G$collection()),
-	xLocate(pred, coll) %equals% integer()
-)
+	forall(
+		"a false function yields integer(0)",
+		test_cases$falsity_with_coll,
+		xLocatel(fn, coll) %equals% integer(0)
+	)
 
-forall(
-	"a true function yields 1",
-	list(pred = G$truth, coll = G$collection()),
-	xLocate(pred, coll) %equals% 1,
-	given =
-		length(coll) > 0
-)
+	forall(
+		"a true function yields 1",
+		test_cases$truth_with_coll,
+		xLocatel(fn, coll) %equals% length(coll),
+		given =
+			length(coll) > 0
+	)
 
 message("arrow $ xLocatel")
 
-forall(
-	"fn $ xLocatel",
-	list(coll = G$collection()),
-	x_(identity)$xLocatel(coll) %equals% coll
-)
+	forall(
+		"coll $ xLocatel",
+		test_cases$truth_with_coll,
+		x_(coll)$xLocatel(fn)$x() %equals% 1,
+		given =
+			length(coll) > 0
+	)
 
-forall(
-	"coll $ xLocatel",
-	list(coll = G$collection()),
-	x_(coll)$xLocatel(identity) %equals% coll
-)
+	forall(
+		"fn $ xLocatel",
+		test_cases$truth_with_coll,
+		x_(fn)$xLocatel(coll)$x() %equals% 1,
+		given =
+			length(coll) > 0
+	)

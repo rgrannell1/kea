@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message('xFourth')
 
 forall("fourth always returns the fourth element of a collection",

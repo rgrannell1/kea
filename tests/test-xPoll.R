@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xPoll")
 
 forall(
@@ -8,21 +11,21 @@ forall(
 
 forall(
 	"polling with truth returns length coll",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	xPoll(Truth, coll) == length(coll),
 	given =
 		length(coll) > 0)
 
 forall(
 	"polling with falsity returns 0",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	xPoll(Falsity, coll) == 0,
 	given =
 		length(coll) > 0)
 
 forall(
 	"polling with moot returns 0",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	xPoll(Moot, coll) == 0,
 	given =
 		length(coll) > 0)

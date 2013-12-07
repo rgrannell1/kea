@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xInter")
 
 forall(
@@ -12,7 +15,7 @@ forall(
 
 forall(
 	"the intersection in general behaves the same as R's intersection",
-	list(coll1 = G$collection(), coll2 = G$collection()),
+	list(coll1 = test_cases$collection, coll2 = test_cases$collection),
 	expect =
 		xInter(coll1, coll2) %equals% as.list(intersect(coll1, coll2)),
 	given =

@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xRepeat")
 
 forall(
@@ -9,7 +12,7 @@ forall(
 
 forall(
 	"repeating a collection is done by end-to-end concatenation.",
-	list(num = G$positive(), coll = G$collection()),
+	list(num = G$positive(), coll = test_cases$collection),
 	xRepeat(num, coll) %equals% rep(coll, num)
 )
 

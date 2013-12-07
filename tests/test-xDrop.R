@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message('xDrop')
 
 forall(
@@ -9,7 +12,7 @@ forall(
 
 forall(
 	"dropping yields the correct collection.",
-	list(num = G$positive(), coll = G$collection()),
+	list(num = G$positive(), coll = test_cases$collection),
 	{
 		ind <- min(length(coll), num)
 		xDrop(num, coll) %equals% as.list(coll[1:ind])

@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message('xThird')
 
 forall("third always returns the third element of a collection",

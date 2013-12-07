@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xGet")
 
 forall("getting from list with two identical keys returns both.",

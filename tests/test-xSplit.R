@@ -1,4 +1,7 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message('xSplit')
 
 forall(
@@ -9,7 +12,7 @@ forall(
 
 forall(
 	"splitting with 0 yields an empty list and the list",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	xSplit(0, coll) %equals% list(list(), as.list(coll)),
 	given =
 		length(coll) > 0
@@ -17,7 +20,7 @@ forall(
 
 forall(
 	"splitting with a large number yields the list and an empty list",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	xSplit(length(coll) + 1, coll) %equals% list(as.list(coll), list()),
 	given =
 		length(coll) > 0

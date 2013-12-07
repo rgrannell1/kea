@@ -1,9 +1,12 @@
 
+forall <- arrow:::forall
+test_cases <- arrow:::test_cases
+
 message("xExists")
 
 forall(
 	"xExists of truth is true`",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	xExists(Truth, coll, coll),
 	given =
 		length(coll) > 0
@@ -11,7 +14,7 @@ forall(
 
 forall(
 	"xExists of falsity is false",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	!xExists(Falsity, coll, coll),
 	given =
 		length(coll) > 0
@@ -19,7 +22,7 @@ forall(
 
 forall(
 	"xExists of moot is false",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	!xExists(Moot, coll, coll),
 	given =
 		length(coll) > 0
@@ -42,7 +45,7 @@ message("arrow $ xExists")
 
 forall(
 	"fn $ xExists",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	x_(Truth)$xExists(coll, coll)$x(),
 	given =
 		length(coll) > 0
@@ -50,7 +53,7 @@ forall(
 
 forall(
 	"coll $ xExists",
-	list(coll = G$collection()),
+	list(coll = test_cases$collection),
 	x_(coll)$xExists(Truth)$x(),
 	given =
 		length(coll) > 0

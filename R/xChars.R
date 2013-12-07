@@ -31,9 +31,7 @@ xChars <- function (str) {
 		length(str) %in% 0:1, invoking_call,
 		exclaim$must_have_length( str, 0:1) )
 
-	if (length(str) == 0) {
-		character(0)
-	} else if (nchar(str) == 0) {
+	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)
 	} else {
 		strsplit(str, "")[[1]]

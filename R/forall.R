@@ -434,6 +434,12 @@ test_cases <- local({
 			fn = atoms$moot,
 			coll = compounds$collection)
 
+	this$logical_functions_with_collection <-
+		list(
+			fn = atoms$logical_function,
+			coll = compounds$collection
+		)
+
 	this$logical_functions_with_collection_zero <-
 		list(
 			fn = atoms$logical_function,
