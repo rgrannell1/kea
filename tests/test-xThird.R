@@ -11,3 +11,12 @@ forall("third always returns the third element of a collection",
 	given =
 		length(coll) <= 3
 )
+
+message('arrow $ xThird')
+
+	forall("third always returns the third element of a collection",
+		list(coll = G$collection),
+		x_(coll)$xThird() %equals% coll[[3]],
+		given =
+			length(coll) <= 3
+	)
