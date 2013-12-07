@@ -6,16 +6,14 @@ message("xGet")
 
 	forall("getting from list with two identical keys returns both.",
 		test_cases$str_word,
-		{
-			xGet(key)(list()) %equals% list()
-		}
+		xGet(str)(list()) %equals% list()
 	)
 
 	forall("getting from list with two identical keys returns both.",
 		test_cases$str_word,
 		{
-			coll <- structure(list(1, 2), names = c(key, key))
-			xGet(key)(coll) %equals% list(1, 2)
+			coll <- structure(list(1, 2), names = c(str, str))
+			xGet(str)(coll) %equals% list(1, 2)
 		}
 	)
 
@@ -24,9 +22,9 @@ message("xGet")
 		{
 			coll <- structure(
 				list(1, 2, 3),
-				names = c(key, paste(key, '2'), key))
+				names = c(str, paste(str, '2'), str))
 
-			xGet(key)(coll) %equals% list(1, 3)
+			xGet(str)(coll) %equals% list(1, 3)
 		}
 	)
 

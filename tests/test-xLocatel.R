@@ -19,7 +19,7 @@ message("xLocatel")
 	forall(
 		"a true function yields 1",
 		test_cases$truth_with_coll,
-		xLocatel(fn, coll) %equals% length(coll),
+		xLocatel(fn, coll) %equals% 1,
 		given =
 			length(coll) > 0
 	)

@@ -10,19 +10,5 @@ message('xFormals')
 		xFormals(function () {}) %equals% list()
 	)
 
-	forall(
-		"formals work for non-primitive functions.",
-		test_cases$str_word,
-		{
-			f <- function () {}
-			formals(f) <- structure(words, names = words)
-
-			names(xFormals(f)) %equals% words &&
-			all(unlist(words) == words)
-		},
-		given =
-			length(words)
-	)
-
 message('arrow $ xFormals')
 

@@ -551,11 +551,11 @@ x_coll_proto <- local({
 
 	this$xForall <-
 		function (pred) {
-			xForall(pred, self_())
+			x_( xForall(pred, self_()) )
 		}
 	this$xForall... <-
 		function (pred, ...) {
-			xForall...(pred, self_(), ...)
+			x_( xForall...(pred, self_(), ...) )
 		}
 
 	this$xFold <- this$xFoldl
@@ -670,6 +670,10 @@ x_coll_proto <- local({
 			x_( xInter(self_(), coll2) )
 		}
 	# -------- J ------- #
+	this$xJuxtapose <-
+		function (fns) {
+			x_( xJuxtapose(self_()) )
+		}
 	# -------- K ------- #
 	this$xKestrel <-
 		this$xConst
@@ -1345,10 +1349,6 @@ x_fn_proto <- local({
 			x_( xIterate(self_(), init ) )
 		}
 	# -------- J ------- #
-	this$xJuxtapose <-
-		function (fns) {
-			x_( xJuxtapose(self_()) )
-		}
 	this$xJuxtapose... <-
 		function (...) {
 			x_( xJuxtapose...(self_(), ...) )

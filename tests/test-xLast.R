@@ -9,7 +9,7 @@ message('xLast')
 		test_cases$collection,
 		xLast(coll) %equals% coll[[length(coll)]],
 		given =
-			length(coll) <= 1
+			length(coll) > 0
 	)
 
 message('arrow $ xLast')
@@ -17,7 +17,7 @@ message('arrow $ xLast')
 	forall(
 		"collection $ xLast",
 		test_cases$collection,
-		x_(coll)$xLast() %equals% coll[[length(coll)]],
+		x_(coll)$xLast()$x() %equals% coll[[length(coll)]],
 		given =
-			length(coll) <= 1
+			length(coll) > 0
 	)

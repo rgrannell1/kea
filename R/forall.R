@@ -505,6 +505,14 @@ test_cases <- local({
 	this$str_word_and_words <-
 		list(str = atoms$word(), strs = compounds$words())
 
+	# --------------------- col + col --------------------- #
+
+	this$two_collection_zeros =
+		list(coll1 = compounds$collection_zero, coll2 = compounds$collection_zero)
+
+	this$two_collections =
+		list(coll1 = compounds$collection, coll2 = compounds$collection)
+
 	this
 })
 

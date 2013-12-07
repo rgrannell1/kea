@@ -9,14 +9,14 @@ message('xThird')
 		expect =
 			xThird(coll) %equals% coll[[3]],
 		given =
-			length(coll) <= 3
+			length(coll) >= 3
 	)
 
 message('arrow $ xThird')
 
 	forall("third always returns the third element of a collection",
 		test_cases$collection,
-		x_(coll)$xThird() %equals% coll[[3]],
+		x_(coll)$xThird()$x() %equals% coll[[3]],
 		given =
-			length(coll) <= 3
+			length(coll) >= 3
 	)

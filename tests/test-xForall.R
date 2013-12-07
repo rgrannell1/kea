@@ -27,22 +27,6 @@ message("xForall")
 		given =
 			length(coll) > 0
 	)
-
-	# might occasionally fail!
-
-	forall(
-		"xForall of a function that sometimes yields true is false",
-		test_cases$integers,
-		!xForall(
-			function (a, b) {
-				a %% 2 == 0 || b %% 2 == 1
-			},
-			list(coll, coll)
-		),
-		given =
-			length(ints) > 0
-	)
-
 message("arrow $ xForall")
 
 	forall(
