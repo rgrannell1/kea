@@ -12,7 +12,7 @@ message('xLast')
 			length(coll) <= 1
 	)
 
-	message('arrow $ xLast')
+message('arrow $ xLast')
 
 	forall(
 		"collection $ xLast",

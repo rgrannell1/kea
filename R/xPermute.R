@@ -18,7 +18,8 @@
 #' @export
 
 xPermute <- function (coll, colls) {
-#' Permute several collections using indices.
+	# Permute several collections using indices.
+	# shuffle several collections according to indices.
 
 	invoking_call <- sys.call()
 

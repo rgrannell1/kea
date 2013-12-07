@@ -1699,7 +1699,9 @@ get_proto_ref <- function (val) {
 		}
 
 		stop(
-			exclaim$method_not_found(method_name, contents_are, similar), call. = False)
+			exclaim$method_not_found(
+				method_name, contents_are, similar),
+			call. = False)
 	}
 
 	function (obj, method) {

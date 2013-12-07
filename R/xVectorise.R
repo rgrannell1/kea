@@ -18,6 +18,7 @@
 #' @export
 
 xVectorise <- function (fn) {
+	# (any -> any) -> ([any] -> [any])
 	# shorthand for partially applying map.
 
 	invoking_call <- sys.call()

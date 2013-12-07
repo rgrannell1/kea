@@ -53,7 +53,14 @@ xCombos <- function (num, coll) {
 
 	if (num == 0) {
 		list()
+	} else if (length(coll) == 0) {
+		list()
 	} else {
+
+		if (is.pairlist(coll)) {
+			coll <- as.list(coll)
+		}
+
 		num <- min(length(coll), num)
 		apply(combn(coll, num), 2, as.list)
 	}

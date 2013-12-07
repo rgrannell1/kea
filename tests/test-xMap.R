@@ -6,7 +6,7 @@ message("xMap")
 
 	forall(
 		"the empty collection always yields the empty list.",
-		list(fn = G$logical_functions, coll = G$collection_zero),
+		test_cases$logical_functions_with_collection_zero,
 		xMap(fn, coll) %equals% list()
 	)
 
@@ -28,7 +28,7 @@ message("xMap")
 
 	forall(
 		"mapping increment increments the list",
-		G$standard$inc_over_ints(),
+		test_cases$succ_over_integers,
 		{
 			all( unlist(xMap(fn, coll)) == unlist(coll) + 1 )
 		}
@@ -37,16 +37,16 @@ message("xMap")
 message("arrow $ xMap")
 
 	forall(
-		"collection.xMap selects even-numbers.",
-		G$standard$inc_over_ints(),
+		"collection $ xMap selects even-numbers.",
+		test_cases$succ_over_integers,
 		{
 			all( unlist(x_(coll)$xMap(fn)$x()) == unlist(coll) + 1 )
 		}
 	)
 
 	forall(
-		"function.xMap selects even-numbers.",
-		G$standard$inc_over_ints(),
+		"function $ xMap selects even-numbers.",
+		test_cases$succ_over_integers,
 		{
 			all( unlist(x_(fn)$xMap(coll)$x()) == unlist(coll) + 1 )
 		}

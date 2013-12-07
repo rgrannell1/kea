@@ -7,23 +7,18 @@ message("xConcat")
 	forall(
 		"a single collection acts as identity",
 		test_cases$collection,
-		xConcat(list(coll)) %equals% list(coll)
+		xConcat(list(coll)) %equals% as.list(coll)
 	)
 
 	forall(
 		"a single collection and null acts as identity",
 		test_cases$collection,
-		xConcat(list(coll, Null)) %equals% list(coll)
+		xConcat(list(coll, Null)) %equals% as.list(coll)
 	)
 
 message("xConcat...")
 
-
 message("arrow $ xConcat")
-
-
-
-
 
 message("arrow $ xConcat...")
 

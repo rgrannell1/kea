@@ -39,7 +39,7 @@ message("xMapIndexed")
 
 	forall(
 		"mapindexed's can increment correctly.",
-		G$standard$inc2_over_ints,
+		test_cases$inc2_over_ints,
 		all( unlist(xMapIndexed(fn, coll)) == unlist(coll) + 1 )
 	)
 
@@ -47,7 +47,7 @@ message("arrow $ xMapIndexed")
 
 	forall(
 		"collection $ xMapIndexed increments correctly.",
-		G$standard$inc2_over_ints,
+		test_cases$inc2_over_ints,
 		{
 			all( unlist(x_(coll)$xMapIndexed(fn)$x()) == unlist(coll) + 1 )
 		}
@@ -55,7 +55,7 @@ message("arrow $ xMapIndexed")
 
 	forall(
 		"function $ xMapIndexed increments correctly.",
-		G$standard$inc2_over_ints,
+		test_cases$inc2_over_ints,
 		{
 			all( unlist(x_(fn)$xMapIndexed(coll)$x()) == unlist(coll) + 1 )
 		}

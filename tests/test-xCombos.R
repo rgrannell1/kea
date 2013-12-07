@@ -7,9 +7,7 @@ message("xCombos")
 	forall(
 		"combos of empty collection is empty list",
 		test_cases$nonnegative_with_collection_zero,
-		{
-			xCombos(num, coll) %equals% list()
-		}
+		xCombos(num, coll) %equals% list()
 	)
 
 

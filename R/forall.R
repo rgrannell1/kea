@@ -409,9 +409,19 @@ test_cases <- local({
 			num = atoms$nonnegative_integer(),
 			coll = compounds$collection_zero)
 
+	this$positive_with_collection_zero <-
+		list(
+			num = atoms$nonnegative_integer(),
+			coll = compounds$collection_zero)
+
+	this$positive_with_recursive_zero <-
+		list(
+			num = atoms$nonnegative_integer(),
+			coll = compounds$recursive_zero)
+
 	this$positive_with_collection <-
 		list(
-			num = atoms$positive_integer,
+			num = atoms$positive_integer(),
 			coll = compounds$collection)
 
 	this$positive_with_linear_function <-

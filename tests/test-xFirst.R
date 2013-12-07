@@ -9,14 +9,14 @@ forall("first always returns the first element of a collection",
 	expect =
 		xFirst(coll) %equals% coll[[1]],
 	given =
-		length(coll) <= 1
+		length(coll) >= 1
 )
 
 message('arrow $ xFirst')
 
 	forall("first always returns the first element of a collection",
 		test_cases$collection,
-		x_(coll)$xFirst() %equals% coll[[1]],
+		x_(coll)$xFirst()$x() %equals% coll[[1]],
 		given =
-			length(coll) <= 1
+			length(coll) >= 1
 	)

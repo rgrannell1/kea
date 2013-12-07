@@ -14,8 +14,6 @@
 #'	 corresponding element in the retun value will be the empty symbol,
 #'	 which is identical to \code{quote(expr=)}.
 #'
-#'
-#'
 #' @example inst/examples/blank.R
 #' @export
 
