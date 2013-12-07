@@ -5,7 +5,7 @@ test_cases <- arrow:::test_cases
 message('xSecond')
 
 forall("second always returns the second element of a collection",
-	list(coll = G$collection),
+	test_cases$collection,
 	xSecond(coll) %equals% coll[[2]],
 	given =
 		length(coll) <= 2
@@ -14,7 +14,7 @@ forall("second always returns the second element of a collection",
 message('arrow $ xSecond')
 
 	forall("second always returns the second element of a collection",
-		list(coll = G$collection),
+		test_cases$collection,
 		x_(coll)$xSecond() %equals% coll[[2]],
 		given =
 			length(coll) <= 2

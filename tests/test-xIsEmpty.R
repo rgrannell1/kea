@@ -4,3 +4,9 @@ test_cases <- arrow:::test_cases
 
 message('xIsEmpty')
 
+
+
+
+
+message('arrow $ xIsEmpty')
+

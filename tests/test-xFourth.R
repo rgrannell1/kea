@@ -5,7 +5,7 @@ test_cases <- arrow:::test_cases
 message('xFourth')
 
 	forall("fourth always returns the fourth element of a collection",
-		list(coll = G$collection),
+		test_cases$collection,
 		xFourth(coll) %equals% coll[[4]],
 		given =
 			length(coll) <= 4
@@ -14,7 +14,7 @@ message('xFourth')
 message('arrow $ xFourth')
 
 	forall("fourth always returns the fourth element of a collection",
-		list(coll = G$collection),
+		test_cases$collection,
 		x_(coll)$xFourth() %equals% coll[[4]],
 		given =
 			length(coll) <= 4

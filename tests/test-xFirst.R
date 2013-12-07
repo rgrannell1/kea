@@ -5,7 +5,7 @@ test_cases <- arrow:::test_cases
 message('xFirst')
 
 forall("first always returns the first element of a collection",
-	list(coll = G$collection),
+	test_cases$collection,
 	expect =
 		xFirst(coll) %equals% coll[[1]],
 	given =
@@ -15,7 +15,7 @@ forall("first always returns the first element of a collection",
 message('arrow $ xFirst')
 
 	forall("first always returns the first element of a collection",
-		list(coll = G$collection),
+		test_cases$collection,
 		x_(coll)$xFirst() %equals% coll[[1]],
 		given =
 			length(coll) <= 1

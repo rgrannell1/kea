@@ -65,7 +65,7 @@ Issue Tracker
 - [x] #26 get does not work with xFixDefs. Figure out why.
 - [x] #25 check that functions that should return [A](0) do return such a value.
 - [x] #31 ensure all vector functions return vector[0] if input is empty, or no match found.
-- [x] #35 rename xCount, xFixDefs, xFMap, xHasDefs, xAssoc,
+- [x] #35 rename xCount, xFixDefs, xVectorise, xHasDefs, xAssoc,
 - [x] #33 implement flatten coll num.
 - [x] #36 implement sleep.
 - [x] #38 implement timer.

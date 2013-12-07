@@ -4,3 +4,8 @@ test_cases <- arrow:::test_cases
 
 message("xIsVariadic")
 
+
+
+
+
+message("arrow $ xIsVariadic")

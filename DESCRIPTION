@@ -36,7 +36,7 @@ Collate:
     'xFirst.R'
     'xFlatMap.R'
     'xFlip.R'
-    'xFmap.R'
+    'xVectorise.R'
     'xFoldl.R'
     'xFoldr.R'
     'xFormals.R'

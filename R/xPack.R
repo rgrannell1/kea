@@ -38,7 +38,7 @@ xPack <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		xReject(function (x) length(x) == 0, coll)
+		coll[sapply(coll, length) != 0]
 	}
 }
 

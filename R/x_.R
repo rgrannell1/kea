@@ -1453,10 +1453,6 @@ x_fn_proto <- local({
 		function () {
 			x_( xParams(self_()) )
 		}
-	this$xFmap <-
-		function () {
-			x_( xFmap(self_()) )
-		}
 
 	this$xPartial <-
 		function (coll) {
@@ -1575,6 +1571,10 @@ x_fn_proto <- local({
 	this$xUnfoldl <-
 		this$xUnfold
 	# -------- V ------- #
+	this$xVectorise <-
+		function () {
+			x_( xVectorise(self_()) )
+		}
 	# -------- W ------- #
 	this$xWait <-
 		function (num) {
