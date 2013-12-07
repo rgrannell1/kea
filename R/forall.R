@@ -68,8 +68,9 @@ atoms <- local({
 
 	this$linear_function <-
 		function (sd = 20) {
-			factor <- abs(round(rnorm(1, 0, sd), 0)) + 1
-			function (num) factor * num
+			function (num) {
+				abs(round(rnorm(1, 0, sd), 0)) + 1 * num
+			}
 		}
 
 	# --------------------- Base Functions --------------------- #

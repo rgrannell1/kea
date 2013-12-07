@@ -7,7 +7,7 @@ message("xForall")
 	forall(
 		"xForall of truth is true`",
 		test_cases$collection,
-		xForall(Truth, coll, coll),
+		xForall(Truth, list(coll, coll)),
 		given =
 			length(coll) > 0
 	)
@@ -15,7 +15,7 @@ message("xForall")
 	forall(
 		"xForall of falsity is false",
 		test_cases$collection,
-		!xForall(Falsity, coll, coll),
+		!xForall(Falsity, list(coll, coll)),
 		given =
 			length(coll) > 0
 	)
@@ -23,7 +23,7 @@ message("xForall")
 	forall(
 		"xForall of moot is false",
 		test_cases$collection,
-		!xForall(Moot, coll, coll),
+		!xForall(Moot, list(coll, coll)),
 		given =
 			length(coll) > 0
 	)
@@ -37,8 +37,7 @@ message("xForall")
 			function (a, b) {
 				a %% 2 == 0 || b %% 2 == 1
 			},
-			coll,
-			coll
+			list(coll, coll)
 		),
 		given =
 			length(ints) > 0
@@ -49,7 +48,7 @@ message("arrow $ xForall")
 	forall(
 		"fn $ xForall",
 		test_cases$collection,
-		x_(Truth)$xForall(coll, coll)$x(),
+		x_(Truth)$xForall(list(coll, coll))$x(),
 		given =
 			length(coll) > 0
 	)

@@ -43,6 +43,7 @@ xCombos <- function (num, coll) {
 	assert(
 		num >= 0, invoking_call,
 		exclaim$must_be_greater_than(num, 0))
+
 	assert(
 		round(num) == num, invoking_call,
 		exclaim$must_be_whole(num))

@@ -2,6 +2,8 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
+inc <- function (a) a + 1
+
 message("xFlip")
 
 	forall(
@@ -12,14 +14,14 @@ message("xFlip")
 
 	forall(
 		"double-flipping is identity",
-		test_cases$positive_with_linear_function,
-		xFlip(xFlip(fn))(num) == fn(num)
+		test_cases$num_positive_integer,
+		xFlip(xFlip(inc))(num) == inc(num)
 	)
 
 message("arrow $ xFlip")
 
 	forall(
 		"double-flipping is identity",
-		test_cases$positive_with_linear_function,
-		x_(fn)$xFlip()$xFlip()$x()(num) == fn(num)
+		test_cases$num_positive_integer,
+		x_(inc)$xFlip()$xFlip()$x()(num) == inc(num)
 	)
