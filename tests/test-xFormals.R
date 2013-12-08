@@ -12,3 +12,8 @@ message('xFormals')
 
 message('arrow $ xFormals')
 
+	forall(
+		"nullary functions yield the empty list.",
+		list(),
+		x_(function () {})$xFormals()$x() %equals% list()
+	)

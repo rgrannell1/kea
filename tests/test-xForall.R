@@ -30,7 +30,7 @@ message("xForall")
 message("arrow $ xForall")
 
 	forall(
-		"fn $ xForall",
+		"function $ xForall",
 		test_cases$collection,
 		x_(Truth)$xForall(list(coll, coll))$x(),
 		given =
@@ -38,7 +38,7 @@ message("arrow $ xForall")
 	)
 
 	forall(
-		"coll $ xForall",
+		"collection $ xForall",
 		test_cases$collection,
 		x_(coll)$xForall(Truth)$x(),
 		given =

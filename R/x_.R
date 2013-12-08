@@ -469,7 +469,7 @@ x_coll_proto <- local({
 
 	this$xDrop <-
 		function (num) {
-			x_( xDrop(self_(), num) )
+			x_( xDrop(num, self_()) )
 		}
 	this$xDrop... <-
 		function (num, ...) {

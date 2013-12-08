@@ -21,3 +21,14 @@ message("xInit")
 		given =
 			length(coll) > 0
 	)
+
+message("arrow $ xInit")
+
+	forall(
+		"init of a list shortens the list by one",
+		test_cases$collection,
+		expect =
+			length(x_(coll)$xInit()$x()) == length(coll) - 1,
+		given =
+			length(coll) > 0
+	)

@@ -4,8 +4,7 @@ test_cases <- arrow:::test_cases
 
 message("xAsClosure")
 
-
 message("arrow $ xAsClosure")
 
-message("fn $ xAsClosure")
+message("function $ xAsClosure")
 

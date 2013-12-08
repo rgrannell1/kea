@@ -19,7 +19,7 @@ message('xChars')
 message('arrow $ xChars')
 
 	forall(
-		"coll $ arrow",
+		"collection $ arrow",
 		test_cases$str_word,
 		length(x_(str)$xChars()$x()) == nchar(str)
 	)

@@ -33,7 +33,7 @@ message("arrow $ xJuxtapose")
 	)
 
 	forall(
-		"fn $ xJuxtapose...",
+		"function $ xJuxtapose...",
 		test_cases$succ_over_integers,
 		{
 			x_(fn)$xJuxtapose...()$x()(coll) %equals% coll + 1

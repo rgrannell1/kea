@@ -20,3 +20,16 @@ message('xDrop')
 		given =
 			length(coll) > 0
 	)
+
+message('arrow $ xDrop')
+
+	forall(
+		"dropping yields the correct collection.",
+		test_cases$positive_with_collection,
+		{
+			ind <- min(length(coll), num)
+			x_(coll)$xDrop(num)$x() %equals% as.list(tail(coll, -ind))
+		},
+		given =
+			length(coll) > 0
+	)

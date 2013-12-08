@@ -10,4 +10,4 @@ message("xLimit")
 
 	#Sforall("limiting returns null after the expected time")
 
-message("arrow$xLimit")
+message("arrow $ xLimit")

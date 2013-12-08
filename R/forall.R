@@ -534,10 +534,14 @@ test_cases <- local({
 	# --------------------- col + col --------------------- #
 
 	this$two_collection_zeros =
-		list(coll1 = compounds$collection_zero, coll2 = compounds$collection_zero)
+		list(
+			coll1 = compounds$collection_zero,
+			coll2 = compounds$collection_zero)
 
 	this$two_collections =
-		list(coll1 = compounds$collection, coll2 = compounds$collection)
+		list(
+			coll1 = compounds$collection,
+			coll2 = compounds$collection)
 
 	this
 })

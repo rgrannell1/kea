@@ -29,7 +29,7 @@ message("xVectorise")
 message("arrow $ xVectorise")
 
 	forall(
-		"fn $ xVectorise increments over integers",
+		"function $ xVectorise increments over integers",
 		test_cases$succ_over_integers,
 		all( (x_(fn)$xVectorise()$x())(coll) == unlist(coll) + 1 )
 	)

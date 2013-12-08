@@ -27,7 +27,7 @@ message("xLocater")
 message("arrow $ xLocater")
 
 	forall(
-		"coll $ xLocater",
+		"collection $ xLocater",
 		test_cases$truth_with_coll,
 		x_(coll)$xLocater(fn)$x() == length(coll),
 		given =
@@ -35,7 +35,7 @@ message("arrow $ xLocater")
 	)
 
 	forall(
-		"fn $ xLocater",
+		"function $ xLocater",
 		test_cases$truth_with_coll,
 		x_(fn)$xLocater(coll)$x() == length(coll),
 		given =

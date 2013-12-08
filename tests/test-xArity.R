@@ -24,7 +24,7 @@ message('xArity')
 
 message('arrow $ xArity')
 
-message('fn $ xArity')
+message('function $ xArity')
 
 	forall(
 		"the arity of the non-primitive functions is defined",

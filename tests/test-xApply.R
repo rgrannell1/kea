@@ -29,7 +29,7 @@ message('xApply')
 
 message("arrow $ xApply")
 
-message("coll $ xApply")
+message("collection $ xApply")
 
 	forall(
 		"coll arrow list identity",
@@ -37,7 +37,7 @@ message("coll $ xApply")
 		x_(coll)$xApply(list)$x() %equals% as.list(coll)
 	)
 
-message("fn $ xApply")
+message("function $ xApply")
 
 	forall(
 		"fn arrow list identity",
@@ -45,7 +45,7 @@ message("fn $ xApply")
 		x_(list)$xApply(coll)$x() %equals% as.list(coll)
 	)
 
-message("coll $ xApply...")
+message("collection $ xApply...")
 
 	forall(
 		"coll apply... list identity",
@@ -53,7 +53,7 @@ message("coll $ xApply...")
 		x_(coll)$xApply...(list)$x() %equals% list(coll)
 	)
 
-message("fn $ xApply...")
+message("function $ xApply...")
 
 	forall(
 		"fn apply... list identity",

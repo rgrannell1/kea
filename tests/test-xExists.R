@@ -28,8 +28,6 @@ message("xExists")
 			length(coll) > 0
 	)
 
-	# might occasionally fail!
-
 	forall(
 		"xExists of a function that sometimes yields true is true",
 		test_cases$integers,
@@ -44,7 +42,7 @@ message("xExists")
 message("arrow $ xExists")
 
 	forall(
-		"fn $ xExists",
+		"function $ xExists",
 		test_cases$collection,
 		x_(Truth)$xExists(list(coll, coll))$x(),
 		given =
@@ -52,7 +50,7 @@ message("arrow $ xExists")
 	)
 
 	forall(
-		"coll $ xExists",
+		"collection $ xExists",
 		test_cases$collection,
 		x_(coll)$xExists(Truth)$x(),
 		given =

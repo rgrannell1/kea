@@ -4,3 +4,7 @@ test_cases <- arrow:::test_cases
 
 message('xSubStr')
 
+
+
+
+message('arrow $ xSubStr')

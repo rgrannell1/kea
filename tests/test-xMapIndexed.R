@@ -25,7 +25,8 @@ message("xMapIndexed")
 	forall(
 		"mapindexed's can increment correctly.",
 		test_cases$sum_over_integers,
-		all( unlist(xMapIndexed(fn, coll)) == coll + seq_along(coll) )
+		all( unlist(xMapIndexed(fn, coll)) ==
+			coll + seq_along(coll) )
 	)
 
 message("arrow $ xMapIndexed")
@@ -33,7 +34,8 @@ message("arrow $ xMapIndexed")
 	forall(
 		"collection $ xMapIndexed increments correctly.",
 		test_cases$sum_over_integers,
-		all( unlist(x_(coll)$xMapIndexed(fn)$x()) == unlist(coll) + seq_along(coll) )
+		all( unlist(x_(coll)$xMapIndexed(fn)$x()) ==
+			unlist(coll) + seq_along(coll) )
 	)
 
 	forall(
