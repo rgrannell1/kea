@@ -146,6 +146,10 @@ x_any_proto <- local({
 		function () {
 			x_( xVersion() )
 		}
+	this$x_Version <-
+		function () {
+			xVersion()
+		}
 	# -------- W ------- #
 
 	# -------- X ------- #
@@ -561,7 +565,6 @@ x_coll_proto <- local({
 		}
 
 	# -------- D ------- #
-
 	# --- xDissoc --- #
 	this$xDissoc <-
 		function () {
@@ -1870,6 +1873,8 @@ x_coll_proto <- local({
 			x_( xThread...(self_(), fns, ...) )
 		}
 	# -------- U ------- #
+	# --- xUnchars --- #
+
 	this$xUnchars <-
 		function () {
 			x_( xUnchars(self_()) )
@@ -1879,16 +1884,38 @@ x_coll_proto <- local({
 			x_( xUnchars...(self_(), ...) )
 		}
 
+	this$x_Unchars <-
+		function () {
+			xUnchars(self_())
+		}
+	this$x_Unchars... <-
+		function (...) {
+			xUnchars...(self_(), ...)
+		}
+
+	# --- xUnion --- #
 	this$xUnion <-
 		function (coll2) {
 			x_( xUnion(self_(), coll2) )
 		}
 
+	this$x_Union <-
+		function (coll2) {
+			xUnion(self_(), coll2)
+		}
+
+	# --- xUnit --- #
 	this$xUnit <-
 		function () {
 			x_( xUnit(self_())	)
 		}
 
+	this$x_Unit <-
+		function () {
+			xUnit(self_())
+		}
+
+	# --- xUnlines --- #
 	this$xUnlines <-
 		function () {
 			x_( xUnlines(self_()) )
@@ -1898,6 +1925,16 @@ x_coll_proto <- local({
 			x_( xUnlines...(self_(), ...) )
 		}
 
+	this$x_Unlines <-
+		function () {
+			xUnlines(self_())
+		}
+	this$x_Unlines... <-
+		function (...) {
+			xUnlines...(self_(), ...)
+		}
+
+	# --- xUnwords --- #
 	this$xUnwords <-
 		function () {
 			x_( xUnwords(self_()) )
@@ -1907,21 +1944,46 @@ x_coll_proto <- local({
 			x_( xUnwords...(self_(), ...) )
 		}
 
+	this$x_Unwords <-
+		function () {
+			xUnwords(self_())
+		}
+	this$x_Unwords... <-
+		function (...) {
+			xUnwords...(self_(), ...)
+		}
+
+	# --- xUnfoldl --- #
 	this$xUnfold <-
 		function (fn, pred) {
 			x_( xUnfold(fn, pred, self_()) )
 		}
 	this$xUnfoldl <-
 		this$xUnfold
+
+	this$x_Unfold <-
+		function (fn, pred) {
+			xUnfold(fn, pred, self_())
+		}
+	this$x_Unfoldl <-
+		this$x_Unfold
+
 	# -------- V ------- #
 	# -------- W ------- #
+	# --- xWords --- #
 	this$xWords <-
 		function () {
 			x_( xWords(self_()) )
 		}
+
+	this$x_Words <-
+		function () {
+			xWords(self_())
+		}
 	# -------- X ------- #
 	# -------- Y ------- #
 	# -------- Z ------- #
+	# --- xZipWith --- #
 	this$xZipWith <-
 		function (fn) {
 			x_( xZipWith(fn, self_()) )
@@ -1929,6 +1991,15 @@ x_coll_proto <- local({
 	this$xZipWith... <-
 		function (fn, ...) {
 			x_( xZipWith(fn, self_(), ...) )
+		}
+
+	this$x_ZipWith <-
+		function (fn) {
+			xZipWith(fn, self_())
+		}
+	this$x_ZipWith... <-
+		function (fn, ...) {
+			xZipWith(fn, self_(), ...)
 		}
 
 	this <- as.environment(
