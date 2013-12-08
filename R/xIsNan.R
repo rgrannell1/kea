@@ -14,7 +14,6 @@
 #'
 #' @family collection_functions
 #'
-#' @example inst/examples/blank.Rinst/examples/blank.R
 #' @export
 
 xIsNan <- function (coll) {

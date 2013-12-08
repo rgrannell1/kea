@@ -12,7 +12,7 @@
 
 #' @family combinatoric_functions collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xSetProd <- function (colls) {

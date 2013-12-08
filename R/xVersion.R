@@ -7,7 +7,7 @@
 #' major release number, minor release number and patch number.
 
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 #' @export

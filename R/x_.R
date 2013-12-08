@@ -1641,7 +1641,7 @@ x_fn_proto <- local({
 #'
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 x_ <- function (val) {

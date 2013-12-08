@@ -14,7 +14,7 @@
 #'
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xIdentity <- function (val) {

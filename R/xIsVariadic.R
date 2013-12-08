@@ -9,7 +9,7 @@
 #'
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xIsVariadic <- function (fn) {

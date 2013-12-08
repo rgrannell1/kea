@@ -12,7 +12,7 @@
 #'    overwrites the value referenced by \code{str}r if the variable
 #' already exists in the parent frame.
 
-#' @example inst/examples/blank.R
+
 #' @export
 
 xVal <- function (str, val) {

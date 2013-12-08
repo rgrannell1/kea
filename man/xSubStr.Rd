@@ -1,0 +1,21 @@
+\name{xSubStr}
+\alias{xSubStr}
+\title{xSubStr}
+\usage{
+  xSubStr(str, nums)
+}
+\arguments{
+  \item{str}{a string.}
+
+  \item{nums}{indices of \code{str}.}
+}
+\value{
+  a character vector.
+}
+\description{
+  Subset a string using normal R vector indexing.
+}
+\section{Corner Cases}{
+  returns the empty list if \code{coll} is length-zero.
+}
+

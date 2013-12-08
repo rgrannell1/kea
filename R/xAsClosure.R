@@ -11,7 +11,7 @@
 #'	 xAsClosure does not work for every primitive function (for example 'c'),
 #'	 so caution should be taken when using this function.
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xAsClosure <- function (fn) {

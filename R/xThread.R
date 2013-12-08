@@ -11,7 +11,7 @@
 #' @section Corner Cases: q
 #'     returns the empty list if \code{coll} is length-zero.
 
-#' @example inst/examples/blank.R
+
 #' @export
 
 xThread <- function (init, fns) {

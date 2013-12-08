@@ -11,7 +11,7 @@
 #'	 If \code{nums} is lenth-zero then the unit of that vector is returned.
 #'	 The sign of zero is zero.
 
-#' @example inst/examples/blank.R
+
 #' @export
 
 xSignum <- function (nums) {

@@ -14,7 +14,7 @@
 #'
 #' @family higher_order_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xParams <- function (fn) {

@@ -9,7 +9,7 @@
 #'
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xLines <- function (str) {

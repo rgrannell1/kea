@@ -12,7 +12,7 @@
 #'
 #' @family collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xAsFunction <- function (coll) {

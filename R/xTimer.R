@@ -8,7 +8,7 @@
 #' @return a variadic function that ignores its arguments.
 
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xTimer <- function (num) {

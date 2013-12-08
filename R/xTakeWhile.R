@@ -14,7 +14,7 @@
 
 #' @family higher_order_functions collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xTakeWhile <- function (pred, coll) {

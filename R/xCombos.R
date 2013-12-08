@@ -13,7 +13,7 @@
 #'
 #' @family combinatoric_functions collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xCombos <- function (num, coll) {

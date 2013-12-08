@@ -41,5 +41,6 @@ message("arrow $ xMapIndexed")
 	forall(
 		"function $ xMapIndexed increments correctly.",
 		test_cases$sum_over_integers,
-		all( unlist(x_(fn)$xMapIndexed(coll)$x()) == unlist(coll) + seq_along(coll) )
+		all( unlist(x_(fn)$xMapIndexed(coll)$x()) ==
+			unlist(coll) + seq_along(coll) )
 	)

@@ -13,7 +13,7 @@
 #'
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xHasDefs <- function (fn) {

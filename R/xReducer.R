@@ -18,7 +18,7 @@
 #' @template Return
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xReducer <- function (fn, coll) {

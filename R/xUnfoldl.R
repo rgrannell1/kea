@@ -15,7 +15,7 @@
 #'
 #' @family higher_order_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xUnfold <- function (pred, fn, init) {

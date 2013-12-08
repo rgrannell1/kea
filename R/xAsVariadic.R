@@ -7,7 +7,7 @@
 #'
 #' @return a variadic function.
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xAsVariadic <- function (fn) {

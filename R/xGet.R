@@ -11,7 +11,7 @@
 #'     returns the empty list if \code{coll} is length-zero.
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xGet <- function (str) {

@@ -1,0 +1,28 @@
+\name{xFlatMap}
+\alias{xFlatMap}
+\title{xFlatMap}
+\usage{
+  xFlatMap(fn, coll)
+}
+\arguments{
+  \item{fn}{a unary function.}
+
+  \item{coll}{a collection.}
+}
+\value{
+  a list.
+}
+\description{
+  Concatenate the results of applying a function to each
+  element of a collection.
+}
+\section{Corner Cases}{
+  returns the empty list if \code{coll} is length-zero.
+}
+\seealso{
+  Other higher_order_functions map_like_functions
+  collection_functions: \code{\link{xMap}},
+  \code{\link{xMapIndexed}}, \code{\link{xMapMany}},
+  \code{\link{xMapWhen}}, \code{\link{xRecurMap}}
+}
+

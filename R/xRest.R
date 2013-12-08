@@ -13,7 +13,7 @@
 #'
 #' @family collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xRest <- function (coll) {

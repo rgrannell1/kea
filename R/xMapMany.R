@@ -16,7 +16,7 @@
 #'
 #' @family higher_order_functions map_like_functions collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xMapMany <- function (fn, colls) {

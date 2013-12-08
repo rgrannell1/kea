@@ -11,7 +11,7 @@
 #'     empty collections act as a unit for concatenation; concatenating the empty list
 #'    to another list returns the second list, without modification.
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xConcat <- function (colls) {

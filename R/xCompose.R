@@ -16,7 +16,7 @@
 #'
 #' @family higher_order_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xCompose <- function (fn1, fn2) {

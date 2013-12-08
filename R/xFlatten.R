@@ -15,7 +15,7 @@
 #'
 #' @family collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xFlatten <- function (num, coll) {

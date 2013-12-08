@@ -12,7 +12,7 @@
 #'
 #'
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xPred <- function (nums) {

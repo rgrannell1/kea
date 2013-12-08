@@ -22,7 +22,7 @@
 #'
 #' @family higher_order_functions collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xSelect <- function (pred, coll) {

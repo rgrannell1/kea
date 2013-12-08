@@ -14,7 +14,7 @@
 #'
 #' @family collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xName <- function (strs, coll) {

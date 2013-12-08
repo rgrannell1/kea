@@ -16,7 +16,7 @@
 #'
 #' @family higher_order_functions collection_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xPluck <- function (str, coll) {

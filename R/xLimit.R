@@ -12,7 +12,7 @@
 #'
 #' @family higher_order_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xLimit <- function (fn, num) {

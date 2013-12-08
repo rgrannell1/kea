@@ -13,7 +13,7 @@
 
 #' @family higher_order_functions
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 xWait <- function (fn, num) {

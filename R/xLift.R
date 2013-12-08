@@ -9,7 +9,7 @@
 #'
 #' @return returns a unary function of x.
 #'
-#' @example inst/examples/blank.R
+
 #' @export
 
 #' @export
