@@ -25,7 +25,11 @@
 #            other proto ----- x_[ other ]
 #
 
-
+# there are currently three flavours of method:
+# chaining methods: xMethod. These return an x_ monad to chain off.
+# chaining variadic methods: xMethod... . There are similar, but take variadic arguments.
+# non-chaining methods: x_Methods. These exit the monad.
+# non-chaining methods: x_Methods... . These are variadic, and exit the monad into the land of normal types.
 
 
 
@@ -59,6 +63,16 @@ x_any_proto <- local({
 			fn()
 			x_(self_())
 		}
+
+	this$x_Execute <-
+		function (fn) {
+			# execute a side-effectful function
+			# before using the previous x_ monad
+			# for further chaining.
+
+			fn()
+			self_()
+		}
 	# -------- F ------- #
 
 	# -------- G ------- #
@@ -86,6 +100,15 @@ x_any_proto <- local({
 		this$xIdentity
 	this$xI <-
 		this$xIdiotBird
+
+	this$x_Identity <-
+		function () {
+			xIdentity(self_())
+		}
+	this$x_IdiotBird <-
+		this$x_Identity
+	this$x_I <-
+		this$x_IdiotBird
 	# -------- J ------- #
 
 	# -------- K ------- #
@@ -1454,6 +1477,7 @@ x_fn_proto <- local({
 			x_( xParams(self_()) )
 		}
 
+	# --- xPartial --- #
 	this$xPartial <-
 		function (coll) {
 			x_( xPartial(self_(), coll) )
@@ -1463,6 +1487,16 @@ x_fn_proto <- local({
 			x_( xPartial...(self_(), ...) )
 		}
 
+	this$x_Partial <-
+		function (coll) {
+			xPartial(self_(), coll)
+		}
+	this$x_Partial... <-
+		function (...) {
+			xPartial...(self_(), ...)
+		}
+
+	# --- xPoll --- #
 	this$xPoll <-
 		function (coll) {
 			x_( xPoll(self_(), coll) )
@@ -1472,15 +1506,34 @@ x_fn_proto <- local({
 			x_( xPoll...(self_(), ...) )
 		}
 
+	this$x_Poll <-
+		function (coll) {
+			xPoll(self_(), coll)
+		}
+	this$x_Poll... <-
+		function (...) {
+			xPoll...(self_(), ...)
+		}
+
 	this$xPhoenix <-
 		this$xLift
 	this$xPhi <-
 		this$xLift
+
+	this$x_Phoenix <-
+		this$x_Lift
+	this$x_Phi <-
+		this$x_Lift
 	# -------- Q ------- #
 	this$xQueer <-
 		this$xCompose
 	this$xQ <-
 		this$xCompose
+
+	this$x_Queer <-
+		this$x_Compose
+	this$x_Q <-
+		this$x_Compose
 	# -------- R ------- #
 	this$xRecurMap <-
 		function (coll) {
@@ -1489,6 +1542,15 @@ x_fn_proto <- local({
 	this$xRecurMap... <-
 		function (...) {
 			x_( xRecurMap...(self_(), ...) )
+		}
+
+	this$x_RecurMap <-
+		function (coll) {
+			xRecurMap(self_(), coll)
+		}
+	this$x_RecurMap... <-
+		function (...) {
+			xRecurMap...(self_(), ...)
 		}
 
 	this$xReducel <-
@@ -1500,10 +1562,24 @@ x_fn_proto <- local({
 			x_( xReducel...(self_(), ...) )
 		}
 
+	this$x_Reducel <-
+		function (coll) {
+			xReducel(self_(), coll)
+		}
+	this$x_Reducel... <-
+		function (...) {
+			xReducel...(self_(), ...)
+		}
+
 	this$xReduce <-
 		this$xReducel
 	this$xReduce... <-
 		this$xReducel...
+
+	this$x_Reduce <-
+		this$x_Reducel
+	this$x_Reduce... <-
+		this$x_Reducel...
 
 	this$xReducer <-
 		function (coll) {
@@ -1514,6 +1590,15 @@ x_fn_proto <- local({
 			x_( xReducer...(self_(), ...) )
 		}
 
+	this$x_Reducer <-
+		function (coll) {
+			xReducer(self_(), coll)
+		}
+	this$x_Reducer... <-
+		function (...) {
+			xReducer...(self_(), ...)
+		}
+
 	this$xReject <-
 		function (coll) {
 			x_( xReject(self_(), coll) )
@@ -1522,9 +1607,16 @@ x_fn_proto <- local({
 		function (...) {
 			x_( xReject...(self_(), ...) )
 		}
+
+	this$x_Reject <-
+		function (coll) {
+			xReject(self_(), coll)
+		}
+	this$x_Reject... <-
+		function (...) {
+			xReject...(self_(), ...)
+		}
 	# -------- S ------- #
-	this$xS. <-
-		this$xLift
 
 	this$xSelect <-
 		function (coll) {
@@ -1535,6 +1627,14 @@ x_fn_proto <- local({
 			x_( xSelect...(self_(), ...) )
 		}
 
+	this$x_Select <-
+		function (coll) {
+			xSelect(self_(), coll)
+		}
+	this$x_Select... <-
+		function (...) {
+			xSelect...(self_(), ...)
+		}
 
 	this$xSplitWith <-
 		function (coll) {
@@ -1545,10 +1645,23 @@ x_fn_proto <- local({
 			x_( xSplitWith...(self_(), ...) )
 		}
 
+	this$x_SplitWith <-
+		function (coll) {
+			xSplitWith(self_(), coll)
+		}
+	this$x_SplitWith... <-
+		function (...) {
+			xSplitWith...(self_(), ...)
+		}
 	# -------- T ------- #
 	this$xTap <-
 		function (fn) {
 			x_( fn(self_()) )
+		}
+
+	this$x_Tap <-
+		function (fn) {
+			fn(self_())
 		}
 
 	this$xTakeWhile <-
@@ -1560,29 +1673,65 @@ x_fn_proto <- local({
 			x_( xTakeWhile...(self_(), ...) )
 		}
 
+	this$x_TakeWhile <-
+		function (coll) {
+			xTakeWhile(self_(), coll)
+		}
+	this$x_TakeWhile... <-
+		function (...) {
+			xTakeWhile...(self_(), ...)
+		}
+
 	this$xT <-
+		this$xThrush
+	this$x_T <-
 		this$xThrush
 	# -------- U ------- #
 
+
+	# --- xUnfoldl --- #
 	this$xUnfold <-
 		function (fn, init) {
 			x_( xUnfold(self_(), fn, init) )
 		}
 	this$xUnfoldl <-
 		this$xUnfold
+
+	this$x_Unfold <-
+		function (fn, init) {
+			xUnfold(self_(), fn, init)
+		}
+	this$x_Unfoldl <-
+		this$xUnfold
+
 	# -------- V ------- #
+	# --- xVectorise --- #
 	this$xVectorise <-
 		function () {
-			x_( xVectorise(self_()) )
+			xVectorise(self_())
+		}
+
+	this$x_Vectorise <-
+		function () {
+			xVectorise(self_())
 		}
 	# -------- W ------- #
+
+	# --- xWait --- #
 	this$xWait <-
 		function (num) {
 			x_( xWait(self_(), num) )
 		}
+
+	this$x_Wait <-
+		function (num) {
+			xWait(self_(), num)
+		}
 	# -------- X ------- #
 	# -------- Y ------- #
 	# -------- Z ------- #
+
+	# --- xZipWith --- #
 	this$xZipWith <-
 		function (colls) {
 			x_( xZipWith(self_(), colls) )
@@ -1592,6 +1741,16 @@ x_fn_proto <- local({
 			x_( xZipWith...(self_(), ...) )
 		}
 
+	this$x_ZipWith <-
+		function (colls) {
+			xZipWith(self_(), colls)
+		}
+	this$x_ZipWith... <-
+		function (...) {
+			xZipWith...(self_(), ...)
+		}
+
+	# --- xZip --- #
 	this$xZip <-
 		function () {
 			x_( xZip(self_()) )
@@ -1599,6 +1758,15 @@ x_fn_proto <- local({
 	this$xZip... <-
 		function (...) {
 			x_( xZip...(self_(), ...) )
+		}
+
+	this$x_Zip <-
+		function () {
+			xZip(self_())
+		}
+	this$x_Zip... <-
+		function (...) {
+			xZip...(self_(), ...)
 		}
 
 	this <- as.environment(
