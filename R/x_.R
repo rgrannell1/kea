@@ -1409,6 +1409,16 @@ x_coll_proto <- local({
 			x_( xPartition...(pred, self_(), ...) )
 		}
 
+	this$x_Partition <-
+		function (pred) {
+			xPartition(pred, self_())
+		}
+	this$x_Partition... <-
+		function (pred, ...) {
+			xPartition...(pred, self_(), ...)
+		}
+
+	# --- xPartitionWith --- #
 	this$xPartitionWith <-
 		function (pred) {
 			x_( xPartitionWith(pred, self_()) )
@@ -1418,6 +1428,16 @@ x_coll_proto <- local({
 			x_( xPartitionWith...(pred, self_(), ...) )
 		}
 
+	this$x_PartitionWith <-
+		function (pred) {
+			xPartitionWith(pred, self_())
+		}
+	this$x_PartitionWith... <-
+		function (pred, ...) {
+			xPartitionWith...(pred, self_(), ...)
+		}
+
+	# --- xPermute --- #
 	this$xPermute <-
 		function (coll) {
 			x_( xPermute(coll, self_()) )
@@ -1427,6 +1447,16 @@ x_coll_proto <- local({
 			x_( xPermute(coll, self_(), ...) )
 		}
 
+	this$x_Permute <-
+		function (coll) {
+			xPermute(coll, self_())
+		}
+	this$x_Permute... <-
+		function (coll, ...) {
+			xPermute(coll, self_(), ...)
+		}
+
+	# --- xPred --- #
 	this$xPred <-
 		function () {
 			x_( xPred(self_()) )
@@ -1435,8 +1465,19 @@ x_coll_proto <- local({
 		function (...) {
 			x_( xPred...(self_(), ...) )
 		}
+
+	this$x_Pred <-
+		function () {
+			xPred(self_())
+		}
+	this$x_Pred... <-
+		function (...) {
+			xPred...(self_(), ...)
+		}
+
 	# -------- Q ------- #
 	# -------- R ------- #
+	# --- xRecurMap --- #
 	this$xRecurMap <-
 		function (fn) {
 			x_( xRecurMap(fn, self_()) )
@@ -1446,6 +1487,16 @@ x_coll_proto <- local({
 			x_( xRecurMap...(fn, self_(), ...) )
 		}
 
+	this$x_RecurMap <-
+		function (fn) {
+			xRecurMap(fn, self_())
+		}
+	this$x_RecurMap... <-
+		function (fn, ...) {
+			xRecurMap...(fn, self_(), ...)
+		}
+
+	# --- xReducel --- #
 	this$xReducel <-
 		function (fn) {
 			x_( xReducel(fn, self_()) )
@@ -1455,11 +1506,26 @@ x_coll_proto <- local({
 			x_( xReducel...(fn, self_(), ...) )
 		}
 
+	this$x_Reducel <-
+		function (fn) {
+			xReducel(fn, self_())
+		}
+	this$x_Reducel... <-
+		function (fn, ...) {
+			xReducel...(fn, self_(), ...)
+		}
+
 	this$xReduce <-
 		this$xReducel
 	this$xReduce... <-
 		this$xReducel...
 
+	this$x_Reduce <-
+		this$x_Reducel
+	this$x_Reduce... <-
+		this$x_Reducel...
+
+	# --- xReducer --- #
 	this$xReducer <-
 		function (fn) {
 			x_( xReducer(fn, self_()) )
@@ -1469,6 +1535,16 @@ x_coll_proto <- local({
 			x_( xReducer...(fn, self_(), ...) )
 		}
 
+	this$x_Reducer <-
+		function (fn) {
+			xReducer(fn, self_())
+		}
+	this$x_Reducer... <-
+		function (fn, ...) {
+			xReducer...(fn, self_(), ...)
+		}
+
+	# --- xRepeat --- #
 	this$xRepeat <-
 		function (num) {
 			x_( xRepeat(num, self_()) )
@@ -1478,6 +1554,16 @@ x_coll_proto <- local({
 			x_( xRepeat...(num, self_(), ...) )
 		}
 
+	this$x_Repeat <-
+		function (num) {
+			xRepeat(num, self_())
+		}
+	this$x_Repeat... <-
+		function (num, ...) {
+			xRepeat...(num, self_(), ...)
+		}
+
+	# --- xReject --- #
 	this$xReject <-
 		function (pred) {
 			x_( xReject(pred, self_()) )
@@ -1487,6 +1573,16 @@ x_coll_proto <- local({
 			x_( xReject...(pred, self_(), ...) )
 		}
 
+	this$x_Reject <-
+		function (pred) {
+			xReject(pred, self_())
+		}
+	this$x_Reject... <-
+		function (pred, ...) {
+			xReject...(pred, self_(), ...)
+		}
+
+	# --- xRest --- #
 	this$xRest <-
 		function () {
 			x_( xRest(self_()) )
@@ -1495,8 +1591,18 @@ x_coll_proto <- local({
 		function (...) {
 			x_( xRest...(self_(), ...) )
 		}
-	# -------- S ------- #
 
+	this$x_Rest <-
+		function () {
+			xRest(self_())
+		}
+	this$x_Rest... <-
+		function (...) {
+			xRest...(self_(), ...)
+		}
+
+	# -------- S ------- #
+	# --- xSecond --- #
 	this$xSecond <-
 		function () {
 			x_( xSecond(self_()) )
@@ -1506,6 +1612,16 @@ x_coll_proto <- local({
 			x_( xSecond...(self_(), ...) )
 		}
 
+	this$x_Second <-
+		function () {
+			xSecond(self_())
+		}
+	this$x_Second... <-
+		function (...) {
+			xSecond...(self_(), ...)
+		}
+
+	# --- xSetProd --- #
 	this$xSetProd <-
 		function () {
 			x_( xSetProd(self_()) )
@@ -1515,6 +1631,16 @@ x_coll_proto <- local({
 			x_( xSetProd...(self_(), ...) )
 		}
 
+	this$x_SetProd <-
+		function () {
+			xSetProd(self_())
+		}
+	this$x_SetProd... <-
+		function (...) {
+			xSetProd...(self_(), ...)
+		}
+
+	# --- xSegment --- #
 	this$xSegment <-
 		function (num) {
 			x_( xSegment(num, self_()) )
@@ -1524,6 +1650,16 @@ x_coll_proto <- local({
 			x_( xSegment...(num, self_(), ...) )
 		}
 
+	this$x_Segment <-
+		function (num) {
+			xSegment(num, self_())
+		}
+	this$x_Segment... <-
+		function (num, ...) {
+			xSegment...(num, self_(), ...)
+		}
+
+	# --- xSelect --- #
 	this$xSelect <-
 		function (pred) {
 			x_( xSelect(pred, self_()) )
@@ -1533,6 +1669,16 @@ x_coll_proto <- local({
 			x_( xSelect...(pred, self_(), ...) )
 		}
 
+	this$x_Select <-
+		function (pred) {
+			xSelect(pred, self_())
+		}
+	this$x_Select... <-
+		function (pred, ...) {
+			xSelect...(pred, self_(), ...)
+		}
+
+	# --- xSignum --- #
 	this$xSignum <-
 		function () {
 			x_( xSignum(self_()) )
@@ -1542,6 +1688,16 @@ x_coll_proto <- local({
 			x_( xSignum...(self_(), ...) )
 		}
 
+	this$x_Signum <-
+		function () {
+			xSignum(self_())
+		}
+	this$x_Signum... <-
+		function (...) {
+			xSignum...(self_(), ...)
+		}
+
+	# --- xSplit --- #
 	this$xSplit <-
 		function (num) {
 			x_( xSplit(num, self_()) )
@@ -1551,6 +1707,16 @@ x_coll_proto <- local({
 			x_( xSplit...(num, self_(), ...) )
 		}
 
+	this$x_Split <-
+		function (num) {
+			xSplit(num, self_())
+		}
+	this$x_Split... <-
+		function (num, ...) {
+			xSplit...(num, self_(), ...)
+		}
+
+	# --- xShuffle --- #
 	this$xShuffle <-
 		function () {
 			x_( xShuffle(self_()) )
@@ -1560,11 +1726,26 @@ x_coll_proto <- local({
 			x_( xShuffle...(self_(), ...) )
 		}
 
+	this$x_Shuffle <-
+		function () {
+			xShuffle(self_())
+		}
+	this$x_Shuffle... <-
+		function (...) {
+			xShuffle...(self_(), ...)
+		}
+
+	# --- xSplitStr --- #
 	this$xSplitStr <-
 		function (rexp) {
 			x_( xSplitStr(rexp, self_()) )
 		}
+	this$x_SplitStr <-
+		function (rexp) {
+			xSplitStr(rexp, self_())
+		}
 
+	# --- xSplitWith --- #
 	this$xSplitWith <-
 		function (pred) {
 			x_( xSplitWith(pred, self_()) )
@@ -1574,9 +1755,16 @@ x_coll_proto <- local({
 			x_( xSplitWith...(pred, self_(), ...) )
 		}
 
-	this$xS. <-
-		this$xConst
+	this$x_SplitWith <-
+		function (pred) {
+			xSplitWith(pred, self_())
+		}
+	this$x_SplitWith... <-
+		function (pred, ...) {
+			xSplitWith...(pred, self_(), ...)
+		}
 
+	# --- xSubStr --- #
 	this$xSubStr <-
 		function (str) {
 			x_( xSubStr(str, self_()) )
@@ -1586,6 +1774,16 @@ x_coll_proto <- local({
 			x_( xSubStr...(str, self_(),...) )
 		}
 
+	this$x_SubStr <-
+		function (str) {
+			xSubStr(str, self_())
+		}
+	this$x_SubStr... <-
+		function (str, ...) {
+			xSubStr...(str, self_(),...)
+		}
+
+	# --- xSucc --- #
 	this$xSucc <-
 		function () {
 			x_( xSucc(self_()) )
@@ -1595,7 +1793,17 @@ x_coll_proto <- local({
 			x_( xSucc...(self_(), ...) )
 		}
 
+	this$x_Succ <-
+		function () {
+			xSucc(self_())
+		}
+	this$x_Succ... <-
+		function (...) {
+			xSucc...(self_(), ...)
+		}
+
 	# -------- T ------- #
+	# --- xTake --- #
 	this$xTake <-
 		function (num) {
 			x_( xTake(self_(), num) )
@@ -1605,6 +1813,16 @@ x_coll_proto <- local({
 			x_( xTake...(num, self_(), ...) )
 		}
 
+	this$x_Take <-
+		function (num) {
+			xTake(self_(), num)
+		}
+	this$x_Take... <-
+		function (num, ...) {
+			xTake...(num, self_(), ...)
+		}
+
+	# --- xTakeWhile --- #
 	this$xTakeWhile <-
 		function (pred) {
 			x_( xTakeWhile(pred, self_()) )
@@ -1614,6 +1832,16 @@ x_coll_proto <- local({
 			x_( xTakeWhile...(pred, self_(), ...) )
 		}
 
+	this$x_TakeWhile <-
+		function (pred) {
+			xTakeWhile(pred, self_())
+		}
+	this$x_TakeWhile... <-
+		function (pred, ...) {
+			xTakeWhile...(pred, self_(), ...)
+		}
+
+	# --- xThird --- #
 	this$xThird <-
 		function () {
 			x_( xThird(self_()) )
@@ -1623,6 +1851,16 @@ x_coll_proto <- local({
 			x_( xThird...(self_(), ...) )
 		}
 
+	this$x_Third <-
+		function () {
+			xThird(self_())
+		}
+	this$x_Third... <-
+		function (...) {
+			xThird...(self_(), ...)
+		}
+
+	# --- xThread --- #
 	this$xThread <-
 		function (fns) {
 			x_( xThread(self_(), fns) )
@@ -1709,11 +1947,17 @@ x_coll_proto <- local({
 
 
 
+
+
+
 # -------------------------------- Function methods -------------------------------- #
 #
 # These methods operate on functions wrapped in the arrow object.
 # I anticipate that these methods will be less used, but there's no reason to exclude them
 # entirely. Methods such as Apply work nicely with this style.
+
+
+
 
 
 
@@ -2654,3 +2898,5 @@ print.arrow <- function (x, ...) {
 
 	print(x$x())
 }
+
+
