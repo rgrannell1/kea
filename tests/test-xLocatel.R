@@ -19,7 +19,7 @@ message("xLocatel")
 	forall(
 		"a true function yields 1",
 		test_cases$truth_with_coll,
-		xLocatel(fn, coll) %equals% 1,
+		xLocatel(fn, coll) == 1,
 		given =
 			length(coll) > 0
 	)
@@ -29,7 +29,7 @@ message("arrow $ xLocatel")
 	forall(
 		"coll $ xLocatel",
 		test_cases$truth_with_coll,
-		x_(coll)$xLocatel(fn)$x() %equals% 1,
+		x_(coll)$xLocatel(fn)$x() == 1,
 		given =
 			length(coll) > 0
 	)
@@ -37,7 +37,7 @@ message("arrow $ xLocatel")
 	forall(
 		"fn $ xLocatel",
 		test_cases$truth_with_coll,
-		x_(fn)$xLocatel(coll)$x() %equals% 1,
+		x_(fn)$xLocatel(coll)$x() == 1,
 		given =
 			length(coll) > 0
 	)

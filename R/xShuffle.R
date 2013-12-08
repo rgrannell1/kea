@@ -32,7 +32,9 @@ xShuffle <- function (coll) {
 
 	if (length(coll) == 0) {
 		list()
-	} else {
+	} else if (length(coll) == 1)
+		as.list(coll)
+	else {
 		as.list(sample(coll))
 	}
 }

@@ -13,7 +13,7 @@ message("xRepeat")
 	forall(
 		"repeating a collection is done by end-to-end concatenation.",
 		test_cases$positive_with_collection,
-		xRepeat(num, coll) %equals% rep(coll, num)
+		xRepeat(num, coll) %equals% as.list(rep(coll, num))
 	)
 
 message("arrow $ xRepeat")

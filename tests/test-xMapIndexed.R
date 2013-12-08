@@ -6,57 +6,38 @@ message("xMapIndexed")
 
 	forall(
 		"mapindexed the empty collection always yields the empty list.",
-		list(
-			fn = function () {
-				function (val, ind) val + ind
-			},
-			coll = G$collection_zero
-		),
+		test_cases$id_over_collection_zero,
 		xMapIndexed(fn, coll) %equals% list()
 	)
 
 	forall(
-		"mapindexed's indices are correct",
-		list(
-			fn = function () {
-				function (val, ind) ind
-			},
-			coll = G$collection
-		),
-		xMapIndexed(fn, coll) %equals% as.list(seq_along(coll))
-	)
-
-	forall(
 		"mapindexed's values are correct",
-		list(
-			fn = function () {
-				function (val, ind) val
-			},
-			coll = G$collection
-		),
+		test_cases$left_over_collection,
 		xMapIndexed(fn, coll) %equals% as.list(coll)
 	)
 
 	forall(
+		"mapindexed's indices are correct",
+		test_cases$right_over_collection,
+		xMapIndexed(fn, coll) %equals% as.list(seq_along(coll))
+	)
+
+	forall(
 		"mapindexed's can increment correctly.",
-		test_cases$inc2_over_ints,
-		all( unlist(xMapIndexed(fn, coll)) == unlist(coll) + 1 )
+		test_cases$sum_over_integers,
+		all( unlist(xMapIndexed(fn, coll)) == coll + seq_along(coll) )
 	)
 
 message("arrow $ xMapIndexed")
 
 	forall(
 		"collection $ xMapIndexed increments correctly.",
-		test_cases$inc2_over_ints,
-		{
-			all( unlist(x_(coll)$xMapIndexed(fn)$x()) == unlist(coll) + 1 )
-		}
+		test_cases$sum_over_integers,
+		all( unlist(x_(coll)$xMapIndexed(fn)$x()) == unlist(coll) + seq_along(coll) )
 	)
 
 	forall(
 		"function $ xMapIndexed increments correctly.",
-		test_cases$inc2_over_ints,
-		{
-			all( unlist(x_(fn)$xMapIndexed(coll)$x()) == unlist(coll) + 1 )
-		}
+		test_cases$sum_over_integers,
+		all( unlist(x_(fn)$xMapIndexed(coll)$x()) == unlist(coll) + seq_along(coll) )
 	)

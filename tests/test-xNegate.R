@@ -4,8 +4,11 @@ test_cases <- arrow:::test_cases
 
 message('xNegate')
 
-	assert(
-		xNegate(c(-1, 0, +1)) %equals% c(+1, 0, -1) )
+	forall(
+		"check that the kernel is properly mapped",
+		list(),
+		xNegate(c(-1, 0, +1)) %equals% c(+1, 0, -1)
+	)
 
 	forall(
 		'the negation of the empty collection is double.',

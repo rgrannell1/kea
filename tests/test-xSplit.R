@@ -7,7 +7,7 @@ message('xSplit')
 	forall(
 		"splitting an empty collection yields the empty list",
 		test_cases$nonnegative_with_collection_zero,
-		xSplit(ind, coll) %equals% list()
+		xSplit(num, coll) %equals% list()
 	)
 
 	forall(

@@ -19,7 +19,7 @@ message("xLocater")
 	forall(
 		"a true function yields length(coll)",
 		test_cases$truth_with_coll,
-		xLocater(fn, coll) %equals% length(coll),
+		xLocater(fn, coll)== length(coll),
 		given =
 			length(coll) > 0
 	)
@@ -29,7 +29,7 @@ message("arrow $ xLocater")
 	forall(
 		"coll $ xLocater",
 		test_cases$truth_with_coll,
-		x_(coll)$xLocater(fn)$x() %equals% length(coll),
+		x_(coll)$xLocater(fn)$x() == length(coll),
 		given =
 			length(coll) > 0
 	)
@@ -37,7 +37,7 @@ message("arrow $ xLocater")
 	forall(
 		"fn $ xLocater",
 		test_cases$truth_with_coll,
-		x_(fn)$xLocater(coll)$x() %equals% length(coll),
+		x_(fn)$xLocater(coll)$x() == length(coll),
 		given =
 			length(coll) > 0
 	)

@@ -396,12 +396,38 @@ test_cases <- local({
 				compounds$integers()
 		)
 
+	this$sum_over_integers <-
+		list(
+			fn = function () match.fun("+"),
+			coll = compounds$integers())
+
+	this$id_over_collection_zero <-
+		list(
+			fn = function () {
+				function (...) list(...)
+			},
+			coll = compounds$collection_zero)
+
 	this$succ_over_integers <-
 		list(
 			fn = function () {
 				function (x) x + 1
 			},
 			coll = compounds$integers())
+
+	this$left_over_collection <-
+		list(
+			fn = function () {
+				function (a, b) a
+			},
+			coll = compounds$collection)
+
+	this$right_over_collection <-
+		list(
+			fn = function () {
+				function (a, b) b
+			},
+			coll = compounds$collection)
 
 	# --------------------- Num + Coll ----------------------------- #
 
