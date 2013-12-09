@@ -1,8 +1,8 @@
-\name{xTimer}
-\alias{xTimer}
-\title{xTimer}
+\name{xStopWatch}
+\alias{xStopWatch}
+\title{xStopWatch}
 \usage{
-  xTimer(num)
+  xStopWatch(num)
 }
 \arguments{
   \item{num}{a positive number.}

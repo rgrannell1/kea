@@ -13,7 +13,7 @@
   a list.
 }
 \description{
-  Flatten a nested list or pairlist.
+  Flatten a nested list or pairlist to a given depth.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

@@ -1,20 +1,23 @@
 
 #' xLocate
 #'
-#' Get the position of the first element for which a predicate returns true.
+#' Get the position of the first element for which a
+#' predicate returns true.
 #'
-#' @param pred a predicate function.
-#' @param coll a collection.
+#' @param
+#'    pred a predicate function.
+#' @param
+#'    coll a collection.
 #'
-#' @return an integer.
+#' @return
+#'    an length-one or length-zero whole number.
 #'
 #' @section Corner Cases:
 #'     returns integer(0) if no match is found.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xLocate <- function (pred, coll) {

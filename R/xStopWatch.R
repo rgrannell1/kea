@@ -1,17 +1,21 @@
 
-#' xTimer
+#' xStopWatch
 #'
-#' Create a function that returns true for a certain amount of time after its creation.
+#' Create a function that returns true for a
+#' preset time after creation.
 #'
-#' @param num a positive number.
+#' @param
+#'    num a positive number.
 #'
-#' @return a variadic function that ignores its arguments.
-
+#' @return
+#'    a variadic function that ignores its arguments.
 #'
-
+#' @family
+#'    higher_order_functions
+#'
 #' @export
 
-xTimer <- function (num) {
+xStopWatch <- function (num) {
 	# integer -> function
 	# create a timer predicate function.
 

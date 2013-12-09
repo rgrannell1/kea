@@ -10,7 +10,7 @@
   \item{coll}{a collection.}
 }
 \value{
-  an integer.
+  an length-one or length-zero whole number.
 }
 \description{
   Get the position of the first element for which a

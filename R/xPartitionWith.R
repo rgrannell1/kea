@@ -3,21 +3,24 @@
 #'
 #' Divide elements in a collection into two collections based on a predicate function.
 #'
-#' @param pred a predicate.
-#' @param coll a collection.
+#' @param
+#'    pred a predicate.
+#' @param
+#'    coll a collection.
 #'
-#' @return Returns two lists; a list of elements in a collection for which a
-#' predicate returns true, and a list of elements in a collection for which
-#' a predicate returns false or na.
+#' @return
+#'    Returns two lists; a list of elements in a collection for which a
+#'    predicate returns true, and a list of elements in a collection for which
+#'    a predicate returns false or na.
 #'
 #' @section Corner Cases:
-#'	 if \code{coll} is empty the empty list is returned. If all the
-#'	 elements return only true/only false, then one of two sublists will be the
-#'	 empty list.
+#'	  if \code{coll} is empty the empty list is returned. If all the
+#'	  elements return only true/only false, then one of two sublists will be the
+#'	  empty list.
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
-
 #' @export
 
 xPartitionWith <- function (pred, coll) {

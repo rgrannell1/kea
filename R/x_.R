@@ -2569,16 +2569,6 @@ x_fn_proto <- local({
 			xPoll...(self_(), ...)
 		}
 
-	# --- xPhoenix --- #
-	this$xPhoenix <-
-		this$xLift
-	this$xPhi <-
-		this$xLift
-
-	this$x_Phoenix <-
-		this$x_Lift
-	this$x_Phi <-
-		this$x_Lift
 	# -------- Q ------- #
 	# --- xQueer --- #
 	this$xQueer <-

@@ -3,20 +3,20 @@
 #'
 #' Remove all length-zero values from a collection.
 #'
-#' @param coll a collection.
+#' @param
+#'    coll a collection.
 #'
-#' @return returns a list of elements in \code{coll},
-#'	 with all length-zero values removed.
+#' @return
+#'    returns a list of elements in \code{coll},
+#'	  with all length-zero values removed.
 #'
 #' @section Corner Cases:
-#'	 Returns the emty list if \code{coll} is length-zero,
-#'	 or all elements in \code{coll} are length-zero.
+#'    Returns the emty list if \code{coll} is length-zero,
+#'    or all elements in \code{coll} are length-zero.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xPack <- function (coll) {

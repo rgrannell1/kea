@@ -3,9 +3,11 @@
 #'
 #' Collapase a character vector with empty strs as delimiters.
 #'
-#' @param strs several character vectors.
+#' @param
+#'    strs several character vectors.
 #'
-#' @return a length-one character vector.
+#' @return
+#'    a length-one character vector.
 #'
 #' @export
 

@@ -1,21 +1,22 @@
 
 #' xFlatten
 #'
-#' Flatten a nested list or pairlist.
+#' Flatten a nested list or pairlist to a given depth.
 #'
-#' @param num a nonnegative whole-number.
-#' @param coll a list or pairlist.
+#' @param
+#'    num a nonnegative whole-number.
+#' @param
+#'    coll a list or pairlist.
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{coll} is length-zero.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xFlatten <- function (num, coll) {

@@ -3,15 +3,15 @@
 #'
 #' Return a function that selects a key from a collection.
 #'
-#' @param str a string.
+#' @param
+#'    str a string.
 #'
-#' @return a unary function that takes a collection.
+#' @return
+#'    a unary function that takes a collection.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#'
-
 #' @export
 
 xGet <- function (str) {

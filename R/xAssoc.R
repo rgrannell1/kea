@@ -3,17 +3,19 @@
 #'
 #' Convert a list of name : value collections into a named list.
 #'
-#' @param coll a list or pairlist of list or pairlist pairs, with the first element being a
-#'	string and the second element being any value.
+#' @param
+#'    coll a list or pairlist of list or pairlist pairs, with the first element being a
+#'	  string and the second element being any value.
 #'
-#' @return a named list.
+#' @return
+#'    a named list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{coll} is length-zero.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
-
 #' @export
 
 xAssoc <- function (colls) {

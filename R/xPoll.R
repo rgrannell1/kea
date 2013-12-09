@@ -1,18 +1,20 @@
 
 #' xPoll
 #'
-#' Count the number of times a function returns true when mapped over a collection.
+#' Count the number of times a function returns
+#' true when mapped over a collection.
 #'
-#' @param pred a unary predicate function.
-#' @param coll a collection.
+#' @param
+#'    pred a unary predicate function.
+#' @param
+#'    coll a collection.
 #'
-#' @return a non-negative whole number.
+#' @return
+#'    a non-negative whole number.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xPoll <- function (pred, coll) {

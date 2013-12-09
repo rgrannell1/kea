@@ -3,12 +3,16 @@
 #'
 #' Compose a binary function with two other functions.
 #'
-#' @param fn a binary function.
-#' @param fns a list or pairlist of binary functions.
+#' @param
+#'    fn a binary function.
+#' @param
+#'    fns a list or pairlist of binary functions.
 #'
+#' @return
+#'    returns a unary function of x.
 #'
-#' @return returns a unary function of x.
-#'
+#' @family
+#'    higher_order_functions
 #'
 #' @export
 
@@ -52,11 +56,3 @@ xLift <- function (fn, fns) {
 xLift... <- function (fn, ...) {
 	do.call( xLift, list(fn, list(...)) )
 }
-
-#' @export
-
-xPhoenix <- xLift
-
-#' @export
-
-xS. <- xPhoenix

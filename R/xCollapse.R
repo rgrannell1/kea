@@ -3,12 +3,17 @@
 #'
 #' Concatenate a character vector into a string with a delimiter.
 #'
-#' @param str a string to use as a delimiter.
-#' @param strs a number of character vectors.
+#' @param
+#'    str a string to use as a delimiter.
+#' @param
+#'    strs several character vectors.
 #'
-#' @return a length-one character vector.
+#' @return
+#'    a length-one character vector.
 #'
-
+#' @family
+#'    character_vector_functions
+#'
 #' @export
 
 xCollapse <- function (str, strs) {

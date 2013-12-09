@@ -15,4 +15,13 @@
 \description{
   Compose a binary function with two other functions.
 }
+\seealso{
+  Other higher_order_functions: \code{\link{xArity}},
+  \code{\link{xAsUnary}}, \code{\link{xCompose}},
+  \code{\link{xConst}}, \code{\link{xFlip}},
+  \code{\link{xFormals}}, \code{\link{xIterate}},
+  \code{\link{xJuxtapose}}, \code{\link{xLimit}},
+  \code{\link{xNot}}, \code{\link{xParams}},
+  \code{\link{xUnfold}}, \code{\link{xWait}}
+}
 

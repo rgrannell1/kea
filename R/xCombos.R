@@ -3,17 +3,20 @@
 #'
 #' Generate all ways of choosing several elements from a collection.
 #'
-#' @param num a nonnegative whole number.
-#' @param coll a collection
+#' @param
+#'    num a nonnegative whole number.
+#' @param
+#'    coll a collection
 #'
-#' @return a list of lists, with each list containing \code{num} elements.
+#' @return
+#'    a list of lists, with each list containing \code{num} elements.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{num} is zero.
 #'
-#' @family combinatoric_functions collection_functions
+#' @family
+#'    combinatoric_functions collection_functions
 #'
-
 #' @export
 
 xCombos <- function (num, coll) {
@@ -34,7 +37,7 @@ xCombos <- function (num, coll) {
 	num <- dearrowise(num)
 	coll <- dearrowise(coll)
 
-	num <- as_typed_vector(num,  'numeric', True)
+	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(
 		length(num) %in% 0:1, invoking_call,

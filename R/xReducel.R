@@ -3,22 +3,24 @@
 #'
 #' Fold a function over a collection from left to right.
 #'
-#' @param fn a binary function that returns a value
-#'	 that \code{fn} can later take as its left argument.
-#' @param coll a collection.
+#' @param
+#'    fn a binary function that returns a value
+#'	  that \code{fn} can later take as its left argument.
 #'
-#' @return an arbitrary value, depending on the function \code{fn}.
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    an arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero, and returns the
-#'     value inside \code{coll} if coll is length-one.
+#'    returns the empty list if \code{coll} is length-zero, and returns the
+#'    value inside \code{coll} if coll is length-one.
 #'
 #' @template Return
 #'
-#'
 #' @family higher_order_functions collection_functions
 #'
-
 #' @export
 
 xReduce <- function (fn, coll) {
@@ -91,7 +93,3 @@ xReducel... <- function (fn, ...) {
 #' @export
 
 xReduce... <- xReducel...
-
-#' @export
-
-'%(+)%' <- xReducel

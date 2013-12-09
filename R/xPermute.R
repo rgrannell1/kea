@@ -3,23 +3,26 @@
 #'
 #' Permute several collections using indices.
 #'
-#' @param coll a collection of whole numbers.
-#' @param colls several collections of equal length to \code{coll}.
+#' @param
+#'    coll a collection of whole numbers.
 #'
-#' @return a list of collections.
+#' @param
+#'    colls several collections of equal length to \code{coll}.
+#'
+#' @return
+#'    a list of collections.
 #'
 #' @section Corner Cases:
-#'     returns the empty list is \code{coll} is length-zero.
+#'    returns the empty list is \code{coll} is length-zero.
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
-
-
 #' @export
 
 xPermute <- function (coll, colls) {
+	# Vector integer -> [[any]] -> [[any]]
 	# Permute several collections using indices.
-	# shuffle several collections according to indices.
 
 	invoking_call <- sys.call()
 

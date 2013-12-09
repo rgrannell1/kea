@@ -8,18 +8,13 @@
   \item{str}{a length-one character vector.}
 }
 \value{
-  a character vector of length \code{nchar(str)}.
+  a character vector of length \code{nchar(str)}, with each
+  element being a single character.
 }
 \description{
   Split a single string into a vector of characters.
 }
 \seealso{
-  Other higher_order_functions: \code{\link{xArity}},
-  \code{\link{xAsUnary}}, \code{\link{xCompose}},
-  \code{\link{xConst}}, \code{\link{xFlip}},
-  \code{\link{xIterate}}, \code{\link{xJuxtapose}},
-  \code{\link{xLimit}}, \code{\link{xNot}},
-  \code{\link{xParams}}, \code{\link{xUnfold}},
-  \code{\link{xWait}}
+  Other character_vector_functions: \code{\link{xCollapse}}
 }
 

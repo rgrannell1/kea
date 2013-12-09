@@ -1,14 +1,18 @@
+
 #' xChars
 #'
 #' Split a single string into a vector of characters.
 #'
-#' @param str a length-one character vector.
+#' @param
+#'    str a length-one character vector.
 #'
-#' @return a character vector of length \code{nchar(str)}.
+#' @return
+#'    a character vector of length \code{nchar(str)}, with each element being a
+#'    single character.
 #'
-#' @family higher_order_functions
+#' @family
+#'    character_vector_functions
 #'
-
 #' @export
 
 xChars <- function (str) {

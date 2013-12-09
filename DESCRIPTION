@@ -99,7 +99,7 @@ Collate:
     'x_.R'
     'xFlatten.R'
     'xWait.R'
-    'xTimer.R'
+    'xStopWatch.R'
     'xExists.R'
     'xForall.R'
     'xSetProd.R'

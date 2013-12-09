@@ -19,11 +19,11 @@
 }
 \seealso{
   Other higher_order_functions: \code{\link{xArity}},
-  \code{\link{xAsUnary}}, \code{\link{xChars}},
-  \code{\link{xCompose}}, \code{\link{xConst}},
-  \code{\link{xFlip}}, \code{\link{xIterate}},
-  \code{\link{xLimit}}, \code{\link{xNot}},
-  \code{\link{xParams}}, \code{\link{xUnfold}},
-  \code{\link{xWait}}
+  \code{\link{xAsUnary}}, \code{\link{xCompose}},
+  \code{\link{xConst}}, \code{\link{xFlip}},
+  \code{\link{xFormals}}, \code{\link{xIterate}},
+  \code{\link{xLift}}, \code{\link{xLimit}},
+  \code{\link{xNot}}, \code{\link{xParams}},
+  \code{\link{xUnfold}}, \code{\link{xWait}}
 }
 

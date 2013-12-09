@@ -592,7 +592,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 	state <- list(
 		tests_run = 0,
 		failed_after = Inf,
-		time_left = xTimer(max_time),
+		time_left = xStopWatch(max_time),
 		failed = list())
 
 	while (state$time_left()) {

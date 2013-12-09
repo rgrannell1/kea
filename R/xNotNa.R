@@ -1,19 +1,17 @@
 
 #' xNotNa
 #'
-#' Is an element of a collection not na?
+#' Test every element in a collection for being \code{Na} of any type.
 #'
 #' @param coll a collection.
 #'
-#' @return a vector of boolean values.
+#' @return a vector of true/false values.
 #'
 #' @section Corner Cases:
 #'     returns logical(0) if \code{coll} is length-zero.
 #'
-#'
 #' @family collection_functions
 #'
-
 #' @export
 
 xNotNa <- function (coll) {

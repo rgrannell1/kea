@@ -3,18 +3,22 @@
 #'
 #' Get the parametres and defaults of a function or primitive function.
 #'
-#' @param fn an arbitrary function.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return A named list, where each element's name is a parameter in f and each value
-#'	 is the default value of that parameter.
+#' @return
+#'    A named list, where each element's name is a parameter in f and each value
+#'	  is the default value of that parameter.
 #'
 #' @section Corner Cases:
-#'	 If \code{fn} is a primitive function a heuristic is used to obtain
-#'	 its formals. If a parameter has no default, the value of the
-#'	 corresponding element in the retun value will be the empty symbol,
-#'	 which is identical to \code{quote(expr=)}.
+#'    If \code{fn} is a primitive function a heuristic is used to obtain
+#'    its formals. If a parameter has no default, the value of the
+#'    corresponding element in the retun value will be the empty symbol,
+#'    which is identical to \code{quote(expr=)}.
 #'
-
+#' @family
+#'    higher_order_functions
+#'
 #' @export
 
 xFormals <- function (fn) {
