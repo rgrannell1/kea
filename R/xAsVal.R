@@ -15,6 +15,7 @@
 #' @export
 
 xAsVal <- function (str) {
+	# lock the binding for an R variable.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()

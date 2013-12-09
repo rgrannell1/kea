@@ -16,7 +16,8 @@
 }
 \section{Corner Cases}{
   If \code{fn} is a primitive function a heuristic is used
-  to obtain its parameter names.
+  to obtain its parameter names, which may not work for all
+  functions.
 }
 \seealso{
   Other higher_order_functions: \code{\link{xArity}},

@@ -18,6 +18,7 @@
 
 xUnion <- function (coll1, coll2) {
 	# Collection any -> Collection any -> Collection any
+	# get the set union of two collections.
 
 	invoking_call <- sys.call()
 

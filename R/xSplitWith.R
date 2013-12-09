@@ -19,7 +19,7 @@
 
 xSplitWith <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [[any] [any]]
-	# take every element until pred returns false
+	# split a collection before and after a predicate returns true.
 
 	invoking_call <- sys.call()
 

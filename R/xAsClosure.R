@@ -3,15 +3,16 @@
 #'
 #' Convert a primitive function to a closure.
 #'
-#' @param fn an arbitrary function.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return a function (closure).
+#' @return
+#'    a function (closure).
 #'
 #' @section Corner Cases:
-#'	 xAsClosure does not work for every primitive function (for example 'c'),
-#'	 so caution should be taken when using this function.
+#'    xAsClosure does not work for every primitive function (for example 'c'),
+#'    so caution should be taken when using this function.
 #'
-
 #' @export
 
 xAsClosure <- function (fn) {

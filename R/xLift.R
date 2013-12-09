@@ -4,17 +4,16 @@
 #' Compose a binary function with two other functions.
 #'
 #' @param fn a binary function.
-#' @param fns a list of binary functions.
+#' @param fns a list or pairlist of binary functions.
 #'
 #'
 #' @return returns a unary function of x.
 #'
-
-#' @export
-
+#'
 #' @export
 
 xLift <- function (fn, fns) {
+	# (any -> any -> any) -> [(... -> any)] -> any
 	# the phoenix or Phi combinator
 
 	invoking_call <- sys.call()

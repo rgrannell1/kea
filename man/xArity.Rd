@@ -11,7 +11,7 @@
   a positive whole number.
 }
 \description{
-  Return the arity of a function.
+  Return the number of arguments a function can accept.
 }
 \section{Uses}{
   \code{xArity} is primarily intended for use with
@@ -22,8 +22,9 @@
 }
 
 \section{Corner Cases}{
-  If \code{fn} is a variadic function of any kind positive
-  infinity is returned.
+  If \code{fn} has an ellipsis (...) parameter then
+  \code{+Inf} is returned, as the function can accept an
+  infinite number of arguments.
 }
 \seealso{
   Other higher_order_functions: \code{\link{xAsUnary}},

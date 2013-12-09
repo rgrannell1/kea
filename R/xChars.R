@@ -6,8 +6,6 @@
 #'
 #' @return a character vector of length \code{nchar(str)}.
 #'
-#'
-#'
 #' @family higher_order_functions
 #'
 

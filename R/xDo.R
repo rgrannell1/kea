@@ -61,6 +61,7 @@ xDo <- function (fn, coll) {
 			try_higher_order(
 				fn( coll[[ith]] ), invoking_call)
 		}
+
 		invisible (Null)
 	}
 }

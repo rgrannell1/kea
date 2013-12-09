@@ -16,7 +16,8 @@
 #
 # upon invocation of an x_()$method, the self_ function is updated to return the
 # value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
-# so an error is thrown if these prototypes are called directly. This workaround is to keep memory usage low by only customising the method when it is being called, rather than when the arrow monad is created.
+# so an error is thrown if these prototypes are called directly. This workaround is to keep memory usage
+# low by only customising the method when it is being called, rather than when the arrow monad is created.
 
 # Inheritance Diagram
 #
@@ -176,8 +177,8 @@ x_any_proto <- local({
 # -------------------------------- Not-quite-a-collection methods -------------------------------- #
 #
 # methods for non-canonical data types in arrow; data frames, tables, matrices and other odd and
-# sometimes awkward structures. Almost exclusively conversion and reshaping methods.
-#
+# sometimes awkward structures. I don't want these to be treated as first-class citizens (particularily data frames),
+# but there is no reason they shouldn't have methods to convert them into a list representation.
 #
 
 x_matrix_proto <- local({
@@ -185,9 +186,9 @@ x_matrix_proto <- local({
 	this <- object()
 
 	# -------- A ------- #
+	# -------- B ------- #
 	this$xByCols <-
 		function () {
-
 			dims <- dim(self_())
 
 			if (dims[1] == 0 && dims[0] == 0) {
@@ -215,7 +216,6 @@ x_matrix_proto <- local({
 				x_( apply(self_(), 1, as.list) )
 			}
 		}
-	# -------- B ------- #
 
 	# -------- C ------- #
 	this$xColUnit <-
@@ -2021,15 +2021,27 @@ x_coll_proto <- local({
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # -------------------------------- Function methods -------------------------------- #
 #
 # These methods operate on functions wrapped in the arrow object.
 # I anticipate that these methods will be less used, but there's no reason to exclude them
 # entirely. Methods such as Apply work nicely with this style.
-
-
-
-
 
 
 
@@ -2838,33 +2850,31 @@ x_fn_proto <- local({
 #'
 #' Generate a chainable arrow object, that can use methods.
 #'
-#' @param val a function, collection, or arbitrary value.
+#' @param
+#'    val a function, collection, or arbitrary value.
 #'
-#' @return an object of class "arrow", with a single field 'x' that contents_are val.
+#' @return
+#'    an object of class "arrow", with a single field 'x' that contents_are val.
 #'
 #' @section Corner Cases:
-#' 		The methods that can be used by x_() object varies depending on the type of val.
-#' 		Some methods are specific to functions or collections. If a non-function and non-collection is
-#' 		supplied then very few methods can be used.
+#'    The methods that can be used by x_() object varies depending on the type of val.
+#'    Some methods are specific to functions or collections. If a non-function and non-collection is
+#'    supplied then very few methods can be used.
 #'
-#' 		Because the definition of $ was overloaded to allow method chaining, the
-#' 		field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
-#'		x_()$x() is required.
+#'    Because the definition of $ was overloaded to allow method chaining, the
+#'    field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
+#'    x_()$x() is required.
 #'
 #' @details
+#'    Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow
+#'    method (using $) has a small amount overhead, since the definition of $
+#'    has been overloading to allow method calling.
 #'
-#' Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow
-#' method (using $) has a small amount overhead, since the definition of $
-#' has been overloading to allow method calling.
-#'
-#'
-#'
-
 #' @export
 
 x_ <- function (val) {
 	# Collection any -> Arrow any
-	# type constructor.
+	# type constructor for the method-chaining data type.
 
 	invoking_call <- sys.call()
 
@@ -2880,8 +2890,7 @@ x_ <- function (val) {
 }
 
 get_proto_ref <- function (val) {
-	# get the reference to the appropriate
-	# methods.
+	# get the reference to the appropriate methods.
 
 	proto_ref <-
 	if (is.function( val )) {

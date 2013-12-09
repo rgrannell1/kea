@@ -1,32 +1,33 @@
 
 #' xArity
 #'
-#' Return the arity of a function.
+#' Return the number of arguments a function can accept.
 #'
 #' @section Uses:
-#' \code{xArity} is primarily intended for use with
-#' higher-order functions that require functions with a
-#' particular arity. For example, a strict version of
-#' map might use \code{xArity} to throw an error if
-#' its input function is not unary.
+#'    \code{xArity} is primarily intended for use with
+#'    higher-order functions that require functions with a
+#'    particular arity. For example, a strict version of
+#'    map might use \code{xArity} to throw an error if
+#'    its input function is not unary.
 #'
-#' @param fn an function of any arity.
+#' @param
+#'    fn an function of any arity.
 #'
-#' @return a positive whole number.
+#' @return
+#'    a positive whole number.
 #'
 #' @section Corner Cases:
-#'	 If \code{fn} is a variadic function of any kind
-#'	 positive infinity is returned.
+#'    If \code{fn} has an ellipsis (...) parameter then \code{+Inf} is returned, as the
+#'    function can accept an infinite number of arguments.
 #'
-#' @family higher_order_functions
+#' @family
+#'    higher_order_functions
 #'
-
 #' @export
 
 xArity <- function (fn) {
-	# Function -> integer
+	# function -> integer
 	# get the arity of a function.
-	# returns +Inf if fn is a variadic function.
 
 	invoking_call <- sys.call()
 

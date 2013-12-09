@@ -4,22 +4,25 @@
 #' Call a function with a list of arguments.
 #'
 #' @section Uses:
-#'     \code{xApply} is an adaptor function that allows variadic functions
-#'     to be called with a variable number of arguments at runtime.
-#'     For example, if \code{xConcat} is invoked directly it has
-#'     to be given a fixed number of lists to concatenate.
-#'     If \code{xConcat} is invoked with \code{xApply} then
-#'     xConcat can be invoked with any number of lists dynamically.
+#'    \code{xApply} is an adaptor function that allows variadic functions
+#'    to be called with a variable number of arguments at runtime.
+#'    For example, if \code{xConcat} is invoked directly it has
+#'    to be given a fixed number of lists to concatenate.
+#'    If \code{xConcat} is invoked with \code{xApply} then
+#'    xConcat can be invoked with any number of lists dynamically.
 #'
-#' @param fn an function of any arity.
+#' @param
+#'    fn an function of any arity.
+#'
 #' @param coll a list or pairlist. This may be named, but
-#'     all names must be parameters of \code{fn}.
+#'    all names must be parameters of \code{fn}.
 #'
-#' @return the return value of \code{fn}.
+#' @return
+#'    the return value of \code{fn}.
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
-
 #' @export
 
 xApply <- function (fn, coll) {

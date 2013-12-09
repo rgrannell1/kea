@@ -19,9 +19,9 @@
 \section{Uses}{
   \code{xApply} is an adaptor function that allows variadic
   functions to be called with a variable number of
-  arguments at runtime. For example, if \code{xConcat} is
+  arguments at runtime.  For example, if \code{xConcat} is
   invoked directly it has to be given a fixed number of
-  lists to concatenate. If \code{xConcat} is invoked with
+  lists to concatenate.  If \code{xConcat} is invoked with
   \code{xApply} then xConcat can be invoked with any number
   of lists dynamically.
 }

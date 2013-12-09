@@ -3,16 +3,17 @@
 #'
 #' Is an element of a collection not false?
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a vector of boolean values.
+#' @return
+#'    a vector of boolean values.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
 #' @family collection_functions
 #'
-
 #' @export
 
 xNotFalse <- function (coll) {
