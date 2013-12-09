@@ -3,15 +3,18 @@
 #'
 #' Iteratively apply a value to list of functions.
 #'
-#' @param init an arbitrary value
-#' @param fns several unary functions.
+#' @param
+#'    init an arbitrary value
 #'
-#' @return a list.
+#' @param
+#'    fns several unary functions.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases: q
-#'     returns the empty list if \code{coll} is length-zero.
-
-
+#'    returns the empty list if \code{coll} is length-zero.
+#'
 #' @export
 
 xThread <- function (init, fns) {

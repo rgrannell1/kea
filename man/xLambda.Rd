@@ -1,6 +1,6 @@
 \name{xLambda}
 \alias{xLambda}
-\title{Syntactic sugar for creating unary functions.}
+\title{xLambda}
 \usage{
   xLambda(formals, body)
 }

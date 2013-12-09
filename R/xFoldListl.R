@@ -1,19 +1,28 @@
 
 #' xFoldListl
 #'
-#' Fold a function over a collection from left to right with an initital left value, keeping intermediate values.
+#' Fold a function over a collection from left to right with
+#' an initital left value, keeping intermediate values.
 #'
-#' @param fn a binary function that returns a value that \code{fn} can later take as its right argument.
-#' @param init an arbitrary value.
-#' @param coll a collection.
+#' @param
+#'    fn a binary function that returns a value that
+#'    \code{fn} can later take as its right argument.
 #'
-#' @return a list with its init element being \code{coll}, and
-#'	 containing \code{length(coll) + 1}.
+#' @param
+#'    init an arbitrary value.
+#'
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    a list with its init element being \code{coll}, and
+#'	  containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
-#'	 returns \code{list(init)} if \code{coll} is length-zero.
+#'	  returns \code{list(init)} if \code{coll} is length-zero.
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
 #' @export
 

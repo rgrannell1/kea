@@ -1,19 +1,24 @@
 
 #' xPartition
 #'
-#' Divide elements in a collection into lists based on an equivelence predicate.
+#' Divide elements in a collection into lists based on
+#' an equivelence predicate.
 #'
-#' @param pred a binary predicate function.
-#' @param coll a collection
+#' @param
+#'    pred a binary predicate function.
 #'
-#' @return a list of lists.
+#' @param
+#'    coll a collection
+#'
+#' @return
+#'    a list of lists.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
-
 #' @export
 
 xPartition <- function (pred, coll) {

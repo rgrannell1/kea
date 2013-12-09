@@ -3,20 +3,22 @@
 #'
 #' Map a function across many collections simultaneously.
 #'
-#' @param fn a n-ary function.
-#' @param colls n collections.
+#' @param
+#'    fn a n-ary function.
 #'
-#' @return a list.
+#' @param
+#'    colls n collections.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if any collection is length-zero. If the
-#'     collection lengths are not equal then elements are recycled in the shorter collections.
+#'    returns the empty list if any collection is length-zero. If the
+#'    collection lengths are not equal then elements are recycled in the shorter collections.
 #'
+#' @family
+#'    higher_order_functions map_like_functions collection_functions
 #'
-#'
-#' @family higher_order_functions map_like_functions collection_functions
-#'
-
 #' @export
 
 xMapMany <- function (fn, colls) {

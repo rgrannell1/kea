@@ -3,18 +3,18 @@
 #'
 #' Partially apply xMap with a function.
 #'
-#' @param fn a unary function.
+#' @param
+#'    fn a unary function.
 #'
-#' @return a unary function of coll.
+#' @return
+#'    a unary function of coll.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{coll} is length-zero.
 #'
+#' @family
+#'    higher_order_functions map_like_functions
 #'
-#'
-#' @family higher_order_functions map_like_functions
-#'
-
 #' @export
 
 xVectorise <- function (fn) {

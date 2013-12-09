@@ -3,18 +3,21 @@
 #'
 #' Get the position of the last element for which a predicate returns true.
 #'
-#' @param pred a predicate function.
-#' @param coll a collection.
+#' @param
+#'    pred a predicate function.
 #'
-#' @return an integer.
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    an integer.
 #'
 #' @section Corner Cases:
 #'     returns integer(0) if no match is found.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xLocater <- function (pred, coll) {

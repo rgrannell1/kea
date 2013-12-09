@@ -3,19 +3,24 @@
 #'
 #' Generate a list of values from an initial value.
 #'
-#' @param pred a unary function.
-#' @param fn a unary function that returns a length-two collection.
-#' @param init an arbitrary value.
+#' @param
+#'    pred a unary function.
 #'
-#' @return a list.
+#' @param
+#'    fn a unary function that returns a length-two collection.
+#'
+#' @param
+#'    init an arbitrary value.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{init} is length-zero.
-
+#'    returns the empty list if \code{init} is length-zero.
 #'
-#' @family higher_order_functions
+#' @family
+#'    higher_order_functions
 #'
-
 #' @export
 
 xUnfold <- function (pred, fn, init) {

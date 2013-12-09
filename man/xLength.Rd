@@ -14,7 +14,7 @@
   Get the length of a collection
 }
 \section{Corner Cases}{
-  returns 0 if \code{coll} is empty.
+  returns zero if \code{coll} is empty.
 }
 \seealso{
   Other collection_functions: \code{\link{xAsFunction}},

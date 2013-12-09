@@ -1,19 +1,23 @@
 
 #' xWait
 #'
-#' Delay the evalution of a function after invokation for a set amount of time.
+#' Delay the evalution of a function after invokation
+#' for a set amount of time.
 #'
-#' @param fn an arbitrary function.
-#' @param num a nonnegative whole number.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return a function with the same parameters as \code{fn}.
+#' @param
+#'    num a nonnegative whole number.
+#'
+#' @return
+#'    a function with the same parameters as \code{fn}.
 #'
 #' @section Corner Cases:
-#'     if \code{num} is zero then \code{fn} is returned untouched.
-
+#'    if \code{num} is zero then \code{fn} is returned untouched.
+#'
 #' @family higher_order_functions
 #'
-
 #' @export
 
 xWait <- function (fn, num) {

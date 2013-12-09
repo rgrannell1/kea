@@ -3,15 +3,15 @@
 #'
 #' Is an element of a collection false?
 #'
-#' @param coll a collection.
+#' @param
+#'    coll a collection.
 #'
-#' @return a vector of boolean values.
+#' @return
+#'    a vector of boolean values.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xIsFalse <- function (coll) {

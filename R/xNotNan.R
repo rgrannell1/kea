@@ -3,17 +3,18 @@
 #'
 #' Is an element of a collection not NaN?
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll is length-zero}.
+#'    returns the empty list if \code{coll is length-zero}.
 #'
+#' @family
+#'    collection_functions
 #'
-#' @family collection_functions
-#'
-
 #' @export
 
 xNotNan <- function (coll) {

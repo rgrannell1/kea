@@ -4,13 +4,15 @@
 #' Create a function that takes one argument, and applies each element of
 #' that argument as a parameter of its underlying function.
 #'
-#' @param  fn an arbitrary function.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return a unary function of x.
+#' @return
+#'    a unary function of x.
 #'
-#' @family higher_order_functions
+#' @family
+#'    higher_order_functions
 #'
-
 #' @export
 
 xAsUnary <- function (fn) {

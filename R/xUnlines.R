@@ -1,9 +1,13 @@
 
+#' xUnlines
+#'
 #' Collapase a character vector with newlines as delimiters.
 #'
-#' @param strs a character vector.
+#' @param
+#'    strs a character vector.
 #'
-#' @return a length-one character vector.
+#' @return
+#'    a length-one character vector.
 #'
 #' @export
 

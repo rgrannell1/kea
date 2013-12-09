@@ -3,20 +3,24 @@
 #'
 #' Selectively apply a function to elements in a collection.
 #'
+#' @param
+#'    pred a predicate function.
 #'
-#' @param pred a predicate function.
-#' @param fn a unary function.
-#' @param coll a collection.
+#' @param
+#'    fn a unary function.
 #'
-#' @return a list.
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{coll} is length-zero.
 #'
+#' @family
+#'    higher_order_functions map_like_functions collection_functions
 #'
-#' @family higher_order_functions map_like_functions collection_functions
-#'
-
 #' @export
 
 xMapWhen <- function (pred, fn, coll) {

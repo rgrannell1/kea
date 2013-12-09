@@ -3,16 +3,17 @@
 #'
 #' Is an element in a collection NaN?
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns True if coll is length-zero.
+#'    returns True if coll is length-zero.
 #'
-#'
-#'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
 #' @export
 

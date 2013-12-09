@@ -1,12 +1,17 @@
 
-#' Syntactic sugar for creating unary functions.
-
-#' @param formals a symbol or string.
-#' @param body a valid function body, which
-#'	 will be lazily evaluated.
+#' xLambda
 #'
-#' @return returns a unary function.
-
+#' Syntactic sugar for creating unary functions.
+#'
+#' @param
+#'    formals a symbol or string.
+#'
+#' @param
+#'    body a valid function body, which will be lazily evaluated.
+#'
+#' @return
+#'    returns a unary function.
+#'
 #' @export
 
 xLambda <- function (formals, body) {

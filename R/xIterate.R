@@ -1,17 +1,21 @@
 
 #' Iteratively apply a function to a value.
 #'
-#' @param fn a function.
+#' @param
+#'    fn a function.
 #'
-#' @param init an arbitrary value.
+#' @param
+#'    init an arbitrary value.
 #'
 #' @section Corner Cases:
-#'	 length-zero values of \code{init} are handled normally, since \code{init} is
-#'	 an arbitrary value. Potentially non-terminating.
+#'    length-zero values of \code{init} are handled normally, since \code{init} is
+#'    an arbitrary value. Potentially non-terminating.
 #'
-#' @return the result of successively applying \code{f} to \code{init}.
+#' @return
+#'    the result of successively applying \code{f} to \code{init}.
 #'
-#' @family higher_order_functions
+#' @family
+#'    higher_order_functions
 #'
 #' @export
 

@@ -3,17 +3,21 @@
 #'
 #' Take several elements from the front of a collection.
 #'
-#' @param num a nonnegative whole number.
-#' @param coll a collection.
+#' @param
+#'    num a nonnegative whole number.
 #'
-#' @return a list.
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'	 If \code{coll} is empty the empty list is returned.
+#'    if \code{coll} is empty the empty list is returned.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
-
 #' @export
 
 xDrop <- function (num, coll) {

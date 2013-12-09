@@ -1,17 +1,17 @@
 
-#' Flip the sign of each number in a vector.
-#'
 #' xNegate
 #'
-#' @param nums a vector of numbers.
+#' Flip the sign of each number in a vector.
 #'
-#' @return a vector of number.
+#' @param
+#'    nums a vector of numbers.
+#'
+#' @return
+#'    a vector of number.
 #'
 #' @section Corner Cases:
-#'     If nums is empty then the unit of the collection is returned.
+#'    If nums is empty then the unit of the collection is returned.
 #'
-#'
-
 #' @export
 
 xNegate <- function (nums) {

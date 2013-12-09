@@ -18,7 +18,7 @@
 \details{
   Unlike some other functions that return functions in
   Arrow, \code{xCompose} preserves the parameters of one of
-  its input functions (the right function). This is not
+  its input functions (the right function).  This is not
   always possible for some other functions, but it is
   included in \code{xCompose} as the function is ubiquitous
   and should be as powerful as possible, even at the risk
@@ -31,6 +31,7 @@
   \code{\link{xIterate}}, \code{\link{xJuxtapose}},
   \code{\link{xLift}}, \code{\link{xLimit}},
   \code{\link{xNot}}, \code{\link{xParams}},
-  \code{\link{xUnfold}}, \code{\link{xWait}}
+  \code{\link{xStopWatch}}, \code{\link{xUnfold}},
+  \code{\link{xWait}}
 }
 

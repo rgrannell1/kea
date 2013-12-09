@@ -19,7 +19,8 @@
 #'
 #' @template Return
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
 #' @export
 

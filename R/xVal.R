@@ -3,16 +3,18 @@
 #'
 #' Assign a constant value to calling environment.
 #'
-#' @param str a string or symbol.
-#' @param val an arbitrary value.
+#' @param
+#'    str a string or symbol.
+#' @param
+#'    val an arbitrary value.
 #'
-#' @return Null; this function is used for side-effects.
+#' @return
+#'    Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
 #'    overwrites the value referenced by \code{str}r if the variable
-#' already exists in the parent frame.
-
-
+#'    already exists in the parent frame.
+#'
 #' @export
 
 xVal <- function (str, val) {

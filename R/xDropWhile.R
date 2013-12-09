@@ -4,19 +4,21 @@
 #' Take every element in a collection from the first time a predicate
 #' is false or na until the end of the collection.
 #'
-#' @param pred a unary predicate.
-#' @param coll a collection.
+#' @param
+#'    pred a unary predicate.
 #'
-#' @return a list.
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'	 Returns the emty list if \code{coll} is length-zero.
+#'	  Returns the emty list if \code{coll} is length-zero.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xDropWhile <- function (pred, coll) {

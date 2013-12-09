@@ -5,6 +5,7 @@
 #'
 #' @param
 #'    pred a predicate.
+#'
 #' @param
 #'    coll a collection.
 #'

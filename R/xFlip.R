@@ -3,11 +3,11 @@
 #'
 #' Reverse the formal parametres of a function.
 #'
-#' @param fn an arbitrary function.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return a function of the same arity as \code{fn}.
-#'
-#'
+#' @return
+#'    a function of the same arity as \code{fn}.
 #'
 #' @family higher_order_functions
 #'

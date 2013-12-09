@@ -1,8 +1,8 @@
-\name{xSplitStr}
-\alias{xSplitStr}
-\title{xSplitStr}
+\name{xSplitString}
+\alias{xSplitString}
+\title{xSplitString}
 \usage{
-  xSplitStr(rexp, str)
+  xSplitString(rexp, str)
 }
 \arguments{
   \item{rexp}{a regular expression.}

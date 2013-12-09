@@ -19,7 +19,7 @@
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero or
   the first element of \code{coll} returns false for the
-  predicate. Na values are considered false.
+  predicate.  Na values are considered false.
 }
 \seealso{
   Other higher_order_functions collection_functions:

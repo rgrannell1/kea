@@ -3,15 +3,15 @@
 #'
 #' Is a name binding locked?
 #'
-#' @param str a string or symbol.
+#' @param
+#'    str a string or symbol.
 #'
-#' @return a boolean value.
+#' @return
+#'    a boolean value.
 #'
 #' @section Corner Cases:
-#'     If a variable isn't assigned, then \code{false} is returned.
+#'    If a variable isn't assigned, then \code{false} is returned.
 #'
-#'
-
 #' @export
 
 xIsVal <- function (str) {

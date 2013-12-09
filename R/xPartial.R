@@ -3,18 +3,21 @@
 #'
 #' Partially apply a function.
 #'
-#' @param fn an arbitrary function.
-#' @param coll a collection
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return A function of equal or lesser arity to \code{fn}.
+#' @param
+#'    coll a collection
+#'
+#' @return
+#'    A function of equal or lesser arity to \code{fn}.
 #'
 #' @section Corner Cases:
-#'     Partial application also works for ellipses (eg list(... = 1)).
+#'    Partial application also works for ellipses (eg list(... = 1)).
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xPartial <- function (fn, coll) {

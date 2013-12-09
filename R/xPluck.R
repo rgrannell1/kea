@@ -2,21 +2,25 @@
 #' xPluck
 #'
 #' Map over a collection of lists or pairlists,
-#'     selecting fields in each element by name.
+#' selecting fields in each element by name.
 #'
-#' @param str a string.
-#' @param coll a list or pairlist of lists or pairlists.
+#' @param str
+#'    a string.
 #'
-#' @return a list.
+#' @param coll
+#'    a list or pairlist of lists or pairlists.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero. If str is length-zero
-#'     then the empty string "" is used to match key-names.
+#'    returns the empty list if \code{coll} is length-zero.
+#'    If str is length-zero then the empty string "" is
+#'    used to match key-names.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xPluck <- function (str, coll) {

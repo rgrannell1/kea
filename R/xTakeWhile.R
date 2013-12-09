@@ -1,20 +1,27 @@
 
 #' xTakeWhile
 #'
-#' Take every element in a collection from the start until a predicate returns false.
+#' Take every element in a collection from the start
+#' until a predicate returns false.
 #'
-#' @param pred a predicate.
-#' @param coll a collection
+#' @param
+#'    pred a predicate.
 #'
-#' @return a list.
+#' @param
+#'    coll a collection
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero or the first element of
-#'     \code{coll} returns false for the predicate. Na values are considered false.
-
-#' @family higher_order_functions collection_functions
+#'    returns the empty list if \code{coll} is
+#'    length-zero or the first element of
+#'    \code{coll} returns false for the predicate.
+#'    Na values are considered false.
 #'
-
+#' @family
+#'    higher_order_functions collection_functions
+#'
 #' @export
 
 xTakeWhile <- function (pred, coll) {

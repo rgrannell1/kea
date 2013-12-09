@@ -3,18 +3,22 @@
 #'
 #' Does any selection of arguments satisfy a predicate?
 #'
-#' @param pred an n-ary predicate.
-#' @param colls n collections.
+#' @param
+#'    pred an n-ary predicate.
 #'
-#' @return a boolean value.
+#' @param
+#'    colls n collections.
+#'
+#' @return
+#'    a boolean value.
 #'
 #' @section Corner Cases:
-#'     if any collection is length zero (or no collections are given), then False is returned.
+#'    if any collection is length zero (or no collections are given),
+#'    then False is returned.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xExists <- function (pred, colls) {

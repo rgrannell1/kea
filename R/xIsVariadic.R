@@ -3,13 +3,12 @@
 #'
 #' Is a function variadic?
 #'
-#' @param fn an arbitrary function or primitive function.
+#' @param
+#'    fn an arbitrary function or primitive function.
 #'
-#' @return a boolean value.
+#' @return
+#'    a boolean value.
 #'
-#'
-#'
-
 #' @export
 
 xIsVariadic <- function (fn) {

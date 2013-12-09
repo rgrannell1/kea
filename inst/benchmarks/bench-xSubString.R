@@ -1,10 +1,10 @@
 
-bench_xSubStr <- function (N) {
+bench_xSubString <- function (N) {
 
 	time_profile(
 		free =
 			function () {
-				xSubStr( paste0(seq_len(N), collapse = ""), seq_len(N) )
+				xSubString( paste0(seq_len(N), collapse = ""), seq_len(N) )
 			},
 		control =
 			function () {

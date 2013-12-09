@@ -3,17 +3,18 @@
 #'
 #' Is an element of a collection null?
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns True if coll is Null.
+#'    returns True if coll is Null.
 #'
+#' @family
+#'    collection_functions
 #'
-#' @family collection_functions
-#'
-
 #' @export
 
 xIsNull <- function (coll) {

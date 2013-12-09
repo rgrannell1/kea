@@ -4,24 +4,25 @@
 #' Divide a collection into segments of fixed length.
 #'
 #' @section Uses:
-#' \code{xSegment} is useful for reshaping a collection into pairs, triples,
-#' or larger groups before applying a function to each group.
+#'    \code{xSegment} is useful for reshaping a collection into pairs, triples,
+#'    or larger groups before applying a function to each group.
 #'
-#' @param num a nonnegative whole number.
-#' @param coll a collection
+#' @param
+#'    num a nonnegative whole number.
 #'
-#' @return a list of n-element lists.
+#' @param
+#'    coll a collection
+#'
+#' @return
+#'    a list of n-element lists.
 #'
 #' @section Corner Cases:
-#'	 the final list in the return value will have less than \code{num}
-#'	 elements if \code{length(coll)} is not evenly divisible by \code{num}.
-#'	 if \code{coll} is length-zero, the empty list is returned.
-#'
-#'
+#'    the final list in the return value will have less than \code{num}
+#'    elements if \code{length(coll)} is not evenly divisible by \code{num}.
+#'    if \code{coll} is length-zero, the empty list is returned.
 #'
 #' @family collection_functions
 #'
-
 #' @export
 
 xSegment <- function (num, coll) {

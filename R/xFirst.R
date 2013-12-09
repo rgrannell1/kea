@@ -3,17 +3,19 @@
 #'
 #' Return the first element of a collection.
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return the first element in \code{coll}.
+#' @return
+#'    the first element in \code{coll}.
 #'
 #' @section Corner Cases:
-#'	 throws an error if \code{coll} has less than one element; this is
-#'	 because any other corner case would violate the functions type-signature.
+#'    throws an error if \code{coll} has less than one element; this is
+#'    because any other corner case would violate the functions type-signature.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
-
 #' @export
 
 xFirst <- function (coll) {

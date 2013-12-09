@@ -6,6 +6,7 @@
 #'
 #' @param
 #'    pred a predicate function.
+#'
 #' @param
 #'    coll a collection.
 #'

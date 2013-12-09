@@ -26,6 +26,7 @@
   \code{\link{xFormals}}, \code{\link{xIterate}},
   \code{\link{xJuxtapose}}, \code{\link{xLift}},
   \code{\link{xLimit}}, \code{\link{xNot}},
-  \code{\link{xUnfold}}, \code{\link{xWait}}
+  \code{\link{xStopWatch}}, \code{\link{xUnfold}},
+  \code{\link{xWait}}
 }
 

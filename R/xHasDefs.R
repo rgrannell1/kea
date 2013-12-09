@@ -3,17 +3,16 @@
 #'
 #' Return a boolean vector showing which parameters of a function has defaults.
 #'
-#' @param fn an arbitrary function.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return a named vector of true of false value of the same length as the
-#'	 arity of \code{fn}.
+#' @return
+#'    a named vector of true of false value of the same length as the
+#'	  arity of \code{fn}.
 #'
 #' @section Corner Cases:
-#'     if \code{fn} is nullary \code{logical(0)} is returned.
+#'    if \code{fn} is nullary \code{logical(0)} is returned.
 #'
-#'
-#'
-
 #' @export
 
 xHasDefs <- function (fn) {

@@ -3,17 +3,17 @@
 #'
 #' Return a list excluding the first element of a collection.
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
-#'
+#'    returns the empty list if \code{coll} is length-zero.
 #'
 #' @family collection_functions
 #'
-
 #' @export
 
 xRest <- function (coll) {

@@ -8,10 +8,11 @@
   \item{coll}{a collection.}
 }
 \value{
-  a vector of boolean values.
+  a vector of true/false values.
 }
 \description{
-  Is an element of a collection not na?
+  Test every element in a collection for being \code{Na} of
+  any type.
 }
 \section{Corner Cases}{
   returns logical(0) if \code{coll} is length-zero.

@@ -3,17 +3,21 @@
 #'
 #' Get the set union of two collections.
 #'
-#' @param coll1 a collection
-#' @param coll2 a collection
+#' @param
+#'    coll1 a collection
 #'
-#' @return a list.
+#' @param
+#'    coll2 a collection
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
-
-#' @family collection_functions
+#'    returns the empty list if \code{coll} is length-zero.
 #'
-
+#' @family
+#'    collection_functions
+#'
 #' @export
 
 xUnion <- function (coll1, coll2) {

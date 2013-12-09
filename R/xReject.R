@@ -4,22 +4,24 @@
 #' Remove all elements from a collection matching a predicate.
 #'
 #' @section Uses:
-#'     The uses for the reject function are very similar to
-#'     those for select.
+#'    The uses for the reject function are very similar to
+#'    those for select.
 #'
-#' @param pred a predicate.
-#' @param coll a collection
+#' @param
+#'    pred a predicate.
+#'
+#' @param
+#'    coll a collection
 #'
 #' @return a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
-#'     Throws an error if pred returns a non-boolean value.
+#'    returns the empty list if \code{coll} is length-zero.
+#'    Throws an error if pred returns a non-boolean value.
 #'
+#' @family
+#'    higher_order_functions collection_functions
 #'
-#' @family higher_order_functions collection_functions
-#'
-
 #' @export
 
 xReject <- function (pred, coll) {

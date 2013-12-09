@@ -1,13 +1,15 @@
 
 #' xAsVariadic
 #'
-#' Return a variadic function that passes its arguments as a list to ints underyling function.
+#' Return a variadic function that passes its arguments
+#' as a list to ints underyling function.
 #'
-#' @param fn a unary function.
+#' @param
+#'    fn a unary function.
 #'
-#' @return a variadic function.
+#' @return
+#'    a variadic function.
 #'
-
 #' @export
 
 xAsVariadic <- function (fn) {

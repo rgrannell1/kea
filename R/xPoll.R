@@ -6,6 +6,7 @@
 #'
 #' @param
 #'    pred a unary predicate function.
+#'
 #' @param
 #'    coll a collection.
 #'

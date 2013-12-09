@@ -1,6 +1,6 @@
 \name{xNegate}
 \alias{xNegate}
-\title{Flip the sign of each number in a vector.}
+\title{xNegate}
 \usage{
   xNegate(nums)
 }
@@ -11,7 +11,7 @@
   a vector of number.
 }
 \description{
-  xNegate
+  Flip the sign of each number in a vector.
 }
 \section{Corner Cases}{
   If nums is empty then the unit of the collection is

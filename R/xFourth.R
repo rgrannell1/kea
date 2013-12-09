@@ -3,19 +3,19 @@
 #'
 #' Return the fourth value in a collection.
 #'
-#' @param coll a collection/
+#' @param
+#'    coll a collection.
 #'
-#' @return the fourth value in \code{coll}.
+#' @return
+#'    the fourth value in \code{coll}.
 #'
 #' @section Corner Cases:
-#'	 throws an error if \code{coll} has less than four element; this is
-#'	 because any other corner case would violate the functions type-signature.
+#'    throws an error if \code{coll} has less than four element; this is
+#'    because any other corner case would violate the functions type-signature.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xFourth <- function (coll) {

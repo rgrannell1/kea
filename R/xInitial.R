@@ -3,16 +3,15 @@
 #'
 #' Remove the first element from a collection.
 #'
-#' @param coll a collection.
+#' @param
+#'    coll a collection.
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xInit <- function (coll) {

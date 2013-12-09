@@ -5,6 +5,7 @@
 #'
 #' @param
 #'    num a nonnegative whole-number.
+#'
 #' @param
 #'    coll a list or pairlist.
 #'

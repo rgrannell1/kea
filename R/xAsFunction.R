@@ -3,16 +3,18 @@
 #'
 #' Convert a collection to a function that takes an index.
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a function that takes one or more indices.
+#' @return
+#'    a function that takes one or more indices.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll is length-zero}.
+#'    returns the empty list if \code{coll is length-zero}.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
-
 #' @export
 
 xAsFunction <- function (coll) {

@@ -1,6 +1,7 @@
 \name{xZipWith}
 \alias{xZipWith}
-\title{Generate a list of n-element lists from n collections, and apply a function to each n-element list.}
+\title{Generate a list of n-element lists from n collections,
+and apply a function to each n-element list.}
 \usage{
   xZipWith(fn, colls)
 }

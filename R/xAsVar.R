@@ -8,7 +8,8 @@
 #' @return Null; used for side-effect.
 #'
 #' @section Corner Cases:
-#'     throws an error if attempting to convert a variable that doesn't exist (in the parent frame).
+#'    throws an error if attempting to convert a
+#'    variable that doesn't exist (in the parent frame).
 #'
 #'
 

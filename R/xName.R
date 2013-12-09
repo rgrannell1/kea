@@ -3,18 +3,21 @@
 #'
 #' Add names to a collection.
 #'
-#' @param strs a collection of strings.
-#' @param coll a collection
+#' @param
+#'    strs a collection of strings.
 #'
-#' @return a named list.
+#' @param
+#'    coll a collection
+#'
+#' @return
+#'    a named list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{coll} is length-zero.
 #'
+#' @family
+#'    collection_functions
 #'
-#' @family collection_functions
-#'
-
 #' @export
 
 xName <- function (strs, coll) {

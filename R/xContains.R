@@ -3,18 +3,22 @@
 #'
 #' Check if a collection contains a value.
 #'
-#' @param coll a collection.
-#' @param val an arbitrary value.
+#' @param
+#'    coll a collection.
 #'
-#' @return a list.
+#' @param
+#'    val an arbitrary value.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     various types of NA are not-distinguished between.
-#'     Type conversion is not carried out.
+#'    various types of \code{Na} are not-distinguished between.
+#'    Type conversion is not carried out.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
-
 #' @export
 
 xContains <- function (coll, val) {

@@ -3,16 +3,15 @@
 #'
 #' Increment a vector of numbers.
 #'
-#' @param nums a vector of non-complex numbers.
+#' @param
+#'    nums a vector of non-complex numbers.
 #'
-#' @return a vector of non-complex numbers.
+#' @return
+#'     a vector of non-complex numbers.
 #'
 #' @section Corner Cases:
-#'     returns the unit of the vector if \code{nums} is length-zero.
+#'    returns the unit of the vector if \code{nums} is length-zero.
 #'
-#'
-#'
-
 #' @export
 
 xPred <- function (nums) {

@@ -1,17 +1,23 @@
 
 #' xFlatMap
 #'
-#' Concatenate the results of applying a function to each element of a collection.
+#' Concatenate the results of applying a function
+#' to each element of a collection.
 #'
-#' @param fn a unary function.
-#' @param coll a collection.
+#' @param
+#'    fn a unary function.
+#'
+#' @param
+#'    coll a collection.
 #'
 #' @return a list.
 #'
 #' @section Corner Cases:
-#'	 returns the empty list if \code{coll} is length-zero.
+#'	  returns the empty list if \code{coll}
+#'    is length-zero.
 #'
-#' @family higher_order_functions map_like_functions collection_functions
+#' @family
+#'    higher_order_functions map_like_functions collection_functions
 #'
 #' @export
 

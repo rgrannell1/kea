@@ -3,18 +3,18 @@
 #'
 #' Get the length of a collection
 #'
-#' @param coll a collection
+#' @param
+#'    coll a collection
 #'
-#' @return a nonnegative integer.
+#' @return
+#'    a nonnegative integer.
 #'
 #' @section Corner Cases:
-#'     returns 0 if \code{coll} is empty.
+#'     returns zero if \code{coll} is empty.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xLength <- function (coll) {

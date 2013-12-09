@@ -1,6 +1,6 @@
 \name{xFoldr}
 \alias{xFoldr}
-\title{Fold a function over a collection from right to length, with an init value.}
+\title{xFoldr}
 \usage{
   xFoldr(fn, init, coll)
 }

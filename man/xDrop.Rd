@@ -16,7 +16,7 @@
   Take several elements from the front of a collection.
 }
 \section{Corner Cases}{
-  If \code{coll} is empty the empty list is returned.
+  if \code{coll} is empty the empty list is returned.
 }
 \seealso{
   Other collection_functions: \code{\link{xAsFunction}},

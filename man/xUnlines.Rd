@@ -1,6 +1,6 @@
 \name{xUnlines}
 \alias{xUnlines}
-\title{Collapase a character vector with newlines as delimiters.}
+\title{xUnlines}
 \usage{
   xUnlines(strs)
 }

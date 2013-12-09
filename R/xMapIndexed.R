@@ -1,21 +1,24 @@
 
 #' xMapIndexed
 #'
-#' Apply a binary function to each element of a collection and its indices.
+#' Apply a binary function to each element of a
+#' collection and its indices.
 #'
-#' @param fn a binary function.
-#' @param coll a collection.
+#' @param
+#'    fn a binary function.
 #'
-#' @return a list.
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list is \code{coll} is length-zero.
+#'    returns the empty list is \code{coll} is length-zero.
 #'
+#' @family
+#'    higher_order_functions map_like_functions collection_functions
 #'
-#'
-#' @family higher_order_functions map_like_functions collection_functions
-#'
-
 #' @export
 
 xMapIndexed <- function (fn, coll) {

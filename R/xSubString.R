@@ -1,20 +1,22 @@
 
-#' xSubStr
+#' xSubString
 #'
 #' Subset a string using normal R vector indexing.
 #'
-#' @param str a string.
-#' @param nums indices of \code{str}.
+#' @param
+#'    str a string.
+#'
+#' @param
+#'    nums indices of \code{str}.
 #'
 #' @return a character vector.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-
-
+#'
 #' @export
 
-xSubStr <- function (str, nums) {
+xSubString <- function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 
@@ -44,6 +46,7 @@ xSubStr <- function (str, nums) {
 
 	if (length(str) == 0) {
 		character(0)
+		character(0)
 	} else if (length(nums) == 0) {
 		str
 	} else {
@@ -57,6 +60,6 @@ xSubStr <- function (str, nums) {
 
 #' @export
 
-xSubStr... <- function (str, ...) {
-	xSubStr(str, list(...))
+xSubString... <- function (str, ...) {
+	xSubString(str, list(...))
 }

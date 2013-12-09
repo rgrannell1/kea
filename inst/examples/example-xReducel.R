@@ -5,7 +5,7 @@ xReduce("+", 1:10)
 
 55
 
-# build-up a matrix from matrix rows
+# build-up a matrix from two 2-element vectors.
 
 xReduce(
 	rbind,

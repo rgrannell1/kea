@@ -5,6 +5,7 @@
 #'
 #' @param
 #'    pred an n-ary predicate.
+#'
 #' @param
 #'    colls n collections.
 #'

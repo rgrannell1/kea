@@ -16,8 +16,8 @@
   Check if a collection contains a value.
 }
 \section{Corner Cases}{
-  various types of NA are not-distinguished between.  Type
-  conversion is not carried out.
+  various types of \code{Na} are not-distinguished between.
+  Type conversion is not carried out.
 }
 \seealso{
   Other collection_functions: \code{\link{xAsFunction}},

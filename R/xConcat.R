@@ -3,15 +3,17 @@
 #'
 #' Concatenate several collections into one collection.
 #'
-#' @param colls several collections.
+#' @param
+#'    colls several collections.
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     empty collections act as a unit for concatenation; concatenating the empty list
-#'    to another list returns the second list, without modification.
+#'    empty collections act as a unit for concatenation;
+#'    concatenating the empty list to another list returns
+#'    the second list, without modification.
 #'
-
 #' @export
 
 xConcat <- function (colls) {

@@ -1,5 +1,5 @@
 
-#' xSplitStr
+#' xSplitString
 #'
 #' Split a string into a character vector using a regular expression.
 #'
@@ -14,7 +14,7 @@
 
 #' @export
 
-xSplitStr <- function (rexp, str) {
+xSplitString <- function (rexp, str) {
 	# Vector string -> Vector string -> Vector str
 	# split a str into substrs at a rexp.
 

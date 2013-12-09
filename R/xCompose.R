@@ -3,20 +3,28 @@
 #'
 #' Compose two functions.
 #'
-#' @param fn1 a unary function.
-#' @param fn2 a unary function.
+#' @param
+#'    fn1 a unary function.
 #'
-#' @details Unlike some other functions that return functions in Arrow,
-#' \code{xCompose} preserves the parameters of one of its input functions (the right function).
-#' This is not always possible for some other functions, but it is included in
-#' \code{xCompose} as the function is ubiquitous and should be as powerful as possible, even at
-#' the risk of making Arrow less consistent.
+#' @param
+#'    fn2 a unary function.
 #'
-#' @return A function with the same parameters as \code{fn2}.
+#' @details
+#'    Unlike some other functions that return functions in Arrow,
+#'    \code{xCompose} preserves the parameters of one of its input
+#'    functions (the right function).
+#'    This is not always possible for some other functions, but it
+#'    is included in
+#'    \code{xCompose} as the function is ubiquitous and should be as
+#'    powerful as possible, even at
+#'    the risk of making Arrow less consistent.
 #'
-#' @family higher_order_functions
+#' @return
+#'    A function with the same parameters as \code{fn2}.
 #'
-
+#' @family
+#'    higher_order_functions
+#'
 #' @export
 
 xCompose <- function (fn1, fn2) {

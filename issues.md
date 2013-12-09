@@ -40,7 +40,7 @@ Issue Tracker
 ### Done:
 
 - [x] #1 xLines and related function '' == character(0)? This may be wrong.
-- [x] #2 bug in xSubStr('', 1); returns "NA", not error.
+- [x] #2 bug in xSubString('', 1); returns "NA", not error.
 - [x] #6 make number functions generic, and operate on lists/pairlists of numbers too.
 - [x] #7 ensure all function that take a collection/vector take a list or pairlist of length-one elements.
 - [x] #4 xRest's type signature should include non-list collections.

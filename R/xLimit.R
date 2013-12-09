@@ -1,18 +1,21 @@
 
 #' xLimit
 #'
-#' Create a function that can call its underlying function a limited number of times.
+#' Create a function that can call its underlying
+#' function a limited number of times.
 #'
-#' @param fn an arbitrary function.
-#' @param num a positive whole number.
+#' @param
+#'    fn an arbitrary function.
 #'
-#' @return a function with the same parameters as \code{fn}.
+#' @param
+#'    num a positive whole number.
 #'
+#' @return
+#'    a function with the same parameters as \code{fn}.
 #'
+#' @family
+#'    higher_order_functions
 #'
-#' @family higher_order_functions
-#'
-
 #' @export
 
 xLimit <- function (fn, num) {

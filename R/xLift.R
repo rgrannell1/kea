@@ -5,6 +5,7 @@
 #'
 #' @param
 #'    fn a binary function.
+#'
 #' @param
 #'    fns a list or pairlist of binary functions.
 #'

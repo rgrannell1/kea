@@ -1,6 +1,6 @@
 \name{xUnwords}
 \alias{xUnwords}
-\title{Collapase a character vector with spaces as delimiters.}
+\title{xUnwords}
 \usage{
   xUnwords(strs)
 }

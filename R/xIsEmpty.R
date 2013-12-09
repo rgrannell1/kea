@@ -3,15 +3,15 @@
 #'
 #' Is a collection length-zero?
 #'
-#' @param coll a collection.
+#' @param
+#'    coll a collection.
 #'
-#' @return a boolean value.
+#' @return
+#'    a boolean value.
 #'
+#' @family
+#'    collection_functions
 #'
-#'
-#' @family collection_functions
-#'
-
 #' @export
 
 xIsEmpty <- function (coll) {

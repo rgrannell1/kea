@@ -1,8 +1,8 @@
-\name{xSubStr}
-\alias{xSubStr}
-\title{xSubStr}
+\name{xSubString}
+\alias{xSubString}
+\title{xSubString}
 \usage{
-  xSubStr(str, nums)
+  xSubString(str, nums)
 }
 \arguments{
   \item{str}{a string.}

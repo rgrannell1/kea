@@ -3,14 +3,17 @@
 #'
 #' Test every element in a collection for being \code{Na} of any type.
 #'
-#' @param coll a collection.
+#' @param
+#'    coll a collection.
 #'
-#' @return a vector of true/false values.
+#' @return
+#'    a vector of true/false values.
 #'
 #' @section Corner Cases:
-#'     returns logical(0) if \code{coll} is length-zero.
+#'    returns logical(0) if \code{coll} is length-zero.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
 #' @export
 

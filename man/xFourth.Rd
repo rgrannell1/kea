@@ -5,7 +5,7 @@
   xFourth(coll)
 }
 \arguments{
-  \item{coll}{a collection/}
+  \item{coll}{a collection.}
 }
 \value{
   the fourth value in \code{coll}.

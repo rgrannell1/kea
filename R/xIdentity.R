@@ -8,13 +8,12 @@
 #'    (for example, that mapping identity over a collection
 #'	  should return the original collection).
 #'
-#' @param val an arbitrary value.
+#' @param
+#'    val an arbitrary value.
 #'
-#' @return returns \code{val}.
+#' @return
+#'    returns \code{val}.
 #'
-#'
-#'
-
 #' @export
 
 xIdentity <- function (val) {

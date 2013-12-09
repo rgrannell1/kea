@@ -5,6 +5,7 @@
 #'
 #' @param
 #'    str a string to use as a delimiter.
+#'
 #' @param
 #'    strs several character vectors.
 #'

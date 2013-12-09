@@ -3,18 +3,18 @@
 #'
 #' Create a function that applies an argument to a list of underlying functions.
 #'
-#' @param fns a list or pairlist of functions.
+#' @param
+#'    fns a list or pairlist of functions.
 #'
-#' @return a variadic function.
+#' @return
+#'    a variadic function.
 #'
 #' @section Corner Cases:
 #'    If no functions are provided the empty list is returned.
 #'
+#' @family
+#'    higher_order_functions
 #'
-#'
-#' @family higher_order_functions
-#'
-
 #' @export
 
 xJuxtapose <- function (fns) {

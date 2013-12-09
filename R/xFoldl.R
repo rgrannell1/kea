@@ -3,21 +3,27 @@
 #'
 #' Fold a function over a collection from left to right with an initial left value.
 #'
-#' @param fn a binary function that returns a value that
-#'	 \code{fn} can later take as its left argument.
-#' @param init an arbitrary value.
-#' @param coll a collection.
+#' @param
+#'    fn a binary function that returns a value that
+#'    \code{fn} can later take as its left argument.
 #'
-#' @return an arbitrary value, depending on the function \code{fn}.
+#' @param
+#'    init an arbitrary value.
+#'
+#' @param
+#'    coll a collection.
+#'
+#' @return
+#'    an arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
-#'	 returns \code{init} if \code{coll} is length-zero.
+#'    returns \code{init} if \code{coll} is length-zero.
 #'
 #' @template Return
 #'
-#' @family higher_order_functions collection_functions
+#' @family
+#'    higher_order_functions collection_functions
 #'
-
 #' @export
 
 xFoldl <- function (fn, init, coll) {

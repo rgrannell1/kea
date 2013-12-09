@@ -3,13 +3,12 @@
 #'
 #' Split a string at every newline character.
 #'
-#' @param str a string.
+#' @param
+#'    str a string.
 #'
-#' @return a character vector.
+#' @return
+#'    a character vector.
 #'
-#'
-#'
-
 #' @export
 
 xLines <- function (str) {

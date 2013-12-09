@@ -3,18 +3,20 @@
 #'
 #' Repeat a collection several times.
 #'
-#' @param num a nonnegative positive number
-#' @param coll a collection
+#' @param
+#'    num a nonnegative positive number
 #'
-#' @return a list.
+#' @param
+#'    coll a collection
+#'
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero or num is zero.
-#'
+#'    returns the empty list if \code{coll} is length-zero or num is zero.
 #'
 #' @family collection_functions
 #'
-
 #' @export
 
 xRepeat <- function (num, coll) {

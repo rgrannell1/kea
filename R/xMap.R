@@ -12,6 +12,7 @@
 #'
 #' @param
 #'    fn a unary function.
+#'
 #' @param
 #'    coll a collection.
 #'

@@ -1,9 +1,11 @@
 
 #' Split a str at whitespace.
 #'
-#' @param str a length-one character vector.
+#' @param
+#'    str a length-one character vector.
 #'
-#' @return a character vector, with one or more elements.
+#' @return
+#'    a character vector, with one or more elements.
 #'
 #' @export
 

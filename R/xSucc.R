@@ -3,12 +3,14 @@
 #'
 #' Decrement a collection of numbers.
 #'
-#' @param nums a collection of numbers.
+#' @param
+#'    nums a collection of numbers.
 #'
-#' @return a vector of numbers.
+#' @return
+#'    a vector of numbers.
 #'
 #' @section Corner Cases:
-#'     If \code{nums} is empty then the unit of that vector is returned.
+#'    If \code{nums} is empty then the unit of that vector is returned.
 
 
 #' @export

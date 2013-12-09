@@ -1738,14 +1738,14 @@ x_coll_proto <- local({
 			xShuffle...(self_(), ...)
 		}
 
-	# --- xSplitStr --- #
-	this$xSplitStr <-
+	# --- xSplitString --- #
+	this$xSplitString <-
 		function (rexp) {
-			x_( xSplitStr(rexp, self_()) )
+			x_( xSplitString(rexp, self_()) )
 		}
 	this$x_SplitStr <-
 		function (rexp) {
-			xSplitStr(rexp, self_())
+			xSplitString(rexp, self_())
 		}
 
 	# --- xSplitWith --- #
@@ -1767,23 +1767,23 @@ x_coll_proto <- local({
 			xSplitWith...(pred, self_(), ...)
 		}
 
-	# --- xSubStr --- #
-	this$xSubStr <-
+	# --- xSubString --- #
+	this$xSubString <-
 		function (str) {
-			x_( xSubStr(str, self_()) )
+			x_( xSubString(str, self_()) )
 		}
-	this$xSubStr... <-
+	this$xSubString... <-
 		function (str, ...) {
-			x_( xSubStr...(str, self_(),...) )
+			x_( xSubString...(str, self_(),...) )
 		}
 
 	this$x_SubStr <-
 		function (str) {
-			xSubStr(str, self_())
+			xSubString(str, self_())
 		}
 	this$x_SubStr... <-
 		function (str, ...) {
-			xSubStr...(str, self_(),...)
+			xSubString...(str, self_(),...)
 		}
 
 	# --- xSucc --- #
