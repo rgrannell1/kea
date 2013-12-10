@@ -1,13 +1,12 @@
-
 #' xReverse
 #'
 #' Reverse a collection.
 #'
 #' @param
-#'    fn an function of any arity.
+#'    coll a collection.
 #'
 #' @return
-#'    a positive whole number.
+#'    a list of the same length as \code{coll}
 #'
 #' @section Corner Cases:
 #'    reversing the empty list yields the empty list.
@@ -18,6 +17,7 @@
 #' @export
 
 xReverse <- function (coll) {
+       # Collection any -> [any]
 	# reverse a collection.
 
 	invoking_call <- sys.call()
