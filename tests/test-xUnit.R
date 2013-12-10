@@ -18,7 +18,7 @@ message('xUnit')
 
 
 	forall(
-		"the unit of a collection is the length zero",
+		"the unit of a collection is length zero",
 		test_cases$collection,
 		length( xUnit(coll) ) == 0
 	)
@@ -31,3 +31,10 @@ message('arrow $ xUnit')
 		typeof( x_(coll)$xUnit()$x() ) == typeof(coll)
 	)
 
+message('arrow $ x_Unit')
+
+	forall(
+		"collection $ x_Unit()",
+		test_cases$collection,
+		typeof( x_(coll)$x_Unit() ) == typeof(coll)
+	)

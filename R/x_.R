@@ -2943,6 +2943,7 @@ get_proto_ref <- function (val) {
 
 		fn <- proto_ref[[method_name]]
 		environment(fn)[['self_']] <- function () obj[['x']]
+
 		fn
 	}
 })
@@ -2968,5 +2969,3 @@ print.arrow <- function (x, ...) {
 
 	print(x$x())
 }
-
-
