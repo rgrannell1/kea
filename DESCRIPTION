@@ -131,4 +131,5 @@ Collate:
     'xNotNan.R'
     'xIterate.R'
     'xPermute.R'
+    'xReverse.R'
     'forall.R'

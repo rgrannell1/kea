@@ -1604,6 +1604,24 @@ x_coll_proto <- local({
 			xRest...(self_(), ...)
 		}
 
+	# --- xRest --- #
+	this$xReverse <-
+		function () {
+			x_( xReverse(self_()) )
+		}
+	this$xReverse... <-
+		function (...) {
+			x_( xReverse...(self_(), ...) )
+		}
+
+	this$x_Reverse <-
+		function () {
+			xReverse(self_())
+		}
+	this$x_Reverse... <-
+		function (...) {
+			xReverse...(self_(), ...)
+		}
 	# -------- S ------- #
 	# --- xSecond --- #
 	this$xSecond <-
