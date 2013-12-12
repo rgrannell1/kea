@@ -1159,6 +1159,24 @@ x_coll_proto <- local({
 		function (fn, ...) {
 			xMap...(fn, self_(), ...)
 		}
+	# --- xMapply --- #
+	this$xMapply <-
+		function (fn) {
+			x_( xMapply(fn, self_()) )
+		}
+	this$xMapply... <-
+		function (fn, ...) {
+			x_( xMapply...(fn, self_(), ...) )
+		}
+
+	this$xMapply <-
+		function (fn) {
+			xMapply(fn, self_())
+		}
+	this$xMapply... <-
+		function (fn, ...) {
+			xMapply...(fn, self_(), ...)
+		}
 
 	# --- xMapIndexed --- #
 	this$xMapIndexed <-
@@ -2435,6 +2453,25 @@ x_fn_proto <- local({
 			xMap...(self_(), ...)
 		}
 
+	# --- xMapply --- #
+	this$xMapply <-
+		function (coll) {
+			x_( xMapply(self_(), coll) )
+		}
+	this$xMapply... <-
+		function (...) {
+			x_( xMapply...(self_(), ...) )
+		}
+
+	this$xMapply <-
+		function (coll) {
+			xMapply(self_(), coll)
+		}
+	this$xMapply... <-
+		function (...) {
+			xMapply...(self_(), ...)
+		}
+
 	# --- xMapIndexed --- #
 	this$xMapIndexed <-
 		function (coll) {
@@ -2874,9 +2911,19 @@ x_fn_proto <- local({
 #'    x_()$x() is required.
 #'
 #' @details
-#'    Creating arrow objects is efficient, since no methods are copied on instantiation. Invoking an arrow
-#'    method (using $) has a small amount overhead, since the definition of $
-#'    has been overloading to allow method calling.
+#'    There are methods specific to arrow objects.
+#'
+#'    \code{xExecute}: .
+#'
+#'    \code{xGraft}: Make a new method available for use on arrow objects.
+#'
+#'    \code{xTap}: Call the data inside the arrow object with an anonymous function, returning
+#'    a new arrow object.
+#'
+#'
+#'
+#'
+#'
 #'
 #' @export
 

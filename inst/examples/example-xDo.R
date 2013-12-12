@@ -1,24 +1,27 @@
 
-# It is difficult to give examples of do, since it
-# is used for side effects. I've personally used it
-# for unzipping every file in a directory, and for printing
-# values in a collection.
+# It is difficult to give examples for xDo, since it
+# is used for side effects.
 
-# print some numbers for admiration.
+#1. print the files in your current directory.
 
-xDo(print, 1:10)
+xDo(print, list.files(.))
 
-# print the files in your current directory.
+#    or
 
-xDo(print %of% list.files, ".")
+x_(list.files('.'))$xDo(print)
 
-# Ask some questions without collecting the results (for some reason).
+#    or even
 
-if ("velocity of an unladen swallow" == 100) {
-	xDo(
-		readline,
-		c(
-			"what is your name? ",
-			"what is your favourite colour? ",
-			"what is the capital of Assyria? "))
-}
+xDo(print %of% list.files, '.')
+
+#2. plot some data.
+
+x_()$
+xExecute(
+	function () {
+		plot(x = 0, y = 0, type = 'n')
+	}
+)$
+xDo(
+
+)

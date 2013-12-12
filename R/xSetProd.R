@@ -9,10 +9,9 @@
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-
+#'
 #' @family combinatoric_functions collection_functions
 #'
-
 #' @export
 
 xSetProd <- function (colls) {

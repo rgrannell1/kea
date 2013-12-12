@@ -133,3 +133,4 @@ Collate:
     'xPermute.R'
     'xReverse.R'
     'forall.R'
+    'xMapply.R'

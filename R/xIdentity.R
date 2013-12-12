@@ -30,6 +30,7 @@ xIdentity <- function (val) {
 
 	val
 }
+
 #' @export
 
 xIdiotBird <- xIdentity
