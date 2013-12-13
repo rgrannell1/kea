@@ -37,8 +37,13 @@ xInter <- function (colls) {
 		colls[[1]]
 	} else {
 
-		colls <- do.call(c, colls)
-		colls[!duplicated(colls)]
+		overlap <- colls[[1]]
+
+		for (ith in 2:length(colls)) {
+			overlap <- intersect( overlap, colls[[ith]] )
+		}
+
+		overlap
 	}
 }
 

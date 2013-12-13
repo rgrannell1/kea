@@ -5,7 +5,7 @@ gpl3.png
 
 # BitTorrent Sync
 
-*.!sync
+.!sync
 .SyncArchive/
 .SyncTrash/
 .SyncID

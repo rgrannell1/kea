@@ -37,6 +37,6 @@ xAsUnary <- function (fn) {
 	remove(invoking_call)
 
 	function (x) {
-		xApply(fn, as.list(x))
+		xApply(fn, x)
 	}
 }

@@ -12,7 +12,7 @@
 #'    variable that doesn't exist (in the parent frame).
 #'
 #'
-
+#'
 #' @export
 
 xAsVar <- function (str) {
