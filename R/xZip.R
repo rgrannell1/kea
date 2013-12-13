@@ -1,4 +1,6 @@
 
+#' xZip
+#'
 #' Generate a list of n-element lists from n collections.
 #'
 #' @param
@@ -16,7 +18,7 @@
 #' @export
 
 xZip <- function (colls) {
-	xZipWith(function (...) colls, ...)
+	xZipWith(function (...) colls, colls)
 }
 
 #' @export

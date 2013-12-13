@@ -26,6 +26,8 @@ xNot <- function (pred) {
 	# function -> function
 	# negate a predicate function.
 
+	invoking_call <- sys.call()
+
 	assert(
 		!missing(pred), sys.call(),
 		exclaim$parameter_missing(pred))

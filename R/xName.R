@@ -42,7 +42,7 @@ xName <- function (strs, coll) {
 
 	assert(
 		length(strs) == length(coll), invoking_call,
-		exclaim$must_have_equal_lengths(strs, colls))
+		exclaim$must_have_equal_lengths(strs, coll))
 
 	structure(as.list(coll), names = strs)
 }

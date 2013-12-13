@@ -1,49 +1,45 @@
 
 #' xUnion
 #'
-#' Get the set union of two collections.
+#' Get the set union of several collections.
 #'
 #' @param
-#'    coll1 a collection
-#'
-#' @param
-#'    coll2 a collection
+#'    colls a collection of collections.
 #'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{colls} is length-zero.
 #'
 #' @family
 #'    collection_functions
 #'
 #' @export
 
-xUnion <- function (coll1, coll2) {
+xUnion <- function (colls) {
 	# Collection any -> Collection any -> Collection any
-	# get the set union of two collections.
+	# get the set union of several collections.
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(coll1), invoking_call,
-		exclaim$parameter_missing(coll1))
+	colls <- lapply(colls, dearrowise)
 
 	assert(
-		!missing(coll2), invoking_call,
-		exclaim$parameter_missing(coll2))
+		all( sapply(colls, function (coll) {
+			is_collection(coll)
+		}) ), invoking_call,
+		exclaim$must_be_collection_of_length(colls))
 
-	coll1 <- dearrowise(coll1)
-	coll2 <- dearrowise(coll2)
+	if (length(colls) == 0) {
+		list()
+	} else {
+		unique(do.call(c, colls))
+	}
+}
 
-	assert(
-		is_collection(coll1), invoking_call,
-		exclaim$must_be_collection(coll1))
+#' @export
 
-	assert(
-		is_collection(coll2), invoking_call,
-		exclaim$must_be_collection(coll2))
-
-	unique( c(as.list(coll1), as.list(coll2)) )
+xUnion... <- function (...) {
+	xUnion(list(...))
 }

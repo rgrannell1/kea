@@ -4,7 +4,7 @@
 #' Convert a list of name : value collections into a named list.
 #'
 #' @param
-#'    coll a list or pairlist of list or pairlist pairs, with the first element being a
+#'    colls a list or pairlist of list or pairlist pairs, with the first element being a
 #'	  string and the second element being any value.
 #'
 #' @return
@@ -58,7 +58,7 @@ xAssoc <- function (colls) {
 			character(1), USE.NAMES = False)
 
 		structure(
-			Map( function (elem) elem[[2]], coll ),
+			Map( function (elem) elem[[2]], colls ),
 			names = keys)
 	}
 }

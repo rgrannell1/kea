@@ -1,13 +1,10 @@
 
 #' xDiffer
 #'
-#' Get the asymettric set difference of two collections.
+#' Get the asymettric set difference of several collections.
 #'
 #' @param
-#'    coll1 a collection
-#'
-#' @param
-#'    coll2 a collection
+#'    colls a collection of collections.
 #'
 #' @return
 #'    a list.
@@ -20,38 +17,37 @@
 #'
 #' @export
 
-xDiffer <- function (coll1, coll2) {
-	# Collection any -> Collection any -> Collection any
+xDiffer <- function (colls) {
+	# Collection Collection any -> Collection any
+	# get
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(coll1), invoking_call,
-		exclaim$parameter_missing(coll1))
+	colls <- lapply(colls, dearrowise)
 
 	assert(
-		!missing(coll2), invoking_call,
-		exclaim$parameter_missing(coll2))
+		all( sapply(colls, function (coll) {
+			is_collection(coll)
+		}) ), invoking_call,
+		exclaim$must_be_collection_of_length(colls))
 
-	coll1 <- dearrowise(coll1)
-	coll2 <- dearrowise(coll2)
+	if (length(colls) == 0) {
+		list()
+	} else if (length(colls) == 1) {
+		colls[[1]]
+	} else {
+		init <- list()
 
-	assert(
-		is_collection(coll1), invoking_call,
-		exclaim$must_be_collection(coll1))
+		for (ith in seq_along(colls)) {
+			init <- setdiff( init, colls[[ith]] )
+		}
 
-	assert(
-		is_collection(coll2), invoking_call,
-		exclaim$must_be_collection(coll2))
+		init
+	}
+}
 
-	coll1 <- as.list(coll1)
-	coll2 <- as.list(coll2)
+#' @export
 
-	# from the base library.
-	unique(
-		if (length(coll1) > 0 || length(coll2) > 0) {
-			coll1[match(coll1, coll2, 0L) == 0L]
-		} else {
-			coll1
-		})
+xDiffer... <- function (...) {
+	xDiffer(list(...))
 }

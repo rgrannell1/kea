@@ -586,13 +586,23 @@ x_coll_proto <- local({
 
 	# --- xDiffer --- #
 	this$xDiffer <-
-		function (coll2) {
-			x_( xDiffer(self_(), coll2) )
+		function () {
+			x_( xDiffer(self_()) )
 		}
 
 	this$x_Differ <-
-		function (coll2) {
-			xDiffer(self_(), coll2)
+		function () {
+			xDiffer(self_())
+		}
+
+	this$xDiffer... <-
+		function () {
+			x_( xDiffer...(self_()) )
+		}
+
+	this$x_Differ... <-
+		function () {
+			xDiffer...(self_())
 		}
 
 	# --- xDrop --- #
@@ -1016,13 +1026,23 @@ x_coll_proto <- local({
 
 	# --- xInter --- #
 	this$xInter <-
-		function (coll2) {
-			x_( xInter(self_(), coll2) )
+		function () {
+			x_( xInter(self_()) )
 		}
 
 	this$x_Inter <-
-		function (coll2) {
-			xInter(self_(), coll2)
+		function () {
+			xInter(self_())
+		}
+
+	this$xInter... <-
+		function () {
+			x_( xInter...(self_()) )
+		}
+
+	this$x_Inter... <-
+		function () {
+			xInter...(self_())
 		}
 
 	# -------- J ------- #
@@ -1931,13 +1951,23 @@ x_coll_proto <- local({
 
 	# --- xUnion --- #
 	this$xUnion <-
-		function (coll2) {
-			x_( xUnion(self_(), coll2) )
+		function () {
+			x_( xUnion(self_()) )
 		}
 
 	this$x_Union <-
-		function (coll2) {
-			xUnion(self_(), coll2)
+		function () {
+			xUnion(self_())
+		}
+
+	this$xUnion... <-
+		function () {
+			x_( xUnion...(self_()) )
+		}
+
+	this$x_Union... <-
+		function () {
+			xUnion...(self_())
 		}
 
 	# --- xUnit --- #
