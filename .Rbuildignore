@@ -2,3 +2,13 @@
 ^\.Rproj\.user$
 signitures
 gpl3.png
+
+# BitTorrent Sync
+
+*.!sync
+.SyncArchive/
+.SyncTrash/
+.SyncID
+.SyncIgnore
+.SyncPart
+.SyncTemp
