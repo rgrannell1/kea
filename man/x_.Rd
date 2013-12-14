@@ -2,23 +2,28 @@
 \alias{x_}
 \title{x_}
 \usage{
-  x_(val)
+x_(val)
 }
 \arguments{
   \item{val}{a function, collection, or arbitrary value.}
 }
 \value{
-  an object of class "arrow", with a single field 'x' that
-  contents_are val.
+an object of class "arrow", with a single field 'x' that
+contents_are val.
 }
 \description{
-  Generate a chainable arrow object, that can use methods.
+Generate a chainable arrow object, that can use methods.
 }
 \details{
-  Creating arrow objects is efficient, since no methods are
-  copied on instantiation. Invoking an arrow method (using
-  $) has a small amount overhead, since the definition of $
-  has been overloading to allow method calling.
+There are methods specific to arrow objects.
+
+\code{xExecute}: .
+
+\code{xGraft}: Make a new method available for use on arrow
+objects.
+
+\code{xTap}: Call the data inside the arrow object with an
+anonymous function, returning a new arrow object.
 }
 \section{Corner Cases}{
   The methods that can be used by x_() object varies

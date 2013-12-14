@@ -2,7 +2,7 @@
 \alias{xSubString}
 \title{xSubString}
 \usage{
-  xSubString(str, nums)
+xSubString(str, nums)
 }
 \arguments{
   \item{str}{a string.}
@@ -10,10 +10,10 @@
   \item{nums}{indices of \code{str}.}
 }
 \value{
-  a character vector.
+a character vector.
 }
 \description{
-  Subset a string using normal R vector indexing.
+Subset a string using normal R vector indexing.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

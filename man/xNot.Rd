@@ -2,16 +2,16 @@
 \alias{xNot}
 \title{xNot}
 \usage{
-  xNot(pred)
+xNot(pred)
 }
 \arguments{
   \item{pred}{a predicate of any arity.}
 }
 \value{
-  a predicate function of val.
+a predicate function of val.
 }
 \description{
-  Return the logical negation of a function.
+Return the logical negation of a function.
 }
 \section{Uses}{
   \code{xNot} is useful when used alongside higher-order
@@ -22,13 +22,13 @@
   \code{xNot}.
 }
 \seealso{
-  Other higher_order_functions: \code{\link{xArity}},
-  \code{\link{xAsUnary}}, \code{\link{xCompose}},
-  \code{\link{xConst}}, \code{\link{xFlip}},
-  \code{\link{xFormals}}, \code{\link{xIterate}},
-  \code{\link{xJuxtapose}}, \code{\link{xLift}},
-  \code{\link{xLimit}}, \code{\link{xParams}},
-  \code{\link{xStopWatch}}, \code{\link{xUnfold}},
-  \code{\link{xWait}}
+Other higher_order_functions: \code{\link{xArity}};
+\code{\link{xAsUnary}}; \code{\link{xCompose}};
+\code{\link{xConst}}; \code{\link{xFlip}};
+\code{\link{xFormals}}; \code{\link{xIterate}};
+\code{\link{xJuxtapose}}; \code{\link{xLift}};
+\code{\link{xLimit}}; \code{\link{xParams}};
+\code{\link{xStopWatch}}; \code{\link{xUnfold}};
+\code{\link{xWait}}
 }
 

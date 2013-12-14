@@ -2,16 +2,16 @@
 \alias{xSignum}
 \title{xSignum}
 \usage{
-  xSignum(nums)
+xSignum(nums)
 }
 \arguments{
   \item{nums}{a vector of non-complex numbers.}
 }
 \value{
-  a vector of elements in the set \code{-1, 0, +1}.
+a vector of elements in the set \code{-1, 0, +1}.
 }
 \description{
-  Get the sign of a vector of numbers.
+Get the sign of a vector of numbers.
 }
 \section{Corner Cases}{
   If \code{nums} is lenth-zero then the unit of that vector

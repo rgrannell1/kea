@@ -14,7 +14,8 @@
 #' @param
 #'    fn an function of any arity.
 #'
-#' @param coll a list or pairlist. This may be named, but
+#' @param
+#'    coll a list or pairlist. This may be named, but
 #'    all names must be parameters of \code{fn}.
 #'
 #' @return

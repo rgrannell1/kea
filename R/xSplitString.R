@@ -10,8 +10,7 @@
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-
-
+#'
 #' @export
 
 xSplitString <- function (rexp, str) {

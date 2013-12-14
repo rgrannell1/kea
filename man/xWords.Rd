@@ -2,15 +2,15 @@
 \alias{xWords}
 \title{Split a str at whitespace.}
 \usage{
-  xWords(str)
+xWords(str)
 }
 \arguments{
   \item{str}{a length-one character vector.}
 }
 \value{
-  a character vector, with one or more elements.
+a character vector, with one or more elements.
 }
 \description{
-  Split a str at whitespace.
+Split a str at whitespace.
 }
 

@@ -2,7 +2,7 @@
 \alias{xLambda}
 \title{xLambda}
 \usage{
-  xLambda(formals, body)
+xLambda(formals, body)
 }
 \arguments{
   \item{formals}{a symbol or string.}
@@ -11,9 +11,9 @@
   evaluated.}
 }
 \value{
-  returns a unary function.
+returns a unary function.
 }
 \description{
-  Syntactic sugar for creating unary functions.
+Syntactic sugar for creating unary functions.
 }
 

@@ -2,16 +2,16 @@
 \alias{xNegate}
 \title{xNegate}
 \usage{
-  xNegate(nums)
+xNegate(nums)
 }
 \arguments{
   \item{nums}{a vector of numbers.}
 }
 \value{
-  a vector of number.
+a vector of number.
 }
 \description{
-  Flip the sign of each number in a vector.
+Flip the sign of each number in a vector.
 }
 \section{Corner Cases}{
   If nums is empty then the unit of the collection is

@@ -2,16 +2,16 @@
 \alias{xAsClosure}
 \title{xAsClosure}
 \usage{
-  xAsClosure(fn)
+xAsClosure(fn)
 }
 \arguments{
   \item{fn}{an arbitrary function.}
 }
 \value{
-  a function (closure).
+a function (closure).
 }
 \description{
-  Convert a primitive function to a closure.
+Convert a primitive function to a closure.
 }
 \section{Corner Cases}{
   xAsClosure does not work for every primitive function

@@ -2,16 +2,16 @@
 \alias{xIdentity}
 \title{xIdentity}
 \usage{
-  xIdentity(val)
+xIdentity(val)
 }
 \arguments{
   \item{val}{an arbitrary value.}
 }
 \value{
-  returns \code{val}.
+returns \code{val}.
 }
 \description{
-  Return an argument without modification.
+Return an argument without modification.
 }
 \section{Uses}{
   The identity function is useful for testing identities

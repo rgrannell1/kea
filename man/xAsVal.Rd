@@ -2,16 +2,16 @@
 \alias{xAsVal}
 \title{xAsVal}
 \usage{
-  xAsVal(str)
+xAsVal(str)
 }
 \arguments{
   \item{str}{a string or symbol.}
 }
 \value{
-  Null; used for side-effect.
+Null; used for side-effect.
 }
 \description{
-  Convert a normal R variable to a constant value.
+Convert a normal R variable to a constant value.
 }
 \section{Corner Cases}{
   throws an error if attempting to convert a variable that

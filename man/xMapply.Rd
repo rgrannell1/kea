@@ -1,8 +1,8 @@
-\name{xMap}
-\alias{xMap}
-\title{xMap}
+\name{xMapply}
+\alias{xMapply}
+\title{xMapply}
 \usage{
-xMap(fn, coll)
+xMapply(fn, coll)
 }
 \arguments{
   \item{fn}{a unary function.}
@@ -30,7 +30,7 @@ Apply a function to each element of a collection.
 Other higher_order_functions map_like_functions
 collection_functions: \code{\link{xFlatMap}};
 \code{\link{xMapIndexed}}; \code{\link{xMapMany}};
-\code{\link{xMapWhen}}; \code{\link{xMapply}};
+\code{\link{xMapWhen}}; \code{\link{xMap}};
 \code{\link{xRecurMap}}
 }
 

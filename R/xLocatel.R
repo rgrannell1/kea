@@ -56,9 +56,7 @@ xLocate <- function (pred, coll) {
 				pred( coll[[ith]] ),
 				invoking_call)
 
-			stopifnot(is.logical(is_match))
-
-			if (is_match) {
+			if (isTRUE(is_match)) {
 				return (as.integer(ith))
 			}
 		}

@@ -43,7 +43,7 @@ xInter <- function (colls) {
 			overlap <- intersect( overlap, colls[[ith]] )
 		}
 
-		overlap
+		as.list(overlap)
 	}
 }
 

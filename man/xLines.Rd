@@ -2,15 +2,15 @@
 \alias{xLines}
 \title{xLines}
 \usage{
-  xLines(str)
+xLines(str)
 }
 \arguments{
   \item{str}{a string.}
 }
 \value{
-  a character vector.
+a character vector.
 }
 \description{
-  Split a string at every newline character.
+Split a string at every newline character.
 }
 

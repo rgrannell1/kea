@@ -2,7 +2,7 @@
 atoms <- local({
 	# functions that generate a single value.
 
-	this <- object()
+	this <- Object()
 
 	# --------------------- Boolean --------------------- #
 
@@ -183,7 +183,7 @@ as_coll <- local({
 	# combine atomic generators into generators
 	# for a collections of atoms
 
-	this <- object()
+	this <- Object()
 
 	this$vector_of <-
 		function (fn, sd = 20) {
@@ -269,7 +269,7 @@ compounds <- local({
 	# these collections themselves are generated using
 	# the atomic generator functions.
 
-	this <- object()
+	this <- Object()
 
 	# --------------------- Empty Collections --------------------- #
 
@@ -384,7 +384,7 @@ compounds <- local({
 test_cases <- local({
 	# pre-approved test cases.
 
-	this <- object()
+	this <- Object()
 
 	this$mod2_over_ints <-
 		list(

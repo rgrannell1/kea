@@ -2,16 +2,16 @@
 \alias{xConcat}
 \title{xConcat}
 \usage{
-  xConcat(colls)
+xConcat(colls)
 }
 \arguments{
   \item{colls}{several collections.}
 }
 \value{
-  a list.
+a list.
 }
 \description{
-  Concatenate several collections into one collection.
+Concatenate several collections into one collection.
 }
 \section{Corner Cases}{
   empty collections act as a unit for concatenation;

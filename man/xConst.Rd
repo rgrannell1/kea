@@ -2,16 +2,16 @@
 \alias{xConst}
 \title{xConst}
 \usage{
-  xConst(val)
+xConst(val)
 }
 \arguments{
   \item{val}{an arbitrary value.}
 }
 \value{
-  a variadic function.
+a variadic function.
 }
 \description{
-  Create a function that returns a particular value.
+Create a function that returns a particular value.
 }
 \section{Uses}{
   \code{xConst} is useful when used alongside the lift
@@ -24,13 +24,13 @@
   arrow functions that take a predicate.
 }
 \seealso{
-  Other higher_order_functions: \code{\link{xArity}},
-  \code{\link{xAsUnary}}, \code{\link{xCompose}},
-  \code{\link{xFlip}}, \code{\link{xFormals}},
-  \code{\link{xIterate}}, \code{\link{xJuxtapose}},
-  \code{\link{xLift}}, \code{\link{xLimit}},
-  \code{\link{xNot}}, \code{\link{xParams}},
-  \code{\link{xStopWatch}}, \code{\link{xUnfold}},
-  \code{\link{xWait}}
+Other higher_order_functions: \code{\link{xArity}};
+\code{\link{xAsUnary}}; \code{\link{xCompose}};
+\code{\link{xFlip}}; \code{\link{xFormals}};
+\code{\link{xIterate}}; \code{\link{xJuxtapose}};
+\code{\link{xLift}}; \code{\link{xLimit}};
+\code{\link{xNot}}; \code{\link{xParams}};
+\code{\link{xStopWatch}}; \code{\link{xUnfold}};
+\code{\link{xWait}}
 }
 

@@ -11,7 +11,7 @@
 #'
 #' @family higher_order_functions
 #'
-
+#'
 #' @export
 
 xFlip <- function (fn) {

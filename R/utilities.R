@@ -1,8 +1,8 @@
 
 # --------------------- shorthand logical functions --------------------- #
 
-Null <- NULL
 Na <- NA
+Null <- NULL
 True <- TRUE
 False <- FALSE
 
@@ -16,10 +16,10 @@ Moot <- function (...) {
 	Na
 }
 
-
 # --------------------- misc. tools --------------------- #
 
 one_of <- function (coll) {
+	# coll [any] -> any
 	# select a single value from a collection.
 
 	ith <- sample(seq_along(coll), size = 1)
@@ -52,7 +52,7 @@ call_with_params <- function (name, fn) {
 
 # --------------------- environment manipulation --------------------- #
 
-object <- function () {
+Object <- function () {
 	# construct an empty environment.
 
 	new.env(parent = emptyenv())
@@ -186,6 +186,7 @@ as_typed_vector <- function (coll, mode, value_unit = False) {
 }
 
 try_higher_order <- function (expr, invoking_call) {
+	# expression -> call -> any
 	# provide a good error message if a higher-order function
 	# fails because the user provided a dodgy function.
 
@@ -244,6 +245,7 @@ assert <- function (expr, invoking_call, message) {
 }
 
 ith_suffix <- function (num) {
+	# number -> string
 	# takes a number i, adds the
 	# appropriate suffix (ith, ind, ist)
 	# useful for error messages.

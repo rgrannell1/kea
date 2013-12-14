@@ -2,16 +2,15 @@
 \alias{xUnchars}
 \title{xUnchars}
 \usage{
-  xUnchars(strs)
+xUnchars(strs)
 }
 \arguments{
   \item{strs}{several character vectors.}
 }
 \value{
-  a length-one character vector.
+a length-one character vector.
 }
 \description{
-  Collapase a character vector with empty strs as
-  delimiters.
+Collapase a character vector with empty strs as delimiters.
 }
 

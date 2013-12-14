@@ -2,16 +2,16 @@
 \alias{xArity}
 \title{xArity}
 \usage{
-  xArity(fn)
+xArity(fn)
 }
 \arguments{
   \item{fn}{an function of any arity.}
 }
 \value{
-  a positive whole number.
+a positive whole number.
 }
 \description{
-  Return the number of arguments a function can accept.
+Return the number of arguments a function can accept.
 }
 \section{Uses}{
   \code{xArity} is primarily intended for use with
@@ -27,13 +27,13 @@
   infinite number of arguments.
 }
 \seealso{
-  Other higher_order_functions: \code{\link{xAsUnary}},
-  \code{\link{xCompose}}, \code{\link{xConst}},
-  \code{\link{xFlip}}, \code{\link{xFormals}},
-  \code{\link{xIterate}}, \code{\link{xJuxtapose}},
-  \code{\link{xLift}}, \code{\link{xLimit}},
-  \code{\link{xNot}}, \code{\link{xParams}},
-  \code{\link{xStopWatch}}, \code{\link{xUnfold}},
-  \code{\link{xWait}}
+Other higher_order_functions: \code{\link{xAsUnary}};
+\code{\link{xCompose}}; \code{\link{xConst}};
+\code{\link{xFlip}}; \code{\link{xFormals}};
+\code{\link{xIterate}}; \code{\link{xJuxtapose}};
+\code{\link{xLift}}; \code{\link{xLimit}};
+\code{\link{xNot}}; \code{\link{xParams}};
+\code{\link{xStopWatch}}; \code{\link{xUnfold}};
+\code{\link{xWait}}
 }
 

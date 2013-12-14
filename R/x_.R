@@ -41,7 +41,7 @@
 
 x_any_proto <- local({
 
-	this <- object()
+	this <- Object()
 	this$private <- list(
 		contents_are = "arbitrary values"
 	)
@@ -183,7 +183,7 @@ x_any_proto <- local({
 
 x_matrix_proto <- local({
 
-	this <- object()
+	this <- Object()
 
 	# -------- A ------- #
 	# -------- B ------- #
@@ -307,7 +307,7 @@ x_matrix_proto <- local({
 
 x_data_frame_proto <- local({
 
-	this <- object()
+	this <- Object()
 	this$private <- list(
 		contents_are = "data.frames"
 	)
@@ -403,7 +403,7 @@ x_data_frame_proto <- local({
 
 x_coll_proto <- local({
 
-	this <- object()
+	this <- Object()
 
 	# -------- A ------- #
 
@@ -2116,7 +2116,7 @@ x_coll_proto <- local({
 
 x_fn_proto <- local({
 
-	this <- object()
+	this <- Object()
 	# -------- A ------- #
 	this$xAsClosure <-
 		function () {

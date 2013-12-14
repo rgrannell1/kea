@@ -28,7 +28,7 @@
 
 xFoldl <- function (fn, init, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
-	# fold a list, starting from the left"
+	# fold a list, starting from the left
 
 	invoking_call <- sys.call()
 
