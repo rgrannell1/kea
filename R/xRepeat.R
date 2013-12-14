@@ -15,7 +15,8 @@
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero or num is zero.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
 #' @export
 

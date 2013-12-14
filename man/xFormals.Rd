@@ -23,13 +23,13 @@ function.
   \code{quote(expr=)}.
 }
 \seealso{
-Other higher_order_functions: \code{\link{xArity}};
-\code{\link{xAsUnary}}; \code{\link{xCompose}};
-\code{\link{xConst}}; \code{\link{xFlip}};
-\code{\link{xIterate}}; \code{\link{xJuxtapose}};
-\code{\link{xLift}}; \code{\link{xLimit}};
-\code{\link{xNot}}; \code{\link{xParams}};
-\code{\link{xStopWatch}}; \code{\link{xUnfold}};
-\code{\link{xWait}}
+Other higher_order_functions: \code{\link{xApply}};
+\code{\link{xArity}}; \code{\link{xAsUnary}};
+\code{\link{xCompose}}; \code{\link{xConst}};
+\code{\link{xFlip}}; \code{\link{xIterate}};
+\code{\link{xJuxtapose}}; \code{\link{xLift}};
+\code{\link{xLimit}}; \code{\link{xNot}};
+\code{\link{xParams}}; \code{\link{xStopWatch}};
+\code{\link{xUnfold}}; \code{\link{xWait}}
 }
 

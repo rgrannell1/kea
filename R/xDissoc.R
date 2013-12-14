@@ -16,7 +16,6 @@
 #' @family
 #'    collection_functions
 #'
-#'
 #' @export
 
 xDissoc <- function (coll) {

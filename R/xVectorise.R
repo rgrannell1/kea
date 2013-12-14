@@ -13,7 +13,10 @@
 #'    returns the empty list if \code{coll} is length-zero.
 #'
 #' @family
-#'    higher_order_functions map_like_functions
+#'    higher_order_functions
+#'
+#' @family
+#'    map_like_functions
 #'
 #' @export
 

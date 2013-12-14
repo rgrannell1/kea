@@ -9,8 +9,8 @@
 #' @return
 #'    a function of the same arity as \code{fn}.
 #'
-#' @family higher_order_functions
-#'
+#' @family
+#'    higher_order_functions
 #'
 #' @export
 

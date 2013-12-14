@@ -3,16 +3,23 @@
 #'
 #' Recursively map a function into a nested collection, preserving its structure.
 #'
-#' @param fn a unary function.
-#' @param coll a list or pairlist.
+#' @param
+#'    fn a unary function.
+#' @param
+#'    coll a list or pairlist.
 #'
-#' @return a list or pairlist.
+#' @return
+#'    a list or pairlist.
 #'
+#' @family
+#'    higher_order_functions
 #'
+#' @family
+#'    map_like_functions
 #'
-#' @family higher_order_functions map_like_functions collection_functions
+#' @family
+#'    collection_functions
 #'
-
 #' @export
 
 xRecurMap <- function (fn, coll) {

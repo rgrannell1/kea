@@ -17,7 +17,13 @@
 #'    collection lengths are not equal then elements are recycled in the shorter collections.
 #'
 #' @family
-#'    higher_order_functions map_like_functions collection_functions
+#'    higher_order_functions
+#'
+#' @family
+#'    map_like_functions
+#'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

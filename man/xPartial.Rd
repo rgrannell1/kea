@@ -21,16 +21,16 @@ Partially apply a function.
 }
 \seealso{
 Other higher_order_functions collection_functions:
-\code{\link{xApply}}; \code{\link{xDo}};
-\code{\link{xDropWhile}}; \code{\link{xExists}};
-\code{\link{xFoldListl}}; \code{\link{xFoldl}};
-\code{\link{xFoldr}}; \code{\link{xForall}};
-\code{\link{xLocater}}; \code{\link{xLocate}};
-\code{\link{xPartitionWith}}; \code{\link{xPartition}};
-\code{\link{xPermute}}; \code{\link{xPluck}};
-\code{\link{xPoll}}; \code{\link{xReducer}};
-\code{\link{xReduce}}; \code{\link{xReject}};
-\code{\link{xSelect}}; \code{\link{xSplitWith}};
-\code{\link{xTakeWhile}}; \code{\link{xZipWith}}
+\code{\link{xDo}}; \code{\link{xDropWhile}};
+\code{\link{xExists}}; \code{\link{xFoldListl}};
+\code{\link{xFoldl}}; \code{\link{xFoldr}};
+\code{\link{xForall}}; \code{\link{xLocater}};
+\code{\link{xLocate}}; \code{\link{xPartitionWith}};
+\code{\link{xPartition}}; \code{\link{xPermute}};
+\code{\link{xPluck}}; \code{\link{xPoll}};
+\code{\link{xReducer}}; \code{\link{xReduce}};
+\code{\link{xReject}}; \code{\link{xSelect}};
+\code{\link{xSplitWith}}; \code{\link{xTakeWhile}};
+\code{\link{xZipWith}}
 }
 

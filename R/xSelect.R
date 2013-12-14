@@ -13,6 +13,7 @@
 #'
 #' @param
 #'    pred a predicate.
+#'
 #' @param
 #'    coll a collection.
 #'
@@ -23,8 +24,10 @@
 #'    returns the empty list if \code{coll} is length-zero, or no match is found.
 #'
 #' @family
-#'    higher_order_functions collection_functions
+#'    higher_order_functions
 #'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

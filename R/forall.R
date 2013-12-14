@@ -1,4 +1,69 @@
 
+# -------------------------------- forall -------------------------------- #
+#
+# To Developers,
+#
+# The forall() set of tools allows Quickcheck-style unit testing to
+# verify that arrow's functions are working correctly. The system is organised
+# as follows:
+#
+# forall:
+#
+#    forall( ) is a function with which unit tests are written. A typical call
+#    might look like...
+#
+#    forall(
+#        'check addition commutativity',
+#        list(a = function ( ) runif(1), b = function ( ) runif(1),
+#        a + b == b + a)
+#
+#    A description should be given of the test. The argument 'cases'
+#    is the part that supplies random test cases. It is a named list of functions,
+#    each of which returns a random test-case.
+#
+#    In this case, the variables a & b are bound with a random number.
+#
+#    The final argument used here is 'expect'; an expression that
+#    must return true for the test to pass. Here, the expression
+#    a + b == b + a must be true for the test to pass. Again, this expression
+#    must evaluate to a boolean value, and true in order to pass.
+#
+#    forall will re-evaluate the expression with a & b re-bound to different
+#    numbers; this means that the expression will be checked to be true for a
+#    significant sample of random numbers.
+#
+#    there is a way to add counterindications to running the unit test.
+#    for example,
+#
+#    forall(
+#        'check addition commutativity',
+#        list(a = function ( ) runif(1), b = function ( ) runif(1),
+#        a * b == b * a,
+#        given =
+#            a != 0 && b != 0)
+#
+#    forall will continue to execute random tests for 0.1 seconds, unless the
+#    time is extended. This is to keep the R CMD check runtime's prompt.
+#
+#
+#
+#
+#
+# atoms:
+#
+#    Writing test cases by hand is a pain, one which forall intents to circumevent.
+#    Instead, test case generators are used. These are functions that return
+#    a particular type of test case; for example random numbers, lists of varying lengths
+#    of random strings.
+#
+#
+#
+
+
+
+
+
+
 atoms <- local({
 	# functions that generate a single value.
 

@@ -22,7 +22,10 @@
 #'    the return value of \code{fn}.
 #'
 #' @family
-#'    higher_order_functions collection_functions
+#'    higher_order_functions
+#'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

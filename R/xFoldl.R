@@ -19,10 +19,13 @@
 #' @section Corner Cases:
 #'    returns \code{init} if \code{coll} is length-zero.
 #'
-#' @template Return
+#' @family
+#'    higher_order_functions
 #'
 #' @family
-#'    higher_order_functions collection_functions
+#'    collection_functions
+#'
+#' @template Return
 #'
 #' @export
 

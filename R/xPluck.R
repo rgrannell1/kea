@@ -4,11 +4,11 @@
 #' Map over a collection of lists or pairlists,
 #' selecting fields in each element by name.
 #'
-#' @param str
-#'    a string.
+#' @param
+#'    str a string.
 #'
-#' @param coll
-#'    a list or pairlist of lists or pairlists.
+#' @param
+#'    coll a list or pairlist of lists or pairlists.
 #'
 #' @return
 #'    a list.
@@ -19,7 +19,10 @@
 #'    used to match key-names.
 #'
 #' @family
-#'    higher_order_functions collection_functions
+#'    higher_order_functions
+#'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

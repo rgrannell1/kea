@@ -16,7 +16,8 @@
 #' @section Corner Cases:
 #'    if \code{num} is zero then \code{fn} is returned untouched.
 #'
-#' @family higher_order_functions
+#' @family
+#'    higher_order_functions
 #'
 #' @export
 

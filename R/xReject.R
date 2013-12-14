@@ -13,14 +13,18 @@
 #' @param
 #'    coll a collection
 #'
-#' @return a list.
+#' @return
+#'    a list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
 #'    Throws an error if pred returns a non-boolean value.
 #'
 #' @family
-#'    higher_order_functions collection_functions
+#'    higher_order_functions
+#'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

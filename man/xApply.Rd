@@ -26,17 +26,33 @@ Call a function with a list of arguments.
   of lists dynamically.
 }
 \seealso{
-Other higher_order_functions collection_functions:
-\code{\link{xDo}}; \code{\link{xDropWhile}};
-\code{\link{xExists}}; \code{\link{xFoldListl}};
-\code{\link{xFoldl}}; \code{\link{xFoldr}};
-\code{\link{xForall}}; \code{\link{xLocater}};
-\code{\link{xLocate}}; \code{\link{xPartial}};
-\code{\link{xPartitionWith}}; \code{\link{xPartition}};
-\code{\link{xPermute}}; \code{\link{xPluck}};
-\code{\link{xPoll}}; \code{\link{xReducer}};
-\code{\link{xReduce}}; \code{\link{xReject}};
-\code{\link{xSelect}}; \code{\link{xSplitWith}};
-\code{\link{xTakeWhile}}; \code{\link{xZipWith}}
+Other collection_functions: \code{\link{xAsFunction}};
+\code{\link{xAssoc}}; \code{\link{xContains}};
+\code{\link{xDiffer}}; \code{\link{xDissoc}};
+\code{\link{xDrop}}; \code{\link{xFirst}};
+\code{\link{xFlatten}}; \code{\link{xFourth}};
+\code{\link{xInit}}; \code{\link{xInter}};
+\code{\link{xIsEmpty}}; \code{\link{xIsFalse}};
+\code{\link{xIsNan}}; \code{\link{xIsNa}};
+\code{\link{xIsNull}}; \code{\link{xIsTrue}};
+\code{\link{xLast}}; \code{\link{xLength}};
+\code{\link{xName}}; \code{\link{xNotFalse}};
+\code{\link{xNotNan}}; \code{\link{xNotNa}};
+\code{\link{xNotTrue}}; \code{\link{xPack}};
+\code{\link{xRepeat}}; \code{\link{xRest}};
+\code{\link{xReverse}}; \code{\link{xSecond}};
+\code{\link{xSegment}}; \code{\link{xShuffle}};
+\code{\link{xSplit}}; \code{\link{xTake}};
+\code{\link{xThird}}; \code{\link{xUnion}};
+\code{\link{xUnit}}
+
+Other higher_order_functions: \code{\link{xArity}};
+\code{\link{xAsUnary}}; \code{\link{xCompose}};
+\code{\link{xConst}}; \code{\link{xFlip}};
+\code{\link{xFormals}}; \code{\link{xIterate}};
+\code{\link{xJuxtapose}}; \code{\link{xLift}};
+\code{\link{xLimit}}; \code{\link{xNot}};
+\code{\link{xParams}}; \code{\link{xStopWatch}};
+\code{\link{xUnfold}}; \code{\link{xWait}}
 }
 

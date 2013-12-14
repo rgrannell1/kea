@@ -21,13 +21,13 @@ set amount of time.
   untouched.
 }
 \seealso{
-Other higher_order_functions: \code{\link{xArity}};
-\code{\link{xAsUnary}}; \code{\link{xCompose}};
-\code{\link{xConst}}; \code{\link{xFlip}};
-\code{\link{xFormals}}; \code{\link{xIterate}};
-\code{\link{xJuxtapose}}; \code{\link{xLift}};
-\code{\link{xLimit}}; \code{\link{xNot}};
-\code{\link{xParams}}; \code{\link{xStopWatch}};
-\code{\link{xUnfold}}
+Other higher_order_functions: \code{\link{xApply}};
+\code{\link{xArity}}; \code{\link{xAsUnary}};
+\code{\link{xCompose}}; \code{\link{xConst}};
+\code{\link{xFlip}}; \code{\link{xFormals}};
+\code{\link{xIterate}}; \code{\link{xJuxtapose}};
+\code{\link{xLift}}; \code{\link{xLimit}};
+\code{\link{xNot}}; \code{\link{xParams}};
+\code{\link{xStopWatch}}; \code{\link{xUnfold}}
 }
 

@@ -16,7 +16,10 @@
 #'     returns the empty list if \code{num} is zero.
 #'
 #' @family
-#'    combinatoric_functions collection_functions
+#'    combinatoric_functions
+#'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

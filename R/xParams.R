@@ -11,10 +11,9 @@
 #'	 If \code{fn} is a primitive function a heuristic is used to obtain
 #'	 its parameter names, which may not work for all functions.
 #'
+#' @family
+#'    higher_order_functions
 #'
-#' @family higher_order_functions
-#'
-
 #' @export
 
 xParams <- function (fn) {

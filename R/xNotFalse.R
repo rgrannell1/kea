@@ -10,9 +10,10 @@
 #'    a vector of boolean values.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'    returns the empty list if \code{coll} is length-zero.
 #'
-#' @family collection_functions
+#' @family
+#'    collection_functions
 #'
 #' @export
 

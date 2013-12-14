@@ -16,7 +16,10 @@
 #'    Partial application also works for ellipses (eg list(... = 1)).
 #'
 #' @family
-#'    higher_order_functions collection_functions
+#'    higher_order_functions
+#'
+#' @family
+#'    collection_functions
 #'
 #' @export
 

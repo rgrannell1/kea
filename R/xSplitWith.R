@@ -11,10 +11,13 @@
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-
-#' @family higher_order_functions collection_functions
 #'
-
+#' @family
+#'    higher_order_functions
+#'
+#' @family
+#'    collection_functions
+#'
 #' @export
 
 xSplitWith <- function (pred, coll) {

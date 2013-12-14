@@ -25,13 +25,13 @@ as powerful as possible, even at the risk of making Arrow
 less consistent.
 }
 \seealso{
-Other higher_order_functions: \code{\link{xArity}};
-\code{\link{xAsUnary}}; \code{\link{xConst}};
-\code{\link{xFlip}}; \code{\link{xFormals}};
-\code{\link{xIterate}}; \code{\link{xJuxtapose}};
-\code{\link{xLift}}; \code{\link{xLimit}};
-\code{\link{xNot}}; \code{\link{xParams}};
-\code{\link{xStopWatch}}; \code{\link{xUnfold}};
-\code{\link{xWait}}
+Other higher_order_functions: \code{\link{xApply}};
+\code{\link{xArity}}; \code{\link{xAsUnary}};
+\code{\link{xConst}}; \code{\link{xFlip}};
+\code{\link{xFormals}}; \code{\link{xIterate}};
+\code{\link{xJuxtapose}}; \code{\link{xLift}};
+\code{\link{xLimit}}; \code{\link{xNot}};
+\code{\link{xParams}}; \code{\link{xStopWatch}};
+\code{\link{xUnfold}}; \code{\link{xWait}}
 }
 
