@@ -38,9 +38,13 @@
 #    forall(
 #        'check addition commutativity',
 #        list(a = function ( ) runif(1), b = function ( ) runif(1),
-#        a * b == b * a,
+#        a * b > 0,
 #        given =
 #            a != 0 && b != 0)
+#
+#    the unit test above is run given that a and b aren't zero. Expression
+#    'a * b > 0' won't even be run; a new random test case will instead be generated.
+#
 #
 #    forall will continue to execute random tests for 0.1 seconds, unless the
 #    time is extended. This is to keep the R CMD check runtime's prompt.
@@ -56,13 +60,53 @@
 #    a particular type of test case; for example random numbers, lists of varying lengths
 #    of random strings.
 #
+#    There are two levels of test case generators: atoms (length-one values) and
+#    compounds (collections of said values).
+#
+#    Atoms is an environment (an R object) of functions that return random test cases.
 #
 #
-
-
-
-
-
+#
+#
+#
+# as_coll:
+#
+#    as_coll is an environment that contains functions that take an atom generator, and
+#    returns a compound generator function. For example, atom$integer creates a random integer.
+#    compound$integers returns a variable-length vector of such integers.
+#
+#    This is solely included to shorten the (annoying) task of writing compound
+#    test case generators.
+#
+#
+#
+#
+#
+# compounds:
+#
+#    Generators for lists and vectors of select values.
+#
+#
+#
+#
+#
+# test_cases:
+#
+#    Ultimately, the function forall( ) takes generator functions and binds their results to
+#    variable name. In order to reduce repetition, test_cases contains an environment
+#    of 'pre-approved' test_cases lists. For example, a lot of arrow functions take a
+#    boolean function and a collection. It is prudent to test these functions with a logical function
+#    and an empty collection of any type, so a pre-approved test case is contained in this
+#    object for just that purpose.
+#
+#
+#
+#
+#
+#
+#
+#
+#
 
 atoms <- local({
 	# functions that generate a single value.
