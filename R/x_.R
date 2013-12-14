@@ -2852,6 +2852,16 @@ x_fn_proto <- local({
 		function () {
 			xVectorise(self_())
 		}
+
+	this$xVectorize <-
+		function () {
+			x_( xVectorize(self_()) )
+		}
+
+	this$x_Vectorize <-
+		function () {
+			xVectorize(self_())
+		}
 	# -------- W ------- #
 
 	# --- xWait --- #

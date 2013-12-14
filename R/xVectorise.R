@@ -39,3 +39,8 @@ xVectorise <- function (fn) {
 		xMap(fn, coll)
 	}
 }
+
+#' @export
+# for my american friends.
+
+xVectorize <- xVectorise

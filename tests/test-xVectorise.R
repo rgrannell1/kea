@@ -21,7 +21,7 @@ message("xVectorise")
 	)
 
 	forall(
-		"partmapping increment over integers works",
+		"part-mapping increment over integers works",
 		test_cases$succ_over_integers,
 		all( xVectorise(fn)(coll) == unlist(coll) + 1 )
 	)
