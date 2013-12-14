@@ -44,6 +44,7 @@ xRecurMap <- function (fn, coll) {
 	fn <- match.fun(fn)
 
 	recur <- function (xs) {
+		# recurse into a collection.
 
 		if (is.list(xs) || is.pairlist(xs)) {
 			lapply(xs, recur)

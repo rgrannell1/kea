@@ -596,13 +596,13 @@ x_coll_proto <- local({
 		}
 
 	this$xDiffer... <-
-		function () {
-			x_( xDiffer...(self_()) )
+		function (...) {
+			x_( xDiffer...(self_(), ...) )
 		}
 
 	this$x_Differ... <-
-		function () {
-			xDiffer...(self_())
+		function (...) {
+			xDiffer...(self_(), ...)
 		}
 
 	# --- xDrop --- #
@@ -1036,13 +1036,13 @@ x_coll_proto <- local({
 		}
 
 	this$xInter... <-
-		function () {
-			x_( xInter...(self_()) )
+		function (...) {
+			x_( xInter...(self_(), ...) )
 		}
 
 	this$x_Inter... <-
-		function () {
-			xInter...(self_())
+		function (...) {
+			xInter...(self_(), ...)
 		}
 
 	# -------- J ------- #
@@ -1961,13 +1961,13 @@ x_coll_proto <- local({
 		}
 
 	this$xUnion... <-
-		function () {
-			x_( xUnion...(self_()) )
+		function (...) {
+			x_( xUnion...(self_(), ...) )
 		}
 
 	this$x_Union... <-
-		function () {
-			xUnion...(self_())
+		function (...) {
+			xUnion...(self_(), ...)
 		}
 
 	# --- xUnit --- #
@@ -2845,7 +2845,7 @@ x_fn_proto <- local({
 	# --- xVectorise --- #
 	this$xVectorise <-
 		function () {
-			xVectorise(self_())
+			x_( xVectorise(self_()) )
 		}
 
 	this$x_Vectorise <-
