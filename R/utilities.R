@@ -1,4 +1,39 @@
 
+# To Developers,
+#
+# Every sufficiently large utility library will contain its own utility library.
+# These functions are required to reduce repetition of code when implementing arrow
+# functions.
+#
+# Most utilities are obvious, but I will outline key utilities.
+#
+# assert:
+#     Assert checks if a proposition is true, and if it fails
+#     throws a helpful error (see say.R).
+#
+# dearrowise:
+#     The arrow object (see x_.R) returns a collection which contains a value.
+#     for example, x_(1) ~ list(x = 1), though it has extra behaviours.
+#     Dearrowise extracts the data stored within the arrow object;
+#     it is used to allow arrow objects to be used as inputs for arrow functions
+#     where a collection or a function may be required.
+#
+# as_typed_vector:
+#     A function to try convert a list of values to a typed vector.
+#     A list of integers should be interconvertable to an integer vector,
+#     if required. This function is used to make sure arrow functions are
+#     agnostic to the difference between typed and generic vectors.
+#
+# try_higher_order:
+#     Arrow functions almost always throw errors that can be quickly debugged.
+#     Unfortunately,  higher-order functions throw a spanner in the works by
+#     allowing user-written functions to throw odd errows that cannot be
+#     located easily.
+#
+#     try_higher_order is a variant of tryCatch that allows
+#     extra-information to be added to the errors produced by higher-order functions.
+#
+
 # --------------------- shorthand logical functions --------------------- #
 
 Na <- NA

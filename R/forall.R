@@ -99,14 +99,6 @@
 #    and an empty collection of any type, so a pre-approved test case is contained in this
 #    object for just that purpose.
 #
-#
-#
-#
-#
-#
-#
-#
-#
 
 atoms <- local({
 	# functions that generate a single value.

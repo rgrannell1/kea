@@ -1,9 +1,6 @@
 
 # -------------------------------- x_( ) -------------------------------- #
 #
-# this object is very large, so I'll give a summary of what it does and how its
-# made.
-#
 # The x_() function is a constructor that wraps a datum, and allows methods
 # to be called on that datum. The constructor returns a monad, so the
 # methods can be chained indefinetly until the $x() method is used to pull the

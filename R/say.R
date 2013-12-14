@@ -1,7 +1,23 @@
 
 # -------------------------------- exclaim -------------------------------- #
 #
-# error messages for the forall testing function.
+# To Developers,
+# exclaim is a list of functions that return strings that form arrow's errors. They are factored
+# into functions for reusability; repeating work is the easiest way to make a mistake.
+#
+# The functions themselves are faily self explainatory; they are usually
+# involved by assert( ), a function in utilities used to test expressions.
+# Assert will - if not given a better message - generate its own error,
+# but it will be less than informative.
+#
+# A typical use of exclaim:
+#
+# assert(
+#    !missing(pred), invoking_call,
+#    exclaim$parameter_missing(pred))
+#
+# invoking_call gives the exact command used to call the function that
+# threw the error.
 #
 
 exclaim <- list(
@@ -266,8 +282,13 @@ exclaim <- list(
 
 # -------------------------------- lament -------------------------------- #
 #
-# error messages for the forall testing function. When these are thrown
-# I will be considerably sadder than the exclaim messages, hence the name
+# To Developers,
+# lament is virtually identical to exclaim in its implementation and purpose,
+# except that it is not used by the core arrow library; it is used by the
+# forall( ) function, for throwing its errors.
+#
+# It is named lament, as lament is called only when a unit test is failed, in
+# which case I am less than happy.
 #
 
 ddparse <- function (val, collapse = "") {
