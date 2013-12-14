@@ -27,9 +27,6 @@ xSplitString <- function (rexp, str) {
 		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
-	rexp <- dearrowise(rexp)
-	str <- dearrowise(str)
-
 	str <- as_typed_vector(str, "character", True)
 	rexp <- as_typed_vector(rexp, "character", True)
 

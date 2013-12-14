@@ -48,9 +48,9 @@ xMapWhen <- function (pred, fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-	pred <- dearrowise(pred)
-	fn <- dearrowise(fn)
-	coll <- dearrowise(coll)
+
+	Object()
+
 
 	assert(
 		is_fn_matchable(pred), invoking_call,

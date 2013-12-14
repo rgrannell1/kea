@@ -25,7 +25,6 @@ xStopWatch <- function (num) {
 		!missing(num), sys.call(),
 		exclaim$parameter_missing(num))
 
-	num <- dearrowise(num)
 	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(

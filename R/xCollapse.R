@@ -24,13 +24,9 @@ xCollapse <- function (str, strs) {
 
 	invoking_call <- sys.call()
 
-	strs <- lapply(strs, dearrowise)
-
 	assert(
 		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
-
-	str <- dearrowise(str)
 
 	assert(
 		is_collection(str), invoking_call,

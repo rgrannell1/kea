@@ -41,9 +41,6 @@ xSplit <- function (num, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-	num <- dearrowise(num)
-	coll <- dearrowise(coll)
-
 	num <- as_typed_vector(num, "numeric", True)
 
 	assert(

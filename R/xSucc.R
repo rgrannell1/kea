@@ -24,8 +24,6 @@ xSucc <- function (nums) {
 		!missing(nums), invoking_call,
 		exclaim$parameter_missing(nums))
 
-	nums <- dearrowise(nums)
-
 	assert(
 		is_collection(nums), invoking_call,
 		exclaim$must_be_collection(nums))

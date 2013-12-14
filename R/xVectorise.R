@@ -30,7 +30,7 @@ xVectorise <- function (fn) {
 		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
-	fn <- dearrowise(fn)
+	Object()
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

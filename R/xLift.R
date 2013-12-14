@@ -32,9 +32,6 @@ xLift <- function (fn, fns) {
 		!missing(fns), invoking_call,
 		exclaim$parameter_missing(fns))
 
-	fn <- dearrowise(fn)
-	fns <- dearrowise(fns)
-
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))

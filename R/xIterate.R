@@ -36,8 +36,8 @@ xIterate <- function (fn, init) {
 	assert(
 		!is.primitive(fn), invoking_call)
 
-	fn <- dearrowise(fn)
-	init <- dearrowise(init)
+
+
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

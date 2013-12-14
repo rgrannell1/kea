@@ -34,14 +34,12 @@ xForall <- function (pred, colls) {
 		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
-	fn <- dearrowise(pred)
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	pred <- match.fun(pred)
-	colls <- lapply(colls, dearrowise)
+
 
 	assert(
 		all( sapply(colls, function (coll) {

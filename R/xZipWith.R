@@ -38,13 +38,13 @@ xZipWith <- function (fn, colls) {
 		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
-	fn <- dearrowise(fn)
+	Object()
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
-	colls <- lapply(colls, dearrowise)
+
 	fn <- match.fun(fn)
 
 	colls_lengths <- sapply(colls, length)

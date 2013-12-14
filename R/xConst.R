@@ -30,8 +30,6 @@ xConst <- function (val) {
 		!missing(val), sys.call(),
 		exclaim$parameter_missing(val))
 
-	val <- dearrowise(val)
-
 	function (...) {
 		val
 	}

@@ -37,8 +37,8 @@ xPermute <- function (coll, colls) {
 		!missing(colls), invoking_call,
 		exclaim$parameter_missing(colls))
 
-	coll <- dearrowise(coll)
-	colls <- dearrowise(colls)
+
+
 
 	coll <- as_typed_vector(coll, 'numeric')
 

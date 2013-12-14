@@ -23,7 +23,7 @@ xUnion <- function (colls) {
 
 	invoking_call <- sys.call()
 
-	colls <- lapply(colls, dearrowise)
+
 
 	assert(
 		all( sapply(colls, function (coll) {

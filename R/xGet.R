@@ -24,7 +24,7 @@ xGet <- function (str) {
 		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
-	str <- dearrowise(str)
+
 
 	assert(
 		is.character(str), invoking_call,

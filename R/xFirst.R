@@ -28,8 +28,6 @@ xFirst <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-	coll <- dearrowise(coll)
-
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))

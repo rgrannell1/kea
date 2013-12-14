@@ -34,9 +34,6 @@ xWait <- function (fn, num) {
 		!missing(num), invoking_call,
 		exclaim$parameter_missing(num))
 
-	fn <- dearrowise(fn)
-	num <- dearrowise(num)
-
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))

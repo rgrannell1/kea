@@ -42,9 +42,6 @@ xCompose <- function (fn1, fn2) {
 		!missing(fn2), invoking_call,
 		exclaim$parameter_missing(fn2))
 
-	fn1 <- dearrowise(fn1)
-	fn2 <- dearrowise(fn2)
-
 	assert(
 		is_fn_matchable(fn1), invoking_call,
 		exclaim$must_be_matchable(fn1))

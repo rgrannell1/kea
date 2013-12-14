@@ -30,8 +30,8 @@ xSubString <- function (str, nums) {
 		!missing(nums), invoking_call,
 		exclaim$parameter_missing(nums))
 
-	str <- dearrowise(str)
-	nums <- dearrowise(nums)
+
+
 
 	str <- as_typed_vector(str, "character", True)
 	nums <- as_typed_vector(nums, "numeric", False)

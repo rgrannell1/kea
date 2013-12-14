@@ -1,6 +1,8 @@
 Arrow v0.1.0
 -----------------------------------
 
+<img src="logo.png" height = "180"> </img>
+
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
 **Arrow** is a functional programming framework that adds partial application,
@@ -11,8 +13,8 @@ Arrow helps make R an elegant functional language with powerful operations on co
 ## 0 Goal
 
 R is an excellent statistical platform, but it isn't a great general purpose programming language.
-Libraries like ```plyr``` and ```stringr``` help, but they don't go far enough. I've 
-always felt that the best aspects of the R language are its powerful functions, vectorisation and 
+Libraries like ```plyr``` and ```stringr``` help, but they don't go far enough. I've
+always felt that the best aspects of the R language are its powerful functions, vectorisation and
 list data structure. Arrow is an attempt to build upon these aspects of R and to generalise
 them into a pleasant, composable functional language.
 
@@ -158,7 +160,7 @@ To get the documentation for a particular function from an R console simply pref
 ## 4 Contributing
 
 I'm (as of November 2013) working on **Arrow** alone. However, the library is very large and I feel that it
-would benefit from community contribution, ranging from feedback to active development. 
+would benefit from community contribution, ranging from feedback to active development.
 
 #### 4.1 Library Development
 * developing a stable function decorator that behaves like haskell's autocurrying.

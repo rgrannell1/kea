@@ -32,7 +32,7 @@ xFormals <- function (fn) {
 		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
-	fn <- dearrowise(fn)
+
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

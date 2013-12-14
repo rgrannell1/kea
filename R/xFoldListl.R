@@ -47,9 +47,9 @@ xFoldListl <- function (fn, init, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-	fn <- dearrowise(fn)
-	init <- dearrowise(init)
-	coll <- dearrowise(coll)
+
+
+
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

@@ -27,9 +27,6 @@ xThread <- function (init, fns) {
 		!missing(init), invoking_call,
 		exclaim$parameter_missing(init))
 
-	init <- dearrowise(init)
-	fns <- lapply(fns, dearrowise)
-
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
 		exclaim$must_be_recursive_of_matchable(fns))

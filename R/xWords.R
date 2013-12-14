@@ -20,7 +20,7 @@ xWords <- function (str) {
 		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
-	str <- dearrowise(str)
+
 	str <- as_typed_vector(str, 'character', True)
 
 	assert(
