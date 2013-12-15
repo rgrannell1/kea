@@ -94,19 +94,16 @@ x_any_proto <- local({
 		function () {
 			x_( xIdentity(self_()) )
 		}
-	this$xIdiotBird <-
-		this$xIdentity
 	this$xI <-
-		this$xIdiotBird
+		this$xIdentity
 
 	this$x_Identity <-
 		function () {
 			xIdentity(self_())
 		}
-	this$x_IdiotBird <-
-		this$x_Identity
 	this$x_I <-
-		this$x_IdiotBird
+		this$x_Identity
+
 	# -------- J ------- #
 
 	# -------- K ------- #
@@ -2162,8 +2159,13 @@ x_fn_proto <- local({
 			x_( xConst(self_()) )
 		}
 	this$xCompose <-
-		function (fn1) {
-			x_( xCompose(fn1, self_()) )
+		function () {
+			x_( xCompose(self_()) )
+		}
+
+	this$x_Compose <-
+		function (...) {
+			x_( x_Compose(self_(), ...) )
 		}
 	# -------- D ------- #
 
@@ -2653,15 +2655,12 @@ x_fn_proto <- local({
 
 	# -------- Q ------- #
 	# --- xQueer --- #
-	this$xQueer <-
-		this$xCompose
 	this$xQ <-
 		this$xCompose
 
-	this$x_Queer <-
-		this$x_Compose
 	this$x_Q <-
 		this$x_Compose
+
 	# -------- R ------- #
 	# --- xRecurMap --- #
 	this$xRecurMap <-

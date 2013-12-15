@@ -27,7 +27,7 @@
 #'
 #' @export
 
-xCompose <- function (fn1, fn2) {
+xCompose <- function (fns) {
 	# function -> function -> function
 	# a general purpose compose function;
 	# more poweful than \f.\g.\x.fgx
@@ -35,41 +35,41 @@ xCompose <- function (fn1, fn2) {
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(fn1), invoking_call,
-		exclaim$parameter_missing(fn1))
+		is_recursive(fns), invoking_call,
+		exclaim$must_be_recursive(fns))
 
 	assert(
-		!missing(fn2), invoking_call,
-		exclaim$parameter_missing(fn2))
+		all(sapply(fns, is_fn_matchable)), invoking_call,
+		exclaim$must_be_recursive_of_matchable("fns"))
 
-	assert(
-		is_fn_matchable(fn1), invoking_call,
-		exclaim$must_be_matchable(fn1))
-
-	assert(
-		is_fn_matchable(fn2), invoking_call,
-		exclaim$must_be_matchable(fn2))
-
-	fn1 <- match.fun(fn1)
-	fn2 <- match.fun(fn2)
+	fns <- lapply(fns, match.fun)
 
 	remove(invoking_call)
 
-	do.call("function", list(
-		formals(fn2),
-		bquote({
-			fn1(.( call_with_params("fn2", fn2) ))
-		})
-	))
+	function (...) {
+
+		xFoldl(
+			function (val, fn) {
+				fn(val)
+			},
+			fns,
+			...
+		)
+
+	}
 }
 
 #' @export
 
-'%of%' <- xCompose
+xCompose... <- function (...) {
+	xCompose(list(...))
+}
 
 #' @export
 
-xQueer <- xCompose
+'%of%' <- function (fn1, fn2) {
+	xCompose(list(fn1, fn2))
+}
 
 #' @export
 

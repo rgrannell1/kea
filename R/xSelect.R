@@ -46,9 +46,6 @@ xSelect <- function (pred, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-
-
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))

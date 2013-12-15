@@ -29,8 +29,4 @@ xIdentity <- function (val) {
 
 #' @export
 
-xIdiotBird <- xIdentity
-
-#' @export
-
-xI <- xIdiotBird
+xI <- xIdentity
