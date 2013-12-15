@@ -496,20 +496,20 @@ x_coll_proto <- local({
 	# --- xContains --- #
 	this$xContains <-
 		function (val) {
-			x_( xContains(self_(), val) )
+			x_( xContains(val, self_()) )
 		}
 	this$xContains... <-
 		function (..., val) {
-			x_( xContains...(self_(), ..., val) )
+			x_( xContains...(val, self_(), ...) )
 		}
 
 	this$x_Contains <-
 		function (val) {
-			xContains(self_(), val)
+			xContains(val, self_())
 		}
 	this$x_Contains... <-
 		function (..., val) {
-			xContains...(self_(), ..., val)
+			xContains...(val, self_(), ...)
 		}
 
 	# --- xConcat --- #

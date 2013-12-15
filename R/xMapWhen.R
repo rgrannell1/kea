@@ -48,10 +48,6 @@ xMapWhen <- function (pred, fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-
-	Object()
-
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))

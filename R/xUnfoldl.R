@@ -42,9 +42,6 @@ xUnfold <- function (pred, fn, init) {
 		exclaim$parameter_missing(init))
 
 
-	Object()
-
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))

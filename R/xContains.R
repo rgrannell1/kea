@@ -4,10 +4,10 @@
 #' Check if a collection contains a value.
 #'
 #' @param
-#'    coll a collection.
+#'    val an arbitrary value.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    coll a collection.
 #'
 #' @return
 #'    a list.
@@ -21,7 +21,7 @@
 #'
 #' @export
 
-xContains <- function (coll, val) {
+xContains <- function (val, coll) {
 	# Collection any -> any -> Vector logical
 
 	invoking_call <- sys.call()

@@ -25,7 +25,8 @@
 #' @family
 #'    collection_functions
 #'
-#' @template Return
+#' @template
+#'    Return
 #'
 #' @export
 

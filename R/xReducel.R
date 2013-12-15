@@ -23,7 +23,8 @@
 #' @family
 #'    collection_functions
 #'
-#' @template Return
+#' @template
+#'    Return
 #'
 #' @export
 
@@ -40,9 +41,6 @@ xReduce <- function (fn, coll) {
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
-
-	Object()
-
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
