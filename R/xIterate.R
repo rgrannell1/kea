@@ -36,9 +36,6 @@ xIterate <- function (fn, init) {
 	assert(
 		!is.primitive(fn), invoking_call)
 
-
-
-
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))

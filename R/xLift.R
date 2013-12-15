@@ -44,8 +44,12 @@ xLift <- function (fn, fns) {
 	fns <- lapply(fns, match.fun)
 
 	function (...) {
+		"A function created by xLift."
+		""
 		do.call(fn,
-			lapply(fns, function (lifted) lifted(...)) )
+			lapply(fns, function (lifted) {
+				lifted(...)
+			}) )
 	}
 }
 

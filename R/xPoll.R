@@ -35,9 +35,6 @@ xPoll <- function (pred, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-
-
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
@@ -58,7 +55,8 @@ xPoll <- function (pred, coll) {
 				pred( coll[[ith]] ),
 				invoking_call)
 
-			assert(is.logical(is_match), invoking_call)
+			assert(
+				is.logical(is_match), invoking_call)
 
 			if (isTRUE(is_match)) {
 				count <- count + 1

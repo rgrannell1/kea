@@ -33,11 +33,15 @@ xNot <- function (pred) {
 		!missing(pred), sys.call(),
 		exclaim$parameter_missing(pred))
 
-
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
-	xCompose(function (val) !val, pred)
+	remove(invoking_call)
+
+	function (val) {
+		"a boolean function returned by xNot( pred )"
+
+		!pred(val)
+	}
 }

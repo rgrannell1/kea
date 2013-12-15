@@ -44,18 +44,20 @@ xCompose <- function (fns) {
 
 	fns <- lapply(fns, match.fun)
 
-	remove(invoking_call)
-
 	function (...) {
+		"a function created by xCompose."
+		""
+		invoking_call <- sys.call()
 
-		xFoldl(
-			function (val, fn) {
-				fn(val)
-			},
-			fns,
-			...
-		)
+		init <- c(...)
 
+		for (ith in seq_along(fns)) {
+
+			fn <- fns[[ith]]
+			init <- try_higher_order( fn(init), invoking_call )
+		}
+
+		init
 	}
 }
 

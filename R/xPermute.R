@@ -37,9 +37,6 @@ xPermute <- function (coll, colls) {
 		!missing(colls), invoking_call,
 		exclaim$parameter_missing(colls))
 
-
-
-
 	coll <- as_typed_vector(coll, 'numeric')
 
 	assert(

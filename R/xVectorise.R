@@ -37,7 +37,12 @@ xVectorise <- function (fn) {
 	fn <- match.fun(fn)
 
 	function (coll) {
-		xMap(fn, coll)
+		"a function created by xVectorise."
+		""
+		invoking_call <- sys.call()
+
+		try_higher_order(
+			xMap(fn, coll), invoking_call)
 	}
 }
 

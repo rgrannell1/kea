@@ -34,8 +34,7 @@ xThread <- function (init, fns) {
 	for (ith in seq_along(fns)) {
 
 		init <- try_higher_order(
-			fns[[ith]]( init ),
-			invoking_call)
+			fns[[ith]]( init ), invoking_call)
 	}
 	init
 }

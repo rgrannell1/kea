@@ -49,13 +49,16 @@ xLimit <- function (fn, num) {
 
 	.count <- 0
 
-	do.call('function', list(
+	do.call( 'function', list(
 		as.pairlist(xFormals(fn)),
-		bquote(
-
+		bquote({
+			"a function created by xLimit."
+			""
 			if (.count < num) {
 				.count <<- .count + 1
 				.( call_with_params('fn', fn) )
-			} else Null )
-	))
+			} else {
+				Null
+			}
+	}) ))
 }

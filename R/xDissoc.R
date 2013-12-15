@@ -28,8 +28,6 @@ xDissoc <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-
-
 	assert(
 		length(names(coll)) == length(coll), invoking_call,
 		exclaim$must_be_named(coll))
@@ -38,11 +36,14 @@ xDissoc <- function (coll) {
 		list()
 	} else {
 
+		colnames <- names(coll)
+		coll <- unname(coll)
+
 		lapply(seq_along(coll), function (ith) {
 
 			list(
-				names( coll )[[ith]],
-				unname( coll[[ith]] ))
+				colnames[[ith]],
+				coll[[ith]] )
 		})
 	}
 }

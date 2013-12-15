@@ -38,9 +38,6 @@ xPluck <- function (str, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-
-
-
 	str <- as_typed_vector(str, "character", True)
 
 	assert(

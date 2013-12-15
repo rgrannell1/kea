@@ -24,8 +24,6 @@ xFlip <- function (fn) {
 		!missing(fn), invoking_call,
 		exclaim$parameter_missing(fn))
 
-
-
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
@@ -39,10 +37,3 @@ xFlip <- function (fn) {
 	))
 }
 
-#' @export
-
-xCardinal <- xFlip
-
-#' @export
-
-xC <- xFlip

@@ -2139,10 +2139,6 @@ x_fn_proto <- local({
 			x_( xArity(self_()) )
 		}
 	# -------- B ------- #
-	this$xCardinal <-
-		function () {
-			x_( xFlip(self_()) )
-		}
 	this$xLift <-
 		function (fns) {
 			x_( xLift(self_(), fns) )
@@ -2399,7 +2395,7 @@ x_fn_proto <- local({
 		this$xKestrel
 
 	this$x_Kestrel <-
-		this$xC_onst
+		this$x_Const
 	this$x_K <-
 		this$x_Kestrel
 	# -------- L ------- #

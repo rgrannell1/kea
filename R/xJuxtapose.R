@@ -37,6 +37,10 @@ xJuxtapose <- function (fns) {
 	} else {
 
 		function (...) {
+			"a function created by xJuxtapose."
+
+			invoking_call <- sys.call()
+
 			try_higher_order(
 				lapply(fns, function (fn) fn(...)),
 				invoking_call)
