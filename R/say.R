@@ -299,6 +299,15 @@ newline <- function (val) {
 }
 
 lament <- list(
+	null_cases =
+		function (info) {
+
+			param <- paste(match.call()$param)
+
+			stop(info, "\n",
+				dQuote("cases"), " must not be null.",
+				call. = False)
+		},
 	non_function_cases =
 		function (info) {
 

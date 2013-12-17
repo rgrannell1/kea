@@ -1793,7 +1793,7 @@ x_coll_proto <- local({
 		function (rexp) {
 			x_( xSplitString(rexp, self_()) )
 		}
-	this$x_SplitStr <-
+	this$x_SplitString <-
 		function (rexp) {
 			xSplitString(rexp, self_())
 		}
@@ -1859,7 +1859,7 @@ x_coll_proto <- local({
 	# --- xTake --- #
 	this$xTake <-
 		function (num) {
-			x_( xTake(self_(), num) )
+			x_( xTake(num, self_()) )
 		}
 	this$xTake... <-
 		function (num, ...) {
@@ -1868,7 +1868,7 @@ x_coll_proto <- local({
 
 	this$x_Take <-
 		function (num) {
-			xTake(self_(), num)
+			xTake(num, self_())
 		}
 	this$x_Take... <-
 		function (num, ...) {
@@ -2131,9 +2131,15 @@ x_fn_proto <- local({
 		function () {
 			xAsUnary(self_())
 		}
+
+	# --- xAsVariadic --- #
 	this$xAsVariadic <-
 		function () {
 			x_( xAsVariadic(self_()) )
+		}
+	this$x_AsVariadic <-
+		function () {
+			xAsVariadic(self_())
 		}
 
 	# --- xApply --- #
@@ -2165,14 +2171,8 @@ x_fn_proto <- local({
 			xArity(self_())
 		}
 	# -------- B ------- #
-	this$xLift <-
-		function (fns) {
-			x_( xLift(self_(), fns) )
-		}
-	this$xLift... <-
-		function (...) {
-			x_( xLift...(self_(), ...) )
-		}
+
+
 	# -------- C ------- #
 	this$xC <-
 		this$xCardinal
@@ -2437,6 +2437,25 @@ x_fn_proto <- local({
 		}
 
 	# --- xLocate --- #
+	this$xLift <-
+		function (fns) {
+			x_( xLift(self_(), fns) )
+		}
+	this$xLift... <-
+		function (...) {
+			x_( xLift...(self_(), ...) )
+		}
+
+	this$x_Lift <-
+		function (fns) {
+			xLift(self_(), fns)
+		}
+	this$x_Lift... <-
+		function (...) {
+			xLift...(self_(), ...)
+		}
+
+	# --- xLocatel --- #
 	this$xLocatel <-
 		function (coll) {
 			x_( xLocatel(self_(), coll) )
@@ -3021,11 +3040,18 @@ get_proto_ref <- function (val) {
 
 '$.arrow' <- local({
 
+	unchaining_pattern <- 'x[A-Z][_].*'
+
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar
 
 		proto_ref <- get_proto_ref(val)
+
+		method_name <- list(
+			full = method_name,
+			trimmed = method_name
+		)
 
 		candidate_methds <- setdiff(ls(proto_ref), 'private')
 		distances <- adist(method_name, candidate_methds)
@@ -3064,9 +3090,19 @@ get_proto_ref <- function (val) {
 
 		}
 
-		fn <- proto_ref[[method_name]]
-		environment(fn)[['self_']] <- function () obj[['x']]
+		fn <- if (grepl(unchaining_pattern, method_name)) {
+			# create an unchaining method.
 
+			unchaining <- function () {}
+			formals(unchaining) <- formals( proto_ref[[method_name]] )
+
+		} else {
+			# create a chaining method.
+
+			proto_ref[[method_name]]
+		}
+
+		environment(fn)[['self_']] <- function () obj[['x']]
 		fn
 	}
 })

@@ -245,6 +245,12 @@ atoms <- local({
 				abs(round(rnorm(1, 0, sd), 0)) + 1
 			}
 		}
+	this$range_integer <-
+		function (lower, upper) {
+			function () {
+				sample(lower:upper, size = 1)
+			}
+		}
 
 	# --------------------- Character --------------------- #
 
@@ -412,6 +418,16 @@ compounds <- local({
 			}
 		}
 
+	this$letters <-
+		function (sd = 20) {
+			function () {
+
+				one_of( list(
+					function () character(),
+					as_coll$vector_of(atoms$letter, sd)) )(  )
+			}
+		}
+
 	this$integers <-
 		function (sd = 20) {
 			function () {
@@ -419,6 +435,16 @@ compounds <- local({
 				one_of( list(
 					function () integer(),
 					as_coll$vector_of(atoms$integer(), sd)) )(  )
+			}
+		}
+
+	this$range_integers <-
+		function (lower = 1, upper = 100, sd = 20) {
+			function () {
+
+				one_of( list(
+					function () integer(),
+					as_coll$vector_of(atoms$range_integer(lower, upper), sd)) )(  )
 			}
 		}
 
@@ -553,7 +579,16 @@ test_cases <- local({
 			coll = compounds$collection)
 
 	this$positive_with_linear_function <-
-		list(fn = atoms$linear_function, num = atoms$positive_integer())
+		list(
+			fn = atoms$linear_function,
+			num = atoms$positive_integer())
+
+	this$letters_and_index <-
+		list(
+			coll = function () letters,
+			num = atoms$range_integer(1, 26))
+
+
 
 	# --------------------- Logical-Fun + Coll --------------------- #
 
@@ -661,6 +696,10 @@ test_cases <- local({
 forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	invoking_call <- sys.call()
+
+	assert(
+		!is.null(cases), invoking_call,
+		lament$null_cases(info))
 
 	assert(
 		all( sapply(cases, is.function) ), invoking_call,

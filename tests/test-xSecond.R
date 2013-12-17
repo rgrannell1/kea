@@ -6,7 +6,8 @@ message('xSecond')
 
 forall("second always returns the second element of a collection",
 	test_cases$collection,
-	xSecond(coll) %equals% coll[[2]],
+	expect =
+		xSecond(coll) %equals% coll[[2]],
 	given =
 		length(coll) >= 2
 )
@@ -16,6 +17,34 @@ message('arrow $ xSecond')
 	forall("second always returns the second element of a collection",
 		test_cases$collection,
 		x_(coll)$xSecond()$x() %equals% coll[[2]],
+		given =
+			length(coll) >= 2
+	)
+
+message('arrow $ xSecond...')
+
+	forall("second always returns the second element of a collection",
+		test_cases$collection,
+		x_(coll)$xSecond...(coll)$x() %equals% coll,
+		given =
+			length(coll) >= 2
+	)
+
+
+message('arrow $ x_Second')
+
+	forall("second always returns the second element of a collection",
+		test_cases$collection,
+		x_(coll)$x_Second() %equals% coll[[2]],
+		given =
+			length(coll) >= 2
+	)
+
+message('arrow $ x_Second...')
+
+	forall("second always returns the second element of a collection",
+		test_cases$collection,
+		x_(coll)$x_Second...(coll) %equals% coll,
 		given =
 			length(coll) >= 2
 	)
