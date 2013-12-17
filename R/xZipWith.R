@@ -48,20 +48,28 @@ xZipWith <- function (fn, colls) {
 
 	fn <- match.fun(fn)
 
-	if (length(colls) == 0 || min_length == 0) {
+
+	if (length(colls) == 0) {
 		list()
 	} else {
 
 		colls_lengths <- vapply(colls, length, integer(1))
 		min_length <- min(colls_lengths)
 
-		unname(do.call( Map, c(list(fn),
-			Map(
-				function (elem) {
-					head(elem, min_length)
-				},
-				colls
-		)) ))
+		if (min_length == 0){
+			list()
+		} else {
+
+			unname(do.call( Map, c(list(fn),
+				Map(
+					function (elem) {
+						head(elem, min_length)
+					},
+					colls
+			)) ))
+
+		}
+
 	}
 }
 

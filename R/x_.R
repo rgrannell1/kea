@@ -2112,19 +2112,31 @@ x_fn_proto <- local({
 
 	this <- Object()
 	# -------- A ------- #
+	# --- xAsClosure --- #
 	this$xAsClosure <-
 		function () {
 			x_( xAsClosure(self_()) )
 		}
+	this$x_AsClosure <-
+		function () {
+			xAsClosure(self_())
+		}
+
+	# --- xAsUnary --- #
 	this$xAsUnary <-
 		function () {
 			x_( xAsUnary(self_()) )
+		}
+	this$x_AsUnary <-
+		function () {
+			xAsUnary(self_())
 		}
 	this$xAsVariadic <-
 		function () {
 			x_( xAsVariadic(self_()) )
 		}
 
+	# --- xApply --- #
 	this$xApply <-
 		function (coll) {
 			x_( xApply(self_(), coll) )
@@ -2134,9 +2146,23 @@ x_fn_proto <- local({
 			x_( xApply...(self_(), ...) )
 		}
 
+	this$x_Apply <-
+		function (coll) {
+			x_( xApply(self_(), coll) )
+		}
+	this$x_Apply... <-
+		function (...) {
+			xApply...(self_(), ...)
+		}
+
+	# --- xArity --- #
 	this$xArity <-
 		function () {
 			x_( xArity(self_()) )
+		}
+	this$x_Arity <-
+		function () {
+			xArity(self_())
 		}
 	# -------- B ------- #
 	this$xLift <-
