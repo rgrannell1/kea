@@ -313,3 +313,115 @@ ith_suffix <- function (num) {
 modify_call <- function (invoking_call) {
 
 }
+
+
+
+
+
+profile_object <- function (obj) {
+	# any -> string
+	# determine useful information about an arbitrary R object,
+	# to aid in rapid debugging.
+
+	classes <- paste0(class(obj), collapse = ', ')
+
+	if (is.function(obj)) {
+
+		traits <- list(
+			function_type =
+				if (is.primitive(obj)) {
+					"primitive "
+				} else {
+					""
+				},
+			arity =
+				if (is.primitive(obj)) {
+						length( head(as.list(args(obj)), -1) )
+					} else {
+						length( formals(obj) )
+				}
+		)
+
+		"the actual object was a " %+% traits$function_type %+%
+		"function with " %+% traits$arity %+% " parameters, " %+%
+		"and with class " %+% dQuote(classes) %+% '.'
+
+	} else if (is.null(obj)) {
+
+		"the object was the value NULL"
+
+	} else if (is.vector(obj) || is.pairlist(obj)) {
+
+		child_types <- Reduce(
+			function (acc, elem) {
+
+				list(
+					'function' = acc$'function' && is.function(elem),
+					logical = acc$logical && is.logical(elem),
+					integer = acc$integer && is.integer(elem),
+					double = acc$double && is.double(elem),
+					complex = acc$complex && is.complex(elem),
+					character = acc$character && is.character(elem),
+
+					recursive = acc$recursive && is.recursive(elem)
+				)
+			},
+			obj,
+			list(
+				'function' = True, logical = True,
+				integer = True, double = True,
+				complex = True, character = True,
+				recursive = True
+			)
+		)
+
+		traits <- list(
+			length =
+				length(obj),
+			mode =
+				if (is.list(obj)) {
+					"list"
+				} else if (is.pairlist(obj)) {
+					"pairlist"
+				} else {
+					typeof(obj) %+% " vector"
+				}
+		)
+
+		recursive <- if (child_types$recursive) {
+			"was recursive"
+		} else {
+			"was not recursive"
+		}
+
+		homogenous_contents <- names(child_types)[unlist(child_types)]
+
+		traits$content_summary <-
+			if (length(homogenous_contents) > 0) {
+				"it was homogenously typed with values of type " %+%
+				dQuote(homogenous_contents)
+			} else {
+				""
+			}
+
+		if (length(obj) == 0) {
+			# the vector was empty.
+
+			"the object was a " %+% traits$mode %+% " of length " %+%
+			traits$length %+% ". It has class " %+% dQuote(classes) %+% '.'
+
+		} else {
+			# the vector had contents.
+
+			"the object was a " %+% traits$mode %+% " of length " %+%
+			traits$length %+% ". It " %+% recursive %+% ". " %+%
+			traits$content_summary %+%
+			". It has class " %+% dQuote(classes) %+% '.'
+		}
+
+
+	}
+
+
+
+}

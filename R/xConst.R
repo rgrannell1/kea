@@ -31,6 +31,8 @@ xConst <- function (val) {
 		exclaim$parameter_missing(val))
 
 	function (...) {
+		"a function created xConst."
+		""
 		val
 	}
 }
