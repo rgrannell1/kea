@@ -34,14 +34,11 @@ xExists <- function (pred, colls) {
 		!missing(pred), invoking_call,
 		exclaim$parameter_missing(pred))
 
-
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(pred))
 
 	pred <- match.fun(pred)
-
 
 	assert(
 		all(sapply(colls, is_collection)), invoking_call,

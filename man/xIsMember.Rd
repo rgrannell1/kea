@@ -1,8 +1,8 @@
-\name{xContains}
-\alias{xContains}
-\title{xContains}
+\name{xIsMember}
+\alias{xIsMember}
+\title{xIsMember}
 \usage{
-xContains(coll, val)
+xIsMember(coll, val)
 }
 \arguments{
   \item{coll}{a collection.}

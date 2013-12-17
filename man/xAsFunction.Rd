@@ -18,7 +18,7 @@ Convert a collection to a function that takes an index.
 }
 \seealso{
 Other collection_functions: \code{\link{xApply}};
-\code{\link{xAssoc}}; \code{\link{xContains}};
+\code{\link{xAssoc}}; \code{\link{xIsMember}};
 \code{\link{xDiffer}}; \code{\link{xDissoc}};
 \code{\link{xDrop}}; \code{\link{xFirst}};
 \code{\link{xFlatten}}; \code{\link{xFourth}};

@@ -1,5 +1,5 @@
 
-#' xContains
+#' xIsMember
 #'
 #' Check if a collection contains a value.
 #'
@@ -21,7 +21,7 @@
 #'
 #' @export
 
-xContains <- function (val, coll) {
+xIsMember <- function (val, coll) {
 	# Collection any -> any -> Vector logical
 	# check if a collection contains a value.
 
@@ -46,8 +46,7 @@ xContains <- function (val, coll) {
 			function (elem) {
 				identical(elem, val, single.NA = True)
 			},
-			logical(1),
-			USE.NAMES = False)
+			logical(1), USE.NAMES = False)
 
 		if ( all(is.na(is_match)) ) {
 			False
@@ -59,6 +58,6 @@ xContains <- function (val, coll) {
 
 #' @export
 
-xContains... <- function (..., val) {
-	xContains(list(...), val)
+xIsMember... <- function (..., val) {
+	xIsMember(list(...), val)
 }

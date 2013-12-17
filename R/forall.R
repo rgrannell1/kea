@@ -588,7 +588,10 @@ test_cases <- local({
 			coll = function () letters,
 			num = atoms$range_integer(1, 26))
 
-
+	this$letters_and_indices <-
+		list(
+			coll = function () letters,
+			nums = compounds$range_integers(1, 26))
 
 	# --------------------- Logical-Fun + Coll --------------------- #
 
@@ -638,6 +641,9 @@ test_cases <- local({
 
 	this$infinity <-
 		list(coll = atoms$infinity)
+
+	this$letters <-
+		list(coll = compounds$letters())
 
 	# --------------------- num-Only --------------------- #
 

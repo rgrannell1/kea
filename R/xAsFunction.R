@@ -32,9 +32,9 @@ xAsFunction <- function (coll) {
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
-	function (...) {
+	function (nums) {
 
-		nums <- c(...)
+		nums <- as_typed_vector(nums, 'numeric', True)
 
 		assert(
 			is.numeric(nums), invoking_call,

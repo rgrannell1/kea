@@ -111,7 +111,7 @@ Collate:
     'xLength.R'
     'xIsNull.R'
     'xCombos.R'
-    'xContains.R'
+    'xIsMember.R'
     'xUnion.R'
     'xDiffer.R'
     'xInter.R'

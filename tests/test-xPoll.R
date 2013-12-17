@@ -35,7 +35,6 @@ message("xPoll")
 		test_cases$mod2_over_ints,
 		xPoll(fn, coll) == length(which(coll %% 2 == 0)) )
 
-message("xPoll...")
 
 message("arrow $ xPoll")
 
@@ -52,3 +51,17 @@ message("arrow $ xPoll")
 	)
 
 message("arrow $ xPoll...")
+
+message("arrow $ x_Poll")
+
+	forall(
+		"function $ x_Poll",
+		test_cases$mod2_over_ints,
+		x_(fn)$x_Poll(coll) == length(which(coll %% 2 == 0))
+	)
+
+	forall(
+		"collection $ x_Poll",
+		test_cases$mod2_over_ints,
+		x_(coll)$x_Poll(fn) == length(which(coll %% 2 == 0))
+	)

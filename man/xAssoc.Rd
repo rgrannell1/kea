@@ -21,7 +21,7 @@ list.
 }
 \seealso{
 Other collection_functions: \code{\link{xApply}};
-\code{\link{xAsFunction}}; \code{\link{xContains}};
+\code{\link{xAsFunction}}; \code{\link{xIsMember}};
 \code{\link{xDiffer}}; \code{\link{xDissoc}};
 \code{\link{xDrop}}; \code{\link{xFirst}};
 \code{\link{xFlatten}}; \code{\link{xFourth}};

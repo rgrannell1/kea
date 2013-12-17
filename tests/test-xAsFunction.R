@@ -16,9 +16,13 @@ message("xAsFunction")
 		xAsFunction(coll)(num) %equals% list(coll[num])
 	)
 
+	forall(
+		"multi value indexing works.",
+		test_cases$letters_and_indices,
+		xAsFunction(coll)(nums) %equals% as.list(coll[nums])
+	)
+
 message("arrow $ xAsFunction")
-
-
 
 message("collection $ xAsFunction")
 

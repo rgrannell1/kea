@@ -25,13 +25,13 @@ exclaim <- list(
 		function (param) {
 			param <- paste(match.call()$param)
 
-			"the parameter " %+% param %+% " is required but was missing."
+			"the parameter " %+% dQuote(param) %+% " is required but was missing."
 		},
 	must_be_matchable =
 		function (param) {
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a function, or a symbol or string" %+%
 			" that can be looked-up as a function."
 		},
@@ -39,7 +39,7 @@ exclaim <- list(
 		function (param) {
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" a symbol or string."
 		},
 	must_be_collection =
@@ -47,7 +47,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a list, a pairlist or a typed vector."
 		},
 	must_be_function =
@@ -55,7 +55,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a function."
 
 		},
@@ -64,7 +64,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the function matching " %+% param %+%
+			"the function matching " %+% dQuote(param) %+%
 			" must be a collection of length " %+% length %+% " values."
 
 		},
@@ -72,21 +72,21 @@ exclaim <- list(
 		function (param) {
 			param <- paste(match.call()$param)
 
-			"the function matching " %+% param %+%
+			"the function matching " %+% dQuote(param) %+%
 			" must be a unary function."
 		},
 	must_be_binary =
 		function (param) {
 			param <- paste(match.call()$param)
 
-			"the function matching " %+% param %+%
+			"the function matching " %+% dQuote(param) %+%
 			" must be a binary function."
 		},
 	must_be_recursive =
 		function (param) {
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a list or a pairlist."
 		},
 	must_be_recursive_of_matchable =
@@ -94,7 +94,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the arguments matching " %+% param %+%
+			"the arguments matching " %+% dQuote(param) %+%
 			" must all be functions, or symbols or strings" %+%
 			" that can be looked-up as functions."
 
@@ -104,7 +104,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a double or an integer."
 
 		},
@@ -113,7 +113,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a character vector."
 
 		},
@@ -122,7 +122,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a length one character vector."
 
 		},
@@ -131,7 +131,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a whole number."
 		},
 	must_have_length =
@@ -141,7 +141,7 @@ exclaim <- list(
 
 			lengths <- paste(lengths, collapse = " or ")
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must have length " %+% lengths
 
 		},
@@ -150,7 +150,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must have length longer than " %+% length
 
 		},
@@ -159,7 +159,7 @@ exclaim <- list(
 
 				param <- paste(match.call()$param)
 
-				"the argument matching " %+% param %+%
+				"the argument matching " %+% dQuote(param) %+%
 				" must have length equal or longer than " %+% length
 
 			},
@@ -168,7 +168,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the number matching " %+% param %+%
+			"the number matching " %+% dQuote(param) %+%
 			" must be larger than " %+% size
 
 		},
@@ -177,7 +177,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the number matching " %+% param %+%
+			"the number matching " %+% dQuote(param) %+%
 			" must be greater than " %+% size
 
 		},
@@ -186,7 +186,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the number matching " %+% param %+%
+			"the number matching " %+% dQuote(param) %+%
 			" must be greater or equal to " %+% size
 
 		},
@@ -195,7 +195,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the arguments matching " %+% param %+%
+			"the arguments matching " %+% dQuote(param) %+%
 			" must all be lists, vectors or pairlists."
 
 		},
@@ -204,7 +204,7 @@ exclaim <- list(
 
 			# does not match param; param is handed in as a symbol.
 
-			"the arguments matching " %+% param %+%
+			"the arguments matching " %+% dQuote(param) %+%
 			" must be a list or pairlist of " %+% mode %+% "s" %+%
 			", or a " %+% mode %+% " vector."
 
@@ -226,7 +226,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a named collection."
 		},
 	must_have_equal_lengths =
@@ -250,7 +250,7 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the argument matching " %+% param %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" cannot point to a locked variable."
 		},
 	must_be_params_of =

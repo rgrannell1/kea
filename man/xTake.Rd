@@ -21,7 +21,7 @@ Take several elements from the head of a collection.
 \seealso{
 Other collection_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xAssoc}};
-\code{\link{xContains}}; \code{\link{xDiffer}};
+\code{\link{xIsMember}}; \code{\link{xDiffer}};
 \code{\link{xDissoc}}; \code{\link{xDrop}};
 \code{\link{xFirst}}; \code{\link{xFlatten}};
 \code{\link{xFourth}}; \code{\link{xInit}};

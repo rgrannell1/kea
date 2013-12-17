@@ -27,7 +27,7 @@ Call a function with a list of arguments.
 }
 \seealso{
 Other collection_functions: \code{\link{xAsFunction}};
-\code{\link{xAssoc}}; \code{\link{xContains}};
+\code{\link{xAssoc}}; \code{\link{xIsMember}};
 \code{\link{xDiffer}}; \code{\link{xDissoc}};
 \code{\link{xDrop}}; \code{\link{xFirst}};
 \code{\link{xFlatten}}; \code{\link{xFourth}};

@@ -490,23 +490,23 @@ x_coll_proto <- local({
 			xCollapse...(str, self_(), ...)
 		}
 
-	# --- xContains --- #
-	this$xContains <-
+	# --- xIsMember --- #
+	this$xIsMember <-
 		function (val) {
-			x_( xContains(val, self_()) )
+			x_( xIsMember(val, self_()) )
 		}
-	this$xContains... <-
+	this$xIsMember... <-
 		function (..., val) {
-			x_( xContains...(val, self_(), ...) )
+			x_( xIsMember...(val, self_(), ...) )
 		}
 
 	this$x_Contains <-
 		function (val) {
-			xContains(val, self_())
+			xIsMember(val, self_())
 		}
 	this$x_Contains... <-
 		function (..., val) {
-			xContains...(val, self_(), ...)
+			xIsMember...(val, self_(), ...)
 		}
 
 	# --- xConcat --- #
