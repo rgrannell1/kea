@@ -49,12 +49,11 @@ xCollapse <- function (str, strs) {
 	if (length(strs) == 0) {
 		character()
 	} else {
+
 		paste(
-			xReject(
-				function (x) {
-					nchar(x) == 0 || length(x) == 0
-				},
-				strs),
+			strs[
+				nchar(strs) != 0 &
+				vapply(strs, length, integer(1)) != 0],
 			collapse = str)
 	}
 }

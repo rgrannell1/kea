@@ -42,15 +42,18 @@ xZipWith <- function (fn, colls) {
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(fn))
 
+	assert(
+		!missing(colls), invoking_call,
+		exclaim$parameter_missing(colls))
 
 	fn <- match.fun(fn)
-
-	colls_lengths <- sapply(colls, length)
-	min_length <- min(colls_lengths)
 
 	if (length(colls) == 0 || min_length == 0) {
 		list()
 	} else {
+
+		colls_lengths <- vapply(colls, length, integer(1))
+		min_length <- min(colls_lengths)
 
 		unname(do.call( Map, c(list(fn),
 			Map(
