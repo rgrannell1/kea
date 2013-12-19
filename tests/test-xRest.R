@@ -23,7 +23,7 @@ message("xRest")
 message("arrow $ xRest")
 
 	forall(
-		"xRest of a list shortens the list by one (usually)",
+		"collection $ xRest",
 		test_cases$collection,
 		length(x_(coll)$xRest()$x()) == length(coll) - 1,
 		given =
@@ -33,7 +33,7 @@ message("arrow $ xRest")
 message("arrow $ x_Rest")
 
 	forall(
-		"x_Rest of a list shortens the list by one (usually)",
+		"collection $ x_Rest",
 		test_cases$collection,
 		length(x_(coll)$x_Rest()) == length(coll) - 1,
 		given =

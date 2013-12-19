@@ -45,6 +45,8 @@ message("arrow $ xForall")
 			length(coll) > 0
 	)
 
+message("arrow $ x_Forall")
+
 	forall(
 		"function $ x_Forall",
 		test_cases$collection,

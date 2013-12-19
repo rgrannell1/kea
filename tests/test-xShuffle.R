@@ -32,26 +32,26 @@ message("collection $ xShuffle")
 		length(x_(coll)$xShuffle()$x()) %equals% length(coll)
 	)
 
-message("collection $ xShuffle...")
+message("arrow $ xShuffle...")
 
 	forall(
-		"shuffling preserves length",
+		"collection $ xShuffle...",
 		test_cases$collection,
 		length(x_(coll)$xShuffle...()$x()) %equals% 1
 	)
 
-message("collection $ x_Shuffle")
+message("arrow $ x_Shuffle")
 
 	forall(
-		"shuffling preserves length",
+		"collection $ x_Shuffle",
 		test_cases$collection,
 		length(x_(coll)$x_Shuffle()) %equals% length(coll)
 	)
 
-message("collection $ x_Shuffle...")
+message("arrow $ x_Shuffle...")
 
 	forall(
-		"shuffling preserves length",
+		"collection $ x_Shuffle...",
 		test_cases$collection,
 		length(x_(coll)$x_Shuffle...()) %equals% 1
 	)

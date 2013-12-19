@@ -2219,6 +2219,15 @@ x_fn_proto <- local({
 		function (...) {
 			x_( xExists...(self_(), ...) )
 		}
+
+	this$x_Exists <-
+		function (colls) {
+			xExists(self_(), colls)
+		}
+	this$x_Exists... <-
+		function (...) {
+			xExists...(self_(), ...)
+		}
 	# -------- F ------- #
 
 	this$xFilter <-
@@ -2231,7 +2240,13 @@ x_fn_proto <- local({
 		}
 
 	this$xFlip <-
-		this$xCardinal
+		function () {
+			x_( xFlip(self_()) )
+		}
+	this$x_Flip <-
+		function () {
+			xFlip(self_())
+		}
 
 	# --- xFlatMap --- #
 	this$xFlatMap <-

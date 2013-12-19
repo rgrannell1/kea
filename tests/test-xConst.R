@@ -13,9 +13,15 @@ message("xConst")
 message("arrow $ xConst")
 
 	forall(
-		"const of a value is a function",
+		"function $ xConst",
 		test_cases$collection,
 		x_(coll)$xConst()$x()() %equals% coll
 	)
 
-message("arrow $ xConst")
+message("arrow $ x_Const")
+
+	forall(
+		"function $ x_Const",
+		test_cases$collection,
+		x_(coll)$x_Const()() %equals% coll
+	)

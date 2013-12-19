@@ -22,11 +22,6 @@ message('xCollapse')
 		}
 	)
 
-message('xCollapse...')
-
-
-
-
 message('arrow $ xCollapse')
 
 	forall(
@@ -38,3 +33,11 @@ message('arrow $ xCollapse')
 
 message('arrow $ xCollapse...')
 
+message('arrow $ x_Collapse')
+
+	forall(
+		"collapsing with character() is the same as collapsing with ''",
+		test_cases$str_words,
+		x_(strs)$x_Collapse('') %equals%
+		x_(strs)$x_Collapse(character(0))
+	)

@@ -63,7 +63,7 @@ message("arrow $ x_Reject")
 	)
 
 	forall(
-		"function $ x_Reject.",
+		"function $ x_Reject",
 		test_cases$mod2_over_ints,
 		x_(fn)$x_Reject(coll)$x() %equals%
 			as.list(coll[coll %% 2 == 1])

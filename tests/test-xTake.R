@@ -10,11 +10,16 @@ message('xTake')
 		x_(coll)$xTake(num)$x() %equals% list()
 	)
 
-
-
-
-
-
+	forall(
+		"taking yields the correct collection.",
+		test_cases$positive_with_collection,
+		{
+			ind <- min(length(coll), num)
+			xTake(num, coll) %equals% as.list(head(coll, ind))
+		},
+		given =
+			length(coll) > 0
+	)
 
 message('arrow $ xTake')
 

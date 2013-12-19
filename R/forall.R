@@ -576,6 +576,11 @@ test_cases <- local({
 			num = atoms$nonnegative_integer(),
 			coll = compounds$collection_zero)
 
+	this$nonnegative_with_collection <-
+		list(
+			num = atoms$nonnegative_integer(),
+			coll = compounds$collection)
+
 	this$positive_with_collection_zero <-
 		list(
 			num = atoms$nonnegative_integer(),

@@ -29,7 +29,7 @@ message("xVectorise")
 message("arrow $ xVectorise")
 
 	forall(
-		"function $ xVectorise increments over integers",
+		"function $ xVectorise",
 		test_cases$succ_over_integers,
 		all( (x_(fn)$xVectorise()$x())(coll) == unlist(coll) + 1 )
 	)
@@ -37,7 +37,7 @@ message("arrow $ xVectorise")
 message("arrow $ x_Vectorise")
 
 	forall(
-		"function $ x_Vectorise increments over integers",
+		"function $ x_Vectorise",
 		test_cases$succ_over_integers,
 		all( (x_(fn)$x_Vectorise())(coll) == unlist(coll) + 1 )
 	)

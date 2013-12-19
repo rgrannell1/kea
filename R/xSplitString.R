@@ -27,7 +27,7 @@ xSplitString <- function (rexp, str) {
 		!missing(str), invoking_call,
 		exclaim$parameter_missing(str))
 
-	str <- as_typed_vector(str, "character", True)
+	str <- as_typed_vector(str, "character", False)
 	rexp <- as_typed_vector(rexp, "character", True)
 
 	assert(
@@ -38,8 +38,10 @@ xSplitString <- function (rexp, str) {
 		length(str) %in% 0:1,
 		exclaim$must_have_length(str, 0:1) )
 
-	if (nchar(str) == 0) {
-		""
+	if (length(str) == 0) {
+		character(0)
+	} else if (nchar(str) == 0) {
+		''
 	} else {
 		strsplit(str, rexp)[[1]]
 	}

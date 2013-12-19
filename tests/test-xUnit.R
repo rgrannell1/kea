@@ -16,7 +16,6 @@ message('xUnit')
 		typeof( xUnit(coll) ) == typeof(coll)
 	)
 
-
 	forall(
 		"the unit of a collection is length zero",
 		test_cases$collection,
