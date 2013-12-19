@@ -495,9 +495,9 @@ x_coll_proto <- local({
 		function (val) {
 			x_( xIsMember(val, self_()) )
 		}
-	this$xIsMember... <-
+	this$x_IsMember... <-
 		function (..., val) {
-			x_( xIsMember...(val, self_(), ...) )
+			xIsMember...(val, self_(), ...)
 		}
 
 	this$x_Contains <-
@@ -3040,18 +3040,12 @@ get_proto_ref <- function (val) {
 
 '$.arrow' <- local({
 
-	unchaining_pattern <- 'x[A-Z][_].*'
-
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar
 
 		proto_ref <- get_proto_ref(val)
-
-		method_name <- list(
-			full = method_name,
-			trimmed = method_name
-		)
+		method_name <- method_name
 
 		candidate_methds <- setdiff(ls(proto_ref), 'private')
 		distances <- adist(method_name, candidate_methds)
@@ -3090,18 +3084,7 @@ get_proto_ref <- function (val) {
 
 		}
 
-		fn <- if (grepl(unchaining_pattern, method_name)) {
-			# create an unchaining method.
-
-			unchaining <- function () {}
-			formals(unchaining) <- formals( proto_ref[[method_name]] )
-
-		} else {
-			# create a chaining method.
-
-			proto_ref[[method_name]]
-		}
-
+		fn <- proto_ref[[method_name]]
 		environment(fn)[['self_']] <- function () obj[['x']]
 		fn
 	}

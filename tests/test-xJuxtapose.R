@@ -32,10 +32,23 @@ message("arrow $ xJuxtapose")
 		}
 	)
 
+message("arrow $ xJuxtapose...")
+
+
 	forall(
 		"function $ xJuxtapose...",
 		test_cases$succ_over_integers,
 		{
 			x_(fn)$xJuxtapose...()$x()(coll) %equals% coll + 1
+		}
+	)
+
+message("arrow $ x_Juxtapose")
+
+	forall(
+		"collection $ x_Juxtapose",
+		test_cases$succ_over_integers,
+		{
+			x_(list(fn))$x_Juxtapose()(coll) %equals% coll + 1
 		}
 	)

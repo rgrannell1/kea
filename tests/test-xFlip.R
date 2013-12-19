@@ -18,10 +18,10 @@ message("xFlip")
 		xFlip(xFlip(inc))(num) == inc(num)
 	)
 
-message("arrow $ xFlip")
+message("arrow $ xFlip and x_Flip")
 
 	forall(
 		"double-flipping is identity",
 		test_cases$num_positive_integer,
-		x_(inc)$xFlip()$xFlip()$x()(num) == inc(num)
+		x_(inc)$xFlip()$x_Flip()(num) == inc(num)
 	)

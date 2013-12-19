@@ -37,3 +37,14 @@ message('arrow $ xNegate...')
 		test_cases$integers,
 		x_(coll %% coll)$xApply(xNegate...)$x() %equals% as.double(coll %% coll)
 	)
+
+message('arrow $ x_Negate')
+
+	forall(
+		'collection $ xNegate',
+		test_cases$integers,
+		x_(coll %% coll)$x_Negate() %equals% as.double(coll %% coll)
+	)
+
+message('arrow $ x_Negate...')
+

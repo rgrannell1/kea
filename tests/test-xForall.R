@@ -44,3 +44,19 @@ message("arrow $ xForall")
 		given =
 			length(coll) > 0
 	)
+
+	forall(
+		"function $ x_Forall",
+		test_cases$collection,
+		x_(Truth)$x_Forall(list(coll, coll)),
+		given =
+			length(coll) > 0
+	)
+
+	forall(
+		"collection $ x_Forall",
+		test_cases$collection,
+		x_(coll)$x_Forall(Truth),
+		given =
+			length(coll) > 0
+	)

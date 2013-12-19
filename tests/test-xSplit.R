@@ -29,9 +29,19 @@ message('xSplit')
 message('arrow $ xSplit')
 
 	forall(
-		"splitting with 0 yields an empty list and the list",
+		"collection $ xSplit",
 		test_cases$collection,
 		x_(coll)$xSplit(0)$x() %equals% list(list(), as.list(coll)),
+		given =
+			length(coll) > 0
+	)
+
+message('arrow $ x_Split')
+
+	forall(
+		"collection $ x_Split",
+		test_cases$collection,
+		x_(coll)$x_Split(0) %equals% list(list(), as.list(coll)),
 		given =
 			length(coll) > 0
 	)

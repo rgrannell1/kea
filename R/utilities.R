@@ -338,7 +338,7 @@ profile_object <- function (obj) {
 				if (is.primitive(obj)) {
 						length( head(as.list(args(obj)), -1) )
 					} else {
-						length( formals(obj) )
+						length(formals(obj))
 				}
 		)
 
@@ -356,21 +356,30 @@ profile_object <- function (obj) {
 			function (acc, elem) {
 
 				list(
-					'function' = acc$'function' && is.function(elem),
-					logical = acc$logical && is.logical(elem),
-					integer = acc$integer && is.integer(elem),
-					double = acc$double && is.double(elem),
-					complex = acc$complex && is.complex(elem),
-					character = acc$character && is.character(elem),
-
-					recursive = acc$recursive && is.recursive(elem)
+					'function' =
+						acc$'function' && is.function(elem),
+					logical =
+						acc$logical && is.logical(elem),
+					integer =
+						acc$integer && is.integer(elem),
+					double =
+						acc$double && is.double(elem),
+					complex =
+						acc$complex && is.complex(elem),
+					character =
+						acc$character && is.character(elem),
+					recursive =
+						acc$recursive && is.recursive(elem)
 				)
 			},
 			obj,
 			list(
-				'function' = True, logical = True,
-				integer = True, double = True,
-				complex = True, character = True,
+				'function' = True,
+				logical = True,
+				integer = True,
+				double = True,
+				complex = True,
+				character = True,
 				recursive = True
 			)
 		)

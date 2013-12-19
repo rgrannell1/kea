@@ -23,8 +23,6 @@ xSetProd <- function (colls) {
 
 	invoking_call <- sys.call()
 
-
-
 	assert(
 		all( sapply(colls, function (coll) {
 			is_collection(coll)

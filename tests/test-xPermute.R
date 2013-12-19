@@ -11,5 +11,5 @@ message('xPermute')
 	)
 
 
-message('arrow$xPermute')
+message('arrow $ xPermute')
 

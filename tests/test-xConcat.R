@@ -26,6 +26,10 @@ message("arrow $ xConcat")
 		x_( list(coll, Null) )$xConcat()$x() %equals% as.list(coll)
 	)
 
-message("arrow $ xConcat...")
+message("arrow $ x_Concat")
 
-
+	forall(
+		"a single collection and null acts as identity",
+		test_cases$collection,
+		x_( list(coll, Null) )$x_Concat() %equals% as.list(coll)
+	)

@@ -33,3 +33,15 @@ message('arrow $ xDrop')
 		given =
 			length(coll) > 0
 	)
+message('arrow $ x_Drop')
+
+	forall(
+		"dropping yields the correct collection.",
+		test_cases$positive_with_collection,
+		{
+			ind <- min(length(coll), num)
+			x_(coll)$x_Drop(num) %equals% as.list(tail(coll, -ind))
+		},
+		given =
+			length(coll) > 0
+	)

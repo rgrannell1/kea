@@ -4,3 +4,6 @@ test_cases <- arrow:::test_cases
 
 message("xRecurMap")
 
+
+message("arrow $ xRecurMap")
+
