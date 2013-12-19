@@ -42,6 +42,8 @@ message("arrow $ xLocatel")
 			length(coll) > 0
 	)
 
+message("arrow $ x_Locatel")
+
 	forall(
 		"collection $ x_Locatel",
 		test_cases$truth_with_coll,

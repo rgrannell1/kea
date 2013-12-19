@@ -23,3 +23,11 @@ message("arrow $ xRepeat")
 		test_cases$positive_with_collection_zero,
 		x_(coll)$xRepeat(num)$x() %equals% list()
 	)
+
+message("arrow $ x_Repeat")
+
+	forall(
+		"repeating the empty list yields the empty list.",
+		test_cases$positive_with_collection_zero,
+		x_(coll)$x_Repeat(num) %equals% list()
+	)

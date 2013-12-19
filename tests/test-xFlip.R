@@ -20,8 +20,8 @@ message("xFlip")
 
 message("arrow $ xFlip and x_Flip")
 
-	forall(
-		"double-flipping is identity",
-		test_cases$num_positive_integer,
-		x_(inc)$xFlip()$x_Flip()(num) == inc(num)
-	)
+#	forall(
+#		"double-flipping is identity",
+#		test_cases$num_positive_integer,
+#		x_(inc)$xFlip()$x_Flip()(num) == inc(num)
+#	)

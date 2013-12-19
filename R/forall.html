@@ -1,0 +1,865 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>forall</title></head><body><h1 id="-forall-">-------------------------------- forall --------------------------------</h1>
+<h1></h1>
+<h1 id="to-developers">To Developers,</h1>
+<h1></h1>
+<h1 id="the-forall-set-of-tools-allows-quickcheck-style-unit-testing-to">The forall() set of tools allows Quickcheck-style unit testing to</h1>
+<h1 id="verify-that-arrows-functions-are-working-correctly-the-system-is-organised">verify that arrow's functions are working correctly. The system is organised</h1>
+<h1 id="as-follows">as follows:</h1>
+<h1></h1>
+<h1 id="forall">forall:</h1>
+<h1></h1>
+<h1 id="forall-is-a-function-with-which-unit-tests-are-written-a-typical-call">forall( ) is a function with which unit tests are written. A typical call</h1>
+<h1 id="might-look-like">might look like...</h1>
+<h1></h1>
+<h1 id="forall_1">forall(</h1>
+<h1 id="check-addition-commutativity">'check addition commutativity',</h1>
+<h1 id="lista-function-runif1-b-function-runif1">list(a = function ( ) runif(1), b = function ( ) runif(1),</h1>
+<h1 id="a-b-b-a">a + b == b + a)</h1>
+<h1></h1>
+<h1 id="a-description-should-be-given-of-the-test-the-argument-cases">A description should be given of the test. The argument 'cases'</h1>
+<h1 id="is-the-part-that-supplies-random-test-cases-it-is-a-named-list-of-functions">is the part that supplies random test cases. It is a named list of functions,</h1>
+<h1 id="each-of-which-returns-a-random-test-case">each of which returns a random test-case.</h1>
+<h1></h1>
+<h1 id="in-this-case-the-variables-a-b-are-bound-with-a-random-number">In this case, the variables a &amp; b are bound with a random number.</h1>
+<h1></h1>
+<h1 id="the-final-argument-used-here-is-expect-an-expression-that">The final argument used here is 'expect'; an expression that</h1>
+<h1 id="must-return-true-for-the-test-to-pass-here-the-expression">must return true for the test to pass. Here, the expression</h1>
+<h1 id="a-b-b-a-must-be-true-for-the-test-to-pass-again-this-expression">a + b == b + a must be true for the test to pass. Again, this expression</h1>
+<h1 id="must-evaluate-to-a-boolean-value-and-true-in-order-to-pass">must evaluate to a boolean value, and true in order to pass.</h1>
+<h1></h1>
+<h1 id="forall-will-re-evaluate-the-expression-with-a-b-re-bound-to-different">forall will re-evaluate the expression with a &amp; b re-bound to different</h1>
+<h1 id="numbers-this-means-that-the-expression-will-be-checked-to-be-true-for-a">numbers; this means that the expression will be checked to be true for a</h1>
+<h1 id="significant-sample-of-random-numbers">significant sample of random numbers.</h1>
+<h1></h1>
+<h1 id="there-is-a-way-to-add-counterindications-to-running-the-unit-test">there is a way to add counterindications to running the unit test.</h1>
+<h1 id="for-example">for example,</h1>
+<h1></h1>
+<h1 id="forall_2">forall(</h1>
+<h1 id="check-addition-commutativity_1">'check addition commutativity',</h1>
+<h1 id="lista-function-runif1-b-function-runif1_1">list(a = function ( ) runif(1), b = function ( ) runif(1),</h1>
+<h1 id="a-b-0">a * b &gt; 0,</h1>
+<h1 id="given">given =</h1>
+<h1 id="a-0-b-0">a != 0 &amp;&amp; b != 0)</h1>
+<h1></h1>
+<h1 id="the-unit-test-above-is-run-given-that-a-and-b-arent-zero-expression">the unit test above is run given that a and b aren't zero. Expression</h1>
+<h1 id="a-b-0-wont-even-be-run-a-new-random-test-case-will-instead-be-generated">'a * b &gt; 0' won't even be run; a new random test case will instead be generated.</h1>
+<h1></h1>
+<h1></h1>
+<h1 id="forall-will-continue-to-execute-random-tests-for-01-seconds-unless-the">forall will continue to execute random tests for 0.1 seconds, unless the</h1>
+<h1 id="time-is-extended-this-is-to-keep-the-r-cmd-check-runtimes-prompt">time is extended. This is to keep the R CMD check runtime's prompt.</h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1 id="atoms">atoms:</h1>
+<h1></h1>
+<h1 id="writing-test-cases-by-hand-is-a-pain-one-which-forall-intents-to-circumevent">Writing test cases by hand is a pain, one which forall intents to circumevent.</h1>
+<h1 id="instead-test-case-generators-are-used-these-are-functions-that-return">Instead, test case generators are used. These are functions that return</h1>
+<h1 id="a-particular-type-of-test-case-for-example-random-numbers-lists-of-varying-lengths">a particular type of test case; for example random numbers, lists of varying lengths</h1>
+<h1 id="of-random-strings">of random strings.</h1>
+<h1></h1>
+<h1 id="there-are-two-levels-of-test-case-generators-atoms-length-one-values-and">There are two levels of test case generators: atoms (length-one values) and</h1>
+<h1 id="compounds-collections-of-said-values">compounds (collections of said values).</h1>
+<h1></h1>
+<h1 id="atoms-is-an-environment-an-r-object-of-functions-that-return-random-test-cases">Atoms is an environment (an R object) of functions that return random test cases.</h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1 id="as_coll">as_coll:</h1>
+<h1></h1>
+<h1 id="as_coll-is-an-environment-that-contains-functions-that-take-an-atom-generator-and">as_coll is an environment that contains functions that take an atom generator, and</h1>
+<h1 id="returns-a-compound-generator-function-for-example-atominteger-creates-a-random-integer">returns a compound generator function. For example, atom$integer creates a random integer.</h1>
+<h1 id="compoundintegers-returns-a-variable-length-vector-of-such-integers">compound$integers returns a variable-length vector of such integers.</h1>
+<h1></h1>
+<h1 id="this-is-solely-included-to-shorten-the-annoying-task-of-writing-compound">This is solely included to shorten the (annoying) task of writing compound</h1>
+<h1 id="test-case-generators">test case generators.</h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1 id="compounds">compounds:</h1>
+<h1></h1>
+<h1 id="generators-for-lists-and-vectors-of-select-values">Generators for lists and vectors of select values.</h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1 id="test_cases">test_cases:</h1>
+<h1></h1>
+<h1 id="ultimately-the-function-forall-takes-generator-functions-and-binds-their-results-to">Ultimately, the function forall( ) takes generator functions and binds their results to</h1>
+<h1 id="variable-name-in-order-to-reduce-repetition-test_cases-contains-an-environment">variable name. In order to reduce repetition, test_cases contains an environment</h1>
+<h1 id="of-pre-approved-test_cases-lists-for-example-a-lot-of-arrow-functions-take-a">of 'pre-approved' test_cases lists. For example, a lot of arrow functions take a</h1>
+<h1 id="boolean-function-and-a-collection-it-is-prudent-to-test-these-functions-with-a-logical-function">boolean function and a collection. It is prudent to test these functions with a logical function</h1>
+<h1 id="and-an-empty-collection-of-any-type-so-a-pre-approved-test-case-is-contained-in-this">and an empty collection of any type, so a pre-approved test case is contained in this</h1>
+<h1 id="object-for-just-that-purpose">object for just that purpose.</h1>
+<h1></h1>
+<p>atoms &lt;- local({
+    # functions that generate a single value.</p>
+<pre><code>this &lt;- Object()
+
+# --------------------- Boolean --------------------- #
+
+this$true &lt;-
+    function () {
+        True
+    }
+this$false &lt;-
+    function () {
+        False
+    }
+this$na &lt;-
+    function () {
+        Na
+    }
+
+# multiple logical values.
+
+this$boolean &lt;-
+    function () {
+        one_of(c(True, False))
+    }
+this$logical &lt;-
+    function () {
+        one_of(c(True, False, Na))
+    }
+
+# single logical functions.
+
+this$truth &lt;-
+    function () {
+        function (...) True
+    }
+this$falsity &lt;-
+    function () {
+        function (...) False
+    }
+this$moot &lt;-
+    function () {
+        function (...) Na
+    }
+
+# multiple logical functions.
+
+this$logical_function &lt;-
+    function () {
+        one_of(list(
+            function () True,
+            function () False,
+            function () Na
+        ))
+    }
+
+this$boolean_function &lt;-
+    function () {
+        one_of(list(
+            function () True,
+            function () False
+        ))
+    }
+
+# --------------------- Linear Function --------------------- #
+
+this$linear_function &lt;-
+    function (sd = 20) {
+        function (num) {
+            abs(round(rnorm(1, 0, sd), 0)) + 1 * num
+        }
+    }
+
+# --------------------- Base Functions --------------------- #
+
+this$base_primitive &lt;- local({
+
+    fns &lt;- Filter(
+        function (fn) {
+            is.function(fn) &amp;&amp; is.primitive(fn)
+        },
+        lapply(ls('package:base'), get)
+    )
+
+    function () {
+        one_of(fns)
+    }
+})
+
+this$base_function &lt;- local({
+
+    fns &lt;- Filter(
+        function (fn) {
+            is.function(fn) &amp;&amp; !is.primitive(fn)
+        },
+        lapply(ls('package:base'), get)
+    )
+
+    function () {
+        one_of(fns)
+    }
+})
+
+# --------------------- Infinity --------------------- #
+
+this$positive_infinity &lt;-
+    function () {
+        +Inf
+    }
+
+this$negative_infinity &lt;-
+    function () {
+        -Inf
+    }
+
+# multiple logical values.
+
+this$infinity &lt;-
+    function () {
+        one_of(c(-Inf, +Inf))
+    }
+
+# --------------------- Number --------------------- #
+
+# integers.
+
+this$integer &lt;-
+    function (sd = 20) {
+        function () {
+            round(rnorm(1, 0, sd), 0)
+        }
+    }
+this$nonnegative_integer &lt;-
+    function (sd = 20) {
+        function () {
+            abs(round(rnorm(1, 0, sd), 0))
+        }
+    }
+this$positive_integer &lt;-
+    function (sd = 20) {
+        function () {
+            abs(round(rnorm(1, 0, sd), 0)) + 1
+        }
+    }
+this$range_integer &lt;-
+    function (lower, upper) {
+        function () {
+            sample(lower:upper, size = 1)
+        }
+    }
+
+# --------------------- Character --------------------- #
+
+# single letters.
+
+this$letter &lt;-
+    function () {
+        one_of(letters)
+    }
+
+# single words.
+
+this$word &lt;-
+    function (sd = 20) {
+        function () {
+            size &lt;- abs(round(rnorm(1, 0, sd), 0))
+
+            paste0(
+                sample(letters, size = size, replace = True),
+                collapse = "")
+        }
+    }
+
+this
+</code></pre>
+<p>})</p>
+<p>as_coll &lt;- local({
+    # combine atomic generators into generators
+    # for a collections of atoms</p>
+<pre><code>this &lt;- Object()
+
+this$vector_of &lt;-
+    function (fn, sd = 20) {
+        function () {
+            # convert a atom function to a vector of such atoms.
+
+            len &lt;- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+            coll &lt;- vector()
+            while (length(coll) &lt; len) {
+
+                val &lt;- fn()
+                coll &lt;- c(coll, val)
+            }
+            coll
+        }
+    }
+
+this$list_of &lt;-
+    function (fn, sd = 20) {
+        function () {
+            # convert a atom function to a list of such atoms.
+
+            len &lt;- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+            coll &lt;- list()
+            while (length(coll) &lt; len) {
+
+                val &lt;- list( fn() )
+                coll &lt;- c(coll, val)
+            }
+            coll
+        }
+    }
+
+this$collection_of &lt;-
+    function (fn, sd = 20) {
+        function () {
+            # convert a atom function to a collection of such atoms.
+
+            to_vector &lt;- sample(c(True, False), size = 1)
+
+            coll_fn &lt;- if (to_vector) {
+                as.vector
+            } else {
+                list
+            }
+
+            coll &lt;- if (to_vector) {
+                vector()
+            } else {
+                list()
+            }
+
+            len &lt;- abs(round(rnorm(1, 0, sd), 0)) + 1
+
+            while (length(coll) &lt; len) {
+
+                # the function should return
+                # an instance immediately.
+
+                val &lt;- coll_fn( fn() )
+                coll &lt;- c(coll, val)
+            }
+            coll
+        }
+    }
+
+this
+</code></pre>
+<p>})</p>
+<p>compounds &lt;- local({
+    # functions that return vectors and recursive data types.
+    # these collections themselves are generated using
+    # the atomic generator functions.</p>
+<pre><code>this &lt;- Object()
+
+# --------------------- Empty Collections --------------------- #
+
+# empty recursive structures.
+
+this$recursive_zero &lt;-
+    function () {
+        one_of( list(Null, list()) )
+    }
+# empty vectors.
+
+this$vector_zero &lt;-
+    function () {
+        one_of( list(
+            integer(), character(),
+            raw(), logical(), numeric()) )
+    }
+
+# empty vectors or recursives.
+
+this$collection_zero &lt;-
+    function () {
+        one_of(list(
+            Null, list(), integer(),
+            character(), logical(),
+            raw(), numeric()
+        ))
+    }
+
+# --------------------- Typed Vectors --------------------- #
+
+this$words &lt;-
+    function (sd = 20) {
+        function () {
+
+            one_of( list(
+                function () character(),
+                as_coll$vector_of(atoms$word(), sd)) )(  )
+        }
+    }
+
+this$letters &lt;-
+    function (sd = 20) {
+        function () {
+
+            one_of( list(
+                function () character(),
+                as_coll$vector_of(atoms$letter, sd)) )(  )
+        }
+    }
+
+this$integers &lt;-
+    function (sd = 20) {
+        function () {
+
+            one_of( list(
+                function () integer(),
+                as_coll$vector_of(atoms$integer(), sd)) )(  )
+        }
+    }
+
+this$range_integers &lt;-
+    function (lower = 1, upper = 100, sd = 20) {
+        function () {
+
+            one_of( list(
+                function () integer(),
+                as_coll$vector_of(atoms$range_integer(lower, upper), sd)) )(  )
+        }
+    }
+
+this$logicals &lt;-
+    function (sd = 20) {
+        function () {
+
+            one_of( list(
+                function () logical(),
+                as_coll$vector_of(atoms$logical, sd)) )(  )
+        }
+    }
+
+this$vector &lt;-
+    function (sd) {
+
+        one_of(list(
+            this$words(sd),
+            this$integers(sd),
+            this$logicals(sd)
+        ))(  )
+    }
+
+this$collection &lt;-
+    function (sd = 20) {
+
+        one_of(list(
+            this$words(sd),
+            this$integers(sd),
+            this$logicals(sd)
+        ))(  )
+    }
+
+this$collection_of_length_zero &lt;-
+    function (sd = 20) {
+        # generate a collection of length-zero values.
+
+        as_coll$list_of(this$collection_zero, sd)
+
+    }
+
+    test_cases$nan_vector
+
+# --------------------- Special Collections --------------------- #
+
+this$integer_seq &lt;-
+    function (sd = 20) {
+        function () {
+
+            size &lt;- abs(round(rnorm(1, 0, sd), 0)) + 1
+            seq_len(size)
+        }
+    }
+
+this
+</code></pre>
+<p>})</p>
+<p>test_cases &lt;- local({
+    # pre-approved test cases.</p>
+<pre><code>this &lt;- Object()
+
+this$mod2_over_ints &lt;-
+    list(
+        fn =
+            function () {
+                function (num) num %% 2 == 0
+            },
+        coll =
+            compounds$integers()
+    )
+
+this$sum_over_integers &lt;-
+    list(
+        fn = function () match.fun("+"),
+        coll = compounds$integers())
+
+this$id_over_collection_zero &lt;-
+    list(
+        fn = function () {
+            function (...) list(...)
+        },
+        coll = compounds$collection_zero)
+
+this$succ_over_integers &lt;-
+    list(
+        fn = function () {
+            function (x) x + 1
+        },
+        coll = compounds$integers())
+
+this$left_over_collection &lt;-
+    list(
+        fn = function () {
+            function (a, b) a
+        },
+        coll = compounds$collection)
+
+this$right_over_collection &lt;-
+    list(
+        fn = function () {
+            function (a, b) b
+        },
+        coll = compounds$collection)
+
+# --------------------- Num + Coll ----------------------------- #
+
+this$nonnegative_with_collection_zero &lt;-
+    list(
+        num = atoms$nonnegative_integer(),
+        coll = compounds$collection_zero)
+
+this$positive_with_collection_zero &lt;-
+    list(
+        num = atoms$nonnegative_integer(),
+        coll = compounds$collection_zero)
+
+this$positive_with_recursive_zero &lt;-
+    list(
+        num = atoms$nonnegative_integer(),
+        coll = compounds$recursive_zero)
+
+this$positive_with_collection &lt;-
+    list(
+        num = atoms$positive_integer(),
+        coll = compounds$collection)
+
+this$positive_with_linear_function &lt;-
+    list(
+        fn = atoms$linear_function,
+        num = atoms$positive_integer())
+
+this$letters_and_index &lt;-
+    list(
+        coll = function () letters,
+        num = atoms$range_integer(1, 26))
+
+this$letters_and_indices &lt;-
+    list(
+        coll = function () letters,
+        nums = compounds$range_integers(1, 26))
+
+# --------------------- Logical-Fun + Coll --------------------- #
+
+this$truth_with_coll &lt;-
+    list(
+        fn = atoms$truth,
+        coll = compounds$collection)
+
+this$falsity_with_coll &lt;-
+    list(
+        fn = atoms$falsity,
+        coll = compounds$collection)
+
+this$moot_with_coll &lt;-
+    list(
+        fn = atoms$moot,
+        coll = compounds$collection)
+
+this$logical_functions_with_collection &lt;-
+    list(
+        fn = atoms$logical_function,
+        coll = compounds$collection
+    )
+
+this$logical_functions_with_collection_zero &lt;-
+    list(
+        fn = atoms$logical_function,
+        coll = compounds$collection_zero
+    )
+
+# --------------------- Coll-Only --------------------- #
+
+this$recursive_zero &lt;-
+    list(coll = compounds$recursive_zero)
+
+this$collection_zero &lt;-
+    list(coll = compounds$collection_zero)
+
+this$collection_of_length_zero &lt;-
+    list(coll = compounds$collection_of_length_zero())
+
+this$collection &lt;-
+    list(coll = compounds$collection)
+
+this$integers &lt;-
+    list(coll = compounds$integers())
+
+this$infinity &lt;-
+    list(coll = atoms$infinity)
+
+this$letters &lt;-
+    list(coll = compounds$letters())
+
+# --------------------- num-Only --------------------- #
+
+this$num_integer &lt;-
+    list(
+        num = atoms$integer())
+this$num_positive_integer &lt;-
+    list(num = atoms$positive_integer())
+
+# --------------------- fn-Only --------------------- #
+
+this$base_primitive &lt;-
+    list(fn = atoms$base_primitive)
+this$base_function &lt;-
+    list(fn = atoms$base_function)
+
+# --------------------- str-Only --------------------- #
+
+this$str_word &lt;-
+    list(str = atoms$word())
+
+this$str_words &lt;-
+    list(strs = compounds$words())
+
+# --------------------- str-str --------------------- #
+
+this$str_word_and_words &lt;-
+    list(str = atoms$word(), strs = compounds$words())
+
+# --------------------- col + col --------------------- #
+
+this$two_collection_zeros =
+    list(
+        coll1 = compounds$collection_zero,
+        coll2 = compounds$collection_zero)
+
+this$two_collections =
+    list(
+        coll1 = compounds$collection,
+        coll2 = compounds$collection)
+
+this
+</code></pre>
+<p>})</p>
+<h1 id="-forall-_1">-------------------------------- forall --------------------------------</h1>
+<h1></h1>
+<h1 id="forall-tests-if-an-expression-holds-true-over-a-range-of-random-test-cases">forall tests if an expression holds true over a range of random test-cases.</h1>
+<h1></h1>
+<p>forall &lt;- function (info = "", cases, expect, given, max_time = 0.1) {</p>
+<pre><code>invoking_call &lt;- sys.call()
+
+assert(
+    !is.null(cases), invoking_call,
+    lament$null_cases(info))
+
+assert(
+    all( sapply(cases, is.function) ), invoking_call,
+    lament$non_function_cases(info))
+
+# ----- capture the expect and given expressions as functions
+
+expect_expr &lt;- match.call()$expect
+given_expr &lt;-
+    if (missing(given)) {
+        True
+    } else {
+        match.call()$given
+    }
+
+expect &lt;- given &lt;-
+    function () {}
+
+formals(expect) &lt;-
+    as_parametres(names(cases))
+
+formals(given) &lt;-
+    as_parametres(names(cases))
+
+body(expect) &lt;- expect_expr
+body(given) &lt;- given_expr
+
+# ----- check that the expectation is true for a range of cases
+
+state &lt;- list(
+    tests_run = 0,
+    failed_after = Inf,
+    time_left = xStopWatch(max_time),
+    failed = list())
+
+while (state$time_left()) {
+
+    case &lt;- lapply(cases, function (fn) fn())
+
+    if (do.call(given, case)) {
+
+        state$tests_run &lt;- state$tests_run + 1
+        result &lt;- do.call(expect, case)
+
+        assert(
+            length(result) == 1, invoking_call,
+            lament$non_singular_expectation(info, length(result)) )
+
+        assert(
+            result %in% c(True, False), invoking_call,
+            lament$non_boolean_expectation(info, case))
+
+        if (!result) {
+            state$failed_after &lt;-
+                min(state$failed_after, state$tests_run)
+
+            state$failed &lt;-
+                c(state$failed, list(case))
+        }
+    }
+}
+
+assert(
+    length(state$failed) == 0,
+    invoking_call,
+    lament$failed_cases(
+        info,
+        state$failed_after,
+        state$failed))
+
+message(info, " passed!", " (", state$tests_run, ")")
+</code></pre>
+<p>}</p></body></html>

@@ -39,14 +39,14 @@ message("xSelect")
 message("arrow $ xSelect")
 
 	forall(
-		"collection $ xSelect selects even-numbers.",
+		"collection $ xSelect",
 		test_cases$mod2_over_ints,
 		x_(coll)$xSelect(fn)$x() %equals%
 			as.list(coll[coll %% 2 == 0])
 	)
 
 	forall(
-		"function $ xSelect selects even-numbers.",
+		"function $ xSelect",
 		test_cases$mod2_over_ints,
 		x_(fn)$xSelect(coll)$x() %equals%
 			as.list(coll[coll %% 2 == 0])
@@ -54,3 +54,18 @@ message("arrow $ xSelect")
 
 message("arrow $ xSelect...")
 
+message("arrow $ x_Select")
+
+	forall(
+		"collection $ x_Select",
+		test_cases$mod2_over_ints,
+		x_(coll)$x_Select(fn)$x() %equals%
+			as.list(coll[coll %% 2 == 0])
+	)
+
+	forall(
+		"function $ x_Select",
+		test_cases$mod2_over_ints,
+		x_(fn)$x_Select(coll)$x() %equals%
+			as.list(coll[coll %% 2 == 0])
+	)

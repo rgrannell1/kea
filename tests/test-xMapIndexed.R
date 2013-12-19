@@ -44,3 +44,19 @@ message("arrow $ xMapIndexed")
 		all( unlist(x_(fn)$xMapIndexed(coll)$x()) ==
 			unlist(coll) + seq_along(coll) )
 	)
+
+message("arrow $ x_MapIndexed")
+
+	forall(
+		"collection $ x_MapIndexed",
+		test_cases$sum_over_integers,
+		all( unlist(x_(coll)$x_MapIndexed(fn)) ==
+			unlist(coll) + seq_along(coll) )
+	)
+
+	forall(
+		"function $ x_MapIndexed",
+		test_cases$sum_over_integers,
+		all( unlist(x_(fn)$x_MapIndexed(coll)) ==
+			unlist(coll) + seq_along(coll) )
+	)

@@ -40,16 +40,33 @@ message("xReject")
 message("arrow $ xReject")
 
 	forall(
-		"collection.xReject selects odd-numbers.",
+		"collection.xReject",
 		test_cases$mod2_over_ints,
 		x_(coll)$xReject(fn)$x() %equals%
 			as.list(coll[coll %% 2 == 1])
 	)
 
 	forall(
-		"function.xReject selects odd-numbers.",
+		"function.xReject",
 		test_cases$mod2_over_ints,
 		x_(fn)$xReject(coll)$x() %equals%
 			as.list(coll[coll %% 2 == 1])
 	)
+
+message("arrow $ x_Reject")
+
+	forall(
+		"collection $ x_Reject.",
+		test_cases$mod2_over_ints,
+		x_(coll)$x_Reject(fn)$x() %equals%
+			as.list(coll[coll %% 2 == 1])
+	)
+
+	forall(
+		"function $ x_Reject.",
+		test_cases$mod2_over_ints,
+		x_(fn)$x_Reject(coll)$x() %equals%
+			as.list(coll[coll %% 2 == 1])
+	)
+
 

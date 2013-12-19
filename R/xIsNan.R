@@ -25,22 +25,19 @@ xIsNan <- function (coll) {
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
-
-
-
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))
 
-	if (length(coll) == 0 || is.nan(coll)) {
-		# empty pairlist.
-		True
+	if (length(coll) == 0) {
+		logical(0)
 	} else {
 		res <- vector(mode = 'logical', length(coll))
 
 		for (ith in seq_along(coll)) {
 			res[ith] <- identical(coll[[ith]], NaN)
 		}
+
 		res
 	}
 }

@@ -29,3 +29,13 @@ message("arrow $ xRest")
 		given =
 			length(coll) > 0
 	)
+
+message("arrow $ x_Rest")
+
+	forall(
+		"x_Rest of a list shortens the list by one (usually)",
+		test_cases$collection,
+		length(x_(coll)$x_Rest()) == length(coll) - 1,
+		given =
+			length(coll) > 0
+	)

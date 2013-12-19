@@ -120,6 +120,13 @@ atoms <- local({
 			Na
 		}
 
+	# odd
+
+	this$nan <-
+		function () {
+			NaN
+		}
+
 	# multiple logical values.
 
 	this$boolean <-
@@ -484,6 +491,12 @@ compounds <- local({
 
 			as_coll$list_of(this$collection_zero, sd)
 
+		}
+
+	this$nans <-
+		function (sd = 20) {
+
+			as_coll$list_of(atoms$nan, sd)
 
 		}
 
@@ -644,6 +657,9 @@ test_cases <- local({
 
 	this$letters <-
 		list(coll = compounds$letters())
+
+	this$nans <-
+		list(coll = compounds$nans())
 
 	# --------------------- num-Only --------------------- #
 

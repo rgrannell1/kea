@@ -27,3 +27,8 @@ message("xGet")
 			xGet(str)(coll) %equals% list(1, 3)
 		}
 	)
+
+message("arrow $ xGet")
+
+
+message("arrow $ x_Get")

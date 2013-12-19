@@ -22,10 +22,10 @@ message('xSucc')
 		xSucc(coll) %equals% as.double(coll)
 	)
 
-	message('arrow $ xSucc')
+message('arrow $ xSucc')
 
 	forall(
-		"arrow.xSucc is doubles",
+		"collection $ xSucc",
 		test_cases$infinity,
 		x_(coll)$xSucc()$x() %equals% as.double(coll)
 	)
@@ -33,7 +33,15 @@ message('xSucc')
 message('arrow $ xSucc...')
 
 	forall(
-		"arrow.xSucc... is doubles",
+		"collection $ xSucc...",
 		test_cases$integers,
 		x_(coll)$xApply(xSucc...)$x() %equals% as.double(coll + 1)
+	)
+
+message('arrow $ x_Succ')
+
+	forall(
+		"collection $ x_Succ",
+		test_cases$infinity,
+		x_(coll)$x_Succ() %equals% as.double(coll)
 	)

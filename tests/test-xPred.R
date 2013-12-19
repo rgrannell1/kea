@@ -25,15 +25,17 @@ message('xPred')
 message('arrow $ xPred')
 
 	forall(
-		"arrow.xPred is doubles",
+		"collection $ xPred",
 		test_cases$infinity,
 		x_(coll)$xPred()$x() %equals% as.double(coll)
 	)
 
 message('arrow $ xPred...')
 
+message('arrow $ x_Pred')
+
 	forall(
-		"arrow.xPred... is doubles",
-		test_cases$integers,
-		x_(coll)$xApply(xPred...)$x() %equals% as.double(coll - 1)
+		"collection $ x_Pred",
+		test_cases$infinity,
+		x_(coll)$x_Pred() %equals% as.double(coll)
 	)

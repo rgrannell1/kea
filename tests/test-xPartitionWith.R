@@ -72,3 +72,27 @@ message("arrow $ xPartitionWith")
 		given =
 			length(coll) > 0
 	)
+
+message("arrow $ x_PartitionWith")
+
+	forall(
+		"collection $ x_PartitionWith",
+		test_cases$mod2_over_ints,
+		x_(coll)$x_PartitionWith(fn) %equals%
+			list(
+				as.list(coll[coll %% 2 == 0]),
+				as.list(coll[coll %% 2 == 1]) ),
+		given =
+			length(coll) > 0
+	)
+
+	forall(
+		"function $ x_PartitionWith",
+		test_cases$mod2_over_ints,
+		x_(fn)$x_PartitionWith(coll) %equals%
+			list(
+				as.list(coll[coll %% 2 == 0]),
+				as.list(coll[coll %% 2 == 1]) ),
+		given =
+			length(coll) > 0
+	)
