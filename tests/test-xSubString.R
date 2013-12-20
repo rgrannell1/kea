@@ -16,6 +16,12 @@ message('xSubString')
 		xSubString( str, seq_len(nchar(str)) ) %equals% str
 	)
 
+	forall(
+		"selecting along the indices is identity",
+		test_cases$str_word,
+		xSubString(str, rev( seq_len(nchar(str)) )) %equals% str
+	)
+
 message('arrow $ xSubString')
 
 	forall(

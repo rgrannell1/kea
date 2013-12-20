@@ -37,6 +37,10 @@ xLift <- function (fn, fns) {
 		exclaim$must_be_matchable(fn))
 
 	assert(
+		is_collection(fns), invoking_call,
+		exclaim$must_be_collection(fns))
+
+	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
 		exclaim$must_be_recursive_of_matchable("fns"))
 
