@@ -41,8 +41,7 @@ xSubString <- function (str, nums) {
 		all(round(nums) == nums), invoking_call,
 		exclaim$must_be_whole(nums))
 
-	if (length(str) == 0) {
-		character(0)
+	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)
 	} else if (length(nums) == 0) {
 		str

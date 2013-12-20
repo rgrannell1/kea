@@ -1819,21 +1819,21 @@ x_coll_proto <- local({
 
 	# --- xSubString --- #
 	this$xSubString <-
-		function (str) {
-			x_( xSubString(str, self_()) )
+		function (nums) {
+			x_( xSubString(self_(), nums) )
 		}
 	this$xSubString... <-
-		function (str, ...) {
-			x_( xSubString...(str, self_(),...) )
+		function (...) {
+			x_( xSubString...(self_(), ...) )
 		}
 
-	this$x_SubStr <-
-		function (str) {
-			xSubString(str, self_())
+	this$x_SubString <-
+		function (nums) {
+			xSubString(self_(), nums)
 		}
-	this$x_SubStr... <-
-		function (str, ...) {
-			xSubString...(str, self_(),...)
+	this$x_SubString... <-
+		function (...) {
+			xSubString...(self_(), ...)
 		}
 
 	# --- xSucc --- #
