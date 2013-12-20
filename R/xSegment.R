@@ -48,8 +48,8 @@ xSegment <- function (num, coll) {
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		num >= 0, invoking_call,
-		exclaim$must_be_grequal_than(num, 0))
+		num > 0, invoking_call,
+		exclaim$must_be_greater_than(num, 0))
 
 	assert(
 		is_collection(coll), invoking_call,
@@ -57,6 +57,8 @@ xSegment <- function (num, coll) {
 
 	if (length(coll) == 0) {
 		list()
+	} else if (is.infinite(num)) {
+		list(as.list(coll))
 	} else {
 		lapply(
 			seq(1, to = length(coll), by = num),
