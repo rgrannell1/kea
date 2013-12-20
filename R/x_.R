@@ -734,6 +734,16 @@ x_coll_proto <- local({
 		function (fn, init, ...) {
 			xFoldl...(fn, init, self_(), ...)
 		}
+	# --- xFold --- #
+	this$xFold <-
+		this$xFoldl
+	this$xFold... <-
+		this$xFoldl...
+
+	this$x_Fold <-
+		this$x_Foldl
+	this$x_Fold... <-
+		this$x_Foldl...
 
 	# --- xFlatMap --- #
 	this$xFlatMap <-
@@ -792,11 +802,6 @@ x_coll_proto <- local({
 			xForall...(pred, self_(), ...)
 		}
 
-	# --- xFold --- #
-	this$xFold <-
-		this$xFoldl
-	this$xFold... <-
-		this$xFoldl...
 
 	# --- xFoldr --- #
 	this$xFoldr <-
