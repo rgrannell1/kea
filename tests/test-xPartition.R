@@ -4,3 +4,4 @@ test_cases <- arrow:::test_cases
 
 message("xPartition")
 
+message("arrow $ xPartition")

@@ -59,13 +59,13 @@ message("arrow $ x_Select")
 	forall(
 		"collection $ x_Select",
 		test_cases$mod2_over_ints,
-		x_(coll)$x_Select(fn)$x() %equals%
+		x_(coll)$x_Select(fn) %equals%
 			as.list(coll[coll %% 2 == 0])
 	)
 
 	forall(
 		"function $ x_Select",
 		test_cases$mod2_over_ints,
-		x_(fn)$x_Select(coll)$x() %equals%
+		x_(fn)$x_Select(coll) %equals%
 			as.list(coll[coll %% 2 == 0])
 	)

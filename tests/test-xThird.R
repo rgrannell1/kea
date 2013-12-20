@@ -23,14 +23,6 @@ message('arrow $ xThird')
 
 message('arrow $ xThird...')
 
-	forall("third always returns the third element of a collection",
-		test_cases$collection,
-		x_(coll)$xThird...(coll)$x() %equals% coll,
-		given =
-			length(coll) >= 3
-	)
-
-
 message('arrow $ x_Third')
 
 	forall("third always returns the third element of a collection",
@@ -41,10 +33,3 @@ message('arrow $ x_Third')
 	)
 
 message('arrow $ x_Third...')
-
-	forall("third always returns the third element of a collection",
-		test_cases$collection,
-		x_(coll)$x_Third...(coll) %equals% coll,
-		given =
-			length(coll) >= 3
-	)

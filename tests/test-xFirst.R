@@ -23,14 +23,6 @@ message('arrow $ xFirst')
 
 message('arrow $ xFirst...')
 
-	forall("first always returns the first element of a collection",
-		test_cases$collection,
-		x_(coll)$xFirst...(coll)$x() %equals% coll,
-		given =
-			length(coll) >= 1
-	)
-
-
 message('arrow $ x_First')
 
 	forall("first always returns the first element of a collection",
@@ -41,10 +33,3 @@ message('arrow $ x_First')
 	)
 
 message('arrow $ x_First...')
-
-	forall("first always returns the first element of a collection",
-		test_cases$collection,
-		x_(coll)$x_First...(coll) %equals% coll,
-		given =
-			length(coll) >= 1
-	)

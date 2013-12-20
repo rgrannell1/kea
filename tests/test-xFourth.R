@@ -23,13 +23,6 @@ message('arrow $ xFourth')
 
 message('arrow $ xFourth...')
 
-	forall("fourth always returns the fourth element of a collection",
-		test_cases$collection,
-		do.call(x_(coll)$xFourth..., as.list(coll)) %equals% coll[[4]],
-		given =
-			length(coll) >= 4
-	)
-
 message('arrow $ x_Fourth')
 
 	forall("fourth always returns the fourth element of a collection",
@@ -40,10 +33,3 @@ message('arrow $ x_Fourth')
 	)
 
 message('arrow $ x_Fourth...')
-
-	forall("fourth always returns the fourth element of a collection",
-		test_cases$collection,
-		x_(coll)$x_Fourth...(coll) %equals% coll,
-		given =
-			length(coll) >= 4
-	)

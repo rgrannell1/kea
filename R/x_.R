@@ -495,16 +495,16 @@ x_coll_proto <- local({
 		function (val) {
 			x_( xIsMember(val, self_()) )
 		}
-	this$x_IsMember... <-
+	this$xIsMember... <-
 		function (..., val) {
-			xIsMember...(val, self_(), ...)
+			x_( xIsMember...(val, self_(), ...) )
 		}
 
-	this$x_Contains <-
+	this$x_IsMember <-
 		function (val) {
 			xIsMember(val, self_())
 		}
-	this$x_Contains... <-
+	this$x_IsMember... <-
 		function (..., val) {
 			xIsMember...(val, self_(), ...)
 		}
@@ -2990,7 +2990,7 @@ x_fn_proto <- local({
 
 #' x_
 #'
-#' Generate a chainable arrow object, that can use methods.
+#' Generate a chainable arrow object that methods can be called off.
 #'
 #' @param
 #'    val a function, collection, or arbitrary value.
@@ -3008,7 +3008,13 @@ x_fn_proto <- local({
 #'    x_()$x() is required.
 #'
 #' @details
-#'    There are methods specific to arrow objects.
+#'    The arrow object constructed by \code{x_} contains methods specific to the
+#'    the type of data given to the constructor. As of Arrow 0.1.0, there are
+#'    the following sets of methods:
+#'
+#'    1. x_([any])
+#'
+#'    Methods that are added to every data type.
 #'
 #'    \code{xExecute}: .
 #'

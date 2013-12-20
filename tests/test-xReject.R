@@ -58,14 +58,14 @@ message("arrow $ x_Reject")
 	forall(
 		"collection $ x_Reject.",
 		test_cases$mod2_over_ints,
-		x_(coll)$x_Reject(fn)$x() %equals%
+		x_(coll)$x_Reject(fn) %equals%
 			as.list(coll[coll %% 2 == 1])
 	)
 
 	forall(
 		"function $ x_Reject",
 		test_cases$mod2_over_ints,
-		x_(fn)$x_Reject(coll)$x() %equals%
+		x_(fn)$x_Reject(coll) %equals%
 			as.list(coll[coll %% 2 == 1])
 	)
 
