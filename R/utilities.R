@@ -342,7 +342,7 @@ profile_object <- local({
 					paste0(class(obj), collapse = ', ')
 			)
 
-			" The actual object was a " %+% traits$function_type %+%
+			"\n\n" %+% "The actual object was a " %+% traits$function_type %+%
 			"function with " %+% traits$arity %+% " parametres, " %+%
 			"and with class " %+% dQuote(traits$classes) %+% '.'
 		}
@@ -371,7 +371,7 @@ profile_object <- local({
 
 			)
 
-			" The actual object was a " %+% traits$type %+%
+			"\n\n" %+% "The actual object was a " %+% traits$type %+%
 			" factor with " %+%
 			traits$length %+% " elements and " %+%
 			traits$levels %+% " levels, of class " %+%
@@ -382,7 +382,12 @@ profile_object <- local({
 	profile$default <-
 		function (obj) {
 
-			" The actual object was of class " %+%
+			traits <- list(
+				classes =
+					paste0(class(obj), collapse = ', ')
+			)
+
+			"\n\n" %+% "The actual object was of class " %+%
 			dQuote(traits$classes) %+% '.'
 		}
 
@@ -417,7 +422,7 @@ profile_object <- local({
 					paste0(class(obj), collapse = ', ')
 			)
 
-			" The actual object was a boolean vector with " %+%
+			"\n\n" %+% " The actual object was a boolean vector with " %+%
 			traits$length %+% " elements: " %+%
 			traits$no_na %+% " na values, " %+%
 			traits$no_true %+% " true values, and " %+%
@@ -442,14 +447,81 @@ profile_object <- local({
 					paste0(class(obj), collapse = ', ')
 			)
 
-			" The actual object was a raw vector with " %+%
+			"\n\n" %+% "The actual object was a raw vector with " %+%
 			traits$length %+% " elements, of class" %+%
 			dQuote(traits$classes) %+% '.'
 
 		}
 
+	profile$integer_vector <-
+		function (obj) {
 
+			traits <- list(
+				length =
+					length(obj),
+				all_nonnegative =
+					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] >= 0),
+						"all nonnegative",
+						"not all nonnegative"
+					),
+				all_negative =
+					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] < 0),
+						"all negative",
+						"not all negative"
+					),
+				classes =
+					paste0(class(obj), collapse = ', ')
+			)
 
+			"\n\n" %+% "The actual object was an integer vector with " %+%
+			traits$length %+% " elements. The elements were " %+%
+			traits$all_nonnegative %+% ", and " %+% traits$all_negative %+%
+			". The vector was of class " %+%
+			dQuote(traits$classes) %+% '.'
+
+		}
+
+	profile$double_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				all_nonnegative =
+					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] >= 0),
+						"all nonnegative",
+						"not all nonnegative"
+					),
+				all_negative =
+					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] < 0),
+						"all negative",
+						"not all negative"
+					),
+				all_whole =
+					ifelse(all(
+						round(obj[ !(is.na(obj) | is.nan(obj)) ]) ==
+						obj[ !(is.na(obj) | is.nan(obj)) ]),
+						"all round",
+						"not all round"
+
+					),
+				no_na =
+					length( which(is.na(obj)) ),
+				no_nan =
+					length( which(is.nan(obj)) ),
+				classes =
+					paste0(class(obj), collapse = ', ')
+			)
+
+			"\n\n" %+% "The actual object was an double vector with " %+%
+			traits$length %+% " elements. The elements were " %+%
+			traits$all_nonnegative %+% ", and " %+% traits$all_negative %+%
+			", and were " %+%  traits$all_whole %+%". The vector contained " %+% traits$no_na %+% " na values, and " %+%
+			traits$no_nan %+% " NaN values." %+%
+			" The vector was of class " %+%
+			dQuote(traits$classes) %+% '.'
+
+		}
 
 
 
@@ -483,8 +555,13 @@ profile_object <- local({
 				profile$logical_vector),
 			list(
 				is.raw,
-				profile$raw_vector)
-
+				profile$raw_vector),
+			list(
+				is.integer,
+				profile$integer_vector),
+			list(
+				is.double,
+				profile$double_vector)
 		)
 
 		for (pair in response_pairs) {
