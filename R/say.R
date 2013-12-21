@@ -33,7 +33,8 @@ exclaim <- list(
 
 			"the argument matching " %+% dQuote(param) %+%
 			" must be a function, or a symbol or string" %+%
-			" that can be looked-up as a function."
+			" that can be looked-up as a function. "%+%
+			profile
 
 		},
 	must_be_nameable =

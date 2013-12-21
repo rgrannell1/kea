@@ -386,6 +386,78 @@ profile_object <- local({
 			dQuote(traits$classes) %+% '.'
 		}
 
+	profile$matrix <-
+		function (obj) {
+
+		}
+
+	profile$data_frame <-
+		function (obj) {
+
+		}
+
+	profile$generic_vector <-
+		function (obj) {
+
+		}
+
+	profile$logical_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				no_na =
+					length( which(is.na(obj)) ),
+				no_true =
+					length(which(obj)),
+				no_false =
+					length(which(!obj)),
+				classes =
+					paste0(class(obj), collapse = ', ')
+			)
+
+			" The actual object was a boolean vector with " %+%
+			traits$length %+% " elements: " %+%
+			traits$no_na %+% " na values, " %+%
+			traits$no_true %+% " true values, and " %+%
+			traits$no_false %+% " false values. " %+%
+			"The vector has class " %+% dQuote(traits$classes) %+% '.'
+
+		}
+
+	profile$raw_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				no_na =
+					length( which(is.na(obj)) ),
+				no_true =
+					length(which(obj)),
+				no_false =
+					length(which(!obj)),
+				classes =
+					paste0(class(obj), collapse = ', ')
+			)
+
+			" The actual object was a raw vector with " %+%
+			traits$length %+% " elements, of class" %+%
+			dQuote(traits$classes) %+% '.'
+
+		}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -402,7 +474,16 @@ profile_object <- local({
 				profile$null),
 			list(
 				is.factor,
-				profile$factor)
+				profile$factor),
+			list(
+				function (x) is.list(x) || is.pairlist(x),
+				profile$generic_vector),
+			list(
+				is.logical,
+				profile$logical_vector),
+			list(
+				is.raw,
+				profile$raw_vector)
 
 		)
 
