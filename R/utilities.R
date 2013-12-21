@@ -274,6 +274,8 @@ assert <- function (expr, invoking_call, message) {
 				call. = False)
 
 		} else {
+			message <- paste0(
+				strwrap(message, width = 70), collapse = '\n')
 			stop(call, ": ", message, call. = False)
 		}
 	}
@@ -516,7 +518,8 @@ profile_object <- local({
 			"\n\n" %+% "The actual object was an double vector with " %+%
 			traits$length %+% " elements. The elements were " %+%
 			traits$all_nonnegative %+% ", and " %+% traits$all_negative %+%
-			", and were " %+%  traits$all_whole %+%". The vector contained " %+% traits$no_na %+% " na values, and " %+%
+			", and were " %+%  traits$all_whole %+%". The vector contained " %+%
+			traits$no_na %+% " na values, and " %+%
 			traits$no_nan %+% " NaN values." %+%
 			" The vector was of class " %+%
 			dQuote(traits$classes) %+% '.'
