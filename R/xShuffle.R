@@ -26,7 +26,8 @@ xShuffle <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	if (length(coll) == 0) {
 		list()

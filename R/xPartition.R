@@ -39,13 +39,15 @@ xPartition <- function (pred, coll) {
 
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pred, profile_object(pred)) )
 
 	pred <- match.fun(pred)
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	if (length(coll) == 0) {
 		list()

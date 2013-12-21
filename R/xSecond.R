@@ -31,11 +31,13 @@ xSecond <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	assert(
 		length(coll) >= 2, invoking_call,
-		exclaim$must_be_longer_than(coll, 2))
+		exclaim$must_be_longer_than(
+			coll, 2, profile_object(coll)) )
 
 	coll[[2]]
 }

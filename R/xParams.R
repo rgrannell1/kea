@@ -9,7 +9,7 @@
 #'
 #' @section Corner Cases:
 #'	 If \code{fn} is a primitive function a heuristic is used to obtain
-#'	 its parameter names, which may not work for all functions.
+#'	 its parametre names, which may not work for all functions.
 #'
 #' @family
 #'    higher_order_functions
@@ -25,11 +25,12 @@ xParams <- function (fn) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn,	profile_object(fn)) )
 
 	fn <- match.fun(fn)
 

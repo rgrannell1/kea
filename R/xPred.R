@@ -24,11 +24,10 @@ xPred <- function (nums) {
 		!missing(nums), invoking_call,
 		exclaim$parametre_missing(nums))
 
-
-
 	assert(
 		is_collection(nums), invoking_call,
-		exclaim$must_be_collection(nums))
+		exclaim$must_be_collection(
+			nums, profile_object(nums)) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 

@@ -41,7 +41,8 @@ xPermute <- function (coll, colls) {
 
 	assert(
 		all(sapply(colls, length) == length(coll)), invoking_call,
-		exclaim$must_be_collection_of_length(colls, length(coll)) )
+		exclaim$must_be_collection_of_length(
+			colls, length(coll), profile_object(colls)) )
 
 	if (length(coll) == 0) {
 		list()

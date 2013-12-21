@@ -42,15 +42,18 @@ xPluck <- function (str, coll) {
 
 	assert(
 		length(str) == 1, invoking_call,
-		exclaim$must_have_length(str, 1))
+		exclaim$must_have_length(
+			str, 1, profile_object(str)) )
 
 	assert(
 		is_recursive(coll), invoking_call,
-		exclaim$must_be_recursive(coll))
+		exclaim$must_be_recursive(
+			coll, profile_object(coll)) )
 
 	assert(
 		all(sapply(coll, is_recursive)), invoking_call,
-		exclaim$must_be_recursive_of_collections(coll))
+		exclaim$must_be_recursive_of_collections(
+			coll, profile_object(coll)) )
 
 	if (length(coll) == 0) {
 		list()

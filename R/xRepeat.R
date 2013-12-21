@@ -37,15 +37,18 @@ xRepeat <- function (num, coll) {
 
 	assert(
 		length(num) == 1, invoking_call,
-		exclaim$must_have_length(num, 1))
+		exclaim$must_have_length(
+			num, 1, profile_object(num)) )
 
 	assert(
 		num >= 0, invoking_call,
-		exclaim$must_be_grequal_than(num, 0))
+		exclaim$must_be_grequal_than(
+			num, 0, profile_object(num)) )
 
 	assert(
 		round(num) == num, invoking_call,
-		exclaim$must_be_whole(num))
+		exclaim$must_be_whole(
+			num, profile_object(num)))
 
 	# a lot of assertions for a very simple function :/
 
