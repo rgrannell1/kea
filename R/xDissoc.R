@@ -30,7 +30,8 @@ xDissoc <- function (coll) {
 
 	assert(
 		length(names(coll)) == length(coll), invoking_call,
-		exclaim$must_be_named(coll))
+		exclaim$must_be_named(
+			coll, profile_object(coll)) )
 
 	if (length(coll) == 0) {
 		list()

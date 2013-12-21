@@ -38,15 +38,18 @@ xFlatten <- function (num, coll) {
 
 	assert(
 		num > 0, invoking_call,
-		exclaim$must_be_greater_than(num, 0))
+		exclaim$must_be_greater_than(
+			num, 0, profile_object(num)) )
 
 	assert(
 		round(num) == num, invoking_call,
-		exclaim$must_be_whole(num))
+		exclaim$must_be_whole(
+			num, profile_object(num)) )
 
 	assert(
 		is_recursive(coll), invoking_call,
-		exclaim$must_be_recursive(coll))
+		exclaim$must_be_recursive(
+			coll, profile_object(coll)) )
 
 	if (length(coll) == 0) {
 		list()

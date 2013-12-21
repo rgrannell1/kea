@@ -52,168 +52,191 @@ exclaim <- list(
 			"the argument matching " %+% dQuote(param) %+%
 			" must be a list, a pairlist or a typed vector." %+%
 			profile
+
 		},
 	must_be_function =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a function."
+			" must be a function." %+%
+			profile
 
 		},
 	must_be_collection_of_length =
-		function (param, length) {
+		function (param, length, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the function matching " %+% dQuote(param) %+%
-			" must be a collection of length " %+% length %+% " values."
+			" must be a collection of length " %+% length %+% " values." %+%
+			profile
 
 		},
 	must_be_unary =
-		function (param) {
+		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
 			"the function matching " %+% dQuote(param) %+%
-			" must be a unary function."
+			" must be a unary function." %+%
+			profile
+
 		},
 	must_be_binary =
-		function (param) {
+		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
 			"the function matching " %+% dQuote(param) %+%
-			" must be a binary function."
+			" must be a binary function." %+%
+			profile
+
 		},
 	must_be_recursive =
-		function (param) {
+		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a list or a pairlist."
+			" must be a list or a pairlist." %+%
+			profile
+
 		},
 	must_be_recursive_of_matchable =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the arguments matching " %+% dQuote(param) %+%
 			" must all be functions, or symbols or strings" %+%
-			" that can be looked-up as functions."
+			" that can be looked-up as functions." %+%
+			profile
 
 		},
 	must_be_numeric =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a double or an integer."
+			" must be a double or an integer." %+%
+			profile
 
 		},
 	must_be_character =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a character vector."
+			" must be a character vector." %+%
+			profile
 
 		},
 	must_be_string	 =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a length one character vector."
+			" must be a length one character vector." %+%
+			profile
 
 		},
 	must_be_whole =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a whole number."
+			" must be a whole number." %+%
+			profile
+
 		},
 	must_have_length =
-		function (param, lengths) {
+		function (param, lengths, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			lengths <- paste(lengths, collapse = " or ")
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must have length " %+% lengths
+			" must have length " %+% lengths %+% "." %+%
+			profile
 
 		},
 	must_be_longer_than =
-		function (param, length) {
+		function (param, length, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must have length longer than " %+% length
+			" must have length longer than " %+% length %+% "." %+%
+			profile
 
 		},
 	must_be_lequal_than =
-			function (param, length) {
+			function (param, length, profile = '') {
 
 				param <- paste(match.call()$param)
 
 				"the argument matching " %+% dQuote(param) %+%
-				" must have length equal or longer than " %+% length
+				" must have length equal or longer than " %+% length %+%
+				"."  %+% profile
 
 			},
 	must_be_greater_than =
-		function (param, size) {
+		function (param, size, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the number matching " %+% dQuote(param) %+%
-			" must be larger than " %+% size
+			" must be larger than " %+% size %+% "." %+%
+			profile
 
 		},
 	must_be_greater_than =
-		function (param, size) {
+		function (param, size, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the number matching " %+% dQuote(param) %+%
-			" must be greater than " %+% size
+			" must be greater than " %+% size %+% "." %+%
+			profile
 
 		},
 	must_be_grequal_than =
-		function (param, size) {
+		function (param, size, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the number matching " %+% dQuote(param) %+%
-			" must be greater or equal to " %+% size
+			" must be greater or equal to " %+% size %+% "." %+%
+			profile
 
 		},
 	must_be_recursive_of_collections =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the arguments matching " %+% dQuote(param) %+%
-			" must all be lists, vectors or pairlists."
+			" must all be lists, vectors or pairlists." %+%
+			profile
 
 		},
 	type_coersion_failed =
-		function (param, mode) {
+		function (param, mode, profile = '') {
 
 			# does not match param; param is handed in as a symbol.
 
 			"the arguments matching " %+% dQuote(param) %+%
 			" must be a list or pairlist of " %+% mode %+% "s" %+%
-			", or a " %+% mode %+% " vector."
+			", or a " %+% mode %+% " vector." %+%
+			profile
 
 		},
 	method_not_found =
-		function (name, contents_are, similar) {
+		function (name, contents_are, similar, profile = '') {
 
 			if (length(similar) == 0) {
 				"could not find the method " %+% name %+% "."
@@ -225,55 +248,65 @@ exclaim <- list(
 			}
 		},
 	must_be_named =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a named collection."
+			" must be a named collection." %+%
+			profile
+
 		},
 	must_have_equal_lengths =
-		function (name1, name2) {
+		function (name1, name2, profile = '') {
 
 			name1 <- paste(match.call()$name1)
 			name2 <- paste(match.call()$name2)
 
 			"both " %+% name1 %+% " and " %+% name2 %+%
-			" must have equal lengths."
+			" must have equal lengths." %+%
+			profile
+
 		},
 	variable_non_existent =
-		function (name) {
+		function (name, profile = '') {
 
 			name <- paste(match.call()$param)
 
-			"no variable exists by the name " %+% name
+			"no variable exists by the name " %+% name %+%
+			profile
+
 		},
 	binding_is_locked =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" cannot point to a locked variable."
+			" cannot point to a locked variable." %+%
+			profile
+
 		},
 	must_be_params_of =
-		function (names, fn) {
+		function (names, fn, profile = '') {
 
 			names <- paste(match.call()$names)
 			fn <- paste(match.call()$fn)
 
 			"the elements of " %+% names %+%
-			" must be parametre names of " %+% fn
+			" must be parametre names of " %+% fn %+% "." %+%
+			profile
+
 		},
 	warning_higher_order =
-		function (fn, warn) {
+		function (fn, warn, profile = '') {
 
 			"a warning occurred while executing a function passed to " %+% fn %+% ":\n" %+%
 			dQuote(warn$message)
 
 		},
 	error_higher_order =
-		function (fn, err) {
+		function (fn, err, profile = '') {
 
 			"an error occurred while executing a function passed to " %+% fn %+% ":\n\n" %+%
 			dQuote(err$message)
@@ -303,7 +336,7 @@ newline <- function (val) {
 
 lament <- list(
 	null_cases =
-		function (info) {
+		function (info, profile = '') {
 
 			param <- paste(match.call()$param)
 
@@ -312,7 +345,7 @@ lament <- list(
 				call. = False)
 		},
 	non_function_cases =
-		function (info) {
+		function (info, profile = '') {
 
 			param <- paste(match.call()$param)
 
@@ -321,7 +354,7 @@ lament <- list(
 				call. = False)
 		},
 	non_boolean_expectation =
-		function (info, case) {
+		function (info, case, profile = '') {
 
 			stop(info, "\n",
 				"expectation returned a non-boolean ",
@@ -329,14 +362,14 @@ lament <- list(
 				ddparse(case), call. = False)
 		},
 	non_singular_expectation =
-		function (info, len) {
+		function (info, len, profile = '') {
 
 			stop(info, "\n",
 				"expectation returned a non-length-one ",
 				"value (actual length was ", len , ")", call. = False)
 		},
 	failed_cases =
-		function (info, after, failed) {
+		function (info, after, failed, profile = '') {
 
 			cases <- sapply(lapply(failed, unname), ddparse)
 			cases <- newline(cases[ seq_along( min(10, length(cases)) ) ])

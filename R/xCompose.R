@@ -36,11 +36,13 @@ xCompose <- function (fns) {
 
 	assert(
 		is_recursive(fns), invoking_call,
-		exclaim$must_be_recursive(fns))
+		exclaim$must_be_recursive(
+			fns, profile_object(fns)) )
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
-		exclaim$must_be_recursive_of_matchable("fns"))
+		exclaim$must_be_recursive_of_matchable(
+			fns, profile_object(fns)) )
 
 	fns <- lapply(fns, match.fun)
 

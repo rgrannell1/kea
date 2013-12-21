@@ -45,15 +45,18 @@ xSegment <- function (num, coll) {
 
 	assert(
 		length(num) %in% 0:1, invoking_call,
-		exclaim$must_have_length(num, 0:1))
+		exclaim$must_have_length(
+			num, 0:1, profile_object(num)) )
 
 	assert(
 		num > 0, invoking_call,
-		exclaim$must_be_greater_than(num, 0))
+		exclaim$must_be_greater_than(
+			num, 0, profile_object(num)) )
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	if (length(coll) == 0) {
 		list()

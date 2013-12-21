@@ -46,11 +46,13 @@ xApply <- function (fn, coll) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, profile_object(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	fn <- match.fun(fn)
 

@@ -36,13 +36,15 @@ xExists <- function (pred, colls) {
 
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pre, profile_object(pred)) )
 
 	pred <- match.fun(pred)
 
 	assert(
 		all(sapply(colls, is_collection)), invoking_call,
-		exclaim$must_be_recursive_of_collections(colls))
+		exclaim$must_be_recursive_of_collections(
+			colls, profile_object(colls)) )
 
 	coll_lengths <- sapply(colls, length)
 

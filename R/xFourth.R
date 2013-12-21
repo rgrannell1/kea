@@ -30,11 +30,13 @@ xFourth <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	assert(
 		length(coll) >= 4, invoking_call,
-		exclaim$must_be_longer_than(coll, 3))
+		exclaim$must_be_longer_than(
+			coll, 3, profile_object(coll)) )
 
 	coll[[4]]
 }

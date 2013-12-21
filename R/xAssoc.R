@@ -31,11 +31,13 @@ xAssoc <- function (colls) {
 
 	assert(
 		is_recursive(colls), invoking_call,
-		exclaim$must_be_recursive(colls))
+		exclaim$must_be_recursive(
+			colls, profile_object(colls)) )
 
 	assert(
 		all(sapply(colls, length) == 2), invoking_call,
-		exclaim$must_be_collection_of_length(colls, 2))
+		exclaim$must_be_collection_of_length(
+			colls, 2, profile_object(colls)) )
 
 	if (length(colls) == 0) {
 		list()

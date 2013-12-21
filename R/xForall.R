@@ -36,15 +36,14 @@ xForall <- function (pred, colls) {
 
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pred, profile_object(pred)) )
 
 	pred <- match.fun(pred)
 
-
 	assert(
-		all( sapply(colls, function (coll) {
-			is_collection(coll)
-		}) ), invoking_call)
+		all(sapply(colls, is_collection)),
+		invoking_call)
 
 	coll_lengths <- sapply(colls, length)
 
