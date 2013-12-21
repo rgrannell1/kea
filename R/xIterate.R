@@ -38,7 +38,8 @@ xIterate <- function (fn, init) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, profile_object(fn)) )
 
 	fn <- match.fun(fn)
 

@@ -35,15 +35,18 @@ xLimit <- function (fn, num) {
 
 	assert(
 		length(num) %in% 0:1, invoking_call,
-		exclaim$must_have_length(num, 0:1))
+		exclaim$must_have_length(
+			num, 0:1, profile_object(num)) )
 
 	assert(
 		num > 0, invoking_call,
-		exclaim$must_be_whole(num))
+		exclaim$must_be_whole(
+			num, profile_object(num)) )
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, profile_object(fn)) )
 
 	fn <- match.fun(fn)
 

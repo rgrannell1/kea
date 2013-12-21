@@ -27,7 +27,8 @@ xInter <- function (colls) {
 		all( sapply(colls, function (coll) {
 			is_collection(coll)
 		}) ), invoking_call,
-		exclaim$must_be_collection_of_length(colls))
+		exclaim$must_be_collection_of_length(
+			colls, profile_object(colls)) )
 
 	if (length(colls) == 0) {
 		list()

@@ -27,11 +27,10 @@ xLength <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parameter_missing(coll))
 
-
-
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	length(coll)
 }

@@ -31,11 +31,13 @@ xLast <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	assert(
 		length(coll) > 0, invoking_call,
-		exclaim$must_be_lequal_than(coll, 0))
+		exclaim$must_be_lequal_than(
+			coll, 0, profile_object(coll)) )
 
 	coll[[ length(coll) ]]
 }
