@@ -317,120 +317,110 @@ modify_call <- function (invoking_call) {
 
 
 
+profile_object <- local({
 
-profile_object <- function (obj) {
-	# any -> string
-	# determine useful information about an arbitrary R object,
-	# to aid in rapid debugging.
 
-	classes <- paste0(class(obj), collapse = ', ')
+	profile <- Object()
 
-	if (is.function(obj)) {
+	profile$closure <-
+		function (obj) {
 
-		traits <- list(
-			function_type =
-				if (is.primitive(obj)) {
-					"primitive "
-				} else {
-					""
-				},
-			arity =
-				if (is.primitive(obj)) {
+			traits <- list(
+				function_type =
+					if (is.primitive(obj)) {
+						"primitive "
+					} else {
+						""
+					},
+				arity =
+					if (is.primitive(obj)) {
 						length( head(as.list(args(obj)), -1) )
 					} else {
 						length(formals(obj))
-				}
-		)
-
-		"the actual object was a " %+% traits$function_type %+%
-		"function with " %+% traits$arity %+% " parameters, " %+%
-		"and with class " %+% dQuote(classes) %+% '.'
-
-	} else if (is.null(obj)) {
-
-		"the object was the value NULL"
-
-	} else if (is.vector(obj) || is.pairlist(obj)) {
-
-		child_types <- Reduce(
-			function (acc, elem) {
-
-				list(
-					'function' =
-						acc$'function' && is.function(elem),
-					logical =
-						acc$logical && is.logical(elem),
-					integer =
-						acc$integer && is.integer(elem),
-					double =
-						acc$double && is.double(elem),
-					complex =
-						acc$complex && is.complex(elem),
-					character =
-						acc$character && is.character(elem),
-					recursive =
-						acc$recursive && is.recursive(elem)
-				)
-			},
-			obj,
-			list(
-				'function' = True,
-				logical = True,
-				integer = True,
-				double = True,
-				complex = True,
-				character = True,
-				recursive = True
+					},
+				classes =
+					paste0(class(obj), collapse = ', ')
 			)
-		)
 
-		traits <- list(
-			length =
-				length(obj),
-			mode =
-				if (is.list(obj)) {
-					"list"
-				} else if (is.pairlist(obj)) {
-					"pairlist"
-				} else {
-					typeof(obj) %+% " vector"
-				}
-		)
-
-		recursive <- if (child_types$recursive) {
-			"was recursive"
-		} else {
-			"was not recursive"
+			" The actual object was a " %+% traits$function_type %+%
+			"function with " %+% traits$arity %+% " parametres, " %+%
+			"and with class " %+% dQuote(traits$classes) %+% '.'
 		}
 
-		homogenous_contents <- names(child_types)[unlist(child_types)]
+	profile$null <-
+		function (obj) {
+			"the actual object was Null."
+		}
 
-		traits$content_summary <-
-			if (length(homogenous_contents) > 0) {
-				"it was homogenously typed with values of type " %+%
-				dQuote(homogenous_contents)
-			} else {
-				""
+	profile$factor <-
+		function (obj) {
+
+			traits <- list(
+				type =
+					if (is.ordered(obj)) {
+						'ordered'
+					} else {
+						'unordered'
+					},
+				levels =
+					length(levels(obj)),
+				length =
+					length(obj),
+				classes =
+					paste0(class(obj), collapse = ', ')
+
+			)
+
+			" The actual object was a " %+% traits$type %+%
+			" factor with " %+%
+			traits$length %+% " elements and " %+%
+			traits$levels %+% " levels, of class " %+%
+			dQuote(traits$classes) %+% '.'
+
+		}
+
+	profile$default <-
+		function (obj) {
+
+			" The actual object was of class " %+%
+			dQuote(traits$classes) %+% '.'
+		}
+
+
+
+
+	function (obj) {
+		# return the appropriate string summary,
+		# depending on the type of object supplied.
+
+		response_pairs <- list(
+			list(
+				is.function,
+				profile$closure),
+			list(
+				is.null,
+				profile$null),
+			list(
+				is.factor,
+				profile$factor)
+
+		)
+
+		for (pair in response_pairs) {
+
+			test <- pair[[1]]
+			response <- pair[[2]]
+
+			if (test(obj)) {
+				return (response(obj))
 			}
-
-		if (length(obj) == 0) {
-			# the vector was empty.
-
-			"the object was a " %+% traits$mode %+% " of length " %+%
-			traits$length %+% ". It has class " %+% dQuote(classes) %+% '.'
-
-		} else {
-			# the vector had contents.
-
-			"the object was a " %+% traits$mode %+% " of length " %+%
-			traits$length %+% ". It " %+% recursive %+% ". " %+%
-			traits$content_summary %+%
-			". It has class " %+% dQuote(classes) %+% '.'
 		}
 
-
+		profile$default(obj)
 	}
+})
 
 
 
-}
+
+

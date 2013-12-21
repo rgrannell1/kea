@@ -22,13 +22,13 @@
 
 exclaim <- list(
 	parameter_missing =
-		function (param) {
+		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
 			"the parameter " %+% dQuote(param) %+% " is required but was missing."
 		},
 	must_be_matchable =
-		function (param) {
+		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
@@ -37,19 +37,21 @@ exclaim <- list(
 
 		},
 	must_be_nameable =
-		function (param) {
+		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
 			" a symbol or string."
+
 		},
 	must_be_collection =
-		function (param) {
+		function (param, profile = '') {
 
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a list, a pairlist or a typed vector."
+			" must be a list, a pairlist or a typed vector." %+%
+			profile
 		},
 	must_be_function =
 		function (param) {
