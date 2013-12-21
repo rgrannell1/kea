@@ -24,10 +24,9 @@ xUnion <- function (colls) {
 	invoking_call <- sys.call()
 
 	assert(
-		all( sapply(colls, function (coll) {
-			is_collection(coll)
-		}) ), invoking_call,
-		exclaim$must_be_collection_of_length(colls))
+		all( sapply(colls, is_collection) ), invoking_call,
+		exclaim$must_be_recursive_of_collections(
+			colls, profile_object(colls)) )
 
 	if (length(colls) == 0) {
 		list()

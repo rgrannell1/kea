@@ -40,7 +40,7 @@ xWait <- function (fn, num) {
 
 	assert(
 		is.numeric(num) && num >= 0, invoking_call,
-		exclaim$must_be_greater_than(num, 0))
+		exclaim$must_be_greater_than(num, 0, profile_object(num)) )
 
 	fn <- match.fun(fn)
 	remove(invoking_call)

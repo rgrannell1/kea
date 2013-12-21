@@ -41,14 +41,15 @@ xUnfold <- function (pred, fn, init) {
 		!missing(init), invoking_call,
 		exclaim$parametre_missing(init))
 
-
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pred, profile_object(pred)) )
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, profile_object(fn)) )
 
 	fn <- match.fun(fn)
 	pred <- match.fun(pred)
