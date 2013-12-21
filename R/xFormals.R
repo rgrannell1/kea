@@ -7,12 +7,12 @@
 #'    fn an arbitrary function.
 #'
 #' @return
-#'    A named list, where each element's name is a parameter in f and each value
-#'	  is the default value of that parameter.
+#'    A named list, where each element's name is a parametre in f and each value
+#'	  is the default value of that parametre.
 #'
 #' @section Corner Cases:
 #'    If \code{fn} is a primitive function a heuristic is used to obtain
-#'    its formals. If a parameter has no default, the value of the
+#'    its formals. If a parametre has no default, the value of the
 #'    corresponding element in the retun value will be the empty symbol,
 #'    which is identical to \code{quote(expr=)}.
 #'
@@ -30,7 +30,7 @@ xFormals <- function (fn) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

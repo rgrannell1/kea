@@ -28,11 +28,11 @@ xSplitWith <- function (pred, coll) {
 
 	assert(
 		!missing(pred), invoking_call,
-		exclaim$parameter_missing(pred))
+		exclaim$parametre_missing(pred))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 
 

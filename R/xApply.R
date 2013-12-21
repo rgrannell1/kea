@@ -16,7 +16,7 @@
 #'
 #' @param
 #'    coll a list or pairlist. This may be named, but
-#'    all names must be parameters of \code{fn}.
+#'    all names must be parametres of \code{fn}.
 #'
 #' @return
 #'    the return value of \code{fn}.
@@ -38,11 +38,11 @@ xApply <- function (fn, coll) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

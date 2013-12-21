@@ -31,11 +31,12 @@ xNot <- function (pred) {
 
 	assert(
 		!missing(pred), sys.call(),
-		exclaim$parameter_missing(pred))
+		exclaim$parametre_missing(pred))
 
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pred, profile_object(pred)) )
 
 	remove(invoking_call)
 

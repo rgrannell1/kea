@@ -28,7 +28,7 @@ xConst <- function (val) {
 
 	assert(
 		!missing(val), sys.call(),
-		exclaim$parameter_missing(val))
+		exclaim$parametre_missing(val))
 
 	function (...) {
 		"a function created xConst."

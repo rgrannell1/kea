@@ -10,7 +10,7 @@ xLimit(fn, num)
   \item{num}{a positive whole number.}
 }
 \value{
-a function with the same parameters as \code{fn}.
+a function with the same parametres as \code{fn}.
 }
 \description{
 Create a function that can call its underlying function a

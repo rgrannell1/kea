@@ -26,7 +26,7 @@ xCollapse <- function (str, strs) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	assert(
 		is_collection(str), invoking_call,

@@ -24,7 +24,7 @@ xChars <- function (str) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	str <- as_typed_vector(str, 'character')
 

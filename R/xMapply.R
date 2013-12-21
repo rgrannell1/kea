@@ -26,7 +26,7 @@
 #'    higher_order_functions
 #'
 #' @family
-#'    map_like_functions
+#'    mapping_functions
 #'
 #' @family
 #'    collection_functions
@@ -41,19 +41,21 @@ xMapply <- function (fn, coll) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, profile_object(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	fn <- match.fun(fn)
 	if (length(coll) == 0) {

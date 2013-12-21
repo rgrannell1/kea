@@ -11,7 +11,7 @@
 #'    num a positive whole number.
 #'
 #' @return
-#'    a function with the same parameters as \code{fn}.
+#'    a function with the same parametres as \code{fn}.
 #'
 #' @family
 #'    higher_order_functions
@@ -25,11 +25,11 @@ xLimit <- function (fn, num) {
 
 	assert(
 		!missing(num), invoking_call,
-		exclaim$parameter_missing(num))
+		exclaim$parametre_missing(num))
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	num <- as_typed_vector(num, 'numeric', True)
 

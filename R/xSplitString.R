@@ -21,11 +21,11 @@ xSplitString <- function (rexp, str) {
 
 	assert(
 		!missing(rexp), invoking_call,
-		exclaim$parameter_missing(rexp))
+		exclaim$parametre_missing(rexp))
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	str <- as_typed_vector(str, "character", False)
 	rexp <- as_typed_vector(rexp, "character", True)

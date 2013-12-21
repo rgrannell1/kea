@@ -17,7 +17,7 @@ Recursively map a function into a nested collection,
 preserving its structure.
 }
 \seealso{
-Other higher_order_functions map_like_functions
+Other higher_order_functions mapping_functions
 collection_functions: \code{\link{xFlatMap}};
 \code{\link{xMapIndexed}}; \code{\link{xMapMany}};
 \code{\link{xMapWhen}}; \code{\link{xMapply}};

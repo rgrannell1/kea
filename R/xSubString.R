@@ -24,11 +24,11 @@ xSubString <- function (str, nums) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	assert(
 		!missing(nums), invoking_call,
-		exclaim$parameter_missing(nums))
+		exclaim$parametre_missing(nums))
 
 	str <- as_typed_vector(str, "character", True)
 	nums <- as_typed_vector(nums, "numeric", False)

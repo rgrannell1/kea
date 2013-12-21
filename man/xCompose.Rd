@@ -10,14 +10,14 @@ xCompose(fn1, fn2)
   \item{fn2}{a unary function.}
 }
 \value{
-A function with the same parameters as \code{fn2}.
+A function with the same parametres as \code{fn2}.
 }
 \description{
 Compose two functions.
 }
 \details{
 Unlike some other functions that return functions in Arrow,
-\code{xCompose} preserves the parameters of one of its
+\code{xCompose} preserves the parametres of one of its
 input functions (the right function).  This is not always
 possible for some other functions, but it is included in
 \code{xCompose} as the function is ubiquitous and should be

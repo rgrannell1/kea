@@ -2,7 +2,7 @@
 #' xAsUnary
 #'
 #' Create a function that takes one argument, and applies each element of
-#' that argument as a parameter of its underlying function.
+#' that argument as a parametre of its underlying function.
 #'
 #' @param
 #'    fn an arbitrary function.
@@ -25,7 +25,7 @@ xAsUnary <- function (fn) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

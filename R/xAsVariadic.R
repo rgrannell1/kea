@@ -21,7 +21,7 @@ xAsVariadic <- function (fn) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

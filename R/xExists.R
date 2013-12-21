@@ -32,7 +32,7 @@ xExists <- function (pred, colls) {
 
 	assert(
 		!missing(pred), invoking_call,
-		exclaim$parameter_missing(pred))
+		exclaim$parametre_missing(pred))
 
 	assert(
 		is_fn_matchable(pred), invoking_call,

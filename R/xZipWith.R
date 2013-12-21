@@ -36,7 +36,7 @@ xZipWith <- function (fn, colls) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
@@ -44,7 +44,7 @@ xZipWith <- function (fn, colls) {
 
 	assert(
 		!missing(colls), invoking_call,
-		exclaim$parameter_missing(colls))
+		exclaim$parametre_missing(colls))
 
 	fn <- match.fun(fn)
 

@@ -25,7 +25,7 @@ xThread <- function (init, fns) {
 
 	assert(
 		!missing(init), invoking_call,
-		exclaim$parameter_missing(init))
+		exclaim$parametre_missing(init))
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,

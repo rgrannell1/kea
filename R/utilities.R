@@ -98,10 +98,10 @@ join_env <- function (x, y) {
 	# way of joining two environments.
 
 	if (missing(x)) {
-		exclaim$parameter_missing(x)
+		exclaim$parametre_missing(x)
 	}
 	if (missing(y)) {
-		exclaim$parameter_missing(y)
+		exclaim$parametre_missing(y)
 	}
 
 	as.environment( c(as.list( x ), as.list( y )) )
@@ -113,7 +113,7 @@ is_arrow <- function (val) {
 	# is a function an arrow object?
 
 	if (missing(val)) {
-		exclaim$parameter_missing(val)
+		exclaim$parametre_missing(val)
 	}
 
 	class(val) == "arrow"

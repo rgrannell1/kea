@@ -20,7 +20,7 @@
 #'    higher_order_functions
 #'
 #' @family
-#'    map_like_functions
+#'    mapping_functions
 #'
 #' @family
 #'    collection_functions
@@ -35,7 +35,7 @@ xMapMany <- function (fn, colls) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

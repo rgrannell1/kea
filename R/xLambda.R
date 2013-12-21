@@ -44,7 +44,7 @@ xLambda <- function (formals, body) {
 
 		collect_params <- function (tree, state) {
 			# recur into the formals parse tree, accumulating
-			# parameter names and validating the tree.
+			# parametre names and validating the tree.
 
 			if (is.name(tree)) {
 
@@ -53,7 +53,7 @@ xLambda <- function (formals, body) {
 			} else if (is.call(tree)) {
 
 				if (get$delim(tree) != token$delim()) {
-					# ------ the parameters aren't delimited with ":" ------ #
+					# ------ the parametres aren't delimited with ":" ------ #
 
 					msg <- invoking_call +
 						" the " + ith_suffix(state$pos) +
@@ -64,11 +64,11 @@ xLambda <- function (formals, body) {
 				}
 
 				if ( !is.name(get$param(tree)) ) {
-					# ------ the parameter name is invalid ------ #
+					# ------ the parametre name is invalid ------ #
 
 					msg <- invoking_call +
 						" the " + ith_suffix(state$pos + 1) +
-						" parameter is a non-symbol."
+						" parametre is a non-symbol."
 
 					stop (msg, call. = False)
 				}

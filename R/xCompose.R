@@ -11,7 +11,7 @@
 #'
 #' @details
 #'    Unlike some other functions that return functions in Arrow,
-#'    \code{xCompose} preserves the parameters of one of its input
+#'    \code{xCompose} preserves the parametres of one of its input
 #'    functions (the right function).
 #'    This is not always possible for some other functions, but it
 #'    is included in
@@ -20,7 +20,7 @@
 #'    the risk of making Arrow less consistent.
 #'
 #' @return
-#'    A function with the same parameters as \code{fn2}.
+#'    A function with the same parametres as \code{fn2}.
 #'
 #' @family
 #'    higher_order_functions

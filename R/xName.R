@@ -28,15 +28,16 @@ xName <- function (strs, coll) {
 
 	assert(
 		!missing(strs), invoking_call,
-		exclaim$parameter_missing(strs))
+		exclaim$parametre_missing(strs))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	assert(
 		is_collection(strs), invoking_call,
-		exclaim$must_be_collection(strs))
+		exclaim$must_be_collection(
+			strs, profile_object(strs)) )
 
 	strs <- as_typed_vector(strs, 'character')
 

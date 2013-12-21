@@ -17,7 +17,7 @@
 #'    a positive whole number.
 #'
 #' @section Corner Cases:
-#'    If \code{fn} has an ellipsis (...) parameter then \code{+Inf} is returned, as the
+#'    If \code{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
 #'    function can accept an infinite number of arguments.
 #'
 #' @family
@@ -33,7 +33,7 @@ xArity <- function (fn) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

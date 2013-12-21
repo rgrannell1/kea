@@ -36,11 +36,11 @@ xReducer <- function (fn, coll) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

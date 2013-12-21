@@ -22,7 +22,7 @@ xGet <- function (str) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	assert(
 		is.character(str), invoking_call,

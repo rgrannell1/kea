@@ -1,7 +1,7 @@
 
 #' xHasDefs
 #'
-#' Return a boolean vector showing which parameters of a function has defaults.
+#' Return a boolean vector showing which parametres of a function has defaults.
 #'
 #' @param
 #'    fn an arbitrary function.
@@ -17,13 +17,13 @@
 
 xHasDefs <- function (fn) {
 	# function -> named Vector boolean
-	# which of f's parameters have non-empty defaults?
+	# which of f's parametres have non-empty defaults?
 
 	invoking_call <- sys.call()
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 
 

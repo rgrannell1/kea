@@ -31,15 +31,15 @@ xUnfold <- function (pred, fn, init) {
 
 	assert(
 		!missing(pred), invoking_call,
-		exclaim$parameter_missing(pred))
+		exclaim$parametre_missing(pred))
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(init), invoking_call,
-		exclaim$parameter_missing(init))
+		exclaim$parametre_missing(init))
 
 
 	assert(

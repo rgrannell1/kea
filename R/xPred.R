@@ -22,7 +22,7 @@ xPred <- function (nums) {
 
 	assert(
 		!missing(nums), invoking_call,
-		exclaim$parameter_missing(nums))
+		exclaim$parametre_missing(nums))
 
 
 

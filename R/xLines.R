@@ -20,11 +20,12 @@ xLines <- function (str) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	assert(
 		length(str) %in% 0:1, invoking_call,
-		exclaim$must_have_length(0:1))
+		exclaim$must_have_length(
+			str, 0:1, profile_object(str)) )
 
 	str <- as_typed_vector(str, 'character')
 

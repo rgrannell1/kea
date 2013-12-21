@@ -25,11 +25,11 @@ xVal <- function (str, val) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	assert(
 		!missing(val), invoking_call,
-		exclaim$parameter_missing(val))
+		exclaim$parametre_missing(val))
 
 	str <- toString(match.call()$str)
 	str <- as_typed_vector(str, 'character', True)

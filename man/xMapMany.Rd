@@ -21,7 +21,7 @@ Map a function across many collections simultaneously.
   recycled in the shorter collections.
 }
 \seealso{
-Other higher_order_functions map_like_functions
+Other higher_order_functions mapping_functions
 collection_functions: \code{\link{xFlatMap}};
 \code{\link{xMapIndexed}}; \code{\link{xMapWhen}};
 \code{\link{xMapply}}; \code{\link{xMap}};

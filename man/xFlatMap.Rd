@@ -20,7 +20,7 @@ element of a collection.
   returns the empty list if \code{coll} is length-zero.
 }
 \seealso{
-Other higher_order_functions map_like_functions
+Other higher_order_functions mapping_functions
 collection_functions: \code{\link{xMapIndexed}};
 \code{\link{xMapMany}}; \code{\link{xMapWhen}};
 \code{\link{xMapply}}; \code{\link{xMap}};

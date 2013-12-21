@@ -14,18 +14,18 @@
 #
 # assert(
 #    !missing(pred), invoking_call,
-#    exclaim$parameter_missing(pred))
+#    exclaim$parametre_missing(pred))
 #
 # invoking_call gives the exact command used to call the function that
 # threw the error.
 #
 
 exclaim <- list(
-	parameter_missing =
+	parametre_missing =
 		function (param, profile = '') {
 			param <- paste(match.call()$param)
 
-			"the parameter " %+% dQuote(param) %+% " is required but was missing."
+			"the parametre " %+% dQuote(param) %+% " is required but was missing."
 		},
 	must_be_matchable =
 		function (param, profile = '') {

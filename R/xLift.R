@@ -26,23 +26,26 @@ xLift <- function (fn, fns) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(fns), invoking_call,
-		exclaim$parameter_missing(fns))
+		exclaim$parametre_missing(fns))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, profile_object(fn)) )
 
 	assert(
 		is_collection(fns), invoking_call,
-		exclaim$must_be_collection(fns))
+		exclaim$must_be_collection(
+			fns, profile_object(fns)) )
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
-		exclaim$must_be_recursive_of_matchable("fns"))
+		exclaim$must_be_recursive_of_matchable(
+			fns, profile_object(fns)) )
 
 	fn <- match.fun(fn)
 	fns <- lapply(fns, match.fun)

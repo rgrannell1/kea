@@ -22,7 +22,7 @@ xIdentity <- function (val) {
 
 	assert(
 		!missing(val), invoking_call,
-		exclaim$parameter_missing(val))
+		exclaim$parametre_missing(val))
 
 	val
 }

@@ -27,11 +27,11 @@ xRepeat <- function (num, coll) {
 
 	assert(
 		!missing(num), invoking_call,
-		exclaim$parameter_missing(num))
+		exclaim$parametre_missing(num))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	num <- as_typed_vector(num, "numeric", True)
 

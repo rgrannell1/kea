@@ -29,10 +29,10 @@ xIsMember <- function (val, coll) {
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 	assert(
 		!missing(val), invoking_call,
-		exclaim$parameter_missing(val))
+		exclaim$parametre_missing(val))
 
 	assert(
 		is_collection(coll), invoking_call,

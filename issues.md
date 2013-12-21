@@ -45,9 +45,9 @@ Issue Tracker
 - [x] #7 ensure all function that take a collection/vector take a list or pairlist of length-one elements.
 - [x] #4 xRest's type signature should include non-list collections.
 - [x] #5 possible issue in functions using vapply; names are sometimes preserved. Check every function, then close issue.
-- [x] #8 replace the parameter name 'f' with something more descriptive (closure?).
+- [x] #8 replace the parametre name 'f' with something more descriptive (closure?).
 - [x] #13 add a description to xSplitWith.
-- [x] #16 rename parameter traits$collection to "coll".
+- [x] #16 rename parametre traits$collection to "coll".
 - [x] #11 rename all predicates to pred, functions to fn, collections to ?
 - [x] #20 reimplemented the x_( ) monad, without partial application and with acceptable efficiency.
 - [x] #17 force (a -> boolean) functions to throw an error is non-boolean values is returned.

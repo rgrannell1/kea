@@ -22,7 +22,7 @@
 #'    higher_order_functions
 #'
 #' @family
-#'    map_like_functions
+#'    mapping_functions
 #'
 #' @family
 #'    collection_functions
@@ -38,15 +38,15 @@ xMapWhen <- function (pred, fn, coll) {
 
 	assert(
 		!missing(pred), invoking_call,
-		exclaim$parameter_missing(pred))
+		exclaim$parametre_missing(pred))
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	assert(
 		is_fn_matchable(pred), invoking_call,

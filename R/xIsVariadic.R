@@ -13,13 +13,13 @@
 
 xIsVariadic <- function (fn) {
 	# function -> Vector boolean
-	# is ... in fn's parameters?
+	# is ... in fn's parametres?
 
 	invoking_call <- sys.call()
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 
 

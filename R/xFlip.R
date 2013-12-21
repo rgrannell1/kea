@@ -16,13 +16,13 @@
 
 xFlip <- function (fn) {
 	# function -> function
-	#' reverse the parameters of a function.
+	#' reverse the parametres of a function.
 
 	invoking_call <- sys.call()
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

@@ -21,7 +21,7 @@ xAsVar <- function (str) {
 
 	assert(
 		!missing(str), invoking_call,
-		exclaim$parameter_missing(str))
+		exclaim$parametre_missing(str))
 
 	str <- toString(match.call()$str)
 

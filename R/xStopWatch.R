@@ -23,7 +23,7 @@ xStopWatch <- function (num) {
 
 	assert(
 		!missing(num), sys.call(),
-		exclaim$parameter_missing(num))
+		exclaim$parametre_missing(num))
 
 	num <- as_typed_vector(num, 'numeric', True)
 

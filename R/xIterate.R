@@ -27,11 +27,11 @@ xIterate <- function (fn, init) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(init), invoking_call,
-		exclaim$parameter_missing(init))
+		exclaim$parametre_missing(init))
 
 	assert(
 		!is.primitive(fn), invoking_call)

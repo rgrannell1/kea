@@ -27,7 +27,7 @@ xAssoc <- function (colls) {
 
 	assert(
 		!missing(colls), invoking_call,
-		exclaim$parameter_missing(colls))
+		exclaim$parametre_missing(colls))
 
 	assert(
 		is_recursive(colls), invoking_call,

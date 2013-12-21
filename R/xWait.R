@@ -11,7 +11,7 @@
 #'    num a nonnegative whole number.
 #'
 #' @return
-#'    a function with the same parameters as \code{fn}.
+#'    a function with the same parametres as \code{fn}.
 #'
 #' @section Corner Cases:
 #'    if \code{num} is zero then \code{fn} is returned untouched.
@@ -28,11 +28,11 @@ xWait <- function (fn, num) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(num), invoking_call,
-		exclaim$parameter_missing(num))
+		exclaim$parametre_missing(num))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

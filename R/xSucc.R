@@ -22,7 +22,7 @@ xSucc <- function (nums) {
 
 	assert(
 		!missing(nums), invoking_call,
-		exclaim$parameter_missing(nums))
+		exclaim$parametre_missing(nums))
 
 	assert(
 		is_collection(nums), invoking_call,

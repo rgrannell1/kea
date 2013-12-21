@@ -38,15 +38,15 @@ xFoldl <- function (fn, init, coll) {
 
 	assert(
 		!missing(fn), invoking_call,
-		exclaim$parameter_missing(fn))
+		exclaim$parametre_missing(fn))
 
 	assert(
 		!missing(init), invoking_call,
-		exclaim$parameter_missing(init))
+		exclaim$parametre_missing(init))
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

@@ -3038,7 +3038,7 @@ x_ <- function (val) {
 
 	assert(
 		!missing(val), invoking_call,
-		exclaim$parameter_missing(val))
+		exclaim$parametre_missing(val))
 
 	if ('arrow' %in% class(val)) {
 		val

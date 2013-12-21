@@ -14,7 +14,7 @@ message("xAsClosure")
 	)
 
 	forall(
-		"parameters are preserveds.",
+		"parametres are preserveds.",
 		test_cases$base_primitive,
 		{
 			closure <- xAsClosure(fn)

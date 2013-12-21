@@ -12,7 +12,7 @@ a named vector of true of false value of the same length as
 the arity of \code{fn}.
 }
 \description{
-Return a boolean vector showing which parameters of a
+Return a boolean vector showing which parametres of a
 function has defaults.
 }
 \section{Corner Cases}{

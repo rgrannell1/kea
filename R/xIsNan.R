@@ -24,7 +24,7 @@ xIsNan <- function (coll) {
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parameter_missing(coll))
+		exclaim$parametre_missing(coll))
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(coll))

@@ -12,7 +12,7 @@ a unary function of x.
 }
 \description{
 Create a function that takes one argument, and applies each
-element of that argument as a parameter of its underlying
+element of that argument as a parametre of its underlying
 function.
 }
 \seealso{
