@@ -13,13 +13,15 @@ message('xSplitString')
 	forall(
 		"splitting an empty string is the empty string",
 		test_cases$str_word,
-		xSplitString(str, '') %equals% ''
+		xSplitString(str, '') == ''
 	)
 
 	forall(
 		"splitting an empty string is the empty string",
 		test_cases$str_word,
-		xSplitString(str, paste0('a', str)) %equals% 'a'
+		xSplitString(str, paste0('a', str)) == 'a',
+	given =
+		!('a' %in% strsplit('', str)[[1]])
 	)
 
 message('arrow $ xSplitString')
@@ -27,13 +29,17 @@ message('arrow $ xSplitString')
 	forall(
 		"splitting an empty string is the empty string",
 		test_cases$str_word,
-		x_(paste0('a', str))$xSplitString(str)$x() %equals% 'a'
+		x_(paste0('a', str))$xSplitString(str)$x() == 'a',
+		given =
+			!('a' %in% strsplit('', str)[[1]])
 	)
 
-message('arrow $ x_SplitString')
+	message('arrow $ x_SplitString')
 
-	forall(
-		"splitting an empty string is the empty string",
-		test_cases$str_word,
-		x_(paste0('a', str))$x_SplitString(str) %equals% 'a'
-	)
+		forall(
+			"splitting an empty string is the empty string",
+			test_cases$str_word,
+			x_(paste0('a', str))$x_SplitString(str) == 'a',
+		given =
+			!('a' %in% strsplit('', str)[[1]])
+		)

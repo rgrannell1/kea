@@ -54,7 +54,7 @@ message("arrow $ xReduce")
 			length(coll) > 0
 	)
 
-message("arrow $ xReduce")
+message("arrow $ x_Reduce")
 
 	forall(
 		"collection $ x_Reduce",

@@ -33,12 +33,6 @@ message('collection $ xTake')
 
 message('collection $ xTake...')
 
-	forall(
-		"taking from the empty collection is the empty collection.",
-		test_cases$nonnegative_with_collection_zero,
-		x_(coll)$xTake...(num)$x() %equals% list()
-	)
-
 message('collection $ x_Take')
 
 	forall(
@@ -49,8 +43,3 @@ message('collection $ x_Take')
 
 message('collection $ x_Take...')
 
-	forall(
-		"taking from the empty collection is the empty collection.",
-		test_cases$nonnegative_with_collection_zero,
-		x_(coll)$x_Take...(num) %equals% list()
-	)
