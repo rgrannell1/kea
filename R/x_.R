@@ -1188,11 +1188,11 @@ x_coll_proto <- local({
 			x_( xMapply...(fn, self_(), ...) )
 		}
 
-	this$xMapply <-
+	this$x_Mapply <-
 		function (fn) {
 			xMapply(fn, self_())
 		}
-	this$xMapply... <-
+	this$x_Mapply... <-
 		function (fn, ...) {
 			xMapply...(fn, self_(), ...)
 		}
@@ -2553,11 +2553,11 @@ x_fn_proto <- local({
 			x_( xMapply...(self_(), ...) )
 		}
 
-	this$xMapply <-
+	this$x_Mapply <-
 		function (coll) {
 			xMapply(self_(), coll)
 		}
-	this$xMapply... <-
+	this$x_Mapply... <-
 		function (...) {
 			xMapply...(self_(), ...)
 		}

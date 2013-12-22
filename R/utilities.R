@@ -320,7 +320,7 @@ modify_call <- function (invoking_call) {
 
 
 profile_object <- local({
-
+	# Returns a string of information about an input object.
 
 	profile <- Object()
 

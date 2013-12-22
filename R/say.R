@@ -302,15 +302,21 @@ exclaim <- list(
 	warning_higher_order =
 		function (fn, warn, profile = '') {
 
-			"a warning occurred while executing a function passed to " %+% fn %+% ":\n" %+%
-			dQuote(warn$message)
+			"a warning occurred while executing a function passed to " %+%
+			fn %+% ":\n" %+%
+			dQuote(
+				paste0(deparse(warn$call), collapse = '') %+% ":\n" %+%
+				paste0(warn$message, collapse = ''))
 
 		},
 	error_higher_order =
 		function (fn, err, profile = '') {
 
-			"an error occurred while executing a function passed to " %+% fn %+% ":\n\n" %+%
-			dQuote(err$message)
+			"an error occurred while executing a function passed to " %+%
+			fn %+% ":\n\n" %+%
+			dQuote(
+				paste0(deparse(err$call), collapse = '') %+% ":\n" %+%
+				paste0(err$message, collapse = ''))
 
 		}
 )
