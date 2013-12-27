@@ -315,17 +315,6 @@ modify_call <- function (invoking_call) {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 profile_object <- local({
 	# Returns a string of information about an input object.
 
@@ -389,15 +378,33 @@ profile_object <- local({
 
 			traits <- list(
 				classes =
-					paste0(class(obj), collapse = ', ')
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% "The actual object was of class " %+%
-			dQuote(traits$classes) %+% '.'
+			"\n\n" %+% "[ properties of the error-causing value ]" %+% "\n\n" %+%
+			"c(classes = " %+% traits$classes %+% ")"
+
 		}
 
 	profile$matrix <-
 		function (obj) {
+
+			traits <- list(
+				nrow =
+					nrow(obj),
+				ncol =
+					ncol(obj),
+				type =
+					deparse(typeof(obj)),
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "[ properties of the error-causing matrix ]" %+% "\n\n" %+%
+			"c(nrow = " %+% traits$nrow %+% ", " %+%
+			"ncol = " %+% traits$ncol %+% ", " %+%
+			"type = " %+% traits$type %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -571,20 +578,24 @@ profile_object <- local({
 				profile$generic_vector),
 
 			list(
-				is.logical,
+				function (x) is.logical(x) && is.vector(x),
 				profile$logical_vector),
 			list(
-				is.raw,
+				function (x) is.raw(x) && is.vector(x),
 				profile$raw_vector),
 			list(
-				is.integer,
+				function (x) is.integer(x) && is.vector(x),
 				profile$integer_vector),
 			list(
-				is.double,
+				function (x) is.double(x) && is.vector(x),
 				profile$double_vector),
 			list(
-				is.character,
-				profile$character_vector)
+				function (x) is.character(x) && is.vector(x),
+				profile$character_vector),
+
+			list(
+				is.matrix,
+				profile$matrix )
 		)
 
 		for (pair in response_pairs) {
