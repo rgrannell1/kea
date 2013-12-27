@@ -10,6 +10,10 @@
 #' @return
 #'    a variadic function.
 #'
+#' @family higher_order_functions
+#'
+#' @family function_modifying_functions
+#'
 #' @export
 
 xAsVariadic <- function (fn) {

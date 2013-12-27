@@ -15,6 +15,8 @@
 #' @section Corner Cases: q
 #'    returns the empty list if \code{coll} is length-zero.
 #'
+#' @family function_modifying_functions
+#'
 #' @export
 
 xThread <- function (init, fns) {

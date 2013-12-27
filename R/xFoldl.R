@@ -29,6 +29,9 @@
 #' @template
 #'    Return
 #'
+#' @example
+#'    inst/examples/example-xFoldl.R
+#'
 #' @export
 
 xFoldl <- function (fn, init, coll) {

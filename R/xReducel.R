@@ -27,6 +27,9 @@
 #' @template
 #'    Return
 #'
+#' @example
+#'    inst/examples/example-xReducel.R
+#'
 #' @export
 
 xReduce <- function (fn, coll) {

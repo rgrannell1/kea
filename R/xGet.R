@@ -12,6 +12,8 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
+#' @family higher_order_functions
+#'
 #' @export
 
 xGet <- function (str) {

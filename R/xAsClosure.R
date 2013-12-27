@@ -13,6 +13,10 @@
 #'    xAsClosure does not work for every primitive function (for example 'c'),
 #'    so caution should be taken when using this function.
 #'
+#' @family higher_order_functions
+#'
+#' @family function_modifying_functions
+#'
 #' @export
 
 xAsClosure <- function (fn) {

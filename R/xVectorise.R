@@ -16,6 +16,8 @@
 #'
 #' @family mapping_functions
 #'
+#' @family function_modifying_functions
+#'
 #' @export
 
 xVectorise <- function (fn) {

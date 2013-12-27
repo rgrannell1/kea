@@ -14,6 +14,8 @@
 #'
 #' @family higher_order_functions
 #'
+#' @family function_modifying_functions
+#'
 #' @export
 
 xLift <- function (fn, fns) {

@@ -1,22 +1,22 @@
 
-# the archetypal example of reduce; summing a list.
+# 1. the archetypal example of reduce; summing a list.
 
 xReduce("+", 1:10)
 
 55
 
-# build-up a matrix from two 2-element vectors.
+# 2.
 
 xReduce(
-	rbind,
-	list(
-		c(1, 2),
-		c(3, 4))
+    rbind,
+    list(
+        c(1, 2),
+        c(3, 4))
 )
 
-matrix(c(
-	1, 2,
-	3, 4),
-	nrow = 2,
-	ncol = 2,
-	byrow = TRUE)
+# 3.
+
+xReduce(
+
+
+)

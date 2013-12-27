@@ -19,6 +19,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family function_modifying_functions
+#'
 #' @export
 
 xPartial <- function (fn, coll) {

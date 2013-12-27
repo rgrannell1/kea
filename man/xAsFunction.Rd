@@ -52,5 +52,14 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xThird}}; \code{\link{xUnion}};
 \code{\link{xUnit}}; \code{\link{xZip}};
 \code{\link{xZipWith}}
+
+Other function_modifying_functions:
+\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
+\code{\link{xAsVariadic}}; \code{\link{xCompose}};
+\code{\link{xConst}}; \code{\link{xFlip}};
+\code{\link{xJuxtapose}}; \code{\link{xLift}};
+\code{\link{xNot}}; \code{\link{xPartial}};
+\code{\link{xThread}}; \code{\link{xVectorise}};
+\code{\link{xWait}}
 }
 

@@ -36,6 +36,48 @@ value).
   \code{Return()} essentially acts as a higher-order return
   function, that breaks "further" than the normal return
   statement.
+
+  See 'Examples' for an example of short-circuiting in use.
+}
+\examples{
+
+# sum a vector with fold.
+
+xFold("+", 0, 1:10)
+
+55
+
+# search for a match in a list.
+# as soon as a match is found, Return true
+# for efficiency.
+
+xFold(
+	(acc : new) := { if (new > 100) Return (True) },
+	False,
+	list(99, 98, 101, 96, 94)
+)
+
+True
+
+# demonstrate how Return works by using
+# it to break out of the fold across 26 letters
+# prematurely.
+
+xFold(
+	(number_checked : letter) := {
+
+		if (letter == 'q') {
+			Return (number_checked)
+		} else {
+			number_checked + 1
+		}
+	},
+	0, letters
+)
+
+# terminated after 16 checks, not 26.
+16
+
 }
 \seealso{
 Other collection_functions: \code{\link{xApply}};
@@ -79,27 +121,28 @@ Other folding_functions: \code{\link{xFoldListl}};
 \code{\link{xReducer}}
 
 Other higher_order_functions: \code{\link{xApply}};
-\code{\link{xArity}}; \code{\link{xAsUnary}};
+\code{\link{xArity}}; \code{\link{xAsClosure}};
+\code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
 \code{\link{xCompose}}; \code{\link{xConst}};
 \code{\link{xDo}}; \code{\link{xDropWhile}};
 \code{\link{xExists}}; \code{\link{xFlatMap}};
 \code{\link{xFlip}}; \code{\link{xFoldListl}};
 \code{\link{xFoldr}}; \code{\link{xForall}};
-\code{\link{xFormals}}; \code{\link{xIterate}};
-\code{\link{xJuxtapose}}; \code{\link{xLift}};
-\code{\link{xLimit}}; \code{\link{xLocate}};
-\code{\link{xLocater}}; \code{\link{xMap}};
-\code{\link{xMapIndexed}}; \code{\link{xMapMany}};
-\code{\link{xMapply}}; \code{\link{xMapWhen}};
-\code{\link{xNot}}; \code{\link{xParams}};
-\code{\link{xPartial}}; \code{\link{xPartition}};
-\code{\link{xPartitionWith}}; \code{\link{xPermute}};
-\code{\link{xPluck}}; \code{\link{xPoll}};
-\code{\link{xRecurMap}}; \code{\link{xReduce}};
-\code{\link{xReducer}}; \code{\link{xReject}};
-\code{\link{xSelect}}; \code{\link{xSplitWith}};
-\code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
-\code{\link{xVectorise}}; \code{\link{xWait}};
-\code{\link{xZipWith}}
+\code{\link{xFormals}}; \code{\link{xGet}};
+\code{\link{xIterate}}; \code{\link{xJuxtapose}};
+\code{\link{xLift}}; \code{\link{xLimit}};
+\code{\link{xLocate}}; \code{\link{xLocater}};
+\code{\link{xMap}}; \code{\link{xMapIndexed}};
+\code{\link{xMapMany}}; \code{\link{xMapply}};
+\code{\link{xMapWhen}}; \code{\link{xNot}};
+\code{\link{xParams}}; \code{\link{xPartial}};
+\code{\link{xPartition}}; \code{\link{xPartitionWith}};
+\code{\link{xPermute}}; \code{\link{xPluck}};
+\code{\link{xPoll}}; \code{\link{xRecurMap}};
+\code{\link{xReduce}}; \code{\link{xReducer}};
+\code{\link{xReject}}; \code{\link{xSelect}};
+\code{\link{xSplitWith}}; \code{\link{xStopWatch}};
+\code{\link{xTakeWhile}}; \code{\link{xVectorise}};
+\code{\link{xWait}}; \code{\link{xZipWith}}
 }
 
