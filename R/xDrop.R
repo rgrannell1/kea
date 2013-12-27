@@ -1,7 +1,7 @@
 
 #' xDrop
 #'
-#' Take several elements from the front of a collection.
+#' Take several elements from the head of a collection.
 #'
 #' @param
 #'    num a nonnegative whole number.

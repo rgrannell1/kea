@@ -13,7 +13,7 @@ xCollapse(str, strs)
 a length-one character vector.
 }
 \description{
-Concatenate a character vector into a string with a
+Concatenate a character vector into a single string using a
 delimiter.
 }
 \seealso{

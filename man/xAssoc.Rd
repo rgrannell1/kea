@@ -13,8 +13,7 @@ xAssoc(colls)
 a named list.
 }
 \description{
-Convert a list of name : value collections into a named
-list.
+Convert a list of name, value pairs into a named list.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

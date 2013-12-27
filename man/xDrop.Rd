@@ -13,7 +13,7 @@ xDrop(num, coll)
 a list.
 }
 \description{
-Take several elements from the front of a collection.
+Take several elements from the head of a collection.
 }
 \section{Corner Cases}{
   if \code{coll} is empty the empty list is returned.

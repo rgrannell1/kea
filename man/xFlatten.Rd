@@ -13,7 +13,7 @@ xFlatten(num, coll)
 a list.
 }
 \description{
-Flatten a nested list or pairlist to a given depth.
+Unnest a nested list to a given depth.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

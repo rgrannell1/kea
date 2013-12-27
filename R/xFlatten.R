@@ -1,7 +1,7 @@
 
 #' xFlatten
 #'
-#' Flatten a nested list or pairlist to a given depth.
+#' Unnest a nested list to a given depth.
 #'
 #' @param
 #'    num a nonnegative whole-number.

@@ -23,6 +23,7 @@
 #' @export
 
 xConst <- function (val) {
+	# any -> (... -> any)
 	# return a function that closes over the variable val.
 
 	assert(

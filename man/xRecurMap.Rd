@@ -74,8 +74,8 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
 \code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
-\code{\link{xUnfold}}; \code{\link{xVectorise}};
-\code{\link{xWait}}; \code{\link{xZipWith}}
+\code{\link{xVectorise}}; \code{\link{xWait}};
+\code{\link{xZipWith}}
 
 Other mapping_functions: \code{\link{xFlatMap}};
 \code{\link{xMap}}; \code{\link{xMapIndexed}};

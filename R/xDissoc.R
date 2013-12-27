@@ -1,7 +1,7 @@
 
 #' xDissoc
 #'
-#' Split a named list into a list of name: value lists.
+#' Split a named list into a list of name: value list pairs.
 #'
 #' @param
 #'    coll a list or pairlist of list or pairlist pairs, with the first element being a

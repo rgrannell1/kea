@@ -1,7 +1,7 @@
 
 #' xAssoc
 #'
-#' Convert a list of name : value collections into a named list.
+#' Convert a list of name, value pairs into a named list.
 #'
 #' @param
 #'    colls a list or pairlist of list or pairlist pairs, with the first element being a

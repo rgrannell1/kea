@@ -14,7 +14,7 @@ xApply(fn, coll)
 the return value of \code{fn}.
 }
 \description{
-Call a function with a list of arguments.
+Invoke a function with a collection of arguments.
 }
 \section{Uses}{
   \code{xApply} is an adaptor function that allows variadic
@@ -83,7 +83,7 @@ Other higher_order_functions: \code{\link{xArity}};
 \code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
 \code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
-\code{\link{xUnfold}}; \code{\link{xVectorise}};
-\code{\link{xWait}}; \code{\link{xZipWith}}
+\code{\link{xVectorise}}; \code{\link{xWait}};
+\code{\link{xZipWith}}
 }
 

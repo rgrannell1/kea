@@ -16,8 +16,9 @@ xFoldl(fn, init, coll)
 an arbitrary value, depending on the function \code{fn}.
 }
 \description{
-Fold a function over a collection from left to right with
-an initial left value.
+Successively combine a list of values into a single value
+using a binary function (left to right, with an initial
+value).
 }
 \section{Corner Cases}{
   returns \code{init} if \code{coll} is length-zero.
@@ -73,6 +74,10 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xUnit}}; \code{\link{xZip}};
 \code{\link{xZipWith}}
 
+Other folding_functions: \code{\link{xFoldListl}};
+\code{\link{xFoldr}}; \code{\link{xReduce}};
+\code{\link{xReducer}}
+
 Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xArity}}; \code{\link{xAsUnary}};
 \code{\link{xCompose}}; \code{\link{xConst}};
@@ -94,7 +99,7 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
 \code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
-\code{\link{xUnfold}}; \code{\link{xVectorise}};
-\code{\link{xWait}}; \code{\link{xZipWith}}
+\code{\link{xVectorise}}; \code{\link{xWait}};
+\code{\link{xZipWith}}
 }
 

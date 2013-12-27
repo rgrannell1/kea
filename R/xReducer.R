@@ -1,7 +1,8 @@
 
 #' xReducer
 #'
-#' Fold a function over a collection from right to left.
+#' Successively combine a list of values into a single value
+#' using a binary function (right to left).
 #'
 #' @param
 #'    fn a binary function that returns a value

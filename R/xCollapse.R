@@ -1,7 +1,7 @@
 
 #' xCollapse
 #'
-#' Concatenate a character vector into a string with a delimiter.
+#' Concatenate a character vector into a single string using a delimiter.
 #'
 #' @param
 #'    str a string to use as a delimiter.

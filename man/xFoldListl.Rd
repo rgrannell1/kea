@@ -60,6 +60,10 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xUnit}}; \code{\link{xZip}};
 \code{\link{xZipWith}}
 
+Other folding_functions: \code{\link{xFoldl}};
+\code{\link{xFoldr}}; \code{\link{xReduce}};
+\code{\link{xReducer}}
+
 Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xArity}}; \code{\link{xAsUnary}};
 \code{\link{xCompose}}; \code{\link{xConst}};
@@ -81,7 +85,7 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
 \code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
-\code{\link{xUnfold}}; \code{\link{xVectorise}};
-\code{\link{xWait}}; \code{\link{xZipWith}}
+\code{\link{xVectorise}}; \code{\link{xWait}};
+\code{\link{xZipWith}}
 }
 

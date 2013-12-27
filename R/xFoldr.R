@@ -1,7 +1,8 @@
 
 #' xFoldr
 #'
-#' Fold a function over a collection from right to length, with an init value.
+#' Successively combine a list of values into a single value
+#' using a binary function (right to left, with an initial value).
 #'
 #' @param
 #'    fn a binary function that returns a value that

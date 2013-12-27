@@ -42,7 +42,7 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xReduce}}; \code{\link{xReducer}};
 \code{\link{xReject}}; \code{\link{xSelect}};
 \code{\link{xSplitWith}}; \code{\link{xStopWatch}};
-\code{\link{xTakeWhile}}; \code{\link{xUnfold}};
-\code{\link{xVectorise}}; \code{\link{xZipWith}}
+\code{\link{xTakeWhile}}; \code{\link{xVectorise}};
+\code{\link{xZipWith}}
 }
 

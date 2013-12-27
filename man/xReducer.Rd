@@ -14,7 +14,8 @@ xReducer(fn, coll)
 an arbitrary value, depending on the function \code{fn}.
 }
 \description{
-Fold a function over a collection from right to left.
+Successively combine a list of values into a single value
+using a binary function (right to left).
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero, and
@@ -72,6 +73,10 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xUnit}}; \code{\link{xZip}};
 \code{\link{xZipWith}}
 
+Other folding_functions: \code{\link{xFoldl}};
+\code{\link{xFoldListl}}; \code{\link{xFoldr}};
+\code{\link{xReduce}}
+
 Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xArity}}; \code{\link{xAsUnary}};
 \code{\link{xCompose}}; \code{\link{xConst}};
@@ -93,7 +98,7 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xReduce}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
 \code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
-\code{\link{xUnfold}}; \code{\link{xVectorise}};
-\code{\link{xWait}}; \code{\link{xZipWith}}
+\code{\link{xVectorise}}; \code{\link{xWait}};
+\code{\link{xZipWith}}
 }
 

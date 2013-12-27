@@ -1,7 +1,7 @@
 
 #' xApply
 #'
-#' Call a function with a list of arguments.
+#' Invoke a function with a collection of arguments.
 #'
 #' @section Uses:
 #'    \code{xApply} is an adaptor function that allows variadic functions

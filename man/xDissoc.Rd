@@ -13,7 +13,7 @@ xDissoc(coll)
 a named list.
 }
 \description{
-Split a named list into a list of name: value lists.
+Split a named list into a list of name: value list pairs.
 }
 \section{Corner Cases}{
   returns \code{list()} if \code{coll} is length-zero.
