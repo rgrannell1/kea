@@ -320,6 +320,30 @@ profile_object <- local({
 
 	profile <- Object()
 
+	# --- A --- #
+	# --- B --- #
+	# --- C --- #
+
+	profile$character_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				no_empty =
+					length(which(nchar(obj) == 0)),
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"no_empty = " %+% traits$no_empty %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
+
 	profile$closure <-
 		function (obj) {
 
@@ -343,33 +367,10 @@ profile_object <- local({
 
 		}
 
-	profile$null <-
+	# --- D --- #
+
+	profile$data_frame <-
 		function (obj) {
-
-			"\n\n" %+% "[ properties of ther error-causing object ]" %+% "\n\n" %+%
-			"NULL"
-		}
-
-	profile$factor <-
-		function (obj) {
-
-			traits <- list(
-				ordered_factor =
-					is.ordered(obj),
-				levels =
-					length(levels(obj)),
-				length =
-					length(obj),
-				classes =
-					deparse(class(obj))
-			)
-
-			"\n\n" %+% "[ properties of the error-causing factor ]" %+% "\n\n" %+%
-
-			"c(ordered_factor = " %+% traits$ordered %+% ", " %+%
-			"levels = " %+% traits$levels %+% ", " %+%
-			"length = " %+% traits$length %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -383,113 +384,6 @@ profile_object <- local({
 
 			"\n\n" %+% "[ properties of the error-causing value ]" %+% "\n\n" %+%
 			"c(classes = " %+% traits$classes %+% ")"
-
-		}
-
-	profile$matrix <-
-		function (obj) {
-
-			traits <- list(
-				nrow =
-					nrow(obj),
-				ncol =
-					ncol(obj),
-				type =
-					deparse(typeof(obj)),
-				classes =
-					deparse(class(obj))
-			)
-
-			"\n\n" %+% "[ properties of the error-causing matrix ]" %+% "\n\n" %+%
-			"c(nrow = " %+% traits$nrow %+% ", " %+%
-			"ncol = " %+% traits$ncol %+% ", " %+%
-			"type = " %+% traits$type %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
-
-		}
-
-	profile$data_frame <-
-		function (obj) {
-
-		}
-
-	profile$generic_vector <-
-		function (obj) {
-
-		}
-
-	profile$logical_vector <-
-		function (obj) {
-
-			traits <- list(
-				length =
-					length(obj),
-				no_na =
-					length( which(is.na(obj)) ),
-				no_true =
-					length(which(obj)),
-				no_false =
-					length(which(!obj)),
-				classes =
-					deparse(class(obj))
-			)
-
-
-			"\n\n" %+% "[ properties of the error-causing logical vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"na_values = " %+% traits$no_na %+% ", " %+%
-			"true_values = " %+% traits$no_true %+% ", " %+%
-			"false_values = " %+% traits$no_false %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
-
-		}
-
-	profile$raw_vector <-
-		function (obj) {
-
-			traits <- list(
-				length =
-					length(obj),
-				classes =
-					deparse(class(obj))
-			)
-
-
-			"\n\n" %+% "[ properties of the error-causing raw vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
-
-		}
-
-	profile$integer_vector <-
-		function (obj) {
-
-			traits <- list(
-				length =
-					length(obj),
-				no_positive =
-					length(which(obj[ !(is.na(obj)) ] > 0)),
-				no_zero =
-					length(which(obj[ !(is.na(obj)) ] == 0)),
-				no_negative =
-					length(which(obj[ !(is.na(obj)) ] < 0)),
-				no_na =
-					length( which(is.na(obj)) ),
-				classes =
-					deparse(class(obj))
-			)
-
-			"\n\n" %+% "[ properties of the error-causing integer vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"negative_values = " %+% traits$no_negative %+% ", " %+%
-			"zero_values = " %+% traits$no_zero %+% ", " %+%
-			"positive_values = " %+% traits$no_positive %+% ", " %+%
-			"na_values = " %+% traits$no_na %+% ", " %+%
-			"nan_values = " %+% traits$no_nan %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -528,6 +422,157 @@ profile_object <- local({
 
 		}
 
+	# --- E --- #
+	# --- F --- #
+
+	profile$factor <-
+		function (obj) {
+
+			traits <- list(
+				ordered_factor =
+					is.ordered(obj),
+				levels =
+					length(levels(obj)),
+				length =
+					length(obj),
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "[ properties of the error-causing factor ]" %+% "\n\n" %+%
+
+			"c(ordered_factor = " %+% traits$ordered %+% ", " %+%
+			"levels = " %+% traits$levels %+% ", " %+%
+			"length = " %+% traits$length %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
+
+	# --- G --- #
+
+	profile$generic_vector <-
+		function (obj) {
+
+		}
+
+	# --- H --- #
+	# --- I --- #
+
+	profile$integer_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				no_positive =
+					length(which(obj[ !(is.na(obj)) ] > 0)),
+				no_zero =
+					length(which(obj[ !(is.na(obj)) ] == 0)),
+				no_negative =
+					length(which(obj[ !(is.na(obj)) ] < 0)),
+				no_na =
+					length( which(is.na(obj)) ),
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "[ properties of the error-causing integer vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"negative_values = " %+% traits$no_negative %+% ", " %+%
+			"zero_values = " %+% traits$no_zero %+% ", " %+%
+			"positive_values = " %+% traits$no_positive %+% ", " %+%
+			"na_values = " %+% traits$no_na %+% ", " %+%
+			"nan_values = " %+% traits$no_nan %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
+
+	# --- J --- #
+	# --- K --- #
+	# --- L --- #
+
+	profile$logical_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				no_na =
+					length( which(is.na(obj)) ),
+				no_true =
+					length(which(obj)),
+				no_false =
+					length(which(!obj)),
+				classes =
+					deparse(class(obj))
+			)
+
+
+			"\n\n" %+% "[ properties of the error-causing logical vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"na_values = " %+% traits$no_na %+% ", " %+%
+			"true_values = " %+% traits$no_true %+% ", " %+%
+			"false_values = " %+% traits$no_false %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
+
+	# --- M --- #
+
+	profile$matrix <-
+		function (obj) {
+
+			traits <- list(
+				nrow =
+					nrow(obj),
+				ncol =
+					ncol(obj),
+				type =
+					deparse(typeof(obj)),
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "[ properties of the error-causing matrix ]" %+% "\n\n" %+%
+			"c(nrow = " %+% traits$nrow %+% ", " %+%
+			"ncol = " %+% traits$ncol %+% ", " %+%
+			"type = " %+% traits$type %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
+
+	# --- N --- #
+
+	profile$null <-
+		function (obj) {
+
+			"\n\n" %+% "[ properties of ther error-causing object ]" %+% "\n\n" %+%
+			"NULL"
+		}
+
+	# --- O --- #
+	# --- P --- #
+	# --- Q --- #
+	# --- R --- #
+
+	profile$raw_vector <-
+		function (obj) {
+
+			traits <- list(
+				length =
+					length(obj),
+				classes =
+					deparse(class(obj))
+			)
+
+
+			"\n\n" %+% "[ properties of the error-causing raw vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
 	profile$character_vector <-
 		function (obj) {
 
@@ -548,11 +593,37 @@ profile_object <- local({
 
 		}
 
+		}
 
+	# --- S --- #
+	# --- T --- #
 
+	profile$character_vector <-
+		function (obj) {
 
+			traits <- list(
+				length =
+					length(obj),
+				no_empty =
+					length(which(nchar(obj) == 0)),
+				classes =
+					deparse(class(obj))
+			)
 
+			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
 
+			"c(length = " %+% traits$length %+% ", " %+%
+			"no_empty = " %+% traits$no_empty %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
+
+	# -- U --- #
+	# --- V --- #
+	# --- W --- #
+	# --- X --- #
+	# --- Y --- #
+	# --- Z --- #
 
 	# the set of implemented object summaries.
 
