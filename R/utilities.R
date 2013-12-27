@@ -516,17 +516,30 @@ profile_object <- local({
 			"\n\n" %+% "[ properties of the error-causing double vector ]" %+% "\n\n" %+%
 
 			"c(length = " %+% traits$length %+% ", " %+%
-			"negative_values = " %+% traits$no_negative %+% ", " %+%
-			"zero_values = " %+% traits$no_zero %+% ", " %+%
-			"positive_values = " %+% traits$no_positive %+% ", " %+%
-			"whole_values = " %+% traits$no_whole %+% ", " %+%
-			"na_values = " %+% traits$no_na %+% ", " %+%
-			"nan_values = " %+% traits$no_nan %+% ", " %+%
+			"no_empty = " %+% traits$no_empty %+% ", " %+%
 			"classes = " %+% traits$classes %+% ")"
 
 		}
 
+	profile$character_vector <-
+		function (obj) {
 
+			traits <- list(
+				length =
+					length(obj),
+				no_empty =
+					length(which(nchar(obj) == 0)),
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"no_empty = " %+% traits$no_empty %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
+		}
 
 
 
@@ -544,15 +557,19 @@ profile_object <- local({
 			list(
 				is.function,
 				profile$closure),
+
 			list(
 				is.null,
 				profile$null),
+
 			list(
 				is.factor,
 				profile$factor),
+
 			list(
 				function (x) is.list(x) || is.pairlist(x),
 				profile$generic_vector),
+
 			list(
 				is.logical,
 				profile$logical_vector),
@@ -564,7 +581,10 @@ profile_object <- local({
 				profile$integer_vector),
 			list(
 				is.double,
-				profile$double_vector)
+				profile$double_vector),
+			list(
+				is.character,
+				profile$character_vector)
 		)
 
 		for (pair in response_pairs) {
