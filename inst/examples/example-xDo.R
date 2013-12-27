@@ -4,7 +4,7 @@
 
 #1. print the files in your current directory.
 
-xDo(print, list.files(.))
+xDo(print, list.files('.'))
 
 #    or
 
