@@ -14,8 +14,7 @@
 #'    elements; this is because any other corner case
 #'    would violate the functions type-signature.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

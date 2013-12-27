@@ -16,11 +16,9 @@
 #'    if any collection is length zero (or no
 #'    collections are given), then False is returned.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

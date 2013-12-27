@@ -22,8 +22,7 @@
 #' @return
 #'    A function with the same parametres as \code{fn2}.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

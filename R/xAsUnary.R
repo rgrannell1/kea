@@ -10,8 +10,7 @@
 #' @return
 #'    a unary function of x.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

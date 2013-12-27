@@ -19,11 +19,9 @@
 #'    \code{coll} returns false for the predicate.
 #'    Na values are considered false.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

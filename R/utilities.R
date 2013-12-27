@@ -430,7 +430,7 @@ profile_object <- local({
 
 			traits <- list(
 				ordered_factor =
-					is.ordered(obj),
+				is.ordered(obj),
 				levels =
 					length(levels(obj)),
 				length =
@@ -679,7 +679,7 @@ profile_object <- local({
 			}
 		}
 
-		profile$default(obj)
+	profile$default(obj)
 	}
 })
 

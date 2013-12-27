@@ -16,8 +16,7 @@
 #'    various types of \code{Na} are not-distinguished between.
 #'    Type conversion is not carried out.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

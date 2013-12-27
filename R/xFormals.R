@@ -16,8 +16,7 @@
 #'    corresponding element in the retun value will be the empty symbol,
 #'    which is identical to \code{quote(expr=)}.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

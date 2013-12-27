@@ -25,14 +25,12 @@
 #' @return
 #'    a list.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @example
-#'    example-xDo.R
+#'    inst/examples/example-xDo.R
 #'
 #' @export
 

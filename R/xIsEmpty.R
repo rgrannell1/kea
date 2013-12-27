@@ -9,8 +9,7 @@
 #' @return
 #'    a boolean value.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

@@ -10,8 +10,7 @@
 #' @return
 #'    a variadic function that ignores its arguments.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

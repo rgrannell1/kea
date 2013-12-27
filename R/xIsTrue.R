@@ -9,8 +9,7 @@
 #' @return
 #'    a vector of boolean values.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

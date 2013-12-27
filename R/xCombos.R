@@ -15,11 +15,9 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{num} is zero.
 #'
-#' @family
-#'    combinatoric_functions
+#' @family combinatoric_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

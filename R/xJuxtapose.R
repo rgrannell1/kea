@@ -12,8 +12,7 @@
 #' @section Corner Cases:
 #'    If no functions are provided the empty list is returned.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

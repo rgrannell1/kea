@@ -2018,22 +2018,7 @@ x_coll_proto <- local({
 			xUnwords...(self_(), ...)
 		}
 
-	# --- xUnfoldl --- #
-	this$xUnfold <-
-		function (fn, pred) {
-			x_( xUnfold(fn, pred, self_()) )
-		}
-	this$xUnfoldl <-
-		this$xUnfold
-
-	this$x_Unfold <-
-		function (fn, pred) {
-			xUnfold(fn, pred, self_())
-		}
-	this$x_Unfoldl <-
-		this$x_Unfold
-
-	# -------- V ------- #
+ 	# -------- V ------- #
 	# -------- W ------- #
 	# --- xWords --- #
 	this$xWords <-
@@ -2883,21 +2868,6 @@ x_fn_proto <- local({
 	this$x_T <-
 		this$xThrush
 	# -------- U ------- #
-	# --- xUnfoldl --- #
-	this$xUnfold <-
-		function (fn, init) {
-			x_( xUnfold(self_(), fn, init) )
-		}
-	this$xUnfoldl <-
-		this$xUnfold
-
-	this$x_Unfold <-
-		function (fn, init) {
-			xUnfold(self_(), fn, init)
-		}
-	this$x_Unfoldl <-
-		this$xUnfold
-
 	# -------- V ------- #
 	# --- xVectorise --- #
 	this$xVectorise <-

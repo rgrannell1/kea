@@ -18,8 +18,7 @@
 #' @return
 #'    a variadic function.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

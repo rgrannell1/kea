@@ -9,8 +9,7 @@
 #' @return
 #'    a list.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

@@ -12,8 +12,7 @@
 #' @section Corner Cases:
 #'    returns True if coll is Null.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 
@@ -25,8 +24,6 @@ xIsNull <- function (coll) {
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
-
-
 
 	assert(
 		is_collection(coll), invoking_call,

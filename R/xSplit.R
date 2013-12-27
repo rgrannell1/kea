@@ -22,8 +22,7 @@
 #'    the second return list is empty. If \code{coll} is
 #'    length zero both lists are empty.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

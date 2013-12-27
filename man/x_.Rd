@@ -12,10 +12,17 @@ an object of class "arrow", with a single field 'x' that
 contents_are val.
 }
 \description{
-Generate a chainable arrow object, that can use methods.
+Generate a chainable arrow object that methods can be
+called off.
 }
 \details{
-There are methods specific to arrow objects.
+The arrow object constructed by \code{x_} contains methods
+specific to the the type of data given to the constructor.
+As of Arrow 0.1.0, there are the following sets of methods:
+
+1. x_([any])
+
+Methods that are added to every data type.
 
 \code{xExecute}: .
 

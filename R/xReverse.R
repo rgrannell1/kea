@@ -11,8 +11,7 @@
 #' @section Corner Cases:
 #'    reversing the empty list yields the empty list.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

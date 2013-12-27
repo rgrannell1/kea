@@ -14,14 +14,3 @@ x_(list.files('.'))$xDo(print)
 
 xDo(print %of% list.files, '.')
 
-#2. plot some data.
-
-x_()$
-xExecute(
-	function () {
-		plot(x = 0, y = 0, type = 'n')
-	}
-)$
-xDo(
-
-)

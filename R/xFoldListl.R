@@ -21,11 +21,11 @@
 #' @section Corner Cases:
 #'	  returns \code{list(init)} if \code{coll} is length-zero.
 #'
-#' @family
-#'    higher_order_functions
+#' @family folding_functions
 #'
-#' @family
-#'    collection_functions
+#' @family higher_order_functions
+#'
+#' @family collection_functions
 #'
 #' @export
 

@@ -20,8 +20,7 @@
 #'    If \code{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
 #'    function can accept an infinite number of arguments.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 

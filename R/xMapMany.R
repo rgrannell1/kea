@@ -16,14 +16,11 @@
 #'    returns the empty list if any collection is length-zero. If the
 #'    collection lengths are not equal then elements are recycled in the shorter collections.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    mapping_functions
+#' @family mapping_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

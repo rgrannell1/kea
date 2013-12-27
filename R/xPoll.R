@@ -13,11 +13,9 @@
 #' @return
 #'    a non-negative whole number.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

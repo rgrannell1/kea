@@ -15,11 +15,9 @@
 #' @section Corner Cases:
 #'    Partial application also works for ellipses (eg list(... = 1)).
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

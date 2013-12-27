@@ -12,8 +12,7 @@
 #' @section Corner Cases:
 #'    returns True if coll is length-zero.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

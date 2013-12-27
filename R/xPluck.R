@@ -18,11 +18,9 @@
 #'    If str is length-zero then the empty string "" is
 #'    used to match key-names.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

@@ -12,8 +12,7 @@
 #' @section Corner Cases:
 #'    returns logical(0) if \code{coll} is length-zero.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

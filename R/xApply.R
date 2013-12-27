@@ -21,11 +21,9 @@
 #' @return
 #'    the return value of \code{fn}.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

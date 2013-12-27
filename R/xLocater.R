@@ -15,11 +15,9 @@
 #' @section Corner Cases:
 #'     returns integer(0) if no match is found.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

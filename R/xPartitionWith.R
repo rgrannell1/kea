@@ -19,11 +19,9 @@
 #'	  elements return only true/only false, then one of two sublists will be the
 #'	  empty list.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

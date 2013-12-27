@@ -14,8 +14,7 @@
 #'    Returns the emty list if \code{coll} is length-zero,
 #'    or all elements in \code{coll} are length-zero.
 #'
-#' @family
-#'    collection_functions
+#' @family collection_functions
 #'
 #' @export
 

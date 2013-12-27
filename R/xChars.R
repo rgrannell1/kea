@@ -10,8 +10,7 @@
 #'    a character vector of length \code{nchar(str)}, with each element being a
 #'    single character.
 #'
-#' @family
-#'    character_vector_functions
+#' @family character_vector_functions
 #'
 #' @export
 

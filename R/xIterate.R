@@ -14,8 +14,7 @@
 #' @return
 #'    the result of successively applying \code{f} to \code{init}.
 #'
-#' @family
-#'    higher_order_functions
+#' @family higher_order_functions
 #'
 #' @export
 
