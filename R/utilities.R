@@ -11,13 +11,6 @@
 #     Assert checks if a proposition is true, and if it fails
 #     throws a helpful error (see say.R).
 #
-# dearrowise:
-#     The arrow object (see x_.R) returns a collection which contains a value.
-#     for example, x_(1) ~ list(x = 1), though it has extra behaviours.
-#     Dearrowise extracts the data stored within the arrow object;
-#     it is used to allow arrow objects to be used as inputs for arrow functions
-#     where a collection or a function may be required.
-#
 # as_typed_vector:
 #     A function to try convert a list of values to a typed vector.
 #     A list of integers should be interconvertable to an integer vector,
@@ -33,6 +26,12 @@
 #     try_higher_order is a variant of tryCatch that allows
 #     extra-information to be added to the errors produced by higher-order functions.
 #
+# profile_object:
+#     Debugging is annoying, so I'd like to provide the attributes of an error
+#     causing object.
+#
+#
+
 
 # --------------------- shorthand logical functions --------------------- #
 
@@ -319,6 +318,14 @@ modify_call <- function (invoking_call) {
 
 
 
+
+
+
+
+
+
+
+
 profile_object <- local({
 	# Returns a string of information about an input object.
 
@@ -329,11 +336,7 @@ profile_object <- local({
 
 			traits <- list(
 				function_type =
-					if (is.primitive(obj)) {
-						"primitive "
-					} else {
-						""
-					},
+					is.primitive(obj),
 				arity =
 					if (is.primitive(obj)) {
 						length( head(as.list(args(obj)), -1) )
@@ -341,43 +344,43 @@ profile_object <- local({
 						length(formals(obj))
 					},
 				classes =
-					paste0(class(obj), collapse = ', ')
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% "The actual object was a " %+% traits$function_type %+%
-			"function with " %+% traits$arity %+% " parametres, " %+%
-			"and with class " %+% dQuote(traits$classes) %+% '.'
+			"\n\n" %+% "[ properties of the error-causing function ]" %+% "\n\n" %+%
+			"c(function_type = " %+% traits$function_type %+% ", " %+%
+			"arity = " %+% traits$arity %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
+
 		}
 
 	profile$null <-
 		function (obj) {
-			"the actual object was Null."
+
+			"\n\n" %+% "[ properties of ther error-causing object ]" %+% "\n\n" %+%
+			"NULL"
 		}
 
 	profile$factor <-
 		function (obj) {
 
 			traits <- list(
-				type =
-					if (is.ordered(obj)) {
-						'ordered'
-					} else {
-						'unordered'
-					},
+				ordered_factor =
+					is.ordered(obj),
 				levels =
 					length(levels(obj)),
 				length =
 					length(obj),
 				classes =
-					paste0(class(obj), collapse = ', ')
-
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% "The actual object was a " %+% traits$type %+%
-			" factor with " %+%
-			traits$length %+% " elements and " %+%
-			traits$levels %+% " levels, of class " %+%
-			dQuote(traits$classes) %+% '.'
+			"\n\n" %+% "[ properties of the error-causing factor ]" %+% "\n\n" %+%
+
+			"c(ordered_factor = " %+% traits$ordered %+% ", " %+%
+			"levels = " %+% traits$levels %+% ", " %+%
+			"length = " %+% traits$length %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -421,15 +424,17 @@ profile_object <- local({
 				no_false =
 					length(which(!obj)),
 				classes =
-					paste0(class(obj), collapse = ', ')
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% " The actual object was a boolean vector with " %+%
-			traits$length %+% " elements: " %+%
-			traits$no_na %+% " na values, " %+%
-			traits$no_true %+% " true values, and " %+%
-			traits$no_false %+% " false values. " %+%
-			"The vector has class " %+% dQuote(traits$classes) %+% '.'
+
+			"\n\n" %+% "[ properties of the error-causing logical vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"na_values = " %+% traits$no_na %+% ", " %+%
+			"true_values = " %+% traits$no_true %+% ", " %+%
+			"false_values = " %+% traits$no_false %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -439,19 +444,15 @@ profile_object <- local({
 			traits <- list(
 				length =
 					length(obj),
-				no_na =
-					length( which(is.na(obj)) ),
-				no_true =
-					length(which(obj)),
-				no_false =
-					length(which(!obj)),
 				classes =
-					paste0(class(obj), collapse = ', ')
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% "The actual object was a raw vector with " %+%
-			traits$length %+% " elements, of class" %+%
-			dQuote(traits$classes) %+% '.'
+
+			"\n\n" %+% "[ properties of the error-causing raw vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -461,25 +462,27 @@ profile_object <- local({
 			traits <- list(
 				length =
 					length(obj),
-				all_nonnegative =
-					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] >= 0),
-						"all nonnegative",
-						"not all nonnegative"
-					),
-				all_negative =
-					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] < 0),
-						"all negative",
-						"not all negative"
-					),
+				no_positive =
+					length(which(obj[ !(is.na(obj)) ] > 0)),
+				no_zero =
+					length(which(obj[ !(is.na(obj)) ] == 0)),
+				no_negative =
+					length(which(obj[ !(is.na(obj)) ] < 0)),
+				no_na =
+					length( which(is.na(obj)) ),
 				classes =
-					paste0(class(obj), collapse = ', ')
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% "The actual object was an integer vector with " %+%
-			traits$length %+% " elements. The elements were " %+%
-			traits$all_nonnegative %+% ", and " %+% traits$all_negative %+%
-			". The vector was of class " %+%
-			dQuote(traits$classes) %+% '.'
+			"\n\n" %+% "[ properties of the error-causing integer vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"negative_values = " %+% traits$no_negative %+% ", " %+%
+			"zero_values = " %+% traits$no_zero %+% ", " %+%
+			"positive_values = " %+% traits$no_positive %+% ", " %+%
+			"na_values = " %+% traits$no_na %+% ", " %+%
+			"nan_values = " %+% traits$no_nan %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -489,40 +492,37 @@ profile_object <- local({
 			traits <- list(
 				length =
 					length(obj),
-				all_nonnegative =
-					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] >= 0),
-						"all nonnegative",
-						"not all nonnegative"
-					),
-				all_negative =
-					ifelse(all(obj[ !(is.na(obj) | is.nan(obj)) ] < 0),
-						"all negative",
-						"not all negative"
-					),
-				all_whole =
-					ifelse(all(
-						round(obj[ !(is.na(obj) | is.nan(obj)) ]) ==
-						obj[ !(is.na(obj) | is.nan(obj)) ]),
-						"all round",
-						"not all round"
-
-					),
+				no_positive =
+					length(which(obj[ !(is.na(obj)) ] > 0)),
+				no_zero =
+					length(which(obj[ !(is.na(obj)) ] == 0)),
+				no_negative =
+					length(which(obj[ !(is.na(obj)) ] < 0)),
 				no_na =
 					length( which(is.na(obj)) ),
 				no_nan =
 					length( which(is.nan(obj)) ),
+				no_whole =
+					local({
+						roundable <- obj[ !(is.na(obj) | is.nan(obj) | is.infinite(obj)) ]
+						length(which(round(roundable) == roundable))
+					}),
+				no_infinite =
+					length( which(is.integer(obj)) ),
 				classes =
-					paste0(class(obj), collapse = ', ')
+					deparse(class(obj))
 			)
 
-			"\n\n" %+% "The actual object was an double vector with " %+%
-			traits$length %+% " elements. The elements were " %+%
-			traits$all_nonnegative %+% ", and " %+% traits$all_negative %+%
-			", and were " %+%  traits$all_whole %+%". The vector contained " %+%
-			traits$no_na %+% " na values, and " %+%
-			traits$no_nan %+% " NaN values." %+%
-			" The vector was of class " %+%
-			dQuote(traits$classes) %+% '.'
+			"\n\n" %+% "[ properties of the error-causing double vector ]" %+% "\n\n" %+%
+
+			"c(length = " %+% traits$length %+% ", " %+%
+			"negative_values = " %+% traits$no_negative %+% ", " %+%
+			"zero_values = " %+% traits$no_zero %+% ", " %+%
+			"positive_values = " %+% traits$no_positive %+% ", " %+%
+			"whole_values = " %+% traits$no_whole %+% ", " %+%
+			"na_values = " %+% traits$no_na %+% ", " %+%
+			"nan_values = " %+% traits$no_nan %+% ", " %+%
+			"classes = " %+% traits$classes %+% ")"
 
 		}
 
@@ -534,7 +534,7 @@ profile_object <- local({
 
 
 
-
+	# the set of implemented object summaries.
 
 	function (obj) {
 		# return the appropriate string summary,

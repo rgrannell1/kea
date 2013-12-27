@@ -4,10 +4,6 @@ test_cases <- arrow:::test_cases
 
 message("xStopWatch")
 
-
-
-
-
 message("xStopWatch")
 
 
