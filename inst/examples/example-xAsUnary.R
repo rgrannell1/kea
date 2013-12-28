@@ -5,9 +5,7 @@
 xSelect...(
     xAsUnary(
         (a : b) := {
-
             a > 0 && b >= 0
-
         }
     ),
     list(+1, +1),

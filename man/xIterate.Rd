@@ -1,6 +1,6 @@
 \name{xIterate}
 \alias{xIterate}
-\title{Iteratively apply a function to a value.}
+\title{xIterate}
 \usage{
 xIterate(fn, init)
 }

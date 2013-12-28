@@ -1,6 +1,6 @@
 \name{xWords}
 \alias{xWords}
-\title{Split a str at whitespace.}
+\title{xWords}
 \usage{
 xWords(str)
 }
@@ -12,5 +12,12 @@ a character vector, with one or more elements.
 }
 \description{
 Split a str at whitespace.
+}
+\seealso{
+Other character_vector_functions: \code{\link{xChars}};
+\code{\link{xCollapse}}; \code{\link{xLines}};
+\code{\link{xSplitString}}; \code{\link{xSubString}};
+\code{\link{xUnchars}}; \code{\link{xUnlines}};
+\code{\link{xUnwords}}
 }
 

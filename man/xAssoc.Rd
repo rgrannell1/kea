@@ -1,6 +1,6 @@
 \name{xAssoc}
 \alias{xAssoc}
-\title{xAssoc}
+\title{xAssoc([ collection ])}
 \usage{
 xAssoc(colls)
 }

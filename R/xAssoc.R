@@ -1,5 +1,5 @@
 
-#' xAssoc
+#' xAssoc([ collection ])
 #'
 #' Convert a list of name, value pairs into a named list.
 #'

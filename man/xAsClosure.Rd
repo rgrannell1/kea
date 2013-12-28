@@ -20,6 +20,17 @@ Convert a primitive function to a closure.
 }
 \examples{
 
+# 1. The most likely use case; converting the
+#    primitive operations to normal R functions.
+
+plus <- xAsClosure('+')
+plus(1, 2)
+
+3
+
+is.primitive(plus)
+
+FALSE
 }
 \seealso{
 Other function_modifying_functions:

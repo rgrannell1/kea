@@ -1,7 +1,7 @@
 
 # 1. call a variadic function with xApply
 
-nums <- c(1,5,2,3)
+nums <- c(1, 5,2,3)
 
 xApply(sum, nums)
 

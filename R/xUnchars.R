@@ -9,6 +9,8 @@
 #' @return
 #'    a length-one character vector.
 #'
+#' @family character_vector_functions
+#'
 #' @export
 
 xUnchars <- function (strs) {

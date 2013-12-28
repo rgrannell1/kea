@@ -1,4 +1,6 @@
 
+#' xWords
+#'
 #' Split a str at whitespace.
 #'
 #' @param
@@ -6,6 +8,8 @@
 #'
 #' @return
 #'    a character vector, with one or more elements.
+#'
+#' @family character_vector_functions
 #'
 #' @export
 

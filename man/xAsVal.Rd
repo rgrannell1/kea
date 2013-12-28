@@ -29,7 +29,8 @@ consts <- list(
 
 xAsVal(consts)
 
-# consts$pi <- 2 would throw an error.
+# consts$pi <- 2
+# would throw an error.
 
 }
 \seealso{

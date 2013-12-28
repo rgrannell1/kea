@@ -18,4 +18,11 @@ Subset a string using normal R vector indexing.
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.
 }
+\seealso{
+Other character_vector_functions: \code{\link{xChars}};
+\code{\link{xCollapse}}; \code{\link{xLines}};
+\code{\link{xSplitString}}; \code{\link{xUnchars}};
+\code{\link{xUnlines}}; \code{\link{xUnwords}};
+\code{\link{xWords}}
+}
 

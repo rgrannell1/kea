@@ -15,6 +15,10 @@ element being a single character.
 Split a single string into a vector of characters.
 }
 \seealso{
-Other character_vector_functions: \code{\link{xCollapse}}
+Other character_vector_functions: \code{\link{xCollapse}};
+\code{\link{xLines}}; \code{\link{xSplitString}};
+\code{\link{xSubString}}; \code{\link{xUnchars}};
+\code{\link{xUnlines}}; \code{\link{xUnwords}};
+\code{\link{xWords}}
 }
 

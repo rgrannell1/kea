@@ -1,4 +1,6 @@
 
+#' xIterate
+#'
 #' Iteratively apply a function to a value.
 #'
 #' @param

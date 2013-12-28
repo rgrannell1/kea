@@ -21,10 +21,10 @@ monic_polynomial_roots <- function (free, max_int) {
 	xFlatMap(
 		constants := {
 
-			x_(eigen(
-				as_companion(constants),
-				only.value = True)$values
-			)$x()
+		eigen(
+			as_companion(constants),
+			only.value = True)$values
+
 		}
 	)$x()
 }

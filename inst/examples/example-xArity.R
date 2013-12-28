@@ -1,18 +1,18 @@
 
 # 1. xArity works on primitive functions.
 
-xArity( '+' )
+xArity('+')
 
 2
 
 # 2. xArity also works on normal functions
 #    and variadic functions.
 
-xArity( Reduce )
+xArity(Reduce)
 
 5
 
-xArity( function (a, ...) {} )
+xArity(function (a, ...) {})
 
 Inf
 

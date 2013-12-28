@@ -1,5 +1,6 @@
 
-
+#' xZipWith
+#'
 #' Generate a list of n-element lists from n collections,
 #' and apply a function to each n-element list.
 #'

@@ -9,6 +9,8 @@
 #' @return
 #'    a character vector.
 #'
+#' @family character_vector_functions
+#'
 #' @export
 
 xLines <- function (str) {
