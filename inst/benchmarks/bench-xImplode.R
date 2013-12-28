@@ -1,10 +1,10 @@
 
-bench_xCollapse <- function (N) {
+bench_xImplode <- function (N) {
 
 	time_profile(
 		free =
 			function () {
-				xCollapse( "", paste0(seq_len(N)) )
+				xImplode( "", paste0(seq_len(N)) )
 			},
 		control =
 			function () {

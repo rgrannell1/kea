@@ -20,8 +20,8 @@ Subset a string using normal R vector indexing.
 }
 \seealso{
 Other character_vector_functions: \code{\link{xChars}};
-\code{\link{xCollapse}}; \code{\link{xLines}};
-\code{\link{xSplitString}}; \code{\link{xUnchars}};
+\code{\link{xExplode}}; \code{\link{xImplode}};
+\code{\link{xLines}}; \code{\link{xUnchars}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};
 \code{\link{xWords}}
 }

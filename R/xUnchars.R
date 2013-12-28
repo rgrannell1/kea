@@ -17,11 +17,11 @@ xUnchars <- function (strs) {
 	# Collection str -> str
 	# collapse the collection strs with the empty str.
 
-	xCollapse("", strs)
+	xImplode("", strs)
 }
 
 #' @export
 
 xUnchars... <- function (...) {
-	xCollapse("", list(...))
+	xImplode("", list(...))
 }

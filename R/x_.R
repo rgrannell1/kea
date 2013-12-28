@@ -471,23 +471,23 @@ x_coll_proto <- local({
 			xChars(self_())
 		}
 
-	# --- xCollapse --- #
-	this$xCollapse <-
+	# --- xImplode --- #
+	this$xImplode <-
 		function (str) {
-			x_( xCollapse(str, self_() ))
+			x_( xImplode(str, self_() ))
 		}
-	this$xCollapse... <-
+	this$xImplode... <-
 		function (str, ...) {
-			x_( xCollapse...(str, self_(), ...) )
+			x_( xImplode...(str, self_(), ...) )
 		}
 
 	this$x_Collapse <-
 		function (str) {
-			xCollapse(str, self_() )
+			xImplode(str, self_() )
 		}
 	this$x_Collapse... <-
 		function (str, ...) {
-			xCollapse...(str, self_(), ...)
+			xImplode...(str, self_(), ...)
 		}
 
 	# --- xIsMember --- #
@@ -1793,14 +1793,14 @@ x_coll_proto <- local({
 			xShuffle...(self_(), ...)
 		}
 
-	# --- xSplitString --- #
-	this$xSplitString <-
+	# --- xExplode --- #
+	this$xExplode <-
 		function (rexp) {
-			x_( xSplitString(rexp, self_()) )
+			x_( xExplode(rexp, self_()) )
 		}
 	this$x_SplitString <-
 		function (rexp) {
-			xSplitString(rexp, self_())
+			xExplode(rexp, self_())
 		}
 
 	# --- xSplitWith --- #

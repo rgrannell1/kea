@@ -1,8 +1,8 @@
-\name{xSplitString}
-\alias{xSplitString}
-\title{xSplitString}
+\name{xExplode}
+\alias{xExplode}
+\title{xExplode}
 \usage{
-xSplitString(rexp, str)
+xExplode(rexp, str)
 }
 \arguments{
   \item{rexp}{a regular expression.}
@@ -21,7 +21,7 @@ expression.
 }
 \seealso{
 Other character_vector_functions: \code{\link{xChars}};
-\code{\link{xCollapse}}; \code{\link{xLines}};
+\code{\link{xImplode}}; \code{\link{xLines}};
 \code{\link{xSubString}}; \code{\link{xUnchars}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};
 \code{\link{xWords}}

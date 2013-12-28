@@ -52,7 +52,7 @@ xReduce("+", 1:10)
 xReduce...(
     rbind,
     c(1, 2),
-    c(3, 4))
+    c(3, 4)
 )
 
 matrix(1:4, 2, 2)

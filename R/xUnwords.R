@@ -17,11 +17,11 @@ xUnwords <- function (strs) {
 	# Collection str -> str
 	# collapse the collection strs with a space.
 
-	xCollapse(" ", strs)
+	xImplode(" ", strs)
 }
 
 #' @export
 
 xUnwords... <- function (...) {
-	xCollapse(" ", list(...))
+	xImplode(" ", list(...))
 }

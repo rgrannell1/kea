@@ -1,5 +1,5 @@
 
-#' xCollapse
+#' xImplode
 #'
 #' Concatenate a character vector into a single string using a delimiter.
 #'
@@ -16,7 +16,7 @@
 #'
 #' @export
 
-xCollapse <- function (str, strs) {
+xImplode <- function (str, strs) {
 	# string -> Vector string -> string
 	# Collapse a collection of strs into
 	# a str with by a delim.
@@ -61,6 +61,6 @@ xCollapse <- function (str, strs) {
 
 #' @export
 
-xCollapse... <- function (str, ...) {
-	xCollapse(str, list(...))
+xImplode... <- function (str, ...) {
+	xImplode(str, list(...))
 }

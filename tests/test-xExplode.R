@@ -2,34 +2,34 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message('xSplitString')
+message('xExplode')
 
 	forall(
 		"splitting a character(0) is character(0)",
 		test_cases$str_word,
-		xSplitString(str, character(0)) %equals% character(0)
+		xExplode(str, character(0)) %equals% character(0)
 	)
 
 	forall(
 		"splitting an empty string is the empty string",
 		test_cases$str_word,
-		xSplitString(str, '') == ''
+		xExplode(str, '') == ''
 	)
 
 	forall(
 		"splitting an empty string is the empty string",
 		test_cases$str_word,
-		xSplitString(str, paste0('a', str)) == 'a',
+		xExplode(str, paste0('a', str)) == 'a',
 	given =
 		!('a' %in% strsplit('', str)[[1]])
 	)
 
-message('arrow $ xSplitString')
+message('arrow $ xExplode')
 
 	forall(
 		"splitting an empty string is the empty string",
 		test_cases$str_word,
-		x_(paste0('a', str))$xSplitString(str)$x() == 'a',
+		x_(paste0('a', str))$xExplode(str)$x() == 'a',
 		given =
 			!('a' %in% strsplit('', str)[[1]])
 	)

@@ -15,7 +15,7 @@ Split a string at every newline character.
 }
 \seealso{
 Other character_vector_functions: \code{\link{xChars}};
-\code{\link{xCollapse}}; \code{\link{xSplitString}};
+\code{\link{xExplode}}; \code{\link{xImplode}};
 \code{\link{xSubString}}; \code{\link{xUnchars}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};
 \code{\link{xWords}}

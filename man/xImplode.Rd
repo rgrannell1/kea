@@ -1,8 +1,8 @@
-\name{xCollapse}
-\alias{xCollapse}
-\title{xCollapse}
+\name{xImplode}
+\alias{xImplode}
+\title{xImplode}
 \usage{
-xCollapse(str, strs)
+xImplode(str, strs)
 }
 \arguments{
   \item{str}{a string to use as a delimiter.}
@@ -18,7 +18,7 @@ delimiter.
 }
 \seealso{
 Other character_vector_functions: \code{\link{xChars}};
-\code{\link{xLines}}; \code{\link{xSplitString}};
+\code{\link{xExplode}}; \code{\link{xLines}};
 \code{\link{xSubString}}; \code{\link{xUnchars}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};
 \code{\link{xWords}}
