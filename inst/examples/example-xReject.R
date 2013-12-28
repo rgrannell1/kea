@@ -1,11 +1,13 @@
 
-# remove NA values from a list
+# 1. removing NA values from a list;
+#    an essential rstats task.
 
-xReject(is.na, c(1, 2, NA, 3))
+xReject(is.na, c(1, 2, NA, 3, NA, 4))
 
-list(1, 2, 3)
+list(1, 2, 3, 4)
 
-# remove outliers from a data set.
+# 2. remove numeric outliers from a data set,
+#    by filtering them out.
 
 is_outlier <- function (data_set) {
 	# returns a function that tests whether an element of the
@@ -16,7 +18,6 @@ is_outlier <- function (data_set) {
 	range <- list(
 		lower = data_quantile[['25%']],
 		higher = data_quantile[['75%']] )
-
 
 	function (member) {
 		member < range$lower || member > range$higher

@@ -19,27 +19,27 @@ Invoke a function with a collection of arguments.
 \section{Uses}{
   \code{xApply} is an adaptor function that allows variadic
   functions to be called with a variable number of
-  arguments at runtime.  For example, if \code{xConcat} is
+  arguments at runtime.  For example, if \code{xJoin} is
   invoked directly it has to be given a fixed number of
-  lists to concatenate.  If \code{xConcat} is invoked with
-  \code{xApply} then xConcat can be invoked with any number
+  lists to concatenate.  If \code{xJoin} is invoked with
+  \code{xApply} then xJoin can be invoked with any number
   of lists dynamically.
 }
 \seealso{
 Other collection_functions: \code{\link{xAsFunction}};
 \code{\link{xAssoc}}; \code{\link{xCombos}};
-\code{\link{xConcat}}; \code{\link{xDiffer}};
-\code{\link{xDissoc}}; \code{\link{xDo}};
-\code{\link{xDrop}}; \code{\link{xDropWhile}};
-\code{\link{xExists}}; \code{\link{xFirst}};
-\code{\link{xFlatMap}}; \code{\link{xFlatten}};
-\code{\link{xFoldl}}; \code{\link{xFoldListl}};
-\code{\link{xFoldr}}; \code{\link{xForall}};
-\code{\link{xFourth}}; \code{\link{xInit}};
-\code{\link{xInter}}; \code{\link{xIsEmpty}};
-\code{\link{xIsFalse}}; \code{\link{xIsMember}};
-\code{\link{xIsNa}}; \code{\link{xIsNan}};
-\code{\link{xIsNull}}; \code{\link{xIsTrue}};
+\code{\link{xDiffer}}; \code{\link{xDissoc}};
+\code{\link{xDo}}; \code{\link{xDrop}};
+\code{\link{xDropWhile}}; \code{\link{xExists}};
+\code{\link{xFirst}}; \code{\link{xFlatMap}};
+\code{\link{xFlatten}}; \code{\link{xFoldl}};
+\code{\link{xFoldListl}}; \code{\link{xFoldr}};
+\code{\link{xForall}}; \code{\link{xFourth}};
+\code{\link{xInit}}; \code{\link{xInter}};
+\code{\link{xIsEmpty}}; \code{\link{xIsFalse}};
+\code{\link{xIsMember}}; \code{\link{xIsNa}};
+\code{\link{xIsNan}}; \code{\link{xIsNull}};
+\code{\link{xIsTrue}}; \code{\link{xJoin}};
 \code{\link{xLast}}; \code{\link{xLength}};
 \code{\link{xLocate}}; \code{\link{xLocater}};
 \code{\link{xMap}}; \code{\link{xMapIndexed}};

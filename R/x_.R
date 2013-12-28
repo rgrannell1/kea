@@ -509,23 +509,23 @@ x_coll_proto <- local({
 			xIsMember...(val, self_(), ...)
 		}
 
-	# --- xConcat --- #
-	this$xConcat <-
+	# --- xJoin --- #
+	this$xJoin <-
 		function () {
-			x_( xConcat(self_()) )
+			x_( xJoin(self_()) )
 		}
-	this$xConcat... <-
+	this$xJoin... <-
 		function (...) {
-			x_( xConcat...(self_(), ...) )
+			x_( xJoin...(self_(), ...) )
 		}
 
 	this$x_Concat <-
 		function () {
-			xConcat(self_())
+			xJoin(self_())
 		}
 	this$x_Concat... <-
 		function (...) {
-			xConcat...(self_(), ...)
+			xJoin...(self_(), ...)
 		}
 
 	# --- xCombos --- #
@@ -2992,11 +2992,6 @@ x_fn_proto <- local({
 #'
 #'    \code{xTap}: Call the data inside the arrow object with an anonymous function, returning
 #'    a new arrow object.
-#'
-#'
-#'
-#'
-#'
 #'
 #' @export
 

@@ -41,27 +41,29 @@ value).
 }
 \examples{
 
-# sum a vector with fold.
+# 1. sum a vector with fold.
 
 xFold("+", 0, 1:10)
 
 55
 
-# search for a match in a list.
-# as soon as a match is found, Return true
-# for efficiency.
+# 2. search for a match in a list.
+#    as soon as a match is found, Return true
+#    for efficiency.
 
 xFold(
-	(acc : new) := { if (new > 100) Return (True) },
-	False,
-	list(99, 98, 101, 96, 94)
+    (acc : new) := {
+        if (new > 100) Return (True)
+    },
+    False,
+    list(99, 98, 101, 96, 94)
 )
 
 True
 
-# demonstrate how Return works by using
-# it to break out of the fold across 26 letters
-# prematurely.
+# 3. demonstrate how Return works by using
+#    it to break out of the fold across 26 letters
+#    prematurely.
 
 xFold(
 	(number_checked : letter) := {
@@ -72,7 +74,8 @@ xFold(
 			number_checked + 1
 		}
 	},
-	0, letters
+	0,
+	letters
 )
 
 # terminated after 16 checks, not 26.
@@ -82,18 +85,18 @@ xFold(
 \seealso{
 Other collection_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xAssoc}};
-\code{\link{xCombos}}; \code{\link{xConcat}};
-\code{\link{xDiffer}}; \code{\link{xDissoc}};
-\code{\link{xDo}}; \code{\link{xDrop}};
-\code{\link{xDropWhile}}; \code{\link{xExists}};
-\code{\link{xFirst}}; \code{\link{xFlatMap}};
-\code{\link{xFlatten}}; \code{\link{xFoldListl}};
-\code{\link{xFoldr}}; \code{\link{xForall}};
-\code{\link{xFourth}}; \code{\link{xInit}};
-\code{\link{xInter}}; \code{\link{xIsEmpty}};
-\code{\link{xIsFalse}}; \code{\link{xIsMember}};
-\code{\link{xIsNa}}; \code{\link{xIsNan}};
-\code{\link{xIsNull}}; \code{\link{xIsTrue}};
+\code{\link{xCombos}}; \code{\link{xDiffer}};
+\code{\link{xDissoc}}; \code{\link{xDo}};
+\code{\link{xDrop}}; \code{\link{xDropWhile}};
+\code{\link{xExists}}; \code{\link{xFirst}};
+\code{\link{xFlatMap}}; \code{\link{xFlatten}};
+\code{\link{xFoldListl}}; \code{\link{xFoldr}};
+\code{\link{xForall}}; \code{\link{xFourth}};
+\code{\link{xInit}}; \code{\link{xInter}};
+\code{\link{xIsEmpty}}; \code{\link{xIsFalse}};
+\code{\link{xIsMember}}; \code{\link{xIsNa}};
+\code{\link{xIsNan}}; \code{\link{xIsNull}};
+\code{\link{xIsTrue}}; \code{\link{xJoin}};
 \code{\link{xLast}}; \code{\link{xLength}};
 \code{\link{xLocate}}; \code{\link{xLocater}};
 \code{\link{xMap}}; \code{\link{xMapIndexed}};

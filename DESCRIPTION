@@ -119,7 +119,7 @@ Collate:
     'xGet.R'
     'xPluck.R'
     'xPartition.R'
-    'xConcat.R'
+    'xJoin.R'
     'xAsFunction.R'
     'xRepeat.R'
     'xVal.R'

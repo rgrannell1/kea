@@ -48,7 +48,6 @@ xZipWith <- function (fn, colls) {
 
 	fn <- match.fun(fn)
 
-
 	if (length(colls) == 0) {
 		list()
 	} else {

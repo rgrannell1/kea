@@ -40,44 +40,39 @@ using a binary function (left to right).
 }
 \examples{
 
-# 1. the archetypal example of reduce; summing a list.
+# 1. the archetypal example of Reduce; summing a vector.
 
 xReduce("+", 1:10)
 
 55
 
-# 2.
+# 2. another associative operator; using rbind to join several
+#    vectors into one matrix.
 
-xReduce(
+xReduce...(
     rbind,
-    list(
-        c(1, 2),
-        c(3, 4))
+    c(1, 2),
+    c(3, 4))
 )
 
-# 3.
-
-xReduce(
-
-
-)
+matrix(1:4, 2, 2)
 }
 \seealso{
 Other collection_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xAssoc}};
-\code{\link{xCombos}}; \code{\link{xConcat}};
-\code{\link{xDiffer}}; \code{\link{xDissoc}};
-\code{\link{xDo}}; \code{\link{xDrop}};
-\code{\link{xDropWhile}}; \code{\link{xExists}};
-\code{\link{xFirst}}; \code{\link{xFlatMap}};
-\code{\link{xFlatten}}; \code{\link{xFoldl}};
-\code{\link{xFoldListl}}; \code{\link{xFoldr}};
-\code{\link{xForall}}; \code{\link{xFourth}};
-\code{\link{xInit}}; \code{\link{xInter}};
-\code{\link{xIsEmpty}}; \code{\link{xIsFalse}};
-\code{\link{xIsMember}}; \code{\link{xIsNa}};
-\code{\link{xIsNan}}; \code{\link{xIsNull}};
-\code{\link{xIsTrue}}; \code{\link{xLast}};
+\code{\link{xCombos}}; \code{\link{xDiffer}};
+\code{\link{xDissoc}}; \code{\link{xDo}};
+\code{\link{xDrop}}; \code{\link{xDropWhile}};
+\code{\link{xExists}}; \code{\link{xFirst}};
+\code{\link{xFlatMap}}; \code{\link{xFlatten}};
+\code{\link{xFoldl}}; \code{\link{xFoldListl}};
+\code{\link{xFoldr}}; \code{\link{xForall}};
+\code{\link{xFourth}}; \code{\link{xInit}};
+\code{\link{xInter}}; \code{\link{xIsEmpty}};
+\code{\link{xIsFalse}}; \code{\link{xIsMember}};
+\code{\link{xIsNa}}; \code{\link{xIsNan}};
+\code{\link{xIsNull}}; \code{\link{xIsTrue}};
+\code{\link{xJoin}}; \code{\link{xLast}};
 \code{\link{xLength}}; \code{\link{xLocate}};
 \code{\link{xLocater}}; \code{\link{xMap}};
 \code{\link{xMapIndexed}}; \code{\link{xMapMany}};

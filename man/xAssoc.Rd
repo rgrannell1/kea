@@ -21,18 +21,18 @@ Convert a list of name, value pairs into a named list.
 \seealso{
 Other collection_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xCombos}};
-\code{\link{xConcat}}; \code{\link{xDiffer}};
-\code{\link{xDissoc}}; \code{\link{xDo}};
-\code{\link{xDrop}}; \code{\link{xDropWhile}};
-\code{\link{xExists}}; \code{\link{xFirst}};
-\code{\link{xFlatMap}}; \code{\link{xFlatten}};
-\code{\link{xFoldl}}; \code{\link{xFoldListl}};
-\code{\link{xFoldr}}; \code{\link{xForall}};
-\code{\link{xFourth}}; \code{\link{xInit}};
-\code{\link{xInter}}; \code{\link{xIsEmpty}};
-\code{\link{xIsFalse}}; \code{\link{xIsMember}};
-\code{\link{xIsNa}}; \code{\link{xIsNan}};
-\code{\link{xIsNull}}; \code{\link{xIsTrue}};
+\code{\link{xDiffer}}; \code{\link{xDissoc}};
+\code{\link{xDo}}; \code{\link{xDrop}};
+\code{\link{xDropWhile}}; \code{\link{xExists}};
+\code{\link{xFirst}}; \code{\link{xFlatMap}};
+\code{\link{xFlatten}}; \code{\link{xFoldl}};
+\code{\link{xFoldListl}}; \code{\link{xFoldr}};
+\code{\link{xForall}}; \code{\link{xFourth}};
+\code{\link{xInit}}; \code{\link{xInter}};
+\code{\link{xIsEmpty}}; \code{\link{xIsFalse}};
+\code{\link{xIsMember}}; \code{\link{xIsNa}};
+\code{\link{xIsNan}}; \code{\link{xIsNull}};
+\code{\link{xIsTrue}}; \code{\link{xJoin}};
 \code{\link{xLast}}; \code{\link{xLength}};
 \code{\link{xLocate}}; \code{\link{xLocater}};
 \code{\link{xMap}}; \code{\link{xMapIndexed}};
@@ -59,8 +59,8 @@ Other name_functions: \code{\link{xDissoc}};
 \code{\link{xGet}}; \code{\link{xName}};
 \code{\link{xPluck}}
 
-Other reshaping_functions: \code{\link{xConcat}};
-\code{\link{xDissoc}}; \code{\link{xFlatten}};
+Other reshaping_functions: \code{\link{xDissoc}};
+\code{\link{xFlatten}}; \code{\link{xJoin}};
 \code{\link{xPermute}}; \code{\link{xRepeat}};
 \code{\link{xReverse}}; \code{\link{xSegment}};
 \code{\link{xShuffle}}; \code{\link{xSplit}};

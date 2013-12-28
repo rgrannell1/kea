@@ -14,6 +14,9 @@
 #'
 #' @family collection_functions
 #'
+#' @example
+#'    inst/examples/example-xSetProd.R
+#'
 #' @export
 
 xSetProd <- function (colls) {

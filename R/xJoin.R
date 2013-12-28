@@ -1,5 +1,5 @@
 
-#' xConcat
+#' xJoin
 #'
 #' Concatenate several collections into one collection.
 #'
@@ -20,7 +20,7 @@
 #'
 #' @export
 
-xConcat <- function (colls) {
+xJoin <- function (colls) {
 	# Collection any coll -> [any]
 	# Concatenate several collections.
 
@@ -36,6 +36,6 @@ xConcat <- function (colls) {
 
 #' @export
 
-xConcat... <- function (...) {
-	xConcat(list(...))
+xJoin... <- function (...) {
+	xJoin(list(...))
 }

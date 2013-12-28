@@ -19,4 +19,8 @@ Assign a constant value to calling environment.
   overwrites the value referenced by \code{str}r if the
   variable already exists in the parent frame.
 }
+\seealso{
+Other immutable_value_functions: \code{\link{xAsVal}};
+\code{\link{xAsVar}}
+}
 

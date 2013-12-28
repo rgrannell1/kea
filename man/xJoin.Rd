@@ -1,8 +1,8 @@
-\name{xConcat}
-\alias{xConcat}
-\title{xConcat}
+\name{xJoin}
+\alias{xJoin}
+\title{xJoin}
 \usage{
-xConcat(colls)
+xJoin(colls)
 }
 \arguments{
   \item{colls}{several collections.}

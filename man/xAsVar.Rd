@@ -17,4 +17,8 @@ Convert a constant value back into a normal R value.
   throws an error if attempting to convert a variable that
   doesn't exist (in the parent frame).
 }
+\seealso{
+Other immutable_value_functions: \code{\link{xAsVal}};
+\code{\link{xVal}}
+}
 
