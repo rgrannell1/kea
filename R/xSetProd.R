@@ -14,6 +14,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family set_functions
+#'
 #' @example
 #'    inst/examples/example-xSetProd.R
 #'

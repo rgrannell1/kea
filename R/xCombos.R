@@ -19,6 +19,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family set_functions
+#'
 #' @export
 
 xCombos <- function (num, coll) {

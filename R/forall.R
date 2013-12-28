@@ -663,6 +663,9 @@ test_cases <- local({
 	this$letters <-
 		list(coll = compounds$letters())
 
+	this$letter <-
+		list(str = atoms$letter)
+
 	this$nans <-
 		list(coll = compounds$nans())
 

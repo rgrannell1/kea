@@ -49,7 +49,7 @@ xExists <- function (pred, colls) {
 	coll_lengths <- sapply(colls, length)
 
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
-		False
+		logical(0)
 	} else {
 
 		modulo_iths <- function (n, mods) {

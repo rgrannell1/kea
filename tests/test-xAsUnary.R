@@ -5,7 +5,7 @@ test_cases <- arrow:::test_cases
 message("xAsUnary")
 
 	forall(
-		"all functions become unary",
+		"all base functions become unary with xAsUnary",
 		test_cases$base_function,
 		{
 			g <- xAsUnary(fn)
@@ -14,7 +14,7 @@ message("xAsUnary")
 	)
 
 	forall(
-		"addition is defined",
+		"xAsUnary of plus works properly",
 		test_cases$sum_over_integers,
 		all(xAsUnary(fn)( list(coll, coll) ) == coll + coll)
 	)
