@@ -29,7 +29,8 @@
 
 xTakeWhile <- function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
-	# take every element until pred returns false
+	# take every element in a collection
+	# until a predicate returns false.
 
 	invoking_call <- sys.call()
 

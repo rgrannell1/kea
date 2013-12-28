@@ -41,7 +41,6 @@ Collate:
     'xFoldr.R'
     'xFormals.R'
     'xFourth.R'
-    'xHasDefs.R'
     'xIdentity.R'
     'xInitial.R'
     'xIsEmpty.R'

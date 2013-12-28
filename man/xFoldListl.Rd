@@ -17,8 +17,10 @@ a list with its init element being \code{coll}, and
 containing \code{length(coll) + 1}.
 }
 \description{
-Fold a function over a collection from left to right with
-an initital left value, keeping intermediate values.
+Successively combine a list of values into a single value
+using a binary function (left to right, with an initial
+value). Return a list containing each intermediate result,
+and the final result.
 }
 \section{Corner Cases}{
   returns \code{list(init)} if \code{coll} is length-zero.

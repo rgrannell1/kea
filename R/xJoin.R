@@ -22,7 +22,8 @@
 
 xJoin <- function (colls) {
 	# Collection any coll -> [any]
-	# Concatenate several collections.
+	# Concatenate several collections
+	# into one list.
 
 	invoking_call <- sys.call()
 

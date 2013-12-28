@@ -2,7 +2,7 @@
 #' xMapIndexed
 #'
 #' Apply a binary function to each element of a
-#' collection and its indices.
+#' collection and its index.
 #'
 #' @param
 #'    fn a binary function.
@@ -26,6 +26,8 @@
 
 xMapIndexed <- function (fn, coll) {
 	# (integer -> any -> any) -> Collection any -> [any]
+	# Map over a collection, also passing each elements
+	# index.
 
 	invoking_call <- sys.call()
 

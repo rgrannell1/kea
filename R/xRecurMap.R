@@ -1,7 +1,8 @@
 
 #' xRecurMap
 #'
-#' Recursively map a function into a nested collection, preserving its structure.
+#' Recursively map a function into a nested collection,
+#' preserving its structure.
 #'
 #' @param
 #'    fn a unary function.

@@ -1,8 +1,9 @@
 
 #' xFoldListl
 #'
-#' Fold a function over a collection from left to right with
-#' an initital left value, keeping intermediate values.
+#' Successively combine a list of values into a single value
+#' using a binary function (left to right, with an initial value).
+#' Return a list containing each intermediate result, and the final result.
 #'
 #' @param
 #'    fn a binary function that returns a value that

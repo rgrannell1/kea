@@ -32,6 +32,7 @@
 
 xLimit <- function (fn, num) {
 	# integer -> function -> function
+	# limit how many times a function can be called.
 
 	invoking_call <- sys.call()
 

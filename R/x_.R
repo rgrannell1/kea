@@ -2368,16 +2368,6 @@ x_fn_proto <- local({
 	# -------- G ------- #
 
 	# -------- H ------- #
-	# --- xHasDefs --- #
-	this$xHasDefs <-
-		function () {
-			x_( xHasDefs(self_()) )
-		}
-
-	this$x_HasDefs <-
-		function () {
-			xHasDefs(self_())
-		}
 	# -------- I ------- #
 	# --- xIsVariadic --- #
 	this$xIsVariadic <-

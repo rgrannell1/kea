@@ -14,7 +14,7 @@ a list.
 }
 \description{
 Apply a binary function to each element of a collection and
-its indices.
+its index.
 }
 \section{Corner Cases}{
   returns the empty list is \code{coll} is length-zero.
