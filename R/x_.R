@@ -471,63 +471,6 @@ x_coll_proto <- local({
 			xChars(self_())
 		}
 
-	# --- xImplode --- #
-	this$xImplode <-
-		function (str) {
-			x_( xImplode(str, self_() ))
-		}
-	this$xImplode... <-
-		function (str, ...) {
-			x_( xImplode...(str, self_(), ...) )
-		}
-
-	this$x_Collapse <-
-		function (str) {
-			xImplode(str, self_() )
-		}
-	this$x_Collapse... <-
-		function (str, ...) {
-			xImplode...(str, self_(), ...)
-		}
-
-	# --- xIsMember --- #
-	this$xIsMember <-
-		function (val) {
-			x_( xIsMember(val, self_()) )
-		}
-	this$xIsMember... <-
-		function (..., val) {
-			x_( xIsMember...(val, self_(), ...) )
-		}
-
-	this$x_IsMember <-
-		function (val) {
-			xIsMember(val, self_())
-		}
-	this$x_IsMember... <-
-		function (..., val) {
-			xIsMember...(val, self_(), ...)
-		}
-
-	# --- xJoin --- #
-	this$xJoin <-
-		function () {
-			x_( xJoin(self_()) )
-		}
-	this$xJoin... <-
-		function (...) {
-			x_( xJoin...(self_(), ...) )
-		}
-
-	this$x_Concat <-
-		function () {
-			xJoin(self_())
-		}
-	this$x_Concat... <-
-		function (...) {
-			xJoin...(self_(), ...)
-		}
-
 	# --- xCombos --- #
 	this$xCombos <-
 		function (num) {
@@ -674,6 +617,16 @@ x_coll_proto <- local({
 	this$x_Exists... <-
 		function (pred, ...) {
 			xExists...(pred, self_(), ...)
+		}
+
+	# --- xExplode --- #
+	this$xExplode <-
+		function (rexp) {
+			x_( xExplode(rexp, self_()) )
+		}
+	this$x_Explode <-
+		function (rexp) {
+			xExplode(rexp, self_())
 		}
 
 	# -------- F ------- #
@@ -880,6 +833,45 @@ x_coll_proto <- local({
 	# -------- G ------- #
 	# -------- H ------- #
 	# -------- I ------- #
+
+	# --- xImplode --- #
+	this$xImplode <-
+		function (str) {
+			x_( xImplode(str, self_() ))
+		}
+	this$xImplode... <-
+		function (str, ...) {
+			x_( xImplode...(str, self_(), ...) )
+		}
+
+	this$x_Implode <-
+		function (str) {
+			xImplode(str, self_() )
+		}
+	this$x_Implode... <-
+		function (str, ...) {
+			xImplode...(str, self_(), ...)
+		}
+
+	# --- xIsMember --- #
+	this$xIsMember <-
+		function (val) {
+			x_( xIsMember(val, self_()) )
+		}
+	this$xIsMember... <-
+		function (..., val) {
+			x_( xIsMember...(val, self_(), ...) )
+		}
+
+	this$x_IsMember <-
+		function (val) {
+			xIsMember(val, self_())
+		}
+	this$x_IsMember... <-
+		function (..., val) {
+			xIsMember...(val, self_(), ...)
+		}
+
 	# --- xInit --- #
 	this$xInit <-
 		function () {
@@ -1045,6 +1037,25 @@ x_coll_proto <- local({
 		}
 
 	# -------- J ------- #
+	# --- xJoin --- #
+	this$xJoin <-
+		function () {
+			x_( xJoin(self_()) )
+		}
+	this$xJoin... <-
+		function (...) {
+			x_( xJoin...(self_(), ...) )
+		}
+
+	this$x_Join <-
+		function () {
+			xJoin(self_())
+		}
+	this$x_Join... <-
+		function (...) {
+			xJoin...(self_(), ...)
+		}
+
 	# --- xJuxtapose --- #
 	this$xJuxtapose <-
 		function (fns) {
@@ -1056,12 +1067,6 @@ x_coll_proto <- local({
 			xJuxtapose(self_())
 		}
 	# -------- K ------- #
-	# --- xKestrel --- #
-	this$xKestrel <-
-		this$xConst
-
-	this$x_Kestrel <-
-		this$x_Const
 	# -------- L ------- #
 	# --- xLast --- #
 	this$xLast <-
@@ -1793,16 +1798,6 @@ x_coll_proto <- local({
 			xShuffle...(self_(), ...)
 		}
 
-	# --- xExplode --- #
-	this$xExplode <-
-		function (rexp) {
-			x_( xExplode(rexp, self_()) )
-		}
-	this$x_SplitString <-
-		function (rexp) {
-			xExplode(rexp, self_())
-		}
-
 	# --- xSplitWith --- #
 	this$xSplitWith <-
 		function (pred) {
@@ -2164,8 +2159,6 @@ x_fn_proto <- local({
 
 
 	# -------- C ------- #
-	this$xC <-
-		this$xCardinal
 	this$xConst <-
 		function () {
 			x_( xConst(self_()) )
@@ -2420,15 +2413,11 @@ x_fn_proto <- local({
 
 	# -------- K ------- #
 	# --- xKestrel --- #
-	this$xKestrel <-
-		this$xConst
 	this$xK <-
-		this$xKestrel
-
-	this$x_Kestrel <-
-		this$x_Const
+		this$xConst
 	this$x_K <-
-		this$x_Kestrel
+		this$x_Const
+
 	# -------- L ------- #
 	# --- xLimit --- #
 	this$xLimit <-
