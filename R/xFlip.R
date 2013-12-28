@@ -13,6 +13,8 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family parametre_functions
+#'
 #' @export
 
 xFlip <- function (fn) {

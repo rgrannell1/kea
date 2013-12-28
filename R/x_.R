@@ -2402,7 +2402,7 @@ x_fn_proto <- local({
 		}
 
 	# -------- K ------- #
-	# --- xKestrel --- #
+	# --- xK --- #
 	this$xK <-
 		this$xConst
 	this$x_K <-

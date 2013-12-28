@@ -9,6 +9,8 @@
 #' @return
 #'    a boolean value.
 #'
+#' @family parametre_functions
+#'
 #' @export
 
 xIsVariadic <- function (fn) {
@@ -29,6 +31,6 @@ xIsVariadic <- function (fn) {
 
 	fn <- match.fun(fn)
 
-	"..." %in% names(xFormals(fn))
+	"..." %in% xParams(fn)
 
 }

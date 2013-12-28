@@ -41,4 +41,4 @@ xConst <- function (val) {
 
 #' @export
 
-xK <- xKestrel
+xK <- xConst

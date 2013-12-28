@@ -13,4 +13,10 @@ a boolean value.
 \description{
 Is a function variadic?
 }
+\seealso{
+Other parametre_functions: \code{\link{xAsUnary}};
+\code{\link{xAsVariadic}}; \code{\link{xFlip}};
+\code{\link{xFormals}}; \code{\link{xParams}};
+\code{\link{xPartial}}
+}
 

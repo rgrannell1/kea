@@ -44,5 +44,10 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xSplitWith}}; \code{\link{xStopWatch}};
 \code{\link{xTakeWhile}}; \code{\link{xVectorise}};
 \code{\link{xWait}}; \code{\link{xZipWith}}
+
+Other parametre_functions: \code{\link{xAsUnary}};
+\code{\link{xAsVariadic}}; \code{\link{xFlip}};
+\code{\link{xFormals}}; \code{\link{xIsVariadic}};
+\code{\link{xPartial}}
 }
 

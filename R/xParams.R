@@ -13,6 +13,8 @@
 #'
 #' @family higher_order_functions
 #'
+#' @family parametre_functions
+#'
 #' @export
 
 xParams <- function (fn) {
