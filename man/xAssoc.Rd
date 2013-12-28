@@ -18,6 +18,9 @@ Convert a list of name, value pairs into a named list.
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.
 }
+\examples{
+
+}
 \seealso{
 Other collection_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xCombos}};

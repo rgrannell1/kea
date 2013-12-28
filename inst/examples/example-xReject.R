@@ -1,5 +1,5 @@
 
-# 1. removing NA values from a list;
+# 1. removing NA values from a collection;
 #    an essential rstats task.
 
 xReject(is.na, c(1, 2, NA, 3, NA, 4))

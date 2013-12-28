@@ -19,6 +19,9 @@
 #'
 #' @family name_functions
 #'
+#' @example
+#'    inst/examples/example-xAssoc.R
+#'
 #' @export
 
 xAssoc <- function (colls) {

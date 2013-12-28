@@ -16,6 +16,9 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @example
+#'    inst/examples/example-xAsFunction.R
+#'
 #' @export
 
 xAsFunction <- function (coll) {

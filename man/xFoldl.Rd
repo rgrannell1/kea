@@ -47,21 +47,7 @@ xFold("+", 0, 1:10)
 
 55
 
-# 2. search for a match in a list.
-#    as soon as a match is found, Return true
-#    for efficiency.
-
-xFold(
-    (acc : new) := {
-        if (new > 100) Return (True)
-    },
-    False,
-    list(99, 98, 101, 96, 94)
-)
-
-True
-
-# 3. demonstrate how Return works by using
+# 2. demonstrate how Return works by using
 #    it to break out of the fold across 26 letters
 #    prematurely.
 
@@ -80,7 +66,6 @@ xFold(
 
 # terminated after 16 checks, not 26.
 16
-
 }
 \seealso{
 Other collection_functions: \code{\link{xApply}};

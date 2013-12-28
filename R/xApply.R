@@ -25,6 +25,9 @@
 #'
 #' @family collection_functions
 #'
+#' @example
+#'    inst/examples/example-xApply.R
+#'
 #' @export
 
 xApply <- function (fn, coll) {

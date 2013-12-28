@@ -22,6 +22,10 @@
 #'
 #' @family higher_order_functions
 #'
+#' @example
+#'    inst/examples/example-xArity.R
+#'
+
 #' @export
 
 xArity <- function (fn) {

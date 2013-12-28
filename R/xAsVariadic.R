@@ -14,6 +14,9 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @example
+#'    inst/examples/example-xAsVariadic.R
+#'
 #' @export
 
 xAsVariadic <- function (fn) {

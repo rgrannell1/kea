@@ -14,6 +14,9 @@ a variadic function.
 Return a variadic function that passes its arguments as a
 list to ints underyling function.
 }
+\examples{
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}};

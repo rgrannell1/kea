@@ -14,6 +14,9 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @example
+#'    inst/examples/example-xAsUnary.R
+#'
 #' @export
 
 xAsUnary <- function (fn) {

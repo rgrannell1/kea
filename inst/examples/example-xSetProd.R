@@ -9,7 +9,7 @@ xMapply(
 	xSetProd...(1:4, 1:4)
 )
 
-# is roughly the same as...
+# is roughly the same as base R's...
 
 res <- list()
 

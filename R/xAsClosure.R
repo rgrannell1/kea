@@ -17,6 +17,9 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @example
+#'    inst/examples/example-xAsClosure.R
+#'
 #' @export
 
 xAsClosure <- function (fn) {

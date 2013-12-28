@@ -15,6 +15,27 @@ Create a function that takes one argument, and applies each
 element of that argument as a parametre of its underlying
 function.
 }
+\examples{
+
+# 1. xAsUnary can be used to adapt higher-order
+#    functions to make them work with non-unary functions.
+
+xSelect...(
+    xAsUnary(
+        (a : b) := {
+
+            a > 0 && b >= 0
+
+        }
+    ),
+    list(+1, +1),
+    list(+0, +1),
+    list(-1, 1),
+    list(-1, -1)
+)
+
+list(+1, +1)
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}};

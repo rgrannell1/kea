@@ -13,6 +13,9 @@
 #'
 #' @family immutable_value_functions
 #'
+#' @example
+#'    inst/examples/example-xAsVal.R
+#'
 #' @export
 
 xAsVal <- function (str) {

@@ -18,6 +18,9 @@ Convert a primitive function to a closure.
   (for example 'c'), so caution should be taken when using
   this function.
 }
+\examples{
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsFunction}}; \code{\link{xAsUnary}};

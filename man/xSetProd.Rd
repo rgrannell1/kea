@@ -16,6 +16,30 @@ Get the cartesian product of several collections.
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.
 }
+\examples{
+
+# 1. xSetProd with xMap, xMapply or xReduce are
+#    generally very nice replacements for loops.
+
+xMapply(
+	(ith : jth) := {
+		ith^2 + jth^2
+	},
+	xSetProd...(1:4, 1:4)
+)
+
+# is roughly the same as base R's...
+
+res <- list()
+
+for (ith in 1:4) {
+	for (jth in 1:4) {
+		res <- c(res, ith^2 + jth^2)
+	}
+}
+
+res
+}
 \seealso{
 Other collection_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xAssoc}};
