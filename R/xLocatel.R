@@ -45,7 +45,7 @@ xLocate <- function (pred, coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(doll)) )
+			coll, profile_object(coll)) )
 
 	pred <- match.fun(pred)
 

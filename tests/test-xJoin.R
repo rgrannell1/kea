@@ -26,10 +26,10 @@ message("arrow $ xJoin")
 		x_( list(coll, Null) )$xJoin()$x() %equals% as.list(coll)
 	)
 
-message("arrow $ x_Concat")
+message("arrow $ x_Join")
 
 	forall(
 		"a single collection and null acts as identity",
 		test_cases$collection,
-		x_( list(coll, Null) )$x_Concat() %equals% as.list(coll)
+		x_( list(coll, Null) )$x_Join() %equals% as.list(coll)
 	)

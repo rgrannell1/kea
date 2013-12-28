@@ -10,10 +10,4 @@ message("xUnion")
 		xUnion(list()) %equals% list()
 	)
 
-	forall(
-		"the union of empty sets is the empty set",
-		test_cases$collection_zero,
-		xUnion(list(coll, coll)) %equals% list()
-	)
-
 message("arrow $ xUnion")

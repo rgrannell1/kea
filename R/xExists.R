@@ -37,7 +37,7 @@ xExists <- function (pred, colls) {
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(
-			pre, profile_object(pred)) )
+			pred, profile_object(pred)) )
 
 	pred <- match.fun(pred)
 

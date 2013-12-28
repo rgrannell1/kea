@@ -46,7 +46,7 @@ xReducer <- function (fn, coll) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(collfn)) )
+			fn, profile_object(coll)) )
 
 	assert(
 		is_collection(coll), invoking_call,

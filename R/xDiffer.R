@@ -25,7 +25,7 @@ xDiffer <- function (colls) {
 	invoking_call <- sys.call()
 
 	assert(
-		all( sapply(colls, is_collection(coll)) ), invoking_call,
+		all(sapply(colls, is_collection)), invoking_call,
 		exclaim$must_be_collection_of_length(
 			colls, profile_object(colls)) )
 

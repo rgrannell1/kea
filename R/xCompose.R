@@ -4,10 +4,7 @@
 #' Compose two functions.
 #'
 #' @param
-#'    fn1 a unary function.
-#'
-#' @param
-#'    fn2 a unary function.
+#'    fns a collection of functions.
 #'
 #' @return
 #'    A function with the same parametres as \code{fn2}.

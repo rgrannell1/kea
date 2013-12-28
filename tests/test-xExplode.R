@@ -34,12 +34,12 @@ message('arrow $ xExplode')
 			!('a' %in% strsplit('', str)[[1]])
 	)
 
-	message('arrow $ x_SplitString')
+	message('arrow $ x_Explode')
 
 		forall(
 			"splitting an empty string is the empty string",
 			test_cases$str_word,
-			x_(paste0('a', str))$x_SplitString(str) == 'a',
+			x_(paste0('a', str))$x_Explode(str) == 'a',
 		given =
 			!('a' %in% strsplit('', str)[[1]])
 		)
