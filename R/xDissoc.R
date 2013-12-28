@@ -15,6 +15,10 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
+#' @family name_functions
+#'
 #' @export
 
 xDissoc <- function (coll) {

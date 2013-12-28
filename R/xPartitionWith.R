@@ -23,6 +23,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family filtering_functions
+#'
 #' @export
 
 xPartitionWith <- function (pred, coll) {

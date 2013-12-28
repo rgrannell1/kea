@@ -24,6 +24,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xSplit <- function (num, coll) {

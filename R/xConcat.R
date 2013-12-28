@@ -14,6 +14,10 @@
 #'    concatenating the empty list to another list returns
 #'    the second list, without modification.
 #'
+#' @family collection_functions
+#'
+#' @family reshaping_functions
+#'
 #' @export
 
 xConcat <- function (colls) {

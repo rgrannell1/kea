@@ -16,6 +16,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family filtering_functions
+#'
 #' @export
 
 xPack <- function (coll) {

@@ -17,6 +17,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xRepeat <- function (num, coll) {

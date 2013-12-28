@@ -19,6 +19,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xPermute <- function (coll, colls) {

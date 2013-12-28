@@ -20,6 +20,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family quantifier_functions
+#'
 #' @export
 
 xForall <- function (pred, colls) {

@@ -16,6 +16,8 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family function_combining_functions
+#'
 #' @export
 
 xLift <- function (fn, fns) {

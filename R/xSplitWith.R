@@ -16,6 +16,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xSplitWith <- function (pred, coll) {

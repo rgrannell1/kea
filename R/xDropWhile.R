@@ -20,6 +20,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family selection_functions
+#'
 #' @export
 
 xDropWhile <- function (pred, coll) {

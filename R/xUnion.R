@@ -14,6 +14,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family set_functions
+#'
 #' @export
 
 xUnion <- function (colls) {

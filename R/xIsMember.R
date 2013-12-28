@@ -18,6 +18,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family set_functions
+#'
 #' @export
 
 xIsMember <- function (val, coll) {

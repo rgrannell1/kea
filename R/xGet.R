@@ -14,6 +14,10 @@
 #'
 #' @family higher_order_functions
 #'
+#' @family selection_functions
+#'
+#' @family name_functions
+#'
 #' @export
 
 xGet <- function (str) {

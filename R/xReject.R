@@ -24,6 +24,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family filtering_functions
+#'
 #' @export
 
 xReject <- function (pred, coll) {

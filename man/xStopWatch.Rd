@@ -14,6 +14,14 @@ a variadic function that ignores its arguments.
 Create a function that returns true for a preset time after
 creation.
 }
+\section{Uses}{
+  \code{xStopWatch} is used to measure the passage of time
+  beyond a threshold. \code{xStopWatch} is used internally
+  by Arrow's testing suite to check that tests are run for
+  a certain amount of time, but no longer. By default, unit
+  tests are run until a 0.1 second \code{xStopWatch}
+  returns false. The tests then terminate.
+}
 \seealso{
 Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xArity}}; \code{\link{xAsClosure}};
@@ -21,23 +29,26 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xCompose}}; \code{\link{xConst}};
 \code{\link{xDo}}; \code{\link{xDropWhile}};
 \code{\link{xExists}}; \code{\link{xFlatMap}};
-\code{\link{xFlip}}; \code{\link{xFoldListl}};
-\code{\link{xFoldl}}; \code{\link{xFoldr}};
+\code{\link{xFlip}}; \code{\link{xFoldl}};
+\code{\link{xFoldListl}}; \code{\link{xFoldr}};
 \code{\link{xForall}}; \code{\link{xFormals}};
 \code{\link{xGet}}; \code{\link{xIterate}};
 \code{\link{xJuxtapose}}; \code{\link{xLift}};
-\code{\link{xLimit}}; \code{\link{xLocater}};
-\code{\link{xLocate}}; \code{\link{xMapIndexed}};
-\code{\link{xMapMany}}; \code{\link{xMapWhen}};
-\code{\link{xMapply}}; \code{\link{xMap}};
+\code{\link{xLimit}}; \code{\link{xLocate}};
+\code{\link{xLocater}}; \code{\link{xMap}};
+\code{\link{xMapIndexed}}; \code{\link{xMapMany}};
+\code{\link{xMapply}}; \code{\link{xMapWhen}};
 \code{\link{xNot}}; \code{\link{xParams}};
-\code{\link{xPartial}}; \code{\link{xPartitionWith}};
-\code{\link{xPartition}}; \code{\link{xPermute}};
+\code{\link{xPartial}}; \code{\link{xPartition}};
+\code{\link{xPartitionWith}}; \code{\link{xPermute}};
 \code{\link{xPluck}}; \code{\link{xPoll}};
-\code{\link{xRecurMap}}; \code{\link{xReducer}};
-\code{\link{xReduce}}; \code{\link{xReject}};
+\code{\link{xRecurMap}}; \code{\link{xReduce}};
+\code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
 \code{\link{xTakeWhile}}; \code{\link{xVectorise}};
 \code{\link{xWait}}; \code{\link{xZipWith}}
+
+Other time_functions: \code{\link{xLimit}};
+\code{\link{xWait}}
 }
 

@@ -17,6 +17,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xZip <- function (colls) {

@@ -4,6 +4,14 @@
 #' Create a function that returns true for a
 #' preset time after creation.
 #'
+#' @section Uses:
+#'     \code{xStopWatch} is used to measure the passage of time
+#'     beyond a threshold. \code{xStopWatch} is used internally
+#'     by Arrow's testing suite to check that tests are run for
+#'     a certain amount of time, but no longer. By default,
+#'     unit tests are run until a 0.1 second \code{xStopWatch} returns
+#'     false. The tests then terminate.
+#'
 #' @param
 #'    num a positive number.
 #'
@@ -11,6 +19,8 @@
 #'    a variadic function that ignores its arguments.
 #'
 #' @family higher_order_functions
+#'
+#' @family time_functions
 #'
 #' @export
 

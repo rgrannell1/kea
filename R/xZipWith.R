@@ -22,6 +22,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xZipWith <- function (fn, colls) {

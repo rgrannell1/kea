@@ -17,6 +17,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family name_functions
+#'
 #' @export
 
 xName <- function (strs, coll) {

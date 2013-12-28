@@ -20,6 +20,8 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family time_functions
+#'
 #' @export
 
 xWait <- function (fn, num) {

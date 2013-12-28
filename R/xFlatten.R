@@ -17,6 +17,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xFlatten <- function (num, coll) {

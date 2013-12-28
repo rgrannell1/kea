@@ -16,6 +16,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family selection_functions
+#'
 #' @export
 
 xSecond <- function (coll) {

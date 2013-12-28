@@ -23,6 +23,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xSegment <- function (num, coll) {

@@ -22,6 +22,10 @@
 #'
 #' @family collection_functions
 #'
+#' @family selection_functions
+#'
+#' @family name_functions
+#'
 #' @export
 
 xPluck <- function (str, coll) {

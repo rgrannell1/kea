@@ -27,6 +27,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family filtering_functions
+#'
 #' @export
 
 xSelect <- function (pred, coll) {

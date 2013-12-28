@@ -31,7 +31,8 @@ xAsFunction <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, profile_object(coll)) )
 
 	function (nums) {
 
@@ -39,15 +40,18 @@ xAsFunction <- function (coll) {
 
 		assert(
 			is.numeric(nums), invoking_call,
-			exclaim$must_be_numeric(nums))
+			exclaim$must_be_numeric(
+				nums, profile_object(nums)) )
 
 		assert(
 			all(round(nums) == nums), invoking_call,
-			exclaim$must_be_whole(nums))
+			exclaim$must_be_whole(
+				nums, profile_object(nums)) )
 
 		assert(
 			length(coll) >= max(nums), invoking_call,
-			exclaim$must_be_grequal_than("length(coll)", max(nums)))
+			exclaim$must_be_grequal_than(
+				"length(coll)", max(nums)) )
 
 		assert(
 			min(nums) >= 0, invoking_call,

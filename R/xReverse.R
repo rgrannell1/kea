@@ -13,6 +13,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family reshaping_functions
+#'
 #' @export
 
 xReverse <- function (coll) {
