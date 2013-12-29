@@ -452,5 +452,11 @@ wail <- list(
 			'the method ' %+% method %+%
 			' was supposed to be non-variadic but called ...'
 
+		},
+	function_not_in_method =
+		function (method) {
+
+			'the method ' %+% method %+%
+			' should have called its underlying function.'
 		}
 )

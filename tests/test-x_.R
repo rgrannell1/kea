@@ -52,8 +52,8 @@ message('Arrow $ test 1')
 	expected_methods <- xMap(make_method_types, base_methods_names)
 
 	# reasons for exceptions:
-	#    multi-function functionals cannot have normal methods, as they're
-	#    functions
+	#    multi-function functionals cannot have normal
+	#    methods, as they're functions
 	#    on functions, not collections of functions.
 
 	# not proto specific; could be improved.
@@ -91,7 +91,8 @@ message('Arrow $ test 1')
 					# every xMethod should have an xMethod
 
 					assert(
-						(method %in% matches) || (method %in% exceptions$normal), invoking_call,
+						(method %in% matches) ||
+						(method %in% exceptions$normal), invoking_call,
 						wail$normal_form_missing(
 							method, proto_name, matches))
 
@@ -103,10 +104,13 @@ message('Arrow $ test 1')
 						wail$unchaining_form_missing(
 							method, proto_name, matches))
 
-					variadic_match <- xIsMember(forms$as_variadic, matches)
-					variadic_unchaining_match <- xIsMember(forms$as_variadic_unchaining, matches)
+					variadic_match <-
+						xIsMember(forms$as_variadic, matches)
+					variadic_unchaining_match <-
+						xIsMember(forms$as_variadic_unchaining, matches)
 
-					# either neither xMethod... or x_Method... is present, or they both are.
+					# either neither xMethod... or x_Method...
+					# is present, or they both are.
 
 					if (variadic_match || variadic_unchaining_match) {
 
