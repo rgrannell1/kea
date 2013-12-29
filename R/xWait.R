@@ -51,8 +51,9 @@ xWait <- function (fn, num) {
 	if (num == 0) {
 		fn
 	} else {
+
 		do.call("function", list(
-			formals(fn),
+			as.pairlist(xFormals(fn)),
 			bquote({
 				Sys.sleep(num)
 				.( call_with_params("fn", fn) )
