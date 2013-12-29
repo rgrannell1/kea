@@ -18,6 +18,8 @@
 #'
 #' @family function_combining_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xJuxtapose <- function (fns) {

@@ -26,6 +26,8 @@
 #'
 #' @family reshaping_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xSplit <- function (num, coll) {

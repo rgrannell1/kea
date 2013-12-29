@@ -20,6 +20,8 @@
 #'
 #' @family set_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xIsMember <- function (val, coll) {

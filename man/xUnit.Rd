@@ -38,7 +38,7 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xName}}; \code{\link{xNotFalse}};
 \code{\link{xNotNan}}; \code{\link{xNotNa}};
 \code{\link{xNotTrue}}; \code{\link{xPack}};
-\code{\link{xPartial}}; \code{\link{xPartitionWith}};
+\code{\link{xPartial}}; \code{\link{xPartition}};
 \code{\link{xPermute}}; \code{\link{xPluck}};
 \code{\link{xPoll}}; \code{\link{xRecurMap}};
 \code{\link{xReducer}}; \code{\link{xReduce}};

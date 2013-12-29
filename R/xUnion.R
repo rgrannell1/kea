@@ -16,6 +16,8 @@
 #'
 #' @family set_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xUnion <- function (colls) {

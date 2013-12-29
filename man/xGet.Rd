@@ -33,12 +33,12 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xMapWhen}}; \code{\link{xMapply}};
 \code{\link{xMap}}; \code{\link{xNot}};
 \code{\link{xParams}}; \code{\link{xPartial}};
-\code{\link{xPartitionWith}}; \code{\link{xPermute}};
+\code{\link{xPartition}}; \code{\link{xPermute}};
 \code{\link{xPluck}}; \code{\link{xPoll}};
 \code{\link{xRecurMap}}; \code{\link{xReducer}};
 \code{\link{xReduce}}; \code{\link{xReject}};
 \code{\link{xSelect}}; \code{\link{xSplitWith}};
-\code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
+\code{\link{xStopwatch}}; \code{\link{xTakeWhile}};
 \code{\link{xVectorise}}; \code{\link{xWait}};
 \code{\link{xZipWith}}
 

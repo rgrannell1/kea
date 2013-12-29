@@ -19,6 +19,8 @@
 #'
 #' @family name_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xName <- function (strs, coll) {

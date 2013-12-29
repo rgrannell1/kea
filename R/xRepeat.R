@@ -19,6 +19,8 @@
 #'
 #' @family reshaping_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xRepeat <- function (num, coll) {

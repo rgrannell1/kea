@@ -14,6 +14,8 @@
 #'
 #' @family reshaping_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xShuffle <- function (coll) {

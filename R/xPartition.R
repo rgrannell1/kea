@@ -1,5 +1,5 @@
 
-#' xPartitionWith
+#' xPartition
 #'
 #' Divide elements in a collection into two collections based on a predicate function.
 #'
@@ -25,9 +25,11 @@
 #'
 #' @family filtering_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
-xPartitionWith <- function (pred, coll) {
+xPartition <- function (pred, coll) {
 	# (any -> logical) -> Collection any -> [[any],[any]]
 	# returns two lists; a list for which pred returns
 	# true, and a list for which pred returns false
@@ -68,6 +70,6 @@ xPartitionWith <- function (pred, coll) {
 	}
 }
 
-xPartitionWith... <- function (pred, ...) {
-	xPartitionWith(pred, list(...))
+xPartition... <- function (pred, ...) {
+	xPartition(pred, list(...))
 }

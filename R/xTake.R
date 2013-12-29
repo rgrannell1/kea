@@ -15,6 +15,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xTake <- function (num, coll) {

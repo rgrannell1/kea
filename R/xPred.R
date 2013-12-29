@@ -12,6 +12,8 @@
 #' @section Corner Cases:
 #'    returns the unit of the vector if \code{nums} is length-zero.
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xPred <- function (nums) {

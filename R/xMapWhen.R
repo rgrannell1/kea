@@ -24,6 +24,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xMapWhen <- function (pred, fn, coll) {

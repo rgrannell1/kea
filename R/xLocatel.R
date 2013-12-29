@@ -20,6 +20,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xLocate <- function (pred, coll) {

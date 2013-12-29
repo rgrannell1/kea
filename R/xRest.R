@@ -16,6 +16,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xRest <- function (coll) {

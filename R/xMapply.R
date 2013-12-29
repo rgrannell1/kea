@@ -28,6 +28,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xMapply <- function (fn, coll) {
@@ -62,4 +64,10 @@ xMapply <- function (fn, coll) {
 			do.call(fn, tuple)
 		})
 	}
+}
+
+#' @export
+
+xMapply... <- function (fn, ...) {
+	xMapply(fn, list(...))
 }

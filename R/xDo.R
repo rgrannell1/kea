@@ -32,6 +32,8 @@
 #' @example
 #'    inst/examples/example-xDo.R
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xDo <- function (fn, coll) {

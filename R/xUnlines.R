@@ -11,6 +11,8 @@
 #'
 #' @family character_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xUnlines <- function (strs) {

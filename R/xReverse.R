@@ -15,6 +15,8 @@
 #'
 #' @family reshaping_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xReverse <- function (coll) {

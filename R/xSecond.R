@@ -18,6 +18,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xSecond <- function (coll) {

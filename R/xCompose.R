@@ -15,6 +15,8 @@
 #'
 #' @family function_combining_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xCompose <- function (fns) {
@@ -65,6 +67,3 @@ xCompose... <- function (...) {
 	xCompose(list(fn1, fn2))
 }
 
-#' @export
-
-xQ <- xCompose

@@ -21,6 +21,8 @@
 #'
 #' @family reshaping_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xPermute <- function (coll, colls) {

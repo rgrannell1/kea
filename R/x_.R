@@ -186,13 +186,28 @@ x_matrix_proto <- local({
 			dims <- dim(self_())
 
 			if (dims[1] == 0 && dims[0] == 0) {
+				x_( list() )
+			} else if (dims[2] == 0) {
+				x_( list() )
+			} else if (dims[1] == 0) {
+				x_( replicate(max(dims), list()))
+			} else {
+				x_( apply(self_(), 2, as.list) )
+			}
+		}
+
+	this$x_ByCols <-
+		function () {
+			dims <- dim(self_())
+
+			if (dims[1] == 0 && dims[0] == 0) {
 				list()
 			} else if (dims[2] == 0) {
 				list()
 			} else if (dims[1] == 0) {
-				replicate( max(dims), list() )
+				replicate(max(dims), list())
 			} else {
-				x_( apply(self_(), 2, as.list) )
+				apply(self_(), 2, as.list)
 			}
 		}
 
@@ -201,13 +216,28 @@ x_matrix_proto <- local({
 			dims <- dim(self_())
 
 			if (dims[1] == 0 && dims[0] == 0) {
+				x_( list() )
+			} else if (dims[1] == 0) {
+				x_( list() )
+			} else if (dims[2] == 0) {
+				x_( replicate(max(dims), list()) )
+			} else {
+				x_( apply(self_(), 1, as.list) )
+			}
+		}
+
+	this$x_ByRows <-
+		function () {
+			dims <- dim(self_())
+
+			if (dims[1] == 0 && dims[0] == 0) {
 				list()
 			} else if (dims[1] == 0) {
 				list()
 			} else if (dims[2] == 0) {
-				replicate( max(dims), list() )
+				replicate(max(dims), list())
 			} else {
-				x_( apply(self_(), 1, as.list) )
+				apply(self_(), 1, as.list)
 			}
 		}
 
@@ -216,25 +246,48 @@ x_matrix_proto <- local({
 		function () {
 			x_(matrix(nrow = nrow(self_()), ncol = 0))
 		}
+	this$x_ColUnit <-
+		function () {
+			matrix(nrow = nrow(self_()), ncol = 0)
+		}
 	# -------- D ------- #
 
 	# -------- E ------- #
 	this$xElemsByCols <-
 		function () {
 			if (prod(dim(self_()) == 0)) {
-				list()
+				x_( list() )
 			} else {
 				x_( as.xLinest(self_()) )
 			}
 		}
+	this$x_ElemsByCols <-
+		function () {
+			if (prod(dim(self_()) == 0)) {
+				x_( list() )
+			} else {
+				x_( as.xLinest(self_()) )
+			}
+		}
+
+
 	this$xElemsByRows <-
 		function () {
 			if (prod(dim(self_()) == 0)) {
-				list()
+				x_( list() )
 			} else {
 				x_(as.list( t(self_()) ))
 			}
 		}
+	this$x_ElemsByRows <-
+		function () {
+			if (prod(dim(self_()) == 0)) {
+				list()
+			} else {
+				as.list( t(self_()) )
+			}
+		}
+
 	# -------- F ------- #
 
 	# -------- G ------- #
@@ -264,6 +317,10 @@ x_matrix_proto <- local({
 		function () {
 			x_(matrix( nrow = 0, ncol = ncol(self_()) ))
 		}
+	this$x_RowUnit <-
+		function () {
+			matrix( nrow = 0, ncol = ncol(self_()) )
+		}
 	# -------- S ------- #
 
 	# -------- T ------- #
@@ -271,10 +328,18 @@ x_matrix_proto <- local({
 		function () {
 			x_( t(self_()) )
 		}
+	this$x_Transpose <-
+		function () {
+			t(self_())
+		}
 	# -------- U ------- #
 	this$xUnit <-
 		function () {
 			x_( matrix(nrow = 0, ncol = 0) )
+		}
+	this$x_Unit <-
+		function () {
+			matrix(nrow = 0, ncol = 0)
 		}
 	# -------- V ------- #
 
@@ -311,6 +376,10 @@ x_data_frame_proto <- local({
 	# -------- B ------- #
 	this$xByCols <-
 		function () {
+			x_(unname( as.list(self_()) ))
+		}
+	this$x_ByCols <-
+		function () {
 			unname( as.list(self_()) )
 		}
 	# -------- C ------- #
@@ -318,6 +387,11 @@ x_data_frame_proto <- local({
 		function () {
 
 		}
+	this$x_ColUnit <-
+		function () {
+
+		}
+
 	# -------- D ------- #
 
 	# -------- E ------- #
@@ -351,6 +425,11 @@ x_data_frame_proto <- local({
 		function () {
 
 		}
+	this$x_RowUnit <-
+		function () {
+
+		}
+
 	# -------- S ------- #
 
 	# -------- T ------- #
@@ -360,6 +439,11 @@ x_data_frame_proto <- local({
 		function () {
 
 		}
+	this$x_Unit <-
+		function () {
+
+		}
+
 	# -------- V ------- #
 
 	# -------- W ------- #
@@ -1444,23 +1528,24 @@ x_coll_proto <- local({
 			xPluck...(str, self_(), ...)
 		}
 
-	# --- xPartitionWith --- #
-	this$xPartitionWith <-
+	# --- xPartition --- #
+	this$xPartition <-
 		function (pred) {
-			x_( xPartitionWith(pred, self_()) )
+			x_( xPartition(pred, self_()) )
 		}
-	this$xPartitionWith... <-
-		function (pred, ...) {
-			x_( xPartitionWith...(pred, self_(), ...) )
+	this$x_Partition <-
+		function (pred) {
+			xPartition(pred, self_())
 		}
 
-	this$x_PartitionWith <-
-		function (pred) {
-			xPartitionWith(pred, self_())
-		}
-	this$x_PartitionWith... <-
+	this$xPartition... <-
 		function (pred, ...) {
-			xPartitionWith...(pred, self_(), ...)
+			x_( xPartition...(pred, self_(), ...) )
+		}
+
+	this$x_Partition... <-
+		function (pred, ...) {
+			xPartition...(pred, self_(), ...)
 		}
 
 	# --- xPermute --- #
@@ -1894,15 +1979,6 @@ x_coll_proto <- local({
 			xThird...(self_(), ...)
 		}
 
-	# --- xThread --- #
-	this$xThread <-
-		function (fns) {
-			x_( xThread(self_(), fns) )
-		}
-	this$xThread... <-
-		function (fns, ...) {
-			x_( xThread...(self_(), fns, ...) )
-		}
 	# -------- U ------- #
 	# --- xUnchars --- #
 
@@ -2140,10 +2216,17 @@ x_fn_proto <- local({
 
 
 	# -------- C ------- #
+	# --- xConst --- #
 	this$xConst <-
 		function () {
 			x_( xConst(self_()) )
 		}
+
+	this$x_Const <-
+		function () {
+			xConst(self_())
+		}
+
 	this$xCompose <-
 		function () {
 			x_( xCompose(self_()) )
@@ -2159,18 +2242,37 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xDropWhile(self_(), coll) )
 		}
+	this$x_DropWhile <-
+		function (coll) {
+			xDropWhile(self_(), coll)
+		}
+
 	this$xDropWhile... <-
 		function (...) {
 			x_( xDropWhile...(self_(), ...) )
+		}
+	this$x_DropWhile... <-
+		function (...) {
+			xDropWhile...(self_(), ...)
 		}
 
 	this$xDo <-
 		function (coll) {
 			x_( xDo(self_(), coll) )
 		}
+	this$x_Do <-
+		function (coll) {
+			xDo(self_(), coll)
+		}
+
 	this$xDo... <-
 		function (...) {
 			x_( xDo...(self_(), ...) )
+		}
+
+	this$x_Do... <-
+		function (...) {
+			xDo...(self_(), ...)
 		}
 
 	# -------- E ------- #
@@ -2198,9 +2300,18 @@ x_fn_proto <- local({
 		function (coll) {
 			x_( xFilter(self_(), coll) )
 		}
+	this$x_Filter <-
+		function (coll) {
+			xFilter(self_(), coll)
+		}
+
 	this$xFilter... <-
 		function (...) {
 			x_( xFilter...(self_(), ...) )
+		}
+	this$x_Filter... <-
+		function (...) {
+			xFilter...(self_(), ...)
 		}
 
 	this$xFlip <-
@@ -2569,6 +2680,11 @@ x_fn_proto <- local({
 		function () {
 			x_( xNot(self_()) )
 		}
+	this$x_Not <-
+		function () {
+			xNot(self_())
+		}
+
 	# -------- O ------- #
 
 	# -------- P ------- #
@@ -2582,32 +2698,13 @@ x_fn_proto <- local({
 			x_( xPartition...(self_(), ...) )
 		}
 
-	this$xPartition <-
+	this$x_Partition <-
 		function (coll) {
 			xPartition(self_(), coll)
 		}
-	this$xPartition... <-
+	this$x_Partition... <-
 		function (...) {
 			xPartition...(self_(), ...)
-		}
-
-	# --- xPartitionWith --- #
-	this$xPartitionWith <-
-		function (coll) {
-			x_( xPartitionWith(self_(), coll) )
-		}
-	this$xPartitionWith... <-
-		function (...) {
-			x_( xPartitionWith...(self_(), ...) )
-		}
-
-	this$x_PartitionWith <-
-		function (coll) {
-			xPartitionWith(self_(), coll)
-		}
-	this$x_PartitionWith... <-
-		function (...) {
-			xPartitionWith...(self_(), ...)
 		}
 
 	# --- xParams --- #
@@ -2660,13 +2757,6 @@ x_fn_proto <- local({
 		}
 
 	# -------- Q ------- #
-	# --- xQueer --- #
-	this$xQ <-
-		this$xCompose
-
-	this$x_Q <-
-		this$x_Compose
-
 	# -------- R ------- #
 	# --- xRecurMap --- #
 	this$xRecurMap <-

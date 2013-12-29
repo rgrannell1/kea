@@ -26,6 +26,8 @@
 #'
 #' @family name_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xPluck <- function (str, coll) {

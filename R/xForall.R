@@ -22,6 +22,8 @@
 #'
 #' @family quantifier_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xForall <- function (pred, colls) {

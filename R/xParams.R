@@ -48,6 +48,3 @@ xParams <- function (fn) {
 	}
 }
 
-#' @export
-
-xParams <- xParams

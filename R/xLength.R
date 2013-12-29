@@ -14,6 +14,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xLength <- function (coll) {

@@ -13,6 +13,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xInit <- function (coll) {

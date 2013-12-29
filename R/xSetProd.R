@@ -16,6 +16,8 @@
 #'
 #' @family set_functions
 #'
+#' @family variadic_functions
+#'
 #' @example
 #'    inst/examples/example-xSetProd.R
 #'

@@ -19,6 +19,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xDrop <- function (num, coll) {

@@ -21,6 +21,8 @@
 #'
 #' @family set_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xCombos <- function (num, coll) {

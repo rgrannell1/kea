@@ -16,6 +16,8 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family variadic_functions
+#'
 #' @example
 #'    inst/examples/example-xAsFunction.R
 #'

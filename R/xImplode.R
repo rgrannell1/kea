@@ -14,6 +14,8 @@
 #'
 #' @family character_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xImplode <- function (str, strs) {

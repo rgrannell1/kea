@@ -16,6 +16,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xThird <- function (coll) {

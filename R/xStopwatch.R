@@ -1,15 +1,15 @@
 
-#' xStopWatch
+#' xStopwatch
 #'
 #' Create a function that returns true for a
 #' preset time after creation.
 #'
 #' @section Uses:
-#'     \code{xStopWatch} is used to measure the passage of time
-#'     beyond a threshold. \code{xStopWatch} is used internally
+#'     \code{xStopwatch} is used to measure the passage of time
+#'     beyond a threshold. \code{xStopwatch} is used internally
 #'     by Arrow's testing suite to check that tests are run for
 #'     a certain amount of time, but no longer. By default,
-#'     unit tests are run until a 0.1 second \code{xStopWatch} returns
+#'     unit tests are run until a 0.1 second \code{xStopwatch} returns
 #'     false. The tests then terminate.
 #'
 #' @param
@@ -24,7 +24,7 @@
 #'
 #' @export
 
-xStopWatch <- function (num) {
+xStopwatch <- function (num) {
 	# integer -> function
 	# create a timer predicate function.
 

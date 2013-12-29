@@ -25,6 +25,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xTakeWhile <- function (pred, coll) {

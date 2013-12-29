@@ -12,6 +12,8 @@
 #' @section Corner Cases:
 #'    If \code{nums} is empty then the unit of that vector is returned.
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xSucc <- function (nums) {

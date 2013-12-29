@@ -18,6 +18,8 @@
 #'
 #' @family filtering_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xPack <- function (coll) {

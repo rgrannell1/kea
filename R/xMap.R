@@ -28,6 +28,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xMap <- function (fn, coll) {

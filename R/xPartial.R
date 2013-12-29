@@ -23,6 +23,8 @@
 #'
 #' @family parametre_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xPartial <- function (fn, coll) {

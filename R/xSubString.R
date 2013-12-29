@@ -16,6 +16,8 @@
 #'
 #' @family character_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xSubString <- function (str, nums) {

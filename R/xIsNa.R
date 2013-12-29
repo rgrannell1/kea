@@ -11,6 +11,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xIsNa <- function (coll) {

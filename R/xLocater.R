@@ -19,6 +19,8 @@
 #'
 #' @family collection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xLocater <- function (pred, coll) {

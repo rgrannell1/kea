@@ -17,6 +17,8 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xThread <- function (init, fns) {

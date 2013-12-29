@@ -17,6 +17,8 @@
 #'
 #' @family selection_functions
 #'
+#' @family variadic_functions
+#'
 #' @export
 
 xLast <- function (coll) {
