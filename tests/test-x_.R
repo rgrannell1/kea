@@ -250,6 +250,17 @@ message('Arrow $ test 3')
 			as.list(arrow ::: x_matrix_proto))
 	)
 
+	call_exceptions <- list(
+		chaining =
+			c(),
+		unchaining =
+			c(),
+		variadic =
+			c(),
+		nonvariadic =
+			c('xGraft')
+	)
+
 	xMapply(
 		(name : fn) := {
 
@@ -257,14 +268,18 @@ message('Arrow $ test 3')
 
 			if ( !(name %in% c('x', 'private')) ) {
 
-				if (grepl('^x_', name)) {
+				is_chaining <- grepl('^x_', name)
+				is_variadic <- grepl('[.]{3}$', name)
+
+				if (is_chaining && !(name %in% call_exceptions$chaining)) {
 					# unchaining methods don't call x_
 
 					assert(
 						!calls_x_(fn), invoking_call,
 						wail$unchaining_calls_x_(name))
+				}
 
-				} else {
+				if (!is_chaining && !(name %in% call_exceptions$unchaining)) {
 					# chaining methods call x_
 
 					assert(
@@ -272,15 +287,16 @@ message('Arrow $ test 3')
 						wail$chaining_must_call_x_(name))
 				}
 
-
-				if (grepl('[.]{3}', name)) {
+				if (is_variadic && !(name %in% call_exceptions$variadic)) {
 					# variadic methods call ...
 
 					assert(
 						calls_...(fn), invoking_call,
 						wail$variadic_must_call_...(name))
 
-				} else {
+				}
+
+				if (!is_variadic && !(name %in% call_exceptions$nonvariadic)) {
 					# non-variadic methods don't call ...
 
 					assert(

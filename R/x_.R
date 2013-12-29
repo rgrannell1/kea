@@ -589,20 +589,20 @@ x_coll_proto <- local({
 	# --- xDissoc --- #
 	this$xDissoc <-
 		function () {
-			x_( xAssoc(self_()) )
+			x_( xDissoc(self_()) )
 		}
-	this$xDissoc <-
+	this$xDissoc... <-
 		function (...) {
-			x_( xAssoc(self_(), ...) )
+			x_( xDissoc(self_(), ...) )
 		}
 
 	this$x_Dissoc <-
 		function () {
-			xAssoc(self_())
+			xDissoc(self_())
 		}
-	this$x_Dissoc <-
+	this$x_Dissoc... <-
 		function (...) {
-			xAssoc(self_(), ...)
+			xDissoc(self_(), ...)
 		}
 
 	# --- xDiffer --- #
