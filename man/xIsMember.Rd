@@ -5,7 +5,7 @@
 \usage{
 xIsMember(val, coll)
 
-xIsMember...(..., val)
+xIsMember...(val, ...)
 }
 \arguments{
   \item{val}{an arbitrary value.}
