@@ -33,7 +33,9 @@ message("xPoll")
 	forall(
 		"polling counts true occurrences",
 		test_cases$mod2_over_ints,
-		xPoll(fn, coll) == length(which(coll %% 2 == 0)) )
+		xPoll(fn, coll) == length(which(coll %% 2 == 0)),
+		given =
+			length(coll) > 0)
 
 
 message("arrow $ xPoll")
@@ -41,13 +43,17 @@ message("arrow $ xPoll")
 	forall(
 		"function $ xPoll",
 		test_cases$mod2_over_ints,
-		x_(fn)$xPoll(coll)$x() == length(which(coll %% 2 == 0))
+		x_(fn)$xPoll(coll)$x() == length(which(coll %% 2 == 0)),
+		given =
+			length(coll) > 0
 	)
 
 	forall(
 		"collection $ xPoll",
 		test_cases$mod2_over_ints,
-		x_(coll)$xPoll(fn)$x() == length(which(coll %% 2 == 0))
+		x_(coll)$xPoll(fn)$x() == length(which(coll %% 2 == 0)),
+		given =
+			length(coll) > 0
 	)
 
 message("arrow $ xPoll...")
@@ -57,11 +63,15 @@ message("arrow $ x_Poll")
 	forall(
 		"function $ x_Poll",
 		test_cases$mod2_over_ints,
-		x_(fn)$x_Poll(coll) == length(which(coll %% 2 == 0))
+		x_(fn)$x_Poll(coll) == length(which(coll %% 2 == 0)),
+		given =
+			length(coll) > 0
 	)
 
 	forall(
 		"collection $ x_Poll",
 		test_cases$mod2_over_ints,
-		x_(coll)$x_Poll(fn) == length(which(coll %% 2 == 0))
+		x_(coll)$x_Poll(fn) == length(which(coll %% 2 == 0)),
+		given =
+			length(coll) > 0
 	)
