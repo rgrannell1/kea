@@ -707,6 +707,10 @@ test_cases <- local({
 	this$num_positive_integer <-
 		list(num = atoms$positive_integer())
 
+	this$num_one_to_ten <-
+		list(num = atoms$range_integer(1, 10))
+
+
 	# --------------------- fn-Only --------------------- #
 
 	this$base_primitive <-

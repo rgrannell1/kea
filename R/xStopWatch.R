@@ -41,8 +41,8 @@ xStopWatch <- function (num) {
 		exclaim$must_have_length(num, 0:1))
 
 	assert(
-		num > 0, invoking_call,
-		exclaim$must_be_greater_than(num, 0))
+		num >= 0, invoking_call,
+		exclaim$must_be_grequal_than(num, 0))
 
 	genesis <- Sys.time()
 
