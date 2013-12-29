@@ -389,6 +389,7 @@ lament <- list(
 # -------------------------------- wail -------------------------------- #
 #
 # To Developers,
+#
 # wail is specific to customised errors thrown by the arrow method chaining unit tests,
 # particularily the more complicated ones.
 #
@@ -424,6 +425,32 @@ wail <- list(
 		function (method, proto) {
 			'the method ' %+% method %+% ' should be in the prototype ' %+% proto %+%
 			' but was not.'
+
+		},
+	unchaining_calls_x_ =
+		function (method) {
+			'the method ' %+% method %+%
+			' was supposed to be unchaining but called x_'
+
+		},
+	chaining_must_call_x_ =
+		function (method) {
+			'the method ' %+% method %+%
+			' was supposed to be chaining but didnt call x_'
+
+		},
+	variadic_must_call_... =
+		function (method) {
+
+			'the method ' %+% method %+%
+			' was supposed to be variadic but didnt call ...'
+
+		},
+	non_variadic_calls_... =
+		function (method) {
+
+			'the method ' %+% method %+%
+			' was supposed to be non-variadic but called ...'
 
 		}
 )

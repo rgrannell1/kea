@@ -49,7 +49,6 @@ message('Arrow $ test 1')
 
 
 	make_method_types <- xJuxtapose(method_types)
-
 	expected_methods <- xMap(make_method_types, base_methods_names)
 
 	# reasons for exceptions:
@@ -104,8 +103,8 @@ message('Arrow $ test 1')
 						wail$unchaining_form_missing(
 							method, proto_name, matches))
 
-					variadic_match <- forms$as_variadic %in% matches
-					variadic_unchaining_match <- forms$as_variadic_unchaining %in% matches
+					variadic_match <- xIsMember(forms$as_variadic, matches)
+					variadic_unchaining_match <- xIsMember(forms$as_variadic_unchaining, matches)
 
 					# either neither xMethod... or x_Method... is present, or they both are.
 
@@ -159,12 +158,6 @@ message('Arrow $ test 2')
 	#
 	# Test that every function has methods (if it should).
 	# Exceptions must be denoted manually.
-
-	exceptions <- list(
-
-
-
-	)
 
 	guess_prototypes <- params := {
 
@@ -234,4 +227,67 @@ message('Arrow $ test 2')
 		xSetProd...(
 			base_methods_names,
 			names(x_proto_methods))
+	)
+
+message('Arrow $ test 3')
+
+	# test if x_ is called in the correct methods
+
+	calls_x_ <- function (fn) {
+		'x_' %in% all.names(body(fn))
+	}
+	calls_... <- function (fn) {
+		'...' %in% all.names(body(fn))
+	}
+
+	all_methods <- xDissoc(
+		c(
+			as.list(arrow ::: x_any_proto),
+			as.list(arrow ::: x_any_proto),
+			as.list(arrow ::: x_fn_proto),
+			as.list(arrow ::: x_coll_proto),
+			as.list(arrow ::: x_data_frame_proto),
+			as.list(arrow ::: x_matrix_proto))
+	)
+
+	xMapply(
+		(name : fn) := {
+
+			invoking_call <- 'unit test 3'
+
+			if ( !(name %in% c('x', 'private')) ) {
+
+				if (grepl('^x_', name)) {
+					# unchaining methods don't call x_
+
+					assert(
+						!calls_x_(fn), invoking_call,
+						wail$unchaining_calls_x_(name))
+
+				} else {
+					# chaining methods call x_
+
+					assert(
+						calls_x_(fn), invoking_call,
+						wail$chaining_must_call_x_(name))
+				}
+
+
+				if (grepl('[.]{3}', name)) {
+					# variadic methods call ...
+
+					assert(
+						calls_...(fn), invoking_call,
+						wail$variadic_must_call_...(name))
+
+				} else {
+					# non-variadic methods don't call ...
+
+					assert(
+						!calls_...(fn), invoking_call,
+						wail$non_variadic_calls_...(name))
+				}
+			}
+		},
+		all_methods
 	)

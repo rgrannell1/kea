@@ -264,9 +264,9 @@ x_matrix_proto <- local({
 	this$x_ElemsByCols <-
 		function () {
 			if (prod(dim(self_()) == 0)) {
-				x_( list() )
+				list()
 			} else {
-				x_( as.xLinest(self_()) )
+				as.xLinest(self_())
 			}
 		}
 
@@ -385,7 +385,7 @@ x_data_frame_proto <- local({
 	# -------- C ------- #
 	this$xColUnit <-
 		function () {
-
+			x_()
 		}
 	this$x_ColUnit <-
 		function () {
@@ -423,7 +423,7 @@ x_data_frame_proto <- local({
 	# -------- R ------- #
 	this$xRowUnit <-
 		function () {
-
+			x_()
 		}
 	this$x_RowUnit <-
 		function () {
@@ -437,7 +437,7 @@ x_data_frame_proto <- local({
 	# -------- U ------- #
 	this$xUnit <-
 		function () {
-
+			x_()
 		}
 	this$x_Unit <-
 		function () {
@@ -2256,7 +2256,7 @@ x_fn_proto <- local({
 
 	this$x_Apply <-
 		function (coll) {
-			x_( xApply(self_(), coll) )
+			xApply(self_(), coll)
 		}
 	this$x_Apply... <-
 		function (...) {
@@ -2974,10 +2974,7 @@ x_fn_proto <- local({
 		}
 
 	# --- xT --- #
-	this$xT <-
-		this$xThrush
-	this$x_T <-
-		this$xThrush
+
 	# -------- U ------- #
 	# -------- V ------- #
 	# --- xVectorise --- #
