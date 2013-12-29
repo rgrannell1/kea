@@ -30,6 +30,7 @@
 #' @example
 #'    inst/examples/example-xApply.R
 #'
+#' @rdname xApply
 #' @export
 
 xApply <- function (fn, coll) {
@@ -66,6 +67,8 @@ xApply <- function (fn, coll) {
 		invoking_call)
 }
 
+#'
+#' @rdname xApply
 #' @export
 
 xApply... <- function (fn, ...) {

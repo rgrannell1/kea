@@ -21,6 +21,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xName
 #' @export
 
 xName <- function (strs, coll) {

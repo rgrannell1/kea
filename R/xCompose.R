@@ -17,6 +17,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xCompose
 #' @export
 
 xCompose <- function (fns) {
@@ -55,6 +56,7 @@ xCompose <- function (fns) {
 	}
 }
 
+#' @rdname xCompose
 #' @export
 
 xCompose... <- function (...) {

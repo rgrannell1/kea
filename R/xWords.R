@@ -11,6 +11,7 @@
 #'
 #' @family character_functions
 #'
+#' @rdname xWords
 #' @export
 
 xWords <- function (str) {

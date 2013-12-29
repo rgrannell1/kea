@@ -19,6 +19,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xThread
 #' @export
 
 xThread <- function (init, fns) {
@@ -43,6 +44,7 @@ xThread <- function (init, fns) {
 	init
 }
 
+#' @rdname xThread
 #' @export
 
 xThread... <- function (init, ...) {

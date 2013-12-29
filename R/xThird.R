@@ -18,6 +18,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xThird
 #' @export
 
 xThird <- function (coll) {
@@ -42,6 +43,7 @@ xThird <- function (coll) {
 	coll[[3]]
 }
 
+#' @rdname xThird
 #' @export
 
 xThird... <- function (...) {

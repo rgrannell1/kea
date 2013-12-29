@@ -27,6 +27,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xZipWith
 #' @export
 
 xZipWith <- function (fn, colls) {
@@ -75,6 +76,7 @@ xZipWith <- function (fn, colls) {
 	}
 }
 
+#' @rdname xZipWith
 #' @export
 
 xZipWith... <- function (fn, ...) {

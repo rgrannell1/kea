@@ -11,6 +11,7 @@
 #'
 #' @family character_functions
 #'
+#' @rdname xLines
 #' @export
 
 xLines <- function (str) {

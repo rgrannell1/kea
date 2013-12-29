@@ -22,6 +22,7 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @rdname xNot
 #' @export
 
 xNot <- function (pred) {

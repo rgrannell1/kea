@@ -20,6 +20,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSplitWith
 #' @export
 
 xSplitWith <- function (pred, coll) {
@@ -72,6 +73,7 @@ xSplitWith <- function (pred, coll) {
 	}
 }
 
+#' @rdname xSplitWith
 #' @export
 
 xSplitWith... <- function (pred, ...) {

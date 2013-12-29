@@ -1,8 +1,11 @@
 \name{xIdentity}
+\alias{xI}
 \alias{xIdentity}
 \title{xIdentity}
 \usage{
 xIdentity(val)
+
+xI(val)
 }
 \arguments{
   \item{val}{an arbitrary value.}

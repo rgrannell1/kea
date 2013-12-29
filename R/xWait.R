@@ -22,6 +22,7 @@
 #'
 #' @family time_functions
 #'
+#' @rdname xWait
 #' @export
 
 xWait <- function (fn, num) {

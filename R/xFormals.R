@@ -20,6 +20,7 @@
 #'
 #' @family parametre_functions
 #'
+#' @rdname xFormals
 #' @export
 
 xFormals <- function (fn) {

@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xIsNa
 #' @export
 
 xIsNa <- function (coll) {
@@ -39,6 +40,7 @@ xIsNa <- function (coll) {
 	}, logical(1), USE.NAMES = False)
 }
 
+#' @rdname xIsNa
 #' @export
 
 xIsNa... <- function (...) {

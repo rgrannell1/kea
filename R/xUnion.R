@@ -18,6 +18,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xUnion
 #' @export
 
 xUnion <- function (colls) {
@@ -38,6 +39,7 @@ xUnion <- function (colls) {
 	}
 }
 
+#' @rdname xUnion
 #' @export
 
 xUnion... <- function (...) {

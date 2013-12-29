@@ -23,6 +23,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xCombos
 #' @export
 
 xCombos <- function (num, coll) {
@@ -78,6 +79,7 @@ xCombos <- function (num, coll) {
 	}
 }
 
+#' @rdname xCombos
 #' @export
 
 xCombos... <- function (num, ...) {

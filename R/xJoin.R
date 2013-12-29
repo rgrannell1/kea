@@ -20,6 +20,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xJoin
 #' @export
 
 xJoin <- function (colls) {
@@ -37,6 +38,7 @@ xJoin <- function (colls) {
 	as.list(do.call(c, colls))
 }
 
+#' @rdname xJoin
 #' @export
 
 xJoin... <- function (...) {

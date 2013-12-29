@@ -18,6 +18,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xDiffer
 #' @export
 
 xDiffer <- function (colls) {
@@ -46,6 +47,7 @@ xDiffer <- function (colls) {
 	}
 }
 
+#' @rdname xDiffer
 #' @export
 
 xDiffer... <- function (...) {

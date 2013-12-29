@@ -1,11 +1,6 @@
 
-message('Arrow $ test 1')
-
-	# Automated Test 1
-	#
-	# Checking the arrow methods programmatically, to ensure that every method has
-	# an unchaining version, and if variadic methods are implemented then they
-	# have unchaining versions to.
+message('Arrow Methods')
+message('test that every method has an unchaining version.')
 
 	exports <- ls('package:arrow')
 
@@ -138,30 +133,7 @@ message('Arrow $ test 1')
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-message('Arrow $ test 2')
-
-	# Automated Test 2
-	#
-	# Test that every function has methods (if it should).
-	# Exceptions must be denoted manually.
+message('test that every function has methods.')
 
 	guess_prototypes <- params := {
 
@@ -202,7 +174,8 @@ message('Arrow $ test 2')
 			c()
 	)
 
-	sink <- xMapply(
+	sink <-
+	xMapply(
 		(method : proto_name) := {
 
 			invoking_call = 'unit test 2'
@@ -233,7 +206,7 @@ message('Arrow $ test 2')
 			names(x_proto_methods))
 	)
 
-message('Arrow $ test 3')
+message('test that x_ and ... are called appropriately by methods.')
 
 	# test if x_ is called in the correct methods
 

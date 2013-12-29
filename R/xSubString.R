@@ -18,6 +18,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSubString
 #' @export
 
 xSubString <- function (str, nums) {
@@ -58,6 +59,7 @@ xSubString <- function (str, nums) {
 	}
 }
 
+#' @rdname xSubString
 #' @export
 
 xSubString... <- function (str, ...) {

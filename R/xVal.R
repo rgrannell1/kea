@@ -17,6 +17,7 @@
 #'
 #' @family immutable_value_functions
 #'
+#' @rdname xVal
 #' @export
 
 xVal <- function (str, val) {

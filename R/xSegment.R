@@ -27,6 +27,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSegment
 #' @export
 
 xSegment <- function (num, coll) {
@@ -74,6 +75,7 @@ xSegment <- function (num, coll) {
 	}
 }
 
+#' @rdname xSegment
 #' @export
 
 xSegment... <- function (num, ...) {

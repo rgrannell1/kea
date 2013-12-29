@@ -18,6 +18,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xRest
 #' @export
 
 xRest <- function (coll) {
@@ -43,6 +44,7 @@ xRest <- function (coll) {
 	}
 }
 
+#' @rdname xRest
 #' @export
 
 xRest... <- function (...) {

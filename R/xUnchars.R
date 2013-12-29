@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xUnchars
 #' @export
 
 xUnchars <- function (strs) {
@@ -22,6 +23,7 @@ xUnchars <- function (strs) {
 	xImplode("", strs)
 }
 
+#' @rdname xUnchars
 #' @export
 
 xUnchars... <- function (...) {

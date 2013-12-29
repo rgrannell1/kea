@@ -21,6 +21,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xRepeat
 #' @export
 
 xRepeat <- function (num, coll) {
@@ -62,6 +63,7 @@ xRepeat <- function (num, coll) {
 	}
 }
 
+#' @rdname xRepeat
 #' @export
 
 xRepeat... <- function (num, ...) {

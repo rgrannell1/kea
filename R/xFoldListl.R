@@ -30,6 +30,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xFoldList
 #' @export
 
 xFoldListl <- function (fn, init, coll) {
@@ -74,16 +75,19 @@ xFoldListl <- function (fn, init, coll) {
 	}
 }
 
+#' @rdname xFoldList
 #' @export
 
 xFoldList <- xFoldListl
 
+#' @rdname xFoldList
 #' @export
 
 xFoldListl... <- function (fn, init, ...) {
 	xFoldListl(fn, init, list(...))
 }
 
+#' @rdname xFoldList
 #' @export
 
 xFoldList... <- function (fn, init, ...) {

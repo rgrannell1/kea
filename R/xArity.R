@@ -25,7 +25,8 @@
 #' @example
 #'    inst/examples/example-xArity.R
 #'
-
+#'
+#' @rdname xArity
 #' @export
 
 xArity <- function (fn) {

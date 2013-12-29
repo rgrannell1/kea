@@ -21,9 +21,11 @@ expression.
 }
 \seealso{
 Other character_functions: \code{\link{xChars}};
-\code{\link{xImplode}}; \code{\link{xLines}};
-\code{\link{xSubString}}; \code{\link{xUnchars}};
-\code{\link{xUnlines}}; \code{\link{xUnwords}};
-\code{\link{xWords}}
+\code{\link{xImplode}}, \code{\link{xImplode...}};
+\code{\link{xLines}}; \code{\link{xSubString}},
+\code{\link{xSubString...}}; \code{\link{xUnchars}},
+\code{\link{xUnchars...}}; \code{\link{xUnlines}},
+\code{\link{xUnlines...}}; \code{\link{xUnwords}},
+\code{\link{xUnwords...}}; \code{\link{xWords}}
 }
 

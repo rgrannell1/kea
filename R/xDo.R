@@ -34,6 +34,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xDo
 #' @export
 
 xDo <- function (fn, coll) {
@@ -75,6 +76,7 @@ xDo <- function (fn, coll) {
 	}
 }
 
+#' @rdname xDo
 #' @export
 
 xDo... <- function (fn, ...) {

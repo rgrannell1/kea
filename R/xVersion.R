@@ -7,6 +7,7 @@
 #'    a three-number vector, containing the
 #'    major release number, minor release number and patch number.
 #'
+#' @rdname xVersion
 #' @export
 
 xVersion <- function () {

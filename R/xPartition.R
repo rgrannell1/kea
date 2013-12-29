@@ -27,6 +27,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPartition
 #' @export
 
 xPartition <- function (pred, coll) {

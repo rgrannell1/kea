@@ -11,6 +11,7 @@
 #'
 #' @family parametre_functions
 #'
+#' @rdname xIsVariadic
 #' @export
 
 xIsVariadic <- function (fn) {

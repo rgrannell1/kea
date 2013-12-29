@@ -17,6 +17,6 @@ Is a function variadic?
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xFlip}};
 \code{\link{xFormals}}; \code{\link{xParams}};
-\code{\link{xPartial}}
+\code{\link{xPartial}}, \code{\link{xPartial...}}
 }
 

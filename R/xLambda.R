@@ -12,6 +12,7 @@
 #' @return
 #'    returns a unary function.
 #'
+#' @rdname xLambda
 #' @export
 
 xLambda <- function (formals, body) {
@@ -141,6 +142,7 @@ xLambda <- function (formals, body) {
 	lambda
 }
 
+#' @rdname xLambda
 #' @export
 
 ':=' <- xLambda

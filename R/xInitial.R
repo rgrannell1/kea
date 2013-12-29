@@ -15,6 +15,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xInit
 #' @export
 
 xInit <- function (coll) {
@@ -41,6 +42,7 @@ xInit <- function (coll) {
 	}
 }
 
+#' @rdname xInit
 #' @export
 
 xInit... <- function (...) {

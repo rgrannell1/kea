@@ -18,6 +18,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xInter
 #' @export
 
 xInter <- function (colls) {
@@ -47,6 +48,7 @@ xInter <- function (colls) {
 	}
 }
 
+#' @rdname xInter
 #' @export
 
 xInter... <- function (...) {

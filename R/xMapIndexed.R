@@ -24,6 +24,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xMapIndexed
 #' @export
 
 xMapIndexed <- function (fn, coll) {
@@ -69,6 +70,7 @@ xMapIndexed <- function (fn, coll) {
 	}
 }
 
+#' @rdname xMapIndexed
 #' @export
 
 xMapIndexed... <- function (fn, ...) {

@@ -21,6 +21,7 @@
 #' @example
 #'    inst/examples/example-xSetProd.R
 #'
+#' @rdname xSetProd
 #' @export
 
 xSetProd <- function (colls) {
@@ -63,6 +64,7 @@ xSetProd <- function (colls) {
 	}
 }
 
+#' @rdname xSetProd
 #' @export
 
 xSetProd... <- function (...) {

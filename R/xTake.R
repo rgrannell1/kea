@@ -17,6 +17,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xTake
 #' @export
 
 xTake <- function (num, coll) {
@@ -56,6 +57,7 @@ xTake <- function (num, coll) {
 	}
 }
 
+#' @rdname xTake
 #' @export
 
 xTake... <- function (num, ...) {

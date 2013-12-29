@@ -24,6 +24,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xForall
 #' @export
 
 xForall <- function (pred, colls) {
@@ -85,6 +86,7 @@ xForall <- function (pred, colls) {
 	}
 }
 
+#' @rdname xForall
 #' @export
 
 xForall... <- function (fn, ...) {

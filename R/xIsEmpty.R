@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xIsEmpty
 #' @export
 
 xIsEmpty <- function (coll) {
@@ -32,6 +33,7 @@ xIsEmpty <- function (coll) {
 	length(coll) == 0
 }
 
+#' @rdname xIsEmpty
 #' @export
 
 xIsEmpty... <- function (...) {

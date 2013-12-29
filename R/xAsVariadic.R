@@ -19,7 +19,9 @@
 #' @example
 #'    inst/examples/example-xAsVariadic.R
 #'
+#' @rdname xAsVariadic
 #' @export
+
 
 xAsVariadic <- function (fn) {
 	# (a -> b) -> (... -> b)

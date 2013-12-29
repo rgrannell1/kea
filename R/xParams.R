@@ -15,6 +15,7 @@
 #'
 #' @family parametre_functions
 #'
+#' @rdname xParams
 #' @export
 
 xParams <- function (fn) {

@@ -14,6 +14,7 @@
 #' @return
 #'    returns \code{val}.
 #'
+#' @rdname xIdentity
 #' @export
 
 xIdentity <- function (val) {
@@ -27,6 +28,7 @@ xIdentity <- function (val) {
 	val
 }
 
+#' @rdname xIdentity
 #' @export
 
 xI <- xIdentity

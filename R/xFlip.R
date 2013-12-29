@@ -15,6 +15,7 @@
 #'
 #' @family parametre_functions
 #'
+#' @rdname xFlip
 #' @export
 
 xFlip <- function (fn) {

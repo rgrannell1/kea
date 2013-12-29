@@ -28,6 +28,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xReject
 #' @export
 
 xReject <- function (pred, coll) {
@@ -69,6 +70,7 @@ xReject <- function (pred, coll) {
 	}
 }
 
+#' @rdname xReject
 #' @export
 
 xReject... <- function (pred, ...) {

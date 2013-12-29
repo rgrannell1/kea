@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xIsNan
 #' @export
 
 xIsNan <- function (coll) {
@@ -43,6 +44,7 @@ xIsNan <- function (coll) {
 	}
 }
 
+#' @rdname xIsNan
 #' @export
 
 xIsNan... <- function (...) {

@@ -14,6 +14,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xNegate
 #' @export
 
 xNegate <- function (nums) {
@@ -40,6 +41,7 @@ xNegate <- function (nums) {
 	}
 }
 
+#' @rdname xNegate
 #' @export
 
 xNegate... <- function (...) {

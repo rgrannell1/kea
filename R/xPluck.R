@@ -28,6 +28,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPluck
 #' @export
 
 xPluck <- function (str, coll) {
@@ -68,6 +69,7 @@ xPluck <- function (str, coll) {
 	}
 }
 
+#' @rdname xPluck
 #' @export
 
 xPluck... <- function (str, ...) {

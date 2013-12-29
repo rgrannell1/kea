@@ -21,12 +21,14 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xZip
 #' @export
 
 xZip <- function (colls) {
 	xZipWith(function (...) colls, colls)
 }
 
+#' @rdname xZip
 #' @export
 
 xZip... <- function (...) {

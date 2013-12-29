@@ -21,6 +21,8 @@
 #' @example
 #'    inst/examples/example-xAsFunction.R
 #'
+#'
+#' @rdname xAsFunction
 #' @export
 
 xAsFunction <- function (coll) {
@@ -66,6 +68,8 @@ xAsFunction <- function (coll) {
 	}
 }
 
+#'
+#' @rdname xAsFunction
 #' @export
 
 xAsFunction... <- function (...) {

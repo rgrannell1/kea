@@ -22,6 +22,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xLocate
 #' @export
 
 xLocate <- function (pred, coll) {
@@ -69,16 +70,19 @@ xLocate <- function (pred, coll) {
 	}
 }
 
+#' @rdname xLocate
 #' @export
 
 xLocatel <- xLocate
 
+#' @rdname xLocate
 #' @export
 
 xLocatel... <- function (pred, ...) {
 	xLocatel(pred, list(...))
 }
 
+#' @rdname xLocate
 #' @export
 
 xLocate... <- xLocatel...

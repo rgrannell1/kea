@@ -31,6 +31,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSelect
 #' @export
 
 xSelect <- function (pred, coll) {
@@ -72,16 +73,19 @@ xSelect <- function (pred, coll) {
 	}
 }
 
+#' @rdname xSelect
 #' @export
 
 xFilter <- xSelect
 
+#' @rdname xSelect
 #' @export
 
 xSelect... <- function (pred, ...) {
 	do.call(xSelect, list(pred, list(...)))
 }
 
+#' @rdname xSelect
 #' @export
 
 xFilter... <- xSelect...

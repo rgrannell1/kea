@@ -23,6 +23,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPermute
 #' @export
 
 xPermute <- function (coll, colls) {
@@ -55,6 +56,7 @@ xPermute <- function (coll, colls) {
 	}
 }
 
+#' @rdname xPermute
 #' @export
 
 xPermute... <- function (coll, ...) {

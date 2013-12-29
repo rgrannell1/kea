@@ -13,6 +13,7 @@
 #'
 #' @family collection_functions
 #'
+#' @rdname xUnit
 #' @export
 
 xUnit <- function (coll) {

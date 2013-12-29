@@ -19,6 +19,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xFirst
 #' @export
 
 xFirst <- function (coll) {
@@ -43,6 +44,7 @@ xFirst <- function (coll) {
 	coll[[1]]
 }
 
+#' @rdname xFirst
 #' @export
 
 xFirst... <- function (...) {

@@ -22,6 +22,7 @@
 #'
 #' @family time_functions
 #'
+#' @rdname xStopwatch
 #' @export
 
 xStopwatch <- function (num) {

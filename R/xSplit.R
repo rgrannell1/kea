@@ -28,6 +28,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSplit
 #' @export
 
 xSplit <- function (num, coll) {
@@ -70,6 +71,7 @@ xSplit <- function (num, coll) {
 	}
 }
 
+#' @rdname xSplit
 #' @export
 
 xSplit... <- function (num, ...) {

@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xNotTrue
 #' @export
 
 xNotTrue <- function (coll) {
@@ -41,6 +42,7 @@ xNotTrue <- function (coll) {
 	}
 }
 
+#' @rdname xNotTrue
 #' @export
 
 xNotTrue... <- function (...) {

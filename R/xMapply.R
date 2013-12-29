@@ -30,6 +30,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xMapply
 #' @export
 
 xMapply <- function (fn, coll) {
@@ -66,6 +67,7 @@ xMapply <- function (fn, coll) {
 	}
 }
 
+#' @rdname xMapply
 #' @export
 
 xMapply... <- function (fn, ...) {

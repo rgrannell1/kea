@@ -29,6 +29,7 @@
 #' @template
 #'    Return
 #'
+#' @rdname xReducer
 #' @export
 
 xReducer <- function (fn, coll) {
@@ -85,6 +86,7 @@ xReducer <- function (fn, coll) {
 	}
 }
 
+#' @rdname xReducer
 #' @export
 
 xReducer... <- function (fn, ...) {

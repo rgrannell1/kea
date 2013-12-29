@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xIsFalse
 #' @export
 
 xIsFalse <- function (coll) {
@@ -34,6 +35,7 @@ xIsFalse <- function (coll) {
 	}, logical(1), USE.NAMES = False)
 }
 
+#' @rdname xIsFalse
 #' @export
 
 xIsFalse... <- function (...) {

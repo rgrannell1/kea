@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSignum
 #' @export
 
 xSignum <- function (nums) {
@@ -43,6 +44,7 @@ xSignum <- function (nums) {
 	}
 }
 
+#' @rdname xSignum
 #' @export
 
 xSignum... <- function (...) {

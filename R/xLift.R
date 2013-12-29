@@ -20,6 +20,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xLift
 #' @export
 
 xLift <- function (fn, fns) {
@@ -65,6 +66,7 @@ xLift <- function (fn, fns) {
 	}
 }
 
+#' @rdname xLift
 #' @export
 
 xLift... <- function (fn, ...) {

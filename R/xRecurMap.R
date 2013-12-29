@@ -22,6 +22,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xRecurMap
 #' @export
 
 xRecurMap <- function (fn, coll) {
@@ -63,6 +64,7 @@ xRecurMap <- function (fn, coll) {
 	recur(as.list(coll))
 }
 
+#' @rdname xRecurMap
 #' @export
 
 xRecurMap... <- function (fn, ...) {

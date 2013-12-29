@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xLength
 #' @export
 
 xLength <- function (coll) {
@@ -36,6 +37,7 @@ xLength <- function (coll) {
 	length(coll)
 }
 
+#' @rdname xLength
 #' @export
 
 xLength... <- function (...) {

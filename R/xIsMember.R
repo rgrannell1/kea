@@ -22,6 +22,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xIsMember
 #' @export
 
 xIsMember <- function (val, coll) {
@@ -59,8 +60,9 @@ xIsMember <- function (val, coll) {
 	}
 }
 
+#' @rdname xIsMember
 #' @export
 
-xIsMember... <- function (..., val) {
-	xIsMember(list(...), val)
+xIsMember... <- function (val, ...) {
+	xIsMember(val, list(...))
 }

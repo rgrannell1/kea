@@ -24,6 +24,7 @@
 #' @example
 #'    inst/examples/example-xAssoc.R
 #'
+#' @rdname xAssoc
 #' @export
 
 xAssoc <- function (colls) {
@@ -71,6 +72,7 @@ xAssoc <- function (colls) {
 	}
 }
 
+#' @rdname xAssoc
 #' @export
 
 xAssoc... <- function (...) {

@@ -24,6 +24,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xMapMany
 #' @export
 
 xMapMany <- function (fn, colls) {
@@ -68,6 +69,7 @@ xMapMany <- function (fn, colls) {
 	}
 }
 
+#' @rdname xMapMany
 #' @export
 
 xMapMany... <- function (fn, ...) {

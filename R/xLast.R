@@ -19,6 +19,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xLast
 #' @export
 
 xLast <- function (coll) {
@@ -45,6 +46,7 @@ xLast <- function (coll) {
 	coll[[ length(coll) ]]
 }
 
+#' @rdname xLast
 #' @export
 
 xLast... <- function (...) {

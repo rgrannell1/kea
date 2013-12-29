@@ -1,8 +1,11 @@
 \name{xLambda}
+\alias{:=}
 \alias{xLambda}
 \title{xLambda}
 \usage{
 xLambda(formals, body)
+
+":="(formals, body)
 }
 \arguments{
   \item{formals}{a symbol or string.}

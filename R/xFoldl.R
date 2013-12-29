@@ -34,6 +34,7 @@
 #' @example
 #'    inst/examples/example-xFoldl.R
 #'
+#' @rdname xFoldl
 #' @export
 
 xFoldl <- function (fn, init, coll) {

@@ -18,6 +18,7 @@
 #'
 #' @family higher_order_functions
 #'
+#' @rdname xIterate
 #' @export
 
 xIterate <- function (fn, init) {

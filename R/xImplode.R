@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xImplode
 #' @export
 
 xImplode <- function (str, strs) {
@@ -61,6 +62,7 @@ xImplode <- function (str, strs) {
 	}
 }
 
+#' @rdname xImplode
 #' @export
 
 xImplode... <- function (str, ...) {

@@ -25,6 +25,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPartial
 #' @export
 
 xPartial <- function (fn, coll) {
@@ -91,6 +92,7 @@ xPartial <- function (fn, coll) {
 	}
 }
 
+#' @rdname xPartial
 #' @export
 
 xPartial... <- function (fn, ...) {

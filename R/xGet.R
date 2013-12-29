@@ -18,6 +18,7 @@
 #'
 #' @family name_functions
 #'
+#' @rdname xGet
 #' @export
 
 xGet <- function (str) {

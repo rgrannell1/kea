@@ -17,6 +17,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xReverse
 #' @export
 
 xReverse <- function (coll) {
@@ -39,6 +40,8 @@ xReverse <- function (coll) {
 		as.list(rev(coll))
 	}
 }
+
+#' @export
 
 xReverse... <- function (...) {
 	xReverse(list(...))

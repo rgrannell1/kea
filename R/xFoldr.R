@@ -31,6 +31,7 @@
 #' @template
 #'    Return
 #'
+#' @rdname xFoldr
 #' @export
 
 xFoldr <- function (fn, init, coll) {
@@ -89,6 +90,7 @@ xFoldr <- function (fn, init, coll) {
 	}
 }
 
+#' @rdname xFoldr
 #' @export
 
 xFoldr... <- function (fn, init, ...) {

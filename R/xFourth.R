@@ -19,6 +19,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xFourth
 #' @export
 
 xFourth <- function (coll) {
@@ -44,6 +45,7 @@ xFourth <- function (coll) {
 	coll[[4]]
 }
 
+#' @rdname xFourth
 #' @export
 
 xFourth... <- function (...) {

@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xUnlines
 #' @export
 
 xUnlines <- function (strs) {
@@ -22,6 +23,7 @@ xUnlines <- function (strs) {
 	xImplode("\n", strs)
 }
 
+#' @rdname xUnlines
 #' @export
 
 xUnlines... <- function (...) {

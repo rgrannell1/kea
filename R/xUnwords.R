@@ -13,6 +13,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xUnwords
 #' @export
 
 xUnwords <- function (strs) {
@@ -22,6 +23,7 @@ xUnwords <- function (strs) {
 	xImplode(" ", strs)
 }
 
+#' @rdname xUnwords
 #' @export
 
 xUnwords... <- function (...) {

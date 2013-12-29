@@ -14,6 +14,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPred
 #' @export
 
 xPred <- function (nums) {
@@ -40,6 +41,7 @@ xPred <- function (nums) {
 	}
 }
 
+#' @rdname xPred
 #' @export
 
 xPred... <- function (...) {

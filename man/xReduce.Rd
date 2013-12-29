@@ -63,7 +63,9 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xCombos}}; \code{\link{xDiffer}};
 \code{\link{xDissoc}}; \code{\link{xDo}};
 \code{\link{xDropWhile}}; \code{\link{xDrop}};
-\code{\link{xExists}}; \code{\link{xFirst}};
+\code{\link{xExists}}; \code{\link{xFilter}},
+\code{\link{xFilter...}}, \code{\link{xSelect}},
+\code{\link{xSelect...}}; \code{\link{xFirst}};
 \code{\link{xFlatMap}}; \code{\link{xFlatten}};
 \code{\link{xFoldListl}}; \code{\link{xFoldl}};
 \code{\link{xFoldr}}; \code{\link{xForall}};
@@ -86,13 +88,12 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xRepeat}}; \code{\link{xRest}};
 \code{\link{xReverse}}; \code{\link{xSecond}};
-\code{\link{xSegment}}; \code{\link{xSelect}};
-\code{\link{xSetProd}}; \code{\link{xShuffle}};
-\code{\link{xSplitWith}}; \code{\link{xSplit}};
-\code{\link{xTakeWhile}}; \code{\link{xTake}};
-\code{\link{xThird}}; \code{\link{xUnion}};
-\code{\link{xUnit}}; \code{\link{xZipWith}};
-\code{\link{xZip}}
+\code{\link{xSegment}}; \code{\link{xSetProd}};
+\code{\link{xShuffle}}; \code{\link{xSplitWith}};
+\code{\link{xSplit}}; \code{\link{xTakeWhile}};
+\code{\link{xTake}}; \code{\link{xThird}};
+\code{\link{xUnion}}; \code{\link{xUnit}};
+\code{\link{xZipWith}}; \code{\link{xZip}}
 
 Other folding_functions: \code{\link{xFoldListl}};
 \code{\link{xFoldl}}; \code{\link{xFoldr}};
@@ -103,7 +104,9 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
 \code{\link{xCompose}}; \code{\link{xConst}};
 \code{\link{xDo}}; \code{\link{xDropWhile}};
-\code{\link{xExists}}; \code{\link{xFlatMap}};
+\code{\link{xExists}}; \code{\link{xFilter}},
+\code{\link{xFilter...}}, \code{\link{xSelect}},
+\code{\link{xSelect...}}; \code{\link{xFlatMap}};
 \code{\link{xFlip}}; \code{\link{xFoldListl}};
 \code{\link{xFoldl}}; \code{\link{xFoldr}};
 \code{\link{xForall}}; \code{\link{xFormals}};
@@ -118,10 +121,9 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xPermute}}; \code{\link{xPluck}};
 \code{\link{xPoll}}; \code{\link{xRecurMap}};
 \code{\link{xReducer}}; \code{\link{xReject}};
-\code{\link{xSelect}}; \code{\link{xSplitWith}};
-\code{\link{xStopwatch}}; \code{\link{xTakeWhile}};
-\code{\link{xVectorise}}; \code{\link{xWait}};
-\code{\link{xZipWith}}
+\code{\link{xSplitWith}}; \code{\link{xStopwatch}};
+\code{\link{xTakeWhile}}; \code{\link{xVectorise}};
+\code{\link{xWait}}; \code{\link{xZipWith}}
 
 Other variadic_functions: \code{\link{xApply}};
 \code{\link{xAsFunction}}; \code{\link{xAssoc}};
@@ -129,6 +131,8 @@ Other variadic_functions: \code{\link{xApply}};
 \code{\link{xDiffer}}; \code{\link{xDissoc}};
 \code{\link{xDo}}; \code{\link{xDropWhile}};
 \code{\link{xDrop}}; \code{\link{xExists}};
+\code{\link{xFilter}}, \code{\link{xFilter...}},
+\code{\link{xSelect}}, \code{\link{xSelect...}};
 \code{\link{xFirst}}; \code{\link{xFlatMap}};
 \code{\link{xFlatten}}; \code{\link{xFoldListl}};
 \code{\link{xFoldl}}; \code{\link{xFoldr}};
@@ -154,15 +158,14 @@ Other variadic_functions: \code{\link{xApply}};
 \code{\link{xReducer}}; \code{\link{xReject}};
 \code{\link{xRepeat}}; \code{\link{xRest}};
 \code{\link{xReverse}}; \code{\link{xSecond}};
-\code{\link{xSegment}}; \code{\link{xSelect}};
-\code{\link{xSetProd}}; \code{\link{xShuffle}};
-\code{\link{xSignum}}; \code{\link{xSplitWith}};
-\code{\link{xSplit}}; \code{\link{xSubString}};
-\code{\link{xSucc}}; \code{\link{xTakeWhile}};
-\code{\link{xTake}}; \code{\link{xThird}};
-\code{\link{xThread}}; \code{\link{xUnchars}};
-\code{\link{xUnion}}; \code{\link{xUnlines}};
-\code{\link{xUnwords}}; \code{\link{xZipWith}};
-\code{\link{xZip}}
+\code{\link{xSegment}}; \code{\link{xSetProd}};
+\code{\link{xShuffle}}; \code{\link{xSignum}};
+\code{\link{xSplitWith}}; \code{\link{xSplit}};
+\code{\link{xSubString}}; \code{\link{xSucc}};
+\code{\link{xTakeWhile}}; \code{\link{xTake}};
+\code{\link{xThird}}; \code{\link{xThread}};
+\code{\link{xUnchars}}; \code{\link{xUnion}};
+\code{\link{xUnlines}}; \code{\link{xUnwords}};
+\code{\link{xZipWith}}; \code{\link{xZip}}
 }
 

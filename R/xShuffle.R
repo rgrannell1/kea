@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xShuffle
 #' @export
 
 xShuffle <- function (coll) {
@@ -41,6 +42,7 @@ xShuffle <- function (coll) {
 	}
 }
 
+#' @rdname xShuffle
 #' @export
 
 xShuffle... <- function (...) {

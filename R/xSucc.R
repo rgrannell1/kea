@@ -14,6 +14,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSucc
 #' @export
 
 xSucc <- function (nums) {
@@ -40,6 +41,7 @@ xSucc <- function (nums) {
 	}
 }
 
+#' @rdname xSucc
 #' @export
 
 xSucc... <- function (...) {

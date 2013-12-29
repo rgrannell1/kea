@@ -20,6 +20,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPack
 #' @export
 
 xPack <- function (coll) {
@@ -44,6 +45,7 @@ xPack <- function (coll) {
 	}
 }
 
+#' @rdname xPack
 #' @export
 
 xPack... <- function (...) {

@@ -20,6 +20,8 @@
 #' @example
 #'    inst/examples/example-xAsClosure.R
 #'
+#'
+#' @rdname xAsClosure
 #' @export
 
 xAsClosure <- function (fn) {

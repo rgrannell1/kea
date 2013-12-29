@@ -22,6 +22,7 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @rdname xConst
 #' @export
 
 xConst <- function (val) {
@@ -39,6 +40,7 @@ xConst <- function (val) {
 	}
 }
 
+#' @rdname xConst
 #' @export
 
 xK <- xConst

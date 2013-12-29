@@ -28,6 +28,7 @@
 #'
 #' @family time_functions
 #'
+#' @rdname xLimit
 #' @export
 
 xLimit <- function (fn, num) {

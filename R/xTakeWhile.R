@@ -27,6 +27,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xTakeWhile
 #' @export
 
 xTakeWhile <- function (pred, coll) {
@@ -74,6 +75,7 @@ xTakeWhile <- function (pred, coll) {
 	}
 }
 
+#' @rdname xTakeWhile
 #' @export
 
 xTakeWhile... <- function (pred, ...) {

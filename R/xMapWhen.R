@@ -26,6 +26,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xMapWhen
 #' @export
 
 xMapWhen <- function (pred, fn, coll) {
@@ -78,6 +79,7 @@ xMapWhen <- function (pred, fn, coll) {
 	}
 }
 
+#' @rdname xMapWhen
 #' @export
 
 xMapWhen... <- function (pred, fn, ...) {

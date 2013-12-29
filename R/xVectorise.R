@@ -18,6 +18,7 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @rdname xVectorise
 #' @export
 
 xVectorise <- function (fn) {
@@ -46,6 +47,7 @@ xVectorise <- function (fn) {
 	}
 }
 
+#' @rdname xVectorise
 #' @export
 # for my american friends.
 

@@ -30,6 +30,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xMap
 #' @export
 
 xMap <- function (fn, coll) {
@@ -66,6 +67,7 @@ xMap <- function (fn, coll) {
 	}
 }
 
+#' @rdname xMap
 #' @export
 
 xMap... <- function (fn, ...) {

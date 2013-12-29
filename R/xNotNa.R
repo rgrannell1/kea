@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xNotNa
 #' @export
 
 xNotNa <- function (coll) {
@@ -45,6 +46,7 @@ xNotNa <- function (coll) {
 	}
 }
 
+#' @rdname xNotNa
 #' @export
 
 xNotNa... <- function (...) {

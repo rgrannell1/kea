@@ -24,6 +24,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xExists
 #' @export
 
 xExists <- function (pred, colls) {
@@ -88,6 +89,7 @@ xExists <- function (pred, colls) {
 	}
 }
 
+#' @rdname xExists
 #' @export
 
 xExists... <- function (pred, ...) {

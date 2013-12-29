@@ -19,6 +19,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xPoll
 #' @export
 
 xPoll <- function (pred, coll) {
@@ -68,6 +69,7 @@ xPoll <- function (pred, coll) {
 	}
 }
 
+#' @rdname xPoll
 #' @export
 
 xPoll... <- function (pred, ...) {

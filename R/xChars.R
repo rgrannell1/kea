@@ -12,7 +12,7 @@
 #'
 #' @family character_functions
 #'
-#'
+#' @rdname xChars
 #' @export
 
 xChars <- function (str) {

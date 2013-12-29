@@ -16,6 +16,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xIsNull
 #' @export
 
 xIsNull <- function (coll) {
@@ -44,6 +45,7 @@ xIsNull <- function (coll) {
 	}
 }
 
+#' @rdname xIsNull
 #' @export
 
 xIsNull... <- function (...) {

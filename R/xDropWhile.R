@@ -24,6 +24,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xDropWhile
 #' @export
 
 xDropWhile <- function (pred, coll) {
@@ -73,6 +74,7 @@ xDropWhile <- function (pred, coll) {
 	}
 }
 
+#' @rdname xDropWhile
 #' @export
 
 xDropWhile... <- function (pred, ...) {

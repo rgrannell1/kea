@@ -12,6 +12,7 @@
 #' @section Corner Cases:
 #'    If a variable isn't assigned, then \code{false} is returned.
 #'
+#' @rdname xIsVal
 #' @export
 
 xIsVal <- function (str) {

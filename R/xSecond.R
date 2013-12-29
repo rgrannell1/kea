@@ -20,6 +20,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xSecond
 #' @export
 
 xSecond <- function (coll) {
@@ -45,6 +46,7 @@ xSecond <- function (coll) {
 	coll[[2]]
 }
 
+#' @rdname xSecond
 #' @export
 
 xSecond... <- function (...) {

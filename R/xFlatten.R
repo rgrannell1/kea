@@ -21,6 +21,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xFlatten
 #' @export
 
 xFlatten <- function (num, coll) {
@@ -75,6 +76,7 @@ xFlatten <- function (num, coll) {
 	}
 }
 
+#' @rdname xFlatten
 #' @export
 
 xFlatten... <- function (num, ...) {

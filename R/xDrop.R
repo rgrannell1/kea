@@ -21,6 +21,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xDrop
 #' @export
 
 xDrop <- function (num, coll) {
@@ -66,6 +67,7 @@ xDrop <- function (num, coll) {
 	}
 }
 
+#' @rdname xDrop
 #' @export
 
 xDrop... <- function (num, ...) {

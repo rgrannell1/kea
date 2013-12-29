@@ -19,7 +19,9 @@
 #' @example
 #'    inst/examples/example-xAsUnary.R
 #'
+#' @rdname xAsUnary
 #' @export
+
 
 xAsUnary <- function (fn) {
 	# (... -> b) -> (a -> b)

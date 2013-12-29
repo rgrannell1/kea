@@ -20,6 +20,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xJuxtapose
 #' @export
 
 xJuxtapose <- function (fns) {
@@ -53,6 +54,7 @@ xJuxtapose <- function (fns) {
 	}
 }
 
+#' @rdname xJuxtapose
 #' @export
 
 xJuxtapose... <- function (...) {

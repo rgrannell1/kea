@@ -21,6 +21,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xDissoc
 #' @export
 
 xDissoc <- function (coll) {
@@ -54,6 +55,7 @@ xDissoc <- function (coll) {
 	}
 }
 
+#' @rdname xDissoc
 #' @export
 
 xDissoc... <- function (...) {

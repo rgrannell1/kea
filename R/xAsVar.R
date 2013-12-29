@@ -16,6 +16,7 @@
 #' @example
 #'    inst/examples/example-xAsVar.R
 #'
+#' @rdname xAsVar
 #' @export
 
 xAsVar <- function (str) {

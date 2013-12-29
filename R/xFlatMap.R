@@ -24,6 +24,7 @@
 #'
 #' @family variadic_functions
 #'
+#' @rdname xFlatMap
 #' @export
 
 xFlatMap <- function (fn, coll) {
@@ -60,6 +61,7 @@ xFlatMap <- function (fn, coll) {
 	}
 }
 
+#' @rdname xFlatMap
 #' @export
 
 xFlatMap... <- function (fn, ...) {

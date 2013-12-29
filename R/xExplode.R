@@ -13,6 +13,7 @@
 #'
 #' @family character_functions
 #'
+#' @rdname xExplode
 #' @export
 
 xExplode <- function (rexp, str) {
