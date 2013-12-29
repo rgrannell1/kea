@@ -36,7 +36,6 @@ xVersion()
 **Arrow** functions are usually prefixed with the letter 'x'.
 
 ## 2 Examples
-
 ## 3 Help
 
 To get the documentation for a particular function from an R console simply prefix that function with a question mark.

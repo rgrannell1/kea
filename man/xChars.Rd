@@ -15,7 +15,7 @@ element being a single character.
 Split a single string into a vector of characters.
 }
 \seealso{
-Other character_vector_functions: \code{\link{xExplode}};
+Other character_functions: \code{\link{xExplode}};
 \code{\link{xImplode}}; \code{\link{xLines}};
 \code{\link{xSubString}}; \code{\link{xUnchars}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};

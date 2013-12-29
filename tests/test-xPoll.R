@@ -5,9 +5,9 @@ test_cases <- arrow:::test_cases
 message("xPoll")
 
 	forall(
-		"polling the empty collection returns 0",
+		"polling the empty collection returns integer(0)",
 		test_cases$collection_zero,
-		xPoll(Truth, coll) == 0)
+		xPoll(Truth, coll) %equals% integer(0))
 
 	forall(
 		"polling with truth returns length coll",

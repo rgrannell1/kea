@@ -90,19 +90,19 @@ Other collection_functions: \code{\link{xApply}};
 \code{\link{xNotFalse}}; \code{\link{xNotNan}};
 \code{\link{xNotNa}}; \code{\link{xNotTrue}};
 \code{\link{xPack}}; \code{\link{xPartial}};
-\code{\link{xPartitionWith}}; \code{\link{xPartition}};
-\code{\link{xPermute}}; \code{\link{xPluck}};
-\code{\link{xPoll}}; \code{\link{xRecurMap}};
-\code{\link{xReducer}}; \code{\link{xReduce}};
-\code{\link{xReject}}; \code{\link{xRepeat}};
-\code{\link{xRest}}; \code{\link{xReverse}};
-\code{\link{xSecond}}; \code{\link{xSegment}};
-\code{\link{xSelect}}; \code{\link{xSetProd}};
-\code{\link{xShuffle}}; \code{\link{xSplitWith}};
-\code{\link{xSplit}}; \code{\link{xTakeWhile}};
-\code{\link{xTake}}; \code{\link{xThird}};
-\code{\link{xUnion}}; \code{\link{xUnit}};
-\code{\link{xZipWith}}; \code{\link{xZip}}
+\code{\link{xPartitionWith}}; \code{\link{xPermute}};
+\code{\link{xPluck}}; \code{\link{xPoll}};
+\code{\link{xRecurMap}}; \code{\link{xReducer}};
+\code{\link{xReduce}}; \code{\link{xReject}};
+\code{\link{xRepeat}}; \code{\link{xRest}};
+\code{\link{xReverse}}; \code{\link{xSecond}};
+\code{\link{xSegment}}; \code{\link{xSelect}};
+\code{\link{xSetProd}}; \code{\link{xShuffle}};
+\code{\link{xSplitWith}}; \code{\link{xSplit}};
+\code{\link{xTakeWhile}}; \code{\link{xTake}};
+\code{\link{xThird}}; \code{\link{xUnion}};
+\code{\link{xUnit}}; \code{\link{xZipWith}};
+\code{\link{xZip}}
 
 Other folding_functions: \code{\link{xFoldListl}};
 \code{\link{xFoldr}}; \code{\link{xReducer}};
@@ -124,13 +124,13 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xMapWhen}}; \code{\link{xMapply}};
 \code{\link{xMap}}; \code{\link{xNot}};
 \code{\link{xParams}}; \code{\link{xPartial}};
-\code{\link{xPartitionWith}}; \code{\link{xPartition}};
-\code{\link{xPermute}}; \code{\link{xPluck}};
-\code{\link{xPoll}}; \code{\link{xRecurMap}};
-\code{\link{xReducer}}; \code{\link{xReduce}};
-\code{\link{xReject}}; \code{\link{xSelect}};
-\code{\link{xSplitWith}}; \code{\link{xStopWatch}};
-\code{\link{xTakeWhile}}; \code{\link{xVectorise}};
-\code{\link{xWait}}; \code{\link{xZipWith}}
+\code{\link{xPartitionWith}}; \code{\link{xPermute}};
+\code{\link{xPluck}}; \code{\link{xPoll}};
+\code{\link{xRecurMap}}; \code{\link{xReducer}};
+\code{\link{xReduce}}; \code{\link{xReject}};
+\code{\link{xSelect}}; \code{\link{xSplitWith}};
+\code{\link{xStopWatch}}; \code{\link{xTakeWhile}};
+\code{\link{xVectorise}}; \code{\link{xWait}};
+\code{\link{xZipWith}}
 }
 

@@ -1444,25 +1444,6 @@ x_coll_proto <- local({
 			xPluck...(str, self_(), ...)
 		}
 
-	# --- xPartition --- #
-	this$xPartition <-
-		function (pred) {
-			x_( xPartition(pred, self_()) )
-		}
-	this$xPartition... <-
-		function (pred, ...) {
-			x_( xPartition...(pred, self_(), ...) )
-		}
-
-	this$x_Partition <-
-		function (pred) {
-			xPartition(pred, self_())
-		}
-	this$x_Partition... <-
-		function (pred, ...) {
-			xPartition...(pred, self_(), ...)
-		}
-
 	# --- xPartitionWith --- #
 	this$xPartitionWith <-
 		function (pred) {

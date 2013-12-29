@@ -268,6 +268,16 @@ atoms <- local({
 			one_of(letters)
 		}
 
+	this$space <-
+		function () {
+			one_of(c(' ', '\t', '\n'))
+		}
+
+	this$newline <-
+		function () {
+			one_of(c('\n'))
+		}
+
 	# single words.
 
 	this$word <-
@@ -432,6 +442,26 @@ compounds <- local({
 				one_of( list(
 					function () character(),
 					as_coll$vector_of(atoms$letter, sd)) )(  )
+			}
+		}
+
+	this$spaces <-
+		function (sd = 20) {
+			function () {
+
+				one_of( list(
+					function () character(),
+					as_coll$vector_of(atoms$space, sd)) )()
+			}
+		}
+
+	this$newlines <-
+		function (sd = 20) {
+			function () {
+
+				one_of( list(
+					function () character(),
+					as_coll$vector_of(atoms$newline, sd)) )()
 			}
 		}
 
@@ -696,6 +726,18 @@ test_cases <- local({
 
 	this$str_word_and_words <-
 		list(str = atoms$word(), strs = compounds$words())
+
+	# --------------------- str-coll --------------------- #
+
+	this$letters_with_spaces <-
+		list(
+			coll = compounds$letters(),
+			str = compounds$spaces())
+
+	this$letters_with_newlines <-
+		list(
+			coll = compounds$letters(),
+			str = compounds$newlines())
 
 	# --------------------- col + col --------------------- #
 

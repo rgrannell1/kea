@@ -19,7 +19,7 @@ Subset a string using normal R vector indexing.
   returns the empty list if \code{coll} is length-zero.
 }
 \seealso{
-Other character_vector_functions: \code{\link{xChars}};
+Other character_functions: \code{\link{xChars}};
 \code{\link{xExplode}}; \code{\link{xImplode}};
 \code{\link{xLines}}; \code{\link{xUnchars}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};

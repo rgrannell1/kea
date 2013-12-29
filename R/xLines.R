@@ -9,7 +9,7 @@
 #' @return
 #'    a character vector.
 #'
-#' @family character_vector_functions
+#' @family character_functions
 #'
 #' @export
 

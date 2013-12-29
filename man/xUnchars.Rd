@@ -14,7 +14,7 @@ a length-one character vector.
 Collapase a character vector with empty strs as delimiters.
 }
 \seealso{
-Other character_vector_functions: \code{\link{xChars}};
+Other character_functions: \code{\link{xChars}};
 \code{\link{xExplode}}; \code{\link{xImplode}};
 \code{\link{xLines}}; \code{\link{xSubString}};
 \code{\link{xUnlines}}; \code{\link{xUnwords}};

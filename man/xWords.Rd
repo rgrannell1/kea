@@ -14,7 +14,7 @@ a character vector, with one or more elements.
 Split a str at whitespace.
 }
 \seealso{
-Other character_vector_functions: \code{\link{xChars}};
+Other character_functions: \code{\link{xChars}};
 \code{\link{xExplode}}; \code{\link{xImplode}};
 \code{\link{xLines}}; \code{\link{xSubString}};
 \code{\link{xUnchars}}; \code{\link{xUnlines}};

@@ -361,7 +361,7 @@ profile_object <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing function ]" %+% "\n\n" %+%
-			"c(function_type = " %+% traits$function_type %+% ", " %+%
+			"c(primitive = " %+% traits$function_type %+% ", " %+%
 			"arity = " %+% traits$arity %+% ", " %+%
 			"classes = " %+% traits$classes %+% ")"
 

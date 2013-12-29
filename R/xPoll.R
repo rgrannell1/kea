@@ -46,7 +46,7 @@ xPoll <- function (pred, coll) {
 	pred <- match.fun(pred)
 
 	if (length(coll) == 0) {
-		0
+		integer(0)
 	} else {
 		count <- 0
 		for (ith in seq_along(coll)) {

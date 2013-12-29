@@ -11,7 +11,7 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#' @family character_vector_functions
+#' @family character_functions
 #'
 #' @export
 
