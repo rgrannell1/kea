@@ -1,13 +1,11 @@
 
-
-message('testing that methods that should be implemented are implemented.')
+message('Arrow $ test 1')
 
 	# Automated Test 1
 	#
 	# Checking the arrow methods programmatically, to ensure that every method has
 	# an unchaining version, and if variadic methods are implemented then they
 	# have unchaining versions to.
-
 
 	exports <- ls('package:arrow')
 
@@ -54,17 +52,23 @@ message('testing that methods that should be implemented are implemented.')
 
 	expected_methods <- xMap(make_method_types, base_methods_names)
 
-	# FIX MAKE PROTO SPECIFIC.
+	# reasons for exceptions:
+	#    multi-function functionals cannot have normal methods, as they're
+	#    functions
+	#    on functions, not collections of functions.
+
+	# not proto specific; could be improved.
 
 	exceptions <- list(
 		normal =
-			c('xJuxtapose'),
+			c('xJuxtapose', 'xCompose', 'xLift'),
 		unchaining =
-			c('xJuxtapose'),
+			c('xJuxtapose', 'xCompose', 'xLift'),
 		both_variadics =
 			c()
 	)
 
+	sink <-
 	xMapply(
 		(method : proto_name) := {
 
@@ -127,3 +131,107 @@ message('testing that methods that should be implemented are implemented.')
 			names(x_proto_methods))
 	)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+message('Arrow $ test 2')
+
+	# Automated Test 2
+	#
+	# Test that every function has methods (if it should).
+	# Exceptions must be denoted manually.
+
+	exceptions <- list(
+
+
+
+	)
+
+	guess_prototypes <- params := {
+
+		guesses <- c(
+			coll =
+				'coll',
+			colls =
+				'coll',
+			num =
+				'coll',
+			nums =
+				'coll',
+			rexp =
+				'coll',
+			fn =
+				'fn',
+			pred =
+				'fn',
+			str =
+				'coll',
+			strs =
+				'colls'
+		)
+
+		unique(guesses[params])
+	}
+
+	implement_exception <- list(
+		any =
+			c(),
+		fn =
+			c(),
+		coll =
+			c('xAsVal', 'xAsVar', 'xIsVal', 'xVal'),
+		data_frame =
+			c(),
+		matrix =
+			c()
+	)
+
+	sink <- xMapply(
+		(method : proto_name) := {
+
+			invoking_call = 'unit test 2'
+
+			proto <- x_proto_methods[[proto_name]]
+
+			if (method != 'x') {
+
+				params <- xParams(match.fun(method))
+
+				# try to guess what prototype the function should belong to
+				# based on the (rather systematic) parametre names.
+
+				expected_proto <- guess_prototypes(params)
+
+				# if the method is in a non-expected class, complain.
+
+				assert(
+					!(proto_name %in% expected_proto) || (method %in% proto) ||
+					( method %in% implement_exception[[proto_name]] ),
+					invoking_call,
+					wail$method_not_in_proto(method, proto_name))
+
+			}
+		},
+		xSetProd...(
+			base_methods_names,
+			names(x_proto_methods))
+	)

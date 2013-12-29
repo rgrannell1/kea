@@ -915,6 +915,15 @@ x_coll_proto <- local({
 			xFourth...(self_(), ...)
 		}
 	# -------- G ------- #
+	this$xGet <-
+		function () {
+			x_( xGet(self_()) )
+		}
+	this$x_Get <-
+		function () {
+			xGet(self_())
+		}
+
 	# -------- H ------- #
 	# -------- I ------- #
 
@@ -1188,6 +1197,15 @@ x_coll_proto <- local({
 	this$x_Length... <-
 		function (...) {
 			xLength...(self_(), ...)
+		}
+	# --- xLimit --- #
+	this$xLimit <-
+		function (fn) {
+			x_( xLimit(fn, self_()) )
+		}
+	this$x_Limit <-
+		function (fn) {
+			xLimit(fn, self_())
 		}
 
 	# --- xLines --- #
@@ -1883,6 +1901,18 @@ x_coll_proto <- local({
 			xSplitWith...(pred, self_(), ...)
 		}
 
+	# --- xStopwatch --- #
+
+	this$xStopwatch <-
+		function () {
+			x_( xStopwatch(self_()) )
+		}
+
+	this$x_Stopwatch <-
+		function () {
+			xStopwatch(self_())
+		}
+
 	# --- xSubString --- #
 	this$xSubString <-
 		function (nums) {
@@ -2082,9 +2112,39 @@ x_coll_proto <- local({
 		function () {
 			xWords(self_())
 		}
+
+	this$xWait <-
+		function (fn) {
+			x_( xWait(fn, self_()) )
+		}
+
+	this$x_Wait <-
+		function (fn) {
+			xWait(fn, self_())
+		}
+
 	# -------- X ------- #
 	# -------- Y ------- #
 	# -------- Z ------- #
+	# --- xZip --- #
+	this$xZip <-
+		function () {
+			x_( xZip(self_()) )
+		}
+	this$x_Zip <-
+		function () {
+			xZip(self_())
+		}
+
+	this$xZip... <-
+		function (...) {
+			x_( xZip...(self_(), ...) )
+		}
+	this$x_Zip... <-
+		function (...) {
+			xZip...(self_(), ...)
+		}
+
 	# --- xZipWith --- #
 	this$xZipWith <-
 		function (fn) {
@@ -2227,14 +2287,14 @@ x_fn_proto <- local({
 			xConst(self_())
 		}
 
-	this$xCompose <-
-		function () {
-			x_( xCompose(self_()) )
+	this$xCompose... <-
+		function (...) {
+			x_( xCompose(list(self_(), ...)) )
 		}
 
-	this$x_Compose <-
+	this$x_Compose... <-
 		function (...) {
-			x_( x_Compose(self_(), ...) )
+			xCompose(list(self_(), ...))
 		}
 	# -------- D ------- #
 
@@ -2513,22 +2573,23 @@ x_fn_proto <- local({
 		}
 
 	# --- xLocate --- #
+
 	this$xLift <-
 		function (fns) {
 			x_( xLift(self_(), fns) )
 		}
-	this$xLift... <-
-		function (...) {
-			x_( xLift...(self_(), ...) )
-		}
-
 	this$x_Lift <-
 		function (fns) {
 			xLift(self_(), fns)
 		}
+
+	this$xLift... <-
+		function (...) {
+			x_( xLift(self_(), list(...)) )
+		}
 	this$x_Lift... <-
 		function (...) {
-			xLift...(self_(), ...)
+			xLift(self_(), list(...))
 		}
 
 	# --- xLocatel --- #

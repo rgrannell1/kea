@@ -389,35 +389,41 @@ lament <- list(
 # -------------------------------- wail -------------------------------- #
 #
 # To Developers,
-# wail is specific to customised errors thrown by the arrow unit tests,
+# wail is specific to customised errors thrown by the arrow method chaining unit tests,
 # particularily the more complicated ones.
 #
-# It is named wail because of the noise I emmit when a unit test fails...
+# It is named wail after the noise I emit when a unit test fails...
 
 wail <- list(
 	normal_form_missing =
-		function (method, proto = '', actual) {
+		function (method, proto, actual) {
 
 			'the xMethod form of ' %+% method %+% ' was expected but ' %+%
 			' was missing (' %+% proto %+% ')'
 		},
 	unchaining_form_missing =
-		function (method, proto = '', actual) {
+		function (method, proto, actual) {
 
 			'the x_Method form of ' %+% method %+% ' was expected but ' %+%
 			' was missing (' %+% proto %+% ')'
 
 		},
 	variadic_form_missing =
-		function (method, proto = '', actual) {
+		function (method, proto, actual) {
 			'the xMethod... form of ' %+% method %+% ' was expected but ' %+%
 			' was missing (' %+% proto %+% ')'
 
 		},
 	variadic_unchaining_form_missing =
-		function (method, proto = '', actual) {
+		function (method, proto, actual) {
 			'the x_Method... form of ' %+% method %+% ' was expected but ' %+%
 			' was missing (' %+% proto %+% ')'
+
+		},
+	method_not_in_proto =
+		function (method, proto) {
+			'the method ' %+% method %+% ' should be in the prototype ' %+% proto %+%
+			' but was not.'
 
 		}
 )
