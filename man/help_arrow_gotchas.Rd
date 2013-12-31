@@ -3,7 +3,8 @@
 \title{Appendix B}
 \description{
 Arrow sometimes employs black magic to implement some of
-its more divergent features.
+its more divergent features, which can occasionally present
+suprising behaviour.
 }
 \section{1. Arrow objects vs values}{
   Arrow's most common gotcha - particularily before

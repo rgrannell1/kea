@@ -19,6 +19,8 @@
 # invoking_call gives the exact command used to call the function that
 # threw the error.
 #
+# Similar lists of messages exist for other tools and function.
+
 
 ddparse <- function (val, collapse = "") {
 	paste0(deparse(val), collapse = collapse)
@@ -357,10 +359,14 @@ proclaim <- list(
 			" the " %+% ith_suffix(position + 1) %+%
 			" parametre is a non-symbol."
 
+		},
+	no_enclosing_parens =
+		function () {
+
+			"the formals for non-unary functions" %+%
+			" must be enclosed in parentheses."
+
 		}
-
-
-
 )
 
 # -------------------------------- lament -------------------------------- #
