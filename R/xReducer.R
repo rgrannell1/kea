@@ -24,7 +24,8 @@
 #'
 #' @family collection_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @template
 #'    Return

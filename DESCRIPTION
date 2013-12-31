@@ -115,7 +115,7 @@ Collate:
     'xDiffer.R'
     'xInter.R'
     'xThread.R'
-    'xGet.R'
+    'xGetKey.R'
     'xPluck.R'
     'xJoin.R'
     'xAsFunction.R'

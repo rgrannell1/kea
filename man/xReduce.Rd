@@ -110,7 +110,7 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xFlip}}; \code{\link{xFoldListl}};
 \code{\link{xFoldl}}; \code{\link{xFoldr}};
 \code{\link{xForall}}; \code{\link{xFormals}};
-\code{\link{xGet}}; \code{\link{xIterate}};
+\code{\link{xGetKey}}; \code{\link{xIterate}};
 \code{\link{xJuxtapose}}; \code{\link{xLift}};
 \code{\link{xLimit}}; \code{\link{xLocater}};
 \code{\link{xLocate}}; \code{\link{xMapIndexed}};

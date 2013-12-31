@@ -48,7 +48,7 @@ Other higher_order_functions: \code{\link{xApply}},
 \code{\link{xFoldListl...}}; \code{\link{xFoldl}};
 \code{\link{xFoldr}}, \code{\link{xFoldr...}};
 \code{\link{xForall}}, \code{\link{xForall...}};
-\code{\link{xFormals}}; \code{\link{xGet}};
+\code{\link{xFormals}}; \code{\link{xGetKey}};
 \code{\link{xIterate}}; \code{\link{xJuxtapose}},
 \code{\link{xJuxtapose...}}; \code{\link{xLift}},
 \code{\link{xLift...}}; \code{\link{xLimit}};

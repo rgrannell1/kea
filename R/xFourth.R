@@ -17,7 +17,8 @@
 #'
 #' @family selection_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xFourth
 #' @export

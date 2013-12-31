@@ -12,7 +12,8 @@
 #' @section Corner Cases:
 #'    If nums is empty then the unit of the collection is returned.
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xNegate
 #' @export

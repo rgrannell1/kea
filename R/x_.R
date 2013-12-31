@@ -915,13 +915,13 @@ x_coll_proto <- local({
 			xFourth...(self_(), ...)
 		}
 	# -------- G ------- #
-	this$xGet <-
+	this$xGetKey <-
 		function () {
-			x_( xGet(self_()) )
+			x_( xGetKey(self_()) )
 		}
-	this$x_Get <-
+	this$x_GetKey <-
 		function () {
-			xGet(self_())
+			xGetKey(self_())
 		}
 
 	# -------- H ------- #

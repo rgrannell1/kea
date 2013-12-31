@@ -25,7 +25,8 @@
 #'
 #' @family collection_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @example
 #'    inst/examples/example-xApply.R

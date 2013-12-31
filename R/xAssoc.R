@@ -19,7 +19,8 @@
 #'
 #' @family name_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @example
 #'    inst/examples/example-xAssoc.R

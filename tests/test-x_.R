@@ -11,7 +11,7 @@ message('test that every method has an unchaining version.')
 	)
 
 	x_proto_methods <- list(
-		any =
+		xany =
 			ls(arrow ::: x_any_proto),
 		fn =
 			ls(arrow ::: x_fn_proto),
@@ -41,7 +41,6 @@ message('test that every method has an unchaining version.')
 			xUnchars...('x_', xSubString(base, -1), '...')
 		}
 	)
-
 
 	make_method_types <- xJuxtapose(method_types)
 	expected_methods <- xMap(make_method_types, base_methods_names)
@@ -238,6 +237,7 @@ message('test that x_ and ... are called appropriately by methods.')
 			c('xGraft')
 	)
 
+	sink <-
 	xMapply(
 		(name : fn) := {
 

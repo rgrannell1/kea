@@ -20,7 +20,8 @@
 #'
 #' @family set_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xIsMember
 #' @export

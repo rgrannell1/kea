@@ -1,5 +1,5 @@
 
-#' xGet
+#' xGetKey
 #'
 #' Return a function that selects a key from a collection.
 #'
@@ -18,10 +18,10 @@
 #'
 #' @family name_functions
 #'
-#' @rdname xGet
+#' @rdname xGetKey
 #' @export
 
-xGet <- function (str) {
+xGetKey <- function (str) {
 	# Vector string -> (Collection -> [any])
 	# Return a function that selects a key from a collection.
 

@@ -26,7 +26,8 @@
 #'
 #' @family filtering_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xReject
 #' @export

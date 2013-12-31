@@ -11,7 +11,8 @@
 #'	 If \code{nums} is lenth-zero then the unit of that vector is returned.
 #'	 The sign of zero is zero.
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xSignum
 #' @export

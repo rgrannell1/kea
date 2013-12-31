@@ -32,7 +32,8 @@
 #' @example
 #'    inst/examples/example-xDo.R
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xDo
 #' @export

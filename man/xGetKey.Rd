@@ -1,8 +1,8 @@
-\name{xGet}
-\alias{xGet}
-\title{xGet}
+\name{xGetKey}
+\alias{xGetKey}
+\title{xGetKey}
 \usage{
-xGet(str)
+xGetKey(str)
 }
 \arguments{
   \item{str}{a string.}

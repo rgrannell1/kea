@@ -26,7 +26,8 @@
 #'
 #' @family name_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xPluck
 #' @export

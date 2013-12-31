@@ -18,9 +18,11 @@
 #'
 #' @family collection_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xRecurMap
 #' @export

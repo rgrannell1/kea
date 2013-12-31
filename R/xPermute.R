@@ -21,7 +21,8 @@
 #'
 #' @family reshaping_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xPermute
 #' @export

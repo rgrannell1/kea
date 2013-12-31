@@ -17,7 +17,8 @@
 #'
 #' @family function_modifying_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xThread
 #' @export

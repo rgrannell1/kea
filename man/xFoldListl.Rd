@@ -77,7 +77,7 @@ Other higher_order_functions: \code{\link{xApply}};
 \code{\link{xSelect...}}; \code{\link{xFlatMap}};
 \code{\link{xFlip}}; \code{\link{xFoldl}};
 \code{\link{xFoldr}}; \code{\link{xForall}};
-\code{\link{xFormals}}; \code{\link{xGet}};
+\code{\link{xFormals}}; \code{\link{xGetKey}};
 \code{\link{xIterate}}; \code{\link{xJuxtapose}};
 \code{\link{xLift}}; \code{\link{xLimit}};
 \code{\link{xLocater}}; \code{\link{xLocate}};

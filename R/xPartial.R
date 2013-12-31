@@ -23,7 +23,8 @@
 #'
 #' @family parametre_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xPartial
 #' @export

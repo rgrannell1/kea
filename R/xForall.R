@@ -22,7 +22,8 @@
 #'
 #' @family quantifier_functions
 #'
-#' @family variadic_functions
+#' @template
+#'    Variadic
 #'
 #' @rdname xForall
 #' @export
