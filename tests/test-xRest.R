@@ -25,7 +25,7 @@ message("arrow $ xRest")
 	forall(
 		"collection $ xRest",
 		test_cases$collection,
-		length(x_(coll)$xRest()$x()) == length(coll) - 1,
+		length(x_(coll)$xRest()$x_()) == length(coll) - 1,
 		given =
 			length(coll) > 0
 	)

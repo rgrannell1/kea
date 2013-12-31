@@ -44,7 +44,7 @@ message("arrow $ xExists")
 	forall(
 		"function $ xExists",
 		test_cases$collection,
-		x_(Truth)$xExists(list(coll, coll))$x(),
+		x_(Truth)$xExists(list(coll, coll))$x_(),
 		given =
 			length(coll) > 0
 	)
@@ -52,7 +52,7 @@ message("arrow $ xExists")
 	forall(
 		"collection $ xExists",
 		test_cases$collection,
-		x_(coll)$xExists(Truth)$x(),
+		x_(coll)$xExists(Truth)$x_(),
 		given =
 			length(coll) > 0
 	)

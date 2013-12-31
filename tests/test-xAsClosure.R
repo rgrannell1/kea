@@ -30,8 +30,8 @@ message("function $ xAsClosure")
 		"all primitives may be converted.",
 		test_cases$base_primitive,
 		{
-			is.function(x_(fn)$xAsClosure()$x()) &&
-			!is.primitive( x_(fn)$xAsClosure()$x())
+			is.function(x_(fn)$xAsClosure()$x_()) &&
+			!is.primitive( x_(fn)$xAsClosure()$x_())
 		}
 	)
 

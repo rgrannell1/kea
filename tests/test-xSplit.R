@@ -31,7 +31,7 @@ message('arrow $ xSplit')
 	forall(
 		"collection $ xSplit",
 		test_cases$collection,
-		x_(coll)$xSplit(0)$x() %equals% list(list(), as.list(coll)),
+		x_(coll)$xSplit(0)$x_() %equals% list(list(), as.list(coll)),
 		given =
 			length(coll) > 0
 	)

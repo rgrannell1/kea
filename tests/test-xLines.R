@@ -26,7 +26,7 @@ message('arrow $ xLines')
 	forall(
 		"collection $ xLines",
 		list(),
-		x_('')$xLines()$x() %equals% character(0)
+		x_('')$xLines()$x_() %equals% character(0)
 	)
 
 message('arrow $ x_Lines')

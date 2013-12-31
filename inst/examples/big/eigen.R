@@ -26,7 +26,7 @@ monic_polynomial_roots <- function (free, max_int) {
 			only.value = True)$values
 
 		}
-	)$x()
+	)$x_()
 }
 
 
@@ -50,7 +50,7 @@ xTap(roots := {
 
 			mean_dist <- x_(sample_points)$
 				xMap(complex_distance)$
-				xReduce('+')$x() / 300
+				xReduce('+')$x_() / 300
 
 			list(root_1, mean_dist)
 		},
@@ -69,7 +69,7 @@ as_colour <- ( function () {
 
 	max_dist <- x_(monic_roots)$
 	xMap(xSecond)$
-	xReduce(max)$x()
+	xReduce(max)$x_()
 
 	function (dist) {
 		topo.colors(101)[ floor((dist / max_dist) * 100) + 1 ]

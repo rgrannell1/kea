@@ -27,7 +27,7 @@ message('arrow $ xPred')
 	forall(
 		"collection $ xPred",
 		test_cases$infinity,
-		x_(coll)$xPred()$x() %equals% as.double(coll)
+		x_(coll)$xPred()$x_() %equals% as.double(coll)
 	)
 
 message('arrow $ xPred...')

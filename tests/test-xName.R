@@ -21,7 +21,7 @@ message("arrow $ xName")
 	forall(
 		"collection $ xName",
 		test_cases$str_words,
-		all(names( x_(seq_along(strs))$xName(strs)$x() ) == strs)
+		all(names( x_(seq_along(strs))$xName(strs)$x_() ) == strs)
 	)
 
 message("arrow $ x_Name")

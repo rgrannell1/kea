@@ -24,7 +24,7 @@ message("arrow $ xAsUnary")
 	forall(
 		"function $ xAsUnary",
 		test_cases$sum_over_integers,
-		all(x_(fn)$xAsUnary()$x()( list(coll, coll) ) == coll + coll)
+		all(x_(fn)$xAsUnary()$x_()( list(coll, coll) ) == coll + coll)
 	)
 
 message("arrow $ x_AsUnary")

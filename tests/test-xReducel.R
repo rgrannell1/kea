@@ -41,7 +41,7 @@ message("arrow $ xReduce")
 	forall(
 		"collection $ xReduce",
 		test_cases$sum_over_integers,
-		x_(coll)$xReduce(fn)$x() %equals% sum(coll),
+		x_(coll)$xReduce(fn)$x_() %equals% sum(coll),
 		given =
 			length(coll) > 0
 	)
@@ -49,7 +49,7 @@ message("arrow $ xReduce")
 	forall(
 		"collection $ xReduce",
 		test_cases$sum_over_integers,
-		x_(fn)$xReduce(coll)$x() %equals% sum(coll),
+		x_(fn)$xReduce(coll)$x_() %equals% sum(coll),
 		given =
 			length(coll) > 0
 	)

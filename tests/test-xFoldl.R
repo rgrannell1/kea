@@ -42,7 +42,7 @@ message("arrow $ xFold")
 	forall(
 		"collection $ xFold",
 		test_cases$sum_over_integers,
-		x_(coll)$xFold(fn, 0)$x() %equals% sum(coll),
+		x_(coll)$xFold(fn, 0)$x_() %equals% sum(coll),
 		given =
 			length(coll) > 0
 	)
@@ -50,7 +50,7 @@ message("arrow $ xFold")
 	forall(
 		"collection $ xFold",
 		test_cases$sum_over_integers,
-		x_(fn)$xFold(0, coll)$x() %equals% sum(coll),
+		x_(fn)$xFold(0, coll)$x_() %equals% sum(coll),
 		given =
 			length(coll) > 0
 	)

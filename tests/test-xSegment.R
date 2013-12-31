@@ -26,7 +26,7 @@ message("arrow $ xSegment")
 	forall(
 		"infinite doesn't divide collection.",
 		test_cases$collection,
-		x_(coll)$xSegment(Inf)$x() %equals% list(as.list(coll)),
+		x_(coll)$xSegment(Inf)$x_() %equals% list(as.list(coll)),
 		given =
 			length(coll) > 0
 	)

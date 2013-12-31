@@ -15,7 +15,7 @@ message("arrow $ xConst")
 	forall(
 		"function $ xConst",
 		test_cases$collection,
-		x_(coll)$xConst()$x()() %equals% coll
+		x_(coll)$xConst()$x_()() %equals% coll
 	)
 
 message("arrow $ x_Const")

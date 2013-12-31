@@ -23,7 +23,7 @@ message("arrow $ xJoin")
 	forall(
 		"a single collection and null acts as identity",
 		test_cases$collection,
-		x_( list(coll, Null) )$xJoin()$x() %equals% as.list(coll)
+		x_( list(coll, Null) )$xJoin()$x_() %equals% as.list(coll)
 	)
 
 message("arrow $ x_Join")

@@ -21,7 +21,7 @@ message("xPack")
 	forall(
 		"collection $ xPack",
 		test_cases$collection_zero,
-		x_(coll)$xPack()$x() %equals% list()
+		x_(coll)$xPack()$x_() %equals% list()
 	)
 
 message("x_Pack")

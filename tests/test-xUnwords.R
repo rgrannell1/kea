@@ -23,7 +23,7 @@ message('arrow $ xUnwords')
 	forall(
 		"xUnwords of letters is pasted letters",
 		test_cases$letters,
-		x_(coll)$xUnwords()$x() %equals% paste0(coll, collapse = ' '),
+		x_(coll)$xUnwords()$x_() %equals% paste0(coll, collapse = ' '),
 		given =
 			length(coll) > 0
 	)

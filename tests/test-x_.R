@@ -6,9 +6,7 @@ message('test that every method has an unchaining version.')
 
 	arrow <- list(
 		functions =
-			exports[grepl('^x[A-Z]', exports)]
-
-	)
+			exports[grepl('^x[A-Z]', exports)] )
 
 	x_proto_methods <- list(
 		xany =
@@ -20,8 +18,7 @@ message('test that every method has an unchaining version.')
 		data_frame =
 			ls(arrow ::: x_data_frame_proto),
 		matrix =
-			ls(arrow ::: x_matrix_proto)
-	)
+			ls(arrow ::: x_matrix_proto) )
 
 	base_methods_names <- gsub('[.]{3}', '', arrow$functions)
 

@@ -32,7 +32,7 @@ message("arrow $ xForall")
 	forall(
 		"function $ xForall",
 		test_cases$collection,
-		x_(Truth)$xForall(list(coll, coll))$x(),
+		x_(Truth)$xForall(list(coll, coll))$x_(),
 		given =
 			length(coll) > 0
 	)
@@ -40,7 +40,7 @@ message("arrow $ xForall")
 	forall(
 		"collection $ xForall",
 		test_cases$collection,
-		x_(coll)$xForall(Truth)$x(),
+		x_(coll)$xForall(Truth)$x_(),
 		given =
 			length(coll) > 0
 	)

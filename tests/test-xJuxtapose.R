@@ -27,7 +27,7 @@ message("arrow $ xJuxtapose")
 	forall(
 		"collection $ xJuxtapose",
 		test_cases$succ_over_integers,
-		x_(list(fn))$xJuxtapose()$x()(coll) %equals% coll + 1
+		x_(list(fn))$xJuxtapose()$x_()(coll) %equals% coll + 1
 	)
 
 message("arrow $ xJuxtapose...")
@@ -36,7 +36,7 @@ message("arrow $ xJuxtapose...")
 	forall(
 		"function $ xJuxtapose...",
 		test_cases$succ_over_integers,
-		x_(fn)$xJuxtapose...()$x()(coll) %equals% coll + 1
+		x_(fn)$xJuxtapose...()$x_()(coll) %equals% coll + 1
 	)
 
 message("arrow $ x_Juxtapose")

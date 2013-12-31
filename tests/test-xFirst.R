@@ -16,7 +16,7 @@ message('arrow $ xFirst')
 
 	forall("first always returns the first element of a collection",
 		test_cases$collection,
-		x_(coll)$xFirst()$x() %equals% coll[[1]],
+		x_(coll)$xFirst()$x_() %equals% coll[[1]],
 		given =
 			length(coll) >= 1
 	)

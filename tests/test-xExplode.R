@@ -29,7 +29,7 @@
 #	forall(
 #		"splitting an empty string is the empty string",
 #		test_cases$str_word,
-#		x_(paste0('a', str))$xExplode(str)$x() == 'a',
+#		x_(paste0('a', str))$xExplode(str)$x_() == 'a',
 #		given =
 #			!('a' %in% strsplit('', str)[[1]])
 #	)

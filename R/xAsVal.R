@@ -3,7 +3,8 @@
 #'
 #' Convert a normal R variable to a constant value.
 #'
-#' @param str a string or symbol.
+#' @param
+#'     sym a symbol or string.
 #'
 #' @return Null; used for side-effect.
 #'
@@ -19,26 +20,26 @@
 #' @rdname xAsVal
 #' @export
 
-xAsVal <- function (str) {
+xAsVal <- function (sym) {
 	# lock the binding for an R variable.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(str), invoking_call,
-		exclaim$parametre_missing(str))
+		!missing(sym), invoking_call,
+		exclaim$parametre_missing(sym))
 
-	str <- toString(match.call()$str)
-	str <- as_typed_vector(str, "character", True)
-
-	assert(
-		length(str) == 1, invoking_call,
-		exclaim$must_have_length(str, 1))
+	sym <- toString(match.call()$sym)
+	sym <- as_typed_vector(sym, "character", True)
 
 	assert(
-		exists(str, envir = parent_frame),
-		exclaim$variable_non_existent(str))
+		length(sym) == 1, invoking_call,
+		exclaim$must_have_length(sym, 1))
 
-	lockBinding(str, parent_frame)
+	assert(
+		exists(sym, envir = parent_frame),
+		exclaim$variable_non_existent(sym))
+
+	lockBinding(sym, parent_frame)
 }

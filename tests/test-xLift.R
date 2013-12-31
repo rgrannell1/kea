@@ -18,7 +18,7 @@ message("arrow $ xLift")
 		'lifting two identites with plus is plus',
 		test_cases$num_positive_integer,
 		x_( match.fun('+') )$
-		xLift( list(identity, identity) )$x()(num) == num + num
+		xLift( list(identity, identity) )$x_()(num) == num + num
 	)
 
 message("arrow $ x_Lift")

@@ -41,6 +41,15 @@
 #'
 #' \code{xRecurMap...}
 #'
+#' Certain fold and search function have 'left' and 'right' forms, which
+#' dictates the order of the operation carried out. This is encoded by
+#' the letter 'l' or 'r', appended to the base function name. The left
+#' form of these operations can also be called without an additional 'l'.
+#'
+#' \code{xFold}
+#' \code{xFoldl}
+#' \code{xFoldr}
+#'
 #' A minority of functions have infix operator forms, or single letter
 #' shorthands.
 #'
@@ -59,6 +68,7 @@
 #'     \item{\bold{rexp:}}{ a string to be used as a regular expression. }
 #'     \item{\bold{str:}}{ a string. }
 #'     \item{\bold{strs:}}{ a collection of strings. }
+#'     \item{\bold{sym:}}{ a symbol or string. }
 #'     \item{\bold{val:}}{ any R value. }
 #' }
 #'

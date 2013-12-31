@@ -21,7 +21,7 @@ message('arrow $ xReverse')
 	forall(
 		"collection $ xReverse",
 		test_cases$collection,
-		x_(coll)$xReverse()$x() %equals% as.list(rev(coll))
+		x_(coll)$xReverse()$x_() %equals% as.list(rev(coll))
 	)
 
 message('arrow $ x_Reverse')

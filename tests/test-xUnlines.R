@@ -23,7 +23,7 @@ message('arrow $ xUnlines')
 	forall(
 		"xUnlines of letters is pasted letters",
 		test_cases$letters,
-		x_(coll)$xUnlines()$x() %equals% paste0(coll, collapse = '\n'),
+		x_(coll)$xUnlines()$x_() %equals% paste0(coll, collapse = '\n'),
 		given =
 			length(coll) > 0
 	)

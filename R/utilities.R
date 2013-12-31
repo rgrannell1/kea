@@ -122,7 +122,7 @@ dearrowise <- function (val) {
 	# otherwise do nothing.
 
 	if (is_arrow(val)) {
-		val$x()
+		val$x_()
 	} else {
 		val
 	}

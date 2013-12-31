@@ -35,7 +35,7 @@
 			"collection $ xIsMember",
 			test_cases$letters,{
 				letter <- sample(letters, size = 1)
-				!x_(coll)$xIsMember(toupper(letter))$x()
+				!x_(coll)$xIsMember(toupper(letter))$x_()
 			},
 			given =
 				length(coll) > 0

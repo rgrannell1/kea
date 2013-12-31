@@ -43,7 +43,7 @@ message("arrow $ xPoll")
 	forall(
 		"function $ xPoll",
 		test_cases$mod2_over_ints,
-		x_(fn)$xPoll(coll)$x() == length(which(coll %% 2 == 0)),
+		x_(fn)$xPoll(coll)$x_() == length(which(coll %% 2 == 0)),
 		given =
 			length(coll) > 0
 	)
@@ -51,7 +51,7 @@ message("arrow $ xPoll")
 	forall(
 		"collection $ xPoll",
 		test_cases$mod2_over_ints,
-		x_(coll)$xPoll(fn)$x() == length(which(coll %% 2 == 0)),
+		x_(coll)$xPoll(fn)$x_() == length(which(coll %% 2 == 0)),
 		given =
 			length(coll) > 0
 	)

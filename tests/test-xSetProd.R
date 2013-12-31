@@ -26,7 +26,7 @@ message("arrow $ xSetProd")
 	forall(
 		"collection $ xSetProd",
 		test_cases$two_collections,
-		length( x_(list(coll1, coll2))$xSetProd()$x() ) ==
+		length( x_(list(coll1, coll2))$xSetProd()$x_() ) ==
 		prod(length(coll1), length(coll2)),
 		given =
 			prod(length(coll1), length(coll2)) > 0
@@ -48,7 +48,7 @@ message("arrow $ xSetProd...")
 	forall(
 		"collection $ xSetProd...",
 		test_cases$two_collections,
-		length( x_(coll1)$xSetProd...(coll2)$x() ) ==
+		length( x_(coll1)$xSetProd...(coll2)$x_() ) ==
 		prod(length(coll1), length(coll2)),
 		given =
 			prod(length(coll1), length(coll2)) > 0

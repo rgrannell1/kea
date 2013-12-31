@@ -7,7 +7,7 @@ message('xTake')
 	forall(
 		"taking from the empty collection is the empty collection",
 		test_cases$nonnegative_with_collection_zero,
-		x_(coll)$xTake(num)$x() %equals% list()
+		x_(coll)$xTake(num)$x_() %equals% list()
 	)
 
 	forall(
@@ -28,7 +28,7 @@ message('collection $ xTake')
 	forall(
 		"taking from the empty collection is the empty collection.",
 		test_cases$nonnegative_with_collection_zero,
-		x_(coll)$xTake(num)$x() %equals% list()
+		x_(coll)$xTake(num)$x_() %equals% list()
 	)
 
 message('collection $ xTake...')

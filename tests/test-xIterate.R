@@ -30,7 +30,7 @@ message("arrow $ xIterate")
 		x_(
 			function (n) {
 				if (n == num) Return(n) else n + 1
-			})$xIterate(0)$x() %equals% num,
+			})$xIterate(0)$x_() %equals% num,
 		given =
 			length(num) > 0
 	)

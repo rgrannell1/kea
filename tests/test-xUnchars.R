@@ -23,7 +23,7 @@ message('arrow $ xUnchars')
 	forall(
 		"xUnchars of letters is pasted letters",
 		test_cases$letters,
-		x_(coll)$xUnchars()$x() %equals% paste0(coll, collapse = ''),
+		x_(coll)$xUnchars()$x_() %equals% paste0(coll, collapse = ''),
 		given =
 			length(coll) > 0
 	)

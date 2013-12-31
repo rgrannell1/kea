@@ -34,7 +34,7 @@ message("collection $ xApply")
 	forall(
 		"coll arrow list identity",
 		test_cases$collection,
-		x_(coll)$xApply(list)$x() %equals% as.list(coll)
+		x_(coll)$xApply(list)$x_() %equals% as.list(coll)
 	)
 
 message("function $ xApply")
@@ -42,7 +42,7 @@ message("function $ xApply")
 	forall(
 		"fn arrow list identity",
 		test_cases$collection,
-		x_(list)$xApply(coll)$x() %equals% as.list(coll)
+		x_(list)$xApply(coll)$x_() %equals% as.list(coll)
 	)
 
 message("collection $ xApply...")
@@ -50,7 +50,7 @@ message("collection $ xApply...")
 	forall(
 		"coll apply... list identity",
 		test_cases$collection,
-		x_(coll)$xApply...(list)$x() %equals% list(coll)
+		x_(coll)$xApply...(list)$x_() %equals% list(coll)
 	)
 
 message("function $ xApply...")
@@ -58,5 +58,5 @@ message("function $ xApply...")
 	forall(
 		"fn apply... list identity",
 		test_cases$collection,
-		x_(list)$xApply...(coll)$x() %equals% list(coll)
+		x_(list)$xApply...(coll)$x_() %equals% list(coll)
 	)

@@ -21,7 +21,7 @@ message('arrow $ xSubString')
 	forall(
 		"collection $ xSubString",
 		test_cases$str_word,
-		x_(str)$xSubString( seq_len(nchar(str)) )$x() %equals% str
+		x_(str)$xSubString( seq_len(nchar(str)) )$x_() %equals% str
 	)
 
 message('arrow $ x_SubString')

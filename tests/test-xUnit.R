@@ -27,7 +27,7 @@ message('arrow $ xUnit')
 	forall(
 		"collection $ xUnit()",
 		test_cases$collection,
-		typeof( x_(coll)$xUnit()$x() ) == typeof(coll)
+		typeof( x_(coll)$xUnit()$x_() ) == typeof(coll)
 	)
 
 message('arrow $ x_Unit')

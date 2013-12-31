@@ -2,10 +2,10 @@
 \alias{xAsVar}
 \title{xAsVar}
 \usage{
-xAsVar(str)
+xAsVar(sym)
 }
 \arguments{
-  \item{str}{a string or symbol.}
+  \item{sym}{a string or symbol.}
 }
 \value{
 Null; used for side-effect.

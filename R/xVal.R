@@ -4,7 +4,7 @@
 #' Assign a constant value to calling environment.
 #'
 #' @param
-#'    str a string or symbol.
+#'    sym a symbol or string.
 #' @param
 #'    val an arbitrary value.
 #'
@@ -12,7 +12,7 @@
 #'    Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
-#'    overwrites the value referenced by \code{str}r if the variable
+#'    overwrites the value referenced by \code{sym}r if the variable
 #'    already exists in the parent frame.
 #'
 #' @family immutable_value_functions
@@ -20,25 +20,25 @@
 #' @rdname xVal
 #' @export
 
-xVal <- function (str, val) {
+xVal <- function (sym, val) {
 	# assign a constant value to the calling environment.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	assert(
-		!missing(str), invoking_call,
-		exclaim$parametre_missing(str))
+		!missing(sym), invoking_call,
+		exclaim$parametre_missing(sym))
 
 	assert(
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))
 
-	str <- toString(match.call()$str)
-	str <- as_typed_vector(str, 'character', True)
+	sym <- toString(match.call()$sym)
+	sym <- as_typed_vector(sym, 'character', True)
 
-	assign(str, val, envir = parent_frame)
-	lockBinding(str, parent_frame)
+	assign(sym, val, envir = parent_frame)
+	lockBinding(sym, parent_frame)
 }
 
 #' @export

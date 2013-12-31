@@ -29,7 +29,7 @@ message("collection $ xShuffle")
 	forall(
 		"shuffling preserves length",
 		test_cases$collection,
-		length(x_(coll)$xShuffle()$x()) == length(coll)
+		length(x_(coll)$xShuffle()$x_()) == length(coll)
 	)
 
 message("arrow $ xShuffle...")
@@ -37,7 +37,7 @@ message("arrow $ xShuffle...")
 	forall(
 		"collection $ xShuffle...",
 		test_cases$collection,
-		length(x_(coll)$xShuffle...()$x()) == 1
+		length(x_(coll)$xShuffle...()$x_()) == 1
 	)
 
 message("arrow $ x_Shuffle")

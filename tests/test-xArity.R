@@ -29,7 +29,7 @@ message('function $ xArity')
 	forall(
 		"the arity of the non-primitive functions is defined",
 		test_cases$base_function,
-		x_(fn)$xArity()$x() >= 0
+		x_(fn)$xArity()$x_() >= 0
 	)
 
 	forall(

@@ -33,13 +33,13 @@ message("arrow $ xMap")
 	forall(
 		"collection $ xMap selects even-numbers.",
 		test_cases$succ_over_integers,
-		all( unlist(x_(coll)$xMap(fn)$x()) == unlist(coll) + 1 )
+		all( unlist(x_(coll)$xMap(fn)$x_()) == unlist(coll) + 1 )
 	)
 
 	forall(
 		"function $ xMap selects even-numbers.",
 		test_cases$succ_over_integers,
-		all( unlist(x_(fn)$xMap(coll)$x()) == unlist(coll) + 1 )
+		all( unlist(x_(fn)$xMap(coll)$x_()) == unlist(coll) + 1 )
 	)
 
 message("arrow $ xMap...")

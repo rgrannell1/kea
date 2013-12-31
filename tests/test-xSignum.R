@@ -33,7 +33,7 @@ message('arrow $ xSignum')
 	forall(
 		"collection $ xSignum",
 		test_cases$num_integer,
-		x_(num)$xSignum()$x() == -1,
+		x_(num)$xSignum()$x_() == -1,
 		given =
 			num < 0
 	)

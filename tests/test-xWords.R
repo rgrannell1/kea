@@ -26,7 +26,7 @@ message('arrow $ xWords')
 	forall(
 		"collection $ xWords",
 		list(),
-		x_('')$xWords()$x() %equals% character(0)
+		x_('')$xWords()$x_() %equals% character(0)
 	)
 
 message('arrow $ x_Words')

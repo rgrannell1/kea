@@ -769,7 +769,7 @@ test_cases <- local({
 # forall tests if an expression holds true over a range of random test-cases.
 #
 
-forall <- function (info = "", cases, expect, given, max_time = 0.5) {
+forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 
 	invoking_call <- sys.call()
 

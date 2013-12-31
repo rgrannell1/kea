@@ -3,7 +3,7 @@
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
 # to be called on that datum. The constructor returns a monad, so the
-# methods can be chained indefinetly until the $x() method is used to pull the
+# methods can be chained indefinetly until the $x_() method is used to pull the
 # data out of the monad (much like unlist for the list monad).
 #
 # The methods that are attatched to a datum depends on its class;
@@ -3206,7 +3206,7 @@ print.arrow <- function (x, ...) {
 		'[ an arrow object with methods for ' %+%
 			contents_are %+%
 		' ]'  %+% double_newline %+%
-		'$x()' %+% single_newline)
+		'$x_()' %+% single_newline)
 
-	print(x$x())
+	print(x$x_())
 }

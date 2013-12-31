@@ -27,8 +27,8 @@ message('arrow $ xImplode')
 	forall(
 		"collapsing with character() is the same as collapsing with ''",
 		test_cases$str_words,
-		x_(strs)$xImplode('')$x() %equals%
-		x_(strs)$xImplode(character(0))$x()
+		x_(strs)$xImplode('')$x_() %equals%
+		x_(strs)$xImplode(character(0))$x_()
 	)
 
 message('arrow $ xImplode...')

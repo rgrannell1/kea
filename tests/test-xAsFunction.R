@@ -29,7 +29,7 @@ message("collection $ xAsFunction")
 	forall(
 		"collection zero yields the empty list.",
 		test_cases$collection_zero,
-		x_(coll)$xAsFunction()$x()(0) %equals% list()
+		x_(coll)$xAsFunction()$x_()(0) %equals% list()
 	)
 
 message("collection $ xAsFunction...")

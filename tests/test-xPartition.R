@@ -54,7 +54,7 @@ message("arrow $ xPartition")
 	forall(
 		"collection $ xPartition partitions into even and odd-numbers.",
 		test_cases$mod2_over_ints,
-		x_(coll)$xPartition(fn)$x() %equals%
+		x_(coll)$xPartition(fn)$x_() %equals%
 			list(
 				as.list(coll[coll %% 2 == 0]),
 				as.list(coll[coll %% 2 == 1]) ),
@@ -65,7 +65,7 @@ message("arrow $ xPartition")
 	forall(
 		"function $ xPartition partitions into even and odd-numbers.",
 		test_cases$mod2_over_ints,
-		x_(fn)$xPartition(coll)$x() %equals%
+		x_(fn)$xPartition(coll)$x_() %equals%
 			list(
 				as.list(coll[coll %% 2 == 0]),
 				as.list(coll[coll %% 2 == 1]) ),

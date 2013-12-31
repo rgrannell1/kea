@@ -28,7 +28,7 @@ message('arrow $ xDrop')
 		test_cases$positive_with_collection,
 		{
 			ind <- min(length(coll), num)
-			x_(coll)$xDrop(num)$x() %equals% as.list(tail(coll, -ind))
+			x_(coll)$xDrop(num)$x_() %equals% as.list(tail(coll, -ind))
 		},
 		given =
 			length(coll) > 0

@@ -2,10 +2,10 @@
 \alias{xVal}
 \title{xVal}
 \usage{
-xVal(str, val)
+xVal(sym, val)
 }
 \arguments{
-  \item{str}{a string or symbol.}
+  \item{sym}{a symbol or string.}
 
   \item{val}{an arbitrary value.}
 }
@@ -16,7 +16,7 @@ Null; this function is used for side-effects.
 Assign a constant value to calling environment.
 }
 \section{Corner Cases}{
-  overwrites the value referenced by \code{str}r if the
+  overwrites the value referenced by \code{sym}r if the
   variable already exists in the parent frame.
 }
 \seealso{

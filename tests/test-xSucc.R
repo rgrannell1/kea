@@ -27,7 +27,7 @@ message('arrow $ xSucc')
 	forall(
 		"collection $ xSucc",
 		test_cases$infinity,
-		x_(coll)$xSucc()$x() %equals% as.double(coll)
+		x_(coll)$xSucc()$x_() %equals% as.double(coll)
 	)
 
 message('arrow $ xSucc...')
@@ -35,7 +35,7 @@ message('arrow $ xSucc...')
 	forall(
 		"collection $ xSucc...",
 		test_cases$integers,
-		x_(coll)$xApply(xSucc...)$x() %equals% as.double(coll + 1)
+		x_(coll)$xApply(xSucc...)$x_() %equals% as.double(coll + 1)
 	)
 
 message('arrow $ x_Succ')
