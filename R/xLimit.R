@@ -24,8 +24,6 @@
 #' @return
 #'    A function with the same parametres as \code{fn}.
 #'
-#' @family higher_order_functions
-#'
 #' @family time_functions
 #'
 #' @rdname xLimit
@@ -50,17 +48,17 @@ xLimit <- function (fn, num) {
 	assert(
 		length(num) %in% 0:1, invoking_call,
 		exclaim$must_have_length(
-			num, 0:1, profile_object(num)) )
+			num, 0:1, summate(num)) )
 
 	assert(
 		num > 0, invoking_call,
 		exclaim$must_be_whole(
-			num, profile_object(num)) )
+			num, summate(num)) )
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 

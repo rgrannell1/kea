@@ -9,13 +9,14 @@
 #' @param
 #'    coll a list or pairlist.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -44,17 +45,17 @@ xFlatten <- function (num, coll) {
 	assert(
 		num > 0, invoking_call,
 		exclaim$must_be_greater_than(
-			num, 0, profile_object(num)) )
+			num, 0, summate(num)) )
 
 	assert(
 		round(num) == num, invoking_call,
 		exclaim$must_be_whole(
-			num, profile_object(num)) )
+			num, summate(num)) )
 
 	assert(
 		is_recursive(coll), invoking_call,
 		exclaim$must_be_recursive(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

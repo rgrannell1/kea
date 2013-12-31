@@ -18,8 +18,6 @@
 #' @return
 #'    a predicate function of val.
 #'
-#' @family higher_order_functions
-#'
 #' @family function_modifying_functions
 #'
 #' @rdname xNot
@@ -38,7 +36,7 @@ xNot <- function (pred) {
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(
-			pred, profile_object(pred)) )
+			pred, summate(pred)) )
 
 	remove(invoking_call)
 

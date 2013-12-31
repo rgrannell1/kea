@@ -6,13 +6,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -36,7 +37,7 @@ xRest <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)))
+			coll, summate(coll)))
 
 	if (length(coll) < 2) {
 		list()

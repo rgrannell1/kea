@@ -6,13 +6,14 @@
 #' @param
 #'    colls a collection of collections.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family set_functions
 #'
@@ -31,7 +32,7 @@ xInter <- function (colls) {
 	assert(
 		all( sapply(colls, is_collection) ), invoking_call,
 		exclaim$must_be_collection_of_length(
-			colls, profile_object(colls)) )
+			colls, summate(colls)) )
 
 	if (length(colls) == 0) {
 		list()

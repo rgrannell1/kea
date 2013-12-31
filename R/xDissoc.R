@@ -4,16 +4,17 @@
 #' Split a named list into a list of name: value list pairs.
 #'
 #' @param
-#'    coll a list or pairlist of list or pairlist pairs, with the first element being a
+#'    colls a list or pairlist of list or pairlist pairs, with the first element being a
 #'	  string and the second element being any value.
+#'
+#' @param
+#'    ... see above.
 #'
 #' @return
 #'    a named list.
 #'
 #' @section Corner Cases:
-#'     returns \code{list()} if \code{coll} is length-zero.
-#'
-#' @family collection_functions
+#'     returns \code{list()} if \code{colls} is length-zero.
 #'
 #' @family reshaping_functions
 #'
@@ -25,33 +26,33 @@
 #' @rdname xDissoc
 #' @export
 
-xDissoc <- function (coll) {
-	# Named Collection any -> [[string, any]]
+xDissoc <- function (colls) {
+	# Named collsection any -> [[string, any]]
 	# split a list into its names and values.
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(colls), invoking_call,
+		exclaim$parametre_missing(colls))
 
 	assert(
-		length(names(coll)) == length(coll), invoking_call,
+		length(names(colls)) == length(colls), invoking_call,
 		exclaim$must_be_named(
-			coll, profile_object(coll)) )
+			colls, summate(colls)) )
 
-	if (length(coll) == 0) {
+	if (length(colls) == 0) {
 		list()
 	} else {
 
-		colnames <- names(coll)
-		coll <- unname(coll)
+		colnames <- names(colls)
+		colls <- unname(colls)
 
-		lapply(seq_along(coll), function (ith) {
+		lapply(seq_along(colls), function (ith) {
 
 			list(
 				colnames[[ith]],
-				coll[[ith]] )
+				colls[[ith]] )
 		})
 	}
 }

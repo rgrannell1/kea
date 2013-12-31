@@ -9,14 +9,15 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    various types of \code{Na} are not-distinguished between.
 #'    Type conversion is not carried out.
-#'
-#' @family collection_functions
 #'
 #' @family set_functions
 #'
@@ -41,7 +42,8 @@ xIsMember <- function (val, coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		logical(0)

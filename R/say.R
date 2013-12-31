@@ -315,7 +315,15 @@ exclaim <- list(
 			fn %+% ": ]\n\n" %+%
 			paste0(deparse(err$call), collapse = '') %+% ":\n" %+%
 			paste0(err$message, collapse = '')
+		},
+	non_logical_predicate =
+		function (param, profile = '') {
 
+			param <- paste(match.call()$param)
+
+			"the predicate function " %+% dQuote(param) %+%
+			" produced a non-logical value." %+%
+			profile
 		}
 )
 

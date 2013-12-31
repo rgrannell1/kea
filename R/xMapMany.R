@@ -9,6 +9,9 @@
 #' @param
 #'    colls n collections.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
@@ -16,11 +19,7 @@
 #'    returns the empty list if any collection is length-zero. If the
 #'    collection lengths are not equal then elements are recycled in the shorter collections.
 #'
-#' @family higher_order_functions
-#'
 #' @family mapping_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -40,10 +39,10 @@ xMapMany <- function (fn, colls) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
-
 
 	coll_lens <- sapply(colls, length)
 

@@ -10,6 +10,9 @@
 #' @param
 #'    coll a list or pairlist of lists or pairlists.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
@@ -18,9 +21,6 @@
 #'    If str is length-zero then the empty string "" is
 #'    used to match key-names.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -49,17 +49,17 @@ xPluck <- function (str, coll) {
 	assert(
 		length(str) == 1, invoking_call,
 		exclaim$must_have_length(
-			str, 1, profile_object(str)) )
+			str, 1, summate(str)) )
 
 	assert(
 		is_recursive(coll), invoking_call,
 		exclaim$must_be_recursive(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	assert(
 		all(sapply(coll, is_recursive)), invoking_call,
 		exclaim$must_be_recursive_of_collections(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

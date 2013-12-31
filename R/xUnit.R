@@ -11,8 +11,6 @@
 #'    typed vector of length zero if \code{coll}
 #'	  is a vector, and the empty list if \code{coll} is a list.
 #'
-#' @family collection_functions
-#'
 #' @rdname xUnit
 #' @export
 
@@ -28,7 +26,8 @@ xUnit <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	if (is.pairlist(coll)) {
 		Null

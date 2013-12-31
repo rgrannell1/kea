@@ -4,17 +4,21 @@
 #' Split a list into two lists; all the elements before the first time a predicate
 #' returns false, and all the elements including and after that point.
 #'
-#' @param pred a predicate.
-#' @param coll a collection.
+#' @param
+#'     pred a predicate.
 #'
-#' @return a list of two lists.
+#' @param
+#'     coll a collection.
+#'
+#' @param
+#'    ... see above.
+#'
+#' @return
+#'     a list of two lists.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -44,7 +48,8 @@ xSplitWith <- function (pred, coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	pred <- match.fun(pred)
 

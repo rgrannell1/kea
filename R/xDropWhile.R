@@ -10,15 +10,15 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'	  Returns the emty list if \code{coll} is length-zero.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -49,23 +49,27 @@ xDropWhile <- function (pred, coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	pred <- match.fun(pred)
 
 	if (length(coll) == 0) {
 		list()
 	} else {
+
 		ith <- 1
+
 		for (ith in seq_along(coll)) {
 
 			is_match <- try_higher_order(
 				pred( coll[[ith]] ),
-				invoking_call
-			)
+				invoking_call)
 
 			assert(
-				is.logical(is_match), invoking_call)
+				is.logical(is_match), invoking_call,
+				exclaim$non_logical_predicate(
+					pred, summate(is_match)) )
 
 			if (!isTRUE(is_match)) {
 				return (as.list( tail(coll, length(coll) - (ith - 1)) ))

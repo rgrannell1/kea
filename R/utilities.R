@@ -26,12 +26,11 @@
 #     try_higher_order is a variant of tryCatch that allows
 #     extra-information to be added to the errors produced by higher-order functions.
 #
-# profile_object:
+# summate:
 #     Debugging is annoying, so I'd like to provide the attributes of an error
 #     causing object.
 #
 #
-
 
 # --------------------- shorthand logical functions --------------------- #
 
@@ -315,7 +314,7 @@ modify_call <- function (invoking_call) {
 
 }
 
-profile_object <- local({
+summate <- local({
 	# Returns a string of information about an input object.
 
 	profile <- Object()
@@ -417,7 +416,13 @@ profile_object <- local({
 			"\n\n" %+% "[ properties of the error-causing double vector ]" %+% "\n\n" %+%
 
 			"c(length = " %+% traits$length %+% ", " %+%
-			"no_empty = " %+% traits$no_empty %+% ", " %+%
+			"no_positive = " %+% traits$no_positive %+% ", " %+%
+			"no_zero = " %+% traits$no_zero %+% ", " %+%
+			"no_negative = " %+% traits$no_negative %+% ", " %+%
+			"no_na = " %+% traits$no_na %+% ", " %+%
+			"no_nan = " %+% traits$no_nan %+% ", " %+%
+			"no_whole = " %+% traits$no_whole %+% ", " %+%
+			"no_infinite = " %+% traits$no_infinite %+% ", " %+%
 			"classes = " %+% traits$classes %+% ")"
 
 		}

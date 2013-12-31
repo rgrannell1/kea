@@ -10,17 +10,16 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return a list.
 #'
 #' @section Corner Cases:
 #'	  returns the empty list if \code{coll}
 #'    is length-zero.
 #'
-#' @family higher_order_functions
-#'
 #' @family mapping_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -45,11 +44,13 @@ xFlatMap <- function (fn, coll) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 

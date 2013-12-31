@@ -9,15 +9,15 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    A function of equal or lesser arity to \code{fn}.
 #'
 #' @section Corner Cases:
 #'    Partial application also works for ellipses (eg list(... = 1)).
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family function_modifying_functions
 #'
@@ -46,12 +46,12 @@ xPartial <- function (fn, coll) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 

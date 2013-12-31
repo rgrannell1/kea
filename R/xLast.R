@@ -6,14 +6,15 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    the value of the last element in \code{coll}.
 #'
 #' @section Corner Cases:
 #'    throws an error if \code{coll} has less than one element; this is
 #'    because any other corner case would violate the function's type-signature.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -37,12 +38,12 @@ xLast <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	assert(
 		length(coll) > 0, invoking_call,
 		exclaim$must_be_lequal_than(
-			coll, 0, profile_object(coll)) )
+			coll, 0, summate(coll)) )
 
 	coll[[ length(coll) ]]
 }

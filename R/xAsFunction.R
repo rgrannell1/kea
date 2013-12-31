@@ -6,13 +6,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a function that takes one or more indices.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll is length-zero}.
-#'
-#' @family collection_functions
 #'
 #' @family function_modifying_functions
 #'
@@ -21,7 +22,6 @@
 #'
 #' @example
 #'    inst/examples/example-xAsFunction.R
-#'
 #'
 #' @rdname xAsFunction
 #' @export
@@ -40,7 +40,7 @@ xAsFunction <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	function (nums) {
 
@@ -49,12 +49,12 @@ xAsFunction <- function (coll) {
 		assert(
 			is.numeric(nums), invoking_call,
 			exclaim$must_be_numeric(
-				nums, profile_object(nums)) )
+				nums, summate(nums)) )
 
 		assert(
 			all(round(nums) == nums), invoking_call,
 			exclaim$must_be_whole(
-				nums, profile_object(nums)) )
+				nums, summate(nums)) )
 
 		assert(
 			length(coll) >= max(nums), invoking_call,

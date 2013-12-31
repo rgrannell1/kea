@@ -9,6 +9,9 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    Returns two lists; a list of elements in a collection for which a
 #'    predicate returns true, and a list of elements in a collection for which
@@ -19,9 +22,6 @@
 #'	  elements return only true/only false, then one of two sublists will be the
 #'	  empty list.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family filtering_functions
 #'
@@ -52,7 +52,8 @@ xPartition <- function (pred, coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	pred <- match.fun(pred)
 

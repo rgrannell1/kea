@@ -6,6 +6,9 @@
 #' @param
 #'    strs an arbitrary number of character vectors.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a length-one character vector.
 #'

@@ -13,13 +13,10 @@
 #'    xAsClosure does not work for every primitive function (for example 'c'),
 #'    so caution should be taken when using this function.
 #'
-#' @family higher_order_functions
-#'
 #' @family function_modifying_functions
 #'
 #' @example
 #'    inst/examples/example-xAsClosure.R
-#'
 #'
 #' @rdname xAsClosure
 #' @export
@@ -37,7 +34,7 @@ xAsClosure <- function (fn) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 

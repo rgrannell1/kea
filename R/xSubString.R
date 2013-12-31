@@ -9,7 +9,11 @@
 #' @param
 #'    nums indices of \code{str}.
 #'
-#' @return a character vector.
+#' @param
+#'    ... see above.
+#'
+#' @return
+#'     a character vector.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.

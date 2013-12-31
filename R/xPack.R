@@ -6,6 +6,9 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    returns a list of elements in \code{coll},
 #'	  with all length-zero values removed.
@@ -13,8 +16,6 @@
 #' @section Corner Cases:
 #'    Returns the emty list if \code{coll} is length-zero,
 #'    or all elements in \code{coll} are length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family filtering_functions
 #'
@@ -37,7 +38,7 @@ xPack <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

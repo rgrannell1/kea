@@ -18,8 +18,6 @@
 #' @return
 #'    a variadic function that ignores its arguments.
 #'
-#' @family higher_order_functions
-#'
 #' @family time_functions
 #'
 #' @rdname xStopwatch

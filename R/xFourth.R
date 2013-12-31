@@ -6,14 +6,15 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    the fourth value in \code{coll}.
 #'
 #' @section Corner Cases:
 #'    throws an error if \code{coll} has less than four element; this is
 #'    because any other corner case would violate the functions type-signature.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -36,12 +37,12 @@ xFourth <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	assert(
 		length(coll) >= 4, invoking_call,
 		exclaim$must_be_longer_than(
-			coll, 3, profile_object(coll)) )
+			coll, 3, summate(coll)) )
 
 	coll[[4]]
 }

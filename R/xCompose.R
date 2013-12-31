@@ -6,10 +6,11 @@
 #' @param
 #'    fns a collection of functions.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    A function with the same parametres as \code{fn2}.
-#'
-#' @family higher_order_functions
 #'
 #' @family function_modifying_functions
 #'
@@ -31,12 +32,12 @@ xCompose <- function (fns) {
 	assert(
 		is_recursive(fns), invoking_call,
 		exclaim$must_be_recursive(
-			fns, profile_object(fns)) )
+			fns, summate(fns)) )
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
 		exclaim$must_be_recursive_of_matchable(
-			fns, profile_object(fns)) )
+			fns, summate(fns)) )
 
 	fns <- lapply(fns, match.fun)
 
@@ -45,15 +46,15 @@ xCompose <- function (fns) {
 		""
 		invoking_call <- sys.call()
 
-		init <- c(...)
+		val <- c(...)
 
 		for (ith in seq_along(fns)) {
 
 			fn <- fns[[ith]]
-			init <- try_higher_order( fn(init), invoking_call )
+			val <- try_higher_order( fn(val), invoking_call )
 		}
 
-		init
+		val
 	}
 }
 

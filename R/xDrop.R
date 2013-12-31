@@ -9,13 +9,14 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    if \code{coll} is empty the empty list is returned.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -44,22 +45,22 @@ xDrop <- function (num, coll) {
 	assert(
 		length(num) == 1, invoking_call,
 		exclaim$must_have_length(
-			num, 1, profile_object(num)) )
+			num, 1, summate(num)) )
 
 	assert(
 		num >= 0, invoking_call,
 		exclaim$must_be_numeric(
-			num, profile_object(num)) )
+			num, summate(num)) )
 
 	assert(
 		round(num) == num, invoking_call,
 		exclaim$must_be_whole(
-			num, profile_object(num)) )
+			num, summate(num)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()

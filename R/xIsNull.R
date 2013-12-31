@@ -6,13 +6,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns True if coll is Null.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -31,7 +32,8 @@ xIsNull <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	if (length(coll) == 0 && is.null(coll)) {
 		# empty pairlist.

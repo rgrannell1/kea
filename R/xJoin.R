@@ -6,6 +6,9 @@
 #' @param
 #'    colls several collections.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
@@ -13,8 +16,6 @@
 #'    empty collections act as a unit for concatenation;
 #'    concatenating the empty list to another list returns
 #'    the second list, without modification.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -34,7 +35,7 @@ xJoin <- function (colls) {
 	assert(
 		all(sapply(colls, is_collection)), invoking_call,
 		exclaim$must_be_recursive_of_collections(
-			colls, profile_object(colls)) )
+			colls, summate(colls)) )
 
 	as.list(do.call(c, colls))
 }

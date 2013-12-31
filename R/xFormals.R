@@ -16,8 +16,6 @@
 #'    corresponding element in the retun value will be the empty symbol,
 #'    which is identical to \code{quote(expr=)}.
 #'
-#' @family higher_order_functions
-#'
 #' @family parametre_functions
 #'
 #' @rdname xFormals
@@ -37,7 +35,7 @@ xFormals <- function (fn) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 

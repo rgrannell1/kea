@@ -10,15 +10,14 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    an length-one or length-zero whole number.
 #'
 #' @section Corner Cases:
 #'     returns integer(0) if no match is found.
-#'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -44,12 +43,12 @@ xLocate <- function (pred, coll) {
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(
-			pred, profile_object(pred)) )
+			pred, summate(pred)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	pred <- match.fun(pred)
 

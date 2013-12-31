@@ -20,11 +20,8 @@
 #'    If \code{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
 #'    function can accept an infinite number of arguments.
 #'
-#' @family higher_order_functions
-#'
 #' @example
 #'    inst/examples/example-xArity.R
-#'
 #'
 #' @rdname xArity
 #' @export
@@ -42,7 +39,7 @@ xArity <- function (fn) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 	fn_params <- names(xFormals(fn))

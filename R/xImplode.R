@@ -9,6 +9,9 @@
 #' @param
 #'    strs several character vectors.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a length-one character vector.
 #'
@@ -34,7 +37,7 @@ xImplode <- function (str, strs) {
 	assert(
 		is_collection(str), invoking_call,
 		exclaim$must_be_collection(
-			str, profile_object(str)) )
+			str, summate(str)) )
 
 	str <- as_typed_vector(
 		str, 'character', True)
@@ -42,7 +45,7 @@ xImplode <- function (str, strs) {
 	assert(
 		is_collection(strs), invoking_call,
 		exclaim$must_be_collection(
-			strs, profile_object(strs)) )
+			strs, summate(strs)) )
 
 	strs <- as_typed_vector(
 		strs, 'character')

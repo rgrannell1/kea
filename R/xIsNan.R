@@ -6,13 +6,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns True if coll is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -28,9 +29,11 @@ xIsNan <- function (coll) {
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
+
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		logical(0)

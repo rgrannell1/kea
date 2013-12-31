@@ -18,15 +18,19 @@
 #'    coll a list or pairlist. This may be named, but
 #'    all names must be parametres of \code{fn}.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    the return value of \code{fn}.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
+#' @family function_application_functions
 #'
 #' @template
 #'    Variadic
+#'
+#' @template
+#'    Glossary
 #'
 #' @example
 #'    inst/examples/example-xApply.R
@@ -52,12 +56,12 @@ xApply <- function (fn, coll) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 

@@ -3,9 +3,14 @@
 #'
 #' Get the sign of a vector of numbers.
 #'
-#' @param nums a vector of non-complex numbers.
+#' @param
+#'     nums a vector of non-complex numbers.
 #'
-#' @return a vector of elements in the set \code{-1, 0, +1}.
+#' @param
+#'    ... see above.
+#'
+#' @return
+#'     a vector of elements in the set \code{{-1, 0, +1}}.
 #'
 #' @section Corner Cases:
 #'	 If \code{nums} is lenth-zero then the unit of that vector is returned.
@@ -30,7 +35,7 @@ xSignum <- function (nums) {
 	assert(
 		is_collection(nums), invoking_call,
 		exclaim$must_be_collection(
-			nums, profile_object(nums)) )
+			nums, summate(nums)) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 

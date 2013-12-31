@@ -11,8 +11,6 @@
 #'	 If \code{fn} is a primitive function a heuristic is used to obtain
 #'	 its parametre names, which may not work for all functions.
 #'
-#' @family higher_order_functions
-#'
 #' @family parametre_functions
 #'
 #' @rdname xParams
@@ -32,7 +30,7 @@ xParams <- function (fn) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn,	profile_object(fn)) )
+			fn,	summate(fn)) )
 
 	fn <- match.fun(fn)
 

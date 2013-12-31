@@ -11,6 +11,8 @@ xImplode...(str, ...)
   \item{str}{a string to use as a delimiter.}
 
   \item{strs}{several character vectors.}
+
+  \item{...}{see above.}
 }
 \value{
 a length-one character vector.
@@ -19,24 +21,24 @@ a length-one character vector.
 Concatenate a character vector into a single string using a
 delimiter.
 }
-\section{Variadic functions}{
+\section{Appendix-Variadic functions}{
   Many arrow functions come in two forms:
 
   \itemize{ \item{\bold{xMethod:}}{ These functions do not
   collect arguments with the '...' parametre.}
   \item{\bold{xMethod...:}}{ These functions collect
-  arguments with the '...' parametre} }
+  arguments with the '...' parametre.} }
 
   The xMethod... form is somewhat shorter to write, but it
   is mainly used when the arrow function will take a fixed
   number of arguments. An ideal use-case would be writing
 
-  \code{xMap...( xGetKey('a'),\cr list(a = 1, b = 1),\cr
-  list(a = 2, b = 1))}
+  \code{ xMap...(\cr xGetKey('a'),\cr list(a = 1, b =
+  1),\cr list(a = 2, b = 1))}
 
   instead of
 
-  \code{xMap.( xGetKey('a'),\cr list(\cr list(a = 1, b =
+  \code{ xMap(\cr xGetKey('a'),\cr list(\cr list(a = 1, b =
   1),\cr list(a = 2, b = 1)) )}
 
   For other applications the xMethod form of the function

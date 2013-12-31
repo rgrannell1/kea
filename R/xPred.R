@@ -6,6 +6,9 @@
 #' @param
 #'    nums a vector of non-complex numbers.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'     a vector of non-complex numbers.
 #'
@@ -31,7 +34,7 @@ xPred <- function (nums) {
 	assert(
 		is_collection(nums), invoking_call,
 		exclaim$must_be_collection(
-			nums, profile_object(nums)) )
+			nums, summate(nums)) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 

@@ -6,10 +6,11 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a vector of boolean values.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -29,7 +30,8 @@ xIsNa <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	vapply(coll, function (x) {
 		identical(x, NA) ||

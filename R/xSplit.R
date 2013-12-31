@@ -10,6 +10,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return a list of two lists; the first list containing
 #'    the first \code{num} elements of \code{coll}, and the
 #'    second list containing the remaining elements \code{coll}.
@@ -21,8 +24,6 @@
 #'    length of \code{coll} then
 #'    the second return list is empty. If \code{coll} is
 #'    length zero both lists are empty.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -51,12 +52,12 @@ xSplit <- function (num, coll) {
 	assert(
 		length(num) %in% 0:1,
 		exclaim$must_have_length(
-			num, 0:1, profile_object(num)) )
+			num, 0:1, summate(num)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

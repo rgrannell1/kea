@@ -9,22 +9,22 @@
 #'	  \code{fn} can later take as its right argument
 #'
 #' @param
-#'    init an arbitrary value.
+#'    val an arbitrary value.
 #'
 #' @param
 #'    coll a collection.
+#'
+#' @param
+#'    ... see above.
 #'
 #' @return
 #'    an arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
-#'	  returns \code{init} if \code{coll} is length-zero.
+#'	  returns \code{val} if \code{coll} is length-zero.
 #'
 #' @family folding_functions
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -35,7 +35,7 @@
 #' @rdname xFoldr
 #' @export
 
-xFoldr <- function (fn, init, coll) {
+xFoldr <- function (fn, val, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the right
 
@@ -46,8 +46,8 @@ xFoldr <- function (fn, init, coll) {
 		exclaim$parametre_missing(fn))
 
 	assert(
-		!missing(init), invoking_call,
-		exclaim$parametre_missing(init))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
 	assert(
 		!missing(coll), invoking_call,
@@ -56,17 +56,17 @@ xFoldr <- function (fn, init, coll) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 
 	if (length(coll) == 0) {
-		init
+		val
 	} else {
 
 		callCC(function (Return) {
@@ -80,12 +80,12 @@ xFoldr <- function (fn, init, coll) {
 
 			for (ith in length(coll):1) {
 
-				init <- try_higher_order(
-					fn( coll[[ith]], init ),
+				val <- try_higher_order(
+					fn( coll[[ith]], val ),
 					invoking_call)
 
 			}
-			init
+			val
 		})
 
 	}
@@ -94,6 +94,6 @@ xFoldr <- function (fn, init, coll) {
 #' @rdname xFoldr
 #' @export
 
-xFoldr... <- function (fn, init, ...) {
-	xFoldr(fn, init, list(...))
+xFoldr... <- function (fn, val, ...) {
+	xFoldr(fn, val, list(...))
 }

@@ -6,10 +6,11 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -33,7 +34,7 @@ xInit <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0 || length(coll) == 1) {
 		list()

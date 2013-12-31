@@ -15,8 +15,6 @@
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
 #'
-#' @family collection_functions
-#'
 #' @family name_functions
 #'
 #' @template
@@ -42,7 +40,7 @@ xName <- function (strs, coll) {
 	assert(
 		is_collection(strs), invoking_call,
 		exclaim$must_be_collection(
-			strs, profile_object(strs)) )
+			strs, summate(strs)) )
 
 	strs <- as_typed_vector(strs, 'character')
 

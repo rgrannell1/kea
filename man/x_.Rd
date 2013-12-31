@@ -41,7 +41,7 @@ anonymous function, returning a new arrow object.
 
   Because the definition of $ was overloaded to allow
   method chaining, the field 'x' inside an arrow object
-  cannot be accessed using x_()$x. Writing x_()$x() is
+  cannot be accessed using x_()$x. Writing x_()$x_() is
   required.
 }
 

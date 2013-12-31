@@ -9,16 +9,15 @@
 #' @param
 #'    colls n collections.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a boolean value.
 #'
 #' @section Corner Cases:
 #'    if any collection is length zero (or no collections are given),
 #'    then False is returned.
-#'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family quantifier_functions
 #'
@@ -41,14 +40,14 @@ xExists <- function (pred, colls) {
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(
-			pred, profile_object(pred)) )
+			pred, summate(pred)) )
 
 	pred <- match.fun(pred)
 
 	assert(
 		all(sapply(colls, is_collection)), invoking_call,
 		exclaim$must_be_recursive_of_collections(
-			colls, profile_object(colls)) )
+			colls, summate(colls)) )
 
 	coll_lengths <- sapply(colls, length)
 
@@ -80,7 +79,9 @@ xExists <- function (pred, colls) {
 				invoking_call)
 
 			assert(
-				is.logical(is_match), invoking_call)
+				is.logical(is_match), invoking_call,
+				exclaim$non_logical_predicate(
+					pred, summate(is_match)) )
 
 			if (isTRUE(is_match)) {
 				return (True)

@@ -6,6 +6,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    the third element in \code{coll}.
 #'
@@ -13,8 +16,6 @@
 #'    throws an error if \code{coll} has less than
 #'    three elements; this is because any other corner
 #'    case would violate the function's type-signature.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -35,7 +36,7 @@ xThird <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	assert(
 		length(coll) >= 3, invoking_call,

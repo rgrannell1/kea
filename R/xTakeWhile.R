@@ -10,6 +10,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
@@ -19,9 +22,6 @@
 #'    \code{coll} returns false for the predicate.
 #'    Na values are considered false.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -52,7 +52,8 @@ xTakeWhile <- function (pred, coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	pred <- match.fun(pred)
 
@@ -66,7 +67,9 @@ xTakeWhile <- function (pred, coll) {
 				invoking_call)
 
 			assert(
-				is.logical(is_match), invoking_call)
+				is.logical(is_match), invoking_call,
+				exclaim$non_logical_predicate(
+					pred, summate(is_match)) )
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )

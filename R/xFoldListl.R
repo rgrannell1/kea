@@ -10,23 +10,22 @@
 #'    \code{fn} can later take as its right argument.
 #'
 #' @param
-#'    init an arbitrary value.
+#'    val an arbitrary value.
 #'
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
-#'    a list with its init element being \code{coll}, and
+#'    a list with its initial element being \code{coll}, and
 #'	  containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
-#'	  returns \code{list(init)} if \code{coll} is length-zero.
+#'	  returns \code{list(val)} if \code{coll} is length-zero.
 #'
 #' @family folding_functions
-#'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -34,7 +33,7 @@
 #' @rdname xFoldList
 #' @export
 
-xFoldListl <- function (fn, init, coll) {
+xFoldListl <- function (fn, val, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.
 
@@ -45,8 +44,8 @@ xFoldListl <- function (fn, init, coll) {
 		exclaim$parametre_missing(fn))
 
 	assert(
-		!missing(init), invoking_call,
-		exclaim$parametre_missing(init))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
 	assert(
 		!missing(coll), invoking_call,
@@ -54,18 +53,20 @@ xFoldListl <- function (fn, init, coll) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 
-	scanned <- c( init, vector("list", length(coll)) )
+	scanned <- c( val, vector("list", length(coll)) )
 
 	if (length(coll) == 0) {
-		init
+		val
 	} else {
 		for (ith in seq_along(coll)) {
 			scanned[[ith + 1]] <- try_higher_order(
@@ -84,13 +85,13 @@ xFoldList <- xFoldListl
 #' @rdname xFoldList
 #' @export
 
-xFoldListl... <- function (fn, init, ...) {
-	xFoldListl(fn, init, list(...))
+xFoldListl... <- function (fn, val, ...) {
+	xFoldListl(fn, val, list(...))
 }
 
 #' @rdname xFoldList
 #' @export
 
-xFoldList... <- function (fn, init, ...) {
-	xFoldList(fn, init, list(...))
+xFoldList... <- function (fn, val, ...) {
+	xFoldList(fn, val, list(...))
 }

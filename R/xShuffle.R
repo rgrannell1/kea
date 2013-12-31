@@ -3,14 +3,17 @@
 #'
 #' Permute a collection.
 #'
-#' @param coll a collection
+#' @param
+#'     coll a collection
 #'
-#' @return a list.
+#' @param
+#'    ... see above.
+#'
+#' @return
+#'     a list.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -32,7 +35,7 @@ xShuffle <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

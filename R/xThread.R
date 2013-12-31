@@ -4,10 +4,13 @@
 #' Iteratively apply a value to list of functions.
 #'
 #' @param
-#'    init an arbitrary value
+#'    val an arbitrary value
 #'
 #' @param
 #'    fns several unary functions.
+#'
+#' @param
+#'    ... see above.
 #'
 #' @return
 #'    a list.
@@ -17,21 +20,23 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family function_application_functions
+#'
 #' @template
 #'    Variadic
 #'
 #' @rdname xThread
 #' @export
 
-xThread <- function (init, fns) {
+xThread <- function (val, fns) {
 	# any -> .... -> any
 	# iteratively apply a value to each function in a list.
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(init), invoking_call,
-		exclaim$parametre_missing(init))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
@@ -39,15 +44,15 @@ xThread <- function (init, fns) {
 
 	for (ith in seq_along(fns)) {
 
-		init <- try_higher_order(
-			fns[[ith]]( init ), invoking_call)
+		val <- try_higher_order(
+			fns[[ith]]( val ), invoking_call)
 	}
-	init
+	val
 }
 
 #' @rdname xThread
 #' @export
 
-xThread... <- function (init, ...) {
-	xThread(init, list(...))
+xThread... <- function (val, ...) {
+	xThread(val, list(...))
 }

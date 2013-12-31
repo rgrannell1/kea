@@ -16,8 +16,6 @@
 #' @section Corner Cases:
 #'    if \code{num} is zero then \code{fn} is returned untouched.
 #'
-#' @family higher_order_functions
-#'
 #' @family function_modifying_functions
 #'
 #' @family time_functions
@@ -40,11 +38,12 @@ xWait <- function (fn, num) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, summate(fn)) )
 
 	assert(
 		is.numeric(num) && num >= 0, invoking_call,
-		exclaim$must_be_greater_than(num, 0, profile_object(num)) )
+		exclaim$must_be_greater_than(num, 0, summate(num)) )
 
 	fn <- match.fun(fn)
 	remove(invoking_call)

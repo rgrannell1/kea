@@ -16,8 +16,6 @@
 #' @return
 #'    the result of successively applying \code{f} to \code{init}.
 #'
-#' @family higher_order_functions
-#'
 #' @rdname xIterate
 #' @export
 
@@ -41,7 +39,7 @@ xIterate <- function (fn, init) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 

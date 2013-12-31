@@ -6,6 +6,9 @@
 #' @param
 #'    strs a character vector.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a length-one character vector.
 #'

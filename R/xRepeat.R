@@ -9,13 +9,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero or num is zero.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -43,17 +44,17 @@ xRepeat <- function (num, coll) {
 	assert(
 		length(num) == 1, invoking_call,
 		exclaim$must_have_length(
-			num, 1, profile_object(num)) )
+			num, 1, summate(num)) )
 
 	assert(
 		num >= 0, invoking_call,
 		exclaim$must_be_grequal_than(
-			num, 0, profile_object(num)) )
+			num, 0, summate(num)) )
 
 	assert(
 		round(num) == num, invoking_call,
 		exclaim$must_be_whole(
-			num, profile_object(num)))
+			num, summate(num)))
 
 	# a lot of assertions for a very simple function :/
 

@@ -6,17 +6,17 @@
 #'
 #' @param
 #'    fn a unary function.
+#'
 #' @param
 #'    coll a list or pairlist.
+#'
+#' @param
+#'    ... see above.
 #'
 #' @return
 #'    a list or pairlist.
 #'
-#' @family higher_order_functions
-#'
 #' @family mapping_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -44,7 +44,8 @@ xRecurMap <- function (fn, coll) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, summate(fn)) )
 
 	assert(
 		is_recursive(coll), invoking_call,

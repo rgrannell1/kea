@@ -12,8 +12,6 @@
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
-#' @family higher_order_functions
-#'
 #' @family selection_functions
 #'
 #' @family name_functions
@@ -34,12 +32,12 @@ xGetKey <- function (str) {
 	assert(
 		is.character(str), invoking_call,
 		exclaim$must_be_character(
-			str, profile_object(str)) )
+			str, summate(str)) )
 
 	assert(
 		length(str) %in% 0:1, invoking_call,
 		exclaim$must_have_length(
-			str, 0:1, profile_object(str)) )
+			str, 0:1, summate(str)) )
 
 	str <- as_typed_vector(str, 'character', True)
 

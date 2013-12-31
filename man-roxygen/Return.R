@@ -1,5 +1,5 @@
 
-#' @section Short-Circuiting:
+#' @section Appendix-Short-Circuiting:
 #'
 #' The fold family of functions include an optional mechanism of
 #' prematurely returning an answer, similar to the \code{return()} function

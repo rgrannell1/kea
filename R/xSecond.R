@@ -6,6 +6,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    the second element in \code{coll}.
 #'
@@ -13,8 +16,6 @@
 #'    throws an error if \code{coll} has less than two
 #'    elements; this is because any other corner case
 #'    would violate the functions type-signature.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -37,12 +38,12 @@ xSecond <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	assert(
 		length(coll) >= 2, invoking_call,
 		exclaim$must_be_longer_than(
-			coll, 2, profile_object(coll)) )
+			coll, 2, summate(coll)) )
 
 	coll[[2]]
 }

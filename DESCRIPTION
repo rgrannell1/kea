@@ -18,6 +18,8 @@ Suggests:
     testthat,
     microbenchmark
 Collate:
+    'help_arrow.R'
+    'help_arrow_naming.R'
     'utilities.R'
     'say.R'
     'xLambda.R'

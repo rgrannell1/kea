@@ -12,8 +12,6 @@
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
 #'
-#' @family higher_order_functions
-#'
 #' @family mapping_functions
 #'
 #' @family function_modifying_functions
@@ -33,7 +31,8 @@ xVectorise <- function (fn) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(fn))
+		exclaim$must_be_matchable(
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 

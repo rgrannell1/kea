@@ -39,7 +39,5 @@ xAsVar <- function (str) {
 		exists(str, envir = parent_frame),
 		exclaim$variable_non_existent(str))
 
-	if (exists(str, envir = parent_frame)) {
-		unlockBinding(str, parent_frame)
-	}
+	unlockBinding(str, parent_frame)
 }

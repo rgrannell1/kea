@@ -11,6 +11,9 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    an arbitrary value, depending on the function \code{fn}.
 #'
@@ -19,10 +22,6 @@
 #'    value inside \code{coll} if coll is length-one.
 #'
 #' @family folding_functions
-#'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -53,12 +52,12 @@ xReduce <- function (fn, coll) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 
@@ -68,7 +67,7 @@ xReduce <- function (fn, coll) {
 		coll[[1]]
 	} else {
 
-		init <- coll[[1]]
+		val <- coll[[1]]
 		coll <- xRest(coll)
 
 		callCC(function (Return) {
@@ -82,11 +81,11 @@ xReduce <- function (fn, coll) {
 
 			for (ith in seq_along(coll)) {
 
-				init <- try_higher_order(
-					fn( init, coll[[ith]] ),
+				val <- try_higher_order(
+					fn( val, coll[[ith]] ),
 					invoking_call)
 			}
-			init
+			val
 		})
 
 	}

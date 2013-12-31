@@ -3,15 +3,19 @@
 #'
 #' Take several elements from the head of a collection.
 #'
-#' @param num a nonnegative whole number.
-#' @param coll a collection
+#' @param
+#'     num a nonnegative whole number.
+#'
+#' @param
+#'    ... see above.
+#'
+#' @param
+#'     coll a collection
 #'
 #' @return a list.
 #'
 #' @section Corner Cases:
 #'    If \code{coll} is empty the empty list is returned.
-#'
-#' @family collection_functions
 #'
 #' @family selection_functions
 #'
@@ -44,12 +48,12 @@ xTake <- function (num, coll) {
 	assert(
 		num >= 0, invoking_call,
 		exclaim$must_be_greater_than(
-			num, 0, profile_object(num)) )
+			num, 0, summate(num)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0 || num == 0) {
 		list()

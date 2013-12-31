@@ -13,6 +13,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list of n-element lists.
 #'
@@ -20,8 +23,6 @@
 #'    the final list in the return value will have less than \code{num}
 #'    elements if \code{length(coll)} is not evenly divisible by \code{num}.
 #'    if \code{coll} is length-zero, the empty list is returned.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -51,17 +52,17 @@ xSegment <- function (num, coll) {
 	assert(
 		length(num) %in% 0:1, invoking_call,
 		exclaim$must_have_length(
-			num, 0:1, profile_object(num)) )
+			num, 0:1, summate(num)) )
 
 	assert(
 		num > 0, invoking_call,
 		exclaim$must_be_greater_than(
-			num, 0, profile_object(num)) )
+			num, 0, summate(num)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

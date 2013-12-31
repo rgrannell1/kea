@@ -7,13 +7,14 @@
 #'    colls a list or pairlist of list or pairlist pairs, with the first element being a
 #'	  string and the second element being any value.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a named list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -42,12 +43,12 @@ xAssoc <- function (colls) {
 	assert(
 		is_recursive(colls), invoking_call,
 		exclaim$must_be_recursive(
-			colls, profile_object(colls)) )
+			colls, summate(colls)) )
 
 	assert(
 		all(sapply(colls, length) == 2), invoking_call,
 		exclaim$must_be_collection_of_length(
-			colls, 2, profile_object(colls)) )
+			colls, 2, summate(colls)) )
 
 	if (length(colls) == 0) {
 		list()

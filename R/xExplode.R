@@ -3,8 +3,11 @@
 #'
 #' Split a string into a character vector using a regular expression.
 #'
-#' @param rexp a regular expression.
-#' @param str a string.
+#' @param
+#'     rexp a regular expression.
+#'
+#' @param
+#'     str a string.
 #'
 #' @return a character vector.
 #'

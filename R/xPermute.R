@@ -9,15 +9,15 @@
 #' @param
 #'    colls several collections of equal length to \code{coll}.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list of collections.
 #'
 #' @section Corner Cases:
 #'    returns the empty list is \code{coll} is length-zero.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -46,7 +46,7 @@ xPermute <- function (coll, colls) {
 	assert(
 		all(sapply(colls, length) == length(coll)), invoking_call,
 		exclaim$must_be_collection_of_length(
-			colls, length(coll), profile_object(colls)) )
+			colls, length(coll), summate(colls)) )
 
 	if (length(coll) == 0) {
 		list()

@@ -148,7 +148,7 @@ x_any_proto <- local({
 	# -------- W ------- #
 
 	# -------- X ------- #
-	this$x <-
+	this$x_ <-
 		function () {
 			self_()
 		}
@@ -755,21 +755,21 @@ x_coll_proto <- local({
 
 	# --- xFoldl --- #
 	this$xFoldl <-
-		function (fn, init) {
-			x_( xFoldl(fn, init, self_()) )
+		function (fn, val) {
+			x_( xFoldl(fn, val, self_()) )
 		}
 	this$xFoldl... <-
-		function (fn, init, ...) {
-			x_( xFoldl...(fn, init, self_(), ...) )
+		function (fn, val, ...) {
+			x_( xFoldl...(fn, val, self_(), ...) )
 		}
 
 	this$x_Foldl <-
-		function (fn, init) {
-			xFoldl(fn, init, self_())
+		function (fn, val) {
+			xFoldl(fn, val, self_())
 		}
 	this$x_Foldl... <-
-		function (fn, init, ...) {
-			xFoldl...(fn, init, self_(), ...)
+		function (fn, val, ...) {
+			xFoldl...(fn, val, self_(), ...)
 		}
 	# --- xFold --- #
 	this$xFold <-
@@ -842,58 +842,58 @@ x_coll_proto <- local({
 
 	# --- xFoldr --- #
 	this$xFoldr <-
-		function (fn, init) {
-			x_( xFoldr(fn, init, self_()) )
+		function (fn, val) {
+			x_( xFoldr(fn, val, self_()) )
 		}
 	this$xFoldr... <-
-		function (fn, init, ...) {
-			x_( xFoldr...(fn, init, self_(), ...) )
+		function (fn, val, ...) {
+			x_( xFoldr...(fn, val, self_(), ...) )
 		}
 
 	this$x_Foldr <-
-		function (fn, init) {
-			xFoldr(fn, init, self_())
+		function (fn, val) {
+			xFoldr(fn, val, self_())
 		}
 	this$x_Foldr... <-
-		function (fn, init, ...) {
-			xFoldr...(fn, init, self_(), ...)
+		function (fn, val, ...) {
+			xFoldr...(fn, val, self_(), ...)
 		}
 
 	# --- xFoldListl --- #
 	this$xFoldListl <-
-		function (fn, init) {
-			x_( xFoldListl(fn, init, self_()) )
+		function (fn, val) {
+			x_( xFoldListl(fn, val, self_()) )
 		}
 	this$xFoldListl... <-
-		function (fn, init, ...) {
-			x_( xFoldListl...(fn, init, self_(), ...) )
+		function (fn, val, ...) {
+			x_( xFoldListl...(fn, val, self_(), ...) )
 		}
 
 	this$x_FoldListl <-
-		function (fn, init) {
-			xFoldListl(fn, init, self_())
+		function (fn, val) {
+			xFoldListl(fn, val, self_())
 		}
 	this$x_FoldListl... <-
-		function (fn, init, ...) {
-			xFoldListl...(fn, init, self_(), ...)
+		function (fn, val, ...) {
+			xFoldListl...(fn, val, self_(), ...)
 		}
 
 	this$xFoldList <-
-		function (fn, init) {
-			x_( xFoldList(fn, init, self_()) )
+		function (fn, val) {
+			x_( xFoldList(fn, val, self_()) )
 		}
 	this$xFoldList... <-
-		function (fn, init, ...) {
-			x_( xFoldList...(fn, init, self_(), ...) )
+		function (fn, val, ...) {
+			x_( xFoldList...(fn, val, self_(), ...) )
 		}
 
 	this$x_FoldList <-
-		function (fn, init) {
-			xFoldList(fn, init, self_())
+		function (fn, val) {
+			xFoldList(fn, val, self_())
 		}
 	this$x_FoldList... <-
-		function (fn, init, ...) {
-			xFoldList...(fn, init, self_(), ...)
+		function (fn, val, ...) {
+			xFoldList...(fn, val, self_(), ...)
 		}
 
 	# --- xFourth --- #
@@ -2423,21 +2423,21 @@ x_fn_proto <- local({
 
 	# --- xFold --- #
 	this$xFoldl <-
-		function (init, coll) {
-			x_( xFoldl(self_(), init, coll) )
+		function (val, coll) {
+			x_( xFoldl(self_(), val, coll) )
 		}
 	this$xFoldl... <-
-		function (init, ...) {
-			x_( xFoldl...(self_(), init, ...) )
+		function (val, ...) {
+			x_( xFoldl...(self_(), val, ...) )
 		}
 
 	this$x_Foldl <-
-		function (init, coll) {
-			xFoldl(self_(), init, coll)
+		function (val, coll) {
+			xFoldl(self_(), val, coll)
 		}
 	this$x_Foldl... <-
-		function (init, ...) {
-			xFoldl...(self_(), init, ...)
+		function (val, ...) {
+			xFoldl...(self_(), val, ...)
 		}
 
 	this$xFold <-
@@ -2452,58 +2452,58 @@ x_fn_proto <- local({
 
 	# --- xFoldr --- #
 	this$xFoldr <-
-		function (init, coll) {
-			x_( xFoldr(self_(), init, coll) )
+		function (val, coll) {
+			x_( xFoldr(self_(), val, coll) )
 		}
 	this$xFoldr... <-
-		function (init, ...) {
-			x_( xFoldr...(self_(), init, ...) )
+		function (val, ...) {
+			x_( xFoldr...(self_(), val, ...) )
 		}
 
 	this$x_Foldr <-
-		function (init, coll) {
-			xFoldr(self_(), init, coll)
+		function (val, coll) {
+			xFoldr(self_(), val, coll)
 		}
 	this$x_Foldr... <-
-		function (init, ...) {
-			xFoldr...(self_(), init, ...)
+		function (val, ...) {
+			xFoldr...(self_(), val, ...)
 		}
 
 	# --- xFoldListl --- #
 	this$xFoldListl <-
-		function (init, coll) {
-			x_( xFoldListl(self_(), init, coll) )
+		function (val, coll) {
+			x_( xFoldListl(self_(), val, coll) )
 		}
 	this$xFoldListl... <-
-		function (init, ...) {
-			x_( xFoldListl...(self_(), init, ...) )
+		function (val, ...) {
+			x_( xFoldListl...(self_(), val, ...) )
 		}
 
 	this$x_FoldListl <-
-		function (init, coll) {
-			xFoldListl(self_(), init, coll)
+		function (val, coll) {
+			xFoldListl(self_(), val, coll)
 		}
 	this$x_FoldListl... <-
-		function (init, ...) {
-			xFoldListl...(self_(), init, ...)
+		function (val, ...) {
+			xFoldListl...(self_(), val, ...)
 		}
 
 	this$xFoldList <-
-		function (init, coll) {
-			x_( xFoldList(self_(), init, coll) )
+		function (val, coll) {
+			x_( xFoldList(self_(), val, coll) )
 		}
 	this$xFoldList... <-
-		function (init, ...) {
-			x_( xFoldList...(self_(), init, ...) )
+		function (val, ...) {
+			x_( xFoldList...(self_(), val, ...) )
 		}
 
 	this$x_FoldList <-
-		function (init, coll) {
-			xFoldList(self_(), init, coll)
+		function (val, coll) {
+			xFoldList(self_(), val, coll)
 		}
 	this$x_FoldList... <-
-		function (init, ...) {
-			xFoldList...(self_(), init, ...)
+		function (val, ...) {
+			xFoldList...(self_(), val, ...)
 		}
 
 	# --- xFormals --- #
@@ -2533,13 +2533,13 @@ x_fn_proto <- local({
 		}
 	# --- xIterate --- #
 	this$xIterate <-
-		function (init) {
-			x_( xIterate(self_(), init ) )
+		function (val) {
+			x_( xIterate(self_(), val ) )
 		}
 
 	this$x_Iterate <-
-		function (init) {
-			xIterate(self_(), init )
+		function (val) {
+			xIterate(self_(), val )
 		}
 	# -------- J ------- #
 	# --- xJuxtapose --- #
@@ -3083,7 +3083,7 @@ x_fn_proto <- local({
 #'
 #'    Because the definition of $ was overloaded to allow method chaining, the
 #'    field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
-#'    x_()$x() is required.
+#'    x_()$x_() is required.
 #'
 #' @details
 #'    The arrow object constructed by \code{x_} contains methods specific to the

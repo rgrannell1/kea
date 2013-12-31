@@ -6,10 +6,11 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a boolean value.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -29,7 +30,8 @@ xIsEmpty <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	length(coll) == 0
 }

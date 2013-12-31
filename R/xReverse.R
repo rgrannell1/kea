@@ -5,13 +5,14 @@
 #' @param
 #'    coll a collection.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list of the same length as \code{coll}
 #'
 #' @section Corner Cases:
 #'    reversing the empty list yields the empty list.
-#'
-#' @family collection_functions
 #'
 #' @family reshaping_functions
 #'
@@ -33,7 +34,7 @@ xReverse <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()

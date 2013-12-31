@@ -6,13 +6,14 @@
 #' @param
 #'    colls a collection of collections.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{colls} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @family set_functions
 #'
@@ -31,7 +32,7 @@ xUnion <- function (colls) {
 	assert(
 		all( sapply(colls, is_collection) ), invoking_call,
 		exclaim$must_be_recursive_of_collections(
-			colls, profile_object(colls)) )
+			colls, summate(colls)) )
 
 	if (length(colls) == 0) {
 		list()

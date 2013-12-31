@@ -3,16 +3,20 @@
 #'
 #' Get the cartesian product of several collections.
 #'
-#' @param colls n collections.
+#' @param
+#'     colls n collections.
 #'
-#' @return a list of n-element lists.
+#' @param
+#'    ... see above.
+#'
+#'
+#' @return
+#'     a list of n-element lists.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.
 #'
 #' @family combinatoric_functions
-#'
-#' @family collection_functions
 #'
 #' @family set_functions
 #'

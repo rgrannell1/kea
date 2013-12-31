@@ -9,10 +9,11 @@
 #' @param
 #'    fns a list or pairlist of binary functions.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    returns a unary function of x.
-#'
-#' @family higher_order_functions
 #'
 #' @family function_modifying_functions
 #'
@@ -42,17 +43,17 @@ xLift <- function (fn, fns) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	assert(
 		is_collection(fns), invoking_call,
 		exclaim$must_be_collection(
-			fns, profile_object(fns)) )
+			fns, summate(fns)) )
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
 		exclaim$must_be_recursive_of_matchable(
-			fns, profile_object(fns)) )
+			fns, summate(fns)) )
 
 	fn <- match.fun(fn)
 	fns <- lapply(fns, match.fun)

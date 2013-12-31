@@ -13,6 +13,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list.
 #'
@@ -20,9 +23,6 @@
 #'    returns the empty list if \code{coll} is length-zero.
 #'    Throws an error if pred returns a non-boolean value.
 #'
-#' @family higher_order_functions
-#'
-#' @family collection_functions
 #'
 #' @family filtering_functions
 #'
@@ -50,12 +50,12 @@ xReject <- function (pred, coll) {
 	assert(
 		is_fn_matchable(pred), invoking_call,
 		exclaim$must_be_matchable(
-			pred, profile_object(pred)) )
+			pred, summate(pred)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	pred <- match.fun(pred)
 

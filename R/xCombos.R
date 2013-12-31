@@ -9,6 +9,9 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a list of lists, with each list containing \code{num} elements.
 #'
@@ -16,8 +19,6 @@
 #'     returns the empty list if \code{num} is zero.
 #'
 #' @family combinatoric_functions
-#'
-#' @family collection_functions
 #'
 #' @family set_functions
 #'
@@ -41,29 +42,29 @@ xCombos <- function (num, coll) {
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(
-			coll, profile_object(coll)))
+			coll, summate(coll)))
 
 	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(
 		length(num) %in% 0:1, invoking_call,
 		exclaim$must_have_length(
-			num, 0:1, profile_object(num)) )
+			num, 0:1, summate(num)) )
 
 	assert(
 		num >= 0, invoking_call,
 		exclaim$must_be_greater_than(
-			num, 0, profile_object(num)) )
+			num, 0, summate(num)) )
 
 	assert(
 		round(num) == num, invoking_call,
 		exclaim$must_be_whole(
-			num, profile_object(num)) )
+			num, summate(num)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	if (num == 0) {
 		list()

@@ -6,13 +6,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a vector of boolean values.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -32,7 +33,8 @@ xNotFalse <- function (coll) {
 
 	assert(
 		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(coll))
+		exclaim$must_be_collection(
+			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		logical(0)

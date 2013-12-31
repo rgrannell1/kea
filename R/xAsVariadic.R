@@ -10,11 +10,11 @@
 #' @return
 #'    a variadic function.
 #'
-#' @family higher_order_functions
-#'
 #' @family function_modifying_functions
 #'
 #' @family parametre_functions
+#'
+#' @family function_application_functions
 #'
 #' @example
 #'    inst/examples/example-xAsVariadic.R
@@ -37,7 +37,7 @@ xAsVariadic <- function (fn) {
 	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
-			fn, profile_object(fn)) )
+			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
 

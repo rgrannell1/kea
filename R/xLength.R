@@ -6,13 +6,14 @@
 #' @param
 #'    coll a collection
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    a nonnegative integer.
 #'
 #' @section Corner Cases:
 #'     returns zero if \code{coll} is empty.
-#'
-#' @family collection_functions
 #'
 #' @template
 #'    Variadic
@@ -33,7 +34,7 @@ xLength <- function (coll) {
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
-			coll, profile_object(coll)) )
+			coll, summate(coll)) )
 
 	length(coll)
 }

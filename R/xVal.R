@@ -37,12 +37,10 @@ xVal <- function (str, val) {
 	str <- toString(match.call()$str)
 	str <- as_typed_vector(str, 'character', True)
 
-	if (exists(str, envir = parent_frame)) {
-		assert(
-			!bindingIsLocked(str, parent_frame), invoking_call,
-			exclaim$binding_is_locked(str))
-	}
-
 	assign(str, val, envir = parent_frame)
 	lockBinding(str, parent_frame)
 }
+
+#' @export
+
+'%<--%' <- xVal
