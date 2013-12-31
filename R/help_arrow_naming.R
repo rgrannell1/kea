@@ -4,7 +4,8 @@
 #' Naming Conventions
 #'
 #' Arrow tries to employ consistent naming conventions to
-#' minimise the verbosity of code. The conventions are fairly simple:
+#' minimise the verbosity of code. The conventions are fairly simple,
+#' and only a handful need to be committed to memory.
 #'
 #' @section I Function Names:
 #'

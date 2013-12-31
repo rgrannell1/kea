@@ -7,7 +7,7 @@ Naming Conventions
 \details{
 Arrow tries to employ consistent naming conventions to
 minimise the verbosity of code. The conventions are fairly
-simple:
+simple, and only a handful need to be committed to memory.
 }
 \section{I Function Names}{
   All arrow functions are prefixed with the letter 'x',

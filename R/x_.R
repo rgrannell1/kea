@@ -134,6 +134,16 @@ x_any_proto <- local({
 
 			x_( fn(self_()) )
 		}
+
+	this$x_Tap <-
+		function (fn) {
+			# call an arbitrary function with self,
+			# effectively allowing anonymous function
+			# to execute arbitrary code before shunting
+			# the output data back into the x_ monad.
+
+			fn(self_())
+		}
 	# -------- U ------- #
 
 	# -------- V ------- #

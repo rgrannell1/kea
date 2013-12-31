@@ -20,6 +20,7 @@ Suggests:
 Collate:
     'help_arrow.R'
     'help_arrow_naming.R'
+    'help_arrow_gotchas.R'
     'utilities.R'
     'say.R'
     'xLambda.R'

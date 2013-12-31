@@ -3,14 +3,14 @@
 \alias{xLambda}
 \title{xLambda}
 \usage{
-xLambda(formals, body)
+xLambda(sym, val)
 
-":="(formals, body)
+":="(sym, val)
 }
 \arguments{
-  \item{formals}{a symbol or string.}
+  \item{sym}{a symbol or string.}
 
-  \item{body}{a valid function body, which will be lazily
+  \item{val}{a valid function body, which will be lazily
   evaluated.}
 }
 \value{

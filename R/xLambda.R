@@ -4,10 +4,10 @@
 #' Syntactic sugar for creating unary functions.
 #'
 #' @param
-#'    formals a symbol or string.
+#'    sym a symbol or string.
 #'
 #' @param
-#'    body a valid function body, which will be lazily evaluated.
+#'    val a valid function body, which will be lazily evaluated.
 #'
 #' @return
 #'    returns a unary function.
@@ -15,14 +15,14 @@
 #' @rdname xLambda
 #' @export
 
-xLambda <- function (formals, body) {
+xLambda <- function (sym, val) {
 	# symbol -> any -> function
 	# construct a function from a symbol and
 	# a function body.
 
 	parent_frame <- parent.frame()
-	formals <- match.call()$formals
-	body <- match.call()$body
+	sym <- match.call()$sym
+	val <- match.call()$val
 
 	invoking_call <- "xLambda:"
 
@@ -30,15 +30,15 @@ xLambda <- function (formals, body) {
 
 	}
 
-	body(lambda) <- body
+	body(lambda) <- val
 
-	if (is.name(formals)) {
-		# ------ make f a default-free unary function ------ #
+	if (is.name(sym)) {
+		# ------ make lambda a default-free unary function ------ #
 
 		formals(lambda) <-
 			structure(
 				list(quote(expr=)),
-				names = match.call()[-1]$formals)
+				names = match.call()[-1]$sym)
 
 	} else {
 		# ------ try parse the bracket-enclosed formals ------ #
@@ -57,9 +57,9 @@ xLambda <- function (formals, body) {
 					# ------ the parametres aren't delimited with ":" ------ #
 
 					msg <- invoking_call +
-						" the " + ith_suffix(state$pos) +
-						" delimiter should be " +
-						dQuote(token$delim(False)) + "."
+						" the " %+% ith_suffix(state$pos) %+%
+						" delimiter should be " %+%
+						dQuote(token$delim(False)) %+% "."
 
 					stop (msg, call. = False)
 				}
@@ -68,7 +68,7 @@ xLambda <- function (formals, body) {
 					# ------ the parametre name is invalid ------ #
 
 					msg <- invoking_call +
-						" the " + ith_suffix(state$pos + 1) +
+						" the " %+% ith_suffix(state$pos + 1) %+%
 						" parametre is a non-symbol."
 
 					stop (msg, call. = False)
@@ -117,16 +117,16 @@ xLambda <- function (formals, body) {
 
 		# ------ check the formals are bracket-enclosed ------ #
 
-		if (get$delim(formals) != token$open()) {
+		if (get$delim(sym) != token$open()) {
 
-			msg <- invoking_call + " the formals for non-unary functions" +
+			msg <- invoking_call %+% " the formals for non-unary functions" %+%
 				" must be enclosed in parentheses."
 
 			stop (msg, call. = False)
 		}
 
 		params <- collect_params(
-			tree = formals[[2]],
+			tree = sym[[2]],
 			state = list(pos = 1, params = character(0)) )
 
 		# ------ set the formals to the parsed param names ------ #
