@@ -20,6 +20,13 @@
 # threw the error.
 #
 
+ddparse <- function (val, collapse = "") {
+	paste0(deparse(val), collapse = collapse)
+}
+newline <- function (val) {
+	paste0(val, collapse = "\n")
+}
+
 exclaim <- list(
 	parametre_missing =
 		function (param, profile = '') {
@@ -327,7 +334,34 @@ exclaim <- list(
 		}
 )
 
+# -------------------------------- proclaim -------------------------------- #
+#
+# To Developers,
+# lament is virtually identical to exclaim in its implementation and purpose,
+# except that it is used for the error messages that xLambda and only xLambda
+# generates; there is no point bloating exclaim.
 
+
+proclaim <- list(
+	incorrent_delimiter =
+		function (position, expected) {
+
+			" the " %+% ith_suffix(position) %+%
+			" delimiter should be " %+%
+			dQuote(expected) %+% "."
+
+		},
+	non_symbol_param =
+		function (position) {
+
+			" the " %+% ith_suffix(position + 1) %+%
+			" parametre is a non-symbol."
+
+		}
+
+
+
+)
 
 # -------------------------------- lament -------------------------------- #
 #
@@ -340,12 +374,6 @@ exclaim <- list(
 # which case I am less than happy.
 #
 
-ddparse <- function (val, collapse = "") {
-	paste0(deparse(val), collapse = collapse)
-}
-newline <- function (val) {
-	paste0(val, collapse = "\n")
-}
 
 lament <- list(
 	null_cases =

@@ -53,26 +53,14 @@ xLambda <- function (sym, val) {
 
 			} else if (is.call(tree)) {
 
-				if (get$delim(tree) != token$delim()) {
-					# ------ the parametres aren't delimited with ":" ------ #
+				assert(
+					get$delim(tree) == token$delim(), invoking_call,
+					proclaim$incorrent_delimiter(
+						state$pos, token$delim(False)) )
 
-					msg <- invoking_call +
-						" the " %+% ith_suffix(state$pos) %+%
-						" delimiter should be " %+%
-						dQuote(token$delim(False)) %+% "."
-
-					stop (msg, call. = False)
-				}
-
-				if ( !is.name(get$param(tree)) ) {
-					# ------ the parametre name is invalid ------ #
-
-					msg <- invoking_call +
-						" the " %+% ith_suffix(state$pos + 1) %+%
-						" parametre is a non-symbol."
-
-					stop (msg, call. = False)
-				}
+				assert(
+					is.name(get$param(tree)), invoking_call,
+					proclaim$non_symbol_param(state$pos + 1))
 
 				new_state <- list(
 					pos =
@@ -80,7 +68,9 @@ xLambda <- function (sym, val) {
 					params =
 						c(get$param(tree, True), state$params) )
 
-				collect_params(get$rest(tree), new_state)
+				collect_params(
+					get$rest(tree),
+					new_state)
 
 			}
 		}
