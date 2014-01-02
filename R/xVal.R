@@ -42,5 +42,8 @@ xVal <- function (sym, val) {
 }
 
 #' @export
+# apparently the right argument must be value for these functions.
 
-'%<--%' <- xVal
+'%<--%' <- function (sym, value) {
+	xVal(sym, value)
+}

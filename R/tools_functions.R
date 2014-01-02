@@ -336,10 +336,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"no_empty = " %+% traits$no_empty %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -360,9 +357,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing function ]" %+% "\n\n" %+%
-			"c(primitive = " %+% traits$function_type %+% ", " %+%
-			"arity = " %+% traits$arity %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -382,7 +377,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing value ]" %+% "\n\n" %+%
-			"c(classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -414,16 +409,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing double vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"no_positive = " %+% traits$no_positive %+% ", " %+%
-			"no_zero = " %+% traits$no_zero %+% ", " %+%
-			"no_negative = " %+% traits$no_negative %+% ", " %+%
-			"no_na = " %+% traits$no_na %+% ", " %+%
-			"no_nan = " %+% traits$no_nan %+% ", " %+%
-			"no_whole = " %+% traits$no_whole %+% ", " %+%
-			"no_infinite = " %+% traits$no_infinite %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -445,11 +431,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing factor ]" %+% "\n\n" %+%
-
-			"c(ordered_factor = " %+% traits$ordered %+% ", " %+%
-			"levels = " %+% traits$levels %+% ", " %+%
-			"length = " %+% traits$length %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -482,14 +464,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing integer vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"negative_values = " %+% traits$no_negative %+% ", " %+%
-			"zero_values = " %+% traits$no_zero %+% ", " %+%
-			"positive_values = " %+% traits$no_positive %+% ", " %+%
-			"na_values = " %+% traits$no_na %+% ", " %+%
-			"nan_values = " %+% traits$no_nan %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -515,12 +490,7 @@ summate <- local({
 
 
 			"\n\n" %+% "[ properties of the error-causing logical vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"na_values = " %+% traits$no_na %+% ", " %+%
-			"true_values = " %+% traits$no_true %+% ", " %+%
-			"false_values = " %+% traits$no_false %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -541,10 +511,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing matrix ]" %+% "\n\n" %+%
-			"c(nrow = " %+% traits$nrow %+% ", " %+%
-			"ncol = " %+% traits$ncol %+% ", " %+%
-			"type = " %+% traits$type %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
@@ -574,9 +541,9 @@ summate <- local({
 
 
 			"\n\n" %+% "[ properties of the error-causing raw vector ]" %+% "\n\n" %+%
+			paste0(deparse(traits), collapse = '')
 
-			"c(length = " %+% traits$length %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+		}
 
 	profile$character_vector <-
 		function (obj) {
@@ -591,14 +558,10 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"no_empty = " %+% traits$no_empty %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 
-		}
 
 	# --- S --- #
 	# --- T --- #
@@ -616,10 +579,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
-
-			"c(length = " %+% traits$length %+% ", " %+%
-			"no_empty = " %+% traits$no_empty %+% ", " %+%
-			"classes = " %+% traits$classes %+% ")"
+			paste0(deparse(traits), collapse = '')
 
 		}
 

@@ -38,13 +38,13 @@ Map a function across many collections simultaneously.
   is mainly used when the arrow function will take a fixed
   number of arguments. An ideal use-case would be writing
 
-  \code{ xMap...(\cr xGetKey('a'),\cr list(a = 1, b =
-  1),\cr list(a = 2, b = 1))}
+  \code{ xMap...( xGetKey('a'), list(a = 1, b = 1), list(a
+  = 2, b = 1))}
 
   instead of
 
-  \code{ xMap(\cr xGetKey('a'),\cr list(\cr list(a = 1, b =
-  1),\cr list(a = 2, b = 1)) )}
+  \code{ xMap( xGetKey('a'), list( list(a = 1, b = 1),
+  list(a = 2, b = 1)) )}
 
   For other applications the xMethod form of the function
   is more likely to be useful:

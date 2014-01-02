@@ -21,6 +21,7 @@ Collate:
     'help_arrow.R'
     'help_arrow_naming.R'
     'help_arrow_gotchas.R'
+    'method_xExecute.R'
     'tools_functions.R'
     'tools_say.R'
     'tools_forall.R'

@@ -132,7 +132,6 @@ xLambda <- local({
 	}
 })
 
-
 #' @rdname xLambda
 #' @export
 

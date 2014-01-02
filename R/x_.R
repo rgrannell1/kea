@@ -40,8 +40,7 @@ x_any_proto <- local({
 
 	this <- Object()
 	this$private <- list(
-		contents_are = "arbitrary values"
-	)
+		contents_are = "arbitrary values")
 
 	# -------- A ------- #
 
@@ -64,9 +63,6 @@ x_any_proto <- local({
 
 	this$x_Execute <-
 		function (fn) {
-			# execute a side-effectful function
-			# before using the previous x_ monad
-			# for further chaining.
 
 			fn()
 			self_()
@@ -137,10 +133,6 @@ x_any_proto <- local({
 
 	this$x_Tap <-
 		function (fn) {
-			# call an arbitrary function with self,
-			# effectively allowing anonymous function
-			# to execute arbitrary code before shunting
-			# the output data back into the x_ monad.
 
 			fn(self_())
 		}
@@ -188,6 +180,8 @@ x_any_proto <- local({
 x_matrix_proto <- local({
 
 	this <- Object()
+	this$private <- list(
+		contents_are = "matrices")
 
 	# -------- A ------- #
 	# -------- B ------- #
@@ -221,6 +215,15 @@ x_matrix_proto <- local({
 			}
 		}
 
+	this$xByColnames <-
+		function () {
+			x_( as.list( colnames(self_()) ) )
+		}
+	this$x_ByColnames <-
+		function () {
+			as.list( colnames(self_()) )
+		}
+
 	this$xByRows <-
 		function () {
 			dims <- dim(self_())
@@ -250,16 +253,31 @@ x_matrix_proto <- local({
 				apply(self_(), 1, as.list)
 			}
 		}
+	# --- xByRownames --- #
+		this$xByRownames <-
+			function () {
+				x_( as.list( rownames(self_()) ) )
+			}
+
+		this$x_ByRownames <-
+			function () {
+				as.list( rownames(self_()) )
+			}
 
 	# -------- C ------- #
 	this$xColUnit <-
 		function () {
-			x_(matrix(nrow = nrow(self_()), ncol = 0))
+			x_(matrix(
+				nrow = nrow(self_()),
+				ncol = 0))
 		}
 	this$x_ColUnit <-
 		function () {
-			matrix(nrow = nrow(self_()), ncol = 0)
+			matrix(
+				nrow = nrow(self_()),
+				ncol = 0)
 		}
+
 	# -------- D ------- #
 
 	# -------- E ------- #
@@ -323,14 +341,20 @@ x_matrix_proto <- local({
 	# -------- Q ------- #
 
 	# -------- R ------- #
+	# --- xRowUnit --- #
 	this$xRowUnit <-
 		function () {
-			x_(matrix( nrow = 0, ncol = ncol(self_()) ))
+			x_(matrix(
+				nrow = 0,
+				ncol = ncol(self_()) ))
 		}
 	this$x_RowUnit <-
 		function () {
-			matrix( nrow = 0, ncol = ncol(self_()) )
+			matrix(
+				nrow = 0,
+				ncol = ncol(self_()) )
 		}
+
 	# -------- S ------- #
 
 	# -------- T ------- #
@@ -363,9 +387,7 @@ x_matrix_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "matrices"
-	)
+
 	this
 })
 
@@ -384,6 +406,7 @@ x_data_frame_proto <- local({
 	# -------- A ------- #
 
 	# -------- B ------- #
+	# --- xByCols --- #
 	this$xByCols <-
 		function () {
 			x_(unname( as.list(self_()) ))
@@ -392,14 +415,41 @@ x_data_frame_proto <- local({
 		function () {
 			unname( as.list(self_()) )
 		}
+	# --- xByColnames --- #
+	this$xByColnames <-
+		function () {
+			x_( as.list( colnames(self_()) ) )
+		}
+	this$x_ByColnames <-
+		function () {
+			as.list( colnames(self_()) )
+		}
+
+	# --- xByRownames --- #
+	this$xByRownames <-
+		function () {
+			x_( as.list( rownames(self_()) ) )
+		}
+	this$x_ByRownames <-
+		function () {
+			as.list( rownames(self_()) )
+		}
+
 	# -------- C ------- #
+	# --- xColUnit --- #
 	this$xColUnit <-
 		function () {
-			x_()
+			x_( unname(as.data.frame(
+				matrix(
+					nrow = nrow(self_()),
+					ncol = 0)) ))
 		}
 	this$x_ColUnit <-
 		function () {
-
+			unname(as.data.frame(
+				matrix(
+					nrow = nrow(self_()),
+					ncol = 0)) )
 		}
 
 	# -------- D ------- #
@@ -431,13 +481,20 @@ x_data_frame_proto <- local({
 	# -------- Q ------- #
 
 	# -------- R ------- #
+	# --- xRowUnit --- #
 	this$xRowUnit <-
 		function () {
-			x_()
+			x_( unname(as.data.frame(
+				matrix(
+					nrow = 0,
+					ncol = ncol(self_()) )) ))
 		}
 	this$x_RowUnit <-
 		function () {
-
+			unname(as.data.frame(
+				matrix(
+					nrow = 0,
+					ncol = ncol(self_()) )) )
 		}
 
 	# -------- S ------- #
@@ -445,13 +502,20 @@ x_data_frame_proto <- local({
 	# -------- T ------- #
 
 	# -------- U ------- #
+	# --- xUnit --- #
 	this$xUnit <-
 		function () {
-			x_()
+			x_( unname(as.data.frame(
+				matrix(
+					nrow = 0,
+					ncol = 0 )) ))
 		}
 	this$x_Unit <-
 		function () {
-
+			x_( unname(as.data.frame(
+				matrix(
+					nrow = 0,
+					ncol = 0 )) ))
 		}
 
 	# -------- V ------- #
@@ -466,14 +530,95 @@ x_data_frame_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "data.frames"
-	)
+
 	this
 })
 
 
+x_factor_proto <- local({
 
+	this <- Object()
+	this$private <- list(
+		contents_are = "factors")
+
+	# -------- A ------- #
+
+	# -------- B ------- #
+
+	this$xByLevels <-
+		function () {
+			x_( as.list( levels(self_()) ) )
+		}
+
+	this$x_ByLevels <-
+		function () {
+			as.list( levels(self_()) )
+		}
+
+
+	this$xByValues <-
+		function () {
+			x_( as.vector(self_()) )
+		}
+
+	this$x_ByValues <-
+		function () {
+			as.vector(self_())
+		}
+
+	# -------- C ------- #
+
+	# -------- D ------- #
+
+	# -------- E ------- #
+
+	# -------- F ------- #
+
+	# -------- G ------- #
+
+	# -------- H ------- #
+
+	# -------- I ------- #
+
+	# -------- J ------- #
+
+	# -------- K ------- #
+
+	# -------- L ------- #
+
+	# -------- M ------- #
+
+	# -------- N ------- #
+
+	# -------- O ------- #
+
+	# -------- P ------- #
+
+	# -------- Q ------- #
+
+	# -------- R ------- #
+
+	# -------- S ------- #
+
+	# -------- T ------- #
+
+	# -------- U ------- #
+
+	# -------- V ------- #
+
+	# -------- W ------- #
+
+	# -------- X ------- #
+
+	# -------- Y ------- #
+
+	# -------- Z ------- #
+
+	this <- as.environment(
+		c(as.list(this), as.list(x_any_proto)) )
+
+	this
+})
 
 
 
@@ -492,6 +637,8 @@ x_data_frame_proto <- local({
 x_coll_proto <- local({
 
 	this <- Object()
+	this$private <- list(
+		contents_are = "collections")
 
 	# -------- A ------- #
 
@@ -2176,9 +2323,7 @@ x_coll_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "collections"
-	)
+
 	this
 })
 
@@ -2223,6 +2368,9 @@ x_coll_proto <- local({
 x_fn_proto <- local({
 
 	this <- Object()
+	this$private <- list(
+		contents_are = "functions")
+
 	# -------- A ------- #
 	# --- xAsClosure --- #
 	this$xAsClosure <-
@@ -3063,9 +3211,7 @@ x_fn_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "functions"
-	)
+
 	this
 })
 
@@ -3140,6 +3286,10 @@ get_proto_ref <- function (val) {
 		x_coll_proto
 	} else if (is.matrix( val )) {
 		x_matrix_proto
+	} else if (is.data.frame( val )) {
+		x_data_frame_proto
+	} else  if (is.factor( val )) {
+		x_factor_proto
 	} else {
 		x_any_proto
 	}
