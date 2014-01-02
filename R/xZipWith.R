@@ -19,8 +19,7 @@
 #'
 #' @section Corner Cases:
 #'    the empty list is returned if the shortest collection has
-#'    length-zero, or no collections are included. Each collection
-#'    is truncated to the length of the shortest collection.
+#'    length-zero, or no collections are included.
 #'
 #' @family reshaping_functions
 #'
@@ -51,28 +50,25 @@ xZipWith <- function (fn, colls) {
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
+	assert(
+		length( unique(sapply(colls, length)) ) == 1,
+		invoking_call,
+		exclaim$must_be_collection_of_equal_lengths(
+			colls, summate(colls)) )
+
 	fn <- match.fun(fn)
 
-	if (length(colls) == 0) {
+	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()
 	} else {
 
-		colls_lengths <- vapply(colls, length, integer(1))
-		min_length <- min(colls_lengths)
-
-		if (min_length == 0){
-			list()
-		} else {
-
-			unname(do.call( Map, c(list(fn),
-				Map(
-					function (elem) {
-						head(elem, min_length)
-					},
-					colls
-			)) ))
-
-		}
+		unname(do.call( Map, c(list(fn),
+			Map(
+				function (elem) {
+					head( elem, length(colls)[[1]] )
+				},
+				colls
+		)) ))
 
 	}
 }

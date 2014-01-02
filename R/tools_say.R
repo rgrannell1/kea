@@ -79,8 +79,18 @@ exclaim <- list(
 
 			param <- paste(match.call()$param)
 
-			"the function matching " %+% dQuote(param) %+%
+			"the argument matching " %+% dQuote(param) %+%
 			" must be a collection of length " %+% length %+% " values." %+%
+			profile
+
+		},
+	must_be_collection_of_equal_lengths =
+		function (param, profile = '') {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% dQuote(param) %+%
+			" must be a collection of matching lengths." %+%
 			profile
 
 		},
