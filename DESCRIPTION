@@ -136,3 +136,5 @@ Collate:
     'xPermute.R'
     'xReverse.R'
     'xMapply.R'
+    'xUnique.R'
+    'xDuplicated.R'

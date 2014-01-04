@@ -1,14 +1,14 @@
-\name{xUnion}
-\alias{xUnion}
-\alias{xUnion...}
-\title{xUnion}
+\name{xDuplicated}
+\alias{xDuplicated}
+\alias{xDuplicated...}
+\title{xDuplicated}
 \usage{
-xUnion(colls)
+xDuplicated(coll)
 
-xUnion...(...)
+xDuplicated...(...)
 }
 \arguments{
-  \item{colls}{a collection of collections.}
+  \item{coll}{a collection.}
 
   \item{...}{see above.}
 }
@@ -16,7 +16,7 @@ xUnion...(...)
 a list.
 }
 \description{
-Get the set union of several collections.
+Return the duplicated elements in a collection.
 }
 \section{Corner Cases}{
   returns the empty list if \code{colls} is length-zero.
@@ -30,11 +30,11 @@ Get the set union of several collections.
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDiffer}},
-\code{\link{xDiffer...}}; \code{\link{xDuplicated}},
-\code{\link{xDuplicated...}}; \code{\link{xInter}},
+\code{\link{xDiffer...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xSetProd}},
-\code{\link{xSetProd...}}; \code{\link{xUnique}},
+\code{\link{xSetProd...}}; \code{\link{xUnion}},
+\code{\link{xUnion...}}; \code{\link{xUnique}},
 \code{\link{xUnique...}}
 }
 

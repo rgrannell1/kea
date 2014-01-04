@@ -839,6 +839,27 @@ x_coll_proto <- local({
 		function (pred, ...) {
 			xDropWhile...(pred, self_(), ...)
 		}
+	# --- xDuplicated --- #
+	this$xDuplicated <-
+		function (coll) {
+			x_( xDuplicated(self_()) )
+		}
+
+	this$x_Duplicated <-
+		function (coll) {
+			xDuplicated(self_())
+		}
+
+	this$xDuplicated... <-
+		function (...) {
+			x_( xDuplicated(self_(), ...) )
+		}
+
+	this$x_Duplicated... <-
+		function (...) {
+			xDuplicated(self_(), ...)
+		}
+
 	# -------- E ------- #
 
 	# --- xExists --- #
@@ -2217,6 +2238,27 @@ x_coll_proto <- local({
 	this$x_Unit <-
 		function () {
 			xUnit(self_())
+		}
+
+	# --- xUnique --- #
+	this$xUnique <-
+		function () {
+			x_( xUnique(self_())	)
+		}
+
+	this$x_Unique <-
+		function () {
+			xUnique(self_())
+		}
+
+	this$xUnique... <-
+		function (...) {
+			x_( xUnique(self_(), ...)	)
+		}
+
+	this$x_Unique... <-
+		function (...) {
+			xUnique(self_(), ...)
 		}
 
 	# --- xUnlines --- #

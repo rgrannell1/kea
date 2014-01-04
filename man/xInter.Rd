@@ -30,9 +30,11 @@ Get the set intersection of several collections.
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDiffer}},
-\code{\link{xDiffer...}}; \code{\link{xIsMember}},
+\code{\link{xDiffer...}}; \code{\link{xDuplicated}},
+\code{\link{xDuplicated...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}
+\code{\link{xUnion...}}; \code{\link{xUnique}},
+\code{\link{xUnique...}}
 }
 
