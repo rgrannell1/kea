@@ -17,7 +17,7 @@
 #'
 #' \code{xStopwatch}
 #'
-#' \code{xRecurMap}
+#' \code{xDeepMap}
 #'
 #' Both English and American English spellings are accepted; for example
 #' \code{xVectorise} has an americanised counterpart.
@@ -38,9 +38,9 @@
 #'
 #' \code{xStopwatch}
 #'
-#' \code{xRecurMap}
+#' \code{xDeepMap}
 #'
-#' \code{xRecurMap...}
+#' \code{xDeepMap...}
 #'
 #' Certain fold and search function have 'left' and 'right' forms, which
 #' dictates the order of the operation carried out. This is encoded by

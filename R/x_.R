@@ -839,6 +839,27 @@ x_coll_proto <- local({
 		function (pred, ...) {
 			xDropWhile...(pred, self_(), ...)
 		}
+	# --- xDuplicated --- #
+	this$xDuplicated <-
+		function (coll) {
+			x_( xDuplicated(self_()) )
+		}
+
+	this$x_Duplicated <-
+		function (coll) {
+			xDuplicated(self_())
+		}
+
+	this$xDuplicated... <-
+		function (...) {
+			x_( xDuplicated(self_(), ...) )
+		}
+
+	this$x_Duplicated... <-
+		function (...) {
+			xDuplicated(self_(), ...)
+		}
+
 	# -------- E ------- #
 
 	# --- xExists --- #
@@ -1763,23 +1784,23 @@ x_coll_proto <- local({
 
 	# -------- Q ------- #
 	# -------- R ------- #
-	# --- xRecurMap --- #
-	this$xRecurMap <-
+	# --- xDeepMap --- #
+	this$xDeepMap <-
 		function (fn) {
-			x_( xRecurMap(fn, self_()) )
+			x_( xDeepMap(fn, self_()) )
 		}
-	this$xRecurMap... <-
+	this$xDeepMap... <-
 		function (fn, ...) {
-			x_( xRecurMap...(fn, self_(), ...) )
+			x_( xDeepMap...(fn, self_(), ...) )
 		}
 
 	this$x_RecurMap <-
 		function (fn) {
-			xRecurMap(fn, self_())
+			xDeepMap(fn, self_())
 		}
 	this$x_RecurMap... <-
 		function (fn, ...) {
-			xRecurMap...(fn, self_(), ...)
+			xDeepMap...(fn, self_(), ...)
 		}
 
 	# --- xReducel --- #
@@ -2070,23 +2091,23 @@ x_coll_proto <- local({
 			xStopwatch(self_())
 		}
 
-	# --- xSubString --- #
-	this$xSubString <-
+	# --- xSubstring --- #
+	this$xSubstring <-
 		function (nums) {
-			x_( xSubString(self_(), nums) )
+			x_( xSubstring(self_(), nums) )
 		}
-	this$xSubString... <-
+	this$xSubstring... <-
 		function (...) {
-			x_( xSubString...(self_(), ...) )
+			x_( xSubstring...(self_(), ...) )
 		}
 
 	this$x_SubString <-
 		function (nums) {
-			xSubString(self_(), nums)
+			xSubstring(self_(), nums)
 		}
 	this$x_SubString... <-
 		function (...) {
-			xSubString...(self_(), ...)
+			xSubstring...(self_(), ...)
 		}
 
 	# --- xSucc --- #
@@ -2217,6 +2238,27 @@ x_coll_proto <- local({
 	this$x_Unit <-
 		function () {
 			xUnit(self_())
+		}
+
+	# --- xUnique --- #
+	this$xUnique <-
+		function () {
+			x_( xUnique(self_())	)
+		}
+
+	this$x_Unique <-
+		function () {
+			xUnique(self_())
+		}
+
+	this$xUnique... <-
+		function (...) {
+			x_( xUnique(self_(), ...)	)
+		}
+
+	this$x_Unique... <-
+		function (...) {
+			xUnique(self_(), ...)
 		}
 
 	# --- xUnlines --- #
@@ -2977,23 +3019,23 @@ x_fn_proto <- local({
 
 	# -------- Q ------- #
 	# -------- R ------- #
-	# --- xRecurMap --- #
-	this$xRecurMap <-
+	# --- xDeepMap --- #
+	this$xDeepMap <-
 		function (coll) {
-			x_( xRecurMap(self_(), coll) )
+			x_( xDeepMap(self_(), coll) )
 		}
-	this$xRecurMap... <-
+	this$xDeepMap... <-
 		function (...) {
-			x_( xRecurMap...(self_(), ...) )
+			x_( xDeepMap...(self_(), ...) )
 		}
 
 	this$x_RecurMap <-
 		function (coll) {
-			xRecurMap(self_(), coll)
+			xDeepMap(self_(), coll)
 		}
 	this$x_RecurMap... <-
 		function (...) {
-			xRecurMap...(self_(), ...)
+			xDeepMap...(self_(), ...)
 		}
 
 	# --- xReducel --- #

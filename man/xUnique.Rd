@@ -1,15 +1,13 @@
-\name{xIsMember}
-\alias{xIsMember}
-\alias{xIsMember...}
-\title{xIsMember}
+\name{xUnique}
+\alias{xUnique}
+\alias{xUnique...}
+\title{xUnique}
 \usage{
-xIsMember(val, coll)
+xUnique(coll)
 
-xIsMember...(val, ...)
+xUnique...(...)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
-
   \item{coll}{a collection.}
 
   \item{...}{see above.}
@@ -18,11 +16,10 @@ xIsMember...(val, ...)
 a list.
 }
 \description{
-Check if a collection contains a value.
+Return the unique elements in a collection.
 }
 \section{Corner Cases}{
-  various types of \code{Na} are not-distinguished between.
-  Type conversion is not carried out.
+  returns the empty list if \code{colls} is length-zero.
 }
 
 \section{Variadic Functions
@@ -35,9 +32,9 @@ Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDiffer}},
 \code{\link{xDiffer...}}; \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
-\code{\link{xInter...}}; \code{\link{xSetProd}},
+\code{\link{xInter...}}; \code{\link{xIsMember}},
+\code{\link{xIsMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}; \code{\link{xUnique}},
-\code{\link{xUnique...}}
+\code{\link{xUnion...}}
 }
 

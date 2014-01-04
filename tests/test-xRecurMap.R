@@ -2,8 +2,8 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message("xRecurMap")
+message("xDeepMap")
 
 
-message("arrow $ xRecurMap")
+message("arrow $ xDeepMap")
 

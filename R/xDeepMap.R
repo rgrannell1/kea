@@ -1,5 +1,5 @@
 
-#' xRecurMap
+#' xDeepMap
 #'
 #' Recursively map a function into a nested collection,
 #' preserving its structure.
@@ -18,16 +18,14 @@
 #'
 #' @family mapping_functions
 #'
-#' @template
-#'    Variadic
 #'
 #' @template
 #'    Variadic
 #'
-#' @rdname xRecurMap
+#' @rdname xDeepMap
 #' @export
 
-xRecurMap <- function (fn, coll) {
+xDeepMap <- function (fn, coll) {
 	# (any -> any) -> Recursive any -> [any]
 	# Map a function into a nested collection,
 	# preserving its structure.
@@ -67,9 +65,9 @@ xRecurMap <- function (fn, coll) {
 	recur(as.list(coll))
 }
 
-#' @rdname xRecurMap
+#' @rdname xDeepMap
 #' @export
 
-xRecurMap... <- function (fn, ...) {
-	xRecurMap(fn, list(...))
+xDeepMap... <- function (fn, ...) {
+	xDeepMap(fn, list(...))
 }

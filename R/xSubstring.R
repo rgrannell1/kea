@@ -1,5 +1,5 @@
 
-#' xSubString
+#' xSubstring
 #'
 #' Subset a string using normal R vector indexing.
 #'
@@ -23,10 +23,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xSubString
+#' @rdname xSubstring
 #' @export
 
-xSubString <- function (str, nums) {
+xSubstring <- function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 
@@ -64,9 +64,9 @@ xSubString <- function (str, nums) {
 	}
 }
 
-#' @rdname xSubString
+#' @rdname xSubstring
 #' @export
 
-xSubString... <- function (str, ...) {
-	xSubString(str, list(...))
+xSubstring... <- function (str, ...) {
+	xSubstring(str, list(...))
 }

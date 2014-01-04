@@ -1,23 +1,29 @@
-\name{xUnwords}
-\alias{xUnwords}
-\alias{xUnwords...}
-\title{xUnwords}
+\name{xSubstring}
+\alias{xSubstring}
+\alias{xSubstring...}
+\title{xSubstring}
 \usage{
-xUnwords(strs)
+xSubstring(str, nums)
 
-xUnwords...(...)
+xSubstring...(str, ...)
 }
 \arguments{
-  \item{strs}{an arbitrary number of character vectors.}
+  \item{str}{a string.}
+
+  \item{nums}{indices of \code{str}.}
 
   \item{...}{see above.}
 }
 \value{
-a length-one character vector.
+a character vector.
 }
 \description{
-Collapase a character vector with spaces as delimiters.
+Subset a string using normal R vector indexing.
 }
+\section{Corner Cases}{
+  returns the empty list if \code{coll} is length-zero.
+}
+
 \section{Variadic Functions
 
 \link{ help_variadic }}{
@@ -27,9 +33,9 @@ Collapase a character vector with spaces as delimiters.
 Other character_functions: \code{\link{xChars}};
 \code{\link{xExplode}}; \code{\link{xImplode}},
 \code{\link{xImplode...}}; \code{\link{xLines}};
-\code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xUnchars}}, \code{\link{xUnchars...}};
 \code{\link{xUnlines}}, \code{\link{xUnlines...}};
+\code{\link{xUnwords}}, \code{\link{xUnwords...}};
 \code{\link{xWords}}
 }
 

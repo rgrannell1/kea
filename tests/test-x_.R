@@ -31,11 +31,11 @@ message('test that every method has an unchaining version.')
 			},
 		as_unchaining =
 			base := {
-				xUnchars...('x_', xSubString(base, -1))
+				xUnchars...('x_', xSubstring(base, -1))
 			},
 		as_variadic_unchaining =
 			base := {
-			xUnchars...('x_', xSubString(base, -1), '...')
+			xUnchars...('x_', xSubstring(base, -1), '...')
 		}
 	)
 

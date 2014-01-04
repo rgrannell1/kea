@@ -38,7 +38,7 @@ Other mapping_functions: \code{\link{xFlatMap}},
 \code{\link{xMapMany...}}; \code{\link{xMapWhen}},
 \code{\link{xMapWhen...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
-\code{\link{xMap...}}; \code{\link{xRecurMap}},
-\code{\link{xRecurMap...}}
+\code{\link{xMap...}}; \code{\link{xDeepMap}},
+\code{\link{xDeepMap...}}
 }
 
