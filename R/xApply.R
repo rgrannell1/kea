@@ -40,7 +40,7 @@
 
 xApply <- function (fn, coll) {
 	# function -> [any] -> any
-	# call the function f with the list coll.
+	# call the function fn with the list coll.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()

@@ -2070,23 +2070,23 @@ x_coll_proto <- local({
 			xStopwatch(self_())
 		}
 
-	# --- xSubString --- #
-	this$xSubString <-
+	# --- xSubstring --- #
+	this$xSubstring <-
 		function (nums) {
-			x_( xSubString(self_(), nums) )
+			x_( xSubstring(self_(), nums) )
 		}
-	this$xSubString... <-
+	this$xSubstring... <-
 		function (...) {
-			x_( xSubString...(self_(), ...) )
+			x_( xSubstring...(self_(), ...) )
 		}
 
 	this$x_SubString <-
 		function (nums) {
-			xSubString(self_(), nums)
+			xSubstring(self_(), nums)
 		}
 	this$x_SubString... <-
 		function (...) {
-			xSubString...(self_(), ...)
+			xSubstring...(self_(), ...)
 		}
 
 	# --- xSucc --- #

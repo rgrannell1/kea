@@ -51,7 +51,9 @@ xPoll <- function (pred, coll) {
 	if (length(coll) == 0) {
 		integer(0)
 	} else {
+
 		count <- 0
+
 		for (ith in seq_along(coll)) {
 
 			is_match <- try_higher_order(

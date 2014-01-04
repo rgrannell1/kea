@@ -2,26 +2,26 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message('xSubString')
+message('xSubstring')
 
 	forall(
 		"selecting at zero returns the character(0).",
 		list(),
-		xSubString('', 0) %equals% character(0)
+		xSubstring('', 0) %equals% character(0)
 	)
 
 	forall(
 		"selecting along the indices is identity",
 		test_cases$str_word,
-		xSubString( str, seq_len(nchar(str)) ) %equals% str
+		xSubstring( str, seq_len(nchar(str)) ) %equals% str
 	)
 
-message('arrow $ xSubString')
+message('arrow $ xSubstring')
 
 	forall(
-		"collection $ xSubString",
+		"collection $ xSubstring",
 		test_cases$str_word,
-		x_(str)$xSubString( seq_len(nchar(str)) )$x_() %equals% str
+		x_(str)$xSubstring( seq_len(nchar(str)) )$x_() %equals% str
 	)
 
 message('arrow $ x_SubString')
