@@ -31,13 +31,13 @@ element of a collection.
 
 }
 \seealso{
-Other mapping_functions: \code{\link{xMapIndexed}},
+Other mapping_functions: \code{\link{xDeepMap}},
+\code{\link{xDeepMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
 \code{\link{xMapMany...}}; \code{\link{xMapWhen}},
 \code{\link{xMapWhen...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
-\code{\link{xMap...}}; \code{\link{xDeepMap}},
-\code{\link{xDeepMap...}}; \code{\link{xVectorise}},
+\code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }
 

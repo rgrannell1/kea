@@ -26,12 +26,6 @@ preserving its structure.
 \link{ help_variadic }}{
 
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other mapping_functions: \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},

@@ -318,23 +318,6 @@ exclaim <- list(
 			profile
 
 		},
-	warning_higher_order =
-		function (fn, warn, profile = '') {
-
-			"[ warning occurred while executing a function passed to " %+%
-			fn %+% " ]\n" %+%
-			paste0(deparse(warn$call), collapse = '') %+% ":\n" %+%
-			paste0(warn$message, collapse = '')
-
-		},
-	error_higher_order =
-		function (fn, err, profile = '') {
-
-			"[ an error occurred while executing a function passed to " %+%
-			fn %+% ": ]\n\n" %+%
-			paste0(deparse(err$call), collapse = '') %+% ":\n" %+%
-			paste0(err$message, collapse = '')
-		},
 	non_logical_predicate =
 		function (param, profile = '') {
 
@@ -510,5 +493,56 @@ wail <- list(
 
 			'the method ' %+% method %+%
 			' should have called its underlying function.'
+		}
+)
+
+# -------------------------------- yelp -------------------------------- #
+#
+# To Developers,
+#
+# yelp stores the error messages specific to assert itself.
+
+yelp <- list(
+	assertion_failed =
+		function (calltext, expr) {
+
+			expr <- paste0(deparse(expr), collapse = '')
+			calltext %+% ': the assertion\n ' %+% expr %+% ' \nfailed.'
+
+		},
+	arrow_function_failed =
+		function (callname, call, message) {
+
+			message <- paste0(
+				strwrap(message, width = 70), collapse = '\n')
+
+			# add leading spaces.
+			call <- gsub('^', '  ', call)
+			call <- gsub('\n', '\n  ', call)
+
+			'\n' %+%
+			'[ error thrown from ' %+% callname %+% ']:' %+% '\n\n' %+%
+			call %+% '\n\n' %+%
+			'[ details ]:\n\n' %+%
+			message
+
+		},
+
+	warning_higher_order =
+		function (fn, warn, profile = '') {
+
+			"[ warning occurred while executing a function passed to " %+%
+			fn %+% " ]\n" %+%
+			paste0(deparse(warn$call), collapse = '') %+% ":\n" %+%
+			paste0(warn$message, collapse = '')
+
+		},
+	error_higher_order =
+		function (fn, err, profile = '') {
+
+			"[ an error occurred while executing a function passed to " %+%
+			fn %+% ": ]\n\n" %+%
+			paste0(deparse(err$call), collapse = '') %+% ":\n" %+%
+			paste0(err$message, collapse = '')
 		}
 )

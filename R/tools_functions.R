@@ -83,6 +83,12 @@ call_with_params <- function (name, fn) {
 	paste0(x, y, sep = "")
 }
 
+modify_call <- function (invoking_call) {
+
+	paste0( deparse(invoking_call), collapse = '' )
+
+}
+
 # --------------------- environment manipulation --------------------- #
 
 Object <- function () {
@@ -229,14 +235,14 @@ try_higher_order <- function (expr, invoking_call) {
 
 			assert(
 				False, invoking_call,
-				exclaim$warning_higher_order( invoking_call[[1]], warn ))
+				yelp$warning_higher_order( invoking_call[[1]], warn ))
 
 		},
 		error = function (err) {
 
 			assert(
 				False, invoking_call,
-				exclaim$error_higher_order( invoking_call[[1]], err  ))
+				yelp$error_higher_order( invoking_call[[1]], err  ))
 
 		}
 	)
@@ -249,32 +255,43 @@ assert <- function (expr, invoking_call, message) {
 	# does an expression evaluate to true?
 	# if not, throw a lovely error.
 
+	consts <- list(
+		margin =
+			80
+	)
+
 	args <- as.list(match.call())[-1]
 
 	if (!expr) {
 		call <- if (missing(invoking_call)) {
 			'assert()'
 		} else {
-			if (is.character(invoking_call)) {
-				invoking_call
+
+			callname <- paste0( invoking_call[[1]] )
+			calltext <- paste0(
+				capture.output(print(invoking_call)),
+				collapse = '\n')
+
+			if (nchar(calltext) > consts$margin) {
+				paste0(substr(calltext, 1, consts$margin), '...')
 			} else {
-				paste0(deparse(invoking_call), collapse = '')
+				calltext
 			}
 		}
 
 		if (missing(message)) {
 
 			stop(
-				call,
-				": the assertion\n",
-				"    ", paste0(deparse(args$expr), collapse = ''), "\n",
-				"failed.",
+				yelp$assertion_failed(
+					call, args$expr),
 				call. = False)
 
 		} else {
-			message <- paste0(
-				strwrap(message, width = 70), collapse = '\n')
-			stop(call, ": ", message, call. = False)
+
+			stop(
+				yelp$arrow_function_failed(
+					callname, call, message),
+				call. = False)
 		}
 	}
 }
@@ -310,16 +327,6 @@ ith_suffix <- function (num) {
 	paste0(num, suffix)
 }
 
-modify_call <- function (invoking_call) {
-	# make sure that the calls attached to arrow
-	# functions aren't too long, and sort out
-	# the issue with ':='
-
-
-
-
-}
-
 summate <- local({
 	# Returns a string of information about an input object.
 
@@ -341,7 +348,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing character vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -362,7 +369,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing function ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing function ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -382,7 +389,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing value ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing value ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -414,7 +421,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing double vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing double vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -436,7 +443,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing factor ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing factor ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -469,7 +476,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing integer vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing integer vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -495,7 +502,7 @@ summate <- local({
 			)
 
 
-			"\n\n" %+% "[ properties of the error-causing logical vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing logical vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -516,7 +523,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing matrix ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing matrix ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -526,7 +533,7 @@ summate <- local({
 	profile$null <-
 		function (obj) {
 
-			"\n\n" %+% "[ properties of ther error-causing object ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of ther error-causing object ]:" %+% "\n\n" %+%
 			"NULL"
 		}
 
@@ -546,7 +553,7 @@ summate <- local({
 			)
 
 
-			"\n\n" %+% "[ properties of the error-causing raw vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing raw vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -563,7 +570,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing character vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}
@@ -584,7 +591,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "[ properties of the error-causing character vector ]" %+% "\n\n" %+%
+			"\n\n" %+% "[ properties of the error-causing character vector ]:" %+% "\n\n" %+%
 			paste0(deparse(traits), collapse = '')
 
 		}

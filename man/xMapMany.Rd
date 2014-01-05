@@ -32,13 +32,13 @@ Map a function across many collections simultaneously.
 
 }
 \seealso{
-Other mapping_functions: \code{\link{xFlatMap}},
+Other mapping_functions: \code{\link{xDeepMap}},
+\code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapWhen}},
 \code{\link{xMapWhen...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
-\code{\link{xMap...}}; \code{\link{xDeepMap}},
-\code{\link{xDeepMap...}}; \code{\link{xVectorise}},
+\code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }
 
