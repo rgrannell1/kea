@@ -330,6 +330,20 @@ ith_suffix <- function (num) {
 summate <- local({
 	# Returns a string of information about an input object.
 
+	output_key_value_pairs <-
+		function (coll) {
+
+			Reduce(
+				'%+%',
+				lapply(names(coll), function (name) {
+
+					name %+% ':\n' %+%
+					'    ' %+% paste0(
+						deparse( coll[[name]] ), collapse = '') %+% '\n'
+
+			}) )
+		}
+
 	profile <- Object()
 
 	# --- A --- #
@@ -349,7 +363,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing character vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -370,7 +384,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing function ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -390,7 +404,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing value ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -422,7 +436,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing double vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -444,7 +458,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing factor ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -477,7 +491,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing integer vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -503,7 +517,7 @@ summate <- local({
 
 
 			"\n\n" %+% "[ properties of the error-causing logical vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -524,7 +538,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing matrix ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -554,7 +568,7 @@ summate <- local({
 
 
 			"\n\n" %+% "[ properties of the error-causing raw vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -571,7 +585,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing character vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
@@ -592,7 +606,7 @@ summate <- local({
 			)
 
 			"\n\n" %+% "[ properties of the error-causing character vector ]:" %+% "\n\n" %+%
-			paste0(deparse(traits), collapse = '')
+			output_key_value_pairs(traits)
 
 		}
 
