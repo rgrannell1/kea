@@ -250,6 +250,15 @@ try_higher_order <- function (expr, invoking_call) {
 
 # --------------------- testing & message functions --------------------- #
 
+format_call <- function (call) {
+	# call -> string
+	# format the call nicely for printing.
+
+	paste0(
+		capture.output(print(call)),
+		collapse = '\n')
+
+}
 
 assert <- function (expr, invoking_call, message) {
 	# does an expression evaluate to true?
@@ -268,9 +277,7 @@ assert <- function (expr, invoking_call, message) {
 		} else {
 
 			callname <- paste0( invoking_call[[1]] )
-			calltext <- paste0(
-				capture.output(print(invoking_call)),
-				collapse = '\n')
+			calltext <- format_call(invoking_call)
 
 			if (nchar(calltext) > consts$margin) {
 				paste0(substr(calltext, 1, consts$margin), '...')

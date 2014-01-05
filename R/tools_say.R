@@ -259,7 +259,8 @@ exclaim <- list(
 		function (name, contents_are, similar, profile = '') {
 
 			if (length(similar) == 0) {
-				"could not find the method " %+% name %+% "."
+				"could not find the method " %+% dQuote(name) %+%
+				" in the methods available for " %+% contents_are %+% "."
 			} else {
 				"could not find the method " %+% dQuote(name) %+%
 				" in the methods available for " %+% contents_are %+%
@@ -519,7 +520,7 @@ yelp <- list(
 			call <- strwrap(call, indent = 4)
 
 			'\n' %+%
-			'[ error thrown from ' %+% callname %+% ']:' %+% '\n\n' %+%
+			'[ error thrown from ' %+% callname %+% ' ]:' %+% '\n\n' %+%
 			call %+% '\n\n' %+%
 			'[ details ]:\n\n' %+%
 			message
@@ -531,8 +532,11 @@ yelp <- list(
 
 			"[ warning occurred while executing a function passed to " %+%
 			fn %+% " ]\n" %+%
-			paste0(deparse(warn$call), collapse = '') %+% ":\n" %+%
-			paste0(warn$message, collapse = '')
+			strwrap(
+				format_call(warn$call) %+% ":\n" %+%
+				paste0(warn$message, collapse = ''),
+				indent = 4
+			)
 
 		},
 	error_higher_order =
@@ -540,7 +544,10 @@ yelp <- list(
 
 			"[ an error occurred while executing a function passed to " %+%
 			fn %+% ": ]\n\n" %+%
-			paste0(deparse(err$call), collapse = '') %+% ":\n" %+%
-			paste0(err$message, collapse = '')
+			strwrap(
+				format_call(err$call) %+% ":\n" %+%
+				paste0(err$message, collapse = ''),
+				indent = 4
+			)
 		}
 )

@@ -39,8 +39,6 @@
 x_any_proto <- local({
 
 	this <- Object()
-	this$private <- list(
-		contents_are = "arbitrary values")
 
 	# -------- A ------- #
 
@@ -158,6 +156,8 @@ x_any_proto <- local({
 
 	# -------- Z ------- #
 
+	this$private <- list(
+		contents_are = "arbitrary values")
 	this
 })
 
@@ -180,8 +180,6 @@ x_any_proto <- local({
 x_matrix_proto <- local({
 
 	this <- Object()
-	this$private <- list(
-		contents_are = "matrices")
 
 	# -------- A ------- #
 	# -------- B ------- #
@@ -286,7 +284,7 @@ x_matrix_proto <- local({
 			if (prod(dim(self_()) == 0)) {
 				x_( list() )
 			} else {
-				x_( as.xLinest(self_()) )
+				x_( as.list(self_()) )
 			}
 		}
 	this$x_ElemsByCols <-
@@ -294,7 +292,7 @@ x_matrix_proto <- local({
 			if (prod(dim(self_()) == 0)) {
 				list()
 			} else {
-				as.xLinest(self_())
+				as.list(self_())
 			}
 		}
 
@@ -387,6 +385,8 @@ x_matrix_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contents_are = "matrices")
 
 	this
 })
@@ -399,9 +399,6 @@ x_matrix_proto <- local({
 x_data_frame_proto <- local({
 
 	this <- Object()
-	this$private <- list(
-		contents_are = "data.frames"
-	)
 
 	# -------- A ------- #
 
@@ -530,6 +527,8 @@ x_data_frame_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contents_are = "data.frames")
 
 	this
 })
@@ -538,8 +537,6 @@ x_data_frame_proto <- local({
 x_factor_proto <- local({
 
 	this <- Object()
-	this$private <- list(
-		contents_are = "factors")
 
 	# -------- A ------- #
 
@@ -616,6 +613,8 @@ x_factor_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contents_are = "factors")
 
 	this
 })
@@ -637,8 +636,6 @@ x_factor_proto <- local({
 x_coll_proto <- local({
 
 	this <- Object()
-	this$private <- list(
-		contents_are = "collections")
 
 	# -------- A ------- #
 
@@ -2365,6 +2362,8 @@ x_coll_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contents_are = "collections")
 
 	this
 })
@@ -2410,8 +2409,6 @@ x_coll_proto <- local({
 x_fn_proto <- local({
 
 	this <- Object()
-	this$private <- list(
-		contents_are = "functions")
 
 	# -------- A ------- #
 	# --- xAsClosure --- #
@@ -3253,6 +3250,8 @@ x_fn_proto <- local({
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
+	this$private <- list(
+		contents_are = "functions")
 
 	this
 })
@@ -3324,10 +3323,10 @@ get_proto_ref <- function (val) {
 	proto_ref <-
 	if (is.function( val )) {
 		x_fn_proto
-	} else if (is.vector( val ) || is.pairlist( val )){
-		x_coll_proto
 	} else if (is.matrix( val )) {
 		x_matrix_proto
+	} else  if (is.vector( val ) || is.pairlist( val )){
+		x_coll_proto
 	} else if (is.data.frame( val )) {
 		x_data_frame_proto
 	} else  if (is.factor( val )) {

@@ -41,8 +41,7 @@ xCombos <- function (num, coll) {
 
 	assert(
 		!missing(coll), invoking_call,
-		exclaim$parametre_missing(
-			coll, summate(coll)))
+		exclaim$parametre_missing(coll))
 
 	num <- as_typed_vector(num, 'numeric', True)
 
