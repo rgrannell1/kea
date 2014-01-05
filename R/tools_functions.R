@@ -338,8 +338,7 @@ summate <- local({
 				lapply(names(coll), function (name) {
 
 					name %+% ':\n' %+%
-					'    ' %+% paste0(
-						deparse( coll[[name]] ), collapse = '') %+% '\n'
+					'    ' %+% paste0(coll[[name]], collapse = '') %+% '\n'
 
 			}) )
 		}

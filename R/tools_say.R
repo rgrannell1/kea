@@ -513,12 +513,10 @@ yelp <- list(
 	arrow_function_failed =
 		function (callname, call, message) {
 
-			message <- paste0(
-				strwrap(message, width = 70), collapse = '\n')
+			# removed because it screwed up summate( ) call
+			# message <- strwrap(message, width = 70, simplify = True)
 
-			# add leading spaces.
-			call <- gsub('^', '  ', call)
-			call <- gsub('\n', '\n  ', call)
+			call <- strwrap(call, indent = 4)
 
 			'\n' %+%
 			'[ error thrown from ' %+% callname %+% ']:' %+% '\n\n' %+%
