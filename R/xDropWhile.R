@@ -45,7 +45,8 @@ xDropWhile <- function (pred, coll) {
 
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pred, summate(pred)) )
 
 	assert(
 		is_collection(coll), invoking_call,

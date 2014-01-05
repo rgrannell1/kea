@@ -50,7 +50,8 @@ xMapWhen <- function (pred, fn, coll) {
 
 	assert(
 		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(pred))
+		exclaim$must_be_matchable(
+			pred, summate(pred)) )
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
@@ -67,7 +68,11 @@ xMapWhen <- function (pred, fn, coll) {
 
 	composite <- function (x) {
 		is_match <- pred(x)
-		assert(is.logical(is_match), invoking_call)
+
+			assert(
+				is.logical(is_match), invoking_call,
+				exclaim$non_logical_predicate(
+					pred, summate(is_match)) )
 
 		if (is_match) fn(x) else x
 	}

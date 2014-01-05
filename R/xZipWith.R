@@ -42,13 +42,13 @@ xZipWith <- function (fn, colls) {
 		exclaim$parametre_missing(fn))
 
 	assert(
+		!missing(colls), invoking_call,
+		exclaim$parametre_missing(colls))
+
+	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
-
-	assert(
-		!missing(colls), invoking_call,
-		exclaim$parametre_missing(colls))
 
 	assert(
 		length( unique(sapply(colls, length)) ) == 1,

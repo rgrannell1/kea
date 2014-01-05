@@ -45,8 +45,7 @@ xForall <- function (pred, colls) {
 	pred <- match.fun(pred)
 
 	assert(
-		all(sapply(colls, is_collection)),
-		invoking_call)
+		all(sapply(colls, is_collection)), invoking_call)
 
 	coll_lengths <- sapply(colls, length)
 

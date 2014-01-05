@@ -41,7 +41,8 @@ xFirst <- function (coll) {
 
 	assert(
 		length(coll) >= 1, invoking_call,
-		exclaim$must_be_longer_than(coll, 1))
+		exclaim$must_be_longer_than(
+			coll, 1, summate(coll)) )
 
 	coll[[1]]
 }

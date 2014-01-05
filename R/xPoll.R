@@ -61,7 +61,9 @@ xPoll <- function (pred, coll) {
 				invoking_call)
 
 			assert(
-				is.logical(is_match), invoking_call)
+				is.logical(is_match), invoking_call,
+				exclaim$non_logical_predicate(
+					pred, summate(is_match)) )
 
 			if (isTRUE(is_match)) {
 				count <- count + 1

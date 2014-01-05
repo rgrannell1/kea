@@ -25,11 +25,11 @@ Collapase a character vector with empty strs as delimiters.
 }
 \seealso{
 Other character_functions: \code{\link{xChars}};
-\code{\link{xExplode}}; \code{\link{xImplode}},
-\code{\link{xImplode...}}; \code{\link{xLines}};
-\code{\link{xSubstring}}, \code{\link{xSubstring...}};
-\code{\link{xUnlines}}, \code{\link{xUnlines...}};
-\code{\link{xUnwords}}, \code{\link{xUnwords...}};
-\code{\link{xWords}}
+\code{\link{xExplode}}, \code{\link{xExplode...}};
+\code{\link{xImplode}}, \code{\link{xImplode...}};
+\code{\link{xLines}}; \code{\link{xSubstring}},
+\code{\link{xSubstring...}}; \code{\link{xUnlines}},
+\code{\link{xUnlines...}}; \code{\link{xUnwords}},
+\code{\link{xUnwords...}}; \code{\link{xWords}}
 }
 

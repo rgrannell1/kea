@@ -36,12 +36,14 @@ xStopwatch <- function (num) {
 	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, invoking_call,
-		exclaim$must_have_length(num, 0:1))
+		length(num) == 1, invoking_call,
+		exclaim$must_have_length(
+			num, 1, summate(num)) )
 
 	assert(
 		num >= 0, invoking_call,
-		exclaim$must_be_grequal_than(num, 0))
+		exclaim$must_be_grequal_than(
+			num, 0, summate(num)) )
 
 	genesis <- Sys.time()
 

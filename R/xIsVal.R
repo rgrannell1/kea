@@ -31,7 +31,8 @@ xIsVal <- function (str) {
 
 	assert(
 		length(str) == 1, invoking_call,
-		exclaim$must_have_length(str, 1))
+		exclaim$must_have_length(
+			str, 1, summate(str)) )
 
 	exists(str, parent_frame) &&
 		bindingIsLocked(str, parent_frame)

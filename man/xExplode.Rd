@@ -1,8 +1,11 @@
 \name{xExplode}
 \alias{xExplode}
+\alias{xExplode...}
 \title{xExplode}
 \usage{
 xExplode(rexp, str)
+
+xExplode...(rexp, ...)
 }
 \arguments{
   \item{rexp}{a regular expression.}

@@ -35,11 +35,13 @@ xAsVal <- function (sym) {
 
 	assert(
 		length(sym) == 1, invoking_call,
-		exclaim$must_have_length(sym, 1))
+		exclaim$must_have_length(
+			sym, 1, summate(sym)) )
 
 	assert(
 		exists(sym, envir = parent_frame),
-		exclaim$variable_non_existent(sym))
+		exclaim$variable_non_existent(
+			sym, summate(sym)) )
 
 	lockBinding(sym, parent_frame)
 }

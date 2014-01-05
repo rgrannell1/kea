@@ -43,7 +43,8 @@ xTake <- function (num, coll) {
 
 	assert(
 		length(num) == 1, invoking_call,
-		exclaim$must_have_length(num, 1))
+		exclaim$must_have_length(
+			num, 1, summate(num)) )
 
 	assert(
 		num >= 0, invoking_call,

@@ -74,6 +74,16 @@ exclaim <- list(
 			profile
 
 		},
+	must_be_non_primitive =
+		function (param, profile = '') {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% dQuote(param) %+%
+			" must be a non=primitive function." %+%
+			profile
+
+		},
 	must_be_collection_of_length =
 		function (param, length, profile = '') {
 

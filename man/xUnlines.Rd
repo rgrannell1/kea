@@ -25,11 +25,11 @@ Collapase a character vector with newlines as delimiters.
 }
 \seealso{
 Other character_functions: \code{\link{xChars}};
-\code{\link{xExplode}}; \code{\link{xImplode}},
-\code{\link{xImplode...}}; \code{\link{xLines}};
-\code{\link{xSubstring}}, \code{\link{xSubstring...}};
-\code{\link{xUnchars}}, \code{\link{xUnchars...}};
-\code{\link{xUnwords}}, \code{\link{xUnwords...}};
-\code{\link{xWords}}
+\code{\link{xExplode}}, \code{\link{xExplode...}};
+\code{\link{xImplode}}, \code{\link{xImplode...}};
+\code{\link{xLines}}; \code{\link{xSubstring}},
+\code{\link{xSubstring...}}; \code{\link{xUnchars}},
+\code{\link{xUnchars...}}; \code{\link{xUnwords}},
+\code{\link{xUnwords...}}; \code{\link{xWords}}
 }
 

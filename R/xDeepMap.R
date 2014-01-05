@@ -48,7 +48,8 @@ xDeepMap <- function (fn, coll) {
 
 	assert(
 		is_recursive(coll), invoking_call,
-		exclaim$must_be_recursive(coll))
+		exclaim$must_be_recursive(
+			coll, summate(coll)) )
 
 	fn <- match.fun(fn)
 

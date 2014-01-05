@@ -21,7 +21,7 @@ a list.
 Iteratively apply a value to list of functions.
 }
 \section{Corner Cases}{
-  q returns the empty list if \code{coll} is length-zero.
+  returns the empty list if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

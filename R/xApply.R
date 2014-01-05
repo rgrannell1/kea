@@ -72,7 +72,6 @@ xApply <- function (fn, coll) {
 		invoking_call)
 }
 
-#'
 #' @rdname xApply
 #' @export
 

@@ -36,7 +36,8 @@ xJuxtapose <- function (fns) {
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
-		exclaim$must_be_recursive_of_matchable("fns"))
+		exclaim$must_be_recursive_of_matchable(
+			fns, summate(fns)) )
 
 	fns <- lapply(fns, match.fun)
 

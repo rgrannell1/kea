@@ -23,9 +23,7 @@
 #' @export
 
 xCompose <- function (fns) {
-	# function -> function -> function
-	# a general purpose compose function;
-	# more poweful than \f.\g.\x.fgx
+	# Collection function -> function
 
 	invoking_call <- sys.call()
 

@@ -377,7 +377,7 @@ summate <- local({
 		function (obj) {
 
 			traits <- list(
-				function_type =
+				is_primitive =
 					is.primitive(obj),
 				arity =
 					if (is.primitive(obj)) {

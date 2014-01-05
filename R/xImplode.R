@@ -47,8 +47,7 @@ xImplode <- function (str, strs) {
 		exclaim$must_be_collection(
 			strs, summate(strs)) )
 
-	strs <- as_typed_vector(
-		strs, 'character')
+	strs <- as_typed_vector(strs, 'character')
 
 	assert(
 		length(str) %in% 0:1,

@@ -38,11 +38,13 @@ xExplode <- function (rexp, str) {
 
 	assert(
 		length(rexp) %in% 0:1,
-		exclaim$must_have_length(rexp, 0:1) )
+		exclaim$must_have_length(
+			rexp, 0:1, summate(rexp)) )
 
 	assert(
 		length(str) %in% 0:1,
-		exclaim$must_have_length(str, 0:1) )
+		exclaim$must_have_length(
+			str, 0:1, summate(str)) )
 
 	if (length(str) == 0) {
 		character(0)
@@ -51,4 +53,11 @@ xExplode <- function (rexp, str) {
 	} else {
 		strsplit(str, rexp)[[1]]
 	}
+}
+
+#' @rdname xExplode
+#' @export
+
+xExplode... <- function (rexp, ...) {
+	xExplode(rexp, list(...))
 }

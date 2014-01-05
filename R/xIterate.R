@@ -34,12 +34,14 @@ xIterate <- function (fn, init) {
 		exclaim$parametre_missing(init))
 
 	assert(
-		!is.primitive(fn), invoking_call)
-
-	assert(
 		is_fn_matchable(fn), invoking_call,
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
+
+	assert(
+		!is.primitive(fn), invoking_call,
+		exclaim$must_be_non_primitive(
+			fn, summate(fn)))
 
 	fn <- match.fun(fn)
 

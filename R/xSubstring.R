@@ -45,11 +45,13 @@ xSubstring <- function (str, nums) {
 
 	assert(
 		length(str) < 2, invoking_call,
-		exclaim$must_be_lequal_than(str, 2))
+		exclaim$must_be_lequal_than(
+			str, 2, summate(str)) )
 
 	assert(
 		all(round(nums) == nums), invoking_call,
-		exclaim$must_be_whole(nums))
+		exclaim$must_be_whole(
+			nums, summate(nums)) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)

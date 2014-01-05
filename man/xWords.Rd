@@ -15,11 +15,12 @@ Split a str at whitespace.
 }
 \seealso{
 Other character_functions: \code{\link{xChars}};
-\code{\link{xExplode}}; \code{\link{xImplode}},
-\code{\link{xImplode...}}; \code{\link{xLines}};
-\code{\link{xSubstring}}, \code{\link{xSubstring...}};
-\code{\link{xUnchars}}, \code{\link{xUnchars...}};
-\code{\link{xUnlines}}, \code{\link{xUnlines...}};
-\code{\link{xUnwords}}, \code{\link{xUnwords...}}
+\code{\link{xExplode}}, \code{\link{xExplode...}};
+\code{\link{xImplode}}, \code{\link{xImplode...}};
+\code{\link{xLines}}; \code{\link{xSubstring}},
+\code{\link{xSubstring...}}; \code{\link{xUnchars}},
+\code{\link{xUnchars...}}; \code{\link{xUnlines}},
+\code{\link{xUnlines...}}; \code{\link{xUnwords}},
+\code{\link{xUnwords...}}
 }
 

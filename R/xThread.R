@@ -15,7 +15,7 @@
 #' @return
 #'    a list.
 #'
-#' @section Corner Cases: q
+#' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
 #'
 #' @family function_modifying_functions
@@ -40,7 +40,8 @@ xThread <- function (val, fns) {
 
 	assert(
 		all(sapply(fns, is_fn_matchable)), invoking_call,
-		exclaim$must_be_recursive_of_matchable(fns))
+		exclaim$must_be_recursive_of_matchable(
+			fns, summate(fns)) )
 
 	for (ith in seq_along(fns)) {
 
