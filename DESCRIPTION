@@ -23,7 +23,6 @@ Collate:
     'help_arrow_gotchas.R'
     'help_variadic.R'
     'xTap---.R'
-    'xUnit---.R'
     'xByCols---.R'
     'xByRows---.R'
     'xColUnit---.R'

@@ -13,6 +13,7 @@ of length zero if \code{coll} is a vector, and the empty
 list if \code{coll} is a list.
 }
 \description{
-Return the neutral element of a collection.
+Return the neutral element of a collection under
+concatenation.
 }
 

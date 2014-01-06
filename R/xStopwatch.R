@@ -48,6 +48,8 @@ xStopwatch <- function (num) {
 	genesis <- Sys.time()
 
 	function (...) {
+		"a function returned by xStopwatch."
+		""
 		difftime(Sys.time(), genesis) < num
 	}
 }

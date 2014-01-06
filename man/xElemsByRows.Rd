@@ -1,21 +1,20 @@
-\name{xColUnit}
-\alias{xColUnit}
-\title{$ xColUnit}
+\name{xElemsByRows}
+\alias{xElemsByRows}
+\title{$ xElemsByRows}
 \usage{
-x_(  ) $ xColUnit()
+x_(  ) $ xElemsByRows()
 }
 \value{
-an arrow object containing an empty matrix or data.frame.
+an arrow object containing a list.
 }
 \description{
-Return the concatenative unit for a matrix or data.frame
-column.
+Enumerate the elements of a matrix across rows.
 }
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},
 \code{\link{xByLevels}}; \code{\link{xByRows}};
-\code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+\code{\link{xColUnit}}; \code{\link{xElemsByCols}};
 \code{\link{xExecute}}; \code{\link{xRowUnit}};
 \code{\link{xTap}}; \code{\link{xTranspose}}
 }

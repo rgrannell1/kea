@@ -4,7 +4,7 @@
 \alias{arrow-package}
 \title{Arrow: functional, composable R.}
 \description{
-Arrow does stuff, stuff you can use!
+Arrow is a
 }
 \section{Additional Documentation}{
   Arrow is a big, idiosyncratic (but hopefully logical!)

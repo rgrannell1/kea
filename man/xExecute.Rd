@@ -16,8 +16,10 @@ continuing with the previous method result.
 }
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
-\code{\link{xByCols}}; \code{\link{xByLevels}};
-\code{\link{xByRows}}; \code{\link{xColUnit}};
-\code{\link{xRowUnit}}
+\code{\link{xByCols}}; \code{\link{xByLevels}},
+\code{\link{xByLevels}}; \code{\link{xByRows}};
+\code{\link{xColUnit}}; \code{\link{xElemsByCols}};
+\code{\link{xElemsByRows}}; \code{\link{xRowUnit}};
+\code{\link{xTap}}; \code{\link{xTranspose}}
 }
 

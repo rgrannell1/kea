@@ -1,15 +1,14 @@
-\name{xRowUnit}
-\alias{xRowUnit}
-\title{$ xRowUnit}
+\name{xTranspose}
+\alias{xTranspose}
+\title{$ xTranspose}
 \usage{
-x_(  ) $ xRowUnit()
+x_(  ) $ xTranspose()
 }
 \value{
-an empty matrix or data.frame.
+an arrow object containing a matrix.
 }
 \description{
-Return the concatenative unit for a matrix or data.frame
-row.
+Transpose a matrix.
 }
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
@@ -17,6 +16,6 @@ Other exclusively_methods: \code{\link{xByColnames}};
 \code{\link{xByLevels}}; \code{\link{xByRows}};
 \code{\link{xColUnit}}; \code{\link{xElemsByCols}};
 \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-\code{\link{xTap}}; \code{\link{xTranspose}}
+\code{\link{xRowUnit}}; \code{\link{xTap}}
 }
 

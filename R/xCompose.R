@@ -40,7 +40,7 @@ xCompose <- function (fns) {
 	fns <- lapply(fns, match.fun)
 
 	function (...) {
-		"a function created by xCompose."
+		"a function returned by xCompose."
 		""
 		invoking_call <- sys.call()
 

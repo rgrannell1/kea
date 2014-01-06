@@ -44,6 +44,8 @@ xAsUnary <- function (fn) {
 	remove(invoking_call)
 
 	function (x) {
+		"a function returned by xAsUnary."
+		""
 		xApply(fn, x)
 	}
 }

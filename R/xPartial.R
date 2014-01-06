@@ -82,6 +82,8 @@ xPartial <- function (fn, coll) {
 						lapply(
 							xParams(fn),
 							function (param) {
+								"a function returned by xPartial."
+								""
 								if (param %in% names(coll)) {
 									coll[[param]]
 								} else {

@@ -41,8 +41,8 @@ xNot <- function (pred) {
 	remove(invoking_call)
 
 	function (val) {
-		"a boolean function returned by xNot( pred )"
-
+		"a boolean function returned by xNot."
+		""
 		!pred(val)
 	}
 }

@@ -42,6 +42,8 @@ xAsVariadic <- function (fn) {
 	fn <- match.fun(fn)
 
 	function (...) {
+		"a function returned by xAsVariadic."
+		""
 		fn(list(...))
 	}
 }

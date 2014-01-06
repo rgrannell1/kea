@@ -5,15 +5,17 @@
 x_(  ) $ xByCols()
 }
 \value{
-a list of lists.
+an arrow object containing a list of lists.
 }
 \description{
 Convert a matrix or data.frame to a collection of columns.
 }
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
-\code{\link{xByLevels}}; \code{\link{xByRows}};
-\code{\link{xColUnit}}; \code{\link{xExecute}};
-\code{\link{xRowUnit}}
+\code{\link{xByLevels}}, \code{\link{xByLevels}};
+\code{\link{xByRows}}; \code{\link{xColUnit}};
+\code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+\code{\link{xExecute}}; \code{\link{xRowUnit}};
+\code{\link{xTap}}; \code{\link{xTranspose}}
 }
 
