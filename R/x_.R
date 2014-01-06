@@ -544,12 +544,12 @@ x_factor_proto <- local({
 
 	this$xByLevels <-
 		function () {
-			x_( as.list( levels(self_()) ) )
+			x_( as.character( levels(self_()) ) )
 		}
 
 	this$x_ByLevels <-
 		function () {
-			as.list( levels(self_()) )
+			as.character( levels(self_()) )
 		}
 
 
