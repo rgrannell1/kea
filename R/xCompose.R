@@ -46,7 +46,7 @@ xCompose <- function (fns) {
 
 		val <- c(...)
 
-		for (ith in seq_along(fns)) {
+		for ( ith in rev(seq_along(fns)) ) {
 
 			fn <- fns[[ith]]
 			val <- try_higher_order( fn(val), invoking_call )
