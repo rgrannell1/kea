@@ -7,7 +7,7 @@
 #'     x_(  ) $ xByCols()
 #'
 #' @return
-#'     a list of lists.
+#'     an arrow object containing a list of lists.
 #'
 #' @family exclusively_methods
 #'

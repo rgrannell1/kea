@@ -13,6 +13,7 @@ Convert a matrix or data.frame to a collection of columns.
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
 \code{\link{xByLevels}}; \code{\link{xByRows}};
-\code{\link{xExecute}}
+\code{\link{xColUnit}}; \code{\link{xExecute}};
+\code{\link{xRowUnit}}
 }
 

@@ -13,6 +13,7 @@ Convert a factor to a collection of levels.
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByRows}};
-\code{\link{xExecute}}
+\code{\link{xColUnit}}; \code{\link{xExecute}};
+\code{\link{xRowUnit}}
 }
 

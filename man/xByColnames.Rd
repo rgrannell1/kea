@@ -14,6 +14,7 @@ names.
 \seealso{
 Other exclusively_methods: \code{\link{xByCols}};
 \code{\link{xByLevels}}; \code{\link{xByRows}};
-\code{\link{xExecute}}
+\code{\link{xColUnit}}; \code{\link{xExecute}};
+\code{\link{xRowUnit}}
 }
 

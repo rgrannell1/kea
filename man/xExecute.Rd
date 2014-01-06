@@ -17,6 +17,7 @@ continuing with the previous method result.
 \seealso{
 Other exclusively_methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}};
-\code{\link{xByRows}}
+\code{\link{xByRows}}; \code{\link{xColUnit}};
+\code{\link{xRowUnit}}
 }
 

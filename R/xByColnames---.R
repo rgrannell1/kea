@@ -7,7 +7,7 @@
 #'     x_(  ) $ xByColnames()
 #'
 #' @return
-#'     a list of strings.
+#'     an arrow containing a list of strings.
 #'
 #' @family exclusively_methods
 #'

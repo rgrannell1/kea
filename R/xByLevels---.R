@@ -7,7 +7,7 @@
 #'     x_(  ) $ xByLevels()
 #'
 #' @return
-#'     a character vector.
+#'     an arrow object containing a character vector.
 #'
 #' @family exclusively_methods
 #'

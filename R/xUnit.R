@@ -1,7 +1,7 @@
 
 #' xUnit
 #'
-#' Return the neutral element of a collection.
+#' Return the neutral element of a collection under concatenation.
 #'
 #' @param
 #'    coll an list, pairlist, or vector of any length.
