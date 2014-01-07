@@ -2019,23 +2019,23 @@ x_coll_proto <- local({
 			xSignum...(self_(), ...)
 		}
 
-	# --- xSplit --- #
-	this$xSplit <-
+	# --- xSplitAt--- #
+	this$xSplitAt<-
 		function (num) {
-			x_( xSplit(num, self_()) )
+			x_( xSplitAt(num, self_()) )
 		}
-	this$xSplit... <-
+	this$xSplitAt... <-
 		function (num, ...) {
-			x_( xSplit...(num, self_(), ...) )
+			x_( xSplitAt...(num, self_(), ...) )
 		}
 
-	this$x_Split <-
+	this$x_SplitAt <-
 		function (num) {
-			xSplit(num, self_())
+			xSplitAt(num, self_())
 		}
-	this$x_Split... <-
+	this$x_SplitAt... <-
 		function (num, ...) {
-			xSplit...(num, self_(), ...)
+			xSplitAt...(num, self_(), ...)
 		}
 
 	# --- xShuffle --- #

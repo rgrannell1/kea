@@ -1,5 +1,5 @@
 
-#' xSplit
+#' xSplitAt
 #'
 #' Split a collection into elements before and upto
 #' an index, and after that index.
@@ -30,10 +30,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xSplit
+#' @rdname xSplitAt
 #' @export
 
-xSplit <- function (num, coll) {
+xSplitAt<- function (num, coll) {
 	# number -> Collection any -> [[any], [any]]
 	# take the first n values of collection.
 
