@@ -33,9 +33,9 @@ Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xSegment}},
 \code{\link{xSegment...}}; \code{\link{xShuffle}},
-\code{\link{xShuffle...}}; \code{\link{xSplitWith}},
-\code{\link{xSplitWith...}}; \code{\link{xSplit}},
-\code{\link{xSplit...}}; \code{\link{xZipWith}},
+\code{\link{xShuffle...}}; \code{\link{xSplitAt}},
+\code{\link{xSplitAt...}}; \code{\link{xSplitWith}},
+\code{\link{xSplitWith...}}; \code{\link{xZipWith}},
 \code{\link{xZipWith...}}; \code{\link{xZip}},
 \code{\link{xZip...}}
 }

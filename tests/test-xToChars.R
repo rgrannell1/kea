@@ -2,39 +2,39 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message('xChars')
+message('xToChars')
 
 	forall(
 		"chars of the empty string is an empty vector",
 		list(),
-		xChars('') %equals% character(0)
+		xToChars('') %equals% character(0)
 	)
 
 	forall(
 		"chars of a single letter is identity",
 		test_cases$letter,
-		xChars(str) == str
+		xToChars(str) == str
 	)
 
 	forall(
 		"length of chars is nchars of a string",
 		test_cases$str_word,
-		length(xChars(str)) == nchar(str)
+		length(xToChars(str)) == nchar(str)
 	)
 
-message('arrow $ xChars')
+message('arrow $ xToChars')
 
 	forall(
 		"collection $ arrow",
 		test_cases$str_word,
-		length(x_(str)$xChars()$x_()) == nchar(str)
+		length(x_(str)$xToChars()$x_()) == nchar(str)
 	)
 
-message('arrow $ x_Chars')
+message('arrow $ x_ToChars')
 
 	forall(
 		"collection $ arrow",
 		test_cases$str_word,
-		length(x_(str)$x_Chars()) == nchar(str)
+		length(x_(str)$x_ToChars()) == nchar(str)
 	)
 

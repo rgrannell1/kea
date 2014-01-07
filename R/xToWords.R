@@ -1,5 +1,5 @@
 
-#' xWords
+#' xToWords
 #'
 #' Split a str at whitespace.
 #'
@@ -11,10 +11,10 @@
 #'
 #' @family character_functions
 #'
-#' @rdname xWords
+#' @rdname xToWords
 #' @export
 
-xWords <- function (str) {
+xToWords <- function (str) {
 	# str -> Vector str
 	# split a str at every whitespace character, returning
 	# a character vector of equal or greater length.

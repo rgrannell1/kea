@@ -23,12 +23,12 @@ expression.
   returns the empty list if \code{coll} is length-zero.
 }
 \seealso{
-Other character_functions: \code{\link{xChars}};
-\code{\link{xImplode}}, \code{\link{xImplode...}};
-\code{\link{xLines}}; \code{\link{xSubstring}},
-\code{\link{xSubstring...}}; \code{\link{xUnchars}},
-\code{\link{xUnchars...}}; \code{\link{xUnlines}},
-\code{\link{xUnlines...}}; \code{\link{xUnwords}},
-\code{\link{xUnwords...}}; \code{\link{xWords}}
+Other character_functions: \code{\link{xFromChars}},
+\code{\link{xFromChars...}}; \code{\link{xFromLines}},
+\code{\link{xFromLines...}}; \code{\link{xFromWords}},
+\code{\link{xFromWords...}}; \code{\link{xImplode}},
+\code{\link{xImplode...}}; \code{\link{xSubstring}},
+\code{\link{xSubstring...}}; \code{\link{xToChars}};
+\code{\link{xToLines}}; \code{\link{xToWords}}
 }
 

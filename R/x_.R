@@ -699,14 +699,14 @@ x_coll_proto <- local({
 	# -------- B ------- #
 	# -------- C ------- #
 
-	# --- xChars --- #
-	this$xChars <-
+	# --- xToChars --- #
+	this$xToChars <-
 		function () {
-			x_( xChars(self_()) )
+			x_( xToChars(self_()) )
 		}
-	this$x_Chars <-
+	this$x_ToChars <-
 		function () {
-			xChars(self_())
+			xToChars(self_())
 		}
 
 	# --- xCombos --- #
@@ -1383,14 +1383,14 @@ x_coll_proto <- local({
 			xLimit(fn, self_())
 		}
 
-	# --- xLines --- #
-	this$xLines <-
+	# --- xToLines --- #
+	this$xToLines <-
 		function () {
-			x_( xLines(self_()) )
+			x_( xToLines(self_()) )
 		}
-	this$x_Lines <-
+	this$x_ToLines <-
 		function () {
-			xLines(self_())
+			xToLines(self_())
 		}
 
 	# --- xLocatel --- #
@@ -2185,24 +2185,24 @@ x_coll_proto <- local({
 		}
 
 	# -------- U ------- #
-	# --- xUnchars --- #
+	# --- xFromChars --- #
 
-	this$xUnchars <-
+	this$xFromChars <-
 		function () {
-			x_( xUnchars(self_()) )
+			x_( xFromChars(self_()) )
 		}
-	this$xUnchars... <-
+	this$xFromChars... <-
 		function (...) {
-			x_( xUnchars...(self_(), ...) )
+			x_( xFromChars...(self_(), ...) )
 		}
 
-	this$x_Unchars <-
+	this$x_FromChars <-
 		function () {
-			xUnchars(self_())
+			xFromChars(self_())
 		}
-	this$x_Unchars... <-
+	this$x_FromChars... <-
 		function (...) {
-			xUnchars...(self_(), ...)
+			xFromChars...(self_(), ...)
 		}
 
 	# --- xUnion --- #
@@ -2258,55 +2258,55 @@ x_coll_proto <- local({
 			xUnique(self_(), ...)
 		}
 
-	# --- xUnlines --- #
-	this$xUnlines <-
+	# --- xFromLines --- #
+	this$xFromLines <-
 		function () {
-			x_( xUnlines(self_()) )
+			x_( xFromLines(self_()) )
 		}
-	this$xUnlines... <-
+	this$xFromLines... <-
 		function (...) {
-			x_( xUnlines...(self_(), ...) )
+			x_( xFromLines...(self_(), ...) )
 		}
 
-	this$x_Unlines <-
+	this$x_FromLines <-
 		function () {
-			xUnlines(self_())
+			xFromLines(self_())
 		}
-	this$x_Unlines... <-
+	this$x_FromLines... <-
 		function (...) {
-			xUnlines...(self_(), ...)
+			xFromLines...(self_(), ...)
 		}
 
-	# --- xUnwords --- #
-	this$xUnwords <-
+	# --- xFromWords --- #
+	this$xFromWords <-
 		function () {
-			x_( xUnwords(self_()) )
+			x_( xFromWords(self_()) )
 		}
-	this$xUnwords... <-
+	this$xFromWords... <-
 		function (...) {
-			x_( xUnwords...(self_(), ...) )
+			x_( xFromWords...(self_(), ...) )
 		}
 
-	this$x_Unwords <-
+	this$x_FromWords <-
 		function () {
-			xUnwords(self_())
+			xFromWords(self_())
 		}
-	this$x_Unwords... <-
+	this$x_FromWords... <-
 		function (...) {
-			xUnwords...(self_(), ...)
+			xFromWords...(self_(), ...)
 		}
 
  	# -------- V ------- #
 	# -------- W ------- #
-	# --- xWords --- #
-	this$xWords <-
+	# --- xToWords --- #
+	this$xToWords <-
 		function () {
-			x_( xWords(self_()) )
+			x_( xToWords(self_()) )
 		}
 
-	this$x_Words <-
+	this$x_ToWords <-
 		function () {
-			xWords(self_())
+			xToWords(self_())
 		}
 
 	this$xSlow <-

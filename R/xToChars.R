@@ -1,5 +1,5 @@
 
-#' xChars
+#' xToChars
 #'
 #' Split a single string into a vector of characters.
 #'
@@ -12,10 +12,10 @@
 #'
 #' @family character_functions
 #'
-#' @rdname xChars
+#' @rdname xToChars
 #' @export
 
-xChars <- function (str) {
+xToChars <- function (str) {
 	# str -> Vector str
 	# split str at every character, returning
 	# a character vector of equal or greater length.

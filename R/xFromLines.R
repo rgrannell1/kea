@@ -1,5 +1,5 @@
 
-#' xUnlines
+#' xFromLines
 #'
 #' Collapase a character vector with newlines as delimiters.
 #'
@@ -17,19 +17,19 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xUnlines
+#' @rdname xFromLines
 #' @export
 
-xUnlines <- function (strs) {
+xFromLines <- function (strs) {
 	# Collection str -> str;
 	# collapse the collection of strs with a newline.
 
 	xImplode("\n", strs)
 }
 
-#' @rdname xUnlines
+#' @rdname xFromLines
 #' @export
 
-xUnlines... <- function (...) {
-	xUnlines(list(...))
+xFromLines... <- function (...) {
+	xFromLines(list(...))
 }

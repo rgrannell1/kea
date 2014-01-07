@@ -1,5 +1,5 @@
 
-#' xLines
+#' xToLines
 #'
 #' Split a string at every newline character.
 #'
@@ -11,10 +11,10 @@
 #'
 #' @family character_functions
 #'
-#' @rdname xLines
+#' @rdname xToLines
 #' @export
 
-xLines <- function (str) {
+xToLines <- function (str) {
 	# str -> Vector str
 	# split str at every newline, returning
 	# a character vector of equal or greater length.

@@ -1,11 +1,11 @@
-\name{xSplit}
-\alias{xSplit}
-\alias{xSplit...}
-\title{xSplit}
+\name{xSplitAt}
+\alias{xSplitAt}
+\alias{xSplitAt...}
+\title{xSplitAt}
 \usage{
-xSplit(num, coll)
+xSplitAt(num, coll)
 
-xSplit...(num, ...)
+xSplitAt...(num, ...)
 }
 \arguments{
   \item{num}{a nonnegative whole number.}

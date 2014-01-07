@@ -27,15 +27,15 @@ message('test that every method has an unchaining version.')
 			xI,
 		as_variadic =
 			base := {
-				xUnchars...(base, '...')
+				xFromChars...(base, '...')
 			},
 		as_unchaining =
 			base := {
-				xUnchars...('x_', xSubstring(base, -1))
+				xFromChars...('x_', xSubstring(base, -1))
 			},
 		as_variadic_unchaining =
 			base := {
-			xUnchars...('x_', xSubstring(base, -1), '...')
+			xFromChars...('x_', xSubstring(base, -1), '...')
 		}
 	)
 

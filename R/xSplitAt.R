@@ -33,7 +33,7 @@
 #' @rdname xSplitAt
 #' @export
 
-xSplitAt<- function (num, coll) {
+xSplitAt <- function (num, coll) {
 	# number -> Collection any -> [[any], [any]]
 	# take the first n values of collection.
 
@@ -73,9 +73,9 @@ xSplitAt<- function (num, coll) {
 	}
 }
 
-#' @rdname xSplit
+#' @rdname xSplitAt
 #' @export
 
-xSplit... <- function (num, ...) {
-	xSplit(num, list(...))
+xSplitAt... <- function (num, ...) {
+	xSplitAt(num, list(...))
 }

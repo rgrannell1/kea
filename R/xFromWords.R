@@ -1,5 +1,5 @@
 
-#' xUnwords
+#' xFromWords
 #'
 #' Collapase a character vector with spaces as delimiters.
 #'
@@ -17,19 +17,19 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xUnwords
+#' @rdname xFromWords
 #' @export
 
-xUnwords <- function (strs) {
+xFromWords <- function (strs) {
 	# Collection str -> str
 	# collapse the collection strs with a space.
 
 	xImplode(" ", strs)
 }
 
-#' @rdname xUnwords
+#' @rdname xFromWords
 #' @export
 
-xUnwords... <- function (...) {
+xFromWords... <- function (...) {
 	xImplode(" ", list(...))
 }

@@ -39,7 +39,7 @@ Issue Tracker
 
 ### Done:
 
-- [x] #1 xLines and related function '' == character(0)? This may be wrong.
+- [x] #1 xToLines and related function '' == character(0)? This may be wrong.
 - [x] #2 bug in xSubstring('', 1); returns "NA", not error.
 - [x] #6 make number functions generic, and operate on lists/pairlists of numbers too.
 - [x] #7 ensure all function that take a collection/vector take a list or pairlist of length-one elements.

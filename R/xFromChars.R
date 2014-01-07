@@ -1,5 +1,5 @@
 
-#' xUnchars
+#' xFromChars
 #'
 #' Collapase a character vector with empty strs as delimiters.
 #'
@@ -17,19 +17,19 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xUnchars
+#' @rdname xFromChars
 #' @export
 
-xUnchars <- function (strs) {
+xFromChars <- function (strs) {
 	# Collection str -> str
 	# collapse the collection strs with the empty str.
 
 	xImplode("", strs)
 }
 
-#' @rdname xUnchars
+#' @rdname xFromChars
 #' @export
 
-xUnchars... <- function (...) {
+xFromChars... <- function (...) {
 	xImplode("", list(...))
 }

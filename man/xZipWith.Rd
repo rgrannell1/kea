@@ -43,8 +43,8 @@ Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
 \code{\link{xSegment}}, \code{\link{xSegment...}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
+\code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
-\code{\link{xSplit}}, \code{\link{xSplit...}};
 \code{\link{xZip}}, \code{\link{xZip...}}
 }
 
