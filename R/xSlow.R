@@ -1,5 +1,5 @@
 
-#' xWait
+#' xSlow
 #'
 #' Delay the evalution of a function after invokation
 #' for a set amount of time.
@@ -20,10 +20,10 @@
 #'
 #' @family time_functions
 #'
-#' @rdname xWait
+#' @rdname xSlow
 #' @export
 
-xWait <- function (fn, num) {
+xSlow <- function (fn, num) {
 	# function -> number -> function
 
 	invoking_call <- sys.call()

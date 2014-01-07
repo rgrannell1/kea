@@ -2,7 +2,7 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message("xWait")
+message("xSlow")
 
 	forall(
 		"wait forces stopwatch to return false if held too long.",
@@ -10,7 +10,7 @@ message("xWait")
 		{
 
 			num <- num / 100
-			!xWait( xStopwatch(num), num + 0.1 )()
+			!xSlow( xStopwatch(num), num + 0.1 )()
 		},
 		max_time = 1
 	)

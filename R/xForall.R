@@ -1,7 +1,7 @@
 
 #' xForall
 #'
-#' Does ever selection of arguments satisfy a predicate?
+#' Does every selection of arguments satisfy a predicate?
 #'
 #' @param
 #'    pred an n-ary predicate.

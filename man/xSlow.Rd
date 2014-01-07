@@ -1,8 +1,8 @@
-\name{xWait}
-\alias{xWait}
-\title{xWait}
+\name{xSlow}
+\alias{xSlow}
+\title{xSlow}
 \usage{
-xWait(fn, num)
+xSlow(fn, num)
 }
 \arguments{
   \item{fn}{an arbitrary function.}

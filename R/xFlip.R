@@ -32,6 +32,8 @@ xFlip <- function (fn) {
 			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
+	fn <- xAsClosure(fn)
+
 	remove(invoking_call)
 
 	do.call('function', list(

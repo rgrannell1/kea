@@ -18,7 +18,7 @@ xForall...(pred, ...)
 a boolean value.
 }
 \description{
-Does ever selection of arguments satisfy a predicate?
+Does every selection of arguments satisfy a predicate?
 }
 \section{Corner Cases}{
   if any collection is length zero (or no collections are
