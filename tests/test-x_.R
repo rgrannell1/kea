@@ -180,7 +180,7 @@ message('test that every function has methods.')
 
 			if (method != 'x') {
 
-				params <- xParams(match.fun(method))
+				params <- xParamsOf(match.fun(method))
 
 				# try to guess what prototype the function should belong to
 				# based on the (rather systematic) parametre names.

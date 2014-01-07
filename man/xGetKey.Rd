@@ -17,9 +17,9 @@ Return a function that selects a key from a collection.
   returns the empty list if \code{coll} is length-zero.
 }
 \seealso{
-Other name_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xDissoc}},
-\code{\link{xDissoc...}}; \code{\link{xName}};
+Other name_functions: \code{\link{xAsNamed}};
+\code{\link{xAssoc}}, \code{\link{xAssoc...}};
+\code{\link{xDissoc}}, \code{\link{xDissoc...}};
 \code{\link{xPluck}}, \code{\link{xPluck...}}
 
 Other selection_functions: \code{\link{xDropWhile}},

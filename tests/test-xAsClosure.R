@@ -18,7 +18,7 @@ message("xAsClosure")
 		test_cases$base_primitive,
 		{
 			closure <- xAsClosure(fn)
-			xFormals(closure) %equals% xFormals(fn)
+			xFormalsOf(closure) %equals% xFormalsOf(fn)
 		}
 	)
 

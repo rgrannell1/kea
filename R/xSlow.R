@@ -54,7 +54,7 @@ xSlow <- function (fn, num) {
 	} else {
 
 		do.call("function", list(
-			as.pairlist(xFormals(fn)),
+			as.pairlist(xFormalsOf(fn)),
 			bquote({
 				Sys.sleep(num)
 				.( call_with_params("fn", fn) )

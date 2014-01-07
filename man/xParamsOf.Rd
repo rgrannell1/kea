@@ -1,8 +1,8 @@
-\name{xParams}
-\alias{xParams}
-\title{xParams}
+\name{xParamsOf}
+\alias{xParamsOf}
+\title{xParamsOf}
 \usage{
-xParams(fn)
+xParamsOf(fn)
 }
 \arguments{
   \item{fn}{an arbitrary function or primitive function.}
@@ -22,7 +22,7 @@ function.
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xFlip}};
-\code{\link{xFormals}}; \code{\link{xIsVariadic}};
+\code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
 \code{\link{xPartial}}, \code{\link{xPartial...}}
 }
 

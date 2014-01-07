@@ -41,7 +41,7 @@ xAsClosure <- function (fn) {
 	if (is.primitive(fn)) {
 
 		do.call("function", list(
-			as.pairlist(xFormals(fn)),
+			as.pairlist(xFormalsOf(fn)),
 			bquote({
 				.(call_with_params("fn", fn))
 			})

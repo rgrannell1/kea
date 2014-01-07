@@ -42,7 +42,7 @@ xArity <- function (fn) {
 			fn, summate(fn)) )
 
 	fn <- match.fun(fn)
-	fn_params <- names(xFormals(fn))
+	fn_params <- names(xFormalsOf(fn))
 
 	if ("..." %in% fn_params) {
 		+Inf

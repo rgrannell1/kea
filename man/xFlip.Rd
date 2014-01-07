@@ -28,8 +28,8 @@ Other function_modifying_functions:
 \code{\link{xVectorize}}
 
 Other parametre_functions: \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xFormals}};
-\code{\link{xIsVariadic}}; \code{\link{xParams}};
+\code{\link{xAsVariadic}}; \code{\link{xFormalsOf}};
+\code{\link{xIsVariadic}}; \code{\link{xParamsOf}};
 \code{\link{xPartial}}, \code{\link{xPartial...}}
 }
 

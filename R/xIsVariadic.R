@@ -31,6 +31,6 @@ xIsVariadic <- function (fn) {
 
 	fn <- match.fun(fn)
 
-	"..." %in% xParams(fn)
+	"..." %in% xParamsOf(fn)
 
 }

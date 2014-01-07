@@ -37,7 +37,7 @@ xFlip <- function (fn) {
 	remove(invoking_call)
 
 	do.call('function', list(
-		as.pairlist(rev( xFormals(fn) )),
+		as.pairlist(rev( xFormalsOf(fn) )),
 		body(fn)
 	))
 }

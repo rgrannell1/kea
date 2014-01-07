@@ -33,10 +33,10 @@ fields in each element by name.
 
 }
 \seealso{
-Other name_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xDissoc}},
-\code{\link{xDissoc...}}; \code{\link{xGetKey}};
-\code{\link{xName}}
+Other name_functions: \code{\link{xAsNamed}};
+\code{\link{xAssoc}}, \code{\link{xAssoc...}};
+\code{\link{xDissoc}}, \code{\link{xDissoc...}};
+\code{\link{xGetKey}}
 
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

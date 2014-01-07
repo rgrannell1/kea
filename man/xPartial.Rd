@@ -45,7 +45,7 @@ Other function_modifying_functions:
 
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xFlip}};
-\code{\link{xFormals}}; \code{\link{xIsVariadic}};
-\code{\link{xParams}}
+\code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
+\code{\link{xParamsOf}}
 }
 

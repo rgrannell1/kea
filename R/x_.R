@@ -1355,23 +1355,23 @@ x_coll_proto <- local({
 			xLast...(self_(), ...)
 		}
 
-	# --- xLength --- #
-	this$xLength <-
+	# --- xLenOf --- #
+	this$xLenOf <-
 		function () {
-			x_( xLength(self_()) )
+			x_( xLenOf(self_()) )
 		}
-	this$xLength... <-
+	this$xLenOf... <-
 		function (...) {
-			x_( xLength...(self_(), ...) )
+			x_( xLenOf...(self_(), ...) )
 		}
 
-	this$x_Length <-
+	this$x_LenOf <-
 		function () {
-			xLength(self_())
+			xLenOf(self_())
 		}
-	this$x_Length... <-
+	this$x_LenOf... <-
 		function (...) {
-			xLength...(self_(), ...)
+			xLenOf...(self_(), ...)
 		}
 	# --- xLimit --- #
 	this$xLimit <-
@@ -1537,15 +1537,15 @@ x_coll_proto <- local({
 		}
 
 	# -------- N ------- #
-	# --- xName --- #
-	this$xName <-
+	# --- xAsNamed --- #
+	this$xAsNamed <-
 		function (strs) {
-			x_( xName(strs, coll = self_()) )
+			x_( xAsNamed(strs, coll = self_()) )
 		}
 
-	this$x_Name <-
+	this$x_AsNamed <-
 		function (strs) {
-			xName(strs, coll = self_())
+			xAsNamed(strs, coll = self_())
 		}
 
 	# --- xNegate --- #
@@ -2703,15 +2703,15 @@ x_fn_proto <- local({
 			xFoldList...(self_(), val, ...)
 		}
 
-	# --- xFormals --- #
-	this$xFormals <-
+	# --- xFormalsOf --- #
+	this$xFormalsOf <-
 		function () {
-			x_( xFormals(self_()) )
+			x_( xFormalsOf(self_()) )
 		}
 
-	this$x_Formals <-
+	this$x_FormalsOf <-
 		function () {
-			xFormals(self_())
+			xFormalsOf(self_())
 		}
 
 	# -------- G ------- #
@@ -2965,15 +2965,15 @@ x_fn_proto <- local({
 			xPartition...(self_(), ...)
 		}
 
-	# --- xParams --- #
-	this$xParams <-
+	# --- xParamsOf --- #
+	this$xParamsOf <-
 		function () {
-			x_( xParams(self_()) )
+			x_( xParamsOf(self_()) )
 		}
 
-	this$x_Params <-
+	this$x_ParamsOf <-
 		function () {
-			xParams(self_())
+			xParamsOf(self_())
 		}
 
 	# --- xPartial --- #

@@ -1,11 +1,11 @@
-\name{xLength}
-\alias{xLength}
-\alias{xLength...}
-\title{xLength}
+\name{xLenOf}
+\alias{xLenOf}
+\alias{xLenOf...}
+\title{xLenOf}
 \usage{
-xLength(coll)
+xLenOf(coll)
 
-xLength...(...)
+xLenOf...(...)
 }
 \arguments{
   \item{coll}{a collection}

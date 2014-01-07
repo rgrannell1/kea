@@ -33,9 +33,9 @@ Convert a list of name, value pairs into a named list.
 
 }
 \seealso{
-Other name_functions: \code{\link{xDissoc}},
-\code{\link{xDissoc...}}; \code{\link{xGetKey}};
-\code{\link{xName}}; \code{\link{xPluck}},
+Other name_functions: \code{\link{xAsNamed}};
+\code{\link{xDissoc}}, \code{\link{xDissoc...}};
+\code{\link{xGetKey}}; \code{\link{xPluck}},
 \code{\link{xPluck...}}
 
 Other reshaping_functions: \code{\link{xDissoc}},

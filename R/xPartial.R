@@ -56,7 +56,7 @@ xPartial <- function (fn, coll) {
 	fn <- match.fun(fn)
 
 	assert(
-		all(names(coll) %in% xParams(fn)), invoking_call,
+		all(names(coll) %in% xParamsOf(fn)), invoking_call,
 		exclaim$must_be_params_of(
 			names(coll), fn) )
 
@@ -67,8 +67,8 @@ xPartial <- function (fn, coll) {
 	} else {
 
 		do.call("function", list(
-			as.pairlist( xFormals(fn)[
-				!(xParams(fn) %in% names(coll)) ] ),
+			as.pairlist( xFormalsOf(fn)[
+				!(xParamsOf(fn) %in% names(coll)) ] ),
 			bquote({
 				# the fundemental unit of lisp-like
 				# computation; LE PARENTHESIS!
@@ -80,7 +80,7 @@ xPartial <- function (fn, coll) {
 					as.call(c(
 						as.symbol('fn'),
 						lapply(
-							xParams(fn),
+							xParamsOf(fn),
 							function (param) {
 								"a function returned by xPartial."
 								""

@@ -1,5 +1,5 @@
 
-#' xFormals
+#' xFormalsOf
 #'
 #' Get the parametres and defaults of a function or primitive function.
 #'
@@ -18,10 +18,10 @@
 #'
 #' @family parametre_functions
 #'
-#' @rdname xFormals
+#' @rdname xFormalsOf
 #' @export
 
-xFormals <- function (fn) {
+xFormalsOf <- function (fn) {
 	# (a -> b) -> [a, b]
 	# get the formals of non-primitive functions, and
 	# the arguments of primitive functions.

@@ -1,8 +1,8 @@
-\name{xName}
-\alias{xName}
-\title{xName}
+\name{xAsNamed}
+\alias{xAsNamed}
+\title{xAsNamed}
 \usage{
-xName(strs, coll)
+xAsNamed(strs, coll)
 }
 \arguments{
   \item{strs}{a collection of strings.}

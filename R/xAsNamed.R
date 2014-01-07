@@ -1,5 +1,5 @@
 
-#' xName
+#' xAsNamed
 #'
 #' Add names to a collection.
 #'
@@ -20,10 +20,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xName
+#' @rdname xAsNamed
 #' @export
 
-xName <- function (strs, coll) {
+xAsNamed <- function (strs, coll) {
 	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 

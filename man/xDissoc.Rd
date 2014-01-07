@@ -30,9 +30,9 @@ Split a named list into a list of name: value list pairs.
 
 }
 \seealso{
-Other name_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xGetKey}};
-\code{\link{xName}}; \code{\link{xPluck}},
+Other name_functions: \code{\link{xAsNamed}};
+\code{\link{xAssoc}}, \code{\link{xAssoc...}};
+\code{\link{xGetKey}}; \code{\link{xPluck}},
 \code{\link{xPluck...}}
 
 Other reshaping_functions: \code{\link{xAssoc}},

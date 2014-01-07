@@ -49,10 +49,10 @@ xMapMany <- function (fn, colls) {
 	if (length(colls) == 0 || 0 %in% coll_lens) {
 		list()
 	} else {
-		max_length <- max(coll_lens)
+		max_LenOf <- max(coll_lens)
 
 		lapply(
-			seq_len(max_length),
+			seq_len(max_LenOf),
 			function (ind) {
 
 				tuple <- lapply(

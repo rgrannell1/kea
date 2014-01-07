@@ -1,5 +1,5 @@
 
-#' xLength
+#' xLenOf
 #'
 #' Get the length of a collection
 #'
@@ -18,10 +18,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xLength
+#' @rdname xLenOf
 #' @export
 
-xLength <- function (coll) {
+xLenOf <- function (coll) {
 	# Collection a -> integer
 	# get the length of a collection.
 
@@ -39,9 +39,9 @@ xLength <- function (coll) {
 	length(coll)
 }
 
-#' @rdname xLength
+#' @rdname xLenOf
 #' @export
 
-xLength... <- function (...) {
-	xLength(list(...))
+xLenOf... <- function (...) {
+	xLenOf(list(...))
 }

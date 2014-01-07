@@ -65,7 +65,7 @@ xLimit <- function (fn, num) {
 	.count <- 0
 
 	do.call( 'function', list(
-		as.pairlist(xFormals(fn)),
+		as.pairlist(xFormalsOf(fn)),
 		bquote({
 			"a function created by xLimit."
 			""

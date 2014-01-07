@@ -33,7 +33,7 @@ Issue Tracker
 - [ ] #30 should has defaults return names? list?
 - [ ] #46 Issue in xreject. Error in vapply(coll, pred, logical(1)) : values must be length 1,
  but FUN(X[[1]]) result is length 0
- - [] #55 xNames in cran example ins't working.
+ - [] #55 xAsNameds in cran example ins't working.
 
 ### Misc:
 
@@ -70,7 +70,7 @@ Issue Tracker
 - [x] #36 implement sleep.
 - [x] #38 implement timer.
 - [x] #42 implement xForall.
-- [x] #49 implement xNames; name a list.
+- [x] #49 implement xAsNameds; name a list.
 - [x] #48 implement Juxtapose
 - [x] #47 implement pickone, sample/
 - [x] #39 implement cartesian product, and xExists.
