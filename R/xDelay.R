@@ -56,6 +56,8 @@ xDelay <- function (fn, num) {
 		do.call("function", list(
 			as.pairlist(xFormalsOf(fn)),
 			bquote({
+				"A function created by xDelay."
+				""
 				Sys.sleep(num)
 				.( call_with_params("fn", fn) )
 			})

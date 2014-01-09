@@ -2,6 +2,8 @@
 if (Sys.info()["user"] == "ryan") {
 	# avoid running on CRAN
 
+	N_values <- 2^(1:10)
+
 	collated_timings <- list()
 
 	suffix_regex <- "^bench[-][^-]+[^.]+[.][rR]"
@@ -9,9 +11,7 @@ if (Sys.info()["user"] == "ryan") {
 	path <- "/home/ryan/Code/Arrow/arrow/inst/benchmarks"
 
 	all_benchmarks <- paste0(path, "/", list.files(
-		path,
-		suffix_regex
-	))
+		path, suffix_regex))
 
 	source(paste0(path, "/tools-bench.R"))
 	sapply(all_benchmarks, source)
@@ -22,9 +22,9 @@ if (Sys.info()["user"] == "ryan") {
 	time_series <- do.call(rbind, unname(Map(
 		function (fn_name) {
 
-			N_values <- 2^(1:10)
 			fn <- match_fn(fn_name)
 
+			cat(fn_name %+% '\n')
 			do.call(rbind, lapply(N_values, function (N) {
 
 				times <- fn(N)
@@ -36,7 +36,6 @@ if (Sys.info()["user"] == "ryan") {
 						mean(times$diff$upper, times$diff$lower))
 			}) )
 
-			cat(fn_name %+% '\n')
 
 		},
 		ls(pattern = 'bench_')
@@ -47,17 +46,18 @@ if (Sys.info()["user"] == "ryan") {
 	ggplot(time_series) +
 	geom_line(
 		aes(
-			x = N_values,
+			x = N,
 			y = mean_multiplier,
 			group = info,
 			colour = info,
 			alpha = 1 / mean_multiplier)) +
 	geom_point(
 		aes(
-			x = N_values,
+			x = N,
 			y = mean_multiplier,
 			group = info,
 			colour = info,
+			size = 6,
 			alpha = 1 / mean_multiplier)) +
 	xlab("N") + ylab("times slower than control") +
 	ggtitle("runtime(profiled) / runtime(control) versus changes in N")

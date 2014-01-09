@@ -34,11 +34,6 @@ xGetKey <- function (str) {
 		exclaim$must_be_character(
 			str, summate(str)) )
 
-	assert(
-		length(str) %in% 0:1, invoking_call,
-		exclaim$must_have_length(
-			str, 0:1, summate(str)) )
-
 	str <- as_typed_vector(str, 'character', True)
 
 	function (coll) {

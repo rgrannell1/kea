@@ -70,6 +70,8 @@ xPartial <- function (fn, coll) {
 			as.pairlist( xFormalsOf(fn)[
 				!(xParamsOf(fn) %in% names(coll)) ] ),
 			bquote({
+				"a function returned by xPartial."
+				""
 				# the fundemental unit of lisp-like
 				# computation; LE PARENTHESIS!
 				# for the love of god, do not ask how this code works,
@@ -82,8 +84,6 @@ xPartial <- function (fn, coll) {
 						lapply(
 							xParamsOf(fn),
 							function (param) {
-								"a function returned by xPartial."
-								""
 								if (param %in% names(coll)) {
 									coll[[param]]
 								} else {

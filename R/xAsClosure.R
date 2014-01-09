@@ -43,6 +43,8 @@ xAsClosure <- function (fn) {
 		do.call("function", list(
 			as.pairlist(xFormalsOf(fn)),
 			bquote({
+				"A function created by xAsClosure."
+				""
 				.(call_with_params("fn", fn))
 			})
 		))

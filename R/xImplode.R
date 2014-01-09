@@ -49,10 +49,6 @@ xImplode <- function (str, strs) {
 
 	strs <- as_typed_vector(strs, 'character')
 
-	assert(
-		length(str) %in% 0:1,
-		exclaim$must_have_length(str, 0:1) )
-
 	if (length(strs) == 0) {
 		character()
 	} else {

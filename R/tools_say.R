@@ -343,6 +343,7 @@ exclaim <- list(
 # -------------------------------- proclaim -------------------------------- #
 #
 # To Developers,
+#
 # lament is virtually identical to exclaim in its implementation and purpose,
 # except that it is used for the error messages that xLambda and only xLambda
 # generates; there is no point bloating exclaim.
@@ -376,6 +377,7 @@ proclaim <- list(
 # -------------------------------- lament -------------------------------- #
 #
 # To Developers,
+#
 # lament is virtually identical to exclaim in its implementation and purpose,
 # except that it is not used by the core arrow library; it is used by the
 # forall( ) function, for throwing its errors.

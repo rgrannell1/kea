@@ -25,12 +25,7 @@ xToWords <- function (str) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
-	str <- as_typed_vector(str, 'character', True)
-
-	assert(
-		length(str) %in% 0:1, invoking_call,
-		exclaim$must_have_length(
-			str, 0:1, summate(str)) )
+	str <- as_typed_vector(str, 'character')
 
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)

@@ -159,7 +159,9 @@ is_recursive <- function (val) {
 	is.list(val) || is.pairlist(val)
 }
 
-
+maybe_atomic <- function (val) {
+	length(val) %in% 0:1
+}
 
 
 

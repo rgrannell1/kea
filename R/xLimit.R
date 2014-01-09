@@ -46,11 +46,6 @@ xLimit <- function (fn, num) {
 	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(
-		length(num) %in% 0:1, invoking_call,
-		exclaim$must_have_length(
-			num, 0:1, summate(num)) )
-
-	assert(
 		num > 0, invoking_call,
 		exclaim$must_be_whole(
 			num, summate(num)) )
