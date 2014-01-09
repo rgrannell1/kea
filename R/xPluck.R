@@ -57,7 +57,7 @@ xPluck <- function (str, coll) {
 			coll, summate(coll)) )
 
 	assert(
-		all(sapply(coll, is_recursive)), invoking_call,
+		all( vapply(coll, is_recursive, logical(1)) ), invoking_call,
 		exclaim$must_be_recursive_of_collections(
 			coll, summate(coll)) )
 

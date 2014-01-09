@@ -43,7 +43,7 @@ xIterate <- function (fn, val) {
 		exclaim$must_be_non_primitive(
 			fn, summate(fn)))
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	callCC(function (Return) {
 

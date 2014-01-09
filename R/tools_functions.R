@@ -89,6 +89,9 @@ modify_call <- function (invoking_call) {
 
 }
 
+# to dedottify my code.
+match_fn <- match.fun
+
 # --------------------- environment manipulation --------------------- #
 
 Object <- function () {

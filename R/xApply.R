@@ -63,7 +63,7 @@ xApply <- function (fn, coll) {
 		exclaim$must_be_collection(
 			coll, summate(coll)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	try_higher_order(
 		eval(

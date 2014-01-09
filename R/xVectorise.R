@@ -34,7 +34,7 @@ xVectorise <- function (fn) {
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	function (coll) {
 		"a function created by xVectorise."

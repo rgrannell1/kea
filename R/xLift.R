@@ -51,12 +51,12 @@ xLift <- function (fn, fns) {
 			fns, summate(fns)) )
 
 	assert(
-		all(sapply(fns, is_fn_matchable)), invoking_call,
+		all( vapply(fns, is_fn_matchable, logical(1)) ), invoking_call,
 		exclaim$must_be_recursive_of_matchable(
 			fns, summate(fns)) )
 
-	fn <- match.fun(fn)
-	fns <- lapply(fns, match.fun)
+	fn <- match_fn(fn)
+	fns <- lapply(fns, match_fn)
 
 	function (...) {
 		"A function created by xLift."

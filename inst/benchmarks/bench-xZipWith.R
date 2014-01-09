@@ -4,7 +4,7 @@ bench_xZipWith <- function (N) {
 	time_profile(
 		free =
 			function () {
-				xZipWith(function (n) Null, seq_len(N))
+				xZipWith( function (n) Null, list(seq_len(N)) )
 			},
 		control =
 			function () {

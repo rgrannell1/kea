@@ -42,12 +42,12 @@ xForall <- function (pred, colls) {
 		exclaim$must_be_matchable(
 			pred, summate(pred)) )
 
-	pred <- match.fun(pred)
+	pred <- match_fn(pred)
 
 	assert(
 		all(sapply(colls, is_collection)), invoking_call)
 
-	coll_lengths <- sapply(colls, length)
+	coll_lengths <- vapply(colls, length, integer(1))
 
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		logical(0)

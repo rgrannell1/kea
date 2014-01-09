@@ -13,7 +13,7 @@ xSignum...(...)
   \item{...}{see above.}
 }
 \value{
-a vector of elements in the set \code{{-1, 0, +1}}.
+a integer vector of elements in the set \code{{-1, 0, +1}}.
 }
 \description{
 Get the sign of a vector of numbers.

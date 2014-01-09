@@ -63,7 +63,7 @@ xFoldr <- function (fn, val, coll) {
 		exclaim$must_be_collection(
 			coll, summate(coll)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	if (length(coll) == 0) {
 		val

@@ -568,7 +568,7 @@ test_cases <- local({
 
 	this$sum_over_integers <-
 		list(
-			fn = function () match.fun("+"),
+			fn = function () match_fn("+"),
 			coll = compounds$integers())
 
 	this$id_over_collection_zero <-
@@ -778,7 +778,7 @@ forall <- function (info = "", cases, expect, given, max_time = 0.1) {
 		lament$null_cases(info))
 
 	assert(
-		all( sapply(cases, is.function) ), invoking_call,
+		all( vapply(cases, is.function, logical(1)) ), invoking_call,
 		lament$non_function_cases(info))
 
 	# ----- capture the expect and given expressions as functions

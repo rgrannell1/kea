@@ -63,8 +63,8 @@ xMapWhen <- function (pred, fn, coll) {
 		exclaim$must_be_collection(
 			coll, summate(coll)) )
 
-	pred <- match.fun(pred)
-	fn <- match.fun(fn)
+	pred <- match_fn(pred)
+	fn <- match_fn(fn)
 
 	composite <- function (x) {
 		is_match <- pred(x)

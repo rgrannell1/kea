@@ -43,7 +43,7 @@ xPack <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		coll[sapply(coll, length) != 0]
+		coll[vapply(coll, length, integer(1)) != 0]
 	}
 }
 

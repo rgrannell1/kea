@@ -46,7 +46,7 @@ xDelay <- function (fn, num) {
 		exclaim$must_be_greater_than(
 			num, 0, summate(num)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 	remove(invoking_call)
 
 	if (num == 0) {

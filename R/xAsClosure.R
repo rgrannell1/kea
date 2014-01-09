@@ -36,7 +36,7 @@ xAsClosure <- function (fn) {
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	if (is.primitive(fn)) {
 

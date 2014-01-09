@@ -40,7 +40,7 @@ xAsUnary <- function (fn) {
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 	remove(invoking_call)
 
 	function (x) {

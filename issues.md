@@ -82,7 +82,7 @@ Issue Tracker
 
 ### Won't Fix
 
-- [x] #29 wrap all match.fun statements with xAsClosure(), for genericitiy.
+- [x] #29 wrap all match_fn statements with xAsClosure(), for genericitiy.
 Broken for certain primitives (c).
 - [x] #21 ensure that the right-hand of a x_()$method call is always a valid input for that method; currently
 collections can be type indeterminate; should be runtime error, not a issue raised by x_()

@@ -46,7 +46,7 @@ xAssoc <- function (colls) {
 			colls, summate(colls)) )
 
 	assert(
-		all(sapply(colls, length) == 2), invoking_call,
+		all( vapply(colls, length, integer(1)) == 2), invoking_call,
 		exclaim$must_be_collection_of_length(
 			colls, 2, summate(colls)) )
 

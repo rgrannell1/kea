@@ -39,7 +39,7 @@ xThread <- function (val, fns) {
 		exclaim$parametre_missing(val))
 
 	assert(
-		all(sapply(fns, is_fn_matchable)), invoking_call,
+		all( vapply(fns, is_fn_matchable, logical(1)) ), invoking_call,
 		exclaim$must_be_recursive_of_matchable(
 			fns, summate(fns)) )
 

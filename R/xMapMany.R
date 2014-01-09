@@ -42,9 +42,9 @@ xMapMany <- function (fn, colls) {
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
-	coll_lens <- sapply(colls, length)
+	coll_lens <- vapply(colls, length, integer(1))
 
 	if (length(colls) == 0 || 0 %in% coll_lens) {
 		list()

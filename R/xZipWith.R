@@ -51,12 +51,12 @@ xZipWith <- function (fn, colls) {
 			fn, summate(fn)) )
 
 	assert(
-		length( unique(sapply(colls, length)) ) == 1,
+		length(unique( vapply(colls, length, integer(1)) )) == 1,
 		invoking_call,
 		exclaim$must_be_collection_of_equal_lengths(
 			colls, summate(colls)) )
 
-	fn <- match.fun(fn)
+	fn <- match_fn(fn)
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()

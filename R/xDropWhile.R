@@ -53,7 +53,7 @@ xDropWhile <- function (pred, coll) {
 		exclaim$must_be_collection(
 			coll, summate(coll)) )
 
-	pred <- match.fun(pred)
+	pred <- match_fn(pred)
 
 	if (length(coll) == 0) {
 		list()

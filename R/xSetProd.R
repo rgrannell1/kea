@@ -35,11 +35,11 @@ xSetProd <- function (colls) {
 	invoking_call <- sys.call()
 
 	assert(
-		all( sapply(colls, is_collection)), invoking_call,
+		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
 		exclaim$must_be_collection_of_length(
 			colls, summate(colls)) )
 
-	coll_lengths <- sapply(colls, length)
+	coll_lengths <- vapply(colls, length, integer(1))
 
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		list()

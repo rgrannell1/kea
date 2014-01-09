@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'     a vector of elements in the set \code{{-1, 0, +1}}.
+#'     a integer vector of elements in the set \code{{-1, 0, +1}}.
 #'
 #' @section Corner Cases:
 #'	 If \code{nums} is lenth-zero then the unit of that vector is returned.
