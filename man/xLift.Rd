@@ -38,7 +38,7 @@ Other function_modifying_functions:
 \code{\link{xK}}; \code{\link{xFlip}};
 \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
 \code{\link{xNot}}; \code{\link{xPartial}},
-\code{\link{xPartial...}}; \code{\link{xSlow}};
+\code{\link{xPartial...}}; \code{\link{xDelay}};
 \code{\link{xThread}}, \code{\link{xThread...}};
 \code{\link{xVectorise}}, \code{\link{xVectorize}}
 }

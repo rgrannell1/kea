@@ -1,8 +1,8 @@
-\name{xSlow}
-\alias{xSlow}
-\title{xSlow}
+\name{xDelay}
+\alias{xDelay}
+\title{xDelay}
 \usage{
-xSlow(fn, num)
+xDelay(fn, num)
 }
 \arguments{
   \item{fn}{an arbitrary function.}
@@ -23,15 +23,15 @@ set amount of time.
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},
-\code{\link{xAsFunctionv}}; \code{\link{xAsUnary}};
+\code{\link{xAsFunction...}}; \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xCompose}},
-\code{\link{xComposev}}; \code{\link{xConst}},
+\code{\link{xCompose...}}; \code{\link{xConst}},
 \code{\link{xK}}; \code{\link{xFlip}};
-\code{\link{xJuxtapose}}, \code{\link{xJuxtaposev}};
-\code{\link{xLift}}, \code{\link{xLiftv}};
+\code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
+\code{\link{xLift}}, \code{\link{xLift...}};
 \code{\link{xNot}}; \code{\link{xPartial}},
-\code{\link{xPartialv}}; \code{\link{xThread}},
-\code{\link{xThreadv}}; \code{\link{xVectorise}},
+\code{\link{xPartial...}}; \code{\link{xThread}},
+\code{\link{xThread...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 
 Other time_functions: \code{\link{xLimit}};

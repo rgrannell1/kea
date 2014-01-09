@@ -23,7 +23,7 @@
 #' @export
 
 xSignum <- function (nums) {
-	# Collection number -> Vector number
+	# Collection number -> integers
 	# returns the sign of a number.
 
 	invoking_call <- sys.call()
@@ -43,10 +43,10 @@ xSignum <- function (nums) {
 		nums
 	} else {
 		get_sign <- function (num) {
-			if (num > 0) +1 else if (num == 0) 0 else -1
+			if (num > 0) +1L else if (num == 0) 0L else -1L
 		}
 
-		sapply(nums, get_sign)
+		vapply(nums, get_sign, integer(1))
 	}
 }
 

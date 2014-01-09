@@ -2309,14 +2309,14 @@ x_coll_proto <- local({
 			xToWords(self_())
 		}
 
-	this$xSlow <-
+	this$xDelay <-
 		function (fn) {
-			x_( xSlow(fn, self_()) )
+			x_( xDelay(fn, self_()) )
 		}
 
 	this$x_Wait <-
 		function (fn) {
-			xSlow(fn, self_())
+			xDelay(fn, self_())
 		}
 
 	# -------- X ------- #
@@ -3196,15 +3196,15 @@ x_fn_proto <- local({
 		}
 	# -------- W ------- #
 
-	# --- xSlow --- #
-	this$xSlow <-
+	# --- xDelay --- #
+	this$xDelay <-
 		function (num) {
-			x_( xSlow(self_(), num) )
+			x_( xDelay(self_(), num) )
 		}
 
 	this$x_Wait <-
 		function (num) {
-			xSlow(self_(), num)
+			xDelay(self_(), num)
 		}
 	# -------- X ------- #
 	# -------- Y ------- #

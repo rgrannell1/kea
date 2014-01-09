@@ -41,7 +41,7 @@ Other function_modifying_functions:
 \code{\link{xK}}; \code{\link{xFlip}}; \code{\link{xLift}},
 \code{\link{xLift...}}; \code{\link{xNot}};
 \code{\link{xPartial}}, \code{\link{xPartial...}};
-\code{\link{xSlow}}; \code{\link{xThread}},
+\code{\link{xDelay}}; \code{\link{xThread}},
 \code{\link{xThread...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }

@@ -24,6 +24,6 @@ creation.
 }
 \seealso{
 Other time_functions: \code{\link{xLimit}};
-\code{\link{xSlow}}
+\code{\link{xDelay}}
 }
 

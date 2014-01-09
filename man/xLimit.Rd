@@ -27,7 +27,7 @@ limited number of times.
   writing rate-limit checking boilerplate.
 }
 \seealso{
-Other time_functions: \code{\link{xSlow}};
+Other time_functions: \code{\link{xDelay}};
 \code{\link{xStopwatch}}
 }
 

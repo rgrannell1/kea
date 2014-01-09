@@ -7,19 +7,19 @@
 #'    fn a function.
 #'
 #' @param
-#'    init an arbitrary value.
+#'    val an arbitrary value.
 #'
 #' @section Corner Cases:
-#'    length-zero values of \code{init} are handled normally, since \code{init} is
+#'    length-zero values of \code{val} are handled normally, since \code{val} is
 #'    an arbitrary value. Potentially non-terminating.
 #'
 #' @return
-#'    the result of successively applying \code{f} to \code{init}.
+#'    the result of successively applying \code{f} to \code{val}.
 #'
 #' @rdname xIterate
 #' @export
 
-xIterate <- function (fn, init) {
+xIterate <- function (fn, val) {
 	# (any -> any) -> any
 	# iterate until higher-order returned.
 
@@ -30,8 +30,8 @@ xIterate <- function (fn, init) {
 		exclaim$parametre_missing(fn))
 
 	assert(
-		!missing(init), invoking_call,
-		exclaim$parametre_missing(init))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
@@ -53,8 +53,8 @@ xIterate <- function (fn, init) {
 		environment(fn) <- clone_env
 
 		repeat {
-			init <- try_higher_order(
-				fn(init),
+			val <- try_higher_order(
+				fn(val),
 				invoking_call)
 		}
 	})

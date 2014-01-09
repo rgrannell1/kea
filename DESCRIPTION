@@ -114,7 +114,7 @@ Collate:
     'xDissoc.R'
     'x_.R'
     'xFlatten.R'
-    'xSlow.R'
+    'xDelay.R'
     'xStopwatch.R'
     'xExists.R'
     'xForall.R'

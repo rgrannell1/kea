@@ -36,6 +36,8 @@ if (Sys.info()["user"] == "ryan") {
 						mean(times$diff$upper, times$diff$lower))
 			}) )
 
+			cat(fn_name %+% '\n')
+
 		},
 		ls(pattern = 'bench_')
 	)) )

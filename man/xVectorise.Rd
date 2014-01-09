@@ -29,7 +29,7 @@ Other function_modifying_functions:
 \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
 \code{\link{xLift}}, \code{\link{xLift...}};
 \code{\link{xNot}}; \code{\link{xPartial}},
-\code{\link{xPartial...}}; \code{\link{xSlow}};
+\code{\link{xPartial...}}; \code{\link{xDelay}};
 \code{\link{xThread}}, \code{\link{xThread...}}
 
 Other mapping_functions: \code{\link{xDeepMap}},
