@@ -3,8 +3,8 @@
 #    so it can't accidentally be updated.
 
 consts <- list(
-	pi = 3.14,
-	golden = 1.618
+    pi = 3.14,
+    golden = 1.618
 )
 
 xAsVal(consts)

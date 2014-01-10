@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a length-one character vector.
+#'    A length-one character vector.
 #'
 #' @family character_functions
 #'

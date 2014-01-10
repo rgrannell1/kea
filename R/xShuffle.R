@@ -1,7 +1,7 @@
 
 #' xShuffle
 #'
-#' Permute a collection.
+#' Randomly rearrange a collection.
 #'
 #' @param
 #'     coll a collection
@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'     a list.
+#'     A list.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.

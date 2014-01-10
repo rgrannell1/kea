@@ -4,11 +4,17 @@
 #' Return a variadic function that passes its arguments
 #' as a list to ints underyling function.
 #'
+#' @details
+#'    \code{xAsVariadic} takes a unary function, and
+#'    returns a function with ellipsis parametres.
+#'    The returned function passes its ellipsis arguments
+#'    as a single list to the underlying function.
+#'
 #' @param
 #'    fn a unary function.
 #'
 #' @return
-#'    a variadic function.
+#'    A variadic function.
 #'
 #' @family function_modifying_functions
 #'
@@ -21,7 +27,6 @@
 #'
 #' @rdname xAsVariadic
 #' @export
-
 
 xAsVariadic <- function (fn) {
 	# (a -> b) -> (... -> b)

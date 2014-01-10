@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    returns a list.
+#'    Returns a list.
 #'
 #' @section Corner Cases:
 #'    the empty list is returned if the shortest collection

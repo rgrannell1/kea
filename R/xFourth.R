@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    the fourth value in \code{coll}.
+#'    The fourth value in \code{coll}.
 #'
 #' @section Corner Cases:
 #'    throws an error if \code{coll} has less than four element; this is

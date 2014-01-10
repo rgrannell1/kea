@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a variadic function.
+#'    A variadic function.
 #'
 #' @section Corner Cases:
 #'    If no functions are provided the empty list is returned.

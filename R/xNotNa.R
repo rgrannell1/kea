@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a vector of true/false values.
+#'    A vector of true/false values.
 #'
 #' @section Corner Cases:
 #'    returns logical(0) if \code{coll} is length-zero.

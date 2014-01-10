@@ -16,7 +16,7 @@
 #'    pred a predicate of any arity.
 #'
 #' @return
-#'    a predicate function of val.
+#'    A predicate function of val.
 #'
 #' @family function_modifying_functions
 #'

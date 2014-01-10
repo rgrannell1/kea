@@ -14,11 +14,10 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'	  Returns the emty list if \code{coll} is length-zero.
-#'
 #'
 #' @family selection_functions
 #'

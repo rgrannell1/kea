@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a boolean value.
+#'    A boolean value.
 #'
 #' @template
 #'    Variadic

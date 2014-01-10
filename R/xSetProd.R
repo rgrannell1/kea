@@ -11,7 +11,7 @@
 #'
 #'
 #' @return
-#'     a list of n-element lists.
+#'     A list of n-element lists.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.

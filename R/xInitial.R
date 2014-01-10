@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @family selection_functions
 #'

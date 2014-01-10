@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    empty collections act as a unit for concatenation;

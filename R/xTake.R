@@ -12,7 +12,8 @@
 #' @param
 #'     coll a collection
 #'
-#' @return a list.
+#' @return
+#'     A list.
 #'
 #' @section Corner Cases:
 #'    If \code{coll} is empty the empty list is returned.

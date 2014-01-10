@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a boolean value.
+#'    A boolean value.
 #'
 #' @section Corner Cases:
 #'    if any collection is length zero (or no collections are given),

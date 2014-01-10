@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a function that takes one or more indices.
+#'    A function that takes one or more indices.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll is length-zero}.

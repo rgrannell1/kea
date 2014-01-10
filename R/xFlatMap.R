@@ -13,7 +13,8 @@
 #' @param
 #'    ... see above.
 #'
-#' @return a list.
+#' @return
+#'    A list.
 #'
 #' @section Corner Cases:
 #'	  returns the empty list if \code{coll}

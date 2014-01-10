@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a nonnegative integer.
+#'    A nonnegative integer.
 #'
 #' @section Corner Cases:
 #'     returns zero if \code{coll} is empty.

@@ -13,11 +13,10 @@
 #'    ... see above.
 #'
 #' @return
-#'    an length-one or length-zero whole number.
+#'    An length-one or length-zero whole number.
 #'
 #' @section Corner Cases:
 #'     returns integer(0) if no match is found.
-#'
 #'
 #' @template
 #'    Variadic

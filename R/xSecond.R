@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    the second element in \code{coll}.
+#'    The second element in \code{coll}.
 #'
 #' @section Corner Cases:
 #'    throws an error if \code{coll} has less than two

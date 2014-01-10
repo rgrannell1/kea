@@ -22,7 +22,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    the return value of \code{fn}.
+#'    The return value of \code{fn}.
 #'
 #' @family function_application_functions
 #'

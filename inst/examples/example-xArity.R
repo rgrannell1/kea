@@ -22,9 +22,9 @@ Inf
 
 safeMap <- function (fn, coll) {
 
-	if (!xArity(fn) == 1) {
-		stop("the function given to safeMap is not unary.")
-	} else {
-		lapply(fn, coll)
-	}
+    if (!xArity(fn) == 1) {
+        stop("the function given to safeMap is not unary.")
+    } else {
+        lapply(fn, coll)
+    }
 }

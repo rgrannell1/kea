@@ -18,7 +18,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    an arbitrary value, depending on the function \code{fn}.
+#'    An arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
 #'	  returns \code{val} if \code{coll} is length-zero.

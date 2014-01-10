@@ -5,7 +5,7 @@
 #'
 #' @param fn an arbitrary function or primitive function.
 #'
-#' @return a character vector/.
+#' @return A character vector/.
 #'
 #' @section Corner Cases:
 #'	 If \code{fn} is a primitive function a heuristic is used to obtain

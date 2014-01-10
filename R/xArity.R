@@ -14,7 +14,7 @@
 #'    fn an function of any arity.
 #'
 #' @return
-#'    a positive whole number.
+#'    A positive whole number.
 #'
 #' @section Corner Cases:
 #'    If \code{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the

@@ -15,7 +15,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list or pairlist.
+#'    A list or pairlist.
 #'
 #' @family mapping_functions
 #'

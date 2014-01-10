@@ -21,7 +21,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero, or no match is found.

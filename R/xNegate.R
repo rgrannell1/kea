@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a vector of number.
+#'    A vector of number.
 #'
 #' @section Corner Cases:
 #'    If nums is empty then the unit of the collection is returned.

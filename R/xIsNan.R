@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    returns True if coll is length-zero.

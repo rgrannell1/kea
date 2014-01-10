@@ -9,6 +9,9 @@
 #' @param
 #'    ... see above.
 #'
+#' @return
+#'    A double vector.
+#'
 #' @template
 #'    Variadic
 #'

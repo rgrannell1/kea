@@ -11,7 +11,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a named list.
+#'    A named list.
 #'
 #' @section Corner Cases:
 #'     returns \code{list()} if \code{colls} is length-zero.

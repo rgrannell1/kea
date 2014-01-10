@@ -12,7 +12,7 @@
 #'    val an arbitrary value.
 #'
 #' @return
-#'    returns \code{val}.
+#'    Returns \code{val}.
 #'
 #' @rdname xIdentity
 #' @export

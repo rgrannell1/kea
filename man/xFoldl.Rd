@@ -79,16 +79,16 @@ xFold("+", 0, 1:10)
 #    prematurely.
 
 xFold(
-	(number_checked : letter) := {
+    (number_checked : letter) := {
 
-		if (letter == 'q') {
-			Return (number_checked)
-		} else {
-			number_checked + 1
-		}
-	},
-	0,
-	letters
+        if (letter == 'q') {
+            Return (number_checked)
+        } else {
+            number_checked + 1
+        }
+    },
+    0,
+    letters
 )
 
 # terminated after 16 checks, not 26.

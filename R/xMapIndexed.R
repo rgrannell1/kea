@@ -14,7 +14,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list is \code{coll} is length-zero.

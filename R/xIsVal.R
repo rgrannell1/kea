@@ -7,7 +7,7 @@
 #'    str a string or symbol.
 #'
 #' @return
-#'    a boolean value.
+#'    A boolean value.
 #'
 #' @section Corner Cases:
 #'    If a variable isn't assigned, then \code{false} is returned.

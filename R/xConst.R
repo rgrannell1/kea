@@ -16,7 +16,7 @@
 #'    val an arbitrary value.
 #'
 #' @return
-#'    a variadic function.
+#'    A variadic function.
 #'
 #' @family function_modifying_functions
 #'

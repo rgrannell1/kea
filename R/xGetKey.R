@@ -7,7 +7,7 @@
 #'    str a string.
 #'
 #' @return
-#'    a unary function that takes a collection.
+#'    A unary function that takes a collection.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.

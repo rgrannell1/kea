@@ -4,6 +4,11 @@
 #' Generate a list of n-element lists from n collections,
 #' and apply a function to each n-element list.
 #'
+#' @details
+#'    \code{xZipWith} takes multiple collections (columns),
+#'    calls the input function with each row, and returns a
+#'    a list of equal length to the input columns.
+#'
 #' @param
 #'    fn an n-ary function, or a symbol or
 #'    name identifying such a function.
@@ -15,7 +20,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    returns a list.
+#'    Returns a list.
 #'
 #' @section Corner Cases:
 #'    the empty list is returned if the shortest collection has

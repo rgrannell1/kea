@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list of collections.
+#'    A list of collections.
 #'
 #' @section Corner Cases:
 #'    returns the empty list is \code{coll} is length-zero.

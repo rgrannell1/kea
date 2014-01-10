@@ -14,10 +14,10 @@ a unary function of x.
 Convert any function to a unary function.
 }
 \details{
-xAsUnary takes a function and returns a function that has
-one argument. The first element of the argument is passed
-to the first parametre of the underlying function, the
-second element to the second parametre, and so on.
+\code{xAsUnary} takes a function and returns a function
+that has one argument. The first element of the argument is
+passed to the first parametre of the underlying function,
+the second element to the second parametre, and so on.
 }
 \examples{
 

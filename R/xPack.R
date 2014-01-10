@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    returns a list of elements in \code{coll},
+#'    Returns a list of elements in \code{coll},
 #'	  with all length-zero values removed.
 #'
 #' @section Corner Cases:

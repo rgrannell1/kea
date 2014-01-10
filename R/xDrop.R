@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    if \code{coll} is empty the empty list is returned.

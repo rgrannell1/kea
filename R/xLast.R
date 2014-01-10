@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    the value of the last element in \code{coll}.
+#'    The value of the last element in \code{coll}.
 #'
 #' @section Corner Cases:
 #'    throws an error if \code{coll} has less than one element; this is

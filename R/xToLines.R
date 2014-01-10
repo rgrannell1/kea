@@ -3,11 +3,15 @@
 #'
 #' Split a string at every newline character.
 #'
+#' @details
+#'    The input string is split at newline characters.
+#'    Multiple newlines are treated the same as one newline.
+#'
 #' @param
 #'    str a string.
 #'
 #' @return
-#'    a character vector.
+#'    A character vector.
 #'
 #' @family character_functions
 #'

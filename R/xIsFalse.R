@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a vector of boolean values.
+#'    A vector of boolean values.
 #'
 #' @template
 #'    Variadic

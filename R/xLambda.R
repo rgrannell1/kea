@@ -10,7 +10,7 @@
 #'    val a valid function body, which will be lazily evaluated.
 #'
 #' @return
-#'    returns a unary function.
+#'    Returns a unary function.
 #'
 #' @rdname xLambda
 #' @export

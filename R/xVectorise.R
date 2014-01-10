@@ -5,13 +5,14 @@
 #'
 #' @details
 #'    \code{xVectorise} is a convenience function that partially
-#'    applies \code{xMap} with a function.
+#'    applies \code{xMap} with a function, creating a vectorised version
+#'    of that function.
 #'
 #' @param
 #'    fn a unary function.
 #'
 #' @return
-#'    a unary function of coll.
+#'    A unary function of coll.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.

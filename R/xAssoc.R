@@ -4,14 +4,15 @@
 #' Convert a list of name, value pairs into a named list.
 #'
 #' @param
-#'    colls a list or pairlist of list or pairlist pairs, with the first element being a
+#'    colls a list or pairlist of list or pairlist pairs,
+#'    with the first element being a
 #'	  string and the second element being any value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    a named list.
+#'    A named list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.

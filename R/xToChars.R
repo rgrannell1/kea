@@ -7,7 +7,7 @@
 #'    str a length-one character vector.
 #'
 #' @return
-#'    a character vector of length \code{nchar(str)}, with each element being a
+#'    A character vector of length \code{nchar(str)}, with each element being a
 #'    single character.
 #'
 #' @family character_functions

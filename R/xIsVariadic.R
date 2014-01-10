@@ -7,7 +7,7 @@
 #'    fn an arbitrary function or primitive function.
 #'
 #' @return
-#'    a boolean value.
+#'    A boolean value.
 #'
 #' @family parametre_functions
 #'

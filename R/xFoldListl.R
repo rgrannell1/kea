@@ -19,7 +19,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list with its initial element being \code{coll}, and
+#'    A list with its initial element being \code{coll}, and
 #'	  containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:

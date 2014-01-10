@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    returns a unary function of x.
+#'    Returns a unary function of x.
 #'
 #' @family function_modifying_functions
 #'

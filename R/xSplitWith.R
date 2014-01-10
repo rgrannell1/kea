@@ -14,7 +14,7 @@
 #'    ... see above.
 #'
 #' @return
-#'     a list of two lists.
+#'     A list of two lists.
 #'
 #' @section Corner Cases:
 #'     returns the empty list if \code{coll} is length-zero.

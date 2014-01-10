@@ -26,7 +26,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @example
 #'    inst/examples/example-xDo.R

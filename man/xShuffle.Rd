@@ -16,7 +16,7 @@ xShuffle...(...)
 a list.
 }
 \description{
-Permute a collection.
+Randomly rearrange a collection.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

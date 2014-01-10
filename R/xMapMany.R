@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if any collection is length-zero. If the

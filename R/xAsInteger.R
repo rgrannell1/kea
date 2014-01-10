@@ -9,6 +9,9 @@
 #' @param
 #'    ... see above.
 #'
+#' @return
+#'    An integer vector.
+#'
 #' @template
 #'    Variadic
 #'

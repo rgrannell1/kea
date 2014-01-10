@@ -18,6 +18,10 @@ a list.
 \description{
 Get the set union of several collections.
 }
+\details{
+\code{xUnion} returns a list of the unique elements in the
+combination of each collection in \code{colls}.
+}
 \section{Corner Cases}{
   returns the empty list if \code{colls} is length-zero.
 }

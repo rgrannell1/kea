@@ -17,7 +17,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list of n-element lists.
+#'    A list of n-element lists.
 #'
 #' @section Corner Cases:
 #'    the final list in the return value will have less than \code{num}

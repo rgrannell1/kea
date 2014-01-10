@@ -13,7 +13,8 @@
 #' @param
 #'    ... see above.
 #'
-#' @return a list of two lists; the first list containing
+#' @return
+#'    A list of two lists; the first list containing
 #'    the first \code{num} elements of \code{coll}, and the
 #'    second list containing the remaining elements \code{coll}.
 #'

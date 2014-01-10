@@ -10,7 +10,7 @@
 #'    coll a collection
 #'
 #' @return
-#'    a named list.
+#'    A named list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero. Both

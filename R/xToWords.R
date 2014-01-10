@@ -3,11 +3,16 @@
 #'
 #' Split a str at whitespace.
 #'
+#' @details
+#'    The input string is split at spaces, tabs, and newlines,
+#'    or a mix of the above. Multiple whitespaces are treated
+#'    the same as one whitespace.
+#'
 #' @param
 #'    str a length-one character vector.
 #'
 #' @return
-#'    a character vector, with one or more elements.
+#'    A character vector, with one or more elements.
 #'
 #' @family character_functions
 #'

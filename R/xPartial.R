@@ -18,7 +18,6 @@
 #' @section Corner Cases:
 #'    Partial application also works for ellipses (eg list(... = 1)).
 #'
-#'
 #' @family function_modifying_functions
 #'
 #' @family parametre_functions

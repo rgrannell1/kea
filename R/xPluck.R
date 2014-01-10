@@ -14,13 +14,12 @@
 #'    ... see above.
 #'
 #' @return
-#'    a list.
+#'    A list.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.
 #'    If str is length-zero then the empty string "" is
 #'    used to match key-names.
-#'
 #'
 #' @family selection_functions
 #'

@@ -9,6 +9,9 @@
 #' @param
 #'    ... see above.
 #'
+#' @return
+#'    A complex vector.
+#'
 #' @template
 #'    Variadic
 #'

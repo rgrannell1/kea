@@ -13,6 +13,11 @@ a character vector, with one or more elements.
 \description{
 Split a str at whitespace.
 }
+\details{
+The input string is split at spaces, tabs, and newlines, or
+a mix of the above. Multiple whitespaces are treated the
+same as one whitespace.
+}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

@@ -16,7 +16,7 @@
 #'    num a positive number.
 #'
 #' @return
-#'    a variadic function that ignores its arguments.
+#'    A variadic function that ignores its arguments.
 #'
 #' @family time_functions
 #'

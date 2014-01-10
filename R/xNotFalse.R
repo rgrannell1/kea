@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a vector of boolean values.
+#'    A vector of boolean values.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero.

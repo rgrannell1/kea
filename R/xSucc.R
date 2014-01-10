@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a vector of numbers.
+#'    A vector of numbers.
 #'
 #' @section Corner Cases:
 #'    If \code{nums} is empty then the unit of that vector is returned.

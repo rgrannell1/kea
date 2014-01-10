@@ -12,7 +12,7 @@
 #'    fn an arbitrary function.
 #'
 #' @return
-#'    a function (closure).
+#'    A function (closure).
 #'
 #' @section Corner Cases:
 #'    xAsClosure does not work for every primitive function (for example 'c'),

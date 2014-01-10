@@ -16,6 +16,10 @@ a function with the same parametres as \code{fn}.
 Delay the evalution of a function after invokation for a
 set amount of time.
 }
+\details{
+\code{xDelay} sleeps for a preset amount of time
+\bold{before} executing its underlying function.
+}
 \section{Corner Cases}{
   if \code{num} is zero then \code{fn} is returned
   untouched.

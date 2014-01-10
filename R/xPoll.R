@@ -14,7 +14,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    a non-negative whole number.
+#'    A non-negative whole number.
 #'
 #' @template
 #'    Variadic

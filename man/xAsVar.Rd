@@ -13,9 +13,14 @@ Null; used for side-effect.
 \description{
 Convert a constant value back into a normal R value.
 }
+\details{
+\code{xAsVar} takes a variable in the calling environmnet,
+and unlocks it, converting it back to a normal R variable.
+}
 \section{Corner Cases}{
   throws an error if attempting to convert a variable that
-  doesn't exist (in the parent frame).
+  doesn't exist (in the parent frame).  Non-locked
+  variables are also allowed.
 }
 \examples{
 

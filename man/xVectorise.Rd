@@ -19,7 +19,8 @@ collections of values.
 }
 \details{
 \code{xVectorise} is a convenience function that partially
-applies \code{xMap} with a function.
+applies \code{xMap} with a function, creating a vectorised
+version of that function.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

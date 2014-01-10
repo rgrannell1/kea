@@ -15,7 +15,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    an arbitrary value, depending on the function \code{fn}.
+#'    An arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
 #'    returns the empty list if \code{coll} is length-zero, and returns the

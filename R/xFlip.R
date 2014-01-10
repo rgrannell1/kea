@@ -7,7 +7,7 @@
 #'    fn an arbitrary function.
 #'
 #' @return
-#'    a function of the same arity as \code{fn}.
+#'    A function of the same arity as \code{fn}.
 #'
 #' @family function_modifying_functions
 #'

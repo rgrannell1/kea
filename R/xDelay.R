@@ -4,6 +4,10 @@
 #' Delay the evalution of a function after invokation
 #' for a set amount of time.
 #'
+#' @details
+#'    \code{xDelay} sleeps for a preset amount of time
+#'    \bold{before} executing its underlying function.
+#'
 #' @param
 #'    fn an arbitrary function.
 #'
@@ -11,7 +15,7 @@
 #'    num a nonnegative whole number.
 #'
 #' @return
-#'    a function with the same parametres as \code{fn}.
+#'    A function with the same parametres as \code{fn}.
 #'
 #' @section Corner Cases:
 #'    if \code{num} is zero then \code{fn} is returned untouched.
