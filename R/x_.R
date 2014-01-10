@@ -1613,25 +1613,6 @@ x_coll_proto <- local({
 			xMapMany...(fn, self_(), ...)
 		}
 
-	# --- xMapWhen --- #
-	this$xMapWhen <-
-		function (pred, fn) {
-			x_( xMapWhen(pred, fn, self_()) )
-		}
-	this$xMapWhen... <-
-		function (pred, fn, ...) {
-			x_( xMapWhen...(pred, fn, self_(), ...) )
-		}
-
-	this$x_MapWhen <-
-		function (pred, fn) {
-			xMapWhen(pred, fn, self_())
-		}
-	this$x_MapWhen... <-
-		function (pred, fn, ...) {
-			xMapWhen...(pred, fn, self_(), ...)
-		}
-
 	# -------- N ------- #
 	# --- xAsNamed --- #
 	this$xAsNamed <-

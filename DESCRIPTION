@@ -78,7 +78,6 @@ Collate:
     'xMap.R'
     'xMapIndexed.R'
     'xMapMany.R'
-    'xMapWhen.R'
     'xNegate.R'
     'xNot.R'
     'xNotFalse.R'
