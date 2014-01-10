@@ -15,7 +15,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    returns a list of equal length to the shortest input collection.
+#'    returns a list.
 #'
 #' @section Corner Cases:
 #'    the empty list is returned if the shortest collection has

@@ -1,4 +1,4 @@
-Arrow v0.1.0
+Arrow pre-v0.1.0
 -----------------------------------
 
 <img src="logo.png" height = "180"> </img>

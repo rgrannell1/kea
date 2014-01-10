@@ -1,10 +1,17 @@
 
 #' xVal
 #'
-#' Assign a constant value to calling environment.
+#' Assign a constant value to the calling environment.
+#'
+#' @details
+#'    xVal works like normal R assignment, with the exception
+#'    that if any attempt to update the assigned variable
+#'    will result in an error. This is analogous to const in
+#'    other languages.
 #'
 #' @param
 #'    sym a symbol or string.
+#'
 #' @param
 #'    val an arbitrary value.
 #'

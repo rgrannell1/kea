@@ -10,14 +10,39 @@ xIterate(fn, val)
   \item{val}{an arbitrary value.}
 }
 \value{
-the result of successively applying \code{f} to \code{val}.
+The result of successively applying \code{f} to \code{val}.
 }
 \description{
 Iteratively apply a function to a value.
 }
 \section{Corner Cases}{
-  length-zero values of \code{val} are handled normally,
-  since \code{val} is an arbitrary value. Potentially
-  non-terminating.
+  Length-zero values of \code{val} are treated as normal
+  values, since \code{val} accepts an arbitrary value. Like
+  while loops, \code{xIterate} is potentially
+  non-terminating, and \code{Return( )} must be called to
+  terminate the function.
+}
+\examples{
+
+# Example 1.
+#
+# find the smallest number evenly divisible by 1, 2, ..., 10
+# this works a lot like a while loop that returns a value.
+
+xIterate(
+	num := {
+
+		evenly_divisible <- num \%\% (1:10) == 0
+
+		if (all(evenly_divisible)) {
+			Return(num)
+		} else {
+			num + 1
+		}
+	},
+	1
+)
+
+2520
 }
 

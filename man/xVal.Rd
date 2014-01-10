@@ -13,7 +13,13 @@ xVal(sym, val)
 Null; this function is used for side-effects.
 }
 \description{
-Assign a constant value to calling environment.
+Assign a constant value to the calling environment.
+}
+\details{
+xVal works like normal R assignment, with the exception
+that if any attempt to update the assigned variable will
+result in an error. This is analogous to const in other
+languages.
 }
 \section{Corner Cases}{
   overwrites the value referenced by \code{sym}r if the

@@ -60,7 +60,6 @@ xFoldListl <- function (fn, val, coll) {
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
 			coll, summate(coll)) )
-
 	fn <- match_fn(fn)
 
 	scanned <- c( val, vector("list", length(coll)) )

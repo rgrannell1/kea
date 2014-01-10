@@ -3,6 +3,11 @@
 #'
 #' Convert a primitive function to a closure.
 #'
+#' @details
+#'    xAsClosure attempts to wrap a primitive function in a closure
+#'    with the same arguments as a the primitive function, before
+#'    passing the arguments to that primitive function.
+#'
 #' @param
 #'    fn an arbitrary function.
 #'

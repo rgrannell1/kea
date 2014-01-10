@@ -11,5 +11,5 @@
 #' @export
 
 xVersion <- function () {
-	c(0, 1, 0)
+	c(0L, 1L, 0L)
 }

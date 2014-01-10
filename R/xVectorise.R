@@ -1,7 +1,11 @@
 
 #' xVectorise
 #'
-#' Partially apply xMap with a function.
+#' Convert a function on one value to a function on collections of values.
+#'
+#' @details
+#'    \code{xVectorise} is a convenience function that partially
+#'    applies \code{xMap} with a function.
 #'
 #' @param
 #'    fn a unary function.

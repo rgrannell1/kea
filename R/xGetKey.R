@@ -37,6 +37,8 @@ xGetKey <- function (str) {
 	str <- as_typed_vector(str, 'character', True)
 
 	function (coll) {
+		"A function created by xGetKey."
+		""
 		unname(as.list( coll )[names(coll) == str])
 	}
 }

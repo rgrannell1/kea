@@ -16,8 +16,7 @@ xZipWith...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-returns a list of equal length to the shortest input
-collection.
+returns a list.
 }
 \description{
 Generate a list of n-element lists from n collections, and

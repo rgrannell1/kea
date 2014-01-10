@@ -11,9 +11,13 @@ xAsUnary(fn)
 a unary function of x.
 }
 \description{
-Create a function that takes one argument, and applies each
-element of that argument as a parametre of its underlying
-function.
+Convert any function to a unary function.
+}
+\details{
+xAsUnary takes a function and returns a function that has
+one argument. The first element of the argument is passed
+to the first parametre of the underlying function, the
+second element to the second parametre, and so on.
 }
 \examples{
 

@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xRepeat.R
+#'
 #' @rdname xRepeat
 #' @export
 

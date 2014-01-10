@@ -14,7 +14,12 @@ xVectorize(fn)
 a unary function of coll.
 }
 \description{
-Partially apply xMap with a function.
+Convert a function on one value to a function on
+collections of values.
+}
+\details{
+\code{xVectorise} is a convenience function that partially
+applies \code{xMap} with a function.
 }
 \section{Corner Cases}{
   returns the empty list if \code{coll} is length-zero.

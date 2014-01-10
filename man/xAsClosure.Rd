@@ -13,6 +13,12 @@ a function (closure).
 \description{
 Convert a primitive function to a closure.
 }
+\details{
+xAsClosure attempts to wrap a primitive function in a
+closure with the same arguments as a the primitive
+function, before passing the arguments to that primitive
+function.
+}
 \section{Corner Cases}{
   xAsClosure does not work for every primitive function
   (for example 'c'), so caution should be taken when using

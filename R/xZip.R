@@ -10,8 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    returns a list of equal length to the shortest
-#'    input collection, with each element being an n-element list.
+#'    returns a list.
 #'
 #' @section Corner Cases:
 #'    the empty list is returned if the shortest collection

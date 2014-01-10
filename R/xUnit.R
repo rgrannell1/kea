@@ -1,7 +1,7 @@
 
 #' xUnit
 #'
-#' Return the neutral element of a collection under concatenation.
+#' Return the empty version of a collection.
 #'
 #' @param
 #'    coll an list, pairlist, or vector of any length.
@@ -32,6 +32,6 @@ xUnit <- function (coll) {
 	if (is.pairlist(coll)) {
 		Null
 	} else {
-		unname(head(coll, 0))
+		unname(coll[0])
 	}
 }

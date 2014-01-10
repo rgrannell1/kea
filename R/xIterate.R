@@ -10,11 +10,16 @@
 #'    val an arbitrary value.
 #'
 #' @section Corner Cases:
-#'    length-zero values of \code{val} are handled normally, since \code{val} is
-#'    an arbitrary value. Potentially non-terminating.
+#'    Length-zero values of \code{val} are treated as normal values,
+#'    since \code{val} accepts an arbitrary value. Like while loops,
+#'    \code{xIterate} is potentially non-terminating, and \code{Return( )}
+#'    must be called to terminate the function.
 #'
 #' @return
-#'    the result of successively applying \code{f} to \code{val}.
+#'    The result of successively applying \code{f} to \code{val}.
+#'
+#' @example
+#'    inst/examples/example-xIterate.R
 #'
 #' @rdname xIterate
 #' @export
@@ -54,8 +59,7 @@ xIterate <- function (fn, val) {
 
 		repeat {
 			val <- try_higher_order(
-				fn(val),
-				invoking_call)
+				fn(val), invoking_call)
 		}
 	})
 }
