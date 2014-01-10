@@ -13,7 +13,7 @@ xAsRaw...(...)
   \item{...}{see above.}
 }
 \description{
-Convert a collection to a double vector.
+Convert a collection to a raw vector.
 }
 \section{Variadic Functions
 

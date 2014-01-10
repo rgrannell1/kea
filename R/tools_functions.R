@@ -206,7 +206,11 @@ as_typed_vector <- function (coll, mode, value_unit = False) {
 		stop(exclaim$type_coersion_failed(coll_symbol, mode))
 	}
 
-	coll <- unlist(coll)
+	coll <- if (mode == 'raw') {
+		unlist(coll)
+	} else {
+		as.vector(coll, mode = mode)
+	}
 
 	# coerce the length-zero collection to a unit-value.
 	# this doesn't always make sense to do.
