@@ -182,6 +182,16 @@ exclaim <- list(
 			profile
 
 		},
+	must_be_wholes =
+		function (param, profile = '') {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% dQuote(param) %+%
+			" must be a collection of whole numbers." %+%
+			profile
+
+		},
 	must_have_length =
 		function (param, lengths, profile = '') {
 

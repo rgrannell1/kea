@@ -1,0 +1,3374 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style></style><title>x_</title></head><body><h1 id="-x_-">-------------------------------- x_( ) --------------------------------</h1>
+<h1></h1>
+<h1 id="the-x_-function-is-a-constructor-that-wraps-a-datum-and-allows-methods">The x_() function is a constructor that wraps a datum, and allows methods</h1>
+<h1 id="to-be-called-on-that-datum-the-constructor-returns-a-monad-so-the">to be called on that datum. The constructor returns a monad, so the</h1>
+<h1 id="methods-can-be-chained-indefinetly-until-the-x_-method-is-used-to-pull-the">methods can be chained indefinetly until the $x_() method is used to pull the</h1>
+<h1 id="data-out-of-the-monad-much-like-unlist-for-the-list-monad">data out of the monad (much like unlist for the list monad).</h1>
+<h1></h1>
+<h1 id="the-methods-that-are-attatched-to-a-datum-depends-on-its-class">The methods that are attatched to a datum depends on its class;</h1>
+<h1 id="these-blocks-of-methods-are-stored-in-proto-objects-that">these blocks of methods are stored in "proto" objects, that</h1>
+<h1 id="consist-of-the-methods-a-private-object-and-methods-inherited-from">consist of the methods, a private object, and methods inherited from</h1>
+<h1 id="a-universal-method-object">a universal method object.</h1>
+<h1></h1>
+<h1 id="upon-invocation-of-an-x_method-the-self_-function-is-updated-to-return-the">upon invocation of an x_()$method, the self_ function is updated to return the</h1>
+<h1 id="value-contained-in-the-x_-object-the-self_-function-should-be-unbound-unless-it-is-called-by-an-x_-function">value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,</h1>
+<h1 id="so-an-error-is-thrown-if-these-prototypes-are-called-directly-this-workaround-is-to-keep-memory-usage">so an error is thrown if these prototypes are called directly. This workaround is to keep memory usage</h1>
+<h1 id="low-by-only-customising-the-method-when-it-is-being-called-rather-than-when-the-arrow-monad-is-created">low by only customising the method when it is being called, rather than when the arrow monad is created.</h1>
+<h1 id="inheritance-diagram">Inheritance Diagram</h1>
+<h1></h1>
+<h1 id="any-proto-x_-any">any proto-- ---------------- x_[ any ]</h1>
+<h1 id="_1">|</h1>
+<h1 id="other-proto-x_-other">other proto ----- x_[ other ]</h1>
+<h1></h1>
+<h1 id="there-are-currently-three-flavours-of-method">there are currently three flavours of method:</h1>
+<h1 id="chaining-methods-xmethod-these-return-an-x_-monad-to-chain-off">chaining methods: xMethod. These return an x_ monad to chain off.</h1>
+<h1 id="chaining-variadic-methods-xmethod-there-are-similar-but-take-variadic-arguments">chaining variadic methods: xMethod... . There are similar, but take variadic arguments.</h1>
+<h1 id="non-chaining-methods-x_methods-these-exit-the-monad">non-chaining methods: x_Methods. These exit the monad.</h1>
+<h1 id="non-chaining-methods-x_methods-these-are-variadic-and-exit-the-monad-into-the-land-of-normal-types">non-chaining methods: x_Methods... . These are variadic, and exit the monad into the land of normal types.</h1>
+<h1 id="-universal-methods-">-------------------------------- Universal methods --------------------------------</h1>
+<h1></h1>
+<h1 id="these-prototypes-contain-methods-that-can-be-called-by-an-x_-object-using-an">these prototypes contain methods that can be called by an x_() object, using an</h1>
+<h1 id="overloaded-definition-of-the-function">overloaded definition of the $ function.</h1>
+<p>x_any_proto &lt;- local({</p>
+<pre><code>this &lt;- Object()
+
+# -------- A ------- #
+
+# -------- B ------- #
+
+# -------- C ------- #
+
+# -------- D ------- #
+
+# -------- E ------- #
+this$xExecute &lt;-
+    function (fn) {
+        # execute a side-effectful function
+        # before using the previous x_ monad
+        # for further chaining.
+
+        fn()
+        x_(self_())
+    }
+
+this$x_Execute &lt;-
+    function (fn) {
+
+        fn()
+        self_()
+    }
+# -------- F ------- #
+
+# -------- G ------- #
+this$xGraft &lt;-
+    function (str, fn) {
+        # add a function to the x_
+        # call chain for the
+        # current R session.
+
+        chainable &lt;- function (...) {
+            x_(fn(self_(), ...))
+        }
+
+        proto_ref &lt;- get_proto_ref(self_())
+        assign(str, chainable, envir = proto_ref)
+    }
+# -------- H ------- #
+
+# -------- I ------- #
+this$xIdentity &lt;-
+    function () {
+        x_( xIdentity(self_()) )
+    }
+this$xI &lt;-
+    this$xIdentity
+
+this$x_Identity &lt;-
+    function () {
+        xIdentity(self_())
+    }
+this$x_I &lt;-
+    this$x_Identity
+
+# -------- J ------- #
+
+# -------- K ------- #
+
+# -------- L ------- #
+
+# -------- M ------- #
+
+# -------- N ------- #
+
+# -------- O ------- #
+
+# -------- P ------- #
+
+# -------- Q ------- #
+
+# -------- R ------- #
+
+# -------- S ------- #
+
+# -------- T ------- #
+this$xTap &lt;-
+    function (fn) {
+        # call an arbitrary function with self,
+        # effectively allowing anonymous function
+        # to execute arbitrary code before shunting
+        # the output data back into the x_ monad.
+
+        x_( fn(self_()) )
+    }
+
+this$x_Tap &lt;-
+    function (fn) {
+
+        fn(self_())
+    }
+# -------- U ------- #
+
+# -------- V ------- #
+this$xVersion &lt;-
+    function () {
+        x_( xVersion() )
+    }
+this$x_Version &lt;-
+    function () {
+        xVersion()
+    }
+# -------- W ------- #
+
+# -------- X ------- #
+this$x_ &lt;-
+    function () {
+        self_()
+    }
+# -------- Y ------- #
+
+# -------- Z ------- #
+
+this$private &lt;- list(
+    contents_are = "arbitrary values")
+this
+</code></pre>
+<p>})</p>
+<h1 id="-not-quite-a-collection-methods-">-------------------------------- Not-quite-a-collection methods --------------------------------</h1>
+<h1></h1>
+<h1 id="methods-for-non-canonical-data-types-in-arrow-data-frames-tables-matrices-and-other-odd-and">methods for non-canonical data types in arrow; data frames, tables, matrices and other odd and</h1>
+<h1 id="sometimes-awkward-structures-i-dont-want-these-to-be-treated-as-first-class-citizens-particularily-data-frames">sometimes awkward structures. I don't want these to be treated as first-class citizens (particularily data frames),</h1>
+<h1 id="but-there-is-no-reason-they-shouldnt-have-methods-to-convert-them-into-a-list-representation">but there is no reason they shouldn't have methods to convert them into a list representation.</h1>
+<h1></h1>
+<p>x_matrix_proto &lt;- local({</p>
+<pre><code>this &lt;- Object()
+
+# -------- A ------- #
+# -------- B ------- #
+this$xByCols &lt;-
+    function () {
+        dims &lt;- dim(self_())
+
+        if (dims[1] == 0 &amp;&amp; dims[0] == 0) {
+            x_( list() )
+        } else if (dims[2] == 0) {
+            x_( list() )
+        } else if (dims[1] == 0) {
+            x_( replicate(max(dims), list()))
+        } else {
+            x_( apply(self_(), 2, as.list) )
+        }
+    }
+
+this$x_ByCols &lt;-
+    function () {
+        dims &lt;- dim(self_())
+
+        if (dims[1] == 0 &amp;&amp; dims[0] == 0) {
+            list()
+        } else if (dims[2] == 0) {
+            list()
+        } else if (dims[1] == 0) {
+            replicate(max(dims), list())
+        } else {
+            apply(self_(), 2, as.list)
+        }
+    }
+
+this$xByColnames &lt;-
+    function () {
+        x_( as.list( colnames(self_()) ) )
+    }
+this$x_ByColnames &lt;-
+    function () {
+        as.list( colnames(self_()) )
+    }
+
+this$xByRows &lt;-
+    function () {
+        dims &lt;- dim(self_())
+
+        if (dims[1] == 0 &amp;&amp; dims[0] == 0) {
+            x_( list() )
+        } else if (dims[1] == 0) {
+            x_( list() )
+        } else if (dims[2] == 0) {
+            x_( replicate(max(dims), list()) )
+        } else {
+            x_( apply(self_(), 1, as.list) )
+        }
+    }
+
+this$x_ByRows &lt;-
+    function () {
+        dims &lt;- dim(self_())
+
+        if (dims[1] == 0 &amp;&amp; dims[0] == 0) {
+            list()
+        } else if (dims[1] == 0) {
+            list()
+        } else if (dims[2] == 0) {
+            replicate(max(dims), list())
+        } else {
+            apply(self_(), 1, as.list)
+        }
+    }
+# --- xByRownames --- #
+    this$xByRownames &lt;-
+        function () {
+            x_( as.list( rownames(self_()) ) )
+        }
+
+    this$x_ByRownames &lt;-
+        function () {
+            as.list( rownames(self_()) )
+        }
+
+# -------- C ------- #
+this$xColUnit &lt;-
+    function () {
+        x_(matrix(
+            nrow = nrow(self_()),
+            ncol = 0))
+    }
+this$x_ColUnit &lt;-
+    function () {
+        matrix(
+            nrow = nrow(self_()),
+            ncol = 0)
+    }
+
+# -------- D ------- #
+
+# -------- E ------- #
+this$xElemsByCols &lt;-
+    function () {
+        if (prod(dim(self_()) == 0)) {
+            x_( list() )
+        } else {
+            x_( as.list(self_()) )
+        }
+    }
+this$x_ElemsByCols &lt;-
+    function () {
+        if (prod(dim(self_()) == 0)) {
+            list()
+        } else {
+            as.list(self_())
+        }
+    }
+
+
+this$xElemsByRows &lt;-
+    function () {
+        if (prod(dim(self_()) == 0)) {
+            x_( list() )
+        } else {
+            x_(as.list( t(self_()) ))
+        }
+    }
+this$x_ElemsByRows &lt;-
+    function () {
+        if (prod(dim(self_()) == 0)) {
+            list()
+        } else {
+            as.list( t(self_()) )
+        }
+    }
+
+# -------- F ------- #
+
+# -------- G ------- #
+
+# -------- H ------- #
+
+# -------- I ------- #
+
+# -------- J ------- #
+
+# -------- K ------- #
+
+# -------- L ------- #
+
+# -------- M ------- #
+
+# -------- N ------- #
+
+# -------- O ------- #
+
+# -------- P ------- #
+
+# -------- Q ------- #
+
+# -------- R ------- #
+# --- xRowUnit --- #
+this$xRowUnit &lt;-
+    function () {
+        x_(matrix(
+            nrow = 0,
+            ncol = ncol(self_()) ))
+    }
+this$x_RowUnit &lt;-
+    function () {
+        matrix(
+            nrow = 0,
+            ncol = ncol(self_()) )
+    }
+
+# -------- S ------- #
+
+# -------- T ------- #
+this$xTranspose &lt;-
+    function () {
+        x_( t(self_()) )
+    }
+this$x_Transpose &lt;-
+    function () {
+        t(self_())
+    }
+# -------- U ------- #
+this$xUnit &lt;-
+    function () {
+        x_( matrix(nrow = 0, ncol = 0) )
+    }
+this$x_Unit &lt;-
+    function () {
+        matrix(nrow = 0, ncol = 0)
+    }
+# -------- V ------- #
+
+# -------- W ------- #
+
+# -------- X ------- #
+
+# -------- Y ------- #
+
+# -------- Z ------- #
+
+this &lt;- as.environment(
+    c(as.list(this), as.list(x_any_proto)) )
+this$private &lt;- list(
+    contents_are = "matrices")
+
+this
+</code></pre>
+<p>})</p>
+<p>x_data_frame_proto &lt;- local({</p>
+<pre><code>this &lt;- Object()
+
+# -------- A ------- #
+
+# -------- B ------- #
+# --- xByCols --- #
+this$xByCols &lt;-
+    function () {
+        x_(unname( as.list(self_()) ))
+    }
+this$x_ByCols &lt;-
+    function () {
+        unname( as.list(self_()) )
+    }
+# --- xByColnames --- #
+this$xByColnames &lt;-
+    function () {
+        x_( as.list( colnames(self_()) ) )
+    }
+this$x_ByColnames &lt;-
+    function () {
+        as.list( colnames(self_()) )
+    }
+
+# --- xByRownames --- #
+this$xByRownames &lt;-
+    function () {
+        x_( as.list( rownames(self_()) ) )
+    }
+this$x_ByRownames &lt;-
+    function () {
+        as.list( rownames(self_()) )
+    }
+
+# -------- C ------- #
+# --- xColUnit --- #
+this$xColUnit &lt;-
+    function () {
+        x_( unname(as.data.frame(
+            matrix(
+                nrow = nrow(self_()),
+                ncol = 0)) ))
+    }
+this$x_ColUnit &lt;-
+    function () {
+        unname(as.data.frame(
+            matrix(
+                nrow = nrow(self_()),
+                ncol = 0)) )
+    }
+
+# -------- D ------- #
+
+# -------- E ------- #
+
+# -------- F ------- #
+
+# -------- G ------- #
+
+# -------- H ------- #
+
+# -------- I ------- #
+
+# -------- J ------- #
+
+# -------- K ------- #
+
+# -------- L ------- #
+
+# -------- M ------- #
+
+# -------- N ------- #
+
+# -------- O ------- #
+
+# -------- P ------- #
+
+# -------- Q ------- #
+
+# -------- R ------- #
+# --- xRowUnit --- #
+this$xRowUnit &lt;-
+    function () {
+        x_( unname(as.data.frame(
+            matrix(
+                nrow = 0,
+                ncol = ncol(self_()) )) ))
+    }
+this$x_RowUnit &lt;-
+    function () {
+        unname(as.data.frame(
+            matrix(
+                nrow = 0,
+                ncol = ncol(self_()) )) )
+    }
+
+# -------- S ------- #
+
+# -------- T ------- #
+
+# -------- U ------- #
+# --- xUnit --- #
+this$xUnit &lt;-
+    function () {
+        x_( unname(as.data.frame(
+            matrix(
+                nrow = 0,
+                ncol = 0 )) ))
+    }
+this$x_Unit &lt;-
+    function () {
+        x_( unname(as.data.frame(
+            matrix(
+                nrow = 0,
+                ncol = 0 )) ))
+    }
+
+# -------- V ------- #
+
+# -------- W ------- #
+
+# -------- X ------- #
+
+# -------- Y ------- #
+
+# -------- Z ------- #
+
+this &lt;- as.environment(
+    c(as.list(this), as.list(x_any_proto)) )
+this$private &lt;- list(
+    contents_are = "data.frames")
+
+this
+</code></pre>
+<p>})</p>
+<p>x_factor_proto &lt;- local({</p>
+<pre><code>this &lt;- Object()
+
+# -------- A ------- #
+
+# -------- B ------- #
+
+this$xByLevels &lt;-
+    function () {
+        x_( as.character( levels(self_()) ) )
+    }
+
+this$x_ByLevels &lt;-
+    function () {
+        as.character( levels(self_()) )
+    }
+
+
+this$xByValues &lt;-
+    function () {
+        x_( as.vector(self_()) )
+    }
+
+this$x_ByValues &lt;-
+    function () {
+        as.vector(self_())
+    }
+
+# -------- C ------- #
+
+# -------- D ------- #
+
+# -------- E ------- #
+
+# -------- F ------- #
+
+# -------- G ------- #
+
+# -------- H ------- #
+
+# -------- I ------- #
+
+# -------- J ------- #
+
+# -------- K ------- #
+
+# -------- L ------- #
+
+# -------- M ------- #
+
+# -------- N ------- #
+
+# -------- O ------- #
+
+# -------- P ------- #
+
+# -------- Q ------- #
+
+# -------- R ------- #
+
+# -------- S ------- #
+
+# -------- T ------- #
+
+# -------- U ------- #
+
+# -------- V ------- #
+
+# -------- W ------- #
+
+# -------- X ------- #
+
+# -------- Y ------- #
+
+# -------- Z ------- #
+
+this &lt;- as.environment(
+    c(as.list(this), as.list(x_any_proto)) )
+this$private &lt;- list(
+    contents_are = "factors")
+
+this
+</code></pre>
+<p>})</p>
+<h1 id="-collection-methods-">-------------------------------- Collection methods --------------------------------</h1>
+<h1></h1>
+<h1 id="methods-specific-to-vectors-lists-or-pairlists">methods specific to vectors, lists or pairlists.</h1>
+<h1></h1>
+<h1></h1>
+<p>x_coll_proto &lt;- local({</p>
+<pre><code>this &lt;- Object()
+
+# -------- A ------- #
+
+# --- xAsLogical --- #
+this$xAsLogical &lt;-
+    function () {
+        x_( xAsLogical(self_()) )
+    }
+this$xAsLogical... &lt;-
+    function (...) {
+        x_( xAsLogical(self_(), ...) )
+    }
+
+this$x_AsLogical &lt;-
+    function () {
+        xAsLogical(self_())
+    }
+this$x_AsLogical... &lt;-
+    function (...) {
+        xAsLogical(self_(), ...)
+    }
+
+# --- xAsInteger --- #
+this$xAsInteger &lt;-
+    function () {
+        x_( xAsInteger(self_()) )
+    }
+this$xAsInteger... &lt;-
+    function (...) {
+        x_( xAsInteger(self_(), ...) )
+    }
+
+this$x_AsInteger &lt;-
+    function () {
+        xAsInteger(self_())
+    }
+this$x_AsInteger... &lt;-
+    function (...) {
+        xAsInteger(self_(), ...)
+    }
+
+# --- xAsFunction --- #
+this$xAsFunction &lt;-
+    function () {
+        x_( xAsFunction(self_()) )
+    }
+this$xAsFunction... &lt;-
+    function (...) {
+        x_(  xAsFunction...(self_(), ...) )
+    }
+
+this$x_AsFunction &lt;-
+    function () {
+        xAsFunction(self_())
+    }
+this$x_AsFunction... &lt;-
+    function (...) {
+         xAsFunction...(self_(), ...)
+    }
+
+# --- xApply --- #
+this$xApply &lt;-
+    function (fn) {
+        x_( xApply(fn, self_()) )
+    }
+this$xApply... &lt;-
+    function (fn, ...) {
+        x_( xApply...(fn, self_(), ...) )
+    }
+
+this$x_Apply &lt;-
+    function (fn) {
+        xApply(fn, self_())
+    }
+this$x_Apply... &lt;-
+    function (fn, ...) {
+        xApply...(fn, self_(), ...)
+    }
+
+# --- xAssoc --- #
+this$xAssoc &lt;-
+    function () {
+        x_( xAssoc(self_()) )
+    }
+this$xAssoc... &lt;-
+    function (...) {
+        x_( xAssoc...(self_(), ...) )
+    }
+
+this$x_Assoc &lt;-
+    function () {
+        xAssoc(self_())
+    }
+this$x_Assoc... &lt;-
+    function (...) {
+        xAssoc...(self_(), ...)
+    }
+
+# -------- B ------- #
+# -------- C ------- #
+
+# --- xToChars --- #
+this$xToChars &lt;-
+    function () {
+        x_( xToChars(self_()) )
+    }
+this$x_ToChars &lt;-
+    function () {
+        xToChars(self_())
+    }
+
+# --- xCombos --- #
+this$xCombos &lt;-
+    function (num) {
+        x_( xCombos(self_(), num) )
+    }
+this$xCombos... &lt;-
+    function (num, ...) {
+        x_( xCombos...(num, self_(), ...) )
+    }
+
+this$x_Combos &lt;-
+    function (num) {
+        xCombos(self_(), num)
+    }
+this$x_Combos... &lt;-
+    function (num, ...) {
+        xCombos...(num, self_(), ...)
+    }
+
+# --- xConst --- #
+this$xConst &lt;-
+    function () {
+        x_( xConst(self_()) )
+    }
+
+this$x_Const &lt;-
+    function () {
+        xConst(self_())
+    }
+
+# -------- D ------- #
+# --- xDissoc --- #
+this$xDissoc &lt;-
+    function () {
+        x_( xDissoc(self_()) )
+    }
+this$xDissoc... &lt;-
+    function (...) {
+        x_( xDissoc(self_(), ...) )
+    }
+
+this$x_Dissoc &lt;-
+    function () {
+        xDissoc(self_())
+    }
+this$x_Dissoc... &lt;-
+    function (...) {
+        xDissoc(self_(), ...)
+    }
+
+# --- xDiffer --- #
+this$xDiffer &lt;-
+    function () {
+        x_( xDiffer(self_()) )
+    }
+
+this$x_Differ &lt;-
+    function () {
+        xDiffer(self_())
+    }
+
+this$xDiffer... &lt;-
+    function (...) {
+        x_( xDiffer...(self_(), ...) )
+    }
+
+this$x_Differ... &lt;-
+    function (...) {
+        xDiffer...(self_(), ...)
+    }
+
+# --- xDrop --- #
+this$xDrop &lt;-
+    function (num) {
+        x_( xDrop(num, self_()) )
+    }
+this$xDrop... &lt;-
+    function (num, ...) {
+        x_( xDrop...(num, self_(), ...) )
+    }
+
+this$x_Drop &lt;-
+    function (num) {
+        xDrop(num, self_())
+    }
+this$x_Drop... &lt;-
+    function (num, ...) {
+        xDrop...(num, self_(), ...)
+    }
+
+# --- xDo --- #
+this$xDo &lt;-
+    function (fn) {
+        x_( xDo(fn, self_()) )
+    }
+this$xDo... &lt;-
+    function (fn, ...) {
+        x_( xDo(fn, self_(), ...) )
+    }
+
+this$x_Do &lt;-
+    function (fn) {
+        Do(fn, self_())
+    }
+this$x_Do... &lt;-
+    function (fn, ...) {
+        Do(fn, self_(), ...)
+    }
+
+# --- xDropWhile --- #
+this$xDropWhile &lt;-
+    function (pred) {
+        x_( xDropWhile(pred, self_()) )
+    }
+this$xDropWhile... &lt;-
+    function (pred, ...) {
+        x_( xDropWhile...(pred, self_(), ...) )
+    }
+
+this$x_DropWhile &lt;-
+    function (pred) {
+        xDropWhile(pred, self_())
+    }
+this$x_DropWhile... &lt;-
+    function (pred, ...) {
+        xDropWhile...(pred, self_(), ...)
+    }
+# --- xDuplicated --- #
+this$xDuplicated &lt;-
+    function (coll) {
+        x_( xDuplicated(self_()) )
+    }
+
+this$x_Duplicated &lt;-
+    function (coll) {
+        xDuplicated(self_())
+    }
+
+this$xDuplicated... &lt;-
+    function (...) {
+        x_( xDuplicated(self_(), ...) )
+    }
+
+this$x_Duplicated... &lt;-
+    function (...) {
+        xDuplicated(self_(), ...)
+    }
+
+# -------- E ------- #
+
+# --- xExists --- #
+this$xExists &lt;-
+    function (pred) {
+        x_( xExists(pred, self_()) )
+    }
+this$xExists... &lt;-
+    function (pred, ...) {
+        x_( xExists...(pred, self_(), ...) )
+    }
+
+this$x_Exists &lt;-
+    function (pred) {
+        xExists(pred, self_())
+    }
+this$x_Exists... &lt;-
+    function (pred, ...) {
+        xExists...(pred, self_(), ...)
+    }
+
+# --- xExplode --- #
+this$xExplode &lt;-
+    function (rexp) {
+        x_( xExplode(rexp, self_()) )
+    }
+this$x_Explode &lt;-
+    function (rexp) {
+        xExplode(rexp, self_())
+    }
+
+# -------- F ------- #
+
+# --- xFirst --- #
+this$xFirst &lt;-
+    function () {
+        x_( xFirst(self_()) )
+    }
+this$xFirst... &lt;-
+    function (...) {
+        x_( xFirst...(self_(), ...) )
+    }
+
+this$x_First &lt;-
+    function () {
+        xFirst(self_())
+    }
+this$x_First... &lt;-
+    function (...) {
+        xFirst...(self_(), ...)
+    }
+
+# --- xFoldl --- #
+this$xFoldl &lt;-
+    function (fn, val) {
+        x_( xFoldl(fn, val, self_()) )
+    }
+this$xFoldl... &lt;-
+    function (fn, val, ...) {
+        x_( xFoldl...(fn, val, self_(), ...) )
+    }
+
+this$x_Foldl &lt;-
+    function (fn, val) {
+        xFoldl(fn, val, self_())
+    }
+this$x_Foldl... &lt;-
+    function (fn, val, ...) {
+        xFoldl...(fn, val, self_(), ...)
+    }
+# --- xFold --- #
+this$xFold &lt;-
+    this$xFoldl
+this$xFold... &lt;-
+    this$xFoldl...
+
+this$x_Fold &lt;-
+    this$x_Foldl
+this$x_Fold... &lt;-
+    this$x_Foldl...
+
+# --- xFlatMap --- #
+this$xFlatMap &lt;-
+    function (fn) {
+        x_( xFlatMap(fn, self_()) )
+    }
+this$xFlatMap... &lt;-
+    function (fn, ...) {
+        x_( xFlatMap...(fn, self_(), ...) )
+    }
+
+this$x_FlatMap &lt;-
+    function (fn) {
+        xFlatMap(fn, self_())
+    }
+this$x_FlatMap... &lt;-
+    function (fn, ...) {
+        xFlatMap...(fn, self_(), ...)
+    }
+
+# --- xFlatten --- #
+this$xFlatten &lt;-
+    function (num) {
+        x_( xFlatten(num, self_()) )
+    }
+this$xFlatten... &lt;-
+    function (num, ...) {
+        x_( xFlatten...(num, self_(), ...) )
+    }
+
+this$x_Flatten &lt;-
+    function (num) {
+        xFlatten(num, self_())
+    }
+this$x_Flatten... &lt;-
+    function (num, ...) {
+        xFlatten...(num, self_(), ...)
+    }
+
+# --- xForall --- #
+this$xForall &lt;-
+    function (pred) {
+        x_( xForall(pred, self_()) )
+    }
+this$xForall... &lt;-
+    function (pred, ...) {
+        x_( xForall...(pred, self_(), ...) )
+    }
+
+this$x_Forall &lt;-
+    function (pred) {
+        xForall(pred, self_())
+    }
+this$x_Forall... &lt;-
+    function (pred, ...) {
+        xForall...(pred, self_(), ...)
+    }
+
+
+# --- xFoldr --- #
+this$xFoldr &lt;-
+    function (fn, val) {
+        x_( xFoldr(fn, val, self_()) )
+    }
+this$xFoldr... &lt;-
+    function (fn, val, ...) {
+        x_( xFoldr...(fn, val, self_(), ...) )
+    }
+
+this$x_Foldr &lt;-
+    function (fn, val) {
+        xFoldr(fn, val, self_())
+    }
+this$x_Foldr... &lt;-
+    function (fn, val, ...) {
+        xFoldr...(fn, val, self_(), ...)
+    }
+
+# --- xFoldListl --- #
+this$xFoldListl &lt;-
+    function (fn, val) {
+        x_( xFoldListl(fn, val, self_()) )
+    }
+this$xFoldListl... &lt;-
+    function (fn, val, ...) {
+        x_( xFoldListl...(fn, val, self_(), ...) )
+    }
+
+this$x_FoldListl &lt;-
+    function (fn, val) {
+        xFoldListl(fn, val, self_())
+    }
+this$x_FoldListl... &lt;-
+    function (fn, val, ...) {
+        xFoldListl...(fn, val, self_(), ...)
+    }
+
+this$xFoldList &lt;-
+    function (fn, val) {
+        x_( xFoldList(fn, val, self_()) )
+    }
+this$xFoldList... &lt;-
+    function (fn, val, ...) {
+        x_( xFoldList...(fn, val, self_(), ...) )
+    }
+
+this$x_FoldList &lt;-
+    function (fn, val) {
+        xFoldList(fn, val, self_())
+    }
+this$x_FoldList... &lt;-
+    function (fn, val, ...) {
+        xFoldList...(fn, val, self_(), ...)
+    }
+
+# --- xFourth --- #
+this$xFourth &lt;-
+    function () {
+        x_( xFourth(self_()) )
+    }
+this$xFourth... &lt;-
+    function (...) {
+        x_( xFourth...(self_(), ...) )
+    }
+
+this$x_Fourth &lt;-
+    function () {
+        xFourth(self_())
+    }
+this$x_Fourth... &lt;-
+    function (...) {
+        xFourth...(self_(), ...)
+    }
+# -------- G ------- #
+this$xGetKey &lt;-
+    function () {
+        x_( xGetKey(self_()) )
+    }
+this$x_GetKey &lt;-
+    function () {
+        xGetKey(self_())
+    }
+
+# -------- H ------- #
+# -------- I ------- #
+
+# --- xImplode --- #
+this$xImplode &lt;-
+    function (str) {
+        x_( xImplode(str, self_() ))
+    }
+this$xImplode... &lt;-
+    function (str, ...) {
+        x_( xImplode...(str, self_(), ...) )
+    }
+
+this$x_Implode &lt;-
+    function (str) {
+        xImplode(str, self_() )
+    }
+this$x_Implode... &lt;-
+    function (str, ...) {
+        xImplode...(str, self_(), ...)
+    }
+
+# --- xIsMember --- #
+this$xIsMember &lt;-
+    function (val) {
+        x_( xIsMember(val, self_()) )
+    }
+this$xIsMember... &lt;-
+    function (..., val) {
+        x_( xIsMember...(val, self_(), ...) )
+    }
+
+this$x_IsMember &lt;-
+    function (val) {
+        xIsMember(val, self_())
+    }
+this$x_IsMember... &lt;-
+    function (..., val) {
+        xIsMember...(val, self_(), ...)
+    }
+
+# --- xInit --- #
+this$xInit &lt;-
+    function () {
+        x_( xInit(self_()) )
+    }
+this$xInit... &lt;-
+    function (...) {
+        x_( xInit...(self_(), ...) )
+    }
+
+this$x_Init &lt;-
+    function () {
+        xInit(self_())
+    }
+this$x_Init... &lt;-
+    function (...) {
+        xInit...(self_(), ...)
+    }
+
+# --- xIsEmpty --- #
+this$xIsEmpty &lt;-
+    function () {
+        x_( xIsEmpty(self_()) )
+    }
+this$xIsEmpty... &lt;-
+    function (...) {
+        x_( xIsEmpty...(self_(), ...) )
+    }
+
+this$x_IsEmpty &lt;-
+    function () {
+        xIsEmpty(self_())
+    }
+this$x_IsEmpty... &lt;-
+    function (...) {
+        xIsEmpty...(self_(), ...)
+    }
+
+# --- xIsFalse --- #
+this$xIsFalse &lt;-
+    function () {
+        x_( xIsFalse(self_()) )
+    }
+this$xIsFalse... &lt;-
+    function (...) {
+        x_( xIsFalse...(self_(), ...) )
+    }
+
+this$x_IsFalse &lt;-
+    function () {
+        xIsFalse(self_())
+    }
+this$x_IsFalse... &lt;-
+    function (...) {
+        xIsFalse...(self_(), ...)
+    }
+
+# --- xIsTrue --- #
+this$xIsTrue &lt;-
+    function () {
+        x_( xIsTrue(self_()) )
+    }
+this$xIsTrue... &lt;-
+    function (...) {
+        x_( xIsTrue...(self_(), ...) )
+    }
+
+this$x_IsTrue &lt;-
+    function () {
+        xIsTrue(self_())
+    }
+this$x_IsTrue... &lt;-
+    function (...) {
+        xIsTrue...(self_(), ...)
+    }
+
+# --- xIsNan --- #
+this$xIsNan &lt;-
+    function () {
+        x_( xIsNan(self_()) )
+    }
+this$xIsNan... &lt;-
+    function (...) {
+        x_( xIsNan...(self_(), ...) )
+    }
+
+this$x_IsNan &lt;-
+    function () {
+        xIsNan(self_())
+    }
+this$x_IsNan... &lt;-
+    function (...) {
+        xIsNan...(self_(), ...)
+    }
+
+# --- xIsNa --- #
+this$xIsNa &lt;-
+    function () {
+        x_( xIsNa(self_()) )
+    }
+this$xIsNa... &lt;-
+    function (...) {
+        x_( xIsNa...(self_(), ...) )
+    }
+
+this$x_IsNa &lt;-
+    function () {
+        xIsNa(self_())
+    }
+this$x_IsNa... &lt;-
+    function (...) {
+        xIsNa...(self_(), ...)
+    }
+
+# --- xIsNull --- #
+this$xIsNull &lt;-
+    function () {
+        x_( xIsNull(self_()) )
+    }
+this$xIsNull... &lt;-
+    function (...) {
+        x_( xIsNull...(self_(), ...) )
+    }
+
+this$x_IsNull &lt;-
+    function () {
+        xIsNull(self_())
+    }
+this$x_IsNull... &lt;-
+    function (...) {
+        xIsNull...(self_(), ...)
+    }
+
+# --- xIterate --- #
+this$xIterate &lt;-
+    function (fn) {
+        x_( xIterate(fn, self_()) )
+    }
+this$x_Iterate &lt;-
+    function (fn) {
+        xIterate(fn, self_())
+    }
+
+# --- xInter --- #
+this$xInter &lt;-
+    function () {
+        x_( xInter(self_()) )
+    }
+
+this$x_Inter &lt;-
+    function () {
+        xInter(self_())
+    }
+
+this$xInter... &lt;-
+    function (...) {
+        x_( xInter...(self_(), ...) )
+    }
+
+this$x_Inter... &lt;-
+    function (...) {
+        xInter...(self_(), ...)
+    }
+
+# -------- J ------- #
+# --- xJoin --- #
+this$xJoin &lt;-
+    function () {
+        x_( xJoin(self_()) )
+    }
+this$xJoin... &lt;-
+    function (...) {
+        x_( xJoin...(self_(), ...) )
+    }
+
+this$x_Join &lt;-
+    function () {
+        xJoin(self_())
+    }
+this$x_Join... &lt;-
+    function (...) {
+        xJoin...(self_(), ...)
+    }
+
+# --- xJuxtapose --- #
+this$xJuxtapose &lt;-
+    function (fns) {
+        x_( xJuxtapose(self_()) )
+    }
+
+this$x_Juxtapose &lt;-
+    function (fns) {
+        xJuxtapose(self_())
+    }
+# -------- K ------- #
+# -------- L ------- #
+# --- xLast --- #
+this$xLast &lt;-
+    function () {
+        x_( xLast(self_()) )
+    }
+this$xLast... &lt;-
+    function (...) {
+        x_( xLast...(self_(), ...) )
+    }
+
+this$x_Last &lt;-
+    function () {
+        xLast(self_())
+    }
+this$x_Last... &lt;-
+    function (...) {
+        xLast...(self_(), ...)
+    }
+
+# --- xLenOf --- #
+this$xLenOf &lt;-
+    function () {
+        x_( xLenOf(self_()) )
+    }
+this$xLenOf... &lt;-
+    function (...) {
+        x_( xLenOf...(self_(), ...) )
+    }
+
+this$x_LenOf &lt;-
+    function () {
+        xLenOf(self_())
+    }
+this$x_LenOf... &lt;-
+    function (...) {
+        xLenOf...(self_(), ...)
+    }
+# --- xLimit --- #
+this$xLimit &lt;-
+    function (fn) {
+        x_( xLimit(fn, self_()) )
+    }
+this$x_Limit &lt;-
+    function (fn) {
+        xLimit(fn, self_())
+    }
+
+# --- xToLines --- #
+this$xToLines &lt;-
+    function () {
+        x_( xToLines(self_()) )
+    }
+this$x_ToLines &lt;-
+    function () {
+        xToLines(self_())
+    }
+
+# --- xLocatel --- #
+this$xLocatel &lt;-
+    function (pred) {
+        x_( xLocatel(pred, self_()) )
+    }
+this$xLocatel... &lt;-
+    function (pred, ...) {
+        x_( xLocatel...(pred, self_(), ...) )
+    }
+
+this$x_Locatel &lt;-
+    function (pred) {
+        xLocatel(pred, self_())
+    }
+this$x_Locatel... &lt;-
+    function (pred, ...) {
+        xLocatel...(pred, self_(), ...)
+    }
+
+this$xLocate &lt;-
+    this$xLocatel
+this$xLocate... &lt;-
+    this$xLocatel...
+
+this$x_Locate &lt;-
+    this$x_Locatel
+this$x_Locate... &lt;-
+    this$x_Locatel...
+
+# --- xLocater --- #
+this$xLocater &lt;-
+    function (pred) {
+        x_( xLocater(pred, self_()) )
+    }
+this$xLocater... &lt;-
+    function (pred, ...) {
+        x_( xLocater...(pred, self_(), ...) )
+    }
+
+this$x_Locater &lt;-
+    function (pred) {
+        xLocater(pred, self_())
+    }
+this$x_Locater... &lt;-
+    function (pred, ...) {
+        xLocater...(pred, self_(), ...)
+    }
+
+# -------- M ------- #
+# --- xMap --- #
+this$xMap &lt;-
+    function (fn) {
+        x_( xMap(fn, self_()) )
+    }
+this$xMap... &lt;-
+    function (fn, ...) {
+        x_( xMap...(fn, self_(), ...) )
+    }
+
+this$x_Map &lt;-
+    function (fn) {
+        xMap(fn, self_())
+    }
+this$x_Map... &lt;-
+    function (fn, ...) {
+        xMap...(fn, self_(), ...)
+    }
+# --- xMapply --- #
+this$xMapply &lt;-
+    function (fn) {
+        x_( xMapply(fn, self_()) )
+    }
+this$xMapply... &lt;-
+    function (fn, ...) {
+        x_( xMapply...(fn, self_(), ...) )
+    }
+
+this$x_Mapply &lt;-
+    function (fn) {
+        xMapply(fn, self_())
+    }
+this$x_Mapply... &lt;-
+    function (fn, ...) {
+        xMapply...(fn, self_(), ...)
+    }
+
+# --- xMapIndexed --- #
+this$xMapIndexed &lt;-
+    function (fn) {
+        x_( xMapIndexed(fn, self_()) )
+    }
+this$xMapIndexed... &lt;-
+    function (fn, ...) {
+        x_( xMapIndexed...(fn, self_(), ...) )
+    }
+
+this$x_MapIndexed &lt;-
+    function (fn) {
+        xMapIndexed(fn, self_())
+    }
+this$x_MapIndexed... &lt;-
+    function (fn, ...) {
+        xMapIndexed...(fn, self_(), ...)
+    }
+
+# --- xMapMany --- #
+this$xMapMany &lt;-
+    function (fn) {
+        x_( xMapMany(fn, self_()) )
+    }
+this$xMapMany... &lt;-
+    function (fn, ...) {
+        x_( xMapMany...(fn, self_(), ...) )
+    }
+
+this$x_MapMany &lt;-
+    function (fn) {
+        xMapMany(fn, self_())
+    }
+this$x_MapMany... &lt;-
+    function (fn, ...) {
+        xMapMany...(fn, self_(), ...)
+    }
+
+# --- xMapWhen --- #
+this$xMapWhen &lt;-
+    function (pred, fn) {
+        x_( xMapWhen(pred, fn, self_()) )
+    }
+this$xMapWhen... &lt;-
+    function (pred, fn, ...) {
+        x_( xMapWhen...(pred, fn, self_(), ...) )
+    }
+
+this$x_MapWhen &lt;-
+    function (pred, fn) {
+        xMapWhen(pred, fn, self_())
+    }
+this$x_MapWhen... &lt;-
+    function (pred, fn, ...) {
+        xMapWhen...(pred, fn, self_(), ...)
+    }
+
+# -------- N ------- #
+# --- xAsNamed --- #
+this$xAsNamed &lt;-
+    function (strs) {
+        x_( xAsNamed(strs, coll = self_()) )
+    }
+
+this$x_AsNamed &lt;-
+    function (strs) {
+        xAsNamed(strs, coll = self_())
+    }
+
+# --- xNegate --- #
+this$xNegate &lt;-
+    function () {
+        x_( xNegate(self_()) )
+    }
+this$xNegate... &lt;-
+    function (...) {
+        x_( xNegate...(self_(), ...) )
+    }
+
+this$x_Negate &lt;-
+    function () {
+        xNegate(self_())
+    }
+this$x_Negate... &lt;-
+    function (...) {
+        xNegate...(self_(), ...)
+    }
+
+# --- xNotFalse --- #
+this$xNotFalse &lt;-
+    function () {
+        x_( xNotFalse(self_()) )
+    }
+this$xNotFalse... &lt;-
+    function (...) {
+        x_( xNotFalse...(self_(), ...) )
+    }
+
+this$x_NotFalse &lt;-
+    function () {
+        xNotFalse(self_())
+    }
+this$x_NotFalse... &lt;-
+    function (...) {
+        xNotFalse...(self_(), ...)
+    }
+
+# --- xNotTrue --- #
+this$xNotTrue &lt;-
+    function () {
+        x_( xNotTrue(self_()) )
+    }
+this$xNotTrue... &lt;-
+    function (...) {
+        x_( xNotTrue...(self_(), ...) )
+    }
+
+this$x_NotTrue &lt;-
+    function () {
+        xNotTrue(self_())
+    }
+this$x_NotTrue... &lt;-
+    function (...) {
+        xNotTrue...(self_(), ...)
+    }
+
+# --- xNotNa --- #
+this$xNotNa &lt;-
+    function () {
+        x_( xNotNa(self_()) )
+    }
+this$xNotNa... &lt;-
+    function (...) {
+        x_( xNotNa...(self_(), ...) )
+    }
+
+this$x_NotNa &lt;-
+    function () {
+        xNotNa(self_())
+    }
+this$x_NotNa... &lt;-
+    function (...) {
+        xNotNa...(self_(), ...)
+    }
+
+# --- xNotNan --- #
+this$xNotNan &lt;-
+    function () {
+        x_( xNotNan(self_()) )
+    }
+this$xNotNan... &lt;-
+    function (...) {
+        x_( xNotNan...(self_(), ...) )
+    }
+
+this$x_NotNan &lt;-
+    function () {
+        xNotNan(self_())
+    }
+this$x_NotNan... &lt;-
+    function (...) {
+        xNotNan...(self_(), ...)
+    }
+
+# -------- O ------- #
+# -------- P ------- #
+# --- xPack --- #
+this$xPack &lt;-
+    function () {
+        x_( xPack(self_()) )
+    }
+this$xPack... &lt;-
+    function (...) {
+        x_( xPack...(self_(), ...) )
+    }
+
+this$x_Pack &lt;-
+    function () {
+        xPack(self_())
+    }
+this$x_Pack... &lt;-
+    function (...) {
+        xPack...(self_(), ...)
+    }
+
+# --- xPoll --- #
+this$xPoll &lt;-
+    function (pred) {
+        x_( xPoll(pred, self_()) )
+    }
+this$xPoll... &lt;-
+    function (pred, ...) {
+        x_( xPoll...(pred, self_(), ...) )
+    }
+
+this$x_Poll &lt;-
+    function (pred) {
+        xPoll(pred, self_())
+    }
+this$x_Poll... &lt;-
+    function (pred, ...) {
+        xPoll...(pred, self_(), ...)
+    }
+
+# --- xPartial --- #
+this$xPartial &lt;-
+    function (fn) {
+        x_( xPartial(fn, self_()) )
+}
+this$xPartial... &lt;-
+    function (fn, ...) {
+        x_( xPartial...(fn, self_(), ...) )
+}
+
+this$x_Partial &lt;-
+    function (fn) {
+        xPartial(fn, self_())
+}
+this$x_Partial... &lt;-
+    function (fn, ...) {
+        xPartial...(fn, self_(), ...)
+}
+
+# --- xPluck --- #
+this$xPluck &lt;-
+    function (str) {
+        x_( xPluck(str, self_()) )
+    }
+this$xPluck... &lt;-
+    function (str, ...) {
+        x_( xPluck...(str, self_(), ...) )
+    }
+
+this$x_Pluck &lt;-
+    function (str) {
+        xPluck(str, self_())
+    }
+this$x_Pluck... &lt;-
+    function (str, ...) {
+        xPluck...(str, self_(), ...)
+    }
+
+# --- xPartition --- #
+this$xPartition &lt;-
+    function (pred) {
+        x_( xPartition(pred, self_()) )
+    }
+this$x_Partition &lt;-
+    function (pred) {
+        xPartition(pred, self_())
+    }
+
+this$xPartition... &lt;-
+    function (pred, ...) {
+        x_( xPartition...(pred, self_(), ...) )
+    }
+
+this$x_Partition... &lt;-
+    function (pred, ...) {
+        xPartition...(pred, self_(), ...)
+    }
+
+# --- xPermute --- #
+this$xPermute &lt;-
+    function (coll) {
+        x_( xPermute(coll, self_()) )
+    }
+this$xPermute... &lt;-
+    function (coll, ...) {
+        x_( xPermute(coll, self_(), ...) )
+    }
+
+this$x_Permute &lt;-
+    function (coll) {
+        xPermute(coll, self_())
+    }
+this$x_Permute... &lt;-
+    function (coll, ...) {
+        xPermute(coll, self_(), ...)
+    }
+
+# --- xPred --- #
+this$xPred &lt;-
+    function () {
+        x_( xPred(self_()) )
+    }
+this$xPred... &lt;-
+    function (...) {
+        x_( xPred...(self_(), ...) )
+    }
+
+this$x_Pred &lt;-
+    function () {
+        xPred(self_())
+    }
+this$x_Pred... &lt;-
+    function (...) {
+        xPred...(self_(), ...)
+    }
+
+# -------- Q ------- #
+# -------- R ------- #
+# --- xDeepMap --- #
+this$xDeepMap &lt;-
+    function (fn) {
+        x_( xDeepMap(fn, self_()) )
+    }
+this$xDeepMap... &lt;-
+    function (fn, ...) {
+        x_( xDeepMap...(fn, self_(), ...) )
+    }
+
+this$x_RecurMap &lt;-
+    function (fn) {
+        xDeepMap(fn, self_())
+    }
+this$x_RecurMap... &lt;-
+    function (fn, ...) {
+        xDeepMap...(fn, self_(), ...)
+    }
+
+# --- xReducel --- #
+this$xReducel &lt;-
+    function (fn) {
+        x_( xReducel(fn, self_()) )
+    }
+this$xReducel... &lt;-
+    function (fn, ...) {
+        x_( xReducel...(fn, self_(), ...) )
+    }
+
+this$x_Reducel &lt;-
+    function (fn) {
+        xReducel(fn, self_())
+    }
+this$x_Reducel... &lt;-
+    function (fn, ...) {
+        xReducel...(fn, self_(), ...)
+    }
+
+this$xReduce &lt;-
+    this$xReducel
+this$xReduce... &lt;-
+    this$xReducel...
+
+this$x_Reduce &lt;-
+    this$x_Reducel
+this$x_Reduce... &lt;-
+    this$x_Reducel...
+
+# --- xReducer --- #
+this$xReducer &lt;-
+    function (fn) {
+        x_( xReducer(fn, self_()) )
+    }
+this$xReducer... &lt;-
+    function (fn, ...) {
+        x_( xReducer...(fn, self_(), ...) )
+    }
+
+this$x_Reducer &lt;-
+    function (fn) {
+        xReducer(fn, self_())
+    }
+this$x_Reducer... &lt;-
+    function (fn, ...) {
+        xReducer...(fn, self_(), ...)
+    }
+
+# --- xRepeat --- #
+this$xRepeat &lt;-
+    function (num) {
+        x_( xRepeat(num, self_()) )
+    }
+this$xRepeat... &lt;-
+    function (num, ...) {
+        x_( xRepeat...(num, self_(), ...) )
+    }
+
+this$x_Repeat &lt;-
+    function (num) {
+        xRepeat(num, self_())
+    }
+this$x_Repeat... &lt;-
+    function (num, ...) {
+        xRepeat...(num, self_(), ...)
+    }
+
+# --- xReject --- #
+this$xReject &lt;-
+    function (pred) {
+        x_( xReject(pred, self_()) )
+    }
+this$xReject... &lt;-
+    function (pred, ...) {
+        x_( xReject...(pred, self_(), ...) )
+    }
+
+this$x_Reject &lt;-
+    function (pred) {
+        xReject(pred, self_())
+    }
+this$x_Reject... &lt;-
+    function (pred, ...) {
+        xReject...(pred, self_(), ...)
+    }
+
+# --- xRest --- #
+this$xRest &lt;-
+    function () {
+        x_( xRest(self_()) )
+    }
+this$xRest... &lt;-
+    function (...) {
+        x_( xRest...(self_(), ...) )
+    }
+
+this$x_Rest &lt;-
+    function () {
+        xRest(self_())
+    }
+this$x_Rest... &lt;-
+    function (...) {
+        xRest...(self_(), ...)
+    }
+
+# --- xRest --- #
+this$xReverse &lt;-
+    function () {
+        x_( xReverse(self_()) )
+    }
+this$xReverse... &lt;-
+    function (...) {
+        x_( xReverse...(self_(), ...) )
+    }
+
+this$x_Reverse &lt;-
+    function () {
+        xReverse(self_())
+    }
+this$x_Reverse... &lt;-
+    function (...) {
+        xReverse...(self_(), ...)
+    }
+# -------- S ------- #
+# --- xSecond --- #
+this$xSecond &lt;-
+    function () {
+        x_( xSecond(self_()) )
+    }
+this$xSecond... &lt;-
+    function (...) {
+        x_( xSecond...(self_(), ...) )
+    }
+
+this$x_Second &lt;-
+    function () {
+        xSecond(self_())
+    }
+this$x_Second... &lt;-
+    function (...) {
+        xSecond...(self_(), ...)
+    }
+
+# --- xSetProd --- #
+this$xSetProd &lt;-
+    function () {
+        x_( xSetProd(self_()) )
+    }
+this$xSetProd... &lt;-
+    function (...) {
+        x_( xSetProd...(self_(), ...) )
+    }
+
+this$x_SetProd &lt;-
+    function () {
+        xSetProd(self_())
+    }
+this$x_SetProd... &lt;-
+    function (...) {
+        xSetProd...(self_(), ...)
+    }
+
+# --- xSegment --- #
+this$xSegment &lt;-
+    function (num) {
+        x_( xSegment(num, self_()) )
+    }
+this$xSegment... &lt;-
+    function (num, ...) {
+        x_( xSegment...(num, self_(), ...) )
+    }
+
+this$x_Segment &lt;-
+    function (num) {
+        xSegment(num, self_())
+    }
+this$x_Segment... &lt;-
+    function (num, ...) {
+        xSegment...(num, self_(), ...)
+    }
+
+# --- xSelect --- #
+this$xSelect &lt;-
+    function (pred) {
+        x_( xSelect(pred, self_()) )
+    }
+this$xSelect... &lt;-
+    function (pred, ...) {
+        x_( xSelect...(pred, self_(), ...) )
+    }
+
+this$x_Select &lt;-
+    function (pred) {
+        xSelect(pred, self_())
+    }
+this$x_Select... &lt;-
+    function (pred, ...) {
+        xSelect...(pred, self_(), ...)
+    }
+
+# --- xSignum --- #
+this$xSignum &lt;-
+    function () {
+        x_( xSignum(self_()) )
+    }
+this$xSignum... &lt;-
+    function (...) {
+        x_( xSignum...(self_(), ...) )
+    }
+
+this$x_Signum &lt;-
+    function () {
+        xSignum(self_())
+    }
+this$x_Signum... &lt;-
+    function (...) {
+        xSignum...(self_(), ...)
+    }
+
+# --- xSplitAt--- #
+this$xSplitAt&lt;-
+    function (num) {
+        x_( xSplitAt(num, self_()) )
+    }
+this$xSplitAt... &lt;-
+    function (num, ...) {
+        x_( xSplitAt...(num, self_(), ...) )
+    }
+
+this$x_SplitAt &lt;-
+    function (num) {
+        xSplitAt(num, self_())
+    }
+this$x_SplitAt... &lt;-
+    function (num, ...) {
+        xSplitAt...(num, self_(), ...)
+    }
+
+# --- xShuffle --- #
+this$xShuffle &lt;-
+    function () {
+        x_( xShuffle(self_()) )
+    }
+this$xShuffle... &lt;-
+    function (...) {
+        x_( xShuffle...(self_(), ...) )
+    }
+
+this$x_Shuffle &lt;-
+    function () {
+        xShuffle(self_())
+    }
+this$x_Shuffle... &lt;-
+    function (...) {
+        xShuffle...(self_(), ...)
+    }
+
+# --- xSplitWith --- #
+this$xSplitWith &lt;-
+    function (pred) {
+        x_( xSplitWith(pred, self_()) )
+    }
+this$xSplitWith... &lt;-
+    function (pred, ...) {
+        x_( xSplitWith...(pred, self_(), ...) )
+    }
+
+this$x_SplitWith &lt;-
+    function (pred) {
+        xSplitWith(pred, self_())
+    }
+this$x_SplitWith... &lt;-
+    function (pred, ...) {
+        xSplitWith...(pred, self_(), ...)
+    }
+
+# --- xStopwatch --- #
+
+this$xStopwatch &lt;-
+    function () {
+        x_( xStopwatch(self_()) )
+    }
+
+this$x_Stopwatch &lt;-
+    function () {
+        xStopwatch(self_())
+    }
+
+# --- xSubstring --- #
+this$xSubstring &lt;-
+    function (nums) {
+        x_( xSubstring(self_(), nums) )
+    }
+this$xSubstring... &lt;-
+    function (...) {
+        x_( xSubstring...(self_(), ...) )
+    }
+
+this$x_SubString &lt;-
+    function (nums) {
+        xSubstring(self_(), nums)
+    }
+this$x_SubString... &lt;-
+    function (...) {
+        xSubstring...(self_(), ...)
+    }
+
+# --- xSucc --- #
+this$xSucc &lt;-
+    function () {
+        x_( xSucc(self_()) )
+    }
+this$xSucc... &lt;-
+    function (...) {
+        x_( xSucc...(self_(), ...) )
+    }
+
+this$x_Succ &lt;-
+    function () {
+        xSucc(self_())
+    }
+this$x_Succ... &lt;-
+    function (...) {
+        xSucc...(self_(), ...)
+    }
+
+# -------- T ------- #
+# --- xTake --- #
+this$xTake &lt;-
+    function (num) {
+        x_( xTake(num, self_()) )
+    }
+this$xTake... &lt;-
+    function (num, ...) {
+        x_( xTake...(num, self_(), ...) )
+    }
+
+this$x_Take &lt;-
+    function (num) {
+        xTake(num, self_())
+    }
+this$x_Take... &lt;-
+    function (num, ...) {
+        xTake...(num, self_(), ...)
+    }
+
+# --- xTakeWhile --- #
+this$xTakeWhile &lt;-
+    function (pred) {
+        x_( xTakeWhile(pred, self_()) )
+    }
+this$xTakeWhile... &lt;-
+    function (pred, ...) {
+        x_( xTakeWhile...(pred, self_(), ...) )
+    }
+
+this$x_TakeWhile &lt;-
+    function (pred) {
+        xTakeWhile(pred, self_())
+    }
+this$x_TakeWhile... &lt;-
+    function (pred, ...) {
+        xTakeWhile...(pred, self_(), ...)
+    }
+
+# --- xThird --- #
+this$xThird &lt;-
+    function () {
+        x_( xThird(self_()) )
+    }
+this$xThird... &lt;-
+    function (...) {
+        x_( xThird...(self_(), ...) )
+    }
+
+this$x_Third &lt;-
+    function () {
+        xThird(self_())
+    }
+this$x_Third... &lt;-
+    function (...) {
+        xThird...(self_(), ...)
+    }
+
+# -------- U ------- #
+# --- xFromChars --- #
+
+this$xFromChars &lt;-
+    function () {
+        x_( xFromChars(self_()) )
+    }
+this$xFromChars... &lt;-
+    function (...) {
+        x_( xFromChars...(self_(), ...) )
+    }
+
+this$x_FromChars &lt;-
+    function () {
+        xFromChars(self_())
+    }
+this$x_FromChars... &lt;-
+    function (...) {
+        xFromChars...(self_(), ...)
+    }
+
+# --- xUnion --- #
+this$xUnion &lt;-
+    function () {
+        x_( xUnion(self_()) )
+    }
+
+this$x_Union &lt;-
+    function () {
+        xUnion(self_())
+    }
+
+this$xUnion... &lt;-
+    function (...) {
+        x_( xUnion...(self_(), ...) )
+    }
+
+this$x_Union... &lt;-
+    function (...) {
+        xUnion...(self_(), ...)
+    }
+
+# --- xUnit --- #
+this$xUnit &lt;-
+    function () {
+        x_( xUnit(self_())  )
+    }
+
+this$x_Unit &lt;-
+    function () {
+        xUnit(self_())
+    }
+
+# --- xUnique --- #
+this$xUnique &lt;-
+    function () {
+        x_( xUnique(self_())    )
+    }
+
+this$x_Unique &lt;-
+    function () {
+        xUnique(self_())
+    }
+
+this$xUnique... &lt;-
+    function (...) {
+        x_( xUnique(self_(), ...)   )
+    }
+
+this$x_Unique... &lt;-
+    function (...) {
+        xUnique(self_(), ...)
+    }
+
+# --- xFromLines --- #
+this$xFromLines &lt;-
+    function () {
+        x_( xFromLines(self_()) )
+    }
+this$xFromLines... &lt;-
+    function (...) {
+        x_( xFromLines...(self_(), ...) )
+    }
+
+this$x_FromLines &lt;-
+    function () {
+        xFromLines(self_())
+    }
+this$x_FromLines... &lt;-
+    function (...) {
+        xFromLines...(self_(), ...)
+    }
+
+# --- xFromWords --- #
+this$xFromWords &lt;-
+    function () {
+        x_( xFromWords(self_()) )
+    }
+this$xFromWords... &lt;-
+    function (...) {
+        x_( xFromWords...(self_(), ...) )
+    }
+
+this$x_FromWords &lt;-
+    function () {
+        xFromWords(self_())
+    }
+this$x_FromWords... &lt;-
+    function (...) {
+        xFromWords...(self_(), ...)
+    }
+
+# -------- V ------- #
+# -------- W ------- #
+# --- xToWords --- #
+this$xToWords &lt;-
+    function () {
+        x_( xToWords(self_()) )
+    }
+
+this$x_ToWords &lt;-
+    function () {
+        xToWords(self_())
+    }
+
+this$xDelay &lt;-
+    function (fn) {
+        x_( xDelay(fn, self_()) )
+    }
+
+this$x_Wait &lt;-
+    function (fn) {
+        xDelay(fn, self_())
+    }
+
+# -------- X ------- #
+# -------- Y ------- #
+# -------- Z ------- #
+# --- xZip --- #
+this$xZip &lt;-
+    function () {
+        x_( xZip(self_()) )
+    }
+this$x_Zip &lt;-
+    function () {
+        xZip(self_())
+    }
+
+this$xZip... &lt;-
+    function (...) {
+        x_( xZip...(self_(), ...) )
+    }
+this$x_Zip... &lt;-
+    function (...) {
+        xZip...(self_(), ...)
+    }
+
+# --- xZipWith --- #
+this$xZipWith &lt;-
+    function (fn) {
+        x_( xZipWith(fn, self_()) )
+    }
+this$xZipWith... &lt;-
+    function (fn, ...) {
+        x_( xZipWith(fn, self_(), ...) )
+    }
+
+this$x_ZipWith &lt;-
+    function (fn) {
+        xZipWith(fn, self_())
+    }
+this$x_ZipWith... &lt;-
+    function (fn, ...) {
+        xZipWith(fn, self_(), ...)
+    }
+
+this &lt;- as.environment(
+    c(as.list(this), as.list(x_any_proto)) )
+this$private &lt;- list(
+    contents_are = "collections")
+
+this
+</code></pre>
+<p>})</p>
+<h1 id="-function-methods-">-------------------------------- Function methods --------------------------------</h1>
+<h1></h1>
+<h1 id="these-methods-operate-on-functions-wrapped-in-the-arrow-object">These methods operate on functions wrapped in the arrow object.</h1>
+<h1 id="i-anticipate-that-these-methods-will-be-less-used-but-theres-no-reason-to-exclude-them">I anticipate that these methods will be less used, but there's no reason to exclude them</h1>
+<h1 id="entirely-methods-such-as-apply-work-nicely-with-this-style">entirely. Methods such as Apply work nicely with this style.</h1>
+<p>x_fn_proto &lt;- local({</p>
+<pre><code>this &lt;- Object()
+
+# -------- A ------- #
+# --- xAsClosure --- #
+this$xAsClosure &lt;-
+    function () {
+        x_( xAsClosure(self_()) )
+    }
+this$x_AsClosure &lt;-
+    function () {
+        xAsClosure(self_())
+    }
+
+# --- xAsUnary --- #
+this$xAsUnary &lt;-
+    function () {
+        x_( xAsUnary(self_()) )
+    }
+this$x_AsUnary &lt;-
+    function () {
+        xAsUnary(self_())
+    }
+
+# --- xAsVariadic --- #
+this$xAsVariadic &lt;-
+    function () {
+        x_( xAsVariadic(self_()) )
+    }
+this$x_AsVariadic &lt;-
+    function () {
+        xAsVariadic(self_())
+    }
+
+# --- xApply --- #
+this$xApply &lt;-
+    function (coll) {
+        x_( xApply(self_(), coll) )
+    }
+this$xApply... &lt;-
+    function (...) {
+        x_( xApply...(self_(), ...) )
+    }
+
+this$x_Apply &lt;-
+    function (coll) {
+        xApply(self_(), coll)
+    }
+this$x_Apply... &lt;-
+    function (...) {
+        xApply...(self_(), ...)
+    }
+
+# --- xArity --- #
+this$xArity &lt;-
+    function () {
+        x_( xArity(self_()) )
+    }
+this$x_Arity &lt;-
+    function () {
+        xArity(self_())
+    }
+# -------- B ------- #
+
+
+# -------- C ------- #
+# --- xConst --- #
+this$xConst &lt;-
+    function () {
+        x_( xConst(self_()) )
+    }
+
+this$x_Const &lt;-
+    function () {
+        xConst(self_())
+    }
+
+this$xCompose... &lt;-
+    function (...) {
+        x_( xCompose(list(self_(), ...)) )
+    }
+
+this$x_Compose... &lt;-
+    function (...) {
+        xCompose(list(self_(), ...))
+    }
+# -------- D ------- #
+
+this$xDropWhile &lt;-
+    function (coll) {
+        x_( xDropWhile(self_(), coll) )
+    }
+this$x_DropWhile &lt;-
+    function (coll) {
+        xDropWhile(self_(), coll)
+    }
+
+this$xDropWhile... &lt;-
+    function (...) {
+        x_( xDropWhile...(self_(), ...) )
+    }
+this$x_DropWhile... &lt;-
+    function (...) {
+        xDropWhile...(self_(), ...)
+    }
+
+this$xDo &lt;-
+    function (coll) {
+        x_( xDo(self_(), coll) )
+    }
+this$x_Do &lt;-
+    function (coll) {
+        xDo(self_(), coll)
+    }
+
+this$xDo... &lt;-
+    function (...) {
+        x_( xDo...(self_(), ...) )
+    }
+
+this$x_Do... &lt;-
+    function (...) {
+        xDo...(self_(), ...)
+    }
+
+# -------- E ------- #
+
+this$xExists &lt;-
+    function (colls) {
+        x_( xExists(self_(), colls) )
+    }
+this$xExists... &lt;-
+    function (...) {
+        x_( xExists...(self_(), ...) )
+    }
+
+this$x_Exists &lt;-
+    function (colls) {
+        xExists(self_(), colls)
+    }
+this$x_Exists... &lt;-
+    function (...) {
+        xExists...(self_(), ...)
+    }
+# -------- F ------- #
+
+this$xFilter &lt;-
+    function (coll) {
+        x_( xFilter(self_(), coll) )
+    }
+this$x_Filter &lt;-
+    function (coll) {
+        xFilter(self_(), coll)
+    }
+
+this$xFilter... &lt;-
+    function (...) {
+        x_( xFilter...(self_(), ...) )
+    }
+this$x_Filter... &lt;-
+    function (...) {
+        xFilter...(self_(), ...)
+    }
+
+this$xFlip &lt;-
+    function () {
+        x_( xFlip(self_()) )
+    }
+this$x_Flip &lt;-
+    function () {
+        xFlip(self_())
+    }
+
+# --- xFlatMap --- #
+this$xFlatMap &lt;-
+    function (coll) {
+        x_( xFlatMap(self_(), coll) )
+    }
+this$xFlatMap... &lt;-
+    function (...) {
+        x_( xFlatMap...(self_(), ...) )
+    }
+
+this$x_FlatMap &lt;-
+    function (coll) {
+        xFlatMap(self_(), coll)
+    }
+this$x_FlatMap... &lt;-
+    function (...) {
+        xFlatMap...(self_(), ...)
+    }
+
+# --- xForall --- #
+this$xForall &lt;-
+    function (colls) {
+        x_( xForall(self_(), colls) )
+    }
+this$xForall... &lt;-
+    function (...) {
+        x_( xForall...(self_(), ...) )
+    }
+
+this$x_Forall &lt;-
+    function (colls) {
+        xForall(self_(), colls)
+    }
+this$x_Forall... &lt;-
+    function (...) {
+        xForall...(self_(), ...)
+    }
+
+# --- xFold --- #
+this$xFoldl &lt;-
+    function (val, coll) {
+        x_( xFoldl(self_(), val, coll) )
+    }
+this$xFoldl... &lt;-
+    function (val, ...) {
+        x_( xFoldl...(self_(), val, ...) )
+    }
+
+this$x_Foldl &lt;-
+    function (val, coll) {
+        xFoldl(self_(), val, coll)
+    }
+this$x_Foldl... &lt;-
+    function (val, ...) {
+        xFoldl...(self_(), val, ...)
+    }
+
+this$xFold &lt;-
+    this$xFoldl
+this$xFold... &lt;-
+    this$xFoldl...
+
+this$x_Fold &lt;-
+    this$x_Foldl
+this$x_Fold... &lt;-
+    this$x_Foldl...
+
+# --- xFoldr --- #
+this$xFoldr &lt;-
+    function (val, coll) {
+        x_( xFoldr(self_(), val, coll) )
+    }
+this$xFoldr... &lt;-
+    function (val, ...) {
+        x_( xFoldr...(self_(), val, ...) )
+    }
+
+this$x_Foldr &lt;-
+    function (val, coll) {
+        xFoldr(self_(), val, coll)
+    }
+this$x_Foldr... &lt;-
+    function (val, ...) {
+        xFoldr...(self_(), val, ...)
+    }
+
+# --- xFoldListl --- #
+this$xFoldListl &lt;-
+    function (val, coll) {
+        x_( xFoldListl(self_(), val, coll) )
+    }
+this$xFoldListl... &lt;-
+    function (val, ...) {
+        x_( xFoldListl...(self_(), val, ...) )
+    }
+
+this$x_FoldListl &lt;-
+    function (val, coll) {
+        xFoldListl(self_(), val, coll)
+    }
+this$x_FoldListl... &lt;-
+    function (val, ...) {
+        xFoldListl...(self_(), val, ...)
+    }
+
+this$xFoldList &lt;-
+    function (val, coll) {
+        x_( xFoldList(self_(), val, coll) )
+    }
+this$xFoldList... &lt;-
+    function (val, ...) {
+        x_( xFoldList...(self_(), val, ...) )
+    }
+
+this$x_FoldList &lt;-
+    function (val, coll) {
+        xFoldList(self_(), val, coll)
+    }
+this$x_FoldList... &lt;-
+    function (val, ...) {
+        xFoldList...(self_(), val, ...)
+    }
+
+# --- xFormalsOf --- #
+this$xFormalsOf &lt;-
+    function () {
+        x_( xFormalsOf(self_()) )
+    }
+
+this$x_FormalsOf &lt;-
+    function () {
+        xFormalsOf(self_())
+    }
+
+# -------- G ------- #
+
+# -------- H ------- #
+# -------- I ------- #
+# --- xIsVariadic --- #
+this$xIsVariadic &lt;-
+    function () {
+        x_( xIsVariadic(self_()) )
+    }
+
+this$x_IsVariadic &lt;-
+    function () {
+        xIsVariadic(self_())
+    }
+# --- xIterate --- #
+this$xIterate &lt;-
+    function (val) {
+        x_( xIterate(self_(), val ) )
+    }
+
+this$x_Iterate &lt;-
+    function (val) {
+        xIterate(self_(), val )
+    }
+# -------- J ------- #
+# --- xJuxtapose --- #
+this$xJuxtapose... &lt;-
+    function (...) {
+        x_( xJuxtapose...(self_(), ...) )
+    }
+
+this$x_Juxtapose... &lt;-
+    function (...) {
+        xJuxtapose...(self_(), ...)
+    }
+
+# -------- K ------- #
+# --- xK --- #
+this$xK &lt;-
+    this$xConst
+this$x_K &lt;-
+    this$x_Const
+
+# -------- L ------- #
+# --- xLimit --- #
+this$xLimit &lt;-
+    function (num) {
+        x_( xLimit(self_(), num) )
+    }
+
+this$x_Limit &lt;-
+    function (num) {
+        xLimit(self_(), num)
+    }
+
+# --- xLocate --- #
+
+this$xLift &lt;-
+    function (fns) {
+        x_( xLift(self_(), fns) )
+    }
+this$x_Lift &lt;-
+    function (fns) {
+        xLift(self_(), fns)
+    }
+
+this$xLift... &lt;-
+    function (...) {
+        x_( xLift(self_(), list(...)) )
+    }
+this$x_Lift... &lt;-
+    function (...) {
+        xLift(self_(), list(...))
+    }
+
+# --- xLocatel --- #
+this$xLocatel &lt;-
+    function (coll) {
+        x_( xLocatel(self_(), coll) )
+    }
+this$xLocatel... &lt;-
+    function (...) {
+        x_( xLocatel...(self_(), ...) )
+    }
+
+this$x_Locatel &lt;-
+    function (coll) {
+        xLocatel(self_(), coll)
+    }
+this$x_Locatel... &lt;-
+    function (...) {
+        xLocatel...(self_(), ...)
+    }
+
+this$xLocate &lt;-
+    this$xLocatel
+this$xLocate... &lt;-
+    this$xLocatel...
+
+this$x_Locate &lt;-
+    this$x_Locatel
+this$x_Locate... &lt;-
+    this$x_Locatel...
+
+# --- xLocater --- #
+this$xLocater &lt;-
+    function (coll) {
+        x_( xLocater(self_(), coll) )
+    }
+this$xLocater... &lt;-
+    function (...) {
+        x_( xLocater...(self_(), ...) )
+    }
+
+this$x_Locater &lt;-
+    function (coll) {
+        xLocater(self_(), coll)
+    }
+this$x_Locater... &lt;-
+    function (...) {
+        xLocater...(self_(), ...)
+    }
+
+# -------- M ------- #
+# --- xMap --- #
+this$xMap &lt;-
+    function (coll) {
+        x_( xMap(self_(), coll) )
+    }
+this$xMap... &lt;-
+    function (...) {
+        x_( xMap...(self_(), ...) )
+    }
+
+this$x_Map &lt;-
+    function (coll) {
+        xMap(self_(), coll)
+    }
+this$x_Map... &lt;-
+    function (...) {
+        xMap...(self_(), ...)
+    }
+
+# --- xMapply --- #
+this$xMapply &lt;-
+    function (coll) {
+        x_( xMapply(self_(), coll) )
+    }
+this$xMapply... &lt;-
+    function (...) {
+        x_( xMapply...(self_(), ...) )
+    }
+
+this$x_Mapply &lt;-
+    function (coll) {
+        xMapply(self_(), coll)
+    }
+this$x_Mapply... &lt;-
+    function (...) {
+        xMapply...(self_(), ...)
+    }
+
+# --- xMapIndexed --- #
+this$xMapIndexed &lt;-
+    function (coll) {
+        x_( xMapIndexed(self_(), coll) )
+    }
+this$xMapIndexed... &lt;-
+    function (...) {
+        x_( xMapIndexed...(self_(), ...) )
+    }
+
+this$x_MapIndexed &lt;-
+    function (coll) {
+        xMapIndexed(self_(), coll)
+    }
+this$x_MapIndexed... &lt;-
+    function (...) {
+        xMapIndexed...(self_(), ...)
+    }
+
+# --- xMapMany --- #
+this$xMapMany &lt;-
+    function (colls) {
+        x_( xMapMany(self_(), colls) )
+    }
+this$xMapMany... &lt;-
+    function (...) {
+        x_( xMapMany...(self_(), ...) )
+    }
+
+this$x_MapMany &lt;-
+    function (colls) {
+        xMapMany(self_(), colls)
+    }
+this$x_MapMany... &lt;-
+    function (...) {
+        xMapMany...(self_(), ...)
+    }
+
+# --- xMapWhen --- #
+this$xMapWhen &lt;-
+    function (fn, coll) {
+        x_( xMapWhen(self_(), fn, coll) )
+    }
+this$xMapWhen... &lt;-
+    function (fn, ...) {
+        x_( xMapWhen...(self_(), fn, ...) )
+    }
+
+this$x_MapWhen &lt;-
+    function (fn, coll) {
+        xMapWhen(self_(), fn, coll)
+    }
+this$x_MapWhen... &lt;-
+    function (fn, ...) {
+        xMapWhen...(self_(), fn, ...)
+    }
+
+# -------- N ------- #
+this$xNot &lt;-
+    function () {
+        x_( xNot(self_()) )
+    }
+this$x_Not &lt;-
+    function () {
+        xNot(self_())
+    }
+
+# -------- O ------- #
+
+# -------- P ------- #
+# --- xPartition --- #
+this$xPartition &lt;-
+    function (coll) {
+        x_( xPartition(self_(), coll) )
+    }
+this$xPartition... &lt;-
+    function (...) {
+        x_( xPartition...(self_(), ...) )
+    }
+
+this$x_Partition &lt;-
+    function (coll) {
+        xPartition(self_(), coll)
+    }
+this$x_Partition... &lt;-
+    function (...) {
+        xPartition...(self_(), ...)
+    }
+
+# --- xParamsOf --- #
+this$xParamsOf &lt;-
+    function () {
+        x_( xParamsOf(self_()) )
+    }
+
+this$x_ParamsOf &lt;-
+    function () {
+        xParamsOf(self_())
+    }
+
+# --- xPartial --- #
+this$xPartial &lt;-
+    function (coll) {
+        x_( xPartial(self_(), coll) )
+    }
+this$xPartial... &lt;-
+    function (...) {
+        x_( xPartial...(self_(), ...) )
+    }
+
+this$x_Partial &lt;-
+    function (coll) {
+        xPartial(self_(), coll)
+    }
+this$x_Partial... &lt;-
+    function (...) {
+        xPartial...(self_(), ...)
+    }
+
+# --- xPoll --- #
+this$xPoll &lt;-
+    function (coll) {
+        x_( xPoll(self_(), coll) )
+    }
+this$xPoll... &lt;-
+    function (...) {
+        x_( xPoll...(self_(), ...) )
+    }
+
+this$x_Poll &lt;-
+    function (coll) {
+        xPoll(self_(), coll)
+    }
+this$x_Poll... &lt;-
+    function (...) {
+        xPoll...(self_(), ...)
+    }
+
+# -------- Q ------- #
+# -------- R ------- #
+# --- xDeepMap --- #
+this$xDeepMap &lt;-
+    function (coll) {
+        x_( xDeepMap(self_(), coll) )
+    }
+this$xDeepMap... &lt;-
+    function (...) {
+        x_( xDeepMap...(self_(), ...) )
+    }
+
+this$x_RecurMap &lt;-
+    function (coll) {
+        xDeepMap(self_(), coll)
+    }
+this$x_RecurMap... &lt;-
+    function (...) {
+        xDeepMap...(self_(), ...)
+    }
+
+# --- xReducel --- #
+this$xReducel &lt;-
+    function (coll) {
+        x_( xReducel(self_(), coll) )
+    }
+this$xReducel... &lt;-
+    function (...) {
+        x_( xReducel...(self_(), ...) )
+    }
+
+this$x_Reducel &lt;-
+    function (coll) {
+        xReducel(self_(), coll)
+    }
+this$x_Reducel... &lt;-
+    function (...) {
+        xReducel...(self_(), ...)
+    }
+
+this$xReduce &lt;-
+    this$xReducel
+this$xReduce... &lt;-
+    this$xReducel...
+
+this$x_Reduce &lt;-
+    this$x_Reducel
+this$x_Reduce... &lt;-
+    this$x_Reducel...
+
+# --- xReducer --- #
+this$xReducer &lt;-
+    function (coll) {
+        x_( xReducer(self_(), coll) )
+    }
+this$xReducer... &lt;-
+    function (...) {
+        x_( xReducer...(self_(), ...) )
+    }
+
+this$x_Reducer &lt;-
+    function (coll) {
+        xReducer(self_(), coll)
+    }
+this$x_Reducer... &lt;-
+    function (...) {
+        xReducer...(self_(), ...)
+    }
+
+# --- xReject --- #
+this$xReject &lt;-
+    function (coll) {
+        x_( xReject(self_(), coll) )
+    }
+this$xReject... &lt;-
+    function (...) {
+        x_( xReject...(self_(), ...) )
+    }
+
+this$x_Reject &lt;-
+    function (coll) {
+        xReject(self_(), coll)
+    }
+this$x_Reject... &lt;-
+    function (...) {
+        xReject...(self_(), ...)
+    }
+# -------- S ------- #
+# --- xSelect --- #
+this$xSelect &lt;-
+    function (coll) {
+        x_( xSelect(self_(), coll) )
+    }
+this$xSelect... &lt;-
+    function (...) {
+        x_( xSelect...(self_(), ...) )
+    }
+
+this$x_Select &lt;-
+    function (coll) {
+        xSelect(self_(), coll)
+    }
+this$x_Select... &lt;-
+    function (...) {
+        xSelect...(self_(), ...)
+    }
+
+# --- xSplitWith --- #
+this$xSplitWith &lt;-
+    function (coll) {
+        x_( xSplitWith(self_(), coll) )
+    }
+this$xSplitWith... &lt;-
+    function (...) {
+        x_( xSplitWith...(self_(), ...) )
+    }
+
+this$x_SplitWith &lt;-
+    function (coll) {
+        xSplitWith(self_(), coll)
+    }
+this$x_SplitWith... &lt;-
+    function (...) {
+        xSplitWith...(self_(), ...)
+    }
+# -------- T ------- #
+# --- xTap --- #
+this$xTap &lt;-
+    function (fn) {
+        x_( fn(self_()) )
+    }
+
+this$x_Tap &lt;-
+    function (fn) {
+        fn(self_())
+    }
+
+# --- xTakeWhile --- #
+this$xTakeWhile &lt;-
+    function (coll) {
+        x_( xTakeWhile(self_(), coll) )
+    }
+this$xTakeWhile... &lt;-
+    function (...) {
+        x_( xTakeWhile...(self_(), ...) )
+    }
+
+this$x_TakeWhile &lt;-
+    function (coll) {
+        xTakeWhile(self_(), coll)
+    }
+this$x_TakeWhile... &lt;-
+    function (...) {
+        xTakeWhile...(self_(), ...)
+    }
+
+# --- xT --- #
+
+# -------- U ------- #
+# -------- V ------- #
+# --- xVectorise --- #
+this$xVectorise &lt;-
+    function () {
+        x_( xVectorise(self_()) )
+    }
+
+this$x_Vectorise &lt;-
+    function () {
+        xVectorise(self_())
+    }
+
+this$xVectorize &lt;-
+    function () {
+        x_( xVectorize(self_()) )
+    }
+
+this$x_Vectorize &lt;-
+    function () {
+        xVectorize(self_())
+    }
+# -------- W ------- #
+
+# --- xDelay --- #
+this$xDelay &lt;-
+    function (num) {
+        x_( xDelay(self_(), num) )
+    }
+
+this$x_Wait &lt;-
+    function (num) {
+        xDelay(self_(), num)
+    }
+# -------- X ------- #
+# -------- Y ------- #
+# -------- Z ------- #
+
+# --- xZipWith --- #
+this$xZipWith &lt;-
+    function (colls) {
+        x_( xZipWith(self_(), colls) )
+    }
+this$xZipWith... &lt;-
+    function (...) {
+        x_( xZipWith...(self_(), ...) )
+    }
+
+this$x_ZipWith &lt;-
+    function (colls) {
+        xZipWith(self_(), colls)
+    }
+this$x_ZipWith... &lt;-
+    function (...) {
+        xZipWith...(self_(), ...)
+    }
+
+# --- xZip --- #
+this$xZip &lt;-
+    function () {
+        x_( xZip(self_()) )
+    }
+this$xZip... &lt;-
+    function (...) {
+        x_( xZip...(self_(), ...) )
+    }
+
+this$x_Zip &lt;-
+    function () {
+        xZip(self_())
+    }
+this$x_Zip... &lt;-
+    function (...) {
+        xZip...(self_(), ...)
+    }
+
+this &lt;- as.environment(
+    c(as.list(this), as.list(x_any_proto)) )
+this$private &lt;- list(
+    contents_are = "functions")
+
+this
+</code></pre>
+<p>})</p>
+<h1 id="-type-constructor-">-------------------------------- Type Constructor --------------------------------</h1>
+<h1 id="x_">' x_</h1>
+<h1 id="_2">'</h1>
+<h1 id="generate-a-chainable-arrow-object-that-methods-can-be-called-off">' Generate a chainable arrow object that methods can be called off.</h1>
+<h1 id="_3">'</h1>
+<h1 id="param">' @param</h1>
+<h1 id="val-a-function-collection-or-arbitrary-value">'    val a function, collection, or arbitrary value.</h1>
+<h1 id="_4">'</h1>
+<h1 id="return">' @return</h1>
+<h1 id="an-object-of-class-arrow-with-a-single-field-x-that-contents_are-val">'    an object of class "arrow", with a single field 'x' that contents_are val.</h1>
+<h1 id="_5">'</h1>
+<h1 id="section-corner-cases">' @section Corner Cases:</h1>
+<h1 id="the-methods-that-can-be-used-by-x_-object-varies-depending-on-the-type-of-val">'    The methods that can be used by x_() object varies depending on the type of val.</h1>
+<h1 id="some-methods-are-specific-to-functions-or-collections-if-a-non-function-and-non-collection-is">'    Some methods are specific to functions or collections. If a non-function and non-collection is</h1>
+<h1 id="supplied-then-very-few-methods-can-be-used">'    supplied then very few methods can be used.</h1>
+<h1 id="_6">'</h1>
+<h1 id="because-the-definition-of-was-overloaded-to-allow-method-chaining-the">'    Because the definition of $ was overloaded to allow method chaining, the</h1>
+<h1 id="field-x-inside-an-arrow-object-cannot-be-accessed-using-x_x-writing">'    field 'x' inside an arrow object cannot be accessed using x_()$x. Writing</h1>
+<h1 id="x_x_-is-required">'    x_()$x_() is required.</h1>
+<h1 id="_7">'</h1>
+<h1 id="details">' @details</h1>
+<h1 id="the-arrow-object-constructed-by-codex_-contains-methods-specific-to-the">'    The arrow object constructed by \code{x_} contains methods specific to the</h1>
+<h1 id="the-type-of-data-given-to-the-constructor-as-of-arrow-010-there-are">'    the type of data given to the constructor. As of Arrow 0.1.0, there are</h1>
+<h1 id="the-following-sets-of-methods">'    the following sets of methods:</h1>
+<h1 id="_8">'</h1>
+<h1 id="1-x_any">'    1. x_([any])</h1>
+<h1 id="_9">'</h1>
+<h1 id="methods-that-are-added-to-every-data-type">'    Methods that are added to every data type.</h1>
+<h1 id="_10">'</h1>
+<h1 id="codexexecute">'    \code{xExecute}: .</h1>
+<h1 id="_11">'</h1>
+<h1 id="codexgraft-make-a-new-method-available-for-use-on-arrow-objects">'    \code{xGraft}: Make a new method available for use on arrow objects.</h1>
+<h1 id="_12">'</h1>
+<h1 id="codextap-call-the-data-inside-the-arrow-object-with-an-anonymous-function-returning">'    \code{xTap}: Call the data inside the arrow object with an anonymous function, returning</h1>
+<h1 id="a-new-arrow-object">'    a new arrow object.</h1>
+<h1 id="_13">'</h1>
+<h1 id="export">' @export</h1>
+<p>x_ &lt;- function (val) {
+    # Collection any -&gt; Arrow any
+    # type constructor for the method-chaining data type.</p>
+<pre><code>invoking_call &lt;- sys.call()
+
+assert(
+    !missing(val), invoking_call,
+    exclaim$parametre_missing(val))
+
+if ('arrow' %in% class(val)) {
+    val
+} else {
+    structure(list(x = val), class = 'arrow')
+}
+</code></pre>
+<p>}</p>
+<p>get_proto_ref &lt;- function (val) {
+    # get the reference to the appropriate methods.</p>
+<pre><code>proto_ref &lt;-
+if (is.function( val )) {
+    x_fn_proto
+} else if (is.matrix( val )) {
+    x_matrix_proto
+} else  if (is.vector( val ) || is.pairlist( val )){
+    x_coll_proto
+} else if (is.data.frame( val )) {
+    x_data_frame_proto
+} else  if (is.factor( val )) {
+    x_factor_proto
+} else {
+    x_any_proto
+}
+</code></pre>
+<p>}</p>
+<h1 id="method-arrow">' @method $ arrow</h1>
+<p>'$.arrow' &lt;- local({</p>
+<pre><code># some methods are expected to have bad names;
+# meet the user half way and mention the better name.
+autosuggested &lt;- list(
+    'xFilter' =
+        'xSelect',
+    'xFilter...' =
+        'xSelect...',
+    'x_Filter' =
+        'x_Select',
+    'x_Filter...' =
+        'x_Select...',
+
+
+
+    'xAsNumeric' =
+        '',
+        'xAsNumeric' =
+            '',
+
+            'xAsNumeric' =
+                '',
+
+)
+
+suggest_similar_method &lt;- function (val, method_name, contents_are, invoking_call) {
+    # given an incorrect method name throw an error
+    # suggesting a similar
+
+    proto_ref &lt;- get_proto_ref(val)
+    method_name &lt;- method_name
+
+    candidate_methds &lt;- setdiff(ls(proto_ref), 'private')
+    distances &lt;- adist(method_name, candidate_methds)
+
+    similar &lt;- if (method_name %in% names(autosuggested)) {
+        autosuggested[[method_name]]
+    } else if (min(distances) &lt; nchar(method_name) / 2) {
+
+        candidate_methds[which.min(distances)]
+
+    } else {
+        character(0)
+    }
+
+    stop(
+        exclaim$method_not_found(
+            method_name, contents_are, similar),
+        call. = False)
+}
+
+function (obj, method) {
+    # Arrow a -&gt; symbol -&gt; function
+    # return an arrow method associated with the type a.
+
+    method_name &lt;- paste0(method)
+    invoking_call &lt;- paste0('$', method_name)
+
+    proto_ref &lt;- get_proto_ref( obj[['x']] )
+
+    if (!method_name %in% ls(proto_ref) || method_name == "private") {
+        # the invoked method wasn't found,
+        # so we should give a suggestion.
+
+        contents_are &lt;- proto_ref[['private']][['contents_are']]
+
+        suggest_similar_method(
+            obj[['x']], method_name, contents_are, invoking_call)
+
+    }
+
+    fn &lt;- proto_ref[[method_name]]
+    environment(fn)[['self_']] &lt;- function () obj[['x']]
+    fn
+}
+</code></pre>
+<p>})</p>
+<h1 id="-print-method-">-------------------------------- Print Method --------------------------------</h1>
+<h1 id="method-print-arrow">' @method print arrow</h1>
+<p>print.arrow &lt;- function (x, ...) {
+    # custom print statement for the arrow object.</p>
+<pre><code>proto_ref &lt;- get_proto_ref( x[['x']] )
+contents_are &lt;- proto_ref[['private']] [['contents_are']]
+
+single_newline &lt;- '\n'
+double_newline &lt;- '\n\n'
+
+cat(
+    '[ an arrow object with methods for ' %+%
+        contents_are %+%
+    ' ]'  %+% double_newline %+%
+    '$x_()' %+% single_newline)
+
+print(x$x_())
+</code></pre>
+<p>}</p></body></html>

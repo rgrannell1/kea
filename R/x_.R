@@ -1,4 +1,5 @@
 
+
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
@@ -639,6 +640,62 @@ x_coll_proto <- local({
 
 	# -------- A ------- #
 
+	# --- xAsLogical --- #
+	this$xAsLogical <-
+		function () {
+			x_( xAsLogical(self_()) )
+		}
+	this$xAsLogical... <-
+		function (...) {
+			x_( xAsLogical(self_(), ...) )
+		}
+
+	this$x_AsLogical <-
+		function () {
+			xAsLogical(self_())
+		}
+	this$x_AsLogical... <-
+		function (...) {
+			xAsLogical(self_(), ...)
+		}
+
+	# --- xAsInteger --- #
+	this$xAsInteger <-
+		function () {
+			x_( xAsInteger(self_()) )
+		}
+	this$xAsInteger... <-
+		function (...) {
+			x_( xAsInteger(self_(), ...) )
+		}
+
+	this$x_AsInteger <-
+		function () {
+			xAsInteger(self_())
+		}
+	this$x_AsInteger... <-
+		function (...) {
+			xAsInteger(self_(), ...)
+		}
+
+	# --- xAsDouble --- #
+	this$xAsDouble <-
+		function () {
+			x_( xAsDouble(self_()) )
+		}
+	this$xAsDouble... <-
+		function (...) {
+			x_( xAsDouble(self_(), ...) )
+		}
+
+	this$x_AsInteger <-
+		function () {
+			xAsDouble(self_())
+		}
+	this$x_AsInteger... <-
+		function (...) {
+			xAsDouble(self_(), ...)
+		}
 	# --- xAsFunction --- #
 	this$xAsFunction <-
 		function () {
@@ -907,25 +964,6 @@ x_coll_proto <- local({
 	this$x_First... <-
 		function (...) {
 			xFirst...(self_(), ...)
-		}
-
-	# --- xFilter --- #
-	this$xFilter <-
-		function (pred) {
-			x_( xFilter(pred, self_()) )
-		}
-	this$xFilter... <-
-		function (pred, ...) {
-			x_( xFilter...(pred, self_(), ...) )
-		}
-
-	this$x_Filter <-
-		function (pred) {
-			xFilter(pred, self_())
-		}
-	this$x_Filter... <-
-		function (pred, ...) {
-			xFilter...(pred, self_(), ...)
 		}
 
 	# --- xFoldl --- #
@@ -3340,6 +3378,28 @@ get_proto_ref <- function (val) {
 
 '$.arrow' <- local({
 
+	# some methods are expected to have bad names;
+	# meet the user half way and mention the better name.
+	autosuggested <- list(
+		'xFilter' =
+			'xSelect',
+		'xFilter...' =
+			'xSelect...',
+		'x_Filter' =
+			'x_Select',
+		'x_Filter...' =
+			'x_Select...',
+
+		'xAsNumeric' =
+			'xAsDouble',
+		'xAsNumeric...' =
+			'xAsDouble...',
+		'x_AsNumeric' =
+			'x_AsDouble',
+		'x_AsNumeric...' =
+			'x_AsDouble...'
+	)
+
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
 		# given an incorrect method name throw an error
 		# suggesting a similar
@@ -3350,7 +3410,9 @@ get_proto_ref <- function (val) {
 		candidate_methds <- setdiff(ls(proto_ref), 'private')
 		distances <- adist(method_name, candidate_methds)
 
-		similar <- if (min(distances) < nchar(method_name) / 2) {
+		similar <- if (method_name %in% names(autosuggested)) {
+			autosuggested[[method_name]]
+		} else if (min(distances) < nchar(method_name) / 2) {
 
 			candidate_methds[which.min(distances)]
 
