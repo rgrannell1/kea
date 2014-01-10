@@ -46,6 +46,7 @@ Collate:
     'xAsDouble.R'
     'xAsRaw.R'
     'xAsCharacter.R'
+    'xAsComplex.R'
     'xAsUnary.R'
     'xAsVariadic.R'
     'xLift.R'

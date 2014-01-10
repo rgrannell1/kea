@@ -196,7 +196,9 @@ as_typed_vector <- function (coll, mode, value_unit = False) {
 		character =
 			is.character,
 		raw =
-			is.raw
+			is.raw,
+		complex =
+			is.complex
 	)
 
 	type_test <- types[[mode]]

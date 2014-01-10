@@ -735,6 +735,25 @@ x_coll_proto <- local({
 			xAsRaw(self_(), ...)
 		}
 
+	# --- xAsComplex --- #
+	this$xAsComplex <-
+		function () {
+			x_( xAsComplex(self_()) )
+		}
+	this$xAsComplex... <-
+		function (...) {
+			x_( xAsComplex(self_(), ...) )
+		}
+
+	this$x_AsComplex <-
+		function () {
+			xAsComplex(self_())
+		}
+	this$x_AsComplex... <-
+		function (...) {
+			xAsComplex(self_(), ...)
+		}
+
 	# --- xAsFunction --- #
 	this$xAsFunction <-
 		function () {
