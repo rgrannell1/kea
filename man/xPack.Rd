@@ -30,9 +30,8 @@ Remove all length-zero values from a collection.
 
 }
 \seealso{
-Other filtering_functions: \code{\link{xFilter}},
-\code{\link{xFilter...}}, \code{\link{xSelect}},
-\code{\link{xSelect...}}; \code{\link{xPartition}};
-\code{\link{xReject}}, \code{\link{xReject...}}
+Other filtering_functions: \code{\link{xPartition}};
+\code{\link{xReject}}, \code{\link{xReject...}};
+\code{\link{xSelect}}, \code{\link{xSelect...}}
 }
 

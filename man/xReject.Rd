@@ -36,9 +36,8 @@ Remove all elements from a collection matching a predicate.
 
 }
 \seealso{
-Other filtering_functions: \code{\link{xFilter}},
-\code{\link{xFilter...}}, \code{\link{xSelect}},
-\code{\link{xSelect...}}; \code{\link{xPack}},
-\code{\link{xPack...}}; \code{\link{xPartition}}
+Other filtering_functions: \code{\link{xPack}},
+\code{\link{xPack...}}; \code{\link{xPartition}};
+\code{\link{xSelect}}, \code{\link{xSelect...}}
 }
 

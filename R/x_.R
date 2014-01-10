@@ -678,6 +678,25 @@ x_coll_proto <- local({
 			xAsInteger(self_(), ...)
 		}
 
+	# --- xAsCharacter --- #
+	this$xAsCharacter <-
+		function () {
+			x_( xAsCharacter(self_()) )
+		}
+	this$xAsCharacter... <-
+		function (...) {
+			x_( xAsCharacter(self_(), ...) )
+		}
+
+	this$x_AsCharacter <-
+		function () {
+			xAsCharacter(self_())
+		}
+	this$x_AsCharacter... <-
+		function (...) {
+			xAsCharacter(self_(), ...)
+		}
+
 	# --- xAsDouble --- #
 	this$xAsDouble <-
 		function () {
@@ -688,14 +707,34 @@ x_coll_proto <- local({
 			x_( xAsDouble(self_(), ...) )
 		}
 
-	this$x_AsInteger <-
+	this$x_AsDouble <-
 		function () {
 			xAsDouble(self_())
 		}
-	this$x_AsInteger... <-
+	this$x_AsDouble... <-
 		function (...) {
 			xAsDouble(self_(), ...)
 		}
+
+	# --- xAsRaw --- #
+	this$xAsRaw <-
+		function () {
+			x_( xAsRaw(self_()) )
+		}
+	this$xAsRaw... <-
+		function (...) {
+			x_( xAsRaw(self_(), ...) )
+		}
+
+	this$x_AsRaw <-
+		function () {
+			xAsRaw(self_())
+		}
+	this$x_AsRaw... <-
+		function (...) {
+			xAsRaw(self_(), ...)
+		}
+
 	# --- xAsFunction --- #
 	this$xAsFunction <-
 		function () {

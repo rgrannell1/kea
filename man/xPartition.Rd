@@ -32,10 +32,9 @@ on a predicate function.
 
 }
 \seealso{
-Other filtering_functions: \code{\link{xFilter}},
-\code{\link{xFilter...}}, \code{\link{xSelect}},
-\code{\link{xSelect...}}; \code{\link{xPack}},
+Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xReject}},
-\code{\link{xReject...}}
+\code{\link{xReject...}}; \code{\link{xSelect}},
+\code{\link{xSelect...}}
 }
 

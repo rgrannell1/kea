@@ -1,17 +1,11 @@
 \name{xSelect}
-\alias{xFilter}
-\alias{xFilter...}
 \alias{xSelect}
 \alias{xSelect...}
 \title{xSelect}
 \usage{
 xSelect(pred, coll)
 
-xFilter(pred, coll)
-
 xSelect...(pred, ...)
-
-xFilter...(pred, ...)
 }
 \arguments{
   \item{pred}{a predicate.}

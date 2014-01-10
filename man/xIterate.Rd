@@ -30,17 +30,17 @@ Iteratively apply a function to a value.
 # this works a lot like a while loop that returns a value.
 
 xIterate(
-	num := {
+    num := {
 
-		evenly_divisible <- num \%\% (1:10) == 0
+        evenly_divisible <- num \%\% (1:10) == 0
 
-		if (all(evenly_divisible)) {
-			Return(num)
-		} else {
-			num + 1
-		}
-	},
-	1
+        if (all(evenly_divisible)) {
+            Return(num)
+        } else {
+            num + 1
+        }
+    },
+    1
 )
 
 2520

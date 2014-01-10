@@ -206,7 +206,7 @@ as_typed_vector <- function (coll, mode, value_unit = False) {
 		stop(exclaim$type_coersion_failed(coll_symbol, mode))
 	}
 
-	coll <- as.vector(coll, mode)
+	coll <- unlist(coll)
 
 	# coerce the length-zero collection to a unit-value.
 	# this doesn't always make sense to do.
