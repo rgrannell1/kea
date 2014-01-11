@@ -42,25 +42,8 @@
 
 # -------------------------------- Method Creators -------------------------------- #
 #
-# I don't like creating code dynamically, but it will reduce the amount of Arrow
-# code to 1/3 of writing it by hand.
-
-x_ <- function (val) {
-	# Collection any -> Arrow any
-	# type constructor for the method-chaining data type.
-
-	invoking_call <- sys.call()
-
-	assert(
-		!missing(val), invoking_call,
-		exclaim$parametre_missing(val))
-
-	if ('arrow' %in% class(val)) {
-		val
-	} else {
-		structure(list(x = val), class = 'arrow')
-	}
-}
+# I don't like creating code dynamically, but originally I had to write these methods
+# by hand. Many bugs are prevented by creating the methods dynamically in this case.
 
 xMethod <- function (fn, fixed) {
 	# generate the xMethod form of the function.
@@ -147,8 +130,6 @@ x_Method <- function (fn, fixed) {
 	environment(method) <- invoking_frame
 	method
 }
-
-
 
 
 
