@@ -30,7 +30,6 @@
 #     Debugging is annoying, so I'd like to provide the attributes of an error
 #     causing object.
 #
-#
 
 # --------------------- shorthand logical functions --------------------- #
 

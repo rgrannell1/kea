@@ -32,6 +32,122 @@
 
 
 
+
+
+
+
+
+
+
+
+# -------------------------------- Method Creators -------------------------------- #
+#
+# I don't like creating code dynamically, but it will reduce the amount of Arrow
+# code to 1/3 of writing it by hand.
+
+xMethod <- function (fn, fixed) {
+	# generate the xMethod form of the function.
+
+	invoking_frame <- parent.frame()
+
+	fixed_sym <- as.symbol(match.call()$fixed)
+	fixed_name <- as.symbol(match.call()$fixed)
+
+	fn_sym <- as.symbol(match.call()$fn)
+
+	if (!(fixed %in% names(formals(fn)) )) {
+		stop('not a parametre of ' %+% paste0(fn_sym))
+	}
+
+	method <- function () {
+
+	}
+
+	formals(method) <-
+		formals(fn)[ names(formals(fn)) != fixed ]
+
+	body(method) <-
+		bquote({
+
+		.(
+			call('x_', ( as.call(c(
+				fn_sym,
+				lapply(
+					xParamsOf(fn),
+					function (param) {
+
+						if (as.symbol(param) == fixed) {
+							quote(self_())
+						} else {
+							as.symbol(param)
+						}
+					}) )) )) )
+	})
+
+	environment(method) <- invoking_frame
+	method
+}
+
+x_Method <- function (fn, fixed) {
+	# generate the x_Method form of the function.
+
+	invoking_frame <- parent.frame()
+
+	fixed_sym <- as.symbol(match.call()$fixed)
+	fixed_name <- as.symbol(match.call()$fixed)
+
+	fn_sym <- as.symbol(match.call()$fn)
+
+	if (!(fixed %in% names(formals(fn)) )) {
+		stop('not a parametre of fn')
+	}
+
+	method <- function () {
+
+	}
+
+	formals(method) <-
+		formals(fn)[ names(formals(fn)) != fixed ]
+
+	body(method) <-
+		bquote({
+
+		.(
+			( as.call(c(
+				fn_sym,
+				lapply(
+					xParamsOf(fn),
+					function (param) {
+
+						if (as.symbol(param) == fixed) {
+							quote(self_())
+						} else {
+							as.symbol(param)
+						}
+					}) )) ))
+	})
+
+	environment(method) <- invoking_frame
+	method
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # -------------------------------- Universal methods -------------------------------- #
 #
 # these prototypes contain methods that can be called by an x_() object, using an
@@ -642,18 +758,16 @@ x_coll_proto <- local({
 
 	# --- xAsLogical --- #
 	this$xAsLogical <-
-		function () {
-			x_( xAsLogical(self_()) )
-		}
+		xMethod(xAsLogical, 'bools')
+
 	this$xAsLogical... <-
 		function (...) {
 			x_( xAsLogical(self_(), ...) )
 		}
 
 	this$x_AsLogical <-
-		function () {
-			xAsLogical(self_())
-		}
+		x_Method(xAsLogical, 'bools')
+
 	this$x_AsLogical... <-
 		function (...) {
 			xAsLogical(self_(), ...)
@@ -661,18 +775,16 @@ x_coll_proto <- local({
 
 	# --- xAsInteger --- #
 	this$xAsInteger <-
-		function () {
-			x_( xAsInteger(self_()) )
-		}
+		xMethod(xAsInteger, 'nums')
+
 	this$xAsInteger... <-
 		function (...) {
 			x_( xAsInteger(self_(), ...) )
 		}
 
 	this$x_AsInteger <-
-		function () {
-			xAsInteger(self_())
-		}
+		x_Method(xAsInteger, 'nums')
+
 	this$x_AsInteger... <-
 		function (...) {
 			xAsInteger(self_(), ...)
@@ -680,18 +792,16 @@ x_coll_proto <- local({
 
 	# --- xAsCharacter --- #
 	this$xAsCharacter <-
-		function () {
-			x_( xAsCharacter(self_()) )
-		}
+		xMethod(xAsCharacter, 'strs')
+
 	this$xAsCharacter... <-
 		function (...) {
 			x_( xAsCharacter(self_(), ...) )
 		}
 
 	this$x_AsCharacter <-
-		function () {
-			xAsCharacter(self_())
-		}
+		x_Method(xAsCharacter, 'strs')
+
 	this$x_AsCharacter... <-
 		function (...) {
 			xAsCharacter(self_(), ...)
@@ -699,18 +809,16 @@ x_coll_proto <- local({
 
 	# --- xAsDouble --- #
 	this$xAsDouble <-
-		function () {
-			x_( xAsDouble(self_()) )
-		}
+		xMethod(xAsDouble, 'nums')
+
 	this$xAsDouble... <-
 		function (...) {
 			x_( xAsDouble(self_(), ...) )
 		}
 
 	this$x_AsDouble <-
-		function () {
-			xAsDouble(self_())
-		}
+		x_Method(xAsDouble, 'nums')
+
 	this$x_AsDouble... <-
 		function (...) {
 			xAsDouble(self_(), ...)
@@ -718,9 +826,8 @@ x_coll_proto <- local({
 
 	# --- xAsRaw --- #
 	this$xAsRaw <-
-		function () {
-			x_( xAsRaw(self_()) )
-		}
+		xMethod(xAsRaw, 'raws')
+
 	this$xAsRaw... <-
 		function (...) {
 			x_( xAsRaw(self_(), ...) )
@@ -731,47 +838,41 @@ x_coll_proto <- local({
 			xAsRaw(self_())
 		}
 	this$x_AsRaw... <-
-		function (...) {
-			xAsRaw(self_(), ...)
-		}
+		x_Method(xAsRaw, 'raws')
 
 	# --- xAsComplex --- #
 	this$xAsComplex <-
-		function () {
-			x_( xAsComplex(self_()) )
-		}
+		xMethod(xAsComplex, 'comps')
+
 	this$xAsComplex... <-
 		function (...) {
 			x_( xAsComplex(self_(), ...) )
 		}
 
 	this$x_AsComplex <-
-		function () {
-			xAsComplex(self_())
-		}
+		x_Method(xAsComplex, 'comps')
+
 	this$x_AsComplex... <-
 		function (...) {
 			xAsComplex(self_(), ...)
 		}
 
 	# --- xAsFunction --- #
-	this$xAsFunction <-
-		function () {
-			x_( xAsFunction(self_()) )
-		}
-	this$xAsFunction... <-
-		function (...) {
-			x_(  xAsFunction...(self_(), ...) )
-		}
+#	this$xAsFunction <-
+#		xMethod(xAsFunction, 'coll')
 
-	this$x_AsFunction <-
-		function () {
-			xAsFunction(self_())
-		}
-	this$x_AsFunction... <-
-		function (...) {
-			 xAsFunction...(self_(), ...)
-		}
+#	this$xAsFunction... <-
+#		function (...) {
+#			x_(  xAsFunction...(self_(), ...) )
+#		}
+
+#	this$x_AsFunction <-
+#		x_Method(xAsFunction, 'coll')
+
+#	this$x_AsFunction... <-
+#		function (...) {
+#			 xAsFunction...(self_(), ...)
+#		}
 
 	# --- xApply --- #
 	this$xApply <-
@@ -3328,18 +3429,16 @@ x_fn_proto <- local({
 
 	# --- xZip --- #
 	this$xZip <-
-		function () {
-			x_( xZip(self_()) )
-		}
+		xMethod(xZip, 'colls')
+
 	this$xZip... <-
 		function (...) {
 			x_( xZip...(self_(), ...) )
 		}
 
 	this$x_Zip <-
-		function () {
-			xZip(self_())
-		}
+		x_Method(xZip, 'colls')
+
 	this$x_Zip... <-
 		function (...) {
 			xZip...(self_(), ...)
@@ -3352,11 +3451,6 @@ x_fn_proto <- local({
 
 	this
 })
-
-
-
-
-
 
 # -------------------------------- Type Constructor -------------------------------- #
 
