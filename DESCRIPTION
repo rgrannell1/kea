@@ -118,7 +118,6 @@ Collate:
     'xZip.R'
     'xZipWith.R'
     'xDissoc.R'
-    'x_.R'
     'xFlatten.R'
     'xDelay.R'
     'xStopwatch.R'
@@ -155,3 +154,4 @@ Collate:
     'xMapply.R'
     'xUnique.R'
     'xDuplicated.R'
+    'x_.R'
