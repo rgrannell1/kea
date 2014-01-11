@@ -19,7 +19,7 @@ A vector of boolean values.
 Is an element of a collection not true?
 }
 \section{Corner Cases}{
-  returns logical(0) if \code{coll} is length-zero.
+  Returns logical(0) if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

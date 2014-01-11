@@ -19,7 +19,7 @@ A function that takes one or more indices.
 Convert a collection to a function that takes an index.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll is length-zero}.
+  Returns the empty list if \code{coll is length-zero}.
 }
 
 \section{Variadic Functions

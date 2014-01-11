@@ -4,16 +4,16 @@
 #' Randomly rearrange a collection.
 #'
 #' @param
-#'     coll a collection
+#'      coll a collection
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'     A list.
+#'      A list.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'      Returns the empty list if \code{coll} is length-zero.
 #'
 #' @family reshaping_functions
 #'

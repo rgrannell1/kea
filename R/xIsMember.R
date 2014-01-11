@@ -16,7 +16,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    various types of \code{Na} are not-distinguished between.
+#'    Various types of \code{Na} are not-distinguished between.
 #'    Type conversion is not carried out.
 #'
 #' @family set_functions

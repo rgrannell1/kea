@@ -17,10 +17,10 @@
 #'    ... see above.
 #'
 #' @return
-#'    A list of n-element lists.
+#'    A list of lists.
 #'
 #' @section Corner Cases:
-#'    the final list in the return value will have less than \code{num}
+#'    The final list in the return value will have less than \code{num}
 #'    elements if \code{length(coll)} is not evenly divisible by \code{num}.
 #'    if \code{coll} is length-zero, the empty list is returned.
 #'

@@ -19,7 +19,7 @@ A list.
 Get the asymettric set difference of several collections.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

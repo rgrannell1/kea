@@ -5,7 +5,7 @@
 x_(  ) $ xElemsByCols()
 }
 \value{
-an arrow object containing a list.
+An arrow object containing a list.
 }
 \description{
 Enumerate the elements of a matrix down columns.

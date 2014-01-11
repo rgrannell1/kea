@@ -19,7 +19,7 @@ A list.
 Is an element of a collection not NaN?
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll is length-zero}.
+  Returns the empty list if \code{coll is length-zero}.
 }
 
 \section{Variadic Functions

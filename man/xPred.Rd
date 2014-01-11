@@ -19,7 +19,7 @@ A vector of non-complex numbers.
 Increment a vector of numbers.
 }
 \section{Corner Cases}{
-  returns the unit of the vector if \code{nums} is
+  Returns the unit of the vector if \code{nums} is
   length-zero.
 }
 

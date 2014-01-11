@@ -15,7 +15,7 @@ xGroup...(num, ...)
   \item{...}{see above.}
 }
 \value{
-A list of n-element lists.
+A list of lists.
 }
 \description{
 Divide a collection into segments of fixed length.
@@ -27,7 +27,7 @@ Divide a collection into segments of fixed length.
 }
 
 \section{Corner Cases}{
-  the final list in the return value will have less than
+  The final list in the return value will have less than
   \code{num} elements if \code{length(coll)} is not evenly
   divisible by \code{num}.  if \code{coll} is length-zero,
   the empty list is returned.

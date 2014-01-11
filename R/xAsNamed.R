@@ -13,7 +13,7 @@
 #'    A named list.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero. Both
+#'    Returns the empty list if \code{coll} is length-zero. Both
 #'    duplicated and length-zero names are allowed.
 #'
 #' @family name_functions

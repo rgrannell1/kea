@@ -13,7 +13,7 @@
 #'    The fourth value in \code{coll}.
 #'
 #' @section Corner Cases:
-#'    throws an error if \code{coll} has less than four element; this is
+#'    Throws an error if \code{coll} has less than four element; this is
 #'    because any other corner case would violate the functions type-signature.
 #'
 #' @family selection_functions

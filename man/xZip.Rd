@@ -19,7 +19,7 @@ Returns a list.
 Generate a list of n-element lists from n collections.
 }
 \section{Corner Cases}{
-  the empty list is returned if the shortest collection has
+  The empty list is returned if the shortest collection has
   length-zero, or no collections are included.
 }
 

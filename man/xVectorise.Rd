@@ -23,7 +23,7 @@ applies \code{xMap} with a function, creating a vectorised
 version of that function.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
 }
 \seealso{
 Other function_modifying_functions:

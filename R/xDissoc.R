@@ -14,7 +14,7 @@
 #'    A named list.
 #'
 #' @section Corner Cases:
-#'     returns \code{list()} if \code{colls} is length-zero.
+#'      Returns \code{list()} if \code{colls} is length-zero.
 #'
 #' @family reshaping_functions
 #'

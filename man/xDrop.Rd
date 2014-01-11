@@ -21,7 +21,7 @@ A list.
 Take several elements from the head of a collection.
 }
 \section{Corner Cases}{
-  if \code{coll} is empty the empty list is returned.
+  If \code{coll} is empty the empty list is returned.
 }
 
 \section{Variadic Functions

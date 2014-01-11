@@ -16,7 +16,7 @@
 #'    A list of lists, with each list containing \code{num} elements.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{num} is zero.
+#'      Returns the empty list if \code{num} is zero.
 #'
 #' @family combinatoric_functions
 #'

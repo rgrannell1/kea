@@ -21,7 +21,7 @@ A list.
 Unnest a nested list to a given depth.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

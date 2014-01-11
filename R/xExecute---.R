@@ -5,13 +5,13 @@
 #' continuing with the previous method result.
 #'
 #' @usage
-#'     x_(  ) $ xExecute(fn)
+#'      x_(  ) $ xExecute(fn)
 #'
 #' @param
-#'     fn a nullary function
+#'      fn a nullary function
 #'
 #' @return
-#'     the return value of the previous method.
+#'      The return value of the previous method.
 #'
 #' @family exclusively_methods
 #'

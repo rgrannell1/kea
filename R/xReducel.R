@@ -18,7 +18,7 @@
 #'    An arbitrary value, depending on the function \code{fn}.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero, and returns the
+#'    Returns the empty list if \code{coll} is length-zero, and returns the
 #'    value inside \code{coll} if coll is length-one.
 #'
 #' @family folding_functions

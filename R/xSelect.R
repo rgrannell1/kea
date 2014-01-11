@@ -24,8 +24,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero, or no match is found.
-#'
+#'    Returns the empty list if \code{coll} is length-zero, or no match is found.
 #'
 #' @family filtering_functions
 #'

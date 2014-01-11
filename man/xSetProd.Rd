@@ -19,7 +19,7 @@ A list of n-element lists.
 Get the cartesian product of several collections.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

@@ -22,7 +22,7 @@ result in an error. This is analogous to const in other
 languages.
 }
 \section{Corner Cases}{
-  overwrites the value referenced by \code{sym}r if the
+  Overwrites the value referenced by \code{sym}r if the
   variable already exists in the parent frame.
 }
 \seealso{

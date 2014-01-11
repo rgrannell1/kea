@@ -22,7 +22,7 @@ Apply a binary function to each element of a collection and
 its index.
 }
 \section{Corner Cases}{
-  returns the empty list is \code{coll} is length-zero.
+  Returns the empty list is \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

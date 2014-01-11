@@ -19,7 +19,7 @@ A list.
 Return the duplicated elements in a collection.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{colls} is length-zero.
+  Returns the empty list if \code{colls} is length-zero.
 }
 
 \section{Variadic Functions

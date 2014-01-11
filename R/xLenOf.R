@@ -13,7 +13,7 @@
 #'    A nonnegative integer.
 #'
 #' @section Corner Cases:
-#'     returns zero if \code{coll} is empty.
+#'      Returns zero if \code{coll} is empty.
 #'
 #' @template
 #'    Variadic

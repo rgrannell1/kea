@@ -19,7 +19,7 @@ A list.
 Is an element of a collection null?
 }
 \section{Corner Cases}{
-  returns True if coll is Null.
+  Returns True if coll is Null.
 }
 
 \section{Variadic Functions

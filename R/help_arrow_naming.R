@@ -60,17 +60,17 @@
 #' some information about the expected input:
 #'
 #' \itemize{
-#'     \item{\bold{coll:}}{ a collection. }
-#'     \item{\bold{colls:}}{ a collection of collections. }
-#'     \item{\bold{fn:}}{ a collection of collections. }
-#'     \item{\bold{num:}}{ a single number. }
-#'     \item{\bold{nums:}}{ a collection of numbers. }
-#'     \item{\bold{pred:}}{ a function that returns a logical value. }
-#'     \item{\bold{rexp:}}{ a string to be used as a regular expression. }
-#'     \item{\bold{str:}}{ a string. }
-#'     \item{\bold{strs:}}{ a collection of strings. }
-#'     \item{\bold{sym:}}{ a symbol or string. }
-#'     \item{\bold{val:}}{ any R value. }
+#'      \item{\bold{coll:}}{ a collection. }
+#'      \item{\bold{colls:}}{ a collection of collections. }
+#'      \item{\bold{fn:}}{ a collection of collections. }
+#'      \item{\bold{num:}}{ a single number. }
+#'      \item{\bold{nums:}}{ a collection of numbers. }
+#'      \item{\bold{pred:}}{ a function that returns a logical value. }
+#'      \item{\bold{rexp:}}{ a string to be used as a regular expression. }
+#'      \item{\bold{str:}}{ a string. }
+#'      \item{\bold{strs:}}{ a collection of strings. }
+#'      \item{\bold{sym:}}{ a symbol or string. }
+#'      \item{\bold{val:}}{ any R value. }
 #' }
 #'
 #' All functions should be assummed to be unary, unless otherwise stated.

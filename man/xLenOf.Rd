@@ -19,7 +19,7 @@ A nonnegative integer.
 Get the length of a collection
 }
 \section{Corner Cases}{
-  returns zero if \code{coll} is empty.
+  Returns zero if \code{coll} is empty.
 }
 
 \section{Variadic Functions

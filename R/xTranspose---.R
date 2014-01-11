@@ -4,10 +4,10 @@
 #' Transpose a matrix.
 #'
 #' @usage
-#'     x_(  ) $ xTranspose()
+#'      x_(  ) $ xTranspose()
 #'
 #' @return
-#'     an arrow object containing a matrix.
+#'      An arrow object containing a matrix.
 #'
 #' @family exclusively_methods
 #'

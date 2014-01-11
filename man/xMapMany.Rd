@@ -21,7 +21,7 @@ A list.
 Map a function across many collections simultaneously.
 }
 \section{Corner Cases}{
-  returns the empty list if any collection is length-zero.
+  Returns the empty list if any collection is length-zero.
   If the collection lengths are not equal then elements are
   recycled in the shorter collections.
 }

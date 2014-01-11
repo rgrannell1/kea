@@ -16,11 +16,11 @@
 #'
 #' \code{
 #' xFoldl(\cr
-#'     (checked : searched ) := {\cr
-#'         if (searched == 10) Return(checked) else checked + 1\cr
-#'     },\cr
-#'     list(),\cr
-#'     to_search\cr
+#'      (checked : searched ) := {\cr
+#'          if (searched == 10) Return(checked) else checked + 1\cr
+#'      },\cr
+#'      list(),\cr
+#'      to_search\cr
 #' )
 #' }
 #'

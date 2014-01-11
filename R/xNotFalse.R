@@ -13,7 +13,7 @@
 #'    A vector of boolean values.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \code{coll} is length-zero.
 #'
 #' @template
 #'    Variadic

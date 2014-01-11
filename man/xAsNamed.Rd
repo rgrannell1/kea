@@ -16,7 +16,7 @@ A named list.
 Add names to a collection.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
   Both duplicated and length-zero names are allowed.
 }
 

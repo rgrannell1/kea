@@ -31,7 +31,7 @@ predicate.
 }
 
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero, or
+  Returns the empty list if \code{coll} is length-zero, or
   no match is found.
 }
 

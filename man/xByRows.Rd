@@ -5,7 +5,7 @@
 x_(  ) $ xByRows()
 }
 \value{
-an arrow object containing a list of lists.
+An arrow object containing a list of lists.
 }
 \description{
 Convert a matrix or data.frame to a collection of rows.

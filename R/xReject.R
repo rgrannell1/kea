@@ -20,7 +20,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \code{coll} is length-zero.
 #'    Throws an error if pred returns a non-boolean value.
 #'
 #' @family filtering_functions

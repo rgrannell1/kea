@@ -4,13 +4,13 @@
 #' Get the sign of a vector of numbers.
 #'
 #' @param
-#'     nums a vector of non-complex numbers.
+#'      nums a vector of non-complex numbers.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'     A integer vector of elements in the set \code{{-1, 0, +1}}.
+#'      A integer vector of elements in the set \code{{-1, 0, +1}}.
 #'
 #' @section Corner Cases:
 #'	 If \code{nums} is lenth-zero then the unit of that vector is returned.

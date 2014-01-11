@@ -19,7 +19,7 @@ A list.
 Is an element in a collection NaN?
 }
 \section{Corner Cases}{
-  returns True if coll is length-zero.
+  Returns True if coll is length-zero.
 }
 
 \section{Variadic Functions

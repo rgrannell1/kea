@@ -15,7 +15,7 @@
 #'    A function (closure).
 #'
 #' @section Corner Cases:
-#'    xAsClosure does not work for every primitive function (for example 'c'),
+#'    \code{xAsClosure} does not work for every primitive function (for example 'c'),
 #'    so caution should be taken when using this function.
 #'
 #' @family function_modifying_functions

@@ -20,7 +20,7 @@ Test every element in a collection for being \code{Na} of
 any type.
 }
 \section{Corner Cases}{
-  returns logical(0) if \code{coll} is length-zero.
+  Returns logical(0) if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

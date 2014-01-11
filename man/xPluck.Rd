@@ -22,7 +22,7 @@ Map over a collection of lists or pairlists, selecting
 fields in each element by name.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.  If
+  Returns the empty list if \code{coll} is length-zero.  If
   str is length-zero then the empty string "" is used to
   match key-names.
 }

@@ -21,7 +21,7 @@ A list.
 Repeat a collection several times.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero or
+  Returns the empty list if \code{coll} is length-zero or
   num is zero.
 }
 

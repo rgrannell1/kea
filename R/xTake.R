@@ -4,16 +4,16 @@
 #' Take several elements from the head of a collection.
 #'
 #' @param
-#'     num a nonnegative whole number.
+#'      num a nonnegative whole number.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @param
-#'     coll a collection
+#'      coll a collection
 #'
 #' @return
-#'     A list.
+#'      A list.
 #'
 #' @section Corner Cases:
 #'    If \code{coll} is empty the empty list is returned.

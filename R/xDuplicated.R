@@ -13,7 +13,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{colls} is length-zero.
+#'    Returns the empty list if \code{colls} is length-zero.
 #'
 #' @family set_functions
 #'

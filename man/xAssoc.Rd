@@ -21,7 +21,7 @@ A named list.
 Convert a list of name, value pairs into a named list.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

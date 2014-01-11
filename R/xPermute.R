@@ -18,7 +18,6 @@
 #' @section Corner Cases:
 #'    returns the empty list is \code{coll} is length-zero.
 #'
-#'
 #' @family reshaping_functions
 #'
 #' @template

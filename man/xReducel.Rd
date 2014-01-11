@@ -29,7 +29,7 @@ Successively combine a list of values into a single value
 using a binary function (left to right).
 }
 \section{Corner Cases}{
-  returns the empty list if \code{coll} is length-zero, and
+  Returns the empty list if \code{coll} is length-zero, and
   returns the value inside \code{coll} if coll is
   length-one.
 }

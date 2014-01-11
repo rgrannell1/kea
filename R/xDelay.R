@@ -18,7 +18,7 @@
 #'    A function with the same parametres as \code{fn}.
 #'
 #' @section Corner Cases:
-#'    if \code{num} is zero then \code{fn} is returned untouched.
+#'    If \code{num} is zero then \code{fn} is returned untouched.
 #'
 #' @family function_modifying_functions
 #'

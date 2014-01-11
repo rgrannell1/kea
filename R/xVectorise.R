@@ -15,7 +15,7 @@
 #'    A unary function of coll.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \code{coll} is length-zero.
 #'
 #' @family mapping_functions
 #'

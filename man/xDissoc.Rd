@@ -21,7 +21,7 @@ A named list.
 Split a named list into a list of name: value list pairs.
 }
 \section{Corner Cases}{
-  returns \code{list()} if \code{colls} is length-zero.
+  Returns \code{list()} if \code{colls} is length-zero.
 }
 
 \section{Variadic Functions

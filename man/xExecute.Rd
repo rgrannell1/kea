@@ -8,7 +8,7 @@ x_(  ) $ xExecute(fn)
   \item{fn}{a nullary function}
 }
 \value{
-the return value of the previous method.
+The return value of the previous method.
 }
 \description{
 Execute a (possibly side-effectful) function before

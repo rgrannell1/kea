@@ -28,7 +28,7 @@ the input function with each row, and returns a a list of
 equal length to the input columns.
 }
 \section{Corner Cases}{
-  the empty list is returned if the shortest collection has
+  The empty list is returned if the shortest collection has
   length-zero, or no collections are included.
 }
 

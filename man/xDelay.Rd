@@ -21,7 +21,7 @@ set amount of time.
 \bold{before} executing its underlying function.
 }
 \section{Corner Cases}{
-  if \code{num} is zero then \code{fn} is returned
+  If \code{num} is zero then \code{fn} is returned
   untouched.
 }
 \seealso{

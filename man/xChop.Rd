@@ -15,11 +15,18 @@ xChop...(num, ...)
   \item{...}{see above.}
 }
 \value{
-A list of \code{num} lists.
+A list of lists.
 }
 \description{
 Divide a collection into a fixed number of segments.
 }
+\section{Corner Cases}{
+  The final list in the return value will have less than
+  \code{num} elements if \code{length(coll)} is not evenly
+  divisible into \code{num} collections.  If \code{coll} is
+  length-zero, the empty list is returned.
+}
+
 \section{Corner Cases}{
 
 }

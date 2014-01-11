@@ -18,7 +18,7 @@
 #'    a predicate returns false or na.
 #'
 #' @section Corner Cases:
-#'	  if \code{coll} is empty the empty list is returned. If all the
+#'	  If \code{coll} is empty the empty list is returned. If all the
 #'	  elements return only true/only false, then one of two sublists will be the
 #'	  empty list.
 #'

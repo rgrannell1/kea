@@ -5,7 +5,7 @@
 x_(  ) $ xRowUnit()
 }
 \value{
-an empty matrix or data.frame.
+An empty matrix or data.frame.
 }
 \description{
 Return the concatenative unit for a matrix or data.frame

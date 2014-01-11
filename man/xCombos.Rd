@@ -23,7 +23,7 @@ Generate all ways of choosing several elements from a
 collection.
 }
 \section{Corner Cases}{
-  returns the empty list if \code{num} is zero.
+  Returns the empty list if \code{num} is zero.
 }
 
 \section{Variadic Functions

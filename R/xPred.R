@@ -13,7 +13,7 @@
 #'    A vector of non-complex numbers.
 #'
 #' @section Corner Cases:
-#'    returns the unit of the vector if \code{nums} is length-zero.
+#'    Returns the unit of the vector if \code{nums} is length-zero.
 #'
 #' @template
 #'    Variadic

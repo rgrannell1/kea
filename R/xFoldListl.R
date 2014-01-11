@@ -23,7 +23,7 @@
 #'	  containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
-#'	  returns \code{list(val)} if \code{coll} is length-zero.
+#'	  Returns \code{list(val)} if \code{coll} is length-zero.
 #'
 #' @family folding_functions
 #'

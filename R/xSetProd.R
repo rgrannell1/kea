@@ -4,17 +4,17 @@
 #' Get the cartesian product of several collections.
 #'
 #' @param
-#'     colls n collections.
+#'      colls n collections.
 #'
 #' @param
 #'    ... see above.
 #'
 #'
 #' @return
-#'     A list of n-element lists.
+#'      A list of n-element lists.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'      Returns the empty list if \code{coll} is length-zero.
 #'
 #' @family combinatoric_functions
 #'

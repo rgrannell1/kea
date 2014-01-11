@@ -5,7 +5,7 @@
 x_(  ) $ xByColnames()
 }
 \value{
-an arrow containing a list of strings.
+An arrow containing a list of strings.
 }
 \description{
 Convert a matrix or data.frame to a collection of column

@@ -19,7 +19,7 @@ The value of the last element in \code{coll}.
 Return the last element in a collection.
 }
 \section{Corner Cases}{
-  throws an error if \code{coll} has less than one element;
+  Throws an error if \code{coll} has less than one element;
   this is because any other corner case would violate the
   function's type-signature.
 }

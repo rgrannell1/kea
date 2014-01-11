@@ -16,7 +16,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    returns the empty list if any collection is length-zero. If the
+#'    Returns the empty list if any collection is length-zero. If the
 #'    collection lengths are not equal then elements are recycled in the shorter collections.
 #'
 #' @family mapping_functions

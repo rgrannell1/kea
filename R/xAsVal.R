@@ -4,19 +4,19 @@
 #' Convert a normal R variable to a constant value.
 #'
 #' @details
-#'     xAsVal takes a variable that exists in the
-#'     calling environment, and locks it. This prevents
-#'     further modification, and if any attempt is made to
-#'     modify the variable an error is thrown.
+#'      xAsVal takes a variable that exists in the
+#'      calling environment, and locks it. This prevents
+#'      further modification, and if any attempt is made to
+#'      modify the variable an error is thrown.
 #'
 #' @param
-#'     sym a symbol or string.
+#'      sym a symbol or string.
 #'
 #' @return
-#'     Null; used for side-effect.
+#'      Null; used for side-effect.
 #'
 #' @section Corner Cases:
-#'    throws an error if attempting to convert a
+#'    Throws an error if attempting to convert a
 #'    variable that doesn't exist (in the parent frame).
 #'
 #' @family immutable_value_functions

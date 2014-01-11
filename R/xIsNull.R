@@ -13,7 +13,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    returns True if coll is Null.
+#'    Returns True if coll is Null.
 #'
 #' @template
 #'    Variadic

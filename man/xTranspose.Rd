@@ -5,7 +5,7 @@
 x_(  ) $ xTranspose()
 }
 \value{
-an arrow object containing a matrix.
+An arrow object containing a matrix.
 }
 \description{
 Transpose a matrix.

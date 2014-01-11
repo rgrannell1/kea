@@ -5,20 +5,19 @@
 #' returns false, and all the elements including and after that point.
 #'
 #' @param
-#'     pred a predicate.
+#'      pred a predicate.
 #'
 #' @param
-#'     coll a collection.
+#'      coll a collection.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'     A list of two lists.
+#'      A list of two lists.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
-#'
+#'      Returns the empty list if \code{coll} is length-zero.
 #'
 #' @family reshaping_functions
 #'
@@ -71,7 +70,7 @@ xSplitWith <- function (pred, coll) {
 				exclaim$non_logical_predicate(
 					pred, summate(is_match)) )
 
-			if (!is_match) {
+			if (!isTRUE(is_match)) {
 				return (
 					list(
 						head(coll, ith - 1),

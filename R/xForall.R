@@ -16,7 +16,7 @@
 #'    A boolean value.
 #'
 #' @section Corner Cases:
-#'    if any collection is length zero (or no
+#'    If any collection is length zero (or no
 #'    collections are given), then False is returned.
 #'
 #' @family quantifier_functions

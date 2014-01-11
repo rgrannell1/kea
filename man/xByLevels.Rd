@@ -7,9 +7,9 @@ x_(  ) $ xByLevels()
 x_(  ) $ xByLevels()
 }
 \value{
-an arrow object containing a character vector.
+An arrow object containing a character vector.
 
-an arrow object containing a list.
+An arrow object containing a list.
 }
 \description{
 Convert a factor to a collection of levels.

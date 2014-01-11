@@ -20,7 +20,7 @@ modification, and if any attempt is made to modify the
 variable an error is thrown.
 }
 \section{Corner Cases}{
-  throws an error if attempting to convert a variable that
+  Throws an error if attempting to convert a variable that
   doesn't exist (in the parent frame).
 }
 \examples{

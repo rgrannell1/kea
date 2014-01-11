@@ -13,10 +13,10 @@
 #'    ... see above.
 #'
 #' @return
-#'     A character vector.
+#'      A character vector.
 #'
 #' @section Corner Cases:
-#'     returns the empty list if \code{coll} is length-zero.
+#'      Returns the empty list if \code{coll} is length-zero.
 #'
 #' @family character_functions
 #'

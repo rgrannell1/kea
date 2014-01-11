@@ -16,7 +16,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    if \code{coll} is empty the empty list is returned.
+#'    If \code{coll} is empty the empty list is returned.
 #'
 #' @family selection_functions
 #'

@@ -4,10 +4,10 @@
 #' Apply an anonymous function to the contents of an arrow object.
 #'
 #' @usage
-#'     x_(  ) $ xTap(fn)
+#'      x_(  ) $ xTap(fn)
 #'
 #' @return
-#'     an arrow object.
+#'      An arrow object.
 #'
 #' @family exclusively_methods
 #'

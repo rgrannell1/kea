@@ -4,10 +4,10 @@
 #' Convert a matrix or data.frame to a collection of column names.
 #'
 #' @usage
-#'     x_(  ) $ xByColnames()
+#'      x_(  ) $ xByColnames()
 #'
 #' @return
-#'     an arrow containing a list of strings.
+#'      An arrow containing a list of strings.
 #'
 #' @family exclusively_methods
 #'

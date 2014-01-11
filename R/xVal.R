@@ -19,7 +19,7 @@
 #'    Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
-#'    overwrites the value referenced by \code{sym}r if the variable
+#'    Overwrites the value referenced by \code{sym}r if the variable
 #'    already exists in the parent frame.
 #'
 #' @family immutable_value_functions

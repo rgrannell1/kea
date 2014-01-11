@@ -12,9 +12,9 @@
 #' \bold{Reference Documentation}
 #'
 #' \itemize{
-#'     \item{\link{help_arrow_naming}: }{Details of arrow's naming conventions.}
-#'     \item{\link{help_arrow_best_practices}: }{A guide to writing idiomatic Arrow code.}
-#'     \item{\link{help_arrow_gotchas}: }{A guide to avoiding easy-to-make mistakes in Arrow.}
+#'      \item{\link{help_arrow_naming}: }{Details of arrow's naming conventions.}
+#'      \item{\link{help_arrow_best_practices}: }{A guide to writing idiomatic Arrow code.}
+#'      \item{\link{help_arrow_gotchas}: }{A guide to avoiding easy-to-make mistakes in Arrow.}
 #' }
 #'
 #' @docType package

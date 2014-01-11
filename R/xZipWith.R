@@ -23,7 +23,7 @@
 #'    Returns a list.
 #'
 #' @section Corner Cases:
-#'    the empty list is returned if the shortest collection has
+#'    The empty list is returned if the shortest collection has
 #'    length-zero, or no collections are included.
 #'
 #' @family reshaping_functions

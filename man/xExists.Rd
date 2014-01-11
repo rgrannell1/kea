@@ -21,7 +21,7 @@ A boolean value.
 Does any selection of arguments satisfy a predicate?
 }
 \section{Corner Cases}{
-  if any collection is length zero (or no collections are
+  If any collection is length zero (or no collections are
   given), then False is returned.
 }
 

@@ -4,10 +4,10 @@
 #' Enumerate the elements of a matrix across rows.
 #'
 #' @usage
-#'     x_(  ) $ xElemsByRows()
+#'      x_(  ) $ xElemsByRows()
 #'
 #' @return
-#'     an arrow object containing a list.
+#'      An arrow object containing a list.
 #'
 #' @family exclusively_methods
 #'

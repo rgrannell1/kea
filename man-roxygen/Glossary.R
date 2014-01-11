@@ -11,17 +11,17 @@
 #' \bold{Collection}: A list, pairlist or a typed vector.
 #'
 #' \bold{Function}: a closure or primitive function.  A symbol or string refering
-#'     to such a function may also be used.
+#'      to such a function may also be used.
 #'
 #' \bold{Higher Order Function}: a function that takes a function as
-#'     one of its arguments, and/or returns a function.
+#'      one of its arguments, and/or returns a function.
 #'
 #' \bold{Nullary}: a function with arity zero.
 #'
 #' \bold{Number}: a double, integer or complex number, unless stated otherwise.
 #'
 #' \bold{Predicate}: A function that returns a logical value (unary, unless stated otherwise).
-#'     A symbol or string refering to such a function may also be used.
+#'      A symbol or string refering to such a function may also be used.
 #'
 #' \bold{Trinary, Ternary}: a function with arity three.
 #'

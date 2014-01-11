@@ -34,7 +34,7 @@ value). Return a list containing each intermediate result,
 and the final result.
 }
 \section{Corner Cases}{
-  returns \code{list(val)} if \code{coll} is length-zero.
+  Returns \code{list(val)} if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

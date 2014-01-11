@@ -12,7 +12,7 @@
 #'    A list of the same length as \code{coll}
 #'
 #' @section Corner Cases:
-#'    reversing the empty list yields the empty list.
+#'    Reversing the empty list yields the empty list.
 #'
 #' @family reshaping_functions
 #'

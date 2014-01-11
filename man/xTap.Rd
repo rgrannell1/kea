@@ -5,7 +5,7 @@
 x_(  ) $ xTap(fn)
 }
 \value{
-an arrow object.
+An arrow object.
 }
 \description{
 Apply an anonymous function to the contents of an arrow

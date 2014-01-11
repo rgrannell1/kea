@@ -5,7 +5,7 @@
 x_(  ) $ xColUnit()
 }
 \value{
-an arrow object containing an empty matrix or data.frame.
+An arrow object containing an empty matrix or data.frame.
 }
 \description{
 Return the concatenative unit for a matrix or data.frame
