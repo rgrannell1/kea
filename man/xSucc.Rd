@@ -13,7 +13,7 @@ xSucc...(...)
   \item{...}{see above.}
 }
 \value{
-a vector of numbers.
+A vector of numbers.
 }
 \description{
 Decrement a collection of numbers.

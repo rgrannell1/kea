@@ -15,7 +15,7 @@ xLift...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-returns a unary function of x.
+Returns a unary function of x.
 }
 \description{
 Compose a binary function with two other functions.

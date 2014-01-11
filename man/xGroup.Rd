@@ -1,11 +1,11 @@
-\name{xSegment}
-\alias{xSegment}
-\alias{xSegment...}
-\title{xSegment}
+\name{xGroup}
+\alias{xGroup}
+\alias{xGroup...}
+\title{xGroup}
 \usage{
-xSegment(num, coll)
+xGroup(num, coll)
 
-xSegment...(num, ...)
+xGroup...(num, ...)
 }
 \arguments{
   \item{num}{a nonnegative whole number.}
@@ -15,13 +15,13 @@ xSegment...(num, ...)
   \item{...}{see above.}
 }
 \value{
-a list of n-element lists.
+A list of n-element lists.
 }
 \description{
 Divide a collection into segments of fixed length.
 }
 \section{Uses}{
-  \code{xSegment} is useful for reshaping a collection into
+  \code{xGroup} is useful for reshaping a collection into
   pairs, triples, or larger groups before applying a
   function to each group.
 }
@@ -40,7 +40,8 @@ Divide a collection into segments of fixed length.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xDissoc}},
+\code{\link{xAssoc...}}; \code{\link{xChop}},
+\code{\link{xChop...}}; \code{\link{xDissoc}},
 \code{\link{xDissoc...}}; \code{\link{xFlatten}},
 \code{\link{xFlatten...}}; \code{\link{xJoin}},
 \code{\link{xJoin...}}; \code{\link{xPermute}},

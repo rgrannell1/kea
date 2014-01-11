@@ -11,7 +11,7 @@ xI(val)
   \item{val}{an arbitrary value.}
 }
 \value{
-returns \code{val}.
+Returns \code{val}.
 }
 \description{
 Return an argument without modification.

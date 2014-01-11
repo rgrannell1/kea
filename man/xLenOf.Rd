@@ -13,7 +13,7 @@ xLenOf...(...)
   \item{...}{see above.}
 }
 \value{
-a nonnegative integer.
+A nonnegative integer.
 }
 \description{
 Get the length of a collection

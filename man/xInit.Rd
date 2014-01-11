@@ -13,7 +13,7 @@ xInit...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Remove the first element from a collection.

@@ -13,7 +13,7 @@ xPred...(...)
   \item{...}{see above.}
 }
 \value{
-a vector of non-complex numbers.
+A vector of non-complex numbers.
 }
 \description{
 Increment a vector of numbers.

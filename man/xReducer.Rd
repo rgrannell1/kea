@@ -16,7 +16,7 @@ xReducer...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-an arbitrary value, depending on the function \code{fn}.
+An arbitrary value, depending on the function \code{fn}.
 }
 \description{
 Successively combine a list of values into a single value

@@ -14,7 +14,7 @@ xLambda(sym, val)
   evaluated.}
 }
 \value{
-returns a unary function.
+Returns a unary function.
 }
 \description{
 Syntactic sugar for creating unary functions.

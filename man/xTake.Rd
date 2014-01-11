@@ -15,7 +15,7 @@ xTake...(num, ...)
   \item{coll}{a collection}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Take several elements from the head of a collection.

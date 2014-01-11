@@ -12,6 +12,9 @@ xAsInteger...(...)
 
   \item{...}{see above.}
 }
+\value{
+An integer vector.
+}
 \description{
 Convert a collection to a integer vector.
 }

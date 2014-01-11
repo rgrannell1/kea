@@ -13,7 +13,7 @@ xSecond...(...)
   \item{...}{see above.}
 }
 \value{
-the second element in \code{coll}.
+The second element in \code{coll}.
 }
 \description{
 Return the second element in a collection.

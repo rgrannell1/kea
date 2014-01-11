@@ -10,7 +10,7 @@ xDelay(fn, num)
   \item{num}{a nonnegative whole number.}
 }
 \value{
-a function with the same parametres as \code{fn}.
+A function with the same parametres as \code{fn}.
 }
 \description{
 Delay the evalution of a function after invokation for a

@@ -13,7 +13,7 @@ xDuplicated...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Return the duplicated elements in a collection.

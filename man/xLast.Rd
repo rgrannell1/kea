@@ -13,7 +13,7 @@ xLast...(...)
   \item{...}{see above.}
 }
 \value{
-the value of the last element in \code{coll}.
+The value of the last element in \code{coll}.
 }
 \description{
 Return the last element in a collection.

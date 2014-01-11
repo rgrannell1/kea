@@ -21,7 +21,7 @@ xLocate...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-an length-one or length-zero whole number.
+An length-one or length-zero whole number.
 }
 \description{
 Get the position of the first element for which a predicate

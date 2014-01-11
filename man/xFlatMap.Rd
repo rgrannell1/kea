@@ -15,7 +15,7 @@ xFlatMap...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Concatenate the results of applying a function to each
@@ -34,8 +34,7 @@ element of a collection.
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapWhen}},
-\code{\link{xMapWhen...}}; \code{\link{xMapply}},
+\code{\link{xMapMany...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
 \code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}

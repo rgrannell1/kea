@@ -1,10 +1,10 @@
 
-#' xSegment
+#' xGroup
 #'
 #' Divide a collection into segments of fixed length.
 #'
 #' @section Uses:
-#'    \code{xSegment} is useful for reshaping a collection into pairs, triples,
+#'    \code{xGroup} is useful for reshaping a collection into pairs, triples,
 #'    or larger groups before applying a function to each group.
 #'
 #' @param
@@ -29,10 +29,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xSegment
+#' @rdname xGroup
 #' @export
 
-xSegment <- function (num, coll) {
+xGroup <- function (num, coll) {
 	# integer -> Collection any -> [[any]]
 	# groups coll into chunks of num,
 	# when possible.
@@ -77,9 +77,9 @@ xSegment <- function (num, coll) {
 	}
 }
 
-#' @rdname xSegment
+#' @rdname xGroup
 #' @export
 
-xSegment... <- function (num, ...) {
-	xSegment(num, list(...))
+xGroup... <- function (num, ...) {
+	xGroup(num, list(...))
 }

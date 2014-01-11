@@ -13,7 +13,7 @@ xRest...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Return a list excluding the first element of a collection.

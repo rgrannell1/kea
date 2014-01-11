@@ -13,7 +13,7 @@ xNotNan...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Is an element of a collection not NaN?

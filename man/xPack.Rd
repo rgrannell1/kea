@@ -13,7 +13,7 @@ xPack...(...)
   \item{...}{see above.}
 }
 \value{
-returns a list of elements in \code{coll}, with all
+Returns a list of elements in \code{coll}, with all
 length-zero values removed.
 }
 \description{

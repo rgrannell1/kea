@@ -15,7 +15,7 @@ xPoll...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-a non-negative whole number.
+A non-negative whole number.
 }
 \description{
 Count the number of times a function returns true when

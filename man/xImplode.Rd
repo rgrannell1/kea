@@ -15,7 +15,7 @@ xImplode...(str, ...)
   \item{...}{see above.}
 }
 \value{
-a length-one character vector.
+A length-one character vector.
 }
 \description{
 Concatenate a character vector into a single string using a

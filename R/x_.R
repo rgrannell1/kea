@@ -824,10 +824,30 @@ x_coll_proto <- local({
 			xToChars(self_())
 		}
 
+	# --- xChop --- #
+
+	this$xChop <-
+		function (num) {
+			x_( xChop(num, self_()) )
+		}
+	this$xChop... <-
+		function (num, ...) {
+			x_( xChop(num, self_(), ...) )
+		}
+
+	this$x_Chop <-
+		function (num) {
+			xChop(num, self_())
+		}
+	this$x_Chop... <-
+		function (num, ...) {
+			xChop(num, self_(), ...)
+		}
+
 	# --- xCombos --- #
 	this$xCombos <-
 		function (num) {
-			x_( xCombos(self_(), num) )
+			x_( xCombos(num, self_()) )
 		}
 	this$xCombos... <-
 		function (num, ...) {
@@ -836,7 +856,7 @@ x_coll_proto <- local({
 
 	this$x_Combos <-
 		function (num) {
-			xCombos(self_(), num)
+			xCombos(num, self_())
 		}
 	this$x_Combos... <-
 		function (num, ...) {
@@ -2039,23 +2059,23 @@ x_coll_proto <- local({
 			xSetProd...(self_(), ...)
 		}
 
-	# --- xSegment --- #
-	this$xSegment <-
+	# --- xGroup --- #
+	this$xGroup <-
 		function (num) {
-			x_( xSegment(num, self_()) )
+			x_( xGroup(num, self_()) )
 		}
-	this$xSegment... <-
+	this$xGroup... <-
 		function (num, ...) {
-			x_( xSegment...(num, self_(), ...) )
+			x_( xGroup...(num, self_(), ...) )
 		}
 
-	this$x_Segment <-
+	this$x_Group <-
 		function (num) {
-			xSegment(num, self_())
+			xGroup(num, self_())
 		}
-	this$x_Segment... <-
+	this$x_Group... <-
 		function (num, ...) {
-			xSegment...(num, self_(), ...)
+			xGroup...(num, self_(), ...)
 		}
 
 	# --- xSelect --- #

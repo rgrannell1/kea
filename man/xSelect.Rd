@@ -15,7 +15,7 @@ xSelect...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Include all elements from a collection matching a

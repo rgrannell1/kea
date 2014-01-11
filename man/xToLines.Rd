@@ -8,7 +8,7 @@ xToLines(str)
   \item{str}{a string.}
 }
 \value{
-a character vector.
+A character vector.
 }
 \description{
 Split a string at every newline character.

@@ -8,7 +8,7 @@ xIsVal(str)
   \item{str}{a string or symbol.}
 }
 \value{
-a boolean value.
+A boolean value.
 }
 \description{
 Is a name binding locked?

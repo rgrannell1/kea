@@ -15,7 +15,7 @@ xIsMember...(val, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Check if a collection contains a value.

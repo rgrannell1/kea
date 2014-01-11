@@ -12,6 +12,9 @@ xAsComplex...(...)
 
   \item{...}{see above.}
 }
+\value{
+A complex vector.
+}
 \description{
 Convert a collection to a complex vector.
 }

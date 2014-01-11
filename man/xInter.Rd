@@ -13,7 +13,7 @@ xInter...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Get the set intersection of several collections.

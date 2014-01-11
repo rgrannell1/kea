@@ -15,7 +15,7 @@ xDrop...(num, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Take several elements from the head of a collection.

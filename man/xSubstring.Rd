@@ -15,7 +15,7 @@ xSubstring...(str, ...)
   \item{...}{see above.}
 }
 \value{
-a character vector.
+A character vector.
 }
 \description{
 Subset a string using normal R vector indexing.

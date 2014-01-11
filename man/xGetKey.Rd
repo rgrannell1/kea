@@ -8,7 +8,7 @@ xGetKey(str)
   \item{str}{a string.}
 }
 \value{
-a unary function that takes a collection.
+A unary function that takes a collection.
 }
 \description{
 Return a function that selects a key from a collection.

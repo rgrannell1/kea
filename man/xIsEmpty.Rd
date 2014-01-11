@@ -13,7 +13,7 @@ xIsEmpty...(...)
   \item{...}{see above.}
 }
 \value{
-a boolean value.
+A boolean value.
 }
 \description{
 Is a collection length-zero?

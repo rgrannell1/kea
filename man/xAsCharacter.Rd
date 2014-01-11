@@ -12,6 +12,9 @@ xAsCharacter...(...)
 
   \item{...}{see above.}
 }
+\value{
+A character vector.
+}
 \description{
 Convert a collection to a double vector.
 }

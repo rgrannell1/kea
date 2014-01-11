@@ -8,7 +8,7 @@ xToChars(str)
   \item{str}{a length-one character vector.}
 }
 \value{
-a character vector of length \code{nchar(str)}, with each
+A character vector of length \code{nchar(str)}, with each
 element being a single character.
 }
 \description{

@@ -13,7 +13,7 @@ xSetProd...(...)
   \item{...}{see above.}
 }
 \value{
-a list of n-element lists.
+A list of n-element lists.
 }
 \description{
 Get the cartesian product of several collections.

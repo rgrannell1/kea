@@ -8,7 +8,7 @@ xAsVariadic(fn)
   \item{fn}{a unary function.}
 }
 \value{
-a variadic function.
+A variadic function.
 }
 \description{
 Return a variadic function that passes its arguments as a

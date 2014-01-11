@@ -8,7 +8,7 @@ xNot(pred)
   \item{pred}{a predicate of any arity.}
 }
 \value{
-a predicate function of val.
+A predicate function of val.
 }
 \description{
 Return the logical negation of a function.

@@ -13,7 +13,7 @@ xUnique...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Return the unique elements in a collection.

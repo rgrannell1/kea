@@ -15,7 +15,7 @@ xDo...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Map (a possibly side-effectful) function over a collection

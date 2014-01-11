@@ -8,7 +8,7 @@ xArity(fn)
   \item{fn}{an function of any arity.}
 }
 \value{
-a positive whole number.
+A positive whole number.
 }
 \description{
 Return the number of arguments a function can accept.

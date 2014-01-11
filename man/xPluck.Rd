@@ -15,7 +15,7 @@ xPluck...(str, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Map over a collection of lists or pairlists, selecting

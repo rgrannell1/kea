@@ -13,7 +13,7 @@ xFourth...(...)
   \item{...}{see above.}
 }
 \value{
-the fourth value in \code{coll}.
+The fourth value in \code{coll}.
 }
 \description{
 Return the fourth value in a collection.

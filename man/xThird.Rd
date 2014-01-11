@@ -13,7 +13,7 @@ xThird...(...)
   \item{...}{see above.}
 }
 \value{
-the third element in \code{coll}.
+The third element in \code{coll}.
 }
 \description{
 Return the third value in a collection.

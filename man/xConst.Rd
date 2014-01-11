@@ -11,7 +11,7 @@ xK(val)
   \item{val}{an arbitrary value.}
 }
 \value{
-a variadic function.
+A variadic function.
 }
 \description{
 Create a function that returns a particular value.

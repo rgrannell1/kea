@@ -13,7 +13,7 @@ xJoin...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Concatenate several collections into one collection.
@@ -31,12 +31,13 @@ Concatenate several collections into one collection.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xDissoc}},
+\code{\link{xAssoc...}}; \code{\link{xChop}},
+\code{\link{xChop...}}; \code{\link{xDissoc}},
 \code{\link{xDissoc...}}; \code{\link{xFlatten}},
-\code{\link{xFlatten...}}; \code{\link{xPermute}},
+\code{\link{xFlatten...}}; \code{\link{xGroup}},
+\code{\link{xGroup...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
-\code{\link{xSegment}}, \code{\link{xSegment...}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};

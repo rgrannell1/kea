@@ -15,7 +15,7 @@ xExists...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-a boolean value.
+A boolean value.
 }
 \description{
 Does any selection of arguments satisfy a predicate?

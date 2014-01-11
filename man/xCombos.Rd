@@ -15,7 +15,7 @@ xCombos...(num, ...)
   \item{...}{see above.}
 }
 \value{
-a list of lists, with each list containing \code{num}
+A list of lists, with each list containing \code{num}
 elements.
 }
 \description{

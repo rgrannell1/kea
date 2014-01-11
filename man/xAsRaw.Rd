@@ -12,6 +12,9 @@ xAsRaw...(...)
 
   \item{...}{see above.}
 }
+\value{
+A raw vector.
+}
 \description{
 Convert a collection to a raw vector.
 }

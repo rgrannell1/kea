@@ -13,7 +13,7 @@ xDiffer...(...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Get the asymettric set difference of several collections.

@@ -1,11 +1,11 @@
-\name{xSplitAt}
-\alias{xSplitAt}
-\alias{xSplitAt...}
-\title{xSplitAt}
+\name{xChop}
+\alias{xChop}
+\alias{xChop...}
+\title{xChop}
 \usage{
-xSplitAt(num, coll)
+xChop(num, coll)
 
-xSplitAt...(num, ...)
+xChop...(num, ...)
 }
 \arguments{
   \item{num}{a nonnegative whole number.}
@@ -15,20 +15,13 @@ xSplitAt...(num, ...)
   \item{...}{see above.}
 }
 \value{
-A list of two lists; the first list containing the first
-\code{num} elements of \code{coll}, and the second list
-containing the remaining elements \code{coll}.
+A list of \code{num} lists.
 }
 \description{
-Split a collection into elements before and upto an index,
-and after that index.
+Divide a collection into a fixed number of segments.
 }
 \section{Corner Cases}{
-  If \code{num} is zero then the first list in the returned
-  value is empty.  Likewise, if \code{num} is equal or
-  larger than the length of \code{coll} then the second
-  return list is empty. If \code{coll} is length zero both
-  lists are empty.
+
 }
 
 \section{Variadic Functions
@@ -38,8 +31,7 @@ and after that index.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xChop}},
-\code{\link{xChop...}}; \code{\link{xDissoc}},
+\code{\link{xAssoc...}}; \code{\link{xDissoc}},
 \code{\link{xDissoc...}}; \code{\link{xFlatten}},
 \code{\link{xFlatten...}}; \code{\link{xGroup}},
 \code{\link{xGroup...}}; \code{\link{xJoin}},
@@ -47,6 +39,7 @@ Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
+\code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
 \code{\link{xZipWith}}, \code{\link{xZipWith...}};
 \code{\link{xZip}}, \code{\link{xZip...}}

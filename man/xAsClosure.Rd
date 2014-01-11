@@ -8,7 +8,7 @@ xAsClosure(fn)
   \item{fn}{an arbitrary function.}
 }
 \value{
-a function (closure).
+A function (closure).
 }
 \description{
 Convert a primitive function to a closure.

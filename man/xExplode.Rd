@@ -13,7 +13,7 @@ xExplode...(rexp, ...)
   \item{str}{a string.}
 }
 \value{
-a character vector.
+A character vector.
 }
 \description{
 Split a string into a character vector using a regular

@@ -2,12 +2,12 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message("xSegment")
+message("xGroup")
 
 	forall(
 		"one divides into lists of one.",
 		test_cases$collection,
-		length(xSegment(1, coll)) == length(coll),
+		length(xGroup(1, coll)) == length(coll),
 		given =
 			length(coll) > 0
 	)
@@ -15,28 +15,28 @@ message("xSegment")
 	forall(
 		"infinite doesn't divide collection.",
 		test_cases$collection,
-		xSegment(Inf, coll) %equals% list(as.list(coll)),
+		xGroup(Inf, coll) %equals% list(as.list(coll)),
 		given =
 			length(coll) > 0
 	)
 
 
-message("arrow $ xSegment")
+message("arrow $ xGroup")
 
 	forall(
 		"infinite doesn't divide collection.",
 		test_cases$collection,
-		x_(coll)$xSegment(Inf)$x_() %equals% list(as.list(coll)),
+		x_(coll)$xGroup(Inf)$x_() %equals% list(as.list(coll)),
 		given =
 			length(coll) > 0
 	)
 
-message("arrow $ x_Segment")
+message("arrow $ x_Group")
 
 	forall(
 		"infinite doesn't divide collection.",
 		test_cases$collection,
-		x_(coll)$x_Segment(Inf) %equals% list(as.list(coll)),
+		x_(coll)$x_Group(Inf) %equals% list(as.list(coll)),
 		given =
 			length(coll) > 0
 	)

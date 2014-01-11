@@ -13,7 +13,7 @@ xFirst...(...)
   \item{...}{see above.}
 }
 \value{
-the first element in \code{coll}.
+The first element in \code{coll}.
 }
 \description{
 Return the first element of a collection.

@@ -16,7 +16,7 @@ xApply...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-the return value of \code{fn}.
+The return value of \code{fn}.
 }
 \description{
 Invoke a function with a collection of arguments.

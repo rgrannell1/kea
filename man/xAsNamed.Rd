@@ -10,7 +10,7 @@ xAsNamed(strs, coll)
   \item{coll}{a collection}
 }
 \value{
-a named list.
+A named list.
 }
 \description{
 Add names to a collection.

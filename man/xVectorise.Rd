@@ -11,7 +11,7 @@ xVectorize(fn)
   \item{fn}{a unary function.}
 }
 \value{
-a unary function of coll.
+A unary function of coll.
 }
 \description{
 Convert a function on one value to a function on
@@ -42,8 +42,7 @@ Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapWhen}},
-\code{\link{xMapWhen...}}; \code{\link{xMapply}},
+\code{\link{xMapMany...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
 \code{\link{xMap...}}
 }

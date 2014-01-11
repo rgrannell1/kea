@@ -8,7 +8,7 @@ xIsVariadic(fn)
   \item{fn}{an arbitrary function or primitive function.}
 }
 \value{
-a boolean value.
+A boolean value.
 }
 \description{
 Is a function variadic?

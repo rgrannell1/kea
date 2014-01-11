@@ -13,7 +13,7 @@ xJuxtapose...(...)
   \item{...}{see above.}
 }
 \value{
-a variadic function.
+A variadic function.
 }
 \description{
 Create a function that applies an argument to a list of

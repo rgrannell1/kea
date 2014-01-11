@@ -12,6 +12,9 @@ xAsLogical...(...)
 
   \item{...}{see above.}
 }
+\value{
+A logical vector.
+}
 \description{
 Convert a collection to a logical vector.
 }

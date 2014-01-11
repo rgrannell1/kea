@@ -15,7 +15,7 @@ xForall...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-a boolean value.
+A boolean value.
 }
 \description{
 Does every selection of arguments satisfy a predicate?

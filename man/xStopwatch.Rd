@@ -8,7 +8,7 @@ xStopwatch(num)
   \item{num}{a positive number.}
 }
 \value{
-a variadic function that ignores its arguments.
+A variadic function that ignores its arguments.
 }
 \description{
 Create a function that returns true for a preset time after

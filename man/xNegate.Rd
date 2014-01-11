@@ -13,7 +13,7 @@ xNegate...(...)
   \item{...}{see above.}
 }
 \value{
-a vector of number.
+A vector of number.
 }
 \description{
 Flip the sign of each number in a vector.

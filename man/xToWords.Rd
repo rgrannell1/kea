@@ -8,7 +8,7 @@ xToWords(str)
   \item{str}{a length-one character vector.}
 }
 \value{
-a character vector, with one or more elements.
+A character vector, with one or more elements.
 }
 \description{
 Split a str at whitespace.

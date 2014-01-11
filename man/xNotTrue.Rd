@@ -13,7 +13,7 @@ xNotTrue...(...)
   \item{...}{see above.}
 }
 \value{
-a vector of boolean values.
+A vector of boolean values.
 }
 \description{
 Is an element of a collection not true?

@@ -15,7 +15,7 @@ xDropWhile...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Take every element in a collection from the first time a

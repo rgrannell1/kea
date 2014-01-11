@@ -15,7 +15,7 @@ xReject...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Remove all elements from a collection matching a predicate.

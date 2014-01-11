@@ -16,7 +16,7 @@ xPermute...(coll, ...)
   \item{...}{see above.}
 }
 \value{
-a list of collections.
+A list of collections.
 }
 \description{
 Permute several collections using indices.
@@ -32,12 +32,13 @@ Permute several collections using indices.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xDissoc}},
+\code{\link{xAssoc...}}; \code{\link{xChop}},
+\code{\link{xChop...}}; \code{\link{xDissoc}},
 \code{\link{xDissoc...}}; \code{\link{xFlatten}},
-\code{\link{xFlatten...}}; \code{\link{xJoin}},
+\code{\link{xFlatten...}}; \code{\link{xGroup}},
+\code{\link{xGroup...}}; \code{\link{xJoin}},
 \code{\link{xJoin...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
-\code{\link{xSegment}}, \code{\link{xSegment...}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};

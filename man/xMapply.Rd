@@ -15,7 +15,7 @@ xMapply...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Apply a function to each element of a collection.
@@ -42,8 +42,7 @@ Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapWhen}},
-\code{\link{xMapWhen...}}; \code{\link{xMap}},
+\code{\link{xMapMany...}}; \code{\link{xMap}},
 \code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }

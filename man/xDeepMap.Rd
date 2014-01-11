@@ -15,7 +15,7 @@ xDeepMap...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-a list or pairlist.
+A list or pairlist.
 }
 \description{
 Recursively map a function into a nested collection,
@@ -30,8 +30,7 @@ preserving its structure.
 Other mapping_functions: \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapWhen}},
-\code{\link{xMapWhen...}}; \code{\link{xMapply}},
+\code{\link{xMapMany...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
 \code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}

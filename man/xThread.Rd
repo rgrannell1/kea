@@ -15,7 +15,7 @@ xThread...(val, ...)
   \item{...}{see above.}
 }
 \value{
-a list.
+A list.
 }
 \description{
 Iteratively apply a value to list of functions.

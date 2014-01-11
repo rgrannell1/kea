@@ -5,7 +5,7 @@
 xVersion()
 }
 \value{
-a three-number vector, containing the major release number,
+A three-number vector, containing the major release number,
 minor release number and patch number.
 }
 \description{

@@ -13,7 +13,7 @@ xAsFunction...(...)
   \item{...}{see above.}
 }
 \value{
-a function that takes one or more indices.
+A function that takes one or more indices.
 }
 \description{
 Convert a collection to a function that takes an index.

@@ -8,7 +8,7 @@ xParamsOf(fn)
   \item{fn}{an arbitrary function or primitive function.}
 }
 \value{
-a character vector/.
+A character vector/.
 }
 \description{
 Get the parametre names of a function or primitive

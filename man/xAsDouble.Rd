@@ -12,6 +12,9 @@ xAsDouble...(...)
 
   \item{...}{see above.}
 }
+\value{
+A double vector.
+}
 \description{
 Convert a collection to a double vector.
 }
