@@ -15,7 +15,6 @@ Maintainer: Ryan Grannell <r.grannell2@gmail.com>
 ByteCompile: yes
 License: GPL-3
 Suggests:
-    testthat,
     microbenchmark
 Collate:
     'help_arrow.R'
