@@ -41,6 +41,7 @@
 #
 # I don't like creating code dynamically, but originally I had to write these methods
 # by hand. Many bugs are prevented by creating the methods dynamically in this case.
+#
 
 xMethod <- function (fn, fixed) {
 	# generate the xMethod form of the function.
@@ -122,7 +123,97 @@ x_Method <- function (fn, fixed) {
 	method
 }
 
+xMethod... <- function (fn, fixed) {
 
+	invoking_frame <- parent.frame()
+
+	fn_sym <- as.symbol(match.call()$fn)
+
+	if (length(fixed) > 0 && !(fixed %in% names(formals(fn)) )) {
+		stop('not a parametre of fn')
+	}
+
+	method <- function () {
+
+	}
+
+	formals(method) <-
+		formals(fn)[ names(formals(fn)) != fixed ]
+
+	params <- Reduce(
+		function (acc, param) {
+
+			if (as.symbol(param) == fixed) {
+
+				if (fixed == '...') {
+					c( acc, quote(self_()), as.symbol('...') )
+				} else {
+					c( acc, quote(self_()) )
+				}
+
+			} else {
+				c(acc, as.symbol(param))
+			}
+		},
+		names(formals(fn)),
+		list()
+	)
+
+	body(method) <-
+		bquote({
+
+		x_( .(( as.call(c(fn_sym, params)) )) )
+	})
+
+	environment(method) <- invoking_frame
+	method
+}
+
+x_Method... <- function (fn, fixed) {
+
+	invoking_frame <- parent.frame()
+
+	fn_sym <- as.symbol(match.call()$fn)
+
+	if (length(fixed) > 0 && !(fixed %in% names(formals(fn)) )) {
+		stop('not a parametre of fn')
+	}
+
+	method <- function () {
+
+	}
+
+	formals(method) <-
+		formals(fn)[ names(formals(fn)) != fixed ]
+
+	params <- Reduce(
+		function (acc, param) {
+
+			if (as.symbol(param) == fixed) {
+
+				if (fixed == '...') {
+					c( acc, quote(self_()), as.symbol('...') )
+				} else {
+					c( acc, quote(self_()) )
+				}
+
+			} else {
+				c(acc, as.symbol(param))
+			}
+		},
+		names(formals(fn)),
+		list()
+	)
+
+	body(method) <-
+		bquote({
+
+		.(( as.call(c(fn_sym, params)) ))
+	})
+
+	environment(method) <- invoking_frame
+	method
+}
 
 
 
@@ -732,6 +823,8 @@ x_factor_proto <- local({
 
 
 
+# NEW SYNTAX
+#this <- add_x_method(xAsLogical, 'bools')
 
 
 
@@ -754,11 +847,11 @@ x_coll_proto <- local({
 		x_Method(xAsLogical, 'bools')
 
 	this$x_AsLogical... <-
-		x_Method(xAsLogical, 'bools')
+		x_Method...(xAsLogical..., '...')
 
 	# --- xAsInteger --- #
 	this$xAsInteger <-
-		xMethod(xAsInteger, 'nums')
+		xMethod(xAsInteger, '...')
 
 	this$xAsInteger... <-
 		function (...) {
@@ -769,9 +862,7 @@ x_coll_proto <- local({
 		x_Method(xAsInteger, 'nums')
 
 	this$x_AsInteger... <-
-		function (...) {
-			xAsInteger(self_(), ...)
-		}
+		x_Method...(xAsInteger..., '...')
 
 	# --- xAsCharacter --- #
 	this$xAsCharacter <-
@@ -786,9 +877,8 @@ x_coll_proto <- local({
 		x_Method(xAsCharacter, 'strs')
 
 	this$x_AsCharacter... <-
-		function (...) {
-			xAsCharacter(self_(), ...)
-		}
+		x_Method...(xAsCharacter..., '...')
+
 
 	# --- xAsDouble --- #
 	this$xAsDouble <-
@@ -803,9 +893,8 @@ x_coll_proto <- local({
 		x_Method(xAsDouble, 'nums')
 
 	this$x_AsDouble... <-
-		function (...) {
-			xAsDouble(self_(), ...)
-		}
+		x_Method(xAsDouble, 'strs')
+
 
 	# --- xAsRaw --- #
 	this$xAsRaw <-
