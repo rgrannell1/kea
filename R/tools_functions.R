@@ -270,48 +270,56 @@ format_call <- function (call) {
 
 }
 
-assert <- function (expr, invoking_call, message) {
-	# does an expression evaluate to true?
-	# if not, throw a lovely error.
+assert <- local({
 
 	consts <- list(
 		margin =
 			80
 	)
 
-	args <- as.list(match.call())[-1]
+	function (expr, invoking_call, message) {
+		# does an expression evaluate to true?
+		# if not, throw a lovely error.
 
-	if (!expr) {
-		call <- if (missing(invoking_call)) {
-			'assert()'
-		} else {
+		args <- as.list(match.call())[-1]
 
-			callname <- paste0( invoking_call[[1]] )
-			calltext <- format_call(invoking_call)
+		if (!is.logical(expr)) {
+			yelp$non_logical_assertion()
+		}
 
-			if (nchar(calltext) > consts$margin) {
-				paste0(substr(calltext, 1, consts$margin), '...')
+		if (!isTRUE(expr)) {
+			call <- if (missing(invoking_call)) {
+				'assert()'
 			} else {
-				calltext
+
+				callname <- paste0( invoking_call[[1]] )
+				calltext <- format_call(invoking_call)
+
+				if (nchar(calltext) > consts$margin) {
+					paste0(substr(calltext, 1, consts$margin), '...')
+				} else {
+					calltext
+				}
+			}
+
+			if (missing(message)) {
+
+				stop(
+					yelp$assertion_failed(
+						call, args$expr),
+					call. = False)
+
+			} else {
+
+				stop(
+					yelp$arrow_function_failed(
+						callname, call, message),
+					call. = False)
 			}
 		}
-
-		if (missing(message)) {
-
-			stop(
-				yelp$assertion_failed(
-					call, args$expr),
-				call. = False)
-
-		} else {
-
-			stop(
-				yelp$arrow_function_failed(
-					callname, call, message),
-				call. = False)
-		}
 	}
-}
+
+})
 
 ith_suffix <- function (num) {
 	# number -> string

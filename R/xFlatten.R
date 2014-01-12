@@ -3,6 +3,10 @@
 #'
 #' Unnest a nested list to a given depth.
 #'
+#' @details
+#'    \code{num} specifies the maximum allowed depth in the
+#'    returned list;
+#'
 #' @param
 #'    num a nonnegative whole-number.
 #'
@@ -17,6 +21,8 @@
 #'
 #' @section Corner Cases:
 #'    Returns the empty list if \code{coll} is length-zero.
+#'    Flattening to infinite doesn't affect the depth of the output list.
+#'    Flattening to one level flattens the list fully.
 #'
 #' @family reshaping_functions
 #'
