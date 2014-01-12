@@ -4,16 +4,17 @@
 #' Split a string into a character vector using a regular expression.
 #'
 #' @param
-#'      rexp a regular expression.
+#'    rexp a regular expression.
 #'
 #' @param
-#'      str a string.
+#'    str a string.
 #'
 #' @return
-#'      A character vector.
+#'    A character vector.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \code{coll} is length-zero.
+#'    If no match is found the original string is returned.
 #'
 #' @family character_functions
 #'

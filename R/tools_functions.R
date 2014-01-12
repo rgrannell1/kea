@@ -1,4 +1,4 @@
-
+#
 # To Developers,
 #
 # Every sufficiently large utility library will contain its own utility library.
@@ -284,7 +284,9 @@ assert <- local({
 		args <- as.list(match.call())[-1]
 
 		if (!is.logical(expr)) {
-			yelp$non_logical_assertion()
+			stop(
+				yelp$non_logical_assertion(expr),
+				call. = False)
 		}
 
 		if (!isTRUE(expr)) {
@@ -317,6 +319,8 @@ assert <- local({
 					call. = False)
 			}
 		}
+
+		invisible(Null)
 	}
 
 })

@@ -37,9 +37,6 @@
 
 
 
-
-
-
 # -------------------------------- Method Creators -------------------------------- #
 #
 # I don't like creating code dynamically, but originally I had to write these methods
@@ -50,12 +47,9 @@ xMethod <- function (fn, fixed) {
 
 	invoking_frame <- parent.frame()
 
-	fixed_sym <- as.symbol(match.call()$fixed)
-	fixed_name <- as.symbol(match.call()$fixed)
-
 	fn_sym <- as.symbol(match.call()$fn)
 
-	if (!(fixed %in% names(formals(fn)) )) {
+	if (length(fixed) > 0 && !(fixed %in% names(formals(fn)) )) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
 	}
 
@@ -73,7 +67,7 @@ xMethod <- function (fn, fixed) {
 			( as.call(c(
 				fn_sym,
 				lapply(
-					xParamsOf(fn),
+					names(formals(fn)),
 					function (param) {
 
 						if (as.symbol(param) == fixed) {
@@ -93,12 +87,9 @@ x_Method <- function (fn, fixed) {
 
 	invoking_frame <- parent.frame()
 
-	fixed_sym <- as.symbol(match.call()$fixed)
-	fixed_name <- as.symbol(match.call()$fixed)
-
 	fn_sym <- as.symbol(match.call()$fn)
 
-	if (!(fixed %in% names(formals(fn)) )) {
+	if (length(fixed) > 0 && !(fixed %in% names(formals(fn)) )) {
 		stop('not a parametre of fn')
 	}
 
@@ -116,7 +107,7 @@ x_Method <- function (fn, fixed) {
 			( as.call(c(
 				fn_sym,
 				lapply(
-					xParamsOf(fn),
+					names(formals(fn)),
 					function (param) {
 
 						if (as.symbol(param) == fixed) {
@@ -202,14 +193,12 @@ x_any_proto <- local({
 	this$xIdentity <-
 		xMethod(xIdentity, 'val')
 
-
 	this$xI <-
 		this$xIdentity
 
 	this$x_Identity <-
-		function () {
-			xIdentity(self_())
-		}
+		x_Method(xIdentity, 'val')
+
 	this$x_I <-
 		this$x_Identity
 
@@ -253,13 +242,11 @@ x_any_proto <- local({
 
 	# -------- V ------- #
 	this$xVersion <-
-		function () {
-			x_( xVersion() )
-		}
+		xMethod(xVersion, character(0))
+
 	this$x_Version <-
-		function () {
-			xVersion()
-		}
+		x_Method(xVersion, character(0))
+
 	# -------- W ------- #
 
 	# -------- X ------- #
@@ -480,11 +467,11 @@ x_matrix_proto <- local({
 			t(self_())
 		}
 	# -------- U ------- #
-	this$xUnit <-
+	this$xFullUnit <-
 		function () {
 			x_( matrix(nrow = 0, ncol = 0) )
 		}
-	this$x_Unit <-
+	this$x_FullUnit <-
 		function () {
 			matrix(nrow = 0, ncol = 0)
 		}
@@ -614,15 +601,15 @@ x_data_frame_proto <- local({
 	# -------- T ------- #
 
 	# -------- U ------- #
-	# --- xUnit --- #
-	this$xUnit <-
+	# --- xFull --- #
+	this$xFullUnit <-
 		function () {
 			x_( unname(as.data.frame(
 				matrix(
 					nrow = 0,
 					ncol = 0 )) ))
 		}
-	this$x_Unit <-
+	this$x_FullUnit <-
 		function () {
 			x_( unname(as.data.frame(
 				matrix(

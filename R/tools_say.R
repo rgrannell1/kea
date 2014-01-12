@@ -533,13 +533,20 @@ yelp <- list(
 			calltext %+% ': the assertion\n ' %+% expr %+% ' \nfailed.'
 
 		},
+	non_logical_assertion =
+		function (expr) {
+			expr <- paste0(deparse(expr), collapse = '')
+
+			"the assertion " %+% expr %+% " returned a non-logical value."
+		},
 	arrow_function_failed =
 		function (callname, call, message) {
 
 			# removed because it screwed up summate( ) call
 			# message <- strwrap(message, width = 70, simplify = True)
 
-			call <- strwrap(call, indent = 4)
+			callname <- paste0(callname, collapse = '')
+			call <- paste0(strwrap(call, indent = 4),collapse = '')
 
 			'\n' %+%
 			'[ error thrown from ' %+% callname %+% ' ]:' %+% '\n\n' %+%
@@ -552,11 +559,14 @@ yelp <- list(
 	warning_higher_order =
 		function (fn, warn, profile = '') {
 
+			warncall <- paste0(warn$call, collapse = '')
+			warnmessage <- paste0(warn$message, collapse = '')
+
 			"[ warning occurred while executing a function passed to " %+%
 			fn %+% " ]\n" %+%
 			strwrap(
-				format_call(warn$call) %+% ":\n" %+%
-				paste0(warn$message, collapse = ''),
+				format_call(warncall) %+% ":\n" %+%
+				paste0(warnmessage, collapse = ''),
 				indent = 4
 			)
 
@@ -564,11 +574,14 @@ yelp <- list(
 	error_higher_order =
 		function (fn, err, profile = '') {
 
+			errcall <- paste0(err$call, collapse = '')
+			errmessage <- paste0(err$message, collapse = '')
+
 			"[ an error occurred while executing a function passed to " %+%
 			fn %+% ": ]\n\n" %+%
 			strwrap(
-				format_call(err$call) %+% ":\n" %+%
-				paste0(err$message, collapse = ''),
+				format_call(errcall) %+% ":\n" %+%
+				paste0(errmessage, collapse = ''),
 				indent = 4
 			)
 		}
