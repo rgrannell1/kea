@@ -15,6 +15,6 @@
 #' @rdname xVersion
 #' @export
 
-xVersion <- function () {
+xVersion <- function (...) {
 	c(0L, 1L, 0L)
 }
