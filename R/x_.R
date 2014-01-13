@@ -56,6 +56,7 @@ add_method <- function (env, fn, fixed) {
 
 	if (is_unchaining) {
 		fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
+		fn <- match.fun(fn_sym)
 	}
 
 	if (length(fixed) > 0 && !(fixed %in% names(formals(fn)) )) {
@@ -799,26 +800,26 @@ x_coll_proto <- local({
 	# --- xAsCharacter --- #
 	add_method(this, xAsCharacter, 'strs')
 	add_method(this, xAsCharacter..., '...')
-	add_method(this, xAsCharacter, 'strs')
-	add_method(this, xAsCharacter..., '...')
+	add_method(this, x_AsCharacter, 'strs')
+	add_method(this, x_AsCharacter..., '...')
 
 	# --- xAsDouble --- #
 	add_method(this, xAsDouble, 'nums')
 	add_method(this, xAsDouble..., '...')
-	add_method(this, xAsDouble, 'nums')
-	add_method(this, xAsDouble..., '...')
+	add_method(this, x_AsDouble, 'nums')
+	add_method(this, x_AsDouble..., '...')
 
 	# --- xAsRaw --- #
 	add_method(this, xAsRaw, 'raws')
 	add_method(this, xAsRaw..., '...')
-	add_method(this, xAsRaw, 'raws')
-	add_method(this, xAsRaw..., '...')
+	add_method(this, x_AsRaw, 'raws')
+	add_method(this, x_AsRaw..., '...')
 
 	# --- xAsComplex --- #
 	add_method(this, xAsComplex, 'comps')
 	add_method(this, xAsComplex..., '...')
-	add_method(this, xAsComplex, 'comps')
-	add_method(this, xAsComplex, '...')
+	add_method(this, x_AsComplex, 'comps')
+	add_method(this, x_AsComplex..., '...')
 
 	# --- xAsFunction --- #
 	add_method(this, xAsFunction, 'coll')
@@ -834,7 +835,7 @@ x_coll_proto <- local({
 
 	# --- xAssoc --- #
 	add_method(this, xAssoc, 'colls')
-	add_method(this, xAssoc, '...')
+	add_method(this, xAssoc..., '...')
 	add_method(this, x_Assoc, 'colls')
 	add_method(this, x_Assoc..., '...')
 
@@ -1177,9 +1178,9 @@ x_coll_proto <- local({
 
 	# --- xPartition --- #
 	add_method(this, xPartition, 'coll')
-	add_method(this, xPartition, '...')
+	add_method(this, xPartition..., '...')
 	add_method(this, x_Partition, 'coll')
-	add_method(this, x_Partition, '...')
+	add_method(this, x_Partition..., '...')
 
 	# --- xPermute --- #
 	add_method(this, xPermute, 'colls')
@@ -1702,13 +1703,6 @@ x_fn_proto <- local({
 	add_method(this, xZipWith..., 'fn')
 	add_method(this, x_ZipWith, 'fn')
 	add_method(this, x_ZipWith..., 'fn')
-
-	# --- xZip --- #
-
-	add_method(this, xZip, 'fn')
-	add_method(this, xZip..., 'fn')
-	add_method(this, x_Zip, 'fn')
-	add_method(this, x_Zip..., 'fn')
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
