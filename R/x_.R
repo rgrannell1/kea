@@ -56,7 +56,6 @@
 
 
 
-
 add_x_method <- function (env, fn, fixed) {
 	# generate a method from an input function.
 	# SIDE EFFECTFULLY UPDATES ENV, since environments are
@@ -67,6 +66,8 @@ add_x_method <- function (env, fn, fixed) {
 
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic <- grepl('[.]{3}$', fn_name)
+
+
 
 	if (is_unchaining) {
 		fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
@@ -899,16 +900,16 @@ x_coll_proto <- local({
 	add_x_method(this, x_Foldr, 'coll')
 	add_x_method(this, x_Foldr..., '...')
 
-	# --- xFoldListl --- #
-	add_x_method(this, xFoldListl, 'coll')
-	add_x_method(this, xFoldListl..., '...')
-	add_x_method(this, x_FoldListl, 'coll')
-	add_x_method(this, x_FoldListl..., '...')
+	# --- xScanl --- #
+	add_x_method(this, xScanl, 'coll')
+	add_x_method(this, xScanl..., '...')
+	add_x_method(this, x_Scanl, 'coll')
+	add_x_method(this, x_Scanl..., '...')
 
-	add_x_method(this, xFoldList, 'coll')
-	add_x_method(this, xFoldList..., '...')
-	add_x_method(this, x_FoldList, 'coll')
-	add_x_method(this, x_FoldList..., '...')
+	add_x_method(this, xScan, 'coll')
+	add_x_method(this, xScan..., '...')
+	add_x_method(this, x_Scan, 'coll')
+	add_x_method(this, x_Scan..., '...')
 
 	# --- xFourth --- #
 	add_x_method(this, xFourth, 'coll')
@@ -1457,16 +1458,16 @@ x_fn_proto <- local({
 	add_x_method(this, x_Foldr, 'fn')
 	add_x_method(this, x_Foldr..., 'fn')
 
-	# --- xFoldListl --- #
-	add_x_method(this, xFoldListl, 'fn')
-	add_x_method(this, xFoldListl..., 'fn')
-	add_x_method(this, x_FoldListl, 'fn')
-	add_x_method(this, x_FoldListl..., 'fn')
+	# --- xScanl --- #
+	add_x_method(this, xScanl, 'fn')
+	add_x_method(this, xScanl..., 'fn')
+	add_x_method(this, x_Scanl, 'fn')
+	add_x_method(this, x_Scanl..., 'fn')
 
-	add_x_method(this, xFoldList, 'fn')
-	add_x_method(this, xFoldList..., 'fn')
-	add_x_method(this, x_FoldList, 'fn')
-	add_x_method(this, x_FoldList..., 'fn')
+	add_x_method(this, xScan, 'fn')
+	add_x_method(this, xScan..., 'fn')
+	add_x_method(this, x_Scan, 'fn')
+	add_x_method(this, x_Scan..., 'fn')
 
 	# --- xFormalsOf --- #
 	add_x_method(this, xFormalsOf, 'fn')
@@ -1762,10 +1763,7 @@ get_proto_ref <- function (val) {
 
 	autosuggested <- c(
 		alias('xFilter', 'xSelect'),
-		alias('xAsNumeric', 'xAsDouble'),
-		alias('xScan', 'xFoldList'),
-		alias('xScanl', 'xFoldListl'),
-		alias('xScanr', 'xFoldListr')
+		alias('xAsNumeric', 'xAsDouble')
 	)
 
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {

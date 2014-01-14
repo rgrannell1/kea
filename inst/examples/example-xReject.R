@@ -32,3 +32,19 @@ xReject(
     is_outlier(data_set), data_set)
 
 list(1, 1.1, 0.8, 1.1)
+
+# 3. HackerRank Functional Programming #3
+# Remove values larger than a certain number
+
+# This is a job for xReject (close cousin of xSelect); it removes the values of
+# a collection for which its predicate function returns true. In this case,
+# we test if a number is larger than a maximum number; xReject then removes
+# the values for which this is true.
+
+elems_smaller_than <- (maximum : nums) := {
+    xReject(num := num > maximum, nums)
+}
+
+elems_smaller_than(10, c(1, 8, 10, 11, 100))
+
+c(1, 8, 10)

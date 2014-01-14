@@ -95,9 +95,9 @@ xFold(
 16
 }
 \seealso{
-Other folding_functions: \code{\link{xFoldList}},
-\code{\link{xFoldList...}}, \code{\link{xFoldListl}},
-\code{\link{xFoldListl...}}; \code{\link{xFoldr}},
+Other folding_functions: \code{\link{xScan}},
+\code{\link{xScan...}}, \code{\link{xScanl}},
+\code{\link{xScanl...}}; \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xReducer}},
 \code{\link{xReducer...}}; \code{\link{xReduce}},
 \code{\link{xReduce...}}, \code{\link{xReducel}},

@@ -94,7 +94,7 @@ Collate:
     'xReducer.R'
     'xReject.R'
     'xRest.R'
-    'xFoldListl.R'
+    'xScanl.R'
     'xSecond.R'
     'xGroup.R'
     'xSelect.R'

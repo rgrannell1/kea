@@ -64,9 +64,9 @@ value).
   made to preform significantly bettern
 }
 \seealso{
-Other folding_functions: \code{\link{xFoldList}},
-\code{\link{xFoldList...}}, \code{\link{xFoldListl}},
-\code{\link{xFoldListl...}}; \code{\link{xFold}},
+Other folding_functions: \code{\link{xScan}},
+\code{\link{xScan...}}, \code{\link{xScanl}},
+\code{\link{xScanl...}}; \code{\link{xFold}},
 \code{\link{xFoldl}}, \code{\link{xFoldl...}};
 \code{\link{xReducer}}, \code{\link{xReducer...}};
 \code{\link{xReduce}}, \code{\link{xReduce...}},

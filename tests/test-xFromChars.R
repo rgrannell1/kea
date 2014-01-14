@@ -18,22 +18,3 @@ message('xFromChars')
 			length(coll) > 0
 	)
 
-message('arrow $ xFromChars')
-
-	forall(
-		"xFromChars of letters is pasted letters",
-		test_cases$letters,
-		x_(coll)$xFromChars()$x_() %equals% paste0(coll, collapse = ''),
-		given =
-			length(coll) > 0
-	)
-
-message('arrow $ x_FromChars')
-
-	forall(
-		"x_FromChars of letters is pasted letters",
-		test_cases$letters,
-		x_(coll)$x_FromChars() %equals% paste0(coll, collapse = ''),
-		given =
-			length(coll) > 0
-	)
