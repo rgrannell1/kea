@@ -43,10 +43,22 @@
 # by hand. Many bugs are prevented by creating the methods dynamically in this case.
 #
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 add_x_method <- function (env, fn, fixed) {
 	# generate the xMethod form of the function.
-
-	invoking_frame <- parent.frame()
 
 	fn_sym <- as.symbol(match.call()$fn)
 	fn_name <- paste0(fn_sym)
@@ -175,12 +187,39 @@ add_x_method <- function (env, fn, fixed) {
 
 	}
 
-	environment(method) <- invoking_frame
+	# ESSENTIAL for closures;
+	environment(method) <- new.env(parent = environment(fn))
 
 	# side-effectful update.
 	env[[fn_name]] <- method
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -205,6 +244,10 @@ x_any_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 	# -------- C ------- #
+	# --- xConst --- #
+	add_x_method(this, xConst, 'val')
+	add_x_method(this, x_Const, 'val')
+
 	# -------- D ------- #
 	# -------- E ------- #
 	this$xExecute <-
@@ -777,10 +820,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Combos, 'coll')
 	add_x_method(this, x_Combos..., '...')
 
-	# --- xConst --- #
-	add_x_method(this, xConst, 'val')
-	add_x_method(this, x_Const, 'val')
-
 	# -------- D ------- #
 	# --- xDissoc --- #
 	add_x_method(this, xDissoc, 'colls')
@@ -893,7 +932,7 @@ x_coll_proto <- local({
 	# --- xFourth --- #
 	add_x_method(this, xFourth, 'coll')
 	add_x_method(this, x_Fourth..., '...')
-	add_x_method(this, xFourth, 'coll')
+	add_x_method(this, x_Fourth, 'coll')
 	add_x_method(this, x_Fourth..., '...')
 
 	# -------- G ------- #
@@ -1132,12 +1171,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reducel, 'coll')
 	add_x_method(this, x_Reducel..., '...')
 
-	this$xReducel
-	this$xReducel...
+	this$xReduce <- this$xReducel
+	this$xReduce... <- this$xReducel...
 
-
-	this$x_Reducel
-	this$x_Reducel...
+	this$x_Reduce <- this$x_Reducel
+	this$x_Reduce... <- this$x_Reducel...
 
 	# --- xReducer --- #
 	add_x_method(this, xReducer, 'coll')
@@ -1374,7 +1412,10 @@ x_fn_proto <- local({
 
 	# --- xApply --- #
 	add_x_method(this, xApply, 'fn')
+	add_x_method(this, xApply..., 'fn')
 	add_x_method(this, x_Apply, 'fn')
+	add_x_method(this, x_Apply..., 'fn')
+
 
 	# --- xArity --- #
 	add_x_method(this, xArity, 'fn')
@@ -1423,12 +1464,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_Foldl, 'fn')
 	add_x_method(this, x_Foldl..., 'fn')
 
-	this$xFoldl
-	this$xFoldl...
+	this$xFold <- this$xFoldl
+	this$xFold... <- this$xFoldl...
 
-
-	this$x_Foldl
-	this$x_Foldl...
+	this$x_Fold <- this$x_Foldl
+	this$x_Fold... <- this$x_Foldl...
 
 	# --- xFoldr --- #
 	add_x_method(this, xFoldr, 'fn')
@@ -1470,8 +1510,8 @@ x_fn_proto <- local({
 
 	# -------- K ------- #
 	# --- xK --- #
-	this$xConst
-	this$x_Const
+	this$xK <- this$xConst
+	this$x_K <- this$x_Const
 
 	# -------- L ------- #
 	# --- xLimit --- #
