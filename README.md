@@ -13,7 +13,7 @@ Arrow helps make R an elegant functional language with powerful operations on co
 ## 0 Goal
 
 R is an excellent statistical platform, but it isn't a great general purpose programming language.
-Libraries like ```plyr``` and ```stringr``` help, but they don't go far enough. I've
+I've
 always felt that the best aspects of the R language are its powerful functions, vectorisation and
 list data structure. Arrow is an attempt to build upon these aspects of R and to generalise
 them into a pleasant, composable functional language.
