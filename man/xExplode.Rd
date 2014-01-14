@@ -20,7 +20,8 @@ Split a string into a character vector using a regular
 expression.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.  If
+  no match is found the original string is returned.
 }
 \seealso{
 Other character_functions: \code{\link{xFromChars}},

@@ -37,6 +37,17 @@ plus(1, 2)
 is.primitive(plus)
 
 FALSE
+
+# 2. Arrow functions are usually fine with primitive functions.
+#
+
+x_(1:3) $ x_FoldListl(plus, 0)
+
+list(0, 1, 3, 6)
+
+x_(1:3) $ x_FoldListl('+', 0)
+
+list(0, 1, 3, 6)
 }
 \seealso{
 Other function_modifying_functions:

@@ -2,7 +2,7 @@
 \alias{xVersion}
 \title{xVersion}
 \usage{
-xVersion()
+xVersion(...)
 }
 \value{
 A three-number vector, containing the major release number,

@@ -37,11 +37,11 @@ xFold(
 
 sum_odds <- nums := {
 
-	x_(nums)$
-	xSelect(
-		x := {x %% 2 == 1}
-	)$
-	x_Fold('+', 0)
+    x_(nums)$
+    xSelect(
+        x := {x %% 2 == 1}
+    )$
+    x_Fold('+', 0)
 }
 
 sum_odds(c(1, 2, 3, 4, 5, 6))
@@ -53,17 +53,17 @@ sum_odds(c(1, 2, 3, 4, 5, 6))
 
 sum_odds <- nums := {
 
-	xReduce(
-		(acc : nextelem) := {
-			if (nextelem %% 2 == 1) {
-				acc + nextelem
-			} else {
-				acc
-			}
-		},
-		0,
-		nums
-	)
+    xReduce(
+        (acc : nextelem) := {
+            if (nextelem %% 2 == 1) {
+                acc + nextelem
+            } else {
+                acc
+            }
+        },
+        0,
+        nums
+    )
 }
 
 sum_odds(c(1, 2, 3, 4, 5, 6))
@@ -84,17 +84,17 @@ sum_odds(c(1, 2, 3, 4, 5, 6))
 
 remove_odds <- coll := {
 
-	xFold(
-		(acc : index) := {
-			if (index %% 2 == 0) {
-				c(acc, coll[index])
-			} else {
-				acc
-			}
-		},
-		xUnit(coll),
-		seq_along(coll)
-	)
+    xFold(
+        (acc : index) := {
+            if (index %% 2 == 0) {
+                c(acc, coll[index])
+            } else {
+                acc
+            }
+        },
+        xUnit(coll),
+        seq_along(coll)
+    )
 
 }
 
@@ -122,21 +122,21 @@ c("b", "d", "f", "h", "j", "l", "n", "p", "r", "t", "v", "x", "z")
 
 integrate <- (f : x_bounds : epsilon ) := {
 
-	x_values <- seq(from = x_bounds[1], to = x_bounds[2], by = epsilon)
+    x_values <- seq(from = x_bounds[1], to = x_bounds[2], by = epsilon)
 
-	xFold(
-		(area : x) := {
-			area + (f(x) * epsilon)
-		},
-		0,
-		x_values
-	)
+    xFold(
+        (area : x) := {
+            area + (f(x) * epsilon)
+        },
+        0,
+        x_values
+    )
 }
 
 integrate(
-	x := x^3 - 9*x^2,
-	c(-10, +10),
-	0.001
+    x := x^3 - 9*x^2,
+    c(-10, +10),
+    0.001
 )
 
 -6000.9
