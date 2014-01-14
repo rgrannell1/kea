@@ -17,7 +17,7 @@ contribute with feedback, bug-reports or code go to the Arrow
 [github repository](https://github.com/rgrannell1/arrow). Any feedback is
 appreciated.
 
-#### What Arrow code looks like.
+### What Arrow code looks like.
 
 ```r
 # how many primitive functions are there in R?
@@ -33,7 +33,7 @@ xPoll(
 178
 ```
 
-#### Arrow is Expressive
+### Arrow is Expressive
 
 * Programs are built in a lego-like manner; stacking small,
 uniquely-purposed functions into a larger program.
@@ -51,7 +51,7 @@ programs optimally easy to write.
 * Almost every function has a variadic and non-variadic form, to
 reduce boilerplate code.
 
-#### Arrow is Consistent
+### Arrow is Consistent
 
 * Functions don't discriminate between different types of vectors; lists, pairlists
 and typed vectors are all interchangable.
@@ -62,7 +62,7 @@ cause of the error is always given.
 
 * Arrow is interoperable with base R functions.
 
-#### Arrow is Functional
+### Arrow is Functional
 
 * Arrow implements all the standard higher-order functions,
 as well as dozens of collection-reshaping functions.
