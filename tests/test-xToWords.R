@@ -21,18 +21,3 @@ message('xToWords')
 			length(coll) > 0 && length(str) > 0
 	)
 
-message('arrow $ xToWords')
-
-	forall(
-		"collection $ xToWords",
-		list(),
-		x_('')$xToWords()$x_() %equals% character(0)
-	)
-
-message('arrow $ x_ToWords')
-
-	forall(
-		"collection $ x_ToWords",
-		list(),
-		x_('')$x_ToWords() %equals% character(0)
-)

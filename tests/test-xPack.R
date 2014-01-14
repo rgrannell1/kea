@@ -15,19 +15,3 @@ message("xPack")
 		test_cases$collection_of_length_zero,
 		xPack(coll) %equals% list()
 	)
-
-message("xPack")
-
-	forall(
-		"collection $ xPack",
-		test_cases$collection_zero,
-		x_(coll)$xPack()$x_() %equals% list()
-	)
-
-message("x_Pack")
-
-	forall(
-		"collection $ x_Pack",
-		test_cases$collection_zero,
-		x_(coll)$x_Pack() %equals% list()
-	)

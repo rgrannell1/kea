@@ -36,39 +36,3 @@ message("xFold")
 		given =
 			length(coll) > 0
 	)
-
-message("arrow $ xFold")
-
-	forall(
-		"collection $ xFold",
-		test_cases$sum_over_integers,
-		x_(coll)$xFold(fn, 0)$x_() %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ xFold",
-		test_cases$sum_over_integers,
-		x_(fn)$xFold(0, coll)$x_() %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Fold")
-
-	forall(
-		"collection $ x_Fold",
-		test_cases$sum_over_integers,
-		x_(coll)$x_Fold(fn, 0) %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ x_Fold",
-		test_cases$sum_over_integers,
-		x_(fn)$x_Fold(0, coll) %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)

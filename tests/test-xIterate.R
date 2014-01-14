@@ -22,29 +22,3 @@ message("xIterate")
 			length(num) > 0
 	)
 
-message("arrow $ xIterate")
-
-	forall(
-		"function $ xIterate",
-		test_cases$num_positive_integer,
-		x_(
-			function (n) {
-				if (n == num) Return(n) else n + 1
-			})$xIterate(0)$x_() %equals% num,
-		given =
-			length(num) > 0
-	)
-
-
-message("arrow $ x_Iterate")
-
-	forall(
-		"function $ x_Iterate",
-		test_cases$num_positive_integer,
-		x_(
-			function (n) {
-				if (n == num) Return(n) else n + 1
-			})$x_Iterate(0) %equals% num,
-		given =
-			length(num) > 0
-	)

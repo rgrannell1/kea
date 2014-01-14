@@ -36,37 +36,3 @@ message("xReject")
 		test_cases$mod2_over_ints,
 		xReject(fn, coll) %equals% as.list(coll[coll %% 2 == 1])
 	)
-
-message("arrow $ xReject")
-
-	forall(
-		"collection.xReject",
-		test_cases$mod2_over_ints,
-		x_(coll)$xReject(fn)$x_() %equals%
-			as.list(coll[coll %% 2 == 1])
-	)
-
-	forall(
-		"function.xReject",
-		test_cases$mod2_over_ints,
-		x_(fn)$xReject(coll)$x_() %equals%
-			as.list(coll[coll %% 2 == 1])
-	)
-
-message("arrow $ x_Reject")
-
-	forall(
-		"collection $ x_Reject.",
-		test_cases$mod2_over_ints,
-		x_(coll)$x_Reject(fn) %equals%
-			as.list(coll[coll %% 2 == 1])
-	)
-
-	forall(
-		"function $ x_Reject",
-		test_cases$mod2_over_ints,
-		x_(fn)$x_Reject(coll) %equals%
-			as.list(coll[coll %% 2 == 1])
-	)
-
-

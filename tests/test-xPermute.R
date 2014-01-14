@@ -9,7 +9,3 @@ message('xPermute')
 		list(),
 		xPermute(list(), list()) %equals% list()
 	)
-
-
-message('arrow $ xPermute')
-

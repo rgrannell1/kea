@@ -19,23 +19,3 @@ message("xRest")
 		given =
 			length(coll) > 0
 	)
-
-message("arrow $ xRest")
-
-	forall(
-		"collection $ xRest",
-		test_cases$collection,
-		length(x_(coll)$xRest()$x_()) == length(coll) - 1,
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Rest")
-
-	forall(
-		"collection $ x_Rest",
-		test_cases$collection,
-		length(x_(coll)$x_Rest()) == length(coll) - 1,
-		given =
-			length(coll) > 0
-	)

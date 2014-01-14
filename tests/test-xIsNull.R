@@ -6,7 +6,3 @@ message('xIsNull')
 
 
 
-
-message('arrow $ xIsNull')
-
-

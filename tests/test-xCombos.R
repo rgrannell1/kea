@@ -12,6 +12,3 @@ message("xCombos")
 
 message("xCombos...")
 
-message("arrow $ xCombos")
-
-message("arrow $ xCombos...")

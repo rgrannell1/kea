@@ -10,18 +10,3 @@ message('xIsNan')
 		all(xIsNan(coll))
 	)
 
-message('arrow $ xIsNan')
-
-	forall(
-		"collection $ xIsNan",
-		test_cases$nans,
-		all(x_(coll)$xIsNan()$x_())
-	)
-
-message('arrow $ x_IsNan')
-
-	forall(
-		"collection $ x_IsNan",
-		test_cases$nans,
-		all(x_(coll)$x_IsNan())
-	)

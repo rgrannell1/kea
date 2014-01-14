@@ -11,25 +11,3 @@ forall("fourth always returns the fourth element of a collection",
 	given =
 		length(coll) >= 4
 )
-
-message('arrow $ xFourth')
-
-	forall("fourth always returns the fourth element of a collection",
-		test_cases$collection,
-		x_(coll)$xFourth()$x_() %equals% coll[[4]],
-		given =
-			length(coll) >= 4
-	)
-
-message('arrow $ xFourth...')
-
-message('arrow $ x_Fourth')
-
-	forall("fourth always returns the fourth element of a collection",
-		test_cases$collection,
-		x_(coll)$x_Fourth() %equals% coll[[4]],
-		given =
-			length(coll) >= 4
-	)
-
-message('arrow $ x_Fourth...')

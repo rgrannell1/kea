@@ -22,18 +22,3 @@ message('xUnit')
 		length( xUnit(coll) ) == 0
 	)
 
-message('arrow $ xUnit')
-
-	forall(
-		"collection $ xUnit()",
-		test_cases$collection,
-		typeof( x_(coll)$xUnit()$x_() ) == typeof(coll)
-	)
-
-message('arrow $ x_Unit')
-
-	forall(
-		"collection $ x_Unit()",
-		test_cases$collection,
-		typeof( x_(coll)$x_Unit() ) == typeof(coll)
-	)

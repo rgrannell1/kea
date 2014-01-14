@@ -23,39 +23,3 @@ message("xLocatel")
 		given =
 			length(coll) > 0
 	)
-
-message("arrow $ xLocatel")
-
-	forall(
-		"collection $ xLocatel",
-		test_cases$truth_with_coll,
-		x_(coll)$xLocatel(fn)$x_() == 1,
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"function $ xLocatel",
-		test_cases$truth_with_coll,
-		x_(fn)$xLocatel(coll)$x_() == 1,
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Locatel")
-
-	forall(
-		"collection $ x_Locatel",
-		test_cases$truth_with_coll,
-		x_(coll)$x_Locatel(fn) == 1,
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"function $ x_Locatel",
-		test_cases$truth_with_coll,
-		x_(fn)$x_Locatel(coll) == 1,
-		given =
-			length(coll) > 0
-	)

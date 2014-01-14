@@ -10,7 +10,3 @@ message("xMapply")
 		xMapply(fn, coll) %equals% list()
 	)
 
-message("arrow $ xMapply")
-
-message("arrow $ xMapply...")
-

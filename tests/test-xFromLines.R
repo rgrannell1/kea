@@ -17,23 +17,3 @@ message('xFromLines')
 		given =
 			length(coll) > 0
 	)
-
-message('arrow $ xFromLines')
-
-	forall(
-		"xFromLines of letters is pasted letters",
-		test_cases$letters,
-		x_(coll)$xFromLines()$x_() %equals% paste0(coll, collapse = '\n'),
-		given =
-			length(coll) > 0
-	)
-
-message('arrow $ x_FromLines')
-
-	forall(
-		"x_FromLines of letters is pasted letters",
-		test_cases$letters,
-		x_(coll)$x_FromLines() %equals% paste0(coll, collapse = '\n'),
-		given =
-			length(coll) > 0
-	)

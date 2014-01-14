@@ -27,38 +27,3 @@ message("xForall")
 		given =
 			length(coll) > 0
 	)
-message("arrow $ xForall")
-
-	forall(
-		"function $ xForall",
-		test_cases$collection,
-		x_(Truth)$xForall(list(coll, coll))$x_(),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ xForall",
-		test_cases$collection,
-		x_(coll)$xForall(Truth)$x_(),
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Forall")
-
-	forall(
-		"function $ x_Forall",
-		test_cases$collection,
-		x_(Truth)$x_Forall(list(coll, coll)),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ x_Forall",
-		test_cases$collection,
-		x_(coll)$x_Forall(Truth),
-		given =
-			length(coll) > 0
-	)

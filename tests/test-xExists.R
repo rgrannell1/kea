@@ -38,39 +38,3 @@ message("xExists")
 		given =
 			length(coll) > 0
 	)
-
-message("arrow $ xExists")
-
-	forall(
-		"function $ xExists",
-		test_cases$collection,
-		x_(Truth)$xExists(list(coll, coll))$x_(),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ xExists",
-		test_cases$collection,
-		x_(coll)$xExists(Truth)$x_(),
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Exists")
-
-	forall(
-		"function $ x_Exists",
-		test_cases$collection,
-		x_(Truth)$x_Exists(list(coll, coll)),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ x_Exists",
-		test_cases$collection,
-		x_(coll)$x_Exists(Truth),
-		given =
-			length(coll) > 0
-	)

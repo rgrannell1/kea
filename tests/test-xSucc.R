@@ -22,26 +22,3 @@ message('xSucc')
 		xSucc(coll) %equals% as.double(coll)
 	)
 
-message('arrow $ xSucc')
-
-	forall(
-		"collection $ xSucc",
-		test_cases$infinity,
-		x_(coll)$xSucc()$x_() %equals% as.double(coll)
-	)
-
-message('arrow $ xSucc...')
-
-	forall(
-		"collection $ xSucc...",
-		test_cases$integers,
-		x_(coll)$xApply(xSucc...)$x_() %equals% as.double(coll + 1)
-	)
-
-message('arrow $ x_Succ')
-
-	forall(
-		"collection $ x_Succ",
-		test_cases$infinity,
-		x_(coll)$x_Succ() %equals% as.double(coll)
-	)

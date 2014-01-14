@@ -21,30 +21,3 @@ message('xNegate')
 		test_cases$integers,
 		xNegate(coll %% coll) %equals% as.double(coll %% coll)
 	)
-
-message('arrow $ xNegate')
-
-	forall(
-		'collection $ xNegate',
-		test_cases$integers,
-		x_(coll %% coll)$xNegate()$x_() %equals% as.double(coll %% coll)
-	)
-
-message('arrow $ xNegate...')
-
-	forall(
-		'collection $ xNegate...',
-		test_cases$integers,
-		x_(coll %% coll)$xApply(xNegate...)$x_() %equals% as.double(coll %% coll)
-	)
-
-message('arrow $ x_Negate')
-
-	forall(
-		'collection $ xNegate',
-		test_cases$integers,
-		x_(coll %% coll)$x_Negate() %equals% as.double(coll %% coll)
-	)
-
-message('arrow $ x_Negate...')
-

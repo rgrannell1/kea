@@ -16,17 +16,3 @@ message('xDuplicated')
 		length(coll) == length(unique(coll)) + length(xDuplicated(coll))
 	)
 
-message('arrow $ xDuplicated')
-
-	forall(
-		"coll $ xDuplicated",
-		test_cases$integers,
-		length(coll) == length(unique(coll)) + length( x_(coll)$xDuplicated()$x_() )
-	)
-
-	forall(
-		"coll $ x_Duplicated",
-		test_cases$integers,
-		length(coll) == length(unique(coll)) + length( x_(coll)$x_Duplicated() )
-	)
-

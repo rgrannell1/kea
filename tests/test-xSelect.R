@@ -35,37 +35,3 @@ message("xSelect")
 		test_cases$mod2_over_ints,
 		xSelect(fn, coll) %equals% as.list(coll[coll %% 2 == 0])
 	)
-
-message("arrow $ xSelect")
-
-	forall(
-		"collection $ xSelect",
-		test_cases$mod2_over_ints,
-		x_(coll)$xSelect(fn)$x_() %equals%
-			as.list(coll[coll %% 2 == 0])
-	)
-
-	forall(
-		"function $ xSelect",
-		test_cases$mod2_over_ints,
-		x_(fn)$xSelect(coll)$x_() %equals%
-			as.list(coll[coll %% 2 == 0])
-	)
-
-message("arrow $ xSelect...")
-
-message("arrow $ x_Select")
-
-	forall(
-		"collection $ x_Select",
-		test_cases$mod2_over_ints,
-		x_(coll)$x_Select(fn) %equals%
-			as.list(coll[coll %% 2 == 0])
-	)
-
-	forall(
-		"function $ x_Select",
-		test_cases$mod2_over_ints,
-		x_(fn)$x_Select(coll) %equals%
-			as.list(coll[coll %% 2 == 0])
-	)

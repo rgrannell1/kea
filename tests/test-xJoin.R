@@ -17,19 +17,3 @@ message("xJoin")
 	)
 
 message("xJoin...")
-
-message("arrow $ xJoin")
-
-	forall(
-		"a single collection and null acts as identity",
-		test_cases$collection,
-		x_( list(coll, Null) )$xJoin()$x_() %equals% as.list(coll)
-	)
-
-message("arrow $ x_Join")
-
-	forall(
-		"a single collection and null acts as identity",
-		test_cases$collection,
-		x_( list(coll, Null) )$x_Join() %equals% as.list(coll)
-	)

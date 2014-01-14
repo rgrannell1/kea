@@ -22,18 +22,3 @@ message('xArity')
 		xArity(fn) >= 0
 	)
 
-message('arrow $ xArity')
-
-message('function $ xArity')
-
-	forall(
-		"the arity of the non-primitive functions is defined",
-		test_cases$base_function,
-		x_(fn)$xArity()$x_() >= 0
-	)
-
-	forall(
-		"the arity of the non-primitive functions is defined",
-		test_cases$base_function,
-		x_(fn)$x_Arity() >= 0
-	)

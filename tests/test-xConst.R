@@ -10,18 +10,3 @@ message("xConst")
 		xConst(coll)() %equals% coll
 	)
 
-message("arrow $ xConst")
-
-	forall(
-		"function $ xConst",
-		test_cases$collection,
-		x_(coll)$xConst()$x_()() %equals% coll
-	)
-
-message("arrow $ x_Const")
-
-	forall(
-		"function $ x_Const",
-		test_cases$collection,
-		x_(coll)$x_Const()() %equals% coll
-	)

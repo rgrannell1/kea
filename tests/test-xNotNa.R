@@ -10,18 +10,3 @@ message('xNotNan')
 		!any(xNotNan(coll))
 	)
 
-message('arrow $ xNotNan')
-
-	forall(
-		"collection $ xNotNan",
-		test_cases$nans,
-		!any(x_(coll)$xNotNan()$x_())
-	)
-
-message('arrow $ x_NotNan')
-
-	forall(
-		"collection $ x_NotNan",
-		test_cases$nans,
-		!any(x_(coll)$x_NotNan())
-	)

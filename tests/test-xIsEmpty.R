@@ -8,5 +8,3 @@ message('xIsEmpty')
 
 
 
-message('arrow $ xIsEmpty')
-

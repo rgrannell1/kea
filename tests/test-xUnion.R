@@ -9,5 +9,3 @@ message("xUnion")
 		list(),
 		xUnion(list()) %equals% list()
 	)
-
-message("arrow $ xUnion")

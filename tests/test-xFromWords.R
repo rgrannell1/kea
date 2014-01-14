@@ -17,23 +17,3 @@ message('xFromWords')
 		given =
 			length(coll) > 0
 	)
-
-message('arrow $ xFromWords')
-
-	forall(
-		"xFromWords of letters is pasted letters",
-		test_cases$letters,
-		x_(coll)$xFromWords()$x_() %equals% paste0(coll, collapse = ' '),
-		given =
-			length(coll) > 0
-	)
-
-message('arrow $ x_FromWords')
-
-	forall(
-		"x_FromWords of letters is pasted letters",
-		test_cases$letters,
-		x_(coll)$x_FromWords() %equals% paste0(coll, collapse = ' '),
-		given =
-			length(coll) > 0
-	)

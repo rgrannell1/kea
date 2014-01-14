@@ -19,23 +19,3 @@ message("xChop")
 		given =
 			length(coll) > 0
 	)
-
-message("arrow $ xChop")
-
-	forall(
-		"chopping into Inf is as.list",
-		test_cases$collection,
-		x_(coll)$xChop(Inf)$x_() %equals% as.list(coll),
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Chop")
-
-	forall(
-		"chopping into Inf is as.list",
-		test_cases$collection,
-		x_(coll)$x_Chop(Inf) %equals% as.list(coll),
-		given =
-			length(coll) > 0
-	)

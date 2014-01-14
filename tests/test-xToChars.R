@@ -22,19 +22,3 @@ message('xToChars')
 		length(xToChars(str)) == nchar(str)
 	)
 
-message('arrow $ xToChars')
-
-	forall(
-		"collection $ arrow",
-		test_cases$str_word,
-		length(x_(str)$xToChars()$x_()) == nchar(str)
-	)
-
-message('arrow $ x_ToChars')
-
-	forall(
-		"collection $ arrow",
-		test_cases$str_word,
-		length(x_(str)$x_ToChars()) == nchar(str)
-	)
-

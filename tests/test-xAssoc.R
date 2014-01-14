@@ -6,5 +6,3 @@ message("xAssoc")
 
 
 
-message("arrow $ xAssoc")
-

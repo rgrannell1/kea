@@ -21,21 +21,3 @@ message('xPred')
 		test_cases$infinity,
 		xPred(coll) %equals% as.double(coll)
 	)
-
-message('arrow $ xPred')
-
-	forall(
-		"collection $ xPred",
-		test_cases$infinity,
-		x_(coll)$xPred()$x_() %equals% as.double(coll)
-	)
-
-message('arrow $ xPred...')
-
-message('arrow $ x_Pred')
-
-	forall(
-		"collection $ x_Pred",
-		test_cases$infinity,
-		x_(coll)$x_Pred() %equals% as.double(coll)
-	)

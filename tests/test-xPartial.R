@@ -6,6 +6,3 @@ message('xPartial')
 
 
 
-
-message('arrow $ xPartial')
-

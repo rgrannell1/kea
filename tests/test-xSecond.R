@@ -11,25 +11,3 @@ forall("second always returns the second element of a collection",
 	given =
 		length(coll) >= 2
 )
-
-message('arrow $ xSecond')
-
-	forall("second always returns the second element of a collection",
-		test_cases$collection,
-		x_(coll)$xSecond()$x_() %equals% coll[[2]],
-		given =
-			length(coll) >= 2
-	)
-
-message('arrow $ xSecond...')
-
-message('arrow $ x_Second')
-
-	forall("second always returns the second element of a collection",
-		test_cases$collection,
-		x_(coll)$x_Second() %equals% coll[[2]],
-		given =
-			length(coll) >= 2
-	)
-
-message('arrow $ x_Second...')

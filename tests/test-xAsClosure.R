@@ -22,26 +22,3 @@ message("xAsClosure")
 		}
 	)
 
-message("arrow $ xAsClosure")
-
-message("function $ xAsClosure")
-
-	forall(
-		"all primitives may be converted.",
-		test_cases$base_primitive,
-		{
-			is.function(x_(fn)$xAsClosure()$x_()) &&
-			!is.primitive( x_(fn)$xAsClosure()$x_())
-		}
-	)
-
-message("function $ x_AsClosure")
-
-	forall(
-		"all primitives may be converted.",
-		test_cases$base_primitive,
-		{
-			is.function(x_(fn)$x_AsClosure()) &&
-			!is.primitive( x_(fn)$x_AsClosure())
-		}
-	)

@@ -21,23 +21,3 @@ message('xImplode')
 			xImplode(str, strs[length(strs) != 0])
 		}
 	)
-
-message('arrow $ xImplode')
-
-	forall(
-		"collapsing with character() is the same as collapsing with ''",
-		test_cases$str_words,
-		x_(strs)$xImplode('')$x_() %equals%
-		x_(strs)$xImplode(character(0))$x_()
-	)
-
-message('arrow $ xImplode...')
-
-message('arrow $ x_Implode')
-
-	forall(
-		"collapsing with character() is the same as collapsing with ''",
-		test_cases$str_words,
-		x_(strs)$x_Implode('') %equals%
-		x_(strs)$x_Implode(character(0))
-	)

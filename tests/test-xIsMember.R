@@ -28,26 +28,3 @@
 			given =
 				length(coll) > 0
 		)
-
-	message("arrow $ xIsMember")
-
-		forall(
-			"collection $ xIsMember",
-			test_cases$letters,{
-				letter <- sample(letters, size = 1)
-				!x_(coll)$xIsMember(toupper(letter))$x_()
-			},
-			given =
-				length(coll) > 0
-		)
-	message("arrow $ x_IsMember")
-
-		forall(
-			"collection $ xIsMember",
-			test_cases$letters,{
-				letter <- sample(letters, size = 1)
-				!x_(coll)$x_IsMember(toupper(letter))
-			},
-			given =
-				length(coll) > 0
-		)

@@ -7,6 +7,3 @@ message("xTakeWhile")
 
 
 
-
-message("arrow $ xTakeWhile")
-

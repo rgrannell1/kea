@@ -18,19 +18,3 @@ message("xAsUnary")
 		test_cases$sum_over_integers,
 		all(xAsUnary(fn)( list(coll, coll) ) == coll + coll)
 	)
-
-message("arrow $ xAsUnary")
-
-	forall(
-		"function $ xAsUnary",
-		test_cases$sum_over_integers,
-		all(x_(fn)$xAsUnary()$x_()( list(coll, coll) ) == coll + coll)
-	)
-
-message("arrow $ x_AsUnary")
-
-	forall(
-		"function $ x_AsUnary",
-		test_cases$sum_over_integers,
-		all(x_(fn)$x_AsUnary()( list(coll, coll) ) == coll + coll)
-	)

@@ -6,6 +6,3 @@ message("xIsVariadic")
 
 
 
-
-
-message("arrow $ xIsVariadic")

@@ -26,37 +26,3 @@ message('xApply')
 			lazy_double(num) %equals% (2*num)
 		}
 	)
-
-message("arrow $ xApply")
-
-message("collection $ xApply")
-
-	forall(
-		"coll arrow list identity",
-		test_cases$collection,
-		x_(coll)$xApply(list)$x_() %equals% as.list(coll)
-	)
-
-message("function $ xApply")
-
-	forall(
-		"fn arrow list identity",
-		test_cases$collection,
-		x_(list)$xApply(coll)$x_() %equals% as.list(coll)
-	)
-
-message("collection $ xApply...")
-
-	forall(
-		"coll apply... list identity",
-		test_cases$collection,
-		x_(coll)$xApply...(list)$x_() %equals% list(coll)
-	)
-
-message("function $ xApply...")
-
-	forall(
-		"fn apply... list identity",
-		test_cases$collection,
-		x_(list)$xApply...(coll)$x_() %equals% list(coll)
-	)

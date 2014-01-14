@@ -16,18 +16,3 @@ message("xAsNamed")
 		all(names( xAsNamed(strs, seq_along(strs)) ) == strs)
 	)
 
-message("arrow $ xAsNamed")
-
-	forall(
-		"collection $ xAsNamed",
-		test_cases$str_words,
-		all(names( x_(seq_along(strs))$xAsNamed(strs)$x_() ) == strs)
-	)
-
-message("arrow $ x_AsNamed")
-
-	forall(
-		"collection $ x_AsNamed",
-		test_cases$str_words,
-		all(names( x_(seq_along(strs))$x_AsNamed(strs) ) == strs)
-	)

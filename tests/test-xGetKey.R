@@ -27,8 +27,3 @@ message("xGetKey")
 			xGetKey(str)(coll) %equals% list(1, 3)
 		}
 	)
-
-message("arrow $ xGetKey")
-
-
-message("arrow $ x_GetKey")

@@ -35,39 +35,3 @@ message("xReducer")
 		given =
 			length(coll) > 0
 	)
-
-message("arrow $ xReducer")
-
-	forall(
-		"collection $ xReducer",
-		test_cases$sum_over_integers,
-		x_(coll)$xReducer(fn)$x_() %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ xReducer",
-		test_cases$sum_over_integers,
-		x_(fn)$xReducer(coll)$x_() %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ xReducer")
-
-	forall(
-		"collection $ x_Reducer",
-		test_cases$sum_over_integers,
-		x_(coll)$x_Reducer(fn) %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)
-
-	forall(
-		"collection $ x_Reducer",
-		test_cases$sum_over_integers,
-		x_(fn)$x_Reducer(coll) %equals% sum(coll),
-		given =
-			length(coll) > 0
-	)

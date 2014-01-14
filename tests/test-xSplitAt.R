@@ -25,23 +25,3 @@ message('xSplitAt')
 		given =
 			length(coll) > 0
 	)
-
-message('arrow $ xSplitAt')
-
-	forall(
-		"collection $ xSplitAt",
-		test_cases$collection,
-		x_(coll)$xSplitAt(0)$x_() %equals% list(list(), as.list(coll)),
-		given =
-			length(coll) > 0
-	)
-
-message('arrow $ x_SplitAt')
-
-	forall(
-		"collection $ x_SplitAt",
-		test_cases$collection,
-		x_(coll)$x_SplitAt(0) %equals% list(list(), as.list(coll)),
-		given =
-			length(coll) > 0
-	)

@@ -12,22 +12,3 @@ message('xLast')
 			length(coll) > 0
 	)
 
-message('arrow $ xLast')
-
-	forall(
-		"collection $ xLast",
-		test_cases$collection,
-		x_(coll)$xLast()$x_() %equals% coll[[ length(coll) ]],
-		given =
-			length(coll) > 0
-	)
-
-message('arrow $ x_Last')
-
-	forall(
-		"collection $ x_Last",
-		test_cases$collection,
-		x_(coll)$x_Last() %equals% coll[[ length(coll) ]],
-		given =
-			length(coll) > 0
-	)

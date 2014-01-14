@@ -16,18 +16,3 @@ message("xZipWith")
 		xZipWith(fn, list(coll, coll)) %equals% as.list(2 * unlist(coll))
 	)
 
-message("arrow $ xZipWith")
-
-	forall(
-		"zipwithing the sum across two lists is the sum.",
-		test_cases$sum_over_integers,
-		x_(fn)$xZipWith(list(coll, coll))$x_() %equals% as.list(2 * unlist(coll))
-	)
-
-message("arrow $ x_ZipWith")
-
-	forall(
-		"zipwithing the sum across two lists is the sum.",
-		test_cases$sum_over_integers,
-		x_(fn)$x_ZipWith(list(coll, coll)) %equals% as.list(2 * unlist(coll))
-	)

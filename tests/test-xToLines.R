@@ -21,18 +21,3 @@ message('xToLines')
 			length(coll) > 0 && length(str) > 0
 	)
 
-message('arrow $ xToLines')
-
-	forall(
-		"collection $ xToLines",
-		list(),
-		x_('')$xToLines()$x_() %equals% character(0)
-	)
-
-message('arrow $ x_ToLines')
-
-	forall(
-		"collection $ x_ToLines",
-		list(),
-		x_('')$x_ToLines() %equals% character(0)
-)

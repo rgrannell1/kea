@@ -19,24 +19,3 @@ message("xGroup")
 		given =
 			length(coll) > 0
 	)
-
-
-message("arrow $ xGroup")
-
-	forall(
-		"infinite doesn't divide collection.",
-		test_cases$collection,
-		x_(coll)$xGroup(Inf)$x_() %equals% list(as.list(coll)),
-		given =
-			length(coll) > 0
-	)
-
-message("arrow $ x_Group")
-
-	forall(
-		"infinite doesn't divide collection.",
-		test_cases$collection,
-		x_(coll)$x_Group(Inf) %equals% list(as.list(coll)),
-		given =
-			length(coll) > 0
-	)

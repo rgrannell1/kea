@@ -24,10 +24,3 @@ message("xFlatten")
 #		xFlatten(Inf, conv(coll)) %equals% as.list(coll)
 #	)
 
-message("arrow $ xFlatten")
-
-#	forall(
-#		"coll$xFlatten",
-#		list(coll = test_cases$collection, conv = G$to_recursive),
-#		x_(conv(coll))$xFlatten(Inf) %equals% as.list(coll)
-#	)

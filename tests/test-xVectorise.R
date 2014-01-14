@@ -25,19 +25,3 @@ message("xVectorise")
 		test_cases$succ_over_integers,
 		all( xVectorise(fn)(coll) == unlist(coll) + 1 )
 	)
-
-message("arrow $ xVectorise")
-
-	forall(
-		"function $ xVectorise",
-		test_cases$succ_over_integers,
-		all( (x_(fn)$xVectorise()$x_())(coll) == unlist(coll) + 1 )
-	)
-
-message("arrow $ x_Vectorise")
-
-	forall(
-		"function $ x_Vectorise",
-		test_cases$succ_over_integers,
-		all( (x_(fn)$x_Vectorise())(coll) == unlist(coll) + 1 )
-	)
