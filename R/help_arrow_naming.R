@@ -60,6 +60,8 @@
 #' some information about the expected input:
 #'
 #' \itemize{
+#'      \item{\bold{bool:}}}{ a single boolean value. }
+#'      \item{\bold{bools:}}}{ a collection of boolean values. }
 #'      \item{\bold{coll:}}{ a collection. }
 #'      \item{\bold{colls:}}{ a collection of collections. }
 #'      \item{\bold{fn:}}{ a collection of collections. }

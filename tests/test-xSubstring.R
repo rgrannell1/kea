@@ -24,11 +24,11 @@ message('arrow $ xSubstring')
 		x_(str)$xSubstring( seq_len(nchar(str)) )$x_() %equals% str
 	)
 
-message('arrow $ x_SubString')
+message('arrow $ x_Substring')
 
 	forall(
-		"collection $ x_SubString",
+		"collection $ x_Substring",
 		test_cases$str_word,
-		x_(str)$x_SubString( seq_len(nchar(str)) ) %equals% str
+		x_(str)$x_Substring( seq_len(nchar(str)) ) %equals% str
 	)
 

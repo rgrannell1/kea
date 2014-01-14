@@ -128,8 +128,7 @@ add_x_method <- function (env, fn, fixed) {
 							}) )) ))
 			})
 
-	} else if (!is_unchaining && is_variadic) {
-		# xMethod...
+	} else if (is_variadic) {
 
 		params <- Reduce(
 			function (acc, param) {
@@ -150,41 +149,22 @@ add_x_method <- function (env, fn, fixed) {
 			list()
 		)
 
-		body(method) <-
-			bquote({
+		if (is_unchaining) {
 
-				x_( .(( as.call(c(fn_sym, params)) )) )
-			})
+			body(method) <-
+				bquote({
 
+					.(( as.call(c(fn_sym, params)) ))
+				})
 
-	} else if (is_unchaining && is_variadic) {
-		# x_Method...
+		} else {
 
-		params <- Reduce(
-			function (acc, param) {
+			body(method) <-
+				bquote({
 
-				if (as.symbol(param) == fixed) {
-
-					if (fixed == '...') {
-						c( acc, quote(self_()), as.symbol('...') )
-					} else {
-						c( acc, quote(self_()) )
-					}
-
-				} else {
-					c(acc, as.symbol(param))
-				}
-			},
-			names(formals(fn)),
-			list()
-		)
-
-		body(method) <-
-			bquote({
-
-				.(( as.call(c(fn_sym, params)) ))
-			})
-
+					x_( .(( as.call(c(fn_sym, params)) )) )
+				})
+		}
 	}
 
 	# ESSENTIAL for closures;
@@ -1260,7 +1240,7 @@ x_coll_proto <- local({
 	add_x_method(this, xStopwatch, 'num')
 	add_x_method(this, x_Stopwatch, 'num')
 
-	# --- xSubstring --- #
+	# --- x_Substring --- #
 	add_x_method(this, xSubstring, 'str')
 	add_x_method(this, x_Substring, 'str')
 
@@ -1313,7 +1293,7 @@ x_coll_proto <- local({
 	# --- xFromLines --- #
 	add_x_method(this, xFromLines, 'strs')
 	add_x_method(this, x_FromLines..., '...')
-	add_x_method(this, xFromLines, 'strs')
+	add_x_method(this, x_FromLines, 'strs')
 	add_x_method(this, x_FromLines..., '...')
 
 	# --- xFromWords --- #
@@ -1602,6 +1582,12 @@ x_fn_proto <- local({
 	add_x_method(this, xReducel..., 'fn')
 	add_x_method(this, x_Reducel, 'fn')
 	add_x_method(this, x_Reducel..., 'fn')
+
+	this$xReduce <- this$xReducel
+	this$xReduce... <- this$xReducel...
+	this$x_Reduce <- this$x_Reducel
+	this$x_Reduce... <- this$x_Reducel...
+
 
 	# --- xReducer --- #
 	add_x_method(this, xReducer, 'fn')
