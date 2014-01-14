@@ -7,7 +7,7 @@ Arrow pre-v0.1.0
 
 
 Arrow is a toolset of more than one hundred functions from languages
-like Haskell, Javascript, and functions designed just for R. These
+like Haskell, JavaScript, and functions designed just for R. These
 include familiar functions like Map, Select, Reduce and Compose, as
 well as many functions for working with na values, reshaping collections,
 composing functions and manipulating strings.
@@ -38,12 +38,12 @@ xPoll(
 * Programs are built in a lego-like manner; stacking small,
 uniquely-purposed functions into a larger program.
 
-* Like Ruby and Javascript, Arrow has a shorthand syntax
+* Like Ruby and JavaScript, Arrow has a shorthand syntax
 for creating functions to R.
 
 * Arrow implements jQuery-like chaining methods without using R's bulkier
 object-orientation systems. These methods are just as usable as those in
-Python or Javascript. This syntax is handy for interactive programming.
+Python or JavaScript. This syntax is handy for interactive programming.
 
 * Arrow uses small but powerful naming conventions to make its
 programs optimally easy to write.
