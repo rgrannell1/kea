@@ -58,7 +58,9 @@
 
 
 add_x_method <- function (env, fn, fixed) {
-	# generate the xMethod form of the function.
+	# generate a method from an input function.
+	# SIDE EFFECTFULLY UPDATES ENV, since environments are
+	# pass by reference.
 
 	fn_sym <- as.symbol(match.call()$fn)
 	fn_name <- paste0(fn_sym)
@@ -141,6 +143,7 @@ add_x_method <- function (env, fn, fixed) {
 						c( acc, quote(self_()) )
 					}
 
+
 				} else {
 					c(acc, as.symbol(param))
 				}
@@ -149,21 +152,19 @@ add_x_method <- function (env, fn, fixed) {
 			list()
 		)
 
-		if (is_unchaining) {
+		body(method) <- if (is_unchaining) {
 
-			body(method) <-
-				bquote({
+			bquote({
 
-					.(( as.call(c(fn_sym, params)) ))
-				})
+				.(( as.call(c(fn_sym, params)) ))
+			})
 
 		} else {
 
-			body(method) <-
-				bquote({
+			bquote({
 
-					x_( .(( as.call(c(fn_sym, params)) )) )
-				})
+				x_( .(( as.call(c(fn_sym, params)) )) )
+			})
 		}
 	}
 
@@ -901,13 +902,13 @@ x_coll_proto <- local({
 	# --- xFoldListl --- #
 	add_x_method(this, xFoldListl, 'coll')
 	add_x_method(this, xFoldListl..., '...')
-	add_x_method(this, xFoldListl, 'coll')
-	add_x_method(this, xFoldListl..., '...')
+	add_x_method(this, x_FoldListl, 'coll')
+	add_x_method(this, x_FoldListl..., '...')
 
 	add_x_method(this, xFoldList, 'coll')
 	add_x_method(this, xFoldList..., '...')
-	add_x_method(this, xFoldList, 'coll')
-	add_x_method(this, xFoldList..., '...')
+	add_x_method(this, x_FoldList, 'coll')
+	add_x_method(this, x_FoldList..., '...')
 
 	# --- xFourth --- #
 	add_x_method(this, xFourth, 'coll')
@@ -1737,24 +1738,34 @@ get_proto_ref <- function (val) {
 
 	# some methods are expected to have bad names;
 	# meet the user half way and mention the better name.
-	autosuggested <- list(
-		'xFilter' =
-			'xSelect',
-		'xFilter...' =
-			'xSelect...',
-		'x_Filter' =
-			'x_Select',
-		'x_Filter...' =
-			'x_Select...',
 
-		'xAsNumeric' =
-			'xAsDouble',
-		'xAsNumeric...' =
-			'xAsDouble...',
-		'x_AsNumeric' =
-			'x_AsDouble',
-		'x_AsNumeric...' =
-			'x_AsDouble...'
+	alias <- function (incorrect, correct) {
+
+		forms <- function (fn_name) {
+
+			list(
+				fn_name,
+				paste0(fn_name, '...'),
+				gsub('^x', 'x_', fn_name),
+				paste0(
+					gsub('^x', 'x_', fn_name),
+					 '...')
+			)
+		}
+
+
+		structure(
+			forms(correct),
+			names = forms(incorrect)
+		)
+	}
+
+	autosuggested <- c(
+		alias('xFilter', 'xSelect'),
+		alias('xAsNumeric', 'xAsDouble'),
+		alias('xScan', 'xFoldList'),
+		alias('xScanl', 'xFoldListl'),
+		alias('xScanr', 'xFoldListr')
 	)
 
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
