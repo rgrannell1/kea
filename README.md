@@ -5,73 +5,76 @@ Arrow pre-v0.1.0
 
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
-**Arrow** is a functional programming framework that adds partial application,
-jQuery-like method chaining, function composition,
-and over one-hundred higher-order- and utility-functions to the R language.
-Arrow helps make R an elegant functional language with powerful operations on collections.
 
-## 0 Goal
+Arrow is a toolset of more than one hundred functions from languages
+like Haskell, JavaScript, and functions designed just for R. These
+include familiar functions like Map, Select, Reduce and Compose, as
+well as many functions for working with na values, reshaping collections,
+composing functions and manipulating strings.
 
-R is an excellent statistical platform, but it isn't a great general purpose programming language.
-Libraries like ```plyr``` and ```stringr``` help, but they don't go far enough. I've
-always felt that the best aspects of the R language are its powerful functions, vectorisation and
-list data structure. Arrow is an attempt to build upon these aspects of R and to generalise
-them into a pleasant, composable functional language.
+I hope you enjoy using Arrow as much as I've enjoyed making it! To
+contribute with feedback, bug-reports or code go to the Arrow
+[github repository](https://github.com/rgrannell1/arrow). Any feedback is
+appreciated.
 
-## 1 Installation
+### What Arrow code looks like.
 
-As of late September 2013 **Arrow** is only available on Github. To install the development version, copy the
-following into an R console.
+```r
+# how many primitive functions are there in R?
 
-```javascript
-install.packages('devtools')
-require(devtools)
+xPoll(
+	fn_name := {
+		fn <- get(fn_name)
+		is.function(fn) && is.primitive(fn)
+	},
+	ls('package:base')
+)
 
-install_github("arrow", "rgrannell1", "develop")
-require(devtools)
-
-# check that arrow installed.
-xVersion()
-```
-**Arrow** functions are usually prefixed with the letter 'x'.
-
-## 2 Examples
-## 3 Help
-
-To get the documentation for a particular function from an R console simply prefix that function with a question mark.
-
-```
-?xSelect
+178
 ```
 
-## 4 Contributing
+### Arrow is Expressive
 
-I'm (as of November 2013) working on **Arrow** alone. However, the library is very large and I feel that it
-would benefit from community contribution, ranging from feedback to active development.
+* Programs are built in a lego-like manner; stacking small,
+uniquely-purposed functions into a larger program.
 
-#### 4.1 Library Development
-* developing a stable function decorator that behaves like haskell's autocurrying.
-* improving efficiency and composability of functions.
-* improving exception handing within **Arrow**.
+* Like Ruby and JavaScript, Arrow has a shorthand syntax
+for creating functions to R.
 
-#### 4.2 Tools Development
-* Improving the ```forall``` testing tool, and test case generators.
-* Improving the ```time_profile``` benchmarking tool.
-* Contributing to ```roxygen2``` and ```devtools```, which **Arrow** currently uses.
+* Arrow implements jQuery-like chaining methods without using R's bulkier
+object-orientation systems. These methods are just as usable as those in
+Python or JavaScript. This syntax is handy for interactive programming.
 
-#### 4.3 Miscelleneous Tasks
-* consistency and idiomaticy police; are there any corner cases that need tweaking, or functions that need renaming.
-* improving tests, benchmarks and documentation (obviously!)
-* suggestions for functions to implement.
-* general feedback.
-* filing bug reports.
+* Arrow uses small but powerful naming conventions to make its
+programs optimally easy to write.
 
-For information about contributing, send me a message at @RyanGrannell on twitter.
+* Almost every function has a variadic and non-variadic form, to
+reduce boilerplate code.
 
-#### 4.4 Design
-* setting up a Github page for **Arrow**, possibly using ``staticdocs`` and bootstrap.
-* designing a logo for **Arrow**.
+### Arrow is Consistent
 
+* Functions don't discriminate between different types of vectors; lists, pairlists
+and typed vectors are all interchangable.
+
+* Extensive effort was made to make sure that Arrow never throws
+a cryptic error - arguments are always explicitly checked, and the precise
+cause of the error is always given.
+
+* Arrow is interoperable with base R functions.
+
+### Arrow is Functional
+
+* Arrow implements all the standard higher-order functions,
+as well as dozens of collection-reshaping functions.
+
+* Several variants of the most common functionals are implemented,
+including several flavours of map and fold.
+
+* A new control statement - the ```Return( )``` function - can
+be used to improve the expressiveness of functional code.
+
+* Partial application and function composition are encouraged
+as standard operations.
 
 ## 5 Authors
 
