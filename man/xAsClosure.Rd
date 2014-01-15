@@ -41,11 +41,11 @@ FALSE
 # 2. Arrow functions are usually fine with primitive functions.
 #
 
-x_(1:3) $ x_FoldListl(plus, 0)
+x_(1:3) $ x_Scanl(plus, 0)
 
 list(0, 1, 3, 6)
 
-x_(1:3) $ x_FoldListl('+', 0)
+x_(1:3) $ x_Scanl('+', 0)
 
 list(0, 1, 3, 6)
 }
@@ -58,6 +58,7 @@ Other function_modifying_functions:
 \code{\link{xDelay}}; \code{\link{xFlip}};
 \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
 \code{\link{xLift}}, \code{\link{xLift...}};
+\code{\link{xMemoise}}, \code{\link{xMemoize}};
 \code{\link{xNot}}; \code{\link{xPartial}},
 \code{\link{xPartial...}}; \code{\link{xThread}},
 \code{\link{xThread...}}; \code{\link{xVectorise}},

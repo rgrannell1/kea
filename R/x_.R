@@ -61,20 +61,16 @@ add_x_method <- function (env, fn, fixed) {
 	# SIDE EFFECTFULLY UPDATES ENV, since environments are
 	# pass by reference.
 
-	fn_sym <- as.symbol(match.call()$fn)
-	fn_name <- paste0(fn_sym)
+	fn_name <- paste0(as.symbol(match.call()$fn))
+	fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
 
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic <- grepl('[.]{3}$', fn_name)
 
 
+	fn <- match.fun(fn_sym)
 
-	if (is_unchaining) {
-		fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
-		fn <- match.fun(fn_sym)
-	}
-
-	if (!(fixed %in% names(formals(fn)) )) {
+	if ( fixed %!in% names(formals(fn)) ) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
 	}
 
@@ -88,6 +84,7 @@ add_x_method <- function (env, fn, fixed) {
 
 		formals(fn)[ names(formals(fn)) != fixed ]
 	}
+
 
 	if (!is_unchaining && !is_variadic) {
 		# xMethod
@@ -154,6 +151,7 @@ add_x_method <- function (env, fn, fixed) {
 		)
 
 		body(method) <- if (is_unchaining) {
+			# x_Method...
 
 			bquote({
 
@@ -161,6 +159,7 @@ add_x_method <- function (env, fn, fixed) {
 			})
 
 		} else {
+			# x_Method...
 
 			bquote({
 
@@ -169,7 +168,8 @@ add_x_method <- function (env, fn, fixed) {
 		}
 	}
 
-	# ESSENTIAL for closures;
+	# ESSENTIAL for closures; create a new
+	# environment inheriting from the old functions environment.
 	environment(method) <- new.env(parent = environment(fn))
 
 	# side-effectful update.
@@ -1543,6 +1543,12 @@ x_fn_proto <- local({
 	add_x_method(this, x_MapMany, 'fn')
 	add_x_method(this, x_MapMany..., 'fn')
 
+	# --- xMemoise --- #
+	add_x_method(this, xMemoise, 'fn')
+	add_x_method(this, xMemoize, 'fn')
+	add_x_method(this, x_Memoise, 'fn')
+	add_x_method(this, x_Memoize, 'fn')
+
 	# -------- N ------- #
 	add_x_method(this, xNot, 'pred')
 	add_x_method(this, x_Not, 'pred')
@@ -1801,7 +1807,7 @@ get_proto_ref <- function (val) {
 
 		proto_ref <- get_proto_ref( obj[['x']] )
 
-		if (!method_name %in% ls(proto_ref) || method_name == "private") {
+		if (method_name %!in% ls(proto_ref) || method_name == "private") {
 			# the invoked method wasn't found,
 			# so we should give a suggestion.
 

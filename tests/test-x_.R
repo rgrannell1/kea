@@ -190,7 +190,7 @@ message('test that every function has methods.')
 				# if the method is in a non-expected class, complain.
 
 				assert(
-					!(proto_name %in% expected_proto) || (method %in% proto) ||
+					proto_name %!in% expected_proto || (method %in% proto) ||
 					( method %in% implement_exception[[proto_name]] ),
 					invoking_call,
 					wail$method_not_in_proto(method, proto_name))
@@ -240,12 +240,12 @@ message('test that x_ and ... are called appropriately by methods.')
 
 			invoking_call <- 'unit test 3'
 
-			if ( !(name %in% c('x', 'private')) ) {
+			if (name %!in% c('x', 'private')) {
 
 				is_chaining <- grepl('^x_', name)
 				is_variadic <- grepl('[.]{3}$', name)
 
-				if (is_chaining && !(name %in% call_exceptions$chaining)) {
+				if (is_chaining && name %!in% call_exceptions$chaining) {
 					# unchaining methods don't call x_
 
 					assert(
@@ -253,7 +253,7 @@ message('test that x_ and ... are called appropriately by methods.')
 						wail$unchaining_calls_x_(name))
 				}
 
-				if (!is_chaining && !(name %in% call_exceptions$unchaining)) {
+				if (!is_chaining && name %!in% call_exceptions$unchaining)! {
 					# chaining methods call x_
 
 					assert(
@@ -261,7 +261,7 @@ message('test that x_ and ... are called appropriately by methods.')
 						wail$chaining_must_call_x_(name))
 				}
 
-				if (is_variadic && !(name %in% call_exceptions$variadic)) {
+				if (is_variadic && name %!in% call_exceptions$variadic) {
 					# variadic methods call ...
 
 					assert(
@@ -270,7 +270,7 @@ message('test that x_ and ... are called appropriately by methods.')
 
 				}
 
-				if (!is_variadic && !(name %in% call_exceptions$nonvariadic)) {
+				if (!is_variadic && name %!in% call_exceptions$nonvariadic) {
 					# non-variadic methods don't call ...
 
 					assert(

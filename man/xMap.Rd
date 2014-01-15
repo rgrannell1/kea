@@ -29,7 +29,7 @@ Apply a function to each element of a collection.
 }
 
 \section{Corner Cases}{
-  Returns the empty list is \code{coll} is length-zero.
+  Returns the empty list if \code{coll} is length-zero.
 }
 
 \section{Variadic Functions

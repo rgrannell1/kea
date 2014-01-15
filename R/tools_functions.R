@@ -82,6 +82,10 @@ call_with_params <- function (name, fn) {
 	paste0(x, y, sep = "")
 }
 
+'%!in%' <- function (x, y) {
+	!(x %in% y)
+}
+
 modify_call <- function (invoking_call) {
 
 	paste0( deparse(invoking_call), collapse = '' )

@@ -14,6 +14,8 @@ Author: Ryan Grannell
 Maintainer: Ryan Grannell <r.grannell2@gmail.com>
 ByteCompile: yes
 License: GPL-3
+Imports:
+    digest
 Suggests:
     microbenchmark
 Collate:
@@ -85,6 +87,7 @@ Collate:
     'xNotTrue.R'
     'xPack.R'
     'xAssoc.R'
+    'xMemoise.R'
     'xParamsOf.R'
     'xPartial.R'
     'xPartition.R'

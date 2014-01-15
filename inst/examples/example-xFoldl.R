@@ -53,7 +53,7 @@ sum_odds(c(1, 2, 3, 4, 5, 6))
 
 sum_odds <- nums := {
 
-    xReduce(
+    xFold(
         (acc : nextelem) := {
             if (nextelem %% 2 == 1) {
                 acc + nextelem
