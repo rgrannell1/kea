@@ -87,7 +87,6 @@ Collate:
     'xNotTrue.R'
     'xPack.R'
     'xAssoc.R'
-    'xMemoise.R'
     'xParamsOf.R'
     'xPartial.R'
     'xPartition.R'

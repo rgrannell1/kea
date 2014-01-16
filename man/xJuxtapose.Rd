@@ -40,8 +40,7 @@ Other function_modifying_functions:
 \code{\link{xCompose...}}; \code{\link{xConst}},
 \code{\link{xK}}; \code{\link{xDelay}};
 \code{\link{xFlip}}; \code{\link{xLift}},
-\code{\link{xLift...}}; \code{\link{xMemoise}},
-\code{\link{xMemoize}}; \code{\link{xNot}};
+\code{\link{xLift...}}; \code{\link{xNot}};
 \code{\link{xPartial}}, \code{\link{xPartial...}};
 \code{\link{xThread}}, \code{\link{xThread...}};
 \code{\link{xVectorise}}, \code{\link{xVectorize}}

@@ -180,63 +180,78 @@ as_parametres <- function (names) {
 	)
 }
 
-as_typed_vector <- function (coll, mode, value_unit = False) {
-	# coerces an R vector (pairlist, list, or typed vector)
-	# to another mode, if the vector is homogenously typed.
-	# this makes list("a") ~ "a", making arrow more generic.
+as_typed_vector <- local({
 
-	coll_symbol <- match.call()$coll
+		type_tests <- list(
+			logical =
+				is.logical,
+			integer =
+				is.integer,
+			double =
+				is.double,
+			numeric =
+				is.numeric,
+			character =
+				is.character,
+			raw =
+				is.raw,
+			complex =
+				is.complex
+		)
 
-	types <- list(
-		logical =
-			is.logical,
-		integer =
-			is.integer,
-		double =
-			is.double,
-		numeric =
-			is.numeric,
-		character =
-			is.character,
-		raw =
-			is.raw,
-		complex =
-			is.complex
-	)
+	function (coll, mode, value_unit = False) {
+		# coerces an R is_collection (pairlist, list, or typed vector)
+		# to another mode, if the vector is homogenously typed.
+		# this makes list("a") ~ "a", making arrow more generic.
 
-	type_test <- types[[mode]]
-	is_homogenous <- all(sapply(coll, type_test))
+		coll_symbol <- match.call()$coll
 
-	if (!is_homogenous) {
-		stop(exclaim$type_coersion_failed(coll_symbol, mode))
-	}
+		type_test <- type_tests[[mode]]
 
-	coll <- if (mode == 'raw') {
-		unlist(coll)
-	} else {
-		as.vector(coll, mode = mode)
-	}
+		# vectors are always homogenous, so we can fast-track checking.
+		if (is.atomic(coll)) {
 
-	# coerce the length-zero collection to a unit-value.
-	# this doesn't always make sense to do.
-
-	if (value_unit && length(coll) == 0) {
-		if (is.numeric(coll)) {
-			0
-		} else if (is.character(coll)) {
-			""
-		} else if (is.logical(coll)) {
-			False
-		} else if (is.raw(coll)) {
-			as.raw(00)
-		} else {
-			stop("")
+			if (type_test(coll)) {
+				return (coll)
+			} else {
+				stop(exclaim$type_coersion_failed(coll_symbol, mode))
+			}
 		}
 
-	} else {
-		coll
+		is_homogenous <- all(sapply(coll, type_test))
+
+		if (!is_homogenous) {
+			stop(exclaim$type_coersion_failed(coll_symbol, mode))
+		}
+
+		coll <- if (mode == 'raw') {
+			unlist(coll)
+		} else {
+			as.vector(coll, mode = mode)
+		}
+
+		# coerce the length-zero collection to a unit-value.
+		# this doesn't always make sense to do, so it's optional.
+
+		if (value_unit && length(coll) == 0) {
+			if (is.double(coll)) {
+				0
+			} else if (is.character(coll)) {
+				""
+			} else if (is.logical(coll)) {
+				False
+			} else if (is.raw(coll)) {
+				as.raw(00)
+			} else {
+				stop("")
+			}
+
+		} else {
+			coll
+		}
 	}
-}
+})
+
 
 try_higher_order <- function (expr, invoking_call) {
 	# expression -> call -> any

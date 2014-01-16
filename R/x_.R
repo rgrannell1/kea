@@ -1543,12 +1543,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_MapMany, 'fn')
 	add_x_method(this, x_MapMany..., 'fn')
 
-	# --- xMemoise --- #
-	add_x_method(this, xMemoise, 'fn')
-	add_x_method(this, xMemoize, 'fn')
-	add_x_method(this, x_Memoise, 'fn')
-	add_x_method(this, x_Memoize, 'fn')
-
 	# -------- N ------- #
 	add_x_method(this, xNot, 'pred')
 	add_x_method(this, x_Not, 'pred')

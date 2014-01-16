@@ -33,7 +33,6 @@ Other function_modifying_functions:
 \code{\link{xK}}; \code{\link{xFlip}};
 \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
 \code{\link{xLift}}, \code{\link{xLift...}};
-\code{\link{xMemoise}}, \code{\link{xMemoize}};
 \code{\link{xNot}}; \code{\link{xPartial}},
 \code{\link{xPartial...}}; \code{\link{xThread}},
 \code{\link{xThread...}}; \code{\link{xVectorise}},
