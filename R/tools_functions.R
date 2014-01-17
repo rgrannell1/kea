@@ -219,10 +219,16 @@ as_typed_vector <- local({
 		}
 
 		is_homogenous <- all(sapply(coll, type_test))
+		is_length_one <- all(sapply(coll, length) %in% 0:1)
 
 		if (!is_homogenous) {
 			stop(exclaim$type_coersion_failed(coll_symbol, mode))
 		}
+
+		if (!is_length_one) {
+			stop(exclaim$must_be_collection_of_length(coll_symbol, 1))
+		}
+
 
 		coll <- if (mode == 'raw') {
 			unlist(coll)

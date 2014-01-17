@@ -1,11 +1,15 @@
 \name{help_arrow_gotchas}
 \alias{help_arrow_gotchas}
-\title{Appendix B}
+\title{Usage - Arrow Gotchas}
 \description{
-Arrow sometimes employs black magic to implement some of
-its more divergent features, which can occasionally present
-suprising behaviour.
+asd
 }
+\section{Usage-Gotchas}{
+  Arrow sometimes employs black magic to implement some of
+  its more divergent features, which can occasionally
+  present suprising behaviour.
+}
+
 \section{1. Arrow objects vs values}{
   Arrow's most common gotcha - particularily before
   unchaining methods were added - is the accidental misuse

@@ -3,6 +3,11 @@
 #'
 #' Convert a collection to a double vector.
 #'
+#' @details:
+#'    \code{xAsDouble} converts a list, pairlist or vector of
+#'    length-one double precision numbers to a double vector. It does not attempt
+#'    to convert non-double collections to double vectors.
+#'
 #' @param
 #'    nums a collection of boolean values.
 #'

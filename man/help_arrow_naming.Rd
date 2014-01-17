@@ -1,100 +1,92 @@
 \name{help_arrow_naming}
 \alias{help_arrow_naming}
-\title{Appendix A}
+\title{Usage - Naming Conventions}
 \description{
-Naming Conventions
+Good function naming conventions can make a library easier
+to use. The fantastic plyr library uses a two-letter prefix
+to denote the input and output types of each ply function,
+which makes it trivial to find the correct variant of ply
+function. Arrow uses a few different naming conventions,
+though most don't need to be remembered.
 }
 \details{
-Arrow tries to employ consistent naming conventions to
-minimise the verbosity of code. The conventions are fairly
-simple, and only a handful need to be committed to memory.
-}
-\section{I Function Names}{
-  All arrow functions are prefixed with the letter 'x',
-  followed by an uppercase letter. Arrow function names are
-  camel-case, as R's base higher-order functions follow
-  this convention.
+\bold{Function Names}
 
-  \code{xMap}
+Arrow functions are always prefixed with the letter 'x',
+followed by an uppercase letter. Method names are camel
+case.
 
-  \code{xStopwatch}
+\code{xMap}
 
-  \code{xDeepMap}
+\code{xFold}
 
-  Both English and American English spellings are accepted;
-  for example \code{xVectorise} has an americanised
-  counterpart.
+\code{xSetProd}
 
-  Where possible, functions come in pairs with an similar
-  function. For example, \code{xSelect} has a counterpart
-  \code{xReject}, and \code{xImplode} has a counterpart
-  \code{xExplode}.
+Functions often come in pairs of related functions;
 
-  Many arrow functions are variadic (they call the '...'
-  argument). Where possible, every function have a variadic
-  and non-variadic form. As an example, \code{xSelect}
-  takes an argument \code{coll} that is a collection, while
-  the function \code{xSelect...} takes that same collection
-  from the arguments passed to '...'.
+\code{xExplode}
 
-  \code{xMap}
+\code{xImplode}
 
-  \code{xMap...}
+\code{xSelect}
 
-  \code{xStopwatch}
+\code{xReject}
 
-  \code{xDeepMap}
+Certain functions process collections in a certain
+direction; as is convention in Haskell these have a 'l'
+(left) or 'r' (right) suffix.
 
-  \code{xDeepMap...}
+\code{xFoldl}
 
-  Certain fold and search function have 'left' and 'right'
-  forms, which dictates the order of the operation carried
-  out. This is encoded by the letter 'l' or 'r', appended
-  to the base function name. The left form of these
-  operations can also be called without an additional 'l'.
+\code{xFoldr}
 
-  \code{xFold} \code{xFoldl} \code{xFoldr}
+Most arrow functions have a normal version and a ellipsis
+(...) version; the ellipsis form has a three-dot suffix.
 
-  A minority of functions have infix operator forms, or
-  single letter shorthands.
-}
+\code{xMap}
 
-\section{II Parametre Names}{
-  Arrow only uses a handful of parametre names, each of
-  which captures some information about the expected input:
+\code{xMap...}
 
-  \itemize{ \item{\bold{bool:}}}{ a single boolean value. }
-  \item{\bold{bools:}}}{ a collection of boolean values. }
-  \item{\bold{coll:}}{ a collection. }
-  \item{\bold{colls:}}{ a collection of collections. }
-  \item{\bold{fn:}}{ a collection of collections. }
-  \item{\bold{num:}}{ a single number. }
-  \item{\bold{nums:}}{ a collection of numbers. }
-  \item{\bold{pred:}}{ a function that returns a logical
-  value. } \item{\bold{rexp:}}{ a string to be used as a
-  regular expression. } \item{\bold{str:}}{ a string. }
-  \item{\bold{strs:}}{ a collection of strings. }
-  \item{\bold{sym:}}{ a symbol or string. }
-  \item{\bold{val:}}{ any R value. } }
+\bold{Parametre Names}
 
-  All functions should be assummed to be unary, unless
-  otherwise stated.
+Arrow has a small number of parametre names, which refer to
+some property of the expected argument.
 
-  If multiple parametres of the same rough properties are
-  needed then a number is appended to the end of the
-  parametre name; for example \code{fn1, fn2, ...}.
-}
+\itemize{ \item{\bold{bool:}}{ a single boolean value. }
+\item{\bold{bools:}}{ a collection of boolean values. }
+\item{\bold{coll:}}{ a collection. } \item{\bold{comps:}}{
+a collection of complex values. } \item{\bold{colls:}}{ a
+collection of collections. } \item{\bold{fn:}}{ a
+collection of collections. } \item{\bold{num:}}{ a single
+number. } \item{\bold{nums:}}{ a collection of numbers. }
+\item{\bold{pred:}}{ a function that returns a logical
+value. } \item{\bold{rexp:}}{ a string to be used as a
+regular expression. } \item{\bold{str:}}{ a string. }
+\item{\bold{strs:}}{ a collection of strings. }
+\item{\bold{sym:}}{ a symbol or string. }
+\item{\bold{val:}}{ any R value. } }
 
-\section{III Method Names}{
-  The method naming conventions are slightly more elaborate
-  that that for normal functions. Every method has a
-  chaining and unchaining version, with the chaining
-  version returning an arrow object, and the unchaining
-  version returning only the contents of that object.
+Arrow functions rarely have more than two parametres.
 
-  The unchaining methods are of the form \code{x_Method} or
-  \code{x_Method...}, while the chaining methods have the
-  form \code{xMethod} or \code{xMethod...}, Otherwise, the
-  normal function naming conventions apply.
+\bold{Method Names}
+
+R doesn't have a native implementation of chaining methods,
+so a few naming conventions are needed to make them behave
+as nicely as the methods in Python or JavaScript.
+
+Chaining methods - methods whose return value itself has
+methods - use the normal Arrow naming conventions.
+
+\code{x_( letters ) \$ xMap...(toupper)}
+
+Chaining methods don't play nicely with normal functions;
+if you want to use the return value of a method in either a
+base R function or an Arrow function you need to use an
+unchaining method. Unchaining methods are prefixed with
+'x_'.
+
+\code{length( x_( letters ) \$ x_Map(toupper) )}
+
+\code{length( x_( letters ) \$ x_Map...(toupper) )}
 }
 

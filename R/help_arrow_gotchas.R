@@ -1,5 +1,9 @@
 
-#' Appendix B
+#' Usage - Arrow Gotchas
+#'
+#' asd
+#'
+#' @section Usage-Gotchas:
 #'
 #' Arrow sometimes employs black magic to implement some of its
 #' more divergent features, which can occasionally present suprising behaviour.
@@ -71,9 +75,6 @@
 #'
 #' Since the former example throws a parse error, it should be easy enough
 #' to spot this particular error after reading this.
-#'
-#'
-#'
 #'
 #' @name help_arrow_gotchas
 
