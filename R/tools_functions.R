@@ -182,65 +182,29 @@ as_parametres <- function (names) {
 
 as_typed_vector <- local({
 
-		type_tests <- list(
-			logical =
-				is.logical,
-			integer =
-				is.integer,
-			double =
-				is.double,
-			numeric =
-				is.numeric,
-			character =
-				is.character,
-			raw =
-				is.raw,
-			complex =
-				is.complex
-		)
+	type_tests <- list(
+		logical =
+			is.logical,
+		integer =
+			is.integer,
+		double =
+			is.double,
+		numeric =
+			is.numeric,
+		character =
+			is.character,
+		raw =
+			is.raw,
+		complex =
+			is.complex
+	)
 
-	function (coll, mode, value_unit = False) {
-		# coerces an R is_collection (pairlist, list, or typed vector)
-		# to another mode, if the vector is homogenously typed.
-		# this makes list("a") ~ "a", making arrow more generic.
+	to_value_unit <- function (coll) {
+		# collection -> collection
+		# convert a length-zero collection.
 
-		coll_symbol <- match.call()$coll
-
-		type_test <- type_tests[[mode]]
-
-		# vectors are always homogenous, so we can fast-track checking.
-		if (is.atomic(coll)) {
-
-			if (type_test(coll)) {
-				return (coll)
-			} else {
-				stop(exclaim$type_coersion_failed(coll_symbol, mode))
-			}
-		}
-
-		is_homogenous <- all(sapply(coll, type_test))
-		is_length_one <- all(sapply(coll, length) %in% 0:1)
-
-		if (!is_homogenous) {
-			stop(exclaim$type_coersion_failed(coll_symbol, mode))
-		}
-
-		if (!is_length_one) {
-			stop(exclaim$must_be_collection_of_length(coll_symbol, 1))
-		}
-
-
-		coll <- if (mode == 'raw') {
-			unlist(coll)
-		} else {
-			as.vector(coll, mode = mode)
-		}
-
-		# coerce the length-zero collection to a unit-value.
-		# this doesn't always make sense to do, so it's optional.
-
-		if (value_unit && length(coll) == 0) {
-			if (is.double(coll)) {
+		if (length(coll) == 0) {
+			if (is.double(coll) || is.integer(coll)) {
 				0
 			} else if (is.character(coll)) {
 				""
@@ -254,6 +218,56 @@ as_typed_vector <- local({
 
 		} else {
 			coll
+		}
+	}
+
+	function (coll, mode, value_unit = False) {
+		# coerces an R is_collection (pairlist, list, or typed vector)
+		# to another mode, if the vector is homogenously typed.
+		# this makes list("a") ~ "a", making arrow more generic.
+
+		coll_symbol <- match.call()$coll
+
+		type_test <- type_tests[[mode]]
+
+		if (is.atomic(coll)) {
+			# vectors are always homogenous, so we can fast-track checking.
+
+			if (type_test(coll)) {
+				if (value_unit) {
+					to_value_unit(coll)
+				} else {
+					coll
+				}
+			} else {
+				stop(exclaim$type_coersion_failed(coll_symbol, mode))
+			}
+
+		} else {
+
+			is_length_one <- all(sapply(coll, length) == 	1)
+
+			if (!is_length_one) {
+				stop(exclaim$must_be_collection_of_length(coll_symbol, 1))
+			}
+
+			is_homogenous <- all(sapply(coll, type_test))
+
+			if (!is_homogenous) {
+				stop(exclaim$type_conversion_failed_(coll_symbol, mode))
+			}
+
+			coll <- if (mode == 'raw') {
+				unlist(coll)
+			} else {
+				as.vector(coll, mode = mode)
+			}
+
+			if (value_unit) {
+				to_value_unit(coll)
+			} else {
+				coll
+			}
 		}
 	}
 })

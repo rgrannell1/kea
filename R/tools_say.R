@@ -32,12 +32,14 @@ newline <- function (val) {
 exclaim <- list(
 	parametre_missing =
 		function (param, profile = '') {
+
 			param <- paste(match.call()$param)
 
 			"the parametre " %+% dQuote(param) %+% " is required but was missing."
 		},
 	must_be_matchable =
 		function (param, profile = '') {
+
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
@@ -85,12 +87,13 @@ exclaim <- list(
 
 		},
 	must_be_collection_of_length =
-		function (param, length, profile = '') {
+		function (param, lengths, profile = '') {
 
 			param <- paste(match.call()$param)
+			lengths <- paste(lengths, collapse = " or ")
 
 			"the argument matching " %+% dQuote(param) %+%
-			" must be a collection of length " %+% length %+% " values." %+%
+			" must be a collection of length " %+% lengths %+% " values." %+%
 			profile
 
 		},
@@ -106,6 +109,7 @@ exclaim <- list(
 		},
 	must_be_unary =
 		function (param, profile = '') {
+
 			param <- paste(match.call()$param)
 
 			"the function matching " %+% dQuote(param) %+%
@@ -115,6 +119,7 @@ exclaim <- list(
 		},
 	must_be_binary =
 		function (param, profile = '') {
+
 			param <- paste(match.call()$param)
 
 			"the function matching " %+% dQuote(param) %+%
@@ -124,6 +129,7 @@ exclaim <- list(
 		},
 	must_be_recursive =
 		function (param, profile = '') {
+
 			param <- paste(match.call()$param)
 
 			"the argument matching " %+% dQuote(param) %+%
@@ -264,7 +270,7 @@ exclaim <- list(
 			profile
 
 		},
-	type_coersion_failed =
+	type_conversion_failed_ =
 		function (param, mode, profile = '') {
 
 			# does not match param; param is handed in as a symbol.
@@ -275,7 +281,7 @@ exclaim <- list(
 			profile
 
 		},
-	method_not_found =
+	method_not_found_ =
 		function (name, contents_are, similar, profile = '') {
 
 			if (length(similar) == 0) {
