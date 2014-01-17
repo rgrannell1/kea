@@ -29,8 +29,7 @@ Return the duplicated elements in a collection.
 }
 \seealso{
 Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xDiffer}},
-\code{\link{xDiffer...}}; \code{\link{xInter}},
+\code{\link{xCombos...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},

@@ -2,7 +2,7 @@
 \alias{help_arrow_gotchas}
 \title{Usage - Arrow Gotchas}
 \description{
-asd
+Common gotchas in Arrow, and how to avoid them.
 }
 \section{Usage-Gotchas}{
   Arrow sometimes employs black magic to implement some of

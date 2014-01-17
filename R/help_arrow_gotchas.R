@@ -1,7 +1,7 @@
 
 #' Usage - Arrow Gotchas
 #'
-#' asd
+#' Common gotchas in Arrow, and how to avoid them.
 #'
 #' @section Usage-Gotchas:
 #'

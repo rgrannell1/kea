@@ -35,8 +35,7 @@ collection.
 Other combinatoric_functions: \code{\link{xSetProd}},
 \code{\link{xSetProd...}}
 
-Other set_functions: \code{\link{xDiffer}},
-\code{\link{xDiffer...}}; \code{\link{xDuplicated}},
+Other set_functions: \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xSetProd}},

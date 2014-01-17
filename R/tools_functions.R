@@ -129,16 +129,6 @@ is_arrow <- function (val) {
 	class(val) == "arrow"
 }
 
-dearrowise <- function (val) {
-	# if a value is in an arrow object, take it out.
-	# otherwise do nothing.
-
-	if (is_arrow(val)) {
-		val$x_()
-	} else {
-		val
-	}
-}
 
 
 
@@ -358,11 +348,26 @@ assert <- local({
 					call. = False)
 			}
 		}
-
 		invisible(Null)
 	}
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ith_suffix <- function (num) {
 	# number -> string

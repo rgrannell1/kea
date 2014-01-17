@@ -67,7 +67,6 @@ add_x_method <- function (env, fn, fixed) {
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic <- grepl('[.]{3}$', fn_name)
 
-
 	fn <- match.fun(fn_sym)
 
 	if ( fixed %!in% names(formals(fn)) ) {
@@ -77,14 +76,10 @@ add_x_method <- function (env, fn, fixed) {
 	method <- function () {	}
 
 	formals(method) <- if (fixed == '...') {
-
 		formals(fn)
-
 	} else {
-
 		formals(fn)[ names(formals(fn)) != fixed ]
 	}
-
 
 	if (!is_unchaining && !is_variadic) {
 		# xMethod
@@ -808,12 +803,6 @@ x_coll_proto <- local({
 	add_x_method(this, xDissoc..., '...')
 	add_x_method(this, x_Dissoc, 'colls')
 	add_x_method(this, x_Dissoc..., '...')
-
-	# --- xDiffer --- #
-	add_x_method(this, xDiffer, 'colls')
-	add_x_method(this, xDiffer..., '...')
-	add_x_method(this, x_Differ, 'colls')
-	add_x_method(this, x_Differ..., '...')
 
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')

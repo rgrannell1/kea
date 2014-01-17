@@ -2,14 +2,16 @@
 \alias{help_arrow_naming}
 \title{Usage - Naming Conventions}
 \description{
+A guide to naming conventions.
+}
+\details{
 Good function naming conventions can make a library easier
 to use. The fantastic plyr library uses a two-letter prefix
 to denote the input and output types of each ply function,
 which makes it trivial to find the correct variant of ply
 function. Arrow uses a few different naming conventions,
 though most don't need to be remembered.
-}
-\details{
+
 \bold{Function Names}
 
 Arrow functions are always prefixed with the letter 'x',

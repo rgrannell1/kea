@@ -1,6 +1,8 @@
 
 #' Usage - Naming Conventions
 #'
+#' A guide to naming conventions.
+#'
 #' Good function naming conventions can make a library easier to use. The
 #' fantastic plyr library uses a two-letter prefix to denote the input and output types
 #' of each ply function, which makes it trivial to find the correct variant of ply

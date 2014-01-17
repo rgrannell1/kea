@@ -32,8 +32,7 @@ Check if a collection contains a value.
 }
 \seealso{
 Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xDiffer}},
-\code{\link{xDiffer...}}; \code{\link{xDuplicated}},
+\code{\link{xCombos...}}; \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
