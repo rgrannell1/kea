@@ -3,7 +3,7 @@
 #'
 #' Convert a collection to a raw vector.
 #'
-#' @details:
+#' @details
 #'    \code{xAsRaw} converts a list, pairlist or vector of
 #'    length-one raw numbers to a raw vector. It does not attempt
 #'    to convert non-raw collections to raw vectors.

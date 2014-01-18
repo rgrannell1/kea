@@ -1,11 +1,15 @@
 \name{help_arrow_short}
 \alias{help_arrow_short}
-\title{The fold family of functions normally iterate over their entire input collection. For
-example, the call}
+\title{Usage - Short Circuiting Folds}
 \description{
-\code{xReduce('+', 1:100)}
+Usage - Short Circuiting Folds
 }
 \details{
+The fold family of functions normally iterate over their
+entire input collection. For example, the call
+
+\code{xReduce('+', 1:100)}
+
 needs to operate on all 100 elements of its input
 collection to obtain its total sum. Not every fold needs to
 inspect every element in its input collection to obtain a

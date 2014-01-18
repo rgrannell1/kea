@@ -75,7 +75,7 @@ xTakeWhile <- function (pred, coll) {
 				return ( as.list(head(coll, ith - 1)) )
 			}
 		}
-		coll
+		as.list(coll)
 	}
 }
 

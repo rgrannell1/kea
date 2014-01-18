@@ -3,7 +3,7 @@
 #'
 #' Convert a collection to a logical vector.
 #'
-#' @details:
+#' @details
 #'    \code{xAsLogical} converts a list, pairlist or vector of
 #'    length-one logical values to a logical vector. It does not attempt
 #'    to convert non-logical collections to logical vectors.

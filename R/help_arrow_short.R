@@ -1,7 +1,7 @@
 
-# Usage - Short Circuiting Folds
+#' Usage - Short Circuiting Folds
 #'
-#'
+#' Usage - Short Circuiting Folds
 #'
 #' The fold family of functions normally iterate over their entire input collection. For
 #' example, the call

@@ -3,7 +3,7 @@
 #'
 #' Create a function that applies an argument to a list of underlying functions.
 #'
-#' @details:
+#' @details
 #'    \code{xJuxtapose} is a method of applying one value to several functions
 #'    simultaneously. The function returned by \code{xJuxtapose} returns
 #'    a list - on element for each input function to \code{xJuxtapose}.

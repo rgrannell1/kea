@@ -3,7 +3,7 @@
 #'
 #' Convert a collection to a complex vector.
 #'
-#' @details:
+#' @details
 #'    \code{xAsComplex} converts a list, pairlist or vector of
 #'    length-one complex numbers to a complex vector. It does not attempt
 #'    to convert non-complex collections to complex vectors.

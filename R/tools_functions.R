@@ -33,11 +33,6 @@
 
 # --------------------- shorthand logical functions --------------------- #
 
-Na <- NA
-Null <- NULL
-True <- TRUE
-False <- FALSE
-
 Truth <- function (...) {
 	True
 }
@@ -203,7 +198,9 @@ as_typed_vector <- local({
 			} else if (is.raw(coll)) {
 				as.raw(00)
 			} else {
-				stop("")
+				stop(
+					"internal arrow error: " %+% "
+					cannot convert to non-implemented vector type.")
 			}
 
 		} else {
@@ -224,15 +221,18 @@ as_typed_vector <- local({
 			# vectors are always homogenous, so we can fast-track checking.
 
 			if (length(coll) == 0) {
-				as.vector(coll, mode = mode)
-			} else if (type_test(coll)) {
-				if (value_unit) {
-					to_value_unit(coll)
-				} else {
-					coll
-				}
-			} else {
+				# conversion of empty vectors is always possible.
+				coll <- as.vector(coll, mode = mode)
+			}
+
+			if (!type_test(coll)) {
 				stop(exclaim$type_conversion_failed(coll_symbol, mode))
+			}
+
+			if (value_unit) {
+				to_value_unit(coll)
+			} else {
+				coll
 			}
 
 		} else {

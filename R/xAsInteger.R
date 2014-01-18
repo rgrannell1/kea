@@ -3,7 +3,7 @@
 #'
 #' Convert a collection to a integer vector.
 #'
-#' @details:
+#' @details
 #'    \code{xAsInteger} converts a list, pairlist or vector of
 #'    length-one integers to a integer vector. It does not attempt
 #'    to convert non-integer collections to integer vectors.

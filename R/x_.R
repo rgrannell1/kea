@@ -851,7 +851,7 @@ x_coll_proto <- local({
 
 	# --- xFourthOf --- #
 	add_x_method(this, xFourthOf, 'coll')
-	add_x_method(this, x_FourthOf..., '...')
+	add_x_method(this, xFourthOf..., '...')
 	add_x_method(this, x_FourthOf, 'coll')
 	add_x_method(this, x_FourthOf..., '...')
 
@@ -959,6 +959,13 @@ x_coll_proto <- local({
 	add_x_method(this, xToLines, 'str')
 	add_x_method(this, x_ToLines, 'str')
 
+	# --- xLocate --- #
+
+	add_x_method(this, xLocate, 'coll')
+	add_x_method(this, xLocate..., '...')
+	add_x_method(this, x_Locate, 'coll')
+	add_x_method(this, x_Locate..., '...')
+
 	# --- xLocatel --- #
 
 	add_x_method(this, xLocatel, 'coll')
@@ -1048,8 +1055,8 @@ x_coll_proto <- local({
 
 	# --- xPartial --- #
 	add_x_method(this, xPartial, 'coll')
-	add_x_method(this, x_Partial..., '...')
-	add_x_method(this, xPartial, 'coll')
+	add_x_method(this, xPartial..., '...')
+	add_x_method(this, x_Partial, 'coll')
 	add_x_method(this, x_Partial..., '...')
 
 	# --- xPluck --- #
@@ -1070,11 +1077,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Permute, 'colls')
 	add_x_method(this, x_Permute..., '...')
 
-	# --- xPred --- #
-	add_x_method(this, xPred, 'nums')
-	add_x_method(this, xPred..., '...')
-	add_x_method(this, x_Pred, 'nums')
-	add_x_method(this, x_Pred..., '...')
+	# --- xPredOf --- #
+	add_x_method(this, xPredOf, 'nums')
+	add_x_method(this, xPredOf..., '...')
+	add_x_method(this, x_PredOf, 'nums')
+	add_x_method(this, x_PredOf..., '...')
 
 	# -------- Q ------- #
 	# -------- R ------- #
@@ -1173,8 +1180,8 @@ x_coll_proto <- local({
 	# --- xSplitWith --- #
 	add_x_method(this, xSplitWith, 'coll')
 	add_x_method(this, xSplitWith..., '...')
-	add_x_method(this, xSplitWith, 'coll')
-	add_x_method(this, xSplitWith..., '...')
+	add_x_method(this, x_SplitWith, 'coll')
+	add_x_method(this, x_SplitWith..., '...')
 
 	# --- xStopwatch --- #
 	add_x_method(this, xStopwatch, 'num')
@@ -1184,11 +1191,11 @@ x_coll_proto <- local({
 	add_x_method(this, xSubstring, 'str')
 	add_x_method(this, x_Substring, 'str')
 
-	# --- xSucc --- #
-	add_x_method(this, xSucc, 'nums')
-	add_x_method(this, xSucc..., '...')
-	add_x_method(this, x_Succ, 'nums')
-	add_x_method(this, x_Succ..., '...')
+	# --- xSuccOf --- #
+	add_x_method(this, xSuccOf, 'nums')
+	add_x_method(this, xSuccOf..., '...')
+	add_x_method(this, x_SuccOf, 'nums')
+	add_x_method(this, x_SuccOf..., '...')
 
 	# -------- T ------- #
 	# --- xTake --- #
@@ -1232,7 +1239,7 @@ x_coll_proto <- local({
 
 	# --- xFromLines --- #
 	add_x_method(this, xFromLines, 'strs')
-	add_x_method(this, x_FromLines..., '...')
+	add_x_method(this, xFromLines..., '...')
 	add_x_method(this, x_FromLines, 'strs')
 	add_x_method(this, x_FromLines..., '...')
 
@@ -1346,7 +1353,7 @@ x_fn_proto <- local({
 	add_x_method(this, x_DropWhile..., 'pred')
 
 	add_x_method(this, xDo, 'fn')
-	add_x_method(this, xDo, 'fn')
+	add_x_method(this, x_Do, 'fn')
 	add_x_method(this, xDo..., 'fn')
 	add_x_method(this, x_Do..., 'fn')
 
@@ -1432,11 +1439,17 @@ x_fn_proto <- local({
 	add_x_method(this, xLimit, 'num')
 	add_x_method(this, x_Limit, 'num')
 
-	# --- xLocate --- #
+	# --- xLift --- #
 	add_x_method(this, xLift, 'fn')
 	add_x_method(this, xLift..., '...')
 	add_x_method(this, x_Lift, 'fn')
 	add_x_method(this, x_Lift..., '...')
+
+	# --- xLocate --- #
+	add_x_method(this, xLocate, 'pred')
+	add_x_method(this, xLocate..., 'pred')
+	add_x_method(this, x_Locate, 'pred')
+	add_x_method(this, x_Locate..., 'pred')
 
 	# --- xLocatel --- #
 	add_x_method(this, xLocatel, 'pred')
