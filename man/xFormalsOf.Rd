@@ -8,8 +8,9 @@ xFormalsOf(fn)
   \item{fn}{an arbitrary function.}
 }
 \value{
-A named list, where each element's name is a parametre in f
-and each value is the default value of that parametre.
+A named list, where each element's name is a parametre in
+\code{fn} and each value is the default value of that
+parametre.
 }
 \description{
 Get the parametres and defaults of a function or primitive

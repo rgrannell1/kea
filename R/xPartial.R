@@ -55,9 +55,13 @@ xPartial <- function (fn, coll) {
 	fn <- match_fn(fn)
 
 	assert(
+		!any(names(coll) == ""), invoking_call,
+		exclaim$must_be_named(coll))
+
+	assert(
 		all(names(coll) %in% xParamsOf(fn)), invoking_call,
 		exclaim$must_be_params_of(
-			names(coll), fn) )
+			names(coll), fn))
 
 	remove(invoking_call)
 

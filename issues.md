@@ -43,7 +43,7 @@ Issue Tracker
 - [x] #2 bug in xSubstring('', 1); returns "NA", not error.
 - [x] #6 make number functions generic, and operate on lists/pairlists of numbers too.
 - [x] #7 ensure all function that take a collection/vector take a list or pairlist of length-one elements.
-- [x] #4 xRest's type signature should include non-list collections.
+- [x] #4 xRestOf's type signature should include non-list collections.
 - [x] #5 possible issue in functions using vapply; names are sometimes preserved. Check every function, then close issue.
 - [x] #8 replace the parametre name 'f' with something more descriptive (closure?).
 - [x] #13 add a description to xSplitWith.

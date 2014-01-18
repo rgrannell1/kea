@@ -1,11 +1,11 @@
-\name{xSecond}
-\alias{xSecond}
-\alias{xSecond...}
-\title{xSecond}
+\name{xSecondOf}
+\alias{xSecondOf}
+\alias{xSecondOf...}
+\title{xSecondOf}
 \usage{
-xSecond(coll)
+xSecondOf(coll)
 
-xSecond...(...)
+xSecondOf...(...)
 }
 \arguments{
   \item{coll}{a collection}
@@ -32,13 +32,13 @@ Return the second element in a collection.
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
-\code{\link{xDrop...}}; \code{\link{xFirst}},
-\code{\link{xFirst...}}; \code{\link{xFourth}},
-\code{\link{xFourth...}}; \code{\link{xGetKey}};
-\code{\link{xInit}}, \code{\link{xInit...}};
-\code{\link{xLast}}, \code{\link{xLast...}};
+\code{\link{xDrop...}}; \code{\link{xFirstOf}},
+\code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
+\code{\link{xFourthOf...}}; \code{\link{xGetKey}};
+\code{\link{xInitOf}}, \code{\link{xInitOf...}};
+\code{\link{xLastOf}}, \code{\link{xLastOf...}};
 \code{\link{xPluck}}, \code{\link{xPluck...}};
-\code{\link{xRest}}, \code{\link{xRest...}};
+\code{\link{xRestOf}}, \code{\link{xRestOf...}};
 \code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};
 \code{\link{xTake}}, \code{\link{xTake...}}
 }

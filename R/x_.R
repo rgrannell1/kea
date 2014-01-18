@@ -41,20 +41,6 @@
 #
 # I don't like creating code dynamically, but originally I had to write these methods
 # by hand. Many bugs are prevented by creating the methods dynamically in this case.
-#
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 add_x_method <- function (env, fn, fixed) {
 	# generate a method from an input function.
@@ -171,34 +157,6 @@ add_x_method <- function (env, fn, fixed) {
 	env[[fn_name]] <- method
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -662,7 +620,6 @@ x_factor_proto <- local({
 			as.character( levels(self_()) )
 		}
 
-
 	this$xByValues <-
 		function () {
 			x_( as.vector(self_()) )
@@ -714,14 +671,6 @@ x_factor_proto <- local({
 # methods specific to vectors, lists or pairlists.
 #
 #
-
-
-
-# NEW SYNTAX
-#this <- add_xMethod(xAsLogical, 'bools')
-
-
-
 x_coll_proto <- local({
 
 	this <- Object()
@@ -840,11 +789,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Explode, 'str')
 
 	# -------- F ------- #
-	# --- xFirst --- #
-	add_x_method(this, xFirst, 'coll')
-	add_x_method(this, xFirst..., '...')
-	add_x_method(this, x_First, 'coll')
-	add_x_method(this, x_First..., '...')
+	# --- xFirstOf --- #
+	add_x_method(this, xFirstOf, 'coll')
+	add_x_method(this, xFirstOf..., '...')
+	add_x_method(this, x_FirstOf, 'coll')
+	add_x_method(this, x_FirstOf..., '...')
 
 	# --- xFoldl --- #
 	add_x_method(this, xFoldl, 'coll')
@@ -900,11 +849,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Scan, 'coll')
 	add_x_method(this, x_Scan..., '...')
 
-	# --- xFourth --- #
-	add_x_method(this, xFourth, 'coll')
-	add_x_method(this, x_Fourth..., '...')
-	add_x_method(this, x_Fourth, 'coll')
-	add_x_method(this, x_Fourth..., '...')
+	# --- xFourthOf --- #
+	add_x_method(this, xFourthOf, 'coll')
+	add_x_method(this, x_FourthOf..., '...')
+	add_x_method(this, x_FourthOf, 'coll')
+	add_x_method(this, x_FourthOf..., '...')
 
 	# -------- G ------- #
 	add_x_method(this, xGetKey, 'str')
@@ -925,11 +874,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_IsMember, 'coll')
 	add_x_method(this, x_IsMember..., '...')
 
-	# --- xInit --- #
-	add_x_method(this, xInit, 'coll')
-	add_x_method(this, xInit..., '...')
-	add_x_method(this, x_Init, 'coll')
-	add_x_method(this, x_Init..., '...')
+	# --- xInitOf --- #
+	add_x_method(this, xInitOf, 'coll')
+	add_x_method(this, xInitOf..., '...')
+	add_x_method(this, x_InitOf, 'coll')
+	add_x_method(this, x_InitOf..., '...')
 
 	# --- xIsEmpty --- #
 	add_x_method(this, xIsEmpty, 'coll')
@@ -990,11 +939,11 @@ x_coll_proto <- local({
 
 	# -------- K ------- #
 	# -------- L ------- #
-	# --- xLast --- #
-	add_x_method(this, xLast, 'coll')
-	add_x_method(this, xLast..., '...')
-	add_x_method(this, x_Last, 'coll')
-	add_x_method(this, x_Last..., '...')
+	# --- xLastOf --- #
+	add_x_method(this, xLastOf, 'coll')
+	add_x_method(this, xLastOf..., '...')
+	add_x_method(this, x_LastOf, 'coll')
+	add_x_method(this, x_LastOf..., '...')
 
 	# --- xLenOf --- #
 	add_x_method(this, xLenOf, 'coll')
@@ -1166,11 +1115,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reject, 'coll')
 	add_x_method(this, x_Reject..., '...')
 
-	# --- xRest --- #
-	add_x_method(this, xRest, 'coll')
-	add_x_method(this, xRest..., '...')
-	add_x_method(this, x_Rest, 'coll')
-	add_x_method(this, x_Rest..., '...')
+	# --- xRestOf --- #
+	add_x_method(this, xRestOf, 'coll')
+	add_x_method(this, xRestOf..., '...')
+	add_x_method(this, x_RestOf, 'coll')
+	add_x_method(this, x_RestOf..., '...')
 
 	# --- xReverse --- #
 	add_x_method(this, xReverse, 'coll')
@@ -1179,11 +1128,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reverse..., '...')
 
 	# -------- S ------- #
-	# --- xSecond --- #
-	add_x_method(this, xSecond, 'coll')
-	add_x_method(this, xSecond..., '...')
-	add_x_method(this, x_Second, 'coll')
-	add_x_method(this, x_Second..., '...')
+	# --- xSecondOf --- #
+	add_x_method(this, xSecondOf, 'coll')
+	add_x_method(this, xSecondOf..., '...')
+	add_x_method(this, x_SecondOf, 'coll')
+	add_x_method(this, x_SecondOf..., '...')
 
 	# --- xSetProd --- #
 	add_x_method(this, xSetProd, 'colls')
@@ -1258,11 +1207,11 @@ x_coll_proto <- local({
 	add_x_method(this, xToChars, 'str')
 	add_x_method(this, x_ToChars, 'str')
 
-	# --- xThird --- #
-	add_x_method(this, xThird, 'coll')
-	add_x_method(this, xThird..., '...')
-	add_x_method(this, x_Third, 'coll')
-	add_x_method(this, x_Third..., '...')
+	# --- xThirdOf --- #
+	add_x_method(this, xThirdOf, 'coll')
+	add_x_method(this, xThirdOf..., '...')
+	add_x_method(this, x_ThirdOf, 'coll')
+	add_x_method(this, x_ThirdOf..., '...')
 
 	# -------- U ------- #
 	# --- xUnion --- #
@@ -1311,12 +1260,6 @@ x_coll_proto <- local({
 	add_x_method(this, xZip..., '...')
 	add_x_method(this, x_Zip, 'colls')
 	add_x_method(this, x_Zip..., '...')
-
-	# --- xZipWith --- #
-	add_x_method(this, xZipWith, 'colls')
-	add_x_method(this, xZipWith..., '...')
-	add_x_method(this, x_ZipWith, 'colls')
-	add_x_method(this, x_ZipWith..., '...')
 
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
@@ -1633,12 +1576,6 @@ x_fn_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	# --- xZipWith --- #
-	add_x_method(this, xZipWith, 'fn')
-	add_x_method(this, xZipWith..., 'fn')
-	add_x_method(this, x_ZipWith, 'fn')
-	add_x_method(this, x_ZipWith..., 'fn')
-
 	this <- as.environment(
 		c(as.list(this), as.list(x_any_proto)) )
 	this$private <- list(
@@ -1657,32 +1594,17 @@ x_fn_proto <- local({
 #'    val a function, collection, or arbitrary value.
 #'
 #' @return
-#'    an object of class "arrow", with a single field 'x' that contents_are val.
+#'    an object of class "arrow", with a single field 'x' that contents are val.
 #'
 #' @section Corner Cases:
 #'    The methods that can be used by x_() object varies depending on the type of val.
-#'    Some methods are specific to functions or collections. If a non-function and non-collection is
-#'    supplied then very few methods can be used.
+#'    Some methods are specific to functions or collections. If a non-function and
+#'    non-collection is supplied then very few methods can be used.
 #'
 #'    Because the definition of $ was overloaded to allow method chaining, the
 #'    field 'x' inside an arrow object cannot be accessed using x_()$x. Writing
-#'    x_()$x_() is required.
-#'
-#' @details
-#'    The arrow object constructed by \code{x_} contains methods specific to the
-#'    the type of data given to the constructor. As of Arrow 0.1.0, there are
-#'    the following sets of methods:
-#'
-#'    1. x_([any])
-#'
-#'    Methods that are added to every data type.
-#'
-#'    \code{xExecute}: .
-#'
-#'    \code{xGraft}: Make a new method available for use on arrow objects.
-#'
-#'    \code{xTap}: Call the data inside the arrow object with an anonymous function, returning
-#'    a new arrow object.
+#'    x_()$x_() can be used to access the data in an arrow monad directly, or
+#'    x_()$xIdentity() can be used.
 #'
 #' @export
 

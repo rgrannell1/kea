@@ -49,7 +49,6 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
-\code{\link{xZipWith}}, \code{\link{xZipWith...}};
 \code{\link{xZip}}, \code{\link{xZip...}}
 }
 

@@ -1,5 +1,5 @@
 
-#' xThird
+#' xThirdOf
 #'
 #' Return the third value in a collection.
 #'
@@ -20,10 +20,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xThird
+#' @rdname xThirdOf
 #' @export
 
-xThird <- function (coll) {
+xThirdOf <- function (coll) {
 	# Collection any -> any
 	# return the third element of a collection x.
 
@@ -45,9 +45,9 @@ xThird <- function (coll) {
 	coll[[3]]
 }
 
-#' @rdname xThird
+#' @rdname xThirdOf
 #' @export
 
-xThird... <- function (...) {
-	xThird(list(...))
+xThirdOf... <- function (...) {
+	xThirdOf(list(...))
 }

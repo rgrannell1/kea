@@ -5,11 +5,12 @@
 #'
 #' @param fn an arbitrary function or primitive function.
 #'
-#' @return A character vector/.
+#' @return A character vector.
 #'
 #' @section Corner Cases:
 #'	 If \code{fn} is a primitive function a heuristic is used to obtain
-#'	 its parametre names, which may not work for all functions.
+#'	 its parametre names, which may not work for all functions. If a function
+#'   has no parametres the empty character vector is returned.
 #'
 #' @family parametre_functions
 #'

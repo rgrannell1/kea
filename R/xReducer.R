@@ -66,7 +66,7 @@ xReducer <- function (fn, coll) {
 	} else {
 
 		val <- coll[[ length(coll) ]]
-		coll <- xInit(coll)
+		coll <- xInitOf(coll)
 
 		callCC(function (Return) {
 

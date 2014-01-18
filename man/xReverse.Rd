@@ -36,8 +36,7 @@ Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xRepeat...}}; \code{\link{xShuffle}},
 \code{\link{xShuffle...}}; \code{\link{xSplitAt}},
 \code{\link{xSplitAt...}}; \code{\link{xSplitWith}},
-\code{\link{xSplitWith...}}; \code{\link{xZipWith}},
-\code{\link{xZipWith...}}; \code{\link{xZip}},
+\code{\link{xSplitWith...}}; \code{\link{xZip}},
 \code{\link{xZip...}}
 }
 

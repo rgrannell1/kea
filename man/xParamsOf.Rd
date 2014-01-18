@@ -8,7 +8,7 @@ xParamsOf(fn)
   \item{fn}{an arbitrary function or primitive function.}
 }
 \value{
-A character vector/.
+A character vector.
 }
 \description{
 Get the parametre names of a function or primitive
@@ -17,7 +17,8 @@ function.
 \section{Corner Cases}{
   If \code{fn} is a primitive function a heuristic is used
   to obtain its parametre names, which may not work for all
-  functions.
+  functions. If a function has no parametres the empty
+  character vector is returned.
 }
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};

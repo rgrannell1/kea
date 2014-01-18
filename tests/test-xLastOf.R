@@ -2,12 +2,12 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message('xLast')
+message('xLastOf')
 
 	forall(
 		"first always returns the last element of a collection",
 		test_cases$collection,
-		xLast(coll) %equals% coll[[ length(coll) ]],
+		xLastOf(coll) %equals% coll[[ length(coll) ]],
 		given =
 			length(coll) > 0
 	)

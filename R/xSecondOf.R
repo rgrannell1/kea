@@ -1,5 +1,5 @@
 
-#' xSecond
+#' xSecondOf
 #'
 #' Return the second element in a collection.
 #'
@@ -22,10 +22,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xSecond
+#' @rdname xSecondOf
 #' @export
 
-xSecond <- function (coll) {
+xSecondOf <- function (coll) {
 	# Collection any -> any
 	# return the second element of a collection x.
 
@@ -48,9 +48,9 @@ xSecond <- function (coll) {
 	coll[[2]]
 }
 
-#' @rdname xSecond
+#' @rdname xSecondOf
 #' @export
 
-xSecond... <- function (...) {
-	xSecond(list(...))
+xSecondOf... <- function (...) {
+	xSecondOf(list(...))
 }

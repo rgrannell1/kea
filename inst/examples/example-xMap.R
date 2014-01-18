@@ -15,7 +15,7 @@ list(
 #    of collections.
 
 xMap...(
-    xSecond,
+    xSecondOf,
     list("a", "b", "c"),
     list(1, 2, 3))
 )

@@ -1,5 +1,5 @@
 
-#' xFourth
+#' xFourthOf
 #'
 #' Return the fourth value in a collection.
 #'
@@ -21,10 +21,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xFourth
+#' @rdname xFourthOf
 #' @export
 
-xFourth <- function (coll) {
+xFourthOf <- function (coll) {
 	# Collection any -> any
 	# return the fourth element of a collection x.
 
@@ -47,9 +47,9 @@ xFourth <- function (coll) {
 	coll[[4]]
 }
 
-#' @rdname xFourth
+#' @rdname xFourthOf
 #' @export
 
-xFourth... <- function (...) {
-	xFourth(list(...))
+xFourthOf... <- function (...) {
+	xFourthOf(list(...))
 }

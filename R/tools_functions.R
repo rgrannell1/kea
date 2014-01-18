@@ -230,12 +230,12 @@ as_typed_vector <- local({
 					coll
 				}
 			} else {
-				stop(exclaim$type_coersion_failed(coll_symbol, mode))
+				stop(exclaim$type_conversion_failed(coll_symbol, mode))
 			}
 
 		} else {
 
-			is_length_one <- all(sapply(coll, length) == 	1)
+			is_length_one <- all(sapply(coll, length) == 1)
 
 			if (!is_length_one) {
 				stop(exclaim$must_be_collection_of_length(coll_symbol, 1))

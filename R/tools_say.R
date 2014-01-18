@@ -552,7 +552,7 @@ yelp <- list(
 			# message <- strwrap(message, width = 70, simplify = True)
 
 			callname <- paste0(callname, collapse = '')
-			call <- paste0(strwrap(call, indent = 4),collapse = '')
+			call <- paste0(strwrap(call, indent = 4), collapse = '')
 
 			'\n' %+%
 			'[ error thrown from ' %+% callname %+% ' ]:' %+% '\n\n' %+%

@@ -1,5 +1,5 @@
 
-#' xFirst
+#' xFirstOf
 #'
 #' Return the first element of a collection.
 #'
@@ -21,10 +21,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xFirst
+#' @rdname xFirstOf
 #' @export
 
-xFirst <- function (coll) {
+xFirstOf <- function (coll) {
 	# Collection any -> any
 	# return the first element of a collection x.
 
@@ -47,9 +47,9 @@ xFirst <- function (coll) {
 	coll[[1]]
 }
 
-#' @rdname xFirst
+#' @rdname xFirstOf
 #' @export
 
-xFirst... <- function (...) {
-	xFirst(list(...))
+xFirstOf... <- function (...) {
+	xFirstOf(list(...))
 }

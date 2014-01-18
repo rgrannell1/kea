@@ -68,7 +68,7 @@ as_colour <- ( function () {
 	# convert the distance to a colour.
 
 	max_dist <- x_(monic_roots)$
-	xMap(xSecond)$
+	xMap(xSecondOf)$
 	xReduce(max)$x_()
 
 	function (dist) {
@@ -78,7 +78,7 @@ as_colour <- ( function () {
 
 x_(monic_roots)$xDo(root := {
 	points(
-		x = Re(xFirst(root)), y = Im(xFirst(root)),
-		col = as_colour(xSecond(root)),
+		x = Re(xFirstOf(root)), y = Im(xFirstOf(root)),
+		col = as_colour(xSecondOf(root)),
 		cex = 0.1, pch = 15)
 })

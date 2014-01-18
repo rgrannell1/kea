@@ -25,7 +25,32 @@
 #' @export
 
 xZip <- function (colls) {
-	xZipWith(function (...) colls, colls)
+
+	invoking_call <- sys.call()
+
+	assert(
+		!missing(colls), invoking_call,
+		exclaim$parametre_missing(colls))
+
+	assert(
+		length(unique( vapply(colls, length, integer(1)) )) == 1,
+		invoking_call,
+		exclaim$must_be_collection_of_equal_lengths(
+			colls, summate(colls)) )
+
+	if (length(colls) == 0 || length(colls)[[1]] == 0) {
+		list()
+	} else {
+
+		lapply(
+			seq_along( colls[[1]] ),
+			function (ith_elem) {
+
+				lapply( colls, function (coll) {
+					coll[[ith_elem]]
+				})
+		})
+	}
 }
 
 #' @rdname xZip

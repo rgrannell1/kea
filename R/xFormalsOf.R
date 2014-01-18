@@ -7,7 +7,7 @@
 #'    fn an arbitrary function.
 #'
 #' @return
-#'    A named list, where each element's name is a parametre in f and each value
+#'    A named list, where each element's name is a parametre in \code{fn} and each value
 #'	  is the default value of that parametre.
 #'
 #' @section Corner Cases:

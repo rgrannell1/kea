@@ -1,5 +1,5 @@
 
-#' xLast
+#' xLastOf
 #'
 #' Return the last element in a collection.
 #'
@@ -21,10 +21,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xLast
+#' @rdname xLastOf
 #' @export
 
-xLast <- function (coll) {
+xLastOf <- function (coll) {
 	# Collection any -> any
 	# return the last element of a collection x,
 	# using the subset operator
@@ -48,9 +48,9 @@ xLast <- function (coll) {
 	coll[[ length(coll) ]]
 }
 
-#' @rdname xLast
+#' @rdname xLastOf
 #' @export
 
-xLast... <- function (...) {
-	xLast(list(...))
+xLastOf... <- function (...) {
+	xLastOf(list(...))
 }

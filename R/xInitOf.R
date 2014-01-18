@@ -1,5 +1,5 @@
 
-#' xInit
+#' xInitOf
 #'
 #' Remove the first element from a collection.
 #'
@@ -17,10 +17,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xInit
+#' @rdname xInitOf
 #' @export
 
-xInit <- function (coll) {
+xInitOf <- function (coll) {
 	# Collection any -> [any]
 	# return everything but the first element of a
 	# collection.
@@ -44,9 +44,9 @@ xInit <- function (coll) {
 	}
 }
 
-#' @rdname xInit
+#' @rdname xInitOf
 #' @export
 
-xInit... <- function (...) {
-	xInit(list(...))
+xInitOf... <- function (...) {
+	xInitOf(list(...))
 }

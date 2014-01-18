@@ -1,11 +1,11 @@
-\name{xInit}
-\alias{xInit}
-\alias{xInit...}
-\title{xInit}
+\name{xInitOf}
+\alias{xInitOf}
+\alias{xInitOf...}
+\title{xInitOf}
 \usage{
-xInit(coll)
+xInitOf(coll)
 
-xInit...(...)
+xInitOf...(...)
 }
 \arguments{
   \item{coll}{a collection.}
@@ -26,13 +26,13 @@ Remove the first element from a collection.
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
-\code{\link{xDrop...}}; \code{\link{xFirst}},
-\code{\link{xFirst...}}; \code{\link{xFourth}},
-\code{\link{xFourth...}}; \code{\link{xGetKey}};
-\code{\link{xLast}}, \code{\link{xLast...}};
+\code{\link{xDrop...}}; \code{\link{xFirstOf}},
+\code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
+\code{\link{xFourthOf...}}; \code{\link{xGetKey}};
+\code{\link{xLastOf}}, \code{\link{xLastOf...}};
 \code{\link{xPluck}}, \code{\link{xPluck...}};
-\code{\link{xRest}}, \code{\link{xRest...}};
-\code{\link{xSecond}}, \code{\link{xSecond...}};
+\code{\link{xRestOf}}, \code{\link{xRestOf...}};
+\code{\link{xSecondOf}}, \code{\link{xSecondOf...}};
 \code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};
 \code{\link{xTake}}, \code{\link{xTake...}}
 }

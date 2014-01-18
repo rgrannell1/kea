@@ -1,5 +1,5 @@
 
-#' xRest
+#' xRestOf
 #'
 #' Return a list excluding the first element of a collection.
 #'
@@ -20,10 +20,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xRest
+#' @rdname xRestOf
 #' @export
 
-xRest <- function (coll) {
+xRestOf <- function (coll) {
 	# Collection a -> [a]
 	# return everything but the first element of a
 	# collection x.
@@ -46,9 +46,9 @@ xRest <- function (coll) {
 	}
 }
 
-#' @rdname xRest
+#' @rdname xRestOf
 #' @export
 
-xRest... <- function (...) {
-	xRest(list(...))
+xRestOf... <- function (...) {
+	xRestOf(list(...))
 }

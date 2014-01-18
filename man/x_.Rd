@@ -9,28 +9,11 @@ x_(val)
 }
 \value{
 an object of class "arrow", with a single field 'x' that
-contents_are val.
+contents are val.
 }
 \description{
 Generate a chainable arrow object that methods can be
 called off.
-}
-\details{
-The arrow object constructed by \code{x_} contains methods
-specific to the the type of data given to the constructor.
-As of Arrow 0.1.0, there are the following sets of methods:
-
-1. x_([any])
-
-Methods that are added to every data type.
-
-\code{xExecute}: .
-
-\code{xGraft}: Make a new method available for use on arrow
-objects.
-
-\code{xTap}: Call the data inside the arrow object with an
-anonymous function, returning a new arrow object.
 }
 \section{Corner Cases}{
   The methods that can be used by x_() object varies
@@ -41,7 +24,8 @@ anonymous function, returning a new arrow object.
 
   Because the definition of $ was overloaded to allow
   method chaining, the field 'x' inside an arrow object
-  cannot be accessed using x_()$x. Writing x_()$x_() is
-  required.
+  cannot be accessed using x_()$x. Writing x_()$x_() can be
+  used to access the data in an arrow monad directly, or
+  x_()$xIdentity() can be used.
 }
 

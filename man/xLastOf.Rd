@@ -1,30 +1,27 @@
-\name{xPluck}
-\alias{xPluck}
-\alias{xPluck...}
-\title{xPluck}
+\name{xLastOf}
+\alias{xLastOf}
+\alias{xLastOf...}
+\title{xLastOf}
 \usage{
-xPluck(str, coll)
+xLastOf(coll)
 
-xPluck...(str, ...)
+xLastOf...(...)
 }
 \arguments{
-  \item{str}{a string.}
-
-  \item{coll}{a list or pairlist of lists or pairlists.}
+  \item{coll}{a collection.}
 
   \item{...}{see above.}
 }
 \value{
-A list.
+The value of the last element in \code{coll}.
 }
 \description{
-Map over a collection of lists or pairlists, selecting
-fields in each element by name.
+Return the last element in a collection.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.  If
-  str is length-zero then the empty string "" is used to
-  match key-names.
+  Throws an error if \code{coll} has less than one element;
+  this is because any other corner case would violate the
+  function's type-signature.
 }
 
 \section{Variadic Functions
@@ -33,18 +30,13 @@ fields in each element by name.
 
 }
 \seealso{
-Other name_functions: \code{\link{xAsNamed}};
-\code{\link{xAssoc}}, \code{\link{xAssoc...}};
-\code{\link{xDissoc}}, \code{\link{xDissoc...}};
-\code{\link{xGetKey}}
-
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},
 \code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
 \code{\link{xFourthOf...}}; \code{\link{xGetKey}};
 \code{\link{xInitOf}}, \code{\link{xInitOf...}};
-\code{\link{xLastOf}}, \code{\link{xLastOf...}};
+\code{\link{xPluck}}, \code{\link{xPluck...}};
 \code{\link{xRestOf}}, \code{\link{xRestOf...}};
 \code{\link{xSecondOf}}, \code{\link{xSecondOf...}};
 \code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};

@@ -19,6 +19,15 @@ A variadic function.
 Create a function that applies an argument to a list of
 underlying functions.
 }
+\details{
+\code{xJuxtapose} is a method of applying one value to
+several functions simultaneously. The function returned by
+\code{xJuxtapose} returns a list - on element for each
+input function to \code{xJuxtapose}.  Each element of this
+list contains the result of calling an element of
+\code{fns} with the arguments supplied to
+\code{xJuxtapose}'s return function.
+}
 \section{Corner Cases}{
   If no functions are provided the empty list is returned.
 }

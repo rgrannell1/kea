@@ -1,11 +1,11 @@
-\name{xFourth}
-\alias{xFourth}
-\alias{xFourth...}
-\title{xFourth}
+\name{xFourthOf}
+\alias{xFourthOf}
+\alias{xFourthOf...}
+\title{xFourthOf}
 \usage{
-xFourth(coll)
+xFourthOf(coll)
 
-xFourth...(...)
+xFourthOf...(...)
 }
 \arguments{
   \item{coll}{a collection.}
@@ -32,13 +32,13 @@ Return the fourth value in a collection.
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
-\code{\link{xDrop...}}; \code{\link{xFirst}},
-\code{\link{xFirst...}}; \code{\link{xGetKey}};
-\code{\link{xInit}}, \code{\link{xInit...}};
-\code{\link{xLast}}, \code{\link{xLast...}};
+\code{\link{xDrop...}}; \code{\link{xFirstOf}},
+\code{\link{xFirstOf...}}; \code{\link{xGetKey}};
+\code{\link{xInitOf}}, \code{\link{xInitOf...}};
+\code{\link{xLastOf}}, \code{\link{xLastOf...}};
 \code{\link{xPluck}}, \code{\link{xPluck...}};
-\code{\link{xRest}}, \code{\link{xRest...}};
-\code{\link{xSecond}}, \code{\link{xSecond...}};
+\code{\link{xRestOf}}, \code{\link{xRestOf...}};
+\code{\link{xSecondOf}}, \code{\link{xSecondOf...}};
 \code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};
 \code{\link{xTake}}, \code{\link{xTake...}}
 }
