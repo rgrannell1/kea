@@ -1331,9 +1331,9 @@ x_fn_proto <- local({
 	add_x_method(this, x_Apply..., 'fn')
 
 
-	# --- xArity --- #
-	add_x_method(this, xArity, 'fn')
-	add_x_method(this, x_Arity, 'fn')
+	# --- xArityOf --- #
+	add_x_method(this, xArityOf, 'fn')
+	add_x_method(this, x_ArityOf, 'fn')
 
 	# -------- B ------- #
 	# -------- C ------- #

@@ -223,7 +223,9 @@ as_typed_vector <- local({
 		if (is.atomic(coll)) {
 			# vectors are always homogenous, so we can fast-track checking.
 
-			if (type_test(coll)) {
+			if (length(coll) == 0) {
+				as.vector(coll, mode = mode)
+			} else if (type_test(coll)) {
 				if (value_unit) {
 					to_value_unit(coll)
 				} else {

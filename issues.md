@@ -25,7 +25,7 @@ Issue Tracker
 ### Bugs:
 
 - [ ] #3 testthat issue: expect_equal(xSplit('.', 'ab'), c('a', 'b'))
-- [ ] #9 several benchmarks will throw errors; for example xArity has type function -> int, but it will be given a collection. This needs to be fixed eventually.
+- [ ] #9 several benchmarks will throw errors; for example xArityOf has type function -> int, but it will be given a collection. This needs to be fixed eventually.
     incorrect types are allowed.
 - [ ] #25 check that functions that should return [A](0) do return such a value.
 - [ ] #28 implement autopartial, in a completely reliable way.

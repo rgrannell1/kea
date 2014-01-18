@@ -43,7 +43,7 @@ Collate:
     'tools_forall.R'
     'xLambda.R'
     'xApply.R'
-    'xArity.R'
+    'xArityOf.R'
     'xAsClosure.R'
     'xAsLogical.R'
     'xAsInteger.R'

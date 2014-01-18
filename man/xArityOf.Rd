@@ -1,8 +1,8 @@
-\name{xArity}
-\alias{xArity}
-\title{xArity}
+\name{xArityOf}
+\alias{xArityOf}
+\title{xArityOf}
 \usage{
-xArity(fn)
+xArityOf(fn)
 }
 \arguments{
   \item{fn}{an function of any arity.}
@@ -14,10 +14,10 @@ A positive whole number.
 Return the number of arguments a function can accept.
 }
 \section{Uses}{
-  \code{xArity} is primarily intended for use with
+  \code{xArityOf} is primarily intended for use with
   higher-order functions that require functions with a
   particular arity. For example, a strict version of map
-  might use \code{xArity} to throw an error if its input
+  might use \code{xArityOf} to throw an error if its input
   function is not unary.
 }
 
@@ -28,30 +28,30 @@ Return the number of arguments a function can accept.
 }
 \examples{
 
-# 1. xArity works on primitive functions.
+# 1. xArityOf works on primitive functions.
 
-xArity('+')
+xArityOf('+')
 
 2
 
-# 2. xArity also works on normal functions
+# 2. xArityOf also works on normal functions
 #    and variadic functions.
 
-xArity(Reduce)
+xArityOf(Reduce)
 
 5
 
-xArity(function (a, ...) {})
+xArityOf(function (a, ...) {})
 
 Inf
 
-# 3. xArity can be used to check that a function
+# 3. xArityOf can be used to check that a function
 #    given to a higher-order function is safe to
 #    use.
 
 safeMap <- function (fn, coll) {
 
-    if (!xArity(fn) == 1) {
+    if (!xArityOf(fn) == 1) {
         stop("the function given to safeMap is not unary.")
     } else {
         lapply(fn, coll)

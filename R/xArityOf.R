@@ -1,13 +1,13 @@
 
-#' xArity
+#' xArityOf
 #'
 #' Return the number of arguments a function can accept.
 #'
 #' @section Uses:
-#'    \code{xArity} is primarily intended for use with
+#'    \code{xArityOf} is primarily intended for use with
 #'    higher-order functions that require functions with a
 #'    particular arity. For example, a strict version of
-#'    map might use \code{xArity} to throw an error if
+#'    map might use \code{xArityOf} to throw an error if
 #'    its input function is not unary.
 #'
 #' @param
@@ -21,12 +21,12 @@
 #'    function can accept an infinite number of arguments.
 #'
 #' @example
-#'    inst/examples/example-xArity.R
+#'    inst/examples/example-xArityOf.R
 #'
-#' @rdname xArity
+#' @rdname xArityOf
 #' @export
 
-xArity <- function (fn) {
+xArityOf <- function (fn) {
 	# function -> integer
 	# get the arity of a function.
 
