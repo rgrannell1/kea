@@ -19,6 +19,7 @@ Imports:
 Suggests:
     microbenchmark
 Collate:
+    'values.R'
     'help_arrow.R'
     'help_arrow_gotchas.R'
     'help_arrow_install.R'
@@ -156,5 +157,4 @@ Collate:
     'xMapply.R'
     'xUnique.R'
     'xDuplicated.R'
-    'values.R'
     'x_.R'
