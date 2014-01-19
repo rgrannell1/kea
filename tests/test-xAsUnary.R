@@ -7,10 +7,7 @@ message("xAsUnary")
 	forall(
 		"all base functions become unary with xAsUnary",
 		test_cases$base_function,
-		{
-			g <- xAsUnary(fn)
-			length(formals(g)) == 1
-		}
+			length( formals(xAsUnary(fn) )) == 1
 	)
 
 	forall(

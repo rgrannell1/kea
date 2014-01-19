@@ -5,7 +5,7 @@
 #' as a list to ints underyling function.
 #'
 #' @details
-#'    \code{xAsVariadic} takes a unary function, and
+#'    \code{xAsVariadic} takes a unary function and
 #'    returns a function with ellipsis parametres.
 #'    The returned function passes its ellipsis arguments
 #'    as a single list to the underlying function.

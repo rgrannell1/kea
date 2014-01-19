@@ -10,3 +10,8 @@ message("xConst")
 		xConst(coll)() %equals% coll
 	)
 
+	forall(
+		"const can swallow as many arguments as its given.",
+		test_cases$collection,
+		do.call( xConst(1), as.list(coll) ) == 1
+	)

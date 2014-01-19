@@ -59,12 +59,14 @@ xFlatten <- function (num, coll) {
 			num, summate(num)) )
 
 	assert(
-		is_recursive(coll), invoking_call,
-		exclaim$must_be_recursive(
+		is_collection(coll), invoking_call,
+		exclaim$must_be_collection(
 			coll, summate(coll)) )
 
 	if (length(coll) == 0) {
 		list()
+	} else if (is.atomic(coll)) {
+		as.list(coll)
 	} else if (num == +Inf) {
 		as.list(coll)
 	} else if (num == 1) {
