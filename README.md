@@ -70,7 +70,7 @@ as well as dozens of collection-reshaping functions.
 including several flavours of map and fold.
 
 * A new control statement - the ```Return( )``` function - can
-be used to improve the expressiveness of functional code.
+be used to improve the efficiency of functional code.
 
 * Partial application and function composition are encouraged
 as standard operations.
