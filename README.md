@@ -12,10 +12,10 @@ include familiar functions like Map, Select, Reduce and Compose, as
 well as many functions for working with na values, reshaping collections,
 composing functions and manipulating strings.
 
-I hope you enjoy using Arrow as much as I've enjoyed making it! To
-contribute with feedback, bug-reports or code go to the Arrow
-[github repository](https://github.com/rgrannell1/arrow). Any feedback is
-appreciated.
+I hope you enjoy using Arrow as much as I've enjoyed making it. 
+If you'd like to contribute with feedback, bug-reports or code 
+you can go to the Arrow [github repository](https://github.com/rgrannell1/arrow). 
+Any feedback is appreciated.
 
 ### What Arrow code looks like.
 
@@ -45,8 +45,7 @@ for creating functions to R.
 object-orientation systems. These methods are just as usable as those in
 Python or JavaScript. This syntax is handy for interactive programming.
 
-* Arrow uses small but powerful naming conventions to make its
-programs optimally easy to write.
+* Arrow uses consistent naming conventions to make its functions more predictable.
 
 * Almost every function has a variadic and non-variadic form, to
 reduce boilerplate code.
