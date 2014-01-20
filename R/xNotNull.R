@@ -10,7 +10,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    A list.
+#'    A vector of boolean values.
 #'
 #' @section Corner Cases:
 #'    Returns True if coll is Null.

@@ -13,7 +13,7 @@ xNotNa...(...)
   \item{...}{see above.}
 }
 \value{
-A vector of true/false values.
+A vector of boolean values.
 }
 \description{
 Test every element in a collection for being \code{Na} of

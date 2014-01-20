@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    A list.
+#'    A boolean value.
 #'
 #' @section Corner Cases:
 #'    Various types of \code{Na} are not-distinguished between.
@@ -53,12 +53,13 @@ xNotMember <- function (val, coll) {
 			function (elem) {
 				identical(elem, val, single.NA = True)
 			},
-			logical(1), USE.NAMES = False)
+			logical(1),
+			USE.NAMES = False)
 
 		if ( all(is.na(is_match)) ) {
 			False
 		} else {
-			any(is_match)
+			!any(is_match)
 		}
 	}
 }

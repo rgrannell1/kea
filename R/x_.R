@@ -225,6 +225,9 @@ x_any_proto <- local({
 
 	# -------- J ------- #
 	# -------- K ------- #
+	add_x_method(this, xK, 'val')
+	add_x_method(this, x_K, 'val')
+
 	# -------- L ------- #
 	# -------- M ------- #
 	# -------- N ------- #
@@ -1152,6 +1155,30 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reverse, 'coll')
 	add_x_method(this, x_Reverse..., '...')
 
+	# --- xRemoveNa --- #
+	add_x_method(this, xRemoveNa, 'coll')
+	add_x_method(this, xRemoveNa..., '...')
+	add_x_method(this, x_RemoveNa, 'coll')
+	add_x_method(this, x_RemoveNa..., '...')
+
+	# --- xRemoveNan --- #
+	add_x_method(this, xRemoveNan, 'coll')
+	add_x_method(this, xRemoveNan..., '...')
+	add_x_method(this, x_RemoveNan, 'coll')
+	add_x_method(this, x_RemoveNan..., '...')
+
+	# --- xRemoveNull --- #
+	add_x_method(this, xRemoveNull, 'coll')
+	add_x_method(this, xRemoveNull..., '...')
+	add_x_method(this, x_RemoveNull, 'coll')
+	add_x_method(this, x_RemoveNull..., '...')
+
+	# --- xRemoveEmpty --- #
+	add_x_method(this, xRemoveEmpty, 'coll')
+	add_x_method(this, xRemoveEmpty..., '...')
+	add_x_method(this, x_RemoveEmpty, 'coll')
+	add_x_method(this, x_RemoveEmpty..., '...')
+
 	# -------- S ------- #
 	# --- xSecondOf --- #
 	add_x_method(this, xSecondOf, 'coll')
@@ -1448,9 +1475,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_Juxtapose..., '...')
 
 	# -------- K ------- #
-	# --- xK --- #
-	this$xK <- this$xConst
-	this$x_K <- this$x_Const
 
 	# -------- L ------- #
 	# --- xLimit --- #
@@ -1704,8 +1728,11 @@ get_proto_ref <- function (val) {
 	}
 
 	autosuggested <- c(
-		alias('xFilter', 'xSelect'),
-		alias('xAsNumeric', 'xAsDouble')
+		alias('xAsNumeric', 'xAsDouble'),
+		alias('xC', 'xJoin'),
+		alias('xConcat', 'xJoin'),
+		alias('xConcatenate', 'xJoin'),
+		alias('xFilter', 'xSelect')
 	)
 
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {

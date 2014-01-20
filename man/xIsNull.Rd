@@ -13,7 +13,7 @@ xIsNull...(...)
   \item{...}{see above.}
 }
 \value{
-A list.
+A vector of boolean values.
 }
 \description{
 Is an element of a collection null?

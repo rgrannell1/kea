@@ -15,7 +15,7 @@ xNotMember...(val, ...)
   \item{...}{see above.}
 }
 \value{
-A list.
+A boolean value.
 }
 \description{
 Check if a collection doesn't contain a value.

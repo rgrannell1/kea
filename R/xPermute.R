@@ -43,7 +43,8 @@ xPermute <- function (coll, colls) {
 	coll <- as_typed_vector(coll, 'numeric')
 
 	assert(
-		all(vapply(colls, length, integer(1)) == length(coll)), invoking_call,
+		all(vapply(colls, length, integer(1)) == length(coll)),
+		invoking_call,
 		exclaim$must_be_collection_of_length(
 			colls, length(coll), summate(colls)) )
 

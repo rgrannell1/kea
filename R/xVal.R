@@ -48,7 +48,3 @@ xVal <- function (sym, val) {
 	lockBinding(sym, parent_frame)
 }
 
-#' @export
-# apparently the right argument must be value for these functions.
-
-'%<<<-%' <- xVal

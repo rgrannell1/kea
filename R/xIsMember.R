@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    A list.
+#'    A boolean value.
 #'
 #' @section Corner Cases:
 #'    Various types of \code{Na} are not-distinguished between.

@@ -31,7 +31,7 @@ xInter <- function (colls) {
 
 	assert(
 		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
-		exclaim$must_be_collection_of_length(
+		exclaim$must_be_collection(
 			colls, summate(colls)) )
 
 	if (length(colls) == 0) {

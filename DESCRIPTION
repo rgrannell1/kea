@@ -160,4 +160,8 @@ Collate:
     'xNotEmpty.R'
     'xNotMember.R'
     'xNotNull.R'
+    'xRemoveNa.R'
+    'xRemoveNan.R'
+    'xRemoveNull.R'
+    'xRemoveEmpty.R'
     'x_.R'
