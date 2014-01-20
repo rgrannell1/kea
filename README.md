@@ -20,17 +20,25 @@ Any feedback is appreciated.
 ### What Arrow code looks like.
 
 ```r
-# how many primitive functions are there in R?
+integrate <- (f : from : to) := {
 
-xPoll(
-	fn_name := {
-		fn <- get(fn_name)
-		is.function(fn) && is.primitive(fn)
-	},
-	ls('package:base')
-)
+    xVal(epsilon, 0.001)
+    x_values <- seq(from = from, to = to, by = epsilon)
 
-178
+    xFold(
+        (area : x) := {
+            area + (f(x) * epsilon)
+        },
+        0,
+        x_values
+    )
+}
+
+f <- x := x^3 - 9*x^2
+integrate(f, from = -10, to = 10)
+
+# the area under the function f between -10, ..., 10
+-6000.9
 ```
 
 ### Arrow is Expressive
@@ -70,7 +78,7 @@ as well as dozens of collection-reshaping functions.
 including several flavours of map and fold.
 
 * A new control statement - the ```Return( )``` function - can
-be used to improve the expressiveness of functional code.
+be used to improve the efficiency of functional code.
 
 * Partial application and function composition are encouraged
 as standard operations.
