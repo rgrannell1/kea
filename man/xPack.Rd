@@ -32,6 +32,9 @@ Remove all length-zero values from a collection.
 \seealso{
 Other filtering_functions: \code{\link{xPartition}};
 \code{\link{xReject}}, \code{\link{xReject...}};
+\code{\link{xRemoveEmpty}}, \code{\link{xRemoveEmpty...}};
+\code{\link{xRemoveNan}}; \code{\link{xRemoveNa}};
+\code{\link{xRemoveNull}}, \code{\link{xRemoveNull...}};
 \code{\link{xSelect}}, \code{\link{xSelect...}}
 }
 

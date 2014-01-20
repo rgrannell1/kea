@@ -15,6 +15,8 @@
 #' @template
 #'    Variadic
 #'
+#' @family filtering_functions
+#'
 #' @rdname xRemoveNan
 #' @export
 

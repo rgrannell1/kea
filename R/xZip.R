@@ -25,6 +25,7 @@
 #' @export
 
 xZip <- function (colls) {
+	#
 
 	invoking_call <- sys.call()
 
@@ -32,21 +33,22 @@ xZip <- function (colls) {
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
-	assert(
-		all(sapply(colls, is_collection)), invoking_call,
-		exclaim$must_be_recursive_of_collections(
-			colls, summate(colls))
-	)
-
-	assert(
-		length(unique( vapply(colls, length, integer(1)) )) == 1,
-		invoking_call,
-		exclaim$must_be_collection_of_equal_lengths(
-			colls, summate(colls)) )
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()
 	} else {
+
+		assert(
+			all(sapply(colls, is_collection)), invoking_call,
+			exclaim$must_be_recursive_of_collections(
+				colls, summate(colls))
+		)
+
+		assert(
+			length(unique( vapply(colls, length, integer(1)) )) == 1,
+			invoking_call,
+			exclaim$must_be_collection_of_equal_lengths(
+				colls, summate(colls)) )
 
 		lapply(
 			seq_along( colls[[1]] ),

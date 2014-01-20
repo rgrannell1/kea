@@ -23,7 +23,6 @@
 #'	  elements return only true/only false, then one of two sublists will be the
 #'	  empty list.
 #'
-#'
 #' @family filtering_functions
 #'
 #' @template

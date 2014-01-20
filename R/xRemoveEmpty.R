@@ -15,6 +15,8 @@
 #' @template
 #'    Variadic
 #'
+#' @family filtering_functions
+#'
 #' @rdname xRemoveEmpty
 #' @export
 
@@ -51,3 +53,5 @@ xRemoveEmpty <- function (coll) {
 xRemoveEmpty... <- function (...) {
 	xRemoveEmpty(list(...))
 }
+
+
