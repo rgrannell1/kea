@@ -268,16 +268,20 @@ try_higher_order <- function (expr, invoking_call) {
 		expr,
 		warning = function (warn) {
 
+			calling_fn <- invoking_call[[1]]
+
 			assert(
 				False, invoking_call,
-				yelp$warning_higher_order( invoking_call[[1]], warn ))
+				yelp$warning_higher_order(calling_fn, warn))
 
 		},
 		error = function (err) {
 
+			calling_fn <- invoking_call[[1]]
+
 			assert(
 				False, invoking_call,
-				yelp$error_higher_order( invoking_call[[1]], err  ))
+				yelp$error_higher_order(calling_fn, err))
 
 		}
 	)

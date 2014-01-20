@@ -594,8 +594,7 @@ yelp <- list(
 			"[ warning occurred while executing a function passed to " %+% fn %+% " ]\n\n"
 
 			overview %+% wrap(
-				inner_call %+% warnmessage,
-				indent = 4)
+				inner_call %+% warnmessage, indent = 4)
 
 		},
 	error_higher_order =
@@ -610,7 +609,6 @@ yelp <- list(
 			"[ an error occurred while executing a function passed to " %+% fn %+% " ]:\n\n"
 
 			overview %+% wrap(
-				inner_call %+% errmessage,
-				indent = 4)
+				inner_call %+% errmessage, indent = 4)
 		}
 )
