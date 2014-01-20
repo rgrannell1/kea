@@ -1,7 +1,8 @@
 
 #' xPartition
 #'
-#' Divide elements in a collection into two collections based on a predicate function.
+#' Divide elements in a collection into two collections
+#' based on a predicate function.
 #'
 #' @param
 #'    pred a predicate.

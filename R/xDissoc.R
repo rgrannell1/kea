@@ -41,6 +41,11 @@ xDissoc <- function (colls) {
 		exclaim$must_be_named(
 			colls, summate(colls)) )
 
+	assert(
+		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
+		exclaim$must_be_recursive_of_collections(
+			colls, summate(colls)) )
+
 	if (length(colls) == 0) {
 		list()
 	} else {

@@ -20,14 +20,16 @@ A list.
 \description{
 Remove all elements from a collection matching a predicate.
 }
-\section{Uses}{
-  The uses for the reject function are very similar to
-  those for select.
+\details{
+\code{xReject} applies a predicate function to each element
+of the input collection, and returns the elements of that
+collection such that the predicate returned false or na.
 }
-
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
-  Throws an error if pred returns a non-boolean value.
+  Returns the empty list if \code{coll} is length-zero, or
+  no match is found. If the predicate returns a non-logical
+  value an error is thrown. If an na value is returned by
+  the predicate it is treated as a false value.
 }
 
 \section{Variadic Functions

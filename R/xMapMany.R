@@ -42,6 +42,11 @@ xMapMany <- function (fn, colls) {
 		exclaim$must_be_matchable(
 			fn, summate(fn)) )
 
+	assert(
+		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
+		exclaim$must_be_recursive_of_collections(
+			colls, summate(colls)) )
+
 	fn <- match_fn(fn)
 
 	coll_lens <- vapply(colls, length, integer(1))

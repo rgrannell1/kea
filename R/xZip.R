@@ -33,6 +33,12 @@ xZip <- function (colls) {
 		exclaim$parametre_missing(colls))
 
 	assert(
+		all(sapply(colls, is_collection)), invoking_call,
+		exclaim$must_be_recursive_of_collections(
+			colls, summate(colls))
+	)
+
+	assert(
 		length(unique( vapply(colls, length, integer(1)) )) == 1,
 		invoking_call,
 		exclaim$must_be_collection_of_equal_lengths(

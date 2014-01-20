@@ -43,12 +43,12 @@ xExists <- function (pred, colls) {
 		exclaim$must_be_matchable(
 			pred, summate(pred)) )
 
-	pred <- match_fn(pred)
-
 	assert(
-		all(sapply(colls, is_collection)), invoking_call,
+		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
 		exclaim$must_be_recursive_of_collections(
 			colls, summate(colls)) )
+
+	pred <- match_fn(pred)
 
 	coll_lengths <- vapply(colls, length, integer(1))
 

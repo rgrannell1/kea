@@ -42,6 +42,12 @@ xPermute <- function (coll, colls) {
 
 	coll <- as_typed_vector(coll, 'numeric')
 
+
+	assert(
+		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
+		exclaim$must_be_recursive_of_collections(
+			colls, summate(colls)) )
+
 	assert(
 		all(vapply(colls, length, integer(1)) == length(coll)),
 		invoking_call,

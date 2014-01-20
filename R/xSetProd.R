@@ -36,7 +36,7 @@ xSetProd <- function (colls) {
 
 	assert(
 		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
-		exclaim$must_be_collection_of_length(
+		exclaim$must_be_recursive_of_collections(
 			colls, summate(colls)) )
 
 	coll_lengths <- vapply(colls, length, integer(1))

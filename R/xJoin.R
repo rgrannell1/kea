@@ -33,7 +33,8 @@ xJoin <- function (colls) {
 	invoking_call <- sys.call()
 
 	assert(
-		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
+		all( vapply(colls, is_collection, logical(1)) ),
+		invoking_call,
 		exclaim$must_be_recursive_of_collections(
 			colls, summate(colls)) )
 

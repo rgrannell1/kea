@@ -42,8 +42,8 @@ xAssoc <- function (colls) {
 		exclaim$parametre_missing(colls))
 
 	assert(
-		is_recursive(colls), invoking_call,
-		exclaim$must_be_recursive(
+		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
+		exclaim$must_be_recursive_of_collections(
 			colls, summate(colls)) )
 
 	assert(

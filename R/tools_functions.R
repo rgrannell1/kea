@@ -741,7 +741,7 @@ summate <- local({
 			response <- pair[[2]]
 
 			if (test(obj)) {
-				return (response(obj))
+				return ( paste0(response(obj), collapse = '') )
 			}
 		}
 

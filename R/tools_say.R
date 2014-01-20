@@ -66,6 +66,16 @@ exclaim <- list(
 			profile
 
 		},
+must_be_collection_of_collections =
+		function (param, profile = '') {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% dQuote(param) %+%
+			" must be a collection of list, a pairlist or a typed vector." %+%
+			profile
+
+		},
 	must_be_collection_ =
 		function (param, profile = '') {
 

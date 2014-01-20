@@ -36,8 +36,11 @@ xRemoveEmpty <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		coll <- as.list(coll)
-		coll[ vapply(coll, length, integer(1)) == 0 ] <- Null
+		coll[vapply(
+			as.list(coll),
+			length,
+			integer(1)) == 0 ] <- Null
+
 		coll
 	}
 }
