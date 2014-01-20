@@ -33,10 +33,7 @@ xAsRaw <- function (raws) {
 		!missing(raws), invoking_call,
 		exclaim$parametre_missing(raws))
 
-	assert(
-		is_collection(raws), invoking_call,
-		exclaim$must_be_collection(
-			raws, summate(raws)) )
+assert_is_collection(raws, invoking_call)
 
 	as_typed_vector(raws, 'raw')
 

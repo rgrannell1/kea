@@ -34,10 +34,7 @@ xFirstOf <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert(
-		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(
-			coll, summate(coll)) )
+	assert_is_collection(coll, invoking_call)
 
 	assert(
 		length(coll) >= 1, invoking_call,

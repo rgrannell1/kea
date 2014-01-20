@@ -33,10 +33,7 @@ xAsLogical <- function (bools) {
 		!missing(bools), invoking_call,
 		exclaim$parametre_missing(bools))
 
-	assert(
-		is_collection(bools), invoking_call,
-		exclaim$must_be_collection(
-			bools, summate(bools)) )
+	assert_is_collection(bools, invoking_call)
 
 	bools <- as_typed_vector(bools, 'logical')
 

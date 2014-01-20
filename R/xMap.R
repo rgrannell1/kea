@@ -49,10 +49,7 @@ xMap <- function (fn, coll) {
 
 	assert_is_fn_matchable(fn, invoking_call)
 
-	assert(
-		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(
-			coll, summate(coll)) )
+	assert_is_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 

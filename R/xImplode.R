@@ -42,10 +42,7 @@ xImplode <- function (str, strs) {
 	str <- as_typed_vector(
 		str, 'character', True)
 
-	assert(
-		is_collection(strs), invoking_call,
-		exclaim$must_be_collection(
-			strs, summate(strs)) )
+assert_is_collection(strs, invoking_call)
 
 	strs <- as_typed_vector(strs, 'character')
 

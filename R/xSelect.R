@@ -51,10 +51,7 @@ xSelect <- function (pred, coll) {
 
 	assert_is_fn_matchable(pred, invoking_call)
 
-	assert(
-		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(
-			coll, summate(coll)) )
+	assert_is_collection(coll, invoking_call)
 
 	pred <- match_fn(pred)
 

@@ -57,10 +57,7 @@ xDrop <- function (num, coll) {
 		exclaim$must_be_whole(
 			num, summate(num)) )
 
-	assert(
-		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(
-			coll, summate(coll)) )
+	assert_is_collection(coll, invoking_call)
 
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()

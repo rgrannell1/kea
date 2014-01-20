@@ -49,8 +49,6 @@ exclaim <- list(
 	must_be_collection =
 		function (param, profile = '') {
 
-			param <- paste(match.call()$param)
-
 			"the argument matching " %+% dQuote(param) %+%
 			" must be a list, a pairlist or a typed vector." %+%
 			profile

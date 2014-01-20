@@ -38,10 +38,7 @@ xAsNamed <- function (strs, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert(
-		is_collection(strs), invoking_call,
-		exclaim$must_be_collection(
-			strs, summate(strs)) )
+assert_is_collection(strs, invoking_call)
 
 	strs <- as_typed_vector(strs, 'character')
 

@@ -53,10 +53,7 @@ xSplitAt <- function (nums, coll) {
 		exclaim$must_be_collection(
 			nums, summate(nums)) )
 
-	assert(
-		is_collection(coll), invoking_call,
-		exclaim$must_be_collection(
-			coll, summate(coll)) )
+	assert_is_collection(coll, invoking_call)
 
 	nums <- as_typed_vector(nums, "numeric", True)
 
