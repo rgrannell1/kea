@@ -21,14 +21,6 @@
 #
 # Similar lists of messages exist for other tools and function.
 
-
-ddparse <- function (val, collapse = "") {
-	paste0(deparse(val), collapse = collapse)
-}
-newline <- function (val) {
-	paste0(val, collapse = "\n")
-}
-
 exclaim <- list(
 	parametre_missing =
 		function (param, profile = '') {
@@ -564,11 +556,13 @@ yelp <- list(
 		function (calltext, expr) {
 
 			expr <- paste0(deparse(expr), collapse = '')
+
 			calltext %+% ': the assertion\n ' %+% expr %+% ' \nfailed.'
 
 		},
 	non_logical_assertion =
 		function (expr) {
+
 			expr <- paste0(deparse(expr), collapse = '')
 
 			"the assertion " %+% expr %+% " returned a non-logical value."
@@ -576,47 +570,47 @@ yelp <- list(
 	arrow_function_failed =
 		function (callname, call, message) {
 
-			# removed because it screwed up summate( ) call
-			# message <- strwrap(message, width = 70, simplify = True)
-
 			callname <- paste0(callname, collapse = '')
-			call <- paste0(strwrap(call, indent = 4), collapse = '')
+			call <- wrap(call, indent = 4)
 
-			'\n' %+%
-			'[ error thrown from ' %+% callname %+% ' ]:' %+% '\n\n' %+%
+			overview <-
+			'\n[ error thrown from ' %+% callname %+% ' ]:\n\n'
+
+			overview %+%
 			call %+% '\n\n' %+%
 			'[ details ]:\n\n' %+%
 			message
 
 		},
-
 	warning_higher_order =
 		function (fn, warn, profile = '') {
 
-			warncall <- paste0(warn$call, collapse = '')
-			warnmessage <- paste0(warn$message, collapse = '')
+			warnmessage <-
+				paste0(warn$message, collapse = '')
 
-			"[ warning occurred while executing a function passed to " %+%
-			fn %+% " ]\n" %+%
-			strwrap(
-				format_call(warncall) %+% ":\n" %+%
-				paste0(warnmessage, collapse = ''),
-				indent = 4
-			)
+			inner_call <- format_call(warn$call) %+% ":\n\n"
+
+			overview <-
+			"[ warning occurred while executing a function passed to " %+% fn %+% " ]\n\n"
+
+			overview %+% wrap(
+				inner_call %+% warnmessage,
+				indent = 4)
 
 		},
 	error_higher_order =
 		function (fn, err, profile = '') {
 
-			errcall <- paste0(err$call, collapse = '')
-			errmessage <- paste0(err$message, collapse = '')
+			errmessage <-
+				paste0(err$message, collapse = '')
 
-			"[ an error occurred while executing a function passed to " %+%
-			fn %+% ": ]\n\n" %+%
-			strwrap(
-				format_call(errcall) %+% ":\n" %+%
-				paste0(errmessage, collapse = ''),
-				indent = 4
-			)
+			inner_call <- format_call(err$call) %+% ':\n\n'
+
+			overview <-
+			"[ an error occurred while executing a function passed to " %+% fn %+% " ]:\n\n"
+
+			overview %+% wrap(
+				inner_call %+% errmessage,
+				indent = 4)
 		}
 )

@@ -28,6 +28,7 @@ Collate:
     'help_arrow_variadic.R'
     'help_arrow_methods.R'
     'tools_functions.R'
+    'tools_assertion.R'
     'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'

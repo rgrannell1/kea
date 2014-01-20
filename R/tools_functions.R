@@ -81,12 +81,6 @@ call_with_params <- function (name, fn) {
 	!(x %in% y)
 }
 
-modify_call <- function (invoking_call) {
-
-	paste0( deparse(invoking_call), collapse = '' )
-
-}
-
 # to dedottify my code.
 match_fn <- match.fun
 
@@ -291,85 +285,24 @@ try_higher_order <- function (expr, invoking_call) {
 
 # --------------------- testing & message functions --------------------- #
 
-format_call <- function (call) {
-	# call -> string
-	# format the call nicely for printing.
 
-	paste0(
-		capture.output(print(call)),
-		collapse = '\n')
+ddparse <- function (val, collapse = "") {
+	# safely deparse a string.
 
+	paste0(deparse(val), collapse = collapse)
 }
 
-assert <- local({
+newline <- function (val) {
+	paste0(val, collapse = "\n")
+}
 
-	consts <- list(
-		margin =
-			80
-	)
+wrap <- function (...) {
+	# wrap and indent a string,
 
-	function (expr, invoking_call, message) {
-		# does an expression evaluate to true?
-		# if not, throw a lovely error.
-
-		args <- as.list(match.call())[-1]
-
-		if (!is.logical(expr)) {
-			stop(
-				yelp$non_logical_assertion(expr),
-				call. = False)
-		}
-
-		if (!isTRUE(expr)) {
-			call <- if (missing(invoking_call)) {
-				'assert()'
-			} else {
-
-				callname <- paste0( invoking_call[[1]] )
-				calltext <- format_call(invoking_call)
-
-				if (nchar(calltext) > consts$margin) {
-					paste0(substr(calltext, 1, consts$margin), '...')
-				} else {
-					calltext
-				}
-			}
-
-			if (missing(message)) {
-
-				stop(
-					yelp$assertion_failed(
-						call, args$expr),
-					call. = False)
-
-			} else {
-
-				stop(
-					yelp$arrow_function_failed(
-						callname, call, message),
-					call. = False)
-			}
-		}
-		invisible(Null)
-	}
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	paste0(
+		strwrap(...),
+		collapse = '')
+}
 
 ith_suffix <- function (num) {
 	# number -> string
