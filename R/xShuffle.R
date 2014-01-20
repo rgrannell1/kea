@@ -25,6 +25,7 @@
 
 xShuffle <- function (coll) {
 	# Collection any -> [any]
+	# shuffle a collection.
 
 	invoking_call <- sys.call()
 

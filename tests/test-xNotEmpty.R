@@ -2,23 +2,18 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message('xIsEmpty')
+message('xNotEmpty')
 
 	forall(
-		"is empty of empty is True",
+		"not empty of empty is True",
 		test_cases$collection_zero,
-		xIsEmpty(coll)
+		!xNotEmpty(coll)
 	)
 
 	forall(
-		"is empty of empty is True",
+		"not empty of empty is True",
 		test_cases$collection,
-		!xIsEmpty(coll),
+		xNotEmpty(coll),
 		given =
 			length(coll) > 0
 	)
-
-
-
-
-

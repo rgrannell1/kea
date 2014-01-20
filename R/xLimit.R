@@ -46,9 +46,19 @@ xLimit <- function (fn, num) {
 	num <- as_typed_vector(num, 'numeric', True)
 
 	assert(
-		num > 0, invoking_call,
+		length(num) == 1, invoking_call,
+		exclaim$must_have_length(
+			num, 1, summate(num)) )
+
+	assert(
+		round(num) == num, invoking_call,
 		exclaim$must_be_whole(
 			num, summate(num)) )
+
+	assert(
+		num >= 0, invoking_call,
+		exclaim$must_be_greater_than(
+			num, 0, summate(num)) )
 
 	assert(
 		is_fn_matchable(fn), invoking_call,

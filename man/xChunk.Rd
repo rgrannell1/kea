@@ -1,11 +1,11 @@
-\name{xGroup}
-\alias{xGroup}
-\alias{xGroup...}
-\title{xGroup}
+\name{xChunk}
+\alias{xChunk}
+\alias{xChunk...}
+\title{xChunk}
 \usage{
-xGroup(num, coll)
+xChunk(num, coll)
 
-xGroup...(num, ...)
+xChunk...(num, ...)
 }
 \arguments{
   \item{num}{a nonnegative whole number.}
@@ -21,7 +21,7 @@ A list of lists.
 Divide a collection into segments of fixed length.
 }
 \section{Uses}{
-  \code{xGroup} is useful for reshaping a collection into
+  \code{xChunk} is useful for reshaping a collection into
   pairs, triples, or larger groups before applying a
   function to each group.
 }

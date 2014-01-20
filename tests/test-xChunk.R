@@ -2,12 +2,12 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message("xGroup")
+message("xChunk")
 
 	forall(
 		"one divides into lists of one.",
 		test_cases$collection,
-		length(xGroup(1, coll)) == length(coll),
+		length(xChunk(1, coll)) == length(coll),
 		given =
 			length(coll) > 0
 	)
@@ -15,7 +15,7 @@ message("xGroup")
 	forall(
 		"infinite doesn't divide collection.",
 		test_cases$collection,
-		xGroup(Inf, coll) %equals% list(as.list(coll)),
+		xChunk(Inf, coll) %equals% list(as.list(coll)),
 		given =
 			length(coll) > 0
 	)

@@ -66,6 +66,14 @@ exclaim <- list(
 			profile
 
 		},
+	must_be_collection_ =
+		function (param, profile = '') {
+
+			"the argument matching " %+% dQuote(param) %+%
+			" must be a list, a pairlist or a typed vector." %+%
+			profile
+
+		},
 	must_be_function =
 		function (param, profile = '') {
 
@@ -195,6 +203,16 @@ exclaim <- list(
 
 			"the argument matching " %+% dQuote(param) %+%
 			" must be a collection of whole numbers." %+%
+			profile
+
+		},
+	must_be_nonnegatives =
+		function (param, profile = '') {
+
+			param <- paste(match.call()$param)
+
+			"the argument matching " %+% dQuote(param) %+%
+			" must be a collection of nonnegative." %+%
 			profile
 
 		},

@@ -33,10 +33,10 @@ Permute several collections using indices.
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},
-\code{\link{xChop...}}; \code{\link{xDissoc}},
+\code{\link{xChop...}}; \code{\link{xChunk}},
+\code{\link{xChunk...}}; \code{\link{xDissoc}},
 \code{\link{xDissoc...}}; \code{\link{xFlatten}},
-\code{\link{xFlatten...}}; \code{\link{xGroup}},
-\code{\link{xGroup...}}; \code{\link{xJoin}},
+\code{\link{xFlatten...}}; \code{\link{xJoin}},
 \code{\link{xJoin...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};

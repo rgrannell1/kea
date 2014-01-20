@@ -47,12 +47,19 @@ xLambda <- local({
 			}
 	)
 
+	make_formals <- function (names) {
+		structure(
+			rep(list(quote(expr=)), length(names)),
+			names = names)
+	}
+
 	function (sym, val) {
 		# symbol -> any -> function
 		# construct a function from a symbol and
 		# a function body.
 
 		parent_frame <- parent.frame()
+
 		sym <- match.call()$sym
 		val <- match.call()$val
 
@@ -61,12 +68,6 @@ xLambda <- local({
 		lambda <- function () {}
 
 		body(lambda) <- val
-
-		make_formals <- function (names) {
-			structure(
-				rep(list(quote(expr=)), length(names)),
-				names = names)
-		}
 
 		if (is.name(sym)) {
 			# ------ make lambda a default-free unary function ------ #
@@ -102,8 +103,7 @@ xLambda <- local({
 							c(get$param(tree, True), state$params) )
 
 					collect_params(
-						get$rest(tree),
-						new_state)
+						get$rest(tree), new_state)
 
 				}
 			}

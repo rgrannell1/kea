@@ -70,11 +70,11 @@ xSplitWith <- function (pred, coll) {
 				exclaim$non_logical_predicate(
 					pred, summate(is_match)) )
 
-			if (!isTRUE(is_match)) {
+			if (isTRUE(is_match)) {
 				return (
 					list(
-						head(coll, ith - 1),
-						tail(coll, length(coll) - (ith - 1)) ))
+						head(coll, ith),
+						tail(coll, length(coll) - ith) ))
 			}
 		}
 		list(coll, list())

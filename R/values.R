@@ -13,22 +13,18 @@
 #' @rdname values
 
 Na <- NA
-# lockBinding('Na', environment())
 
 #' @export
 #' @rdname values
 
 Null <- NULL
-# lockBinding('Null', environment())
 
 #' @export
 #' @rdname values
 
 True <- TRUE
-# lockBinding('True', environment())
 
 #' @export
 #' @rdname values
 
 False <- FALSE
-# lockBinding('False', environment())

@@ -1,13 +1,15 @@
-\name{xUnique}
-\alias{xUnique}
-\alias{xUnique...}
-\title{xUnique}
+\name{xNotMember}
+\alias{xNotMember}
+\alias{xNotMember...}
+\title{xNotMember}
 \usage{
-xUnique(coll)
+xNotMember(val, coll)
 
-xUnique...(...)
+xNotMember...(val, ...)
 }
 \arguments{
+  \item{val}{an arbitrary value.}
+
   \item{coll}{a collection.}
 
   \item{...}{see above.}
@@ -16,10 +18,11 @@ xUnique...(...)
 A list.
 }
 \description{
-Return the unique elements in a collection.
+Check if a collection doesn't contain a value.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{colls} is length-zero.
+  Various types of \code{Na} are not-distinguished between.
+  Type conversion is not carried out.
 }
 
 \section{Variadic Functions
@@ -32,9 +35,9 @@ Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
-\code{\link{xIsMember...}}; \code{\link{xNotMember}},
-\code{\link{xNotMember...}}; \code{\link{xSetProd}},
+\code{\link{xIsMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}
+\code{\link{xUnion...}}; \code{\link{xUnique}},
+\code{\link{xUnique...}}
 }
 

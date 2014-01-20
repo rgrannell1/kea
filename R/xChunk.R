@@ -1,10 +1,10 @@
 
-#' xGroup
+#' xChunk
 #'
 #' Divide a collection into segments of fixed length.
 #'
 #' @section Uses:
-#'    \code{xGroup} is useful for reshaping a collection into pairs, triples,
+#'    \code{xChunk} is useful for reshaping a collection into pairs, triples,
 #'    or larger groups before applying a function to each group.
 #'
 #' @param
@@ -29,10 +29,10 @@
 #' @template
 #'    Variadic
 #'
-#' @rdname xGroup
+#' @rdname xChunk
 #' @export
 
-xGroup <- function (num, coll) {
+xChunk <- function (num, coll) {
 	# integer -> Collection any -> [[any]]
 	# groups coll into chunks of num,
 	# when possible.
@@ -77,9 +77,9 @@ xGroup <- function (num, coll) {
 	}
 }
 
-#' @rdname xGroup
+#' @rdname xChunk
 #' @export
 
-xGroup... <- function (num, ...) {
-	xGroup(num, list(...))
+xChunk... <- function (num, ...) {
+	xChunk(num, list(...))
 }

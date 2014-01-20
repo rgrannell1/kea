@@ -25,7 +25,7 @@
 
 xUnique <- function (coll) {
 	# Collection any -> Collection any
-	# remove duplicated valeus from a collection.
+	# remove duplicated values from a collection.
 
 	invoking_call <- sys.call()
 

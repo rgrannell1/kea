@@ -24,7 +24,7 @@
 
 xSignum <- function (nums) {
 	# Collection number -> integers
-	# returns the sign of a number.
+	# returns the sign of a number vector.
 
 	invoking_call <- sys.call()
 

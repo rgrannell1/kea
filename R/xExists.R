@@ -28,6 +28,7 @@
 #' @export
 
 xExists <- function (pred, colls) {
+	# (... -> logical) -> Collection Collection any -> boolean
 	# does there exist any choice of bindings for
 	# pred such that pred is true?
 

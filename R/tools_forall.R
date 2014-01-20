@@ -713,8 +713,12 @@ test_cases <- local({
 
 	# --------------------- fn-Only --------------------- #
 
+	this$linear_function <-
+		list(fn = atoms$linear_function)
+
 	this$base_primitive <-
 		list(fn = atoms$base_primitive)
+
 	this$base_function <-
 		list(fn = atoms$base_function)
 

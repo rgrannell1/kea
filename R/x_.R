@@ -1015,6 +1015,18 @@ x_coll_proto <- local({
 	add_x_method(this, x_Negate, 'nums')
 	add_x_method(this, x_Negate..., '...')
 
+	# --- xNotMember --- #
+	add_x_method(this, xNotMember, 'coll')
+	add_x_method(this, xNotMember..., '...')
+	add_x_method(this, x_NotMember, 'coll')
+	add_x_method(this, x_NotMember..., '...')
+
+	# --- xNotEmpty --- #
+	add_x_method(this, xNotEmpty, 'coll')
+	add_x_method(this, xNotEmpty..., '...')
+	add_x_method(this, x_NotEmpty, 'coll')
+	add_x_method(this, x_NotEmpty..., '...')
+
 	# --- xNotFalse --- #
 	add_x_method(this, xNotFalse, 'coll')
 	add_x_method(this, xNotFalse..., '...')
@@ -1038,6 +1050,12 @@ x_coll_proto <- local({
 	add_x_method(this, xNotNan..., '...')
 	add_x_method(this, x_NotNan, 'coll')
 	add_x_method(this, x_NotNan..., '...')
+
+	# --- xNotNull --- #
+	add_x_method(this, xNotNull, 'coll')
+	add_x_method(this, xNotNull..., '...')
+	add_x_method(this, x_NotNull, 'coll')
+	add_x_method(this, x_NotNull..., '...')
 
 	# -------- O ------- #
 	# -------- P ------- #
@@ -1147,11 +1165,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_SetProd, 'colls')
 	add_x_method(this, x_SetProd..., '...')
 
-	# --- xGroup --- #
-	add_x_method(this, xGroup, 'coll')
-	add_x_method(this, xGroup..., '...')
-	add_x_method(this, x_Group, 'coll')
-	add_x_method(this, x_Group..., '...')
+	# --- xChunk --- #
+	add_x_method(this, xChunk, 'coll')
+	add_x_method(this, xChunk..., '...')
+	add_x_method(this, x_Chunk, 'coll')
+	add_x_method(this, x_Chunk..., '...')
 
 	# --- xSelect --- #
 	add_x_method(this, xSelect, 'coll')

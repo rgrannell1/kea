@@ -11,6 +11,14 @@ message('xSplitAt')
 	)
 
 	forall(
+		"splitting with all indices is as.list^2",
+		test_cases$collection,
+		xSplitAt(seq_along(coll), coll) %equals% Map(as.list, as.list(coll)),
+		given =
+			length(coll) > 0
+	)
+
+	forall(
 		"splitting with 0 yields an empty list and the list",
 		test_cases$collection,
 		xSplitAt(0, coll) %equals% list(list(), as.list(coll)),
@@ -25,3 +33,4 @@ message('xSplitAt')
 		given =
 			length(coll) > 0
 	)
+

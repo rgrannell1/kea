@@ -5,7 +5,7 @@
 #' an index, and after that index.
 #'
 #' @param
-#'    num a nonnegative whole number.
+#'    nums a vector of nonnegative whole numbers.
 #'
 #' @param
 #'    coll a collection
@@ -15,13 +15,13 @@
 #'
 #' @return
 #'    A list of two lists; the first list containing
-#'    the first \code{num} elements of \code{coll}, and the
+#'    the first \code{nums} elements of \code{coll}, and the
 #'    second list containing the remaining elements \code{coll}.
 #'
 #' @section Corner Cases:
-#'    If \code{num} is zero then the first list in the
+#'    If \code{nums} is zero then the first list in the
 #'    returned value is empty.
-#'    Likewise, if \code{num} is equal or larger than the
+#'    Likewise, if \code{nums} is equal or larger than the
 #'    length of \code{coll} then
 #'    the second return list is empty. If \code{coll} is
 #'    length zero both lists are empty.
@@ -34,49 +34,68 @@
 #' @rdname xSplitAt
 #' @export
 
-xSplitAt <- function (num, coll) {
-	# number -> Collection any -> [[any], [any]]
+xSplitAt <- function (nums, coll) {
+	# numsber -> Collection any -> [[any], [any]]
 	# take the first n values of collection.
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(num), invoking_call,
-		exclaim$parametre_missing(num))
+		!missing(nums), invoking_call,
+		exclaim$parametre_missing(nums))
 
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	num <- as_typed_vector(num, "numeric", True)
-
 	assert(
-		length(num) == 1,
-		exclaim$must_have_length(
-			num, 1, summate(num)) )
+		is_collection(nums), invoking_call,
+		exclaim$must_be_collection(
+			nums, summate(nums)) )
 
 	assert(
 		is_collection(coll), invoking_call,
 		exclaim$must_be_collection(
 			coll, summate(coll)) )
 
+	nums <- as_typed_vector(nums, "numeric", True)
+
+	# nonnegative whole values in nums
+
+	assert(
+		all(round(nums) == nums), invoking_call,
+		exclaim$must_be_wholes(
+			nums, summate(nums)) )
+
+	assert(
+		all(nums > 0), invoking_call,
+		exclaim$must_be_nonnegatives(
+			nums, summate(nums)) )
+
 	if (length(coll) == 0) {
 		list()
 	} else {
-		list(
-			as.list(coll)[seq_len( min(num, length(coll)) )],
-			if (num < length(coll)) {
-				as.list(coll)[(num + 1) : length(coll)]
-			} else {
-				list()
-			}
-		)
+
+		coll <- as.list(coll)
+
+		nums[nums > length(coll)] <- length(coll)
+		nums <- sort( unique(c(nums, length(coll))) )
+
+		lower <- 1
+		for ( ith in seq_len(length(nums)) ) {
+
+			upper <- nums[[ith]]
+			bounds <- c(bounds, list( coll[lower:upper] ))
+			lower <- upper + 1
+		}
+
+		bounds
 	}
 }
 
 #' @rdname xSplitAt
 #' @export
 
-xSplitAt... <- function (num, ...) {
-	xSplitAt(num, list(...))
+xSplitAt... <- function (nums, ...) {
+	xSplitAt(nums, list(...))
 }

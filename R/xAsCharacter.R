@@ -47,3 +47,4 @@ xAsCharacter <- function (strs) {
 xAsCharacter... <- function (...) {
 	xAsCharacter(list(...))
 }
+
