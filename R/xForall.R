@@ -37,10 +37,7 @@ xForall <- function (pred, colls) {
 		!missing(pred), invoking_call,
 		exclaim$parametre_missing(pred))
 
-	assert(
-		is_fn_matchable(pred), invoking_call,
-		exclaim$must_be_matchable(
-			pred, summate(pred)) )
+	assert_is_fn_matchable(pred, invoking_call)
 
 	assert(
 		all( vapply(colls, is_collection, logical(1)) ), invoking_call,

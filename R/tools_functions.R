@@ -7,9 +7,7 @@
 #
 # Most utilities are obvious, but I will outline key utilities.
 #
-# assert:
-#     Assert checks if a proposition is true, and if it fails
-#     throws a helpful error (see say.R).
+
 #
 # as_typed_vector:
 #     A function to try convert a list of values to a typed vector.

@@ -1699,7 +1699,8 @@ get_proto_ref <- function (val) {
 	}
 }
 
-#' @method $ arrow
+# @method $ arrow
+# @export
 
 '$.arrow' <- local({
 

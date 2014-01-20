@@ -37,10 +37,7 @@ xMapMany <- function (fn, colls) {
 		!missing(fn), invoking_call,
 		exclaim$parametre_missing(fn))
 
-	assert(
-		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(
-			fn, summate(fn)) )
+	assert_is_fn_matchable(fn, invoking_call)
 
 	assert(
 		all( vapply(colls, is_collection, logical(1)) ), invoking_call,

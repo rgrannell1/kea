@@ -24,10 +24,7 @@ xIsVariadic <- function (fn) {
 		!missing(fn), invoking_call,
 		exclaim$parametre_missing(fn))
 
-	assert(
-		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(
-			fn, summate(fn)) )
+	assert_is_fn_matchable(fn, invoking_call)
 
 	fn <- match_fn(fn)
 

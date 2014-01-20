@@ -30,11 +30,9 @@ exclaim <- list(
 			"the parametre " %+% dQuote(param) %+% " is required but was missing."
 		},
 	must_be_matchable =
-		function (param, profile = '') {
+		function (sym, profile = '') {
 
-			param <- paste(match.call()$param)
-
-			"the argument matching " %+% dQuote(param) %+%
+			"the argument matching " %+% dQuote(sym) %+%
 			" must be a function, or a symbol or string" %+%
 			" that can be looked-up as a function. "%+%
 			profile
@@ -555,7 +553,7 @@ yelp <- list(
 	assertion_failed =
 		function (calltext, expr) {
 
-			expr <- paste0(deparse(expr), collapse = '')
+			expr <- ddpase(expr)
 
 			calltext %+% ': the assertion\n ' %+% expr %+% ' \nfailed.'
 
@@ -563,7 +561,7 @@ yelp <- list(
 	non_logical_assertion =
 		function (expr) {
 
-			expr <- paste0(deparse(expr), collapse = '')
+			expr <- ddpase(expr)
 
 			"the assertion " %+% expr %+% " returned a non-logical value."
 		},

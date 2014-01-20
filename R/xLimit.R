@@ -60,10 +60,7 @@ xLimit <- function (fn, num) {
 		exclaim$must_be_greater_than(
 			num, 0, summate(num)) )
 
-	assert(
-		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(
-			fn, summate(fn)) )
+	assert_is_fn_matchable(fn, invoking_call)
 
 	fn <- match_fn(fn)
 

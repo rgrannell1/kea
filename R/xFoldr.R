@@ -53,10 +53,7 @@ xFoldr <- function (fn, val, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert(
-		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(
-			fn, summate(fn)) )
+	assert_is_fn_matchable(fn, invoking_call)
 
 	assert(
 		is_collection(coll), invoking_call,
