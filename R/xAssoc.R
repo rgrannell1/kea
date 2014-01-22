@@ -42,11 +42,7 @@ xAssoc <- function (colls) {
 		exclaim$parametre_missing(colls))
 
     insist$must_be_collection_of_collections(colls, invoking_call)
-
-	assert(
-		all( vapply(colls, length, integer(1)) == 2), invoking_call,
-		exclaim$must_be_collection_of_length(
-			colls, 2, summate(colls)) )
+    insist$must_be_collection_of_lengths(colls, 2, invoking_call)
 
 	if (length(colls) == 0) {
 		list()
@@ -55,8 +51,7 @@ xAssoc <- function (colls) {
 			colls,
 			function (coll) {
 
-				key <- coll[[1]]
-				key <- as_typed_vector(key, "character")
+				key <- as_typed_vector(coll[[1]], "character")
 
 				assert(
 					length(key) == 1, invoking_call,

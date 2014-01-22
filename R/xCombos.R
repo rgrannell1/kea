@@ -45,12 +45,8 @@ xCombos <- function (num, coll) {
 
 	num <- as_typed_vector(num, 'numeric', True)
 
-	assert(
-		num >= 0, invoking_call,
-		exclaim$must_be_greater_than(
-			num, 0, summate(num)) )
-
-	insist$must_be_whole(nums, invoking_call)
+	insist$must_be_whole(num, invoking_call)
+	insist$must_be_greater_than(num, 0, invoking_call)
 	insist$must_be_collection(coll, invoking_call)
 
 	if (num == 0) {

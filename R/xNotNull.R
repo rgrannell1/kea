@@ -23,6 +23,7 @@
 
 xNotNull <- function (coll) {
 	# collection any -> vector Boolean
+	# are the elements of a collection not null?
 
 	invoking_call <- sys.call()
 
@@ -33,7 +34,7 @@ xNotNull <- function (coll) {
 	insist$must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0 && is.null(coll)) {
-		# empty pairlist.
+		# empty pairlist - an odd corner case.
 		False
 	} else {
 		res <- vector(mode = 'logical', length(coll))

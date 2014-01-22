@@ -46,13 +46,13 @@ xAsFunction <- function (coll) {
 		nums <- as_typed_vector(c(...), 'numeric', True)
 
 		insist$must_be_whole(nums, invoking_call)
-		insist$max_must_be_lless_than(nums, coll, invoking_call)
-		insist$min_must_be_greater_than(nums, 0, invoking_call)
+		insist$max_must_have_length_less_than(nums, coll, invoking_call)
+		insist$minimum_must_be_greater_than(nums, 0, invoking_call)
 
-		assert(
-			min(nums) >= 0, invoking_call,
-			exclaim$must_be_greater_than(
-				"min(nums)", 0))
+		#assert(
+		#	min(nums) >= 0, invoking_call,
+		#	exclaim$must_be_greater_than(
+		#		"min(nums)", 0))
 
 		as.list(coll[nums])
 	}

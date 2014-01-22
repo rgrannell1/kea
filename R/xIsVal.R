@@ -29,10 +29,7 @@ xIsVal <- function (str) {
 	str <- toString(match.call()$str)
 	str <- as_typed_vector(str, "character", True)
 
-	assert(
-		length(str) == 1, invoking_call,
-		exclaim$must_have_length(
-			str, 1, summate(str)) )
+	insist$must_be_of_length(str, 1, invoking_call)
 
 	exists(str, parent_frame) &&
 		bindingIsLocked(str, parent_frame)

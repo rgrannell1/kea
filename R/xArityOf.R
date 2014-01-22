@@ -39,7 +39,7 @@ xArityOf <- function (fn) {
 	insist$must_be_fn_matchable(fn, invoking_call)
 
 	fn <- match_fn(fn)
-	fn_params <- xParams(fn)
+	fn_params <- xParamsOf(fn)
 
 	if ("..." %in% fn_params) {
 		+Inf

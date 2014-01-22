@@ -33,7 +33,7 @@ xIsNull <- function (coll) {
 	insist$must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0 && is.null(coll)) {
-		# empty pairlist.
+		# empty pairlist - a slighty odd corner case.
 		True
 	} else {
 		res <- vector(mode = 'logical', length(coll))

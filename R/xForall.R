@@ -70,10 +70,7 @@ xForall <- function (pred, colls) {
 				do.call(pred, tuple),
 				invoking_call)
 
-			assert(
-				is.logical(is_match), invoking_call,
-				exclaim$non_logical_predicate(
-					pred, summate(is_match)) )
+			insist$is_logical_result(is_match, pred, invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return (False)

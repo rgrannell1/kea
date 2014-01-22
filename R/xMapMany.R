@@ -39,6 +39,7 @@ xMapMany <- function (fn, colls) {
 
 	insist$must_be_fn_matchable(fn, invoking_call)
     insist$must_be_collection_of_collections(colls, invoking_call)
+
 	fn <- match_fn(fn)
 
 	coll_lens <- vapply(colls, length, integer(1))

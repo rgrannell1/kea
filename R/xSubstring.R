@@ -43,11 +43,7 @@ xSubstring <- function (str, nums) {
 	str <- as_typed_vector(str, "character", True)
 	nums <- as_typed_vector(nums, "numeric", False)
 
-	assert(
-		length(str) < 2, invoking_call,
-		exclaim$must_be_lequal_than(
-			str, 2, summate(str)) )
-
+	insist$must_be_of_length(str, 0:1, invoking_call)
 	insist$must_be_whole(nums, invoking_call)
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {

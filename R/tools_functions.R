@@ -232,7 +232,7 @@ as_typed_vector <- local({
 			is_length_one <- all(sapply(coll, length) == 1)
 
 			if (!is_length_one) {
-				stop(exclaim$must_be_collection_of_length(coll_symbol, 1))
+				stop(exclaim$must_be_collection_of_lengths(coll_symbol, 1))
 			}
 
 			is_homogenous <- all(sapply(coll, type_test))
@@ -476,6 +476,14 @@ summate <- local({
 	profile$generic_vector <-
 		function (obj) {
 
+			traits <- list(
+				length =
+					length(obj)
+			)
+
+			"\n\n" %+% "[ properties of the error-causing list or pairlist ]:" %+% "\n\n" %+%
+			output_key_value_pairs(traits)
+
 		}
 
 	# --- H --- #
@@ -676,7 +684,10 @@ summate <- local({
 			response <- pair[[2]]
 
 			if (test(obj)) {
-				return ( paste0(response(obj), collapse = '') )
+				message <- paste0(response(obj), collapse = '')
+
+				stopifnot(length(message) == 1)
+				return (message)
 			}
 		}
 

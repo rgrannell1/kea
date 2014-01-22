@@ -23,7 +23,7 @@
 #' @export
 
 xReverse <- function (coll) {
-       # Collection any -> [any]
+	# Collection any -> [any]
 	# reverse a collection.
 
 	invoking_call <- sys.call()

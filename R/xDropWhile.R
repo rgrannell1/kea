@@ -43,7 +43,6 @@ xDropWhile <- function (pred, coll) {
 		exclaim$parametre_missing(coll))
 
 	insist$must_be_fn_matchable(pred, invoking_call)
-
 	insist$must_be_collection(coll, invoking_call)
 
 	pred <- match_fn(pred)
@@ -60,10 +59,7 @@ xDropWhile <- function (pred, coll) {
 				pred( coll[[ith]] ),
 				invoking_call)
 
-			assert(
-				is.logical(is_match), invoking_call,
-				exclaim$non_logical_predicate(
-					pred, summate(is_match)) )
+			insist$is_logical_result(is_match, pred, invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return (as.list( tail(coll, length(coll) - (ith - 1)) ))

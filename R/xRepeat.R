@@ -31,6 +31,7 @@
 
 xRepeat <- function (num, coll) {
 	# number -> Collection any -> [any]
+	# repeat a collection several times.
 
 	invoking_call <- sys.call()
 
@@ -44,16 +45,9 @@ xRepeat <- function (num, coll) {
 
 	num <- as_typed_vector(num, "numeric", True)
 
-	insist$must_be_length(num, 1, invoking_call)
+	insist$must_be_of_length(num, 1, invoking_call)
 	insist$must_be_grequal_than(num, 0, invoking_call)
 	insist$must_be_whole(num, invoking_call)
-
-	assert(
-		round(num) == num, invoking_call,
-		exclaim$must_be_whole(
-			num, summate(num)))
-
-	# a lot of assertions for a very simple function :/
 
 	if (num == 0) {
 		list()

@@ -42,15 +42,11 @@ xDrop <- function (num, coll) {
 
 	num <- as_typed_vector(num, 'numeric', True)
 
-	insist$must_be_length(num, 1)
+	insist$must_be_of_length(num, 1, invoking_call)
 
-	assert(
-		num >= 0, invoking_call,
-		exclaim$must_be_numeric(
-			num, summate(num)) )
-
-	insist$must_be_whole(nums, invoking_call)
+	insist$must_be_whole(num, invoking_call)
 	insist$must_be_collection(coll, invoking_call)
+	insist$must_be_grequal_than(num, 0, invoking_call)
 
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()

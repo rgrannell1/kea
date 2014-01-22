@@ -36,11 +36,7 @@ xDissoc <- function (colls) {
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
-	assert(
-		length(names(colls)) == length(colls), invoking_call,
-		exclaim$must_be_named(
-			colls, summate(colls)) )
-
+	insist$must_be_fully_named(colls, invoking_call)
     insist$must_be_collection_of_collections(colls, invoking_call)
 
 	if (length(colls) == 0) {

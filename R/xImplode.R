@@ -34,16 +34,10 @@ xImplode <- function (str, strs) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
-	assert(
-		is_collection(str), invoking_call,
-		exclaim$must_be_collection(
-			str, summate(str)) )
+	insist$must_be_collection(strs, invoking_call)
+	insist$must_be_collection(str, invoking_call)
 
-	str <- as_typed_vector(
-		str, 'character', True)
-
-insist$must_be_collection(strs, invoking_call)
-
+	str <- as_typed_vector(str, 'character', True)
 	strs <- as_typed_vector(strs, 'character')
 
 	if (length(strs) == 0) {

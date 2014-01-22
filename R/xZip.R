@@ -38,13 +38,9 @@ xZip <- function (colls) {
 		list()
 	} else {
 
+		insist$must_be_collection(colls, invoking_call)
 		insist$must_be_collection_of_collections(colls, invoking_call)
-
-		assert(
-			length(unique( vapply(colls, length, integer(1)) )) == 1,
-			invoking_call,
-			exclaim$must_be_collection_of_equal_lengths(
-				colls, summate(colls)) )
+		insist$must_be_collection_of_equal_length(colls, invoking_call)
 
 		lapply(
 			seq_along( colls[[1]] ),

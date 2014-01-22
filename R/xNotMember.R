@@ -36,6 +36,7 @@ xNotMember <- function (val, coll) {
 	assert(
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
+
 	assert(
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))

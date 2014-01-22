@@ -29,11 +29,6 @@ xGetKey <- function (str) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
-	assert(
-		is.character(str), invoking_call,
-		exclaim$must_be_character(
-			str, summate(str)) )
-
 	str <- as_typed_vector(str, 'character', True)
 
 	function (coll) {

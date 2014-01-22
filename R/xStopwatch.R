@@ -27,7 +27,7 @@ xStopwatch <- function (num) {
 
 	num <- as_typed_vector(num, 'numeric', True)
 
-	insist$must_be_length(num, 1)
+	insist$must_be_of_length(num, 1)
 	insist$must_be_greater_than(num, 0, invoking_call)
 
 	genesis <- Sys.time()

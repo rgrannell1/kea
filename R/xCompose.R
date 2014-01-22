@@ -27,15 +27,7 @@ xCompose <- function (fns) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		is_recursive(fns), invoking_call,
-		exclaim$must_be_recursive(
-			fns, summate(fns)) )
-
-	assert(
-		all( vapply(fns, is_fn_matchable, logical(1)) ), invoking_call,
-		exclaim$must_be_recursive_of_matchable(
-			fns, summate(fns)) )
+	insist$must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	fns <- lapply(fns, match_fn)
 

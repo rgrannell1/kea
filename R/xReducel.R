@@ -61,7 +61,7 @@ xReduce <- function (fn, coll) {
 	} else {
 
 		val <- coll[[1]]
-		coll <- xRestOf(coll)
+		coll <- coll[-1]
 
 		callCC(function (Return) {
 

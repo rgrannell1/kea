@@ -54,7 +54,6 @@ xFoldr <- function (fn, val, coll) {
 		exclaim$parametre_missing(coll))
 
 	insist$must_be_fn_matchable(fn, invoking_call)
-
 	insist$must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)

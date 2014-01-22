@@ -42,10 +42,10 @@ xDelay <- function (fn, num) {
 
 	insist$must_be_fn_matchable(fn, invoking_call)
 
-	assert(
-		is.numeric(num) && num >= 0, invoking_call,
-		exclaim$must_be_greater_than(
-			num, 0, summate(num)) )
+	num <- as_typed_vector(num, 'numeric', True)
+
+	insist$must_be_of_length(num, 1)
+	insist$must_be_grequal_than(num, 0, invoking_call)
 
 	fn <- match_fn(fn)
 	remove(invoking_call)

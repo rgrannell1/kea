@@ -14,8 +14,6 @@ Author: Ryan Grannell
 Maintainer: Ryan Grannell <r.grannell2@gmail.com>
 ByteCompile: yes
 License: GPL-3
-Imports:
-    digest
 Suggests:
     microbenchmark
 Collate:
@@ -45,7 +43,6 @@ Collate:
     'tools_forall.R'
     'xLambda.R'
     'xApply.R'
-    'xArityOf.R'
     'xAsClosure.R'
     'xAsLogical.R'
     'xAsInteger.R'
@@ -93,6 +90,7 @@ Collate:
     'xPack.R'
     'xAssoc.R'
     'xParamsOf.R'
+    'xArityOf.R'
     'xPartial.R'
     'xPartition.R'
     'xPoll.R'
