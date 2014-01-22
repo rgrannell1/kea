@@ -20,12 +20,6 @@ A list of lists.
 \description{
 Divide a collection into segments of fixed length.
 }
-\section{Uses}{
-  \code{xChunk} is useful for reshaping a collection into
-  pairs, triples, or larger groups before applying a
-  function to each group.
-}
-
 \section{Corner Cases}{
   The final list in the return value will have less than
   \code{num} elements if \code{length(coll)} is not evenly

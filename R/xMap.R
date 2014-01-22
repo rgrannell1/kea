@@ -3,13 +3,6 @@
 #'
 #' Apply a function to each element of a collection.
 #'
-#' @section Uses:
-#'    xMap is used to apply the same modification to every
-#'    element in a collection. For example, xMap can be
-#'    used to convert every integer in a list to a string,
-#'    to lookup every URL in a list of URLs, or to
-#'    multiply every integer in a list by two.
-#'
 #' @param
 #'    fn a unary function.
 #'

@@ -3,14 +3,6 @@
 #'
 #' Invoke a function with a collection of arguments.
 #'
-#' @section Uses:
-#'    \code{xApply} is an adaptor function that allows variadic functions
-#'    to be called with a variable number of arguments at runtime.
-#'    For example, if \code{xJoin} is invoked directly it has
-#'    to be given a fixed number of lists to concatenate.
-#'    If \code{xJoin} is invoked with \code{xApply} then
-#'    xJoin can be invoked with any number of lists dynamically.
-#'
 #' @param
 #'    fn an function of any arity.
 #'

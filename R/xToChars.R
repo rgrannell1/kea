@@ -26,6 +26,7 @@ xToChars <- function (str) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
+	insist$must_be_collection(str, invoking_call)
 	str <- as_typed_vector(str, 'character')
 
 	if (length(str) == 0 || nchar(str) == 0) {

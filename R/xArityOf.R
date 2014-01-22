@@ -3,13 +3,6 @@
 #'
 #' Return the number of arguments a function can accept.
 #'
-#' @section Uses:
-#'    \code{xArityOf} is primarily intended for use with
-#'    higher-order functions that require functions with a
-#'    particular arity. For example, a strict version of
-#'    map might use \code{xArityOf} to throw an error if
-#'    its input function is not unary.
-#'
 #' @param
 #'    fn an function of any arity.
 #'

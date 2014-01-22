@@ -3,11 +3,6 @@
 #'
 #' Return an argument without modification.
 #'
-#' @section Uses:
-#'    The identity function is useful for testing identities
-#'    (for example, that mapping identity over a collection
-#'	  should return the original collection).
-#'
 #' @param
 #'    val an arbitrary value.
 #'

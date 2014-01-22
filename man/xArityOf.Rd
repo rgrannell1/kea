@@ -13,14 +13,6 @@ A positive whole number.
 \description{
 Return the number of arguments a function can accept.
 }
-\section{Uses}{
-  \code{xArityOf} is primarily intended for use with
-  higher-order functions that require functions with a
-  particular arity. For example, a strict version of map
-  might use \code{xArityOf} to throw an error if its input
-  function is not unary.
-}
-
 \section{Corner Cases}{
   If \code{fn} has an ellipsis (...) parametre then
   \code{+Inf} is returned, as the function can accept an

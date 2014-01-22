@@ -3,10 +3,6 @@
 #'
 #' Divide a collection into segments of fixed length.
 #'
-#' @section Uses:
-#'    \code{xChunk} is useful for reshaping a collection into pairs, triples,
-#'    or larger groups before applying a function to each group.
-#'
 #' @param
 #'    num a nonnegative whole number.
 #'

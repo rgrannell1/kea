@@ -13,14 +13,6 @@ A predicate function of val.
 \description{
 Return the logical negation of a function.
 }
-\section{Uses}{
-  \code{xNot} is useful when used alongside higher-order
-  functions that takes a logical function as an input. For
-  example, given a function to test if a value is an
-  integer and the select function, it would be possible to
-  select every value that is not an integer using
-  \code{xNot}.
-}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

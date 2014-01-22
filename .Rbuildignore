@@ -12,3 +12,8 @@ gpl3.png
 .SyncIgnore
 .SyncPart
 .SyncTemp
+
+.Rhistory
+.gitignore
+.Rproj.user
+.git

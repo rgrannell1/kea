@@ -38,6 +38,7 @@ assert <- local({
 		# if not, throw a lovely error.
 
 		args <- as.list(match.call())[-1]
+		this_call <- sys.call()
 
 		if (!is.logical(expr)) {
 			stop(
@@ -46,40 +47,32 @@ assert <- local({
 		}
 
 		if (!isTRUE(expr)) {
-			call <- if (missing(invoking_call)) {
-				'assert()'
-			} else {
+			# everythings went wrong, throw an error.
 
-				callname <- paste0(
-					invoking_call[[1]],
-					collapse = '')
+			callname <- paste0(invoking_call[[1]], collapse = '')
+
+			call <- local({
 
 				calltext <- format_call(invoking_call)
 
 				if (nchar(calltext) > consts$margin) {
+
 					paste0(
 						substr(calltext, 1, consts$margin), '...',
 						collapse = '')
+
 				} else {
 					calltext
 				}
-			}
+			})
 
-			if (missing(message)) {
+			stop(
+				yelp$arrow_function_failed(
+					callname, call, message),
+				call. = False)
 
-				stop(
-					yelp$assertion_failed(
-						call, args$expr),
-					call. = False)
-
-			} else {
-
-				stop(
-					yelp$arrow_function_failed(
-						callname, call, message),
-					call. = False)
-			}
 		}
+
 		invisible(Null)
 	}
 
@@ -131,7 +124,7 @@ insist <- local({
 				summate(pred)
 
 			assert(
-				result, invoking_call, message)
+				is.logical(result), invoking_call, message)
 
 		}
 

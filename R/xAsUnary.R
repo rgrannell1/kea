@@ -34,7 +34,7 @@ xAsUnary <- function (fn) {
 	# makes it into a function that takes one list.
 
 	assert(
-		!missing(fn), invoking_call,
+		!missing(fn), sys.call(),
 		exclaim$parametre_missing(fn))
 
 	insist$must_be_fn_matchable(fn, sys.call())

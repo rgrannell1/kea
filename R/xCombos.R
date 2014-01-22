@@ -29,7 +29,7 @@
 #' @export
 
 xCombos <- function (num, coll) {
-	# number -> Collection any
+	# number -> Collection anyf
 	# generate all ways of choosing several
 	# elements from a collection.
 
@@ -48,7 +48,7 @@ xCombos <- function (num, coll) {
 
 	num <- as_typed_vector(num, 'numeric', True)
 
-	insist$must_be_of_length(num, 1)
+	insist$must_be_of_length(num, 1, invoking_call)
 	insist$must_be_whole(num, invoking_call)
 	insist$must_be_greater_than(num, 0, invoking_call)
 

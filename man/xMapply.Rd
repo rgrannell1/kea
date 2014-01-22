@@ -20,14 +20,6 @@ A list.
 \description{
 Apply a function to each element of a collection.
 }
-\section{Uses}{
-  Map is used to apply the same modification to every
-  element in a collection. For example, map can be used to
-  convert every integer in a list to a string, to lookup
-  every URL in a list of URLs, or to multiply every integer
-  in a list by two.
-}
-
 \section{Corner Cases}{
   Returns the empty list is \code{coll} is length-zero.
 }

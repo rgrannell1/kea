@@ -51,7 +51,7 @@ xFlatten <- function (num, coll) {
 	num <- as_typed_vector(num, 'numeric', True)
 
 	insist$must_be_greater_than(num, 0, invoking_call)
-	insist$must_be_whole(nums, invoking_call)
+	insist$must_be_whole(num, invoking_call)
 
 	insist$must_be_collection(coll, invoking_call)
 
