@@ -34,7 +34,8 @@ xSetProd <- function (colls) {
 
 	invoking_call <- sys.call()
 
-    insist$must_be_collection_of_collections(colls, invoking_call)
+	insist$must_be_collection(colls, invoking_call)
+	insist$must_be_collection_of_collections(colls, invoking_call)
 
 	coll_lengths <- vapply(colls, length, integer(1))
 

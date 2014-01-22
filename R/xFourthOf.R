@@ -37,7 +37,6 @@ xFourthOf <- function (coll) {
 	insist$must_be_collection(coll, invoking_call)
 	insist$must_be_longer_than(coll, 4, invoking_call)
 
-
 	coll[[4]]
 }
 

@@ -46,14 +46,13 @@ xFlatten <- function (num, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
+	insist$must_be_collection(num, invoking_call)
+
 	num <- as_typed_vector(num, 'numeric', True)
 
-	assert(
-		num > 0, invoking_call,
-		exclaim$must_be_greater_than(
-			num, 0, summate(num)) )
-
+	insist$must_be_greater_than(num, 0, invoking_call)
 	insist$must_be_whole(nums, invoking_call)
+
 	insist$must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {

@@ -37,10 +37,7 @@ xJuxtapose <- function (fns) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		is_recursive(fns), invoking_call,
-		exclaim$must_be_recursive(fns))
-
+	insist$must_be_collection(fns, invoking_call)
 	insist$must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	fns <- lapply(fns, match_fn)

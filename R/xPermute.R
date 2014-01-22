@@ -42,8 +42,9 @@ xPermute <- function (coll, colls) {
 
 	coll <- as_typed_vector(coll, 'numeric')
 
-    insist$must_be_collection_of_collections(colls, invoking_call)
-    insist$must_be_collections_of_length_matching(colls, coll, invoking_call)
+	insist$must_be_collection(colls, invoking_call)
+	insist$must_be_collection_of_collections(colls, invoking_call)
+	insist$must_be_collections_of_length_matching(colls, coll, invoking_call)
 
 	if (length(coll) == 0) {
 		list()

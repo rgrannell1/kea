@@ -40,6 +40,7 @@ xTake <- function (num, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
+	insist$must_be_collection(num, invoking_call)
 	num <- as_typed_vector(num, 'numeric', True)
 
 	insist$must_be_of_length(num, 1)

@@ -38,6 +38,8 @@ xForall <- function (pred, colls) {
 		exclaim$parametre_missing(pred))
 
 	insist$must_be_fn_matchable(pred, invoking_call)
+
+    insist$must_be_collection(colls, invoking_call)
     insist$must_be_collection_of_collections(colls, invoking_call)
 
 	pred <- match_fn(pred)

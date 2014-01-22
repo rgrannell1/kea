@@ -53,14 +53,8 @@ xSplitAt <- function (nums, coll) {
 
 	nums <- as_typed_vector(nums, "numeric", True)
 
-	# nonnegative whole values in nums
-
 	insist$must_be_whole(nums, invoking_call)
-
-	assert(
-		all(nums > 0), invoking_call,
-		exclaim$must_be_nonnegatives(
-			nums, summate(nums)) )
+	insist$must_be_nonnegative(nums, invoking_call)
 
 	if (length(coll) == 0) {
 		list()

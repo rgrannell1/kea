@@ -40,6 +40,8 @@ xImplode <- function (str, strs) {
 	str <- as_typed_vector(str, 'character', True)
 	strs <- as_typed_vector(strs, 'character')
 
+	insist$must_be_of_length(str, 0:1, invoking_call)
+
 	if (length(strs) == 0) {
 		character()
 	} else {

@@ -43,6 +43,8 @@ xLimit <- function (fn, num) {
 		!missing(fn), invoking_call,
 		exclaim$parametre_missing(fn))
 
+	insist$must_be_collection(num, invoking_call)
+
 	num <- as_typed_vector(num, 'numeric', True)
 
 	insist$must_be_of_length(num, 1)

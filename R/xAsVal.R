@@ -38,7 +38,6 @@ xAsVal <- function (sym) {
 		exclaim$parametre_missing(sym))
 
 	sym <- toString(match.call()$sym)
-	sym <- as_typed_vector(sym, "character", True)
 
 	insist$must_be_of_length(sym, 1, invoking_call)
 	insist$must_exist(sym, parent_frame, invoking_call)

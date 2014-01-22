@@ -44,10 +44,12 @@ xPluck <- function (str, colls) {
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
+	insist$must_be_collection(str, invoking_call)
+
 	str <- as_typed_vector(str, "character", True)
 
 	insist$must_be_of_length(str, 1, invoking_call)
-    insist$must_be_collection_of_collections(colls, invoking_call)
+	insist$must_be_collection_of_collections(colls, invoking_call)
 
 	if (length(colls) == 0) {
 		list()

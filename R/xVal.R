@@ -42,6 +42,7 @@ xVal <- function (sym, val) {
 		exclaim$parametre_missing(val))
 
 	sym <- toString(match.call()$sym)
+	insist$must_be_collection(sym, invoking_call)
 	sym <- as_typed_vector(sym, 'character', True)
 
 	insist$must_be_of_length(sym, 1, invoking_call)

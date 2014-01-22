@@ -27,6 +27,7 @@ xCompose <- function (fns) {
 
 	invoking_call <- sys.call()
 
+	insist$must_be_collection_(fns, invoking_call)
 	insist$must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	fns <- lapply(fns, match_fn)

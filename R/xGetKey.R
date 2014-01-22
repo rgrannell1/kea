@@ -29,7 +29,10 @@ xGetKey <- function (str) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
+	insist$must_be_collection(str, invoking_call)
 	str <- as_typed_vector(str, 'character', True)
+
+	insist$must_be_of_length(str, 0:1, invoking_call)
 
 	function (coll) {
 		"A function created by xGetKey."

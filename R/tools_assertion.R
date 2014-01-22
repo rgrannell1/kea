@@ -218,6 +218,21 @@ insist <- local({
 
 		}
 
+	this$must_be_recursive <-
+		function (coll, invoking_call) {
+
+			coll_sym <- match.call()[-1][[1]]
+
+			message <- "the argument matching " %+% dQuote(coll_sym) %+%
+				" must be a list or a pairlist." %+%
+				summate(coll)
+
+			assert(
+				is.recursive(coll), invoking_call,
+				message)
+
+		}
+
 	this$must_be_longer_than <-
 		function (coll, length, invoking_call) {
 			# the collection must be longer than.
@@ -405,7 +420,7 @@ insist <- local({
 				message)
 		}
 
-	this$max_must_have_length_less_than <-
+	this$max_must_be_less_than_length_of <-
 		function (nums, coll, invoking_call) {
 			# the largest value must have length less than a collection.
 

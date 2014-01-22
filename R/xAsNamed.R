@@ -42,6 +42,7 @@ xAsNamed <- function (strs, coll) {
 	insist$must_be_collection(coll, invoking_call)
 
 	strs <- as_typed_vector(strs, 'character')
+
 	insist$must_be_equal_length(strs, coll, invoking_call)
 
 	structure(as.list(coll), names = strs)

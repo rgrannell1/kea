@@ -33,16 +33,13 @@ xAsUnary <- function (fn) {
 	# takes a function that takes a many values and
 	# makes it into a function that takes one list.
 
-	invoking_call <- sys.call()
-
 	assert(
 		!missing(fn), invoking_call,
 		exclaim$parametre_missing(fn))
 
-	insist$must_be_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, sys.call())
 
 	fn <- match_fn(fn)
-	remove(invoking_call)
 
 	function (x) {
 		"a function returned by xAsUnary."

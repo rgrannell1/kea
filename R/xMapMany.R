@@ -38,7 +38,8 @@ xMapMany <- function (fn, colls) {
 		exclaim$parametre_missing(fn))
 
 	insist$must_be_fn_matchable(fn, invoking_call)
-    insist$must_be_collection_of_collections(colls, invoking_call)
+	insist$must_be_collection(colls, invoking_call)
+	insist$must_be_collection_of_collections(colls, invoking_call)
 
 	fn <- match_fn(fn)
 

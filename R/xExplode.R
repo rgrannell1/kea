@@ -38,10 +38,7 @@ xExplode <- function (rexp, str) {
 	str <- as_typed_vector(str, "character", False)
 	rexp <- as_typed_vector(rexp, "character", True)
 
-	assert(
-		maybe_atomic(rexp),
-		exclaim$must_have_length(
-			rexp, 0:1, summate(rexp)) )
+	insist$must_be_of_length(str, 0:1, invoking_call)
 
 	if (length(str) == 0) {
 		character(0)

@@ -40,6 +40,9 @@ xSubstring <- function (str, nums) {
 		!missing(nums), invoking_call,
 		exclaim$parametre_missing(nums))
 
+	insist$must_be_collection(str, invoking_call)
+	insist$must_be_collection(nums, invoking_call)
+
 	str <- as_typed_vector(str, "character", True)
 	nums <- as_typed_vector(nums, "numeric", False)
 

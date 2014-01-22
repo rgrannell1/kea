@@ -25,6 +25,7 @@ xStopwatch <- function (num) {
 		!missing(num), sys.call(),
 		exclaim$parametre_missing(num))
 
+	insist$must_be_collection(num, invoking_call)
 	num <- as_typed_vector(num, 'numeric', True)
 
 	insist$must_be_of_length(num, 1)
