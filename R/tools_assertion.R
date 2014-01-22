@@ -100,10 +100,10 @@ insist <- local({
 			# the value must have a length in the set of lengths.
 
 			val_sym <- match.call()[-1][[1]]
-			lengths <- paste(lengths, collapse = " or ")
+			lengths_summary <- paste(lengths, collapse = " or ")
 
 			message <- "the argument matching " %+% dQuote(val_sym) %+%
-				" must have length " %+% lengths %+% "." %+%
+				" must have length " %+% lengths_summary %+% "." %+%
 				summate(val)
 
 			assert(
@@ -326,7 +326,6 @@ insist <- local({
 			colls_sym <- match.call()[-1][[1]]
 			coll_sym <- match.call()[-1][[2]]
 
-			lengths <- paste(lengths, collapse = " or ")
 
 			message <- "the internal collections of the argument matching " %+%
 				dQuote(colls_sym) %+% " must have length equal to that of " %+%
