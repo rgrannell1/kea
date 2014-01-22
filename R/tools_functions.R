@@ -15,13 +15,13 @@
 #     if required. This function is used to make sure arrow functions are
 #     agnostic to the difference between typed and generic vectors.
 #
-# try_higher_order:
+# try_hof:
 #     Arrow functions almost always throw errors that can be quickly debugged.
 #     Unfortunately,  higher-order functions throw a spanner in the works by
 #     allowing user-written functions to throw odd errows that cannot be
 #     located easily.
 #
-#     try_higher_order is a variant of tryCatch that allows
+#     try_hof is a variant of tryCatch that allows
 #     extra-information to be added to the errors produced by higher-order functions.
 #
 # summate:
@@ -257,7 +257,7 @@ as_typed_vector <- local({
 })
 
 
-try_higher_order <- function (expr, invoking_call) {
+try_hof <- function (expr, invoking_call) {
 	# expression -> call -> any
 	# provide a good error message if a higher-order function
 	# fails because the user provided a dodgy function.

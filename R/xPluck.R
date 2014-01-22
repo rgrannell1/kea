@@ -8,7 +8,7 @@
 #'    str a string.
 #'
 #' @param
-#'    coll a list or pairlist of lists or pairlists.
+#'    colls a list or pairlist of lists or pairlists.
 #'
 #' @param
 #'    ... see above.
@@ -17,7 +17,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \code{colls} is length-zero.
 #'    If str is length-zero then the empty string "" is
 #'    used to match key-names.
 #'
@@ -31,7 +31,7 @@
 #' @rdname xPluck
 #' @export
 
-xPluck <- function (str, coll) {
+xPluck <- function (str, colls) {
 	# Vector string -> Collection any -> Collection [any]
 
 	invoking_call <- sys.call()
@@ -39,31 +39,20 @@ xPluck <- function (str, coll) {
 	assert(
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
+
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(colls), invoking_call,
+		exclaim$parametre_missing(colls))
 
 	str <- as_typed_vector(str, "character", True)
 
-	assert(
-		length(str) == 1, invoking_call,
-		exclaim$must_have_length(
-			str, 1, summate(str)) )
+	insist$must_be_length(str, 1, invoking_call)
+    insist$must_be_collection_of_collections(colls, invoking_call)
 
-	assert(
-		is_recursive(coll), invoking_call,
-		exclaim$must_be_recursive(
-			coll, summate(coll)) )
-
-	assert(
-		all( vapply(coll, is_recursive, logical(1)) ), invoking_call,
-		exclaim$must_be_recursive_of_collections(
-			coll, summate(coll)) )
-
-	if (length(coll) == 0) {
+	if (length(colls) == 0) {
 		list()
 	} else {
-		lapply( coll, function (elem) {
+		lapply( colls, function (elem) {
 			as.list( elem[[str]] )
 		})
 	}

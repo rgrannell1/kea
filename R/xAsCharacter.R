@@ -33,7 +33,7 @@ xAsCharacter <- function (strs) {
 		!missing(strs), invoking_call,
 		exclaim$parametre_missing(strs))
 
-assert_is_collection(strs, invoking_call)
+	insist$must_be_collection(strs, invoking_call)
 
 	as_typed_vector(strs, 'character')
 }

@@ -38,12 +38,8 @@ xExists <- function (pred, colls) {
 		!missing(pred), invoking_call,
 		exclaim$parametre_missing(pred))
 
-	assert_is_fn_matchable(pred, invoking_call)
-
-	assert(
-		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
-		exclaim$must_be_recursive_of_collections(
-			colls, summate(colls)) )
+	insist$must_be_fn_matchable(pred, invoking_call)
+    insist$must_be_collection_of_collections(colls, invoking_call)
 
 	pred <- match_fn(pred)
 
@@ -72,7 +68,7 @@ xExists <- function (pred, colls) {
 				seq_along(colls)
 			)
 
-			is_match <- try_higher_order(
+			is_match <- try_hof(
 				do.call(pred, tuple),
 				invoking_call)
 

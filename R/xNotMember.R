@@ -40,7 +40,7 @@ xNotMember <- function (val, coll) {
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))
 
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		logical(0)

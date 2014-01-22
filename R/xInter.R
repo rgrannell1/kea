@@ -29,6 +29,8 @@ xInter <- function (colls) {
 
 	invoking_call <- sys.call()
 
+	insist$must_be_collection_of_collections(colls, invoking_call)
+
 	assert(
 		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
 		exclaim$must_be_collection(

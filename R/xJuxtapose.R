@@ -57,7 +57,7 @@ xJuxtapose <- function (fns) {
 
 			invoking_call <- sys.call()
 
-			try_higher_order(
+			try_hof(
 				lapply(fns, function (fn) fn(...)),
 				invoking_call)
 		}

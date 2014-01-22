@@ -34,7 +34,7 @@ xVectorise <- function (fn) {
 		!missing(fn), invoking_call,
 		exclaim$parametre_missing(fn))
 
-	assert_is_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
 
 	fn <- match_fn(fn)
 
@@ -43,7 +43,7 @@ xVectorise <- function (fn) {
 		""
 		invoking_call <- sys.call()
 
-		try_higher_order(
+		try_hof(
 			xMap(fn, coll), invoking_call)
 	}
 }

@@ -40,15 +40,8 @@ xAsVal <- function (sym) {
 	sym <- toString(match.call()$sym)
 	sym <- as_typed_vector(sym, "character", True)
 
-	assert(
-		length(sym) == 1, invoking_call,
-		exclaim$must_have_length(
-			sym, 1, summate(sym)) )
-
-	assert(
-		exists(sym, envir = parent_frame),
-		exclaim$variable_non_existent(
-			sym, summate(sym)) )
+	insist$must_be_of_length(sym, 1, invoking_call)
+	insist$must_exist(sym, parent_frame, invoking_call)
 
 	lockBinding(sym, parent_frame)
 }

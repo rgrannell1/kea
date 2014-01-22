@@ -37,13 +37,8 @@ xMapMany <- function (fn, colls) {
 		!missing(fn), invoking_call,
 		exclaim$parametre_missing(fn))
 
-	assert_is_fn_matchable(fn, invoking_call)
-
-	assert(
-		all( vapply(colls, is_collection, logical(1)) ), invoking_call,
-		exclaim$must_be_recursive_of_collections(
-			colls, summate(colls)) )
-
+	insist$must_be_fn_matchable(fn, invoking_call)
+    insist$must_be_collection_of_collections(colls, invoking_call)
 	fn <- match_fn(fn)
 
 	coll_lens <- vapply(colls, length, integer(1))
@@ -64,7 +59,7 @@ xMapMany <- function (fn, colls) {
 						coll[[this_ind]]
 					}
 				)
-				try_higher_order(
+				try_hof(
 					do.call(fn, tuple),
 					invoking_call)
 		})

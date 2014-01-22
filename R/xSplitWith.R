@@ -41,9 +41,8 @@ xSplitWith <- function (pred, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(pred, invoking_call)
-
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_fn_matchable(pred, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	pred <- match_fn(pred)
 
@@ -55,7 +54,7 @@ xSplitWith <- function (pred, coll) {
 
 		for (ith in seq_along(coll)) {
 
-			is_match <- try_higher_order(
+			is_match <- try_hof(
 				pred( coll[[ith]] ),
 				invoking_call)
 

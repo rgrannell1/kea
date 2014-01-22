@@ -49,7 +49,7 @@ xCompose <- function (fns) {
 		for ( ith in rev(seq_along(fns)) ) {
 
 			fn <- fns[[ith]]
-			val <- try_higher_order( fn(val), invoking_call )
+			val <- try_hof( fn(val), invoking_call )
 		}
 
 		val

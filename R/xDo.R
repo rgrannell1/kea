@@ -52,9 +52,9 @@ xDo <- function (fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
 
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 
@@ -62,7 +62,7 @@ xDo <- function (fn, coll) {
 		list()
 	} else {
 		for (ith in seq_along(coll)) {
-			try_higher_order(
+			try_hof(
 				fn( coll[[ith]] ), invoking_call)
 		}
 

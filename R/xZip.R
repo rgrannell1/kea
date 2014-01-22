@@ -26,6 +26,7 @@
 
 xZip <- function (colls) {
 	#
+	# zip collections together
 
 	invoking_call <- sys.call()
 
@@ -33,16 +34,11 @@ xZip <- function (colls) {
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
-
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()
 	} else {
 
-		assert(
-			all(sapply(colls, is_collection)), invoking_call,
-			exclaim$must_be_recursive_of_collections(
-				colls, summate(colls))
-		)
+		insist$must_be_collection_of_collections(colls, invoking_call)
 
 		assert(
 			length(unique( vapply(colls, length, integer(1)) )) == 1,

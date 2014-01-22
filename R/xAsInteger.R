@@ -33,17 +33,11 @@ xAsInteger <- function (nums) {
 		!missing(nums), invoking_call,
 		exclaim$parametre_missing(nums))
 
-	assert(
-		is_collection(nums), invoking_call,
-		exclaim$must_be_collection(
-			nums, summate(nums)) )
+	insist$must_be_collection(nums, invoking_call)
 
 	nums <- as_typed_vector(nums, 'numeric')
 
-	assert(
-		all(round(nums) == nums), invoking_call,
-		exclaim$must_be_wholes(
-			nums, summate(nums)) )
+	insist$must_be_whole(nums, invoking_call)
 
 	if (length(nums) == 0) {
 		integer(0)

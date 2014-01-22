@@ -42,15 +42,13 @@ xPartial <- function (fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(fn, invoking_call)
-
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 
-	assert(
-		!any(names(coll) == ""), invoking_call,
-		exclaim$must_be_named(coll))
+	insist$must_be_fully_named(coll, invoking_call)
+	insist$must_be_parametres_of(names(coll), fn, invoking_call)
 
 	assert(
 		all(names(coll) %in% xParamsOf(fn)), invoking_call,

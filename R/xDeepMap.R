@@ -43,7 +43,7 @@ xDeepMap <- function (fn, coll) {
 
 	assert(
 		is_fn_matchable(fn), invoking_call,
-		exclaim$must_be_matchable(
+		exclaim$must_be_fn_matchable(
 			fn, summate(fn)) )
 
 	assert(
@@ -59,7 +59,7 @@ xDeepMap <- function (fn, coll) {
 		if (is.list(xs) || is.pairlist(xs)) {
 			lapply(xs, recur)
 		} else {
-			try_higher_order(
+			try_hof(
 				fn(xs), invoking_call)
 		}
 	}

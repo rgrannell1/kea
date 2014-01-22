@@ -53,12 +53,8 @@ xFlatten <- function (num, coll) {
 		exclaim$must_be_greater_than(
 			num, 0, summate(num)) )
 
-	assert(
-		round(num) == num, invoking_call,
-		exclaim$must_be_whole(
-			num, summate(num)) )
-
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_whole(nums, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		list()

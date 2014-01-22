@@ -32,13 +32,13 @@ xJoin <- function (colls) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		all( vapply(colls, is_collection, logical(1)) ),
-		invoking_call,
-		exclaim$must_be_recursive_of_collections(
-			colls, summate(colls)) )
+	insist$must_be_collection_of_collections(colls, invoking_call)
 
-	as.list(do.call(c, colls))
+	if (length(colls) == 0) {
+		list()
+	} else {
+		as.list(do.call(c, colls))
+	}
 }
 
 #' @rdname xJoin

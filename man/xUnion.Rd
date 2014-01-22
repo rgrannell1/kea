@@ -1,7 +1,9 @@
 \name{xUnion}
 \alias{xUnion}
 \alias{xUnion...}
-\title{xUnion}
+\title{xUnion
+``
+Get the set union of several collections.}
 \usage{
 xUnion(colls)
 
@@ -16,7 +18,7 @@ xUnion...(...)
 A list.
 }
 \description{
-Get the set union of several collections.
+xUnion `` Get the set union of several collections.
 }
 \details{
 \code{xUnion} returns a list of the unique elements in the

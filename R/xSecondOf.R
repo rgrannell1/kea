@@ -35,12 +35,9 @@ xSecondOf <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
+	insist$must_be_longer_than(coll, 2, invoking_call)
 
-	assert(
-		length(coll) >= 2, invoking_call,
-		exclaim$must_be_longer_than(
-			coll, 2, summate(coll)) )
 
 	coll[[2]]
 }

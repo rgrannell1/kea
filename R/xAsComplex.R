@@ -33,10 +33,7 @@ xAsComplex <- function (comps) {
 		!missing(comps), invoking_call,
 		exclaim$parametre_missing(comps))
 
-	assert(
-		is_collection(comps), invoking_call,
-		exclaim$must_be_collection(
-			comps, summate(comps)) )
+	insist$must_be_collection(comps, invoking_call)
 
 	as_typed_vector(comps, 'complex')
 

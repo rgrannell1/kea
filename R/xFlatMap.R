@@ -42,16 +42,16 @@ xFlatMap <- function (fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
 
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 
 	if (length(coll) == 0) {
 		list()
 	} else {
-		try_higher_order(
+		try_hof(
 			as.list( do.call(c, lapply(coll, fn)) ),
 			invoking_call)
 	}

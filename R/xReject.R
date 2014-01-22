@@ -49,9 +49,8 @@ xReject <- function (pred, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(pred, invoking_call)
-
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_fn_matchable(pred, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	pred <- match_fn(pred)
 
@@ -59,7 +58,7 @@ xReject <- function (pred, coll) {
 		list()
 	} else {
 
-		ind <- try_higher_order(
+		ind <- try_hof(
 			vapply(coll, pred, logical(1), USE.NAMES = False),
 			invoking_call)
 

@@ -44,15 +44,9 @@ xRepeat <- function (num, coll) {
 
 	num <- as_typed_vector(num, "numeric", True)
 
-	assert(
-		length(num) == 1, invoking_call,
-		exclaim$must_have_length(
-			num, 1, summate(num)) )
-
-	assert(
-		num >= 0, invoking_call,
-		exclaim$must_be_grequal_than(
-			num, 0, summate(num)) )
+	insist$must_be_length(num, 1, invoking_call)
+	insist$must_be_grequal_than(num, 0, invoking_call)
+	insist$must_be_whole(num, invoking_call)
 
 	assert(
 		round(num) == num, invoking_call,

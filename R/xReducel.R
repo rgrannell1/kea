@@ -49,9 +49,8 @@ xReduce <- function (fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(fn, invoking_call)
-
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 
@@ -75,7 +74,7 @@ xReduce <- function (fn, coll) {
 
 			for (ith in seq_along(coll)) {
 
-				val <- try_higher_order(
+				val <- try_hof(
 					fn( val, coll[[ith]] ),
 					invoking_call)
 			}

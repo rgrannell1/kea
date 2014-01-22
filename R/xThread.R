@@ -38,14 +38,11 @@ xThread <- function (val, fns) {
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))
 
-	assert(
-		all( vapply(fns, is_fn_matchable, logical(1)) ), invoking_call,
-		exclaim$must_be_recursive_of_matchable(
-			fns, summate(fns)) )
+	insist$must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	for (ith in seq_along(fns)) {
 
-		val <- try_higher_order(
+		val <- try_hof(
 			fns[[ith]]( val ), invoking_call)
 	}
 	val

@@ -44,6 +44,9 @@ xVal <- function (sym, val) {
 	sym <- toString(match.call()$sym)
 	sym <- as_typed_vector(sym, 'character', True)
 
+	insist$must_be_of_length(sym, 1, invoking_call)
+	insist$must_be_unlocked(sym, parent_frame, invoking_call)
+
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)
 }

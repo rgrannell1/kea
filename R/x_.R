@@ -1081,9 +1081,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_Partial..., '...')
 
 	# --- xPluck --- #
-	add_x_method(this, xPluck, 'coll')
+	add_x_method(this, xPluck, 'colls')
 	add_x_method(this, xPluck..., '...')
-	add_x_method(this, x_Pluck, 'coll')
+	add_x_method(this, x_Pluck, 'colls')
 	add_x_method(this, x_Pluck..., '...')
 
 	# --- xPartition --- #
@@ -1724,8 +1724,7 @@ get_proto_ref <- function (val) {
 
 		structure(
 			forms(correct),
-			names = forms(incorrect)
-		)
+			names = forms(incorrect))
 	}
 
 	autosuggested <- c(

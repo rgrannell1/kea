@@ -38,7 +38,7 @@ xIterate <- function (fn, val) {
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))
 
-	assert_is_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
 
 	assert(
 		!is.primitive(fn), invoking_call,
@@ -55,7 +55,7 @@ xIterate <- function (fn, val) {
 		environment(fn) <- clone_env
 
 		repeat {
-			val <- try_higher_order(
+			val <- try_hof(
 				fn(val), invoking_call)
 		}
 	})

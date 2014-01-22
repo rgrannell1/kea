@@ -51,9 +51,9 @@ xScanl <- function (fn, val, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
-	assert_is_collection(coll, invoking_call)
 	fn <- match_fn(fn)
 
 	scanned <- c( val, vector("list", length(coll)) )
@@ -62,7 +62,7 @@ xScanl <- function (fn, val, coll) {
 		val
 	} else {
 		for (ith in seq_along(coll)) {
-			scanned[[ith + 1]] <- try_higher_order(
+			scanned[[ith + 1]] <- try_hof(
 				fn( scanned[[ith]], coll[[ith]] ),
 				invoking_call)
 		}

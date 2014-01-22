@@ -35,7 +35,7 @@ xLastOf <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	assert_is_collection(coll, invoking_call)
+	insist$must_be_collection(coll, invoking_call)
 
 	assert(
 		length(coll) > 0, invoking_call,

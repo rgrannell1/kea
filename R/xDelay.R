@@ -40,7 +40,7 @@ xDelay <- function (fn, num) {
 		!missing(num), invoking_call,
 		exclaim$parametre_missing(num))
 
-	assert_is_fn_matchable(fn, invoking_call)
+	insist$must_be_fn_matchable(fn, invoking_call)
 
 	assert(
 		is.numeric(num) && num >= 0, invoking_call,
