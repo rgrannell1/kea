@@ -9,7 +9,7 @@
 #'    to convert non-complex collections to complex vectors.
 #'
 #' @param
-#'    comps a collection of complex values.
+#'    ims a collection of complex values.
 #'
 #' @param
 #'    ... see above.
@@ -23,19 +23,19 @@
 #' @rdname xAsComplex
 #' @export
 
-xAsComplex <- function (comps) {
+xAsComplex <- function (ims) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(comps), invoking_call,
-		exclaim$parametre_missing(comps))
+		!missing(ims), invoking_call,
+		exclaim$parametre_missing(ims))
 
-	insist$must_be_collection(comps, invoking_call)
+	insist$must_be_collection(ims, invoking_call)
 
-	as_typed_vector(comps, 'complex')
+	as_typed_vector(ims, 'complex')
 
 }
 

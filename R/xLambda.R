@@ -63,7 +63,7 @@ xLambda <- local({
 		sym <- match.call()$sym
 		val <- match.call()$val
 
-		invoking_call <- "xLambda:"
+		invoking_call <- as.symbol("xLambda")
 
 		lambda <- function () {}
 
@@ -90,15 +90,13 @@ xLambda <- local({
 					assert(
 						get$delim(tree) == token$delim(), invoking_call,
 						proclaim$incorrent_delimiter(
-							state$pos, token$delim(False)) )
+							get$delim(tree), token$delim(False)) )
 
 					assert(
 						is.name(get$param(tree)), invoking_call,
-						proclaim$non_symbol_param(state$pos + 1))
+						proclaim$non_symbol_param(get$param(tree)) )
 
 					new_state <- list(
-						pos =
-							state$pos + 1,
 						params =
 							c(get$param(tree, True), state$params) )
 
@@ -118,7 +116,6 @@ xLambda <- local({
 			params <- collect_params(
 				tree = sym[[2]],
 				state = list(
-					pos = 1,
 					params = character(0)) )
 
 			# ------ set the formals to the parsed param names ------ #

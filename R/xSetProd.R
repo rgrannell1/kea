@@ -42,10 +42,10 @@ xSetProd <- function (colls) {
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		list()
 	} else {
-		modulo_iths <- function (n, mods) {
+		modulo_iths <- function (num, mods) {
 
-			assert(n <= prod(mods), invoking_call)
-			as.numeric(arrayInd(n, .dim = mods))
+			assert(num <= prod(mods), invoking_call)
+			as.numeric(arrayInd(num, .dim = mods))
 		}
 
 		tuples <- vector(mode = "list", prod(coll_lengths))

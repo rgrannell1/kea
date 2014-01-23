@@ -3,12 +3,12 @@
 \alias{xAsComplex...}
 \title{xAsComplex}
 \usage{
-xAsComplex(comps)
+xAsComplex(ims)
 
 xAsComplex...(...)
 }
 \arguments{
-  \item{comps}{a collection of complex values.}
+  \item{ims}{a collection of complex values.}
 
   \item{...}{see above.}
 }

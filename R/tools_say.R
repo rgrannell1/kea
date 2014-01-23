@@ -67,18 +67,18 @@ exclaim <- list(
 
 proclaim <- list(
 	incorrent_delimiter =
-		function (position, expected) {
+		function (actual, expected) {
 
-			" the " %+% ith_suffix(position) %+%
-			" delimiter should be " %+%
-			dQuote(expected) %+% "."
+			"the unexpected delimiter " %+% dQuote(actual) %+%
+			" was encountered, but the delimiter " %+% dQuote(expected) %+%
+			" was expected."
 
 		},
 	non_symbol_param =
-		function (position) {
+		function (actual) {
 
-			" the " %+% ith_suffix(position + 1) %+%
-			" parametre is a non-symbol."
+			"function parametres must be symbols." %+%
+			summate(actual)
 
 		},
 	no_enclosing_parens =

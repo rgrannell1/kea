@@ -711,9 +711,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_AsRaw..., '...')
 
 	# --- xAsComplex --- #
-	add_x_method(this, xAsComplex, 'comps')
+	add_x_method(this, xAsComplex, 'ims')
 	add_x_method(this, xAsComplex..., '...')
-	add_x_method(this, x_AsComplex, 'comps')
+	add_x_method(this, x_AsComplex, 'ims')
 	add_x_method(this, x_AsComplex..., '...')
 
 	# --- xAsFunction --- #
