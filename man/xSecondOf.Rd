@@ -23,12 +23,6 @@ Return the second element in a collection.
   elements; this is because any other corner case would
   violate the functions type-signature.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

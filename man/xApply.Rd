@@ -8,60 +8,21 @@ xApply(fn, coll)
 xApply...(fn, ...)
 }
 \arguments{
-  \item{fn}{an function of any arity.}
+  \item{fn}{an function of any arity. The function to
+  call.}
 
-  \item{coll}{a list or pairlist. This may be named, but
-  all names must be parametres of \code{fn}.}
+  \item{coll}{a collection. The arguments to pass to
+  \bold{fn}. The collection may be named or unnamed; normal
+  R function call semantics dictate how the arguments are
+  used by the input function.}
 
   \item{...}{see above.}
 }
 \value{
-The return value of \code{fn}.
+The return value of \bold{fn}.
 }
 \description{
 Invoke a function with a collection of arguments.
-}
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-
-\section{Appendix-Glossary}{
-  In order to keep the documentation for what is a very
-  large library terse, certain words are taken to have
-  precise definitions, unless defined otherwise.
-
-  \bold{Arity}: The number of arguments a function can
-  accept.
-
-  \bold{Binary}: a function with arity two.
-
-  \bold{Collection}: A list, pairlist or a typed vector.
-
-  \bold{Function}: a closure or primitive function.  A
-  symbol or string refering to such a function may also be
-  used.
-
-  \bold{Higher Order Function}: a function that takes a
-  function as one of its arguments, and/or returns a
-  function.
-
-  \bold{Nullary}: a function with arity zero.
-
-  \bold{Number}: a double, integer or complex number,
-  unless stated otherwise.
-
-  \bold{Predicate}: A function that returns a logical value
-  (unary, unless stated otherwise).  A symbol or string
-  refering to such a function may also be used.
-
-  \bold{Trinary, Ternary}: a function with arity three.
-
-  \bold{Unary}: a function with arity one.
-
-  \bold{Variadic}: a function that can accept any infinite
-  number of arguments.
 }
 \examples{
 

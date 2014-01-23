@@ -24,12 +24,6 @@ Partially apply a function.
   Partial application also works for ellipses (eg list(...
   = 1)).
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

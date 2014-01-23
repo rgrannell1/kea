@@ -23,12 +23,6 @@ Split a named list into a list of name: value list pairs.
 \section{Corner Cases}{
   Returns \code{list()} if \code{colls} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
 \code{\link{xAssoc}}, \code{\link{xAssoc...}};

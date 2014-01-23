@@ -31,9 +31,3 @@ returns true.
   returns integer(0) if no match is found.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

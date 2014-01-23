@@ -1,7 +1,7 @@
 
 #' xInitOf
 #'
-#' Remove the first element from a collection.
+#' Remove the first element of a collection.
 #'
 #' @param
 #'    coll a collection.

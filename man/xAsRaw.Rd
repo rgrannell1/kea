@@ -23,9 +23,4 @@ Convert a collection to a raw vector.
 length-one raw numbers to a raw vector. It does not attempt
 to convert non-raw collections to raw vectors.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 

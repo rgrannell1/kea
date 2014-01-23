@@ -24,10 +24,12 @@
 #' @family folding_functions
 #'
 #' @template
-#'    Variadic
+#'    Fold
 #'
 #' @template
-#'    Return
+#'    Variadic
+#'
+#' @family short_circuiting_functions
 #'
 #' @example
 #'    inst/examples/example-xReducel.R

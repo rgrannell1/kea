@@ -9,7 +9,8 @@
 #'    passing the arguments to that primitive function.
 #'
 #' @param
-#'    fn an arbitrary function.
+#'    fn an arbitrary function. Either a primitive or
+#'    non-primitive function to convert to a non-primitive function.
 #'
 #' @return
 #'    A function (closure).

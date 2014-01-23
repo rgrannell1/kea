@@ -19,12 +19,6 @@ Add names to a collection.
   Returns the empty list if \code{coll} is length-zero.
   Both duplicated and length-zero names are allowed.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other name_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xDissoc}},

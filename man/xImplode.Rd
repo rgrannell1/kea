@@ -21,11 +21,6 @@ A length-one character vector.
 Concatenate a character vector into a single string using a
 delimiter.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

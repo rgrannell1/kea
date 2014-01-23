@@ -18,9 +18,4 @@ A boolean value.
 \description{
 Is a collection length-zero?
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 

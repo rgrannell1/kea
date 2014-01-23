@@ -26,12 +26,6 @@ Divide a collection into segments of fixed length.
   divisible by \code{num}.  if \code{coll} is length-zero,
   the empty list is returned.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

@@ -9,13 +9,19 @@
 #'    to convert non-integer collections to integer vectors.
 #'
 #' @param
-#'    nums a collection of boolean values.
+#'    nums a collection of integer values. A list, pairlist or vector
+#'    of length-one integer vectors to convert to a integer vector.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
 #'    An integer vector.
+#'
+#' @section Corner Cases:
+#'    Double vectors are not coerced to integer vectors:
+#'    doubles can be decimal or infinite numbers, which
+#'    would be lost upon coersion.
 #'
 #' @template
 #'    Variadic

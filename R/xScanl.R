@@ -26,7 +26,8 @@
 #'	  Returns \code{list(val)} if \code{coll} is length-zero.
 #'
 #' @family folding_functions
-#'
+#' @family short_circuiting_functions
+
 #' @template
 #'    Variadic
 #'

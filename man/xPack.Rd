@@ -23,12 +23,6 @@ Remove all length-zero values from a collection.
   Returns the emty list if \code{coll} is length-zero, or
   all elements in \code{coll} are length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other filtering_functions: \code{\link{xPartition}};
 \code{\link{xReject}}, \code{\link{xReject...}};

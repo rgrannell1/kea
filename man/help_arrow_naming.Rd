@@ -56,8 +56,8 @@ some property of the expected argument.
 
 \itemize{ \item{\bold{bool:}}{ a single boolean value. }
 \item{\bold{bools:}}{ a collection of boolean values. }
-\item{\bold{coll:}}{ a collection. } \item{\bold{ims:}}{
-a collection of complex values. } \item{\bold{colls:}}{ a
+\item{\bold{coll:}}{ a collection. } \item{\bold{ims:}}{ a
+collection of complex values. } \item{\bold{colls:}}{ a
 collection of collections. } \item{\bold{fn:}}{ a
 collection of collections. } \item{\bold{num:}}{ a single
 number. } \item{\bold{nums:}}{ a collection of numbers. }

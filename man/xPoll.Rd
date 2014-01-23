@@ -27,9 +27,4 @@ A non-negative whole number.
 Count the number of times a function returns true when
 mapped over a collection.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 

@@ -24,9 +24,3 @@ Return the third value in a collection.
   violate the function's type-signature.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

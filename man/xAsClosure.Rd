@@ -5,7 +5,9 @@
 xAsClosure(fn)
 }
 \arguments{
-  \item{fn}{an arbitrary function.}
+  \item{fn}{an arbitrary function. Either a primitive or
+  non-primitive function to convert to a non-primitive
+  function.}
 }
 \value{
 A function (closure).

@@ -23,9 +23,3 @@ Decrement a collection of numbers.
   returned.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

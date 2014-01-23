@@ -8,7 +8,9 @@ xAsInteger(nums)
 xAsInteger...(...)
 }
 \arguments{
-  \item{nums}{a collection of boolean values.}
+  \item{nums}{a collection of integer values. A list,
+  pairlist or vector of length-one integer vectors to
+  convert to a integer vector.}
 
   \item{...}{see above.}
 }
@@ -24,9 +26,9 @@ length-one integers to a integer vector. It does not
 attempt to convert non-integer collections to integer
 vectors.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
+\section{Corner Cases}{
+  Double vectors are not coerced to integer vectors:
+  doubles can be decimal or infinite numbers, which would
+  be lost upon coersion.
 }
 

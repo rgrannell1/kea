@@ -9,7 +9,8 @@
 #'    to convert non-character collections to character vectors.
 #'
 #' @param
-#'    strs a collection of strings.
+#'    strs a collection of strings. A list, pairlist or vector
+#'    of length-one character vectors to convert to a character vector.
 #'
 #' @param
 #'    ... see above.

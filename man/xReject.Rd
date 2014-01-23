@@ -31,12 +31,6 @@ collection such that the predicate returned false or na.
   value an error is thrown. If an na value is returned by
   the predicate it is treated as a false value.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xPartition}};

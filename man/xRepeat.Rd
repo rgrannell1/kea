@@ -24,12 +24,6 @@ Repeat a collection several times.
   Returns the empty list if \code{coll} is length-zero or
   num is zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \examples{
 
 # Example 1

@@ -23,12 +23,6 @@ Subset a string using normal R vector indexing.
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

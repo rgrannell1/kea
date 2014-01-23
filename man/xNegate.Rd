@@ -23,9 +23,3 @@ Flip the sign of each number in a vector.
   returned.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

@@ -23,12 +23,6 @@ Take several elements from the head of a collection.
 \section{Corner Cases}{
   If \code{coll} is empty the empty list is returned.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xFirstOf}},

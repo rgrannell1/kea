@@ -26,12 +26,6 @@ predicate returns false.
   the first element of \code{coll} returns false for the
   predicate.  Na values are considered false.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

@@ -4,25 +4,25 @@
 #' Invoke a function with a collection of arguments.
 #'
 #' @param
-#'    fn an function of any arity.
+#'    fn an function of any arity. The function to
+#'    call.
 #'
 #' @param
-#'    coll a list or pairlist. This may be named, but
-#'    all names must be parametres of \code{fn}.
+#'    coll a collection. The arguments to pass to
+#'    \bold{fn}. The collection may be named
+#'    or unnamed; normal R function call semantics
+#'    dictate how the arguments are used by the input function.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    The return value of \code{fn}.
+#'    The return value of \bold{fn}.
 #'
 #' @family function_application_functions
 #'
 #' @template
 #'    Variadic
-#'
-#' @template
-#'    Glossary
 #'
 #' @example
 #'    inst/examples/example-xApply.R

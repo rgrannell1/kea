@@ -21,12 +21,6 @@ Convert a collection to a function that takes an index.
 \section{Corner Cases}{
   Returns the empty list if \code{coll is length-zero}.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \examples{
 
 # 1. xAsFunction can be an elegant way of

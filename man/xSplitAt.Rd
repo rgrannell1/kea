@@ -30,12 +30,6 @@ and after that index.
   second return list is empty. If \code{coll} is length
   zero both lists are empty.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

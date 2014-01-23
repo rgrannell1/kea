@@ -1,7 +1,7 @@
 
 #' xCompose
 #'
-#' Compose two functions.
+#' Take several functions and return a composite function.
 #'
 #' @param
 #'    fns a collection of functions.

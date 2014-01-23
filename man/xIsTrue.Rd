@@ -18,9 +18,4 @@ A vector of boolean values.
 \description{
 Is an element of a collection true?
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 

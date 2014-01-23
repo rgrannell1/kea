@@ -24,12 +24,6 @@ its index.
 \section{Corner Cases}{
   Returns the empty list is \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},

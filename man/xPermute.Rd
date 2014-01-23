@@ -24,12 +24,6 @@ Permute several collections using indices.
 \section{Corner Cases}{
   returns the empty list is \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

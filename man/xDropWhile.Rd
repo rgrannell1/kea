@@ -24,12 +24,6 @@ predicate is false or na until the end of the collection.
 \section{Corner Cases}{
   Returns the emty list if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other selection_functions: \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},

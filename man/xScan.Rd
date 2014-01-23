@@ -36,12 +36,6 @@ and the final result.
 \section{Corner Cases}{
   Returns \code{list(val)} if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xFold}},
@@ -49,5 +43,13 @@ Other folding_functions: \code{\link{xFoldr}},
 \code{\link{xReducer}}, \code{\link{xReducer...}};
 \code{\link{xReduce}}, \code{\link{xReduce...}},
 \code{\link{xReducel}}, \code{\link{xReducel...}}
+
+Other short_circuiting_functions: \code{\link{xFoldr}},
+\code{\link{xFoldr...}}; \code{\link{xFold}},
+\code{\link{xFoldl}}, \code{\link{xFoldl...}};
+\code{\link{xIterate}}; \code{\link{xReducer}},
+\code{\link{xReducer...}}; \code{\link{xReduce}},
+\code{\link{xReduce...}}, \code{\link{xReducel}},
+\code{\link{xReducel...}}
 }
 

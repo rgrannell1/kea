@@ -22,9 +22,3 @@ Is an element of a collection not false?
   Returns the empty list if \code{coll} is length-zero.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

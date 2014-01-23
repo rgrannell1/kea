@@ -20,11 +20,6 @@ Returns a unary function of x.
 \description{
 Compose a binary function with two other functions.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other function_combining_functions: \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xJuxtapose}},

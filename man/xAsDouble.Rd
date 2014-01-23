@@ -8,7 +8,9 @@ xAsDouble(nums)
 xAsDouble...(...)
 }
 \arguments{
-  \item{nums}{a collection of boolean values.}
+  \item{nums}{a collection of double values. A list,
+  pairlist or vector of length-one double vectors to
+  convert to a double vector.}
 
   \item{...}{see above.}
 }
@@ -24,9 +26,8 @@ length-one double precision numbers to a double vector. It
 does not attempt to convert non-double collections to
 double vectors.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
+\section{Corner Cases}{
+  Integer vectors are coerced to double vectors freely,
+  since the difference is predominantly internal.
 }
 

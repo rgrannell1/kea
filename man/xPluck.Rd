@@ -26,12 +26,6 @@ fields in each element by name.
   If str is length-zero then the empty string "" is used to
   match key-names.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
 \code{\link{xAssoc}}, \code{\link{xAssoc...}};

@@ -18,11 +18,6 @@ A length-one character vector.
 \description{
 Collapase a character vector with spaces as delimiters.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

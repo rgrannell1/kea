@@ -25,12 +25,6 @@ on a predicate function.
   all the elements return only true/only false, then one of
   two sublists will be the empty list.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xReject}},

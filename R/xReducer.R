@@ -23,12 +23,13 @@
 #'
 #' @family folding_functions
 #'
+#' @template
+#'    Fold
 #'
 #' @template
 #'    Variadic
 #'
-#' @template
-#'    Return
+#' @family short_circuiting_functions
 #'
 #' @rdname xReducer
 #' @export

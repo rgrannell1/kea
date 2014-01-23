@@ -24,12 +24,6 @@ Does any selection of arguments satisfy a predicate?
   If any collection is length zero (or no collections are
   given), then False is returned.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other quantifier_functions: \code{\link{xForall}},
 \code{\link{xForall...}}

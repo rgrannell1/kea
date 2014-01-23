@@ -22,9 +22,3 @@ Is an element in a collection NaN?
   Returns True if coll is length-zero.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

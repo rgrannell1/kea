@@ -22,9 +22,3 @@ Is an element of a collection null?
   Returns True if coll is Null.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

@@ -21,12 +21,6 @@ Get the cartesian product of several collections.
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \examples{
 
 # 1. xSetProd with xMap, xMapply or xReduce are

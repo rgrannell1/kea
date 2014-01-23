@@ -8,9 +8,12 @@ xAssoc(colls)
 xAssoc...(...)
 }
 \arguments{
-  \item{colls}{a list or pairlist of list or pairlist
-  pairs, with the first element being a string and the
-  second element being any value.}
+  \item{colls}{a list or pairlist of two-element lists or
+  pairlists, with the first element being a string and the
+  second element being an arbitrary value. The string part
+  of each sublist is used as the name in the output list,
+  and the remaining part is used as the value associated
+  with that key.}
 
   \item{...}{see above.}
 }
@@ -22,12 +25,6 @@ Convert a list of name, value pairs into a named list.
 }
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
-}
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
 }
 \examples{
 

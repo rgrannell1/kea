@@ -8,9 +8,10 @@ xChop(num, coll)
 xChop...(num, ...)
 }
 \arguments{
-  \item{num}{a nonnegative whole number.}
+  \item{num}{a nonnegative whole number. The desired number
+  of output collections to generate.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to chop up.}
 
   \item{...}{see above.}
 }
@@ -20,21 +21,29 @@ A list of lists.
 \description{
 Divide a collection into a fixed number of segments.
 }
-\section{Corner Cases}{
-  The final list in the return value will have less than
-  \code{num} elements if \code{length(coll)} is not evenly
-  divisible into \code{num} collections.  If \code{coll} is
-  length-zero, the empty list is returned.
+\details{
+\bold{xChop} is used to divide a collection into several
+segments. This differs from \bold{xChunk} in that
+\bold{xChop} creates a fixed number of segments or
+arbitrary size, while \bold{xChunk} creates segments of
+fixed size, but not a fixed number of such segments.
+
+\code{xChop(2, 1:5)}
+
+\code{list(list(1, 2, 3), list(4, 5))}
+
+\bold{xChop} can be used for dividing a task for parallel
+execution. For example, a very large collection could be
+chopped into four subcollections by using \bold{xChop(4,
+coll)}, before applying a function to each sublist using
+\bold{mclapply( )}.
 }
-
 \section{Corner Cases}{
-
-}
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
+  The final sublist returned by \bold{xChop} may have less
+  elements than the other sublists, depending on whether or
+  not the length of \bold{coll} is evenly divisible by
+  \bold{num}. If \bold{coll} is length-zero, the empty list
+  is returned.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},

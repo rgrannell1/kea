@@ -9,7 +9,8 @@
 #'      to a normal R variable.
 #'
 #' @param
-#'      sym a string or symbol.
+#'      sym a symbol or string. The name of the variable
+#'      to be converted to a variable.
 #'
 #' @return
 #'      Null; used for side-effect.

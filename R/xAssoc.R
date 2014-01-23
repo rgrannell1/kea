@@ -4,9 +4,11 @@
 #' Convert a list of name, value pairs into a named list.
 #'
 #' @param
-#'    colls a list or pairlist of list or pairlist pairs,
-#'    with the first element being a
-#'	  string and the second element being any value.
+#'    colls a list or pairlist of two-element lists or pairlists,
+#'    with the first element being a string and the second
+#'    element being an arbitrary value. The string part of each
+#'    sublist is used as the name in the output list, and the
+#'    remaining part is used as the value associated with that key.
 #'
 #' @param
 #'    ... see above.

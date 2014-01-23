@@ -21,12 +21,6 @@ Return a list excluding the first element of a collection.
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

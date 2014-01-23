@@ -31,12 +31,6 @@ list contains the result of calling an element of
 \section{Corner Cases}{
   If no functions are provided the empty list is returned.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other function_combining_functions: \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xLift}},

@@ -8,7 +8,9 @@ xAsComplex(ims)
 xAsComplex...(...)
 }
 \arguments{
-  \item{ims}{a collection of complex values.}
+  \item{ims}{a collection of complex values. A list,
+  pairlist or vector of length-one complex vectors to
+  convert to a complex vector.}
 
   \item{...}{see above.}
 }
@@ -23,10 +25,5 @@ Convert a collection to a complex vector.
 length-one complex numbers to a complex vector. It does not
 attempt to convert non-complex collections to complex
 vectors.
-}
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
 }
 

@@ -21,12 +21,6 @@ Get the set intersection of several collections.
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicated}},

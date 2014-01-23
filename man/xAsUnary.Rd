@@ -8,7 +8,8 @@ xAsUnary(fn)
   \item{fn}{an arbitrary function.}
 }
 \value{
-A unary function of x.
+A unary function of val, that applies its arguments to its
+underlying function.
 }
 \description{
 Convert any function to a unary function.

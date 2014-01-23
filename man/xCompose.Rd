@@ -16,12 +16,7 @@ xCompose...(...)
 A function with the same parametres as \code{fn2}.
 }
 \description{
-Compose two functions.
-}
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
+Take several functions and return a composite function.
 }
 \seealso{
 Other function_combining_functions:

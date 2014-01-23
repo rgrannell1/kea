@@ -6,7 +6,7 @@
 #'
 #' @param
 #'    fn a binary function that returns a value that
-#'	  \code{fn} can later take as its right argument
+#'	  \bold{fn} can later take as its right argument
 #'
 #' @param
 #'    val an arbitrary value.
@@ -18,13 +18,17 @@
 #'    ... see above.
 #'
 #' @return
-#'    An arbitrary value, depending on the function \code{fn}.
+#'    An arbitrary value, depending on the function \bold{fn}.
 #'
 #' @section Corner Cases:
-#'	  returns \code{val} if \code{coll} is length-zero.
+#'    If \bold{coll} is length-zero then the parametre \bold{val}
+#'    is returned automatically.
 #'
 #' @family folding_functions
+#' @family short_circuiting_functions
 #'
+#' @template
+#'    Fold
 #'
 #' @template
 #'    Variadic

@@ -23,9 +23,3 @@ Get the sign of a vector of numbers.
   is returned.  The sign of zero is zero.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

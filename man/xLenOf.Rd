@@ -22,9 +22,3 @@ Get the length of a collection
   Returns zero if \code{coll} is empty.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

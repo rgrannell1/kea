@@ -30,12 +30,6 @@ returned list;
   output list.  Flattening to one level flattens the list
   fully.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

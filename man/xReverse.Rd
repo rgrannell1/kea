@@ -18,12 +18,6 @@ Reverse a collection.
 \section{Corner Cases}{
   Reversing the empty list yields the empty list.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

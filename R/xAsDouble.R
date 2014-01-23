@@ -9,13 +9,18 @@
 #'    to convert non-double collections to double vectors.
 #'
 #' @param
-#'    nums a collection of boolean values.
+#'    nums a collection of double values. A list, pairlist or vector
+#'    of length-one double vectors to convert to a double vector.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
 #'    A double vector.
+#'
+#' @section Corner Cases:
+#'    Integer vectors are coerced to double vectors freely, since the
+#'    difference is predominantly internal.
 #'
 #' @template
 #'    Variadic

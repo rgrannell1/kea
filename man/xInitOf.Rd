@@ -16,12 +16,7 @@ xInitOf...(...)
 A list.
 }
 \description{
-Remove the first element from a collection.
-}
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
+Remove the first element of a collection.
 }
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},

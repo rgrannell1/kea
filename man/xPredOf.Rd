@@ -23,9 +23,3 @@ Increment a vector of numbers.
   length-zero.
 }
 
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
-

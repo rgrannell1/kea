@@ -25,12 +25,6 @@ Map a function across many collections simultaneously.
   If the collection lengths are not equal then elements are
   recycled in the shorter collections.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},

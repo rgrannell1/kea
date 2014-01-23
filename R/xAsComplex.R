@@ -9,7 +9,8 @@
 #'    to convert non-complex collections to complex vectors.
 #'
 #' @param
-#'    ims a collection of complex values.
+#'    ims a collection of complex values. A list, pairlist or vector
+#'    of length-one complex vectors to convert to a complex vector.
 #'
 #' @param
 #'    ... see above.

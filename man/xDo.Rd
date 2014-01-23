@@ -24,12 +24,6 @@ and discard the results.
 \section{Uses}{
 
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \examples{
 
 #1. print the files in your current directory.

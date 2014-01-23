@@ -8,7 +8,9 @@ xAsCharacter(strs)
 xAsCharacter...(...)
 }
 \arguments{
-  \item{strs}{a collection of strings.}
+  \item{strs}{a collection of strings. A list, pairlist or
+  vector of length-one character vectors to convert to a
+  character vector.}
 
   \item{...}{see above.}
 }
@@ -23,10 +25,5 @@ Convert a collection to a double vector.
 length-one strings to a character vector. It does not
 attempt to convert non-character collections to character
 vectors.
-}
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
 }
 

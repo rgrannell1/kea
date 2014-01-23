@@ -23,12 +23,6 @@ Return the first element of a collection.
   this is because any other corner case would violate the
   functions type-signature.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

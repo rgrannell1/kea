@@ -23,12 +23,6 @@ Iteratively apply a value to list of functions.
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
 \code{\link{xApply...}}; \code{\link{xAsUnary}};

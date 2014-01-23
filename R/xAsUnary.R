@@ -13,7 +13,8 @@
 #'    fn an arbitrary function.
 #'
 #' @return
-#'    A unary function of x.
+#'    A unary function of val, that applies its arguments
+#'    to its underlying function.
 #'
 #' @family function_modifying_functions
 #'
@@ -41,9 +42,9 @@ xAsUnary <- function (fn) {
 
 	fn <- match_fn(fn)
 
-	function (x) {
+	function (val) {
 		"a function returned by xAsUnary."
 		""
-		xApply(fn, x)
+		xApply(fn, val)
 	}
 }

@@ -5,7 +5,8 @@
 xAsVar(sym)
 }
 \arguments{
-  \item{sym}{a string or symbol.}
+  \item{sym}{a symbol or string. The name of the variable
+  to be converted to a variable.}
 }
 \value{
 Null; used for side-effect.

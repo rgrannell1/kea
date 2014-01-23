@@ -25,12 +25,6 @@ collection.
 \section{Corner Cases}{
   Returns the empty list if \code{num} is zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other combinatoric_functions: \code{\link{xSetProd}},
 \code{\link{xSetProd...}}

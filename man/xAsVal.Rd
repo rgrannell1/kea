@@ -5,7 +5,8 @@
 xAsVal(sym)
 }
 \arguments{
-  \item{sym}{a symbol or string.}
+  \item{sym}{a symbol or string. The name of the variable
+  to be converted to a value.}
 }
 \value{
 Null; used for side-effect.
@@ -14,14 +15,15 @@ Null; used for side-effect.
 Convert a normal R variable to a constant value.
 }
 \details{
-xAsVal takes a variable that exists in the calling
+\bold{xAsVal} takes a variable that exists in the calling
 environment, and locks it. This prevents further
 modification, and if any attempt is made to modify the
 variable an error is thrown.
 }
 \section{Corner Cases}{
-  Throws an error if attempting to convert a variable that
-  doesn't exist (in the parent frame).
+  \bold{xAsVal} throws an error if an attempt is made to
+  convert a variable that doesn't exist in the parent
+  frame.
 }
 \examples{
 

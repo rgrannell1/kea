@@ -27,12 +27,6 @@ combination of each collection in \code{colls}.
 \section{Corner Cases}{
   Returns the empty list if \code{colls} is length-zero.
 }
-
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicated}},

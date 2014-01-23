@@ -15,11 +15,6 @@ A list.
 \description{
 Remove the NA values from a collection.
 }
-\section{Variadic Functions
-
-\link{ help_variadic }}{
-
-}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xPartition}};
