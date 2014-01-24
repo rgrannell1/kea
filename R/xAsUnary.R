@@ -4,16 +4,17 @@
 #' Convert any function to a unary function.
 #'
 #' @details
-#'    \code{xAsUnary} takes a function and returns a function that
-#'    has one argument. The first element of the argument is
-#'    passed to the first parametre of the underlying function,
-#'    the second element to the second parametre, and so on.
+#' \code{xAsUnary} takes a function and returns a function that
+#' has one argument. The first element of the argument is
+#' passed to the first parametre of the underlying function,
+#' the second element to the second parametre, and so on.
 #'
 #' @param
-#'    fn an arbitrary function.
+#'    fn an arbitrary function. The function to be
+#'    converted to a function that takes a single collection.
 #'
 #' @return
-#'    A unary function of val, that applies its arguments
+#'    A unary function of \bold{coll}, that applies its arguments
 #'    to its underlying function.
 #'
 #' @family function_modifying_functions
@@ -42,9 +43,9 @@ xAsUnary <- function (fn) {
 
 	fn <- match_fn(fn)
 
-	function (val) {
+	function (coll) {
 		"a function returned by xAsUnary."
 		""
-		xApply(fn, val)
+		xApply(fn, coll)
 	}
 }

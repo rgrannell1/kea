@@ -9,7 +9,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    A list of the same length as \code{coll}
+#'    A list of the same length as \bold{coll}
 #'
 #' @section Corner Cases:
 #'    Reversing the empty list yields the empty list.

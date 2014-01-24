@@ -19,7 +19,7 @@ A list.
 Get the set intersection of several collections.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other set_functions: \code{\link{xCombos}},

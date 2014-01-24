@@ -1,10 +1,10 @@
 
 #' xRestOf
 #'
-#' Return a list excluding the first element of a collection.
+#' Remove the first element of a collection.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. A collection to subset.
 #'
 #' @param
 #'    ... see above.
@@ -13,7 +13,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @family selection_functions
 #'

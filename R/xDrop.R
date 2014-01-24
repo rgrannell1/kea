@@ -4,10 +4,11 @@
 #' Take several elements from the head of a collection.
 #'
 #' @param
-#'    num a nonnegative whole number.
+#'      num a nonnegative whole number. The number of elements to
+#'      return from the input collection.
 #'
 #' @param
-#'    coll a collection.
+#'      coll a collection. The collection to subset.
 #'
 #' @param
 #'    ... see above.
@@ -16,7 +17,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    If \code{coll} is empty the empty list is returned.
+#'    If \bold{coll} is empty the empty list is returned.
 #'
 #' @family selection_functions
 #'

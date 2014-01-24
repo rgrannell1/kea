@@ -15,7 +15,7 @@ xPartial...(fn, ...)
   \item{...}{see above.}
 }
 \value{
-A function of equal or lesser arity to \code{fn}.
+A function of equal or lesser arity to \bold{fn}.
 }
 \description{
 Partially apply a function.

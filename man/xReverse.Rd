@@ -10,7 +10,7 @@ xReverse(coll)
   \item{...}{see above.}
 }
 \value{
-A list of the same length as \code{coll}
+A list of the same length as \bold{coll}
 }
 \description{
 Reverse a collection.

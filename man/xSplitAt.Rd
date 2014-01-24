@@ -16,8 +16,8 @@ xSplitAt...(nums, ...)
 }
 \value{
 A list of two lists; the first list containing the first
-\code{nums} elements of \code{coll}, and the second list
-containing the remaining elements \code{coll}.
+\code{nums} elements of \bold{coll}, and the second list
+containing the remaining elements \bold{coll}.
 }
 \description{
 Split a collection into elements before and upto an index,
@@ -26,8 +26,8 @@ and after that index.
 \section{Corner Cases}{
   If \code{nums} is zero then the first list in the
   returned value is empty.  Likewise, if \code{nums} is
-  equal or larger than the length of \code{coll} then the
-  second return list is empty. If \code{coll} is length
+  equal or larger than the length of \bold{coll} then the
+  second return list is empty. If \bold{coll} is length
   zero both lists are empty.
 }
 \seealso{

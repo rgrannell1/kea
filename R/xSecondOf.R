@@ -10,10 +10,10 @@
 #'    ... see above.
 #'
 #' @return
-#'    The second element in \code{coll}.
+#'    The second element in \bold{coll}.
 #'
 #' @section Corner Cases:
-#'    Throws an error if \code{coll} has less than two
+#'    Throws an error if \bold{coll} has less than two
 #'    elements; this is because any other corner case
 #'    would violate the functions type-signature.
 #'

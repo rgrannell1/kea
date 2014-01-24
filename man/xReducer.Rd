@@ -9,14 +9,14 @@ xReducer...(fn, ...)
 }
 \arguments{
   \item{fn}{a binary function that returns a value that
-  \code{fn} can later take as its left argument.}
+  \bold{fn} can later take as its left argument.}
 
   \item{coll}{a collection.}
 
   \item{...}{see above.}
 }
 \value{
-An arbitrary value, depending on the function \code{fn}.
+An arbitrary value, depending on the function \bold{fn}.
 }
 \description{
 Successively combine a list of values into a single value
@@ -143,8 +143,8 @@ required to return a result from thousands to less than
 ten.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero, and
-  returns the value inside \code{coll} if coll is
+  Returns the empty list if \bold{coll} is length-zero, and
+  returns the value inside \bold{coll} if coll is
   length-one.
 }
 \seealso{

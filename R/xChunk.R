@@ -4,10 +4,12 @@
 #' Divide a collection into segments of fixed length.
 #'
 #' @param
-#'    num a nonnegative whole number.
+#'    num a nonnegative whole number. The desired
+#'    length of each group of elements.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collections to divide into
+#'    groups.
 #'
 #' @param
 #'    ... see above.
@@ -18,7 +20,7 @@
 #' @section Corner Cases:
 #'    The final list in the return value will have less than \code{num}
 #'    elements if \code{length(coll)} is not evenly divisible by \code{num}.
-#'    if \code{coll} is length-zero, the empty list is returned.
+#'    if \bold{coll} is length-zero, the empty list is returned.
 #'
 #' @family reshaping_functions
 #'

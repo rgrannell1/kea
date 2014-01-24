@@ -14,7 +14,7 @@ A positive whole number.
 Return the number of arguments a function can accept.
 }
 \section{Corner Cases}{
-  If \code{fn} has an ellipsis (...) parametre then
+  If \bold{fn} has an ellipsis (...) parametre then
   \code{+Inf} is returned, as the function can accept an
   infinite number of arguments.
 }

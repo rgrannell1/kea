@@ -5,11 +5,12 @@
 xAsUnary(fn)
 }
 \arguments{
-  \item{fn}{an arbitrary function.}
+  \item{fn}{an arbitrary function. The function to be
+  converted to a function that takes a single collection.}
 }
 \value{
-A unary function of val, that applies its arguments to its
-underlying function.
+A unary function of \bold{coll}, that applies its arguments
+to its underlying function.
 }
 \description{
 Convert any function to a unary function.

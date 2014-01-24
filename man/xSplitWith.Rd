@@ -23,7 +23,7 @@ first time a predicate returns false, and all the elements
 including and after that point.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},

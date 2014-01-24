@@ -24,7 +24,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero,
+#'    Returns the empty list if \bold{coll} is length-zero,
 #'    or no match is found. If the predicate returns a
 #'    non-logical value an error is thrown. If an na value
 #'    is returned by the predicate it is treated as a false value.

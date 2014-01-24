@@ -24,7 +24,7 @@ A named list.
 Convert a list of name, value pairs into a named list.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \examples{
 

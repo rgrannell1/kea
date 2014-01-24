@@ -7,7 +7,7 @@
 #'
 #' @param
 #'    fn a binary function that returns a value that
-#'    \code{fn} can later take as its right argument.
+#'    \bold{fn} can later take as its right argument.
 #'
 #' @param
 #'    val an arbitrary value.
@@ -19,11 +19,11 @@
 #'    ... see above.
 #'
 #' @return
-#'    A list with its initial element being \code{coll}, and
+#'    A list with its initial element being \bold{coll}, and
 #'	  containing \code{length(coll) + 1}.
 #'
 #' @section Corner Cases:
-#'	  Returns \code{list(val)} if \code{coll} is length-zero.
+#'	  Returns \code{list(val)} if \bold{coll} is length-zero.
 #'
 #' @family folding_functions
 #' @family short_circuiting_functions

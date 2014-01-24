@@ -15,15 +15,15 @@
 #'
 #' @return
 #'    A list of two lists; the first list containing
-#'    the first \code{nums} elements of \code{coll}, and the
-#'    second list containing the remaining elements \code{coll}.
+#'    the first \code{nums} elements of \bold{coll}, and the
+#'    second list containing the remaining elements \bold{coll}.
 #'
 #' @section Corner Cases:
 #'    If \code{nums} is zero then the first list in the
 #'    returned value is empty.
 #'    Likewise, if \code{nums} is equal or larger than the
-#'    length of \code{coll} then
-#'    the second return list is empty. If \code{coll} is
+#'    length of \bold{coll} then
+#'    the second return list is empty. If \bold{coll} is
 #'    length zero both lists are empty.
 #'
 #' @family reshaping_functions

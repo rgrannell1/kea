@@ -11,7 +11,7 @@ xPermute...(coll, ...)
   \item{coll}{a collection of whole numbers.}
 
   \item{colls}{several collections of equal length to
-  \code{coll}.}
+  \bold{coll}.}
 
   \item{...}{see above.}
 }
@@ -22,7 +22,7 @@ A list of collections.
 Permute several collections using indices.
 }
 \section{Corner Cases}{
-  returns the empty list is \code{coll} is length-zero.
+  returns the empty list is \bold{coll} is length-zero.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},

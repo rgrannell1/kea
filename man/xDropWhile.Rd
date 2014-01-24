@@ -22,7 +22,7 @@ Take every element in a collection from the first time a
 predicate is false or na until the end of the collection.
 }
 \section{Corner Cases}{
-  Returns the emty list if \code{coll} is length-zero.
+  Returns the emty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other selection_functions: \code{\link{xDrop}},

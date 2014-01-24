@@ -13,7 +13,7 @@
 #'    A character vector.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \bold{coll} is length-zero.
 #'    If no match is found the original string is returned.
 #'
 #' @family character_functions

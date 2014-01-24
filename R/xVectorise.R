@@ -16,7 +16,6 @@
 #'
 #'    \code{list(False, False, True, False)}
 #'
-#'
 #' @param
 #'    fn a unary function. The function to vectorise.
 #'
@@ -24,7 +23,7 @@
 #'    A unary function of coll.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero.
+#'    Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @family mapping_functions
 #'

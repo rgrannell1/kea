@@ -16,7 +16,7 @@
 #'      A character vector.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \code{coll} is length-zero.
+#'      Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @family character_functions
 #'

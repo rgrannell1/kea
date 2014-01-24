@@ -21,7 +21,7 @@ A list.
 Apply a function to each element of a collection.
 }
 \section{Corner Cases}{
-  Returns the empty list is \code{coll} is length-zero.
+  Returns the empty list is \bold{coll} is length-zero.
 }
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},

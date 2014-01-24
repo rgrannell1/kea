@@ -13,13 +13,13 @@ xFirstOf...(...)
   \item{...}{see above.}
 }
 \value{
-The first element in \code{coll}.
+The first element in \bold{coll}.
 }
 \description{
 Return the first element of a collection.
 }
 \section{Corner Cases}{
-  Throws an error if \code{coll} has less than one element;
+  Throws an error if \bold{coll} has less than one element;
   this is because any other corner case would violate the
   functions type-signature.
 }

@@ -14,7 +14,7 @@ A unary function that takes a collection.
 Return a function that selects a key from a collection.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};

@@ -15,7 +15,7 @@ xScan...(fn, val, ...)
 }
 \arguments{
   \item{fn}{a binary function that returns a value that
-  \code{fn} can later take as its right argument.}
+  \bold{fn} can later take as its right argument.}
 
   \item{val}{an arbitrary value.}
 
@@ -24,7 +24,7 @@ xScan...(fn, val, ...)
   \item{...}{see above.}
 }
 \value{
-A list with its initial element being \code{coll}, and
+A list with its initial element being \bold{coll}, and
 containing \code{length(coll) + 1}.
 }
 \description{
@@ -34,7 +34,7 @@ value). Return a list containing each intermediate result,
 and the final result.
 }
 \section{Corner Cases}{
-  Returns \code{list(val)} if \code{coll} is length-zero.
+  Returns \code{list(val)} if \bold{coll} is length-zero.
 }
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},

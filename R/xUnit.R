@@ -7,9 +7,9 @@
 #'    coll an list, pairlist, or vector of any length.
 #'
 #' @return
-#'    Returns null if \code{coll} is a pairlist, a
-#'    typed vector of length zero if \code{coll}
-#'	  is a vector, and the empty list if \code{coll} is a list.
+#'    Returns null if \bold{coll} is a pairlist, a
+#'    typed vector of length zero if \bold{coll}
+#'	  is a vector, and the empty list if \bold{coll} is a list.
 #'
 #' @rdname xUnit
 #' @export

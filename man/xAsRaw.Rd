@@ -8,7 +8,9 @@ xAsRaw(raws)
 xAsRaw...(...)
 }
 \arguments{
-  \item{raws}{a collection of raw values.}
+  \item{raws}{a collection of raw values. A list, pairlist
+  or vector of length-one raw vectors to convert to a raw
+  vector.}
 
   \item{...}{see above.}
 }

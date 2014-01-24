@@ -19,6 +19,6 @@ A vector of boolean values.
 Is an element of a collection not false?
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 

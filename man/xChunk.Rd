@@ -8,9 +8,11 @@ xChunk(num, coll)
 xChunk...(num, ...)
 }
 \arguments{
-  \item{num}{a nonnegative whole number.}
+  \item{num}{a nonnegative whole number. The desired length
+  of each group of elements.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collections to divide into
+  groups.}
 
   \item{...}{see above.}
 }
@@ -23,7 +25,7 @@ Divide a collection into segments of fixed length.
 \section{Corner Cases}{
   The final list in the return value will have less than
   \code{num} elements if \code{length(coll)} is not evenly
-  divisible by \code{num}.  if \code{coll} is length-zero,
+  divisible by \code{num}.  if \bold{coll} is length-zero,
   the empty list is returned.
 }
 \seealso{

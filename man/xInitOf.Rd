@@ -8,7 +8,7 @@ xInitOf(coll)
 xInitOf...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. A collection to subset.}
 
   \item{...}{see above.}
 }
@@ -16,7 +16,10 @@ xInitOf...(...)
 A list.
 }
 \description{
-Remove the first element of a collection.
+Remove the last element of a collection.
+}
+\section{Corner Cases}{
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},

@@ -8,7 +8,7 @@ xRestOf(coll)
 xRestOf...(...)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{coll}{a collection. A collection to subset.}
 
   \item{...}{see above.}
 }
@@ -16,10 +16,10 @@ xRestOf...(...)
 A list.
 }
 \description{
-Return a list excluding the first element of a collection.
+Remove the first element of a collection.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},

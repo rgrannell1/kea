@@ -7,7 +7,7 @@
 #'    coll a collection of whole numbers.
 #'
 #' @param
-#'    colls several collections of equal length to \code{coll}.
+#'    colls several collections of equal length to \bold{coll}.
 #'
 #' @param
 #'    ... see above.
@@ -16,7 +16,7 @@
 #'    A list of collections.
 #'
 #' @section Corner Cases:
-#'    returns the empty list is \code{coll} is length-zero.
+#'    returns the empty list is \bold{coll} is length-zero.
 #'
 #' @family reshaping_functions
 #'

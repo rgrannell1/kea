@@ -8,7 +8,7 @@ xFlip(fn)
   \item{fn}{an arbitrary function.}
 }
 \value{
-A function of the same arity as \code{fn}.
+A function of the same arity as \bold{fn}.
 }
 \description{
 Reverse the formal parametres of a function.

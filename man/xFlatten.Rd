@@ -25,7 +25,7 @@ Unnest a nested list to a given depth.
 returned list;
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
   Flattening to infinite doesn't affect the depth of the
   output list.  Flattening to one level flattens the list
   fully.

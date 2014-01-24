@@ -21,7 +21,7 @@ A character vector.
 Subset a string using normal R vector indexing.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other character_functions: \code{\link{xExplode}},

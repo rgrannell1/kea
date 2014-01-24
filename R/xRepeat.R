@@ -16,7 +16,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero or num is zero.
+#'    Returns the empty list if \bold{coll} is length-zero or num is zero.
 #'
 #' @family reshaping_functions
 #'

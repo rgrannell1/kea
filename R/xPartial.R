@@ -13,7 +13,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    A function of equal or lesser arity to \code{fn}.
+#'    A function of equal or lesser arity to \bold{fn}.
 #'
 #' @section Corner Cases:
 #'    Partial application also works for ellipses (eg list(... = 1)).

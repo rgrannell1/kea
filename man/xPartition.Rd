@@ -21,7 +21,7 @@ Divide elements in a collection into two collections based
 on a predicate function.
 }
 \section{Corner Cases}{
-  If \code{coll} is empty the empty list is returned. If
+  If \bold{coll} is empty the empty list is returned. If
   all the elements return only true/only false, then one of
   two sublists will be the empty list.
 }

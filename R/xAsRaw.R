@@ -9,7 +9,8 @@
 #'    to convert non-raw collections to raw vectors.
 #'
 #' @param
-#'    raws a collection of raw values.
+#'    raws a collection of raw values. A list, pairlist or vector
+#'    of length-one raw vectors to convert to a raw vector.
 #'
 #' @param
 #'    ... see above.

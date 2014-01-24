@@ -22,7 +22,7 @@ Concatenate the results of applying a function to each
 element of a collection.
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},

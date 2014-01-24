@@ -11,7 +11,7 @@
 #'    num a positive whole number.
 #'
 #' @return
-#'    A function with the same parametres as \code{fn}.
+#'    A function with the same parametres as \bold{fn}.
 #'
 #' @family time_functions
 #'

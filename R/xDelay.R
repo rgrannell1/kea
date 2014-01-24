@@ -15,10 +15,10 @@
 #'    num a nonnegative whole number.
 #'
 #' @return
-#'    A function with the same parametres as \code{fn}.
+#'    A function with the same parametres as \bold{fn}.
 #'
 #' @section Corner Cases:
-#'    If \code{num} is zero then \code{fn} is returned untouched.
+#'    If \code{num} is zero then \bold{fn} is returned untouched.
 #'
 #' @family function_modifying_functions
 #'

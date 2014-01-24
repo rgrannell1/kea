@@ -6,7 +6,7 @@
 #'
 #' @param
 #'    fn a binary function that returns a value
-#'	  that \code{fn} can later take as its left argument.
+#'	  that \bold{fn} can later take as its left argument.
 #'
 #' @param
 #'    coll a collection.
@@ -15,11 +15,11 @@
 #'    ... see above.
 #'
 #' @return
-#'    An arbitrary value, depending on the function \code{fn}.
+#'    An arbitrary value, depending on the function \bold{fn}.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero, and returns the
-#'    value inside \code{coll} if coll is length-one.
+#'    Returns the empty list if \bold{coll} is length-zero, and returns the
+#'    value inside \bold{coll} if coll is length-one.
 #'
 #' @family folding_functions
 #'

@@ -10,7 +10,7 @@
 #'    A positive whole number.
 #'
 #' @section Corner Cases:
-#'    If \code{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
+#'    If \bold{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
 #'    function can accept an infinite number of arguments.
 #'
 #' @example

@@ -10,11 +10,11 @@
 #' modify the variable an error is thrown.
 #'
 #' @param
-#'      sym a symbol or string. The name of the variable
-#'      to be converted to a value.
+#'    sym a symbol or string. The name of the variable
+#'    to be converted to a value.
 #'
 #' @return
-#'      Null; used for side-effect.
+#'    Null; used for side-effect.
 #'
 #' @section Corner Cases:
 #'    \bold{xAsVal} throws an error if an attempt is made

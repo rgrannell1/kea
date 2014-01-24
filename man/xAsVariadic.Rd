@@ -5,7 +5,8 @@
 xAsVariadic(fn)
 }
 \arguments{
-  \item{fn}{a unary function.}
+  \item{fn}{a unary function. The function to convert to a
+  variadic function.}
 }
 \value{
 A variadic function.

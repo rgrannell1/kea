@@ -8,11 +8,12 @@ xTake(num, coll)
 xTake...(num, ...)
 }
 \arguments{
-  \item{num}{a nonnegative whole number.}
+  \item{num}{a nonnegative whole number. The number of
+  elements to return from the input collection.}
+
+  \item{coll}{a collection. The collection to subset.}
 
   \item{...}{see above.}
-
-  \item{coll}{a collection}
 }
 \value{
 A list.
@@ -21,7 +22,7 @@ A list.
 Take several elements from the head of a collection.
 }
 \section{Corner Cases}{
-  If \code{coll} is empty the empty list is returned.
+  If \bold{coll} is empty the empty list is returned.
 }
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},

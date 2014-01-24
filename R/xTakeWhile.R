@@ -17,9 +17,9 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is
+#'    Returns the empty list if \bold{coll} is
 #'    length-zero or the first element of
-#'    \code{coll} returns false for the predicate.
+#'    \bold{coll} returns false for the predicate.
 #'    Na values are considered false.
 #'
 #' @family selection_functions

@@ -31,7 +31,7 @@ and extending them to work on collections of values.
 \code{list(False, False, True, False)}
 }
 \section{Corner Cases}{
-  Returns the empty list if \code{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \seealso{
 Other function_modifying_functions:

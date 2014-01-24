@@ -10,7 +10,7 @@ xDelay(fn, num)
   \item{num}{a nonnegative whole number.}
 }
 \value{
-A function with the same parametres as \code{fn}.
+A function with the same parametres as \bold{fn}.
 }
 \description{
 Delay the evalution of a function after invokation for a
@@ -21,7 +21,7 @@ set amount of time.
 \bold{before} executing its underlying function.
 }
 \section{Corner Cases}{
-  If \code{num} is zero then \code{fn} is returned
+  If \code{num} is zero then \bold{fn} is returned
   untouched.
 }
 \seealso{

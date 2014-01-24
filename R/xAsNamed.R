@@ -3,17 +3,23 @@
 #'
 #' Add names to a collection.
 #'
-#' @param
-#'    strs a collection of strings.
+#' @details
+#' \bold{xAsNamed} is similar to the in-place assignment
+#' function \bold{names<-}, except that it is not an in-place
+#' assignment function.
 #'
 #' @param
-#'    coll a collection
+#'    strs a collection of strings. The names to add to the
+#'    input collection.
+#'
+#' @param
+#'    coll a collection. The collection to add names to.
 #'
 #' @return
 #'    A named list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero. Both
+#'    Returns the empty list if \bold{coll} is length-zero. Both
 #'    duplicated and length-zero names are allowed.
 #'
 #' @family name_functions
@@ -45,5 +51,6 @@ xAsNamed <- function (strs, coll) {
 
 	insist$must_be_equal_length(strs, coll, invoking_call)
 
-	structure(as.list(coll), names = strs)
+	names(coll) <- strs
+	coll
 }

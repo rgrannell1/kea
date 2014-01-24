@@ -1,16 +1,19 @@
 
 #' xInitOf
 #'
-#' Remove the first element of a collection.
+#' Remove the last element of a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. A collection to subset.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
 #'    A list.
+#'
+#' @section Corner Cases:
+#'    Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @family selection_functions
 #'

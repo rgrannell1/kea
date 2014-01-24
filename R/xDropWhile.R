@@ -17,7 +17,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'	  Returns the emty list if \code{coll} is length-zero.
+#'	  Returns the emty list if \bold{coll} is length-zero.
 #'
 #' @family selection_functions
 #'

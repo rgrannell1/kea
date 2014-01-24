@@ -10,10 +10,10 @@
 #'    ... see above.
 #'
 #' @return
-#'    The first element in \code{coll}.
+#'    The first element in \bold{coll}.
 #'
 #' @section Corner Cases:
-#'    Throws an error if \code{coll} has less than one element; this is
+#'    Throws an error if \bold{coll} has less than one element; this is
 #'    because any other corner case would violate the functions type-signature.
 #'
 #' @family selection_functions

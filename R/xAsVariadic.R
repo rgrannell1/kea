@@ -11,7 +11,8 @@
 #'    as a single list to the underlying function.
 #'
 #' @param
-#'    fn a unary function.
+#'    fn a unary function. The function to convert
+#'    to a variadic function.
 #'
 #' @return
 #'    A variadic function.

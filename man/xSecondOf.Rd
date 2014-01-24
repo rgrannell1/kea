@@ -13,13 +13,13 @@ xSecondOf...(...)
   \item{...}{see above.}
 }
 \value{
-The second element in \code{coll}.
+The second element in \bold{coll}.
 }
 \description{
 Return the second element in a collection.
 }
 \section{Corner Cases}{
-  Throws an error if \code{coll} has less than two
+  Throws an error if \bold{coll} has less than two
   elements; this is because any other corner case would
   violate the functions type-signature.
 }

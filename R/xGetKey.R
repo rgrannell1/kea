@@ -10,7 +10,7 @@
 #'    A unary function that takes a collection.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \code{coll} is length-zero.
+#'      Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @family selection_functions
 #'
