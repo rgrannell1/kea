@@ -20,6 +20,14 @@ Returns a unary function of x.
 \description{
 Compose a binary function with two other functions.
 }
+\details{
+Two partially applied version of \bold{xLift} exist;
+\bold{\%or\%} and \bold{\%and\%}. These exist to solve
+
+\code{is.na(x) || is.null(x) || is.nan(x)}
+
+\code{(is.na \%or\% is.null \%or\% is.nan)(x)}
+}
 \seealso{
 Other function_combining_functions: \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xJuxtapose}},

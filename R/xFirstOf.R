@@ -4,7 +4,8 @@
 #' Return the first element of a collection.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to get the
+#'    first element of.
 #'
 #' @param
 #'    ... see above.

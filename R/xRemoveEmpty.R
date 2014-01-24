@@ -4,7 +4,8 @@
 #' Remove the null values from a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to remove
+#'    length-zero values from.
 #'
 #' @param
 #'    ... see above.

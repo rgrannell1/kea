@@ -3,9 +3,12 @@
 #'
 #' Get the parametre names of a function or primitive function.
 #'
-#' @param fn an arbitrary function or primitive function.
+#' @param
+#'   fn an arbitrary function or primitive function. The function to
+#'   find the parametre names of.
 #'
-#' @return A character vector.
+#' @return
+#'   A character vector.
 #'
 #' @section Corner Cases:
 #'	 If \bold{fn} is a primitive function a heuristic is used to obtain

@@ -8,18 +8,20 @@ xSetProd(colls)
 xSetProd...(...)
 }
 \arguments{
-  \item{colls}{n collections.}
+  \item{colls}{a collection of collections. The collections
+  to use to take the cartesian product.}
 
   \item{...}{see above.}
 }
 \value{
-A list of n-element lists.
+A list of collections, with as many elements per collection
+as there are collections in \bold{colls}.
 }
 \description{
 Get the cartesian product of several collections.
 }
 \section{Corner Cases}{
-  Returns the empty list if \bold{coll} is length-zero.
+  Returns the empty list if \bold{colls} is length-zero.
 }
 \examples{
 

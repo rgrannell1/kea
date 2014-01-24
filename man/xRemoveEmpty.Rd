@@ -8,7 +8,8 @@ xRemoveEmpty(coll)
 xRemoveEmpty...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to remove
+  length-zero values from.}
 
   \item{...}{see above.}
 }

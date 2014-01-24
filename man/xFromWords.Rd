@@ -8,7 +8,8 @@ xFromWords(strs)
 xFromWords...(...)
 }
 \arguments{
-  \item{strs}{an arbitrary number of character vectors.}
+  \item{strs}{a collection of length-one character vectors.
+  The strings to collapse into one string.}
 
   \item{...}{see above.}
 }
@@ -16,7 +17,7 @@ xFromWords...(...)
 A length-one character vector.
 }
 \description{
-Collapase a character vector with spaces as delimiters.
+Concatentate a character vector with spaces as delimiters.
 }
 \seealso{
 Other character_functions: \code{\link{xExplode}},

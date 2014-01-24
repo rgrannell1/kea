@@ -8,7 +8,8 @@ xSuccOf(nums)
 xSuccOf...(...)
 }
 \arguments{
-  \item{nums}{a collection of numbers.}
+  \item{nums}{a collection of numbers. The numbers to
+  increment.}
 
   \item{...}{see above.}
 }
@@ -16,7 +17,7 @@ xSuccOf...(...)
 A vector of numbers.
 }
 \description{
-Decrement a collection of numbers.
+Increment a collection of numbers.
 }
 \section{Corner Cases}{
   If \code{nums} is empty then the unit of that vector is

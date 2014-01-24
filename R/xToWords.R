@@ -9,7 +9,8 @@
 #'    the same as one whitespace.
 #'
 #' @param
-#'    str a length-one character vector.
+#'    str a length-one character vector. The string to split into
+#'    words.
 #'
 #' @return
 #'    A character vector, with one or more elements.

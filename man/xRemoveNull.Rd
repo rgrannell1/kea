@@ -8,7 +8,8 @@ xRemoveNull(coll)
 xRemoveNull...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to remove null
+  values from.}
 
   \item{...}{see above.}
 }
@@ -16,7 +17,7 @@ xRemoveNull...(...)
 A list.
 }
 \description{
-Remove the null values from a collection.
+xRemoveNull
 }
 \seealso{
 Other filtering_functions: \code{\link{xPack}},

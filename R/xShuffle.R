@@ -4,7 +4,7 @@
 #' Randomly rearrange a collection.
 #'
 #' @param
-#'      coll a collection
+#'      coll a collection. The collection to rearrange.
 #'
 #' @param
 #'    ... see above.

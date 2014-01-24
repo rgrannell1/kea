@@ -15,6 +15,8 @@
 #'
 #'    \code{function (e1, e2) fn(e1, e2)}
 #'
+#'    doc
+#'
 #' @param
 #'    fn an arbitrary function. Either a primitive or
 #'    non-primitive function to convert to a non-primitive function.

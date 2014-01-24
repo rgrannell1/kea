@@ -50,6 +50,11 @@ another:
 
 In this case function composition behaves exactly like
 multiplication.
+
+In more typical use of \bold{xCompose} is to reduce the
+number of anonymous functions needed by some programs.
+
+\code{xMap(sqrt \%of\% sqrt, 1:10)}
 }
 \seealso{
 Other function_combining_functions:

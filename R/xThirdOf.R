@@ -4,7 +4,8 @@
 #' Return the third value in a collection.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to get the
+#'    third element of.
 #'
 #' @param
 #'    ... see above.

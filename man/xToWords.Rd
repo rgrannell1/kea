@@ -5,7 +5,8 @@
 xToWords(str)
 }
 \arguments{
-  \item{str}{a length-one character vector.}
+  \item{str}{a length-one character vector. The string to
+  split into words.}
 }
 \value{
 A character vector, with one or more elements.

@@ -5,7 +5,8 @@
 xParamsOf(fn)
 }
 \arguments{
-  \item{fn}{an arbitrary function or primitive function.}
+  \item{fn}{an arbitrary function or primitive function.
+  The function to find the parametre names of.}
 }
 \value{
 A character vector.

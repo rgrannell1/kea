@@ -5,10 +5,12 @@
 #' based on a predicate function.
 #'
 #' @param
-#'    pred a predicate.
+#'    pred a predicate. The predicate function with which to partition
+#'    the input collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to partition into
+#'    two collections.
 #'
 #' @param
 #'    ... see above.

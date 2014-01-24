@@ -5,7 +5,8 @@
 xToLines(str)
 }
 \arguments{
-  \item{str}{a string.}
+  \item{str}{a length-one character vector. The string to
+  split into lines.}
 }
 \value{
 A character vector.

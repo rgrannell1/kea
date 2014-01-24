@@ -29,7 +29,7 @@ xIsVal <- function (str) {
 	str <- toString(match.call()$str)
 	insist$must_be_collection(str, invoking_call)
 
-	str <- as_typed_vector(str, "character", True)
+	str <- to_value_unit(as_typed_vector(str, "character"))
 
 	insist$must_be_of_length(str, 1, invoking_call)
 

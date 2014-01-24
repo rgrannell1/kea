@@ -27,6 +27,8 @@ to normal functions.
 \code{xAsClosure('+')}
 
 \code{function (e1, e2) fn(e1, e2)}
+
+doc
 }
 \section{Corner Cases}{
   \code{xAsClosure} does not work for every primitive

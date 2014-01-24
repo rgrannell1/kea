@@ -16,6 +16,9 @@ A variadic function.
 \description{
 Create a function that returns a particular value.
 }
+\details{
+\bold{xConst}.
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

@@ -4,7 +4,7 @@
 #' Convert any function to a unary function.
 #'
 #' @details
-#' \code{xAsUnary} takes a function and returns a function that
+#' \bold{xAsUnary} takes a function and returns a function that
 #' has one argument. The first element of the argument is
 #' passed to the first parametre of the underlying function,
 #' the second element to the second parametre, and so on.

@@ -8,7 +8,8 @@ xSignum(nums)
 xSignum...(...)
 }
 \arguments{
-  \item{nums}{a vector of non-complex numbers.}
+  \item{nums}{a collection of numbers. The numbers to take
+  the sign of.}
 
   \item{...}{see above.}
 }

@@ -4,7 +4,8 @@
 #' Return the fourth value in a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to get the
+#'    fourth element of.
 #'
 #' @param
 #'    ... see above.

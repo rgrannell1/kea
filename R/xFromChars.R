@@ -1,10 +1,11 @@
 
 #' xFromChars
 #'
-#' Collapase a character vector with empty strs as delimiters.
+#' Concatentate a character vector with empty strs as delimiters.
 #'
 #' @param
-#'    strs several character vectors.
+#'    strs a collection of length-one character vectors. The
+#'    strings to collapse into one string.
 #'
 #' @param
 #'    ... see above.

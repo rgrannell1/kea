@@ -8,7 +8,7 @@ xIsEmpty(coll)
 xIsEmpty...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to check.}
 
   \item{...}{see above.}
 }

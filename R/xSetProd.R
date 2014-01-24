@@ -4,16 +4,17 @@
 #' Get the cartesian product of several collections.
 #'
 #' @param
-#'      colls n collections.
-#'
+#'      colls a collection of collections. The collections to
+#'      use to take the cartesian product.
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'      A list of n-element lists.
+#'      A list of collections, with as many elements per collection as
+#'      there are collections in \bold{colls}.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \bold{coll} is length-zero.
+#'      Returns the empty list if \bold{colls} is length-zero.
 #'
 #' @family combinatoric_functions
 #'

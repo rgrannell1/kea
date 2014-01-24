@@ -44,7 +44,7 @@ xAsFunction <- function (coll) {
 		""
 		nums <- c(...)
 		insist$must_be_collection(nums, invoking_call)
-		nums <- as_typed_vector(nums, 'numeric', True)
+		nums <- to_value_unit(as_typed_vector(nums, 'numeric'))
 
 		insist$must_be_whole(nums, invoking_call)
 		insist$max_must_be_less_than_length_of(nums, coll, invoking_call)

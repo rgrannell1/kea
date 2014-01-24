@@ -5,7 +5,8 @@
 xToChars(str)
 }
 \arguments{
-  \item{str}{a length-one character vector.}
+  \item{str}{a length-one character vector. The string to
+  split into characters.}
 }
 \value{
 A character vector of length \code{nchar(str)}, with each

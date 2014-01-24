@@ -4,7 +4,8 @@
 #' Return the second element in a collection.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to get the
+#'    second element of.
 #'
 #' @param
 #'    ... see above.

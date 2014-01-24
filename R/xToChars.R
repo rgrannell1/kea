@@ -4,7 +4,8 @@
 #' Split a single string into a vector of characters.
 #'
 #' @param
-#'    str a length-one character vector.
+#'    str a length-one character vector. The string to split into
+#'    characters.
 #'
 #' @return
 #'    A character vector of length \code{nchar(str)}, with each element being a

@@ -5,7 +5,8 @@
 xRemoveNa(coll)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to remove na
+  values from.}
 
   \item{...}{see above.}
 }
@@ -13,7 +14,7 @@ xRemoveNa(coll)
 A list.
 }
 \description{
-Remove the NA values from a collection.
+xRemoveNa
 }
 \seealso{
 Other filtering_functions: \code{\link{xPack}},

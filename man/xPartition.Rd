@@ -5,9 +5,11 @@
 xPartition(pred, coll)
 }
 \arguments{
-  \item{pred}{a predicate.}
+  \item{pred}{a predicate. The predicate function with
+  which to partition the input collection.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to partition
+  into two collections.}
 
   \item{...}{see above.}
 }

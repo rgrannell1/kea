@@ -11,11 +11,11 @@
 #'    removed from the collection.
 #'
 #' @param
-#'    pred a predicate.
+#'    pred a predicate. The function used to test each element of
+#'    the input collection.
 #'
 #' @param
-#'    coll a collection
-
+#'    coll a collection. The collection to remove elements from.
 #'
 #' @param
 #'    ... see above.

@@ -1,10 +1,10 @@
 
 #' xSuccOf
 #'
-#' Decrement a collection of numbers.
+#' Increment a collection of numbers.
 #'
 #' @param
-#'    nums a collection of numbers.
+#'    nums a collection of numbers. The numbers to increment.
 #'
 #' @param
 #'    ... see above.

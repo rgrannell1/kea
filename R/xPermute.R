@@ -3,11 +3,29 @@
 #'
 #' Permute several collections using indices.
 #'
-#' @param
-#'    coll a collection of whole numbers.
+#' @details
+#'    \bold{xPermute} allows several collections to be rearranged
+#'    in the same way simultaneously.
+#'
+#'    \code{colls <- list(ids = list(15, 1, 12), ages = list(17, 29, 24), weights = list(80, 82, 76))}
+#'
+#'    \code{xPermute((order %of% xAsInteger)( xFirstOf(colls) ), colls)}
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
 #'
 #' @param
-#'    colls several collections of equal length to \bold{coll}.
+#'    nums a collection of whole numbers. The indices
+#'    by which to permute the input collections.
+#'
+#' @param
+#'    colls several collections of equal length to \bold{nums}.
 #'
 #' @param
 #'    ... see above.
@@ -16,7 +34,7 @@
 #'    A list of collections.
 #'
 #' @section Corner Cases:
-#'    returns the empty list is \bold{coll} is length-zero.
+#'    returns the empty list is \bold{nums} is length-zero.
 #'
 #' @family reshaping_functions
 #'
@@ -26,31 +44,31 @@
 #' @rdname xPermute
 #' @export
 
-xPermute <- function (coll, colls) {
+xPermute <- function (nums, colls) {
 	# Vector integer -> [[any]] -> [[any]]
 	# Permute several collections using indices.
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(nums), invoking_call,
+		exclaim$parametre_missing(nums))
 
 	assert(
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
-	coll <- as_typed_vector(coll, 'numeric')
+	nums <- as_typed_vector(nums, 'numeric')
 
 	insist$must_be_collection(colls, invoking_call)
 	insist$must_be_collection_of_collections(colls, invoking_call)
-	insist$must_be_collections_of_length_matching(colls, coll, invoking_call)
+	insist$must_be_collections_of_length_matching(colls, nums, invoking_call)
 
-	if (length(coll) == 0) {
+	if (length(nums) == 0) {
 		list()
 	} else {
 		lapply(colls, function (permutable) {
-			permutable[coll]
+			permutable[nums]
 		})
 	}
 }
@@ -58,6 +76,6 @@ xPermute <- function (coll, colls) {
 #' @rdname xPermute
 #' @export
 
-xPermute... <- function (coll, ...) {
-	xPermute(coll, list(...))
+xPermute... <- function (nums, ...) {
+	xPermute(nums, list(...))
 }

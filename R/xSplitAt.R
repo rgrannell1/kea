@@ -51,7 +51,7 @@ xSplitAt <- function (nums, coll) {
 	insist$must_be_collection(nums, invoking_call)
 	insist$must_be_collection(coll, invoking_call)
 
-	nums <- as_typed_vector(nums, "numeric", True)
+	nums <- to_value_unit(as_typed_vector(nums, "numeric"))
 
 	insist$must_be_whole(nums, invoking_call)
 	insist$must_be_nonnegative(nums, invoking_call)

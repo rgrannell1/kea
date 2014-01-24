@@ -8,9 +8,11 @@ xTakeWhile(pred, coll)
 xTakeWhile...(pred, ...)
 }
 \arguments{
-  \item{pred}{a predicate.}
+  \item{pred}{a predicate. The functionto test each element
+  of the collection with.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to drop elements
+  from.}
 
   \item{...}{see above.}
 }

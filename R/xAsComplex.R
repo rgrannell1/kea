@@ -5,8 +5,7 @@
 #'
 #' @details
 #'    \code{xAsComplex} converts a list, pairlist or vector of
-#'    length-one complex numbers to a complex vector. It does not attempt
-#'    to convert non-complex collections to complex vectors.
+#'    length-one complex values to a complex vector.
 #'
 #' @param
 #'    ims a collection of complex values. A list, pairlist or vector
@@ -16,7 +15,10 @@
 #'    ... see above.
 #'
 #' @return
-#'    A complex vector.
+#'    An integer vector.
+#'
+#' @section Corner Cases:
+#'    Corner
 #'
 #' @template
 #'    Variadic

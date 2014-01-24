@@ -157,6 +157,30 @@ as_parametres <- function (names) {
 	)
 }
 
+to_value_unit <- function (coll) {
+	# collection -> collection
+	# convert a length-zero collection.
+
+	if (length(coll) == 0) {
+		if (is.double(coll) || is.integer(coll)) {
+			0
+		} else if (is.character(coll)) {
+			""
+		} else if (is.logical(coll)) {
+			False
+		} else if (is.raw(coll)) {
+			as.raw(00)
+		} else {
+			stop(
+				"internal arrow error: " %+% "
+				cannot convert to non-implemented vector type.")
+		}
+
+	} else {
+		coll
+	}
+}
+
 as_typed_vector <- local({
 
 	type_tests <- list(
@@ -176,30 +200,6 @@ as_typed_vector <- local({
 			is.complex
 	)
 
-	to_value_unit <- function (coll) {
-		# collection -> collection
-		# convert a length-zero collection.
-
-		if (length(coll) == 0) {
-			if (is.double(coll) || is.integer(coll)) {
-				0
-			} else if (is.character(coll)) {
-				""
-			} else if (is.logical(coll)) {
-				False
-			} else if (is.raw(coll)) {
-				as.raw(00)
-			} else {
-				stop(
-					"internal arrow error: " %+% "
-					cannot convert to non-implemented vector type.")
-			}
-
-		} else {
-			coll
-		}
-	}
-
 	function (coll, mode, value_unit = False) {
 		# coerces an R is_collection (pairlist, list, or typed vector)
 		# to another mode, if the vector is homogenously typed.
@@ -215,30 +215,28 @@ as_typed_vector <- local({
 			if (length(coll) == 0) {
 				# conversion of empty vectors is always possible.
 				coll <- as.vector(coll, mode = mode)
-			}
-
-			if (!type_test(coll)) {
-				stop(exclaim$type_conversion_failed(coll_symbol, mode))
-			}
-
-			if (value_unit) {
-				to_value_unit(coll)
 			} else {
+
+				if (!type_test(coll)) {
+					stop(exclaim$type_conversion_failed_(coll_symbol, mode, summate(coll)) )
+				}
+
 				coll
 			}
-
 		} else {
+			# generic vectors need more checking.
 
-			is_length_one <- all(sapply(coll, length) == 1)
-
-			if (!is_length_one) {
-				stop(exclaim$must_be_collection_of_lengths(coll_symbol, 1))
-			}
-
+			all_length_one <- all(sapply(coll, length) == 1)
 			is_homogenous <- all(sapply(coll, type_test))
 
+			if (!all_length_one) {
+				stop(
+					"the argument matching ", toString(coll_symbol),
+					" must be a collection of length ", 1, " values.")
+			}
+
 			if (!is_homogenous) {
-				stop(exclaim$type_conversion_failed_(coll_symbol, mode))
+				stop( exclaim$type_conversion_failed_(coll_symbol, mode, summate(coll)) )
 			}
 
 			coll <- if (mode == 'raw') {
@@ -247,11 +245,7 @@ as_typed_vector <- local({
 				as.vector(coll, mode = mode)
 			}
 
-			if (value_unit) {
-				to_value_unit(coll)
-			} else {
-				coll
-			}
+			coll
 		}
 	}
 })

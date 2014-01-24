@@ -8,7 +8,8 @@
 #'    Multiple newlines are treated the same as one newline.
 #'
 #' @param
-#'    str a string.
+#'    str a length-one character vector. The string to split into
+#'    lines.
 #'
 #' @return
 #'    A character vector.

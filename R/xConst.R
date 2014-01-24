@@ -3,6 +3,13 @@
 #'
 #' Create a function that returns a particular value.
 #'
+#' @details
+#' \bold{xConst}.
+#'
+#'
+#'
+#'
+#'
 #' @param
 #'    val an arbitrary value.
 #'

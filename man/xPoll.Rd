@@ -14,9 +14,10 @@ xRemoveNa...(...)
 xRemoveNan...(...)
 }
 \arguments{
-  \item{pred}{a unary predicate function.}
+  \item{pred}{a unary predicate function. The function with
+  which to poll each element of the input collection.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to poll.}
 
   \item{...}{see above.}
 }

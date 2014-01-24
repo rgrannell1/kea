@@ -1,10 +1,9 @@
 
 #' xRemoveNa
 #'
-#' Remove the NA values from a collection.
-#'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to remove
+#'    na values from.
 #'
 #' @param
 #'    ... see above.

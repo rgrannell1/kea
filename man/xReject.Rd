@@ -8,9 +8,11 @@ xReject(pred, coll)
 xReject...(pred, ...)
 }
 \arguments{
-  \item{pred}{a predicate.}
+  \item{pred}{a predicate. The function used to test each
+  element of the input collection.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to remove
+  elements from.}
 
   \item{...}{see above.}
 }

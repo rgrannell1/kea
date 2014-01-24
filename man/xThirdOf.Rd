@@ -8,7 +8,8 @@ xThirdOf(coll)
 xThirdOf...(...)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to get the third
+  element of.}
 
   \item{...}{see above.}
 }

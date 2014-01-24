@@ -5,10 +5,11 @@
 #' is false or na until the end of the collection.
 #'
 #' @param
-#'    pred a unary predicate.
+#'    pred a predicate. The functionto test each element of
+#'    the collection with.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to drop elements from.
 #'
 #' @param
 #'    ... see above.

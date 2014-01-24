@@ -5,10 +5,11 @@
 #' true when mapped over a collection.
 #'
 #' @param
-#'    pred a unary predicate function.
+#'    pred a unary predicate function. The function with
+#'    which to poll each element of the input collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to poll.
 #'
 #' @param
 #'    ... see above.

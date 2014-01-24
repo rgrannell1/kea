@@ -8,7 +8,8 @@ xFourthOf(coll)
 xFourthOf...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to get the
+  fourth element of.}
 
   \item{...}{see above.}
 }

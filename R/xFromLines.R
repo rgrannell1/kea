@@ -1,10 +1,11 @@
 
 #' xFromLines
 #'
-#' Collapase a character vector with newlines as delimiters.
+#' Concatentate a character vector with newlines as delimiters.
 #'
 #' @param
-#'    strs a character vector.
+#'    strs a collection of length-one character vectors. The
+#'    strings to collapse into one string.
 #'
 #' @param
 #'    ... see above.

@@ -5,7 +5,8 @@
 xRemoveNan(coll)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to remove NaN
+  values from.}
 
   \item{...}{see above.}
 }

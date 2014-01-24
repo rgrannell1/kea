@@ -47,7 +47,7 @@ xChunk <- function (num, coll) {
 
 	insist$must_be_collection(num, invoking_call)
 
-	num <- as_typed_vector(num, 'numeric', True)
+	num <- to_value_unit(as_typed_vector(num, 'numeric'))
 
 	insist$must_be_of_length(num, 1)
 	insist$must_be_grequal_than(num, 0, invoking_call)

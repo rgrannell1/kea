@@ -4,7 +4,8 @@
 #' Remove the NaN values from a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to remove
+#'    NaN values from.
 #'
 #' @param
 #'    ... see above.

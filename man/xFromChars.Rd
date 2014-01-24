@@ -8,7 +8,8 @@ xFromChars(strs)
 xFromChars...(...)
 }
 \arguments{
-  \item{strs}{several character vectors.}
+  \item{strs}{a collection of length-one character vectors.
+  The strings to collapse into one string.}
 
   \item{...}{see above.}
 }
@@ -16,7 +17,8 @@ xFromChars...(...)
 A length-one character vector.
 }
 \description{
-Collapase a character vector with empty strs as delimiters.
+Concatentate a character vector with empty strs as
+delimiters.
 }
 \seealso{
 Other character_functions: \code{\link{xExplode}},

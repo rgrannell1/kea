@@ -3,6 +3,19 @@
 #'
 #' Compose a binary function with two other functions.
 #'
+#' @details
+#'
+#'
+#' Two partially applied version of \bold{xLift} exist;
+#' \bold{\%or\%} and \bold{\%and\%}. These exist to solve
+#'
+#' \code{is.na(x) || is.null(x) || is.nan(x)}
+#'
+#'
+#' \code{(is.na \%or\% is.null \%or\% is.nan)(x)}
+#'
+#'
+#'
 #' @param
 #'    fn a binary function.
 #'
@@ -64,3 +77,17 @@ xLift <- function (fn, fns) {
 xLift... <- function (fn, ...) {
 	do.call( xLift, list(fn, list(...)) )
 }
+
+# @rdname xLift
+# @export
+
+# '%or%' <- function (fn1, fn2) {
+# 	xLift('||', fn1, fn2)
+# }
+
+# @rdname xLift
+# @export
+
+# '%and%' <- function (fn1, fn2) {
+# 	xLift('&&', fn1, fn2)
+# }

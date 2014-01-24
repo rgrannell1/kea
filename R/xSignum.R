@@ -4,7 +4,8 @@
 #' Get the sign of a vector of numbers.
 #'
 #' @param
-#'      nums a vector of non-complex numbers.
+#'      nums a collection of numbers. The numbers to take
+#'      the sign of.
 #'
 #' @param
 #'    ... see above.

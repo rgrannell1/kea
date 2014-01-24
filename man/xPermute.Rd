@@ -3,15 +3,16 @@
 \alias{xPermute...}
 \title{xPermute}
 \usage{
-xPermute(coll, colls)
+xPermute(nums, colls)
 
-xPermute...(coll, ...)
+xPermute...(nums, ...)
 }
 \arguments{
-  \item{coll}{a collection of whole numbers.}
+  \item{nums}{a collection of whole numbers. The indices by
+  which to permute the input collections.}
 
   \item{colls}{several collections of equal length to
-  \bold{coll}.}
+  \bold{nums}.}
 
   \item{...}{see above.}
 }
@@ -21,8 +22,18 @@ A list of collections.
 \description{
 Permute several collections using indices.
 }
+\details{
+\bold{xPermute} allows several collections to be rearranged
+in the same way simultaneously.
+
+\code{colls <- list(ids = list(15, 1, 12), ages = list(17,
+29, 24), weights = list(80, 82, 76))}
+
+\code{xPermute((order %of% xAsInteger)( xFirstOf(colls) ),
+colls)}
+}
 \section{Corner Cases}{
-  returns the empty list is \bold{coll} is length-zero.
+  returns the empty list is \bold{nums} is length-zero.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
