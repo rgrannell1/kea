@@ -10,21 +10,28 @@ xAsClosure(fn)
   function.}
 }
 \value{
-A function (closure).
+A non-primitive closure.
 }
 \description{
 Convert a primitive function to a closure.
 }
 \details{
-xAsClosure attempts to wrap a primitive function in a
-closure with the same arguments as a the primitive
-function, before passing the arguments to that primitive
-function.
+\bold{xAsClosure} takes a primitive function and wraps it
+in a normal R function that passes its arguments to the
+underlying primitive function.
+
+The most commonly encountered R primitive functions are the
+arithmetic operators. \bold{xAsClosure} can convert these
+to normal functions.
+
+\code{xAsClosure('+')}
+
+\code{function (e1, e2) fn(e1, e2)}
 }
 \section{Corner Cases}{
   \code{xAsClosure} does not work for every primitive
-  function (for example 'c'), so caution should be taken
-  when using this function.
+  function (for example \bold{c( )}), so caution should be
+  taken when using this function.
 }
 \examples{
 

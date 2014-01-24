@@ -8,7 +8,7 @@ xVectorise(fn)
 xVectorize(fn)
 }
 \arguments{
-  \item{fn}{a unary function.}
+  \item{fn}{a unary function. The function to vectorise.}
 }
 \value{
 A unary function of coll.
@@ -18,9 +18,17 @@ Convert a function on one value to a function on
 collections of values.
 }
 \details{
-\code{xVectorise} is a convenience function that partially
-applies \code{xMap} with a function, creating a vectorised
-version of that function.
+\code{xVectorise} is a shorthand function for partially
+applying \code{xMap} with a function, returning a
+vectorised function.  This can be useful for taking a
+function that only works on single values - like is.null -
+and extending them to work on collections of values.
+
+\code{is.nulls <- xVectorise(is.null)}
+
+\code{is.nulls(list(1, 2, Null, 4))}
+
+\code{list(False, False, True, False)}
 }
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero.
