@@ -19,22 +19,22 @@ arrow object constructor.
 
 \bold{The Constructor Function x_}
 
-There isn't much to say about the function \code{x_}; it
-doesn't actually do very much. \code{x_} takes a datum and
-attaches the class 'arrow' to it.
+There isn't much to say about the function \bold{x_( )}; it
+doesn't actually do very much. \bold{x_( )} takes a datum
+and attaches the class 'arrow' to it.
 
 \code{x_(1:10)$x_()}
 
 The data can be taken back out of an arrow object using the
-\code{x_} method (if I had my way with R it would be called
-\code{_x}). It isn't usually necessary to call this
+\bold{x_( )} method (if I had my way with R it would be
+called \bold{_x}). It isn't usually necessary to call this
 function directly, as shown below.
 
 \bold{The infix function $}
 
 The dollar function returns a function with the data from
 the arrow object left-hand side of the call (in this case
-1...10) bound to a function called \code{self_}
+1...10) bound to a function called \bold{self_}
 
 \code{ x_(1:10) $ x_Map function (fn) { x_(xMap(fn,
 self_())) } }
@@ -51,9 +51,9 @@ type of the data on the left hand side of the call.
 \code{x_(sqrt) $ x_Map(coll = 1:10)}
 
 In the above call the square root function is given to the
-x_ constructor, and the x_Map method for *functions* is
-returned, with its fn parametre fixed as `sqrt`, and its
-coll parametre free.
+\bold{x_( )} constructor, and the x_Map method for
+*functions* is returned, with its fn parametre fixed as
+`sqrt`, and its coll parametre free.
 
 As of Arrow 0.1, there are methods for matrices,
 data.frames, factors, lists pairlists and typed vectors,
@@ -82,7 +82,7 @@ off the result of another method.
 \code{x_(letters) $ xTake(10) $ x_LenOf()}
 
 Variadic method (methods with '...' arguments) with their
-'...' argument fixed can still be passed more elipsis
+'...' argument fixed can still be passed more ellipsis
 arguments.
 
 \code{x_(1) $ xMap...(sqrt, 2, 3, 4, 5)}
@@ -91,7 +91,7 @@ arguments.
 
 Arrow provides a mechanism for applying normal R functions
 or anonymous functions to data in an arrow container; the
-functions \code{xTap} and \code{x_Tap}.
+functions \bold{xTap( )} and \bold{x_Tap( )}.
 
 \code{x_(1:10) $ x_Tap(summary)}
 
