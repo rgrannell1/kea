@@ -8,20 +8,25 @@ xPack(coll)
 xPack...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to remove empty
+  values from.}
 
   \item{...}{see above.}
 }
 \value{
-Returns a list of elements in \code{coll}, with all
-length-zero values removed.
+A list.
 }
 \description{
 Remove all length-zero values from a collection.
 }
+\details{
+\bold{xPack} selects the non-empty elements from a
+collection. Zero-length vectors like \bold{integer(0)} and
+\bold{Null} are removed from the input collection.
+}
 \section{Corner Cases}{
-  Returns the emty list if \code{coll} is length-zero, or
-  all elements in \code{coll} are length-zero.
+  Returns the emty list if \bold{coll} is length-zero, or
+  all elements in \bold{coll} are length-zero.
 }
 \seealso{
 Other filtering_functions: \code{\link{xPartition}};

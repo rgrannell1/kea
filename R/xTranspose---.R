@@ -3,13 +3,24 @@
 #'
 #' Transpose a matrix.
 #'
+#' @details
+#' \bold{xTranspose( )} is very similar to the base function
+#' \bold{t( )}. It takes each row of an input matrix and
+#' uses it as a column in the output matrix. The dimensions of
+#' the input matrix is flipped; if a 4 x 2 matrix is supplied to
+#' \bold{xTranspose( )} then a 2 x 4 matrix is returned.
+#'
 #' @usage
 #'      x_(  ) $ xTranspose()
 #'
 #' @return
 #'      An arrow object containing a matrix.
 #'
-#' @family exclusively_methods
+#' @family method_functions
+#'
+#' @section Corner Cases:
+#'    The empty matrix is returned if the input matrix is empty.
+#'    Matrices with zero rows or columns are transposed as expected.
 #'
 #' @name xTranspose
 

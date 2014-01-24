@@ -9,7 +9,7 @@
 #' @return
 #'      An empty matrix or data.frame.
 #'
-#' @family exclusively_methods
+#' @family method_functions
 #'
 #' @name xRowUnit
 

@@ -9,7 +9,7 @@
 #' @return
 #'      An arrow object.
 #'
-#' @family exclusively_methods
+#' @family method_functions
 #'
 #' @name xTap
 

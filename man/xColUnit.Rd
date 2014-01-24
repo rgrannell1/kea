@@ -12,11 +12,12 @@ Return the concatenative unit for a matrix or data.frame
 column.
 }
 \seealso{
-Other exclusively_methods: \code{\link{xByColnames}};
+Other method_functions: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},
 \code{\link{xByLevels}}; \code{\link{xByRows}};
 \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
 \code{\link{xExecute}}; \code{\link{xRowUnit}};
-\code{\link{xTap}}; \code{\link{xTranspose}}
+\code{\link{xTap}}; \code{\link{xTranspose}};
+\code{\link{x_}}
 }
 

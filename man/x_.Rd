@@ -5,27 +5,46 @@
 x_(val)
 }
 \arguments{
-  \item{val}{a function, collection, or arbitrary value.}
+  \item{val}{an arbitrary value. The methods available
+  depend on the input type; functions and collections have
+  the most methods available.}
 }
 \value{
-an object of class "arrow", with a single field 'x' that
-contents are val.
+An object of class "arrow". Internally the object is
+represented as a list with a single field \bold{x}, but
+this field cannot be accessed directly.  Instead, the
+method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used
+to return the data stored in an arrow object.
+
+The methods available to an arrow object depend on the type
+of the data it contains. All arrow objects inherit a
+handful of methods regardless of their type; these include
+\bold{xIdentity} and \bold{xTap} - a method that allows
+anonymous function to be executed on an arrow object.
+
+Matrices, data frames, and factors have methods for
+converting them to collections, while normal Arrow
+functions are also available as methods for collections and
+functions.
 }
 \description{
-Generate a chainable arrow object that methods can be
-called off.
+Generate an arrow object with methods available to it.
 }
 \section{Corner Cases}{
-  The methods that can be used by x_() object varies
-  depending on the type of val.  Some methods are specific
-  to functions or collections. If a non-function and
-  non-collection is supplied then very few methods can be
-  used.
+  The methods that can be used by \bold{$ x_( )} object
+  varies depending on the type of val.
+}
+\examples{
 
-  Because the definition of $ was overloaded to allow
-  method chaining, the field 'x' inside an arrow object
-  cannot be accessed using x_()$x. Writing x_()$x_() can be
-  used to access the data in an arrow monad directly, or
-  x_()$xIdentity() can be used.
+Null
+}
+\seealso{
+Other method_functions: \code{\link{xByColnames}};
+\code{\link{xByCols}}; \code{\link{xByLevels}},
+\code{\link{xByLevels}}; \code{\link{xByRows}};
+\code{\link{xColUnit}}; \code{\link{xElemsByCols}};
+\code{\link{xElemsByRows}}; \code{\link{xExecute}};
+\code{\link{xRowUnit}}; \code{\link{xTap}};
+\code{\link{xTranspose}}
 }
 

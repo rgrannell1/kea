@@ -13,7 +13,7 @@
 #' @return
 #'      The return value of the previous method.
 #'
-#' @family exclusively_methods
+#' @family method_functions
 #'
 #' @name xExecute
 

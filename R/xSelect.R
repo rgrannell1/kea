@@ -4,15 +4,18 @@
 #' Include all elements from a collection matching a predicate.
 #'
 #' @details
-#'    \code{xSelect} applies a predicate function to each element
-#'    of the input collection, and returns the elements of that
-#'    collection such that the predicate returned true.
+#'    \bold{xSelect} applies a predicate function
+#'    such as \bold{is.integer} or \bold{is.null} to each element
+#'    of a collection. The elements for which the predicate
+#'    returned true are kept, and the remaining elements are
+#'    removed from the collection.
 #'
 #' @param
-#'    pred a predicate.
+#'    pred a predicate. The function used to test each element of
+#'    the input collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to remove elements from.
 #'
 #' @param
 #'    ... see above.
@@ -21,7 +24,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{coll} is length-zero,
+#'    Returns the empty list if \bold{coll} is length-zero,
 #'    or no match is found. If the predicate returns a
 #'    non-logical value an error is thrown. If an na value
 #'    is returned by the predicate it is treated as a false value.

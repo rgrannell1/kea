@@ -21,9 +21,11 @@ A list.
 Remove all elements from a collection matching a predicate.
 }
 \details{
-\code{xReject} applies a predicate function to each element
-of the input collection, and returns the elements of that
-collection such that the predicate returned false or na.
+\bold{xReject} applies a predicate function such as
+\bold{is.integer} or \bold{is.null} to each element of a
+collection. The elements for which the predicate returned
+false are kept, and the remaining elements are removed from
+the collection.
 }
 \section{Corner Cases}{
   Returns the empty list if \code{coll} is length-zero, or

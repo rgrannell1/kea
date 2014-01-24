@@ -9,7 +9,7 @@
 #' @return
 #'      An arrow object containing a character vector.
 #'
-#' @family exclusively_methods
+#' @family method_functions
 #'
 #' @name xByLevels
 
