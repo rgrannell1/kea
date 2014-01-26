@@ -1,13 +1,15 @@
 
+insist <- arrow:::insist
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
+format_call <- arrow:::format_call
 
 invoking_call <- format_call(
 	quote(xMap(x := x^2, coll = 1:10)) )
 
-test_sym <- NULL
-
 message("must_be_logical_result")
+
+	test_sym <- NULL
 
 	forall(
 		"must_be_logical_result works for logicals.",
@@ -29,6 +31,12 @@ message("must_be_character")
 	)
 
 message("must_be_collection")
+
+	forall(
+		"must be must_be_character works",
+		test_cases$collection,
+		insist $ must_be_collection(coll, invoking_call)
+	)
 
 message("must_be_collection_of_collections")
 
@@ -80,15 +88,32 @@ message("must_be_of_length")
 
 message("must_be_parametres_of")
 
+	local({
+
+		fn <- function (a, b, c) {
+			a + b + c
+		}
+
+		insist $ must_be_parametres_of(
+			c('a', 'b'), fn, invoking_call)
+
+	})
+
 message("must_be_recursive")
+
+	forall(
+		"must be recursive works for lists & pairlists",
+		test_cases$collection,
+		insist $ must_be_recursive(as.list(coll), invoking_call)
+	)
 
 message("must_be_unlocked")
 
 	local({
-		LOCKED <- 1
-		lockBinding(as.symbol('LOCKED'), environment())
+		normal <- 1
+
 		insist $ must_be_unlocked(
-			'LOCKED', environment(), invoking_call)
+			'normal', environment(), invoking_call)
 	})
 
 message("must_be_whole")

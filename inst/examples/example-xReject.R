@@ -46,5 +46,4 @@ elems_smaller_than <- (maximum : nums) := {
 }
 
 elems_smaller_than(10, c(1, 8, 10, 11, 100))
-
 c(1, 8, 10)

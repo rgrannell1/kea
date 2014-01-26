@@ -15,6 +15,9 @@
 #' @section Corner Cases:
 #'    Returns the empty list if \bold{coll} is length-zero.
 #'    If no match is found the original string is returned.
+#'    Every element of the returned character vector has one
+#'    or more characters - no zero-character elements are ever
+#'    generated.
 #'
 #' @family character_functions
 #'
@@ -39,7 +42,7 @@ xExplode <- function (rexp, str) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
-	str <- to_value_unit(as_typed_vector(str, "character"))
+	str <- as_typed_vector(str, "character")
 	rexp <- to_value_unit(as_typed_vector(rexp, "character"))
 
 	insist$must_be_of_length(str, 0:1, invoking_call)
@@ -49,7 +52,8 @@ xExplode <- function (rexp, str) {
 	} else if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(str, rexp)[[1]]
+		exploded <- strsplit(str, rexp)[[1]]
+		exploded[nchar(exploded) > 0]
 	}
 }
 
