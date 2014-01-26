@@ -46,13 +46,20 @@ for (ith in 1:4) {
 }
 
 res
+
+# 2. Compute the standard childhood multiplication
+#    table.
+
+xSetProd...(1:12, 1:12)
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}
+\code{\link{xCombos...}}; \code{\link{xCycle}},
+\code{\link{xCycle...}}
 
 Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xDuplicated}},
+\code{\link{xCombos...}}; \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},

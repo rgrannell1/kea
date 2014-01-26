@@ -32,7 +32,8 @@ x_Tap(min \%of\% xAsInteger)
 }
 \seealso{
 Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xDuplicated}},
+\code{\link{xCombos...}}; \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},

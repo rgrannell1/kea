@@ -28,7 +28,8 @@ NULL
 }
 \seealso{
 Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xInter}},
+\code{\link{xCombos...}}; \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xSetProd}},

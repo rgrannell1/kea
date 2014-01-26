@@ -42,10 +42,12 @@ NULL
 
 }
 \seealso{
-Other combinatoric_functions: \code{\link{xSetProd}},
+Other combinatoric_functions: \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}
 
-Other set_functions: \code{\link{xDuplicated}},
+Other set_functions: \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDuplicated}},
 \code{\link{xDuplicated...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},

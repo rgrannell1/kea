@@ -475,6 +475,16 @@ compounds <- local({
 			}
 		}
 
+	this$positive_integers <-
+		function (sd = 20) {
+			function () {
+
+				one_of( list(
+					function () integer(),
+					as_coll$vector_of(atoms$positive_integer(), sd)) )(  )
+			}
+		}
+
 	this$range_integers <-
 		function (lower = 1, upper = 100, sd = 20) {
 			function () {
@@ -691,6 +701,9 @@ test_cases <- local({
 
 	this$integers <-
 		list(coll = compounds$integers())
+
+	this$positive_integers <-
+		list(coll = compounds$positive_integers())
 
 	this$infinity <-
 		list(coll = atoms$infinity)

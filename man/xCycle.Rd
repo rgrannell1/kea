@@ -32,17 +32,18 @@ Generate a cyclic permutation of a collection.
 
 }
 \seealso{
-Other selection_functions: \code{\link{xDropWhile}},
-\code{\link{xDropWhile...}}; \code{\link{xDrop}},
-\code{\link{xDrop...}}; \code{\link{xFirstOf}},
-\code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
-\code{\link{xFourthOf...}}; \code{\link{xGetKey}};
-\code{\link{xInitOf}}, \code{\link{xInitOf...}};
-\code{\link{xLastOf}}, \code{\link{xLastOf...}};
-\code{\link{xPluck}}, \code{\link{xPluck...}};
-\code{\link{xRestOf}}, \code{\link{xRestOf...}};
-\code{\link{xSecondOf}}, \code{\link{xSecondOf...}};
-\code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};
-\code{\link{xTake}}, \code{\link{xTake...}}
+Other combinatoric_functions: \code{\link{xCombos}},
+\code{\link{xCombos...}}; \code{\link{xSetProd}},
+\code{\link{xSetProd...}}
+
+Other set_functions: \code{\link{xCombos}},
+\code{\link{xCombos...}}; \code{\link{xDuplicated}},
+\code{\link{xDuplicated...}}; \code{\link{xInter}},
+\code{\link{xInter...}}; \code{\link{xIsMember}},
+\code{\link{xIsMember...}}; \code{\link{xNotMember}},
+\code{\link{xNotMember...}}; \code{\link{xSetProd}},
+\code{\link{xSetProd...}}; \code{\link{xUnion}},
+\code{\link{xUnion...}}; \code{\link{xUnique}},
+\code{\link{xUnique...}}
 }
 

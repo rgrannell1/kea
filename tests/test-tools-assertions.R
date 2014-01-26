@@ -62,9 +62,27 @@ message("must_be_longer_or_equal_than")
 
 message("must_be_longer_than")
 
+	forall(
+		"must be longer than works when longer than",
+		test_cases$collection,
+		insist $ must_be_longer_than(coll, length(coll) - 1, invoking_call)
+	)
+
 message("must_be_non_primitive")
 
+	forall(
+	    "must be non primitive works for non primitives",
+	    test_cases$base_function,
+	    insist $ must_be_non_primitive(fn, invoking_call)
+	)
+
 message("must_be_nonnegative")
+
+	forall(
+		"must be non negative works for nonnegative numbers",
+		test_cases$positive_integers,
+		insist $ must_be_nonnegative(coll, invoking_call)
+	)
 
 message("must_be_of_length")
 

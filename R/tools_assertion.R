@@ -447,17 +447,17 @@ insist <- local({
 		}
 
 	this$must_be_nonnegative <-
-		function (num, invoking_call) {
+		function (nums, invoking_call) {
 			# the number must be non-negative.
 
-			num_sym <- match.call()[-1][[1]]
+			nums_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% ddquote(num_sym) %+%
+			message <- "the argument matching " %+% ddquote(nums_sym) %+%
 				" must be a collection of non-negative numbers." %+%
-				summate(num)
+				summate(nums)
 
 			assert(
-				all(num > 0), invoking_call,
+				all(nums > 0), invoking_call,
 				message)
 
 		}

@@ -26,12 +26,25 @@ Return the second element in a collection.
 }
 \examples{
 
-NULL
+# 1. CE Return the penultimate string in a sentence.
+#    Not the most efficient solution, but it's usually
+#    sufficient. As always, using a right fold would be more
+#    efficient but less expressive. Every problem can be solved
+#    with a fold.
 
+sentence <- "He just kept talking in one long incredibly unbroken sentence moving from
+topic to topic so that no-one had a chance to
+interrupt; it was really quite hypnotic"
+
+x_(sentence) $
+xToWords() $
+xReverse() $
+x_SecondOf()
+
+'quite'
 }
 \seealso{
-Other selection_functions: \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xDropWhile}},
+Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},
 \code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
