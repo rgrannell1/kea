@@ -9,10 +9,12 @@
 #'    \bold{fn} can later take as its left argument.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The initial value to be
+#'    used as the first left argument to \bold{fn}.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to reduce to a
+#'    single value.
 #'
 #' @param
 #'    ... see above.

@@ -5,10 +5,11 @@
 #' selecting fields in each element by name.
 #'
 #' @param
-#'    str a string.
+#'    str a string. The key to select from each collection.
 #'
 #' @param
-#'    colls a list or pairlist of lists or pairlists.
+#'    colls a collections of collections. The collection
+#'    of collections to select keys from.
 #'
 #' @param
 #'    ... see above.

@@ -11,9 +11,11 @@ xFoldr...(fn, val, ...)
   \item{fn}{a binary function that returns a value that
   \bold{fn} can later take as its right argument}
 
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The initial value to be
+  used as the first right argument to \bold{fn}.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to reduce to a
+  single value.}
 
   \item{...}{see above.}
 }

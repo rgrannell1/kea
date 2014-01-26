@@ -11,7 +11,8 @@ xReducer...(fn, ...)
   \item{fn}{a binary function that returns a value that
   \bold{fn} can later take as its left argument.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to reduce to a
+  single value.}
 
   \item{...}{see above.}
 }

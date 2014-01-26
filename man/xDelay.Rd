@@ -5,9 +5,11 @@
 xDelay(fn, num)
 }
 \arguments{
-  \item{fn}{an arbitrary function.}
+  \item{fn}{an arbitrary function. The function to slow the
+  rate of execution of.}
 
-  \item{num}{a nonnegative whole number.}
+  \item{num}{a nonnegative whole number. The number of
+  seconds to delay execution by.}
 }
 \value{
 A function with the same parametres as \bold{fn}.
@@ -17,11 +19,18 @@ Delay the evalution of a function after invokation for a
 set amount of time.
 }
 \details{
-\code{xDelay} sleeps for a preset amount of time
-\bold{before} executing its underlying function.
+\bold{xDelay} is primarily meant for use with
+side-effectful functions; likely examples including
+functions that call web API's and functions that that
+display graphics.
+
+\bold{xDelay} throttles the rate at which a function can be
+repeatedly excecuted. This can be useful in preventing API
+rate limits from being exceeded or to emulate a refresh
+rate.
 }
 \section{Corner Cases}{
-  If \code{num} is zero then \bold{fn} is returned
+  If \bold{num} is zero then \bold{fn} is returned
   untouched.
 }
 \seealso{

@@ -8,9 +8,11 @@ xPluck(str, colls)
 xPluck...(str, ...)
 }
 \arguments{
-  \item{str}{a string.}
+  \item{str}{a string. The key to select from each
+  collection.}
 
-  \item{colls}{a list or pairlist of lists or pairlists.}
+  \item{colls}{a collections of collections. The collection
+  of collections to select keys from.}
 
   \item{...}{see above.}
 }

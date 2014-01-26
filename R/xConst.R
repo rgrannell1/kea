@@ -4,17 +4,18 @@
 #' Create a function that returns a particular value.
 #'
 #' @details
-#' \bold{xConst}.
+#' \bold{xConst} is the contant combinator - a function
+#' that takes an arguments and returns a function that
+#' always returns that value.
 #'
-#'
-#'
-#'
+#' The function returned by \bold{xConst} has ellipsis arguments,
+#' and ignores those arguments.
 #'
 #' @param
 #'    val an arbitrary value.
 #'
 #' @return
-#'    A variadic function.
+#'    A variadic function that returns \bold{val}.
 #'
 #' @family function_modifying_functions
 #'

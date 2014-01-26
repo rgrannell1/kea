@@ -5,20 +5,26 @@
 #' for a set amount of time.
 #'
 #' @details
-#'    \code{xDelay} sleeps for a preset amount of time
-#'    \bold{before} executing its underlying function.
+#'    \bold{xDelay} is primarily meant for use with side-effectful functions;
+#'    likely examples including functions that call web API's and functions that
+#'    that display graphics.
+#'
+#'    \bold{xDelay} throttles the rate at which a function can be repeatedly
+#'    excecuted. This can be useful in preventing API rate limits from being
+#'    exceeded or to emulate a refresh rate.
 #'
 #' @param
-#'    fn an arbitrary function.
+#'    fn an arbitrary function. The function to slow the rate of execution of.
 #'
 #' @param
-#'    num a nonnegative whole number.
+#'    num a nonnegative whole number. The number of seconds
+#'    to delay execution by.
 #'
 #' @return
 #'    A function with the same parametres as \bold{fn}.
 #'
 #' @section Corner Cases:
-#'    If \code{num} is zero then \bold{fn} is returned untouched.
+#'    If \bold{num} is zero then \bold{fn} is returned untouched.
 #'
 #' @family function_modifying_functions
 #'

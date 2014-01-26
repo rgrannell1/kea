@@ -18,11 +18,12 @@ Convert a function on one value to a function on
 collections of values.
 }
 \details{
-\code{xVectorise} is a shorthand function for partially
-applying \code{xMap} with a function, returning a
+\bold{xVectorise} is a shorthand function for partially
+applying \bold{xMap} with a function, returning a
 vectorised function.  This can be useful for taking a
-function that only works on single values - like is.null -
-and extending them to work on collections of values.
+function that only works on single values - like
+\bold{is.null( )} - and extending them to work on
+collections of values.
 
 \code{is.nulls <- xVectorise(is.null)}
 

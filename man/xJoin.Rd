@@ -8,7 +8,8 @@ xJoin(colls)
 xJoin...(...)
 }
 \arguments{
-  \item{colls}{several collections.}
+  \item{colls}{a collection of collections. The collections
+  to concatenate to each other.}
 
   \item{...}{see above.}
 }

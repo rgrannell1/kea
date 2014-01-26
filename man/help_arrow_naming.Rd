@@ -18,36 +18,25 @@ Arrow functions are always prefixed with the letter 'x',
 followed by an uppercase letter. Method names are camel
 case.
 
-\code{xMap}
-
-\code{xFold}
-
-\code{xSetProd}
+\itemize{ \item{\bold{xMap}}{} \item{\bold{xFold}}{}
+\item{\bold{xSetProd}}{} }
 
 Functions often come in pairs of related functions;
 
-\code{xExplode}
-
-\code{xImplode}
-
-\code{xSelect}
-
-\code{xReject}
+\itemize{ \item{\bold{xExplode / xImplode}}{}
+\item{\bold{xSelect / xReject}}{} }
 
 Certain functions process collections in a certain
 direction; as is convention in Haskell these have a 'l'
 (left) or 'r' (right) suffix.
 
-\code{xFoldl}
-
-\code{xFoldr}
+\itemize{ \item{\bold{xFoldl}}{} \item{\bold{xFoldr}}{} }
 
 Most arrow functions have a normal version and a ellipsis
 (...) version; the ellipsis form has a three-dot suffix.
 
-\code{xMap}
-
-\code{xMap...}
+\itemize{ \item{\bold{xMap / xMap...}}{} \item{\bold{xJoin
+/ xJoin...}}{} }
 
 \bold{Parametre Names}
 

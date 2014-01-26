@@ -4,7 +4,15 @@
 #' Reverse the formal parametres of a function.
 #'
 #' @param
-#'    fn an arbitrary function.
+#'    fn an arbitrary function. The function to have
+#'    its formals reversed.
+#'
+#' @details
+#'    \bold{xFlip} reverses the formal parametres of its
+#'    input function, including the defaults of those arguments.
+#'
+#'
+#'
 #'
 #' @return
 #'    A function of the same arity as \bold{fn}.

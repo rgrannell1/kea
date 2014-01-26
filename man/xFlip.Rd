@@ -5,13 +5,18 @@
 xFlip(fn)
 }
 \arguments{
-  \item{fn}{an arbitrary function.}
+  \item{fn}{an arbitrary function. The function to have its
+  formals reversed.}
 }
 \value{
 A function of the same arity as \bold{fn}.
 }
 \description{
 Reverse the formal parametres of a function.
+}
+\details{
+\bold{xFlip} reverses the formal parametres of its input
+function, including the defaults of those arguments.
 }
 \seealso{
 Other function_modifying_functions:

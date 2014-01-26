@@ -1478,8 +1478,8 @@ x_fn_proto <- local({
 
 	# -------- L ------- #
 	# --- xLimit --- #
-	add_x_method(this, xLimit, 'num')
-	add_x_method(this, x_Limit, 'num')
+	add_x_method(this, xLimit, 'fn')
+	add_x_method(this, x_Limit, 'fn')
 
 	# --- xLift --- #
 	add_x_method(this, xLift, 'fn')

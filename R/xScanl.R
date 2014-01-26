@@ -10,24 +10,29 @@
 #'    \bold{fn} can later take as its right argument.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The initial value to be
+#'    used as the first left argument to \bold{fn}.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to successively
+#'    reduce to a single value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
 #'    A list with its initial element being \bold{coll}, and
-#'	  containing \code{length(coll) + 1}.
+#'	  containing \bold{length(coll) + 1}.
 #'
 #' @section Corner Cases:
-#'	  Returns \code{list(val)} if \bold{coll} is length-zero.
+#'	  Returns \bold{list(val)} if \bold{coll} is length-zero.
 #'
 #' @family folding_functions
 #' @family short_circuiting_functions
-
+#'
+#' @template
+#'    Fold
+#'
 #' @template
 #'    Variadic
 #'

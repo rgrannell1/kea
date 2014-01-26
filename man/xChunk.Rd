@@ -24,8 +24,8 @@ Divide a collection into segments of fixed length.
 }
 \section{Corner Cases}{
   The final list in the return value will have less than
-  \code{num} elements if \code{length(coll)} is not evenly
-  divisible by \code{num}.  if \bold{coll} is length-zero,
+  \bold{num} elements if \code{length(coll)} is not evenly
+  divisible by \bold{num}.  if \bold{coll} is length-zero,
   the empty list is returned.
 }
 \seealso{

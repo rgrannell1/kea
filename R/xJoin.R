@@ -4,7 +4,8 @@
 #' Concatenate several collections into one collection.
 #'
 #' @param
-#'    colls several collections.
+#'    colls a collection of collections. The collections
+#'    to concatenate to each other.
 #'
 #' @param
 #'    ... see above.

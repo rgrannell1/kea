@@ -4,11 +4,20 @@
 #' Unnest a nested list to a given depth.
 #'
 #' @details
-#'    \code{num} specifies the maximum allowed depth in the
-#'    returned list;
+#'    \bold{xFlatten} flattens nested collections to a
+#'    specific depth. \bold{num} specifies the maximum
+#'    allowed depth in the returned list. When flattening a
+#'    (infinitely nested) collection, \bold{num} equals 1 returns a
+#'    collection, \bold{num} equals 2 returns a collection of
+#'    collections, and so on.
 #'
 #' @param
-#'    num a nonnegative whole-number.
+#'    num a nonnegative whole-number. The maximum depth
+#'    of collection in the return value.
+#'
+#'
+#'
+#'
 #'
 #' @param
 #'    coll a list or pairlist.
