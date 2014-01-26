@@ -5,17 +5,17 @@
 #     Assert checks if a proposition is true, and if it fails
 #     throws a helpful error (see say.R).
 
-
 format_call <- function (call) {
 	# call -> string
 	# format the call nicely for printing, fixing the representation of ':='.
 
 	if (length(call) == 0) {
-		""
+		"arrow_function( )"
 	} else {
+
 		call <- as.call(lapply(call, function (term) {
 
-			if (is.call(term) && term[[1]] == as.symbol(':=')) {
+			if(is.call(term) && term[[1]] == as.symbol(':=')) {
 				eval(term)
 			} else {
 				term
@@ -32,10 +32,7 @@ format_call <- function (call) {
 
 assert <- local({
 
-	consts <- list(
-		margin =
-			80
-	)
+	consts <- list(margin = 80)
 
 	function (expr, invoking_call, message) {
 		# does an expression evaluate to true?
@@ -77,7 +74,7 @@ assert <- local({
 
 		}
 
-		invisible(Null)
+		True
 	}
 
 })
@@ -104,9 +101,10 @@ insist <- local({
 			# the value must have a length in the set of lengths.
 
 			val_sym <- match.call()[-1][[1]]
+
 			lengths_summary <- paste(lengths, collapse = " or ")
 
-			message <- "the argument matching " %+% dQuote(val_sym) %+%
+			message <- "the argument matching " %+% ddquote(val_sym) %+%
 				" must have length " %+% lengths_summary %+% "." %+%
 				summate(val)
 
@@ -117,13 +115,13 @@ insist <- local({
 
 	#  -------- functions -------- #
 
-	this$is_logical_result <-
+	this$must_be_logical_result <-
 		function (result, pred, invoking_call) {
 			# predicates must return logical values.
 
-			pred_sym <- match.call()[-1][[1]]
+			pred_sym <- match.call()[-1][[2]]
 
-			message <- "the predicate function " %+% dQuote(pred_sym) %+%
+			message <- "the predicate function " %+% ddquote(pred_sym) %+%
 				" produced a non-logical value." %+%
 				summate(pred)
 
@@ -138,7 +136,7 @@ insist <- local({
 
 			fn_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(fn_sym) %+%
+			message <- "the argument matching " %+% ddquote(fn_sym) %+%
 				" must be a non-primitive function." %+%
 				summate(fn)
 
@@ -153,7 +151,7 @@ insist <- local({
 
 			fn_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(fn_sym) %+%
+			message <- "the argument matching " %+% ddquote(fn_sym) %+%
 				" must be a function, or a symbol or string" %+%
 				" that can be looked-up as a function. "%+%
 				summate(fn)
@@ -188,7 +186,7 @@ insist <- local({
 
 			strs_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(strs_sym) %+%
+			message <- "the argument matching " %+% ddquote(strs_sym) %+%
 				" must be a character vector." %+%
 				summate(strs)
 
@@ -205,7 +203,7 @@ insist <- local({
 
 			coll_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(coll_sym) %+%
+			message <- "the argument matching " %+% ddquote(coll_sym) %+%
 				" must be a list, a pairlist or a typed vector." %+%
 				summate(coll)
 
@@ -220,7 +218,7 @@ insist <- local({
 
 			coll_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(coll_sym) %+%
+			message <- "the argument matching " %+% ddquote(coll_sym) %+%
 				" must be a list or a pairlist." %+%
 				summate(coll)
 
@@ -236,7 +234,7 @@ insist <- local({
 
 			coll_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(coll_sym) %+%
+			message <- "the argument matching " %+% ddquote(coll_sym) %+%
 				" must have length longer than " %+% length %+% "." %+%
 				summate(coll)
 
@@ -251,7 +249,7 @@ insist <- local({
 
 			coll_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(coll_sym) %+%
+			message <- "the argument matching " %+% ddquote(coll_sym) %+%
 				" must have length equal or longer than " %+% length %+%
 				"."  %+% summate(coll)
 
@@ -295,7 +293,7 @@ insist <- local({
 
 			colls_sym <- match.call()[-1][[1]]
 
-			message <- "the elements of the collection " %+% dQuote(colls_sym) %+%
+			message <- "the elements of the collection " %+% ddquote(colls_sym) %+%
 				" must all be lists, pairlists or typed vectors." %+%
 				summate(colls)
 
@@ -311,7 +309,7 @@ insist <- local({
 
 			fns_sym <- match.call()[-1][[1]]
 
-			message <- "the arguments matching " %+% dQuote(fns_sym) %+%
+			message <- "the arguments matching " %+% ddquote(fns_sym) %+%
 				" must all be functions, or symbols or strings" %+%
 				" that can be looked-up as functions." %+%
 				summate(fns)
@@ -332,8 +330,8 @@ insist <- local({
 
 
 			message <- "the internal collections of the argument matching " %+%
-				dQuote(colls_sym) %+% " must have length equal to that of " %+%
-				dQuote(coll_sym) %+% "." %+% summate(colls)
+				ddquote(colls_sym) %+% " must have length equal to that of " %+%
+				ddquote(coll_sym) %+% "." %+% summate(colls)
 
 			assert(
 				all(vapply(colls, length, integer(1)) == length(coll)),
@@ -347,7 +345,7 @@ insist <- local({
 			coll_sym <- match.call()[-1][[1]]
 			lengths <- paste(lengths, collapse = " or ")
 
-			message <- "the argument matching " %+% dQuote(coll_sym) %+%
+			message <- "the argument matching " %+% ddquote(coll_sym) %+%
 				" must be a collection of length " %+% lengths %+% " values." %+%
 				summate(colls)
 
@@ -359,7 +357,7 @@ insist <- local({
 
 			colls_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(colls_sym) %+%
+			message <- "the argument matching " %+% ddquote(colls_sym) %+%
 				" must be a collection of collections of equal length." %+%
 				summate(colls)
 
@@ -377,7 +375,7 @@ insist <- local({
 
 			num_sym <- match.call()[-1][[1]]
 
-			message <- "the number matching " %+% dQuote(num_sym) %+%
+			message <- "the number matching " %+% ddquote(num_sym) %+%
 				" must be larger than " %+% minimum %+% "." %+%
 				summate(num)
 
@@ -392,7 +390,7 @@ insist <- local({
 
 			num_sym <- match.call()[-1][[1]]
 
-			message <- "the number matching " %+% dQuote(num_sym) %+%
+			message <- "the number matching " %+% ddquote(num_sym) %+%
 				" must be greater or equal to " %+% minimum %+% "." %+%
 				summate(num)
 
@@ -407,7 +405,7 @@ insist <- local({
 
 			nums_sym <- match.call()[-1][[1]]
 
-			message <- "the number matching " %+% dQuote(nums_sym) %+%
+			message <- "the number matching " %+% ddquote(nums_sym) %+%
 				" must be larger than " %+% minimum %+% "." %+%
 				summate(nums)
 
@@ -423,9 +421,9 @@ insist <- local({
 			nums_sym <- match.call()[-1][[1]]
 			coll_sym <- match.call()[-1][[2]]
 
-			message <- "the maximum number in the argument matching " %+% dQuote(nums_sym) %+%
+			message <- "the maximum number in the argument matching " %+% ddquote(nums_sym) %+%
 				" must be less than or equal to " %+% " the length of the argument matching" %+%
-				dQuote(coll_sym) %+% "." %+%
+				ddquote(coll_sym) %+% "." %+%
 				summate(nums)
 
 			assert(
@@ -439,7 +437,7 @@ insist <- local({
 
 			nums_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(nums_sym) %+%
+			message <- "the argument matching " %+% ddquote(nums_sym) %+%
 				" must be a whole number." %+%
 				summate(nums)
 
@@ -454,7 +452,7 @@ insist <- local({
 
 			num_sym <- match.call()[-1][[1]]
 
-			message <- "the argument matching " %+% dQuote(num_sym) %+%
+			message <- "the argument matching " %+% ddquote(num_sym) %+%
 				" must be a collection of non-negative numbers." %+%
 				summate(num)
 
@@ -470,10 +468,10 @@ insist <- local({
 		function (sym, parent_frame, invoking_call) {
 			# the variable cannot be altered.
 
-			message <- "the variable name " %+% dQuote(sym) %+%
+			message <- "the variable name " %+% ddquote(sym) %+%
 				" referenced a locked variable that cannot be altered."
 
-			is_unlocked <- if (exists(sym)) {
+			is_unlocked <- if (exists(sym, where = parent_frame)) {
 				!bindingIsLocked(sym, parent_frame)
 			} else {
 				True
@@ -488,8 +486,10 @@ insist <- local({
 		function (sym, parent_frame, invoking_call) {
 			# the variable doesn't exist.
 
+			sym <- toString(sym)
+
 			message <- "the variable referenced by the name " %+%
-				dQuote(sym) %+% " does not exist."
+				ddquote(sym) %+% " does not exist."
 
 			assert(
 				exists(sym, envir = parent_frame),

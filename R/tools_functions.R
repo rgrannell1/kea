@@ -288,6 +288,10 @@ ddparse <- function (val, collapse = "") {
 	paste0(deparse(val), collapse = collapse)
 }
 
+ddquote <- function (sym) {
+	paste0(dQuote(sym), collapse = '')
+}
+
 newline <- function (val) {
 	paste0(val, collapse = "\n")
 }

@@ -699,6 +699,9 @@ test_cases <- local({
 	this$nans <-
 		list(coll = compounds$nans())
 
+	this$logical <-
+		list(coll = atoms$logical)
+
 	# --------------------- num-Only --------------------- #
 
 	this$num_integer <-

@@ -107,7 +107,7 @@ xExists <- function (pred, colls) {
 
 			is_match <- try_hof(do.call(pred, tuple), invoking_call)
 
-			insist$is_logical_result(is_match, pred, invoking_call)
+			insist$must_be_logical_result(is_match, pred, invoking_call)
 
 			if (isTRUE(is_match)) {
 				return (True)

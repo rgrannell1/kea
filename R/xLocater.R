@@ -57,7 +57,7 @@ xLocater <- function (pred, coll) {
 				pred( coll[[ith]] ),
 				invoking_call)
 
-			insist$is_logical_result(is_match, pred, invoking_call)
+			insist$must_be_logical_result(is_match, pred, invoking_call)
 
 			if (isTRUE(is_match)) {
 				return (as.integer(ith))
