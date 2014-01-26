@@ -10,17 +10,21 @@ format_call <- function (call) {
 	# call -> string
 	# format the call nicely for printing, fixing the representation of ':='.
 
-	call <- as.call(lapply(call, function (term) {
+	if (length(call) == 0) {
+		""
+	} else {
+		call <- as.call(lapply(call, function (term) {
 
-		if (is.call(term) && term[[1]] == as.symbol(':=')) {
-			eval(term)
-		} else {
-			term
-		}
+			if (is.call(term) && term[[1]] == as.symbol(':=')) {
+				eval(term)
+			} else {
+				term
+			}
 
-	}) )
+		}) )
 
-	ddparse(call)
+		ddparse(call)
+	}
 }
 
 # --------------------- assertion functions --------------------- #
