@@ -34,7 +34,8 @@ NULL
 
 }
 \seealso{
-Other selection_functions: \code{\link{xDropWhile}},
+Other selection_functions: \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},
 \code{\link{xFirstOf...}}; \code{\link{xFourthOf}},

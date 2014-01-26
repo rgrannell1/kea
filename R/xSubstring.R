@@ -4,10 +4,12 @@
 #' Subset a string using normal R vector indexing.
 #'
 #' @param
-#'    str a string.
+#'    str a string. The string to subset.
 #'
 #' @param
-#'    nums indices of \code{str}.
+#'    nums a collection of whole numbers. The indices to select
+#'    characters with. Negative, positive and zero indices are allowed,
+#'    but normal R index semantics dictate how they can intermix.
 #'
 #' @param
 #'    ... see above.
@@ -16,7 +18,8 @@
 #'      A character vector.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \bold{coll} is length-zero.
+#'      Returns the empty list if \bold{coll} is length-zero. If any number in
+#'      nums is larger than the length of \bold{coll} an error is thrown.
 #'
 #' @family character_functions
 #'
@@ -47,7 +50,7 @@ xSubstring <- function (str, nums) {
 	insist$must_be_collection(nums, invoking_call)
 
 	str <- to_value_unit(as_typed_vector(str, "character"))
-	nums <- to_value_unit(as_typed_vector(nums, "numeric"))
+	nums <- as_typed_vector(nums, "numeric")
 
 	insist$must_be_of_length(str, 0:1, invoking_call)
 	insist$must_be_whole(nums, invoking_call)
@@ -57,10 +60,12 @@ xSubstring <- function (str, nums) {
 	} else if (length(nums) == 0) {
 		str
 	} else {
+
 		assert(
-			max(nums) <= nchar(str), invoking_call)
+			max(nums) <= nchar(str), invoking_call, "")
 
 		chars <- strsplit(str, "")[[1]]
+		chars <- chars[nchar(chars) > 0]
 		paste0(chars[nums], collapse = "")
 	}
 }

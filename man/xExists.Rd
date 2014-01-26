@@ -81,9 +81,7 @@ is_cyclic_permutation <- (string1 : string2) := {
             ith := {
                 # cyclic indices. modulo sucks in 1-indexed languages.
 
-                indices <- ((seq_along(string1) + ith) \%\% length(string1)) + 1
-                all(string1[indices] == string2)
-
+                identical(xCycle(ith, string1), as.list(string2))
             }
         )
 
@@ -92,7 +90,7 @@ is_cyclic_permutation <- (string1 : string2) := {
 }
 
 is_cyclic_permutation(
-    'CyclicStringsForTheWin', 'TheWinCyclicStringsFor')
+    'CyclicStringsForTheWin', 'ForTheWinCyclicStrings')
 }
 \seealso{
 Other quantifier_functions: \code{\link{xForall}},

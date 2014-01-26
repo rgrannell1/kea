@@ -25,7 +25,8 @@ Return the fourth value in a collection.
   violate the functions type-signature.
 }
 \seealso{
-Other selection_functions: \code{\link{xDropWhile}},
+Other selection_functions: \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},
 \code{\link{xFirstOf...}}; \code{\link{xGetKey}};

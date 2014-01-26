@@ -28,7 +28,8 @@ Take several elements from the head of a collection.
 
 }
 \seealso{
-Other selection_functions: \code{\link{xDropWhile}},
+Other selection_functions: \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xFirstOf}},
 \code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
 \code{\link{xFourthOf...}}; \code{\link{xGetKey}};

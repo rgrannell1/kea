@@ -127,6 +127,7 @@ Collate:
     'xExists.R'
     'xForall.R'
     'xSetProd.R'
+    'xCycle.R'
     'xDo.R'
     'xAsNamed.R'
     'xJuxtapose.R'

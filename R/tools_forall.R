@@ -601,6 +601,11 @@ test_cases <- local({
 
 	# --------------------- Num + Coll ----------------------------- #
 
+	this$integer_with_collection_zero <-
+		list(
+			num = atoms$integer(),
+			coll = compounds$collection_zero)
+
 	this$nonnegative_with_collection_zero <-
 		list(
 			num = atoms$nonnegative_integer(),
@@ -776,7 +781,7 @@ test_cases <- local({
 # forall tests if an expression holds true over a range of random test-cases.
 #
 
-forall <- function (info = "", cases, expect, given, max_time = 0.1) {
+forall <- function (info = "", cases, expect, given, max_time = 0.05) {
 
 	invoking_call <- sys.call()
 

@@ -8,9 +8,12 @@ xSubstring(str, nums)
 xSubstring...(str, ...)
 }
 \arguments{
-  \item{str}{a string.}
+  \item{str}{a string. The string to subset.}
 
-  \item{nums}{indices of \code{str}.}
+  \item{nums}{a collection of whole numbers. The indices to
+  select characters with. Negative, positive and zero
+  indices are allowed, but normal R index semantics dictate
+  how they can intermix.}
 
   \item{...}{see above.}
 }
@@ -21,7 +24,9 @@ A character vector.
 Subset a string using normal R vector indexing.
 }
 \section{Corner Cases}{
-  Returns the empty list if \bold{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero. If
+  any number in nums is larger than the length of
+  \bold{coll} an error is thrown.
 }
 \examples{
 
