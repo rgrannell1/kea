@@ -28,6 +28,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xTakeWhile.R
+#'
 #' @rdname xTakeWhile
 #' @export
 

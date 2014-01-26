@@ -28,6 +28,11 @@ predicate returns false.
   the first element of \bold{coll} returns false for the
   predicate.  Na values are considered false.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

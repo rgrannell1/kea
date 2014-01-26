@@ -58,6 +58,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xCompose.R
+#'
 #' @rdname xCompose
 #' @export
 

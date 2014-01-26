@@ -21,6 +21,11 @@ A length-one character vector.
 Concatenate a character vector into a single string using a
 delimiter.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

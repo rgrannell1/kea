@@ -28,6 +28,11 @@ Two partially applied version of \bold{xLift} exist;
 
 \code{(is.na \%or\% is.null \%or\% is.nan)(x)}
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_combining_functions: \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xJuxtapose}},

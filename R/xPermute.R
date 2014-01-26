@@ -41,6 +41,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xPermute.R
+#'
 #' @rdname xPermute
 #' @export
 

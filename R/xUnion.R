@@ -25,6 +25,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xUnion.R
+#'
 #' @rdname xUnion
 #' @export
 

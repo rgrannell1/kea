@@ -16,6 +16,10 @@
 #'
 #' @family name_functions
 #'
+#'
+#' @example
+#'    inst/examples/example-xGetKey.R
+#'
 #' @rdname xGetKey
 #' @export
 

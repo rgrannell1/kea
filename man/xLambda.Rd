@@ -19,4 +19,9 @@ Returns a unary function.
 \description{
 Syntactic sugar for creating unary functions.
 }
+\examples{
+
+NULL
+
+}
 

@@ -26,6 +26,11 @@ assignment function.
   Returns the empty list if \bold{coll} is length-zero.
   Both duplicated and length-zero names are allowed.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other name_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xDissoc}},

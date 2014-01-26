@@ -57,6 +57,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xForall.R
+#'
 #' @rdname xForall
 #' @export
 

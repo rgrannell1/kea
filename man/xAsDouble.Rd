@@ -30,4 +30,9 @@ double vectors.
   Integer vectors are coerced to double vectors freely,
   since the difference is predominantly internal.
 }
+\examples{
+
+NULL
+
+}
 

@@ -23,6 +23,11 @@ expression.
   Returns the empty list if \bold{coll} is length-zero.  If
   no match is found the original string is returned.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other character_functions: \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},

@@ -11,6 +11,9 @@
 #'    typed vector of length zero if \bold{coll}
 #'	  is a vector, and the empty list if \bold{coll} is a list.
 #'
+#' @example
+#'    inst/examples/example-xUnit.R
+#'
 #' @rdname xUnit
 #' @export
 

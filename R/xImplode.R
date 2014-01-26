@@ -20,6 +20,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xImplode.R
+#'
 #' @rdname xImplode
 #' @export
 

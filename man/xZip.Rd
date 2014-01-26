@@ -22,6 +22,9 @@ Generate a list of n-element lists from n collections.
   The empty list is returned if the shortest collection has
   length-zero, or no collections are included.
 }
+\examples{
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

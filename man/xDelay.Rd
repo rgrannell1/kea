@@ -33,6 +33,11 @@ rate.
   If \bold{num} is zero then \bold{fn} is returned
   untouched.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

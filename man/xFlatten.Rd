@@ -35,6 +35,11 @@ and so on.
   output list.  Flattening to one level flattens the list
   fully.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

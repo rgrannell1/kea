@@ -28,6 +28,11 @@ Divide a collection into segments of fixed length.
   divisible by \bold{num}.  if \bold{coll} is length-zero,
   the empty list is returned.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

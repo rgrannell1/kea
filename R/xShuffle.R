@@ -20,6 +20,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xShuffle.R
+#'
 #' @rdname xShuffle
 #' @export
 

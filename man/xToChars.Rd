@@ -15,6 +15,18 @@ element being a single character.
 \description{
 Split a single string into a vector of characters.
 }
+\examples{
+
+# 1. CodeEval: Sum of Digits
+# sum the digits of a positive integer
+
+x_(toString(12358134L)) $
+xToChars() $
+xMap(as.numeric) $
+x_Reduce("+")
+
+27
+}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

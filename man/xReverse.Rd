@@ -18,6 +18,11 @@ Reverse a collection.
 \section{Corner Cases}{
   Reversing the empty list yields the empty list.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

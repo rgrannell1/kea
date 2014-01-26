@@ -38,6 +38,10 @@
 #' @template
 #'    Return
 #'
+#'
+#' @example
+#'    inst/examples/example-xFoldr.R
+#'
 #' @rdname xFoldr
 #' @export
 

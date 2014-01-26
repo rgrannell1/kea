@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xSecondOf.R
+#'
 #' @rdname xSecondOf
 #' @export
 

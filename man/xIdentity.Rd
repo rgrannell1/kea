@@ -16,4 +16,9 @@ Returns \code{val}.
 \description{
 Return an argument without modification.
 }
+\examples{
+
+NULL
+
+}
 

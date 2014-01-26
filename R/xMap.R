@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xMap.R
+#'
 #' @rdname xMap
 #' @export
 

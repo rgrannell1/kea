@@ -56,6 +56,11 @@ number of anonymous functions needed by some programs.
 
 \code{xMap(sqrt \%of\% sqrt, 1:10)}
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_combining_functions:
 \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};

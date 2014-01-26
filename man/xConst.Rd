@@ -24,6 +24,11 @@ returns that value.
 The function returned by \bold{xConst} has ellipsis
 arguments, and ignores those arguments.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

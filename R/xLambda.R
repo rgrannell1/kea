@@ -12,6 +12,9 @@
 #' @return
 #'    Returns a unary function.
 #'
+#' @example
+#'    inst/examples/example-xLambda.R
+#'
 #' @rdname xLambda
 #' @export
 

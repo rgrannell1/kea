@@ -25,6 +25,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xPartial.R
+#'
 #' @rdname xPartial
 #' @export
 

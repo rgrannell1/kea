@@ -20,6 +20,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xInter.R
+#'
 #' @rdname xInter
 #' @export
 

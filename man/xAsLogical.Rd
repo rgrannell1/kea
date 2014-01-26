@@ -24,4 +24,9 @@ length-one logical values to a logical vector. It does not
 attempt to convert non-logical collections to logical
 vectors.
 }
+\examples{
+
+NULL
+
+}
 

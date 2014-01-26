@@ -44,6 +44,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xChop.R
+#'
 #' @rdname xChop
 #' @export
 

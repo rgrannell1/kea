@@ -21,6 +21,11 @@ function.
   functions. If a function has no parametres the empty
   character vector is returned.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xFlip}};

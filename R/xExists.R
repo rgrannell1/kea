@@ -57,6 +57,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xExists.R
+#'
 #' @rdname xExists
 #' @export
 

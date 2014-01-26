@@ -17,6 +17,9 @@
 #'
 #' @family character_functions
 #'
+#' @example
+#'    inst/examples/example-xToWords.R
+#'
 #' @rdname xToWords
 #' @export
 

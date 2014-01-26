@@ -18,6 +18,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xFromWords.R
+#'
 #' @rdname xFromWords
 #' @export
 

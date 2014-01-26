@@ -21,4 +21,9 @@ Is an element of a collection not NaN?
 \section{Corner Cases}{
   Returns the empty list if \code{coll is length-zero}.
 }
+\examples{
+
+NULL
+
+}
 

@@ -26,6 +26,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xAsInteger.R
+#'
 #' @rdname xAsInteger
 #' @export
 

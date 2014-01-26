@@ -12,6 +12,9 @@
 #'
 #' @family time_functions
 #'
+#' @example
+#'    inst/examples/example-xStopwatch.R
+#'
 #' @rdname xStopwatch
 #' @export
 

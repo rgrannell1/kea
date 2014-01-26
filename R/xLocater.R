@@ -21,6 +21,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xLocater.R
+#'
 #' @rdname xLocater
 #' @export
 

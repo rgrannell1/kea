@@ -21,6 +21,11 @@ Return the duplicated elements in a collection.
 \section{Corner Cases}{
   Returns the empty list if \code{colls} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xInter}},

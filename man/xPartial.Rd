@@ -24,6 +24,11 @@ Partially apply a function.
   Partial application also works for ellipses (eg list(...
   = 1)).
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

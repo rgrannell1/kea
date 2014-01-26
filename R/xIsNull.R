@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xIsNull.R
+#'
 #' @rdname xIsNull
 #' @export
 

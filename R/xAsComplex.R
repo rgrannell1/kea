@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xAsComplex.R
+#'
 #' @rdname xAsComplex
 #' @export
 

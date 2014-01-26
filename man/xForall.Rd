@@ -59,6 +59,11 @@ commutes(2, 2))}
   If any collection is length zero (or no collections are
   given), then logical(0) is returned.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other quantifier_functions: \code{\link{xExists}},
 \code{\link{xExists...}}

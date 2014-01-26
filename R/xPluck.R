@@ -29,6 +29,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xPluck.R
+#'
 #' @rdname xPluck
 #' @export
 

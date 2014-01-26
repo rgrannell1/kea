@@ -21,4 +21,9 @@ Get the length of a collection
 \section{Corner Cases}{
   Returns zero if \bold{coll} is empty.
 }
+\examples{
+
+NULL
+
+}
 

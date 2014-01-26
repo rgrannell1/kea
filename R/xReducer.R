@@ -32,6 +32,9 @@
 #'
 #' @family short_circuiting_functions
 #'
+#' @example
+#'    inst/examples/example-xReducer.R
+#'
 #' @rdname xReducer
 #' @export
 

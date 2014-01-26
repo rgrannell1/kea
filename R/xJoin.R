@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xJoin.R
+#'
 #' @rdname xJoin
 #' @export
 

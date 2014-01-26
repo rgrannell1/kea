@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xPredOf.R
+#'
 #' @rdname xPredOf
 #' @export
 

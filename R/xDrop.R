@@ -24,6 +24,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xDrop.R
+#'
 #' @rdname xDrop
 #' @export
 

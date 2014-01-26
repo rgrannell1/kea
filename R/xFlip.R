@@ -11,15 +11,16 @@
 #'    \bold{xFlip} reverses the formal parametres of its
 #'    input function, including the defaults of those arguments.
 #'
-#'
-#'
-#'
 #' @return
 #'    A function of the same arity as \bold{fn}.
 #'
 #' @family function_modifying_functions
 #'
 #' @family parametre_functions
+#'
+#'
+#' @example
+#'    inst/examples/example-xFlip.R
 #'
 #' @rdname xFlip
 #' @export

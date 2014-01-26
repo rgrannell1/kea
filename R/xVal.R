@@ -24,6 +24,9 @@
 #'
 #' @family immutable_value_functions
 #'
+#' @example
+#'    inst/examples/example-xVal.R
+#'
 #' @rdname xVal
 #' @export
 

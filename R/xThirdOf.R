@@ -21,6 +21,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xThirdOf.R
+#'
 #' @rdname xThirdOf
 #' @export
 

@@ -20,6 +20,11 @@ A length-one character vector.
 Concatentate a character vector with newlines as
 delimiters.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

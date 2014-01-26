@@ -27,6 +27,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xAsNamed.R
+#'
 #' @rdname xAsNamed
 #' @export
 

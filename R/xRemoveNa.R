@@ -16,6 +16,9 @@
 #'
 #' @family filtering_functions
 #'
+#' @example
+#'    inst/examples/example-xRemoveNa.R
+#'
 #' @rdname xRemoveNa
 #' @export
 

@@ -24,6 +24,11 @@ Return the first element of a collection.
   this is because any other corner case would violate the
   functions type-signature.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

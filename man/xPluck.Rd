@@ -28,6 +28,11 @@ fields in each element by name.
   If str is length-zero then the empty string "" is used to
   match key-names.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
 \code{\link{xAssoc}}, \code{\link{xAssoc...}};

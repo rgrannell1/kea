@@ -18,6 +18,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xFromLines.R
+#'
 #' @rdname xFromLines
 #' @export
 

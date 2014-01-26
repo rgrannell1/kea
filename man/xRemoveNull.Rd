@@ -19,6 +19,11 @@ A list.
 \description{
 xRemoveNull
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xPartition}};

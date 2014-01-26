@@ -21,6 +21,12 @@ Return the unique elements in a collection.
 \section{Corner Cases}{
   Returns the empty list if \code{colls} is length-zero.
 }
+\examples{
+
+# 1. Find the smallest unique number in a list.
+
+lowest <- x_( list(1, 1, 3, 2, 2, 2, 5, 4, 9, 9) ) $ xUnique() $ x_Tap(min)
+}
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicated}},

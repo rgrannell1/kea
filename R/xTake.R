@@ -24,6 +24,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xTake.R
+#'
 #' @rdname xTake
 #' @export
 

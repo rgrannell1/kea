@@ -35,6 +35,11 @@ colls)}
 \section{Corner Cases}{
   returns the empty list is \bold{nums} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

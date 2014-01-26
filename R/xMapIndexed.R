@@ -24,6 +24,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xMapIndexed.R
+#'
 #' @rdname xMapIndexed
 #' @export
 

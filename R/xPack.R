@@ -27,6 +27,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xPack.R
+#'
 #' @rdname xPack
 #' @export
 

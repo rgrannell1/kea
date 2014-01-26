@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xNotNa.R
+#'
 #' @rdname xNotNa
 #' @export
 

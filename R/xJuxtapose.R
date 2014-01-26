@@ -41,6 +41,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xJuxtapose.R
+#'
 #' @rdname xJuxtapose
 #' @export
 

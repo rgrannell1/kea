@@ -16,6 +16,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xIsFalse.R
+#'
 #' @rdname xIsFalse
 #' @export
 

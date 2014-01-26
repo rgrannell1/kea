@@ -22,4 +22,9 @@ Increment a vector of numbers.
   Returns the unit of the vector if \code{nums} is
   length-zero.
 }
+\examples{
+
+NULL
+
+}
 

@@ -19,6 +19,11 @@ A length-one character vector.
 \description{
 Concatentate a character vector with spaces as delimiters.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},

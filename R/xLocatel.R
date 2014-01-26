@@ -22,6 +22,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xLocatel.R
+#'
 #' @rdname xLocate
 #' @export
 

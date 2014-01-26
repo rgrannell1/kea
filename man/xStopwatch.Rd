@@ -14,6 +14,11 @@ A variadic function that ignores its arguments.
 Create a function that returns true for a preset time after
 creation.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other time_functions: \code{\link{xDelay}};
 \code{\link{xLimit}}

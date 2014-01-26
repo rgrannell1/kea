@@ -25,6 +25,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xThread.R
+#'
 #' @rdname xThread
 #' @export
 

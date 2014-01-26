@@ -31,4 +31,9 @@ vectors.
   doubles can be decimal or infinite numbers, which would
   be lost upon coersion.
 }
+\examples{
+
+NULL
+
+}
 

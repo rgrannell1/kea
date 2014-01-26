@@ -36,6 +36,9 @@ the collection.
   value an error is thrown. If an na value is returned by
   the predicate it is treated as a false value.
 }
+\examples{
+
+}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xPartition}};

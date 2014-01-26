@@ -18,11 +18,12 @@
 #' @return
 #'    A list.
 #'
-#' @example
-#'    inst/examples/example-xDo.R
 #'
 #' @template
 #'    Variadic
+#'
+#' @example
+#'    inst/examples/example-xDo.R
 #'
 #' @rdname xDo
 #' @export

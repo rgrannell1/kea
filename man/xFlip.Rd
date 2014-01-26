@@ -18,6 +18,11 @@ Reverse the formal parametres of a function.
 \bold{xFlip} reverses the formal parametres of its input
 function, including the defaults of those arguments.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

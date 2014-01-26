@@ -19,4 +19,9 @@ A vector of boolean values.
 \description{
 Is an element of a collection false?
 }
+\examples{
+
+NULL
+
+}
 

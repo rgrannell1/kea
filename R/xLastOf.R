@@ -21,6 +21,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xLastOf.R
+#'
 #' @rdname xLastOf
 #' @export
 

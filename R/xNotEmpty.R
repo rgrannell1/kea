@@ -15,6 +15,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xNotEmpty.R
+#'
 #' @rdname xNotEmpty
 #' @export
 

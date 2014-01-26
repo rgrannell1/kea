@@ -30,4 +30,8 @@ returns true.
 \section{Corner Cases}{
   returns integer(0) if no match is found.
 }
+\examples{
+
+NULL
+}
 

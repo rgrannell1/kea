@@ -23,4 +23,9 @@ Increment a collection of numbers.
   If \code{nums} is empty then the unit of that vector is
   returned.
 }
+\examples{
+
+NULL
+
+}
 

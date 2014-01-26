@@ -21,4 +21,9 @@ Is an element of a collection not false?
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 

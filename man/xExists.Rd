@@ -59,6 +59,41 @@ commutes(2, 2))}
   If any collection is length zero (or no collections are
   given), then logical(0) is returned.
 }
+\examples{
+
+# 1. Determine if a string is a cyclic permutation of another string.
+#    check if there exists a way of cyclically permutting one string
+#    so that the other string is identical.
+
+is_cyclic_permutation <- (string1 : string2) := {
+
+    is_same_length <- nchar(string1) == nchar(string2)
+
+    string1 <- xToChars(string1)
+    string2 <- xToChars(string2)
+
+    if (length(string1) != length(string2)) {
+        False
+    } else {
+
+        x_(seq_along(string1)) $
+        x_Exists...(
+            ith := {
+                # cyclic indices. modulo sucks in 1-indexed languages.
+
+                indices <- ((seq_along(string1) + ith) \%\% length(string1)) + 1
+                all(string1[indices] == string2)
+
+            }
+        )
+
+    }
+
+}
+
+is_cyclic_permutation(
+    'CyclicStringsForTheWin', 'TheWinCyclicStringsFor')
+}
 \seealso{
 Other quantifier_functions: \code{\link{xForall}},
 \code{\link{xForall...}}

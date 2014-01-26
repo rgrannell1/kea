@@ -27,4 +27,9 @@ length-one complex values to a complex vector.
 \section{Corner Cases}{
   Corner
 }
+\examples{
+
+NULL
+
+}
 

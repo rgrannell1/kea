@@ -23,6 +23,11 @@ Iteratively apply a value to list of functions.
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
 \code{\link{xApply...}}; \code{\link{xAsUnary}};

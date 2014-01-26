@@ -9,7 +9,12 @@
 #' @return
 #'    Returns \code{val}.
 #'
+#'
+#' @example
+#'    inst/examples/example-xIdentity.R
+#'
 #' @rdname xIdentity
+#'
 #' @export
 
 xIdentity <- function (val) {

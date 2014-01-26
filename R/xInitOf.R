@@ -20,6 +20,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xInitOf.R
+#'
 #' @rdname xInitOf
 #' @export
 

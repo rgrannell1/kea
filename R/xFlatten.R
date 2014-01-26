@@ -15,10 +15,6 @@
 #'    num a nonnegative whole-number. The maximum depth
 #'    of collection in the return value.
 #'
-#'
-#'
-#'
-#'
 #' @param
 #'    coll a list or pairlist.
 #'
@@ -37,6 +33,10 @@
 #'
 #' @template
 #'    Variadic
+#'
+#'
+#' @example
+#'    inst/examples/example-xFlatten.R
 #'
 #' @rdname xFlatten
 #' @export

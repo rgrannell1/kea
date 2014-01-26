@@ -27,6 +27,11 @@ on a predicate function.
   all the elements return only true/only false, then one of
   two sublists will be the empty list.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xReject}},

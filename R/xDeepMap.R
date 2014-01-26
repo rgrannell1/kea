@@ -23,6 +23,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xDeepMap.R
+#'
 #' @rdname xDeepMap
 #' @export
 

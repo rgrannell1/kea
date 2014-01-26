@@ -151,6 +151,11 @@ ten.
   If \bold{coll} is length-zero then the parametre
   \bold{val} is returned automatically.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other folding_functions: \code{\link{xFold}},
 \code{\link{xFoldl}}, \code{\link{xFoldl...}};

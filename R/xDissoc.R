@@ -23,6 +23,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xDissoc.R
+#'
 #' @rdname xDissoc
 #' @export
 

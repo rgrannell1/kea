@@ -21,6 +21,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xAsRaw.R
+#'
 #' @rdname xAsRaw
 #' @export
 

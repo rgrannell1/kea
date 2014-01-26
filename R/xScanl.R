@@ -36,6 +36,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xScanl.R
+#'
 #' @rdname xScan
 #' @export
 

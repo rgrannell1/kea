@@ -43,6 +43,11 @@ the data set, and the results are collected in a list.
 \section{Corner Cases}{
   If no functions are provided the empty list is returned.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_combining_functions: \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xLift}},

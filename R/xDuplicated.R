@@ -20,6 +20,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xDuplicated.R
+#'
 #' @rdname xDuplicated
 #' @export
 

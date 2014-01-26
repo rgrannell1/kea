@@ -20,6 +20,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xPoll.R
+#'
 #' @rdname xPoll
 #' @export
 

@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xSubstring.R
+#'
 #' @rdname xSubstring
 #' @export
 

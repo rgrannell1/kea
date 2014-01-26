@@ -16,6 +16,11 @@ A list.
 \description{
 Remove the NaN values from a collection.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xPartition}};

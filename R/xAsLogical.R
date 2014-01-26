@@ -20,6 +20,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xAsLogical.R
+#'
 #' @rdname xAsLogical
 #' @export
 

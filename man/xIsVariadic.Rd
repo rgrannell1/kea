@@ -13,6 +13,11 @@ A boolean value.
 \description{
 Is a function variadic?
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xFlip}};

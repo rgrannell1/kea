@@ -158,6 +158,11 @@ ten.
 \section{Corner Cases}{
   Returns \bold{list(val)} if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xFold}},

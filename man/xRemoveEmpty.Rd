@@ -19,6 +19,11 @@ A list.
 \description{
 Remove the null values from a collection.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
 \code{\link{xPack...}}; \code{\link{xPartition}};

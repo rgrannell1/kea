@@ -22,6 +22,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xFirstOf.R
+#'
 #' @rdname xFirstOf
 #' @export
 

@@ -14,4 +14,9 @@ minor release number and patch number.
 \description{
 Get the current version number of Arrow.
 }
+\examples{
+
+NULL
+
+}
 

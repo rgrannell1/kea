@@ -29,6 +29,9 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @example
+#'    inst/examples/example-xVectorise.R
+#'
 #' @rdname xVectorise
 #' @export
 

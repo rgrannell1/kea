@@ -23,6 +23,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xMapply.R
+#'
 #' @rdname xMapply
 #' @export
 

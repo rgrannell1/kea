@@ -25,6 +25,13 @@ Map a function across many collections simultaneously.
   If the collection lengths are not equal then elements are
   recycled in the shorter collections.
 }
+\examples{
+
+# 1. Multiply the corresponding elements of two lists.
+
+xMapMany...('*', sample(0:9), sample(0:9))
+
+}
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},

@@ -26,6 +26,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xChunk.R
+#'
 #' @rdname xChunk
 #' @export
 

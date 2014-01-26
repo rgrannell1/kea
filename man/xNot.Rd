@@ -37,6 +37,11 @@ returns true for that value. Finally (R uses three-value
 logic) if \bold{fn} returns na for a value so does its
 negation.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other function_modifying_functions:
 \code{\link{xAsClosure}}; \code{\link{xAsFunction}},

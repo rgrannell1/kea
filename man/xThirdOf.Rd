@@ -24,4 +24,9 @@ Return the third value in a collection.
   elements; this is because any other corner case would
   violate the function's type-signature.
 }
+\examples{
+
+NULL
+
+}
 

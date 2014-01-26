@@ -21,4 +21,9 @@ Is an element of a collection not true?
 \section{Corner Cases}{
   Returns logical(0) if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 

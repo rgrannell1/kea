@@ -25,6 +25,11 @@ including and after that point.
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

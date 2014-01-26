@@ -16,6 +16,9 @@
 #'
 #' @family character_functions
 #'
+#' @example
+#'    inst/examples/example-xToLines.R
+#'
 #' @rdname xToLines
 #' @export
 

@@ -24,6 +24,9 @@ its index.
 \section{Corner Cases}{
   Returns the empty list is \bold{coll} is length-zero.
 }
+\examples{
+
+}
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},

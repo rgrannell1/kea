@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xNotFalse.R
+#'
 #' @rdname xNotFalse
 #' @export
 

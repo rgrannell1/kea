@@ -34,6 +34,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xSelect.R
+#'
 #' @rdname xSelect
 #' @export
 

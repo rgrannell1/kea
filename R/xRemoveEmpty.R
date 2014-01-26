@@ -18,6 +18,9 @@
 #'
 #' @family filtering_functions
 #'
+#' @example
+#'    inst/examples/example-xRemoveEmpty.R
+#'
 #' @rdname xRemoveEmpty
 #' @export
 

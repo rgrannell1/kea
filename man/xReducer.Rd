@@ -148,6 +148,11 @@ ten.
   returns the value inside \bold{coll} if coll is
   length-one.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xFold}},

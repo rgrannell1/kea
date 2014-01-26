@@ -23,6 +23,11 @@ function.
   will be the empty symbol, which is identical to
   \code{quote(expr=)}.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xFlip}};

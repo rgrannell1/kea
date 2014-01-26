@@ -13,6 +13,9 @@
 #'
 #' @family character_functions
 #'
+#' @example
+#'    inst/examples/example-xToChars.R
+#'
 #' @rdname xToChars
 #' @export
 

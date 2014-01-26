@@ -28,6 +28,11 @@ collection. Zero-length vectors like \bold{integer(0)} and
   Returns the emty list if \bold{coll} is length-zero, or
   all elements in \bold{coll} are length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other filtering_functions: \code{\link{xPartition}};
 \code{\link{xReject}}, \code{\link{xReject...}};

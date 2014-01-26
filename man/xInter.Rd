@@ -21,6 +21,11 @@ Get the set intersection of several collections.
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicated}},

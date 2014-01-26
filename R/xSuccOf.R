@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xSuccOf.R
+#'
 #' @rdname xSuccOf
 #' @export
 

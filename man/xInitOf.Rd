@@ -21,6 +21,11 @@ Remove the last element of a collection.
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

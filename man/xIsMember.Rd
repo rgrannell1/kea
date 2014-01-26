@@ -24,6 +24,11 @@ Check if a collection contains a value.
   Various types of \code{Na} are not-distinguished between.
   Type conversion is not carried out.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicated}},

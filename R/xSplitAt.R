@@ -31,6 +31,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xSplitAt.R
+#'
 #' @rdname xSplitAt
 #' @export
 

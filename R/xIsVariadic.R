@@ -11,6 +11,10 @@
 #'
 #' @family parametre_functions
 #'
+#'
+#' @example
+#'    inst/examples/example-xIsVariadic.R
+#'
 #' @rdname xIsVariadic
 #' @export
 

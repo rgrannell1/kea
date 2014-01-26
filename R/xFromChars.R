@@ -18,6 +18,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xFromChars.R
+#'
 #' @rdname xFromChars
 #' @export
 

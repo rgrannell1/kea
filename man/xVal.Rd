@@ -25,6 +25,11 @@ languages.
   Overwrites the value referenced by \code{sym}r if the
   variable already exists in the parent frame.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other immutable_value_functions: \code{\link{xAsVal}};
 \code{\link{xAsVar}}

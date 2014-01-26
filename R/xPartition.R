@@ -30,6 +30,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xPartition.R
+#'
 #' @rdname xPartition
 #' @export
 

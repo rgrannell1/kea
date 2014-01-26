@@ -20,6 +20,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xRestOf.R
+#'
 #' @rdname xRestOf
 #' @export
 

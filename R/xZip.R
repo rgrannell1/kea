@@ -21,6 +21,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xZip.R
+#'
 #' @rdname xZip
 #' @export
 

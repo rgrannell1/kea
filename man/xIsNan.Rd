@@ -21,4 +21,9 @@ Is an element in a collection NaN?
 \section{Corner Cases}{
   Returns True if coll is length-zero.
 }
+\examples{
+
+NULL
+
+}
 

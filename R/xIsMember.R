@@ -24,6 +24,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xIsMember.R
+#'
 #' @rdname xIsMember
 #' @export
 

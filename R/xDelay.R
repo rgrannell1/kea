@@ -30,6 +30,10 @@
 #'
 #' @family time_functions
 #'
+#'
+#' @example
+#'    inst/examples/example-xDelay.R
+#'
 #' @rdname xDelay
 #' @export
 

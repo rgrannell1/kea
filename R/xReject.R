@@ -34,6 +34,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xReject.R
+#'
 #' @rdname xReject
 #' @export
 

@@ -26,4 +26,9 @@ length-one strings to a character vector. It does not
 attempt to convert non-character collections to character
 vectors.
 }
+\examples{
+
+NULL
+
+}
 

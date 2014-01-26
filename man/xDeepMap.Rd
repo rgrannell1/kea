@@ -21,6 +21,11 @@ A list or pairlist.
 Recursively map a function into a nested collection,
 preserving its structure.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other mapping_functions: \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},

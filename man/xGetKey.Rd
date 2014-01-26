@@ -16,6 +16,11 @@ Return a function that selects a key from a collection.
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
 \code{\link{xAssoc}}, \code{\link{xAssoc...}};

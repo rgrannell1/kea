@@ -16,6 +16,9 @@
 #'
 #' @family filtering_functions
 #'
+#' @example
+#'    inst/examples/example-xRemoveNull.R
+#'
 #' @rdname xRemoveNull
 #' @export
 

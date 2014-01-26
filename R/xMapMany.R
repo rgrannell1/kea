@@ -24,6 +24,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xMapMany.R
+#'
 #' @rdname xMapMany
 #' @export
 

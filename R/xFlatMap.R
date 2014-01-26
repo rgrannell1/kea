@@ -24,6 +24,10 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @example
+#'    inst/examples/example-xFlatMap.R
+#'
 #' @rdname xFlatMap
 #' @export
 

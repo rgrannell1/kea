@@ -21,4 +21,9 @@ Is an element of a collection null?
 \section{Corner Cases}{
   Returns True if coll is Null.
 }
+\examples{
+
+NULL
+
+}
 

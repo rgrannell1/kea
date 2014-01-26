@@ -22,4 +22,9 @@ Flip the sign of each number in a vector.
   If nums is empty then the unit of the collection is
   returned.
 }
+\examples{
+
+NULL
+
+}
 

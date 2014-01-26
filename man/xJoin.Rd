@@ -24,6 +24,11 @@ Concatenate several collections into one collection.
   concatenating the empty list to another list returns the
   second list, without modification.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xLenOf.R
+#'
 #' @rdname xLenOf
 #' @export
 

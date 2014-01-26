@@ -18,4 +18,9 @@ A boolean value.
 \description{
 Is a collection length-zero?
 }
+\examples{
+
+NULL
+
+}
 

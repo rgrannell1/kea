@@ -25,6 +25,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xAsDouble.R
+#'
 #' @rdname xAsDouble
 #' @export
 

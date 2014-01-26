@@ -19,6 +19,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xReverse.R
+#'
 #' @rdname xReverse
 #' @export
 

@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xNegate.R
+#'
 #' @rdname xNegate
 #' @export
 

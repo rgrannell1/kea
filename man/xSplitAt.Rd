@@ -30,6 +30,11 @@ and after that index.
   second return list is empty. If \bold{coll} is length
   zero both lists are empty.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChop}},

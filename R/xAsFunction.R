@@ -23,6 +23,10 @@
 #' @example
 #'    inst/examples/example-xAsFunction.R
 #'
+#'
+#' @example
+#'    inst/examples/example-xAsFunction.R
+#'
 #' @rdname xAsFunction
 #' @export
 

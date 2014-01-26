@@ -45,6 +45,11 @@ coll)}, before applying a function to each sublist using
   \bold{num}. If \bold{coll} is length-zero, the empty list
   is returned.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xAssoc...}}; \code{\link{xChunk}},

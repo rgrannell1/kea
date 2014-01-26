@@ -21,6 +21,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xAsCharacter.R
+#'
 #' @rdname xAsCharacter
 #' @export
 

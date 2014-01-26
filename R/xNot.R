@@ -31,6 +31,9 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @example
+#'    inst/examples/example-xNot.R
+#'
 #' @rdname xNot
 #' @export
 

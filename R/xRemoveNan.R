@@ -18,6 +18,10 @@
 #'
 #' @family filtering_functions
 #'
+#'
+#' @example
+#'    inst/examples/example-xRemoveNan.R
+#'
 #' @rdname xRemoveNan
 #' @export
 

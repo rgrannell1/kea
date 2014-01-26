@@ -18,6 +18,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xIsNan.R
+#'
 #' @rdname xIsNan
 #' @export
 

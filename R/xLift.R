@@ -35,6 +35,9 @@
 #' @template
 #'    Variadic
 #'
+#' @example
+#'    inst/examples/example-xLift.R
+#'
 #' @rdname xLift
 #' @export
 

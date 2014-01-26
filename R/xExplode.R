@@ -18,6 +18,10 @@
 #'
 #' @family character_functions
 #'
+#'
+#' @example
+#'    inst/examples/example-xExplode.R
+#'
 #' @rdname xExplode
 #' @export
 

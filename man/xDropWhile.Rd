@@ -26,6 +26,11 @@ predicate is false or na until the end of the collection.
 \section{Corner Cases}{
   Returns the emty list if \bold{coll} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other selection_functions: \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},

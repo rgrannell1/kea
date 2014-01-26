@@ -36,6 +36,11 @@ collection is given by the base R function
 \section{Corner Cases}{
   Returns the empty list if \bold{num} is zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other combinatoric_functions: \code{\link{xSetProd}},
 \code{\link{xSetProd...}}

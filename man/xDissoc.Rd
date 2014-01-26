@@ -23,6 +23,11 @@ Split a named list into a list of name: value list pairs.
 \section{Corner Cases}{
   Returns \code{list()} if \code{colls} is length-zero.
 }
+\examples{
+
+NULL
+
+}
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
 \code{\link{xAssoc}}, \code{\link{xAssoc...}};

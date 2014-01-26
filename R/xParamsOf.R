@@ -17,6 +17,9 @@
 #'
 #' @family parametre_functions
 #'
+#' @example
+#'    inst/examples/example-xParamsOf.R
+#'
 #' @rdname xParamsOf
 #' @export
 

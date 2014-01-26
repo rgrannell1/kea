@@ -24,6 +24,9 @@ Take several elements from the head of a collection.
 \section{Corner Cases}{
   If \bold{coll} is empty the empty list is returned.
 }
+\examples{
+
+}
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xFirstOf}},
