@@ -12,8 +12,8 @@
 # consist of the methods, a private object, and methods inherited from
 # a universal method object.
 #
-# upon invocation of an x_()$method, the self_ function is updated to return the
-# value contained in the x_() object. The self_ function should be unbound unless it is called by an x_() function,
+# upon invocation of an x_()$method, the Self function is updated to return the
+# value contained in the x_() object. The Self function should be unbound unless it is called by an x_() function,
 # so an error is thrown if these prototypes are called directly. This workaround is to keep memory usage
 # low by only customising the method when it is being called, rather than when the arrow monad is created.
 
@@ -81,7 +81,7 @@ add_x_method <- function (env, fn, fixed) {
 							function (param) {
 
 								if (as.symbol(param) == fixed) {
-									quote(self_())
+									quote(Self())
 								} else {
 									as.symbol(param)
 								}
@@ -102,7 +102,7 @@ add_x_method <- function (env, fn, fixed) {
 							function (param) {
 
 								if (as.symbol(param) == fixed) {
-									quote(self_())
+									quote(Self())
 								} else {
 									as.symbol(param)
 								}
@@ -117,9 +117,9 @@ add_x_method <- function (env, fn, fixed) {
 				if (as.symbol(param) == fixed) {
 
 					if (fixed == '...') {
-						c( acc, quote(self_()), as.symbol('...') )
+						c( acc, quote(Self()), as.symbol('...') )
 					} else {
-						c( acc, quote(self_()) )
+						c( acc, quote(Self()) )
 					}
 
 
@@ -192,14 +192,14 @@ x_any_proto <- local({
 			# for further chaining.
 
 			fn()
-			x_(self_())
+			x_(Self())
 		}
 
 	this$x_Execute <-
 		function (fn) {
 
 			fn()
-			self_()
+			Self()
 		}
 
 	# -------- F ------- #
@@ -211,10 +211,10 @@ x_any_proto <- local({
 			# current R session.
 
 			chainable <- function (...) {
-				x_(fn(self_(), ...))
+				x_(fn(Self(), ...))
 			}
 
-			proto_ref <- get_proto_ref(self_())
+			proto_ref <- get_proto_ref(Self())
 			assign(str, chainable, envir = proto_ref)
 		}
 
@@ -244,13 +244,13 @@ x_any_proto <- local({
 			# to execute arbitrary code before shunting
 			# the output data back into the x_ monad.
 
-			x_( fn(self_()) )
+			x_( fn(Self()) )
 		}
 
 	this$x_Tap <-
 		function (fn) {
 
-			fn(self_())
+			fn(Self())
 		}
 	# -------- U ------- #
 	# -------- V ------- #
@@ -261,7 +261,7 @@ x_any_proto <- local({
 	# -------- X ------- #
 	this$x_ <-
 		function () {
-			self_()
+			Self()
 		}
 	# -------- Y ------- #
 	# -------- Z ------- #
@@ -295,7 +295,7 @@ x_matrix_proto <- local({
 	# -------- B ------- #
 	this$xByCols <-
 		function () {
-			dims <- dim(self_())
+			dims <- dim(Self())
 
 			if (dims[1] == 0 && dims[0] == 0) {
 				x_( list() )
@@ -304,13 +304,13 @@ x_matrix_proto <- local({
 			} else if (dims[1] == 0) {
 				x_( replicate(max(dims), list()))
 			} else {
-				x_( apply(self_(), 2, as.list) )
+				x_( apply(Self(), 2, as.list) )
 			}
 		}
 
 	this$x_ByCols <-
 		function () {
-			dims <- dim(self_())
+			dims <- dim(Self())
 
 			if (dims[1] == 0 && dims[0] == 0) {
 				list()
@@ -319,22 +319,22 @@ x_matrix_proto <- local({
 			} else if (dims[1] == 0) {
 				replicate(max(dims), list())
 			} else {
-				apply(self_(), 2, as.list)
+				apply(Self(), 2, as.list)
 			}
 		}
 
 	this$xByColnames <-
 		function () {
-			x_( as.list( colnames(self_()) ) )
+			x_( as.list( colnames(Self()) ) )
 		}
 	this$x_ByColnames <-
 		function () {
-			as.list( colnames(self_()) )
+			as.list( colnames(Self()) )
 		}
 
 	this$xByRows <-
 		function () {
-			dims <- dim(self_())
+			dims <- dim(Self())
 
 			if (dims[1] == 0 && dims[0] == 0) {
 				x_( list() )
@@ -343,13 +343,13 @@ x_matrix_proto <- local({
 			} else if (dims[2] == 0) {
 				x_( replicate(max(dims), list()) )
 			} else {
-				x_( apply(self_(), 1, as.list) )
+				x_( apply(Self(), 1, as.list) )
 			}
 		}
 
 	this$x_ByRows <-
 		function () {
-			dims <- dim(self_())
+			dims <- dim(Self())
 
 			if (dims[1] == 0 && dims[0] == 0) {
 				list()
@@ -358,31 +358,31 @@ x_matrix_proto <- local({
 			} else if (dims[2] == 0) {
 				replicate(max(dims), list())
 			} else {
-				apply(self_(), 1, as.list)
+				apply(Self(), 1, as.list)
 			}
 		}
 	# --- xByRownames --- #
 		this$xByRownames <-
 			function () {
-				x_( as.list( rownames(self_()) ) )
+				x_( as.list( rownames(Self()) ) )
 			}
 
 		this$x_ByRownames <-
 			function () {
-				as.list( rownames(self_()) )
+				as.list( rownames(Self()) )
 			}
 
 	# -------- C ------- #
 	this$xColUnit <-
 		function () {
 			x_(matrix(
-				nrow = nrow(self_()),
+				nrow = nrow(Self()),
 				ncol = 0))
 		}
 	this$x_ColUnit <-
 		function () {
 			matrix(
-				nrow = nrow(self_()),
+				nrow = nrow(Self()),
 				ncol = 0)
 		}
 
@@ -390,36 +390,36 @@ x_matrix_proto <- local({
 	# -------- E ------- #
 	this$xElemsByCols <-
 		function () {
-			if (prod(dim(self_()) == 0)) {
+			if (prod(dim(Self()) == 0)) {
 				x_( list() )
 			} else {
-				x_( as.list(self_()) )
+				x_( as.list(Self()) )
 			}
 		}
 	this$x_ElemsByCols <-
 		function () {
-			if (prod(dim(self_()) == 0)) {
+			if (prod(dim(Self()) == 0)) {
 				list()
 			} else {
-				as.list(self_())
+				as.list(Self())
 			}
 		}
 
 
 	this$xElemsByRows <-
 		function () {
-			if (prod(dim(self_()) == 0)) {
+			if (prod(dim(Self()) == 0)) {
 				x_( list() )
 			} else {
-				x_(as.list( t(self_()) ))
+				x_(as.list( t(Self()) ))
 			}
 		}
 	this$x_ElemsByRows <-
 		function () {
-			if (prod(dim(self_()) == 0)) {
+			if (prod(dim(Self()) == 0)) {
 				list()
 			} else {
-				as.list( t(self_()) )
+				as.list( t(Self()) )
 			}
 		}
 
@@ -441,24 +441,24 @@ x_matrix_proto <- local({
 		function () {
 			x_(matrix(
 				nrow = 0,
-				ncol = ncol(self_()) ))
+				ncol = ncol(Self()) ))
 		}
 	this$x_RowUnit <-
 		function () {
 			matrix(
 				nrow = 0,
-				ncol = ncol(self_()) )
+				ncol = ncol(Self()) )
 		}
 
 	# -------- S ------- #
 	# -------- T ------- #
 	this$xTranspose <-
 		function () {
-			x_( t(self_()) )
+			x_( t(Self()) )
 		}
 	this$x_Transpose <-
 		function () {
-			t(self_())
+			t(Self())
 		}
 	# -------- U ------- #
 	this$xFullUnit <-
@@ -498,30 +498,30 @@ x_data_frame_proto <- local({
 	# --- xByCols --- #
 	this$xByCols <-
 		function () {
-			x_(unname( as.list(self_()) ))
+			x_(unname( as.list(Self()) ))
 		}
 	this$x_ByCols <-
 		function () {
-			unname( as.list(self_()) )
+			unname( as.list(Self()) )
 		}
 	# --- xByColnames --- #
 	this$xByColnames <-
 		function () {
-			x_( as.list( colnames(self_()) ) )
+			x_( as.list( colnames(Self()) ) )
 		}
 	this$x_ByColnames <-
 		function () {
-			as.list( colnames(self_()) )
+			as.list( colnames(Self()) )
 		}
 
 	# --- xByRownames --- #
 	this$xByRownames <-
 		function () {
-			x_( as.list( rownames(self_()) ) )
+			x_( as.list( rownames(Self()) ) )
 		}
 	this$x_ByRownames <-
 		function () {
-			as.list( rownames(self_()) )
+			as.list( rownames(Self()) )
 		}
 
 	# -------- C ------- #
@@ -530,14 +530,14 @@ x_data_frame_proto <- local({
 		function () {
 			x_( unname(as.data.frame(
 				matrix(
-					nrow = nrow(self_()),
+					nrow = nrow(Self()),
 					ncol = 0)) ))
 		}
 	this$x_ColUnit <-
 		function () {
 			unname(as.data.frame(
 				matrix(
-					nrow = nrow(self_()),
+					nrow = nrow(Self()),
 					ncol = 0)) )
 		}
 
@@ -562,14 +562,14 @@ x_data_frame_proto <- local({
 			x_( unname(as.data.frame(
 				matrix(
 					nrow = 0,
-					ncol = ncol(self_()) )) ))
+					ncol = ncol(Self()) )) ))
 		}
 	this$x_RowUnit <-
 		function () {
 			unname(as.data.frame(
 				matrix(
 					nrow = 0,
-					ncol = ncol(self_()) )) )
+					ncol = ncol(Self()) )) )
 		}
 
 	# -------- S ------- #
@@ -615,22 +615,22 @@ x_factor_proto <- local({
 
 	this$xByLevels <-
 		function () {
-			x_( as.character( levels(self_()) ) )
+			x_( as.character( levels(Self()) ) )
 		}
 
 	this$x_ByLevels <-
 		function () {
-			as.character( levels(self_()) )
+			as.character( levels(Self()) )
 		}
 
 	this$xByValues <-
 		function () {
-			x_( as.vector(self_()) )
+			x_( as.vector(Self()) )
 		}
 
 	this$x_ByValues <-
 		function () {
-			as.vector(self_())
+			as.vector(Self())
 		}
 
 	# -------- C ------- #
@@ -1746,7 +1746,8 @@ get_proto_ref <- function (val) {
 		alias('xC', 'xJoin'),
 		alias('xConcat', 'xJoin'),
 		alias('xConcatenate', 'xJoin'),
-		alias('xFilter', 'xSelect')
+		alias('xFilter', 'xSelect'),
+		alias('xZipWith', 'xMapMany')
 	)
 
 	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
@@ -1796,7 +1797,7 @@ get_proto_ref <- function (val) {
 		}
 
 		fn <- proto_ref[[method_name]]
-		environment(fn)[['self_']] <- function () obj[['x']]
+		environment(fn)[['Self']] <- function () obj[['x']]
 		fn
 	}
 })

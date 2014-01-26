@@ -32,19 +32,19 @@
 #'
 #' The dollar function returns a function with the data
 #' from the arrow object left-hand side of the call (in this
-#' case 1...10) bound to a function called \bold{self_}
+#' case 1...10) bound to a function called \bold{Self}
 #'
 #' \code{
 #' x_(1:10) $ x_Map
 #' function (fn)
 #' {
-#'     x_(xMap(fn, self_()))
+#'     x_(xMap(fn, Self()))
 #' }
 #' }
 #'
 #' In the above call the method `xMap` for collections is returned. In
 #' this case xMap's coll parametre is bound to the value 1...10
-#' (represented by the function `self_`). Since xMap's
+#' (represented by the function `Self`). Since xMap's
 #' coll parametre is fixed it only has one unfixed parametre: fn.
 #'
 #' Note that different methods are available depending on the

@@ -22,10 +22,10 @@
 #' but the above example demonstrates the basic usage of \bold{xIterate}.
 #'
 #' @param
-#'    fn a function.
+#'    fn a function. The function to repeatedly apply to an initial value.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The initial value to iteratively modify.
 #'
 #' @section Corner Cases:
 #'    Length-zero values of \bold{val} are treated as normal values,

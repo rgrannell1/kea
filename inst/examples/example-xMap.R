@@ -1,6 +1,5 @@
 
-# 1. a toy example; capitalising the
-#    lower-case letters.
+# 1. Convert letters to uppercase.
 
 LETTERS <- xMap(toupper, letters)
 

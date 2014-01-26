@@ -5,9 +5,11 @@
 xIterate(fn, val)
 }
 \arguments{
-  \item{fn}{a function.}
+  \item{fn}{a function. The function to repeatedly apply to
+  an initial value.}
 
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The initial value to
+  iteratively modify.}
 }
 \value{
 The result of successively applying \bold{fn} to
@@ -64,7 +66,6 @@ xIterate(
     1
 )
 
-
 # 2. CodeEval - Sum the first 1,000 primes
 #    This is trivial to do with a fold, but interesting
 #    to do with iterate and take,
@@ -88,39 +89,39 @@ xIterate(
 #
 
 is_prime <- num := {
-	min(num \%\% 2:(num - 1)) > 0
+    min(num \%\% 2:(num - 1)) > 0
 }
 
 prime_density <- x := {
-	x / log(x)
+    x / log(x)
 }
 
 upper_bound <-
 x_(100000L) $
 xIterate(
-	estimate := {
+    estimate := {
 
-		mutants <- estimate + c(
-			+(estimate / 1000),
-			-(estimate / 1000))
+        mutants <- estimate + c(
+            +(estimate / 1000),
+            -(estimate / 1000))
 
-		remaining_error <- c(
-			abs(prime_density(mutants[1]) - 1000),
-			abs(prime_density(mutants[2]) - 1000))
+        remaining_error <- c(
+            abs(prime_density(mutants[1]) - 1000),
+            abs(prime_density(mutants[2]) - 1000))
 
-		new_estimate <- mutants[which.min(remaining_error)]
+        new_estimate <- mutants[which.min(remaining_error)]
 
-		if (min(remaining_error) < 0.01) {
-			Return(new_estimate)
-		} else {
-			new_estimate
-		}
-	}
+        if (min(remaining_error) < 0.01) {
+            Return(new_estimate)
+        } else {
+            new_estimate
+        }
+    }
 ) $
 x_Tap(
-	upper := {
-		floor(sqrt(upper) + upper)
-	}
+    upper := {
+        floor(sqrt(upper) + upper)
+    }
 )
 
 # the sum of the first thousand primes.
