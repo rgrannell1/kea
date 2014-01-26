@@ -42,7 +42,7 @@ list(
 xMap...(
     xSecondOf,
     list("a", "b", "c"),
-    list(1, 2, 3))
+    list(1, 2, 3)
 )
 
 list("b", 2)
