@@ -31,7 +31,7 @@ mapped over a collection.
 \examples{
 
 
-# 1. HackerRank Functional Programming
+# 1. HR Functional Programming
 #    Count the number of elements in a list without using length
 
 # This problem is simple, but involves a slight misuse of xPoll. xPoll checks

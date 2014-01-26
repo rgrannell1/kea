@@ -49,7 +49,7 @@ list("b", 2)
 
 
 
-# 3. HackerRank Functional Programming
+# 3. HR Functional Programming
 # Evaluate the first 10 terms of the series of e^x
 
 # The number e^x is given by the series

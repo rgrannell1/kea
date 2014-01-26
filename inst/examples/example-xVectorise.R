@@ -1,5 +1,5 @@
 
-# 1. HackerRank Functional Programming
+# 1. HR Functional Programming
 # Replaces a list of numbers with their absolute values
 
 # This is fairly perfect use of xVectorise - a function which takes a function that

@@ -33,7 +33,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xCombos.R
 #'

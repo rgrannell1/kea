@@ -66,7 +66,7 @@ xIterate(
     1
 )
 
-# 2. CodeEval - Sum the first 1,000 primes
+# 2. CE - Sum the first 1,000 primes
 #    This is trivial to do with a fold, but interesting
 #    to do with iterate and take,
 

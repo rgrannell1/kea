@@ -1,5 +1,5 @@
 
-# 1. CodeEval: Sum of Digits
+# 1. CE: Sum of Digits
 # sum the digits of a positive integer
 
 x_(toString(12358134L)) $

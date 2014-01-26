@@ -1,6 +1,6 @@
 
 
-# 1. HackerRank Functional Programming
+# 1. HR Functional Programming
 #    Given an input list repeat each element n times
 
 # In this problem each element of a list must be repeated n times;

@@ -20,3 +20,8 @@ for (ith in 1:4) {
 }
 
 res
+
+# 2. Compute the standard childhood multiplication
+#    table.
+
+xSetProd...(1:12, 1:12)

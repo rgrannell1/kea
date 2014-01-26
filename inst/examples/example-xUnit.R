@@ -1,5 +1,5 @@
 
-# 1. HackerRank Functional Programming
+# 1. HR Functional Programming
 #    Reverse a list without using reverse
 
 # Arrow has a function for reversing a list, but it is trivial to reverse a list with

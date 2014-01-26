@@ -22,7 +22,9 @@
 #' @section Corner Cases:
 #'    If \bold{coll} is empty the empty list is returned.
 #'
-#' @family selection_functions
+#' @family combinatoric_functions
+#'
+#' @family set_functions
 #'
 #' @template
 #'    Variadic

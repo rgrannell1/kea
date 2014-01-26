@@ -56,7 +56,7 @@ x := {
 (1:1000) / 100
 )
 
-#3. HackerRank Functional Programming
+#3. HR Functional Programming
 #   Print "Hello World" n times
 
 # xDo is Arrow's construct for mapping over a collection and discarding the result, for use
