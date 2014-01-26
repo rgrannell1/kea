@@ -19,7 +19,7 @@ Any feedback is appreciated.
 
 ### What Arrow code looks like.
 
-```r
+```c
 integrate <- (f : from : to) := {
 
     xVal(epsilon, 0.001)
