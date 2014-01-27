@@ -127,10 +127,30 @@ x_Tap(
 # the sum of the first thousand primes.
 
 prime_sum <-
-x_(1:upper_bound) $
-xSelect(is_prime) $
-xTake(1000) $
-xReduce('+')
+x_(1:upper_bound) $ xSelect(is_prime) $ xTake(1000) $ xReduce('+')
+
+# 3. CE Compute modulo without the builtin operator
+#    This is trivial to do with xIterate.
+
+modulo <- (num : modulus) := {
+    # compute modulo without \%\%.
+
+    x_(num) $
+    x_Iterate(remainder := {
+
+        if (remainder < modulus) {
+            Return(remainder)
+        } else {
+            remainder - modulus
+        }
+    })
+}
+
+modulo(1121, 10)
+# 1
+
+
+
 }
 \seealso{
 Other short_circuiting_functions: \code{\link{xFoldr}},

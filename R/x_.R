@@ -1753,6 +1753,7 @@ get_proto_ref <- function (val) {
 		alias('xConcat', 'xJoin'),
 		alias('xConcatenate', 'xJoin'),
 		alias('xFilter', 'xSelect'),
+		alias('xGroup', 'xChunk'),
 		alias('xZipWith', 'xMapMany')
 	)
 

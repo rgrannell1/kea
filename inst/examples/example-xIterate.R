@@ -79,10 +79,7 @@ x_Tap(
 # the sum of the first thousand primes.
 
 prime_sum <-
-x_(1:upper_bound) $
-xSelect(is_prime) $
-xTake(1000) $
-xReduce('+')
+x_(1:upper_bound) $ xSelect(is_prime) $ xTake(1000) $ xReduce('+')
 
 # 3. CE Compute modulo without the builtin operator
 #    This is trivial to do with xIterate.
@@ -103,18 +100,6 @@ modulo <- (num : modulus) := {
 
 modulo(1121, 10)
 # 1
-
-
-
-
-# 1. CE seperate a csv of mixed digits and letters
-#    In this case, pairs of strings and numbers.
-#
-
-
-csv <- "Monaco,48.9,Japan,44.6,Italy,44.3,Germany,43.7,Jersey,43.4"
-
-x_(csv) $ xExplode(',') $ xGroup(2) $ x_Zip()
 
 
 
