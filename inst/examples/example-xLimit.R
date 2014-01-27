@@ -12,5 +12,7 @@ random_word <-
 
 xMap(random_word, 1:4)
 
+# list("regulative", "pulverizator", "unsigmatic", NULL)
+
 # the final request isn't executed, since the limit
 # of three calls was exceeded.

@@ -33,11 +33,11 @@ element of a collection.
 # In this problem each element of a list must be repeated n times;
 # so the list
 
-list(1, 2, 3)
+# list(1, 2, 3)
 
 # with n = 2 would be become
 
-list(1, 1, 2, 2, 3, 3)
+# list(1, 1, 2, 2, 3, 3)
 
 # I think xFlatMap is the most elegant way of expressing this problem, but (as is usually true)
 # xFold can also be used here. xFlatMap is like xMap, but it joins its return values end-to-end;
@@ -56,7 +56,7 @@ repeat_elements <- (n : coll) := {
 
 repeat_elements(2, c(1, 2, 3))
 
-list(1, 1, 2, 2, 3, 3)
+# list(1, 1, 2, 2, 3, 3)
 }
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},

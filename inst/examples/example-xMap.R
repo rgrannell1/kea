@@ -2,13 +2,14 @@
 # 1. Convert letters to uppercase.
 
 LETTERS <- xMap(toupper, letters)
+LETTERS
 
-list(
-    "A", "B", "C", "D", "E", "F",
-    "G", "H", "I", "J", "K", "L",
-    "M", "N", "O", "P", "Q", "R",
-    "S", "T", "U", "V", "W", "X",
-    "Y", "Z")
+# list(
+#    "A", "B", "C", "D", "E", "F",
+#    "G", "H", "I", "J", "K", "L",
+#    "M", "N", "O", "P", "Q", "R",
+#    "S", "T", "U", "V", "W", "X",
+#    "Y", "Z")
 
 # 2. grab the second value in a collection
 #    of collections.
@@ -19,7 +20,7 @@ xMap...(
     list(1, 2, 3)
 )
 
-list("b", 2)
+# list("b", 2)
 
 
 
@@ -54,4 +55,4 @@ power_of_e <- x := {
 }
 
 power_of_e(1)
-2.718282
+# 2.718282

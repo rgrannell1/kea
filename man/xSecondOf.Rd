@@ -41,7 +41,7 @@ xToWords() $
 xReverse() $
 x_SecondOf()
 
-'quite'
+# 'quite'
 }
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},

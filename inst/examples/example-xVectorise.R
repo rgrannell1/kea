@@ -9,11 +9,11 @@
 absolutes <- xVectorise(abs)
 absolutes(c(-1, 0, +1))
 
-c(1, 0, 1)
+# c(1, 0, 1)
 
 # is the same as
 
 absolutes <- xPartial...(xMap, fn = abs)
 absolutes(-1:1)
 
-c(1, 0, 1)
+# c(1, 0, 1)

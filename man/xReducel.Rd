@@ -171,7 +171,7 @@ xReduce...(
     c(3, 4)
 )
 
-matrix(1:4, 2, 2)
+# matrix(1:4, 2, 2)
 }
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},

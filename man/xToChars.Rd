@@ -25,7 +25,7 @@ xToChars() $
 xMap(as.numeric) $
 x_Reduce("+")
 
-27
+# 27
 }
 \seealso{
 Other character_functions: \code{\link{xExplode}},

@@ -4,7 +4,7 @@
 
 xReject(is.na, c(1, 2, NA, 3, NA, 4))
 
-list(1, 2, 3, 4)
+# list(1, 2, 3, 4)
 
 # 2. remove numeric outliers from a data set,
 #    by filtering them out.
@@ -31,7 +31,7 @@ data_set <- c(
 xReject(
     is_outlier(data_set), data_set)
 
-list(1, 1.1, 0.8, 1.1)
+# list(1, 1.1, 0.8, 1.1)
 
 # 3. HR Functional Programming #3
 # Remove values larger than a certain number
@@ -46,4 +46,4 @@ elems_smaller_than <- (maximum : nums) := {
 }
 
 elems_smaller_than(10, c(1, 8, 10, 11, 100))
-c(1, 8, 10)
+# c(1, 8, 10)

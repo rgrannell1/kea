@@ -39,7 +39,7 @@ xAsVar(const)
 const <- NULL
 const
 
-NULL
+# NULL
 }
 \seealso{
 Other immutable_value_functions: \code{\link{xAsVal}};

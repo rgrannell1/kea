@@ -29,9 +29,9 @@ Convert a collection to a function that takes an index.
 letters_fn <- xAsFunction(letters)
 
 xMapply(
-	letters_fn,
-	xSetProd...(
-		1:26, 1:26)
+    letters_fn,
+    xSetProd...(
+        1:26, 1:26)
 )
 
 # 1. xAsFunction can be an elegant way of
@@ -40,9 +40,9 @@ xMapply(
 letters_fn <- xAsFunction(letters)
 
 xMapply(
-	letters_fn,
-	xSetProd...(
-		1:26, 1:26)
+    letters_fn,
+    xSetProd...(
+        1:26, 1:26)
 )
 }
 \seealso{

@@ -5,19 +5,19 @@
 plus <- xAsClosure('+')
 plus(1, 2)
 
-3
+# 3
 
 is.primitive(plus)
 
-FALSE
+# FALSE
 
 # 2. Arrow functions are usually fine with primitive functions.
 #
 
 x_(1:3) $ x_Scanl(plus, 0)
 
-list(0, 1, 3, 6)
+# list(0, 1, 3, 6)
 
 x_(1:3) $ x_Scanl('+', 0)
 
-list(0, 1, 3, 6)
+# list(0, 1, 3, 6)

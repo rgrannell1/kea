@@ -160,7 +160,7 @@ ten.
 
 xFold("+", 0, 1:10)
 
-55
+## 55
 
 # 2. demonstrate how Return works by using
 #    it to break out of the fold across 26 letters
@@ -180,7 +180,7 @@ xFold(
 )
 
 # terminated after 16 checks, not 26.
-16
+# 16
 
 # 3. HR Functional Programming #4
 #    Return the sum of the odd elements of a list
@@ -203,7 +203,7 @@ sum_odds <- nums := {
 
 sum_odds(c(1, 2, 3, 4, 5, 6))
 
-9
+# 9
 
 # A more efficient solution would only use xFold; the right argument is checked to see
 # if it is odd; if it is it's added to the accumulator value.
@@ -257,7 +257,7 @@ remove_odds <- coll := {
 
 remove_odds(letters)
 
-c("b", "d", "f", "h", "j", "l", "n", "p", "r", "t", "v", "x", "z")
+# c("b", "d", "f", "h", "j", "l", "n", "p", "r", "t", "v", "x", "z")
 
 # 5. HR Functional Programming
 # Area under curves and solids of rotation
@@ -296,7 +296,7 @@ integrate(
     0.001
 )
 
--6000.9
+# -6000.9
 
 # Wolfram Alpha (where most of my calculus knowledge comes from)
 # says -6000, so not bad.
