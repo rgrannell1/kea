@@ -26,6 +26,7 @@ its index.
 }
 \examples{
 
+NULL
 }
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},
