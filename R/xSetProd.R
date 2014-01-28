@@ -34,6 +34,10 @@ xSetProd <- function (colls) {
 
 	invoking_call <- sys.call()
 
+	assert(
+		!missing(colls), invoking_call,
+		exclaim$parametre_missing(colls))
+
 	insist$must_be_collection(colls, invoking_call)
 	insist$must_be_collection_of_collections(colls, invoking_call)
 

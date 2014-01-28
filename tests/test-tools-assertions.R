@@ -148,3 +148,6 @@ message("must_exist")
 		a <- 1
 		insist $ must_exist('a', environment(), invoking_call)
 	})
+
+message("must_be_collection_of_equal_names")
+

@@ -50,7 +50,7 @@ res
 # 2. Compute the standard childhood multiplication
 #    table.
 
-# xSetProd...(1:12, 1:12)
+xSetProd...(1:12, 1:12)
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCombos}},

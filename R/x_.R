@@ -716,6 +716,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_AsComplex, 'ims')
 	add_x_method(this, x_AsComplex..., '...')
 
+	# --- xAsDataFrame --- #
+	add_x_method(this, xAsDataFrame, 'colls')
+	add_x_method(this, xAsDataFrame..., '...')
+	add_x_method(this, x_AsDataFrame, 'colls')
+	add_x_method(this, x_AsDataFrame..., '...')
+
 	# --- xAsFunction --- #
 	add_x_method(this, xAsFunction, 'coll')
 	add_x_method(this, xAsFunction..., '...')

@@ -285,6 +285,25 @@ insist <- local({
 					input_symbol, summate(colls)) )
 		}
 
+	this$must_be_collection_of_equal_names <-
+		function (colls, invoking_call) {
+
+			input_symbol <- match.call()[-1][[1]]
+
+			inner_names <- lapply(colls, names)
+
+			all_empty <- all( vapply(inner_names, is.null, logical(1)) )
+			all_equal <- length(unique(inner_names)) == 1
+
+			message <- "the collections in the argument matching " %+%
+			ddquote(input_symbol) %+% " must all be unnamed, or all have the " %+%
+			"same names."
+
+			assert(
+				all_equal || all_empty, invoking_call,
+				message)
+		}
+
 	#  -------- collection of collection  -------- #
 
 	this$must_be_collection_of_collections <-

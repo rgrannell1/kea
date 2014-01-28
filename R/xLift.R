@@ -14,8 +14,6 @@
 #'
 #' \code{(is.na \%or\% is.null \%or\% is.nan)(x)}
 #'
-#'
-#'
 #' @param
 #'    fn a binary function.
 #'
@@ -81,16 +79,3 @@ xLift... <- function (fn, ...) {
 	do.call( xLift, list(fn, list(...)) )
 }
 
-# @rdname xLift
-# @export
-
-# '%or%' <- function (fn1, fn2) {
-# 	xLift('||', fn1, fn2)
-# }
-
-# @rdname xLift
-# @export
-
-# '%and%' <- function (fn1, fn2) {
-# 	xLift('&&', fn1, fn2)
-# }

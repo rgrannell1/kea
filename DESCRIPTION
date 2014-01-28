@@ -164,4 +164,5 @@ Collate:
     'xRemoveNan.R'
     'xRemoveNull.R'
     'xRemoveEmpty.R'
+    'xAsDataFrame.R'
     'x_.R'
