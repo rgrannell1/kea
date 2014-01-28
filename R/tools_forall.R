@@ -551,6 +551,13 @@ compounds <- local({
 			}
 		}
 
+	# --------------------- ANY VALUE ----------------------------- #
+
+	this$any <-
+		function () {
+
+		}
+
 	this
 
 })
@@ -608,6 +615,12 @@ test_cases <- local({
 				function (a, b) b
 			},
 			coll = compounds$collection)
+
+	# --------------------- ANY VALUE -------------------------------#
+
+	this$val_any <-
+		list(val = compounds$any())
+
 
 	# --------------------- Num + Coll ----------------------------- #
 

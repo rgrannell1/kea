@@ -22,7 +22,7 @@ Is an value not true?
 }
 \examples{
 
-NULl
+NULL
 }
 \seealso{
 Other testing_functions: \code{\link{xIsFalse}};
