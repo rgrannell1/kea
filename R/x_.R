@@ -817,11 +817,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_DropWhile, 'coll')
 	add_x_method(this, x_DropWhile..., '...')
 
-	# --- xDuplicated --- #
-	add_x_method(this, xDuplicated, 'coll')
-	add_x_method(this, xDuplicated..., '...')
-	add_x_method(this, x_Duplicated, 'coll')
-	add_x_method(this, x_Duplicated..., '...')
+	# --- xDuplicatesOf --- #
+	add_x_method(this, xDuplicatesOf, 'coll')
+	add_x_method(this, xDuplicatesOf..., '...')
+	add_x_method(this, x_DuplicatesOf, 'coll')
+	add_x_method(this, x_DuplicatesOf..., '...')
 
 	# -------- E ------- #
 	# --- xExists --- #
@@ -1319,11 +1319,11 @@ x_coll_proto <- local({
 	add_x_method(this, xUnit, 'coll')
 	add_x_method(this, x_Unit, 'coll')
 
-	# --- xUnique --- #
-	add_x_method(this, xUnique, 'coll')
-	add_x_method(this, xUnique..., '...')
-	add_x_method(this, x_Unique, 'coll')
-	add_x_method(this, x_Unique..., '...')
+	# --- xUniqueOf --- #
+	add_x_method(this, xUniqueOf, 'coll')
+	add_x_method(this, xUniqueOf..., '...')
+	add_x_method(this, x_UniqueOf, 'coll')
+	add_x_method(this, x_UniqueOf..., '...')
 
 	# --- xFromLines --- #
 	add_x_method(this, xFromLines, 'strs')

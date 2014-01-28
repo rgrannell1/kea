@@ -47,13 +47,13 @@ Other combinatoric_functions: \code{\link{xCycle}},
 \code{\link{xSetProd...}}
 
 Other set_functions: \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xDuplicated}},
-\code{\link{xDuplicated...}}; \code{\link{xInter}},
+\code{\link{xCycle...}}; \code{\link{xDuplicatesOf}},
+\code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}; \code{\link{xUnique}},
-\code{\link{xUnique...}}
+\code{\link{xUnion...}}; \code{\link{xUniqueOf}},
+\code{\link{xUniqueOf...}}
 }
 

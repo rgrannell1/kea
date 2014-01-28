@@ -1,5 +1,5 @@
 
-#' xDuplicated
+#' xDuplicatesOf
 #'
 #' Return the duplicated elements in a collection.
 #'
@@ -22,12 +22,12 @@
 #'
 #'
 #' @example
-#'    inst/examples/example-xDuplicated.R
+#'    inst/examples/example-xDuplicatesOf.R
 #'
-#' @rdname xDuplicated
+#' @rdname xDuplicatesOf
 #' @export
 
-xDuplicated <- function (coll) {
+xDuplicatesOf <- function (coll) {
 	# Collection any -> Collection any
 	# remove duplicated valeus from a collection.
 
@@ -46,9 +46,9 @@ xDuplicated <- function (coll) {
 	}
 }
 
-#' @rdname xDuplicated
+#' @rdname xDuplicatesOf
 #' @export
 
-xDuplicated... <- function (...) {
-	xDuplicated(list(...))
+xDuplicatesOf... <- function (...) {
+	xDuplicatesOf(list(...))
 }

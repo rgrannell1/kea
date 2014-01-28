@@ -1,11 +1,11 @@
-\name{xUnique}
-\alias{xUnique}
-\alias{xUnique...}
-\title{xUnique}
+\name{xDuplicatesOf}
+\alias{xDuplicatesOf}
+\alias{xDuplicatesOf...}
+\title{xDuplicatesOf}
 \usage{
-xUnique(coll)
+xDuplicatesOf(coll)
 
-xUnique...(...)
+xDuplicatesOf...(...)
 }
 \arguments{
   \item{coll}{a collection.}
@@ -16,29 +16,25 @@ xUnique...(...)
 A list.
 }
 \description{
-Return the unique elements in a collection.
+Return the duplicated elements in a collection.
 }
 \section{Corner Cases}{
   Returns the empty list if \code{colls} is length-zero.
 }
 \examples{
 
-# 1. Find the smallest unique number in a list.
+NULL
 
-lowest <-
-x_( list(1, 1, 3, 2, 2, 2, 5, 4, 9, 9) ) $
-xUnique() $
-x_Tap(min \%of\% xAsInteger)
 }
 \seealso{
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xDuplicated}},
-\code{\link{xDuplicated...}}; \code{\link{xInter}},
+\code{\link{xCycle...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}
+\code{\link{xUnion...}}; \code{\link{xUniqueOf}},
+\code{\link{xUniqueOf...}}
 }
 

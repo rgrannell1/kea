@@ -56,13 +56,13 @@ Other combinatoric_functions: \code{\link{xCombos}},
 \code{\link{xSetProd...}}
 
 Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xDuplicated}},
-\code{\link{xDuplicated...}}; \code{\link{xInter}},
+\code{\link{xCombos...}}; \code{\link{xDuplicatesOf}},
+\code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xSetProd}},
 \code{\link{xSetProd...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}; \code{\link{xUnique}},
-\code{\link{xUnique...}}
+\code{\link{xUnion...}}; \code{\link{xUniqueOf}},
+\code{\link{xUniqueOf...}}
 }
 

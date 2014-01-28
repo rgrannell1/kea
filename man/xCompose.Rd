@@ -58,8 +58,6 @@ number of anonymous functions needed by some programs.
 }
 \examples{
 
-NULL
-
 }
 \seealso{
 Other function_combining_functions:

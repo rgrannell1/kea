@@ -1,5 +1,5 @@
 
-#' xUnique
+#' xUniqueOf
 #'
 #' Return the unique elements in a collection.
 #'
@@ -21,12 +21,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xUnique.R
+#'    inst/examples/example-xUniqueOf.R
 #'
-#' @rdname xUnique
+#' @rdname xUniqueOf
 #' @export
 
-xUnique <- function (coll) {
+xUniqueOf <- function (coll) {
 	# Collection any -> Collection any
 	# remove duplicated values from a collection.
 
@@ -45,9 +45,9 @@ xUnique <- function (coll) {
 	}
 }
 
-#' @rdname xUnique
+#' @rdname xUniqueOf
 #' @export
 
-xUnique... <- function (...) {
-	xUnique(list(...))
+xUniqueOf... <- function (...) {
+	xUniqueOf(list(...))
 }

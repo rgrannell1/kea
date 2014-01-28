@@ -59,12 +59,12 @@ Other combinatoric_functions: \code{\link{xCombos}},
 
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xDuplicated}},
-\code{\link{xDuplicated...}}; \code{\link{xInter}},
+\code{\link{xCycle...}}; \code{\link{xDuplicatesOf}},
+\code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}; \code{\link{xUnique}},
-\code{\link{xUnique...}}
+\code{\link{xUnion...}}; \code{\link{xUniqueOf}},
+\code{\link{xUniqueOf...}}
 }
 

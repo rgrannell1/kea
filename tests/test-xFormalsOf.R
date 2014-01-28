@@ -9,3 +9,9 @@ message('xFormalsOf')
 		list(),
 		xFormalsOf(function () {}) %equals% list()
 	)
+
+	forall(
+		"formals of normal functions is well behaved.",
+		test_cases$base_function,
+		xFormalsOf(fn) %equals% formals(fn)
+	)
