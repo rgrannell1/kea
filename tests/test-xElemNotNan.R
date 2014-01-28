@@ -2,12 +2,10 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-message('xNotNull')
+message('xElemNotNan')
 
 	forall(
 		"not false of empty is logical(0)",
 		test_cases$collection_zero,
-		is.logical(xNotNull(coll)) && length(xNotNull(coll)) == 0,
-		given =
-			!is.null(coll)
+		is.logical(xElemNotNan(coll)) && length(xElemNotNan(coll)) == 0
 	)

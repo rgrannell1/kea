@@ -223,6 +223,21 @@ x_any_proto <- local({
 	add_x_method(this, xIdentity, 'val')
 	add_x_method(this, x_Identity, 'val')
 
+	add_x_method(this, xIsNa, 'val')
+	add_x_method(this, x_IsNa, 'val')
+
+	add_x_method(this, xIsNan, 'val')
+	add_x_method(this, x_IsNan, 'val')
+
+	add_x_method(this, xIsNull, 'val')
+	add_x_method(this, x_IsNull, 'val')
+
+	add_x_method(this, xIsTrue, 'val')
+	add_x_method(this, x_IsTrue, 'val')
+
+	add_x_method(this, xIsFalse, 'val')
+	add_x_method(this, x_IsFalse, 'val')
+
 	# -------- J ------- #
 	# -------- K ------- #
 	add_x_method(this, xK, 'val')
@@ -231,6 +246,22 @@ x_any_proto <- local({
 	# -------- L ------- #
 	# -------- M ------- #
 	# -------- N ------- #
+	add_x_method(this, xNotNa, 'val')
+	add_x_method(this, x_NotNa, 'val')
+
+	add_x_method(this, xNotNan, 'val')
+	add_x_method(this, x_NotNan, 'val')
+
+	add_x_method(this, xNotNull, 'val')
+	add_x_method(this, x_NotNull, 'val')
+
+	add_x_method(this, xNotTrue, 'val')
+	add_x_method(this, x_NotTrue, 'val')
+
+	add_x_method(this, xNotFalse, 'val')
+	add_x_method(this, x_NotFalse, 'val')
+
+
 	# -------- O ------- #
 	# -------- P ------- #
 	# -------- Q ------- #
@@ -901,35 +932,35 @@ x_coll_proto <- local({
 	add_x_method(this, x_IsEmpty, 'coll')
 	add_x_method(this, x_IsEmpty..., '...')
 
-	# --- xIsFalse --- #
-	add_x_method(this, xIsFalse, 'coll')
-	add_x_method(this, xIsFalse..., '...')
-	add_x_method(this, x_IsFalse, 'coll')
-	add_x_method(this, x_IsFalse..., '...')
+	# --- xElemIsFalse --- #
+	add_x_method(this, xElemIsFalse, 'coll')
+	add_x_method(this, xElemIsFalse..., '...')
+	add_x_method(this, x_ElemIsFalse, 'coll')
+	add_x_method(this, x_ElemIsFalse..., '...')
 
-	# --- xIsTrue --- #
-	add_x_method(this, xIsTrue, 'coll')
-	add_x_method(this, xIsTrue..., '...')
-	add_x_method(this, x_IsTrue, 'coll')
-	add_x_method(this, x_IsTrue..., '...')
+	# --- xElemIsTrue --- #
+	add_x_method(this, xElemIsTrue, 'coll')
+	add_x_method(this, xElemIsTrue..., '...')
+	add_x_method(this, x_ElemIsTrue, 'coll')
+	add_x_method(this, x_ElemIsTrue..., '...')
 
-	# --- xIsNan --- #
-	add_x_method(this, xIsNan, 'coll')
-	add_x_method(this, xIsNan..., '...')
-	add_x_method(this, x_IsNan, 'coll')
-	add_x_method(this, x_IsNan..., '...')
+	# --- xElemIsNan --- #
+	add_x_method(this, xElemIsNan, 'coll')
+	add_x_method(this, xElemIsNan..., '...')
+	add_x_method(this, x_ElemIsNan, 'coll')
+	add_x_method(this, x_ElemIsNan..., '...')
 
-	# --- xIsNa --- #
-	add_x_method(this, xIsNa, 'coll')
-	add_x_method(this, xIsNa..., '...')
-	add_x_method(this, x_IsNa, 'coll')
-	add_x_method(this, x_IsNa..., '...')
+	# --- xElemIsNa --- #
+	add_x_method(this, xElemIsNa, 'coll')
+	add_x_method(this, xElemIsNa..., '...')
+	add_x_method(this, x_ElemIsNa, 'coll')
+	add_x_method(this, x_ElemIsNa..., '...')
 
-	# --- xIsNull --- #
-	add_x_method(this, xIsNull, 'coll')
-	add_x_method(this, xIsNull..., '...')
-	add_x_method(this, x_IsNull, 'coll')
-	add_x_method(this, x_IsNull..., '...')
+	# --- xElemIsNull --- #
+	add_x_method(this, xElemIsNull, 'coll')
+	add_x_method(this, xElemIsNull..., '...')
+	add_x_method(this, x_ElemIsNull, 'coll')
+	add_x_method(this, x_ElemIsNull..., '...')
 
 	# --- xIterate --- #
 	add_x_method(this, xIterate, 'val')
@@ -1042,35 +1073,35 @@ x_coll_proto <- local({
 	add_x_method(this, x_NotEmpty, 'coll')
 	add_x_method(this, x_NotEmpty..., '...')
 
-	# --- xNotFalse --- #
-	add_x_method(this, xNotFalse, 'coll')
-	add_x_method(this, xNotFalse..., '...')
-	add_x_method(this, x_NotFalse, 'coll')
-	add_x_method(this, x_NotFalse..., '...')
+	# --- xElemNotFalse --- #
+	add_x_method(this, xElemNotFalse, 'coll')
+	add_x_method(this, xElemNotFalse..., '...')
+	add_x_method(this, x_ElemNotFalse, 'coll')
+	add_x_method(this, x_ElemNotFalse..., '...')
 
-	# --- xNotTrue --- #
-	add_x_method(this, xNotTrue, 'coll')
-	add_x_method(this, xNotTrue..., '...')
-	add_x_method(this, x_NotTrue, 'coll')
-	add_x_method(this, x_NotTrue..., '...')
+	# --- xElemNotTrue --- #
+	add_x_method(this, xElemNotTrue, 'coll')
+	add_x_method(this, xElemNotTrue..., '...')
+	add_x_method(this, x_ElemNotTrue, 'coll')
+	add_x_method(this, x_ElemNotTrue..., '...')
 
-	# --- xNotNa --- #
-	add_x_method(this, xNotNa, 'coll')
-	add_x_method(this, xNotNa..., '...')
-	add_x_method(this, x_NotNa, 'coll')
-	add_x_method(this, x_NotNa..., '...')
+	# --- xElemNotNa --- #
+	add_x_method(this, xElemNotNa, 'coll')
+	add_x_method(this, xElemNotNa..., '...')
+	add_x_method(this, x_ElemNotNa, 'coll')
+	add_x_method(this, x_ElemNotNa..., '...')
 
-	# --- xNotNan --- #
-	add_x_method(this, xNotNan, 'coll')
-	add_x_method(this, xNotNan..., '...')
-	add_x_method(this, x_NotNan, 'coll')
-	add_x_method(this, x_NotNan..., '...')
+	# --- xElemNotNan --- #
+	add_x_method(this, xElemNotNan, 'coll')
+	add_x_method(this, xElemNotNan..., '...')
+	add_x_method(this, x_ElemNotNan, 'coll')
+	add_x_method(this, x_ElemNotNan..., '...')
 
-	# --- xNotNull --- #
-	add_x_method(this, xNotNull, 'coll')
-	add_x_method(this, xNotNull..., '...')
-	add_x_method(this, x_NotNull, 'coll')
-	add_x_method(this, x_NotNull..., '...')
+	# --- xElemNotNull --- #
+	add_x_method(this, xElemNotNull, 'coll')
+	add_x_method(this, xElemNotNull..., '...')
+	add_x_method(this, x_ElemNotNull, 'coll')
+	add_x_method(this, x_ElemNotNull..., '...')
 
 	# -------- O ------- #
 	# -------- P ------- #

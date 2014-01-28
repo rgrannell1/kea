@@ -1,51 +1,43 @@
 
 #' xIsNa
 #'
-#' Is an element of a collection na?
+#' Is an value na?
 #'
 #' @param
-#'    coll a collection.
+#'    val an arbitrary value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A vector of boolean values.
-#'
-#' @template
-#'    Variadic
+#'    A true or false value.
 #'
 #' @example
 #'    inst/examples/example-xIsNa.R
 #'
+#' @section Corner Cases:
+#'     xIsNa returns either true or false, to make it
+#'     safe for use with if statements. If val is length zero
+#'     False is returned.
+#'
+#' @family testing_functions
+#'
 #' @rdname xIsNa
 #' @export
 
-xIsNa <- function (coll) {
-	# Collection a -> Vector boolean
-	# Is an element of a collection na?
+xIsNa <- function (val) {
+	# any -> boolean
+	# test if a value is na
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist$must_be_collection(coll, invoking_call)
-
-	vapply(coll, function (x) {
-		identical(x, NA) ||
-		identical(x, NA_integer_) ||
-		identical(x, NA_real_) ||
-		identical(x, NA_character_) ||
-		identical(x, NA_complex_)
-
-	}, logical(1), USE.NAMES = False)
-}
-
-#' @rdname xIsNa
-#' @export
-
-xIsNa... <- function (...) {
-	xIsNa(list(...))
+	if (length(val) == 0) {
+		False
+	} else {
+		is.na(val)
+	}
 }

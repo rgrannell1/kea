@@ -61,7 +61,7 @@ xCombos <- function (num, coll) {
 
 	insist$must_be_of_length(num, 1, invoking_call)
 	insist$must_be_whole(num, invoking_call)
-	insist$must_be_greater_than(num, 0, invoking_call)
+	insist$must_be_grequal_than(num, 0, invoking_call)
 
 	if (num == 0) {
 		list()

@@ -1,29 +1,34 @@
 \name{xIsNan}
 \alias{xIsNan}
-\alias{xIsNan...}
 \title{xIsNan}
 \usage{
-xIsNan(coll)
-
-xIsNan...(...)
+xIsNan(val)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{val}{an arbitrary value.}
 
   \item{...}{see above.}
 }
 \value{
-A vector of boolean values.
+A true or false value.
 }
 \description{
-Is an element in a collection NaN?
+Is an value nan?
 }
 \section{Corner Cases}{
-  Returns True if coll is length-zero.
+  xIsNan returns either true or false, to make it safe for
+  use with if statements. If val is length zero False is
+  returned.
 }
 \examples{
 
 NULL
-
+}
+\seealso{
+Other testing_functions: \code{\link{xIsFalse}};
+\code{\link{xIsNa}}; \code{\link{xIsNull}};
+\code{\link{xIsTrue}}; \code{\link{xNotFalse}};
+\code{\link{xNotNan}}; \code{\link{xNotNa}};
+\code{\link{xNotNull}}; \code{\link{xNotTrue}}
 }
 

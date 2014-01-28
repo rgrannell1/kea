@@ -19,10 +19,8 @@
 #'
 #' @family mapping_functions
 #'
-#'
 #' @template
 #'    Variadic
-#'
 #'
 #' @example
 #'    inst/examples/example-xDeepMap.R

@@ -1,57 +1,43 @@
 
 #' xNotNa
 #'
-#' Test every element in a collection for being \code{Na} of any type.
+#' Is an value not na?
 #'
 #' @param
-#'    coll a collection.
+#'    val an arbitrary value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A vector of boolean values.
-#'
-#' @section Corner Cases:
-#'    Returns logical(0) if \bold{coll} is length-zero.
-#'
-#' @template
-#'    Variadic
+#'    A true or false value.
 #'
 #' @example
 #'    inst/examples/example-xNotNa.R
 #'
+#' @section Corner Cases:
+#'     xNotNa returns either true or false, to make it
+#'     safe for use with if statements. If val is length zero
+#'     True is returned.
+#'
+#' @family testing_functions
+#'
 #' @rdname xNotNa
 #' @export
 
-xNotNa <- function (coll) {
-	# Collection a -> Vector boolean
-	# Is an element of a collection not na?
+xNotNa <- function (val) {
+	# any -> boolean
+	# test if a value is na
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist$must_be_collection(coll, invoking_call)
-
-	if (length(coll) == 0) {
-		logical(0)
+	if (length(val) == 0) {
+		True
 	} else {
-		vapply(coll, function (x) {
-			!identical(x, NA) &&
-			!identical(x, NA_integer_) &&
-			!identical(x, NA_real_) &&
-			!identical(x, NA_character_) &&
-			!identical(x, NA_complex_)
-		}, logical(1), USE.NAMES = False)
+		is.na(val)
 	}
-}
-
-#' @rdname xNotNa
-#' @export
-
-xNotNa... <- function (...) {
-	xNotNa(list(...))
 }

@@ -1,29 +1,33 @@
 \name{xNotNull}
 \alias{xNotNull}
-\alias{xNotNull...}
 \title{xNotNull}
 \usage{
-xNotNull(coll)
-
-xNotNull...(...)
+xNotNull(val)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{val}{an arbitrary value.}
 
   \item{...}{see above.}
 }
 \value{
-A vector of boolean values.
+A true or false value.
 }
 \description{
-Is an element of a collection null?
+Is an value not null?
 }
 \section{Corner Cases}{
-  Returns True if coll is Null.
+  xNotNull returns either true or false, to make it safe
+  for use with if statements.
 }
 \examples{
 
 NULL
-
+}
+\seealso{
+Other testing_functions: \code{\link{xIsFalse}};
+\code{\link{xIsNan}}; \code{\link{xIsNa}};
+\code{\link{xIsNull}}; \code{\link{xIsTrue}};
+\code{\link{xNotFalse}}; \code{\link{xNotNan}};
+\code{\link{xNotNa}}; \code{\link{xNotTrue}}
 }
 

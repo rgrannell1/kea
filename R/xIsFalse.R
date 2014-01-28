@@ -1,47 +1,43 @@
 
 #' xIsFalse
 #'
-#' Is an element of a collection false?
+#' Is an value false?
 #'
 #' @param
-#'    coll a collection. The collection to
-#'    test each element of.
+#'    val an arbitrary value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A vector of boolean values.
-#'
-#' @template
-#'    Variadic
+#'    A true or false value.
 #'
 #' @example
 #'    inst/examples/example-xIsFalse.R
 #'
+#' @section Corner Cases:
+#'     xIsFalse returns either true or false, to make it
+#'     safe for use with if statements. If val is length zero
+#'     False is returned.
+#'
+#' @family testing_functions
+#'
 #' @rdname xIsFalse
 #' @export
 
-xIsFalse <- function (coll) {
-	# Collection a -> Vector boolean
-	# Is an element of a collection false?
+xIsFalse <- function (val) {
+	# any -> boolean
+	# test if a value is na
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist$must_be_collection(coll, invoking_call)
-
-	vapply(coll, function (x) {
-		identical(x, False)
-	}, logical(1), USE.NAMES = False)
-}
-
-#' @rdname xIsFalse
-#' @export
-
-xIsFalse... <- function (...) {
-	xIsFalse(list(...))
+	if (length(val) == 0) {
+		False
+	} else {
+		identical(val, False)
+	}
 }

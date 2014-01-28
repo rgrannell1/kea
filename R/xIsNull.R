@@ -1,56 +1,38 @@
 
 #' xIsNull
 #'
-#' Is an element of a collection null?
+#' Is an value null?
 #'
 #' @param
-#'    coll a collection
+#'    val an arbitrary value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A vector of boolean values.
-#'
-#' @section Corner Cases:
-#'    Returns True if coll is Null.
-#'
-#' @template
-#'    Variadic
+#'    A true or false value.
 #'
 #' @example
 #'    inst/examples/example-xIsNull.R
 #'
+#' @section Corner Cases:
+#'     xIsNull returns either true or false, to make it
+#'     safe for use with if statements.
+#'
+#' @family testing_functions
+#'
 #' @rdname xIsNull
 #' @export
 
-xIsNull <- function (coll) {
-	# collection any -> vector Boolean
+xIsNull <- function (val) {
+	# any -> boolean
+	# test if a value is na
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist$must_be_collection(coll, invoking_call)
-
-	if (length(coll) == 0 && is.null(coll)) {
-		# empty pairlist - a slighty odd corner case.
-		True
-	} else {
-		res <- vector(mode = 'logical', length(coll))
-
-		for (ith in seq_along(coll)) {
-			res[ith] <- identical(coll[[ith]], Null)
-		}
-		res
-	}
-}
-
-#' @rdname xIsNull
-#' @export
-
-xIsNull... <- function (...) {
-	xIsNull(list(...))
+	is.null(val)
 }

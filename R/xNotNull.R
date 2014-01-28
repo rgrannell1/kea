@@ -1,57 +1,38 @@
 
 #' xNotNull
 #'
-#' Is an element of a collection null?
+#' Is an value not null?
 #'
 #' @param
-#'    coll a collection
+#'    val an arbitrary value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A vector of boolean values.
-#'
-#' @section Corner Cases:
-#'    Returns True if coll is Null.
-#'
-#' @template
-#'    Variadic
+#'    A true or false value.
 #'
 #' @example
 #'    inst/examples/example-xNotNull.R
 #'
+#' @section Corner Cases:
+#'     xNotNull returns either true or false, to make it
+#'     safe for use with if statements.
+#'
+#' @family testing_functions
+#'
 #' @rdname xNotNull
 #' @export
 
-xNotNull <- function (coll) {
-	# collection any -> vector Boolean
-	# are the elements of a collection not null?
+xNotNull <- function (val) {
+	# any -> boolean
+	# test if a value is na
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist$must_be_collection(coll, invoking_call)
-
-	if (length(coll) == 0 && is.null(coll)) {
-		# empty pairlist - an odd corner case.
-		False
-	} else {
-		res <- vector(mode = 'logical', length(coll))
-
-		for (ith in seq_along(coll)) {
-			res[ith] <- !identical(coll[[ith]], Null)
-		}
-		res
-	}
-}
-
-#' @rdname xNotNull
-#' @export
-
-xNotNull... <- function (...) {
-	xNotNull(list(...))
+	is.null(val)
 }

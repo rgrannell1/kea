@@ -1,56 +1,43 @@
 
 #' xIsNan
 #'
-#' Is an element in a collection NaN?
+#' Is an value nan?
 #'
 #' @param
-#'    coll a collection
+#'    val an arbitrary value.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A vector of boolean values.
-#'
-#' @section Corner Cases:
-#'    Returns True if coll is length-zero.
-#'
-#' @template
-#'    Variadic
+#'    A true or false value.
 #'
 #' @example
 #'    inst/examples/example-xIsNan.R
 #'
+#' @section Corner Cases:
+#'     xIsNan returns either true or false, to make it
+#'     safe for use with if statements. If val is length zero
+#'     False is returned.
+#'
+#' @family testing_functions
+#'
 #' @rdname xIsNan
 #' @export
 
-xIsNan <- function (coll) {
-	# collection any -> vector Boolean
+xIsNan <- function (val) {
+	# any -> boolean
+	# test if a value is na
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist$must_be_collection(coll, invoking_call)
-
-	if (length(coll) == 0) {
-		logical(0)
+	if (length(val) == 0) {
+		False
 	} else {
-		res <- vector(mode = 'logical', length(coll))
-
-		for (ith in seq_along(coll)) {
-			res[ith] <- identical(coll[[ith]], NaN)
-		}
-
-		res
+		is.nan(val)
 	}
-}
-
-#' @rdname xIsNan
-#' @export
-
-xIsNan... <- function (...) {
-	xIsNan(list(...))
 }
