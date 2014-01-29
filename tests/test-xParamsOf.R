@@ -13,5 +13,7 @@ message("xParamsOf")
 	forall(
 		"formals of normal functions is well behaved.",
 		test_cases$base_function,
-		xParamsOf(fn) %equals% names(formals(fn))
+		xParamsOf(fn) %equals% names(formals(fn)),
+		given =
+			length(formals(fn)) > 0
 	)

@@ -1,4 +1,4 @@
-
+#
 #' xNotNull
 #'
 #' Is an value not null?
@@ -34,5 +34,5 @@ xNotNull <- function (val) {
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))
 
-	is.null(val)
+	!is.null(val)
 }
