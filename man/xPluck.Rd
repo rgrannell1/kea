@@ -63,7 +63,7 @@ k_nearest <- (dist : point : space) := {
 	x_AsInteger()
 
 	# rank the distances from closest to furthest.
-	rankings <- rank(distances, ties = 'first')
+	rankings <- xRank(distances)
 
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-

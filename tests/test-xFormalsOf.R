@@ -13,5 +13,5 @@ message('xFormalsOf')
 	forall(
 		"formals of normal functions is well behaved.",
 		test_cases$base_function,
-		xFormalsOf(fn) %equals% formals(fn)
+		xFormalsOf(fn) %equals% as.list(formals(fn))
 	)
