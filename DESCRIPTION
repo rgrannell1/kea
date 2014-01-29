@@ -175,4 +175,5 @@ Collate:
     'xRemoveNull.R'
     'xRemoveEmpty.R'
     'xAsDataFrame.R'
+    'xRank.R'
     'x_.R'

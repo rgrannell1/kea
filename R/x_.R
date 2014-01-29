@@ -1149,6 +1149,12 @@ x_coll_proto <- local({
 
 	# -------- Q ------- #
 	# -------- R ------- #
+	# --- xRank --- #
+	add_x_method(this, xRank, 'nums')
+	add_x_method(this, xRank..., '...')
+	add_x_method(this, x_Rank, 'nums')
+	add_x_method(this, x_Rank..., '...')
+
 	# --- xDeepMap --- #
 	add_x_method(this, xDeepMap, 'coll')
 	add_x_method(this, xDeepMap..., '...')
