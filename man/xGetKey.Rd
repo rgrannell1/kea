@@ -23,9 +23,9 @@ NULL
 }
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
-\code{\link{xAssoc}}, \code{\link{xAssoc...}};
-\code{\link{xDissoc}}, \code{\link{xDissoc...}};
-\code{\link{xPluck}}, \code{\link{xPluck...}}
+\code{\link{xPluck}}, \code{\link{xPluck...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}}
 
 Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},

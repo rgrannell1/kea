@@ -32,9 +32,9 @@ NULL
 
 }
 \seealso{
-Other name_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xDissoc}},
-\code{\link{xDissoc...}}; \code{\link{xGetKey}};
-\code{\link{xPluck}}, \code{\link{xPluck...}}
+Other name_functions: \code{\link{xGetKey}};
+\code{\link{xPluck}}, \code{\link{xPluck...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}}
 }
 

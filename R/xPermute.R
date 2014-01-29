@@ -11,15 +11,6 @@
 #'
 #'    \code{xPermute((order %of% xAsInteger)( xFirstOf(colls) ), colls)}
 #'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
-#'
 #' @param
 #'    nums a collection of whole numbers. The indices
 #'    by which to permute the input collections.

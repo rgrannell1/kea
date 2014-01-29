@@ -4,10 +4,8 @@
 
 all_cyclic_permutations <- coll := {
     xMap(
-        ith := {
-            xCycle(ith - 1, coll)
-        },
-        seq_along(coll)
+    	xPartial...(xCycle, coll = coll),
+        seq_along(coll) - 1
     )
 }
 

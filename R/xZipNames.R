@@ -1,5 +1,5 @@
 
-#' xAssoc
+#' xZipNames
 #'
 #' Convert a list of name, value pairs into a named list.
 #'
@@ -27,12 +27,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xAssoc.R
+#'    inst/examples/example-xZipNames.R
 #'
-#' @rdname xAssoc
+#' @rdname xZipNames
 #' @export
 
-xAssoc <- function (colls) {
+xZipNames <- function (colls) {
 	# Collection Collection any -> [any]
 	# take a collection of name:value pairs and associate
 	# them into a named list.
@@ -71,9 +71,9 @@ xAssoc <- function (colls) {
 	}
 }
 
-#' @rdname xAssoc
+#' @rdname xZipNames
 #' @export
 
-xAssoc... <- function (...) {
-	xAssoc(list(...))
+xZipNames... <- function (...) {
+	xZipNames(list(...))
 }

@@ -1,5 +1,5 @@
 
-#' xDissoc
+#' xUnzipNames
 #'
 #' Split a named list into a list of name: value list pairs.
 #'
@@ -25,12 +25,12 @@
 #'
 #'
 #' @example
-#'    inst/examples/example-xDissoc.R
+#'    inst/examples/example-xUnzipNames.R
 #'
-#' @rdname xDissoc
+#' @rdname xUnzipNames
 #' @export
 
-xDissoc <- function (colls) {
+xUnzipNames <- function (colls) {
 	# Named collsection any -> [[string, any]]
 	# split a list into its names and values.
 
@@ -59,9 +59,9 @@ xDissoc <- function (colls) {
 	}
 }
 
-#' @rdname xDissoc
+#' @rdname xUnzipNames
 #' @export
 
-xDissoc... <- function (...) {
-	xDissoc(list(...))
+xUnzipNames... <- function (...) {
+	xUnzipNames(list(...))
 }

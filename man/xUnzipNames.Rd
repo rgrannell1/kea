@@ -1,11 +1,11 @@
-\name{xDissoc}
-\alias{xDissoc}
-\alias{xDissoc...}
-\title{xDissoc}
+\name{xUnzipNames}
+\alias{xUnzipNames}
+\alias{xUnzipNames...}
+\title{xUnzipNames}
 \usage{
-xDissoc(colls)
+xUnzipNames(colls)
 
-xDissoc...(...)
+xUnzipNames...(...)
 }
 \arguments{
   \item{colls}{a list or pairlist of list or pairlist
@@ -30,12 +30,11 @@ NULL
 }
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
-\code{\link{xAssoc}}, \code{\link{xAssoc...}};
 \code{\link{xGetKey}}; \code{\link{xPluck}},
-\code{\link{xPluck...}}
+\code{\link{xPluck...}}; \code{\link{xZipNames}},
+\code{\link{xZipNames...}}
 
-Other reshaping_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xChop}},
+Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xChop...}}; \code{\link{xChunk}},
 \code{\link{xChunk...}}; \code{\link{xFlatten}},
 \code{\link{xFlatten...}}; \code{\link{xJoin}},
@@ -45,6 +44,7 @@ Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}};
 \code{\link{xZip}}, \code{\link{xZip...}}
 }
 

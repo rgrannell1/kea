@@ -51,10 +51,8 @@ NULL
 
 }
 \seealso{
-Other reshaping_functions: \code{\link{xAssoc}},
-\code{\link{xAssoc...}}; \code{\link{xChunk}},
-\code{\link{xChunk...}}; \code{\link{xDissoc}},
-\code{\link{xDissoc...}}; \code{\link{xFlatten}},
+Other reshaping_functions: \code{\link{xChunk}},
+\code{\link{xChunk...}}; \code{\link{xFlatten}},
 \code{\link{xFlatten...}}; \code{\link{xJoin}},
 \code{\link{xJoin...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
@@ -62,6 +60,8 @@ Other reshaping_functions: \code{\link{xAssoc}},
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}};
 \code{\link{xZip}}, \code{\link{xZip...}}
 }
 

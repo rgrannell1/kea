@@ -16,7 +16,9 @@ Get the current version number of Arrow.
 }
 \examples{
 
-NULL
+# 1. xVersion
+#    the most important (and only) example
 
+xVersion( )
 }
 

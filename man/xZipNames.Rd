@@ -1,11 +1,11 @@
-\name{xAssoc}
-\alias{xAssoc}
-\alias{xAssoc...}
-\title{xAssoc}
+\name{xZipNames}
+\alias{xZipNames}
+\alias{xZipNames...}
+\title{xZipNames}
 \usage{
-xAssoc(colls)
+xZipNames(colls)
 
-xAssoc...(...)
+xZipNames...(...)
 }
 \arguments{
   \item{colls}{a list or pairlist of two-element lists or
@@ -28,17 +28,37 @@ Convert a list of name, value pairs into a named list.
 }
 \examples{
 
+# 1. turn a csv of country names and median ages into
+#    a named list of countires, with values being the median age.
+
+csv <- "Monaco,48.9,Japan,44.6,Italy,44.3,Germany,43.7,Jersey,43.4"
+
+x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipNames()
+
+# list(
+#    Monaco =
+#        48.9,
+#    Japan =
+#        44.6,
+#    Italy =
+#        44.3,
+#    Germany =
+#        43.7,
+#    Jersey =
+#        43.4
+# )
+
+x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipNames()
 }
 \seealso{
 Other name_functions: \code{\link{xAsNamed}};
-\code{\link{xDissoc}}, \code{\link{xDissoc...}};
 \code{\link{xGetKey}}; \code{\link{xPluck}},
-\code{\link{xPluck...}}
+\code{\link{xPluck...}}; \code{\link{xUnzipNames}},
+\code{\link{xUnzipNames...}}
 
 Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xChop...}}; \code{\link{xChunk}},
-\code{\link{xChunk...}}; \code{\link{xDissoc}},
-\code{\link{xDissoc...}}; \code{\link{xFlatten}},
+\code{\link{xChunk...}}; \code{\link{xFlatten}},
 \code{\link{xFlatten...}}; \code{\link{xJoin}},
 \code{\link{xJoin...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
@@ -46,6 +66,7 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
 \code{\link{xZip}}, \code{\link{xZip...}}
 }
 

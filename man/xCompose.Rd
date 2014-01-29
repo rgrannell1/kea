@@ -20,13 +20,18 @@ A variadic function.
 Take several functions and return a composite function.
 }
 \details{
-In contrast to many functional languages and frameworks,
-Arrow's compose function does not require the order of
-functions to be reversed. The following equation holds
+Arrow's function composition is largely done with the infix
+operators \%of\% and \%then\%.
 
-\code{(f \%of\% g)(x) == f(g(x))}
+\bold{\%then\%} is the classic function composition
+operator;
 
-for Arrow function composition.
+\code{(as.numeric %then% sqrt %then% print)('10')}
+
+Like methods, the order of function execution is from left
+to right; convert a string to a number then take the square
+root then print the value. The reversed form \%of\% is
+equally as ubiquitous.
 
 The classic example of function composition (apart from
 Church numerals) is composing linear functions.

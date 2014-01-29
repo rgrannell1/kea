@@ -30,7 +30,6 @@ mapped over a collection.
 }
 \examples{
 
-
 # 1. HR Functional Programming
 #    Count the number of elements in a list without using length
 

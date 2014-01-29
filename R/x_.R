@@ -765,11 +765,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Apply, 'coll')
 	add_x_method(this, x_Apply..., '...')
 
-	# --- xAssoc --- #
-	add_x_method(this, xAssoc, 'colls')
-	add_x_method(this, xAssoc..., '...')
-	add_x_method(this, x_Assoc, 'colls')
-	add_x_method(this, x_Assoc..., '...')
+	# --- xZipNames --- #
+	add_x_method(this, xZipNames, 'colls')
+	add_x_method(this, xZipNames..., '...')
+	add_x_method(this, x_ZipNames, 'colls')
+	add_x_method(this, x_ZipNames..., '...')
 
 	# -------- B ------- #
 	# -------- C ------- #
@@ -793,11 +793,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Cycle..., '...')
 
 	# -------- D ------- #
-	# --- xDissoc --- #
-	add_x_method(this, xDissoc, 'colls')
-	add_x_method(this, xDissoc..., '...')
-	add_x_method(this, x_Dissoc, 'colls')
-	add_x_method(this, x_Dissoc..., '...')
+	# --- xUnzipNames --- #
+	add_x_method(this, xUnzipNames, 'colls')
+	add_x_method(this, xUnzipNames..., '...')
+	add_x_method(this, x_UnzipNames, 'colls')
+	add_x_method(this, x_UnzipNames..., '...')
 
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')
