@@ -39,7 +39,7 @@ xAsComplex <- function (ims) {
 		!missing(ims), invoking_call,
 		exclaim$parametre_missing(ims))
 
-	insist$must_be_collection(ims, invoking_call)
+	insist $ must_be_collection(ims, invoking_call)
 
 	as_typed_vector(ims, 'complex')
 

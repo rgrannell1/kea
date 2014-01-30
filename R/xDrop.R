@@ -47,12 +47,12 @@ xDrop <- function (num, coll) {
 
 	num <- to_value_unit(as_typed_vector(num, 'numeric'))
 
-	insist$must_be_of_length(num, 1, invoking_call)
+	insist $ must_be_of_length(num, 1, invoking_call)
 
-	insist$must_be_whole(num, invoking_call)
-	insist$must_be_grequal_than(num, 0, invoking_call)
+	insist $ must_be_whole(num, invoking_call)
+	insist $ must_be_grequal_than(num, 0, invoking_call)
 
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()

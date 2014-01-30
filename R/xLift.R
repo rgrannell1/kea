@@ -54,10 +54,10 @@ xLift <- function (fn, fns) {
 		!missing(fns), invoking_call,
 		exclaim$parametre_missing(fns))
 
-	insist$must_be_fn_matchable(fn, invoking_call)
+	insist $ must_be_fn_matchable(fn, invoking_call)
 
-	insist$must_be_collection(fns, invoking_call)
-	insist$must_be_collection_of_fn_matchable(fns, invoking_call)
+	insist $ must_be_collection(fns, invoking_call)
+	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	fn <- match_fn(fn)
 	fns <- lapply(fns, match_fn)

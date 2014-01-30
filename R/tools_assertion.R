@@ -86,7 +86,7 @@ assert <- local({
 # assertion. This object exists to reduce the amount of assertion checking
 # code needed.
 #
-#     insist$must_be_fn_matchable(fn, invoking_call)
+#     insist $ must_be_fn_matchable(fn, invoking_call)
 #
 #
 
@@ -278,11 +278,12 @@ insist <- local({
 
 			input_symbol <- match.call()[-1][[1]]
 
+			message <- "the names of the collection matching " %+%
+			ddquote(input_symbol) %+% " must be a fully named collection."
+
 			assert(
-				!any(names(coll) == ""),
-				invoking_call,
-				exclaim$must_be_fully_named(
-					input_symbol, summate(colls)) )
+				!is.null(names(coll)) && !any(names(coll) == ""),
+				invoking_call, message)
 		}
 
 	this$must_be_collection_of_equal_names <-

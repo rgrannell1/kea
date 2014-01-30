@@ -75,8 +75,8 @@ xExists <- function (pred, colls) {
 		!missing(pred), invoking_call,
 		exclaim$parametre_missing(pred))
 
-	insist$must_be_fn_matchable(pred, invoking_call)
-    insist$must_be_collection_of_collections(colls, invoking_call)
+	insist $ must_be_fn_matchable(pred, invoking_call)
+    insist $ must_be_collection_of_collections(colls, invoking_call)
 
 	pred <- match_fn(pred)
 
@@ -107,7 +107,7 @@ xExists <- function (pred, colls) {
 
 			is_match <- try_hof(do.call(pred, tuple), invoking_call)
 
-			insist$must_be_logical_result(is_match, pred, invoking_call)
+			insist $ must_be_logical_result(is_match, pred, invoking_call)
 
 			if (isTRUE(is_match)) {
 				return (True)

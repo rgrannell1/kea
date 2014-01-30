@@ -35,7 +35,7 @@ xElemIsNull <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		# empty pairlist - a slighty odd corner case.

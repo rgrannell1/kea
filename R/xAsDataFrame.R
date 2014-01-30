@@ -46,15 +46,15 @@ xAsDataFrame <- function (colls) {
 		!missing(colls), invoking_call,
 		exclaim$parametre_missing(colls))
 
-	insist$must_be_collection(colls, invoking_call)
-	insist$must_be_collection_of_collections(colls, invoking_call)
-	insist$must_be_collection_of_equal_length(colls, invoking_call)
+	insist $ must_be_collection(colls, invoking_call)
+	insist $ must_be_collection_of_collections(colls, invoking_call)
+	insist $ must_be_collection_of_equal_length(colls, invoking_call)
 
 	if (length(colls) == 0) {
 		unname(as.data.frame(matrix(nrow = 0, ncol = 0 )) )
 	} else {
 
-		insist$must_be_collection_of_equal_names(
+		insist $ must_be_collection_of_equal_names(
 			colls, invoking_call)
 
 		colls_colnames <- if ( !is.null(names(colls)) ) {

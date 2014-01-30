@@ -41,8 +41,8 @@ xAsVal <- function (sym) {
 
 	sym <- toString(match.call()$sym)
 
-	insist$must_be_of_length(sym, 1, invoking_call)
-	insist$must_exist(sym, parent_frame, invoking_call)
+	insist $ must_be_of_length(sym, 1, invoking_call)
+	insist $ must_exist(sym, parent_frame, invoking_call)
 
 	lockBinding(sym, parent_frame)
 }

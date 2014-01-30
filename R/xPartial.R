@@ -45,13 +45,22 @@ xPartial <- function (fn, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_fn_matchable(fn, invoking_call)
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_fn_matchable(fn, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 
-	insist$must_be_fully_named(coll, invoking_call)
-	insist$must_be_parametres_of(names(coll), fn, invoking_call)
+	insist $ must_be_parametres_of(names(coll), fn, invoking_call)
+
+	names(coll) <-
+	do.call(
+		do.call("function", list(
+			as.pairlist(xFormalsOf(fn)),
+			bquote({
+				names( as.list(match.call(fn)[-1]) )
+			})
+		)),
+		coll)
 
 	remove(invoking_call)
 

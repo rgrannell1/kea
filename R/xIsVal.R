@@ -31,11 +31,11 @@ xIsVal <- function (str) {
 		exclaim$parametre_missing(str))
 
 	str <- toString(match.call()$str)
-	insist$must_be_collection(str, invoking_call)
+	insist $ must_be_collection(str, invoking_call)
 
 	str <- to_value_unit(as_typed_vector(str, "character"))
 
-	insist$must_be_of_length(str, 1, invoking_call)
+	insist $ must_be_of_length(str, 1, invoking_call)
 
 	exists(str, parent_frame) &&
 		bindingIsLocked(str, parent_frame)

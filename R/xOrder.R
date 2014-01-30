@@ -36,7 +36,7 @@ xOrder <- function (nums) {
 		!missing(nums), invoking_call,
 		exclaim$parametre_missing(nums))
 
-	insist$must_be_collection(nums, invoking_call)
+	insist $ must_be_collection(nums, invoking_call)
 
 	nums <- as_typed_vector(nums, 'numeric')
 

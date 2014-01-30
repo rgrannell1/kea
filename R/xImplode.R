@@ -38,13 +38,13 @@ xImplode <- function (str, strs) {
 		!missing(str), invoking_call,
 		exclaim$parametre_missing(str))
 
-	insist$must_be_collection(strs, invoking_call)
-	insist$must_be_collection(str, invoking_call)
+	insist $ must_be_collection(strs, invoking_call)
+	insist $ must_be_collection(str, invoking_call)
 
 	str <- to_value_unit(as_typed_vector(str, 'character'))
 	strs <- as_typed_vector(strs, 'character')
 
-	insist$must_be_of_length(str, 0:1, invoking_call)
+	insist $ must_be_of_length(str, 0:1, invoking_call)
 
 	if (length(strs) == 0) {
 		character()

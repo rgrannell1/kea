@@ -74,10 +74,10 @@ xForall <- function (pred, colls) {
 		!missing(pred), invoking_call,
 		exclaim$parametre_missing(pred))
 
-	insist$must_be_fn_matchable(pred, invoking_call)
+	insist $ must_be_fn_matchable(pred, invoking_call)
 
-    insist$must_be_collection(colls, invoking_call)
-    insist$must_be_collection_of_collections(colls, invoking_call)
+    insist $ must_be_collection(colls, invoking_call)
+    insist $ must_be_collection_of_collections(colls, invoking_call)
 
 	pred <- match_fn(pred)
 
@@ -109,7 +109,7 @@ xForall <- function (pred, colls) {
 				do.call(pred, tuple),
 				invoking_call)
 
-			insist$must_be_logical_result(is_match, pred, invoking_call)
+			insist $ must_be_logical_result(is_match, pred, invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return (False)

@@ -37,8 +37,8 @@ xThirdOf <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_collection(coll, invoking_call)
-	insist$must_be_longer_than(coll, 3, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
+	insist $ must_be_longer_than(coll, 3, invoking_call)
 
 	coll[[3]]
 }

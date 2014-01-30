@@ -38,7 +38,7 @@ xAsRaw <- function (raws) {
 		!missing(raws), invoking_call,
 		exclaim$parametre_missing(raws))
 
-	insist$must_be_collection(raws, invoking_call)
+	insist $ must_be_collection(raws, invoking_call)
 
 	as_typed_vector(raws, 'raw')
 

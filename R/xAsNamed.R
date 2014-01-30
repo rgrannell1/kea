@@ -48,12 +48,12 @@ xAsNamed <- function (strs, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_collection(strs, invoking_call)
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(strs, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	strs <- as_typed_vector(strs, 'character')
 
-	insist$must_be_equal_length(strs, coll, invoking_call)
+	insist $ must_be_equal_length(strs, coll, invoking_call)
 
 	names(coll) <- strs
 	coll

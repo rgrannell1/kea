@@ -45,11 +45,11 @@ xVal <- function (sym, val) {
 		exclaim$parametre_missing(val))
 
 	sym <- toString(match.call()$sym)
-	insist$must_be_collection(sym, invoking_call)
+	insist $ must_be_collection(sym, invoking_call)
 	sym <- to_value_unit(as_typed_vector(sym, 'character'))
 
-	insist$must_be_of_length(sym, 1, invoking_call)
-	insist$must_be_unlocked(sym, parent_frame, invoking_call)
+	insist $ must_be_of_length(sym, 1, invoking_call)
+	insist $ must_be_unlocked(sym, parent_frame, invoking_call)
 
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)

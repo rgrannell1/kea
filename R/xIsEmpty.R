@@ -31,7 +31,7 @@ xIsEmpty <- function (coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	length(coll) == 0
 }

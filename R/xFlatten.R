@@ -55,14 +55,14 @@ xFlatten <- function (num, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_collection(num, invoking_call)
+	insist $ must_be_collection(num, invoking_call)
 
 	num <- to_value_unit(as_typed_vector(num, 'numeric'))
 
-	insist$must_be_greater_than(num, 0, invoking_call)
-	insist$must_be_whole(num, invoking_call)
+	insist $ must_be_greater_than(num, 0, invoking_call)
+	insist $ must_be_whole(num, invoking_call)
 
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		list()

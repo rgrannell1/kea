@@ -51,13 +51,13 @@ xSplitAt <- function (nums, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_collection(nums, invoking_call)
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(nums, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	nums <- to_value_unit(as_typed_vector(nums, "numeric"))
 
-	insist$must_be_whole(nums, invoking_call)
-	insist$must_be_nonnegative(nums, invoking_call)
+	insist $ must_be_whole(nums, invoking_call)
+	insist $ must_be_nonnegative(nums, invoking_call)
 
 	if (length(coll) == 0) {
 		list()

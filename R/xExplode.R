@@ -45,7 +45,7 @@ xExplode <- function (rexp, str) {
 	str <- as_typed_vector(str, "character")
 	rexp <- to_value_unit(as_typed_vector(rexp, "character"))
 
-	insist$must_be_of_length(str, 0:1, invoking_call)
+	insist $ must_be_of_length(str, 0:1, invoking_call)
 
 	if (length(str) == 0) {
 		character(0)

@@ -32,8 +32,8 @@ xInter <- function (colls) {
 
 	invoking_call <- sys.call()
 
-	insist$must_be_collection(colls, invoking_call)
-	insist$must_be_collection_of_collections(colls, invoking_call)
+	insist $ must_be_collection(colls, invoking_call)
+	insist $ must_be_collection_of_collections(colls, invoking_call)
 
 	if (length(colls) == 0) {
 		list()

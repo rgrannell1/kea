@@ -39,7 +39,7 @@ xAsUnary <- function (fn) {
 		!missing(fn), sys.call(),
 		exclaim$parametre_missing(fn))
 
-	insist$must_be_fn_matchable(fn, sys.call())
+	insist $ must_be_fn_matchable(fn, sys.call())
 
 	fn <- match_fn(fn)
 

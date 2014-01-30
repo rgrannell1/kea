@@ -49,8 +49,8 @@ xTakeWhile <- function (pred, coll) {
 		!missing(coll), invoking_call,
 		exclaim$parametre_missing(coll))
 
-	insist$must_be_fn_matchable(pred, invoking_call)
-	insist$must_be_collection(coll, invoking_call)
+	insist $ must_be_fn_matchable(pred, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	pred <- match_fn(pred)
 
@@ -61,7 +61,7 @@ xTakeWhile <- function (pred, coll) {
 
 			is_match <- try_hof(pred( coll[[ith]] ), invoking_call)
 
-			insist$must_be_logical_result(is_match, pred, invoking_call)
+			insist $ must_be_logical_result(is_match, pred, invoking_call)
 
 			if (!isTRUE(is_match)) {
 				return ( as.list(head(coll, ith - 1)) )

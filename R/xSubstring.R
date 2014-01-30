@@ -46,14 +46,14 @@ xSubstring <- function (str, nums) {
 		!missing(nums), invoking_call,
 		exclaim$parametre_missing(nums))
 
-	insist$must_be_collection(str, invoking_call)
-	insist$must_be_collection(nums, invoking_call)
+	insist $ must_be_collection(str, invoking_call)
+	insist $ must_be_collection(nums, invoking_call)
 
 	str <- to_value_unit(as_typed_vector(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")
 
-	insist$must_be_of_length(str, 0:1, invoking_call)
-	insist$must_be_whole(nums, invoking_call)
+	insist $ must_be_of_length(str, 0:1, invoking_call)
+	insist $ must_be_whole(nums, invoking_call)
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)
