@@ -711,6 +711,12 @@ x_coll_proto <- local({
 
 	# -------- A ------- #
 
+	# --- xAt --- #
+	add_x_method(this, xAt, 'coll')
+	add_x_method(this, xAt..., '...')
+	add_x_method(this, x_At, 'coll')
+	add_x_method(this, x_At..., '...')
+
 	# --- xAsLogical --- #
 	add_x_method(this, xAsLogical, 'bools')
 	add_x_method(this, xAsLogical..., '...')
@@ -1784,7 +1790,6 @@ get_proto_ref <- function (val) {
 			)
 		}
 
-
 		structure(
 			forms(correct),
 			names = forms(incorrect))
@@ -1830,7 +1835,7 @@ get_proto_ref <- function (val) {
 		# Arrow a -> symbol -> function
 		# return an arrow method associated with the type a.
 
-		method_name <- paste0(method)
+		method_name <- paste0(match.call()$method)
 		invoking_call <- paste0('$', method_name)
 
 		proto_ref <- get_proto_ref( obj[['x']] )
