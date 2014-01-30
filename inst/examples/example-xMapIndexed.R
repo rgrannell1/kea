@@ -13,14 +13,16 @@
 #    There are more efficient ways to find the numbers,
 #    but a brute force search is fun, if really slow.
 
-x_(1:50000) $
-xMap(
-	# a very big anonymous function!
+digit_factorial_sum_of <-
 	paste %then% xToChars %then% as.integer %then% factorial %then% sum
-) $
-xMapIndexed(
-	(num : ith) := {
-		if (num == ith) num else integer(0)
+
+x_(1:50000) $
+xFlatMap(num := {
+
+	digit_factorial_sum <- digit_factorial_sum_of(num)
+
+	if (digit_factorial_sum == num) {
+		digit_factorial_sum
 	}
-) $
-x_Pack()
+
+})

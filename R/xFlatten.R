@@ -34,7 +34,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xFlatten.R
 #'
