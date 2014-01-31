@@ -3,12 +3,34 @@
 #'
 #' Select a collection at certain indices.
 #'
+#' @details
 #'
 #'
+#' @param
+#'    nums a vector of whole numbers. Indices to select values
+#'    in \bold{coll}.
 #'
+#' @param
+#'    coll a collection.
 #'
+#' @param
+#'    ... see above.
 #'
+#' @return
+#'    A list.
 #'
+#' @section Corner Cases:
+#'    \bold{xAt} does not allow subscripting values out of bounds, unlike
+#'    base R. If an index larger than the maximum value in \bold{coll} is given
+#'    an error is thrown.
+#'
+#' @template
+#'    Variadic
+#'
+#' @example
+#'    inst/examples/example-xAt.R
+#'
+#' @rdname xAt
 #' @export
 
 xAt <- function (nums, coll) {
@@ -33,7 +55,7 @@ xAt <- function (nums, coll) {
 	insist $ must_be_whole(nums, invoking_call)
 	insist $ max_must_be_less_than_length_of(nums, coll, invoking_call)
 
-	coll[nums]
+	as.list(coll[nums])
 }
 
 #' @rdname xAt
