@@ -29,7 +29,7 @@
 #'
 #' \code{(x := 2*(4*(1*x)) )(1)}
 #'
-#' 8
+#' xCompose
 #'
 #' In this case the output of one function is piped to
 #' another:

@@ -54,20 +54,22 @@ xZip...(
 )
 
 k_nearest <- (dist : point : space) := {
+	# given a space of points to test against,
+	# guess the category of a point based on its nearest neighbours.
 
 	k <- floor( sqrt(xLenOf(space)) )
 
-	distances <- x_(space) $ xMap(
+	distances_to_point <- x_(space) $ xMap(
 		point2 := dist( point, xFirstOf(point2))
 	) $
 	x_AsInteger()
 
 	# rank the distances from closest to furthest.
-	rankings <- xRank(distances)
+	nearest <- space[xRank(distances_to_point) <= k]
 
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-
-	x_(space[ rankings <= k ]) $ xPluck('category') $
+	x_(nearest) $ xPluck('category') $
 	xFlatten(1) $ xAsCharacter() $
 	x_Tap(table \%then\% as.list)
 
