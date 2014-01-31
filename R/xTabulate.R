@@ -9,7 +9,8 @@
 #'     may not contain duplicates, it calculates the frequencies
 #'     of each unique element.
 #'
-#'     The result of the tabulation is unsorted.
+#'     The result of the tabulation is unsorted for efficiencies sake;
+#'     if sorting is required \bold{xSortBy} can be used.
 #'
 #' @param
 #'    coll a collection. The values to find the frequency of.
@@ -28,6 +29,8 @@
 #'
 #' @example
 #'    inst/examples/example-xTabulate.R
+#'
+#' @family reshaping_functions
 #'
 #' @rdname xTabulate
 #' @export

@@ -744,7 +744,6 @@ test_cases <- local({
 	this$num_one_to_ten <-
 		list(num = atoms$range_integer(1, 10))
 
-
 	# --------------------- fn-Only --------------------- #
 
 	this$linear_function <-

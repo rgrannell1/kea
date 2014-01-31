@@ -23,7 +23,7 @@
 #'
 #' @param
 #'    pred a binary predicate. is the left argument \bold{larger} than the
-#'    right argument? If Na is returned this is interpreted as both being false.
+#'    right argument?
 #'
 #' @param
 #'    coll a collection. The collection to remove elements from.
@@ -34,8 +34,14 @@
 #' @return
 #'    A list
 #'
+#' @section Corner Cases:
+#'    If \bold{pred} returns Na it is interpreted as false; the right argument is
+#'    larger than the left.
+#'
 #' @template
 #'    Variadic
+#'
+#' @family reshaping_functions
 #'
 #' @example
 #'    inst/examples/example-xSortBy.R
@@ -62,27 +68,35 @@ xSortBy <- function (pred, coll) {
 
 	pred <- match_fn(pred)
 
-	should_swap <- function (index1, index2) {
-		isTRUE(pred( coll[[index1]], coll[[index2]] ))
-	}
+	if (length(coll) == 0) {
+		list()
+	} else if (length(coll) == 1) {
+		as.list(coll)
+	} else {
 
-	# insertion sort; a reasonable enough algorithm to use.
-	# replace with C++; in-place modification in R is rubbish.
-	for (ith in 2:length(coll)) {
-
-		jth <- ith
-
-		while (jth > 1 && should_swap(jth, jth - 1)) {
-
-			tmp <- coll[[jth - 1]]
-
-			coll[[jth - 1]] <- coll[[jth]]
-			coll[[jth]] <- tmp
-
-			jth <- jth - 1
+		should_swap <- function (index1, index2) {
+			isTRUE(pred( coll[[index1]], coll[[index2]] ))
 		}
+
+		# insertion sort; a reasonable enough algorithm to use.
+		# replace with C++; in-place modification in R is rubbish.
+		for (ith in 2:length(coll)) {
+
+			jth <- ith
+
+			while (jth > 1 && should_swap(jth - 1, jth)) {
+
+				tmp <- coll[[jth - 1]]
+
+				coll[[jth - 1]] <- coll[[jth]]
+				coll[[jth]] <- tmp
+
+				jth <- jth - 1
+			}
+		}
+
+		as.list(coll)
 	}
-	coll
 }
 
 #' @rdname xSortBy
@@ -91,10 +105,3 @@ xSortBy <- function (pred, coll) {
 xSortBy... <- function (pred, ...) {
 	xSortBy(pred, list(...))
 }
-
-xSortBy((a : b) := xSecondOf(a) > xSecondOf(b), list(
-	list('a', 10),
-	list('z', 1),
-	list('b', 12),
-	list('f', 100)
-))
