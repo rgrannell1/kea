@@ -177,5 +177,6 @@ Collate:
     'xAsDataFrame.R'
     'xRank.R'
     'xOrder.R'
-    xAt.R
+    'xAt.R'
+    'xTabulate.R'
     'x_.R'

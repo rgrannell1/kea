@@ -1298,6 +1298,13 @@ x_coll_proto <- local({
 	add_x_method(this, x_SuccOf..., '...')
 
 	# -------- T ------- #
+	# --- xTabulate --- #
+	add_x_method(this, xTabulate, 'coll')
+	add_x_method(this, xTabulate..., '...')
+	add_x_method(this, x_Tabulate, 'coll')
+	add_x_method(this, x_Tabulate..., '...')
+
+
 	# --- xTake --- #
 	add_x_method(this, xTake, 'coll')
 	add_x_method(this, xTake..., '...')

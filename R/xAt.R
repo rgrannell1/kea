@@ -4,7 +4,7 @@
 #' Select a collection at certain indices.
 #'
 #' @details
-#'
+#'     details
 #'
 #' @param
 #'    nums a vector of whole numbers. Indices to select values
