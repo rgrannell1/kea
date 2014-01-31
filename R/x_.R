@@ -1291,6 +1291,13 @@ x_coll_proto <- local({
 	add_x_method(this, xSubstring, 'str')
 	add_x_method(this, x_Substring, 'str')
 
+	# --- xSortBy --- #
+	add_x_method(this, xSortBy, 'coll')
+	add_x_method(this, xSortBy..., '...')
+	add_x_method(this, x_SortBy, 'coll')
+	add_x_method(this, x_SortBy..., '...')
+
+
 	# --- xSuccOf --- #
 	add_x_method(this, xSuccOf, 'nums')
 	add_x_method(this, xSuccOf..., '...')
@@ -1658,6 +1665,12 @@ x_fn_proto <- local({
 	add_x_method(this, xSelect..., 'pred')
 	add_x_method(this, x_Select, 'pred')
 	add_x_method(this, x_Select..., 'pred')
+
+	# --- xSortBy --- #
+	add_x_method(this, xSortBy, 'pred')
+	add_x_method(this, xSortBy..., '...')
+	add_x_method(this, x_SortBy, 'pred')
+	add_x_method(this, x_SortBy..., '...')
 
 	# --- xSplitWith --- #
 	add_x_method(this, xSplitWith, 'pred')
