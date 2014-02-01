@@ -5,6 +5,7 @@ Arrow pre-v0.1.0
 
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
+[Arrow Documentation](http://rgrannell1.github.io/arrow/)
 
 Arrow is a toolset of more than one hundred functions from languages
 like Haskell, JavaScript, and functions designed just for R. These
