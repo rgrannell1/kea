@@ -36,6 +36,7 @@ xToChars <- function (str) {
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)
 	} else {
-		strsplit(str, "")[[1]]
+		chars <- strsplit(str, "")[[1]]
+		chars[nchar(chars) > 0]
 	}
 }

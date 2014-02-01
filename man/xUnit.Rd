@@ -5,7 +5,9 @@
 xUnit(coll)
 }
 \arguments{
-  \item{coll}{an list, pairlist, or vector of any length.}
+  \item{coll}{an list, pairlist, or vector of any length.
+  The collection to return the length-zero unit element
+  of.}
 }
 \value{
 Returns null if \bold{coll} is a pairlist, a typed vector

@@ -4,7 +4,8 @@
 #' Return the last element in a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to return
+#'    the last element of.
 #'
 #' @param
 #'    ... see above.

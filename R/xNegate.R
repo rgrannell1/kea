@@ -4,7 +4,8 @@
 #' Flip the sign of each number in a vector.
 #'
 #' @param
-#'    nums a vector of numbers.
+#'    nums a vector of numbers. The numbers to
+#'    reverse the signs of.
 #'
 #' @param
 #'    ... see above.

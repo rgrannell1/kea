@@ -4,8 +4,8 @@
 #' Is an element of a collection false?
 #'
 #' @param
-#'    coll a collection. The collection to
-#'    test each element of.
+#'    coll a collection. The collection to test each element
+#'    of for being false.
 #'
 #' @param
 #'    ... see above.

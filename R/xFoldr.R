@@ -38,7 +38,6 @@
 #' @template
 #'    Return
 #'
-#'
 #' @example
 #'    inst/examples/example-xFoldr.R
 #'

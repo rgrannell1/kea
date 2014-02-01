@@ -25,7 +25,8 @@ function \bold{table}: given a collection that may or may
 not contain duplicates, it calculates the frequencies of
 each unique element.
 
-The result of the tabulation is unsorted.
+The result of the tabulation is unsorted for efficiencies
+sake; if sorting is required \bold{xSortBy} can be used.
 }
 \section{Corner Cases}{
   If \bold{coll} is length-zero the empty list is returned.
@@ -33,5 +34,21 @@ The result of the tabulation is unsorted.
 \examples{
 
 NULL
+}
+\seealso{
+Other reshaping_functions: \code{\link{xChop}},
+\code{\link{xChop...}}; \code{\link{xChunk}},
+\code{\link{xChunk...}}; \code{\link{xFlatten}},
+\code{\link{xFlatten...}}; \code{\link{xJoin}},
+\code{\link{xJoin...}}; \code{\link{xPermute}},
+\code{\link{xPermute...}}; \code{\link{xRepeat}},
+\code{\link{xRepeat...}}; \code{\link{xReverse}};
+\code{\link{xShuffle}}, \code{\link{xShuffle...}};
+\code{\link{xSortBy}}, \code{\link{xSortBy...}};
+\code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
+\code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}};
+\code{\link{xZip}}, \code{\link{xZip...}}
 }
 

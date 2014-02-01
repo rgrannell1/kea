@@ -40,6 +40,7 @@ xToWords <- function (str) {
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)
 	} else {
-		strsplit(str, split = '[ \n\t]+')[[1]]
+		words <- strsplit(str, split = '[ \n\t]+')[[1]]
+		words[nchar(words) > 0]
 	}
 }

@@ -4,13 +4,13 @@
 #' Is a function variadic?
 #'
 #' @param
-#'    fn an arbitrary function or primitive function.
+#'    fn an function. The function to test for
+#'    variadic parametres.
 #'
 #' @return
 #'    A boolean value.
 #'
 #' @family parametre_functions
-#'
 #'
 #' @example
 #'    inst/examples/example-xIsVariadic.R

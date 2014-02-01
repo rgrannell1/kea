@@ -1,6 +1,8 @@
 
 #' xRemoveNull
 #'
+#' Remove the null values from a collection.
+#'
 #' @param
 #'    coll a collection. The collection to remove
 #'    null values from.

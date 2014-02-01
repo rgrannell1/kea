@@ -5,7 +5,8 @@
 xGetKey(str)
 }
 \arguments{
-  \item{str}{a string.}
+  \item{str}{a string. The key to select from a
+  collection.}
 }
 \value{
 A unary function that takes a collection.

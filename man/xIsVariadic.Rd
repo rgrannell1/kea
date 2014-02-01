@@ -5,7 +5,8 @@
 xIsVariadic(fn)
 }
 \arguments{
-  \item{fn}{an arbitrary function or primitive function.}
+  \item{fn}{an function. The function to test for variadic
+  parametres.}
 }
 \value{
 A boolean value.

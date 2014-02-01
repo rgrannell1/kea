@@ -3,14 +3,36 @@
 #'
 #' Generate a list of n-element lists from n collections.
 #'
+#' @details
+#'    \bold{xZip} converts the 'columns' of a collection of
+#'    collections (each inner collection) to 'rows.'
+#'
+#'    \code{coll <- list( list(1, 2, 3), list('a', 'b', 'c') )}
+#'
+#'    \code{xZip(coll)}
+#'
+#'    \code{list( list(1, 'a'), list(2, 'b'), list('c') )}
+#'
+#'    In the above case the 'columns' - a list of numbers and
+#'    a list of letters - were zipped into corresponding 'rows'
+#'    of a number and a letter.
+#'
+#'    Applying \bold{xZip} again will reconvert the 'rows'
+#'    back into columns.
+#'
+#'    \code{coll <- list( list(1, 2, 3), list('a', 'b', 'c') )}
+#'
+#'    \code{xZip(coll)}
+#'
 #' @param
-#'    colls n-vectors, lists or pairlists.
+#'    colls a collection of collections of equal lengths.
+#'    The collections to zip together.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    Returns a list.
+#'    Returns a list of lists.
 #'
 #' @section Corner Cases:
 #'    The empty list is returned if the shortest collection

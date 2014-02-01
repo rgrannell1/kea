@@ -12,7 +12,8 @@
 #' and ignores those arguments.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to close over with a
+#'    closure.
 #'
 #' @return
 #'    A variadic function that returns \bold{val}.

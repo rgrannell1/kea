@@ -4,10 +4,12 @@
 #' Check if a collection contains a value.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to test for membership
+#'    in \bold{coll}.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection of elements to check against
+#'    \bold{val}.
 #'
 #' @param
 #'    ... see above.

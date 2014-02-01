@@ -1,9 +1,10 @@
+
 #' xReverse
 #'
 #' Reverse a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to reverse.
 #'
 #' @param
 #'    ... see above.

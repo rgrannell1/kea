@@ -9,7 +9,8 @@
 #'    in \code{colls}.
 #'
 #' @param
-#'    colls a collection of collections.
+#'    colls a collection of collections. The collections
+#'    to take the union of.
 #'
 #' @param
 #'    ... see above.

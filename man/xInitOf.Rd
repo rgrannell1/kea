@@ -8,7 +8,8 @@ xInitOf(coll)
 xInitOf...(...)
 }
 \arguments{
-  \item{coll}{a collection. A collection to subset.}
+  \item{coll}{a collection. A collection to return all but
+  the last element of.}
 
   \item{...}{see above.}
 }

@@ -18,7 +18,7 @@
 #'    fn a binary function.
 #'
 #' @param
-#'    fns a list or pairlist of binary functions.
+#'    fns a collection functions.
 #'
 #' @param
 #'    ... see above.

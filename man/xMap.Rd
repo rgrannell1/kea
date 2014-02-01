@@ -8,9 +8,10 @@ xMap(fn, coll)
 xMap...(fn, ...)
 }
 \arguments{
-  \item{fn}{a unary function.}
+  \item{fn}{a unary function. The function to modify each
+  element of a collection with.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to be modified.}
 
   \item{...}{see above.}
 }

@@ -11,7 +11,8 @@ xForall...(pred, ...)
   \item{pred}{an predicate function that takes as many
   arguments as there are collections in \bold{colls}.}
 
-  \item{colls}{a collection of collections.}
+  \item{colls}{a collection of collections. The collection
+  to draw arguments for \bold{pred} from.}
 
   \item{...}{see above.}
 }

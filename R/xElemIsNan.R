@@ -4,7 +4,8 @@
 #' Is an element in a collection NaN?
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to test each element
+#'    of for being nan.
 #'
 #' @param
 #'    ... see above.

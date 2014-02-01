@@ -8,9 +8,11 @@ xNotMember(val, coll)
 xNotMember...(val, ...)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The value to test for
+  non-membership in a collection.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to test elements
+  from.}
 
   \item{...}{see above.}
 }

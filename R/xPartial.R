@@ -4,10 +4,11 @@
 #' Partially apply a function.
 #'
 #' @param
-#'    fn an arbitrary function.
+#'    fn an arbitrary function. The function to have some
+#'    of its arguments fixed.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The arguments to fix.
 #'
 #' @param
 #'    ... see above.

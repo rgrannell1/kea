@@ -4,10 +4,11 @@
 #' Check if a collection doesn't contain a value.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to test for
+#'    non-membership in a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to test elements from.
 #'
 #' @param
 #'    ... see above.
@@ -49,6 +50,7 @@ xNotMember <- function (val, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
+		# asymptotically slower, but always faster.
 		is_match <- vapply(
 			coll,
 			function (elem) {

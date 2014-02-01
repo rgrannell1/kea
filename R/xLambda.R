@@ -4,7 +4,7 @@
 #' Syntactic sugar for creating unary functions.
 #'
 #' @param
-#'    sym a symbol or string.
+#'    sym a parametres body.
 #'
 #' @param
 #'    val a valid function body, which will be lazily evaluated.

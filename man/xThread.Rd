@@ -8,14 +8,16 @@ xThread(val, fns)
 xThread...(val, ...)
 }
 \arguments{
-  \item{val}{an arbitrary value}
+  \item{val}{an arbitrary value. The value to feed to the
+  input functions.}
 
-  \item{fns}{several unary functions.}
+  \item{fns}{a collection of unary functions. The functions
+  to successively pipe the value through.}
 
   \item{...}{see above.}
 }
 \value{
-A list.
+An arbitrary value.
 }
 \description{
 Iteratively apply a value to list of functions.

@@ -5,7 +5,8 @@
 xIsFalse(val)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The value to test for
+  being false.}
 
   \item{...}{see above.}
 }

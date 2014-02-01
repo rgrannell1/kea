@@ -5,7 +5,8 @@
 xStopwatch(num)
 }
 \arguments{
-  \item{num}{a positive number.}
+  \item{num}{a positive number. The number of seconds the
+  function should return true for.}
 }
 \value{
 A variadic function that ignores its arguments.

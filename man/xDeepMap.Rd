@@ -8,9 +8,11 @@ xDeepMap(fn, coll)
 xDeepMap...(fn, ...)
 }
 \arguments{
-  \item{fn}{a unary function.}
+  \item{fn}{a unary function. A function to recursively
+  apply into a collection.}
 
-  \item{coll}{a list or pairlist.}
+  \item{coll}{a collection. The collection to be mapped
+  into.}
 
   \item{...}{see above.}
 }

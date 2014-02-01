@@ -8,7 +8,8 @@ xLenOf(coll)
 xLenOf...(...)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to test the
+  length of.}
 
   \item{...}{see above.}
 }
@@ -16,7 +17,7 @@ xLenOf...(...)
 A nonnegative integer.
 }
 \description{
-Get the length of a collection
+Get the length of a collection.
 }
 \section{Corner Cases}{
   Returns zero if \bold{coll} is empty.

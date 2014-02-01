@@ -5,7 +5,8 @@
 xIsVal(str)
 }
 \arguments{
-  \item{str}{a string or symbol.}
+  \item{sym}{a symbol or string. The variable name to
+  test.}
 }
 \value{
 A boolean value.

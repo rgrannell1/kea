@@ -11,7 +11,7 @@
 #'    in \bold{coll}.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to subset.
 #'
 #' @param
 #'    ... see above.

@@ -4,7 +4,8 @@
 #' Remove the last element of a collection.
 #'
 #' @param
-#'    coll a collection. A collection to subset.
+#'    coll a collection. A collection to return
+#'    all but the last element of.
 #'
 #' @param
 #'    ... see above.

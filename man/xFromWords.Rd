@@ -8,8 +8,8 @@ xFromWords(strs)
 xFromWords...(...)
 }
 \arguments{
-  \item{strs}{a collection of length-one character vectors.
-  The strings to collapse into one string.}
+  \item{strs}{a collection of strings. The strings to
+  collapse into one string.}
 
   \item{...}{see above.}
 }

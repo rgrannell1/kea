@@ -8,7 +8,8 @@ xElemNotTrue(coll)
 xElemNotTrue...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to test each
+  element of for being non-true.}
 
   \item{...}{see above.}
 }

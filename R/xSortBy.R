@@ -26,7 +26,7 @@
 #'    right argument?
 #'
 #' @param
-#'    coll a collection. The collection to remove elements from.
+#'    coll a collection. The collection to sort.
 #'
 #' @param
 #'    ... see above.

@@ -5,6 +5,8 @@
 #'
 #' @param
 #'    coll an list, pairlist, or vector of any length.
+#'    The collection to return the length-zero
+#'    unit element of.
 #'
 #' @return
 #'    Returns null if \bold{coll} is a pairlist, a

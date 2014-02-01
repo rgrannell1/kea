@@ -4,7 +4,7 @@
 #' Get the parametres and defaults of a function or primitive function.
 #'
 #' @param
-#'    fn an arbitrary function.
+#'    fn an arbitrary function. The function to get the parametres of.
 #'
 #' @return
 #'    A named list, where each element's name is a parametre in \bold{fn} and each value

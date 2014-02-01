@@ -5,9 +5,10 @@
 xVal(sym, val)
 }
 \arguments{
-  \item{sym}{a symbol or string.}
+  \item{sym}{a symbol or string. The variable name to
+  assign a value.}
 
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The value to be assigned.}
 }
 \value{
 Null; this function is used for side-effects.

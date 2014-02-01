@@ -4,10 +4,12 @@
 #' Repeat a collection several times.
 #'
 #' @param
-#'    num a nonnegative positive number
+#'    num a nonnegative positive number. The number of
+#'    times to repeat the collection.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to repeat
+#'    end to end.
 #'
 #' @param
 #'    ... see above.

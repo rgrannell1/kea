@@ -10,7 +10,7 @@ xLift...(fn, ...)
 \arguments{
   \item{fn}{a binary function.}
 
-  \item{fns}{a list or pairlist of binary functions.}
+  \item{fns}{a collection functions.}
 
   \item{...}{see above.}
 }

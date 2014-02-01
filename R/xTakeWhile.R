@@ -5,7 +5,7 @@
 #' until a predicate returns false.
 #'
 #' @param
-#'    pred a predicate. The functionto test each element of
+#'    pred a predicate. The function to test each element of
 #'    the collection with.
 #'
 #' @param

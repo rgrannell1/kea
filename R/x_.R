@@ -223,6 +223,12 @@ x_any_proto <- local({
 	add_x_method(this, xIdentity, 'val')
 	add_x_method(this, x_Identity, 'val')
 
+	# --- xIsEmpty --- #
+	add_x_method(this, xIsEmpty, 'val')
+	add_x_method(this, xIsEmpty..., '...')
+	add_x_method(this, x_IsEmpty, 'val')
+	add_x_method(this, x_IsEmpty..., '...')
+
 	add_x_method(this, xIsNa, 'val')
 	add_x_method(this, x_IsNa, 'val')
 
@@ -932,12 +938,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_InitOf, 'coll')
 	add_x_method(this, x_InitOf..., '...')
 
-	# --- xIsEmpty --- #
-	add_x_method(this, xIsEmpty, 'coll')
-	add_x_method(this, xIsEmpty..., '...')
-	add_x_method(this, x_IsEmpty, 'coll')
-	add_x_method(this, x_IsEmpty..., '...')
-
 	# --- xElemIsFalse --- #
 	add_x_method(this, xElemIsFalse, 'coll')
 	add_x_method(this, xElemIsFalse..., '...')
@@ -1039,9 +1039,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_Map..., '...')
 
 	# --- xMapply --- #
-	add_x_method(this, xMapply, 'coll')
+	add_x_method(this, xMapply, 'colls')
 	add_x_method(this, xMapply..., '...')
-	add_x_method(this, x_Mapply, 'coll')
+	add_x_method(this, x_Mapply, 'colls')
 	add_x_method(this, x_Mapply..., '...')
 
 	# --- xMapIndexed --- #

@@ -4,8 +4,9 @@
 #' Split a named list into a list of name: value list pairs.
 #'
 #' @param
-#'    colls a list or pairlist of list or pairlist pairs, with the first element being a
-#'	  string and the second element being any value.
+#'    colls a collection of collections, with the first element
+#'    of the inner collection being a string and the second element
+#'    being any value.
 #'
 #' @param
 #'    ... see above.
@@ -22,7 +23,6 @@
 #'
 #' @template
 #'    Variadic
-#'
 #'
 #' @example
 #'    inst/examples/example-xUnzipNames.R

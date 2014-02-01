@@ -11,7 +11,7 @@ xAt...(nums, ...)
   \item{nums}{a vector of whole numbers. Indices to select
   values in \bold{coll}.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to subset.}
 
   \item{...}{see above.}
 }

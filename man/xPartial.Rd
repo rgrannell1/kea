@@ -8,9 +8,10 @@ xPartial(fn, coll)
 xPartial...(fn, ...)
 }
 \arguments{
-  \item{fn}{an arbitrary function.}
+  \item{fn}{an arbitrary function. The function to have
+  some of its arguments fixed.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The arguments to fix.}
 
   \item{...}{see above.}
 }

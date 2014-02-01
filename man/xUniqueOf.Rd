@@ -8,7 +8,8 @@ xUniqueOf(coll)
 xUniqueOf...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to return unique
+  elements from.}
 
   \item{...}{see above.}
 }

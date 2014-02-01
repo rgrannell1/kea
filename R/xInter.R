@@ -4,7 +4,8 @@
 #' Get the set intersection of several collections.
 #'
 #' @param
-#'    colls a collection of collections.
+#'    colls a collection of collections. The collections to
+#'    take the intersection f.
 #'
 #' @param
 #'    ... see above.

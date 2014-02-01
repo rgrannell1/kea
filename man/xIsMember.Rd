@@ -8,9 +8,11 @@ xIsMember(val, coll)
 xIsMember...(val, ...)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The value to test for
+  membership in \bold{coll}.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection of elements to
+  check against \bold{val}.}
 
   \item{...}{see above.}
 }

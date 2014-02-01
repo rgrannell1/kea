@@ -8,7 +8,7 @@ xLambda(sym, val)
 ":="(sym, val)
 }
 \arguments{
-  \item{sym}{a symbol or string.}
+  \item{sym}{a parametres body.}
 
   \item{val}{a valid function body, which will be lazily
   evaluated.}

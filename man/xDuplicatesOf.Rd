@@ -8,7 +8,8 @@ xDuplicatesOf(coll)
 xDuplicatesOf...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to return
+  duplicated elements from.}
 
   \item{...}{see above.}
 }

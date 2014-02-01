@@ -3,14 +3,16 @@
 \alias{xMapply...}
 \title{xMapply}
 \usage{
-xMapply(fn, coll)
+xMapply(fn, colls)
 
 xMapply...(fn, ...)
 }
 \arguments{
-  \item{fn}{a unary function.}
+  \item{fn}{a function. The function to apply to each tuple
+  of elements in \bold{colls}.}
 
-  \item{coll}{a collection.}
+  \item{colls}{a collection of collections. The collection
+  to have a function applied to each inner tuple.}
 
   \item{...}{see above.}
 }
@@ -21,7 +23,7 @@ A list.
 Apply a function to each element of a collection.
 }
 \section{Corner Cases}{
-  Returns the empty list is \bold{coll} is length-zero.
+  Returns the empty list is \bold{colls} is length-zero.
 }
 \examples{
 

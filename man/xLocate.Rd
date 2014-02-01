@@ -14,9 +14,11 @@ xLocatel...(pred, ...)
 xLocate...(pred, ...)
 }
 \arguments{
-  \item{pred}{a predicate function.}
+  \item{pred}{a predicate function. The function to test
+  each element of a collection with.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection with elements to
+  test.}
 
   \item{...}{see above.}
 }

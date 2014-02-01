@@ -16,7 +16,8 @@
 #'    by which to permute the input collections.
 #'
 #' @param
-#'    colls several collections of equal length to \bold{nums}.
+#'    colls several collections of equal length to \bold{nums}. The
+#'    collections to permute.
 #'
 #' @param
 #'    ... see above.

@@ -8,9 +8,10 @@ xExplode(rexp, str)
 xExplode...(rexp, ...)
 }
 \arguments{
-  \item{rexp}{a regular expression.}
+  \item{rexp}{a regular expression. The pattern at which to
+  split \bold{str}.}
 
-  \item{str}{a string.}
+  \item{str}{a string. The string to split.}
 }
 \value{
 A character vector.

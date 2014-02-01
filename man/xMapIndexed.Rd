@@ -8,9 +8,12 @@ xMapIndexed(fn, coll)
 xMapIndexed...(fn, ...)
 }
 \arguments{
-  \item{fn}{a binary function.}
+  \item{fn}{a binary function. A function that takes a
+  value in \bold{coll} as its left argument and a an index
+  as its right argument.}
 
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to apply a
+  function to.}
 
   \item{...}{see above.}
 }

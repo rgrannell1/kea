@@ -4,7 +4,8 @@
 #' Is an value not nan?
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value.The value to test for
+#'    not-nan.
 #'
 #' @param
 #'    ... see above.

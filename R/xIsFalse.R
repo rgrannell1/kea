@@ -4,7 +4,8 @@
 #' Is an value false?
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to test for
+#'    being false.
 #'
 #' @param
 #'    ... see above.

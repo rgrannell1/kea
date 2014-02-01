@@ -4,10 +4,12 @@
 #' Concatenate a character vector into a single string using a delimiter.
 #'
 #' @param
-#'    str a string to use as a delimiter.
+#'    str a length one character vector. The
+#'    string to use as a delimiter.
 #'
 #' @param
-#'    strs several character vectors.
+#'    strs a collection of length one character vectors. The
+#'    strings to concatenate.
 #'
 #' @param
 #'    ... see above.

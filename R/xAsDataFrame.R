@@ -4,7 +4,8 @@
 #' Convert a collection of collections to a data.frame
 #'
 #' @param
-#'    colls a collection of collections.
+#'    colls a collection of collections. The collection
+#'    to convert to a data frame.
 #'
 #' @param
 #'    ... see above.

@@ -5,7 +5,8 @@
 xNotFalse(val)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value.The value to test for
+  not-falsity.}
 
   \item{...}{see above.}
 }

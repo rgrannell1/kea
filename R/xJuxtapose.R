@@ -23,7 +23,8 @@
 #'
 #'
 #' @param
-#'    fns a list or pairlist of functions.
+#'    fns a collections of functions. The functions
+#'    to call with a set of arguments.
 #'
 #' @param
 #'    ... see above.

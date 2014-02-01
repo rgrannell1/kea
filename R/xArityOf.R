@@ -4,7 +4,7 @@
 #' Return the number of arguments a function can accept.
 #'
 #' @param
-#'    fn an function of any arity.
+#'    fn an function. The function to have its arity checked.
 #'
 #' @return
 #'    A positive whole number.

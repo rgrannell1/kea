@@ -1,6 +1,8 @@
 
 #' xRemoveNa
 #'
+#' Remove the Na values from a collection.
+#'
 #' @param
 #'    coll a collection. The collection to remove
 #'    na values from.

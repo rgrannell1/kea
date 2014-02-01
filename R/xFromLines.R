@@ -4,7 +4,7 @@
 #' Concatentate a character vector with newlines as delimiters.
 #'
 #' @param
-#'    strs a collection of length-one character vectors. The
+#'    strs a collection of strings. The
 #'    strings to collapse into one string.
 #'
 #' @param

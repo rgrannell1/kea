@@ -14,7 +14,7 @@ xRemoveNa(coll)
 A list.
 }
 \description{
-xRemoveNa
+Remove the Na values from a collection.
 }
 \examples{
 

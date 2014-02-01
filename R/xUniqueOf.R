@@ -4,7 +4,8 @@
 #' Return the unique elements in a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to return unique
+#'    elements from.
 #'
 #' @param
 #'    ... see above.

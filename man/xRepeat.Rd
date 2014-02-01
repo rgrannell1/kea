@@ -8,9 +8,11 @@ xRepeat(num, coll)
 xRepeat...(num, ...)
 }
 \arguments{
-  \item{num}{a nonnegative positive number}
+  \item{num}{a nonnegative positive number. The number of
+  times to repeat the collection.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to repeat end to
+  end.}
 
   \item{...}{see above.}
 }
@@ -48,8 +50,10 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xJoin...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xReverse}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
+\code{\link{xSortBy}}, \code{\link{xSortBy...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xTabulate}}, \code{\link{xTabulate...}};
 \code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
 \code{\link{xZipNames}}, \code{\link{xZipNames...}};
 \code{\link{xZip}}, \code{\link{xZip...}}

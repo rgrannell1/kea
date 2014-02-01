@@ -5,7 +5,8 @@
 xNotNan(val)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value.The value to test for
+  not-nan.}
 
   \item{...}{see above.}
 }

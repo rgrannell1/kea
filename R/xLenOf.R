@@ -1,10 +1,11 @@
 
 #' xLenOf
 #'
-#' Get the length of a collection
+#' Get the length of a collection.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to test the
+#'    length of.
 #'
 #' @param
 #'    ... see above.

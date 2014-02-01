@@ -8,7 +8,8 @@ xInter(colls)
 xInter...(...)
 }
 \arguments{
-  \item{colls}{a collection of collections.}
+  \item{colls}{a collection of collections. The collections
+  to take the intersection f.}
 
   \item{...}{see above.}
 }

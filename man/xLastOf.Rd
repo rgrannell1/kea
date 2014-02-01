@@ -8,7 +8,8 @@ xLastOf(coll)
 xLastOf...(...)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to return the
+  last element of.}
 
   \item{...}{see above.}
 }

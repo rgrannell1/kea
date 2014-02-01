@@ -5,7 +5,8 @@
 xNotNull(val)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The value to test for not
+  being null.}
 
   \item{...}{see above.}
 }

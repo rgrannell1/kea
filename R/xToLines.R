@@ -39,6 +39,7 @@ xToLines <- function (str) {
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)
 	} else {
-		strsplit(str, split = "\n+")[[1]]
+		lines <- strsplit(str, split = "\n+")[[1]]
+		lines[nchar(lines) > 0]
 	}
 }

@@ -66,6 +66,7 @@ xSubstring <- function (str, nums) {
 
 		chars <- strsplit(str, "")[[1]]
 		chars <- chars[nchar(chars) > 0]
+
 		paste0(chars[nums], collapse = "")
 	}
 }

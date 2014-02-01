@@ -8,8 +8,8 @@ xUnzipNames(colls)
 xUnzipNames...(...)
 }
 \arguments{
-  \item{colls}{a list or pairlist of list or pairlist
-  pairs, with the first element being a string and the
+  \item{colls}{a collection of collections, with the first
+  element of the inner collection being a string and the
   second element being any value.}
 
   \item{...}{see above.}
@@ -42,8 +42,10 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
+\code{\link{xSortBy}}, \code{\link{xSortBy...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xTabulate}}, \code{\link{xTabulate...}};
 \code{\link{xZipNames}}, \code{\link{xZipNames...}};
 \code{\link{xZip}}, \code{\link{xZip...}}
 }

@@ -5,7 +5,8 @@
 xFormalsOf(fn)
 }
 \arguments{
-  \item{fn}{an arbitrary function.}
+  \item{fn}{an arbitrary function. The function to get the
+  parametres of.}
 }
 \value{
 A named list, where each element's name is a parametre in

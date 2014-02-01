@@ -4,7 +4,8 @@
 #' Test every element in a collection for being \code{Na} of any type.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to test each element
+#'    of for being non-na.
 #'
 #' @param
 #'    ... see above.

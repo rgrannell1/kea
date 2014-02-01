@@ -22,7 +22,7 @@
 #'     \code{if (xIsTrue(mybool)) 1 else 2}
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to test for being true.
 #'
 #' @param
 #'    ... see above.

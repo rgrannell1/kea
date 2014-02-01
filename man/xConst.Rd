@@ -8,7 +8,8 @@ xConst(val)
 xK(val)
 }
 \arguments{
-  \item{val}{an arbitrary value.}
+  \item{val}{an arbitrary value. The value to close over
+  with a closure.}
 }
 \value{
 A variadic function that returns \bold{val}.

@@ -4,7 +4,8 @@
 #' Is an value not null?
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to test for
+#'    not being null.
 #'
 #' @param
 #'    ... see above.

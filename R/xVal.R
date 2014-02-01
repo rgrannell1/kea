@@ -10,10 +10,11 @@
 #'    other languages.
 #'
 #' @param
-#'    sym a symbol or string.
+#'    sym a symbol or string. The variable name
+#'    to assign a value.
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to be assigned.
 #'
 #' @return
 #'    Null; this function is used for side-effects.

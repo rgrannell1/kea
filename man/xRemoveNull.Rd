@@ -17,7 +17,7 @@ xRemoveNull...(...)
 A list.
 }
 \description{
-xRemoveNull
+Remove the null values from a collection.
 }
 \examples{
 

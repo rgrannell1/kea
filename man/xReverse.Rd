@@ -5,7 +5,7 @@
 xReverse(coll)
 }
 \arguments{
-  \item{coll}{a collection.}
+  \item{coll}{a collection. The collection to reverse.}
 
   \item{...}{see above.}
 }
@@ -31,9 +31,11 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xJoin...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xShuffle}},
-\code{\link{xShuffle...}}; \code{\link{xSplitAt}},
+\code{\link{xShuffle...}}; \code{\link{xSortBy}},
+\code{\link{xSortBy...}}; \code{\link{xSplitAt}},
 \code{\link{xSplitAt...}}; \code{\link{xSplitWith}},
-\code{\link{xSplitWith...}}; \code{\link{xUnzipNames}},
+\code{\link{xSplitWith...}}; \code{\link{xTabulate}},
+\code{\link{xTabulate...}}; \code{\link{xUnzipNames}},
 \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
 \code{\link{xZipNames...}}; \code{\link{xZip}},
 \code{\link{xZip...}}

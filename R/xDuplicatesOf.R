@@ -4,7 +4,8 @@
 #' Return the duplicated elements in a collection.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to return
+#'    duplicated elements from.
 #'
 #' @param
 #'    ... see above.

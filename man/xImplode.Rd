@@ -8,9 +8,11 @@ xImplode(str, strs)
 xImplode...(str, ...)
 }
 \arguments{
-  \item{str}{a string to use as a delimiter.}
+  \item{str}{a length one character vector. The string to
+  use as a delimiter.}
 
-  \item{strs}{several character vectors.}
+  \item{strs}{a collection of length one character vectors.
+  The strings to concatenate.}
 
   \item{...}{see above.}
 }

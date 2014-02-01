@@ -10,7 +10,8 @@ xUnion(colls)
 xUnion...(...)
 }
 \arguments{
-  \item{colls}{a collection of collections.}
+  \item{colls}{a collection of collections. The collections
+  to take the union of.}
 
   \item{...}{see above.}
 }

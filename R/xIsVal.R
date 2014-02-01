@@ -4,7 +4,8 @@
 #' Is a name binding locked?
 #'
 #' @param
-#'    str a string or symbol.
+#'    sym a symbol or string. The variable name
+#'    to test.
 #'
 #' @return
 #'    A boolean value.

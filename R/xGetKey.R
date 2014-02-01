@@ -4,7 +4,7 @@
 #' Return a function that selects a key from a collection.
 #'
 #' @param
-#'    str a string.
+#'    str a string. The key to select from a collection.
 #'
 #' @return
 #'    A unary function that takes a collection.
@@ -15,7 +15,6 @@
 #' @family selection_functions
 #'
 #' @family name_functions
-#'
 #'
 #' @example
 #'    inst/examples/example-xGetKey.R

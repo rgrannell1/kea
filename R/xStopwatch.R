@@ -5,7 +5,8 @@
 #' preset time after creation.
 #'
 #' @param
-#'    num a positive number.
+#'    num a positive number. The number of seconds
+#'    the function should return true for.
 #'
 #' @return
 #'    A variadic function that ignores its arguments.

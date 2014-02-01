@@ -5,10 +5,11 @@
 #' predicate returns true.
 #'
 #' @param
-#'    pred a predicate function.
+#'    pred a predicate function. The function to test each element
+#'    of a collection with.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection with elements to test.
 #'
 #' @param
 #'    ... see above.

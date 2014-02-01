@@ -8,7 +8,8 @@ xJuxtapose(fns)
 xJuxtapose...(...)
 }
 \arguments{
-  \item{fns}{a list or pairlist of functions.}
+  \item{fns}{a collections of functions. The functions to
+  call with a set of arguments.}
 
   \item{...}{see above.}
 }

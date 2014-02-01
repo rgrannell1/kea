@@ -4,16 +4,18 @@
 #' Iteratively apply a value to list of functions.
 #'
 #' @param
-#'    val an arbitrary value
+#'    val an arbitrary value. The value to feed to
+#'    the input functions.
 #'
 #' @param
-#'    fns several unary functions.
+#'   fns a collection of unary functions. The functions
+#'   to successively pipe the value through.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A list.
+#'    An arbitrary value.
 #'
 #' @section Corner Cases:
 #'    Returns the empty list if \bold{coll} is length-zero.

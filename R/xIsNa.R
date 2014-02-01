@@ -4,7 +4,7 @@
 #' Is an value na?
 #'
 #' @param
-#'    val an arbitrary value.
+#'    val an arbitrary value. The value to test for being na.
 #'
 #' @param
 #'    ... see above.

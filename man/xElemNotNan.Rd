@@ -8,7 +8,8 @@ xElemNotNan(coll)
 xElemNotNan...(...)
 }
 \arguments{
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to test each
+  element of for being non-nan.}
 
   \item{...}{see above.}
 }

@@ -8,7 +8,8 @@ xNegate(nums)
 xNegate...(...)
 }
 \arguments{
-  \item{nums}{a vector of numbers.}
+  \item{nums}{a vector of numbers. The numbers to reverse
+  the signs of.}
 
   \item{...}{see above.}
 }

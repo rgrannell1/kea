@@ -3,12 +3,13 @@
 \alias{xIsEmpty...}
 \title{xIsEmpty}
 \usage{
-xIsEmpty(coll)
+xIsEmpty(val)
 
 xIsEmpty...(...)
 }
 \arguments{
-  \item{coll}{a collection. The collection to check.}
+  \item{val}{an arbitrary value. A value to check for being
+  length zero.}
 
   \item{...}{see above.}
 }

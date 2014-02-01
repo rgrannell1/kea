@@ -9,7 +9,7 @@ xElemIsFalse...(...)
 }
 \arguments{
   \item{coll}{a collection. The collection to test each
-  element of.}
+  element of for being false.}
 
   \item{...}{see above.}
 }

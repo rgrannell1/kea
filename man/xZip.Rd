@@ -8,15 +8,37 @@ xZip(colls)
 xZip...(...)
 }
 \arguments{
-  \item{colls}{n-vectors, lists or pairlists.}
+  \item{colls}{a collection of collections of equal
+  lengths.  The collections to zip together.}
 
   \item{...}{see above.}
 }
 \value{
-Returns a list.
+Returns a list of lists.
 }
 \description{
 Generate a list of n-element lists from n collections.
+}
+\details{
+\bold{xZip} converts the 'columns' of a collection of
+collections (each inner collection) to 'rows.'
+
+\code{coll <- list( list(1, 2, 3), list('a', 'b', 'c') )}
+
+\code{xZip(coll)}
+
+\code{list( list(1, 'a'), list(2, 'b'), list('c') )}
+
+In the above case the 'columns' - a list of numbers and a
+list of letters - were zipped into corresponding 'rows' of
+a number and a letter.
+
+Applying \bold{xZip} again will reconvert the 'rows' back
+into columns.
+
+\code{coll <- list( list(1, 2, 3), list('a', 'b', 'c') )}
+
+\code{xZip(coll)}
 }
 \section{Corner Cases}{
   The empty list is returned if the shortest collection has
@@ -61,8 +83,10 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
 \code{\link{xRepeat...}}; \code{\link{xReverse}};
 \code{\link{xShuffle}}, \code{\link{xShuffle...}};
+\code{\link{xSortBy}}, \code{\link{xSortBy...}};
 \code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
 \code{\link{xSplitWith}}, \code{\link{xSplitWith...}};
+\code{\link{xTabulate}}, \code{\link{xTabulate...}};
 \code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
 \code{\link{xZipNames}}, \code{\link{xZipNames...}}
 }

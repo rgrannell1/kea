@@ -5,7 +5,8 @@
 xArityOf(fn)
 }
 \arguments{
-  \item{fn}{an function of any arity.}
+  \item{fn}{an function. The function to have its arity
+  checked.}
 }
 \value{
 A positive whole number.

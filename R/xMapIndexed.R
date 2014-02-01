@@ -5,10 +5,12 @@
 #' collection and its index.
 #'
 #' @param
-#'    fn a binary function.
+#'    fn a binary function. A function that takes a
+#'    value in \bold{coll} as its left argument and a
+#'    an index as its right argument.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to apply a function to.
 #'
 #' @param
 #'    ... see above.

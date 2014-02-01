@@ -6,10 +6,11 @@
 #' preserving its structure.
 #'
 #' @param
-#'    fn a unary function.
+#'    fn a unary function. A function to recursively apply
+#'    into a collection.
 #'
 #' @param
-#'    coll a list or pairlist.
+#'    coll a collection. The collection to be mapped into.
 #'
 #' @param
 #'    ... see above.

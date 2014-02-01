@@ -4,10 +4,11 @@
 #' Split a string into a character vector using a regular expression.
 #'
 #' @param
-#'    rexp a regular expression.
+#'    rexp a regular expression. The pattern at which to
+#'    split \bold{str}.
 #'
 #' @param
-#'    str a string.
+#'    str a string. The string to split.
 #'
 #' @return
 #'    A character vector.

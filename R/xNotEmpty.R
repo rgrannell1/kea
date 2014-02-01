@@ -4,7 +4,8 @@
 #' Is a collection length-zero?
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The value to test for
+#'    having non-zero length.
 #'
 #' @param
 #'    ... see above.

@@ -4,7 +4,7 @@
 #' Is a collection length-zero?
 #'
 #' @param
-#'    coll a collection. The collection to check.
+#'    val an arbitrary value. A value to check for being length zero.
 #'
 #' @param
 #'    ... see above.
@@ -21,19 +21,19 @@
 #' @rdname xIsEmpty
 #' @export
 
-xIsEmpty <- function (coll) {
+xIsEmpty <- function (val) {
 	# Collection -> boolean
 	# is collection length == 0?
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+		!missing(val), invoking_call,
+		exclaim$parametre_missing(val))
 
-	insist $ must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(val, invoking_call)
 
-	length(coll) == 0
+	length(val) == 0
 }
 
 #' @rdname xIsEmpty

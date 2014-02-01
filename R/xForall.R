@@ -40,7 +40,8 @@
 #'    are collections in \bold{colls}.
 #'
 #' @param
-#'    colls a collection of collections.
+#'    colls a collection of collections. The collection to draw arguments
+#'    for \bold{pred} from.
 #'
 #' @param
 #'    ... see above.

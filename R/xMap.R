@@ -4,10 +4,11 @@
 #' Apply a function to each element of a collection.
 #'
 #' @param
-#'    fn a unary function.
+#'    fn a unary function. The function to modify each
+#'    element of a collection with.
 #'
 #' @param
-#'    coll a collection.
+#'    coll a collection. The collection to be modified.
 #'
 #' @param
 #'    ... see above.

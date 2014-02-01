@@ -8,7 +8,8 @@ xAsDataFrame(colls)
 xAsDataFrame...(...)
 }
 \arguments{
-  \item{colls}{a collection of collections.}
+  \item{colls}{a collection of collections. The collection
+  to convert to a data frame.}
 
   \item{...}{see above.}
 }
