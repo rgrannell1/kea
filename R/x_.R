@@ -1111,11 +1111,6 @@ x_coll_proto <- local({
 
 	# -------- O ------- #
 	# -------- P ------- #
-	# --- xPack --- #
-	add_x_method(this, xPack, 'coll')
-	add_x_method(this, xPack..., '...')
-	add_x_method(this, x_Pack, 'coll')
-	add_x_method(this, x_Pack..., '...')
 
 	# --- xPoll --- #
 	add_x_method(this, xPoll, 'coll')

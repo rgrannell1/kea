@@ -61,7 +61,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xCompose.R
 #'
