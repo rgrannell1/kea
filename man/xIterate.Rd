@@ -147,10 +147,35 @@ modulo <- (num : modulus) := {
 }
 
 modulo(1121, 10)
+
 # 1
 
+# 4. CE find a palindromic number by
+#    taking a number, adding its reversed digits, and
+# repeating.
 
+to_digits <- num := {
+    as.integer( xToChars(paste0(num)) )
+}
 
+from_digits <- nums := {
+    as.integer(paste0(nums, collapse = ''))
+}
+
+xIterate(
+    num := {
+
+        newnum <- to_digits(
+            num + from_digits( xReverse(to_digits(num)) ))
+
+        if ( all(newnum == xReverse(newnum)) ) {
+            Return(from_digits(newnum))
+        } else {
+            from_digits(newnum)
+        }
+    },
+    195
+)
 }
 \seealso{
 Other short_circuiting_functions: \code{\link{xFoldr}},

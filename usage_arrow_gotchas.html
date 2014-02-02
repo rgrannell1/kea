@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>help_arrow_gotchas. arrow 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">arrow 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Usage - Arrow Gotchas</h1>
+
+<div class="row">
+  <div class="span8">
+        
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Common gotchas in Arrow, and how to avoid them.</p>
+  
+    </div>
+
+    <div class="Usage-Gotchas">
+      <h2>Usage-Gotchas</h2>
+      
+      <p>Arrow sometimes employs black magic to implement some of
+  its more divergent features, which can occasionally
+  present suprising behaviour.</p>
+  
+    </div>
+
+    <div class="1. Arrow objects vs values">
+      <h2>1. Arrow objects vs values</h2>
+      
+      <p>Arrow's most common gotcha - particularily before
+  unchaining methods were added - is the accidental misuse
+  of chaining methods where unchaining methods are needed.</p>
+  
+      <p><code>cumsum( x_(1:10)$xMap(sqrt) )</code></p>
+  
+      <p>will throw an error; mean operates on numeric vectors,
+  not arrow objects that contain numeric vectors. Valid
+  alternatives are</p>
+  
+      <p><code>cumsum( x_(1:10)$x_Map(sqrt) )</code></p>
+  
+      <p><code>cumsum( x_(1:10)$xMap(sqrt)$x_() )</code></p>
+  
+      <p>or even</p>
+  
+      <p><code>x_(1:10)$xMap(sqrt)$x_Tap(cumsum)</code></p>
+  
+    </div>
+
+    <div class="2. Arrow Functions">
+      <h2>2. Arrow Functions</h2>
+      
+      <p>Arrow functions are implemented using an arcane oversight
+  in the R parser; the infix function ':=' can be parsed,
+  but is never actually used by the base language. I
+  co-opted this function to avoid having to name xLambda
+  the horrible '%=>%'. Because the use of this function
+  is somewhat of a hack there are some syntax-related
+  gotchas.</p>
+  
+      <p>The function ':=' has really low operator preceedence,
+  making it useful as an infix function creator. For this
+  reason the following code returns the expected function.</p>
+  
+      <p><code>f <- x := 2*x^2 + 15*x + 2</code></p>
+  
+      <p>For certain expressions operator preceedence will not
+  work as expected, causing a cryptic error. The following</p>
+  
+      <p><code> x := x^2 %of% x := x + 2 </code></p>
+  
+      <p>Is actually interpreted as</p>
+  
+      <p><code> x := { x^2 %of% x := x + 2 } </code></p>
+  
+      <p>rather than the composition of two functions. As is
+  normally the case, parentheses can enforce the proper
+  preceedence of the expression:</p>
+  
+      <p><code> (x := x^2) %of% (x := x + 2 ) </code></p>
+  
+      <p>The other significant issues with syntax involve the
+  formal arguments given to ':='. It is currently
+  impossible to create a nullary function using ':=', since
+  the expression '( )' actually throws an error in R. For
+  this reason, the following will throw a parse error:</p>
+  
+      <p><code> () := print('hi') </code></p>
+  
+      <p>A workaround will be found at a later date (time of
+  writing: pre 0.1.0)</p>
+  
+      <p>Due to parser constraints, commas cannot be used to
+  delimit arrow function formals.</p>
+  
+      <p><code> (a, b, c) := { a + b + c} </code></p>
+  
+      <p>Throws an error, but the following is equivelant in
+  intent and actually works:</p>
+  
+      <p><code> (a : b : c) := { a + b + c} </code></p>
+  
+      <p>Since the former example throws a parse error, it should
+  be easy enough to spot this particular error after
+  reading this.</p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>help_arrow_gotchas</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

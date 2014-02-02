@@ -54,3 +54,33 @@ k_nearest(
 
 # 'diabetic'
 
+# 2. CE Get the N longest lines
+#    text from Wikipedia
+
+paragraph <-
+"The plant glutamate cysteine ligase (GCL) is a redox-sensitive homodimeric enzyme, conserved in the plant kingdom.
+[11] In an oxidizing environment, intermolecular disulfide bridges are formed and the enzyme switches to the dimeric active state.
+ The midpoint potential of the critical cysteine pair is -318 mV.
+ In addition to the redox-dependent control is the plant GCL enzyme feedback inhibited by GSH.
+ [12] GCL is exclusively located in plastids, and glutathione synthetase is dual-targeted to plastids and cytosol, thus are GSH and gamma-glutamylcysteine exported from the plastids.
+ [13] Both glutathione biosynthesis enzymes are essential in plants; knock-outs of GCL and GS are lethal to embryo and seedling."
+
+x_(paragraph) $
+xToLines() $
+xSortBy((line1 : line2) := {
+	nchar(line2) > nchar(line1)
+}) $
+x_Take(3)
+
+# 3. CE How many ways do numbers drawn from an
+#    array sum to zero?
+
+nums <- c(-2, 2, 1, -1, 4, -4, 2, -2, -6, 3, 5, 5, 7, 1)
+
+x_(xSetProd...(nums, nums, nums, nums)) $
+xSelect(
+	xs := {
+		(unlist %then% sum)(xs) == 0
+	}
+) $
+xUniqueOf()

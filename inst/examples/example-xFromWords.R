@@ -1,6 +1,6 @@
 
 # 1. CE Capitalise the first letter of each word in a sentence.
-#
+#    The text is from Wikipedia.
 
 text <-
 "Assyria was a major Semitic kingdom or empire of the Ancient Near East,
@@ -38,3 +38,4 @@ x_FromWords()
 # And Cultural Achievements For Its Time. At Its Peak, The Assyrian Empire
 # Stretched From The Mediterranean Sea To The Caspian Sea, And From The
 # Foothills Of The Caucasus To Arabia."
+
