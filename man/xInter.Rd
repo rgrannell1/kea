@@ -33,8 +33,9 @@ Other set_functions: \code{\link{xCombos}},
 \code{\link{xCycle...}}; \code{\link{xDuplicatesOf}},
 \code{\link{xDuplicatesOf...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
-\code{\link{xNotMember...}}; \code{\link{xSetProd}},
-\code{\link{xSetProd...}}; \code{\link{xUnion}},
+\code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+\code{\link{xProdSetOf...}}; \code{\link{xUnion}},
 \code{\link{xUnion...}}; \code{\link{xUniqueOf}},
 \code{\link{xUniqueOf...}}
 }

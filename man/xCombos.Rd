@@ -43,16 +43,18 @@ NULL
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xSetProd}},
-\code{\link{xSetProd...}}
+\code{\link{xCycle...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+\code{\link{xProdSetOf...}}
 
 Other set_functions: \code{\link{xCycle}},
 \code{\link{xCycle...}}; \code{\link{xDuplicatesOf}},
 \code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
-\code{\link{xNotMember...}}; \code{\link{xSetProd}},
-\code{\link{xSetProd...}}; \code{\link{xUnion}},
+\code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+\code{\link{xProdSetOf...}}; \code{\link{xUnion}},
 \code{\link{xUnion...}}; \code{\link{xUniqueOf}},
 \code{\link{xUniqueOf...}}
 }

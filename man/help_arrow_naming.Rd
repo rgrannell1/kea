@@ -19,7 +19,7 @@ followed by an uppercase letter. Method names are camel
 case.
 
 \itemize{ \item{\bold{xMap}}{} \item{\bold{xFold}}{}
-\item{\bold{xSetProd}}{} }
+\item{\bold{xProdSetOf}}{} }
 
 Functions often come in pairs of related functions;
 

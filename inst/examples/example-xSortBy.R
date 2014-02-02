@@ -77,7 +77,7 @@ x_Take(3)
 
 nums <- c(-2, 2, 1, -1, 4, -4, 2, -2, -6, 3, 5, 5, 7, 1)
 
-x_(xSetProd...(nums, nums, nums, nums)) $
+x_(xProdSetOf...(nums, nums, nums, nums)) $
 xSelect(
 	xs := {
 		(unlist %then% sum)(xs) == 0

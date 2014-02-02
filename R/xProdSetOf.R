@@ -1,5 +1,5 @@
 
-#' xSetProd
+#' xProdSetOf
 #'
 #' Get the cartesian product of several collections.
 #'
@@ -24,12 +24,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xSetProd.R
+#'    inst/examples/example-xProdSetOf.R
 #'
-#' @rdname xSetProd
+#' @rdname xProdSetOf
 #' @export
 
-xSetProd <- function (colls) {
+xProdSetOf <- function (colls) {
 	# set the cartesian product of n collections
 
 	invoking_call <- sys.call()
@@ -70,9 +70,9 @@ xSetProd <- function (colls) {
 	}
 }
 
-#' @rdname xSetProd
+#' @rdname xProdSetOf
 #' @export
 
-xSetProd... <- function (...) {
-	xSetProd(list(...))
+xProdSetOf... <- function (...) {
+	xProdSetOf(list(...))
 }

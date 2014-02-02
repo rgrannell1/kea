@@ -120,7 +120,7 @@ xMapply(
 		}
 
 	},
-	xSetProd...(
+	xProdSetOf...(
 		base_methods_names,
 		names(x_proto_methods))
 )
@@ -197,7 +197,7 @@ xMapply(
 
 		}
 	},
-	xSetProd...(
+	xProdSetOf...(
 		base_methods_names,
 		names(x_proto_methods))
 )

@@ -50,16 +50,18 @@ all_cyclic_permutations(letters[1:3])
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xSetProd}},
-\code{\link{xSetProd...}}
+\code{\link{xCombos...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+\code{\link{xProdSetOf...}}
 
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xDuplicatesOf}},
 \code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
-\code{\link{xNotMember...}}; \code{\link{xSetProd}},
-\code{\link{xSetProd...}}; \code{\link{xUnion}},
+\code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+\code{\link{xProdSetOf...}}; \code{\link{xUnion}},
 \code{\link{xUnion...}}; \code{\link{xUniqueOf}},
 \code{\link{xUniqueOf...}}
 }

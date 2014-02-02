@@ -16,7 +16,7 @@ monic_polynomial_roots <- function (free, max_int) {
 
 	range <- seq(-max_int, max_int)
 
-	x_(xSetProd)$
+	x_(xProdSetOf)$
 	xApply( xRepeat(free, list(range)) )$
 	xFlatMap(
 		constants := {

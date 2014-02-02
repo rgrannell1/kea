@@ -1,12 +1,12 @@
 
-# 1. xSetProd with xMap, xMapply or xReduce are
+# 1. xProdSetOf with xMap, xMapply or xReduce are
 #    generally very nice replacements for loops.
 
 xMapply(
     (ith : jth) := {
         ith^2 + jth^2
     },
-    xSetProd...(1:4, 1:4)
+    xProdSetOf...(1:4, 1:4)
 )
 
 # is roughly the same as base R's...
@@ -24,4 +24,4 @@ res
 # 2. Compute the standard childhood multiplication
 #    table.
 
-xSetProd...(1:12, 1:12)
+xProdSetOf...(1:12, 1:12)

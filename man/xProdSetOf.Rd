@@ -1,11 +1,11 @@
-\name{xSetProd}
-\alias{xSetProd}
-\alias{xSetProd...}
-\title{xSetProd}
+\name{xProdSetOf}
+\alias{xProdSetOf}
+\alias{xProdSetOf...}
+\title{xProdSetOf}
 \usage{
-xSetProd(colls)
+xProdSetOf(colls)
 
-xSetProd...(...)
+xProdSetOf...(...)
 }
 \arguments{
   \item{colls}{a collection of collections. The collections
@@ -25,14 +25,14 @@ Get the cartesian product of several collections.
 }
 \examples{
 
-# 1. xSetProd with xMap, xMapply or xReduce are
+# 1. xProdSetOf with xMap, xMapply or xReduce are
 #    generally very nice replacements for loops.
 
 xMapply(
     (ith : jth) := {
         ith^2 + jth^2
     },
-    xSetProd...(1:4, 1:4)
+    xProdSetOf...(1:4, 1:4)
 )
 
 # is roughly the same as base R's...
@@ -50,12 +50,13 @@ res
 # 2. Compute the standard childhood multiplication
 #    table.
 
-xSetProd...(1:12, 1:12)
+xProdSetOf...(1:12, 1:12)
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xCycle}},
-\code{\link{xCycle...}}
+\code{\link{xCycle...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}
 
 Other set_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xCycle}},
@@ -63,7 +64,8 @@ Other set_functions: \code{\link{xCombos}},
 \code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
-\code{\link{xNotMember...}}; \code{\link{xUnion}},
+\code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xUnion}},
 \code{\link{xUnion...}}; \code{\link{xUniqueOf}},
 \code{\link{xUniqueOf...}}
 }

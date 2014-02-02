@@ -6,6 +6,6 @@ letters_fn <- xAsFunction(letters)
 
 xMapply(
     letters_fn,
-    xSetProd...(
+    xProdSetOf...(
         1:26, 1:26)
 )

@@ -1153,6 +1153,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_PredOf, 'nums')
 	add_x_method(this, x_PredOf..., '...')
 
+	# --- xPowerSetOf --- #
+	add_x_method(this, xPowerSetOf, 'coll')
+	add_x_method(this, xPowerSetOf..., '...')
+	add_x_method(this, x_PowerSetOf, 'coll')
+	add_x_method(this, x_PowerSetOf..., '...')
+
 	# -------- Q ------- #
 	# -------- R ------- #
 	# --- xRank --- #
@@ -1241,11 +1247,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_SecondOf, 'coll')
 	add_x_method(this, x_SecondOf..., '...')
 
-	# --- xSetProd --- #
-	add_x_method(this, xSetProd, 'colls')
-	add_x_method(this, xSetProd..., '...')
-	add_x_method(this, x_SetProd, 'colls')
-	add_x_method(this, x_SetProd..., '...')
+	# --- xProdSetOf --- #
+	add_x_method(this, xProdSetOf, 'colls')
+	add_x_method(this, xProdSetOf..., '...')
+	add_x_method(this, x_ProdSetOf, 'colls')
+	add_x_method(this, x_ProdSetOf..., '...')
 
 	# --- xChunk --- #
 	add_x_method(this, xChunk, 'coll')

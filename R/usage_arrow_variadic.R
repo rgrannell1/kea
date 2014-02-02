@@ -17,7 +17,7 @@
 #'
 #' \code{xFold}
 #'
-#' \code{xSetProd}
+#' \code{xProdSetOf}
 #'
 #' Functions often come in pairs of related functions;
 #'
