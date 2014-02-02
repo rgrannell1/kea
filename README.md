@@ -5,7 +5,6 @@ Arrow pre-v0.1.0
 
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
-
 Arrow is a toolset of more than one hundred functions from languages
 like Haskell, JavaScript, and functions designed just for R. These
 include familiar functions like Map, Select, Reduce and Compose, as
@@ -16,6 +15,10 @@ I hope you enjoy using Arrow as much as I've enjoyed making it.
 If you'd like to contribute with feedback, bug-reports or code 
 you can go to the Arrow [github repository](https://github.com/rgrannell1/arrow). 
 Any feedback is appreciated.
+
+For library documentation and tutorials head to 
+[http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
+
 
 ### What Arrow code looks like.
 
