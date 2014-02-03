@@ -44,6 +44,8 @@ integrate(f, from = -10, to = 10)
 -6000.9
 ```
 
+<img src="example-expressive.png" height = "180"> </img>
+
 ### Arrow is Expressive
 
 * Programs are built in a lego-like manner; stacking small,
@@ -61,6 +63,8 @@ Python or JavaScript. This syntax is handy for interactive programming.
 * Almost every function has a variadic and non-variadic form, to
 reduce boilerplate code.
 
+<img src="example-consistent.png" height = "180"> </img>
+
 ### Arrow is Consistent
 
 * Functions don't discriminate between different types of vectors; lists, pairlists
@@ -71,6 +75,8 @@ a cryptic error - arguments are always explicitly checked, and the precise
 cause of the error is always given. Error messages are also coloured for readability.
 
 * Arrow is interoperable with base R functions.
+
+<img src="example-functional.png" height = "180"> </img>
 
 ### Arrow is Functional
 
