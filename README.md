@@ -68,7 +68,7 @@ and typed vectors are all interchangable.
 
 * Extensive effort was made to make sure that Arrow never throws
 a cryptic error - arguments are always explicitly checked, and the precise
-cause of the error is always given.
+cause of the error is always given. Error messages are also coloured for readability.
 
 * Arrow is interoperable with base R functions.
 
