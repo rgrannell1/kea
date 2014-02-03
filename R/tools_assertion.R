@@ -51,18 +51,20 @@ format_call <- function (call) {
 # Console colour-checking based on Hadley Wickham's colouring for testthat.
 #
 
-write_error <- function (message, call. = True) {
+write_error <- function (..., call. = True) {
 	# to fix wrong terminal type
 	# sudo nano ~/.bashrc
 	# export TERM=term-color
 	# . ~/.bashenv
+
+	message <- c(...)
 
 	this_terminal <- Sys.getenv()["TERM"]
 	colour_terminals <- c(
 		"screen", "screen-256color",
 		"xterm-color", "xterm-256color")
 
-	if (!is.na(this_terminal) && this_terminal %in% colour_terminals) {
+	if (!is.na(this_terminal) && (this_terminal %in% colour_terminals)) {
 		stop("\033[0;31m" %+% message %+% "\033[0m", call. = call.)		
 	} else {
 		stop(message, call.= call.)
@@ -84,7 +86,7 @@ assert <- local({
 		this_call <- sys.call()
 
 		if (!is.logical(expr)) {
-			stop(
+			write_error(
 				yelp$non_logical_assertion(expr),
 				call. = False)
 		}

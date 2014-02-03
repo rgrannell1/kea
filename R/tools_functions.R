@@ -171,7 +171,7 @@ to_value_unit <- function (coll) {
 		} else if (is.raw(coll)) {
 			as.raw(00)
 		} else {
-			stop(
+			write_error(
 				"internal arrow error: " %+% "
 				cannot convert to non-implemented vector type.")
 		}
@@ -218,7 +218,7 @@ as_typed_vector <- local({
 			} else {
 
 				if (!type_test(coll)) {
-					stop(exclaim$type_conversion_failed_(coll_symbol, mode, summate(coll)) )
+					write_error(exclaim$type_conversion_failed_(coll_symbol, mode, summate(coll)) )
 				}
 
 				coll
@@ -230,13 +230,13 @@ as_typed_vector <- local({
 			is_homogenous <- all(sapply(coll, type_test))
 
 			if (!all_length_one) {
-				stop(
+				write_error(
 					"the argument matching ", toString(coll_symbol),
 					" must be a collection of length ", 1, " values.")
 			}
 
 			if (!is_homogenous) {
-				stop( exclaim$type_conversion_failed_(coll_symbol, mode, summate(coll)) )
+				write_error( exclaim$type_conversion_failed_(coll_symbol, mode, summate(coll)) )
 			}
 
 			coll <- if (mode == 'raw') {

@@ -41,11 +41,11 @@ message('Check that test files exist')
 		)
 
 	if (xNotEmpty(untested)) {
-		stop( "untested functions: ", deparse(xAsCharacter(untested)) )
+		write_error( "untested functions: ", deparse(xAsCharacter(untested)) )
 	}
 
 	if (xNotEmpty(nonexisting)) {
-		stop( "untested functions: ", deparse(xAsCharacter(nonexisting)) )
+		write_error( "untested functions: ", deparse(xAsCharacter(nonexisting)) )
 	}
 
 

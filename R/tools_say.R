@@ -109,7 +109,7 @@ lament <- list(
 
 			param <- paste(match.call()$param)
 
-			stop(info, "\n",
+			write_error(info, "\n",
 				dQuote("cases"), " must not be null.",
 				call. = False)
 		},
@@ -118,14 +118,14 @@ lament <- list(
 
 			param <- paste(match.call()$param)
 
-			stop(info, "\n",
+			write_error(info, "\n",
 				dQuote("cases"), " must be a list of functions.",
 				call. = False)
 		},
 	non_boolean_expectation =
 		function (info, case, profile = '') {
 
-			stop(info, "\n",
+			write_error(info, "\n",
 				"expectation returned a non-boolean ",
 				"value when called with \n\n",
 				ddparse(case), call. = False)
@@ -133,7 +133,7 @@ lament <- list(
 	non_singular_expectation =
 		function (info, len, profile = '') {
 
-			stop(info, "\n",
+			write_error(info, "\n",
 				"expectation returned a non-length-one ",
 				"value (actual length was ", len , ")", call. = False)
 		},
@@ -143,7 +143,7 @@ lament <- list(
 			cases <- sapply(lapply(failed, unname), ddparse)
 			cases <- newline(cases[ seq_along( min(10, length(cases)) ) ])
 
-			stop(info, "\n",
+			write_error(info, "\n",
 				"failed after the ", ith_suffix(after),
 				" case!\n\n", cases, "\n",
 				call. = False)

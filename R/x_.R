@@ -56,7 +56,7 @@ add_x_method <- function (env, fn, fixed) {
 	fn <- match.fun(fn_sym)
 
 	if ( fixed %!in% names(formals(fn)) ) {
-		stop('not a parametre of ' %+% paste0(fn_sym))
+		write_error('not a parametre of ' %+% paste0(fn_sym))
 	}
 
 	method <- function () {	}
@@ -1840,7 +1840,7 @@ get_proto_ref <- function (val) {
 			character(0)
 		}
 
-		stop(
+		write_error(
 			exclaim$method_not_found_(
 				method_name, contents_are, similar),
 			call. = False)
