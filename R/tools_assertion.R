@@ -23,7 +23,27 @@ format_call <- function (call) {
 
 		}) )
 
-		ddparse(call)
+		calltext <- ddparse(call)
+
+		delimiters <- local({
+			chars <- strsplit(calltext, '')[[1]]
+			chars <- chars[nchar(chars) > 0]
+
+			which(chars %in% c('{'))
+		})
+
+		# find an elegant cuttoff if possible.
+		cuttof <- if (any(delimiters %in% 25:40)) {
+			min(which[delimiters %in% 25:40]) + 1
+		} else {
+			20
+		}
+
+		if (nchar(calltext) > cuttof) {
+			paste0(substring(calltext, 1, cuttof), ' ...')
+		} else {
+			calltext
+		}
 	}
 }
 

@@ -22,7 +22,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xImplode.R
 #'
