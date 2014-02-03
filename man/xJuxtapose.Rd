@@ -55,8 +55,7 @@ Other function_combining_functions: \code{\link{xCompose}},
 \code{\link{xLift...}}
 
 Other function_modifying_functions:
-\code{\link{xAsClosure}}; \code{\link{xAsFunction}},
-\code{\link{xAsFunction...}}; \code{\link{xAsUnary}};
+\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xConst}},
 \code{\link{xK}}; \code{\link{xDelay}};

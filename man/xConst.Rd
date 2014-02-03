@@ -32,8 +32,7 @@ NULL
 }
 \seealso{
 Other function_modifying_functions:
-\code{\link{xAsClosure}}; \code{\link{xAsFunction}},
-\code{\link{xAsFunction...}}; \code{\link{xAsUnary}};
+\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xDelay}};
 \code{\link{xFlip}}; \code{\link{xJuxtapose}},

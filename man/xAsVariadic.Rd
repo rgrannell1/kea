@@ -36,8 +36,7 @@ Other function_application_functions: \code{\link{xApply}},
 \code{\link{xThread}}, \code{\link{xThread...}}
 
 Other function_modifying_functions:
-\code{\link{xAsClosure}}; \code{\link{xAsFunction}},
-\code{\link{xAsFunction...}}; \code{\link{xAsUnary}};
+\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
 \code{\link{xCompose}}, \code{\link{xCompose...}};
 \code{\link{xConst}}, \code{\link{xK}};
 \code{\link{xDelay}}; \code{\link{xFlip}};

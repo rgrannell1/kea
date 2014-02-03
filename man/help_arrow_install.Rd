@@ -30,5 +30,27 @@ version of Arrow you an install Arrow directly from github.
 The github repository for arrow is available at
 \link{https://github.com/rgrannell1/arrow}; feel free to
 contribute with feedback, bug reports or feature requests.
+
+Note: if you are running Arrow from a terminal and aren't
+seeing coloured error messages (and care), you might need
+to modify the TERM environmental variable.
+
+In R, run
+
+\code{Sys.getenv()["TERM"]}
+
+. If the output is 'xterm' but you're sure your terminal
+supports colour, do the following. Run sudo nano ~/.bashrc
+
+and add this line to the bottom (Ctrl + O to save).
+
+\code{export TERM=term-color}
+
+Run
+
+\code{ ~/.bashenv}
+
+And if your TERM variable was misconfigured colour should
+now be displayed in your terminal.
 }
 

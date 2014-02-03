@@ -176,6 +176,61 @@ xIterate(
     },
     195
 )
+
+# 5. Generate a Thompson Sphere
+
+
+
+
+as_cartesian <- (phi : theta) := {
+
+    list(
+        x = sin(phi) * cos(theta),
+        y = sin(phi) * sin(theta),
+        z = cos(phi))
+}
+
+as_polar <- (x : y : z) := {
+
+    list(
+        phi = atan(y/x), 
+        theta = atan(z))
+}
+
+
+
+thompson_sphere <- 
+x_(list(
+    sample(1:360, size = 20),
+    sample(1:360, size = 20))
+) $
+xZip() $
+xMapply(as_cartesian) $
+xIterate (
+    estimate := {
+
+        to_mutate <- sample(seq_along(estimate), size = 1)
+
+        mutant <- 
+        x_(estimate) $
+        xMapply(as_polar) $ xShuffle() $
+        x_Tap(coords := {
+
+            coords[[1]]$phi <- 
+                coords[[1]]$phi + runif(1)
+
+            coords[[1]]$theta <- 
+                coords[[1]]$theta + runif(1)
+
+            coords
+
+        })
+        
+        stop()
+
+
+    }
+)
 }
 \seealso{
 Other short_circuiting_functions: \code{\link{xFoldr}},

@@ -67,7 +67,7 @@ write_error <- function (..., call. = True) {
 	if (!is.na(this_terminal) && (this_terminal %in% colour_terminals)) {
 		stop("\033[0;31m" %+% message %+% "\033[0m", call. = call.)		
 	} else {
-		stop(message, call.= call.)
+		stop(message, call. = call.)
 	}
 }
 
