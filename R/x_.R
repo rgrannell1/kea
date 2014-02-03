@@ -765,12 +765,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_AsDataFrame, 'colls')
 	add_x_method(this, x_AsDataFrame..., '...')
 
-	# --- xAsFunction --- #
-	add_x_method(this, xAsFunction, 'coll')
-	add_x_method(this, xAsFunction..., '...')
-	add_x_method(this, x_AsFunction, 'coll')
-	add_x_method(this, x_AsFunction..., '...')
-
 	# --- xApply --- #
 	add_x_method(this, xApply, 'coll')
 	add_x_method(this, xApply..., '...')

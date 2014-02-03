@@ -692,8 +692,3 @@ summate <- local({
 	profile$default(obj)
 	}
 })
-
-
-
-
-

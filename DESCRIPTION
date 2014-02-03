@@ -152,7 +152,6 @@ Collate:
     'xGetKey.R'
     'xPluck.R'
     'xJoin.R'
-    'xAsFunction.R'
     'xRepeat.R'
     'xVal.R'
     'xIsVal.R'

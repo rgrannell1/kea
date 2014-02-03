@@ -33,14 +33,14 @@ format_call <- function (call) {
 		})
 
 		# find an elegant cuttoff if possible.
-		cuttof <- if (any(delimiters %in% 25:40)) {
-			min(which[delimiters %in% 25:40]) + 1
+		cuttof <- if (any(delimiters %in% 35:45)) {
+			min(which[delimiters %in% 35:45]) + 1
 		} else {
-			20
+			35
 		}
 
 		if (nchar(calltext) > cuttof) {
-			paste0(substring(calltext, 1, cuttof), ' ...')
+			paste0(substring(calltext, 1, cuttof), '... [truncated]')
 		} else {
 			calltext
 		}

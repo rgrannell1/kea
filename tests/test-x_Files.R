@@ -3,7 +3,7 @@ message('Arrow Files')
 message('Check that test files exist')
 
 	r_files <-
-		x_( list.files('/home/ryan/Code/Arrow/arrow/R') ) $
+		x_( list.files('/home/ryan/arrow.R/R') ) $
 		xSelect(
 			filename := {
 				grepl('^x[A-Z][a-z]+[.][R]', filename)
@@ -14,7 +14,7 @@ message('Check that test files exist')
 			})
 
 	tests <-
-		x_( list.files('/home/ryan/Code/Arrow/arrow/tests') ) $
+		x_( list.files('/home/ryan/arrow.R/tests') ) $
 		xSelect(
 			filename := {
 				grepl('test-x[A-Z][a-z]+[.][R]', filename)
