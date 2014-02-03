@@ -75,7 +75,7 @@ cause of the error is always given.
 ### Arrow is Functional
 
 * Arrow implements all the standard higher-order functions,
-as well as dozens of collection-reshaping functions.
+as well as set operations and combinatoric functions.
 
 * Several variants of the most common functionals are implemented,
 including several flavours of map and fold.
