@@ -181,4 +181,5 @@ Collate:
     'xPowerSetOf.R'
     'xTruth.R'
     'xFalsity.R'
+    'xIrrelevance.R'
     'x_.R'
