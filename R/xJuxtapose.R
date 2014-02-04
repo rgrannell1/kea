@@ -21,7 +21,6 @@
 #'    Each function passed to \bold{xJuxtapose} is invoked with the data set,
 #'    and the results are collected in a list.
 #'
-#'
 #' @param
 #'    fns a collections of functions. The functions
 #'    to call with a set of arguments.

@@ -10,6 +10,9 @@
 #' @param
 #'    str a string. The string to split.
 #'
+#' @param
+#'    ... see above
+#'
 #' @return
 #'    A character vector.
 #'

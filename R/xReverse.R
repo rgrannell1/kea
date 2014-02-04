@@ -45,6 +45,7 @@ xReverse <- function (coll) {
 	}
 }
 
+#' @rdname xReverse
 #' @export
 
 xReverse... <- function (...) {

@@ -50,18 +50,19 @@ xPartial <- function (fn, coll) {
 	insist $ must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
-
 	insist $ must_be_parametres_of(names(coll), fn, invoking_call)
 
-	names(coll) <-
-	do.call(
-		do.call("function", list(
-			as.pairlist(xFormalsOf(fn)),
-			bquote({
-				names( as.list(match.call(fn)[-1]) )
-			})
-		)),
-		coll)
+	names(coll) <- local({
+
+		fn_symbol <- as.symbol('fn')
+
+		dummy_call <- as.call( as.list(c(fn_symbol, coll)) )
+
+		print(fn)
+
+		matched_call <- match.call(fn, call = dummy_call)
+		names(matched_call[-1])
+	})
 
 	remove(invoking_call)
 

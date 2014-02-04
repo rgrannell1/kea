@@ -37,13 +37,14 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xFlatten...}}; \code{\link{xJoin}},
 \code{\link{xJoin...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xRepeat}},
-\code{\link{xRepeat...}}; \code{\link{xReverse}};
-\code{\link{xShuffle}}, \code{\link{xShuffle...}};
-\code{\link{xSortBy}}, \code{\link{xSortBy...}};
-\code{\link{xSplitAt}}, \code{\link{xSplitAt...}};
-\code{\link{xTabulate}}, \code{\link{xTabulate...}};
-\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
-\code{\link{xZipNames}}, \code{\link{xZipNames...}};
-\code{\link{xZip}}, \code{\link{xZip...}}
+\code{\link{xRepeat...}}; \code{\link{xReverse}},
+\code{\link{xReverse...}}; \code{\link{xShuffle}},
+\code{\link{xShuffle...}}; \code{\link{xSortBy}},
+\code{\link{xSortBy...}}; \code{\link{xSplitAt}},
+\code{\link{xSplitAt...}}; \code{\link{xTabulate}},
+\code{\link{xTabulate...}}; \code{\link{xUnzipNames}},
+\code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
+\code{\link{xZipNames...}}; \code{\link{xZip}},
+\code{\link{xZip...}}
 }
 

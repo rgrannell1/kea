@@ -1012,19 +1012,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Locate, 'coll')
 	add_x_method(this, x_Locate..., '...')
 
-	# --- xLocatel --- #
-
-	add_x_method(this, xLocatel, 'coll')
-	add_x_method(this, xLocatel..., '...')
-	add_x_method(this, x_Locatel, 'coll')
-	add_x_method(this, x_Locatel..., '...')
-
-	# --- xLocater --- #
-	add_x_method(this, xLocater, 'coll')
-	add_x_method(this, xLocater..., '...')
-	add_x_method(this, x_Locater, 'coll')
-	add_x_method(this, x_Locater..., '...')
-
 	# -------- M ------- #
 	# --- xMap --- #
 	add_x_method(this, xMap, 'coll')
@@ -1556,18 +1543,6 @@ x_fn_proto <- local({
 	add_x_method(this, xLocate..., 'pred')
 	add_x_method(this, x_Locate, 'pred')
 	add_x_method(this, x_Locate..., 'pred')
-
-	# --- xLocatel --- #
-	add_x_method(this, xLocatel, 'pred')
-	add_x_method(this, xLocatel..., 'pred')
-	add_x_method(this, x_Locatel, 'pred')
-	add_x_method(this, x_Locatel..., 'pred')
-
-	# --- xLocater --- #
-	add_x_method(this, xLocater, 'pred')
-	add_x_method(this, xLocater..., 'pred')
-	add_x_method(this, x_Locater, 'pred')
-	add_x_method(this, x_Locater..., 'pred')
 
 	# -------- M ------- #
 	# --- xMap --- #

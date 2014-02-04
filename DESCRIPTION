@@ -14,8 +14,6 @@ Author: Ryan Grannell
 Maintainer: Ryan Grannell <r.grannell2@gmail.com>
 ByteCompile: yes
 License: GPL-3
-Suggests:
-    microbenchmark
 Collate:
     'values.R'
     'usage_arrow.R'
@@ -87,8 +85,7 @@ Collate:
     'xIsVariadic.R'
     'xLastOf.R'
     'xToLines.R'
-    'xLocatel.R'
-    'xLocater.R'
+    'xLocate.R'
     'xMap.R'
     'xMapIndexed.R'
     'xMapMany.R'

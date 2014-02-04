@@ -1,8 +1,11 @@
 \name{xReverse}
 \alias{xReverse}
+\alias{xReverse...}
 \title{xReverse}
 \usage{
 xReverse(coll)
+
+xReverse...(...)
 }
 \arguments{
   \item{coll}{a collection. The collection to reverse.}

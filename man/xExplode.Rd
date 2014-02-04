@@ -12,6 +12,8 @@ xExplode...(rexp, ...)
   split \bold{str}.}
 
   \item{str}{a string. The string to split.}
+
+  \item{...}{see above}
 }
 \value{
 A character vector.

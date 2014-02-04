@@ -47,29 +47,40 @@ format_call <- function (call) {
 	}
 }
 
+# Console colour-checking based on Hadley Wickham's 
+# colouring for testthat.
 #
-# Console colour-checking based on Hadley Wickham's colouring for testthat.
-#
 
-write_error <- function (..., call. = True) {
-	# to fix wrong terminal type
-	# sudo nano ~/.bashrc
-	# export TERM=term-color
-	# . ~/.bashenv
+write_error <- local({
 
-	message <- c(...)
+	colourise <- list(
+		red = 
+			function (message) {
+				"\033[0;31m" %+% message %+% "\033[0m"
+			}
+	)
 
-	this_terminal <- Sys.getenv()["TERM"]
-	colour_terminals <- c(
-		"screen", "screen-256color",
-		"xterm-color", "xterm-256color")
+	function (..., call. = True) {
+		# to fix wrong terminal type
+		# sudo nano ~/.bashrc
+		# export TERM=term-color
+		# . ~/.bashenv
 
-	if (!is.na(this_terminal) && (this_terminal %in% colour_terminals)) {
-		stop("\033[0;31m" %+% message %+% "\033[0m", call. = call.)		
-	} else {
-		stop(message, call. = call.)
+		message <- c(...)
+
+		this_terminal <- Sys.getenv()["TERM"]
+		colour_terminals <- c(
+			"screen", "screen-256color",
+			"xterm-color", "xterm-256color")
+
+		if (!is.na(this_terminal) && (this_terminal %in% colour_terminals)) {
+			stop(colourise$red(message), call. = call.)		
+		} else {
+			stop(message, call. = call.)
+		}
 	}
-}
+})
+
 
 # --------------------- assertion functions --------------------- #
 #
@@ -212,6 +223,8 @@ insist <- local({
 
 			names_sym <- match.call()[-1][[1]]
 			fn_sym <- match.call()[-1][[2]]
+
+			names <- names[nchar(names) > 0]
 
 			message <- "the elements of " %+% names_sym %+%
 				" must be parametre names of " %+% fn_sym %+% "." %+%
