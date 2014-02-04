@@ -512,12 +512,23 @@ x_matrix_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	this <- as.environment(
-		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "matrices")
+	local({
 
-	this
+		non_inherited <- ls(envir = this)
+		inherited <- ls(envir = x_any_proto)
+
+		non_overwritten <- setdiff(inherited, non_inherited)
+
+		this <- as.environment(c(
+			as.list(this), 
+			as.list(x_any_proto)[non_overwritten]) )
+
+		this$private <- list(
+			contents_are = "matrices")
+
+		this
+		
+	})
 })
 
 
@@ -634,10 +645,23 @@ x_data_frame_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	this <- as.environment(
-		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "data.frames")
+	local({
+
+		non_inherited <- ls(envir = this)
+		inherited <- ls(envir = x_any_proto)
+
+		non_overwritten <- setdiff(inherited, non_inherited)
+
+		this <- as.environment(c(
+			as.list(this), 
+			as.list(x_any_proto)[non_overwritten]) )
+
+		this$private <- list(
+			contents_are = "data.frames")
+
+		this
+
+	})
 
 	this
 })
@@ -695,14 +719,23 @@ x_factor_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	this <- as.environment(
-		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "factors")
+	local({
 
-	this
+		non_inherited <- ls(envir = this)
+		inherited <- ls(envir = x_any_proto)
+
+		non_overwritten <- setdiff(inherited, non_inherited)
+
+		this <- as.environment(c(
+			as.list(this), 
+			as.list(x_any_proto)[non_overwritten]) )
+		this$private <- list(
+			contents_are = "factors")
+
+		this
+		
+	})
 })
-
 
 
 
@@ -1364,13 +1397,26 @@ x_coll_proto <- local({
 	add_x_method(this, x_Zip, 'colls')
 	add_x_method(this, x_Zip..., '...')
 
-	this <- as.environment(
-		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "collections")
+	local({
 
-	this
+		non_inherited <- ls(envir = this)
+		inherited <- ls(envir = x_any_proto)
+
+		non_overwritten <- setdiff(inherited, non_inherited)
+
+		this <- as.environment(c(
+			as.list(this), 
+			as.list(x_any_proto)[non_overwritten]) )
+
+		this$private <- list(
+			contents_are = "collections")
+
+		this
+		
+	})
 })
+
+
 
 
 
@@ -1676,12 +1722,23 @@ x_fn_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	this <- as.environment(
-		c(as.list(this), as.list(x_any_proto)) )
-	this$private <- list(
-		contents_are = "functions")
+	local({
 
-	this
+		non_inherited <- ls(envir = this)
+		inherited <- ls(envir = x_any_proto)
+
+		non_overwritten <- setdiff(inherited, non_inherited)
+
+		this <- as.environment(c(
+			as.list(this), 
+			as.list(x_any_proto)[non_overwritten]) )
+
+		this$private <- list(
+			contents_are = "functions")
+
+		this
+		
+	})
 })
 
 # -------------------------------- Type Constructor -------------------------------- #

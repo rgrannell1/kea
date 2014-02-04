@@ -1,15 +1,9 @@
 \name{xLocate}
 \alias{xLocate}
 \alias{xLocate...}
-\alias{xLocatel}
-\alias{xLocatel...}
 \title{xLocate}
 \usage{
 xLocate(pred, coll)
-
-xLocatel(pred, coll)
-
-xLocatel...(pred, ...)
 
 xLocate...(pred, ...)
 }

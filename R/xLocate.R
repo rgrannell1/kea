@@ -24,7 +24,7 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xLocatel.R
+#'    inst/examples/example-xLocate.R
 #'
 #' @rdname xLocate
 #' @export
@@ -71,16 +71,6 @@ xLocate <- function (pred, coll) {
 #' @rdname xLocate
 #' @export
 
-xLocatel <- xLocate
-
-#' @rdname xLocate
-#' @export
-
-xLocatel... <- function (pred, ...) {
-	xLocatel(pred, list(...))
+xLocate... <- function (pred, ...) {
+	xLocate(pred, list(...))
 }
-
-#' @rdname xLocate
-#' @export
-
-xLocate... <- xLocatel...
