@@ -179,4 +179,6 @@ Collate:
     'xTabulate.R'
     'xSortBy.R'
     'xPowerSetOf.R'
+    'xTruth.R'
+    'xFalsity.R'
     'x_.R'
