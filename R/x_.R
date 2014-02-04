@@ -1827,14 +1827,14 @@ get_proto_ref <- function (val) {
 		proto_ref <- get_proto_ref(val)
 		method_name <- method_name
 
-		candidate_methds <- setdiff(ls(proto_ref), 'private')
-		distances <- adist(method_name, candidate_methds)
+		candidate_methods <- setdiff(ls(proto_ref), 'private')
+		distances <- adist(method_name, candidate_methods)
 
 		similar <- if (method_name %in% names(autosuggested)) {
 			autosuggested[[method_name]]
 		} else if (min(distances) < nchar(method_name) / 2) {
 
-			candidate_methds[which.min(distances)]
+			candidate_methods[which.min(distances)]
 
 		} else {
 			character(0)
