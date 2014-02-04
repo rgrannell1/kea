@@ -55,10 +55,7 @@ xPartial <- function (fn, coll) {
 	names(coll) <- local({
 
 		fn_symbol <- as.symbol('fn')
-
 		dummy_call <- as.call( as.list(c(fn_symbol, coll)) )
-
-		print(fn)
 
 		matched_call <- match.call(fn, call = dummy_call)
 		names(matched_call[-1])
