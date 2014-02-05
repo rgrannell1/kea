@@ -1,5 +1,4 @@
 
-
 xList <- structure(NULL, class = 'list_builder')
 
 print.list_builder <- function (x, ...) {
@@ -152,5 +151,3 @@ print.list_builder <- function (x, ...) {
 }
 
 xList[ list(x, y), x <- 1:10, y <- 1:10, x * y > 3 ]
-
-x_( xList[x, x <- 1:10, x %% 2 == 0] )
