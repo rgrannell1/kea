@@ -22,7 +22,7 @@ For library documentation and tutorials head to
 
 ### What Arrow code looks like.
 
-<img src="example.png" height = "180"> </img>
+<img src="example-code.png" height = "180"> </img>
 
 ### Arrow is Expressive
 
