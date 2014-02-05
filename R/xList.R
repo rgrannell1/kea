@@ -19,13 +19,13 @@ print.list_builder <- function (x, ...) {
 
 		components <- local({
 			 
-			is_binding <- function (expr) {
-				length(expr) == 3 && expr[[1]] == '<-'
-			}
-			 
 			this <- list()
 			binding_indices <- 
-				which( vapply(exprs, is_binding, logical(1)) )
+				which( vapply(exprs, function (expr) {
+
+					length(expr) == 3 && expr[[1]] == '<-'
+
+				}, logical(1)) )
 
 			demand $ must_have_yield(binding_indices, invoking_call)
 			demand $ must_be_unnamed(exprs, invoking_call)
@@ -35,7 +35,8 @@ print.list_builder <- function (x, ...) {
 			this$yield <- 
 				exprs[[1]]
 
-			is_predicated <- length(exprs) %!in% binding_indices && length(exprs) > 1
+			is_predicated <- 
+				length(exprs) %!in% binding_indices && length(exprs) > 1
 
 			this$predicate <- 
 				if (is_predicated) {
@@ -44,7 +45,16 @@ print.list_builder <- function (x, ...) {
 					True
 				}
 
-			print(bindings)
+			if (is_predicated) {
+
+				demand $ must_all_be_matched(
+					c(1, binding_indices, length(exprs)), exprs, invoking_call)
+			} else {
+				demand $ must_all_be_matched(
+					c(1, binding_indices), exprs, invoking_call)				
+			}
+
+			# check that all expressions are matched.
 
 			this$variables <-
 				vapply(bindings, function (expr) {
@@ -143,3 +153,4 @@ print.list_builder <- function (x, ...) {
 
 xList[ list(x, y), x <- 1:10, y <- 1:10, x * y > 3 ]
 
+x_( xList[x, x <- 1:10, x %% 2 == 0] )

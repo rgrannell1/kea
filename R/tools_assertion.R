@@ -602,6 +602,23 @@ demand <- local({
 				message)
 		}
 
+	this $ must_all_be_matched <-
+		function (indices, exprs, invoking_call) {
+
+			exprs_indices <- seq_along(exprs)
+
+			unmatched <- exprs_indices[ exprs_indices %!in% indices ]
+			unmatched_str <- paste0(lapply(unmatched, ith_suffix), collapse = ', ')
+
+			message <- "the " %+% unmatched_str %+% " expression " %+%
+			"could not be matched as variable bindings, a predicate, or " %+%
+			"a yield expression."
+
+			assert(
+				length(unmatched) == 0, invoking_call,
+				message)
+		}
+
 	this
 
 })

@@ -22,27 +22,7 @@ For library documentation and tutorials head to
 
 ### What Arrow code looks like.
 
-```c
-integrate <- (f : from : to) := {
-
-    xVal(epsilon, 0.001)
-    x_values <- seq(from = from, to = to, by = epsilon)
-
-    xFold(
-        (area : x) := {
-            area + (f(x) * epsilon)
-        },
-        0,
-        x_values
-    )
-}
-
-f <- x := x^3 - 9*x^2
-integrate(f, from = -10, to = 10)
-
-# the area under the function f between -10, ..., 10
--6000.9
-```
+<img src="example.png" height = "180"> </img>
 
 ### Arrow is Expressive
 
@@ -60,6 +40,9 @@ Python or JavaScript. This syntax is handy for interactive programming.
 
 * Almost every function has a variadic and non-variadic form, to
 reduce boilerplate code.
+
+* Arrow adds collection-comprehensions; an expressive syntax 
+for creating collections.
 
 ### Arrow is Consistent
 

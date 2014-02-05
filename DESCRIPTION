@@ -179,4 +179,5 @@ Collate:
     'xTruth.R'
     'xFalsity.R'
     'xIrrelevance.R'
+    'xList.R'
     'x_.R'
