@@ -2,18 +2,23 @@
 
 xList <- structure(NULL, class = 'list_builder')
 
+print.list_builder <- function (x, ...) {
+	cat("[ the xList object ]\n")
+}
+
 '[.list_builder' <- function (x, ...) {
 
 	exprs <- eval( substitute(alist(...)) )
-
 	parent_frame <- parent.frame()
+
+	invoking_call <- match.call()[-1]
 
 	if (length(exprs) == 0) {
 		list()
 	} else {
 
 		components <- local({
-
+			 
 			is_binding <- function (expr) {
 				length(expr) == 3 && expr[[1]] == '<-'
 			}
@@ -22,18 +27,29 @@ xList <- structure(NULL, class = 'list_builder')
 			binding_indices <- 
 				which( vapply(exprs, is_binding, logical(1)) )
 
-			stopifnot(1 %!in% binding_indices)
+			demand $ must_have_yield(binding_indices, invoking_call)
+			demand $ must_be_unnamed(exprs, invoking_call)
 
 			bindings <- exprs[binding_indices]
 
 			this$yield <- 
 				exprs[[1]]
 
-			this$predicates <- 
-				exprs[seq_along(exprs) %!in% c(1, binding_indices)]
-			
+			is_predicated <- length(exprs) %!in% binding_indices && length(exprs) > 1
+
+			this$predicate <- 
+				if (is_predicated) {
+					exprs[[ length(exprs) ]]					
+				} else {
+					True
+				}
+
+			print(bindings)
+
 			this$variables <-
-				vapply(bindings, function (expr) paste0( expr[[2]] ), character(1))
+				vapply(bindings, function (expr) {
+					paste0( expr[[2]] )
+				}, character(1))
 
 			this$values <-
 				lapply(bindings, function (expr) {
@@ -61,9 +77,8 @@ xList <- structure(NULL, class = 'list_builder')
 			this$yield <- parametreise(
 				components$yield, components$variables)
 
-			this$predicates <- lapply(components$predicates, function (expr) {
-				parametreise(expr, components$variables)
-			})
+			this$predicate <- parametreise(
+				components$predicate, components$variables)
 
 			this
 		})
@@ -78,6 +93,7 @@ xList <- structure(NULL, class = 'list_builder')
 			if (length(components$values) == 0 || min(coll_lengths) == 0) {
 				list()
 			} else {
+
 				modulo_iths <- function (num, mods) {
 
 					assert(num <= prod(mods), invoking_call)
@@ -105,32 +121,25 @@ xList <- structure(NULL, class = 'list_builder')
 			this
 		})
 
-
-
 		results <- list()
 
 		for (ith in seq_along(arguments$tuples)) {
 
-			all_matches <- True
 			candidate <- arguments$tuples[[ith]]
+			is_match <- 
+				do.call(
+					parametreised$predicate, 
+					candidate, 
+					envir = parent_frame)
 
-			for (pred in parametreised$predicates) {
-
-				this_is_match <- do.call(pred, candidate, envir = parent_frame)
-				all_matches <- all_matches && this_is_match
-
-			}
-
-			if (all_matches) {
-				results <- c(results, list(candidate))
+			if (isTRUE(is_match)) {
+				results <- c(
+					results, do.call(parametreised$yield, candidate, envir = parent_frame))
 			}
 		}
-
-		lapply(results, function (result) {
-			do.call(parametreised$yield, result, envir = parent_frame)
-		})
+		as.list(results)
 	}
 }
 
-xList[a*b, a <- 1:10, b <- 1:10, a + b == a^b]
+xList[ list(x, y), x <- 1:10, y <- 1:10, x * y > 3 ]
 

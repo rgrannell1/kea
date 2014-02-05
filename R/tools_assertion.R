@@ -578,5 +578,30 @@ insist <- local({
 })
 
 
+demand <- local({
 
+	this <- Object()
 
+	this$must_have_yield <-
+		function (indices, invoking_call) {
+
+			message <- "a collection-comprehension must not being with a " %+%
+				"variable bind expression."
+
+			assert(
+				1 %!in% indices, invoking_call, message)
+		}
+
+	this$must_be_unnamed <-
+		function (exprs, invoking_call) {
+
+			message <- "a collection-comprehension cannot have named sub-terms."
+
+			assert(
+				is.null(names(exprs)), invoking_call,
+				message)
+		}
+
+	this
+
+})
