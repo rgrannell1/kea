@@ -86,6 +86,14 @@ colourise <- local({
 				} else {
 					message
 				}	
+			},
+		yellow =
+			function (message) {
+				if (is_colourisable()) {
+					"\033[1;33m" %+% message %+% "\033[0m"	
+				} else {
+					message
+				}	
 			}
 	)
 })

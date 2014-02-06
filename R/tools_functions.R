@@ -7,14 +7,6 @@
 #
 # Most utilities are obvious, but I will outline key utilities.
 #
-
-#
-# as_typed_vector:
-#     A function to try convert a list of values to a typed vector.
-#     A list of integers should be interconvertable to an integer vector,
-#     if required. This function is used to make sure arrow functions are
-#     agnostic to the difference between typed and generic vectors.
-#
 # try_hof:
 #     Arrow functions almost always throw errors that can be quickly debugged.
 #     Unfortunately,  higher-order functions throw a spanner in the works by
@@ -157,104 +149,6 @@ as_parametres <- function (names) {
 	)
 }
 
-to_value_unit <- function (coll) {
-	# collection -> collection
-	# convert a length-zero collection.
-
-	if (length(coll) == 0) {
-		if (is.double(coll) || is.integer(coll)) {
-			0
-		} else if (is.character(coll)) {
-			""
-		} else if (is.logical(coll)) {
-			False
-		} else if (is.raw(coll)) {
-			as.raw(00)
-		} else {
-			write_error(
-				"internal arrow error: " %+% "
-				cannot convert to non-implemented vector type.", call. = False)
-		}
-
-	} else {
-		coll
-	}
-}
-
-as_typed_vector <- local({
-
-	type_tests <- list(
-		logical =
-			is.logical,
-		integer =
-			is.integer,
-		double =
-			is.double,
-		numeric =
-			is.numeric,
-		character =
-			is.character,
-		raw =
-			is.raw,
-		complex =
-			is.complex
-	)
-
-	function (coll, mode, value_unit = False) {
-		# coerces an R is_collection (pairlist, list, or typed vector)
-		# to another mode, if the vector is homogenously typed.
-		# this makes list("a") ~ "a", making arrow more generic.
-
-		coll_symbol <- match.call()$coll
-
-		type_test <- type_tests[[mode]]
-
-		if (is.atomic(coll)) {
-			# vectors are always homogenous, so we can fast-track checking.
-
-			if (length(coll) == 0) {
-				# conversion of empty vectors is always possible.
-				coll <- as.vector(coll, mode = mode)
-			} else {
-
-				insist $ must_be_correct_type(coll, mode)
-
-				if (!type_test(coll)) {
-					write_error(
-						exclaim$type_conversion_failed_(
-							coll_symbol, mode, summate(coll)), call. = False)
-				}
-
-				coll
-			}
-		} else {
-			# generic vectors need more checking.
-
-			all_length_one <- all(sapply(coll, length) == 1)
-			is_homogenous <- all(sapply(coll, type_test))
-
-			if (!all_length_one) {
-				write_error(
-					"\n\nthe argument matching " %+% toString(coll_symbol) %+%
-					" must be a collection of length 1 values.", call. = False)
-			}
-
-			if (!is_homogenous) {
-				write_error(
-					exclaim$type_conversion_failed_(
-						coll_symbol, mode, summate(coll)), call. = False)
-			}
-
-			coll <- if (mode == 'raw') {
-				unlist(coll)
-			} else {
-				as.vector(coll, mode = mode)
-			}
-
-			coll
-		}
-	}
-})
 
 
 try_hof <- function (expr, invoking_call) {

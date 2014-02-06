@@ -47,7 +47,7 @@ xExplode <- function (rexp, str) {
 		exclaim$parametre_missing(str))
 
 	str <- as_typed_vector(str, "character")
-	rexp <- to_value_unit(as_typed_vector(rexp, "character"))
+	rexp <- unit_to_value(as_typed_vector(rexp, "character"))
 
 	insist $ must_be_of_length(str, 0:1, invoking_call)
 

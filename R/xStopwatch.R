@@ -30,7 +30,7 @@ xStopwatch <- function (num) {
 		exclaim$parametre_missing(num))
 
 	insist $ must_be_collection(num, invoking_call)
-	num <- to_value_unit(as_typed_vector(num, 'numeric'))
+	num <- unit_to_value(as_typed_vector(num, 'numeric'))
 
 	insist $ must_be_of_length(num, 1)
 	insist $ must_be_grequal_than(num, 0, invoking_call)

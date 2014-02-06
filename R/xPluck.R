@@ -51,7 +51,7 @@ xPluck <- function (str, colls) {
 
 	insist $ must_be_collection(str, invoking_call)
 
-	str <- to_value_unit(as_typed_vector(str, "character"))
+	str <- unit_to_value(as_typed_vector(str, "character"))
 
 	insist $ must_be_of_length(str, 1, invoking_call)
 	insist $ must_be_collection_of_collections(colls, invoking_call)

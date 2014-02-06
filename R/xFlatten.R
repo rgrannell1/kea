@@ -56,7 +56,7 @@ xFlatten <- function (num, coll) {
 
 	insist $ must_be_collection(num, invoking_call)
 
-	num <- to_value_unit(as_typed_vector(num, 'numeric'))
+	num <- unit_to_value(as_typed_vector(num, 'numeric'))
 
 	insist $ must_be_greater_than(num, 0, invoking_call)
 	insist $ must_be_whole(num, invoking_call)

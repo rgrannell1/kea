@@ -51,7 +51,7 @@ exclaim <- list(
 				"could not find the method " %+% dQuote(name) %+%
 				" in the methods available for " %+% contents_are %+%
 				":\n" %+%
-				"did you mean " %+% sample(similar, size = 1) %+% "?"
+				colourise$green("did you mean " %+% sample(similar, size = 1) %+% "?")
 			}
 		}
 )

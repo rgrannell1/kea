@@ -1,6 +1,18 @@
 
+#
+# unit_to_value:
+#     Convert a length-zero vector to a non-length-zero value.
+#
+#
+#
+#
+# as_typed_vector:
+#     A function to try convert a list of values to a typed vector.
+#     A list of integers should be interconvertable to an integer vector,
+#     if required. This function is used to make sure arrow functions are
+#     agnostic to the difference between typed and generic vectors.
 
-to_value_unit <- function (coll) {
+unit_to_value <- function (coll) {
 	# collection -> collection
 	# convert a length-zero collection.
 
