@@ -24,6 +24,7 @@ Collate:
     'usage_arrow_variadic.R'
     'usage_arrow_methods.R'
     'tools_functions.R'
+    'tools_as_typed_vector.R'
     'tools_assertion.R'
     'xTap---.R'
     'xByCols---.R'

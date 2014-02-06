@@ -1130,6 +1130,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_OneOf, 'coll')
 	add_x_method(this, x_OneOf..., '...')
 
+	# --- xOrder --- #
+	add_x_method(this, xOrder, 'nums')
+	add_x_method(this, xOrder..., '...')
+	add_x_method(this, x_Order, 'nums')
+	add_x_method(this, x_Order..., '...')
+
 	# -------- P ------- #
 
 	# --- xPoll --- #
@@ -1924,10 +1930,11 @@ print.arrow <- function (x, ...) {
 	single_newline <- '\n'
 	double_newline <- '\n\n'
 
+	header <- colourise$blue(
+		'[ an arrow object with methods for ' %+% contents_are %+% ' ]')
+
 	cat(
-		'[ an arrow object with methods for ' %+%
-			contents_are %+%
-		' ]'  %+% double_newline %+%
+		header  %+% double_newline %+%
 		'$x_()' %+% single_newline)
 
 	print(x$x_())

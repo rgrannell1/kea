@@ -27,7 +27,7 @@
 #' @export
 
 xOneOf <- function (coll) {
-	# Collection any -> any
+	# collectionction any -> any
 
 	invoking_call <- sys.call()
 

@@ -217,6 +217,8 @@ as_typed_vector <- local({
 				coll <- as.vector(coll, mode = mode)
 			} else {
 
+				insist $ must_be_correct_type(coll, mode)
+
 				if (!type_test(coll)) {
 					write_error(
 						exclaim$type_conversion_failed_(

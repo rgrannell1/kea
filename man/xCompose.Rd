@@ -26,7 +26,7 @@ operators \%of\% and \%then\%.
 \bold{\%then\%} is the classic function composition
 operator;
 
-\code{(as.numeric %then% sqrt %then% print)('10')}
+\code{(as.numeric \%then\% sqrt \%then\% print)('10')}
 
 Like methods, the order of function execution is from left
 to right; convert a string to a number then take the square

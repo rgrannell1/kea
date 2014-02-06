@@ -235,7 +235,7 @@ yelp <- list(
 	assertion_failed =
 		function (calltext, expr) {
 
-			expr <- ddpase(expr)
+			expr <- ddparse(expr)
 
 			calltext %+% ': the assertion\n ' %+% expr %+% ' \nfailed.'
 
@@ -243,7 +243,7 @@ yelp <- list(
 	non_logical_assertion =
 		function (expr) {
 
-			expr <- ddpase(expr)
+			expr <- ddparse(expr)
 
 			"the assertion " %+% expr %+% " returned a non-logical value."
 		},
@@ -272,10 +272,13 @@ yelp <- list(
 
 			overview <-
 			"[ warning occurred while executing a function passed to " %+% fn %+% " ]\n\n"
+			
+			inner_call <- paste0('    ', inner_call)
+			
+			warnmessage <- strsplit(warnmessage, '\n')[[1]]
+			warnmessage <- paste0('    ', warnmessage, collapse = '\n')
 
-			overview %+% wrap(
-				inner_call %+% warnmessage, indent = 4)
-
+			overview %+% inner_call %+% warnmessage
 		},
 	error_higher_order =
 		function (fn, err, profile = '') {
@@ -288,7 +291,11 @@ yelp <- list(
 			overview <-
 			"[ an error occurred while executing a function passed to " %+% fn %+% " ]:\n\n"
 
-			overview %+% wrap(
-				inner_call %+% errmessage, indent = 4)
+			inner_call <- paste0('    ', inner_call)
+			
+			errmessage <- strsplit(errmessage, '\n')[[1]]
+			errmessage <- paste0('    ', errmessage, collapse = '\n')
+
+			overview %+% inner_call %+% errmessage
 		}
 )

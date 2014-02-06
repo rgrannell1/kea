@@ -47,18 +47,59 @@ format_call <- function (call) {
 	}
 }
 
-# Console colour-checking based on Hadley Wickham's 
-# colouring for testthat.
-#
 
-write_error <- local({
+colourise <- local({
+	# Console colour-checking based on Hadley Wickham's 
+	# colouring for testthat.
 
-	colourise <- list(
-		red = 
+	is_colourisable <- function () {
+		# is a terminal colourisable.
+
+		terminal <- Sys.getenv()["TERM"]
+		colour_terminals <- c(
+			"screen", "screen-256color", "xterm-color", "xterm-256color")
+
+		!is.na(terminal) && (terminal %in% colour_terminals)
+	}
+
+	list(
+		red =
 			function (message) {
-				"\033[0;31m" %+% message %+% "\033[0m"
+				if (is_colourisable()) {
+					"\033[0;31m" %+% message %+% "\033[0m"	
+				} else {
+					message
+				}	
+			},
+		green =
+			function (message) {
+				if (is_colourisable()) {
+					"\033[0;32m" %+% message %+% "\033[0m"	
+				} else {
+					message
+				}	
+			},
+		blue =
+			function (message) {
+				if (is_colourisable()) {
+					"\033[0;34m" %+% message %+% "\033[0m"	
+				} else {
+					message
+				}	
 			}
 	)
+})
+
+
+
+
+
+
+
+
+
+
+write_error <- local({
 
 	function (..., call. = True) {
 		# to fix wrong terminal type
@@ -68,16 +109,8 @@ write_error <- local({
 
 		message <- c(...)
 
-		this_terminal <- Sys.getenv()["TERM"]
-		colour_terminals <- c(
-			"screen", "screen-256color",
-			"xterm-color", "xterm-256color")
+		stop(colourise$red(message), call. = call.)
 
-		if (!is.na(this_terminal) && (this_terminal %in% colour_terminals)) {
-			stop(colourise$red(message), call. = call.)		
-		} else {
-			stop(message, call. = call.)
-		}
 	}
 })
 
@@ -582,6 +615,62 @@ insist <- local({
 			assert(
 				False, invoking_call, message)
 		}
+
+	this$must_be_correct_type <-
+		function (coll_sym, coll, mode, invoking_call) {
+
+			message <- "the collection " %+% ddquote(coll_sym) %+% " cannot be " %+%
+			"converted to a vector of mode " %+% ddquote(mode)
+
+			assert(
+				mode %in% is(coll), invoking_call, message)
+		}
+
+	this$must_be_heterogenous <-
+		local({
+			# a vector must be convertable to a type.
+
+			all_are <- list(
+				integer = 
+					function (coll) {
+						all( vapply(coll, is.integer, logical(1)) )
+					},
+				logical = 
+					function (coll) {
+						all( vapply(coll, is.logical, logical(1)) )
+					},
+				double = 
+					function (coll) {
+						all( vapply(coll, is.double, logical(1)) )
+					},
+				numeric = 
+					function (coll) {
+						all( vapply(coll, is.numeric, logical(1)) )
+					},
+				character = 
+					function (coll) {
+						all( vapply(coll, is.character, logical(1)) )
+					},
+				raw = 
+					function (coll) {
+						all( vapply(coll, is.raw, logical(1)) )
+					},
+				complex = 
+					function (coll) {
+						all( vapply(coll, is.complex, logical(1)) )
+					}
+			)
+
+			function (coll_sym, coll, mode, invoking_call) {
+
+				message <- "the collection " %+% ddquote(coll_sym) %+% 
+				" must be a collection of values of type " %+% ddquote(mode)
+
+				assert(
+					all_are[[mode]](coll), invoking_call, message)
+
+			}
+		})
 
 	this
 
