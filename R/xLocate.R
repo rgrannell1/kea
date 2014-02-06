@@ -53,18 +53,9 @@ xLocate <- function (pred, coll) {
 		integer(0)
 	} else {
 
-		for (ith in seq_along(coll)) {
-
-			is_match <- try_hof(
-				pred( coll[[ith]] ), invoking_call)
-
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
-
-			if (isTRUE(is_match)) {
-				return (as.integer(ith))
-			}
-		}
-		integer(0)
+		which(try_hof(
+			vapply(coll, pred, logical(1), USE.NAMES = False),
+			invoking_call))
 	}
 }
 

@@ -213,5 +213,3 @@ print.list_builder <- function (x, ...) {
 		as.list(results)
 	}
 }
-
-xList[list(x, y), x <- 1:3, y <- 1:3]
