@@ -180,4 +180,5 @@ Collate:
     'xFalsity.R'
     'xIrrelevance.R'
     'xList.R'
+    'xOneOf.R'
     'x_.R'

@@ -1124,6 +1124,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_ElemNotNull..., '...')
 
 	# -------- O ------- #
+	# --- xOneOf --- #
+	add_x_method(this, xOneOf, 'coll')
+	add_x_method(this, xOneOf..., '...')
+	add_x_method(this, x_OneOf, 'coll')
+	add_x_method(this, x_OneOf..., '...')
+
 	# -------- P ------- #
 
 	# --- xPoll --- #
