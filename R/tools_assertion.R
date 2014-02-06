@@ -573,6 +573,16 @@ insist <- local({
 				invoking_call, message)
 		}
 
+	this$must_be_invoked_with_brackets <-
+		function (invoking_call) {
+
+			message <- "the xList object cannot be invoked as a " %+%
+				"function: it must be invoked with square brackets ( [] )"
+
+			assert(
+				False, invoking_call, message)
+		}
+
 	this
 
 })
@@ -602,7 +612,7 @@ demand <- local({
 				message)
 		}
 
-	this $ must_all_be_matched <-
+	this$must_all_be_matched <-
 		function (indices, exprs, invoking_call) {
 
 			exprs_indices <- seq_along(exprs)
@@ -616,6 +626,17 @@ demand <- local({
 
 			assert(
 				length(unmatched) == 0, invoking_call,
+				message)
+		}
+
+	this$must_have_bindings <-
+		function (variables, invoking_call) {
+
+			message <- "a non-empty collection-comprehension must have " %+%
+			"at least one variable binding."
+
+			assert(
+				length(variables) > 0, invoking_call,
 				message)
 		}
 
