@@ -16,6 +16,11 @@ Transpose a matrix.
 it as a column in the output matrix. The dimensions of the
 input matrix is flipped; if a 4 x 2 matrix is supplied to
 \bold{xTranspose( )} then a 2 x 4 matrix is returned.
+
+\bold{xTranspose} is an involution - a function that is its
+own inverse. For any collection,
+\bold{xTranspose(xTranspose(coll))} is the original
+collection.
 }
 \section{Corner Cases}{
   The empty matrix is returned if the input matrix is

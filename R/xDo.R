@@ -4,8 +4,6 @@
 #' Map (a possibly side-effectful) function over a
 #' collection and discard the results.
 #'
-#' @section Uses:
-#'
 #' @param
 #'    fn a unary function, usually side-effectful.
 #'

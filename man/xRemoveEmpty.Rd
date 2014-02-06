@@ -1,4 +1,6 @@
 \name{xRemoveEmpty}
+\alias{xPack}
+\alias{xPack...}
 \alias{xRemoveEmpty}
 \alias{xRemoveEmpty...}
 \title{xRemoveEmpty}
@@ -6,6 +8,10 @@
 xRemoveEmpty(coll)
 
 xRemoveEmpty...(...)
+
+xPack(coll)
+
+xPack...(...)
 }
 \arguments{
   \item{coll}{a collection. The collection to remove

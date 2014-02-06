@@ -17,6 +17,10 @@
 #'    a list of letters - were zipped into corresponding 'rows'
 #'    of a number and a letter.
 #'
+#'    \bold{xZip} is an involution - a function that is its own
+#'    inverse. For any collection, \bold{xZip(xZip(coll))}
+#'    is the original collection.
+#'
 #'    Applying \bold{xZip} again will reconvert the 'rows'
 #'    back into columns.
 #'

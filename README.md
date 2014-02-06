@@ -22,27 +22,7 @@ For library documentation and tutorials head to
 
 ### What Arrow code looks like.
 
-```c
-integrate <- (f : from : to) := {
-
-    xVal(epsilon, 0.001)
-    x_values <- seq(from = from, to = to, by = epsilon)
-
-    xFold(
-        (area : x) := {
-            area + (f(x) * epsilon)
-        },
-        0,
-        x_values
-    )
-}
-
-f <- x := x^3 - 9*x^2
-integrate(f, from = -10, to = 10)
-
-# the area under the function f between -10, ..., 10
--6000.9
-```
+<img src="example-code.png"> </img>
 
 ### Arrow is Expressive
 

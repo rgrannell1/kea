@@ -738,6 +738,7 @@ test_cases <- local({
 	this$num_integer <-
 		list(
 			num = atoms$integer())
+		
 	this$num_positive_integer <-
 		list(num = atoms$positive_integer())
 
