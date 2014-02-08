@@ -25,6 +25,29 @@ A list.
 \description{
 Generate a cyclic permutation of a collection.
 }
+\details{
+Cyclic permutations are an important combinatorial object.
+There are four cyclic permutations of a length-four
+collection:
+
+\code{[1, 2, 3, 4]}
+
+\code{[2, 3, 4, 1]}
+
+\code{[3, 4, 1, 2]}
+
+\code{[4, 1, 2, 3]}
+
+Which map to
+
+\code{xCycle(0, 1:4)}
+
+\code{xCycle(1, 1:4)}
+
+\code{xCycle(2, 1:4)}
+
+\code{xCycle(3, 1:4)}
+}
 \section{Corner Cases}{
   If \bold{coll} is empty the empty list is returned.
 }
