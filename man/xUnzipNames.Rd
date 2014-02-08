@@ -3,14 +3,13 @@
 \alias{xUnzipNames...}
 \title{xUnzipNames}
 \usage{
-xUnzipNames(colls)
+xUnzipNames(coll)
 
 xUnzipNames...(...)
 }
 \arguments{
-  \item{colls}{a collection of collections, with the first
-  element of the inner collection being a string and the
-  second element being any value.}
+  \item{coll}{a named collection. The collection to split
+  into name, value pairs.}
 
   \item{...}{see above.}
 }
@@ -18,10 +17,19 @@ xUnzipNames...(...)
 A named list.
 }
 \description{
-Split a named list into a list of name: value list pairs.
+Split a named collection into a list of name: value list
+pairs.
+}
+\details{
+\bold{xUnzipNames} is the inverse function to
+\bold{xZipNames} - it takes a named collection and converts
+it into a list of key, value list pairs. This is primarily
+intended for allowing functions that cannot read collection
+names - like map and select - to be able to operate on both
+a value and its key simultaneouslty.
 }
 \section{Corner Cases}{
-  Returns \code{list()} if \code{colls} is length-zero.
+  Returns \code{list()} if \code{coll} is length-zero.
 }
 \examples{
 

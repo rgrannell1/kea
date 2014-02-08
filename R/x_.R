@@ -833,14 +833,10 @@ x_coll_proto <- local({
 
 	# -------- D ------- #
 	# --- xUnzipNames --- #
-	add_x_method(this, xUnzipNames, 'colls')
+	add_x_method(this, xUnzipNames, 'coll')
 	add_x_method(this, xUnzipNames..., '...')
-	add_x_method(this, x_UnzipNames, 'colls')
+	add_x_method(this, x_UnzipNames, 'coll')
 	add_x_method(this, x_UnzipNames..., '...')
-
-	# --- xDigitsOf --- #
-	add_x_method(this, xDigitsOf, 'num')
-	add_x_method(this, x_DigitsOf, 'num')
 
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')

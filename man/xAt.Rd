@@ -22,7 +22,9 @@ A list.
 Select a collection at certain indices.
 }
 \details{
-details
+\bold{xAt} is similar to base R's subsetting operator '[',
+except that it performs more validation on the input
+indices, and it acts as a normal function.
 }
 \section{Corner Cases}{
   \bold{xAt} does not allow subscripting values out of

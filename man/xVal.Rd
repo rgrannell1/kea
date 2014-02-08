@@ -21,6 +21,11 @@ xVal works like normal R assignment, with the exception
 that if any attempt to update the assigned variable will
 result in an error. This is analogous to const in other
 languages.
+
+\code{the_letter_a <- "a"} \code{xVal(the_letter_a, "a")}
+
+As the above call shows \code{xVal} is a standard function,
+not an infix function like normal assignment.
 }
 \section{Corner Cases}{
   Overwrites the value referenced by \code{sym}r if the

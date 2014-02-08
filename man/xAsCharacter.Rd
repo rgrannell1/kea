@@ -24,7 +24,8 @@ Convert a collection to a double vector.
 \code{xAsCharacter} converts a list, pairlist or vector of
 length-one strings to a character vector. It does not
 attempt to convert non-character collections to character
-vectors.
+vectors - it simply converts character lists to character
+typed vectors.
 }
 \examples{
 
