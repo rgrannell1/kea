@@ -10,7 +10,7 @@ format_call <- function (call) {
 	# format the call nicely for printing, fixing the representation of ':='.
 
 	if (length(call) == 0) {
-		"arrow_function( )"
+		"[ call information not included in error ]"
 	} else {
 
 		call <- as.call(lapply(call, function (term) {
@@ -25,22 +25,11 @@ format_call <- function (call) {
 
 		calltext <- ddparse(call)
 
-		delimiters <- local({
-			chars <- strsplit(calltext, '')[[1]]
-			chars <- chars[nchar(chars) > 0]
-
-			which(chars %in% c('{'))
-		})
-
 		# find an elegant cuttoff if possible.
-		cuttof <- if (any(delimiters %in% 35:45)) {
-			min(which[delimiters %in% 35:45]) + 1
-		} else {
-			35
-		}
+		cuttof <- 35
 
 		if (nchar(calltext) > cuttof) {
-			paste0(substring(calltext, 1, cuttof), '... [truncated]')
+			paste0(substring(calltext, 1, cuttof), ' [truncated]')
 		} else {
 			calltext
 		}
@@ -63,6 +52,14 @@ colourise <- local({
 	}
 
 	list(
+		black =
+			function (message) {
+				if (is_colourisable()) {
+					"\033[0;30m" %+% message %+% "\033[0m"	
+				} else {
+					message
+				}	
+			},
 		red =
 			function (message) {
 				if (is_colourisable()) {
@@ -149,6 +146,7 @@ assert <- local({
 			callname <- paste0(invoking_call[[1]], collapse = '')
 
 			call <- local({
+
 
 				calltext <- format_call(invoking_call)
 
@@ -617,8 +615,8 @@ insist <- local({
 	this$must_be_invoked_with_brackets <-
 		function (invoking_call) {
 
-			message <- "the xList object cannot be invoked as a " %+%
-				"function: it must be invoked with square brackets ( [] )"
+			message <- "comprehension objects cannot be invoked as a " %+%
+				"function: theu must be invoked with square brackets ( [] )"
 
 			assert(
 				False, invoking_call, message)

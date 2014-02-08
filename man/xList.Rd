@@ -28,20 +28,42 @@ Arrow's syntax is similar
 \code{S <- xList[output expression, variable <- set,
 predicate expression]}
 
-Notice that the variable 'x' is explicitly bound; at
-runtime the expressions get transformed to functions of
-'x'. Multiple parametres may be bound.
+Collection comprehensions are a shorthand for several
+operations; taking the \bold{set product} of several
+Collections, \bold{selecting} them based on a predicate,
+and \bold{mapping} a function over each result.
 
-\code{xList[ c(a, b), a <- 1:4, b <- 1:4, a + b > 2 ]}
+\bold{1 The output expression}
 
-In the above example, every pair of numbers (a, b) such
-that their sum is greater than two is returned.
+The output expression corresponds to the map operation
+mentioned above.  The for comprehension
 
-The first expression - the output expression - must always
-be included.  The predicate expression is optional; if it
-is excluded the final expression should be a binding
-expression.
+\code{xList[2*x, x <- 1:10]}
 
-\code{xList[ c(a, b), a <- 1:4, b <- 1:4]}
+is loosely translated into normal arrow code as
+
+\code{xMapply(x := x^2, 1:10)}
+
+\bold{2 Variable bindings}
+
+At least one variable must be bound for a non-empty list
+comprehension. Multiple variables may also be bound.
+
+\code{xList[list(x, y), x <- 1:3, y <- 1:3]}
+
+The above comprehension loosely translates as
+
+\code{x_(xSetProd(1:3, 1:3)) $ xMapply((x : y) := c(x, y))}
+
+\bold{3 The predicate expression (optional)}
+
+If the final expression given to a comprehension is not a
+binding expression it is treated as a predicate for
+selecting particular values. This is optional.
+
+\code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
+
+In the above pairs of a, b such that their sum is larger
+than two are returned.
 }
 

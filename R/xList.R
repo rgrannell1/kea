@@ -21,22 +21,43 @@
 #'    \code{S <- xList[ 2*x, x <- 1:10 x^2 > 3 ]}
 #'
 #'    \code{S <- xList[output expression, variable <- set, predicate expression]}
+#'       
+#'    Collection comprehensions are a shorthand for several operations; taking
+#'    the \bold{set product} of several Collections, \bold{selecting} them based
+#'    on a predicate, and \bold{mapping} a function over each result.
 #'   
-#'    Notice that the variable 'x' is explicitly bound; at runtime the
-#'    expressions get transformed to functions of 'x'. Multiple parametres
-#'    may be bound.
+#'    \bold{1 The output expression}
 #'
-#'    \code{xList[ c(a, b), a <- 1:4, b <- 1:4, a + b > 2 ]}
+#'    The output expression corresponds to the map operation mentioned above.
+#'    The for comprehension
 #'
-#'    In the above example, every pair of numbers (a, b) such that their
-#'    sum is greater than two is returned.
+#'    \code{xList[2*x, x <- 1:10]}
 #'
-#'    The first expression - the output expression - must always be included. 
-#'    The predicate expression is optional; if it is excluded the final
-#'    expression should be a binding expression.
+#'    is loosely translated into normal arrow code as
 #'
-#'    \code{xList[ c(a, b), a <- 1:4, b <- 1:4]}
+#'    \code{xMapply(x := x^2, 1:10)}
 #'
+#'    \bold{2 Variable bindings}
+#'
+#'    At least one variable must be bound for a non-empty list 
+#'    comprehension. Multiple variables may also be bound.
+#' 
+#'    \code{xList[list(x, y), x <- 1:3, y <- 1:3]}
+#'
+#'    The above comprehension loosely translates as
+#'
+#'    \code{x_(xSetProd(1:3, 1:3)) $ xMapply((x : y) := c(x, y))}
+#'
+#'    \bold{3 The predicate expression (optional)}
+#'
+#'    If the final expression given to a comprehension is not a binding
+#'    expression it is treated as a predicate for selecting particular
+#'    values. This is optional.
+#' 
+#'    \code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
+#'
+#'    In the above pairs of a, b such that their sum is larger than
+#'    two are returned.
 #' @rdname xList
 #' @export
 
@@ -149,6 +170,15 @@ print.list_builder <- function (x, ...) {
 			this
 		})
 
+		# this will generate a fairly hefty - but 
+		# readable - stack trace.
+
+		insist $ must_be_collection(
+			components$values, invoking_call)
+
+		insist $ must_be_collection_of_collections(
+			components$values, invoking_call)
+
 		arguments <- local({
 			# take the set product of components$values
 
@@ -187,29 +217,23 @@ print.list_builder <- function (x, ...) {
 			this
 		})
 
-		results <- list()
+		matches <- try_hof(
+			vapply(arguments$tuples, function (...) {
 
-		for (ith in seq_along(arguments$tuples)) {
+				tuple <- as.list(...)
+				names(tuple) <- components$variables
 
-			candidate <- arguments$tuples[[ith]]
-			is_match <- 
-				do.call(
-					parametreised$predicate, 
-					candidate, 
-					envir = parent_frame)
+				do.call(parametreised$predicate, tuple, envir = parent_frame)
+			}, logical(1)), invoking_call)
 
-			if (isTRUE(is_match)) {
+		try_hof(
+			lapply(
+				arguments$tuples[!is.na(matches) & matches], function (...) {
 
-				result <- do.call(
-					parametreised$yield,
-					candidate, 
-					envir = parent_frame) 
+					tuple <- as.list(...)
+					names(tuple) <- components$variables
 
-				results <- c(
-					results, 
-					list(result))
-			}
-		}
-		as.list(results)
+					do.call(parametreised$yield, tuple, envir = parent_frame)
+				}), invoking_call)
 	}
 }

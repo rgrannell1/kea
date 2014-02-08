@@ -4,5 +4,8 @@ test_cases <- arrow:::test_cases
 
 message("xZipNames")
 
-
-
+	forall(
+		"xZipNames of the empty collection is list()",
+		test_cases$collection_zero,
+		xZipNames(coll) %equals% list()
+	)
