@@ -109,7 +109,6 @@ xCompose... <- function (...) {
 
 #' @export
 
-
 '%then%' <- function (fn1, fn2) {
 	xCompose(list(fn2, fn1))
 }

@@ -5,9 +5,10 @@
 x_(val)
 }
 \arguments{
-  \item{val}{an arbitrary value. The methods available
-  depend on the input type; functions and collections have
-  the most methods available.}
+  \item{val}{an arbitrary value. The value to wrap in an
+  arrow object.  The methods available depend on the input
+  type; functions and collections have the most methods
+  available.}
 }
 \value{
 An object of class "arrow". Internally the object is

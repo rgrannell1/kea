@@ -3,6 +3,7 @@
 #'
 #' Convert a list of name, value pairs into a named list.
 #'
+#'
 #' @param
 #'    colls a list or pairlist of two-element lists or pairlists,
 #'    with the first element being a string and the second

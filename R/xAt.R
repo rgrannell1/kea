@@ -4,7 +4,9 @@
 #' Select a collection at certain indices.
 #'
 #' @details
-#'     details
+#'     \bold{xAt} is similar to base R's subsetting operator '[',
+#'     except that it performs more validation on the input indices,
+#'     and it acts as a normal function.
 #'
 #' @param
 #'    nums a vector of whole numbers. Indices to select values

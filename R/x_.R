@@ -838,6 +838,10 @@ x_coll_proto <- local({
 	add_x_method(this, x_UnzipNames, 'colls')
 	add_x_method(this, x_UnzipNames..., '...')
 
+	# --- xDigitsOf --- #
+	add_x_method(this, xDigitsOf, 'num')
+	add_x_method(this, x_DigitsOf, 'num')
+
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')
 	add_x_method(this, xDrop..., '...')
@@ -1137,6 +1141,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Order..., '...')
 
 	# -------- P ------- #
+	# --- xPack --- #
+	add_x_method(this, xPack, 'coll')
+	add_x_method(this, xPack..., '...')
+	add_x_method(this, x_Pack, 'coll')
+	add_x_method(this, x_Pack..., '...')
 
 	# --- xPoll --- #
 	add_x_method(this, xPoll, 'coll')
@@ -1760,7 +1769,9 @@ x_fn_proto <- local({
 #' Generate an arrow object with methods available to it.
 #'
 #' @param
-#'    val an arbitrary value. The methods available depend on the input
+#'    val an arbitrary value. The value to wrap in an
+#'    arrow object.
+#'    The methods available depend on the input
 #'    type; functions and collections have the most methods available.
 #'
 #' @return
@@ -1774,15 +1785,13 @@ x_fn_proto <- local({
 #'    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
 #'    anonymous function to be executed on an arrow object.
 #'
-#'     Matrices, data frames, and factors have methods for converting them to collections,
-#'     while normal Arrow functions are also available as methods for collections
-#'     and functions.
+#'    Matrices, data frames, and factors have methods for converting them to collections,
+#'    while normal Arrow functions are also available as methods for collections
+#'    and functions.
 #'
 #' @section Corner Cases:
 #'    The methods that can be used by \bold{$ x_( )} object varies depending
 #'    on the type of val.
-#'
-#'
 #'
 #' @family method_functions
 #'

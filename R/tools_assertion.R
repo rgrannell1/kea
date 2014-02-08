@@ -690,7 +690,7 @@ demand <- local({
 	this$must_have_yield <-
 		function (indices, invoking_call) {
 
-			message <- "a collection-comprehension must not being with a " %+%
+			message <- "a collection-comprehension must not begin with a " %+%
 				"variable bind expression."
 
 			assert(

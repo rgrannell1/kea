@@ -55,4 +55,12 @@ xRemoveEmpty... <- function (...) {
 	xRemoveEmpty(list(...))
 }
 
+#' @rdname xRemoveEmpty
+#' @export
 
+xPack <- xRemoveEmpty
+
+#' @rdname xRemoveEmpty
+#' @export
+
+xPack... <- xRemoveEmpty...

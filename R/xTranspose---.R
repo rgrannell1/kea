@@ -10,6 +10,10 @@
 #'    the input matrix is flipped; if a 4 x 2 matrix is supplied to
 #'    \bold{xTranspose( )} then a 2 x 4 matrix is returned.
 #'
+#'    \bold{xTranspose} is an involution - a function that is its own
+#'    inverse. For any collection, \bold{xTranspose(xTranspose(coll))}
+#'    is the original collection.
+#'
 #' @usage
 #'      x_(  ) $ xTranspose()
 #'

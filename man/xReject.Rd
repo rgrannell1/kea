@@ -87,8 +87,9 @@ elems_smaller_than(10, c(1, 8, 10, 11, 100))
 # c(1, 8, 10)
 }
 \seealso{
-Other filtering_functions: \code{\link{xPartition}};
-\code{\link{xRemoveEmpty}}, \code{\link{xRemoveEmpty...}};
+Other filtering_functions: \code{\link{xPack}},
+\code{\link{xPack...}}, \code{\link{xRemoveEmpty}},
+\code{\link{xRemoveEmpty...}}; \code{\link{xPartition}};
 \code{\link{xRemoveNan}}; \code{\link{xRemoveNa}};
 \code{\link{xRemoveNull}}, \code{\link{xRemoveNull...}};
 \code{\link{xSelect}}, \code{\link{xSelect...}}

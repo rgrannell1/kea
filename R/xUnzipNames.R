@@ -1,12 +1,17 @@
 
 #' xUnzipNames
 #'
-#' Split a named list into a list of name: value list pairs.
+#' Split a named collection into a list of name: value list pairs.
+#'
+#' @details
+#'     \bold{xUnzipNames} is the inverse function to \bold{xZipNames} - it
+#'     takes a named collection and converts it into a list of 
+#'     key, value list pairs. This is primarily intended for allowing functions that
+#'     cannot read collection names - like map and select - to be able to operate
+#'     on both a value and its key simultaneouslty.
 #'
 #' @param
-#'    colls a collection of collections, with the first element
-#'    of the inner collection being a string and the second element
-#'    being any value.
+#'    coll a named collection. The collection to split into name, value pairs.
 #'
 #' @param
 #'    ... see above.
@@ -15,7 +20,7 @@
 #'    A named list.
 #'
 #' @section Corner Cases:
-#'      Returns \code{list()} if \code{colls} is length-zero.
+#'      Returns \code{list()} if \code{coll} is length-zero.
 #'
 #' @family reshaping_functions
 #'
@@ -30,31 +35,31 @@
 #' @rdname xUnzipNames
 #' @export
 
-xUnzipNames <- function (colls) {
-	# Named collsection any -> [[string, any]]
+xUnzipNames <- function (coll) {
+	# Named collection any -> [[string, any]]
 	# split a list into its names and values.
 
 	invoking_call <- sys.call()
 
 	assert(
-		!missing(colls), invoking_call,
-		exclaim$parametre_missing(colls))
+		!missing(coll), invoking_call,
+		exclaim$parametre_missing(coll))
 
-	insist $ must_be_fully_named(colls, invoking_call)
-    insist $ must_be_collection_of_collections(colls, invoking_call)
+	insist $ must_be_fully_named(coll, invoking_call)
+    insist $ must_be_collection(coll, invoking_call)
 
-	if (length(colls) == 0) {
+	if (length(coll) == 0) {
 		list()
 	} else {
 
-		colnames <- names(colls)
-		colls <- unname(colls)
+		colnames <- names(coll)
+		coll <- unname(coll)
 
-		lapply(seq_along(colls), function (ith) {
+		lapply(seq_along(coll), function (ith) {
 
 			list(
 				colnames[[ith]],
-				colls[[ith]] )
+				coll[[ith]] )
 		})
 	}
 }

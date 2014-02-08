@@ -9,6 +9,12 @@
 #'    will result in an error. This is analogous to const in
 #'    other languages.
 #'
+#'    \code{the_letter_a <- "a"}
+#'    \code{xVal(the_letter_a, "a")}
+#'
+#'    As the above call shows \code{xVal} is a standard function,
+#'    not an infix function like normal assignment.
+#'
 #' @param
 #'    sym a symbol or string. The variable name
 #'    to assign a value.
@@ -55,4 +61,3 @@ xVal <- function (sym, val) {
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)
 }
-

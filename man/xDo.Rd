@@ -21,9 +21,6 @@ A list.
 Map (a possibly side-effectful) function over a collection
 and discard the results.
 }
-\section{Uses}{
-
-}
 \examples{
 
 #1. print the files in your current directory.
