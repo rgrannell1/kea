@@ -7,6 +7,9 @@ forall <- arrow:::forall
 compounds <- arrow:::compounds
 test_cases <- arrow:::test_cases
 
+require(arrow)
+
+
 arrow_unary <- function () {
 
 	arrow:::one_of(

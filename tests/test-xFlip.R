@@ -2,6 +2,9 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
+require(arrow)
+
+
 inc <- function (a) a + 1
 
 message("xFlip")

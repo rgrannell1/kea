@@ -1,25 +1,13 @@
-#
-# To Developers,
-#
-# Every sufficiently large utility library will contain its own utility library.
-# These functions are required to reduce repetition of code when implementing arrow
-# functions.
-#
-# Most utilities are obvious, but I will outline key utilities.
-#
-# try_hof:
-#     Arrow functions almost always throw errors that can be quickly debugged.
-#     Unfortunately,  higher-order functions throw a spanner in the works by
-#     allowing user-written functions to throw odd errows that cannot be
-#     located easily.
-#
-#     try_hof is a variant of tryCatch that allows
-#     extra-information to be added to the errors produced by higher-order functions.
-#
-# summate:
-#     Debugging is annoying, so I'd like to provide the attributes of an error
-#     causing object.
-#
+
+#' Package Internals
+#'
+#' Documentation for the internals of Arrow.
+#' Every sufficiently large utility library will contain its own utility library.
+#' These functions are required to reduce repetition of code when implementing arrow
+#' functions.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
 
 # --------------------- shorthand logical functions --------------------- #
 

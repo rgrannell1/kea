@@ -2,6 +2,9 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
+require(arrow)
+
+
 message('xFirstOf')
 
 	forall("first always returns the first element of a collection",

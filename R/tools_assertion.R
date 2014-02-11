@@ -1,9 +1,12 @@
 
-# To Developers,
-#
-# assert:
-#     Assert checks if a proposition is true, and if it fails
-#     throws a helpful error (see say.R).
+#' @section format_call:
+#'
+#' format_call is a tool for formatting the source call of an error message.
+#' It fixes as issue with printing ':=' functions, and cuts off very long calls.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+#'
 
 format_call <- function (call) {
 	# call -> string
@@ -36,11 +39,15 @@ format_call <- function (call) {
 	}
 }
 
-# -------------------------------- colourise -------------------------------- #
-#
-# To Developers,
-# colourise is a set of functions that wraps strings in ansii escape sequences
-# on coloured terminals, allowing coloured text to be printed.
+#' @section colourise:
+#'
+#' colourise is a set of functions that wraps strings in ansii escape sequences
+#' on coloured terminals, allowing coloured text to be printed. These are
+#' used to colour error messages and print methods.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+#'
 
 colourise <- local({
 
@@ -98,29 +105,38 @@ colourise <- local({
 	)
 })
 
+#' @section write_error:
+#'
+#' write_error prints a red error message to the terminal,
+#' if the terminal supports colour.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+#'
 
-write_error <- local({
+write_error <- function (..., call. = True) {
+	# to fix wrong terminal type
+	# sudo nano ~/.bashrc
+	# export TERM=term-color
+	# . ~/.bashenv
 
-	function (..., call. = True) {
-		# to fix wrong terminal type
-		# sudo nano ~/.bashrc
-		# export TERM=term-color
-		# . ~/.bashenv
+	message <- c(...)
 
-		message <- c(...)
+	stop(colourise$red(message), call. = call.)
 
-		stop(colourise$red(message), call. = call.)
+}
 
-	}
-})
-
-
-# --------------------- assertion functions --------------------- #
-#
+#' @section assert:
+#'
+#' assert is a key arrow function - it takes an expression,
+#' a call to display, and a string message. If the expression isn't
+#' true, the error is thrown with that message and call.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+#'
 
 assert <- local({
-
-	consts <- list(margin = 80)
 
 	function (expr, invoking_call, message) {
 		# does an expression evaluate to true?
@@ -142,13 +158,12 @@ assert <- local({
 
 			call <- local({
 
-
 				calltext <- format_call(invoking_call)
 
-				if (nchar(calltext) > consts$margin) {
+				if (nchar(calltext) > 80) {
 
 					paste0(
-						substr(calltext, 1, consts$margin), '...',
+						substr(calltext, 1, 80), '...',
 						collapse = '')
 
 				} else {
@@ -160,25 +175,28 @@ assert <- local({
 				yelp$arrow_function_failed(
 					callname, call, message),
 				call. = False)
-
 		}
-
 		True
 	}
 
 })
 
-# -------------------------------- insist -------------------------------- #
-#
-# To Developers,
-# insist is a list of functions that provide a minimal interface to an
-# assertion. This object exists to reduce the amount of assertion checking
-# code needed.
-#
-#     insist $ must_be_fn_matchable(fn, invoking_call)
-#
-# Each function encloses a message function to stop the function being
-# repeatedly created when assertions are ran.
+#' @section insist:
+#'
+#' insist is a list of functions that provide a minimal interface to an
+#' assertion. This object exists to reduce the amount of assertion checking
+#' code needed.
+#'
+#'     \code{insist $ must_be_fn_matchable(fn, invoking_call)}
+#'
+#' Each function encloses a message function to stop the function being
+#' repeatedly created when assertions are ran. When the assertion inside
+#' the insist function fails, an error is thrown.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+#'
+
 
 insist <- local({
 
@@ -713,8 +731,8 @@ insist <- local({
 			function (sym, parent_frame, invoking_call) {
 				# the variable cannot be altered.
 
-				is_unlocked <- if (exists(sym, where = parent_frame)) {
-					!bindingIsLocked(sym, parent_frame)
+				is_unlocked <- if (exists(sym, envir = parent_frame)) {
+					!bindingIsLocked(sym, env = parent_frame)
 				} else {
 					True
 				}
@@ -824,6 +842,15 @@ insist <- local({
 
 })
 
+#' @section demand:
+#'
+#' An internal object containing assertions that are required by the
+#' collection comprehension functions. Mostly contains parse error
+#' assertions.
+#'
+#' @keywords internal
+#'
+#' @rdname pkg-internal
 
 demand <- local({
 
