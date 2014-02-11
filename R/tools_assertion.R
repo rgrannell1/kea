@@ -424,268 +424,355 @@ insist <- local({
 	#  -------- names  -------- #
 
 	this$must_be_fully_named <-
-		function (coll, invoking_call) {
-			# the collection should be fully named.
+		local({
 
-			input_symbol <- match.call()[-1][[1]]
+			message <- function (input_symbol) {
+				"the names of the collection matching " %+%
+				ddquote(input_symbol) %+% " must be a fully named collection."
+			}
 
-			message <- "the names of the collection matching " %+%
-			ddquote(input_symbol) %+% " must be a fully named collection."
+			function (coll, invoking_call) {
+				# the collection should be fully named.
 
-			assert(
-				!is.null(names(coll)) && !any(names(coll) == ""),
-				invoking_call, message)
-		}
+				coll_symbol <- match.call()[-1][[1]]
+
+				assert(
+					!is.null(names(coll)) && !any(names(coll) == ""),
+					invoking_call, message(coll_symbol))
+			}
+		})
 
 	this$must_be_collection_of_equal_names <-
-		function (colls, invoking_call) {
+		local({
 
-			input_symbol <- match.call()[-1][[1]]
+			message <- function (input_symbol) {
+				"the collections in the argument matching " %+%
+				ddquote(input_symbol) %+% " must all be unnamed, or all have the " %+%
+				"same names."
+			}
 
-			inner_names <- lapply(colls, names)
+			function (colls, invoking_call) {
 
-			all_empty <- all( vapply(inner_names, is.null, logical(1)) )
-			all_equal <- length(unique(inner_names)) == 1
+				colls_sym <- match.call()[-1][[1]]
 
-			message <- "the collections in the argument matching " %+%
-			ddquote(input_symbol) %+% " must all be unnamed, or all have the " %+%
-			"same names."
+				inner_names <- lapply(colls, names)
 
-			assert(
-				all_equal || all_empty, invoking_call,
-				message)
-		}
+				all_empty <- all( vapply(inner_names, is.null, logical(1)) )
+				all_equal <- length(unique(inner_names)) == 1
+
+				assert(
+					all_equal || all_empty, invoking_call,
+					message(colls_sym))
+			}
+		})
 
 	#  -------- collection of collection  -------- #
 
 	this$must_be_collection_of_collections <-
-		function (colls, invoking_call) {
-			# the value must be a collection of collections.
+		local({
 
-			colls_sym <- match.call()[-1][[1]]
-
-			message <- "the elements of the collection " %+% ddquote(colls_sym) %+%
+			message <- function (colls_sym, colls) {
+				"the elements of the collection " %+% ddquote(colls_sym) %+%
 				" must all be lists, pairlists or typed vectors." %+%
 				summate(colls)
+			}
 
-			assert(
-				all(sapply(colls, is_collection)),
-				invoking_call, message)
-		}
+			function (colls, invoking_call) {
+				# the value must be a collection of collections.
+
+				colls_sym <- match.call()[-1][[1]]
+
+				assert(
+					all(sapply(colls, is_collection)),
+					invoking_call, message(colls_sym, colls))
+			}
+		})
 
 	this$must_be_collection_of_fn_matchable <-
-		function (fns, invoking_call) {
-			# the collection must be composed of
-			# lookupables as functions.
+		local({
 
-			fns_sym <- match.call()[-1][[1]]
-
-			message <- "the arguments matching " %+% ddquote(fns_sym) %+%
+			message <- function (fns_sym, fns) {
+				"the arguments matching " %+% ddquote(fns_sym) %+%
 				" must all be functions, or symbols or strings" %+%
 				" that can be looked-up as functions." %+%
 				summate(fns)
+			}
 
-			assert(
-				all(sapply(fns, is_fn_matchable)), invoking_call,
-				message)
+			function (fns, invoking_call) {
+				# the collection must be composed of lookupables as functions.
 
-		}
+				fns_sym <- match.call()[-1][[1]]
+
+				assert(
+					all(sapply(fns, is_fn_matchable)), invoking_call,
+					message(fn_sym, fns))
+
+			}
+		})
 
 	this$must_be_collections_of_length_matching <-
-		function (colls, coll, invoking_call) {
-			# the collections inside collection has the
-			# same length as coll.
+		local({
 
-			colls_sym <- match.call()[-1][[1]]
-			coll_sym <- match.call()[-1][[2]]
-
-
-			message <- "the internal collections of the argument matching " %+%
+			message <- function (colls_sym, coll_sym, colls) {
+				"the internal collections of the argument matching " %+%
 				ddquote(colls_sym) %+% " must have length equal to that of " %+%
 				ddquote(coll_sym) %+% "." %+% summate(colls)
+			}
 
-			assert(
-				all(vapply(colls, length, integer(1)) == length(coll)),
-				invoking_call, message)
-		}
+			function (colls, coll, invoking_call) {
+				# the collections inside collection has the
+				# same length as coll.
+
+				colls_sym <- match.call()[-1][[1]]
+				coll_sym <- match.call()[-1][[2]]
+
+				assert(
+					all(vapply(colls, length, integer(1)) == length(coll)),
+					invoking_call, message(colls_sym, coll_sym, colls))
+			}
+		})
 
 	this$must_be_collection_of_lengths <-
-		function (colls, lengths, invoking_call) {
-			# the collection must have values of a certain length.
+		local({
 
-			coll_sym <- match.call()[-1][[1]]
-			lengths <- paste(lengths, collapse = " or ")
+			message <- function (coll_sym, lengths, colls) {
 
-			message <- "the argument matching " %+% ddquote(coll_sym) %+%
+				lengths <- paste(lengths, collapse = " or ")
+
+				"the argument matching " %+% ddquote(coll_sym) %+%
 				" must be a collection of length " %+% lengths %+% " values." %+%
 				summate(colls)
+			}
 
-		}
+			function (colls, lengths, invoking_call) {
+				# the collection must have values of a certain length.
+
+				coll_sym <- match.call()[-1][[1]]
+
+				assert(
+					all(vapply(colls, length, integer(1)) %in% lengths),
+					invoking_call, message(coll_sym, lengths, colls))
+			}
+		})
 
 	this$must_be_collection_of_equal_length <-
-		function (colls, invoking_call) {
-			# the collection must be a collection of equal length values.
+		local({
 
-			colls_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(colls_sym) %+%
+			message <- function (coll_sym, coll) {
+				"the argument matching " %+% ddquote(colls_sym) %+%
 				" must be a collection of collections of equal length." %+%
 				summate(colls)
+			}
 
-			assert(
-				length(unique( vapply(colls, length, integer(1)) )) == 1,
-				invoking_call, message)
+			function (colls, invoking_call) {
+				# the collection must be a collection of equal length values.
 
-		}
+				colls_sym <- match.call()[-1][[1]]
 
+				assert(
+					length(unique( vapply(colls, length, integer(1)) )) == 1,
+					invoking_call, message(coll_sym, coll))
+
+			}
+		})
 	#  -------- numeric -------- #
 
 	this$must_be_greater_than <-
-		function (num, minimum, invoking_call) {
-			# the number must be larger than a minimum.
+		local({
 
-			num_sym <- match.call()[-1][[1]]
-
-			message <- "the number matching " %+% ddquote(num_sym) %+%
+			message <- function (num_sym, minimum, num) {
+				"the number matching " %+% ddquote(num_sym) %+%
 				" must be larger than " %+% minimum %+% "." %+%
 				summate(num)
+			}
 
-			assert(
-				num > minimum, invoking_call,
-				message)
-		}
+			function (num, minimum, invoking_call) {
+				# the number must be larger than a minimum.
+
+				num_sym <- match.call()[-1][[1]]
+
+				assert(
+					num > minimum, invoking_call,
+					message(num_sym, minimum, num))
+			}
+		})
 
 	this$must_be_grequal_than <-
-		function (num, minimum, invoking_call) {
-			# the number must be larger or equal than a minimum.
+		local({
 
-			num_sym <- match.call()[-1][[1]]
-
-			message <- "the number matching " %+% ddquote(num_sym) %+%
+			message <- function (num_sym, minimum, num) {
+				"the number matching " %+% ddquote(num_sym) %+%
 				" must be greater or equal to " %+% minimum %+% "." %+%
 				summate(num)
+			}
 
-			assert(
-				num >= minimum, invoking_call,
-				message)
-		}
+			function (num, minimum, invoking_call) {
+				# the number must be larger or equal than a minimum.
+
+				num_sym <- match.call()[-1][[1]]
+
+				assert(
+					num >= minimum, invoking_call,
+					message(num_sym, minimum, num))
+			}
+		})
 
 	this$minimum_must_be_greater_than <-
-		function (nums, minimum, invoking_call) {
-			# the minimum number in a vector must be larger than a minimum.
+		local({
 
-			nums_sym <- match.call()[-1][[1]]
-
-			message <- "the number matching " %+% ddquote(nums_sym) %+%
+			message <- function (nums_sym, minimum, nums) {
+				"the number matching " %+% ddquote(nums_sym) %+%
 				" must be larger than " %+% minimum %+% "." %+%
 				summate(nums)
+			}
 
-			assert(
-				min(nums) >= minimum, invoking_call,
-				message)
-		}
+			function (nums, minimum, invoking_call) {
+				# the minimum number in a vector must be larger than a minimum.
+
+				nums_sym <- match.call()[-1][[1]]
+
+				assert(
+					min(nums) >= minimum, invoking_call,
+					message(nums_sym, minimum, nums))
+			}
+		})
 
 	this$max_must_be_less_than_length_of <-
-		function (nums, coll, invoking_call) {
-			# the largest value must have length less than a collection.
+		local({
 
-			nums_sym <- match.call()[-1][[1]]
-			coll_sym <- match.call()[-1][[2]]
-
-			message <- "the maximum number in the argument matching " %+% ddquote(nums_sym) %+%
+			message <- function (num_sym, coll_sym, nums) {
+				"the maximum number in the argument matching " %+% ddquote(nums_sym) %+%
 				" must be less than or equal to " %+% " the length of the argument matching" %+%
 				ddquote(coll_sym) %+% "." %+%
 				summate(nums)
+			}
 
-			assert(
-				max(nums) <= length(coll), invoking_call,
-				message)
-		}
+			function (nums, coll, invoking_call) {
+				# the largest value must have length less than a collection.
+
+				nums_sym <- match.call()[-1][[1]]
+				coll_sym <- match.call()[-1][[2]]
+
+				assert(
+					max(nums) <= length(coll), invoking_call,
+					message)
+			}
+		})
 
 	this$must_be_whole <-
-		function (nums, invoking_call) {
-			# the numbers matching a value must be round.
+		local({
 
-			nums_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(nums_sym) %+%
+			message <- function (nums_sym, nums) {
+				"the argument matching " %+% ddquote(nums_sym) %+%
 				" must be a whole number." %+%
 				summate(nums)
+			}
 
-			assert(
-				all(round(nums) == nums), invoking_call,
-				message)
-		}
+			function (nums, invoking_call) {
+				# the numbers matching a value must be round.
+
+				nums_sym <- match.call()[-1][[1]]
+
+				assert(
+					all(round(nums) == nums), invoking_call,
+					message(nums_sym, nums))
+			}
+		})
 
 	this$must_be_nonnegative <-
-		function (nums, invoking_call) {
-			# the number must be non-negative.
+		local({
 
-			nums_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(nums_sym) %+%
+			message <- function (nums_sym, nums) {
+				"the argument matching " %+% ddquote(nums_sym) %+%
 				" must be a collection of non-negative numbers." %+%
 				summate(nums)
+			}
 
-			assert(
-				all(nums > 0), invoking_call,
-				message)
+			function (nums, invoking_call) {
+				# the number must be non-negative.
 
-		}
+				nums_sym <- match.call()[-1][[1]]
+
+				assert(
+					all(nums > 0), invoking_call,
+					message(nums_sym, nums))
+
+			}
+		})
 
 	#  -------- binding locked -------- #
 
 	this$must_be_unlocked <-
-		function (sym, parent_frame, invoking_call) {
-			# the variable cannot be altered.
+		local({
 
-			message <- "the variable name " %+% ddquote(sym) %+%
+			message <- function (sym) {
+				"the variable name " %+% ddquote(sym) %+%
 				" referenced a locked variable that cannot be altered."
-
-			is_unlocked <- if (exists(sym, where = parent_frame)) {
-				!bindingIsLocked(sym, parent_frame)
-			} else {
-				True
 			}
 
-			assert(
-				is_unlocked, invoking_call,
-				message)
-		}
+			function (sym, parent_frame, invoking_call) {
+				# the variable cannot be altered.
+
+				is_unlocked <- if (exists(sym, where = parent_frame)) {
+					!bindingIsLocked(sym, parent_frame)
+				} else {
+					True
+				}
+
+				assert(
+					is_unlocked, invoking_call,
+					message(sym))
+			}
+		})
 
 	this$must_exist <-
-		function (sym, parent_frame, invoking_call) {
-			# the variable doesn't exist.
+		local({
 
-			sym <- toString(sym)
-
-			message <- "the variable referenced by the name " %+%
+			message <- function (sym) {
+				"the variable referenced by the name " %+%
 				ddquote(sym) %+% " does not exist."
+			}
 
-			assert(
-				exists(sym, envir = parent_frame),
-				invoking_call, message)
-		}
+			function (sym, parent_frame, invoking_call) {
+				# the variable doesn't exist.
+
+				sym <- toString(sym)
+
+				assert(
+					exists(sym, envir = parent_frame),
+					invoking_call, message(sym))
+			}
+		})
 
 	this$must_be_invoked_with_brackets <-
-		function (invoking_call) {
+		local({
 
-			message <- "comprehension objects cannot be invoked as a " %+%
-				"function: theu must be invoked with square brackets ( [] )"
+			message <- function () {
+				"comprehension objects cannot be invoked as a " %+%
+				"function: they must be invoked with square brackets ( [] )"
+			}
 
-			assert(
-				False, invoking_call, message)
-		}
+			function (invoking_call) {
+
+				assert(
+					False, invoking_call, message())
+			}
+		})
 
 	this$must_be_correct_type <-
-		function (coll_sym, coll, mode, invoking_call) {
+		local({
 
-			message <- "the collection " %+% ddquote(coll_sym) %+% " cannot be " %+%
-			"converted to a vector of mode " %+% ddquote(mode)
+			message <- function (coll_sym, mode) {
+				"the collection " %+% ddquote(coll_sym) %+% " cannot be " %+%
+				"converted to a vector of mode " %+% ddquote(mode)
+			}
 
-			assert(
-				mode %in% is(coll), invoking_call, message)
-		}
+			function (coll_sym, coll, mode, invoking_call) {
+
+				assert(
+					mode %in% is(coll), invoking_call, message(coll_sym, mode))
+			}
+		})
 
 	this$must_be_heterogenous <-
 		local({
@@ -743,24 +830,34 @@ demand <- local({
 	this <- Object()
 
 	this$must_have_yield <-
-		function (indices, invoking_call) {
+		local({
 
-			message <- "a collection-comprehension must not begin with a " %+%
+			message <- function () {
+				"a collection-comprehension must not begin with a " %+%
 				"variable bind expression."
+			}
 
-			assert(
-				1 %!in% indices, invoking_call, message)
-		}
+			function (indices, invoking_call) {
+
+				assert(
+					1 %!in% indices, invoking_call, message())
+			}
+		})
 
 	this$must_be_unnamed <-
-		function (exprs, invoking_call) {
+		local({
 
-			message <- "a collection-comprehension cannot have named sub-terms."
+			message <- function () {
+				"a collection-comprehension cannot have named sub-terms."
+			}
 
-			assert(
-				is.null(names(exprs)), invoking_call,
-				message)
-		}
+			function (exprs, invoking_call) {
+
+				assert(
+					is.null(names(exprs)), invoking_call,
+					message())
+			}
+		})
 
 	this$must_all_be_matched <-
 		function (indices, exprs, invoking_call) {
@@ -780,15 +877,20 @@ demand <- local({
 		}
 
 	this$must_have_bindings <-
-		function (variables, invoking_call) {
+		local({
 
-			message <- "a non-empty collection-comprehension must have " %+%
-			"at least one variable binding."
+			message <- function () {
+				"a non-empty collection-comprehension must have " %+%
+				"at least one variable binding."
+			}
 
-			assert(
-				length(variables) > 0, invoking_call,
-				message)
-		}
+			function (variables, invoking_call) {
+
+				assert(
+					length(variables) > 0, invoking_call,
+					message())
+			}
+		})
 
 	this
 
