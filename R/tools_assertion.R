@@ -36,12 +36,15 @@ format_call <- function (call) {
 	}
 }
 
+# -------------------------------- colourise -------------------------------- #
+#
+# To Developers,
+# colourise is a set of functions that wraps strings in ansii escape sequences
+# on coloured terminals, allowing coloured text to be printed.
 
 colourise <- local({
-	# Console colour-checking based on Hadley Wickham's 
-	# colouring for testthat.
 
-	is_colourisable <- function () {
+	supports_colour <- function () {
 		# is a terminal colourisable.
 
 		terminal <- Sys.getenv()["TERM"]
@@ -54,54 +57,46 @@ colourise <- local({
 	list(
 		black =
 			function (message) {
-				if (is_colourisable()) {
-					"\033[0;30m" %+% message %+% "\033[0m"	
+				if (supports_colour()) {
+					"\033[0;30m" %+% message %+% "\033[0m"
 				} else {
 					message
-				}	
+				}
 			},
 		red =
 			function (message) {
-				if (is_colourisable()) {
-					"\033[0;31m" %+% message %+% "\033[0m"	
+				if (supports_colour()) {
+					"\033[0;31m" %+% message %+% "\033[0m"
 				} else {
 					message
-				}	
+				}
 			},
 		green =
 			function (message) {
-				if (is_colourisable()) {
-					"\033[0;32m" %+% message %+% "\033[0m"	
+				if (supports_colour()) {
+					"\033[0;32m" %+% message %+% "\033[0m"
 				} else {
 					message
-				}	
+				}
 			},
 		blue =
 			function (message) {
-				if (is_colourisable()) {
-					"\033[0;34m" %+% message %+% "\033[0m"	
+				if (supports_colour()) {
+					"\033[0;34m" %+% message %+% "\033[0m"
 				} else {
 					message
-				}	
+				}
 			},
 		yellow =
 			function (message) {
-				if (is_colourisable()) {
-					"\033[1;33m" %+% message %+% "\033[0m"	
+				if (supports_colour()) {
+					"\033[1;33m" %+% message %+% "\033[0m"
 				} else {
 					message
-				}	
+				}
 			}
 	)
 })
-
-
-
-
-
-
-
-
 
 
 write_error <- local({
@@ -182,7 +177,8 @@ assert <- local({
 #
 #     insist $ must_be_fn_matchable(fn, invoking_call)
 #
-#
+# Each function encloses a message function to stop the function being
+# repeatedly created when assertions are ran.
 
 insist <- local({
 
@@ -191,180 +187,239 @@ insist <- local({
 	#  -------- value -------- #
 
 	this$must_be_of_length <-
-		function (val, lengths, invoking_call) {
-			# the value must have a length in the set of lengths.
+		local({
 
-			val_sym <- match.call()[-1][[1]]
+			message <- function (val_sym, lengths, val) {
 
-			lengths_summary <- paste(lengths, collapse = " or ")
+				lengths_summary <- paste(lengths, collapse = " or ")
 
-			message <- "the argument matching " %+% ddquote(val_sym) %+%
+				"the argument matching " %+% ddquote(val_sym) %+%
 				" must have length " %+% lengths_summary %+% "." %+%
 				summate(val)
+			}
 
-			assert(
-				length(val) %in% lengths, invoking_call,
-				message)
-		}
+			function (val, lengths, invoking_call) {
+				# the value must have a length in the set of lengths.
+
+				val_sym <- match.call()[-1][[1]]
+
+				assert(
+					length(val) %in% lengths, invoking_call,
+					message(val_sym, lengths, val))
+			}
+		})
 
 	#  -------- functions -------- #
 
 	this$must_be_logical_result <-
-		function (result, pred, invoking_call) {
-			# predicates must return logical values.
+		local({
 
-			pred_sym <- match.call()[-1][[2]]
-
-			message <- "the predicate function " %+% ddquote(pred_sym) %+%
+			message <- function (pred_sym, pred) {
+				"the predicate function " %+% ddquote(pred_sym) %+%
 				" produced a non-logical value." %+%
 				summate(pred)
+			}
 
-			assert(
-				is.logical(result), invoking_call, message)
+			function (result, pred, invoking_call) {
+				# predicates must return logical values.
 
-		}
+				pred_sym <- match.call()[-1][[2]]
+
+				assert(
+					is.logical(result), invoking_call, message(pred_sym, pred))
+
+			}
+		})
 
 	this$must_be_non_primitive <-
-		function (fn, invoking_call) {
-			# the function must be non primitive function.
+		local({
 
-			fn_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(fn_sym) %+%
+			message <- function (fn_sym, fn) {
+				"the argument matching " %+% ddquote(fn_sym) %+%
 				" must be a non-primitive function." %+%
 				summate(fn)
+			}
 
-			assert(
-				!is.primitive(fn), invoking_call,
-				message)
-		}
+			function (fn, invoking_call) {
+				# the function must be non primitive function.
+
+				fn_sym <- match.call()[-1][[1]]
+
+				assert(
+					!is.primitive(fn), invoking_call,
+					message(fn_sym, fn))
+			}
+		})
 
 	this$must_be_fn_matchable <-
-		function (fn, invoking_call) {
-			# the value must be lookupable as a function.
+		local({
 
-			fn_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(fn_sym) %+%
+			message <- function (fn_sym, fn) {
+				"the argument matching " %+% ddquote(fn_sym) %+%
 				" must be a function, or a symbol or string" %+%
 				" that can be looked-up as a function. "%+%
 				summate(fn)
+			}
 
-			assert(
-				is_fn_matchable(fn),
-				invoking_call, message)
-		}
+			function (fn, invoking_call) {
+				# the value must be lookupable as a function.
+
+				fn_sym <- match.call()[-1][[1]]
+
+				assert(
+					is_fn_matchable(fn),
+					invoking_call, message(fn_sym, fn))
+			}
+		})
 
 	this$must_be_parametres_of <-
-		function (names, fn, invoking_call) {
-			# the names given must be parametre names
-			# of the function given.
+		local({
 
-			names_sym <- match.call()[-1][[1]]
-			fn_sym <- match.call()[-1][[2]]
+			message <- function (names_sym, fn_sym, names) {
 
-			names <- names[nchar(names) > 0]
+				names <- names[nchar(names) > 0]
 
-			message <- "the elements of " %+% names_sym %+%
+				"the elements of " %+% names_sym %+%
 				" must be parametre names of " %+% fn_sym %+% "." %+%
 				summate(names)
+			}
 
-			assert(
-				all(names %in% xParamsOf(fn)), invoking_call,
-				message)
-		}
+			function (names, fn, invoking_call) {
+				# the names given must be parametre names
+				# of the function given.
+
+				names_sym <- match.call()[-1][[1]]
+				fn_sym <- match.call()[-1][[2]]
+
+				assert(
+					all(names %in% xParamsOf(fn)), invoking_call,
+					message(names_sym, fn_sym, names))
+			}
+		})
 
 	#  -------- character -------- #
 
 	this$must_be_character <-
-		function (strs, invoking_call) {
-			# the value must be a character vector.
+		local({
 
-			strs_sym <- match.call()[-1][[1]]
+			message <- function (strs_sym, strs) {
 
-			message <- "the argument matching " %+% ddquote(strs_sym) %+%
+				"the argument matching " %+% ddquote(strs_sym) %+%
 				" must be a character vector." %+%
 				summate(strs)
+			}
 
-			assert(
-				is.character(strs), invoking_call,
-				message)
-		}
+			function (strs, invoking_call) {
+				# the value must be a character vector.
+
+				strs_sym <- match.call()[-1][[1]]
+
+				assert(
+					is.character(strs), invoking_call,
+					message(strs_sym, strs))
+			}
+		})
 
 	#  -------- collection -------- #
 
 	this$must_be_collection <-
-		function (coll, invoking_call) {
-			# the value must be a collection.
+		local({
 
-			coll_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(coll_sym) %+%
+			message <- function (coll_sym, coll) {
+				"the argument matching " %+% ddquote(coll_sym) %+%
 				" must be a list, a pairlist or a typed vector." %+%
 				summate(coll)
+			}
 
-			assert(
-				is_collection(coll), invoking_call,
-				message)
+			function (coll, invoking_call) {
+				# the value must be a collection.
 
-		}
+				coll_sym <- match.call()[-1][[1]]
+
+				assert(
+					is_collection(coll), invoking_call,
+					message(coll_sym, coll))
+			}
+		})
 
 	this$must_be_recursive <-
-		function (coll, invoking_call) {
+		local({
 
-			coll_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(coll_sym) %+%
+			message <- function (coll_sym, coll) {
+				"the argument matching " %+% ddquote(coll_sym) %+%
 				" must be a list or a pairlist." %+%
 				summate(coll)
+			}
 
-			assert(
-				is.recursive(coll), invoking_call,
-				message)
+			function (coll, invoking_call) {
 
-		}
+				coll_sym <- match.call()[-1][[1]]
+
+				assert(
+					is.recursive(coll), invoking_call,
+					message(coll_sym, coll))
+			}
+		})
 
 	this$must_be_longer_than <-
-		function (coll, length, invoking_call) {
-			# the collection must be longer than.
+		local({
 
-			coll_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(coll_sym) %+%
+			message <- function (coll_sym, coll) {
+				"the argument matching " %+% ddquote(coll_sym) %+%
 				" must have length longer than " %+% length %+% "." %+%
 				summate(coll)
+			}
 
-			assert(
-				length(coll) >= length, invoking_call,
-				message)
-		}
+			function (coll, length, invoking_call) {
+				# the collection must be longer than.
+
+				coll_sym <- match.call()[-1][[1]]
+
+				assert(
+					length(coll) >= length, invoking_call,
+					message(coll_sym, coll))
+			}
+		})
 
 	this$must_be_longer_or_equal_than <-
-		function (coll, length, invoking_call) {
-			# the collection must be longer than.
+		local({
 
-			coll_sym <- match.call()[-1][[1]]
-
-			message <- "the argument matching " %+% ddquote(coll_sym) %+%
+			message <- function (coll_sym, length, coll) {
+				"the argument matching " %+% ddquote(coll_sym) %+%
 				" must have length equal or longer than " %+% length %+%
 				"."  %+% summate(coll)
+			}
 
-			assert(
-				length(coll) >= length, invoking_call,
-				message)
-		}
+			function (coll, length, invoking_call) {
+				# the collection must be longer than.
+
+				coll_sym <- match.call()[-1][[1]]
+
+				assert(
+					length(coll) >= length, invoking_call,
+					message(coll_sym, length, coll))
+			}
+		})
 
 		this$must_be_equal_length <-
-			function (coll1, coll2, invoking_call) {
-				# both collections must have equal lengths.
+			local({
 
-				coll1_sym <- match.call()[-1][[1]]
-				coll2_sym <- match.call()[-1][[2]]
-
-				message <- "both " %+% coll1_sym %+% " and " %+% coll2_sym %+%
+				message <- function (coll1_sym, coll2_sym) {
+					"both " %+% coll1_sym %+% " and " %+% coll2_sym %+%
 					" must have equal lengths."
+				}
 
-			}
+				function (coll1, coll2, invoking_call) {
+					# both collections must have equal lengths.
+
+					coll1_sym <- match.call()[-1][[1]]
+					coll2_sym <- match.call()[-1][[2]]
+
+					assert(
+						length(coll1) == length(coll2), invoking_call,
+						message(coll1_sym, coll2_sym))
+				}
+			})
 
 	#  -------- names  -------- #
 
@@ -637,31 +692,31 @@ insist <- local({
 			# a vector must be convertable to a type.
 
 			all_are <- list(
-				integer = 
+				integer =
 					function (coll) {
 						all( vapply(coll, is.integer, logical(1)) )
 					},
-				logical = 
+				logical =
 					function (coll) {
 						all( vapply(coll, is.logical, logical(1)) )
 					},
-				double = 
+				double =
 					function (coll) {
 						all( vapply(coll, is.double, logical(1)) )
 					},
-				numeric = 
+				numeric =
 					function (coll) {
 						all( vapply(coll, is.numeric, logical(1)) )
 					},
-				character = 
+				character =
 					function (coll) {
 						all( vapply(coll, is.character, logical(1)) )
 					},
-				raw = 
+				raw =
 					function (coll) {
 						all( vapply(coll, is.raw, logical(1)) )
 					},
-				complex = 
+				complex =
 					function (coll) {
 						all( vapply(coll, is.complex, logical(1)) )
 					}
@@ -669,7 +724,7 @@ insist <- local({
 
 			function (coll_sym, coll, mode, invoking_call) {
 
-				message <- "the collection " %+% ddquote(coll_sym) %+% 
+				message <- "the collection " %+% ddquote(coll_sym) %+%
 				" must be a collection of values of type " %+% ddquote(mode)
 
 				assert(

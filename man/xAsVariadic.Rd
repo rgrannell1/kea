@@ -35,17 +35,18 @@ Other function_application_functions: \code{\link{xApply}},
 \code{\link{xApply...}}; \code{\link{xAsUnary}};
 \code{\link{xThread}}, \code{\link{xThread...}}
 
-Other function_modifying_functions:
-\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
-\code{\link{xCompose}}, \code{\link{xCompose...}};
-\code{\link{xConst}}, \code{\link{xK}};
-\code{\link{xDelay}}; \code{\link{xFlip}};
-\code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
-\code{\link{xLift}}, \code{\link{xLift...}};
-\code{\link{xNot}}; \code{\link{xPartial}},
-\code{\link{xPartial...}}; \code{\link{xThread}},
-\code{\link{xThread...}}; \code{\link{xVectorise}},
-\code{\link{xVectorize}}
+Other function_modifying_functions: \code{\link{\%and\%}},
+\code{\link{\%or\%}}, \code{\link{xLift}},
+\code{\link{xLift...}}; \code{\link{\%of\%}},
+\code{\link{\%then\%}}, \code{\link{xCompose}},
+\code{\link{xCompose...}}; \code{\link{xAsClosure}};
+\code{\link{xAsUnary}}; \code{\link{xConst}},
+\code{\link{xK}}; \code{\link{xDelay}};
+\code{\link{xFlip}}; \code{\link{xJuxtapose}},
+\code{\link{xJuxtapose...}}; \code{\link{xNot}};
+\code{\link{xPartial}}, \code{\link{xPartial...}};
+\code{\link{xThread}}, \code{\link{xThread...}};
+\code{\link{xVectorise}}, \code{\link{xVectorize}}
 
 Other parametre_functions: \code{\link{xAsUnary}};
 \code{\link{xFlip}}; \code{\link{xFormalsOf}};

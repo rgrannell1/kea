@@ -50,19 +50,23 @@ NULL
 
 }
 \seealso{
-Other function_combining_functions: \code{\link{xCompose}},
-\code{\link{xCompose...}}; \code{\link{xLift}},
-\code{\link{xLift...}}
+Other function_combining_functions: \code{\link{\%and\%}},
+\code{\link{\%or\%}}, \code{\link{xLift}},
+\code{\link{xLift...}}; \code{\link{\%of\%}},
+\code{\link{\%then\%}}, \code{\link{xCompose}},
+\code{\link{xCompose...}}
 
-Other function_modifying_functions:
-\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xCompose}},
-\code{\link{xCompose...}}; \code{\link{xConst}},
-\code{\link{xK}}; \code{\link{xDelay}};
-\code{\link{xFlip}}; \code{\link{xLift}},
-\code{\link{xLift...}}; \code{\link{xNot}};
-\code{\link{xPartial}}, \code{\link{xPartial...}};
-\code{\link{xThread}}, \code{\link{xThread...}};
-\code{\link{xVectorise}}, \code{\link{xVectorize}}
+Other function_modifying_functions: \code{\link{\%and\%}},
+\code{\link{\%or\%}}, \code{\link{xLift}},
+\code{\link{xLift...}}; \code{\link{\%of\%}},
+\code{\link{\%then\%}}, \code{\link{xCompose}},
+\code{\link{xCompose...}}; \code{\link{xAsClosure}};
+\code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+\code{\link{xConst}}, \code{\link{xK}};
+\code{\link{xDelay}}; \code{\link{xFlip}};
+\code{\link{xNot}}; \code{\link{xPartial}},
+\code{\link{xPartial...}}; \code{\link{xThread}},
+\code{\link{xThread...}}; \code{\link{xVectorise}},
+\code{\link{xVectorize}}
 }
 

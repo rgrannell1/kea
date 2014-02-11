@@ -1,7 +1,22 @@
 
 #' xPartial
 #'
-#' Partially apply a function.
+#' Fix several arguments of a function, producing a function of smaller arity.
+#'
+#' @details
+#'     Partial application is a mechanism for specialising a general function
+#'     to a particular purpose. For example, the very general function \bold{xMap}
+#'     can be easily specialised to particular tasks using \code{xPartial}:
+#'     
+#'     \code{lengths <- xPartial(xMap, list(fn = length))}
+#'
+#'     \code{sizes <- xPartial(xMap, object.size))}
+#'
+#'     In this case the use of xPartial can match the argument to specialise by
+#'     name, or by position. The use of \bold{xPartial} over \bold{xPartial...} is
+#'     required in the first case, to avoid a parametre name class between the argument of 
+#'     \bold{xMap} to fix (fn) and the function passed to \bold{xPartial} (fn).
+#'
 #'
 #' @param
 #'    fn an arbitrary function. The function to have some

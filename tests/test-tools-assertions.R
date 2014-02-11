@@ -7,7 +7,7 @@ format_call <- arrow:::format_call
 invoking_call <- format_call(
 	quote(xMap(x := x^2, coll = 1:10)) )
 
-message("must_be_logical_result")
+message("insist $ must_be_logical_result")
 
 	test_sym <- NULL
 
@@ -18,11 +18,11 @@ message("must_be_logical_result")
 			coll, test_sym, invoking_call)
 	)
 
-message("max_must_be_less_than_length_of")
+message("insist $ max_must_be_less_than_length_of")
 
-message("minimum_must_be_greater_than")
+message("insist $ minimum_must_be_greater_than")
 
-message("must_be_character")
+message("insist $ must_be_character")
 
 	forall(
 		"must be must_be_character works",
@@ -30,7 +30,7 @@ message("must_be_character")
 		insist $ must_be_character(str, invoking_call)
 	)
 
-message("must_be_collection")
+message("insist $ must_be_collection")
 
 	forall(
 		"must be must_be_character works",
@@ -38,29 +38,31 @@ message("must_be_collection")
 		insist $ must_be_collection(coll, invoking_call)
 	)
 
-message("must_be_collection_of_collections")
+message("insist $ must_be_collection_of_collections")
 
-message("must_be_collection_of_equal_length")
+message("insist $ must_be_collection_of_equal_length")
 
-message("must_be_collection_of_fn_matchable")
 
-message("must_be_collection_of_lengths")
 
-message("must_be_collections_of_length_matching")
+message("insist $ must_be_collection_of_fn_matchable")
 
-message("must_be_equal_length")
+message("insist $ must_be_collection_of_lengths")
 
-message("must_be_fn_matchable")
+message("insist $ must_be_collections_of_length_matching")
 
-message("must_be_fully_named")
+message("insist $ must_be_equal_length")
 
-message("must_be_greater_than")
+message("insist $ must_be_fn_matchable")
 
-message("must_be_grequal_than")
+message("insist $ must_be_fully_named")
 
-message("must_be_longer_or_equal_than")
+message("insist $ must_be_greater_than")
 
-message("must_be_longer_than")
+message("insist $ must_be_grequal_than")
+
+message("insist $ must_be_longer_or_equal_than")
+
+message("insist $ must_be_longer_than")
 
 	forall(
 		"must be longer than works when longer than",
@@ -68,7 +70,7 @@ message("must_be_longer_than")
 		insist $ must_be_longer_than(coll, length(coll) - 1, invoking_call)
 	)
 
-message("must_be_non_primitive")
+message("insist $ must_be_non_primitive")
 
 	forall(
 	    "must be non primitive works for non primitives",
@@ -76,7 +78,7 @@ message("must_be_non_primitive")
 	    insist $ must_be_non_primitive(fn, invoking_call)
 	)
 
-message("must_be_nonnegative")
+message("insist $ must_be_nonnegative")
 
 	forall(
 		"must be non negative works for nonnegative numbers",
@@ -84,7 +86,7 @@ message("must_be_nonnegative")
 		insist $ must_be_nonnegative(coll, invoking_call)
 	)
 
-message("must_be_of_length")
+message("insist $ must_be_of_length")
 
 	forall(
 		"must be of length works for a single length",
@@ -104,7 +106,7 @@ message("must_be_of_length")
 			length(coll) > 0
 	)
 
-message("must_be_parametres_of")
+message("insist $ must_be_parametres_of")
 
 	local({
 
@@ -117,7 +119,7 @@ message("must_be_parametres_of")
 
 	})
 
-message("must_be_recursive")
+message("insist $ must_be_recursive")
 
 	forall(
 		"must be recursive works for lists & pairlists",
@@ -125,7 +127,7 @@ message("must_be_recursive")
 		insist $ must_be_recursive(as.list(coll), invoking_call)
 	)
 
-message("must_be_unlocked")
+message("insist $ must_be_unlocked")
 
 	local({
 		normal <- 1
@@ -134,7 +136,7 @@ message("must_be_unlocked")
 			'normal', environment(), invoking_call)
 	})
 
-message("must_be_whole")
+message("insist $ must_be_whole")
 
 	forall(
 		"must be whole works for wholes",
@@ -142,12 +144,12 @@ message("must_be_whole")
 		insist $ must_be_whole(num, invoking_call)
 	)
 
-message("must_exist")
+message("insist $ must_exist")
 
 	local({
 		a <- 1
 		insist $ must_exist('a', environment(), invoking_call)
 	})
 
-message("must_be_collection_of_equal_names")
+message("insist $ must_be_collection_of_equal_names")
 

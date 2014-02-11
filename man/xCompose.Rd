@@ -1,4 +1,6 @@
 \name{xCompose}
+\alias{\%of\%}
+\alias{\%then\%}
 \alias{xCompose}
 \alias{xCompose...}
 \title{xCompose}
@@ -6,6 +8,10 @@
 xCompose(fns)
 
 xCompose...(...)
+
+fn1 \%of\% fn2
+
+fn1 \%then\% fn2
 }
 \arguments{
   \item{fns}{a collection of functions. The functions to
@@ -65,19 +71,21 @@ number of anonymous functions needed by some programs.
 
 }
 \seealso{
-Other function_combining_functions:
-\code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
-\code{\link{xLift}}, \code{\link{xLift...}}
+Other function_combining_functions: \code{\link{\%and\%}},
+\code{\link{\%or\%}}, \code{\link{xLift}},
+\code{\link{xLift...}}; \code{\link{xJuxtapose}},
+\code{\link{xJuxtapose...}}
 
-Other function_modifying_functions:
-\code{\link{xAsClosure}}; \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xConst}},
-\code{\link{xK}}; \code{\link{xDelay}};
-\code{\link{xFlip}}; \code{\link{xJuxtapose}},
-\code{\link{xJuxtapose...}}; \code{\link{xLift}},
-\code{\link{xLift...}}; \code{\link{xNot}};
-\code{\link{xPartial}}, \code{\link{xPartial...}};
-\code{\link{xThread}}, \code{\link{xThread...}};
-\code{\link{xVectorise}}, \code{\link{xVectorize}}
+Other function_modifying_functions: \code{\link{\%and\%}},
+\code{\link{\%or\%}}, \code{\link{xLift}},
+\code{\link{xLift...}}; \code{\link{xAsClosure}};
+\code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+\code{\link{xConst}}, \code{\link{xK}};
+\code{\link{xDelay}}; \code{\link{xFlip}};
+\code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
+\code{\link{xNot}}; \code{\link{xPartial}},
+\code{\link{xPartial...}}; \code{\link{xThread}},
+\code{\link{xThread...}}; \code{\link{xVectorise}},
+\code{\link{xVectorize}}
 }
 

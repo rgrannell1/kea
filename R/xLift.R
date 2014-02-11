@@ -1,18 +1,21 @@
 
 #' xLift
 #'
-#' Compose a binary function with two other functions.
+#' Compose a function with two other functions.
 #'
 #' @details
+#'    \bold{xLift} takes a function that works on some type of value, and makes that 
+#'    function work on \ital{functions of those values}. 
 #'
 #'
-#' Two partially applied version of \bold{xLift} exist;
-#' \bold{\%or\%} and \bold{\%and\%}. These exist to solve
+#'    Two partially applied version of \bold{xLift} exist; \%and\% & \%or\%.
+#'    These are primarily intended for use with higher-order functions that take a predicate,
+#'    allowing several predicates to be stringed together into a new predicate.
 #'
-#' \code{is.na(x) || is.null(x) || is.nan(x)}
+#' \code{xSelect(is.integer %or% is.complex, list(1L, 1+1i, 2L, 'string'))}
 #'
+#' \code{list(1L, 1+1i, 2L, 'string')}
 #'
-#' \code{(is.na \%or\% is.null \%or\% is.nan)(x)}
 #'
 #' @param
 #'    fn a binary function.
@@ -79,3 +82,15 @@ xLift... <- function (fn, ...) {
 	do.call( xLift, list(fn, list(...)) )
 }
 
+#' @rdname xLift
+#' @export
+
+'%or%' <- function (fn1, fn2) {
+	xLift('||', list(fn1, fn2))
+}
+
+#' @rdname xLift
+#' @export
+'%and%' <- function (fn1, fn2) {
+	xLift('&&', list(fn1, fn2))
+}

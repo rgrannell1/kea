@@ -57,14 +57,18 @@ xOrder <- function (nums) {
 		integer(0)
 	} else {
 
-		nums[is.nan(nums) || is.na(nums)] <- -Inf
+		nums[is.nan(nums) | is.na(nums)] <- -Inf
 		ordering <- vector('integer', length(nums))
 
 		for (ith in seq_along(nums)) {
 
-			max_index <- which.max( nums )
+			max_index <- which.max(nums)
+
+			print(nums)
+			print(max_index)
+
 			ordering[ith] <- max_index
-			nums[max_index] <- NaN
+			nums[max_index] <- -Inf
 		}
 
 		ordering
