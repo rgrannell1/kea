@@ -1,8 +1,6 @@
 Arrow pre-v0.1.0
 -----------------------------------
 
-<img src="logo.png" height = "180"> </img>
-
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
 Arrow is an opinionated toolset of more than one hundred functions from languages
