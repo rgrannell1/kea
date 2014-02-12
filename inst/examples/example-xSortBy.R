@@ -23,6 +23,7 @@ xZip...(
 )
 
 k_nearest <- (dist : point : space) := {
+	# classification.
 	# given a space of points to test against,
 	# guess the category of a point based on its nearest neighbours.
 

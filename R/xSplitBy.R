@@ -29,67 +29,73 @@
 #' @rdname xSplitWith
 #' @export
 
-xSplitBy <- function (pred, coll) {
+xSplitBy <- local({
 
-	invoking_call <- sys.call()
+	bisect <- function (pred, coll, invoking_call) {
+		# split a collection into a head and tail
+		# using a predicate.
 
-	assert(
-		!missing(pred), invoking_call,
-		exclaim$parametre_missing(pred))
+		for (ith in 1:(length(coll) - 1)) {
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+			is_match <- try_hof(
+				pred( coll[[ith]], coll[[ith + 1]] ),
+				invoking_call)
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+			insist $ must_be_logical_result(
+				is_match, pred, invoking_call)
 
-	pred <- match_fn(pred)
+			if (isTRUE(is_match)) {
 
-	if (length(coll) == 0) {
-		list()
-	} else if (length(coll) == 1) {
-		as.list(coll)
-	} else {
+				return (
+					list(
+						head(coll, ith),
+						tail(coll, -ith)) )
+			}
+		}
 
-		bisect <- function (coll) {
-			# split a collection into a head and tail
-			# using a predicate.
+		list(coll, list())
+	}
 
-			for (ith in 1:(length(coll) - 1)) {
+	function (pred, coll) {
 
-				is_match <- try_hof(
-					pred( coll[[ith]], coll[[ith + 1]] ),
-					invoking_call)
+		invoking_call <- sys.call()
 
-				if (isTRUE(is_match)) {
+		assert(
+			!missing(pred), invoking_call,
+			exclaim$parametre_missing(pred))
 
-					return (
-						list(
-							head(coll, ith),
-							tail(coll, -ith)) )
-				}
+		assert(
+			!missing(coll), invoking_call,
+			exclaim$parametre_missing(coll))
+
+		insist $ must_be_fn_matchable(pred, invoking_call)
+		insist $ must_be_collection(coll, invoking_call)
+
+		pred <- match_fn(pred)
+
+		if (length(coll) == 0) {
+			list()
+		} else if (length(coll) == 1) {
+			as.list(coll)
+		} else {
+
+			cleaved <- list()
+			cleaved_current <- 1
+
+			while (length(coll) > 0) {
+
+				trimmed <- bisect(pred, coll, invoking_call)
+				cleaved[cleaved_current] <- list(as.list(trimmed[1]))
+
+				coll <- trimmed[[2]]
+				cleaved_current <- cleaved_current + 1
 			}
 
-			list(coll, list())
+			cleaved
 		}
-
-		cleaved <- list()
-		cleaved_current <- 1
-
-		while (length(coll) > 0) {
-
-			trimmed <- bisect(coll)
-			cleaved[cleaved_current] <- list(as.list(trimmed[1]))
-
-			coll <- trimmed[[2]]
-			cleaved_current <- cleaved_current + 1
-		}
-
-		cleaved
 	}
-}
 
+})
 #' @rdname xSplitWith
 #' @export
 
