@@ -26,7 +26,6 @@ Divide a collection into groups determined by a predicate.
 \examples{
 
 NULL
-
 }
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},

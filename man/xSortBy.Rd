@@ -74,15 +74,15 @@ xZip...(
 )
 
 k_nearest <- (dist : point : space) := {
+	# classification.
 	# given a space of points to test against,
 	# guess the category of a point based on its nearest neighbours.
 
 	k <- floor( sqrt(xLenOf(space)) )
 
-	distances_to_point <- x_(space) $ xMap(
-		point2 := dist( point, xFirstOf(point2))
-	) $
-	x_AsInteger()
+	dist <- xPartial...(dist, point)
+
+	distances_to_point <- x_(space) $ xMap(dist) $ x_AsInteger()
 
 	# rank the distances from closest to furthest.
 	nearest <- space[xRank(distances_to_point) <= k]

@@ -120,8 +120,9 @@ remove_odds(letters)
 # I think this is most naturally expressed with xFold; starting from an initial
 # area of 0 add the area of each rectangle under the polynomial to the accumulated area.
 
-integrate <- (f : x_bounds : epsilon ) := {
+integrate <- (f : x_bounds) := {
 
+    xVal(epsilon, 0.001)
     x_values <- seq(from = x_bounds[1], to = x_bounds[2], by = epsilon)
 
     xFold(
@@ -135,8 +136,7 @@ integrate <- (f : x_bounds : epsilon ) := {
 
 integrate(
     x := x^3 - 9*x^2,
-    c(-10, +10),
-    0.001
+    c(-10, +10)
 )
 
 # -6000.9
