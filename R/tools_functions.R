@@ -23,6 +23,13 @@ Moot <- function (...) {
 
 # --------------------- misc. tools --------------------- #
 
+#' @section one_of:
+#'
+#' Return one value from a collection.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+
 one_of <- function (coll) {
 	# coll [any] -> any
 	# select a single value from a collection.
@@ -31,29 +38,58 @@ one_of <- function (coll) {
 	coll[[ith]]
 }
 
+#' @section equals:
+#'
+#' R's equal operator doesn't work on lists or strange values.
+#' equals is a better measure of identity.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+
 '%equals%' <- function (a, b) {
 	# are two values identical?
 
 	identical(a, b)
 }
 
+#' @section call_with_params:
+#'
+#' Construct a call to a function 'fnname' with the parametres of
+#' a second function. Useful for higher order functions.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
 
-call_with_params <- function (name, fn) {
+call_with_params <- function (fnname, fn) {
 	# string -> function -> call
 	# create call for a function with
 	# the arguments of another function.
 
 	as.call(
 		lapply(
-			c(name, names(xFormalsOf(fn)) ),
+			c(fnname, names(xFormalsOf(fn)) ),
 			as.symbol))
 }
+
+#' @section +:
+#'
+#' Concatenate two strings.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
 
 "%+%" <- function (x, y) {
 	# javascript-style string concatenation.
 
 	paste0(x, y, sep = "")
 }
+
+#' @section in:
+#'
+#' An infix function to test for the non-membership of an element in a set.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
 
 '%!in%' <- function (x, y) {
 	!(x %in% y)
@@ -64,11 +100,27 @@ match_fn <- match.fun
 
 # --------------------- environment manipulation --------------------- #
 
+#' @section Object:
+#'
+#' Construct an empty environment.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+
 Object <- function () {
 	# construct an empty environment.
 
 	new.env(parent = emptyenv())
 }
+
+#' @section join_env:
+#'
+#' Join two environments together into one environment. This
+#' allows for inheritance of environments without having
+#' to traverse multiple environments.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
 
 join_env <- function (x, y) {
 	# do not use this often; it's a very slow
@@ -84,23 +136,14 @@ join_env <- function (x, y) {
 	as.environment( c(as.list( x ), as.list( y )) )
 }
 
-# --------------------- the arrow container --------------------- #
-
-is_arrow <- function (val) {
-	# is a function an arrow object?
-
-	if (missing(val)) {
-		exclaim$parametre_missing(val)
-	}
-
-	class(val) == "arrow"
-}
-
-
-
-
-
 # --------------------- property tests --------------------- #
+
+#' @section is_fn_matchable:
+#'
+#' Is a value a function, or possibly the name of a function.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
 
 is_fn_matchable <- function (val) {
 	# is a value a function or matchable as a function?
@@ -108,6 +151,14 @@ is_fn_matchable <- function (val) {
 	is.function(val) || is.symbol(val) ||
 	(is.character(val) && length(val) == 1)
 }
+
+#' @section is_collection:
+#'
+#' Is a value a generic or atomic vector or a pairlist.
+#'
+#' @keywords internal
+#' @rdname pkg-internal
+
 
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
