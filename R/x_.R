@@ -520,14 +520,14 @@ x_matrix_proto <- local({
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
-			as.list(this), 
+			as.list(this),
 			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "matrices")
 
 		this
-		
+
 	})
 })
 
@@ -653,7 +653,7 @@ x_data_frame_proto <- local({
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
-			as.list(this), 
+			as.list(this),
 			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
@@ -727,13 +727,13 @@ x_factor_proto <- local({
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
-			as.list(this), 
+			as.list(this),
 			as.list(x_any_proto)[non_overwritten]) )
 		this$private <- list(
 			contents_are = "factors")
 
 		this
-		
+
 	})
 })
 
@@ -1309,11 +1309,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Shuffle, 'coll')
 	add_x_method(this, x_Shuffle..., '...')
 
-	# --- xSplitWith --- #
-	add_x_method(this, xSplitWith, 'coll')
-	add_x_method(this, xSplitWith..., '...')
-	add_x_method(this, x_SplitWith, 'coll')
-	add_x_method(this, x_SplitWith..., '...')
+	# --- xSplitBy --- #
+	add_x_method(this, xSplitBy, 'coll')
+	add_x_method(this, xSplitBy..., '...')
+	add_x_method(this, x_SplitBy, 'coll')
+	add_x_method(this, x_SplitBy..., '...')
 
 	# --- xStopwatch --- #
 	add_x_method(this, xStopwatch, 'num')
@@ -1422,14 +1422,14 @@ x_coll_proto <- local({
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
-			as.list(this), 
+			as.list(this),
 			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "collections")
 
 		this
-		
+
 	})
 })
 
@@ -1705,11 +1705,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_SortBy, 'pred')
 	add_x_method(this, x_SortBy..., '...')
 
-	# --- xSplitWith --- #
-	add_x_method(this, xSplitWith, 'pred')
-	add_x_method(this, xSplitWith..., 'pred')
-	add_x_method(this, x_SplitWith, 'pred')
-	add_x_method(this, x_SplitWith..., 'pred')
+	# --- xSplitBy --- #
+	add_x_method(this, xSplitBy, 'pred')
+	add_x_method(this, xSplitBy..., 'pred')
+	add_x_method(this, x_SplitBy, 'pred')
+	add_x_method(this, x_SplitBy..., 'pred')
 
 	# -------- T ------- #
 	# --- xTakeWhile --- #
@@ -1747,14 +1747,14 @@ x_fn_proto <- local({
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
-			as.list(this), 
+			as.list(this),
 			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "functions")
 
 		this
-		
+
 	})
 })
 

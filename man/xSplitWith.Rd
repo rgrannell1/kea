@@ -1,11 +1,11 @@
-\name{xSplitWith}
-\alias{xSplitWith}
-\alias{xSplitWith...}
+\name{xSplitBy}
+\alias{xSplitBy}
+\alias{xSplitBy...}
 \title{xSplitWith}
 \usage{
-xSplitWith(pred, coll)
+xSplitBy(pred, coll)
 
-xSplitWith...(pred, ...)
+xSplitBy...(pred, ...)
 }
 \arguments{
   \item{pred}{a predicate.}
@@ -15,12 +15,10 @@ xSplitWith...(pred, ...)
   \item{...}{see above.}
 }
 \value{
-A list of two lists.
+A list of lists.
 }
 \description{
-Split a list into two lists; all the elements before the
-first time a predicate returns false, and all the elements
-including and after that point.
+Divide a collection into groups determined by a predicate.
 }
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.

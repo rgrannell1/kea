@@ -113,7 +113,7 @@ Collate:
     'xSignum.R'
     'xSplitAt.R'
     'xExplode.R'
-    'xSplitWith.R'
+    'xSplitBy.R'
     'xSubstring.R'
     'xSuccOf.R'
     'xTake.R'

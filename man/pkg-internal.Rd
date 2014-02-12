@@ -1,11 +1,20 @@
 \docType{data}
 \name{format_call}
+\alias{Object}
 \alias{Truth}
+\alias{\%!in\%}
+\alias{\%+\%}
+\alias{\%equals\%}
 \alias{assert}
+\alias{call_with_params}
 \alias{colourise}
 \alias{demand}
 \alias{format_call}
 \alias{insist}
+\alias{is_collection}
+\alias{is_fn_matchable}
+\alias{join_env}
+\alias{one_of}
 \alias{write_error}
 \title{Package Internals}
 \format{\preformatted{List of 5
@@ -29,6 +38,24 @@ insist
 demand
 
 Truth(...)
+
+one_of(coll)
+
+a \%equals\% b
+
+call_with_params(fnname, fn)
+
+x \%+\% y
+
+x \%!in\% y
+
+Object()
+
+join_env(x, y)
+
+is_fn_matchable(val)
+
+is_collection(val)
 }
 \description{
 Documentation for the internals of Arrow. Every
@@ -78,6 +105,49 @@ repetition of code when implementing arrow functions.
   An internal object containing assertions that are
   required by the collection comprehension functions.
   Mostly contains parse error assertions.
+}
+
+\section{one_of}{
+  Return one value from a collection.
+}
+
+\section{equals}{
+  R's equal operator doesn't work on lists or strange
+  values. equals is a better measure of identity.
+}
+
+\section{call_with_params}{
+  Construct a call to a function 'fnname' with the
+  parametres of a second function. Useful for higher order
+  functions.
+}
+
+\section{+}{
+  Concatenate two strings.
+}
+
+\section{in}{
+  An infix function to test for the non-membership of an
+  element in a set.
+}
+
+\section{Object}{
+  Construct an empty environment.
+}
+
+\section{join_env}{
+  Join two environments together into one environment. This
+  allows for inheritance of environments without having to
+  traverse multiple environments.
+}
+
+\section{is_fn_matchable}{
+  Is a value a function, or possibly the name of a
+  function.
+}
+
+\section{is_collection}{
+  Is a value a generic or atomic vector or a pairlist.
 }
 \keyword{internal}
 
