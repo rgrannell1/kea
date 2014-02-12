@@ -13,6 +13,8 @@
 #'
 #' @family time_functions
 #'
+#' @family inpure_functions
+#'
 #' @example
 #'    inst/examples/example-xStopwatch.R
 #'

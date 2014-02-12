@@ -248,16 +248,19 @@ yelp <- list(
 			"the assertion " %+% expr %+% " returned a non-logical value."
 		},
 	arrow_function_failed =
-		function (callname, call, message) {
+		function (callname, callinfo, message) {
+
+			stopifnot(is.character(message))
 
 			callname <- paste0(callname, collapse = '')
-			call <- wrap(call, indent = 4)
+			callinfo <- wrap(callinfo, indent = 4)
+
 
 			overview <-
 			'\n[ error thrown from ' %+% callname %+% ' ]:\n\n'
 
 			overview %+%
-			call %+% '\n\n' %+%
+			callinfo %+% '\n\n' %+%
 			'[ details ]:\n\n' %+%
 			message
 
@@ -272,9 +275,9 @@ yelp <- list(
 
 			overview <-
 			"[ warning occurred while executing a function passed to " %+% fn %+% " ]\n\n"
-			
+
 			inner_call <- paste0('    ', inner_call)
-			
+
 			warnmessage <- strsplit(warnmessage, '\n')[[1]]
 			warnmessage <- paste0('    ', warnmessage, collapse = '\n')
 
@@ -292,7 +295,7 @@ yelp <- list(
 			"[ an error occurred while executing a function passed to " %+% fn %+% " ]:\n\n"
 
 			inner_call <- paste0('    ', inner_call)
-			
+
 			errmessage <- strsplit(errmessage, '\n')[[1]]
 			errmessage <- paste0('    ', errmessage, collapse = '\n')
 

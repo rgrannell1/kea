@@ -21,4 +21,9 @@ Get the current version number of Arrow.
 
 xVersion( )
 }
+\seealso{
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xExecute}}; \code{\link{xStopwatch}}
+}
 

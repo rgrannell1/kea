@@ -56,27 +56,31 @@ xSplitAt <- function (nums, coll) {
 
 	nums <- unit_to_value(as_typed_vector(nums, "numeric"))
 
+	insist $ must_be_collection(coll, invoking_call)
+	insist $ must_be_collection(nums, invoking_call)
+
+	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
+
 	insist $ must_be_whole(nums, invoking_call)
 	insist $ must_be_nonnegative(nums, invoking_call)
+	insist $ max_must_be_less_than_length_of(nums, coll, invoking_call)
 
 	if (length(coll) == 0) {
 		list()
 	} else {
 
-		coll <- as.list(coll)
+		lapply(
+			xSplitBy(
+				function (ith, drop) {
+					ith %in% nums
+				},
+				seq_along(coll)
+			),
+			function (indices) {
+				coll[unlist(indices)]
+			}
+		)
 
-		nums[nums > length(coll)] <- length(coll)
-		nums <- sort( unique(c(nums, length(coll))) )
-
-		lower <- 1
-		for ( ith in seq_len(length(nums)) ) {
-
-			upper <- nums[[ith]]
-			bounds <- c(bounds, list( coll[lower:upper] ))
-			lower <- upper + 1
-		}
-
-		bounds
 	}
 }
 

@@ -1,10 +1,10 @@
 
-#' xUnion
+#' xUnionOf
 #'``
 #' Get the set union of several collections.
 #'
 #' @details
-#'    \code{xUnion} returns a list of the unique
+#'    \code{xUnionOf} returns a list of the unique
 #'    elements in the combination of each collection
 #'    in \code{colls}.
 #'
@@ -27,12 +27,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xUnion.R
+#'    inst/examples/example-xUnionOf.R
 #'
-#' @rdname xUnion
+#' @rdname xUnionOf
 #' @export
 
-xUnion <- function (colls) {
+xUnionOf <- function (colls) {
 	# Collection any -> Collection any -> Collection any
 	# get the set union of several collections.
 
@@ -48,9 +48,9 @@ xUnion <- function (colls) {
 	}
 }
 
-#' @rdname xUnion
+#' @rdname xUnionOf
 #' @export
 
-xUnion... <- function (...) {
-	xUnion(list(...))
+xUnionOf... <- function (...) {
+	xUnionOf(list(...))
 }

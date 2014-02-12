@@ -1,11 +1,11 @@
 
-#' xRemoveNan
+#' xRejectNa
 #'
-#' Remove the NaN values from a collection.
+#' Remove the Na values from a collection.
 #'
 #' @param
 #'    coll a collection. The collection to remove
-#'    NaN values from.
+#'    na values from.
 #'
 #' @param
 #'    ... see above.
@@ -18,16 +18,15 @@
 #'
 #' @family filtering_functions
 #'
-#'
 #' @example
-#'    inst/examples/example-xRemoveNan.R
+#'    inst/examples/example-xRejectNa.R
 #'
-#' @rdname xRemoveNan
+#' @rdname xRejectNa
 #' @export
 
-xRemoveNan <- function (coll) {
+xRejectNa <- function (coll) {
 	# Collection any -> [any]
-	# remove the nan values from a collection.
+	# remove the na values from a collection.
 
 	invoking_call <- sys.call()
 
@@ -41,14 +40,14 @@ xRemoveNan <- function (coll) {
 		list()
 	} else {
 		coll <- as.list(coll)
-		coll[is.nan(coll)] <- Null
+		coll[is.na(coll)] <- Null
 		coll
 	}
 }
 
-#' @rdname xPoll
+#' @rdname xRejectNa
 #' @export
 
-xRemoveNan... <- function (...) {
-	xRemoveNan(list(...))
+xRejectNa... <- function (...) {
+	xRejectNa(list(...))
 }

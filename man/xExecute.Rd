@@ -15,6 +15,10 @@ Execute a (possibly side-effectful) function before
 continuing with the previous method result.
 }
 \seealso{
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xStopwatch}}; \code{\link{xVersion}}
+
 Other method_functions: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},
 \code{\link{xByLevels}}; \code{\link{xByRows}};

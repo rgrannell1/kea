@@ -1,11 +1,11 @@
 
-#' xRemoveEmpty
+#' xRejectNull
 #'
-#' Remove the empty values from a collection.
+#' Remove the null values from a collection.
 #'
 #' @param
 #'    coll a collection. The collection to remove
-#'    length-zero values from.
+#'    null values from.
 #'
 #' @param
 #'    ... see above.
@@ -19,12 +19,12 @@
 #' @family filtering_functions
 #'
 #' @example
-#'    inst/examples/example-xRemoveEmpty.R
+#'    inst/examples/example-xRejectNull.R
 #'
-#' @rdname xRemoveEmpty
+#' @rdname xRejectNull
 #' @export
 
-xRemoveEmpty <- function (coll) {
+xRejectNull <- function (coll) {
 	# Collection any -> [any]
 	# remove the nan values from a collection.
 
@@ -39,28 +39,15 @@ xRemoveEmpty <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		coll[vapply(
-			as.list(coll),
-			length,
-			integer(1)) == 0 ] <- Null
-
+		coll <- as.list(coll)
+		coll[ vapply(coll, is.null, logical(1)) ] <- Null
 		coll
 	}
 }
 
-#' @rdname xRemoveEmpty
+#' @rdname xRejectNull
 #' @export
 
-xRemoveEmpty... <- function (...) {
-	xRemoveEmpty(list(...))
+xRejectNull... <- function (...) {
+	xRejectNull(list(...))
 }
-
-#' @rdname xRemoveEmpty
-#' @export
-
-xPack <- xRemoveEmpty
-
-#' @rdname xRemoveEmpty
-#' @export
-
-xPack... <- xRemoveEmpty...

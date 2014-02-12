@@ -5,10 +5,11 @@ test_cases <- arrow:::test_cases
 require(arrow)
 
 
-message("xRemoveNull")
+message("xRejectNa")
 
 	forall(
-		"removenull of the empty collection is list()",
+		"removena of the empty collection is list()",
 		test_cases$collection_zero,
-		xRemoveNull(coll) %equals% list()
+		xRejectNa(coll) %equals% list()
 	)
+

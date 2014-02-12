@@ -18,7 +18,6 @@
 #'
 #' @family parametre_functions
 #'
-#'
 #' @example
 #'    inst/examples/example-xFormalsOf.R
 #'

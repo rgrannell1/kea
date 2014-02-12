@@ -52,6 +52,10 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{xThread}}, \code{\link{xThread...}};
 \code{\link{xVectorise}}, \code{\link{xVectorize}}
 
+Other inpure_functions: \code{\link{xDo}},
+\code{\link{xDo...}}; \code{\link{xExecute}};
+\code{\link{xStopwatch}}; \code{\link{xVersion}}
+
 Other time_functions: \code{\link{xLimit}};
 \code{\link{xStopwatch}}
 }

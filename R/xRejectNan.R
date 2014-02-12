@@ -1,11 +1,11 @@
 
-#' xRemoveNull
+#' xRejectNan
 #'
-#' Remove the null values from a collection.
+#' Remove the NaN values from a collection.
 #'
 #' @param
 #'    coll a collection. The collection to remove
-#'    null values from.
+#'    NaN values from.
 #'
 #' @param
 #'    ... see above.
@@ -18,13 +18,14 @@
 #'
 #' @family filtering_functions
 #'
-#' @example
-#'    inst/examples/example-xRemoveNull.R
 #'
-#' @rdname xRemoveNull
+#' @example
+#'    inst/examples/example-xRejectNan.R
+#'
+#' @rdname xRejectNan
 #' @export
 
-xRemoveNull <- function (coll) {
+xRejectNan <- function (coll) {
 	# Collection any -> [any]
 	# remove the nan values from a collection.
 
@@ -40,14 +41,14 @@ xRemoveNull <- function (coll) {
 		list()
 	} else {
 		coll <- as.list(coll)
-		coll[ vapply(coll, is.null, logical(1)) ] <- Null
+		coll[is.nan(coll)] <- Null
 		coll
 	}
 }
 
-#' @rdname xRemoveNull
+#' @rdname xPoll
 #' @export
 
-xRemoveNull... <- function (...) {
-	xRemoveNull(list(...))
+xRejectNan... <- function (...) {
+	xRejectNan(list(...))
 }

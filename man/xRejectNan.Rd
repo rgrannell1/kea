@@ -1,0 +1,33 @@
+\name{xRejectNan}
+\alias{xRejectNan}
+\title{xRejectNan}
+\usage{
+xRejectNan(coll)
+}
+\arguments{
+  \item{coll}{a collection. The collection to remove NaN
+  values from.}
+
+  \item{...}{see above.}
+}
+\value{
+A list.
+}
+\description{
+Remove the NaN values from a collection.
+}
+\examples{
+
+NULL
+
+}
+\seealso{
+Other filtering_functions: \code{\link{xPack}},
+\code{\link{xPack...}}, \code{\link{xRejectEmpty}},
+\code{\link{xRejectEmpty...}}; \code{\link{xPartition}};
+\code{\link{xRejectNa}}, \code{\link{xRejectNa...}};
+\code{\link{xRejectNull}}, \code{\link{xRejectNull...}};
+\code{\link{xReject}}, \code{\link{xReject...}};
+\code{\link{xSelect}}, \code{\link{xSelect...}}
+}
+

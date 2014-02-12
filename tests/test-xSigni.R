@@ -5,12 +5,12 @@ test_cases <- arrow:::test_cases
 require(arrow)
 
 
-message('xSignum')
+message('xSigni')
 
 	forall(
 		"less than zero numbers are -1",
 		test_cases$num_integer,
-		xSignum(num) == -1,
+		xSigni(num) == -1,
 		given =
 			num < 0
 	)
@@ -18,7 +18,7 @@ message('xSignum')
 	forall(
 		"greater than zero numbers are -1",
 		test_cases$num_integer,
-		xSignum(num) == +1,
+		xSigni(num) == +1,
 		given =
 			num > 0
 	)
@@ -26,7 +26,7 @@ message('xSignum')
 	forall(
 		"less than zero numbers are -1",
 		test_cases$num_integer,
-		xSignum(num) == 0,
+		xSigni(num) == 0,
 		given =
 			num == 0
 	)

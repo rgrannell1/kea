@@ -20,7 +20,9 @@ A vector of numbers.
 Rank numbers in order of size.
 }
 \section{Corner Cases}{
-  If nums is empty then \bold{integer(0)} is returned.
+  If nums is empty then \bold{integer(0)} is returned. Tied
+  values are ranked in order of appearance; the first
+  occurrence is ranked lower than the second occurrence.
 }
 \examples{
 

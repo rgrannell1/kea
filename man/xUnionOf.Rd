@@ -1,13 +1,13 @@
-\name{xUnion}
-\alias{xUnion}
-\alias{xUnion...}
-\title{xUnion
+\name{xUnionOf}
+\alias{xUnionOf}
+\alias{xUnionOf...}
+\title{xUnionOf
 ``
 Get the set union of several collections.}
 \usage{
-xUnion(colls)
+xUnionOf(colls)
 
-xUnion...(...)
+xUnionOf...(...)
 }
 \arguments{
   \item{colls}{a collection of collections. The collections
@@ -19,11 +19,11 @@ xUnion...(...)
 A list.
 }
 \description{
-xUnion `` Get the set union of several collections.
+xUnionOf `` Get the set union of several collections.
 }
 \details{
-\code{xUnion} returns a list of the unique elements in the
-combination of each collection in \code{colls}.
+\code{xUnionOf} returns a list of the unique elements in
+the combination of each collection in \code{colls}.
 }
 \section{Corner Cases}{
   Returns the empty list if \code{colls} is length-zero.

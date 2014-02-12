@@ -32,9 +32,10 @@ NULL
 }
 \seealso{
 Other filtering_functions: \code{\link{xPartition}};
-\code{\link{xReject}}, \code{\link{xReject...}};
-\code{\link{xRejectNan}}; \code{\link{xRejectNa}};
-\code{\link{xRejectNull}}, \code{\link{xRejectNull...}};
-\code{\link{xSelect}}, \code{\link{xSelect...}}
+\code{\link{xRejectNan}}; \code{\link{xRejectNa}},
+\code{\link{xRejectNa...}}; \code{\link{xRejectNull}},
+\code{\link{xRejectNull...}}; \code{\link{xReject}},
+\code{\link{xReject...}}; \code{\link{xSelect}},
+\code{\link{xSelect...}}
 }
 

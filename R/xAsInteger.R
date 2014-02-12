@@ -45,7 +45,7 @@ xAsInteger <- function (nums) {
 
 	insist $ must_be_collection(nums, invoking_call)
 
-	nums <- as_typed_vector(nums, 'numeric')
+	nums <- as_typed_vector(nums, 'integer')
 
 	insist $ must_be_whole(nums, invoking_call)
 

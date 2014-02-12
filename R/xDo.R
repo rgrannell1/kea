@@ -16,9 +16,10 @@
 #' @return
 #'    A list.
 #'
-#'
 #' @template
 #'    Variadic
+#'
+#' @family inpure_functions
 #'
 #' @example
 #'    inst/examples/example-xDo.R

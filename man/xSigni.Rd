@@ -1,11 +1,11 @@
-\name{xSignum}
-\alias{xSignum}
-\alias{xSignum...}
-\title{xSignum}
+\name{xSigni}
+\alias{xSigni}
+\alias{xSigni...}
+\title{xSigni}
 \usage{
-xSignum(nums)
+xSigni(nums)
 
-xSignum...(...)
+xSigni...(...)
 }
 \arguments{
   \item{nums}{a collection of numbers. The numbers to take

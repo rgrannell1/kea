@@ -658,7 +658,7 @@ insist <- local({
 	this$max_must_be_less_than_length_of <-
 		local({
 
-			message <- function (num_sym, coll_sym, nums) {
+			message <- function (nums_sym, coll_sym, nums) {
 				"the maximum number in the argument matching " %+% ddquote(nums_sym) %+%
 				" must be less than or equal to " %+% " the length of the argument matching" %+%
 				ddquote(coll_sym) %+% "." %+%
@@ -673,7 +673,7 @@ insist <- local({
 
 				assert(
 					max(nums) <= length(coll), invoking_call,
-					message)
+					message(nums_sym, coll_sym, nums))
 			}
 		})
 

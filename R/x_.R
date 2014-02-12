@@ -1242,29 +1242,29 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reverse, 'coll')
 	add_x_method(this, x_Reverse..., '...')
 
-	# --- xRemoveNa --- #
-	add_x_method(this, xRemoveNa, 'coll')
-	add_x_method(this, xRemoveNa..., '...')
-	add_x_method(this, x_RemoveNa, 'coll')
-	add_x_method(this, x_RemoveNa..., '...')
+	# --- xRejectNa --- #
+	add_x_method(this, xRejectNa, 'coll')
+	add_x_method(this, xRejectNa..., '...')
+	add_x_method(this, x_RejectNa, 'coll')
+	add_x_method(this, x_RejectNa..., '...')
 
-	# --- xRemoveNan --- #
-	add_x_method(this, xRemoveNan, 'coll')
-	add_x_method(this, xRemoveNan..., '...')
-	add_x_method(this, x_RemoveNan, 'coll')
-	add_x_method(this, x_RemoveNan..., '...')
+	# --- xRejectNan --- #
+	add_x_method(this, xRejectNan, 'coll')
+	add_x_method(this, xRejectNan..., '...')
+	add_x_method(this, x_RejectNan, 'coll')
+	add_x_method(this, x_RejectNan..., '...')
 
-	# --- xRemoveNull --- #
-	add_x_method(this, xRemoveNull, 'coll')
-	add_x_method(this, xRemoveNull..., '...')
-	add_x_method(this, x_RemoveNull, 'coll')
-	add_x_method(this, x_RemoveNull..., '...')
+	# --- xRejectNull --- #
+	add_x_method(this, xRejectNull, 'coll')
+	add_x_method(this, xRejectNull..., '...')
+	add_x_method(this, x_RejectNull, 'coll')
+	add_x_method(this, x_RejectNull..., '...')
 
-	# --- xRemoveEmpty --- #
-	add_x_method(this, xRemoveEmpty, 'coll')
-	add_x_method(this, xRemoveEmpty..., '...')
-	add_x_method(this, x_RemoveEmpty, 'coll')
-	add_x_method(this, x_RemoveEmpty..., '...')
+	# --- xRejectEmpty --- #
+	add_x_method(this, xRejectEmpty, 'coll')
+	add_x_method(this, xRejectEmpty..., '...')
+	add_x_method(this, x_RejectEmpty, 'coll')
+	add_x_method(this, x_RejectEmpty..., '...')
 
 	# -------- S ------- #
 	# --- xSecondOf --- #
@@ -1291,11 +1291,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Select, 'coll')
 	add_x_method(this, x_Select..., '...')
 
-	# --- xSignum --- #
-	add_x_method(this, xSignum, 'nums')
-	add_x_method(this, xSignum..., '...')
-	add_x_method(this, x_Signum, 'nums')
-	add_x_method(this, x_Signum..., '...')
+	# --- xSigni --- #
+	add_x_method(this, xSigni, 'nums')
+	add_x_method(this, xSigni..., '...')
+	add_x_method(this, x_Signi, 'nums')
+	add_x_method(this, x_Signi..., '...')
 
 	# --- xSplitAt--- #
 	add_x_method(this, xSplitAt, 'coll')
@@ -1368,10 +1368,10 @@ x_coll_proto <- local({
 
 	# -------- U ------- #
 	# --- xUnion --- #
-	add_x_method(this, xUnion, 'colls')
-	add_x_method(this, xUnion..., '...')
-	add_x_method(this, x_Union, 'colls')
-	add_x_method(this, x_Union..., '...')
+	add_x_method(this, xUnionOf, 'colls')
+	add_x_method(this, xUnionOf..., '...')
+	add_x_method(this, x_UnionOf, 'colls')
+	add_x_method(this, x_UnionOf..., '...')
 
 	# --- xUnit --- #
 	add_x_method(this, xUnit, 'coll')

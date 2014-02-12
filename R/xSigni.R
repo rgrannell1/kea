@@ -1,5 +1,5 @@
 
-#' xSignum
+#' xSigni
 #'
 #' Get the sign of a vector of numbers.
 #'
@@ -21,12 +21,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xSignum.R
+#'    inst/examples/example-xSigni.R
 #'
-#' @rdname xSignum
+#' @rdname xSigni
 #' @export
 
-xSignum <- function (nums) {
+xSigni <- function (nums) {
 	# Collection number -> integers
 	# returns the sign of a number vector.
 
@@ -51,9 +51,9 @@ xSignum <- function (nums) {
 	}
 }
 
-#' @rdname xSignum
+#' @rdname xSigni
 #' @export
 
-xSignum... <- function (...) {
-	xSignum(list(...))
+xSigni... <- function (...) {
+	xSigni(list(...))
 }

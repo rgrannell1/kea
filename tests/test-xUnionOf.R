@@ -4,11 +4,10 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
-message("xUnion")
+message("xUnionOf")
 
 	forall(
 		"the union of an empty set is an empty set",
 		list(),
-		xUnion(list()) %equals% list()
+		xUnionOf(list()) %equals% list()
 	)

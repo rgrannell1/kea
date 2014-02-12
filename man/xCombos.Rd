@@ -54,8 +54,8 @@ Other set_functions: \code{\link{xCycle}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
 \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
-\code{\link{xProdSetOf...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}; \code{\link{xUniqueOf}},
+\code{\link{xProdSetOf...}}; \code{\link{xUnionOf}},
+\code{\link{xUnionOf...}}; \code{\link{xUniqueOf}},
 \code{\link{xUniqueOf...}}
 }
 

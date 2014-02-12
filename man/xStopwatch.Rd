@@ -21,6 +21,10 @@ NULL
 
 }
 \seealso{
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xExecute}}; \code{\link{xVersion}}
+
 Other time_functions: \code{\link{xDelay}};
 \code{\link{xLimit}}
 }

@@ -13,6 +13,8 @@
 #' @example
 #'    inst/examples/example-xVersion.R
 #'
+#' @family inpure_functions
+#'
 #' @rdname xVersion
 #' @export
 

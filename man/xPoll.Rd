@@ -1,17 +1,14 @@
 \name{xPoll}
 \alias{xPoll}
 \alias{xPoll...}
-\alias{xRemoveNa...}
-\alias{xRemoveNan...}
+\alias{xRejectNan...}
 \title{xPoll}
 \usage{
 xPoll(pred, coll)
 
 xPoll...(pred, ...)
 
-xRemoveNa...(...)
-
-xRemoveNan...(...)
+xRejectNan...(...)
 }
 \arguments{
   \item{pred}{a unary predicate function. The function with

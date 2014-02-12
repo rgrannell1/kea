@@ -15,6 +15,8 @@
 #'
 #' @family method_functions
 #'
+#' @family inpure_functions
+#'
 #' @name xExecute
 
 NULL

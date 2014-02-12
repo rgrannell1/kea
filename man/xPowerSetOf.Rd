@@ -63,8 +63,8 @@ Other set_functions: \code{\link{xCombos}},
 \code{\link{xInter...}}; \code{\link{xIsMember}},
 \code{\link{xIsMember...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xProdSetOf}},
-\code{\link{xProdSetOf...}}; \code{\link{xUnion}},
-\code{\link{xUnion...}}; \code{\link{xUniqueOf}},
+\code{\link{xProdSetOf...}}; \code{\link{xUnionOf}},
+\code{\link{xUnionOf...}}; \code{\link{xUniqueOf}},
 \code{\link{xUniqueOf...}}
 }
 
