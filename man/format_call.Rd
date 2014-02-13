@@ -1,8 +1,8 @@
-\name{format_call}
-\alias{format_call}
+\name{stringify_call}
+\alias{stringify_call}
 \title{Package Internals}
 \usage{
-format_call(call)
+stringify_call(call)
 }
 \description{
 Documentation for the internals of Arrow.

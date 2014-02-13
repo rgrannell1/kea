@@ -2,9 +2,9 @@
 insist <- arrow:::insist
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
-format_call <- arrow:::format_call
+stringify_call <- arrow:::stringify_call
 
-invoking_call <- format_call(
+invoking_call <- stringify_call(
 	quote(xMap(x := x^2, coll = 1:10)) )
 
 message("insist $ must_be_logical_result")

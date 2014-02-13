@@ -1,5 +1,5 @@
 \docType{data}
-\name{format_call}
+\name{stringify_call}
 \alias{Object}
 \alias{Truth}
 \alias{\%!in\%}
@@ -8,7 +8,7 @@
 \alias{call_with_params}
 \alias{colourise}
 \alias{demand}
-\alias{format_call}
+\alias{stringify_call}
 \alias{get_call_components}
 \alias{insist}
 \alias{is_collection}
@@ -18,14 +18,14 @@
 \alias{write_error}
 \title{Package Internals}
 \format{\preformatted{List of 5
- $ black :function (message)  
- $ red   :function (message)  
- $ green :function (message)  
- $ blue  :function (message)  
- $ yellow:function (message)  
+ $ black :function (message)
+ $ red   :function (message)
+ $ green :function (message)
+ $ blue  :function (message)
+ $ yellow:function (message)
 }}
 \usage{
-format_call(call)
+stringify_call(call)
 
 colourise
 
@@ -63,8 +63,8 @@ sufficiently large utility library will contain its own
 utility library. These functions are required to reduce
 repetition of code when implementing arrow functions.
 }
-\section{format_call}{
-  format_call is a tool for formatting the source call of
+\section{stringify_call}{
+  stringify_call is a tool for formatting the source call of
   an error message. It fixes as issue with printing ':='
   functions, and cuts off very long calls.
 }

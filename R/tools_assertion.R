@@ -1,14 +1,14 @@
 
-#' @section format_call:
+#' @section stringify_call:
 #'
-#' format_call is a tool for formatting the source call of an error message.
+#' stringify_call is a tool for formatting the source call of an error message.
 #' It fixes as issue with printing ':=' functions, and cuts off very long calls.
 #'
 #' @keywords internal
 #' @rdname pkg-internal
 #'
 
-format_call <- function (call) {
+stringify_call <- function (call) {
 	# call -> string
 	# format the call nicely for printing, fixing the representation of ':='.
 
@@ -28,10 +28,8 @@ format_call <- function (call) {
 
 		calltext <- ddparse(call)
 
-		cuttof <- 35
-
-		if (nchar(calltext) > cuttof) {
-			paste0(substring(calltext, 1, cuttof), ' [truncated]')
+		if (nchar(calltext) > 35) {
+			paste0(substring(calltext, 1, 35), ' [truncated]', collapse = '')
 		} else {
 			calltext
 		}
@@ -136,13 +134,12 @@ write_error <- function (..., call. = True) {
 #'
 
 get_call_components <- function (invoking_call) {
-	# get the name and text of a call.
-
+	# get the calling function and call text from a call.
 	list(
-		callname =
+		invoking =
 			paste0(invoking_call[[1]], collapse = ''),
 		calltext =
-			format_call(invoking_call))
+			stringify_call(invoking_call))
 }
 
 assert <- local({
@@ -151,28 +148,25 @@ assert <- local({
 		# does an expression evaluate to true?
 		# if not, throw a lovely error.
 
-		args <- as.list(match.call())[-1]
-		this_call <- sys.call()
-
 		if (!is.logical(expr)) {
+			# the assertion was broken.
+
 			write_error(
 				yelp$non_logical_assertion(expr),
 				call. = False)
-		}
 
-		if (!isTRUE(expr)) {
+		} else if (!isTRUE(expr)) {
 			# everythings went wrong, throw an error.
 
 			components <- get_call_components(invoking_call)
 
 			write_error(
 				yelp$arrow_function_failed(
-					components$callname, components$calltext, message),
+					components$invoking, components$calltext, message),
 				call. = False)
 		}
 		True
 	}
-
 })
 
 #' @section insist:
@@ -215,7 +209,7 @@ insist <- local({
 
 					write_error(
 						yelp$arrow_function_failed(
-							components$callname, components$calltext, message(param)),
+							components$invoking, components$calltext, message(param)),
 						call. = False)
 				}
 			}

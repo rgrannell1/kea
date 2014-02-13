@@ -271,7 +271,7 @@ yelp <- list(
 			warnmessage <-
 				paste0(warn$message, collapse = '')
 
-			inner_call <- format_call(warn$call) %+% ":\n\n"
+			inner_call <- stringify_call(warn$call) %+% ":\n\n"
 
 			overview <-
 			"[ warning occurred while executing a function passed to " %+% fn %+% " ]\n\n"
@@ -289,7 +289,7 @@ yelp <- list(
 			errmessage <-
 				paste0(err$message, collapse = '')
 
-			inner_call <- format_call(err$call) %+% ':\n\n'
+			inner_call <- stringify_call(err$call) %+% ':\n\n'
 
 			overview <-
 			"[ an error occurred while executing a function passed to " %+% fn %+% " ]:\n\n"

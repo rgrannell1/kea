@@ -152,3 +152,32 @@ local({
 		unit = 'ns', times = 10000, control = list(warmup = 100)
 	)
 })
+
+# ------------------ Experiment Four  ------------------
+#
+# How fast is assert, in comparison to stopifnot.
+
+# assert is 25,000Hz: quite slow
+# stopifnot is about 70,000Hz
+
+# REMOVED erroneous as.list match call - now 130,000Hz
+
+local({
+
+	invoking_call <- sys.call()
+
+	current <- function () {
+		assert(TRUE, invoking_call, "message")
+	}
+
+	base_assert <- function () {
+		stopifnot(TRUE)
+	}
+
+	microbenchmark(
+		current(),
+		base_assert(),
+
+		unit = 'ns', times = 10000, control = list(warmup = 100)
+	)
+})
