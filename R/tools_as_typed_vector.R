@@ -36,52 +36,44 @@ unit_to_value <- function (coll) {
 	}
 }
 
-as_typed_vector <- local({
+stop('finish as atom')
 
-	convert_atomic_vector <- function (coll_sym, coll, mode, invoking_call) {
-		# convert an atomic vector to a particular mode.
+as_atom <- function (coll, mode, invoking_call) {
+	# convert a length one vector of any type to an atomic vector.
 
-		if (length(coll) == 0) {
-			vector(mode)
-		} else {		
-			insist $ must_be_correct_type(
-				coll_sym, coll, mode, invoking_call)
+	invoking_call <- sys.call()
+	coll_sym <- invoking_call$coll
 
-			coll
-		}
+	insist $ must_be_of_length(coll, 1, invoking_call)
+	insist $ must_be_correct_type(coll_sym, coll, mode, invoking_call)
+	insist $ must_be_collection_of_lengths(coll, 1, invoking_call)
+
+	unlist(coll)
+}
+
+as_typed_vector <- function (coll, mode) {
+
+	invoking_call <- sys.call()
+	coll_sym <- invoking_call$coll
+
+	if (length(coll) == 0) {
+		vector(mode)
+	} else 	if (is.atomic(coll)) {
+		# atomic vector conversion.
+
+		insist $ must_be_correct_type(
+			coll_sym, coll, mode, invoking_call)
+
+		coll
+
+	} else {
+		# generic vector conversion.
+
+		stop("doesnt work at the moment")
+		insist $ must_be_unlistable(
+			coll_sym, coll, mode, invoking_call)
+
+		as.vector(coll, mode = mode)
 	}
-
-	convert_generic_vector <- function (coll_sym, coll, mode, invoking_call) {
-		# convert a generic vector to a typed vector
-		# of a particular mode.
-
-		if (length(coll) == 0) {
-			vector(mode)
-		} else {
-
-			insist $ must_be_collection_of_lengths(
-				coll, 1, invoking_call)
-
-			insist $ must_be_heterogenous(
-				coll_sym, coll, mode, invoking_call)
-
-			as.vector(coll, mode = mode)
-		}
-	}
-
-	function (coll, mode) {
-
-		invoking_call <- sys.call()
-		coll_sym <- match.call()$coll
-
-		if (is.atomic(coll)) {
-			convert_atomic_vector(
-				coll_sym, coll, mode, invoking_call)
-		} else {
-			convert_generic_vector(
-				coll_sym, coll, mode, invoking_call)
-		}
-	}
-
-})
+}
 

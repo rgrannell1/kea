@@ -58,9 +58,7 @@ xChop <- function (num, coll) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(num)
-
 	insist $ must_not_be_missing(coll)
-
 	insist $ must_be_collection(num, invoking_call)
 
 	num <- unit_to_value(as_typed_vector(num, 'numeric'))

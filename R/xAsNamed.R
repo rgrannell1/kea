@@ -41,7 +41,6 @@ xAsNamed <- function (strs, coll) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(strs)
-
 	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_collection(strs, invoking_call)

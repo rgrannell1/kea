@@ -169,6 +169,21 @@ assert <- local({
 	}
 })
 
+
+
+throw_arrow_error <- function (invoking_call, message) {
+	# everythings went wrong, throw an error.
+
+	components <- get_call_components(invoking_call)
+
+	write_error(
+		yelp$arrow_function_failed(
+			components$invoking, components$calltext, message),
+			call. = False)
+}
+
+
+
 #' @section insist:
 #'
 #' insist is a list of functions that provide a minimal interface to an
@@ -232,11 +247,12 @@ insist <- local({
 			function (val, lengths, invoking_call) {
 				# the value must have a length in the set of lengths.
 
-				val_sym <- match.call()[-1][[1]]
+				val_sym <- sys.call()[-1][[1]]
 
-				assert(
-					length(val) %in% lengths, invoking_call,
-					message(val_sym, lengths, val))
+				if (length(val) %!in% lengths) {
+					throw_arrow_error(
+						invoking_call, message(val_sym, lengths, val))
+				}
 			}
 		})
 
@@ -795,59 +811,51 @@ insist <- local({
 
 			message <- function (coll_sym, coll, mode) {
 				"the collection " %+% ddquote(coll_sym) %+% " cannot be " %+%
-				"converted to a vector of mode " %+% ddquote(mode) %+%
+				"unlisted to a vector of mode " %+% ddquote(mode) %+%
 				summate(coll)
 			}
 
 			function (coll_sym, coll, mode, invoking_call) {
 
-				assert(
-					mode %in% is(coll), invoking_call, message(coll_sym, coll, mode))
+				# numeric is a superset of integer and double
+				if ( is.numeric(mode) && all(mode != c('integer', 'double')) ) {
+
+					throw_arrow_error(
+						invoking_call, message(coll_sym, coll, mode))
+
+				# other types should be the same
+				} else if (!typeof(coll) == mode) {
+
+					throw_arrow_error(
+						invoking_call, message(coll_sym, coll, mode))
+				}
 			}
 		})
 
-	this$must_be_heterogenous <-
+	this$must_be_unlistable <-
 		local({
 			# a vector must be convertable to a type.
 
-			all_are <- list(
-				integer =
-					function (coll) {
-						all( vapply(coll, is.integer, logical(1)) )
-					},
-				logical =
-					function (coll) {
-						all( vapply(coll, is.logical, logical(1)) )
-					},
-				double =
-					function (coll) {
-						all( vapply(coll, is.double, logical(1)) )
-					},
-				numeric =
-					function (coll) {
-						all( vapply(coll, is.numeric, logical(1)) )
-					},
-				character =
-					function (coll) {
-						all( vapply(coll, is.character, logical(1)) )
-					},
-				raw =
-					function (coll) {
-						all( vapply(coll, is.raw, logical(1)) )
-					},
-				complex =
-					function (coll) {
-						all( vapply(coll, is.complex, logical(1)) )
-					}
-			)
+			message_type <- function (coll_sym, mode) {
+				"the collection " %+% ddquote(coll_sym) %+%
+				" must be a collection of values of type " %+% ddquote(mode)
+			}
+
+			#message_length()
+
+			is_valid_elem <- function (elem, mode) {
+
+				if (length(elem) != 1) {
+					stop("")
+				} else if (!is(elem, mode)) {
+					stop("")
+				}
+				TRUE
+			}
 
 			function (coll_sym, coll, mode, invoking_call) {
 
-				message <- "the collection " %+% ddquote(coll_sym) %+%
-				" must be a collection of values of type " %+% ddquote(mode)
-
-				assert(
-					all_are[[mode]](coll), invoking_call, message)
+				vapply(coll, is_valid_elem, logical(1), mode = mode)
 
 			}
 		})

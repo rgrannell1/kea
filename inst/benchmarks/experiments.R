@@ -160,7 +160,7 @@ local({
 # assert is 25,000Hz: quite slow
 # stopifnot is about 70,000Hz
 
-# REMOVED erroneous as.list match call - now 130,000Hz
+# removed erroneous as.list match call - now 130,000Hz
 
 local({
 
@@ -177,6 +177,86 @@ local({
 	microbenchmark(
 		current(),
 		base_assert(),
+
+		unit = 'ns', times = 100000, control = list(warmup = 100)
+	)
+})
+
+# ------------ Experiment Five ------------------
+
+# How fast is as_typed_vector?
+#
+# it seems to be rate limiting.
+#
+# as_typed_vector is really realy slow.
+# it is 16,000 Hz compared to as.doubles 127,000 Hz for the same data.
+#
+# Increased to 20,000Hz by removing match call, and refactoring
+# module to function.
+#
+# Refactored assertion checking into the insist module,
+# increasing speed to 50kHz.
+#
+# corrected unit test 60kHz for atomics.
+# generics are very slow: 550Hz.
+
+local({
+
+	one_to_1000 <- 1:1000
+	one_to_1000_list <- as.list(1:1000)
+
+	current_vector <- function () {
+		as_typed_vector(one_to_1000, 'integer')
+	}
+	as_double <- function () {
+		as.double(one_to_1000)
+	}
+	current_list <- function () {
+		as_typed_vector(one_to_1000_list, 'integer')
+	}
+	unlist_doubles <- function () {
+		unlist(one_to_1000_list)
+	}
+	as_vector_doubles <- function () {
+		unlist(one_to_1000_list)
+	}
+
+	microbenchmark(
+		current_vector(),
+		as_double(),
+		current_list(),
+		unlist_doubles(),
+		as_vector_doubles(),
+
+		unit = 'ns', times = 10000, control = list(warmup = 100)
+	)
+})
+
+# ------------ Experiment Six ------------------
+
+# What is the best way to test for membership?
+#
+# all very similar for large n, but for the smallest n
+# with the worst case anyequal is faster.
+
+local({
+
+	is_elem <- function () {
+		is.element('a', 1:1000)
+	}
+
+	inn <- function () {
+		'a' %in% 1:1000
+	}
+
+	anyequal <- function () {
+		any('a' == 1:1000)
+	}
+
+	microbenchmark(
+		is_elem(),
+		inn(),
+		anyequal(),
 
 		unit = 'ns', times = 10000, control = list(warmup = 100)
 	)

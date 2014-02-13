@@ -8,21 +8,21 @@
 \alias{call_with_params}
 \alias{colourise}
 \alias{demand}
-\alias{stringify_call}
 \alias{get_call_components}
 \alias{insist}
 \alias{is_collection}
 \alias{is_fn_matchable}
 \alias{join_env}
 \alias{one_of}
+\alias{stringify_call}
 \alias{write_error}
 \title{Package Internals}
 \format{\preformatted{List of 5
- $ black :function (message)
- $ red   :function (message)
- $ green :function (message)
- $ blue  :function (message)
- $ yellow:function (message)
+ $ black :function (message)  
+ $ red   :function (message)  
+ $ green :function (message)  
+ $ blue  :function (message)  
+ $ yellow:function (message)  
 }}
 \usage{
 stringify_call(call)
@@ -64,8 +64,8 @@ utility library. These functions are required to reduce
 repetition of code when implementing arrow functions.
 }
 \section{stringify_call}{
-  stringify_call is a tool for formatting the source call of
-  an error message. It fixes as issue with printing ':='
+  stringify_call is a tool for formatting the source call
+  of an error message. It fixes as issue with printing ':='
   functions, and cuts off very long calls.
 }
 
