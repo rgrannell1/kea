@@ -1,4 +1,10 @@
 
+forall <- arrow:::forall
+assert <- arrow:::assert
+test_cases <- arrow:::test_cases
+
+write_error <- arrow:::write_error
+
 message('Arrow Files')
 message('Check that test files exist')
 

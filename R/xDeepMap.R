@@ -55,12 +55,12 @@ xDeepMap <- function (fn, coll) {
 		if (is.list(xs) || is.pairlist(xs)) {
 			lapply(xs, recur)
 		} else {
-			try_hof(
-				fn(xs), invoking_call)
+			fn(xs)
 		}
 	}
 
-	recur(as.list(coll))
+	try_hof(
+		recur(as.list(coll)), invoking_call)
 }
 
 #' @rdname xDeepMap

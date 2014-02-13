@@ -78,12 +78,12 @@ xFoldl <- function (fn, val, coll) {
 				environment(fn) <- clone_env
 			}
 
-			for (ith in seq_along(coll)) {
-
-				val <- try_hof(
-					fn( val, coll[[ith]] ),
-					invoking_call)
-			}
+			try_hof({
+				for (ith in seq_along(coll)) {
+					val <- fn( val, coll[[ith]] )
+				}},
+				invoking_call
+			)
 			val
 		})
 	}

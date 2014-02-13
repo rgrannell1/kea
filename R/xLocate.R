@@ -53,9 +53,11 @@ xLocate <- function (pred, coll) {
 		integer(0)
 	} else {
 
-		which(try_hof(
-			vapply(coll, pred, logical(1), USE.NAMES = False),
-			invoking_call))
+		try_hof({
+			which( vapply(coll, pred, logical(1), USE.NAMES = False) )
+			},
+			invoking_call
+		)
 	}
 }
 

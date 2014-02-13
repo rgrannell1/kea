@@ -75,11 +75,15 @@ xReducer <- function (fn, coll) {
 				environment(fn) <- clone_env
 			}
 
-			for (ith in length(coll):1) {
-				val <- try_hof(
-					fn( coll[[ith]], val ),
-					invoking_call)
-			}
+			try_hof({
+				for (ith in length(coll):1) {
+					val <- try_hof(
+						fn( coll[[ith]], val ),
+						invoking_call)
+				}},
+				invoking_call
+			)
+
 			val
 		})
 	}

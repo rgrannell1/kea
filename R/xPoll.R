@@ -51,17 +51,20 @@ xPoll <- function (pred, coll) {
 
 		count <- 0
 
-		for (ith in seq_along(coll)) {
+		try_hof({
+			for (ith in seq_along(coll)) {
 
-			is_match <- try_hof(
-				pred( coll[[ith]] ), invoking_call)
+				is_match <- pred( coll[[ith]] )
 
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
+				insist $ must_be_logical_result(is_match, pred, invoking_call)
 
-			if (isTRUE(is_match)) {
-				count <- count + 1
-			}
-		}
+				if (isTRUE(is_match)) {
+					count <- count + 1
+				}
+			}},
+			invoking_call
+		)
+
 		count
 	}
 }

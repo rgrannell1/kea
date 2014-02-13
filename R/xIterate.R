@@ -70,9 +70,7 @@ xIterate <- function (fn, val) {
 
 		environment(fn) <- clone_env
 
-		repeat {
-			val <- try_hof(
-				fn(val), invoking_call)
-		}
+		try_hof({repeat val <- fn(val)}, invoking_call)
+
 	})
 }

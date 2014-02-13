@@ -70,12 +70,15 @@ xScanl <- function (fn, val, coll) {
 	if (length(coll) == 0) {
 		val
 	} else {
-		for (ith in seq_along(coll)) {
-			scanned[[ith + 1]] <- try_hof(
-				fn( scanned[[ith]], coll[[ith]] ),
-				invoking_call)
-		}
+
+		try_hof({
+			for (ith in seq_along(coll)) {
+				scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
+			}},
+			invoking_call
+		)
 		scanned
+
 	}
 }
 

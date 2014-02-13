@@ -35,23 +35,24 @@ xSplitBy <- local({
 		# split a collection into a head and tail
 		# using a predicate.
 
-		for (ith in 1:(length(coll) - 1)) {
+		try_hof({
+			for (ith in 1:(length(coll) - 1)) {
 
-			is_match <- try_hof(
-				pred( coll[[ith]], coll[[ith + 1]] ),
-				invoking_call)
+				is_match <- pred( coll[[ith]], coll[[ith + 1]] )
 
-			insist $ must_be_logical_result(
-				is_match, pred, invoking_call)
+				insist $ must_be_logical_result(
+					is_match, pred, invoking_call)
 
-			if (isTRUE(is_match)) {
+				if (isTRUE(is_match)) {
 
-				return (
-					list(
-						head(coll, ith),
-						tail(coll, -ith)) )
-			}
-		}
+					return (
+						list(
+							head(coll, ith),
+							tail(coll, -ith)) )
+				}
+			}},
+			invoking_call
+		)
 
 		list(coll, list())
 	}
@@ -94,8 +95,8 @@ xSplitBy <- local({
 			cleaved
 		}
 	}
-
 })
+
 #' @rdname xSplitWith
 #' @export
 

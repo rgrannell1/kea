@@ -29,12 +29,13 @@ k_nearest <- (dist : point : space) := {
 
 	k <- floor( sqrt(xLenOf(space)) )
 
-	dist <- xPartial...(dist, point)
+	dist_to_point <- xPartial...(dist, point)
 
-	distances_to_point <- x_(space) $ xMap(dist) $ x_AsInteger()
+	distances <- x_(space) $
+	xMap(xFirstOf %then% dist_to_point) $ x_AsDouble()
 
 	# rank the distances from closest to furthest.
-	nearest <- space[xRank(distances_to_point) <= k]
+	nearest <- space[xRank(distances) <= k]
 
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-

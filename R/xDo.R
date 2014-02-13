@@ -50,10 +50,13 @@ xDo <- function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		for (ith in seq_along(coll)) {
-			try_hof(
-				fn( coll[[ith]] ), invoking_call)
-		}
+
+		try_hof({
+			for (ith in seq_along(coll)) {
+				fn( coll[[ith]] )
+			}},
+			invoking_call
+		)
 
 		invisible (Null)
 	}

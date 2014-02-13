@@ -662,8 +662,6 @@ x_data_frame_proto <- local({
 		this
 
 	})
-
-	this
 })
 
 
@@ -1821,7 +1819,7 @@ get_proto_ref <- function (val) {
 		x_fn_proto
 	} else if (is.matrix( val )) {
 		x_matrix_proto
-	} else  if (is.vector( val ) || is.pairlist( val )){
+	} else  if (is.atomic( val ) || is.list( val ) ||is.pairlist( val )){
 		x_coll_proto
 	} else if (is.data.frame( val )) {
 		x_data_frame_proto
@@ -1860,6 +1858,7 @@ get_proto_ref <- function (val) {
 	}
 
 	autosuggested <- c(
+		alias('x', 'x_'),
 		alias('xAsNumeric', 'xAsDouble'),
 		alias('xC', 'xJoin'),
 		alias('xConcat', 'xJoin'),

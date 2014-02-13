@@ -57,16 +57,22 @@ xTakeWhile <- function (pred, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		for (ith in seq_along(coll)) {
 
-			is_match <- try_hof(pred( coll[[ith]] ), invoking_call)
+		try_hof({
 
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
+			for (ith in seq_along(coll)) {
 
-			if (!isTRUE(is_match)) {
-				return ( as.list(head(coll, ith - 1)) )
-			}
-		}
+				is_match <- pred( coll[[ith]] )
+
+				insist $ must_be_logical_result(is_match, pred, invoking_call)
+
+				if (!isTRUE(is_match)) {
+					return ( as.list(head(coll, ith - 1)) )
+				}
+			}},
+			invoking_call
+		)
+
 		as.list(coll)
 	}
 }

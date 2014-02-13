@@ -56,15 +56,19 @@ xDropWhile <- function (pred, coll) {
 		list()
 	} else {
 
-		for (ith in seq_along(coll)) {
+		try_hof({
+			for (ith in seq_along(coll)) {
 
-			is_match <- try_hof(pred( coll[[ith]] ), invoking_call)
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
+				is_match <- pred( coll[[ith]] )
+				insist $ must_be_logical_result(is_match, pred, invoking_call)
 
-			if (!isTRUE(is_match)) {
-				return (as.list( tail(coll, length(coll) - (ith - 1)) ))
-			}
-		}
+				if (!isTRUE(is_match)) {
+					return (as.list( tail(coll, length(coll) - (ith - 1)) ))
+				}
+			}},
+			invoking_call
+		)
+
 		list()
 	}
 }

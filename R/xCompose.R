@@ -84,11 +84,14 @@ xCompose <- function (fns) {
 
 		val <- c(...)
 
-		for ( ith in rev(seq_along(fns)) ) {
+		try_hof({
+			for ( ith in rev(seq_along(fns)) ) {
 
-			fn <- fns[[ith]]
-			val <- try_hof( fn(val), invoking_call )
-		}
+				fn <- fns[[ith]]
+				val <- fn(val)
+			}},
+			invoking_call
+		)
 
 		val
 	}
