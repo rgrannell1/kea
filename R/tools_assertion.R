@@ -226,6 +226,7 @@ insist <- local({
 							components$invoking, components$calltext, message(param)),
 						call. = False)
 				}
+				True
 			}
 		})
 
@@ -259,7 +260,7 @@ insist <- local({
 					throw_arrow_error(
 						invoking_call, message(val_sym, val))
 				}
-
+				True
 			}
 		})
 
@@ -278,7 +279,7 @@ insist <- local({
 			function (val, lengths, invoking_call) {
 				# the value must have a length in the set of lengths.
 
-				val_sym <- sys.call()[-1][[1]]
+				val_sym <- sys.call()$val
 
 				if (length(val) %!in% lengths) {
 					throw_arrow_error(
@@ -303,11 +304,14 @@ insist <- local({
 			function (result, pred, invoking_call) {
 				# predicates must return logical values.
 
-				pred_sym <- match.call()[-1][[2]]
+				pred_sym <- sys.call()$pred
 
-				assert(
-					is.logical(result), invoking_call, message(pred_sym, pred))
+				if (!is.logical(result)) {
+					throw_arrow_error(
+						invoking_call, message(pred_sym, pred))
+				}
 
+				True
 			}
 		})
 
@@ -323,11 +327,14 @@ insist <- local({
 			function (fn, invoking_call) {
 				# the function must be non primitive function.
 
-				fn_sym <- match.call()[-1][[1]]
+				fn_sym <-sys.call()$fn
 
-				assert(
-					!is.primitive(fn), invoking_call,
-					message(fn_sym, fn))
+				if (is.primitive(fn)) {
+					throw_arrow_error(
+						invoking_call, message(fn_sym, fn))
+				}
+
+				True
 			}
 		})
 
@@ -344,11 +351,14 @@ insist <- local({
 			function (fn, invoking_call) {
 				# the value must be lookupable as a function.
 
-				fn_sym <- match.call()[-1][[1]]
+				fn_sym <- sys.call()$fn
 
-				assert(
-					is_fn_matchable(fn),
-					invoking_call, message(fn_sym, fn))
+				if (!is_fn_matchable(fn)) {
+					throw_arrow_error(
+						invoking_call, message(fn_sym, fn))
+				}
+
+				True
 			}
 		})
 
@@ -368,12 +378,15 @@ insist <- local({
 				# the names given must be parametre names
 				# of the function given.
 
-				names_sym <- match.call()[-1][[1]]
-				fn_sym <- match.call()[-1][[2]]
+				names_sym <- sys.call()$names
+				fn_sym <- sys.call()$fn
 
-				assert(
-					all(names %in% xParamsOf(fn)), invoking_call,
-					message(names_sym, fn_sym, names))
+				if ( !all(names %in% xParamsOf(fn)) ) {
+					throw_arrow_error(
+						invoking_call, message(names_sym, fn_sym, names))
+				}
+
+				True
 			}
 		})
 
@@ -392,11 +405,14 @@ insist <- local({
 			function (strs, invoking_call) {
 				# the value must be a character vector.
 
-				strs_sym <- match.call()[-1][[1]]
+				strs_sym <- sys.call()$strs
 
-				assert(
-					is.character(strs), invoking_call,
-					message(strs_sym, strs))
+				if (!is.character(strs)) {
+					throw_arrow_error(
+						invoking_call, message(strs_sym, strs))
+				}
+
+				True
 			}
 		})
 
@@ -414,11 +430,14 @@ insist <- local({
 			function (coll, invoking_call) {
 				# the value must be a collection.
 
-				coll_sym <- match.call()[-1][[1]]
+				coll_sym <- sys.call()$coll
 
-				assert(
-					is_collection(coll), invoking_call,
-					message(coll_sym, coll))
+				if (!is_collection(coll)) {
+					throw_arrow_error(
+						invoking_call, message(coll_sym, coll))
+				}
+
+				True
 			}
 		})
 
@@ -433,11 +452,14 @@ insist <- local({
 
 			function (coll, invoking_call) {
 
-				coll_sym <- match.call()[-1][[1]]
+				coll_sym <- sys.call()$coll
 
-				assert(
-					is.recursive(coll), invoking_call,
-					message(coll_sym, coll))
+				if (!is.recursive(coll)) {
+					throw_arrow_error(
+						invoking_call, message(coll_sym, coll))
+				}
+
+				True
 			}
 		})
 
@@ -453,11 +475,14 @@ insist <- local({
 			function (coll, length, invoking_call) {
 				# the collection must be longer than.
 
-				coll_sym <- match.call()[-1][[1]]
+				coll_sym <- sys.call()$coll
 
-				assert(
-					length(coll) >= length, invoking_call,
-					message(coll_sym, coll))
+				if (length > length(coll)) {
+					throw_arrow_error(
+						invoking_call, message(coll_sym, coll))
+				}
+
+				True
 			}
 		})
 
@@ -473,11 +498,14 @@ insist <- local({
 			function (coll, length, invoking_call) {
 				# the collection must be longer than.
 
-				coll_sym <- match.call()[-1][[1]]
+				coll_sym <- sys.call()$coll
 
-				assert(
-					length(coll) >= length, invoking_call,
-					message(coll_sym, length, coll))
+				if (!(length(coll) >= length)) {
+					throw_arrow_error(
+						invoking_call, message(coll_sym, length, coll))
+				}
+
+				True
 			}
 		})
 
@@ -492,12 +520,15 @@ insist <- local({
 				function (coll1, coll2, invoking_call) {
 					# both collections must have equal lengths.
 
-					coll1_sym <- match.call()[-1][[1]]
-					coll2_sym <- match.call()[-1][[2]]
+					coll1_sym <- sys.call()$coll1
+					coll2_sym <- sys.call()$coll2
 
-					assert(
-						length(coll1) == length(coll2), invoking_call,
-						message(coll1_sym, coll2_sym))
+					if (length(coll1) != length(coll2)) {
+						throw_arrow_error(
+							invoking_call, message(coll1_sym, coll2_sym))
+					}
+
+					True
 				}
 			})
 
@@ -514,11 +545,14 @@ insist <- local({
 			function (coll, invoking_call) {
 				# the collection should be fully named.
 
-				coll_symbol <- match.call()[-1][[1]]
+				coll_symbol <- sys.call()$coll
 
-				assert(
-					!is.null(names(coll)) && !any(names(coll) == ""),
-					invoking_call, message(coll_symbol))
+				if (is.null(names(coll)) || any(names(coll) == "")) {
+					throw_arrow_error(
+						invoking_call, message(coll_symbol))
+				}
+
+				True
 			}
 		})
 
@@ -533,16 +567,19 @@ insist <- local({
 
 			function (colls, invoking_call) {
 
-				colls_sym <- match.call()[-1][[1]]
+				colls_sym <- sys.call()$colls
 
 				inner_names <- lapply(colls, names)
 
 				all_empty <- all( vapply(inner_names, is.null, logical(1)) )
 				all_equal <- length(unique(inner_names)) == 1
 
-				assert(
-					all_equal || all_empty, invoking_call,
-					message(colls_sym))
+				if (!all_equal && !all_equal) {
+					throw_arrow_error(
+						invoking_call, message(colls_sym))
+				}
+
+				True
 			}
 		})
 
@@ -560,11 +597,15 @@ insist <- local({
 			function (colls, invoking_call) {
 				# the value must be a collection of collections.
 
-				colls_sym <- match.call()[-1][[1]]
+				colls_sym <- sys.call()$colls
 
-				assert(
-					all(sapply(colls, is_collection)),
-					invoking_call, message(colls_sym, colls))
+				if (!all(sapply(colls, is_collection))) {
+
+					throw_arrow_error(
+						invoking_call, message(colls_sym, colls))
+				}
+
+				True
 			}
 		})
 
@@ -581,11 +622,15 @@ insist <- local({
 			function (fns, invoking_call) {
 				# the collection must be composed of lookupables as functions.
 
-				fns_sym <- match.call()[-1][[1]]
+				fns_sym <- sys.call()$fns
 
-				assert(
-					all(sapply(fns, is_fn_matchable)), invoking_call,
-					message(fn_sym, fns))
+				if (!all(sapply(fns, is_fn_matchable))) {
+
+					throw_arrow_error(
+						invoking_call, message(fns_sym, fns))
+				}
+
+				True
 
 			}
 		})
@@ -603,23 +648,26 @@ insist <- local({
 				# the collections inside collection has the
 				# same length as coll.
 
-				colls_sym <- match.call()[-1][[1]]
-				coll_sym <- match.call()[-1][[2]]
+				colls_sym <- sys.call()$colls
+				coll_sym <- sys.call()$coll
 
-				assert(
-					all(vapply(colls, length, integer(1)) == length(coll)),
-					invoking_call, message(colls_sym, coll_sym, colls))
+				if ( !all(vapply(colls, length, integer(1)) == length(coll)) ) {
+					throw_arrow_error(
+						invoking_call, message(colls_sym, coll_sym, colls))
+				}
+
+				True
 			}
 		})
 
 	this$must_be_collection_of_lengths <-
 		local({
 
-			message <- function (coll_sym, lengths, colls) {
+			message <- function (colls_sym, lengths, colls) {
 
 				lengths <- paste(lengths, collapse = " or ")
 
-				"the argument matching " %+% ddquote(coll_sym) %+%
+				"the argument matching " %+% ddquote(colls_sym) %+%
 				" must be a collection of length " %+% lengths %+% " values." %+%
 				summate(colls)
 			}
@@ -627,11 +675,16 @@ insist <- local({
 			function (colls, lengths, invoking_call) {
 				# the collection must have values of a certain length.
 
-				coll_sym <- match.call()[-1][[1]]
+				colls_sym <- sys.call()$colls
 
-				assert(
-					all(vapply(colls, length, integer(1)) %in% lengths),
-					invoking_call, message(coll_sym, lengths, colls))
+				if (!all(vapply(colls, length, integer(1)) %in% lengths)) {
+
+					throw_arrow_error(
+						invoking_call, message(colls_sym, lengths, colls))
+
+				}
+
+				True
 			}
 		})
 
@@ -647,12 +700,15 @@ insist <- local({
 			function (colls, invoking_call) {
 				# the collection must be a collection of equal length values.
 
-				colls_sym <- match.call()[-1][[1]]
+				colls_sym <- sys.call()$colls
 
-				assert(
-					length(unique( vapply(colls, length, integer(1)) )) == 1,
-					invoking_call, message(coll_sym, coll))
 
+				if (!(length(unique( vapply(colls, length, integer(1)) )) == 1)) {
+					throw_arrow_error(
+						invoking_call, message(coll_sym, coll))
+				}
+
+				True
 			}
 		})
 	#  -------- numeric -------- #
@@ -669,11 +725,14 @@ insist <- local({
 			function (num, minimum, invoking_call) {
 				# the number must be larger than a minimum.
 
-				num_sym <- match.call()[-1][[1]]
+				num_sym <- sys.call()$num
 
-				assert(
-					num > minimum, invoking_call,
-					message(num_sym, minimum, num))
+				if (!(num > minimum)) {
+					throw_arrow_error(
+						invoking_call, message(num_sym, minimum, num))
+				}
+
+				True
 			}
 		})
 
@@ -689,11 +748,14 @@ insist <- local({
 			function (num, minimum, invoking_call) {
 				# the number must be larger or equal than a minimum.
 
-				num_sym <- match.call()[-1][[1]]
+				num_sym <- sys.call()$num
 
-				assert(
-					num >= minimum, invoking_call,
-					message(num_sym, minimum, num))
+				if (!(num >= minimum)) {
+					throw_arrow_error(
+						invoking_call, message(num_sym, minimum, num))
+				}
+
+				True
 			}
 		})
 
@@ -709,11 +771,14 @@ insist <- local({
 			function (nums, minimum, invoking_call) {
 				# the minimum number in a vector must be larger than a minimum.
 
-				nums_sym <- match.call()[-1][[1]]
+				nums_sym <- sys.call()$nums
 
-				assert(
-					min(nums) >= minimum, invoking_call,
-					message(nums_sym, minimum, nums))
+				if (!(min(nums) >= minimum)) {
+					throw_arrow_error(
+						invoking_call, message(nums_sym, minimum, nums))
+				}
+
+				True
 			}
 		})
 
@@ -730,12 +795,14 @@ insist <- local({
 			function (nums, coll, invoking_call) {
 				# the largest value must have length less than a collection.
 
-				nums_sym <- match.call()[-1][[1]]
-				coll_sym <- match.call()[-1][[2]]
+				nums_sym <- sys.call()$nums
+				coll_sym <- sys.call()$coll
 
-				assert(
-					max(nums) <= length(coll), invoking_call,
-					message(nums_sym, coll_sym, nums))
+				if (max(nums) > length(coll)) {
+					throw_arrow_error(
+						invoking_call, message(nums_sym, coll_sym, nums))
+				}
+				True
 			}
 		})
 
@@ -751,11 +818,13 @@ insist <- local({
 			function (nums, invoking_call) {
 				# the numbers matching a value must be round.
 
-				nums_sym <- match.call()[-1][[1]]
+				nums_sym <- match.call()$nums
 
-				assert(
-					all(round(nums) == nums), invoking_call,
-					message(nums_sym, nums))
+				if (!all(round(nums) == nums)) {
+					throw_arrow_error(
+						invoking_call, message(nums_sym, nums))
+				}
+				True
 			}
 		})
 
@@ -771,12 +840,13 @@ insist <- local({
 			function (nums, invoking_call) {
 				# the number must be non-negative.
 
-				nums_sym <- match.call()[-1][[1]]
+				nums_sym <- sys.call()$nums
 
-				assert(
-					all(nums > 0), invoking_call,
-					message(nums_sym, nums))
-
+				if (!(all(nums) > 0)) {
+					throw_arrow_error(
+						invoking_call, message(nums_sym, nums))
+				}
+				True
 			}
 		})
 
@@ -799,9 +869,11 @@ insist <- local({
 					True
 				}
 
-				assert(
-					is_unlocked, invoking_call,
-					message(sym))
+				if (!is_unlocked) {
+					throw_arrow_error(
+						invoking_call, message(sym))
+				}
+				True
 			}
 		})
 
@@ -818,9 +890,11 @@ insist <- local({
 
 				sym <- toString(sym)
 
-				assert(
-					exists(sym, envir = parent_frame),
-					invoking_call, message(sym))
+				if (!exists(sym, envir = parent_frame)) {
+					throw_arrow_error(
+						invoking_call, message(sym))
+				}
+				True
 			}
 		})
 
@@ -834,9 +908,10 @@ insist <- local({
 
 			function (invoking_call) {
 
-				assert(
-					False, invoking_call, message())
+				throw_arrow_error(
+					invoking_call, message())
 			}
+			True
 		})
 
 	this$must_be_correct_type <-
@@ -867,6 +942,7 @@ insist <- local({
 					throw_arrow_error(
 						invoking_call, message(coll_sym, coll, mode))
 				}
+				True
 			}
 		})
 
@@ -894,7 +970,7 @@ insist <- local({
 			function (coll_sym, coll, mode, invoking_call) {
 
 				vapply(coll, is_valid_elem, logical(1), mode = mode)
-
+				True
 			}
 		})
 
@@ -928,6 +1004,7 @@ demand <- local({
 
 				assert(
 					1 %!in% indices, invoking_call, message())
+
 			}
 		})
 
