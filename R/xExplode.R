@@ -41,8 +41,8 @@ xExplode <- function (rexp, str) {
 	insist $ must_not_be_missing(rexp)
 	insist $ must_not_be_missing(str)
 
-	str <- as_typed_vector(str, "character")
-	rexp <- unit_to_value(as_typed_vector(rexp, "character"))
+	str <- as_atom(str, "character")
+	rexp <- unit_to_value(as_atom(rexp, "character"))
 
 	insist $ must_be_of_length(str, 0:1, invoking_call)
 

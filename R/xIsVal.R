@@ -32,9 +32,7 @@ xIsVal <- function (str) {
 	str <- toString(match.call()$str)
 	insist $ must_be_collection(str, invoking_call)
 
-	str <- unit_to_value(as_typed_vector(str, "character"))
-
-	insist $ must_be_of_length(str, 1, invoking_call)
+	str <- unit_to_value(as_atom(str, "character"))
 
 	exists(str, parent_frame) &&
 		bindingIsLocked(str, parent_frame)

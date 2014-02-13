@@ -46,7 +46,6 @@ xOrder <- function (nums) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(nums)
-
 	insist $ must_be_collection(nums, invoking_call)
 
 	nums <- as_typed_vector(nums, 'numeric')

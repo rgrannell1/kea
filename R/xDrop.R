@@ -38,12 +38,9 @@ xDrop <- function (num, coll) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(num)
-
 	insist $ must_not_be_missing(coll)
 
-	num <- unit_to_value(as_typed_vector(num, 'numeric'))
-
-	insist $ must_be_of_length(num, 1, invoking_call)
+	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_whole(num, invoking_call)
 	insist $ must_be_grequal_than(num, 0, invoking_call)

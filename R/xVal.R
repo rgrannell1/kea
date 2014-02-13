@@ -49,9 +49,8 @@ xVal <- function (sym, val) {
 
 	sym <- toString(match.call()$sym)
 	insist $ must_be_collection(sym, invoking_call)
-	sym <- unit_to_value(as_typed_vector(sym, 'character'))
+	sym <- unit_to_value(as_atom(sym, 'character'))
 
-	insist $ must_be_of_length(sym, 1, invoking_call)
 	insist $ must_be_unlocked(sym, parent_frame, invoking_call)
 
 	assign(sym, val, envir = parent_frame)

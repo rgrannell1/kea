@@ -45,10 +45,9 @@ xSubstring <- function (str, nums) {
 	insist $ must_be_collection(str, invoking_call)
 	insist $ must_be_collection(nums, invoking_call)
 
-	str <- unit_to_value(as_typed_vector(str, "character"))
+	str <- unit_to_value(as_atom(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")
 
-	insist $ must_be_of_length(str, 0:1, invoking_call)
 	insist $ must_be_whole(nums, invoking_call)
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {

@@ -261,3 +261,24 @@ local({
 		unit = 'ns', times = 10000, control = list(warmup = 100)
 	)
 })
+
+# ------------ Experiment Seven ------------------
+
+# Is as atom faster than typed vector for single values?
+
+local({
+
+	atom <- function () {
+		as_atom(list(1), 'numeric')
+	}
+	typed_vector <- function () {
+		as_typed_vector(list(1), 'numeric')
+	}
+
+	microbenchmark(
+		atom(),
+		typed_vector(),
+
+		unit = 'ns', times = 10000, control = list(warmup = 100)
+	)
+})

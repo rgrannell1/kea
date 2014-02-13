@@ -206,7 +206,6 @@ insist <- local({
 	this <- Object()
 
 	this$must_not_be_missing <-
-		# this used to be 27,000Hz, now its 200,000Hz.
 
 		local({
 
@@ -232,6 +231,38 @@ insist <- local({
 
 	#  -------- value -------- #
 
+	this$must_be_a_single_atom <-
+		local({
+
+			message <- function (val_sym, val) {
+
+				"the argument matching must be a length-one or zero " %+%
+				"atomic value" %+% "." %+% summate(val)
+			}
+
+			function (val, invoking_call) {
+
+				val_sym <- sys.call()$val
+
+				not_vector <- !(is.atomic(val) || is.list(val))
+
+				too_long <- length(val) > 1
+
+				first_not_atom <- if (length(val) > 0) {
+					length( val[[1]] ) != 1
+				} else {
+					False
+				}
+
+				if (not_vector || too_long || first_not_atom) {
+
+					throw_arrow_error(
+						invoking_call, message(val_sym, val))
+				}
+
+			}
+		})
+
 	this$must_be_of_length <-
 		local({
 
@@ -253,6 +284,8 @@ insist <- local({
 					throw_arrow_error(
 						invoking_call, message(val_sym, lengths, val))
 				}
+
+				True
 			}
 		})
 
@@ -818,13 +851,18 @@ insist <- local({
 			function (coll_sym, coll, mode, invoking_call) {
 
 				# numeric is a superset of integer and double
-				if ( is.numeric(mode) && all(mode != c('integer', 'double')) ) {
 
-					throw_arrow_error(
-						invoking_call, message(coll_sym, coll, mode))
+				type <- typeof(coll)
+
+				if (mode == 'numeric') {
+
+					if ( all(type != c('integer', 'double', 'numeric')) ) {
+						throw_arrow_error(
+							invoking_call, message(coll_sym, coll, mode))
+					}
 
 				# other types should be the same
-				} else if (!typeof(coll) == mode) {
+				} else if (!type == mode) {
 
 					throw_arrow_error(
 						invoking_call, message(coll_sym, coll, mode))

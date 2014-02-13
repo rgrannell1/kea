@@ -42,14 +42,13 @@ xPluck <- function (str, colls) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(str)
-
 	insist $ must_not_be_missing(colls)
 
 	insist $ must_be_collection(str, invoking_call)
+	insist $ must_be_collection(colls, invoking_call)
 
-	str <- unit_to_value(as_typed_vector(str, "character"))
+	str <- unit_to_value(as_atom(str, "character"))
 
-	insist $ must_be_of_length(str, 1, invoking_call)
 	insist $ must_be_collection_of_collections(colls, invoking_call)
 
 	if (length(colls) == 0) {

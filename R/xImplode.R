@@ -40,10 +40,8 @@ xImplode <- function (str, strs) {
 	insist $ must_be_collection(strs, invoking_call)
 	insist $ must_be_collection(str, invoking_call)
 
-	str <- unit_to_value(as_typed_vector(str, 'character'))
+	str <- unit_to_value(as_atom(str, 'character'))
 	strs <- as_typed_vector(strs, 'character')
-
-	insist $ must_be_of_length(str, 0:1, invoking_call)
 
 	if (length(strs) == 0) {
 		character()

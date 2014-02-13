@@ -69,9 +69,8 @@ xCycle <- function (num, coll) {
 	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_collection(num, invoking_call)
-	num <- unit_to_value(as_typed_vector(num, 'numeric'))
+	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_of_length(num, 1)
 	insist $ must_be_whole(num, invoking_call)
 	insist $ must_be_collection(coll, invoking_call)
 

@@ -36,19 +36,22 @@ unit_to_value <- function (coll) {
 	}
 }
 
-stop('finish as atom')
-
 as_atom <- function (coll, mode, invoking_call) {
 	# convert a length one vector of any type to an atomic vector.
 
 	invoking_call <- sys.call()
-	coll_sym <- invoking_call$coll
 
-	insist $ must_be_of_length(coll, 1, invoking_call)
-	insist $ must_be_correct_type(coll_sym, coll, mode, invoking_call)
-	insist $ must_be_collection_of_lengths(coll, 1, invoking_call)
+	insist $ must_be_a_single_atom(coll, invoking_call)
 
-	unlist(coll)
+	if (length(coll) == 0) {
+		vector(mode)
+	} else {
+		coll <- coll[[1]]
+		insist $ must_be_correct_type(
+			invoking_call$coll, coll, mode, invoking_call)
+
+		coll[[1]]
+	}
 }
 
 as_typed_vector <- function (coll, mode) {
@@ -69,7 +72,6 @@ as_typed_vector <- function (coll, mode) {
 	} else {
 		# generic vector conversion.
 
-		stop("doesnt work at the moment")
 		insist $ must_be_unlistable(
 			coll_sym, coll, mode, invoking_call)
 
