@@ -163,7 +163,8 @@ is_fn_matchable <- function (val) {
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
 
-	is.vector(val) || is.pairlist(val)
+	# don't change - is.vector doesn't handle attributes.
+	is.atomic(val) || is.list(val) || is.pairlist(val)
 }
 
 is_recursive <- function (val) {
@@ -595,19 +596,19 @@ summate <- local({
 				profile$generic_vector),
 
 			list(
-				function (x) is.logical(x) && is.vector(x),
+				function (x) is.logical(x),
 				profile$logical_vector),
 			list(
-				function (x) is.raw(x) && is.vector(x),
+				function (x) is.raw(x),
 				profile$raw_vector),
 			list(
-				function (x) is.integer(x) && is.vector(x),
+				function (x) is.integer(x),
 				profile$integer_vector),
 			list(
-				function (x) is.double(x) && is.vector(x),
+				function (x) is.double(x),
 				profile$double_vector),
 			list(
-				function (x) is.character(x) && is.vector(x),
+				function (x) is.character(x),
 				profile$character_vector),
 
 			list(

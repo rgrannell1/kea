@@ -67,6 +67,141 @@ used in mathematics, though it is phrased in terms of R's syntax. The comprehens
 translates to "the list of values x squared such that x is evenly
 divisible by 2, for x in 1, 2, ..., 10". An equivalent statement in set-builder notation is
 
+%\{$x^{2}$ \mid \text{$x$ $mod$ 2 = 0}\}
+
+Multiple dummy variables can be assigned in a single comprehension
+
+\begin{verbatim}
+	\code{ xList[a^n, a <- 1:10, n <- 0:2] }
+\end{verbatim}
+
+Notice that in this case no predicate must be satisfied; the comprehension reads "
+%the list of a^{n}, for a in 1, 2, ..., 10, and n in 0, 1, 2 ".
+
+%Anything done by collection comprehensions can be done using a combination of elementary functions -
+%xMap, xSelect, and xProdSetOf. These fundemental functions will be mentioned again below.
+
+\section{Reshaping Collections}
+
+Aften constructing a collection of values it is often necessary to reshape it for use by
+other functions. There are many ways in which a collection can be reshaped, but the most
+common manipulations include denesting nested lists, reordering a collection, and grouping subsequences of a collection.
+
+\subsection{xChunk \& xZipNames}
+
+The function xChunk takes a collection and creates groups of collections of fixed size. This
+function generalises the idea of drawing pairs, or triplets, or quadruplets from an underlying
+collection. A likely scenario for wanting to chunk a collection is when you are given a flat
+list of data that would be better represented by a list of name:value pairs.
+
+\begin{verbatim}
+	\code{disposable_usd <- list('USA', 42050, 'Switzerland', 35471, 'Ireland', 41170, 'Luxembourg', 37999)}
+\end{verbatim}
+
+\begin{verbatim}
+	\code{xChunk(2, disposable_usd)}
+\end{verbatim}
+
+\begin{verbatim}
+	\code{disposable_usd <- list(list('USA', 42050), list('Switzerland', 35471), \\ list('Ireland', 41170), list('Luxembourg', 37999))}
+\end{verbatim}
+
+While this format can be useful, a more common way of representing key:value data would be to use the country name as
+names for a vector of doubles.
+
+\begin{verbatim}
+	\code{xZipNames(disposable_usd)}
+	\code{disposable_usd <- list('USA' = 42050, 'Switzerland' = 35471, 'Ireland' = 41170, 'Luxembourg' = 37999)}
+\end{verbatim}
+
+The function xUnzipNames can be used to convert the named collection back to a collection back to pairs of names and
+values.
+
+\subsection{xSortBy \& xSplitBy}
+
+\section{Combining Collections}
+
+
+
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+\documentclass[a4paper]{article}
+
+\usepackage{Rd, parskip, amsmath, enumerate}
+\usepackage[round]{natbib}
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{Blue}{rgb}{0,0,0.8}
+\hypersetup{%
+	colorlinks,%
+	plainpages=true,%
+	linkcolor=black,%
+	citecolor=black,%
+	urlcolor=Blue,%
+	pdfstartview={XYZ null null 1},% 100%
+	pdfview={XYZ null null null},%
+	pdfpagemode=UseNone,% for no outline
+	pdfauthor={Ryan Grannell},
+	pdftitle={Arrow: Functional Composable R}
+}
+
+%\VignetteIndexEntry{Package 'arrow'}
+%\VignettePackage{arrow}
+
+\title{Arrow: Functional Composable R}
+\author{Ryan Grannell}
+
+\begin{document}
+
+\maketitle
+
+\part{Collections}
+
+\paragraph{}
+Collections are finite linear ordered sequences of values. They are the basic
+data structure in Arrow, with roughly three-quarters of methods being defined on collections
+There are three types of collection used by Arrow, which are usually treated interchangably.
+
+\paragraph{}
+Atomic vectors are flat sequences of homogenously typed values. These values may be logical (True, False, Na),
+integers, doubles, complex numbers, characters (strings), and raw values (bytes). They cannot
+be mixed - an atomic vector can't contain two types of value. R is unusual in that it doesn't have
+lone numbers or strings - instead it has length-one collections of numbers or strings. Like
+all collections, atomic vectors can be empty. Atomic and generic vectors are internally represented
+as a doubly-linked list.
+
+\paragraph{}
+Lists (also known as generic vectors) are less restrictive than atomic vectors - the elements can have mixed
+typed, and may themselves be lists. For this reason, lists are known as recursive data structures. The downside
+for this extra flexibility is that lists require more memory and are less performant than atomic vectors.
+
+\paragraph{}
+Pairlists (also known as dotted pair lists) are the least useful and rarest collections in R. They are poorly supported
+by external functions, but are used internally by R for function parametre lists. Unlike lists, they can have empty
+named arguments, which makes them useful for representing argument lists with optional arguments. They are internally
+represented as singly-linked lists.
+
+\section{Collection Comprehensions}
+
+Collection comprehensions provide syntactic sugar for defining collections by providing the contraints
+that each element must satisfy to be a member of the collection. This is related to the Set-builder notation
+used in mathematics, though it is phrased in terms of R's syntax. The comprehension
+
+\begin{verbatim}
+	\code{ xList[x^2, x <- 1:10, x \%\% 2 == 0] }
+\end{verbatim}
+
+translates to "the list of values x squared such that x is evenly
+divisible by 2, for x in 1, 2, ..., 10". An equivalent statement in set-builder notation is
+
 \{$x^{2}$ \mid \text{$x$ $mod$ 2 = 0}\}
 
 Multiple dummy variables can be assigned in a single comprehension

@@ -300,8 +300,6 @@ integrate(
 
 # Wolfram Alpha (where most of my calculus knowledge comes from)
 # says -6000, so not bad.
-
-
 }
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},
