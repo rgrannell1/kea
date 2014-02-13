@@ -61,13 +61,8 @@ xSplitBy <- local({
 
 		invoking_call <- sys.call()
 
-		assert(
-			!missing(pred), invoking_call,
-			exclaim$parametre_missing(pred))
-
-		assert(
-			!missing(coll), invoking_call,
-			exclaim$parametre_missing(coll))
+		insist $ must_not_be_missing(pred)
+		insist $ must_not_be_missing(coll)
 
 		insist $ must_be_fn_matchable(pred, invoking_call)
 		insist $ must_be_collection(coll, invoking_call)

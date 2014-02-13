@@ -41,13 +41,9 @@ xPluck <- function (str, colls) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(str), invoking_call,
-		exclaim$parametre_missing(str))
+	insist $ must_not_be_missing(str)
 
-	assert(
-		!missing(colls), invoking_call,
-		exclaim$parametre_missing(colls))
+	insist $ must_not_be_missing(colls)
 
 	insist $ must_be_collection(str, invoking_call)
 

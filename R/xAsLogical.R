@@ -33,10 +33,7 @@ xAsLogical <- function (bools) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(bools), invoking_call,
-		exclaim$parametre_missing(bools))
-
+	insist $ must_not_be_missing(bools)
 	insist $ must_be_collection(bools, invoking_call)
 
 	bools <- as_typed_vector(bools, 'logical')

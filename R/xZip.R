@@ -59,9 +59,7 @@ xZip <- function (colls) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(colls), invoking_call,
-		exclaim$parametre_missing(colls))
+	insist $ must_not_be_missing(colls)
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()

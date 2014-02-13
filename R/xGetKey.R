@@ -28,9 +28,7 @@ xGetKey <- function (str) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(str), invoking_call,
-		exclaim$parametre_missing(str))
+	insist $ must_not_be_missing(str)
 
 	insist $ must_be_collection(str, invoking_call)
 

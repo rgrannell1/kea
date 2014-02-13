@@ -39,9 +39,7 @@ xNotMember <- function (val, coll) {
 
 	insist $ must_not_be_missing(coll)
 
-	assert(
-		!missing(val), invoking_call,
-		exclaim$parametre_missing(val))
+	insist $ must_not_be_missing(val)
 
 	insist $ must_be_collection(coll, invoking_call)
 

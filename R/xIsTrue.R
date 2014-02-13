@@ -49,9 +49,7 @@ xIsTrue <- function (val) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(val), invoking_call,
-		exclaim$parametre_missing(val))
+	insist $ must_not_be_missing(val)
 
 	if (length(val) == 0) {
 		False

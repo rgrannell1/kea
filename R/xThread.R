@@ -39,9 +39,7 @@ xThread <- function (val, fns) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(val), invoking_call,
-		exclaim$parametre_missing(val))
+	insist $ must_not_be_missing(val)
 
 	insist $ must_be_collection(fns, invoking_call)
 	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)

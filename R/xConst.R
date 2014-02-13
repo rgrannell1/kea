@@ -31,9 +31,7 @@ xConst <- function (val) {
 	# any -> (... -> any)
 	# return a function that closes over the variable val.
 
-	assert(
-		!missing(val), sys.call(),
-		exclaim$parametre_missing(val))
+	insist $ must_not_be_missing(val)
 
 	function (...) {
 		"a function created xConst."

@@ -35,10 +35,7 @@ xAsComplex <- function (ims) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(ims), invoking_call,
-		exclaim$parametre_missing(ims))
-
+	insist $ must_not_be_missing(ims)
 	insist $ must_be_collection(ims, invoking_call)
 
 	as_typed_vector(ims, 'complex')

@@ -52,9 +52,7 @@ xFoldr <- function (fn, val, coll) {
 
 	insist $ must_not_be_missing(fn)
 
-	assert(
-		!missing(val), invoking_call,
-		exclaim$parametre_missing(val))
+	insist $ must_not_be_missing(val)
 
 	insist $ must_not_be_missing(coll)
 

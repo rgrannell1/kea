@@ -43,10 +43,7 @@ xPartition <- function (pred, coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(pred), invoking_call,
-		exclaim$parametre_missing(pred))
-
+	insist $ must_not_be_missing(pred)
 	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(pred, invoking_call)

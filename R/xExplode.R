@@ -38,13 +38,8 @@ xExplode <- function (rexp, str) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(rexp), invoking_call,
-		exclaim$parametre_missing(rexp))
-
-	assert(
-		!missing(str), invoking_call,
-		exclaim$parametre_missing(str))
+	insist $ must_not_be_missing(rexp)
+	insist $ must_not_be_missing(str)
 
 	str <- as_typed_vector(str, "character")
 	rexp <- unit_to_value(as_typed_vector(rexp, "character"))

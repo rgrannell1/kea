@@ -116,7 +116,7 @@ local({
 #
 # force is fast - 500,000 Hz.
 #
-# FIXED: create a solation that is 200,000 Hz.
+# FIXED: new solution is shorter, and is 200,000 Hz.
 
 local({
 

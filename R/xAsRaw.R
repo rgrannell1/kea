@@ -34,9 +34,7 @@ xAsRaw <- function (raws) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(raws), invoking_call,
-		exclaim$parametre_missing(raws))
+	insist $ must_not_be_missing(raws)
 
 	insist $ must_be_collection(raws, invoking_call)
 

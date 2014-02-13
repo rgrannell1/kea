@@ -40,9 +40,7 @@ xAsNamed <- function (strs, coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(strs), invoking_call,
-		exclaim$parametre_missing(strs))
+	insist $ must_not_be_missing(strs)
 
 	insist $ must_not_be_missing(coll)
 

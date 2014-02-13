@@ -71,9 +71,7 @@ xExists <- function (pred, colls) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(pred), invoking_call,
-		exclaim$parametre_missing(pred))
+	insist $ must_not_be_missing(pred)
 
 	insist $ must_be_fn_matchable(pred, invoking_call)
     insist $ must_be_collection_of_collections(colls, invoking_call)

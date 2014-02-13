@@ -31,9 +31,7 @@ xNegate <- function (nums) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(nums), invoking_call,
-		exclaim$parametre_missing(nums))
+	insist $ must_not_be_missing(nums)
 
 	insist $ must_be_collection(nums, invoking_call)
 

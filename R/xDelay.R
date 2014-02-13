@@ -44,11 +44,7 @@ xDelay <- function (fn, num) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(fn)
-
-	assert(
-		!missing(num), invoking_call,
-		exclaim$parametre_missing(num))
-
+	insist $ must_not_be_missing(num)
 	insist $ must_be_fn_matchable(fn, invoking_call)
 
 	num <- unit_to_value(as_typed_vector(num, 'numeric'))

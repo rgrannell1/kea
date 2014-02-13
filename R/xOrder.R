@@ -9,7 +9,7 @@
 #'
 #'    \code{c(3, 1, 2)[ xOrder(c(3,1,2)) ]}
 #'
-#'    re-arranges the collection as   
+#'    re-arranges the collection as
 #'
 #'    \code{c(1, 2, 3)}
 #'
@@ -45,9 +45,7 @@ xOrder <- function (nums) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(nums), invoking_call,
-		exclaim$parametre_missing(nums))
+	insist $ must_not_be_missing(nums)
 
 	insist $ must_be_collection(nums, invoking_call)
 

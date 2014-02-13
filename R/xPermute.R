@@ -45,13 +45,9 @@ xPermute <- function (nums, colls) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(nums), invoking_call,
-		exclaim$parametre_missing(nums))
+	insist $ must_not_be_missing(nums)
 
-	assert(
-		!missing(colls), invoking_call,
-		exclaim$parametre_missing(colls))
+	insist $ must_not_be_missing(colls)
 
 	nums <- as_typed_vector(nums, 'numeric')
 

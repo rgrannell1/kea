@@ -40,9 +40,7 @@ xMapply <- function (fn, colls) {
 
 	insist $ must_not_be_missing(fn)
 
-	assert(
-		!missing(colls), invoking_call,
-		exclaim$parametre_missing(colls))
+	insist $ must_not_be_missing(colls)
 
 	insist $ must_be_fn_matchable(fn, invoking_call)
 	insist $ must_be_collection(colls, invoking_call)

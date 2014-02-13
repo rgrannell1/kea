@@ -34,9 +34,7 @@ xAsVar <- function (sym) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	assert(
-		!missing(sym), invoking_call,
-		exclaim$parametre_missing(sym))
+	insist $ must_not_be_missing(sym)
 
 	sym <- toString(match.call()$sym)
 

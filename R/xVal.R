@@ -43,13 +43,9 @@ xVal <- function (sym, val) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	assert(
-		!missing(sym), invoking_call,
-		exclaim$parametre_missing(sym))
+	insist $ must_not_be_missing(sym)
 
-	assert(
-		!missing(val), invoking_call,
-		exclaim$parametre_missing(val))
+	insist $ must_not_be_missing(val)
 
 	sym <- toString(match.call()$sym)
 	insist $ must_be_collection(sym, invoking_call)

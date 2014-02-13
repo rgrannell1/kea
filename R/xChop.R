@@ -57,9 +57,7 @@ xChop <- function (num, coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(num), invoking_call,
-		exclaim$parametre_missing(num))
+	insist $ must_not_be_missing(num)
 
 	insist $ must_not_be_missing(coll)
 
