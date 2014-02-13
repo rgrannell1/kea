@@ -50,9 +50,7 @@ xFlatten <- function (num, coll) {
 		!missing(num), invoking_call,
 		exclaim$parametre_missing(num))
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_collection(num, invoking_call)
 

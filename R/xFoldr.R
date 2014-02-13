@@ -50,17 +50,13 @@ xFoldr <- function (fn, val, coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
 	assert(
 		!missing(val), invoking_call,
 		exclaim$parametre_missing(val))
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(fn, invoking_call)
 	insist $ must_be_collection(coll, invoking_call)

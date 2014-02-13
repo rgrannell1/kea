@@ -43,9 +43,7 @@ xDelay <- function (fn, num) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
 	assert(
 		!missing(num), invoking_call,

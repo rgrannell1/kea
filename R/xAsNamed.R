@@ -44,9 +44,7 @@ xAsNamed <- function (strs, coll) {
 		!missing(strs), invoking_call,
 		exclaim$parametre_missing(strs))
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_collection(strs, invoking_call)
 	insist $ must_be_collection(coll, invoking_call)

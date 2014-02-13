@@ -51,9 +51,7 @@ xLimit <- function (fn, num) {
 		!missing(num), invoking_call,
 		exclaim$parametre_missing(num))
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
 	insist $ must_be_collection(num, invoking_call)
 

@@ -3,6 +3,9 @@
 signitures
 gpl3.png
 
+# REMOVE ME REMOVE ME REMOVE ME REMOVE ME
+inst/vignettes/arrow.Rnw
+
 # BitTorrent Sync
 
 .!sync

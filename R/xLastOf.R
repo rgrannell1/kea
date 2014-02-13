@@ -35,9 +35,7 @@ xLastOf <- function (coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_collection(coll, invoking_call)
 	insist $ must_be_longer_than(coll, 0, invoking_call)

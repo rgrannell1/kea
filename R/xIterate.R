@@ -50,9 +50,7 @@ xIterate <- function (fn, val) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
 	assert(
 		!missing(val), invoking_call,

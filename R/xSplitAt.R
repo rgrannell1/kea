@@ -47,9 +47,7 @@ xSplitAt <- function (nums, coll) {
 		!missing(nums), invoking_call,
 		exclaim$parametre_missing(nums))
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_collection(nums, invoking_call)
 	insist $ must_be_collection(coll, invoking_call)

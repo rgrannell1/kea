@@ -5,11 +5,11 @@
 \alias{\%!in\%}
 \alias{\%+\%}
 \alias{\%equals\%}
-\alias{assert}
 \alias{call_with_params}
 \alias{colourise}
 \alias{demand}
 \alias{format_call}
+\alias{get_call_components}
 \alias{insist}
 \alias{is_collection}
 \alias{is_fn_matchable}
@@ -31,7 +31,7 @@ colourise
 
 write_error(..., call. = True)
 
-assert(expr, invoking_call, message)
+get_call_components(invoking_call)
 
 insist
 

@@ -59,9 +59,7 @@ xSortBy <- function (pred, coll) {
 		!missing(pred), invoking_call,
 		exclaim$parametre_missing(pred))
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(pred, invoking_call)
 	insist $ must_be_collection(coll, invoking_call)
@@ -84,15 +82,18 @@ xSortBy <- function (pred, coll) {
 
 			jth <- ith
 
-			while (jth > 1 && should_swap(jth - 1, jth)) {
+			try_hof({
+				while (jth > 1 && should_swap(jth - 1, jth)) {
 
-				tmp <- coll[[jth - 1]]
+					tmp <- coll[[jth - 1]]
 
-				coll[[jth - 1]] <- coll[[jth]]
-				coll[[jth]] <- tmp
+					coll[[jth - 1]] <- coll[[jth]]
+					coll[[jth]] <- tmp
 
-				jth <- jth - 1
-			}
+					jth <- jth - 1
+				}},
+				invoking_call
+			)
 		}
 
 		as.list(coll)

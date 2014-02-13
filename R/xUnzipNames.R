@@ -5,7 +5,7 @@
 #'
 #' @details
 #'     \bold{xUnzipNames} is the inverse function to \bold{xZipNames} - it
-#'     takes a named collection and converts it into a list of 
+#'     takes a named collection and converts it into a list of
 #'     key, value list pairs. This is primarily intended for allowing functions that
 #'     cannot read collection names - like map and select - to be able to operate
 #'     on both a value and its key simultaneouslty.
@@ -41,9 +41,7 @@ xUnzipNames <- function (coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fully_named(coll, invoking_call)
     insist $ must_be_collection(coll, invoking_call)

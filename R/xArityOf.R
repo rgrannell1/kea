@@ -31,9 +31,7 @@ xArityOf <- function (fn) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
 	insist $ must_be_fn_matchable(fn, invoking_call)
 

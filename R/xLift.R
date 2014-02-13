@@ -4,8 +4,8 @@
 #' Compose a function with two other functions.
 #'
 #' @details
-#'    \bold{xLift} takes a function that works on some type of value, and makes that 
-#'    function work on \ital{functions of those values}. 
+#'    \bold{xLift} takes a function that works on some type of value, and makes that
+#'    function work on \ital{functions of those values}.
 #'
 #'
 #'    Two partially applied version of \bold{xLift} exist; \%and\% & \%or\%.
@@ -49,9 +49,7 @@ xLift <- function (fn, fns) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
 	assert(
 		!missing(fns), invoking_call,

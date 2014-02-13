@@ -52,13 +52,9 @@ xApply <- function (fn, coll) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(coll)
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(fn, invoking_call)
 	insist $ must_be_collection(coll, invoking_call)

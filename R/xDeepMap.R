@@ -36,13 +36,9 @@ xDeepMap <- function (fn, coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(fn), invoking_call,
-		exclaim$parametre_missing(fn))
+	insist $ must_not_be_missing(fn)
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(coll, invoking_call)
 	insist $ must_be_recursive(coll, invoking_call)

@@ -189,31 +189,29 @@ as_parametres <- function (names) {
 	)
 }
 
-
-
 try_hof <- function (expr, invoking_call) {
 	# expression -> call -> any
 	# provide a good error message if a higher-order function
-	# fails because the user provided a dodgy function.
+	# fails because the user provided a bad function.
 
 	tryCatch(
 		expr,
 		warning = function (warn) {
 
-			calling_fn <- invoking_call[[1]]
+			apically_calling_fn <- invoking_call[[1]]
 
 			assert(
 				False, invoking_call,
-				yelp$warning_higher_order(calling_fn, warn))
+				yelp$warning_higher_order(apically_calling_fn, warn))
 
 		},
 		error = function (err) {
 
-			calling_fn <- invoking_call[[1]]
+			apically_calling_fn <- invoking_call[[1]]
 
 			assert(
 				False, invoking_call,
-				yelp$error_higher_order(calling_fn, err))
+				yelp$error_higher_order(apically_calling_fn, err))
 
 		}
 	)

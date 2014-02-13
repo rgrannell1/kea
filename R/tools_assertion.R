@@ -28,7 +28,6 @@ format_call <- function (call) {
 
 		calltext <- ddparse(call)
 
-		# find an elegant cuttoff if possible.
 		cuttof <- 35
 
 		if (nchar(calltext) > cuttof) {
@@ -136,6 +135,16 @@ write_error <- function (..., call. = True) {
 #' @rdname pkg-internal
 #'
 
+get_call_components <- function (invoking_call) {
+	# get the name and text of a call.
+
+	list(
+		callname =
+			paste0(invoking_call[[1]], collapse = ''),
+		calltext =
+			format_call(invoking_call))
+}
+
 assert <- local({
 
 	function (expr, invoking_call, message) {
@@ -154,26 +163,11 @@ assert <- local({
 		if (!isTRUE(expr)) {
 			# everythings went wrong, throw an error.
 
-			callname <- paste0(invoking_call[[1]], collapse = '')
-
-			call <- local({
-
-				calltext <- format_call(invoking_call)
-
-				if (nchar(calltext) > 80) {
-
-					paste0(
-						substr(calltext, 1, 80), '...',
-						collapse = '')
-
-				} else {
-					calltext
-				}
-			})
+			components <- get_call_components(invoking_call)
 
 			write_error(
 				yelp$arrow_function_failed(
-					callname, call, message),
+					components$callname, components$calltext, message),
 				call. = False)
 		}
 		True
@@ -201,6 +195,31 @@ assert <- local({
 insist <- local({
 
 	this <- Object()
+
+	this$must_not_be_missing <-
+		# this used to be 27,000Hz, now its 200,000Hz.
+
+		local({
+
+			message <- function (param) {
+				"the parametre " %+% ddquote(param) %+% " is required but was missing."
+			}
+
+			function (param) {
+
+				if (missing(param)) {
+					param <- paste(match.call()$param)
+
+					components <- get_call_components(
+						invoking_call = sys.call(-1))
+
+					write_error(
+						yelp$arrow_function_failed(
+							components$callname, components$calltext, message(param)),
+						call. = False)
+				}
+			}
+		})
 
 	#  -------- value -------- #
 
@@ -780,15 +799,16 @@ insist <- local({
 	this$must_be_correct_type <-
 		local({
 
-			message <- function (coll_sym, mode) {
+			message <- function (coll_sym, coll, mode) {
 				"the collection " %+% ddquote(coll_sym) %+% " cannot be " %+%
-				"converted to a vector of mode " %+% ddquote(mode)
+				"converted to a vector of mode " %+% ddquote(mode) %+%
+				summate(coll)
 			}
 
 			function (coll_sym, coll, mode, invoking_call) {
 
 				assert(
-					mode %in% is(coll), invoking_call, message(coll_sym, mode))
+					mode %in% is(coll), invoking_call, message(coll_sym, coll, mode))
 			}
 		})
 

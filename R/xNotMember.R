@@ -37,9 +37,7 @@ xNotMember <- function (val, coll) {
 
 	invoking_call <- sys.call()
 
-	assert(
-		!missing(coll), invoking_call,
-		exclaim$parametre_missing(coll))
+	insist $ must_not_be_missing(coll)
 
 	assert(
 		!missing(val), invoking_call,
