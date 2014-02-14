@@ -27,8 +27,8 @@ unit_to_value <- function (coll) {
 			as.raw(00)
 		} else {
 			write_error(
-				"internal arrow error: " %+% "
-				cannot convert to non-implemented vector type.", call. = False)
+				"internal arrow error: cannot convert to non-implemented vector type.",
+				call. = False)
 		}
 
 	} else {

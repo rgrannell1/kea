@@ -48,20 +48,30 @@ xTabulate <- function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		lapply(
-			unique(coll),
-			function (elem) {
 
-				count <- 0
-				for (ith in seq_along(coll)) {
+		pairs <- list()
 
-					# to avoid using two measures of identity
-					if ( length(unique( list(elem, coll[ith]) )) == 1 ) {
-						count <- count + 1
-					}
+		for (elem in coll) {
+
+			is_matched <- False
+
+			for (jth in seq_along(pairs)) {
+
+				if (identical( elem, pairs[[jth]][[1]] )) {
+
+					pairs[[jth]][[2]] <- pairs[[jth]][[2]] + 1
+					is_matched <- True
+					break
+
 				}
-				list(elem, count)
-		})
+			}
+
+			if (!is_matched) {
+				pairs <- c(pairs, list(list(elem, 1)))
+			}
+
+		}
+		pairs
 	}
 }
 
@@ -71,3 +81,5 @@ xTabulate <- function (coll) {
 xTabulate... <- function (...) {
 	xTabulate(list(...))
 }
+
+dput(xTabulate( c('a', 'a', 'b', 'a',  'c') ))

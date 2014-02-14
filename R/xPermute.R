@@ -30,6 +30,8 @@
 #'
 #' @family reshaping_functions
 #'
+#' @family set_functions
+#'
 #' @template
 #'    Variadic
 #'

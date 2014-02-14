@@ -1,34 +1,24 @@
-\documentclass[a4paper]{article}
+\documentclass[titlepage]{report}
 
-\usepackage{Rd, parskip, amsmath, enumerate}
-\usepackage[round]{natbib}
-\usepackage{hyperref}
-\usepackage{color}
-\definecolor{Blue}{rgb}{0,0,0.8}
-\hypersetup{%
-	colorlinks,%
-	plainpages=true,%
-	linkcolor=black,%
-	citecolor=black,%
-	urlcolor=Blue,%
-	pdfstartview={XYZ null null 1},% 100%
-	pdfview={XYZ null null null},%
-	pdfpagemode=UseNone,% for no outline
-	pdfauthor={Ryan Grannell},
-	pdftitle={Arrow: Functional Composable R}
-}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
 
-%\VignetteIndexEntry{Package 'arrow'}
-%\VignettePackage{arrow}
+%\usepackage{lastpage} % for the number of the last page in the document
+%\usepackage{fancyhdr}
+
+\begin{document}
 
 \title{Arrow: Functional Composable R}
 \author{Ryan Grannell}
 
-\begin{document}
-
 \maketitle
+\tableofcontents
 
-\part{Collections}
+\chapter{Introduction}
+
+
+\chapter{Collections}
 
 \paragraph{}
 Collections are finite linear ordered sequences of values. They are the basic
@@ -39,14 +29,13 @@ There are three types of collection used by Arrow, which are usually treated int
 Atomic vectors are flat sequences of homogenously typed values. These values may be logical (True, False, Na),
 integers, doubles, complex numbers, characters (strings), and raw values (bytes). They cannot
 be mixed - an atomic vector can't contain two types of value. R is unusual in that it doesn't have
-lone numbers or strings - instead it has length-one collections of numbers or strings. Like
-all collections, atomic vectors can be empty. Atomic and generic vectors are internally represented
+lone numbers or strings - instead it has length-one collections of numbers or strings. Atomic and generic vectors are internally represented
 as a doubly-linked list.
 
 \paragraph{}
 Lists (also known as generic vectors) are less restrictive than atomic vectors - the elements can have mixed
-typed, and may themselves be lists. For this reason, lists are known as recursive data structures. The downside
-for this extra flexibility is that lists require more memory and are less performant than atomic vectors.
+typed, and may themselves be lists - they are recursive data types. The downside
+for this extra flexibility is that lists use more memory and are less performant than atomic vectors.
 
 \paragraph{}
 Pairlists (also known as dotted pair lists) are the least useful and rarest collections in R. They are poorly supported
@@ -57,208 +46,165 @@ represented as singly-linked lists.
 \section{Collection Comprehensions}
 
 Collection comprehensions provide syntactic sugar for defining collections by providing the contraints
-that each element must satisfy to be a member of the collection. This is related to the Set-builder notation
-used in mathematics, though it is phrased in terms of R's syntax. The comprehension
+that each element must satisfy to be a member of the collection. These are a translation of set-builder
+notation, which defines a set in terms of membership constraints. The comprehension
+
+$$xList[x^{2},\ x\ \leftarrow\ 1..10,\ x\ \%\%\ 2 ==\ 0 ]$$
+
+translates to \"the list of values x squared such that x is evenly
+divisible by 2, for x in 1, 2, ..., 10\". The values $x$ in 1..10 are tested to check if they are
+evenly divisible by 2. Finally, the values are squared, added to a list, and returned. An equivalent comprehension in set-builder notation is
+
+$$\{x^{2} \mid x\ mod\ 2 = 0 \}$$
+
+In the above comprehensions only one dummy variable - $x$ - is used. Multiple dummy variables can be assigned in one comprehension. If the final expression isn't a variable binding expression it is interpreted as
+a predicate to select elements to include in the output. This expression doesn't have to be included. The
+yield expression denotes what should be returned by the comprehension; in the above example the square
+of each multiple of two is returned.
+
+\section{Set \& Combinatorics Operations}
+
+Set and combinatorial functions are useful utilies for iterating over
+and summarising data. Some of the key functions are covered below.
+
+\subsection{xProdSetOf}
+
+The set product of two collections is defined as the set of all ordered pairs
+of values drawn from each collections.
+
+$$X \times Y = \{(x, y) \mid x\ \epsilon\ X\ ^\wedge\ y\ \epsilon\ Y \}$$
+
+$$xList[list(x, y),\ x\ \leftarrow\ X,\ y\ \leftarrow\ Y]$$
+
+Arrow's set product is a generalised version of the above function, which can
+take the product of more or less than two collections. The set product is Arrow's
+replacement for nested for-loops. A single loop is often used to iterate over a
+list of values, and a double loop is used to iterate over pairs of values or
+over 2d-arrays.
+
+The following imperative program generates every pair of indices between one and ten.
 
 \begin{verbatim}
-	\code{ xList[x^2, x <- 1:10, x \%\% 2 == 0] }
+
+	# imperative code
+
+	pairs <- list()
+	for (ith in 1:10) {
+	    for (jth in 1:10) {
+	        pairs <- c(pairs, list(ith, jth))
+	    }
+	}
 \end{verbatim}
 
-translates to "the list of values x squared such that x is evenly
-divisible by 2, for x in 1, 2, ..., 10". An equivalent statement in set-builder notation is
-
-%\{$x^{2}$ \mid \text{$x$ $mod$ 2 = 0}\}
-
-Multiple dummy variables can be assigned in a single comprehension
+The same program in Arrow is
 
 \begin{verbatim}
-	\code{ xList[a^n, a <- 1:10, n <- 0:2] }
+
+	# functional code
+
+	pairs <- xProdSetOf...(1:10, 1:10)
 \end{verbatim}
 
-Notice that in this case no predicate must be satisfied; the comprehension reads "
-%the list of a^{n}, for a in 1, 2, ..., 10, and n in 0, 1, 2 ".
+\subsection{xPowerSetOf}
 
-%Anything done by collection comprehensions can be done using a combination of elementary functions -
-%xMap, xSelect, and xProdSetOf. These fundemental functions will be mentioned again below.
-
-\section{Reshaping Collections}
-
-Aften constructing a collection of values it is often necessary to reshape it for use by
-other functions. There are many ways in which a collection can be reshaped, but the most
-common manipulations include denesting nested lists, reordering a collection, and grouping subsequences of a collection.
-
-\subsection{xChunk \& xZipNames}
-
-The function xChunk takes a collection and creates groups of collections of fixed size. This
-function generalises the idea of drawing pairs, or triplets, or quadruplets from an underlying
-collection. A likely scenario for wanting to chunk a collection is when you are given a flat
-list of data that would be better represented by a list of name:value pairs.
+xPowerSet of calculates the power set of a collection. The power set of a
+collection is the set of each of its subsets.
 
 \begin{verbatim}
-	\code{disposable_usd <- list('USA', 42050, 'Switzerland', 35471, 'Ireland', 41170, 'Luxembourg', 37999)}
+	xPowerSetOf( list(1, 2) )
+	list(list(), list(1), list(2), list(1, 2))
 \end{verbatim}
+
+\subsection{xPermute}
+
+The function xPermute re-arranges collections according to a set of indices.
 
 \begin{verbatim}
-	\code{xChunk(2, disposable_usd)}
+
+	xPermute...( c(1,3,2), list('a', 'b', 'c'), list(1, 2, 3) )
+	list(list("a", "c", "b"), list(1, 3, 2))
+
 \end{verbatim}
+
+xPermute can be used to re-order tabular data using indices. Several functions that
+generate these indices are discussed later.
+
+\subsection{xIsMember}
+
+The function xIsMember tests is a value is a member of a collection. For example,
 
 \begin{verbatim}
-	\code{disposable_usd <- list(list('USA', 42050), list('Switzerland', 35471), \\ list('Ireland', 41170), list('Luxembourg', 37999))}
+	xIsMember('a', letters)
 \end{verbatim}
 
-While this format can be useful, a more common way of representing key:value data would be to use the country name as
-names for a vector of doubles.
+tests if $a$ is in the set of letters. Most Arrow predicates have a negation. In
+this case, xNotMember tests if a value is absent from a collection.
 
 \begin{verbatim}
-	\code{xZipNames(disposable_usd)}
-	\code{disposable_usd <- list('USA' = 42050, 'Switzerland' = 35471, 'Ireland' = 41170, 'Luxembourg' = 37999)}
+	xNotMember('a', letters)
 \end{verbatim}
 
-The function xUnzipNames can be used to convert the named collection back to a collection back to pairs of names and
-values.
+\subsection{xUniqueOf}
 
-\subsection{xSortBy \& xSplitBy}
-
-\section{Combining Collections}
-
-
-
-
-
-
-
-\end{document}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
-\documentclass[a4paper]{article}
-
-\usepackage{Rd, parskip, amsmath, enumerate}
-\usepackage[round]{natbib}
-\usepackage{hyperref}
-\usepackage{color}
-\definecolor{Blue}{rgb}{0,0,0.8}
-\hypersetup{%
-	colorlinks,%
-	plainpages=true,%
-	linkcolor=black,%
-	citecolor=black,%
-	urlcolor=Blue,%
-	pdfstartview={XYZ null null 1},% 100%
-	pdfview={XYZ null null null},%
-	pdfpagemode=UseNone,% for no outline
-	pdfauthor={Ryan Grannell},
-	pdftitle={Arrow: Functional Composable R}
-}
-
-%\VignetteIndexEntry{Package 'arrow'}
-%\VignettePackage{arrow}
-
-\title{Arrow: Functional Composable R}
-\author{Ryan Grannell}
-
-\begin{document}
-
-\maketitle
-
-\part{Collections}
-
-\paragraph{}
-Collections are finite linear ordered sequences of values. They are the basic
-data structure in Arrow, with roughly three-quarters of methods being defined on collections
-There are three types of collection used by Arrow, which are usually treated interchangably.
-
-\paragraph{}
-Atomic vectors are flat sequences of homogenously typed values. These values may be logical (True, False, Na),
-integers, doubles, complex numbers, characters (strings), and raw values (bytes). They cannot
-be mixed - an atomic vector can't contain two types of value. R is unusual in that it doesn't have
-lone numbers or strings - instead it has length-one collections of numbers or strings. Like
-all collections, atomic vectors can be empty. Atomic and generic vectors are internally represented
-as a doubly-linked list.
-
-\paragraph{}
-Lists (also known as generic vectors) are less restrictive than atomic vectors - the elements can have mixed
-typed, and may themselves be lists. For this reason, lists are known as recursive data structures. The downside
-for this extra flexibility is that lists require more memory and are less performant than atomic vectors.
-
-\paragraph{}
-Pairlists (also known as dotted pair lists) are the least useful and rarest collections in R. They are poorly supported
-by external functions, but are used internally by R for function parametre lists. Unlike lists, they can have empty
-named arguments, which makes them useful for representing argument lists with optional arguments. They are internally
-represented as singly-linked lists.
-
-\section{Collection Comprehensions}
-
-Collection comprehensions provide syntactic sugar for defining collections by providing the contraints
-that each element must satisfy to be a member of the collection. This is related to the Set-builder notation
-used in mathematics, though it is phrased in terms of R's syntax. The comprehension
+The function xUniqueOf removes duplicated elements from a collection. For example,
 
 \begin{verbatim}
-	\code{ xList[x^2, x <- 1:10, x \%\% 2 == 0] }
+	xUniqueOf(c(letters, letters))
 \end{verbatim}
 
-translates to "the list of values x squared such that x is evenly
-divisible by 2, for x in 1, 2, ..., 10". An equivalent statement in set-builder notation is
-
-\{$x^{2}$ \mid \text{$x$ $mod$ 2 = 0}\}
-
-Multiple dummy variables can be assigned in a single comprehension
+returns the set of letters after removing duplicate letters.
+A related function xDuplicatesOf removes the first occurence
+of an element, and keeps the remaining duplicates.
 
 \begin{verbatim}
-	\code{ xList[a^n, a <- 1:10, n <- 0:2] }
+	xDuplicatesOf...('a', 'b', 'b', 'b')
+	c('b', 'b')
 \end{verbatim}
 
-Notice that in this case no predicate must be satisfied; the comprehension reads "
-the list of a^{n}, for a in 1, 2, ..., 10, and n in 0, 1, 2 ".
 
-%Anything done by collection comprehensions can be done using a combination of elementary functions -
-%xMap, xSelect, and xProdSetOf. These fundemental functions will be mentioned again below.
+\subsection{xTabulate}
 
-\section{Reshaping Collections}
-
-Aften constructing a collection of values it is often necessary to reshape it for use by
-other functions. There are many ways in which a collection can be reshaped, but the most
-common manipulations include denesting nested lists, reordering a collection, and grouping subsequences of a collection.
-
-\subsection{xChunk \& xZipNames}
-
-The function xChunk takes a collection and creates groups of collections of fixed size. This
-function generalises the idea of drawing pairs, or triplets, or quadruplets from an underlying
-collection. A likely scenario for wanting to chunk a collection is when you are given a flat
-list of data that would be better represented by a list of name:value pairs.
+Arrow doesn't use the factors to represent categorical data. Instead,
+collections of observations can be tabulated using xTabulate. This
+takes the data and compresses it down to a collection of observation-frequency pairs,
+which is similar to how factors are represented.
 
 \begin{verbatim}
-	\code{disposable_usd <- list('USA', 42050, 'Switzerland', 35471, 'Ireland', 41170, 'Luxembourg', 37999)}
+	votes <- c('no', 'yes', 'yes', 'no', 'yes', 'no', 'no')
+	xTabulate(votes)
+
+	list(list("no", 4), list("yes", 3))
 \end{verbatim}
+
+
+
+
+
+
+
+
+
+
+
+\part{Functions}
+
+\section{xSelect}
+
+Select is one of the simplest higher-order functions.
 
 \begin{verbatim}
-	\code{xChunk(2, disposable_usd)}
+	xSelect(is.integer, )
 \end{verbatim}
 
-\begin{verbatim}
-	\code{disposable_usd <- list(list('USA', 42050), list('Switzerland', 35471), \\ list('Ireland', 41170), list('Luxembourg', 37999))}
-\end{verbatim}
+\section{xMap}
 
-While this format can be useful, a more common way of representing key:value data would be to use the country name as
-names for a vector of doubles.
-
-\begin{verbatim}
-	\code{xZipNames(disposable_usd)}
-	\code{disposable_usd <- list('USA' = 42050, 'Switzerland' = 35471, 'Ireland' = 41170, 'Luxembourg' = 37999)}
-\end{verbatim}
-
-The function xUnzipNames can be used to convert the named collection back to a collection back to pairs of names and
-values.
-
-\subsection{xSortBy \& xSplitBy}
-
-\section{Combining Collections}
+Map is probably the most common higher-order function, because it has an obvio
 
 
+\section{xFoldl}
 
-
+Fold is an amazingly flexible function - almost all collection functions in arrow can be
+written using fold in just a few lines. Fold takes
 
 
 
