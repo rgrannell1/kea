@@ -56,5 +56,17 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
 \code{\link{xZipNames...}}; \code{\link{xZip}},
 \code{\link{xZip...}}
+
+Other set_functions: \code{\link{xCombos}},
+\code{\link{xCombos...}}; \code{\link{xCycle}},
+\code{\link{xCycle...}}; \code{\link{xDuplicatesOf}},
+\code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
+\code{\link{xInter...}}; \code{\link{xIsMember}},
+\code{\link{xIsMember...}}; \code{\link{xNotMember}},
+\code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
+\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+\code{\link{xProdSetOf...}}; \code{\link{xUnionOf}},
+\code{\link{xUnionOf...}}; \code{\link{xUniqueOf}},
+\code{\link{xUniqueOf...}}
 }
 
