@@ -44,7 +44,6 @@ xVal <- function (sym, val) {
 	parent_frame <- parent.frame()
 
 	insist $ must_not_be_missing(sym)
-
 	insist $ must_not_be_missing(val)
 
 	sym <- toString(match.call()$sym)

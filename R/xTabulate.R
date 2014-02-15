@@ -61,8 +61,8 @@ xTabulate <- function (coll) {
 
 					pairs[[jth]][[2]] <- pairs[[jth]][[2]] + 1
 					is_matched <- True
-					break
 
+					break
 				}
 			}
 

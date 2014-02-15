@@ -186,8 +186,6 @@ local({
 
 # How fast is as_typed_vector?
 #
-# it seems to be rate limiting.
-#
 # as_typed_vector is really realy slow.
 # it is 16,000 Hz compared to as.doubles 127,000 Hz for the same data.
 #
@@ -199,6 +197,7 @@ local({
 #
 # corrected unit test 60kHz for atomics.
 # generics are very slow: 550Hz.
+# now 50Hz!
 
 local({
 
@@ -214,6 +213,10 @@ local({
 	current_list <- function () {
 		as_typed_vector(one_to_1000_list, 'integer')
 	}
+	vapply_control <- function () {
+		vapply(one_to_1000_list, function (x) T, logical(1))
+	}
+
 	unlist_doubles <- function () {
 		unlist(one_to_1000_list)
 	}
@@ -225,6 +228,7 @@ local({
 		current_vector(),
 		as_double(),
 		current_list(),
+		vapply_control(),
 		unlist_doubles(),
 		as_vector_doubles(),
 

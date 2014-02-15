@@ -55,7 +55,8 @@ xProdSetOf...(1:12, 1:12)
 \seealso{
 Other combinatoric_functions: \code{\link{xCombos}},
 \code{\link{xCombos...}}; \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xPowerSetOf}},
+\code{\link{xCycle...}}; \code{\link{xPermute}},
+\code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
 \code{\link{xPowerSetOf...}}
 
 Other set_functions: \code{\link{xCombos}},

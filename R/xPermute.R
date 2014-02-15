@@ -28,7 +28,7 @@
 #' @section Corner Cases:
 #'    returns the empty list is \bold{nums} is length-zero.
 #'
-#' @family reshaping_functions
+#' @family combinatoric_functions
 #'
 #' @family set_functions
 #'
@@ -60,7 +60,7 @@ xPermute <- function (nums, colls) {
 		list()
 	} else {
 		lapply(colls, function (permutable) {
-			permutable[nums]
+			as.list(permutable[nums])
 		})
 	}
 }

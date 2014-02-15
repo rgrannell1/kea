@@ -18,13 +18,13 @@
 #'
 #'     Which map to
 #'
-#'     \code{xCycle(0, 1:4)}
+#'     \code{xCycle...(0, 1:4)}
 #'
-#'     \code{xCycle(1, 1:4)}
+#'     \code{xCycle...(1, 1:4)}
 #'
-#'     \code{xCycle(2, 1:4)}
+#'     \code{xCycle...(2, 1:4)}
 #'
-#'     \code{xCycle(3, 1:4)}
+#'     \code{xCycle...(3, 1:4)}
 #'
 #' @param
 #'      num a whole number. The magnitude gives number of elements
@@ -58,29 +58,32 @@
 #' @rdname xCycle
 #' @export
 
-xCycle <- function (num, coll) {
+xCycle <- function (num, colls) {
 	# number -> Collection any -> Collection any
 	# get a cyclic permutation of a collection.
 
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(num)
-
-	insist $ must_not_be_missing(coll)
+	insist $ must_not_be_missing(colls)
 
 	insist $ must_be_collection(num, invoking_call)
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_whole(num, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
 
-	if (length(coll) == 0) {
+	insist $ must_be_collection(colls, invoking_call)
+	insist $ must_be_collection_of_collections(colls, invoking_call)
+	insist $ must_be_collection_of_equal_length(colls, invoking_call)
+
+	if (length(colls) == 0) {
 		list()
-	} else if (length(coll) == 1) {
-		as.list(coll)
 	} else {
-		indices <- ((seq_along(coll) - 1 + num) %% length(coll)) + 1
-		as.list(coll)[indices]
+		indices <- ((seq_along( colls[[1]])  - 1 + num) %% length( colls[[1]]) ) + 1
+
+		lapply(colls, function (permutable) {
+			as.list(permutable[indices])
+		})
 	}
 }
 

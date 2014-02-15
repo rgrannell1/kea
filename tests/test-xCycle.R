@@ -10,13 +10,13 @@ message('xCycle')
 	forall(
 		"cycling the empty collection is the empty collection",
 		test_cases$integer_with_collection_zero,
-		xCycle(num, coll) %equals% list()
+		xCycle(num, list(coll)) %equals% list()
 	)
 
 	forall(
 		"cycling with zero yields the correct collection.",
 		test_cases$collection,
-		xCycle(0, coll) %equals% as.list(coll)
+		xCycle(0, list(coll)) %equals% as.list(coll)
  	)
 
 

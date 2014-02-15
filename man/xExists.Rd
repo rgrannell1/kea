@@ -80,7 +80,7 @@ is_cyclic_permutation <- (string1 : string2) := {
         x_(seq_along(string1)) $
         x_Exists...(
             ith := {
-                identical(xCycle(ith, string1), as.list(string2))
+                identical(xCycle...(ith, string1), as.list(string2))
             }
         )
 
