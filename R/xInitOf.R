@@ -21,7 +21,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xInitOf.R
 #'

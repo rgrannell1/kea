@@ -7,6 +7,8 @@
 %\usepackage{lastpage} % for the number of the last page in the document
 %\usepackage{fancyhdr}
 
+\newlength\longest
+
 \begin{document}
 
 \title{Arrow: Functional Composable R}
@@ -17,31 +19,71 @@
 
 \chapter{Introduction}
 
-
 \chapter{Collections}
 
 \paragraph{}
-Collections are finite linear ordered sequences of values. They are the basic
-data structure in Arrow, with roughly three-quarters of methods being defined on collections
-There are three types of collection used by Arrow, which are usually treated interchangably.
+
+The R language has a wealth of classes, including factors, data frames, matrices, lists, pairlists and vectors.
+Arrow unifies the latter three under the abstraction of a \textit{collection}. Collections are finite linear
+ordered sequences of values. Lists, pairlists and atomic vectors are supported because they are the most
+fundemental data structures in R. Data frames and other classes are built on top of vectors and tend to
+suffer from odd corner cases that hinder compositionality.
 
 \paragraph{}
-Atomic vectors are flat sequences of homogenously typed values. These values may be logical (True, False, Na),
-integers, doubles, complex numbers, characters (strings), and raw values (bytes). They cannot
-be mixed - an atomic vector can't contain two types of value. R is unusual in that it doesn't have
-lone numbers or strings - instead it has length-one collections of numbers or strings. Atomic and generic vectors are internally represented
-as a doubly-linked list.
+R functions can suffer from problems with genericity. For example, the function cumsum can work on both
+lists and atomic vectors of numbers, but the function sum cannot sum a list of numbers.
+
+\begin{verbatim}
+    cumsum(list(1:10))
+    55
+
+    sum(list(1:10))
+    Error in sum(list(1:10)) : invalid 'type' (list) of argument
+\end{verbatim}
 
 \paragraph{}
-Lists (also known as generic vectors) are less restrictive than atomic vectors - the elements can have mixed
-typed, and may themselves be lists - they are recursive data types. The downside
-for this extra flexibility is that lists use more memory and are less performant than atomic vectors.
+Arrow smooths out the differences between lists and other vectors; a list of numbers is always
+treated the same as an atomic vector of numbers.
+
+\section{Types of Collection}
+
+Atomic vectors are flat sequences of homogenously-typed values. There are several subtypes
+of vector - logical, integer, double, complex, character (string) and raw (bytes). They cannot
+have mixed types - each vector can only hold one type of value. Each element of an atomic
+vector is length one. R is unusual as a language in that it has no lone numbers or strings -
+every number or string is a length-one vector. Atomic vectors are internally represented
+as doubly-linked lists.
 
 \paragraph{}
-Pairlists (also known as dotted pair lists) are the least useful and rarest collections in R. They are poorly supported
-by external functions, but are used internally by R for function parametre lists. Unlike lists, they can have empty
-named arguments, which makes them useful for representing argument lists with optional arguments. They are internally
-represented as singly-linked lists.
+Lists (also known as generic vectors) are potentially nested sequences of heterogenously-typed values.
+They are less restrictive than atomic vectors in that they can contain other collections, and
+can have mixed-type values. The downside for this extra flexibility is that lists use more
+memory and are less performant than atomic vectors. Table \ref{table:memusage} shows the
+comparative memory usage for the same dataset represented as an integer vector, a list and a pairlist.
+For large flat datasets, lists take about fourtheen times more memory than atomic vectors.
+\begin{table}
+\begin{tabular}{l|llllll}
+	data type & 1 & $10^{2}$ & $10^{3}$ & $10^{4}$ & $10^{5}$\\
+	\hline
+	integer & 48 & 88 & 440 & 4040 & 400,040\\
+	list & 96 & 648 & 5640 & 56,040 & 5,600,040\\
+	pairlist & 104 & 1040 & 10,400 & 104,000 & 10,400,000\\
+\end{tabular}
+
+\caption{Memory usage of the sequence 1...n in bytes}
+\label{table:memusage}
+
+\end{table}
+
+
+
+
+
+\paragraph{}
+Pairlists (also known as dotted pair lists) are the least useful and rarest collections in R - the value
+NULL aside. They are poorly supported by base functions, but are used internally by R for function parametre
+lists. Unlike lists, they can have empty named arguments, which makes them useful for representing argument
+lists with optional arguments. Internally pairlists are represented as singly-linked lists.
 
 \section{Collection Comprehensions}
 
@@ -49,163 +91,78 @@ Collection comprehensions provide syntactic sugar for defining collections by pr
 that each element must satisfy to be a member of the collection. These are a translation of set-builder
 notation, which defines a set in terms of membership constraints. The comprehension
 
-$$xList[x^{2},\ x\ \leftarrow\ 1..10,\ x\ \%\%\ 2 ==\ 0 ]$$
+\begin{equation} \label{eq:comprehensions-squares}
+xList[x^{2},\ x\ \leftarrow\ 1..10,\ x\ \%\%\ 2 ==\ 0 ]
+\end{equation}
 
 translates to \"the list of values x squared such that x is evenly
 divisible by 2, for x in 1, 2, ..., 10\". The values $x$ in 1..10 are tested to check if they are
-evenly divisible by 2. Finally, the values are squared, added to a list, and returned. An equivalent comprehension in set-builder notation is
+evenly divisible by 2. Finally, the values are squared, added to a list, and returned. An equivalent
+comprehension in set-builder notation is
 
-$$\{x^{2} \mid x\ mod\ 2 = 0 \}$$
+\begin{equation} \label{eq:setbuilder-squares}
+\{x^{2} \mid x\ \epsilon\ \{1..10\} \land\ x\ mod\ 2\ =\ 0 \}
+\end{equation}
 
-In the above comprehensions only one dummy variable - $x$ - is used. Multiple dummy variables can be assigned in one comprehension. If the final expression isn't a variable binding expression it is interpreted as
-a predicate to select elements to include in the output. This expression doesn't have to be included. The
-yield expression denotes what should be returned by the comprehension; in the above example the square
-of each multiple of two is returned.
+Collection comprehensions are made of three elements - a yield expression, binding expressions, and a
+predicate expression (optional).
 
-\section{Set \& Combinatorics Operations}
+\subsection{Binding Expressions}
 
-Set and combinatorial functions are useful utilies for iterating over
-and summarising data. Some of the key functions are covered below.
+Binding expressions determine what parametres are added to the yield and predicate expressions. They
+have two parts; a symbol dictating what to bind, and a collection of values that binding may have. At
+runtime
 
-\subsection{xProdSetOf}
+\begin{equation} \label{eq:comprehension-sum}
+xList[\ x\ +\ y,\ x\ \leftarrow\ 1:10,\ y\ \leftarrow\ 1:10\ ]
+\end{equation}
 
-The set product of two collections is defined as the set of all ordered pairs
-of values drawn from each collections.
+essentially gets transformed to
 
-$$X \times Y = \{(x, y) \mid x\ \epsilon\ X\ ^\wedge\ y\ \epsilon\ Y \}$$
+\begin{equation} \label{eq:comprehension-sum-tranformed}
+xList[(x\ :\ y)\ :=\ x\ +\ y,\ 1:10,\ 1:10\ ]
+\end{equation}
 
-$$xList[list(x, y),\ x\ \leftarrow\ X,\ y\ \leftarrow\ Y]$$
+before feeding the yield expression each combination of values from the value part
+of the binding expressions.
 
-Arrow's set product is a generalised version of the above function, which can
-take the product of more or less than two collections. The set product is Arrow's
-replacement for nested for-loops. A single loop is often used to iterate over a
-list of values, and a double loop is used to iterate over pairs of values or
-over 2d-arrays.
+\subsection{The Yield \& Predicate Expressions}
 
-The following imperative program generates every pair of indices between one and ten.
+The yield expression is a transformation that is applied to each eligable combination of values
+drawn from the binding expressions. The predicate expression is the test for eligability.
 
-\begin{verbatim}
+\paragraph{}
 
-	# imperative code
+\begin{equation} \label{eq:comprehension-letters}
+xList[toupper(letters),\ letter\ \leftarrow\ letters]
+\end{equation}
 
-	pairs <- list()
-	for (ith in 1:10) {
-	    for (jth in 1:10) {
-	        pairs <- c(pairs, list(ith, jth))
-	    }
-	}
-\end{verbatim}
+Program \ref{eq:comprehension-letters} demonstrates how a yield transformation is applied to each
+letter from the set of letters, yielding an uppercase set of letters. The above comprehension is
+essentially transformed to
 
-The same program in Arrow is
+\begin{equation} \label{eq:comprehension-letters-transformed}
+xList[letter\ :=\ toupper(letters),\ letters,\ letter\ :=\ True]
+\end{equation}
 
-\begin{verbatim}
+internally. When no predicate expression is provided it defaults to the predicate xTruth - a function
+that is always true. A user can optionally provide a more selective membership test.
 
-	# functional code
+\begin{equation} \label{eq:comprehension-letters-pred}
+xList[toupper(letters),\ letter\ \leftarrow\ letters,\ is.element(letter,\ letters[1:10])]
+\end{equation}
 
-	pairs <- xProdSetOf...(1:10, 1:10)
-\end{verbatim}
+\section{Collection Operations}
 
-\subsection{xPowerSetOf}
+\chapter{Functions}
 
-xPowerSet of calculates the power set of a collection. The power set of a
-collection is the set of each of its subsets.
+Functions are mathematical objects that relate each input to one fixed output.
 
-\begin{verbatim}
-	xPowerSetOf( list(1, 2) )
-	list(list(), list(1), list(2), list(1, 2))
-\end{verbatim}
-
-\subsection{xPermute}
-
-The function xPermute re-arranges collections according to a set of indices.
-
-\begin{verbatim}
-
-	xPermute...( c(1,3,2), list('a', 'b', 'c'), list(1, 2, 3) )
-	list(list("a", "c", "b"), list(1, 3, 2))
-
-\end{verbatim}
-
-xPermute can be used to re-order tabular data using indices. Several functions that
-generate these indices are discussed later.
-
-\subsection{xIsMember}
-
-The function xIsMember tests is a value is a member of a collection. For example,
-
-\begin{verbatim}
-	xIsMember('a', letters)
-\end{verbatim}
-
-tests if $a$ is in the set of letters. Most Arrow predicates have a negation. In
-this case, xNotMember tests if a value is absent from a collection.
-
-\begin{verbatim}
-	xNotMember('a', letters)
-\end{verbatim}
-
-\subsection{xUniqueOf}
-
-The function xUniqueOf removes duplicated elements from a collection. For example,
-
-\begin{verbatim}
-	xUniqueOf(c(letters, letters))
-\end{verbatim}
-
-returns the set of letters after removing duplicate letters.
-A related function xDuplicatesOf removes the first occurence
-of an element, and keeps the remaining duplicates.
-
-\begin{verbatim}
-	xDuplicatesOf...('a', 'b', 'b', 'b')
-	c('b', 'b')
-\end{verbatim}
-
-
-\subsection{xTabulate}
-
-Arrow doesn't use the factors to represent categorical data. Instead,
-collections of observations can be tabulated using xTabulate. This
-takes the data and compresses it down to a collection of observation-frequency pairs,
-which is similar to how factors are represented.
-
-\begin{verbatim}
-	votes <- c('no', 'yes', 'yes', 'no', 'yes', 'no', 'no')
-	xTabulate(votes)
-
-	list(list("no", 4), list("yes", 3))
-\end{verbatim}
-
-
-
-
-
-
-
-
-
-
-
-\part{Functions}
-
-\section{xSelect}
-
-Select is one of the simplest higher-order functions.
-
-\begin{verbatim}
-	xSelect(is.integer, )
-\end{verbatim}
-
-\section{xMap}
-
-Map is probably the most common higher-order function, because it has an obvio
-
-
-\section{xFoldl}
-
-Fold is an amazingly flexible function - almost all collection functions in arrow can be
-written using fold in just a few lines. Fold takes
-
+Not all R or Arrow functions are mathematical functions. For example,
+xOneOf takes a collection and returns a random value from the collection. Although
+it associates each input (a collection) with an output (an element from the collection),
+the output may differ for the same input. This means it is an impure (or non-referentially tranparent)
+function.
 
 
 \end{document}

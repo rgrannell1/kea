@@ -122,7 +122,7 @@ xLambda <- local({
 					params = character(0)) )
 
 			# ------ set the formals to the parsed param names ------ #
-			formals(lambda) <-make_formals(params)
+			formals(lambda) <- make_formals(params)
 
 		}
 

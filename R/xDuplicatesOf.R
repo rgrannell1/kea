@@ -35,7 +35,6 @@ xDuplicatesOf <- function (coll) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(coll)
-
 	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
