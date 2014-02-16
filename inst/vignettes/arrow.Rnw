@@ -17,7 +17,15 @@
 \maketitle
 \tableofcontents
 
+
+
+
+
 \chapter{Introduction}
+
+
+
+
 
 \chapter{Collections}
 
@@ -42,8 +50,11 @@ lists and atomic vectors of numbers, but the function sum cannot sum a list of n
 \end{verbatim}
 
 \paragraph{}
-Arrow smooths out the differences between lists and other vectors; a list of numbers is always
-treated the same as an atomic vector of numbers.
+Arrow smooths out the differences between lists and other vectors. The \textit{contents} of the container
+is what Arrow functions examine, not the container type. Functions that work on vectors will
+always work on lists and pairlists.
+
+
 
 \section{Types of Collection}
 
@@ -154,20 +165,43 @@ xList[toupper(letters),\ letter\ \leftarrow\ letters,\ is.element(letter,\ lette
 
 \section{Collection Operations}
 
+
+
+
+
 \chapter{Functions}
 
 Functions are mathematical objects that relate each input to one fixed output.
 
+\paragraph{}
 Not all R or Arrow functions are mathematical functions. For example,
 xOneOf takes a collection and returns a random value from the collection. Although
 it associates each input (a collection) with an output (an element from the collection),
-the output may differ for the same input. This means it is an impure (or non-referentially tranparent)
-function.
+the output may differ for the same input. This means that xOneOf is an impure function.
 
+\paragraph{}
+Functions like print, readLines and dput are impure.
+
+
+
+
+
+\chapter{Values}
+
+Normal assignment is not referentially transparent because the value associated with
+a variable depends on its history. Variables can be deleted and modified during the course
+of a program, and the double-edge sword \'<<- \' can modify variables across functions.
+
+\paragraph{}
+Arrow wraps low-level functions in R to add immutable values to R. The current syntax for
+creating values is
+
+\begin{equation} \label{eq:value}
+xVal(ten, 10)
+\end{equation}
+
+though this may change in the future. Any attempts to edit a value results in an error.
+Conceptually values create an symbolic alias to a value, and an attempt to modify a value makes
+as much sense as the assignment $1\ =\ 2$
 
 \end{document}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:

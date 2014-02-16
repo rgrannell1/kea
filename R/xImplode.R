@@ -36,6 +36,7 @@ xImplode <- function (str, strs) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(str)
+	insist $ must_not_be_missing(strs)
 
 	insist $ must_be_collection(strs, invoking_call)
 	insist $ must_be_collection(str, invoking_call)

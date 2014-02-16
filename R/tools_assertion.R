@@ -219,7 +219,7 @@ insist <- local({
 					param <- paste(match.call()$param)
 
 					components <- get_call_components(
-						invoking_call = match.call(-1))
+						invoking_call = sys.call(-1))
 
 					write_error(
 						yelp$arrow_function_failed(
