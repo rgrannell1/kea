@@ -70,7 +70,7 @@ xFoldl <- function (fn, val, coll) {
 				environment(fn) <- clone_env
 			}
 
-			report <- progress_bar(length(coll))
+			report <- progress_bar(length(coll), invoking_call)
 
 			try_hof({
 				for (ith in seq_along(coll)) {
@@ -81,6 +81,9 @@ xFoldl <- function (fn, val, coll) {
 				}},
 				invoking_call
 			)
+
+			report(length(coll), True)
+
 			val
 		})
 	}
