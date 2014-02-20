@@ -1,4 +1,4 @@
-
+# 
 #' @section stringify_call:
 #'
 #' stringify_call is a tool for formatting the source call of an error message.
@@ -474,7 +474,7 @@ insist <- local({
 				summate(coll)
 			}
 
-			function (coll, length, invoking_call) {
+			function (coll, len, invoking_call) {
 				# the collection must be longer than.
 
 				coll_sym <- match.call()$coll

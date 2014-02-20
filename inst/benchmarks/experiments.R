@@ -287,7 +287,7 @@ local({
 	)
 })
 
-# ------------ Experiment Fourth ------------------
+# ------------ Experiment Eight ------------------
 
 # xAsChars seems to be rate limiting at times.
 # Is it much slower than splitstring?
@@ -311,6 +311,56 @@ local({
 	microbenchmark(
 		xToChars(string),
 		f(string),
+
+		unit = 'ns', times = 10000, control = list(warmup = 100)
+	)
+
+})
+
+
+## Experiment Nine
+#
+# Is uncalled code non-performant?
+
+local({
+
+	f <- function () {
+		if (FALSE) {
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+			x <- quote(mean(max, mode, mean, model))
+		}
+	}
+
+	g <- function () {
+		if (FALSE) {
+
+		}
+	}
+
+	microbenchmark(
+		f(), g(),
 
 		unit = 'ns', times = 10000, control = list(warmup = 100)
 	)

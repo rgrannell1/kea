@@ -40,6 +40,6 @@ xStopwatch <- function (num) {
 	function (...) {
 		"a function returned by xStopwatch."
 		""
-		difftime(Sys.time(), genesis) < num
+		difftime(Sys.time(), genesis, units = 'secs') < num
 	}
 }
