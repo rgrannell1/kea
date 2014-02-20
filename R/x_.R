@@ -1858,6 +1858,15 @@ get_proto_ref <- function (val) {
 	autosuggested <- c(
 		alias('x', 'x_'),
 		alias('xAsNumeric', 'xAsDouble'),
+
+		alias('xAsChars', 'xToChars'),
+		alias('xAsWords', 'xToWords'),
+		alias('xAsLines', 'xToLines'),
+
+		alias('xToChars', 'xFromChars'),
+		alias('xToWords', 'xFromWords'),
+		alias('xToLines', 'xFromLines'),
+
 		alias('xC', 'xJoin'),
 		alias('xConcat', 'xJoin'),
 		alias('xConcatenate', 'xJoin'),

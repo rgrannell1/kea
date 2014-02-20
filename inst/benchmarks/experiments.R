@@ -287,4 +287,32 @@ local({
 	)
 })
 
+# ------------ Experiment Fourth ------------------
 
+# xAsChars seems to be rate limiting at times.
+# Is it much slower than splitstring?
+#
+# It isn't: both functions aren't terribly fast.
+#
+# xChars 9,300 hz
+# splitstring 15,800hz
+#
+# The difference is likely down to type conversion.
+
+local({
+
+	string <- paste0(letters, collapse = '', size = 100, replace = True)
+
+	f <- function (s) {
+		s <- strsplit(string, '')[[1]]
+		s[nchar(s) > 0]
+	}
+
+	microbenchmark(
+		xToChars(string),
+		f(string),
+
+		unit = 'ns', times = 10000, control = list(warmup = 100)
+	)
+
+})

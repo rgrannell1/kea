@@ -468,7 +468,7 @@ insist <- local({
 	this$must_be_longer_than <-
 		local({
 
-			message <- function (coll_sym, coll) {
+			message <- function (coll_sym, len, coll) {
 				"the argument matching " %+% ddquote(coll_sym) %+%
 				" must have length longer than " %+% length %+% "." %+%
 				summate(coll)
@@ -479,9 +479,9 @@ insist <- local({
 
 				coll_sym <- match.call()$coll
 
-				if (length > length(coll)) {
+				if (len > length(coll)) {
 					throw_arrow_error(
-						invoking_call, message(coll_sym, coll))
+						invoking_call, message(coll_sym, len, coll))
 				}
 
 				True

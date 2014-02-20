@@ -18,4 +18,3 @@ message('xExplode')
 		test_cases$str_word,
 		xExplode(str, '') == ''
 	)
-

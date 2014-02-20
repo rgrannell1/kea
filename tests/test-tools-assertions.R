@@ -62,6 +62,12 @@ message("insist $ must_be_grequal_than")
 
 message("insist $ must_be_longer_or_equal_than")
 
+	forall(
+		"must be longer than or equal than works when longer than",
+		test_cases$collection,
+		insist $ must_be_longer_or_equal_than(coll, length(coll), invoking_call)
+	)
+
 message("insist $ must_be_longer_than")
 
 	forall(
