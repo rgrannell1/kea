@@ -82,7 +82,7 @@ xFoldl <- function (fn, val, coll) {
 				invoking_call
 			)
 
-			report(length(coll), True)
+			report(length(coll))
 
 			val
 		})

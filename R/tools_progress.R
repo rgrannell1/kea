@@ -3,41 +3,56 @@ progress_bar <- function (iters, invoking_call) {
 	# generate a progress bar that can print
 	# a summary of how long is left to run.
 
+	bars <- 0
 	fn_call <- invoking_call[[1]]
-	last <- start <- as.numeric(Sys.time())
+	start_time <- as.numeric(Sys.time())
 
-	function (iter, force = FALSE) {
+	function (iter) {
 
-		# stocastic, but faster than checking time intervals
-		if (runif(1) > 0.99995 || force) {
+		# braces slightly speed up check
+		if ( (iter/iters) * 100  %/% 5 > bars ) {
 			# emit a well-formated text progress bar.
 
-			percent_complete <- round((iter / iters) * 100)
+			bars <<- bars + 1
 
-			seconds_elapsed <- as.numeric(Sys.time()) -  start
-			seconds_estimate <- round((seconds_elapsed / iter) * iters - seconds_elapsed)
+			components <- local({
 
-			progress_arrow <- colourise $ blue(
-				gettextf('%-20s', paste0(c(rep('=', percent_complete %/% 5), '>'), collapse = '')) )
+				this <- Object()
 
-			percent_text <- gettextf('%6s', paste0(percent_complete, '%['))
+				this$seconds_elapsed_text <-
+					gettextf("%8s", as.numeric(Sys.time()) -  start_time)
+
+				this$seconds_remaining <-
+					round((this$seconds_elapsed / iter) * iters - this$seconds_elapsed)
+
+				this$percent_complete <-
+					round((iter / iters) * 100)
+
+				this$progress_arrow <-
+					gettextf(
+						'%-20s',
+						paste0(
+							# an = for each 5%, and a terminal arrow.
+							c(rep('=', this$percent_complete %/% 5), '>'),
+							collapse = ''))
+
+				this$percent_complete_text <-
+					gettextf('%6s', paste0(this$percent_complete, '%'))
+
+				this
+			})
 
 			message <- paste0(
 				'\r', paste0(fn_call),
-				percent_text,
-				progress_arrow,
+				'[',
+					components $ percent_complete_text,
+					components $ progress_arrow,
 				'] ',
 				iter, ',', iters,
-				gettextf("%8s", seconds_estimate), 's'
+				components $ seconds_elapsed_text, 's'
 			)
 
-			if (iter == iters) {
-				cat(message, '\n\n')
-			} else {
-				cat(message)
-			}
-
-			last <<- as.numeric(Sys.time())
+			cat(message)
 		}
 	}
 }

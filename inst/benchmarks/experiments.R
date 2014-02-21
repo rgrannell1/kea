@@ -366,3 +366,44 @@ local({
 	)
 
 })
+
+# runif is slow, and time functions are slower. Fastes
+# method is updating counters, though its still slow
+
+local({
+
+	rep <- function () {
+		n <- 0
+
+		list(
+			iter = function () {
+				n <<- n + 1
+
+				if (n > 10) {
+					# print
+				}
+		})
+	}
+	reporter <- rep()
+
+	rep2 <- function (iter) {
+		if (runif(1) > 0.99995) {
+			# print
+		}
+	}
+
+	loop1 <- function () {
+		for (ith in 1:1000) reporter$iter()
+	}
+
+	loop2 <- function () {
+		for (ith in 1:1000) rep2(ith)
+	}
+
+	microbenchmark(
+		loop1(),
+		loop2(),
+
+		unit = 'ns', times = 10000, control = list(warmup = 100)
+	)
+})

@@ -104,3 +104,4 @@ xSortBy <- function (pred, coll) {
 xSortBy... <- function (pred, ...) {
 	xSortBy(pred, list(...))
 }
+
