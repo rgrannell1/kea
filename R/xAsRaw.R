@@ -21,7 +21,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xAsRaw.R
 #'
@@ -35,7 +34,6 @@ xAsRaw <- function (raws) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(raws)
-
 	insist $ must_be_collection(raws, invoking_call)
 
 	as_typed_vector(raws, 'raw')

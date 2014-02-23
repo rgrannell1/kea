@@ -49,6 +49,7 @@ xZipNames <- function (colls) {
 	if (length(colls) == 0) {
 		list()
 	} else {
+
 		keys <- vapply(
 			colls,
 			function (coll) {

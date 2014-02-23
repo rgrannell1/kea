@@ -70,19 +70,12 @@ xFoldl <- function (fn, val, coll) {
 				environment(fn) <- clone_env
 			}
 
-			report <- progress_bar(length(coll), invoking_call)
-
 			try_hof({
 				for (ith in seq_along(coll)) {
-
-					report(ith)
-
 					val <- fn( val, coll[[ith]] )
 				}},
 				invoking_call
 			)
-
-			report(length(coll))
 
 			val
 		})
