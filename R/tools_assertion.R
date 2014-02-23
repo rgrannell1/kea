@@ -1,4 +1,4 @@
-# 
+#
 #' @section stringify_call:
 #'
 #' stringify_call is a tool for formatting the source call of an error message.
@@ -972,6 +972,24 @@ insist <- local({
 			function (coll_sym, coll, mode, invoking_call) {
 
 				vapply(coll, is_valid_elem, logical(1), mode = mode)
+				True
+			}
+		})
+
+	this$must_be_existing_file <-
+		local({
+
+			message <- function (str, invoking_call) {
+				"the file " %+% dQuote(str) %+% " does not exist."
+			}
+
+			function (str, invoking_call) {
+
+				if (!file.exists(str)) {
+					throw_arrow_error(
+						invoking_call, message(str, invoking_call))
+				}
+
 				True
 			}
 		})

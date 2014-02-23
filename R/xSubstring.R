@@ -39,7 +39,6 @@ xSubstring <- function (str, nums) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(str)
-
 	insist $ must_not_be_missing(nums)
 
 	insist $ must_be_collection(str, invoking_call)

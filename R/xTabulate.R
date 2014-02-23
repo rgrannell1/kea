@@ -42,7 +42,6 @@ xTabulate <- function (coll) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(coll)
-
 	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
@@ -67,7 +66,7 @@ xTabulate <- function (coll) {
 			}
 
 			if (!is_matched) {
-				pairs <- c(pairs, list(list(coll[[ith]], 1)))
+				pairs <- c( pairs, list(list(coll[[ith]], 1)) )
 			}
 
 		}

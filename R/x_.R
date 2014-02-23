@@ -1264,6 +1264,18 @@ x_coll_proto <- local({
 	add_x_method(this, x_RejectEmpty, 'coll')
 	add_x_method(this, x_RejectEmpty..., '...')
 
+	# --- xReadLines --- #
+	add_x_method(this, xReadLines, 'str')
+	add_x_method(this, x_ReadLines, 'str')
+
+	# --- xReadChars --- #
+	add_x_method(this, xReadChars, 'str')
+	add_x_method(this, x_ReadChars, 'str')
+
+	# --- xReadWords --- #
+	add_x_method(this, xReadWords, 'str')
+	add_x_method(this, x_ReadWords, 'str')
+
 	# -------- S ------- #
 	# --- xSecondOf --- #
 	add_x_method(this, xSecondOf, 'coll')
@@ -1358,6 +1370,10 @@ x_coll_proto <- local({
 	add_x_method(this, xToChars, 'str')
 	add_x_method(this, x_ToChars, 'str')
 
+	# --- xToWords --- #
+	add_x_method(this, xToWords, 'str')
+	add_x_method(this, x_ToWords, 'str')
+
 	# --- xThirdOf --- #
 	add_x_method(this, xThirdOf, 'coll')
 	add_x_method(this, xThirdOf..., '...')
@@ -1395,9 +1411,17 @@ x_coll_proto <- local({
 
  	# -------- V ------- #
 	# -------- W ------- #
-	# --- xToWords --- #
-	add_x_method(this, xToWords, 'str')
-	add_x_method(this, x_ToWords, 'str')
+	# --- xWriteChars --- #
+	add_x_method(this, xWriteChars, 'str')
+	add_x_method(this, x_WriteChars, 'str')
+
+	# --- xWriteLines --- #
+	add_x_method(this, xWriteLines, 'str')
+	add_x_method(this, x_WriteLines, 'str')
+
+	# --- xWriteWords --- #
+	add_x_method(this, xWriteWords, 'str')
+	add_x_method(this, x_WriteWords, 'str')
 
 	# --- xDelay --- #
 	add_x_method(this, xDelay, 'num')

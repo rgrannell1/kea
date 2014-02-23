@@ -33,8 +33,11 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
-\code{\link{xFromWords...}}; \code{\link{xSubstring}},
-\code{\link{xSubstring...}}; \code{\link{xToChars}};
-\code{\link{xToLines}}; \code{\link{xToWords}}
+\code{\link{xFromWords...}}; \code{\link{xReadChars}},
+\code{\link{xReadLines}}; \code{\link{xReadWords}};
+\code{\link{xSubstring}}, \code{\link{xSubstring...}};
+\code{\link{xToChars}}; \code{\link{xToLines}};
+\code{\link{xToWords}}; \code{\link{xWriteChars}},
+\code{\link{xWriteWords}}; \code{\link{xWriteLines}}
 }
 
