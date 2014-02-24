@@ -1,0 +1,57 @@
+
+#' xRecycle
+#'
+#' Make every subcollection in a collection the same
+#' length by cyclically reusing elements.
+#'
+#' @param
+#'     colls a collection of collections.
+#'
+#' @param
+#'    ... see above.
+#'
+#' @return
+#'    A list.
+#'
+#' @section Corner Cases:
+#'    Returns the empty list if \bold{colls} is length-zero, or if a
+#'    collection in \bold{colls} is length-zero.
+#'
+#' @rdname xRecycle
+#' @export
+
+xRecycle <- function (colls) {
+	# recycle elements of a staggered-array
+
+	invoking_call <- sys.call()
+
+	insist $ must_not_be_missing(colls)
+
+	insist $ must_be_collection(colls, invoking_call)
+	insist $ must_be_collection_of_collections(colls, invoking_call)
+
+	coll_lens <- vapply(colls, length, integer(1))
+
+	if (length(colls) == 0 || 0 %in% coll_lens) {
+		list()
+	} else {
+
+		upper <- max(coll_lens)
+
+		lapply(colls, function (coll) {
+
+			lapply(1:upper, function (ith) {
+				mod_index <- ((ith - 1) %% length(coll))  + 1
+				coll[[mod_index]]
+			})
+		})
+
+	}
+}
+
+#' @rdname xRecycle
+#' @export
+
+xRecycle... <- function (...) {
+	xRecycle(list(...))
+}

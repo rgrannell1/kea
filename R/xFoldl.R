@@ -93,3 +93,9 @@ xFold <- xFoldl
 xFoldl... <- function (fn, val, ...) {
 	xFoldl(fn, val, list(...))
 }
+
+
+#' @export
+#' @rdname xFoldl
+
+xFold... <- xFoldl

@@ -1,5 +1,6 @@
 \name{xFoldl}
 \alias{xFold}
+\alias{xFold...}
 \alias{xFoldl}
 \alias{xFoldl...}
 \title{xFoldl}
@@ -9,6 +10,8 @@ xFoldl(fn, val, coll)
 xFold(fn, val, coll)
 
 xFoldl...(fn, val, ...)
+
+xFold...(fn, val, coll)
 }
 \arguments{
   \item{fn}{a binary function that returns a value that

@@ -112,8 +112,7 @@ xFlatMap(num := {
 \seealso{
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xMapIndexed}},
-\code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapply}},
+\code{\link{xMapIndexed...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
 \code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}

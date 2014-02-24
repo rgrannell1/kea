@@ -88,8 +88,7 @@ power_of_e(1)
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
-\code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapply}},
+\code{\link{xMapIndexed...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }

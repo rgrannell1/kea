@@ -89,7 +89,6 @@ Collate:
     'xLocate.R'
     'xMap.R'
     'xMapIndexed.R'
-    'xMapMany.R'
     'xNegate.R'
     'xNot.R'
     'xElemNotFalse.R'
@@ -189,4 +188,5 @@ Collate:
     'xWriteWords.R'
     'xWriteChars.R'
     'xAt.R'
+    'xRecycle.R'
     'x_.R'

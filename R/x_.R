@@ -1068,12 +1068,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_MapIndexed, 'coll')
 	add_x_method(this, x_MapIndexed..., '...')
 
-	# --- xMapMany --- #
-	add_x_method(this, xMapMany, 'colls')
-	add_x_method(this, xMapMany..., '...')
-	add_x_method(this, x_MapMany, 'colls')
-	add_x_method(this, x_MapMany..., '...')
-
 	# -------- N ------- #
 	# --- xAsNamed --- #
 	add_x_method(this, xAsNamed, 'coll')
@@ -1210,11 +1204,15 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reducel, 'coll')
 	add_x_method(this, x_Reducel..., '...')
 
-	this$xReduce <- this$xReducel
-	this$xReduce... <- this$xReducel...
+	add_x_method(this, xReduce, 'coll')
+	add_x_method(this, xReduce..., '...')
+	add_x_method(this, x_Reduce, 'coll')
+	add_x_method(this, x_Reduce..., '...')
 
-	this$x_Reduce <- this$x_Reducel
-	this$x_Reduce... <- this$x_Reducel...
+	add_x_method(this, xRecycle, 'colls')
+	add_x_method(this, xRecycle..., '...')
+	add_x_method(this, x_Recycle, 'colls')
+	add_x_method(this, x_Recycle..., '...')
 
 	# --- xReducer --- #
 	add_x_method(this, xReducer, 'coll')
@@ -1572,11 +1570,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_Foldl, 'fn')
 	add_x_method(this, x_Foldl..., 'fn')
 
-	this$xFold <- this$xFoldl
-	this$xFold... <- this$xFoldl...
-
-	this$x_Fold <- this$x_Foldl
-	this$x_Fold... <- this$x_Foldl...
+	# --- xFold --- #
+	add_x_method(this, xFold, 'fn')
+	add_x_method(this, xFold..., 'fn')
+	add_x_method(this, x_Fold, 'fn')
+	add_x_method(this, x_Fold..., 'fn')
 
 	# --- xFoldr --- #
 	add_x_method(this, xFoldr, 'fn')
@@ -1654,12 +1652,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_MapIndexed, 'fn')
 	add_x_method(this, x_MapIndexed..., 'fn')
 
-	# --- xMapMany --- #
-	add_x_method(this, xMapMany, 'fn')
-	add_x_method(this, xMapMany..., 'fn')
-	add_x_method(this, x_MapMany, 'fn')
-	add_x_method(this, x_MapMany..., 'fn')
-
 	# -------- N ------- #
 	add_x_method(this, xNot, 'pred')
 	add_x_method(this, x_Not, 'pred')
@@ -1702,11 +1694,10 @@ x_fn_proto <- local({
 	add_x_method(this, x_Reducel, 'fn')
 	add_x_method(this, x_Reducel..., 'fn')
 
-	this$xReduce <- this$xReducel
-	this$xReduce... <- this$xReducel...
-	this$x_Reduce <- this$x_Reducel
-	this$x_Reduce... <- this$x_Reducel...
-
+	add_x_method(this, xReduce, 'fn')
+	add_x_method(this, xReduce..., 'fn')
+	add_x_method(this, x_Reduce, 'fn')
+	add_x_method(this, x_Reduce..., 'fn')
 
 	# --- xReducer --- #
 	add_x_method(this, xReducer, 'fn')

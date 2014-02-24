@@ -62,8 +62,7 @@ x_Reduce(min)
 Other mapping_functions: \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
-\code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMap}},
+\code{\link{xMapIndexed...}}; \code{\link{xMap}},
 \code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }

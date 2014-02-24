@@ -176,17 +176,18 @@ xReduce...(
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xFold}},
-\code{\link{xFoldl}}, \code{\link{xFoldl...}};
-\code{\link{xReducer}}, \code{\link{xReducer...}};
-\code{\link{xScan}}, \code{\link{xScan...}},
-\code{\link{xScanl}}, \code{\link{xScanl...}}
-
-Other short_circuiting_functions: \code{\link{xFoldr}},
-\code{\link{xFoldr...}}; \code{\link{xFold}},
-\code{\link{xFoldl}}, \code{\link{xFoldl...}};
-\code{\link{xIterate}}; \code{\link{xReducer}},
+\code{\link{xFold...}}, \code{\link{xFoldl}},
+\code{\link{xFoldl...}}; \code{\link{xReducer}},
 \code{\link{xReducer...}}; \code{\link{xScan}},
 \code{\link{xScan...}}, \code{\link{xScanl}},
 \code{\link{xScanl...}}
+
+Other short_circuiting_functions: \code{\link{xFoldr}},
+\code{\link{xFoldr...}}; \code{\link{xFold}},
+\code{\link{xFold...}}, \code{\link{xFoldl}},
+\code{\link{xFoldl...}}; \code{\link{xIterate}};
+\code{\link{xReducer}}, \code{\link{xReducer...}};
+\code{\link{xScan}}, \code{\link{xScan...}},
+\code{\link{xScanl}}, \code{\link{xScanl...}}
 }
 

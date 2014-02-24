@@ -49,6 +49,7 @@ xAt <- function (num, coll) {
 
 	insist $ must_be_whole(num, invoking_call)
 	insist $ max_must_be_less_than_length_of(num, coll, invoking_call)
+	insist $ must_be_greater_than(num, 0, invoking_call)
 
 	coll[[num]]
 }

@@ -31,8 +31,7 @@ NULL
 \seealso{
 Other mapping_functions: \code{\link{xFlatMap}},
 \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
-\code{\link{xMapIndexed...}}; \code{\link{xMapMany}},
-\code{\link{xMapMany...}}; \code{\link{xMapply}},
+\code{\link{xMapIndexed...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
 \code{\link{xMap...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
