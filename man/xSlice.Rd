@@ -22,8 +22,8 @@ A list.
 Select a collection at certain indices.
 }
 \details{
-\bold{xSlice} is similar to base R's subsetting operator '[',
-except that it performs more validation on the input
+\bold{xSlice} is similar to base R's subsetting operator
+'[', except that it performs more validation on the input
 indices, and it acts as a normal function.
 }
 \section{Corner Cases}{

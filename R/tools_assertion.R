@@ -693,7 +693,7 @@ insist <- local({
 	this$must_be_collection_of_equal_length <-
 		local({
 
-			message <- function (coll_sym, coll) {
+			message <- function (colls_sym, colls) {
 				"the argument matching " %+% ddquote(colls_sym) %+%
 				" must be a collection of collections of equal length." %+%
 				summate(colls)
@@ -704,10 +704,10 @@ insist <- local({
 
 				colls_sym <- match.call()$colls
 
-
-				if (!(length(unique( vapply(colls, length, integer(1)) )) == 1)) {
+				if (!length(colls) == 0 &&
+					!(length(unique( vapply(colls, length, integer(1)) )) == 1)) {
 					throw_arrow_error(
-						invoking_call, message(coll_sym, coll))
+						invoking_call, message(colls_sym, colls))
 				}
 
 				True

@@ -188,4 +188,5 @@ Collate:
     'xWriteLines.R'
     'xWriteWords.R'
     'xWriteChars.R'
+    'xAt.R'
     'x_.R'

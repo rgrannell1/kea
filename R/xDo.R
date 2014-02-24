@@ -43,7 +43,7 @@ xDo <- function (fn, coll) {
 	fn <- match_fn(fn)
 
 	if (length(coll) == 0) {
-		list()
+		Null
 	} else {
 
 		try_hof({

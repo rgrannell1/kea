@@ -748,6 +748,12 @@ x_coll_proto <- local({
 
 	# -------- A ------- #
 
+	# --- xAt --- #
+	add_x_method(this, xAt, 'coll')
+	add_x_method(this, xAt..., '...')
+	add_x_method(this, x_At, 'coll')
+	add_x_method(this, x_At..., '...')
+
 	# --- xSlice --- #
 	add_x_method(this, xSlice, 'coll')
 	add_x_method(this, xSlice..., '...')

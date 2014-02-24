@@ -12,5 +12,3 @@ message("xLift")
 		test_cases$num_positive_integer,
 		xLift('+', list(identity, identity))(num) == num + num
 	)
-
-# please, do not actually write code like this.
