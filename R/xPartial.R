@@ -54,7 +54,6 @@ xPartial <- function (fn, coll) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(fn)
-
 	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(fn, invoking_call)

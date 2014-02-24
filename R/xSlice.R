@@ -1,10 +1,10 @@
 
-#' xAt
+#' xSlice
 #'
 #' Select a collection at certain indices.
 #'
 #' @details
-#'     \bold{xAt} is similar to base R's subsetting operator '[',
+#'     \bold{xSlice} is similar to base R's subsetting operator '[',
 #'     except that it performs more validation on the input indices,
 #'     and it acts as a normal function.
 #'
@@ -22,7 +22,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    \bold{xAt} does not allow subscripting values out of bounds, unlike
+#'    \bold{xSlice} does not allow subscripting values out of bounds, unlike
 #'    base R. If an index larger than the maximum value in \bold{coll} is given
 #'    an error is thrown.
 #'
@@ -30,12 +30,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xAt.R
+#'    inst/examples/example-xSlice.R
 #'
-#' @rdname xAt
+#' @rdname xSlice
 #' @export
 
-xAt <- function (nums, coll) {
+xSlice <- function (nums, coll) {
 	# Vector numbers -> Collection any -> Collection any
 	# select elements of a collection using indices.
 
@@ -55,9 +55,9 @@ xAt <- function (nums, coll) {
 	as.list(coll[nums])
 }
 
-#' @rdname xAt
+#' @rdname xSlice
 #' @export
 
-xAt... <- function (nums, ...) {
-	xAt(nums, list(...))
+xSlice... <- function (nums, ...) {
+	xSlice(nums, list(...))
 }

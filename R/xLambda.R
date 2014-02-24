@@ -35,7 +35,7 @@ xLambda <- local({
 
 	# ------ grab different parts of the parse tree ------ #
 
-	get <- list(
+	get_tree <- list(
 		delim =
 			function (tree, symbol = True) {
 				(if (symbol) identity else paste)( tree[[1]] )
@@ -90,21 +90,19 @@ xLambda <- local({
 
 				} else if (is.call(tree)) {
 
-					assert(
-						get$delim(tree) == token$delim(), invoking_call,
-						proclaim$incorrent_delimiter(
-							get$delim(tree), token$delim(False)) )
+					#insist $ must_have_correct_delimiter(
+					#	get_tree, token, tree, invoking_call)
 
 					assert(
-						is.name(get$param(tree)), invoking_call,
-						proclaim$non_symbol_param(get$param(tree)) )
+						is.name(get_tree$param(tree)), invoking_call,
+						proclaim$non_symbol_param(get_tree$param(tree)) )
 
 					new_state <- list(
 						params =
-							c(get$param(tree, True), state$params) )
+							c(get_tree$param(tree, True), state$params) )
 
 					collect_params(
-						get$rest(tree), new_state)
+						get_tree$rest(tree), new_state)
 
 				}
 			}
@@ -113,7 +111,7 @@ xLambda <- local({
 			# ------ check the formals are bracket-enclosed ------ #
 
 			assert(
-				get$delim(sym) == token$open(), invoking_call,
+				get_tree$delim(sym) == token$open(), invoking_call,
 				proclaim$no_enclosing_parens())
 
 			params <- collect_params(

@@ -7,7 +7,7 @@
 #'    \bold{xList} allows for shorthand construction
 #'    of lists using a form of set-builder notation.
 #'    The notation typically looks like
-#'  
+#'
 #'    \code{S = {2.x | x ε 1..100, x^2 > 3}}
 #'
 #'    which reads "S is the set of numbers '2x' from the
@@ -17,15 +17,15 @@
 #'    \code{S = {output expression, variable ε set, predicate expression}}
 #'
 #'    Arrow's syntax is similar
-#'  
+#'
 #'    \code{S <- xList[ 2*x, x <- 1:10 x^2 > 3 ]}
 #'
 #'    \code{S <- xList[output expression, variable <- set, predicate expression]}
-#'       
+#'
 #'    Collection comprehensions are a shorthand for several operations; taking
 #'    the \bold{set product} of several Collections, \bold{selecting} them based
 #'    on a predicate, and \bold{mapping} a function over each result.
-#'   
+#'
 #'    \bold{1 The output expression}
 #'
 #'    The output expression corresponds to the map operation mentioned above.
@@ -39,9 +39,9 @@
 #'
 #'    \bold{2 Variable bindings}
 #'
-#'    At least one variable must be bound for a non-empty list 
+#'    At least one variable must be bound for a non-empty list
 #'    comprehension. Multiple variables may also be bound.
-#' 
+#'
 #'    \code{xList[list(x, y), x <- 1:3, y <- 1:3]}
 #'
 #'    The above comprehension loosely translates as
@@ -53,7 +53,7 @@
 #'    If the final expression given to a comprehension is not a binding
 #'    expression it is treated as a predicate for selecting particular
 #'    values. This is optional.
-#' 
+#'
 #'    \code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
 #'
 #'    In the above pairs of a, b such that their sum is larger than
@@ -93,9 +93,9 @@ print.list_builder <- function (x, ...) {
 	} else {
 
 		components <- local({
-			 
+
 			this <- list()
-			binding_indices <- 
+			binding_indices <-
 				which( vapply(exprs, function (expr) {
 
 					length(expr) == 3 && expr[[1]] == '<-'
@@ -107,15 +107,15 @@ print.list_builder <- function (x, ...) {
 
 			bindings <- exprs[binding_indices]
 
-			this$yield <- 
+			this$yield <-
 				exprs[[1]]
 
-			is_predicated <- 
+			is_predicated <-
 				length(exprs) %!in% binding_indices && length(exprs) > 1
 
-			this$predicate <- 
+			this$predicate <-
 				if (is_predicated) {
-					exprs[[ length(exprs) ]]					
+					exprs[[ length(exprs) ]]
 				} else {
 					True
 				}
@@ -126,7 +126,7 @@ print.list_builder <- function (x, ...) {
 					c(1, binding_indices, length(exprs)), exprs, invoking_call)
 			} else {
 				demand $ must_all_be_matched(
-					c(1, binding_indices), exprs, invoking_call)				
+					c(1, binding_indices), exprs, invoking_call)
 			}
 
 			# check that all expressions are matched.
@@ -154,7 +154,7 @@ print.list_builder <- function (x, ...) {
 				# add the parametres to the functions
 
 				fn <- do.call('function', list(
-					as.pairlist(as_parametres(params)), 
+					as.pairlist(as_parametres(params)),
 					expr
 				))
 				environment(fn) <- parent_frame
@@ -170,7 +170,7 @@ print.list_builder <- function (x, ...) {
 			this
 		})
 
-		# this will generate a fairly hefty - but 
+		# this will generate a fairly hefty - but
 		# readable - stack trace.
 
 		insist $ must_be_collection(

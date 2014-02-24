@@ -1079,3 +1079,54 @@ demand <- local({
 	this
 
 })
+
+# -------------------------------- dictate -------------------------------- #
+#
+# To Developers,
+#
+# dictate contains assertions specific to xLambda.
+
+dictate <- local({
+
+	this <- Object()
+
+	this$must_have_correct_delimiter <-
+		local({
+
+			message <- function (actual, expected) {
+				"the unexpected delimiter " %+% dQuote(actual) %+%
+				" was encountered, but the delimiter " %+% dQuote(expected) %+%
+				" was expected."
+			}
+
+			function (get_tree, token, tree) {
+
+				if (get_tree$delim(tree) != token$delim()) {
+
+					throw_arrow_error(
+						invoking_call, message( get_tree$delim(tree), token$delim() ))
+
+				}
+				True
+			}
+
+		})
+
+
+
+
+
+
+
+	this$must_have_symbol_params <-
+		function () {
+
+		}
+
+	this$must_have_enclosing_params <-
+		function () {
+
+		}
+
+	this
+})

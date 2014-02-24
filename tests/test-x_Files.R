@@ -11,7 +11,7 @@ message('Arrow Files')
 message('Check that test files exist')
 
 	r_files <-
-		x_( list.files('/home/ryan/arrow.R/R') ) $
+		x_( list.files('/home/ryan/Code/arrow.R/R') ) $
 		xSelect(
 			filename := {
 				grepl('^x[A-Z][a-z]+[.][R]', filename)
@@ -22,7 +22,7 @@ message('Check that test files exist')
 			})
 
 	tests <-
-		x_( list.files('/home/ryan/arrow.R/tests') ) $
+		x_( list.files('/home/ryan/Code/arrow.R/tests') ) $
 		xSelect(
 			filename := {
 				grepl('test-x[A-Z][a-z]+[.][R]', filename)
@@ -55,7 +55,3 @@ message('Check that test files exist')
 	if (xNotEmpty(nonexisting)) {
 		write_error( "untested functions: ", deparse(xAsCharacter(nonexisting)) )
 	}
-
-
-
-

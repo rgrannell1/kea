@@ -4,11 +4,10 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
-message("xAt")
+message("xSlice")
 
 	forall(
 		"selecting with integer zero is empty list",
 		test_cases$collection_zero,
-		xAt(integer(0), coll) %equals% list()
+		xSlice(integer(0), coll) %equals% list()
 	)

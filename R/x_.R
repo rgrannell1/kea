@@ -748,11 +748,11 @@ x_coll_proto <- local({
 
 	# -------- A ------- #
 
-	# --- xAt --- #
-	add_x_method(this, xAt, 'coll')
-	add_x_method(this, xAt..., '...')
-	add_x_method(this, x_At, 'coll')
-	add_x_method(this, x_At..., '...')
+	# --- xSlice --- #
+	add_x_method(this, xSlice, 'coll')
+	add_x_method(this, xSlice..., '...')
+	add_x_method(this, x_Slice, 'coll')
+	add_x_method(this, x_Slice..., '...')
 
 	# --- xAsLogical --- #
 	add_x_method(this, xAsLogical, 'bools')
@@ -1899,31 +1899,48 @@ get_proto_ref <- function (val) {
 		alias('xZipWith', 'xMapMany')
 	)
 
-	suggest_similar_method <- function (val, method_name, contents_are, invoking_call) {
-		# given an incorrect method name throw an error
-		# suggesting a similar
+	suggest_similar_method <- local({
 
-		proto_ref <- get_proto_ref(val)
-		method_name <- method_name
+		message <- function (name, contents_are, similar) {
 
-		candidate_methods <- setdiff(ls(proto_ref), 'private')
-		distances <- adist(method_name, candidate_methods)
-
-		similar <- if (method_name %in% names(autosuggested)) {
-			autosuggested[[method_name]]
-		} else if (min(distances) < nchar(method_name) / 2) {
-
-			candidate_methods[which.min(distances)]
-
-		} else {
-			character(0)
+			if (length(similar) == 0) {
+				"could not find the method " %+% dQuote(name) %+%
+				" in the methods available for " %+% contents_are %+% "."
+			} else {
+				"could not find the method " %+% dQuote(name) %+%
+				" in the methods available for " %+% contents_are %+%
+				":\n" %+%
+				colourise$green("did you mean " %+% sample(similar, size = 1) %+% "?")
+			}
 		}
 
-		write_error(
-			exclaim$method_not_found_(
-				method_name, contents_are, similar),
-			call. = False)
-	}
+		function (val, method_name, contents_are, invoking_call) {
+			# given an incorrect method name throw an error
+			# suggesting a similar
+
+			proto_ref <- get_proto_ref(val)
+			method_name <- method_name
+
+			candidate_methods <- setdiff(ls(proto_ref), 'private')
+			distances <- adist(method_name, candidate_methods)
+
+			similar <- if (method_name %in% names(autosuggested)) {
+				autosuggested[[method_name]]
+			} else if (min(distances) < nchar(method_name) / 2) {
+
+				candidate_methods[which.min(distances)]
+
+			} else {
+				character(0)
+			}
+
+			write_error(
+				message(method_name, contents_are, similar),
+				call. = False)
+		}
+	})
+
+
 
 	function (obj, method) {
 		# Arrow a -> symbol -> function
@@ -1947,6 +1964,7 @@ get_proto_ref <- function (val) {
 
 		fn <- proto_ref[[method_name]]
 		environment(fn)[['Self']] <- function () obj[['x']]
+
 		fn
 	}
 })

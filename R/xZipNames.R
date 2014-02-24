@@ -56,9 +56,7 @@ xZipNames <- function (colls) {
 
 				key <- as_typed_vector(coll[[1]], "character")
 
-				assert(
-					length(key) == 1, invoking_call,
-					exclaim$must_be_lequal_than(key, 1))
+				insist $ must_be_of_length(key, 1, invoking_call)
 
 				key
 			},

@@ -173,7 +173,7 @@ Collate:
     'xAsDataFrame.R'
     'xRank.R'
     'xOrder.R'
-    'xAt.R'
+    'xSlice.R'
     'xTabulate.R'
     'xSortBy.R'
     'xPowerSetOf.R'

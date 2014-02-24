@@ -127,10 +127,10 @@ join_env <- function (x, y) {
 	# way of joining two environments.
 
 	if (missing(x)) {
-		exclaim$parametre_missing(x)
+		stop("internal error: joining environments failed.")
 	}
 	if (missing(y)) {
-		exclaim$parametre_missing(y)
+		stop("internal error: joining environments failed.")
 	}
 
 	as.environment( c(as.list( x ), as.list( y )) )
