@@ -55,7 +55,7 @@ xPluck <- function (str, colls) {
 		list()
 	} else {
 		lapply( colls, function (elem) {
-			as.list( elem[[str]] )
+			elem[[str]]
 		})
 	}
 }

@@ -14,7 +14,7 @@ true  <- x := y := x # λx.λy.x
 false <- x := y := y # λx.λy.y
 
 # if the function is 'true', the first value True is returned.
-# if the function is 'false', the first value False is returned.
+# if the function is 'false', the second value False is returned.
 
 to_bool <- f := f(True, False)
 
