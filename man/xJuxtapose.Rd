@@ -62,7 +62,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{\%then\%}}, \code{\link{xCompose}},
 \code{\link{xCompose...}}; \code{\link{xAsClosure}};
 \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
-\code{\link{xConst}}, \code{\link{xK}};
+\code{\link{xCapture}}, \code{\link{xK}};
 \code{\link{xDelay}}; \code{\link{xFlip}};
 \code{\link{xNot}}; \code{\link{xPartial}},
 \code{\link{xPartial...}}; \code{\link{xThread}},

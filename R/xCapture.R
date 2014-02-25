@@ -1,14 +1,14 @@
 
-#' xConst
+#' xCapture
 #'
 #' Create a function that returns a particular value.
 #'
 #' @details
-#' \bold{xConst} is the contant combinator - a function
+#' \bold{xCapture} is the contant combinator - a function
 #' that takes an arguments and returns a function that
 #' always returns that value.
 #'
-#' The function returned by \bold{xConst} has ellipsis arguments,
+#' The function returned by \bold{xCapture} has ellipsis arguments,
 #' and ignores those arguments.
 #'
 #' @param
@@ -22,25 +22,25 @@
 #'
 #'
 #' @example
-#'    inst/examples/example-xConst.R
+#'    inst/examples/example-xCapture.R
 #'
-#' @rdname xConst
+#' @rdname xCapture
 #' @export
 
-xConst <- function (val) {
+xCapture <- function (val) {
 	# any -> (... -> any)
 	# return a function that closes over the variable val.
 
 	insist $ must_not_be_missing(val)
 
 	function (...) {
-		"a function created xConst."
+		"a function created xCapture."
 		""
 		val
 	}
 }
 
-#' @rdname xConst
+#' @rdname xCapture
 #' @export
 
-xK <- xConst
+xK <- xCapture

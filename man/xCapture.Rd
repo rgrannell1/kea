@@ -1,9 +1,9 @@
-\name{xConst}
-\alias{xConst}
+\name{xCapture}
+\alias{xCapture}
 \alias{xK}
-\title{xConst}
+\title{xCapture}
 \usage{
-xConst(val)
+xCapture(val)
 
 xK(val)
 }
@@ -18,11 +18,11 @@ A variadic function that returns \bold{val}.
 Create a function that returns a particular value.
 }
 \details{
-\bold{xConst} is the contant combinator - a function that
+\bold{xCapture} is the contant combinator - a function that
 takes an arguments and returns a function that always
 returns that value.
 
-The function returned by \bold{xConst} has ellipsis
+The function returned by \bold{xCapture} has ellipsis
 arguments, and ignores those arguments.
 }
 \examples{

@@ -15,10 +15,6 @@ A function that always returns true.
 }
 \examples{
 
-# 1. Using truth as an identity
-#    with xSelect.
-
-xSelect(xTruth, 1:10)
 }
 \seealso{
 Other logical_constant_functions: \code{\link{xFalsity}};

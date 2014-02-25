@@ -179,9 +179,9 @@ x_any_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 	# -------- C ------- #
-	# --- xConst --- #
-	add_x_method(this, xConst, 'val')
-	add_x_method(this, x_Const, 'val')
+	# --- xCapture --- #
+	add_x_method(this, xCapture, 'val')
+	add_x_method(this, x_Capture, 'val')
 
 	# -------- D ------- #
 	# -------- E ------- #

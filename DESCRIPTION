@@ -56,7 +56,7 @@ Collate:
     'xImplode.R'
     'xCompose.R'
     'xChop.R'
-    'xConst.R'
+    'xCapture.R'
     'xDrop.R'
     'xDropWhile.R'
     'xFirstOf.R'
