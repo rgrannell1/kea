@@ -17,6 +17,11 @@
 #'    Returns the empty list if \bold{colls} is length-zero, or if a
 #'    collection in \bold{colls} is length-zero.
 #'
+#' @family reshaping_functions
+#'
+#' @template
+#'    Variadic
+#'
 #' @rdname xRecycle
 #' @export
 

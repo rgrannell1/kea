@@ -26,7 +26,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xChunk.R
 #'

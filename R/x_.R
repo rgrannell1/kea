@@ -1073,12 +1073,6 @@ x_coll_proto <- local({
 	add_x_method(this, xAsNamed, 'coll')
 	add_x_method(this, x_AsNamed, 'coll')
 
-	# --- xNegate --- #
-	add_x_method(this, xNegate, 'nums')
-	add_x_method(this, xNegate..., '...')
-	add_x_method(this, x_Negate, 'nums')
-	add_x_method(this, x_Negate..., '...')
-
 	# --- xNotMember --- #
 	add_x_method(this, xNotMember, 'coll')
 	add_x_method(this, xNotMember..., '...')
@@ -1170,12 +1164,6 @@ x_coll_proto <- local({
 	add_x_method(this, xPermute..., '...')
 	add_x_method(this, x_Permute, 'colls')
 	add_x_method(this, x_Permute..., '...')
-
-	# --- xPredOf --- #
-	add_x_method(this, xPredOf, 'nums')
-	add_x_method(this, xPredOf..., '...')
-	add_x_method(this, x_PredOf, 'nums')
-	add_x_method(this, x_PredOf..., '...')
 
 	# --- xPowerSetOf --- #
 	add_x_method(this, xPowerSetOf, 'coll')
@@ -1305,12 +1293,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Select, 'coll')
 	add_x_method(this, x_Select..., '...')
 
-	# --- xSigni --- #
-	add_x_method(this, xSigni, 'nums')
-	add_x_method(this, xSigni..., '...')
-	add_x_method(this, x_Signi, 'nums')
-	add_x_method(this, x_Signi..., '...')
-
 	# --- xSplitAt--- #
 	add_x_method(this, xSplitAt, 'coll')
 	add_x_method(this, xSplitAt..., '...')
@@ -1342,13 +1324,6 @@ x_coll_proto <- local({
 	add_x_method(this, xSortBy..., '...')
 	add_x_method(this, x_SortBy, 'coll')
 	add_x_method(this, x_SortBy..., '...')
-
-
-	# --- xSuccOf --- #
-	add_x_method(this, xSuccOf, 'nums')
-	add_x_method(this, xSuccOf..., '...')
-	add_x_method(this, x_SuccOf, 'nums')
-	add_x_method(this, x_SuccOf..., '...')
 
 	# -------- T ------- #
 	# --- xTabulate --- #
