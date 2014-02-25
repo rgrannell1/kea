@@ -36,6 +36,6 @@ xGetKey <- function (str) {
 	function (coll) {
 		"A function created by xGetKey."
 		""
-		unname(as.list( coll )[names(coll) == str])
+		coll[[str]]
 	}
 }

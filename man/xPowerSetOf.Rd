@@ -40,15 +40,17 @@ collection.  This set has length \bold{2^length(coll)}.
 # These partitions are a subset of the product set
 # of 1...5.
 
-num <- 5
-
-x_(1:num) $
+x_(1:5) $
 xPowerSetOf() $
 xSelect(xs := {
-	(unlist \%then\% sum)(xs) == num
+	(unlist \%then\% sum)(xs) == 5
 })
 
-# list(list(2, 3), list(1, 4), list(5))
+# list(
+#     list(2, 3),
+#     list(1, 4),
+#     list(5)
+# )
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCombos}},

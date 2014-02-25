@@ -29,10 +29,11 @@ k_nearest <- (dist : point : space) := {
 
 	k <- floor( sqrt(xLenOf(space)) )
 
-	dist_to_point <- xPartial...(dist, point)
+	dist_to_test_point <- xPartial...(dist, point)
 
-	distances <- x_(space) $
-	xMap(xFirstOf %then% dist_to_point) $ x_AsDouble()
+	distances <-
+		x_(space) $ xPluck('mg per dl (fasting)') $
+		xMap(dist_to_test_point) $ x_AsDouble()
 
 	# rank the distances from closest to furthest.
 	nearest <- space[xRank(distances) <= k]
@@ -71,10 +72,16 @@ xSortBy((line1 : line2) := {
 }) $
 x_Take(3)
 
+# list(
+#     " [12] GCL is exclusively located in plastids, and glutathione synthetase is dual-targeted to plastids and cytosol, thus are GSH and gamma-glutamylcysteine exported from the plastids.",
+#     "[11] In an oxidizing environment, intermolecular disulfide bridges are formed and the enzyme switches to the dimeric active state.",
+#     " [13] Both glutathione biosynthesis enzymes are essential in plants; knock-outs of GCL and GS are lethal to embryo and seedling."
+# )
+
 # 3. CE How many ways do numbers drawn from an
 #    array sum to zero?
 
-nums <- c(-2, 2, 1, -1, 4, -4, 2, -2, -6, 3, 5, 5, 7, 1)
+nums <- c(-2, 2, -4, 2, -2, -6)
 
 x_(xProdSetOf...(nums, nums, nums, nums)) $
 xSelect(
@@ -82,4 +89,12 @@ xSelect(
 		(unlist %then% sum)(xs) == 0
 	}
 ) $
-xUniqueOf()
+x_UniqueOf()
+
+# list(
+#     list(2, 2, -2, -2), list(2, -2, 2, -2),
+#     list(-2, 2, 2, -2), list(2, -2, -2, 2),
+#     list(-2, 2, -2, 2), list(-2, -2, 2, 2),
+#     list(-6, 2, 2, 2),  list(2, -6, 2, 2),
+#     list(2, 2, -6, 2),  list(2, 2, 2, -6)
+# )

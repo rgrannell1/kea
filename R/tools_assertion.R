@@ -381,8 +381,6 @@ insist <- local({
 				names_sym <- match.call()$names
 				fn_sym <- match.call()$fn
 
-				print(names_sym)
-
 				if ( !all(names %in% xParamsOf(fn)) ) {
 					throw_arrow_error(
 						invoking_call, message(names_sym, fn_sym, names))

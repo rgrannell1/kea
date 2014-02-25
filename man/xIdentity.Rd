@@ -18,7 +18,7 @@ Return an argument without modification.
 }
 \examples{
 
-all <- xPartial(xForall, list(fn = xIdentity))
+all <- xPartial(xForall, list(pred = xIdentity))
 all(c(True, False, True))
 
 # False
