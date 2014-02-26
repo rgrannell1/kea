@@ -61,9 +61,6 @@ xOrder <- function (nums) {
 
 			max_index <- which.max(nums)
 
-			print(nums)
-			print(max_index)
-
 			ordering[ith] <- max_index
 			nums[max_index] <- -Inf
 		}

@@ -215,7 +215,21 @@ insist <- local({
 
 			function (param) {
 
-				if (missing(param)) {
+				throws_error <- tryCatch({
+						eval(param, parent.frame())
+						False
+					},
+					warning =
+						function (warn) {
+							True
+						},
+					error =
+						function (err) {
+							True
+						}
+				)
+
+				if (missing(param) || throws_error) {
 					param <- paste(match.call()$param)
 
 					components <- get_call_components(
