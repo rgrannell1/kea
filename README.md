@@ -1,6 +1,8 @@
 Arrow pre-v0.1.0
 -----------------------------------
 
+[![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+
 **DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
 
 Arrow is an opinionated toolset of more than one hundred functions from languages
@@ -9,12 +11,12 @@ include familiar functions like Map, Select, Reduce and Compose, as
 well as many functions for working with na values, reshaping collections,
 composing functions and manipulating strings.
 
-I hope you enjoy using Arrow as much as I've enjoyed making it. 
-If you'd like to contribute with feedback, bug-reports or code 
-you can go to the Arrow [github repository](https://github.com/rgrannell1/arrow). 
+I hope you enjoy using Arrow as much as I've enjoyed making it.
+If you'd like to contribute with feedback, bug-reports or code
+you can go to the Arrow [github repository](https://github.com/rgrannell1/arrow).
 Any feedback is appreciated.
 
-For library documentation and tutorials head to 
+For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
 
 
@@ -39,7 +41,7 @@ Python or JavaScript. This syntax is handy for interactive programming.
 * Almost every function has a variadic and non-variadic form, to
 reduce boilerplate code.
 
-* Arrow adds collection-comprehensions; an expressive syntax 
+* Arrow adds collection-comprehensions; an expressive syntax
 for creating collections.
 
 ### Arrow is Consistent
