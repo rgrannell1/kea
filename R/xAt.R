@@ -22,7 +22,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    \bold{xSlice} does not allow subscripting of values out of bounds.
+#'    \bold{xAt} does not allow subscripting of values out of bounds.
 #'    If an index larger than the maximum value in \bold{coll} is given
 #'    an error is thrown.
 #'

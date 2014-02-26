@@ -60,12 +60,12 @@ xZip <- function (colls) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(colls)
+	insist $ must_be_collection(colls, invoking_call)
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()
 	} else {
 
-		insist $ must_be_collection(colls, invoking_call)
 		insist $ must_be_collection_of_collections(colls, invoking_call)
 		insist $ must_be_collection_of_equal_length(colls, invoking_call)
 
