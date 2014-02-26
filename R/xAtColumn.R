@@ -3,6 +3,10 @@
 #'
 #' Select a column of values from a collection of rows.
 #'
+#'
+#'
+#'
+#'
 #' @param
 #'     num a whole number. The number of the column to select.
 #'
@@ -15,6 +19,12 @@
 #'
 #' @return
 #'    A list.
+#'
+#' @template
+#'    Variadic
+#'
+#' @example
+#'    inst/examples/example-xAtColumn.R
 #'
 #' @rdname xAtColumn
 #' @export
@@ -35,6 +45,8 @@ xAtColumn <- function (num, colls) {
 	} else {
 
 		insist $ must_be_collection_of_collections(colls, invoking_call)
+		insist $ must_be_collections_of_length_grequal_than(
+			colls, num, invoking_call  )
 		# min coll length must be larger than num
 
 		lapply(colls, function (coll) {

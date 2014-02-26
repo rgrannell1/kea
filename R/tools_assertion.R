@@ -660,6 +660,31 @@ insist <- local({
 			}
 		})
 
+	this$must_be_collections_of_length_grequal_than <-
+		local({
+
+			message <- function (colls_sym, num_sym, colls) {
+				"the internal collections of the argument matching " %+%
+				ddquote(colls_sym) %+% " must have length greater than or equal to " %+%
+				ddquote(num_sym) %+% "." %+% summate(colls)
+			}
+
+			function (colls, num, invoking_call) {
+				# the collections inside collection has the
+				# same length as coll.
+
+				colls_sym <- match.call()$colls
+				num_sym <- match.call()$num
+
+				if ( !all(vapply(colls, length, integer(1)) >= num) ) {
+					throw_arrow_error(
+						invoking_call, message(colls_sym, num_sym, colls))
+				}
+
+				True
+			}
+		})
+
 	this$must_be_collection_of_lengths <-
 		local({
 
