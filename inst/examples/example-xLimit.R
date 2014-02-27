@@ -1,16 +1,16 @@
 
 # 1. Get random words from an API.
 
-require(RCurl)
+# require(RCurl)
 
-url <- "http://randomword.setgetgo.com/get.php"
+# url <- "http://randomword.setgetgo.com/get.php"
 
-random_word <-
-	x_( function (...) toString(httpGET(url)) ) $
-	x_Limit(3)
+# random_word <-
+#	x_( function (...) toString(httpGET(url)) ) $
+#	x_Limit(3)
 
 
-xMap(random_word, 1:4)
+# xMap(random_word, 1:4)
 
 # list("regulative", "pulverizator", "unsigmatic", NULL)
 
