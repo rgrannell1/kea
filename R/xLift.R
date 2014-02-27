@@ -5,7 +5,7 @@
 #'
 #' @details
 #'    \bold{xLift} takes a function that works on some type of value, and makes that
-#'    function work on \ital{functions of those values}.
+#'    function work on functions of those values.
 #'
 #'
 #'    Two partially applied version of \bold{xLift} exist; \%and\% & \%or\%.
