@@ -34,11 +34,13 @@ xAsVar <- function (sym) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing(sym)
+	insist $ must_not_be_missing_sym(sym)
 
-	sym <- toString(match.call()$sym)
+	sym <- match.call()$sym
+	insist $ must_be_matchable(sym, invoking_call)
 
-	insist $ must_be_of_length(sym, 1, invoking_call)
+	sym <- toString(sym)
+
 	insist $ must_exist(sym, parent_frame, invoking_call)
 
 	unlockBinding(sym, parent_frame)

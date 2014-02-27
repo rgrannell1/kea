@@ -72,7 +72,7 @@ xSplitBy <- local({
 		if (length(coll) == 0) {
 			list()
 		} else if (length(coll) == 1) {
-			as.list(coll)
+			list(as.list(coll))
 		} else {
 
 			cleaved <- list()

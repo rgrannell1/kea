@@ -2,7 +2,7 @@
 \alias{xIsVal}
 \title{xIsVal}
 \usage{
-xIsVal(str)
+xIsVal(sym)
 }
 \arguments{
   \item{sym}{a symbol or string. The variable name to

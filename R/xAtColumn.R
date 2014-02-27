@@ -31,7 +31,7 @@ xAtColumn <- function (num, colls) {
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
+	insist $ must_not_be_missing(num)
 	insist $ must_not_be_missing(colls)
 
 	insist $ must_be_collection(colls, invoking_call)

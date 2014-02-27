@@ -244,6 +244,31 @@ insist <- local({
 			}
 		})
 
+	this$must_not_be_missing_sym <-
+
+		local({
+
+			message <- function (param) {
+				"the parametre " %+% ddquote(param) %+% " is required but was missing."
+			}
+
+			function (param) {
+
+				if (missing(param)) {
+					param <- paste(match.call()$param)
+
+					components <- get_call_components(
+						invoking_call = sys.call(-1))
+
+					write_error(
+						yelp$arrow_function_failed(
+							components$invoking, components$calltext, message(param)),
+						call. = False)
+				}
+				True
+			}
+		})
+
 	#  -------- value -------- #
 
 	this$must_be_a_single_atom <-
@@ -346,6 +371,28 @@ insist <- local({
 				if (is.primitive(fn)) {
 					throw_arrow_error(
 						invoking_call, message(fn_sym, fn))
+				}
+
+				True
+			}
+		})
+
+	this$must_be_matchable <-
+		local({
+
+			message <- function (val_sym, val) {
+				"the argument matching " %+% ddquote(val_sym) %+%
+				" must be a symbol or string. "%+%
+				summate(val)
+			}
+
+			function (val, invoking_call) {
+
+				val_sym <- match.call()$val
+
+				if (!is.name(val) && (!is.character(val) || length(val) != 1)) {
+					throw_arrow_error(
+						invoking_call, message(val_sym, val))
 				}
 
 				True

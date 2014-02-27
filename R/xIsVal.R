@@ -20,20 +20,24 @@
 #' @rdname xIsVal
 #' @export
 
-xIsVal <- function (str) {
+xIsVal <- function (sym) {
 	# symbol | Vector character -> logical
 	# is a name binding locked?
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing(str)
+	insist $ must_not_be_missing_sym(sym)
 
-	str <- toString(match.call()$str)
-	insist $ must_be_collection(str, invoking_call)
+	sym <- match.call()$sym
+	insist $ must_be_matchable(sym, invoking_call)
 
-	str <- unit_to_value(as_atom(str, "character"))
+	sym <- toString(sym)
 
-	exists(str, parent_frame) &&
-		bindingIsLocked(str, parent_frame)
+	if (nchar(sym) == 0) {
+		False
+	} else {
+		exists(sym, parent_frame) &&
+			bindingIsLocked(sym, parent_frame)
+	}
 }

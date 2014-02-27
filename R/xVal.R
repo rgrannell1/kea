@@ -43,12 +43,13 @@ xVal <- function (sym, val) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing(sym)
+	insist $ must_not_be_missing_sym(sym)
 	insist $ must_not_be_missing(val)
 
-	sym <- toString(match.call()$sym)
-	insist $ must_be_collection(sym, invoking_call)
-	sym <- unit_to_value(as_atom(sym, 'character'))
+	sym <- match.call()$sym
+	insist $ must_be_matchable(sym, invoking_call)
+
+	sym <- toString(sym)
 
 	insist $ must_be_unlocked(sym, parent_frame, invoking_call)
 
