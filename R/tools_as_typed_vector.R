@@ -5,6 +5,10 @@
 #
 #
 #
+# as_atom:
+#      Convert a length-one vector to an atomic vector.
+#
+#
 #
 # as_typed_vector:
 #     A function to try convert a list of values to a typed vector.
@@ -41,7 +45,7 @@ as_atom <- function (coll, mode, invoking_call) {
 
 	invoking_call <- sys.call()
 
-	insist $ must_be_a_single_atom(coll, invoking_call)
+	insist $ must_be_an_atom(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		vector(mode)

@@ -206,6 +206,8 @@ insist <- local({
 	this <- Object()
 
 	this$must_not_be_missing <-
+		# test if a function parametre is missing, or if the
+		# parametre evaluates to an undefined value.
 
 		local({
 
@@ -215,7 +217,7 @@ insist <- local({
 
 			function (param) {
 
-				throws_error <- tryCatch({
+				evaluating_throws_error <- tryCatch({
 						eval(param, parent.frame())
 						False
 					},
@@ -229,11 +231,11 @@ insist <- local({
 						}
 				)
 
-				if (missing(param) || throws_error) {
-					param <- paste(match.call()$param)
+				if (missing(param) || evaluating_throws_error) {
 
-					components <- get_call_components(
-						invoking_call = sys.call(-1))
+					param <- toString(match.call()$param)
+
+					components <- get_call_components(sys.call(-1))
 
 					write_error(
 						yelp$arrow_function_failed(
@@ -245,6 +247,8 @@ insist <- local({
 		})
 
 	this$must_not_be_missing_sym <-
+		# test if a function parametre is missing, but not whether
+		# the value evalutates.
 
 		local({
 
@@ -257,8 +261,7 @@ insist <- local({
 				if (missing(param)) {
 					param <- paste(match.call()$param)
 
-					components <- get_call_components(
-						invoking_call = sys.call(-1))
+					components <- get_call_components(sys.call(-1))
 
 					write_error(
 						yelp$arrow_function_failed(
@@ -271,8 +274,10 @@ insist <- local({
 
 	#  -------- value -------- #
 
-	this$must_be_a_single_atom <-
+	this$must_be_an_atom <-
 		local({
+			# test if a value is a convertable to an atomic vector of length one.
+			#
 
 			message <- function (val_sym, val) {
 
@@ -1195,12 +1200,6 @@ dictate <- local({
 			}
 
 		})
-
-
-
-
-
-
 
 	this$must_have_symbol_params <-
 		function () {

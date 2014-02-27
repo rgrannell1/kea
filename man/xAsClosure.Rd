@@ -68,10 +68,10 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{xCompose...}}; \code{\link{xAsUnary}};
 \code{\link{xAsVariadic}}; \code{\link{xCapture}},
 \code{\link{xK}}; \code{\link{xDelay}};
-\code{\link{xFlip}}; \code{\link{xJuxtapose}},
-\code{\link{xJuxtapose...}}; \code{\link{xNot}};
-\code{\link{xPartial}}, \code{\link{xPartial...}};
-\code{\link{xThread}}, \code{\link{xThread...}};
-\code{\link{xVectorise}}, \code{\link{xVectorize}}
+\code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
+\code{\link{xNot}}; \code{\link{xPartial}},
+\code{\link{xPartial...}}; \code{\link{xThread}},
+\code{\link{xThread...}}; \code{\link{xVectorise}},
+\code{\link{xVectorize}}
 }
 

@@ -14,7 +14,7 @@ xNotFalse(val)
 A true or false value.
 }
 \description{
-Is an value not sfalse?
+Is an value not false?
 }
 \section{Corner Cases}{
   xNotFalse returns either true or false, to make it safe

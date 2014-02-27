@@ -12,7 +12,7 @@ xIsVariadic(fn)
 A boolean value.
 }
 \description{
-Is a function variadic?
+Does a function have ellipsis arguments?
 }
 \examples{
 
@@ -21,8 +21,8 @@ NULL
 }
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xFlip}};
-\code{\link{xFormalsOf}}; \code{\link{xParamsOf}};
-\code{\link{xPartial}}, \code{\link{xPartial...}}
+\code{\link{xAsVariadic}}; \code{\link{xFormalsOf}};
+\code{\link{xParamsOf}}; \code{\link{xPartial}},
+\code{\link{xPartial...}}
 }
 

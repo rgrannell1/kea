@@ -12,7 +12,7 @@ xIsVal(sym)
 A boolean value.
 }
 \description{
-Is a name binding locked?
+Is a variable locked?
 }
 \section{Corner Cases}{
   If a variable isn't assigned, then \code{false} is

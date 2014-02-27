@@ -16,7 +16,7 @@ xRestOf...(...)
 A list.
 }
 \description{
-Remove everything but the first element of a collection.
+Remove the first element from a collection.
 }
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.

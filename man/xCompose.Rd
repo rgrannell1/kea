@@ -69,6 +69,7 @@ number of anonymous functions needed by some programs.
 }
 \examples{
 
+NULL
 }
 \seealso{
 Other function_combining_functions: \code{\link{\%and\%}},
@@ -81,11 +82,10 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{xLift...}}; \code{\link{xAsClosure}};
 \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
 \code{\link{xCapture}}, \code{\link{xK}};
-\code{\link{xDelay}}; \code{\link{xFlip}};
-\code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
-\code{\link{xNot}}; \code{\link{xPartial}},
-\code{\link{xPartial...}}; \code{\link{xThread}},
-\code{\link{xThread...}}; \code{\link{xVectorise}},
-\code{\link{xVectorize}}
+\code{\link{xDelay}}; \code{\link{xJuxtapose}},
+\code{\link{xJuxtapose...}}; \code{\link{xNot}};
+\code{\link{xPartial}}, \code{\link{xPartial...}};
+\code{\link{xThread}}, \code{\link{xThread...}};
+\code{\link{xVectorise}}, \code{\link{xVectorize}}
 }
 

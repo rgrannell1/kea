@@ -31,8 +31,8 @@ NULL
 }
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xFlip}};
-\code{\link{xIsVariadic}}; \code{\link{xParamsOf}};
-\code{\link{xPartial}}, \code{\link{xPartial...}}
+\code{\link{xAsVariadic}}; \code{\link{xIsVariadic}};
+\code{\link{xParamsOf}}; \code{\link{xPartial}},
+\code{\link{xPartial...}}
 }
 

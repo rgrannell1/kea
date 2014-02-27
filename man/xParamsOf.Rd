@@ -28,8 +28,8 @@ NULL
 }
 \seealso{
 Other parametre_functions: \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xFlip}};
-\code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-\code{\link{xPartial}}, \code{\link{xPartial...}}
+\code{\link{xAsVariadic}}; \code{\link{xFormalsOf}};
+\code{\link{xIsVariadic}}; \code{\link{xPartial}},
+\code{\link{xPartial...}}
 }
 

@@ -17,7 +17,7 @@ xNotEmpty...(...)
 A boolean value.
 }
 \description{
-Is a collection length-zero?
+Is a collection not length-zero?
 }
 \examples{
 

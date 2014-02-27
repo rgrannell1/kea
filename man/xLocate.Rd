@@ -20,8 +20,8 @@ xLocate...(pred, ...)
 An length-one or length-zero whole number.
 }
 \description{
-Get the position of the first element for which a predicate
-returns true.
+Get the indices of the elements that return true for a
+predicate.
 }
 \section{Corner Cases}{
   returns integer(0) if no match is found.

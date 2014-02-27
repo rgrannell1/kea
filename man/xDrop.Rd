@@ -26,6 +26,7 @@ Take several elements from the head of a collection.
 }
 \examples{
 
+NULL
 }
 \seealso{
 Other selection_functions: \code{\link{xDropWhile}},
