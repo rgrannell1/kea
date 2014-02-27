@@ -738,7 +738,7 @@ test_cases <- local({
 	this$num_integer <-
 		list(
 			num = atoms$integer())
-		
+
 	this$num_positive_integer <-
 		list(num = atoms$positive_integer())
 
@@ -807,7 +807,7 @@ test_cases <- local({
 # forall tests if an expression holds true over a range of random test-cases.
 #
 
-forall <- function (info = "", cases, expect, given, max_time = 0.05) {
+forall <- function (info = "", cases, expect, given, max_time = 0.15) {
 
 	invoking_call <- sys.call()
 
