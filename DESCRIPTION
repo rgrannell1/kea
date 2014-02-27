@@ -61,7 +61,6 @@ Collate:
     'xDropWhile.R'
     'xFirstOf.R'
     'xFlatMap.R'
-    'xFlip.R'
     'xVectorise.R'
     'xFoldl.R'
     'xFoldr.R'

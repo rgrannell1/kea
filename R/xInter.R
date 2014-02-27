@@ -5,7 +5,7 @@
 #'
 #' @param
 #'    colls a collection of collections. The collections to
-#'    take the intersection f.
+#'    take the intersection of.
 #'
 #' @param
 #'    ... see above.

@@ -1,7 +1,7 @@
 
 #' xNotEmpty
 #'
-#' Is a collection length-zero?
+#' Is a collection not length-zero?
 #'
 #' @param
 #'    coll a collection. The value to test for

@@ -1,7 +1,7 @@
 
 #' xPermute
 #'
-#' Permute several collections using indices.
+#' Permute a collection of collections using indices.
 #'
 #' @details
 #'    \bold{xPermute} allows several collections to be rearranged

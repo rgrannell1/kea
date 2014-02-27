@@ -1,7 +1,7 @@
 
 #' xRestOf
 #'
-#' Remove everything but the first element of a collection.
+#' Remove the first element from a collection.
 #'
 #' @param
 #'    coll a collection. The collection to subset.

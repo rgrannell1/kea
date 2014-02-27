@@ -1,11 +1,10 @@
 
 #' xIsVal
 #'
-#' Is a name binding locked?
+#' Is a variable locked?
 #'
 #' @param
-#'    sym a symbol or string. The variable name
-#'    to test.
+#'    sym a symbol or string. The variable name to test.
 #'
 #' @return
 #'    A boolean value.

@@ -1529,8 +1529,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_Exists, 'pred')
 	add_x_method(this, x_Exists..., 'pred')
 	# -------- F ------- #
-	add_x_method(this, xFlip, 'fn')
-	add_x_method(this, x_Flip, 'fn')
 
 	# --- xFlatMap --- #
 	add_x_method(this, xFlatMap, 'fn')

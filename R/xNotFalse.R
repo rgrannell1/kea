@@ -1,7 +1,7 @@
 
 #' xNotFalse
 #'
-#' Is an value not sfalse?
+#' Is an value not false?
 #'
 #' @param
 #'    val an arbitrary value.The value to test for

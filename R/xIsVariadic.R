@@ -1,7 +1,7 @@
 
 #' xIsVariadic
 #'
-#' Is a function variadic?
+#' Does a function have ellipsis arguments?
 #'
 #' @param
 #'    fn an function. The function to test for

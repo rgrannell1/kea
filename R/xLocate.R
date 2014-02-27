@@ -1,8 +1,7 @@
 
 #' xLocate
 #'
-#' Get the position of the first element for which a
-#' predicate returns true.
+#' Get the indices of the elements that return true for a predicate.
 #'
 #' @param
 #'    pred a predicate function. The function to test each element
