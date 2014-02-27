@@ -20,7 +20,8 @@ xRepeat...(num, ...)
 A list.
 }
 \description{
-Repeat a collection several times.
+Create a collection by repeating another collection several
+times.
 }
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero or

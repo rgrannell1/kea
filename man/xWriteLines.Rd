@@ -6,7 +6,7 @@ xWriteLines(str, strs)
 }
 \arguments{
   \item{str}{a length-one character vector. The path to
-  import files from.}
+  export to.}
 
   \item{strs}{a character vector. Lines to write to a
   file.}
@@ -31,7 +31,7 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToChars}}; \code{\link{xToLines}};
-\code{\link{xToWords}}; \code{\link{xWriteChars}},
+\code{\link{xToWords}}; \code{\link{xWriteChars}};
 \code{\link{xWriteWords}}
 }
 

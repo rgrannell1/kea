@@ -42,7 +42,7 @@ columns.
 
 \bold{xSortBy} is currently (v0.1.0) inefficient for large
 collections, since both recursive and in-place sorting
-algorithms are not suitable for use in R.
+algorithms are not scalable in R.
 }
 \section{Corner Cases}{
   If \bold{pred} returns Na it is interpreted as false; the

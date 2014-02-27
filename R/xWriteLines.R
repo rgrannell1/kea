@@ -5,7 +5,7 @@
 #'
 #' @param
 #'    str a length-one character vector. The path to
-#'    import files from.
+#'    export to.
 #'
 #' @param
 #'    strs a character vector. Lines to write to a file.

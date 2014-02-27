@@ -25,8 +25,12 @@ function \bold{table}: given a collection that may or may
 not contain duplicates, it calculates the frequencies of
 each unique element.
 
-The result of the tabulation is unsorted for efficiencies
-sake; if sorting is required \bold{xSortBy} can be used.
+\code{xTabulate(c('y', 'n', 'y', 'y', 'n'))}
+
+\code{list(list("y", 3), list("n", 2))}
+
+The result of the tabulation is unsorted for efficiency; if
+sorting is required \bold{xSortBy} can be used.
 }
 \section{Corner Cases}{
   If \bold{coll} is length-zero the empty list is returned.

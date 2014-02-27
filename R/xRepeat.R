@@ -1,7 +1,7 @@
 
 #' xRepeat
 #'
-#' Repeat a collection several times.
+#' Create a collection by repeating another collection several times.
 #'
 #' @param
 #'    num a nonnegative positive number. The number of

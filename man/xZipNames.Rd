@@ -21,7 +21,8 @@ xZipNames...(...)
 A named list.
 }
 \description{
-Convert a list of name, value pairs into a named list.
+Convert a collection of name, value pairs into a named
+collection.
 }
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.

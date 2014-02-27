@@ -1,10 +1,7 @@
 
 #' xReadWords
 #'
-#' Import each word in a file to a string.
-#'
-#' @details
-#'    xReadWords ignores missing terminal newlines.
+#' Import each word in a file to an element in a character vector.
 #'
 #' @param
 #'    str a length-one character vector. The path to
@@ -12,6 +9,9 @@
 #'
 #' @return
 #'    A character vector, with one or more elements.
+#'
+#' @section Corner Cases:
+#'    xReadWords ignores missing terminal newlines.
 #'
 #' @family character_functions
 #'

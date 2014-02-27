@@ -12,10 +12,11 @@ xReadWords(str)
 A character vector, with one or more elements.
 }
 \description{
-Import each word in a file to a string.
+Import each word in a file to an element in a character
+vector.
 }
-\details{
-xReadWords ignores missing terminal newlines.
+\section{Corner Cases}{
+  xReadWords ignores missing terminal newlines.
 }
 \examples{
 
@@ -31,7 +32,7 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xReadLines}}; \code{\link{xSubstring}},
 \code{\link{xSubstring...}}; \code{\link{xToChars}};
 \code{\link{xToLines}}; \code{\link{xToWords}};
-\code{\link{xWriteChars}}, \code{\link{xWriteWords}};
-\code{\link{xWriteLines}}
+\code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+\code{\link{xWriteWords}}
 }
 

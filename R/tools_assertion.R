@@ -928,7 +928,7 @@ insist <- local({
 
 				nums_sym <- match.call()$nums
 
-				if (!(all(nums) > 0)) {
+				if ( !(all(nums >= 0)) ) {
 					throw_arrow_error(
 						invoking_call, message(nums_sym, nums))
 				}

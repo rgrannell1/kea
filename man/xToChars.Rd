@@ -37,7 +37,7 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToLines}}; \code{\link{xToWords}};
-\code{\link{xWriteChars}}, \code{\link{xWriteWords}};
-\code{\link{xWriteLines}}
+\code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+\code{\link{xWriteWords}}
 }
 

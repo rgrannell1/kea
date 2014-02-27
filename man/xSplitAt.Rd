@@ -8,20 +8,18 @@ xSplitAt(nums, coll)
 xSplitAt...(nums, ...)
 }
 \arguments{
-  \item{nums}{a vector of nonnegative whole numbers.}
+  \item{nums}{a vector of nonnegative whole numbers. The
+  indices to split a collection \bold{after}.}
 
-  \item{coll}{a collection}
+  \item{coll}{a collection. The collection to split.}
 
   \item{...}{see above.}
 }
 \value{
-A list of two lists; the first list containing the first
-\code{nums} elements of \bold{coll}, and the second list
-containing the remaining elements \bold{coll}.
+A list of lists.
 }
 \description{
-Split a collection into elements before and upto an index,
-and after that index.
+Split a collection into at several indices.
 }
 \section{Corner Cases}{
   If \code{nums} is zero then the first list in the

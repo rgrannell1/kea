@@ -1,30 +1,33 @@
-\name{xReverse}
-\alias{xReverse}
-\alias{xReverse...}
-\title{xReverse}
+\name{xSplitBy}
+\alias{xSplitBy}
+\alias{xSplitBy...}
+\title{xSplitBy}
 \usage{
-xReverse(coll)
+xSplitBy(pred, coll)
 
-xReverse...(...)
+xSplitBy...(pred, ...)
 }
 \arguments{
-  \item{coll}{a collection. The collection to reverse.}
+  \item{pred}{a binary predicate. The predicate to test
+  whether a split should be introduced between the two
+  elements.}
+
+  \item{coll}{a collection. The collection to split.}
 
   \item{...}{see above.}
 }
 \value{
-A list of the same length as \bold{coll}
+A list of lists.
 }
 \description{
-Reverse the order of elements in a collection.
+Divide a collection into groups determined by a predicate.
 }
 \section{Corner Cases}{
-  Reversing the empty list yields the empty list.
+  Returns the empty list if \bold{coll} is length-zero.
 }
 \examples{
 
 NULL
-
 }
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},
@@ -34,11 +37,11 @@ Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xJoin...}}; \code{\link{xOneOf}},
 \code{\link{xOneOf...}}; \code{\link{xRecycle}},
 \code{\link{xRecycle...}}; \code{\link{xRepeat}},
-\code{\link{xRepeat...}}; \code{\link{xShuffle}},
+\code{\link{xRepeat...}}; \code{\link{xReverse}},
+\code{\link{xReverse...}}; \code{\link{xShuffle}},
 \code{\link{xShuffle...}}; \code{\link{xSortBy}},
 \code{\link{xSortBy...}}; \code{\link{xSplitAt}},
-\code{\link{xSplitAt...}}; \code{\link{xSplitBy}},
-\code{\link{xSplitBy...}}; \code{\link{xTabulate}},
+\code{\link{xSplitAt...}}; \code{\link{xTabulate}},
 \code{\link{xTabulate...}}; \code{\link{xUnzipNames}},
 \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
 \code{\link{xZipNames...}}; \code{\link{xZip}},

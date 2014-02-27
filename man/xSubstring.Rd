@@ -42,7 +42,7 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xImplode...}}; \code{\link{xReadChars}},
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xToChars}}; \code{\link{xToLines}};
-\code{\link{xToWords}}; \code{\link{xWriteChars}},
-\code{\link{xWriteWords}}; \code{\link{xWriteLines}}
+\code{\link{xToWords}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 }
 

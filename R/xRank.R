@@ -1,7 +1,7 @@
 
 #' xRank
 #'
-#' Rank numbers in order of size.
+#' Rank a collection of numbers from largest to smallest.
 #'
 #' @param
 #'    nums a vector of numbers. The numbers to rank

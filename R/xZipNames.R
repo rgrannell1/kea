@@ -1,7 +1,7 @@
 
 #' xZipNames
 #'
-#' Convert a list of name, value pairs into a named list.
+#' Convert a collection of name, value pairs into a named collection.
 #'
 #'
 #' @param

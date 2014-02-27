@@ -1,7 +1,7 @@
 
 #' xReverse
 #'
-#' Reverse a collection.
+#' Reverse the order of elements in a collection.
 #'
 #' @param
 #'    coll a collection. The collection to reverse.

@@ -20,14 +20,18 @@ A character vector, with one or more elements.
 A character vector, with one or more elements.
 }
 \description{
-Import each line in a file to a string.
+Import each line in a file to an element in a character
+vector.
 
-Import each line in a file to a string.
+Import each line in a file to an element in a character
+vector.
 }
-\details{
-xReadChars ignores missing terminal newlines.
+\section{Corner Cases}{
+  xReadChars ignores missing terminal newlines.
+}
 
-xReadLines ignores missing terminal newlines.
+\section{Corner Cases}{
+  xReadLines ignores missing terminal newlines.
 }
 \examples{
 
@@ -44,8 +48,8 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xImplode...}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToChars}}; \code{\link{xToLines}};
-\code{\link{xToWords}}; \code{\link{xWriteChars}},
-\code{\link{xWriteWords}}; \code{\link{xWriteLines}}
+\code{\link{xToWords}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 
 Other character_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
@@ -55,7 +59,7 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xImplode...}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToChars}}; \code{\link{xToLines}};
-\code{\link{xToWords}}; \code{\link{xWriteChars}},
-\code{\link{xWriteWords}}; \code{\link{xWriteLines}}
+\code{\link{xToWords}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 }
 

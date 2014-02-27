@@ -1,22 +1,20 @@
 
 #' xSplitAt
 #'
-#' Split a collection into elements before and upto
-#' an index, and after that index.
+#' Split a collection into at several indices.
 #'
 #' @param
-#'    nums a vector of nonnegative whole numbers.
+#'    nums a vector of nonnegative whole numbers. The indices
+#'    to split a collection \bold{after}.
 #'
 #' @param
-#'    coll a collection
+#'    coll a collection. The collection to split.
 #'
 #' @param
 #'    ... see above.
 #'
 #' @return
-#'    A list of two lists; the first list containing
-#'    the first \code{nums} elements of \bold{coll}, and the
-#'    second list containing the remaining elements \bold{coll}.
+#'    A list of lists.
 #'
 #' @section Corner Cases:
 #'    If \code{nums} is zero then the first list in the

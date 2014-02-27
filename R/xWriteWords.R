@@ -1,11 +1,11 @@
 
-#' xWriteChars
+#' xWriteWords
 #'
 #' Export a collection of strings as a single line in a file.
 #'
 #' @param
 #'    str a length-one character vector. The path to
-#'    import files from.
+#'    export to.
 #'
 #' @param
 #'    strs a character vector. Lines to write to a file.
@@ -16,9 +16,9 @@
 #' @family character_functions
 #'
 #' @example
-#'    inst/examples/example-xWriteChars.R
+#'    inst/examples/example-xWriteWords.R
 #'
-#' @rdname xWriteChars
+#' @rdname xWriteWords
 #' @export
 
 xWriteWords <- function (str, strs) {

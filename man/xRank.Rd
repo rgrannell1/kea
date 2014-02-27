@@ -17,7 +17,7 @@ xRank...(...)
 A vector of numbers.
 }
 \description{
-Rank numbers in order of size.
+Rank a collection of numbers from largest to smallest.
 }
 \section{Corner Cases}{
   If nums is empty then \bold{integer(0)} is returned. Tied

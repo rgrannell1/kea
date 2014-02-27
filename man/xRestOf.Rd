@@ -8,7 +8,7 @@ xRestOf(coll)
 xRestOf...(...)
 }
 \arguments{
-  \item{coll}{a collection. A collection to subset.}
+  \item{coll}{a collection. The collection to subset.}
 
   \item{...}{see above.}
 }
@@ -16,7 +16,7 @@ xRestOf...(...)
 A list.
 }
 \description{
-Remove the first element of a collection.
+Remove everything but the first element of a collection.
 }
 \section{Corner Cases}{
   Returns the empty list if \bold{coll} is length-zero.

@@ -6,13 +6,13 @@ xToWords(str)
 }
 \arguments{
   \item{str}{a length-one character vector. The string to
-  split into words.}
+  split into whitespace-seperated words.}
 }
 \value{
 A character vector, with one or more elements.
 }
 \description{
-Split a str at whitespace.
+Split a string at whotespaces.
 }
 \details{
 The input string is split at spaces, tabs, and newlines, or
@@ -54,7 +54,7 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToChars}}; \code{\link{xToLines}};
-\code{\link{xWriteChars}}, \code{\link{xWriteWords}};
-\code{\link{xWriteLines}}
+\code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+\code{\link{xWriteWords}}
 }
 

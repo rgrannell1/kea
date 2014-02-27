@@ -1,13 +1,14 @@
 
-#' xSplitWith
+#' xSplitBy
 #'
 #' Divide a collection into groups determined by a predicate.
 #'
 #' @param
-#'      pred a predicate.
+#'      pred a binary predicate. The predicate to test whether
+#'      a split should be introduced between the two elements.
 #'
 #' @param
-#'      coll a collection.
+#'      coll a collection. The collection to split.
 #'
 #' @param
 #'    ... see above.
@@ -26,7 +27,7 @@
 #' @example
 #'    inst/examples/example-xSplitBy.R
 #'
-#' @rdname xSplitWith
+#' @rdname xSplitBy
 #' @export
 
 xSplitBy <- local({
@@ -92,7 +93,7 @@ xSplitBy <- local({
 	}
 })
 
-#' @rdname xSplitWith
+#' @rdname xSplitBy
 #' @export
 
 xSplitBy... <- function (pred, ...) {

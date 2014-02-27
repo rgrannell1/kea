@@ -1,10 +1,7 @@
 
 #' xReadLines
 #'
-#' Import each line in a file to a string.
-#'
-#' @details
-#'   xReadLines ignores missing terminal newlines.
+#' Import each line in a file to an element in a character vector.
 #'
 #' @param
 #'    str a length-one character vector. The path to
@@ -12,6 +9,9 @@
 #'
 #' @return
 #'    A character vector, with one or more elements.
+#'
+#' @section Corner Cases:
+#'   xReadLines ignores missing terminal newlines.
 #'
 #' @family character_functions
 #'

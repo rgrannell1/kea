@@ -17,7 +17,7 @@ xZip...(...)
 Returns a list of lists.
 }
 \description{
-Generate a list of n-element lists from n collections.
+Transpose a collection of collections.
 }
 \details{
 \bold{xZip} converts the 'columns' of a collection of

@@ -1,7 +1,7 @@
 
 #' xThread
 #'
-#' Iteratively apply a value to list of functions.
+#' Iteratively apply a list of functions to a value.
 #'
 #' @param
 #'    val an arbitrary value. The value to feed to

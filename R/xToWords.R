@@ -1,7 +1,7 @@
 
 #' xToWords
 #'
-#' Split a str at whitespace.
+#' Split a string at whotespaces.
 #'
 #' @details
 #'    The input string is split at spaces, tabs, and newlines,
@@ -10,7 +10,7 @@
 #'
 #' @param
 #'    str a length-one character vector. The string to split into
-#'    words.
+#'    whitespace-seperated words.
 #'
 #' @return
 #'    A character vector, with one or more elements.

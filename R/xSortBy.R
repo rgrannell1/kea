@@ -19,7 +19,7 @@
 #'
 #'     \bold{xSortBy} is currently (v0.1.0) inefficient for large collections,
 #'     since both recursive and in-place sorting algorithms are not
-#'     suitable for use in R.
+#'     scalable in R.
 #'
 #' @param
 #'    pred a binary predicate. is the left argument \bold{larger} than the
