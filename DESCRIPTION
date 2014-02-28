@@ -16,7 +16,6 @@ ByteCompile: yes
 License: GPL-3
 Collate:
     'values.R'
-    'usage_arrow.R'
     'usage_arrow_gotchas.R'
     'usage_arrow_install.R'
     'usage_arrow_naming.R'

@@ -61,5 +61,19 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xToChars}}; \code{\link{xToLines}};
 \code{\link{xToWords}}; \code{\link{xWriteChars}};
 \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
+
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xExecute}}; \code{\link{xReadWords}};
+\code{\link{xStopwatch}}; \code{\link{xVersion}};
+\code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+\code{\link{xWriteWords}}
+
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xExecute}}; \code{\link{xReadWords}};
+\code{\link{xStopwatch}}; \code{\link{xVersion}};
+\code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+\code{\link{xWriteWords}}
 }
 

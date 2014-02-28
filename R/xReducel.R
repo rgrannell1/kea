@@ -35,7 +35,7 @@
 #' @example
 #'    inst/examples/example-xReducel.R
 #'
-#' @rdname xReducel
+#' @rdname xReduce
 #' @export
 
 xReduce <- function (fn, coll) {
@@ -84,19 +84,19 @@ xReduce <- function (fn, coll) {
 	}
 }
 
-#' @rdname xReducel
+#' @rdname xReduce
 #' @export
 
 xReducel <- xReduce
 
-#' @rdname xReducel
+#' @rdname xReduce
 #' @export
 
 xReducel... <- function (fn, ...) {
 	xReduce(fn, list(...))
 }
 
-#' @rdname xReducel
+#' @rdname xReduce
 #' @export
 
 xReduce... <- xReducel...

@@ -54,7 +54,10 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 
 Other inpure_functions: \code{\link{xDo}},
 \code{\link{xDo...}}; \code{\link{xExecute}};
-\code{\link{xStopwatch}}; \code{\link{xVersion}}
+\code{\link{xReadChars}}, \code{\link{xReadLines}};
+\code{\link{xReadWords}}; \code{\link{xStopwatch}};
+\code{\link{xVersion}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 
 Other time_functions: \code{\link{xLimit}};
 \code{\link{xStopwatch}}

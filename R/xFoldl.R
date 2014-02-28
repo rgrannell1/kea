@@ -39,7 +39,7 @@
 #' @example
 #'    inst/examples/example-xFoldl.R
 #'
-#' @rdname xFoldl
+#' @rdname xFold
 #' @export
 
 xFoldl <- function (fn, val, coll) {
@@ -83,12 +83,12 @@ xFoldl <- function (fn, val, coll) {
 }
 
 #' @export
-#' @rdname xFoldl
+#' @rdname xFold
 
 xFold <- xFoldl
 
 #' @export
-#' @rdname xFoldl
+#' @rdname xFold
 
 xFoldl... <- function (fn, val, ...) {
 	xFoldl(fn, val, list(...))
@@ -96,6 +96,6 @@ xFoldl... <- function (fn, val, ...) {
 
 
 #' @export
-#' @rdname xFoldl
+#' @rdname xFold
 
 xFold... <- xFoldl

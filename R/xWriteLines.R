@@ -15,6 +15,8 @@
 #'
 #' @family character_functions
 #'
+#' @family inpure_functions
+#'
 #' @example
 #'    inst/examples/example-xWriteLines.R
 #'

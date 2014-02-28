@@ -28,28 +28,37 @@ sd_section(
 	c(
 		"xDelay",
 		"xLimit",
-		"xStopWatch")
+		"xStopwatch"
+	)
 )
+
 
 sd_section(
 	"Impure Functions",
 	paste0(
 		"These functions are referentially impure or have side-effects ",
-		"like interacting with the file system.",
+		"like interacting with the file system."),
 	c(
 
-
-
-		)
+	)
 )
 
 sd_section(
 	"Methods",
 	"These functions are only available as arrow methods.",
 	c(
-
-
-
+		"xByColnames",
+		"xByCols",
+		"xByLevels",
+		"xByRows",
+		"xColUnit",
+		"xElemsByCols",
+		"xExecute",
+		"xElemsByRows",
+		"xRowUnit",
+		"xTap",
+		"xTranspose",
+		"x_"
 	)
 )
 
@@ -63,22 +72,183 @@ sd_section(
 	)
 )
 
+sd_section(
+	"Reshaping Functions",
+	"",
+	c(
 
 
-# selection_functions
-# reshaping_functions
-# parametre_functions
-# function_modifying_functions
-# mapping_functions
-# folding_functions
-# character_functions
-# filtering_functions
-# short_circuiting_functions
-# quantifier_functions
-# set_functions
-# logical_constant_functions
-# testing_functions
-# name_functions
-# inpure_functions
-# immutable_value_functions
-# function_combining_functions
+
+	)
+)
+
+sd_section(
+	"Filtering Functions",
+	"",
+	c(
+		"xPack",
+		"xPartition",
+		"xRejectEmpty",
+		"xRejectNan",
+		"xRejectNa",
+		"xRejectNull",
+		"xReject"
+	)
+)
+
+sd_section(
+	"Testing Functions",
+	"These functions test values to see if they are a particular type of value.",
+	c(
+
+
+	)
+)
+
+sd_section(
+	"Logical Constant Functions",
+	"These functions are constant functions that return a fixed logical value.",
+	c(
+		"xTruth",
+		"xFalsity",
+		"xIrrelevance"
+	)
+)
+
+sd_section(
+	"Selection Functions",
+	"These functions select or subset collections of values.",
+	c(
+		"xDropWhile",
+		"xDrop",
+		"xFirstOf",
+		"xFourthOf",
+		"xGetKey",
+		"xInitOf",
+		"xPluck",
+		"xRestOf",
+		"xSecondOf",
+		"xTakeWhile"
+	)
+)
+
+sd_section(
+	"Mapping Functions",
+	"These functions are variants of map.",
+	c(
+		"xDeepMap",
+		"xFlatMap",
+		"xMapIndexed",
+		"xMapply",
+		"xVectorise"
+	)
+)
+
+sd_section(
+	"Folding Functions",
+	paste0(
+		"Folding is a fundemental operation in functional programming. ",
+		"These functions are varients of fold."
+	),
+	c(
+		"xFold", "xFoldl",
+		"xReduce", "xReducel",
+		"xScan"
+	)
+)
+
+sd_section(
+	"Parametre Functions",
+	"",
+	c(
+		"xAsUnary", "xAsVariadic",
+		"xIsVariadic", "xParamsOf",
+		"xPartial"
+	)
+)
+
+sd_section(
+	"Immutable Value Functions",
+	"",
+	c(
+		"xAsVal",
+		"xAsVar",
+		"xVal"
+	)
+)
+
+sd_section(
+	"Function Modifying Functions",
+	"",
+	c(
+		"%and%",
+		"%or%",
+		"%of%",
+		"%then%",
+		"xCompose",
+		"xAsClosure",
+		"xAsVariadic",
+		"xCapture",
+		"xK",
+		"xDelay",
+		"xJuxtapose",
+		"xNot",
+		"xPartial",
+		"xThread",
+		"xVectorise"
+	)
+)
+
+sd_section(
+	"Quantifier Functions",
+	"",
+	c(
+
+	)
+)
+
+sd_section(
+	"Set Functions",
+	"",
+	c(
+
+	)
+)
+
+sd_section(
+	"Name Functions",
+	"",
+	c(
+
+	)
+)
+
+sd_section(
+	"Function Combining Functions",
+	"",
+	c(
+
+	)
+)
+
+sd_section(
+	"Character Functions",
+	"",
+	c(
+		"xExplode",
+		"xFromChars",
+		"xFromLines",
+		"xFromWords",
+		"xImplode",
+		"xReadChars",
+		"xReadLines",
+		"xReadWords",
+		"xSubstring",
+		"xToChars",
+		"xToLines",
+		"xToWords",
+		"xWriteChars",
+		"xWriteLines",
+		"xWriteWords"
+	)
+)

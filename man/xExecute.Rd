@@ -17,7 +17,10 @@ continuing with the previous method result.
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
 \code{\link{xDo}}, \code{\link{xDo...}};
-\code{\link{xStopwatch}}; \code{\link{xVersion}}
+\code{\link{xReadChars}}, \code{\link{xReadLines}};
+\code{\link{xReadWords}}; \code{\link{xStopwatch}};
+\code{\link{xVersion}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 
 Other methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},

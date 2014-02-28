@@ -1,39 +1,33 @@
-\name{xScanl}
-\alias{xScan}
-\alias{xScan...}
-\alias{xScanl}
-\alias{xScanl...}
-\title{xScan}
+\name{xReduce}
+\alias{xReduce}
+\alias{xReduce...}
+\alias{xReducel}
+\alias{xReducel...}
+\title{xReduce}
 \usage{
-xScanl(fn, val, coll)
+xReduce(fn, coll)
 
-xScan(fn, val, coll)
+xReducel(fn, coll)
 
-xScanl...(fn, val, ...)
+xReducel...(fn, ...)
 
-xScan...(fn, val, ...)
+xReduce...(fn, ...)
 }
 \arguments{
   \item{fn}{a binary function that returns a value that
-  \bold{fn} can later take as its right argument.}
+  \bold{fn} can later take as its left argument.}
 
-  \item{val}{an arbitrary value. The initial value to be
-  used as the first left argument to \bold{fn}.}
-
-  \item{coll}{a collection. The collection to successively
-  reduce to a single value.}
+  \item{coll}{a collection. The collection to reduce to a
+  single value.}
 
   \item{...}{see above.}
 }
 \value{
-A list with its initial element being \bold{coll}, and
-containing \bold{length(coll) + 1}.
+An arbitrary value, depending on the function \bold{fn}.
 }
 \description{
 Successively combine a list of values into a single value
-using a binary function (left to right, with an initial
-value). Return a list containing each intermediate result,
-and the final result.
+using a binary function (left to right).
 }
 \details{
 Fold successively combines the first two elements of a
@@ -156,28 +150,44 @@ required to return a result from thousands to less than
 ten.
 }
 \section{Corner Cases}{
-  Returns \bold{list(val)} if \bold{coll} is length-zero.
+  Returns the empty list if \bold{coll} is length-zero, and
+  returns the value inside \bold{coll} if coll is
+  length-one.
 }
 \examples{
 
-NULL
+# 1. the archetypal example of Reduce; summing a vector.
 
+xReduce("+", 1:10)
+
+55
+
+# 2. another associative operator; using rbind to join several
+#    vectors into one matrix.
+
+xReduce...(
+    rbind,
+    c(1, 2),
+    c(3, 4)
+)
+
+# matrix(1:4, 2, 2)
 }
 \seealso{
 Other folding_functions: \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xFold}},
 \code{\link{xFold...}}, \code{\link{xFoldl}},
 \code{\link{xFoldl...}}; \code{\link{xReducer}},
-\code{\link{xReducer...}}; \code{\link{xReduce}},
-\code{\link{xReduce...}}, \code{\link{xReducel}},
-\code{\link{xReducel...}}
+\code{\link{xReducer...}}; \code{\link{xScan}},
+\code{\link{xScan...}}, \code{\link{xScanl}},
+\code{\link{xScanl...}}
 
 Other short_circuiting_functions: \code{\link{xFoldr}},
 \code{\link{xFoldr...}}; \code{\link{xFold}},
 \code{\link{xFold...}}, \code{\link{xFoldl}},
 \code{\link{xFoldl...}}; \code{\link{xIterate}};
 \code{\link{xReducer}}, \code{\link{xReducer...}};
-\code{\link{xReduce}}, \code{\link{xReduce...}},
-\code{\link{xReducel}}, \code{\link{xReducel...}}
+\code{\link{xScan}}, \code{\link{xScan...}},
+\code{\link{xScanl}}, \code{\link{xScanl...}}
 }
 

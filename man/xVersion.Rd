@@ -24,6 +24,9 @@ xVersion( )
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
 \code{\link{xDo}}, \code{\link{xDo...}};
-\code{\link{xExecute}}; \code{\link{xStopwatch}}
+\code{\link{xExecute}}; \code{\link{xReadChars}},
+\code{\link{xReadLines}}; \code{\link{xReadWords}};
+\code{\link{xStopwatch}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 }
 
