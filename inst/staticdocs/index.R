@@ -39,7 +39,17 @@ sd_section(
 		"These functions are referentially impure or have side-effects ",
 		"like interacting with the file system."),
 	c(
-
+		"xDelay",
+		"xDo",
+		"xExecute",
+		"xReadChars",
+		"xReadLines",
+		"xReadWords",
+		"xStopwatch",
+		"xVersion",
+		"xWriteChars",
+		"xWriteWords",
+		"xWriteLines"
 	)
 )
 
@@ -66,9 +76,10 @@ sd_section(
 	"Short-Circuiting Functions",
 	"These functions use the short circuiting Return function.",
 	c(
-
-
-
+		"xFold", "xFoldl",
+		"xReduce", "xReducel",
+		"xScan",
+		"xIterate"
 	)
 )
 
@@ -76,9 +87,21 @@ sd_section(
 	"Reshaping Functions",
 	"",
 	c(
-
-
-
+		"xChop",
+		"xChunk",
+		"xFlatten",
+		"xJoin",
+		"xOneOf",
+		"xRepeat",
+		"xReverse",
+		"xShuffle",
+		"xSortBy",
+		"xSplitAt",
+		"xSplitBy",
+		"xTabulate",
+		"xUnzipNames",
+		"xZipNames",
+		"xZip"
 	)
 )
 
@@ -203,7 +226,8 @@ sd_section(
 	"Quantifier Functions",
 	"",
 	c(
-
+		"xForall",
+		"xExists"
 	)
 )
 
