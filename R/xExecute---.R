@@ -13,7 +13,7 @@
 #' @return
 #'      The return value of the previous method.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @family inpure_functions
 #'

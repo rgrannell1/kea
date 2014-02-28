@@ -9,7 +9,7 @@
 #' @return
 #'      An arrow object containing an empty matrix or data.frame.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @name xColUnit
 

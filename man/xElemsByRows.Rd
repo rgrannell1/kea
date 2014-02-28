@@ -11,7 +11,7 @@ An arrow object containing a list.
 Enumerate the elements of a matrix across rows.
 }
 \seealso{
-Other method_functions: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},
 \code{\link{xByLevels}}; \code{\link{xByRows}};
 \code{\link{xColUnit}}; \code{\link{xElemsByCols}};

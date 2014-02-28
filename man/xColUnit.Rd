@@ -12,7 +12,7 @@ Return the concatenative unit for a matrix or data.frame
 column.
 }
 \seealso{
-Other method_functions: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},
 \code{\link{xByLevels}}; \code{\link{xByRows}};
 \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};

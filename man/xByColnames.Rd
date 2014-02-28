@@ -12,7 +12,7 @@ Convert a matrix or data.frame to a collection of column
 names.
 }
 \seealso{
-Other method_functions: \code{\link{xByCols}};
+Other methods: \code{\link{xByCols}};
 \code{\link{xByLevels}}, \code{\link{xByLevels}};
 \code{\link{xByRows}}; \code{\link{xColUnit}};
 \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};

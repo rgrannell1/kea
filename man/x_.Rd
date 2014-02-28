@@ -40,7 +40,7 @@ Generate an arrow object with methods available to it.
 Null
 }
 \seealso{
-Other method_functions: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColnames}};
 \code{\link{xByCols}}; \code{\link{xByLevels}},
 \code{\link{xByLevels}}; \code{\link{xByRows}};
 \code{\link{xColUnit}}; \code{\link{xElemsByCols}};

@@ -9,7 +9,7 @@
 #' @return
 #'      An arrow object containing a list of lists.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @name xByRows
 

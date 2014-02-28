@@ -20,7 +20,7 @@
 #' @return
 #'      An arrow object containing a matrix.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @section Corner Cases:
 #'    The empty matrix is returned if the input matrix is empty.

@@ -9,7 +9,7 @@
 #' @return
 #'      An arrow containing a list of strings.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @name xByColnames
 

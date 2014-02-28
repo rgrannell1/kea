@@ -1,5 +1,5 @@
 
-#' xScanl
+#' xScan
 #'
 #' Successively combine a list of values into a single value
 #' using a binary function (left to right, with an initial value).

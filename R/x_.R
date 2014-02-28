@@ -1786,7 +1786,7 @@ x_fn_proto <- local({
 #'    The methods that can be used by \bold{$ x_( )} object varies depending
 #'    on the type of val.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @example
 #'    inst/examples/example-x_.R

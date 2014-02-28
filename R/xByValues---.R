@@ -9,7 +9,7 @@
 #' @return
 #'      An arrow object containing a list.
 #'
-#' @family method_functions
+#' @family methods
 #'
 #' @name xByLevels
 
