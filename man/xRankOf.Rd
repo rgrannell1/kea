@@ -1,11 +1,11 @@
-\name{xRank}
-\alias{xRank}
-\alias{xRank...}
-\title{xRank}
+\name{xRankOf}
+\alias{xRankOf}
+\alias{xRankOf...}
+\title{xRankOf}
 \usage{
-xRank(nums)
+xRankOf(nums)
 
-xRank...(...)
+xRankOf...(...)
 }
 \arguments{
   \item{nums}{a vector of numbers. The numbers to rank in

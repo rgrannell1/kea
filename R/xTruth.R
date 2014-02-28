@@ -9,7 +9,7 @@
 #' @return
 #'    true
 #'
-#' @family logical_constant_functions
+#' @family basic_functions
 #'
 #' @example
 #'    inst/examples/example-xTruth.R

@@ -32,13 +32,10 @@ NULL
 
 }
 \seealso{
-Other container_conversion_functions:
-\code{\link{xAsCharacter}}, \code{\link{xAsCharacter...}};
-\code{\link{xAsComplex}}, \code{\link{xAsComplex...}};
-\code{\link{xAsDouble}}, \code{\link{xAsDouble...}};
-\code{\link{xAsInteger}}, \code{\link{xAsInteger...}};
-\code{\link{xAsLogical}}, \code{\link{xAsLogical...}};
-\code{\link{xAsRaw}}, \code{\link{xAsRaw...}}
+Other name_functions: \code{\link{xGetKey}};
+\code{\link{xPluck}}, \code{\link{xPluck...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}}
 
 Other name_functions: \code{\link{xGetKey}};
 \code{\link{xPluck}}, \code{\link{xPluck...}};

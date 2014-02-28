@@ -21,7 +21,8 @@ A function that always returns na.
 xReject(xIrrelevance, 1:10)
 }
 \seealso{
-Other logical_constant_functions: \code{\link{xFalsity}};
-\code{\link{xTruth}}
+Other basic_functions: \code{\link{xCapture}},
+\code{\link{xK}}; \code{\link{xFalsity}}; \code{\link{xI}},
+\code{\link{xIdentity}}; \code{\link{xTruth}}
 }
 

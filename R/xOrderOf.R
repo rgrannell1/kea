@@ -1,19 +1,19 @@
 
-#' xOrder
+#' xOrderOf
 #'
 #' Return a permutation of indices that reorders an integer vector.
 #'
 #' @details
-#'    \bold{xOrder} returns the indices for a collection that are required to
+#'    \bold{xOrderOf} returns the indices for a collection that are required to
 #'    re-order it. For example,
 #'
-#'    \code{c(3, 1, 2)[ xOrder(c(3,1,2)) ]}
+#'    \code{c(3, 1, 2)[ xOrderOf(c(3,1,2)) ]}
 #'
 #'    re-arranges the collection as
 #'
 #'    \code{c(1, 2, 3)}
 #'
-#'    This is a trivial use of \bold{xOrder}; a more common use is to
+#'    This is a trivial use of \bold{xOrderOf}; a more common use is to
 #'    re-order a collection of collections by the indices of one row or column.
 #'
 #' @param
@@ -33,12 +33,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xOrder.R
+#'    inst/examples/example-xOrderOf.R
 #'
-#' @rdname xOrder
+#' @rdname xOrderOf
 #' @export
 
-xOrder <- function (nums) {
+xOrderOf <- function (nums) {
 	# Collection numbers -> Vector numbers
 	# Return a permutation giving the order
 	# of nums.
@@ -69,9 +69,9 @@ xOrder <- function (nums) {
 	}
 }
 
-#' @rdname xOrder
+#' @rdname xOrderOf
 #' @export
 
-xOrder... <- function (...) {
-	xOrder(list(...))
+xOrderOf... <- function (...) {
+	xOrderOf(list(...))
 }

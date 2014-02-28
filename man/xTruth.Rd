@@ -17,7 +17,9 @@ A function that always returns true.
 
 }
 \seealso{
-Other logical_constant_functions: \code{\link{xFalsity}};
-\code{\link{xIrrelevance}}
+Other basic_functions: \code{\link{xCapture}},
+\code{\link{xK}}; \code{\link{xFalsity}};
+\code{\link{xIrrelevance}}; \code{\link{xI}},
+\code{\link{xIdentity}}
 }
 

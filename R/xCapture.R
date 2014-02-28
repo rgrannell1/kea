@@ -20,6 +20,7 @@
 #'
 #' @family function_modifying_functions
 #'
+#' @family basic_functions
 #'
 #' @example
 #'    inst/examples/example-xCapture.R

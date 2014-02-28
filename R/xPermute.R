@@ -9,7 +9,7 @@
 #'
 #'    \code{colls <- list(ids = list(15, 1, 12), ages = list(17, 29, 24), weights = list(80, 82, 76))}
 #'
-#'    \code{xPermute(xOrder( xFirstOf(colls) ), colls)}
+#'    \code{xPermute(xOrderOf( xFirstOf(colls) ), colls)}
 #'
 #' @param
 #'    nums a collection of whole numbers. The indices

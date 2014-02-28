@@ -1127,11 +1127,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_OneOf, 'coll')
 	add_x_method(this, x_OneOf..., '...')
 
-	# --- xOrder --- #
-	add_x_method(this, xOrder, 'nums')
-	add_x_method(this, xOrder..., '...')
-	add_x_method(this, x_Order, 'nums')
-	add_x_method(this, x_Order..., '...')
+	# --- xOrderOf --- #
+	add_x_method(this, xOrderOf, 'nums')
+	add_x_method(this, xOrderOf..., '...')
+	add_x_method(this, x_OrderOf, 'nums')
+	add_x_method(this, x_OrderOf..., '...')
 
 	# -------- P ------- #
 	# --- xPack --- #
@@ -1178,11 +1178,11 @@ x_coll_proto <- local({
 
 	# -------- Q ------- #
 	# -------- R ------- #
-	# --- xRank --- #
-	add_x_method(this, xRank, 'nums')
-	add_x_method(this, xRank..., '...')
-	add_x_method(this, x_Rank, 'nums')
-	add_x_method(this, x_Rank..., '...')
+	# --- xRankOf --- #
+	add_x_method(this, xRankOf, 'nums')
+	add_x_method(this, xRankOf..., '...')
+	add_x_method(this, x_RankOf, 'nums')
+	add_x_method(this, x_RankOf..., '...')
 
 	# --- xDeepMap --- #
 	add_x_method(this, xDeepMap, 'coll')

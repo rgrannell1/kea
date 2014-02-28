@@ -20,4 +20,9 @@ Return an argument without modification.
 
 NULL
 }
+\seealso{
+Other basic_functions: \code{\link{xCapture}},
+\code{\link{xK}}; \code{\link{xFalsity}};
+\code{\link{xIrrelevance}}; \code{\link{xTruth}}
+}
 

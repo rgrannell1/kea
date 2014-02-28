@@ -31,6 +31,10 @@ NULL
 
 }
 \seealso{
+Other basic_functions: \code{\link{xFalsity}};
+\code{\link{xIrrelevance}}; \code{\link{xI}},
+\code{\link{xIdentity}}; \code{\link{xTruth}}
+
 Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{\%or\%}}, \code{\link{xLift}},
 \code{\link{xLift...}}; \code{\link{\%of\%}},

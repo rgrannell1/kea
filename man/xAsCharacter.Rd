@@ -38,7 +38,6 @@ Other container_conversion_functions:
 \code{\link{xAsDouble}}, \code{\link{xAsDouble...}};
 \code{\link{xAsInteger}}, \code{\link{xAsInteger...}};
 \code{\link{xAsLogical}}, \code{\link{xAsLogical...}};
-\code{\link{xAsNamed}}; \code{\link{xAsRaw}},
-\code{\link{xAsRaw...}}
+\code{\link{xAsRaw}}, \code{\link{xAsRaw...}}
 }
 

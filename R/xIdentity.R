@@ -9,6 +9,8 @@
 #' @return
 #'    Returns \code{val}.
 #'
+#' @family basic_functions
+#'
 #' @example
 #'    inst/examples/example-xIdentity.R
 #'

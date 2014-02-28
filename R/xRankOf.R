@@ -1,5 +1,5 @@
 
-#' xRank
+#' xRankOf
 #'
 #' Rank a collection of numbers from largest to smallest.
 #'
@@ -22,12 +22,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xRank.R
+#'    inst/examples/example-xRankOf.R
 #'
-#' @rdname xRank
+#' @rdname xRankOf
 #' @export
 
-xRank <- function (nums) {
+xRankOf <- function (nums) {
 	# Collection numbers -> Vector numbers
 	# Rank numbers in order of size.
 
@@ -45,9 +45,9 @@ xRank <- function (nums) {
 	}
 }
 
-#' @rdname xRank
+#' @rdname xRankOf
 #' @export
 
-xRank... <- function (...) {
-	xRank(list(...))
+xRankOf... <- function (...) {
+	xRankOf(list(...))
 }
