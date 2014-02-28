@@ -7,6 +7,20 @@ stringify_call <- arrow:::stringify_call
 invoking_call <- stringify_call(
 	quote(xMap(x := x^2, coll = 1:10)) )
 
+message("insist $ max_must_be_less_than_length_of")
+
+message("insist $ minimum_must_be_greater_than")
+
+message("insist $ must_be_atom")
+
+	forall(
+		"must be atom works",
+		test_cases$collection,
+		insist $ must_be_atom(coll, invoking_call),
+		given =
+			length(coll) == 1
+	)
+
 message("insist $ must_be_logical_result")
 
 	test_sym <- NULL
@@ -17,20 +31,8 @@ message("insist $ must_be_logical_result")
 		insist $ must_be_logical_result(
 			coll, test_sym, invoking_call)
 	)
-
-message("insist $ max_must_be_less_than_length_of")
-
-message("insist $ minimum_must_be_greater_than")
-
-message("insist $ must_be_character")
-
-	forall(
-		"must be must_be_character works",
-		test_cases$str_word,
-		insist $ must_be_character(str, invoking_call)
-	)
-
 message("insist $ must_be_collection")
+
 
 	forall(
 		"must be must_be_character works",
@@ -41,8 +43,6 @@ message("insist $ must_be_collection")
 message("insist $ must_be_collection_of_collections")
 
 message("insist $ must_be_collection_of_equal_length")
-
-
 
 message("insist $ must_be_collection_of_fn_matchable")
 
@@ -150,6 +150,20 @@ message("insist $ must_be_whole")
 		insist $ must_be_whole(num, invoking_call)
 	)
 
+message("insist $ must_not_be_missing")
+
+	forall(
+		"must not be missing works",
+		test_cases$collection,
+		{
+			f <- function (x) {
+				insist $ must_not_be_missing(x)
+			}
+
+			f(coll)
+		}
+	)
+
 message("insist $ must_exist")
 
 	local({
@@ -158,4 +172,42 @@ message("insist $ must_exist")
 	})
 
 message("insist $ must_be_collection_of_equal_names")
+
+c(
+"must_be_collection_of_collections",
+"must_be_collection_of_equal_length",
+"must_be_collection_of_equal_names",
+"must_be_collection_of_fn_matchable",
+
+"must_be_collection_of_lengths",
+"must_be_collections_of_length_grequal_than",
+
+"must_be_collections_of_length_matching",
+"must_be_correct_type",
+
+"must_be_equal_length",
+"must_be_existing_file",
+"must_be_fn_matchable",
+
+"must_be_fully_named",
+"must_be_greater_than",
+"must_be_grequal_than",
+
+"must_be_logical_result",
+"must_be_longer_or_equal_than",
+
+"must_be_longer_than",
+"must_be_matchable",
+"must_be_nonnegative",
+
+"must_be_non_primitive",
+"must_be_of_length",
+"must_be_parametres_of",
+
+"must_be_recursive",
+"must_be_unlistable",
+"must_be_unlocked",
+
+"must_not_be_missing_sym"
+)
 

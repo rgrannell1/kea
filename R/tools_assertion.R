@@ -274,10 +274,9 @@ insist <- local({
 
 	#  -------- value -------- #
 
-	this$must_be_an_atom <-
+	this$must_be_atom <-
 		local({
 			# test if a value is a convertable to an atomic vector of length one.
-			#
 
 			message <- function (val_sym, val) {
 
@@ -310,6 +309,7 @@ insist <- local({
 
 	this$must_be_of_length <-
 		local({
+			# test if a value has a certain length.
 
 			message <- function (val_sym, lengths, val) {
 
@@ -338,6 +338,7 @@ insist <- local({
 
 	this$must_be_logical_result <-
 		local({
+			# test if a value is true, false or na.
 
 			message <- function (pred_sym, pred) {
 				"the predicate function " %+% ddquote(pred_sym) %+%
@@ -346,7 +347,6 @@ insist <- local({
 			}
 
 			function (result, pred, invoking_call) {
-				# predicates must return logical values.
 
 				pred_sym <- match.call()$pred
 
@@ -361,6 +361,7 @@ insist <- local({
 
 	this$must_be_non_primitive <-
 		local({
+			# test if a function is non-primative.
 
 			message <- function (fn_sym, fn) {
 				"the argument matching " %+% ddquote(fn_sym) %+%
@@ -369,7 +370,6 @@ insist <- local({
 			}
 
 			function (fn, invoking_call) {
-				# the function must be non primitive function.
 
 				fn_sym <-match.call()$fn
 
@@ -458,34 +458,11 @@ insist <- local({
 
 	#  -------- character -------- #
 
-	this$must_be_character <-
-		local({
-
-			message <- function (strs_sym, strs) {
-
-				"the argument matching " %+% ddquote(strs_sym) %+%
-				" must be a character vector." %+%
-				summate(strs)
-			}
-
-			function (strs, invoking_call) {
-				# the value must be a character vector.
-
-				strs_sym <- match.call()$strs
-
-				if (!is.character(strs)) {
-					throw_arrow_error(
-						invoking_call, message(strs_sym, strs))
-				}
-
-				True
-			}
-		})
-
 	#  -------- collection -------- #
 
 	this$must_be_collection <-
 		local({
+			# test if a value is a list, pairlist or atomic vector.
 
 			message <- function (coll_sym, coll) {
 				"the argument matching " %+% ddquote(coll_sym) %+%
@@ -875,6 +852,8 @@ insist <- local({
 
 	this$max_must_be_less_than_length_of <-
 		local({
+			# the largest number in a collection must be lequal than the length of
+			# the collection
 
 			message <- function (nums_sym, coll_sym, nums) {
 				"the maximum number in the argument matching " %+% ddquote(nums_sym) %+%
@@ -884,7 +863,6 @@ insist <- local({
 			}
 
 			function (nums, coll, invoking_call) {
-				# the largest value must have length less than a collection.
 
 				nums_sym <- match.call()$nums
 				coll_sym <- match.call()$coll
@@ -893,6 +871,55 @@ insist <- local({
 					throw_arrow_error(
 						invoking_call, message(nums_sym, coll_sym, nums))
 				}
+				True
+			}
+		})
+
+	this$must_be_positive_indices_of <-
+		local({
+			# test that nums are indices of a collection
+			# not including negative values.
+
+			message <- function (nums_sym, coll_sym, nums) {
+				"the argument matching " %+% ddquote(nums_sym) %+%
+				" must be positive indices of " %+% ddquote(coll_sym) %+% "." %+%
+				summate(nums)
+			}
+
+			function (nums, coll, invoking_call) {
+
+				nums_sym <- match.call()$nums
+				coll_sym <- match.call()$coll
+
+				if (max(nums) > length(coll) || min(nums) < 1) {
+					throw_arrow_error(
+						invoking_call, message(nums_sym, coll_sym, nums))
+				}
+
+				True
+			}
+		})
+
+	this$must_be_indices_of <-
+		local({
+			# test that nums are indices of a collection, including negative values.
+
+			message <- function (nums_sym, coll_sym, nums) {
+				"the argument matching " %+% ddquote(nums_sym) %+%
+				" must be positive or negative indices of " %+% ddquote(coll_sym) %+% "." %+%
+				summate(nums)
+			}
+
+			function (nums, coll, invoking_call) {
+
+				nums_sym <- match.call()$nums
+				coll_sym <- match.call()$coll
+
+				if (max(nums) > length(coll) || min(nums) < -length(coll)) {
+					throw_arrow_error(
+						invoking_call, message(nums_sym, coll_sym, nums))
+				}
+
 				True
 			}
 		})
@@ -991,6 +1018,8 @@ insist <- local({
 
 	this$must_be_invoked_with_brackets <-
 		local({
+			# not really an assertion, since it always throws an error.
+			# if this invoked complain that comprehensions use brackets.
 
 			message <- function () {
 				"comprehension objects cannot be invoked as a " %+%

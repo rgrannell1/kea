@@ -48,8 +48,7 @@ xAt <- function (num, coll) {
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_whole(num, invoking_call)
-	insist $ max_must_be_less_than_length_of(num, coll, invoking_call)
-	insist $ must_be_greater_than(num, 0, invoking_call)
+	insist $ must_be_positive_indices_of(num, 0, invoking_call)
 
 	coll[[num]]
 }

@@ -45,7 +45,7 @@ as_atom <- function (coll, mode, invoking_call) {
 
 	invoking_call <- sys.call()
 
-	insist $ must_be_an_atom(coll, invoking_call)
+	insist $ must_be_atom(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		vector(mode)
