@@ -31,3 +31,10 @@ message("xList[ ]")
 		given =
 			length(coll) > 0
 	)
+
+	forall(
+		"xList can support multiple bindings",
+		test_cases$positive_integers,
+		xList[ x + y, x <- coll, y <- coll ] %equals%
+			as.list(apply(expand.grid(coll, coll), 1, sum))
+	)
