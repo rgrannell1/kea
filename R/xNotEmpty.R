@@ -19,6 +19,8 @@
 #' @example
 #'    inst/examples/example-xNotEmpty.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xNotEmpty
 #' @export
 

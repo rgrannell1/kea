@@ -72,8 +72,8 @@ all_cyclic_permutations(letters[1:3])
 # )
 }
 \seealso{
-Other combinatoric_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xPermute}},
+Other combinatoric_functions: \code{\link{xChoose}},
+\code{\link{xChoose...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
 \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
 \code{\link{xProdSetOf...}}

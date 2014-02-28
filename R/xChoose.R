@@ -1,10 +1,10 @@
 
-#' xCombos
+#' xChoose
 #'
 #' Enumerate all ways of choosing several elements from a collection.
 #'
 #' @details
-#' \bold{xCombos} enumerates all ways of choosing \bold{num} distinct
+#' \bold{xChoose} enumerates all ways of choosing \bold{num} distinct
 #' elements from a larger collection, where order doesn't matter.
 #'
 #' The number of ways of choosing \bold{num} elements from a collection
@@ -32,12 +32,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xCombos.R
+#'    inst/examples/example-xChoose.R
 #'
-#' @rdname xCombos
+#' @rdname xChoose
 #' @export
 
-xCombos <- function (num, coll) {
+xChoose <- function (num, coll) {
 	# number -> Collection anyf
 	# generate all ways of choosing several
 	# elements from a collection.
@@ -71,9 +71,9 @@ xCombos <- function (num, coll) {
 	}
 }
 
-#' @rdname xCombos
+#' @rdname xChoose
 #' @export
 
-xCombos... <- function (num, ...) {
-	xCombos(num, list(...))
+xChoose... <- function (num, ...) {
+	xChoose(num, list(...))
 }

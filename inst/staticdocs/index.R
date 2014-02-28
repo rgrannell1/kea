@@ -20,7 +20,7 @@ sd_section(
 		"data structures they tend to inefficient for large inputs."
 	),
 	c(
-		"xCombos",
+		"xChoose",
 		"xCycle",
 		"xPermute",
 		"xProdSetOf",
@@ -31,9 +31,10 @@ sd_section(
 sd_section(
 	"Time Functions",
 	paste(
-		"These side-effectful functions work with time, or ",
+		"These side-effectful functions work with time, or",
 		"alter the temporal properties of functions. These are useful for",
-		"interacting with rate-limited API's."
+		"interacting with rate-limited API's, or allowing programs to",
+		"observer their own run-times."
 	),
 	c(
 		"xDelay",
@@ -42,12 +43,12 @@ sd_section(
 	)
 )
 
-
 sd_section(
 	"Impure Functions",
-	paste0(
-		"These functions are referentially impure or have side-effects ",
-		"like interacting with the file system."),
+	paste(
+		"These functions are referentially impure or have side-effects",
+		"like interacting with the file system."
+	),
 	c(
 		"xDelay",
 		"xDo",
@@ -89,8 +90,8 @@ sd_section(
 		"break evaluation prematurely."
 	),
 	c(
-		"xFold", "xFoldl",
-		"xReduce", "xReducel",
+		"xFold", "xFoldr",
+		"xReduce", "xReducer",
 		"xScan",
 		"xIterate"
 	)
@@ -140,11 +141,13 @@ sd_section(
 	"Value Testing Functions",
 	"These functions test values to see if they are a particular type of value.",
 	c(
+		"xIsEmpty",
 		"xIsFalse",
 		"xIsNa",
 		"xIsNan",
 		"xIsNull",
 		"xIsTrue",
+		"xNotEmpty",
 		"xNotFalse",
 		"xNotNan",
 		"xNotNa",
@@ -205,6 +208,7 @@ sd_section(
 	c(
 		"xDeepMap",
 		"xFlatMap",
+		"xMap",
 		"xMapIndexed",
 		"xMapply",
 		"xVectorise"
@@ -231,6 +235,7 @@ sd_section(
 		"xArityOf",
 		"xAsUnary", "xAsVariadic",
 		"xIsVariadic",
+		"xFormalsOf",
 		"xParamsOf",
 		"xPartial"
 	)
@@ -245,6 +250,7 @@ sd_section(
 	c(
 		"xAsVal",
 		"xAsVar",
+		"xIsVal",
 		"xVal"
 	)
 )
@@ -284,7 +290,10 @@ sd_section(
 	"",
 	c(
 		"xDuplicatesOf",
-		"xInterssss"
+		"xIsMember",
+		"xNotMember",
+		"xUnionOf",
+		"xUniqueOf"
 	)
 )
 
@@ -326,5 +335,20 @@ sd_section(
 		"xWriteChars",
 		"xWriteLines",
 		"xWriteWords"
+	)
+)
+
+sd_section(
+	"Container Conversion Functions",
+	paste(
+		"These functions convert the type of container that surrounds a data set."
+	),
+	c(
+		"xAsCharacter",
+		"xAsComplex",
+		"xAsDouble",
+		"xAsInteger",
+		"xAsLogical",
+		"xAsRaw"
 	)
 )

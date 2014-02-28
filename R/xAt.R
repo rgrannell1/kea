@@ -38,6 +38,7 @@
 #' @export
 
 xAt <- function (num, coll) {
+	# number -> Collection any -> any
 
 	invoking_call <- sys.call()
 

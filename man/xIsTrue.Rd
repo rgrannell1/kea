@@ -56,9 +56,11 @@ Other value_testing_functions: \code{\link{xElemIsFalse}},
 \code{\link{xElemNotNan...}}; \code{\link{xElemNotNa}},
 \code{\link{xElemNotNa...}}; \code{\link{xElemNotNull}},
 \code{\link{xElemNotNull...}}; \code{\link{xElemNotTrue}},
-\code{\link{xElemNotTrue...}}; \code{\link{xIsFalse}};
+\code{\link{xElemNotTrue...}}; \code{\link{xIsEmpty}},
+\code{\link{xIsEmpty...}}; \code{\link{xIsFalse}};
 \code{\link{xIsNan}}; \code{\link{xIsNa}};
-\code{\link{xIsNull}}; \code{\link{xNotFalse}};
+\code{\link{xIsNull}}; \code{\link{xNotEmpty}},
+\code{\link{xNotEmpty...}}; \code{\link{xNotFalse}};
 \code{\link{xNotNan}}; \code{\link{xNotNa}};
 \code{\link{xNotNull}}; \code{\link{xNotTrue}}
 }

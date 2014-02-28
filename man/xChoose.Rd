@@ -1,11 +1,11 @@
-\name{xCombos}
-\alias{xCombos}
-\alias{xCombos...}
-\title{xCombos}
+\name{xChoose}
+\alias{xChoose}
+\alias{xChoose...}
+\title{xChoose}
 \usage{
-xCombos(num, coll)
+xChoose(num, coll)
 
-xCombos...(num, ...)
+xChoose...(num, ...)
 }
 \arguments{
   \item{num}{a nonnegative whole number. The number of
@@ -25,7 +25,7 @@ Enumerate all ways of choosing several elements from a
 collection.
 }
 \details{
-\bold{xCombos} enumerates all ways of choosing \bold{num}
+\bold{xChoose} enumerates all ways of choosing \bold{num}
 distinct elements from a larger collection, where order
 doesn't matter.
 

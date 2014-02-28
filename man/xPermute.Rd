@@ -40,8 +40,8 @@ NULL
 
 }
 \seealso{
-Other combinatoric_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xCycle}},
+Other combinatoric_functions: \code{\link{xChoose}},
+\code{\link{xChoose...}}; \code{\link{xCycle}},
 \code{\link{xCycle...}}; \code{\link{xPowerSetOf}},
 \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
 \code{\link{xProdSetOf...}}

@@ -135,7 +135,7 @@ Collate:
     'xLimit.R'
     'xLenOf.R'
     'xElemIsNull.R'
-    'xCombos.R'
+    'xChoose.R'
     'xIsMember.R'
     'xUnionOf.R'
     'xInter.R'

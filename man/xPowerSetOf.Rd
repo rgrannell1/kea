@@ -53,8 +53,8 @@ xSelect(xs := {
 # )
 }
 \seealso{
-Other combinatoric_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xCycle}},
+Other combinatoric_functions: \code{\link{xChoose}},
+\code{\link{xChoose...}}; \code{\link{xCycle}},
 \code{\link{xCycle...}}; \code{\link{xPermute}},
 \code{\link{xPermute...}}; \code{\link{xProdSetOf}},
 \code{\link{xProdSetOf...}}

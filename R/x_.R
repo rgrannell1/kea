@@ -828,11 +828,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Chop, 'coll')
 	add_x_method(this, x_Chop..., '...')
 
-	# --- xCombos --- #
-	add_x_method(this, xCombos, 'coll')
-	add_x_method(this, xCombos..., '...')
-	add_x_method(this, x_Combos, 'coll')
-	add_x_method(this, x_Combos..., '...')
+	# --- xChoose --- #
+	add_x_method(this, xChoose, 'coll')
+	add_x_method(this, xChoose..., '...')
+	add_x_method(this, x_Choose, 'coll')
+	add_x_method(this, x_Choose..., '...')
 
 	# --- xCycle --- #
 	add_x_method(this, xCycle, 'colls')

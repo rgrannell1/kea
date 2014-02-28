@@ -18,6 +18,8 @@
 #' @example
 #'    inst/examples/example-xIsEmpty.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xIsEmpty
 #' @export
 
