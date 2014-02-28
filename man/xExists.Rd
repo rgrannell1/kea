@@ -95,6 +95,7 @@ True
 }
 \seealso{
 Other quantifier_functions: \code{\link{xForall}},
-\code{\link{xForall...}}
+\code{\link{xForall...}}; \code{\link{xPoll}},
+\code{\link{xPoll...}}, \code{\link{xRejectNan...}}
 }
 

@@ -20,7 +20,7 @@
 #'     safe for use with if statements. If val is length zero
 #'     False is returned.
 #'
-#' @family testing_functions
+#' @family value_testing_functions
 #'
 #' @rdname xIsNa
 #' @export

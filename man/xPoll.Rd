@@ -43,4 +43,9 @@ lenof <- xPartial...(xPoll, pred = xK(TRUE))
 lenof(c(1,2,3,4))
 # 4
 }
+\seealso{
+Other quantifier_functions: \code{\link{xExists}},
+\code{\link{xExists...}}; \code{\link{xForall}},
+\code{\link{xForall...}}
+}
 

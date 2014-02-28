@@ -183,5 +183,5 @@ Collate:
     'xWriteChars.R'
     'xAt.R'
     'xRecycle.R'
-    'xAtColumn.R'
+    'xAtCol.R'
     'x_.R'

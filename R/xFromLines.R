@@ -13,7 +13,7 @@
 #' @return
 #'    A length-one character vector.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @template
 #'    Variadic

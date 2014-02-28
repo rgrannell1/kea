@@ -24,6 +24,8 @@
 #' @example
 #'    inst/examples/example-xElemIsNull.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xElemIsNull
 #' @export
 

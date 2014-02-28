@@ -32,6 +32,8 @@
 #' @example
 #'    inst/examples/example-xAt.R
 #'
+#' @family selection_functions
+#'
 #' @rdname xAt
 #' @export
 

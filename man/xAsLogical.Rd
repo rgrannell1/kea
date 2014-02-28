@@ -29,4 +29,13 @@ vectors.
 NULL
 
 }
+\seealso{
+Other container_conversion_functions:
+\code{\link{xAsCharacter}}, \code{\link{xAsCharacter...}};
+\code{\link{xAsComplex}}, \code{\link{xAsComplex...}};
+\code{\link{xAsDouble}}, \code{\link{xAsDouble...}};
+\code{\link{xAsInteger}}, \code{\link{xAsInteger...}};
+\code{\link{xAsNamed}}; \code{\link{xAsRaw}},
+\code{\link{xAsRaw...}}
+}
 

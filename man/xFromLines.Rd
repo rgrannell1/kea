@@ -26,7 +26,7 @@ NULL
 
 }
 \seealso{
-Other character_functions: \code{\link{xExplode}},
+Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromWords}},
 \code{\link{xFromWords...}}; \code{\link{xImplode}},

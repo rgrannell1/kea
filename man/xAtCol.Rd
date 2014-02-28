@@ -1,18 +1,18 @@
-\name{xTakeWhile}
-\alias{xTakeWhile}
-\alias{xTakeWhile...}
-\title{xTakeWhile}
+\name{xAtCol}
+\alias{xAtCol}
+\alias{xAtCol...}
+\title{xAtCol}
 \usage{
-xTakeWhile(pred, coll)
+xAtCol(num, colls)
 
-xTakeWhile...(pred, ...)
+xAtCol...(num, ...)
 }
 \arguments{
-  \item{pred}{a predicate. The function to test each
-  element of the collection with.}
+  \item{num}{a whole number. The number of the column to
+  select.}
 
-  \item{coll}{a collection. The collection to drop elements
-  from.}
+  \item{colls}{a collection of collections. The collection
+  of rows to select a column from.}
 
   \item{...}{see above.}
 }
@@ -20,22 +20,14 @@ xTakeWhile...(pred, ...)
 A list.
 }
 \description{
-Take every element in a collection from the start until a
-predicate returns false.
-}
-\section{Corner Cases}{
-  Returns the empty list if \bold{coll} is length-zero or
-  the first element of \bold{coll} returns false for the
-  predicate.  Na values are considered false.
+Select a column of values from a collection of rows.
 }
 \examples{
 
 NULL
-
 }
 \seealso{
-Other selection_functions: \code{\link{xAtCol}},
-\code{\link{xAtCol...}}; \code{\link{xAt}},
+Other selection_functions: \code{\link{xAt}},
 \code{\link{xAt...}}; \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xDrop}},
 \code{\link{xDrop...}}; \code{\link{xFirstOf}},
@@ -47,6 +39,7 @@ Other selection_functions: \code{\link{xAtCol}},
 \code{\link{xRestOf}}, \code{\link{xRestOf...}};
 \code{\link{xSecondOf}}, \code{\link{xSecondOf...}};
 \code{\link{xSlice}}, \code{\link{xSlice...}};
+\code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};
 \code{\link{xTake}}, \code{\link{xTake...}};
 \code{\link{xThirdOf}}, \code{\link{xThirdOf...}}
 }

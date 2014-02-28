@@ -19,6 +19,8 @@
 #' @example
 #'    inst/examples/example-xElemIsNa.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xElemIsNa
 #' @export
 

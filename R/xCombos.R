@@ -28,8 +28,6 @@
 #'
 #' @family combinatoric_functions
 #'
-#' @family set_functions
-#'
 #' @template
 #'    Variadic
 #'

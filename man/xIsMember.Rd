@@ -32,9 +32,7 @@ NULL
 
 }
 \seealso{
-Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xCycle}},
-\code{\link{xCycle...}}; \code{\link{xDuplicatesOf}},
+Other set_functions: \code{\link{xDuplicatesOf}},
 \code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
 \code{\link{xInter...}}; \code{\link{xNotMember}},
 \code{\link{xNotMember...}}; \code{\link{xPermute}},

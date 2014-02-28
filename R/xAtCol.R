@@ -1,5 +1,5 @@
 
-#' xAtColumn
+#' xAtCol
 #'
 #' Select a column of values from a collection of rows.
 #'
@@ -20,12 +20,14 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xAtColumn.R
+#'    inst/examples/example-xAtCol.R
 #'
-#' @rdname xAtColumn
+#' @family selection_functions
+#'
+#' @rdname xAtCol
 #' @export
 
-xAtColumn <- function (num, colls) {
+xAtCol <- function (num, colls) {
 	# number -> Collection Collection any -> Collection any
 	# select a column of numbers.
 
@@ -50,9 +52,9 @@ xAtColumn <- function (num, colls) {
 	}
 }
 
-#' @rdname xAtColumn
+#' @rdname xAtCol
 #' @export
 
-xAtColumn... <- function (num, ...) {
-	xAtColumn(num, list(...))
+xAtCol... <- function (num, ...) {
+	xAtCol(num, list(...))
 }

@@ -21,7 +21,7 @@
 #'     safe for use with if statements. If val is length zero
 #'     True is returned.
 #'
-#' @family testing_functions
+#' @family value_testing_functions
 #'
 #' @rdname xNotNan
 #' @export

@@ -19,6 +19,8 @@
 #' @example
 #'    inst/examples/example-xElemIsFalse.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xElemIsFalse
 #' @export
 

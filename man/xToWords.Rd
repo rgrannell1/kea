@@ -45,7 +45,7 @@ x_Reduce(
 )
 }
 \seealso{
-Other character_functions: \code{\link{xExplode}},
+Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},

@@ -15,7 +15,7 @@
 #' @return
 #'    A character vector, with one or more elements.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @example
 #'    inst/examples/example-xToWords.R

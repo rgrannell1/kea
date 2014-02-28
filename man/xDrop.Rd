@@ -29,7 +29,9 @@ Take several elements from the head of a collection.
 NULL
 }
 \seealso{
-Other selection_functions: \code{\link{xDropWhile}},
+Other selection_functions: \code{\link{xAtCol}},
+\code{\link{xAtCol...}}; \code{\link{xAt}},
+\code{\link{xAt...}}; \code{\link{xDropWhile}},
 \code{\link{xDropWhile...}}; \code{\link{xFirstOf}},
 \code{\link{xFirstOf...}}; \code{\link{xFourthOf}},
 \code{\link{xFourthOf...}}; \code{\link{xGetKey}};
@@ -38,7 +40,9 @@ Other selection_functions: \code{\link{xDropWhile}},
 \code{\link{xPluck}}, \code{\link{xPluck...}};
 \code{\link{xRestOf}}, \code{\link{xRestOf...}};
 \code{\link{xSecondOf}}, \code{\link{xSecondOf...}};
+\code{\link{xSlice}}, \code{\link{xSlice...}};
 \code{\link{xTakeWhile}}, \code{\link{xTakeWhile...}};
-\code{\link{xTake}}, \code{\link{xTake...}}
+\code{\link{xTake}}, \code{\link{xTake...}};
+\code{\link{xThirdOf}}, \code{\link{xThirdOf...}}
 }
 

@@ -20,9 +20,9 @@ NULL
 
 }
 \seealso{
-Other parametre_functions: \code{\link{xAsUnary}};
-\code{\link{xAsVariadic}}; \code{\link{xFormalsOf}};
-\code{\link{xParamsOf}}; \code{\link{xPartial}},
-\code{\link{xPartial...}}
+Other parametre_functions: \code{\link{xArityOf}};
+\code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+\code{\link{xFormalsOf}}; \code{\link{xParamsOf}};
+\code{\link{xPartial}}, \code{\link{xPartial...}}
 }
 

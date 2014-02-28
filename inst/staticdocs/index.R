@@ -12,7 +12,13 @@ sd_section(
 
 sd_section(
 	"Combinatoric Functions",
-	"These functions generate combinatorial structures.",
+	paste(
+		"These functions generate combinatorial structures,",
+		"which are typically used for specialised patterns of iteration",
+		"or generating more useful substructures from an initial pool of",
+		"candidate structures. As these functions enumerate rapidly growing",
+		"data structures they tend to inefficient for large inputs."
+	),
 	c(
 		"xCombos",
 		"xCycle",
@@ -24,7 +30,11 @@ sd_section(
 
 sd_section(
 	"Time Functions",
-	"These functions involve timing.",
+	paste(
+		"These side-effectful functions work with time, or ",
+		"alter the temporal properties of functions. These are useful for",
+		"interacting with rate-limited API's."
+	),
 	c(
 		"xDelay",
 		"xLimit",
@@ -74,7 +84,10 @@ sd_section(
 
 sd_section(
 	"Short-Circuiting Functions",
-	"These functions use the short circuiting Return function.",
+	paste(
+		"These functions can use to the short-circuit operator to",
+		"break evaluation prematurely."
+	),
 	c(
 		"xFold", "xFoldl",
 		"xReduce", "xReducel",
@@ -92,6 +105,7 @@ sd_section(
 		"xFlatten",
 		"xJoin",
 		"xOneOf",
+		"xRecycle",
 		"xRepeat",
 		"xReverse",
 		"xShuffle",
@@ -107,30 +121,55 @@ sd_section(
 
 sd_section(
 	"Filtering Functions",
-	"",
+	paste(
+		"These functions create a subset of collection, with elements sharing a",
+		"certain property."
+	),
 	c(
-		"xPack",
 		"xPartition",
 		"xRejectEmpty",
 		"xRejectNan",
 		"xRejectNa",
 		"xRejectNull",
-		"xReject"
+		"xReject",
+		"xSelect"
 	)
 )
 
 sd_section(
-	"Testing Functions",
+	"Value Testing Functions",
 	"These functions test values to see if they are a particular type of value.",
 	c(
-
-
+		"xIsFalse",
+		"xIsNa",
+		"xIsNan",
+		"xIsNull",
+		"xIsTrue",
+		"xNotFalse",
+		"xNotNan",
+		"xNotNa",
+		"xNotNull",
+		"xNotTrue",
+		"xElemIsFalse",
+		"xElemIsNa",
+		"xElemIsNan",
+		"xElemIsNull",
+		"xElemIsTrue",
+		"xElemNotFalse",
+		"xElemNotNa",
+		"xElemNotNan",
+		"xElemNotNull",
+		"xElemNotTrue"
 	)
 )
+
 
 sd_section(
 	"Logical Constant Functions",
-	"These functions are constant functions that return a fixed logical value.",
+	paste(
+		"These functions are constant functions that return a fixed logical value.",
+		"They serve a similar purpose to the identity function."
+	),
 	c(
 		"xTruth",
 		"xFalsity",
@@ -142,6 +181,8 @@ sd_section(
 	"Selection Functions",
 	"These functions select or subset collections of values.",
 	c(
+		"xAt",
+		"xAtCol",
 		"xDropWhile",
 		"xDrop",
 		"xFirstOf",
@@ -150,8 +191,11 @@ sd_section(
 		"xInitOf",
 		"xPluck",
 		"xRestOf",
+		"xSlice",
 		"xSecondOf",
-		"xTakeWhile"
+		"xTake",
+		"xTakeWhile",
+		"xThirdOf"
 	)
 )
 
@@ -182,17 +226,22 @@ sd_section(
 
 sd_section(
 	"Parametre Functions",
-	"",
+	"These functions work with or alter function parametres.",
 	c(
+		"xArityOf",
 		"xAsUnary", "xAsVariadic",
-		"xIsVariadic", "xParamsOf",
+		"xIsVariadic",
+		"xParamsOf",
 		"xPartial"
 	)
 )
 
 sd_section(
 	"Immutable Value Functions",
-	"",
+	paste(
+		"These functions work with immutable values; references to a",
+		"variable that cannot be altered by reassignment after creation."
+	),
 	c(
 		"xAsVal",
 		"xAsVar",
@@ -204,15 +253,10 @@ sd_section(
 	"Function Modifying Functions",
 	"",
 	c(
-		"%and%",
-		"%or%",
-		"%of%",
-		"%then%",
 		"xCompose",
 		"xAsClosure",
 		"xAsVariadic",
 		"xCapture",
-		"xK",
 		"xDelay",
 		"xJuxtapose",
 		"xNot",
@@ -224,10 +268,14 @@ sd_section(
 
 sd_section(
 	"Quantifier Functions",
-	"",
+	paste0(
+		"These functions count or summarise the true/false cases of a predicate",
+		" over a data set."
+	),
 	c(
 		"xForall",
-		"xExists"
+		"xExists",
+		"xPoll"
 	)
 )
 
@@ -235,7 +283,8 @@ sd_section(
 	"Set Functions",
 	"",
 	c(
-
+		"xDuplicatesOf",
+		"xInterssss"
 	)
 )
 
@@ -257,7 +306,10 @@ sd_section(
 
 sd_section(
 	"Character Functions",
-	"",
+	paste(
+		"These functions are involved in text-processing, or interacting",
+		"with text-files."
+	),
 	c(
 		"xExplode",
 		"xFromChars",

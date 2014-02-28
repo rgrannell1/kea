@@ -23,6 +23,8 @@
 #' @template
 #'    Variadic
 #'
+#' @family container_conversion_functions
+#'
 #' @example
 #'    inst/examples/example-xAsComplex.R
 #'

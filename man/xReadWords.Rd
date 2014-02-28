@@ -23,7 +23,14 @@ vector.
 NULL
 }
 \seealso{
-Other character_functions: \code{\link{xExplode}},
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xExecute}}; \code{\link{xReadChars}},
+\code{\link{xReadLines}}; \code{\link{xStopwatch}};
+\code{\link{xVersion}}; \code{\link{xWriteChars}};
+\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
+
+Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
@@ -34,12 +41,5 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xToLines}}; \code{\link{xToWords}};
 \code{\link{xWriteChars}}; \code{\link{xWriteLines}};
 \code{\link{xWriteWords}}
-
-Other inpure_functions: \code{\link{xDelay}};
-\code{\link{xDo}}, \code{\link{xDo...}};
-\code{\link{xExecute}}; \code{\link{xReadChars}},
-\code{\link{xReadLines}}; \code{\link{xStopwatch}};
-\code{\link{xVersion}}; \code{\link{xWriteChars}};
-\code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 }
 

@@ -22,6 +22,8 @@
 #' @example
 #'    inst/examples/example-xElemNotNan.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xElemNotNan
 #' @export
 

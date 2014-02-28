@@ -21,7 +21,7 @@
 #'      Returns the empty list if \bold{coll} is length-zero. If any number in
 #'      nums is larger than the length of \bold{coll} an error is thrown.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @template
 #'    Variadic

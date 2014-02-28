@@ -13,7 +13,7 @@
 #' @return
 #'    null -
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @family inpure_functions
 #'

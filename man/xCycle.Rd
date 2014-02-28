@@ -77,17 +77,5 @@ Other combinatoric_functions: \code{\link{xCombos}},
 \code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
 \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
 \code{\link{xProdSetOf...}}
-
-Other set_functions: \code{\link{xCombos}},
-\code{\link{xCombos...}}; \code{\link{xDuplicatesOf}},
-\code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
-\code{\link{xInter...}}; \code{\link{xIsMember}},
-\code{\link{xIsMember...}}; \code{\link{xNotMember}},
-\code{\link{xNotMember...}}; \code{\link{xPermute}},
-\code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
-\code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
-\code{\link{xProdSetOf...}}; \code{\link{xUnionOf}},
-\code{\link{xUnionOf...}}; \code{\link{xUniqueOf}},
-\code{\link{xUniqueOf...}}
 }
 

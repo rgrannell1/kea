@@ -754,10 +754,10 @@ x_coll_proto <- local({
 	add_x_method(this, x_At, 'coll')
 	add_x_method(this, x_At..., '...')
 
-	add_x_method(this, xAtColumn, 'colls')
-	add_x_method(this, xAtColumn..., '...')
-	add_x_method(this, x_AtColumn, 'colls')
-	add_x_method(this, x_AtColumn..., '...')
+	add_x_method(this, xAtCol, 'colls')
+	add_x_method(this, xAtCol..., '...')
+	add_x_method(this, x_AtCol, 'colls')
+	add_x_method(this, x_AtCol..., '...')
 
 	# --- xSlice --- #
 	add_x_method(this, xSlice, 'coll')

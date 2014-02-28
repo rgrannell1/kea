@@ -35,7 +35,7 @@ NULL
 
 }
 \seealso{
-Other character_functions: \code{\link{xFromChars}},
+Other text_processing_functions: \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
 \code{\link{xFromWords...}}; \code{\link{xImplode}},

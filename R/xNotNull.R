@@ -20,7 +20,7 @@
 #'     xNotNull returns either true or false, to make it
 #'     safe for use with if statements.
 #'
-#' @family testing_functions
+#' @family value_testing_functions
 #'
 #' @rdname xNotNull
 #' @export

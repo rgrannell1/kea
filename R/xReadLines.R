@@ -13,7 +13,7 @@
 #' @section Corner Cases:
 #'   xReadLines ignores missing terminal newlines.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @family inpure_functions
 #'

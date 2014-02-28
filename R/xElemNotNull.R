@@ -23,6 +23,8 @@
 #' @example
 #'    inst/examples/example-xElemNotNull.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xElemNotNull
 #' @export
 

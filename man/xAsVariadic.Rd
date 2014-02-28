@@ -48,9 +48,9 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{xThread...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 
-Other parametre_functions: \code{\link{xAsUnary}};
-\code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-\code{\link{xParamsOf}}; \code{\link{xPartial}},
-\code{\link{xPartial...}}
+Other parametre_functions: \code{\link{xArityOf}};
+\code{\link{xAsUnary}}; \code{\link{xFormalsOf}};
+\code{\link{xIsVariadic}}; \code{\link{xParamsOf}};
+\code{\link{xPartial}}, \code{\link{xPartial...}}
 }
 

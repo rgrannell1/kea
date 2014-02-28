@@ -19,6 +19,8 @@
 #'    If \bold{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
 #'    function can accept an infinite number of arguments.
 #'
+#' @family parametre_functions
+#'
 #' @example
 #'    inst/examples/example-xArityOf.R
 #'

@@ -22,7 +22,14 @@ Export a collection of strings as a single line in a file.
 NULL
 }
 \seealso{
-Other character_functions: \code{\link{xExplode}},
+Other inpure_functions: \code{\link{xDelay}};
+\code{\link{xDo}}, \code{\link{xDo...}};
+\code{\link{xExecute}}; \code{\link{xReadChars}},
+\code{\link{xReadLines}}; \code{\link{xReadWords}};
+\code{\link{xStopwatch}}; \code{\link{xVersion}};
+\code{\link{xWriteChars}}; \code{\link{xWriteLines}}
+
+Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
@@ -33,12 +40,5 @@ Other character_functions: \code{\link{xExplode}},
 \code{\link{xToChars}}; \code{\link{xToLines}};
 \code{\link{xToWords}}; \code{\link{xWriteChars}};
 \code{\link{xWriteLines}}
-
-Other inpure_functions: \code{\link{xDelay}};
-\code{\link{xDo}}, \code{\link{xDo...}};
-\code{\link{xExecute}}; \code{\link{xReadChars}},
-\code{\link{xReadLines}}; \code{\link{xReadWords}};
-\code{\link{xStopwatch}}; \code{\link{xVersion}};
-\code{\link{xWriteChars}}; \code{\link{xWriteLines}}
 }
 

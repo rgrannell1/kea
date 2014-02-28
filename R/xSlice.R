@@ -32,6 +32,8 @@
 #' @example
 #'    inst/examples/example-xSlice.R
 #'
+#' @family selection_functions
+#'
 #' @rdname xSlice
 #' @export
 

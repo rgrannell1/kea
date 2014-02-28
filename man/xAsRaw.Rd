@@ -30,4 +30,13 @@ to convert non-raw collections to raw vectors.
 NULL
 
 }
+\seealso{
+Other container_conversion_functions:
+\code{\link{xAsCharacter}}, \code{\link{xAsCharacter...}};
+\code{\link{xAsComplex}}, \code{\link{xAsComplex...}};
+\code{\link{xAsDouble}}, \code{\link{xAsDouble...}};
+\code{\link{xAsInteger}}, \code{\link{xAsInteger...}};
+\code{\link{xAsLogical}}, \code{\link{xAsLogical...}};
+\code{\link{xAsNamed}}
+}
 

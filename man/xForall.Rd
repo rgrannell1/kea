@@ -86,6 +86,7 @@ xForall...(
 }
 \seealso{
 Other quantifier_functions: \code{\link{xExists}},
-\code{\link{xExists...}}
+\code{\link{xExists...}}; \code{\link{xPoll}},
+\code{\link{xPoll...}}, \code{\link{xRejectNan...}}
 }
 

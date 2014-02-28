@@ -58,4 +58,10 @@ safeMap <- function (fn, coll) {
     }
 }
 }
+\seealso{
+Other parametre_functions: \code{\link{xAsUnary}};
+\code{\link{xAsVariadic}}; \code{\link{xFormalsOf}};
+\code{\link{xIsVariadic}}; \code{\link{xParamsOf}};
+\code{\link{xPartial}}, \code{\link{xPartial...}}
+}
 

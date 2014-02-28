@@ -11,7 +11,7 @@
 #'    A character vector of length \code{nchar(str)}, with each element being a
 #'    single character.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @example
 #'    inst/examples/example-xToChars.R

@@ -23,7 +23,7 @@
 #'    or more characters - no zero-character elements are ever
 #'    generated.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #'
 #' @example

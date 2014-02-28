@@ -14,7 +14,7 @@
 #' @return
 #'    A character vector.
 #'
-#' @family character_functions
+#' @family text_processing_functions
 #'
 #' @example
 #'    inst/examples/example-xToLines.R

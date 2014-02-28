@@ -35,7 +35,7 @@ xReject(
 x_FromChars()
 }
 \seealso{
-Other character_functions: \code{\link{xExplode}},
+Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
 \code{\link{xFromWords...}}; \code{\link{xImplode}},
