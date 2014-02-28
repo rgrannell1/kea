@@ -41,6 +41,7 @@ xChunk <- function (num, coll) {
 
 	insist $ must_not_be_missing(num)
 	insist $ must_not_be_missing(coll)
+
 	insist $ must_be_collection(num, invoking_call)
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
