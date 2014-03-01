@@ -211,6 +211,73 @@ Functions like print, readLines and dput are impure.
 
 \chapter{Text Processing}
 
+\paragraph{}
+Arrow has a range of functions for working with text data. Generally text data will be
+used as lines, words or individual characters.
+
+\section{Reading \& Writing Text}
+
+xReadLines pulls text from a file as a character vector, with each line being interpreted
+as an element of that vector. There are similar functions for words and individual
+characters. Several file-formats are newline delimited, including R's namespace files.
+
+\paragraph{}
+
+\begin{equation}\label{eq:read-lines}
+	xReadLines("war-and-peace.txt")
+\end{equation}
+
+\paragraph{}
+
+The logical counterpart to xReadLines is xWriteLines, which outputs a vector of lines
+to a file. Again, similar functions exist for words and characters.
+
+
+\begin{equation}\label{eq:write-lines}
+	xWriteLines("my-novel.txt", c("A\ long\ time\ ago,\ "\ "the\ end"))
+\end{equation}
+
+\paragraph{}
+
+A string may need to be converted between representations. The function xToWords
+will take a single string and split it into each word.
+
+Strings can be switched between word, line, and character representations. This
+is accomplished with the xTo* and xFrom* family of functions.
+
+\begin{equation}\label{eq:to-words}
+	xToWords("I\ know\ all\ the\ words"))
+\end{equation}
+
+\paragraph{}
+
+The inverse of this operation is xFromWords, which delimits a vector of words with a space.
+
+\section{Splitting \& Joining Text}
+
+Strings can be split or joined using the function xExplode and xImplode, respectively.
+
+\begin{equation}\label{eq:to-csv}
+	as\_csv \leftarrow strs\ :=\ xImplode(", ",\ strs)
+\end{equation}
+
+\paragraph{}
+
+Program \ref{eq:to-csv} partially applies xImplode to collapse a collection of strings
+with a comma-delimiter. A (rough) inverse function can be created by partially-applying
+xExplode with the same delimiter.
+
+\begin{equation}\label{eq:from-csv}
+	from\_csv \leftarrow strs\ :=\ xExplode(", ",\ strs)
+\end{equation}
+
+\paragraph{}
+These functions are similar to paste and splitstring from the base libraries.
+
+
+
+
+
 
 
 
