@@ -184,6 +184,6 @@ Collate:
     'xAt.R'
     'xRecycle.R'
     'xAtCol.R'
-    'xAll'
-    'xAny'
+    'xAll.R'
+    'xAny.R'
     'x_.R'
