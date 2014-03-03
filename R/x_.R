@@ -747,6 +747,17 @@ x_coll_proto <- local({
 	this <- Object()
 
 	# -------- A ------- #
+	# --- xAny --- #
+	add_x_method(this, xAny, 'coll')
+	add_x_method(this, x_Any, 'coll')
+	add_x_method(this, xAny..., '...')
+	add_x_method(this, x_Any..., '...')
+
+	# --- xAll --- #
+	add_x_method(this, xAll, 'coll')
+	add_x_method(this, x_All, 'coll')
+	add_x_method(this, xAll..., '...')
+	add_x_method(this, x_All..., '...')
 
 	# --- xAt --- #
 	add_x_method(this, xAt, 'coll')
@@ -1484,6 +1495,18 @@ x_fn_proto <- local({
 	this <- Object()
 
 	# -------- A ------- #
+	# --- xAny --- #
+	add_x_method(this, xAny, 'pred')
+	add_x_method(this, x_Any, 'pred')
+	add_x_method(this, xAny..., 'pred')
+	add_x_method(this, x_Any..., 'pred')
+
+	# --- xAll --- #
+	add_x_method(this, xAll, 'pred')
+	add_x_method(this, x_All, 'pred')
+	add_x_method(this, xAll..., 'pred')
+	add_x_method(this, x_All..., 'pred')
+
 	# --- xAsClosure --- #
 	add_x_method(this, xAsClosure, 'fn')
 	add_x_method(this, x_AsClosure, 'fn')
@@ -1501,7 +1524,6 @@ x_fn_proto <- local({
 	add_x_method(this, xApply..., 'fn')
 	add_x_method(this, x_Apply, 'fn')
 	add_x_method(this, x_Apply..., 'fn')
-
 
 	# --- xArityOf --- #
 	add_x_method(this, xArityOf, 'fn')

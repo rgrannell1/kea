@@ -72,6 +72,7 @@ xForall <- function (pred, colls) {
 	invoking_call <- sys.call()
 
 	insist $ must_not_be_missing(pred)
+	insist $ must_not_be_missing(colls)
 
 	insist $ must_be_fn_matchable(pred, invoking_call)
 

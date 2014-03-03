@@ -218,7 +218,7 @@ insist <- local({
 			function (param) {
 
 				evaluating_throws_error <- tryCatch({
-						eval(param, parent.frame())
+						#eval(param, parent.frame())
 						False
 					},
 					warning =
