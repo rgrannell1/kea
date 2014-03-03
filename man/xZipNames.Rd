@@ -52,7 +52,7 @@ x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipNames()
 x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipNames()
 }
 \seealso{
-Other name_functions: \code{\link{xAsNamed}};
+Other key_functions: \code{\link{xAsNamed}};
 \code{\link{xGetKey}}; \code{\link{xPluck}},
 \code{\link{xPluck...}}; \code{\link{xUnzipNames}},
 \code{\link{xUnzipNames...}}

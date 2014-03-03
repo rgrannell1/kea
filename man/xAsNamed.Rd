@@ -32,12 +32,12 @@ NULL
 
 }
 \seealso{
-Other name_functions: \code{\link{xGetKey}};
+Other key_functions: \code{\link{xGetKey}};
 \code{\link{xPluck}}, \code{\link{xPluck...}};
 \code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
 \code{\link{xZipNames}}, \code{\link{xZipNames...}}
 
-Other name_functions: \code{\link{xGetKey}};
+Other key_functions: \code{\link{xGetKey}};
 \code{\link{xPluck}}, \code{\link{xPluck...}};
 \code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
 \code{\link{xZipNames}}, \code{\link{xZipNames...}}

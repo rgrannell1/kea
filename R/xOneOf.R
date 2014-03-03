@@ -15,13 +15,13 @@
 #' @section Corner Cases:
 #'      Returns the empty list if \bold{coll} is length-zero.
 #'
-#' @family reshaping_functions
-#'
 #' @template
 #'    Variadic
 #'
 #' @example
 #'    inst/examples/example-xOneOf.R
+#'
+#' @family reshaping_functions
 #'
 #' @rdname xOneOf
 #' @export

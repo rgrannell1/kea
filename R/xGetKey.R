@@ -14,7 +14,7 @@
 #'
 #' @family selection_functions
 #'
-#' @family name_functions
+#' @family key_functions
 #'
 #' @example
 #'    inst/examples/example-xGetKey.R

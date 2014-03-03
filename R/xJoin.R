@@ -18,13 +18,13 @@
 #'    concatenating the empty list to another list returns
 #'    the second list, without modification.
 #'
-#' @family reshaping_functions
-#'
 #' @template
 #'    Variadic
 #'
 #' @example
 #'    inst/examples/example-xJoin.R
+#'
+#' @family reshaping_functions
 #'
 #' @rdname xJoin
 #' @export

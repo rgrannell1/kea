@@ -37,7 +37,7 @@ NULL
 
 }
 \seealso{
-Other name_functions: \code{\link{xAsNamed}};
+Other key_functions: \code{\link{xAsNamed}};
 \code{\link{xGetKey}}; \code{\link{xPluck}},
 \code{\link{xPluck...}}; \code{\link{xZipNames}},
 \code{\link{xZipNames...}}

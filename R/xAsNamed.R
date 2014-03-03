@@ -22,12 +22,12 @@
 #'    Returns the empty list if \bold{coll} is length-zero. Both
 #'    duplicated and length-zero names are allowed.
 #'
-#' @family name_functions
+#' @family key_functions
 #'
 #' @template
 #'    Variadic
 #'
-#' @family name_functions
+#' @family key_functions
 #'
 #' @example
 #'    inst/examples/example-xAsNamed.R

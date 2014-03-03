@@ -24,7 +24,7 @@
 #'
 #' @family selection_functions
 #'
-#' @family name_functions
+#' @family key_functions
 #'
 #' @template
 #'    Variadic

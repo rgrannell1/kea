@@ -33,7 +33,7 @@ fields in each element by name.
 NULL
 }
 \seealso{
-Other name_functions: \code{\link{xAsNamed}};
+Other key_functions: \code{\link{xAsNamed}};
 \code{\link{xGetKey}}; \code{\link{xUnzipNames}},
 \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
 \code{\link{xZipNames...}}

@@ -235,8 +235,11 @@ sd_section(
 )
 
 sd_section(
-	"Name Functions",
-	"",
+	"Key Functions",
+	paste(
+		"These functions deal with collection names. They modify the names of a collection, or",
+		"select from a collection using keys."
+	),
 	c(
 		"xAsNamed",
 		"xGetKey",
@@ -257,7 +260,10 @@ sd_section(
 
 sd_section(
 	"Parametre Functions",
-	"These functions work with or alter function parametres.",
+	paste(
+		"These functions work with or alter function parametres. These include functions that",
+		"return the parametres of a function, or partial application functions."
+	),
 	c(
 		"xArityOf",
 		"xAsUnary", "xAsVariadic",
@@ -267,7 +273,6 @@ sd_section(
 		"xPartial"
 	)
 )
-
 
 sd_section(
 	"Quantifier Functions",
@@ -284,7 +289,11 @@ sd_section(
 
 sd_section(
 	"Reshaping Functions",
-	"",
+	paste(
+		"These functions loosely fall into the role of reshaping or adding new elements",
+		"to a collection. These include functions that subdivide collections, join collections,",
+		"or reorder collections."
+	),
 	c(
 		"xChop",
 		"xChunk",
@@ -383,7 +392,11 @@ sd_section(
 
 sd_section(
 	"Value Testing Functions",
-	"These functions test values to see if they are a particular type of value.",
+	paste(
+		"These functions test values to see if they are a particular type of value.",
+		"These include functions that test for special values like null and na, and",
+		"functions that test each element of a collection for these values."
+	),
 	c(
 		"xIsEmpty",
 		"xIsFalse",

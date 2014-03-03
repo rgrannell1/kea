@@ -1,6 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 signitures
+scratchpad.R
 
 gpl3.png
 example-code.png
