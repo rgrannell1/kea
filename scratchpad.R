@@ -7,34 +7,8 @@ Must <- local({
 
 	this <- Object()
 
-	this $ Not_Be_Missing <-
-		function (VAL) {
-			# this macro expands to check if a parametre is missing.
-
-			VAL <- match.call()$VAL
-
-			bquote(if (missing( .(VAL) )) {
-
-				message <-
-					"the parametre " %+% ddquote( .(VAL) ) %+%
-					" is required but was missing."
-
-				throw(invoking_call, message)
-			})
-
-		}
-
-	this $ Be_Atom <-
-		MakeFun(function (VAL) {
-
-			MACRO(this)
-			# MACRO( this $ Not_Be_Missing( .(VAL) ) )
 
 
-
-
-
-		})
 
 	this $ Be_Collection <-
 		function (COLL) {
@@ -53,8 +27,110 @@ Must <- local({
 			})
 		}
 
+	this $ Be_Fn_Matchable <-
+		function (VAL) {
+			# this macro expands to check if a value is a function or
+			# can be looked up as a function.
+
+			VAL <- match.call()$VAL
+
+			bquote({if (
+				!is.function( .(VAL) ) && 
+				!is.name( .(VAL) ) && 
+				!(is.character( .(VAL) ) && length( .(VAL) ) == 1) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(VAL) ) %+%
+						" must be a function, or a string or symbol naming a function." %+%
+						summate( .(VAL) )
+
+					throw(invoking_call, message)
+				})
+			})
+		}
+
+	this $ Be_Logical_Atom <-
+		function (BOOL, PRED) {
+			# this macro expands to check if a value is True, False or Na.
+
+			BOOL <- match.call()$BOOL
+			PRED <- match.call()$PRED
+
+			bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
+
+				message <-
+					"the predicate function " %+% ddquote( .(PRED) ) %+%
+					" produced a non-{True, False, Na} value." %+%
+					summate( .(BOOL) )
+
+				throw(invoking_call, message)
+			})
+		}
 
 
+	this $ Be_Of_Length <-
+		function (COLL, LENGTHS) {
+			# this macro expands to check that a collection has a certain length.
+
+			COLL <- match.call()$COLL
+			LENGTHS <- match.call()$LENGTHS
+
+			bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
+
+				message <- 
+					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					"must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
+					summate( .(COLL) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+	this $ Be_Parametres_Of <-
+		function (STRS, FN) {
+			# this macro expands to check if a set of names are parametres of a function.
+		}
+
+	this $ Not_Be_Missing <-
+		function (VAL) {
+			# this macro expands to check if a parametre is not missing.
+
+			VAL <- match.call()$VAL
+
+			bquote(if (missing( .(VAL) )) {
+
+				message <-
+					"the parametre " %+% ddquote( .(VAL) ) %+%
+					" is required but was missing."
+
+				throw(invoking_call, message)
+			})
+
+		}
+
+	this $ Not_Be_Primitive <-
+		function (FN) {
+			# this macro expands to check if a function is non-primitive.
+
+			FN <- match.call()$FN
+
+			bquote(if (is.primitive( .(FN) )) {
+
+				message <- 
+					"the argument matching " %+% ddquote( .(FN) ) %+%
+					" must be a non-primitive function." %+%
+					summate( .(FN) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+	this $ Be_Atom <-
+		MakeFun(function (VAL) {
+
+			# MACRO( this $ Not_Be_Missing( .(VAL) ) )
+
+		})
 
 
 	this

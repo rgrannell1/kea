@@ -45,7 +45,7 @@ xAny <- function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		any(vapply(pred, coll, logical(1), USE.NAMES = False))
+		any(vapply(coll, pred, logical(1), USE.NAMES = False))
 	}
 }
 
