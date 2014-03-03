@@ -25,7 +25,7 @@
 #' @section Corner Cases:
 #'    Returns the empty list if \bold{coll} is length-zero.
 #'
-#' @family mapping_functions
+#' @family function_application_functions
 #'
 #' @family function_modifying_functions
 #'

@@ -63,6 +63,9 @@ xTabulate <- function (coll) {
 				if (identical( coll[[ith]], pairs[[jth]][[1]] )) {
 
 					pairs[[jth]][[2]] <- pairs[[jth]][[2]] + 1
+
+					# removing the element is slower, because R.
+
 					is_matched <- True
 
 					break

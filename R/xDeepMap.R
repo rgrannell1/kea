@@ -18,7 +18,7 @@
 #' @return
 #'    A list or pairlist.
 #'
-#' @family mapping_functions
+#' @family function_application_functions
 #'
 #' @template
 #'    Variadic

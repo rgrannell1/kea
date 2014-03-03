@@ -21,7 +21,7 @@
 #' @section Corner Cases:
 #'    Returns the empty list is \bold{coll} is length-zero.
 #'
-#' @family mapping_functions
+#' @family function_application_functions
 #'
 #' @template
 #'    Variadic

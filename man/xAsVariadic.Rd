@@ -33,7 +33,13 @@ underlying function.
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
 \code{\link{xApply...}}; \code{\link{xAsUnary}};
-\code{\link{xThread}}, \code{\link{xThread...}}
+\code{\link{xDeepMap}}, \code{\link{xDeepMap...}};
+\code{\link{xFlatMap}}, \code{\link{xFlatMap...}};
+\code{\link{xMapIndexed}}, \code{\link{xMapIndexed...}};
+\code{\link{xMapply}}, \code{\link{xMapply...}};
+\code{\link{xMap}}, \code{\link{xMap...}};
+\code{\link{xThread}}, \code{\link{xThread...}};
+\code{\link{xVectorise}}, \code{\link{xVectorize}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{\%or\%}}, \code{\link{xLift}},

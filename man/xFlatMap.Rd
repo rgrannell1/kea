@@ -110,11 +110,14 @@ xFlatMap(num := {
 })
 }
 \seealso{
-Other mapping_functions: \code{\link{xDeepMap}},
+Other function_application_functions: \code{\link{xApply}},
+\code{\link{xApply...}}; \code{\link{xAsUnary}};
+\code{\link{xAsVariadic}}; \code{\link{xDeepMap}},
 \code{\link{xDeepMap...}}; \code{\link{xMapIndexed}},
 \code{\link{xMapIndexed...}}; \code{\link{xMapply}},
 \code{\link{xMapply...}}; \code{\link{xMap}},
-\code{\link{xMap...}}; \code{\link{xVectorise}},
+\code{\link{xMap...}}; \code{\link{xThread}},
+\code{\link{xThread...}}; \code{\link{xVectorise}},
 \code{\link{xVectorize}}
 }
 

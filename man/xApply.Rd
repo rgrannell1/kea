@@ -86,6 +86,12 @@ xApply...(rbind, list(1, 2), list(3, 4), list(5, 6))
 \seealso{
 Other function_application_functions:
 \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
-\code{\link{xThread}}, \code{\link{xThread...}}
+\code{\link{xDeepMap}}, \code{\link{xDeepMap...}};
+\code{\link{xFlatMap}}, \code{\link{xFlatMap...}};
+\code{\link{xMapIndexed}}, \code{\link{xMapIndexed...}};
+\code{\link{xMapply}}, \code{\link{xMapply...}};
+\code{\link{xMap}}, \code{\link{xMap...}};
+\code{\link{xThread}}, \code{\link{xThread...}};
+\code{\link{xVectorise}}, \code{\link{xVectorize}}
 }
 

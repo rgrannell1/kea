@@ -1,9 +1,12 @@
 
+# add custom highlighting js
+
 sd_section(
 	"Character Functions",
 	paste(
 		"These functions are involved in text-processing, or interacting",
-		"with text-files."
+		"with text-files. These functions primarily involve converting text",
+		"between a line, word or character representation."
 	),
 	c(
 		"xExplode",
@@ -45,8 +48,10 @@ sd_section(
 sd_section(
 	"Collection Comprehensions",
 	paste(
-		"Collection comprehensions provide syntactic sugar for defining collections by providing the contraints",
-		"that each element must satisfy to be a member of the collection. These are a translation of set-builder",
+		"Collection comprehensions provide syntactic sugar for defining ",
+		"collections by providing the contraints",
+		"that each element must satisfy to be a member of the collection.",
+		"These are a translation of set-builder",
 		"notation, which defines a set in terms of membership constraints."
 	),
 	c(
@@ -57,7 +62,8 @@ sd_section(
 sd_section(
 	"Container Conversion Functions",
 	paste(
-		"These functions convert the type of container that surrounds a data set."
+		"These functions convert the type of container that surrounds a data set.",
+		"They do not coerce the contents of the container to a different type."
 	),
 	c(
 		"xAsCharacter",
@@ -73,27 +79,19 @@ sd_section(
 	"Filtering Functions",
 	paste(
 		"These functions create a subset of collection, with elements sharing a",
-		"certain property."
+		"certain property. This typically involves removing null or other special values",
+		"from a collection, or selecting or rejecting elements based on a predicate."
 	),
 	c(
+		"xDropWhile",
 		"xPartition",
 		"xRejectEmpty",
 		"xRejectNan",
 		"xRejectNa",
 		"xRejectNull",
 		"xReject",
-		"xSelect"
-	)
-)
-
-sd_section(
-	"Function Application Functions",
-	"These functions apply other functions to data in interesting ways.",
-	c(
-		"xApply",
-		"xAsUnary",
-		"xAsVariadic",
-		"xThread"
+		"xSelect",
+		"xTakeWhile"
 	)
 )
 
@@ -134,7 +132,11 @@ sd_section(
 
 sd_section(
 	"Methods",
-	"These functions are only available as arrow methods.",
+	paste(
+		"These functions involve arrow methods, or are only available as arrow methods.",
+		"Most functions that are only available as methods convert second-class citizens of arrow",
+		"like data frames and factors to collection representations."
+	),
 	c(
 		"xAsDataFrame",
 		"xByColnames",
@@ -167,19 +169,6 @@ sd_section(
 )
 
 sd_section(
-	"Mapping Functions",
-	"These functions are variants of map.",
-	c(
-		"xDeepMap",
-		"xFlatMap",
-		"xMap",
-		"xMapIndexed",
-		"xMapply",
-		"xVectorise"
-	)
-)
-
-sd_section(
 	"Folding Functions",
 	paste0(
 		"Folding is a fundemental operation in functional programming. ",
@@ -193,17 +182,44 @@ sd_section(
 )
 
 sd_section(
+	"Function Application Functions",
+	paste(
+		"These apply a function to a data set in varying ways, or ",
+		"create a new function with a different function application pattern.",
+		"These include the fuction xMap and varients theiron, and functions to convert",
+		"functions to different arities."
+	),
+	c(
+		"xApply",
+		"xAsUnary",
+		"xAsVariadic",
+		"xDeepMap",
+		"xFlatMap",
+		"xMap",
+		"xMapIndexed",
+		"xMapply",
+		"xThread",
+		"xVectorise"
+	)
+)
+
+sd_section(
 	"Function Combining Functions",
-	"",
+	paste(
+		"These functions take several functions and combine them into",
+		"a resultant function. These include xCompose",
+		"and xLift."
+	),
 	c(
 		"xCompose",
+		"xJuxtapose",
 		"xLift"
 	)
 )
 
 sd_section(
 	"Function Modifying Functions",
-	"",
+	"These functions take a function and return a different or modified function",
 	c(
 		"xCompose",
 		"xAsClosure",
@@ -291,7 +307,11 @@ sd_section(
 
 sd_section(
 	"Selection Functions",
-	"These functions select or subset collections of values.",
+	paste(
+		"These functions select or subset collections of values.",
+		"This includes positional subsetting, selecting at certain",
+		"keys and indices, or using a predicate for subsetting."
+	),
 	c(
 		"xAt",
 		"xAtCol",
@@ -314,7 +334,11 @@ sd_section(
 
 sd_section(
 	"Set Functions",
-	"",
+	paste(
+		"These include functions",
+		"for working with duplicated values, generating sets",
+		"and the classic set operations"
+	),
 	c(
 		"xDuplicatesOf",
 		"xInter",
@@ -328,8 +352,11 @@ sd_section(
 sd_section(
 	"Short-Circuiting Functions",
 	paste(
-		"These functions can use to the short-circuit operator to",
-		"break evaluation prematurely."
+		"Short-circuiting functions are higher-order functions",
+		"that take functions with the ability to prematurely",
+		"break evaluation of a program. When Return( ) is called",
+		"the result is returned immediately, improving the efficiency",
+		"of the subprogram."
 	),
 	c(
 		"xFold", "xFoldr",

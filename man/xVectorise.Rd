@@ -51,6 +51,16 @@ absolutes(c(-1, 0, +1))
 
 }
 \seealso{
+Other function_application_functions: \code{\link{xApply}},
+\code{\link{xApply...}}; \code{\link{xAsUnary}};
+\code{\link{xAsVariadic}}; \code{\link{xDeepMap}},
+\code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
+\code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
+\code{\link{xMapIndexed...}}; \code{\link{xMapply}},
+\code{\link{xMapply...}}; \code{\link{xMap}},
+\code{\link{xMap...}}; \code{\link{xThread}},
+\code{\link{xThread...}}
+
 Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{\%or\%}}, \code{\link{xLift}},
 \code{\link{xLift...}}; \code{\link{\%of\%}},
@@ -62,12 +72,5 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 \code{\link{xJuxtapose...}}; \code{\link{xNot}};
 \code{\link{xPartial}}, \code{\link{xPartial...}};
 \code{\link{xThread}}, \code{\link{xThread...}}
-
-Other mapping_functions: \code{\link{xDeepMap}},
-\code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
-\code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
-\code{\link{xMapIndexed...}}; \code{\link{xMapply}},
-\code{\link{xMapply...}}; \code{\link{xMap}},
-\code{\link{xMap...}}
 }
 
