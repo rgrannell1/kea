@@ -40,7 +40,7 @@ xDeepMap <- function (fn, coll) {
 	insist $ must_not_be_missing(coll)
 
 	insist $ must_be_fn_matchable(coll, invoking_call)
-	insist $ must_be_recursive(coll, invoking_call)
+	insist $ must_be_collection(coll, invoking_call)
 
 	fn <- match_fn(fn)
 

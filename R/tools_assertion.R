@@ -484,28 +484,6 @@ insist <- local({
 			}
 		})
 
-	this$must_be_recursive <-
-		local({
-
-			message <- function (coll_sym, coll) {
-				"the argument matching " %+% ddquote(coll_sym) %+%
-				" must be a list or a pairlist." %+%
-				summate(coll)
-			}
-
-			function (coll, invoking_call) {
-
-				coll_sym <- match.call()$coll
-
-				if (!is.recursive(coll)) {
-					throw_arrow_error(
-						invoking_call, message(coll_sym, coll))
-				}
-
-				True
-			}
-		})
-
 	this$must_be_longer_than <-
 		local({
 

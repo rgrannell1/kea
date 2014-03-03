@@ -24,8 +24,21 @@ Must <- local({
 
 		}
 
+	this $ Be_Atom <-
+		MakeFun(function (VAL) {
+
+			MACRO(this)
+			# MACRO( this $ Not_Be_Missing( .(VAL) ) )
+
+
+
+
+
+		})
+
 	this $ Be_Collection <-
 		function (COLL) {
+			# this macro expands to check if a value is a collection.
 
 			COLL <- match.call()$COLL
 
@@ -42,13 +55,17 @@ Must <- local({
 
 
 
+
+
 	this
 })
 
+test <- function (val) {
+	Must $ Be_Atom(val)
+}
 
 
-
-
+test(1)
 
 
 
