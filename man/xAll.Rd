@@ -1,0 +1,39 @@
+\name{xAll}
+\alias{xAll}
+\alias{xAll...}
+\title{xAll}
+\usage{
+xAll(pred, coll)
+
+xAll...(pred, ...)
+}
+\arguments{
+  \item{pred}{a predicate. The function used to test each
+  element of the input collection.}
+
+  \item{coll}{a collection. The collection to test each
+  element of.}
+
+  \item{...}{see above.}
+}
+\value{
+A boolean value.
+}
+\description{
+Is a predicate true for all elements of a collection?
+}
+\section{Corner Cases}{
+  If coll is length zero then logical(0) is returned.
+}
+\examples{
+
+NULL
+}
+\seealso{
+Other quantifier_functions: \code{\link{xAny}},
+\code{\link{xAny...}}; \code{\link{xExists}},
+\code{\link{xExists...}}; \code{\link{xForall}},
+\code{\link{xForall...}}; \code{\link{xPoll}},
+\code{\link{xPoll...}}, \code{\link{xRejectNan...}}
+}
+

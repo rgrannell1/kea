@@ -44,7 +44,9 @@ lenof(c(1,2,3,4))
 # 4
 }
 \seealso{
-Other quantifier_functions: \code{\link{xExists}},
+Other quantifier_functions: \code{\link{xAll}},
+\code{\link{xAll...}}; \code{\link{xAny}},
+\code{\link{xAny...}}; \code{\link{xExists}},
 \code{\link{xExists...}}; \code{\link{xForall}},
 \code{\link{xForall...}}
 }

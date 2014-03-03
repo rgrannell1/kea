@@ -1,0 +1,39 @@
+\name{xAny}
+\alias{xAny}
+\alias{xAny...}
+\title{xAny}
+\usage{
+xAny(pred, coll)
+
+xAny...(pred, ...)
+}
+\arguments{
+  \item{pred}{a predicate. The function used to test each
+  element of the input collection.}
+
+  \item{coll}{a collection. The collection to test each
+  element of.}
+
+  \item{...}{see above.}
+}
+\value{
+A boolean value.
+}
+\description{
+Is a predicate true for any element of a collection?
+}
+\section{Corner Cases}{
+  If coll is length zero then logical(0) is returned.
+}
+\examples{
+
+NULL
+}
+\seealso{
+Other quantifier_functions: \code{\link{xAll}},
+\code{\link{xAll...}}; \code{\link{xExists}},
+\code{\link{xExists...}}; \code{\link{xForall}},
+\code{\link{xForall...}}; \code{\link{xPoll}},
+\code{\link{xPoll...}}, \code{\link{xRejectNan...}}
+}
+
