@@ -1300,7 +1300,7 @@ Must <- local({
 					" must be a list, a pairlist or a typed vector." %+%
 					summate( .(COLL) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1317,7 +1317,7 @@ Must <- local({
 					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
 					summate( .(COLL1) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1338,7 +1338,7 @@ Must <- local({
 						" must be a function, or a string or symbol naming a function." %+%
 						summate( .(VAL) )
 
-					throw(invoking_call, message)
+					throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1356,7 +1356,7 @@ Must <- local({
 					" produced a non-{True, False, Na} value." %+%
 					summate( .(BOOL) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1375,7 +1375,7 @@ Must <- local({
 					" must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
 					summate( .(COLL) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1393,7 +1393,7 @@ Must <- local({
 					" must have at least " %+%  .(LENGTH) %+% " elements." %+%
 					summate( .(COLL) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 
 		}
@@ -1412,7 +1412,7 @@ Must <- local({
 					" must have more than " %+%  .(LENGTH) %+% " elements." %+%
 					summate( .(COLL) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 
 		}
@@ -1431,7 +1431,7 @@ Must <- local({
 						" must be named." %+%
 						summate( .(COLL) )
 
-					throw(invoking_call, message)
+					throw_arrow_error(invoking_call, message)
 				}
 			})
 		}
@@ -1450,7 +1450,7 @@ Must <- local({
 					" must be patametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
 					summate( .(STRS) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1466,7 +1466,7 @@ Must <- local({
 					"the parametre " %+% ddquote( .(VAL) ) %+%
 					" is required but was missing."
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 
 		}
@@ -1484,7 +1484,7 @@ Must <- local({
 					" must be a non-primitive function." %+%
 					summate( .(FN) )
 
-				throw(invoking_call, message)
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1498,8 +1498,11 @@ Must <- local({
 
 
 
-ddquote <- function (sym) {
-	paste0(dQuote(sym), collapse = '')
+ddquote <- function (SYM) {
+
+	SYM <- match.call()$SYM
+
+	paste0(dQuote(SYM), collapse = '')
 }
 
 MakeFun <- function (expr) {

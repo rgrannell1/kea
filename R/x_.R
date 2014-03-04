@@ -1815,20 +1815,20 @@ x_fn_proto <- local({
 #'
 #' @export
 
-x_ <- function (val) {
+x_ <- MakeFun(function (val) {
 	# Collection any -> Arrow any
 	# type constructor for the method-chaining data type.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
 	if ('arrow' %in% class(val)) {
 		val
 	} else {
 		structure(list(x = val), class = 'arrow')
 	}
-}
+})
 
 get_proto_ref <- function (val) {
 	# get the reference to the appropriate methods.
@@ -1944,13 +1944,14 @@ get_proto_ref <- function (val) {
 		# return an arrow method associated with the type a.
 
 		method_name <- paste0(match.call()$method)
-		invoking_call <- paste0('$', method_name)
 
 		proto_ref <- get_proto_ref( obj[['x']] )
 
 		if (method_name %!in% ls(proto_ref) || method_name == "private") {
 			# the invoked method wasn't found,
 			# so we should give a suggestion.
+
+			invoking_call <- paste0('$', method_name)
 
 			contents_are <- proto_ref[['private']][['contents_are']]
 
