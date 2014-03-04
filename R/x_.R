@@ -214,8 +214,8 @@ x_any_proto <- local({
 				x_(fn(Self(), ...))
 			}
 
-			proto_ref <- get_proto_ref(Self())
-			assign(str, chainable, envir = proto_ref)
+			proto <- get_proto_ref(Self())
+			assign(str, chainable, envir = proto_ref[[1]])
 		}
 
 	# -------- H ------- #
@@ -1830,24 +1830,44 @@ x_ <- MakeFun(function (val) {
 	}
 })
 
-get_proto_ref <- function (val) {
-	# get the reference to the appropriate methods.
+get_proto_ref <- local({
 
-	proto_ref <-
-	if (is.function( val )) {
-		x_fn_proto
-	} else if (is.matrix( val )) {
-		x_matrix_proto
-	} else  if (is.atomic( val ) || is.list( val ) ||is.pairlist( val )){
-		x_coll_proto
-	} else if (is.data.frame( val )) {
-		x_data_frame_proto
-	} else  if (is.factor( val )) {
-		x_factor_proto
-	} else {
-		x_any_proto
+	x_fn_members <-
+		ls(x_fn_proto)
+	x_matrix_members <-
+		ls(x_matrix_proto)
+	x_coll_members <-
+		ls(x_coll_proto)
+	x_data_frame_members <-
+		ls(x_data_frame_proto)
+	x_data_frame_members <-
+		ls(x_data_frame_proto)
+	x_factor_members <-
+		ls(x_factor_proto)
+	x_any_members <-
+		ls(x_any_proto)
+
+	function (val) {
+		# get the reference to the appropriate methods.
+
+		proto_ref <-
+		if (is.function( val )) {
+			list(x_fn_proto, x_fn_members)
+		} else if (is.matrix( val )) {
+			list(x_matrix_proto, x_matrix_members)
+		} else  if (is.atomic( val ) || is.list( val ) ||is.pairlist( val )){
+			list(x_coll_proto, x_coll_members)
+		} else if (is.data.frame( val )) {
+			list(x_data_frame_proto, x_data_frame_members)
+		} else  if (is.factor( val )) {
+			list(x_factor_proto, x_factor_members)
+		} else {
+			list(x_any_proto, x_any_members)
+		}
 	}
-}
+
+})
+
 
 #' @method $ arrow
 #' @export
@@ -1915,10 +1935,10 @@ get_proto_ref <- function (val) {
 			# given an incorrect method name throw an error
 			# suggesting a similar
 
-			proto_ref <- get_proto_ref(val)
+			proto <- get_proto_ref(val)
 			method_name <- method_name
 
-			candidate_methods <- setdiff(ls(proto_ref), 'private')
+			candidate_methods <- setdiff(proto[[2]], 'private')
 			distances <- adist(method_name, candidate_methods)
 
 			similar <- if (method_name %in% names(autosuggested)) {
@@ -1945,22 +1965,22 @@ get_proto_ref <- function (val) {
 
 		method_name <- paste0(match.call()$method)
 
-		proto_ref <- get_proto_ref( obj[['x']] )
+		proto <- get_proto_ref( obj[['x']] )
 
-		if (method_name %!in% ls(proto_ref) || method_name == "private") {
+		if (method_name %!in% proto[[2]] || method_name == "private") {
 			# the invoked method wasn't found,
 			# so we should give a suggestion.
 
 			invoking_call <- paste0('$', method_name)
 
-			contents_are <- proto_ref[['private']][['contents_are']]
+			contents_are <- proto[[1]][['private']][['contents_are']]
 
 			suggest_similar_method(
 				obj[['x']], method_name, contents_are, invoking_call)
 
 		}
 
-		fn <- proto_ref[[method_name]]
+		fn <- proto[[1]][[method_name]]
 		environment(fn)[['Self']] <- function () obj[['x']]
 
 		fn
@@ -1975,8 +1995,8 @@ get_proto_ref <- function (val) {
 print.arrow <- function (x, ...) {
 	# custom print statement for the arrow object.
 
-	proto_ref <- get_proto_ref( x[['x']] )
-	contents_are <- proto_ref[['private']] [['contents_are']]
+	proto <- get_proto_ref( x[['x']] )
+	contents_are <- proto[[1]][['private']] [['contents_are']]
 
 	single_newline <- '\n'
 	double_newline <- '\n\n'
