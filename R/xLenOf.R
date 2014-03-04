@@ -25,17 +25,18 @@
 #' @rdname xLenOf
 #' @export
 
-xLenOf <- function (coll) {
+xLenOf <- MakeFun(function (coll) {
 	# Collection a -> integer
 	# get the length of a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	length(coll)
-}
+})
 
 #' @rdname xLenOf
 #' @export

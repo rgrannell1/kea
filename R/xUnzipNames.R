@@ -35,16 +35,16 @@
 #' @rdname xUnzipNames
 #' @export
 
-xUnzipNames <- function (coll) {
+xUnzipNames <- MakeFun(function (coll) {
 	# Named collection any -> [[string, any]]
 	# split a list into its names and values.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fully_named(coll, invoking_call)
-    insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Named(coll) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
@@ -60,7 +60,7 @@ xUnzipNames <- function (coll) {
 				coll[[ith]] )
 		})
 	}
-}
+})
 
 #' @rdname xUnzipNames
 #' @export

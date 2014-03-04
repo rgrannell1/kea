@@ -37,14 +37,15 @@
 #' @rdname xNot
 #' @export
 
-xNot <- function (pred) {
+xNot <- MakeFun(function (pred) {
 	# function -> function
 	# negate a predicate function.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_be_fn_matchable(pred, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
 
 	remove(invoking_call)
 
@@ -57,4 +58,4 @@ xNot <- function (pred) {
 		})
 	))
 
-}
+})

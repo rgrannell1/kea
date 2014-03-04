@@ -18,14 +18,14 @@
 #'
 #' @export
 
-xIdentity <- function (val) {
+xIdentity <- MakeFun(function (val) {
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
 	val
-}
+})
 
 #' @rdname xIdentity
 #' @export

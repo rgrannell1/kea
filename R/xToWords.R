@@ -23,16 +23,17 @@
 #' @rdname xToWords
 #' @export
 
-xToWords <- function (str) {
+xToWords <- MakeFun(function (str) {
 	# str -> Vector str
 	# split a str at every whitespace character, returning
 	# a character vector of equal or greater length.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
 
-	insist $ must_be_collection(str, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+
 	str <- as_typed_vector(str, 'character')
 
 	if (nchar(str) == 0 || length(str) == 0) {
@@ -41,4 +42,4 @@ xToWords <- function (str) {
 		words <- strsplit(str, split = '[ \n\t]+')[[1]]
 		words[nchar(words) > 0]
 	}
-}
+})

@@ -40,22 +40,22 @@
 #' @rdname xFlatten
 #' @export
 
-xFlatten <- function (num, coll) {
+xFlatten <- MakeFun(function (num, coll) {
 	# integer -> Collection any-> [any]
 	# flatten a collection to an arbitrary depth.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(num, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_greater_than(num, 0, invoking_call)
 	insist $ must_be_whole(num, invoking_call)
-
-	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		list()
@@ -78,7 +78,7 @@ xFlatten <- function (num, coll) {
 		}
 		as.list(recur(0, coll))
 	}
-}
+})
 
 #' @rdname xFlatten
 #' @export

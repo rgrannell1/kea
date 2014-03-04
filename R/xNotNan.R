@@ -26,17 +26,17 @@
 #' @rdname xNotNan
 #' @export
 
-xNotNan <- function (val) {
+xNotNan <- MakeFun(function (val) {
 	# any -> boolean
 	# test if a value is na
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
 	if (length(val) == 0) {
 		True
 	} else {
 		is.nan(val)
 	}
-}
+})

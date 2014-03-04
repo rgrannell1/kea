@@ -32,18 +32,18 @@
 #' @rdname xMapIndexed
 #' @export
 
-xMapIndexed <- function (fn, coll) {
+xMapIndexed <- MakeFun(function (fn, coll) {
 	# (integer -> any -> any) -> Collection any -> [any]
 	# Map over a collection, also passing each elements
 	# index.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 
@@ -61,7 +61,7 @@ xMapIndexed <- function (fn, coll) {
 			seq_along(coll)
 		)
 	}
-}
+})
 
 #' @rdname xMapIndexed
 #' @export

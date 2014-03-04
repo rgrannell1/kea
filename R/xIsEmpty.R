@@ -23,17 +23,18 @@
 #' @rdname xIsEmpty
 #' @export
 
-xIsEmpty <- function (val) {
+xIsEmpty <- MakeFun(function (coll) {
 	# Collection -> boolean
 	# is collection length == 0?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(val)
-	insist $ must_be_collection(val, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	length(val) == 0
-}
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
+
+	length(coll) == 0
+})
 
 #' @rdname xIsEmpty
 #' @export

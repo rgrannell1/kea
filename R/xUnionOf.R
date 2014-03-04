@@ -32,13 +32,16 @@
 #' @rdname xUnionOf
 #' @export
 
-xUnionOf <- function (colls) {
+xUnionOf <- MakeFun(function (colls) {
 	# Collection any -> Collection any -> Collection any
 	# get the set union of several collections.
 
 	invoking_call <- sys.call()
 
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
+
 	insist $ must_be_collection_of_collections(colls, invoking_call)
 
 	if (length(colls) == 0) {
@@ -46,7 +49,7 @@ xUnionOf <- function (colls) {
 	} else {
 		unique(do.call(c, colls))
 	}
-}
+})
 
 #' @rdname xUnionOf
 #' @export

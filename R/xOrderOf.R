@@ -38,15 +38,15 @@
 #' @rdname xOrderOf
 #' @export
 
-xOrderOf <- function (nums) {
+xOrderOf <- MakeFun(function (nums) {
 	# Collection numbers -> Vector numbers
 	# Return a permutation giving the order
 	# of nums.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
-	insist $ must_be_collection(nums, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 
@@ -67,7 +67,7 @@ xOrderOf <- function (nums) {
 
 		ordering
 	}
-}
+})
 
 #' @rdname xOrderOf
 #' @export

@@ -21,15 +21,16 @@
 #' @rdname xStopwatch
 #' @export
 
-xStopwatch <- function (num) {
+xStopwatch <- MakeFun(function (num) {
 	# integer -> function
 	# create a timer predicate function.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
 
-	insist $ must_be_collection(num, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_grequal_than(num, 0, invoking_call)
@@ -42,4 +43,4 @@ xStopwatch <- function (num) {
 		""
 		difftime(Sys.time(), genesis, units = 'secs') < num
 	}
-}
+})

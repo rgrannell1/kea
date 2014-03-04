@@ -28,18 +28,18 @@
 #' @rdname xImplode
 #' @export
 
-xImplode <- function (str, strs) {
+xImplode <- MakeFun(function (str, strs) {
 	# string -> Vector string -> string
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
-	insist $ must_not_be_missing(strs)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
 
-	insist $ must_be_collection(strs, invoking_call)
-	insist $ must_be_collection(str, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( arrow ::: Must $ Be_Collection(strs) )
 
 	str <- unit_to_value(as_atom(str, 'character'))
 	strs <- as_typed_vector(strs, 'character')
@@ -54,7 +54,7 @@ xImplode <- function (str, strs) {
 				vapply(strs, length, integer(1)) != 0],
 			collapse = str)
 	}
-}
+})
 
 #' @rdname xImplode
 #' @export

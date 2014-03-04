@@ -32,17 +32,17 @@
 #' @rdname xSubstring
 #' @export
 
-xSubstring <- function (str, nums) {
+xSubstring <- MakeFun(function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
-	insist $ must_not_be_missing(nums)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
 
-	insist $ must_be_collection(str, invoking_call)
-	insist $ must_be_collection(nums, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")
@@ -63,7 +63,7 @@ xSubstring <- function (str, nums) {
 
 		paste0(chars[nums], collapse = "")
 	}
-}
+})
 
 #' @rdname xSubstring
 #' @export

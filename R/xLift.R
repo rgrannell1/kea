@@ -42,19 +42,19 @@
 #' @rdname xLift
 #' @export
 
-xLift <- function (fn, fns) {
+xLift <- MakeFun(function (fn, fns) {
 	# (any -> any -> any) -> [(... -> any)] -> any
 	# the phoenix or Phi combinator
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(fns)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
 
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(fns) )
 
-	insist $ must_be_collection(fns, invoking_call)
 	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	fn <- match_fn(fn)
@@ -68,7 +68,7 @@ xLift <- function (fn, fns) {
 				lifted(...)
 			}) )
 	}
-}
+})
 
 #' @rdname xLift
 #' @export

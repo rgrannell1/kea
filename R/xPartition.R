@@ -36,18 +36,18 @@
 #' @rdname xPartition
 #' @export
 
-xPartition <- function (pred, coll) {
+xPartition <- MakeFun(function (pred, coll) {
 	# (any -> logical) -> Collection any -> [[any],[any]]
 	# returns two lists; a list for which pred returns
 	# true, and a list for which pred returns false
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -65,7 +65,7 @@ xPartition <- function (pred, coll) {
 			as.list(coll[true_ind]),
 			as.list(coll[!true_ind]) )
 	}
-}
+})
 
 xPartition... <- function (pred, ...) {
 	xPartition(pred, list(...))

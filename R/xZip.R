@@ -53,14 +53,15 @@
 #' @rdname xZip
 #' @export
 
-xZip <- function (colls) {
+xZip <- MakeFun(function (colls) {
 	#
 	# zip collections together
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(colls)
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()
@@ -78,7 +79,7 @@ xZip <- function (colls) {
 				})
 		})
 	}
-}
+})
 
 #' @rdname xZip
 #' @export

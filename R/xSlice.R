@@ -37,17 +37,17 @@
 #' @rdname xSlice
 #' @export
 
-xSlice <- function (nums, coll) {
+xSlice <- MakeFun(function (nums, coll) {
 	# Vector numbers -> Collection any -> Collection any
 	# select elements of a collection using indices.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_not_be_missing(nums)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
-	insist $ must_be_collection(nums, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 
@@ -55,7 +55,7 @@ xSlice <- function (nums, coll) {
 	insist $ must_be_indices_of(nums, coll, invoking_call)
 
 	as.list(coll[nums])
-}
+})
 
 #' @rdname xSlice
 #' @export

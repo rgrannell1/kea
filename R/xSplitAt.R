@@ -35,14 +35,17 @@
 #' @rdname xSplitAt
 #' @export
 
-xSplitAt <- function (nums, coll) {
+xSplitAt <- MakeFun(function (nums, coll) {
 	# numsber -> Collection any -> [[any], [any]]
 	# take the first n values of collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 
@@ -66,7 +69,7 @@ xSplitAt <- function (nums, coll) {
 		)
 
 	}
-}
+})
 
 #' @rdname xSplitAt
 #' @export

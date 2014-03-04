@@ -44,18 +44,18 @@
 #' @rdname xFoldr
 #' @export
 
-xFoldr <- function (fn, val, coll) {
+xFoldr <- MakeFun(function (fn, val, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the right
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(val)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 
@@ -83,7 +83,7 @@ xFoldr <- function (fn, val, coll) {
 		})
 
 	}
-}
+})
 
 #' @rdname xFoldr
 #' @export

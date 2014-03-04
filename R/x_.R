@@ -224,9 +224,9 @@ x_any_proto <- local({
 	add_x_method(this, x_Identity, 'val')
 
 	# --- xIsEmpty --- #
-	add_x_method(this, xIsEmpty, 'val')
+	add_x_method(this, xIsEmpty, 'coll')
 	add_x_method(this, xIsEmpty..., '...')
-	add_x_method(this, x_IsEmpty, 'val')
+	add_x_method(this, x_IsEmpty, 'coll')
 	add_x_method(this, x_IsEmpty..., '...')
 
 	add_x_method(this, xIsNa, 'val')

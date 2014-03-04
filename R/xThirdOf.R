@@ -29,19 +29,19 @@
 #' @rdname xThirdOf
 #' @export
 
-xThirdOf <- function (coll) {
+xThirdOf <- MakeFun(function (coll) {
 	# Collection any -> any
 	# return the third element of a collection x.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
-	insist $ must_be_longer_than(coll, 3, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( arrow ::: Must $ Be_Longer_Than(2, coll) )
 
 	coll[[3]]
-}
+})
 
 #' @rdname xThirdOf
 #' @export

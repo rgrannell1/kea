@@ -33,15 +33,16 @@
 #' @rdname xZipNames
 #' @export
 
-xZipNames <- function (colls) {
+xZipNames <- MakeFun(function (colls) {
 	# Collection Collection any -> [any]
 	# take a collection of name:value pairs and associate
 	# them into a named list.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(colls)
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
     insist $ must_be_collection_of_collections(colls, invoking_call)
     insist $ must_be_collection_of_lengths(colls, 2, invoking_call)
@@ -66,7 +67,7 @@ xZipNames <- function (colls) {
 			Map( function (elem) elem[[2]], colls ),
 			names = keys)
 	}
-}
+})
 
 #' @rdname xZipNames
 #' @export
