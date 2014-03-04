@@ -55,7 +55,7 @@ xLift <- MakeFun(function (fn, fns) {
 	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 	MACRO( arrow ::: Must $ Be_Collection(fns) )
 
-	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	fn <- match_fn(fn)
 	fns <- lapply(fns, match_fn)

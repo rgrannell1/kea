@@ -51,7 +51,7 @@ xDelay <- MakeFun(function (fn, num) {
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_grequal_than(num, 0, invoking_call)
+	MACRO( arrow ::: Must $ Be_Between(num, 0, Inf))
 
 	fn <- match_fn(fn)
 	remove(invoking_call)

@@ -45,7 +45,7 @@ xDrop <- MakeFun(function (num, coll) {
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( arrow ::: Must $ Be_Whole(num) )
-	insist $ must_be_grequal_than(num, 0, invoking_call)
+	MACRO( arrow ::: Must $ Be_Between(num, 0, Inf))
 
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()

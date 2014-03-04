@@ -29,20 +29,20 @@
 #' @rdname xAsVal
 #' @export
 
-xAsVal <- function (sym) {
+xAsVal <- MakeFun(function (sym) {
 	# lock the binding for an R variable.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing_sym(sym)
+	MACRO( arrow ::: Must $ Not_Be_Missing(sym) )
 
 	sym <- match.call()$sym
-	insist $ must_be_matchable(sym, invoking_call)
+	MACRO( arrow ::: Must $ Be_Matchable(sym) )
 
 	sym <- toString(sym)
 
-	insist $ must_exist(sym, parent_frame, invoking_call)
+	MACRO( arrow ::: Must $ Be_Existing_Ref(sym) )
 
 	lockBinding(sym, parent_frame)
-}
+})

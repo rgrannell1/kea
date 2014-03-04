@@ -109,7 +109,7 @@ xForall <- MakeFun(function (pred, colls) {
 				do.call(pred, tuple),
 				invoking_call)
 
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
+			MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
 			if (!isTRUE(is_match)) {
 				return (False)

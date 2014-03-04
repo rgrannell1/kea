@@ -41,8 +41,7 @@ xSplitBy <- local({
 
 				is_match <- pred( coll[[ith]], coll[[ith + 1]] )
 
-				insist $ must_be_logical_result(
-					is_match, pred, invoking_call)
+				MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
 				if (isTRUE(is_match)) {
 
@@ -60,37 +59,38 @@ xSplitBy <- local({
 
 	MakeFun(function (pred, coll) {
 
-			invoking_call <- sys.call()
+		invoking_call <- sys.call()
 
-			MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
-			MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+		MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+		MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-			MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
-			MACRO( arrow ::: Must $ Be_Collection(coll) )
+		MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+		MACRO( arrow ::: Must $ Be_Collection(coll) )
 
-			pred <- match_fn(pred)
+		pred <- match_fn(pred)
 
-			if (length(coll) == 0) {
-				list()
-			} else if (length(coll) == 1) {
-				list(as.list(coll))
-			} else {
+		if (length(coll) == 0) {
+			list()
+		} else if (length(coll) == 1) {
+			list(as.list(coll))
+		} else {
 
-				cleaved <- list()
-				cleaved_current <- 1
+			cleaved <- list()
+			cleaved_current <- 1
 
-				while (length(coll) > 0) {
+			while (length(coll) > 0) {
 
-					trimmed <- bisect(pred, coll, invoking_call)
-					cleaved[cleaved_current] <- list(as.list(trimmed[1]))
+				trimmed <- bisect(pred, coll, invoking_call)
+				cleaved[cleaved_current] <- list(as.list(trimmed[1]))
 
-					coll <- trimmed[[2]]
-					cleaved_current <- cleaved_current + 1
-				}
-
-				cleaved
+				coll <- trimmed[[2]]
+				cleaved_current <- cleaved_current + 1
 			}
-		})
+
+			cleaved
+		}
+	})
+
 })
 
 #' @rdname xSplitBy

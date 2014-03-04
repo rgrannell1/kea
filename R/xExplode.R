@@ -47,8 +47,6 @@ xExplode <- MakeFun(function (rexp, str) {
 	str <- as_atom(str, "character")
 	rexp <- unit_to_value(as_atom(rexp, "character"))
 
-	insist $ must_be_of_length(str, 0:1, invoking_call)
-
 	if (length(str) == 0) {
 		character(0)
 	} else if (nchar(str) == 0) {

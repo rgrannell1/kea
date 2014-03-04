@@ -57,7 +57,7 @@ xZipNames <- MakeFun(function (colls) {
 
 				key <- as_typed_vector(coll[[1]], "character")
 
-				insist $ must_be_of_length(key, 1, invoking_call)
+				MACRO( arrow ::: Must $ Be_Of_Length(key, 1) )
 
 				key
 			},

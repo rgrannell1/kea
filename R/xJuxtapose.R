@@ -55,8 +55,7 @@ xJuxtapose <- MakeFun(function (fns) {
 	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
 
 	MACRO( arrow ::: Must $ Be_Collection(fns) )
-
-	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	fns <- lapply(fns, match_fn)
 

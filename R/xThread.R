@@ -43,8 +43,7 @@ xThread <- MakeFun(function (val, fns) {
 	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
 
 	MACRO( arrow ::: Must $ Be_Collection(fns) )
-
-	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	for (ith in seq_along(fns)) {
 

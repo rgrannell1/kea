@@ -1260,7 +1260,6 @@ dictate <- local({
 
 
 
-
 Must <- local({
 
 	this <- Object()
@@ -1282,6 +1281,34 @@ Must <- local({
 			})
 		}
 
+	this $ Be_Collection_Of_Fn_Matchable <-
+		function (COLLS) {
+
+			COLLS <- match.call()$COLLS
+
+			bquote({
+
+				all_match <- all( vapply( .(COLLS) , function (val) {
+
+					is.function(val) ||
+					(is.character(val) && length(val) == 1) ||
+					is.name(val)
+
+				}, logical(1)) )
+
+				if (!all_match) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(COLLS) ) %+%
+						" must be a collection of functions, or symbols or strings" %+%
+						" that can be looked up as functions."
+
+					throw_arrow_error(invoking_call, message)
+				}
+
+			})
+		}
+
 	this $ Be_Equal_Length_To <-
 		function (COLL1, COLL2) {
 
@@ -1294,6 +1321,21 @@ Must <- local({
 					"the argument matching " %+% ddquote( .(COLL1) ) %+%
 					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
 					summate( .(COLL1) )
+
+				throw_arrow_error(invoking_call, message)
+			})
+		}
+
+	this $ Be_Existing_Ref <-
+		function (SYM) {
+
+			SYM <- match.call()$SYM
+
+			bquote(if ( !exists( .(SYM), envir = parent.frame()) ) {
+
+				message <-
+					"the variable referenced by the symbol " %+% ddquote( .(SYM) ) %+%
+					" does not exist."
 
 				throw_arrow_error(invoking_call, message)
 			})
@@ -1320,7 +1362,8 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Logical_Atom <-
+
+	this $ Be_Flag <-
 		function (BOOL, PRED) {
 			# this macro expands to check if a value is True, False or Na.
 
@@ -1338,6 +1381,21 @@ Must <- local({
 			})
 		}
 
+	this $ Be_Between <-
+		function (NUMS, LOWER, UPPER) {
+
+			NUMS <- match.call()$NUMS
+
+			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
+					summate( .(NUMS) )
+
+				throw_arrow_error(invoking_call, message)
+			})
+		}
 
 	this $ Be_Of_Length <-
 		function (COLL, LENGTHS) {
@@ -1392,6 +1450,28 @@ Must <- local({
 
 				throw_arrow_error(invoking_call, message)
 			})
+
+		}
+
+	this $ Be_Matchable <-
+		function (SYM) {
+			# this macro expands to test if a value is a symbol.
+
+			SYM <- match.call()$SYM
+
+			bquote({
+
+				if (!is.name( .(SYM) ) && (!is.character( .(SYM) ) || length( .(SYM) ) != 1)) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(SYM) ) %+%
+						" must be a symbol or a string." %+%
+						summate( .(SYM) )
+
+					throw_arrow_error(invoking_call, message)
+				}
+			})
+
 
 		}
 
