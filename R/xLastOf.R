@@ -38,7 +38,6 @@ xLastOf <- MakeFun	(function (coll) {
 	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
 	MACRO( arrow ::: Must $ Be_Collection(coll) )
-
 	MACRO( arrow ::: Must $ Be_Longer_Than(0, coll) )
 
 	coll[[ length(coll) ]]

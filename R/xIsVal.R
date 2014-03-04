@@ -19,17 +19,17 @@
 #' @rdname xIsVal
 #' @export
 
-xIsVal <- function (sym) {
+xIsVal <- MakeFun(function (sym) {
 	# symbol | Vector character -> logical
 	# is a name binding locked?
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing_sym(sym)
+	MACRO( arrow ::: Must $ Not_Be_Missing(sym) )
 
 	sym <- match.call()$sym
-	insist $ must_be_matchable(sym, invoking_call)
+	MACRO( arrow ::: Must $ Be_Matchable(sym) )
 
 	sym <- toString(sym)
 
@@ -39,4 +39,4 @@ xIsVal <- function (sym) {
 		exists(sym, parent_frame) &&
 			bindingIsLocked(sym, parent_frame)
 	}
-}
+})

@@ -37,8 +37,7 @@ xProdSetOf <- MakeFun(function (colls) {
 	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
 	MACRO( arrow ::: Must $ Be_Collection(colls) )
-
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	coll_lengths <- vapply(colls, length, integer(1))
 

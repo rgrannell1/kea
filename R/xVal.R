@@ -51,7 +51,7 @@ xVal <- MakeFun(function (sym, val) {
 
 	sym <- toString(sym)
 
-	MACRO( arrow ::: Must $ Be_Existing_Ref(sym) )
+	# check if binding is unlocked.
 
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)

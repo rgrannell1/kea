@@ -1281,14 +1281,40 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Collection_Of_Fn_Matchable <-
+	this $ Be_Collection_Of_Collections <-
 		function (COLLS) {
 
 			COLLS <- match.call()$COLLS
 
 			bquote({
 
-				all_match <- all( vapply( .(COLLS) , function (val) {
+				all_match <- all( vapply( .(COLLS) , function (coll) {
+
+					is.atomic(coll) || is.list(coll) || is.pairlist(coll)
+
+				}, logical(1)) )
+
+				if (!all_match) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(COLLS) ) %+%
+						" must be a collection of lists, vectors or pairlists." %+%
+						summate( .(COLLS) )
+
+					throw_arrow_error(invoking_call, message)
+				}
+
+			})
+		}
+
+	this $ Be_Collection_Of_Fn_Matchable <-
+		function (COLL) {
+
+			COLL <- match.call()$COLL
+
+			bquote({
+
+				all_match <- all( vapply( .(COLL) , function (val) {
 
 					is.function(val) ||
 					(is.character(val) && length(val) == 1) ||
@@ -1299,7 +1325,7 @@ Must <- local({
 				if (!all_match) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(COLLS) ) %+%
+						"the argument matching " %+% ddquote( .(COLL) ) %+%
 						" must be a collection of functions, or symbols or strings" %+%
 						" that can be looked up as functions."
 

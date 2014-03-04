@@ -72,7 +72,7 @@ xCycle <- MakeFun(function (num, colls) {
 
 	MACRO( arrow ::: Must $ Be_Whole(num) )
 
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 	insist $ must_be_collection_of_equal_length(colls, invoking_call)
 
 	if (length(colls) == 0) {

@@ -32,30 +32,30 @@
 
 xSplitBy <- local({
 
-	bisect <- function (pred, coll, invoking_call) {
-		# split a collection into a head and tail
-		# using a predicate.
+	bisect <- MakeFun(function (pred, coll, invoking_call) {
+			# split a collection into a head and tail
+			# using a predicate.
 
-		try_hof({
-			for (ith in 1:(length(coll) - 1)) {
+			try_hof({
+				for (ith in 1:(length(coll) - 1)) {
 
-				is_match <- pred( coll[[ith]], coll[[ith + 1]] )
+					is_match <- pred( coll[[ith]], coll[[ith + 1]] )
 
-				MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
+					MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
-				if (isTRUE(is_match)) {
+					if (isTRUE(is_match)) {
 
-					return (
-						list(
-							head(coll, ith),
-							tail(coll, -ith)) )
-				}
-			}},
-			invoking_call
-		)
+						return (
+							list(
+								head(coll, ith),
+								tail(coll, -ith)) )
+					}
+				}},
+				invoking_call
+			)
 
-		list(coll, list())
-	}
+			list(coll, list())
+		})
 
 	MakeFun(function (pred, coll) {
 

@@ -77,7 +77,7 @@ xForall <- MakeFun(function (pred, colls) {
 	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
 	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
-    insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	pred <- match_fn(pred)
 

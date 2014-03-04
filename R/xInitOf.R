@@ -37,7 +37,6 @@ xInitOf <- MakeFun(function (coll) {
 	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
-
 	if (length(coll) == 0 || length(coll) == 1) {
 		list()
 	} else {

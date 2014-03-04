@@ -49,7 +49,7 @@ xPluck <- MakeFun(function (str, colls) {
 
 	str <- unit_to_value(as_atom(str, "character"))
 
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	if (length(colls) == 0) {
 		list()
