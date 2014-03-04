@@ -36,16 +36,16 @@
 #' @rdname xPluck
 #' @export
 
-xPluck <- function (str, colls) {
+xPluck <- MakeFun(function (str, colls) {
 	# Vector string -> Collection any -> Collection [any]
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_collection(str, invoking_call)
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 
@@ -58,7 +58,7 @@ xPluck <- function (str, colls) {
 			elem[[str]]
 		})
 	}
-}
+})
 
 #' @rdname xPluck
 #' @export

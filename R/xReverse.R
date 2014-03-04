@@ -26,22 +26,22 @@
 #' @rdname xReverse
 #' @export
 
-xReverse <- function (coll) {
+xReverse <- MakeFun(function (coll) {
 	# Collection any -> [any]
 	# reverse a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
 	} else {
 		as.list(rev(coll))
 	}
-}
+})
 
 #' @rdname xReverse
 #' @export

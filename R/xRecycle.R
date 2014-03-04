@@ -36,14 +36,15 @@
 #' @rdname xRecycle
 #' @export
 
-xRecycle <- function (colls) {
+xRecycle <- MakeFun(function (colls) {
 	# recycle elements of a staggered-array
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
+
 	insist $ must_be_collection_of_collections(colls, invoking_call)
 
 	coll_lens <- vapply(colls, length, integer(1))
@@ -63,7 +64,7 @@ xRecycle <- function (colls) {
 		})
 
 	}
-}
+})
 
 #' @rdname xRecycle
 #' @export

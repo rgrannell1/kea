@@ -26,15 +26,15 @@
 #' @rdname xShuffle
 #' @export
 
-xShuffle <- function (coll) {
+xShuffle <- MakeFun(function (coll) {
 	# Collection any -> [any]
 	# shuffle a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
@@ -43,7 +43,7 @@ xShuffle <- function (coll) {
 	else {
 		as.list(sample(coll))
 	}
-}
+})
 
 #' @rdname xShuffle
 #' @export
