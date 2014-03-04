@@ -45,7 +45,7 @@ xTake <- MakeFun(function (num, coll) {
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_grequal_than(num, 0)
-	insist $ must_be_whole(num, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(num) )
 
 	if (length(coll) == 0 || num == 0) {
 		list()

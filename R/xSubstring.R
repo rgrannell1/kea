@@ -47,7 +47,7 @@ xSubstring <- MakeFun(function (str, nums) {
 	str <- unit_to_value(as_atom(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")
 
-	insist $ must_be_whole(nums, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)

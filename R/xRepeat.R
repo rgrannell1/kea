@@ -46,7 +46,7 @@ xRepeat <- MakeFun(function (num, coll) {
 	num <- unit_to_value(as_atom(num, "numeric"))
 
 	insist $ must_be_grequal_than(num, 0, invoking_call)
-	insist $ must_be_whole(num, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(num) )
 
 	if (num == 0) {
 		list()

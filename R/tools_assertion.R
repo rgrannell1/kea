@@ -902,28 +902,6 @@ insist <- local({
 			}
 		})
 
-	this$must_be_whole <-
-		local({
-
-			message <- function (nums_sym, nums) {
-				"the argument matching " %+% ddquote(nums_sym) %+%
-				" must be a whole number." %+%
-				summate(nums)
-			}
-
-			function (nums, invoking_call) {
-				# the numbers matching a value must be round.
-
-				nums_sym <- match.call()$nums
-
-				if (!all(round(nums) == nums)) {
-					throw_arrow_error(
-						invoking_call, message(nums_sym, nums))
-				}
-				True
-			}
-		})
-
 	this$must_be_nonnegative <-
 		local({
 
@@ -1447,10 +1425,25 @@ Must <- local({
 
 				message <-
 					"the argument matching " %+% ddquote( .(STRS) ) %+%
-					" must be patametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
+					" must be parametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
 					summate( .(STRS) )
 
 				throw_arrow_error(invoking_call, message)
+			})
+		}
+
+	this $ Be_Whole <-
+		function (NUMS) {
+
+			NUMS <- match.call()$NUMS
+
+			bquote(if (!all(round( .(NUMS) ) ==  .(NUMS) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					" must be round numbers." %+%
+					summate( .(NUMS) )
+
 			})
 		}
 

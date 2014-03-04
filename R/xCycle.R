@@ -70,7 +70,7 @@ xCycle <- MakeFun(function (num, colls) {
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_whole(num, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(num) )
 
 	insist $ must_be_collection_of_collections(colls, invoking_call)
 	insist $ must_be_collection_of_equal_length(colls, invoking_call)
