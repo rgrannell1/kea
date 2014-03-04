@@ -28,19 +28,19 @@
 #' @rdname xFirstOf
 #' @export
 
-xFirstOf <- function (coll) {
+xFirstOf <- MakeFun(function (coll) {
 	# Collection any -> any
 	# return the first element of a collection x.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
-	insist $ must_be_longer_than(coll, 1, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( arrow ::: Must $ Be_Longer_Than(0, coll) )
 
 	coll[[1]]
-}
+})
 
 #' @rdname xFirstOf
 #' @export

@@ -27,15 +27,15 @@
 #' @rdname xElemNotNa
 #' @export
 
-xElemNotNa <- function (coll) {
+xElemNotNa <- MakeFun(function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection not na?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		logical(0)
@@ -48,7 +48,7 @@ xElemNotNa <- function (coll) {
 			!identical(x, NA_complex_)
 		}, logical(1), USE.NAMES = False)
 	}
-}
+})
 
 #' @rdname xElemNotNa
 #' @export

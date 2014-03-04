@@ -28,15 +28,15 @@
 #' @rdname xElemNotNull
 #' @export
 
-xElemNotNull <- function (coll) {
+xElemNotNull <- MakeFun(function (coll) {
 	# collection any -> vector Boolean
 	# are the elements of a collection not null?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		# empty pairlist - an odd corner case.
@@ -49,7 +49,7 @@ xElemNotNull <- function (coll) {
 		}
 		res
 	}
-}
+})
 
 #' @rdname xElemNotNull
 #' @export

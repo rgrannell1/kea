@@ -27,15 +27,15 @@
 #' @rdname xElemNotNan
 #' @export
 
-xElemNotNan <- function (coll) {
+xElemNotNan <- MakeFun(function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection not false?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		logical(0)
@@ -44,7 +44,7 @@ xElemNotNan <- function (coll) {
 			!identical(x, NaN)
 		}, logical(1), USE.NAMES = False)
 	}
-}
+})
 
 #' @rdname xElemNotNan
 #' @export

@@ -1399,7 +1399,7 @@ Must <- local({
 		}
 
 	this $ Be_Longer_Than <-
-		function (COLL, LENGTH) {
+		function (LENGTH, COLL) {
 			# this macro expands to check that a collection is longer than a certain length.
 
 			COLL <- match.call()$COLL
