@@ -165,7 +165,7 @@ print.list_builder <- function (x, ...) {
 				paste0( expr[[2]] )
 			}, character(1))
 
-		if ( length(unique(this$variables) < length(this$variables)) ) {
+		if ( any(duplicated(this$variables)) ) {
 
 			duplicated_var <- this$variables[duplicated(this$variables)]
 
