@@ -66,7 +66,11 @@ xList <- structure(
 
 		invoking_call <- sys.call()
 
-		insist $ must_be_invoked_with_brackets(invoking_call)
+		message <-
+			"comprehension objects cannot be invoked as a " %+%
+			"function: they must be invoked with square brackets ( [] )"
+
+		throw_arrow_error(invoking_call, message)
 	},
 	class = 'list_builder'
 )
@@ -102,8 +106,22 @@ print.list_builder <- function (x, ...) {
 
 			}, logical(1)) )
 
-		demand $ must_have_yield(binding_indices, invoking_call)
-		demand $ must_be_unnamed(exprs, invoking_call)
+		if (1 %in% binding_indices) {
+
+			message <-
+				"a collection-comprehension must not begin with a " %+%
+				"variable bind expression."
+
+			throw_arrow_error(invoking_call, message)
+		}
+
+		if ( !is.null(names(exprs)) ) {
+
+			message <-
+				"a collection-comprehension cannot have named sub-terms."
+
+			throw_arrow_error(invoking_call, message)
+		}
 
 		bindings <- exprs[binding_indices]
 
@@ -120,13 +138,24 @@ print.list_builder <- function (x, ...) {
 				True
 			}
 
-		if (is_predicated) {
-
-			demand $ must_all_be_matched(
-				c(1, binding_indices, length(exprs)), exprs, invoking_call)
+		unmatched <- if (is_predicated) {
+			expr_indices <- seq_along(exprs)
+			expr_indices[ expr_indices %!in% c(1, binding_indices, length(exprs)) ]
 		} else {
-			demand $ must_all_be_matched(
-				c(1, binding_indices), exprs, invoking_call)
+			expr_indices <- seq_along(exprs)
+			expr_indices[expr_indices %!in% c(1, binding_indices)]
+		}
+
+		if (length(unmatched) != 0) {
+
+			unmatched_str <- paste0(lapply(unmatched, ith_suffix), collapse = ', ')
+
+			message <-
+				"the " %+% unmatched_str %+% " expression " %+%
+				"could not be matched as variable bindings, a predicate, or " %+%
+				"a yield expression."
+
+			throw_arrow_error(invoking_call, message)
 		}
 
 		# check that all expressions are matched.
@@ -136,7 +165,26 @@ print.list_builder <- function (x, ...) {
 				paste0( expr[[2]] )
 			}, character(1))
 
-		demand $ must_have_bindings(this$variables, invoking_call)
+		if ( length(unique(this$variables) < length(this$variables)) ) {
+
+			duplicated_var <- this$variables[duplicated(this$variables)]
+
+			message <-
+				"The variables " %+% paste0(duplicated_var, collapse = ', ') %+%
+				" were bound several times by binding expressions."
+
+				throw_arrow_error(invoking_call, message)
+		}
+
+
+		if (length(this$variables) == 0) {
+
+			message <-
+				"a non-empty collection-comprehension must have " %+%
+				"at least one variable binding."
+
+			throw_arrow_error(invoking_call, message)
+		}
 
 		this$values <-
 			lapply(bindings, function (expr) {

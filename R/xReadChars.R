@@ -32,8 +32,7 @@ xReadChars <- MakeFun(function (str) {
 	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
 
 	MACRO( arrow ::: Must $ Be_Collection(str) )
-
-	insist $ must_be_existing_file(str, invoking_call)
+	MACRO( arrow ::: Must $ Be_File(str) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 

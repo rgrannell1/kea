@@ -972,24 +972,6 @@ insist <- local({
 			}
 		})
 
-	this$must_be_invoked_with_brackets <-
-		local({
-			# not really an assertion, since it always throws an error.
-			# if this invoked complain that comprehensions use brackets.
-
-			message <- function () {
-				"comprehension objects cannot be invoked as a " %+%
-				"function: they must be invoked with square brackets ( [] )"
-			}
-
-			function (invoking_call) {
-
-				throw_arrow_error(
-					invoking_call, message())
-			}
-			True
-		})
-
 	this$must_be_correct_type <-
 		local({
 
@@ -1081,78 +1063,6 @@ insist <- local({
 #' @keywords internal
 #'
 #' @rdname pkg-internal
-
-demand <- local({
-
-	this <- Object()
-
-	this$must_have_yield <-
-		local({
-
-			message <- function () {
-				"a collection-comprehension must not begin with a " %+%
-				"variable bind expression."
-			}
-
-			function (indices, invoking_call) {
-
-				assert(
-					1 %!in% indices, invoking_call, message())
-
-			}
-		})
-
-	this$must_be_unnamed <-
-		local({
-
-			message <- function () {
-				"a collection-comprehension cannot have named sub-terms."
-			}
-
-			function (exprs, invoking_call) {
-
-				assert(
-					is.null(names(exprs)), invoking_call,
-					message())
-			}
-		})
-
-	this$must_all_be_matched <-
-		function (indices, exprs, invoking_call) {
-
-			exprs_indices <- seq_along(exprs)
-
-			unmatched <- exprs_indices[ exprs_indices %!in% indices ]
-			unmatched_str <- paste0(lapply(unmatched, ith_suffix), collapse = ', ')
-
-			message <- "the " %+% unmatched_str %+% " expression " %+%
-			"could not be matched as variable bindings, a predicate, or " %+%
-			"a yield expression."
-
-			assert(
-				length(unmatched) == 0, invoking_call,
-				message)
-		}
-
-	this$must_have_bindings <-
-		local({
-
-			message <- function () {
-				"a non-empty collection-comprehension must have " %+%
-				"at least one variable binding."
-			}
-
-			function (variables, invoking_call) {
-
-				assert(
-					length(variables) > 0, invoking_call,
-					message())
-			}
-		})
-
-	this
-
-})
 
 # -------------------------------- dictate -------------------------------- #
 #
@@ -1259,10 +1169,25 @@ dictate <- local({
 
 
 
-
 Must <- local({
 
 	this <- Object()
+
+	this $ Be_Between <-
+		function (NUMS, LOWER, UPPER) {
+
+			NUMS <- match.call()$NUMS
+
+			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
+					summate( .(NUMS) )
+
+				throw_arrow_error(invoking_call, message)
+			})
+		}
 
 	this $ Be_Collection <-
 		function (COLL) {
@@ -1367,28 +1292,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Fn_Matchable <-
-		function (VAL) {
-			# this macro expands to check if a value is a function or
-			# can be looked up as a function.
-
-			VAL <- match.call()$VAL
-
-			bquote(if (
-				!is.function( .(VAL) ) &&
-				!is.name( .(VAL) ) &&
-				!(is.character( .(VAL) ) && length( .(VAL) ) == 1)) {
-
-					message <-
-						"the argument matching " %+% ddquote( .(VAL) ) %+%
-						" must be a function, or a string or symbol naming a function." %+%
-						summate( .(VAL) )
-
-					throw_arrow_error(invoking_call, message)
-			})
-		}
-
-
 	this $ Be_Flag <-
 		function (BOOL, PRED) {
 			# this macro expands to check if a value is True, False or Na.
@@ -1407,19 +1310,39 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Between <-
-		function (NUMS, LOWER, UPPER) {
+	this $ Be_File <-
+		function (STR) {
 
-			NUMS <- match.call()$NUMS
+			STR <- match.call()$STR
 
-			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
+			bquote(if (!file.exists( .(STR) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(NUMS) ) %+%
-					" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
-					summate( .(NUMS) )
+					"the argument matching " %+% ddquote( .(STR) ) %+%
+					" must be a path to an existing file."
 
 				throw_arrow_error(invoking_call, message)
+			})
+		}
+
+	this $ Be_Fn_Matchable <-
+		function (VAL) {
+			# this macro expands to check if a value is a function or
+			# can be looked up as a function.
+
+			VAL <- match.call()$VAL
+
+			bquote(if (
+				!is.function( .(VAL) ) &&
+				!is.name( .(VAL) ) &&
+				!(is.character( .(VAL) ) && length( .(VAL) ) == 1)) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(VAL) ) %+%
+						" must be a function, or a string or symbol naming a function." %+%
+						summate( .(VAL) )
+
+					throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -1535,6 +1458,22 @@ Must <- local({
 					summate( .(STRS) )
 
 				throw_arrow_error(invoking_call, message)
+			})
+		}
+
+	this $ Be_Positive_Indices <-
+		function (NUMS, COLL) {
+
+			NUMS <- match.call()$NUMS
+			COLL <- match.call()$COLL
+
+			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < 1 )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
+					summate( .(NUMS) )
+
 			})
 		}
 

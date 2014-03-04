@@ -7,7 +7,7 @@
 \alias{\%equals\%}
 \alias{call_with_params}
 \alias{colourise}
-\alias{demand}
+\alias{dictate}
 \alias{get_call_components}
 \alias{insist}
 \alias{is_collection}
@@ -35,7 +35,7 @@ get_call_components(invoking_call)
 
 insist
 
-demand
+dictate
 
 Truth(...)
 

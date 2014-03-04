@@ -50,7 +50,7 @@ xSplitAt <- MakeFun(function (nums, coll) {
 	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 
 	MACRO( arrow ::: Must $ Be_Whole(nums) )
-	insist $ must_be_positive_indices_of(nums, coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Positive_Indices(nums, coll) )
 
 	if (length(coll) == 0) {
 		list()
