@@ -29,14 +29,15 @@
 #' @rdname xAsUnary
 #' @export
 
-xAsUnary <- function (fn) {
+xAsUnary <- MakeFun(function (fn) {
 	# (... -> b) -> (a -> b)
 	# dual to xAsVariadic.
 	# takes a function that takes a many values and
 	# makes it into a function that takes one list.
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_be_fn_matchable(fn, sys.call())
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
@@ -45,4 +46,4 @@ xAsUnary <- function (fn) {
 		""
 		xApply(fn, coll)
 	}
-}
+})

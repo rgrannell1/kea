@@ -28,18 +28,18 @@
 #' @rdname xCapture
 #' @export
 
-xCapture <- function (val) {
+xCapture <- MakeFun(function (val) {
 	# any -> (... -> any)
 	# return a function that closes over the variable val.
 
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
 	function (...) {
 		"a function created xCapture."
 		""
 		val
 	}
-}
+})
 
 #' @rdname xCapture
 #' @export

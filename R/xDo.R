@@ -27,18 +27,18 @@
 #' @rdname xDo
 #' @export
 
-xDo <- function (fn, coll) {
+xDo <- MakeFun(function (fn, coll) {
 	# function -> Collection any -> Null
 	# apply a function to each element of a collection.
 	# and discard the results.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 
@@ -55,7 +55,7 @@ xDo <- function (fn, coll) {
 
 		invisible (Null)
 	}
-}
+})
 
 #' @rdname xDo
 #' @export

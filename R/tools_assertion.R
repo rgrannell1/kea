@@ -171,7 +171,7 @@ assert <- local({
 
 
 
-throw_arrow_error <- function (invoking_call, message) {
+throw_arrow_error <- throw <- function (invoking_call, message) {
 	# everythings went wrong, throw an error.
 
 	components <- get_call_components(invoking_call)
@@ -1220,3 +1220,302 @@ dictate <- local({
 
 	this
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Must <- local({
+
+	this <- Object()
+
+	this $ Be_Collection <-
+		function (COLL) {
+			# this macro expands to check if a value is a collection.
+
+			COLL <- match.call()$COLL
+
+			bquote(if (!is.atomic( .(COLL) ) && !is.list( .(COLL) ) && !is.pairlist( .(COLL) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					" must be a list, a pairlist or a typed vector." %+%
+					summate( .(COLL) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+	this $ Be_Equal_Length_To <-
+		function (COLL1, COLL2) {
+
+			COLL1 <- match.call()$COLL1
+			COLL2 <- match.call()$COLL2
+
+			bquote(if (length( .(COLL1) ) != length( .(COLL2) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(COLL1) ) %+%
+					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
+					summate( .(COLL1) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+	this $ Be_Fn_Matchable <-
+		function (VAL) {
+			# this macro expands to check if a value is a function or
+			# can be looked up as a function.
+
+			VAL <- match.call()$VAL
+
+			bquote(if (
+				!is.function( .(VAL) ) &&
+				!is.name( .(VAL) ) &&
+				!(is.character( .(VAL) ) && length( .(VAL) ) == 1)) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(VAL) ) %+%
+						" must be a function, or a string or symbol naming a function." %+%
+						summate( .(VAL) )
+
+					throw(invoking_call, message)
+			})
+		}
+
+	this $ Be_Logical_Atom <-
+		function (BOOL, PRED) {
+			# this macro expands to check if a value is True, False or Na.
+
+			BOOL <- match.call()$BOOL
+			PRED <- match.call()$PRED
+
+			bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
+
+				message <-
+					"the predicate function " %+% ddquote( .(PRED) ) %+%
+					" produced a non-{True, False, Na} value." %+%
+					summate( .(BOOL) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+
+	this $ Be_Of_Length <-
+		function (COLL, LENGTHS) {
+			# this macro expands to check that a collection has a certain length.
+
+			COLL <- match.call()$COLL
+			LENGTHS <- match.call()$LENGTHS
+
+			bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					" must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
+					summate( .(COLL) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+	this $ Be_Lequal_Than <-
+		function (COLL, LENGTH) {
+			# this macro expands to check that a collection is lequal than a certain length.
+
+			COLL <- match.call()$COLL
+			LENGTH <- match.call()$LENGTH
+
+			bquote(if (!(length( .(COLL) ) >= .(LENGTH) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					" must have at least " %+%  .(LENGTH) %+% " elements." %+%
+					summate( .(COLL) )
+
+				throw(invoking_call, message)
+			})
+
+		}
+
+	this $ Be_Longer_Than <-
+		function (COLL, LENGTH) {
+			# this macro expands to check that a collection is longer than a certain length.
+
+			COLL <- match.call()$COLL
+			LENGTH <- match.call()$LENGTH
+
+			bquote(if (!(length( .(COLL) ) > .(LENGTH) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					" must have more than " %+%  .(LENGTH) %+% " elements." %+%
+					summate( .(COLL) )
+
+				throw(invoking_call, message)
+			})
+
+		}
+
+	this $ Be_Named <-
+		function (COLL) {
+
+			COLL <- match.call()$COLL
+
+			bquote({
+
+				if ( is.null(names( .(COLL) )) ) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(COLL) ) %+%
+						" must be named." %+%
+						summate( .(COLL) )
+
+					throw(invoking_call, message)
+				}
+			})
+		}
+
+	this $ Be_Parametres_Of <-
+		function (STRS, FN) {
+			# this macro expands to check if a set of names are parametres of a function.
+
+			STRS <- match.call()$STRS
+			FN <- match.call()$FN
+
+			bquote(if (any( .(STRS) %!in% names(formals( .(FN) )) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(STRS) ) %+%
+					" must be patametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
+					summate( .(STRS) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+	this $ Not_Be_Missing <-
+		function (VAL) {
+			# this macro expands to check if a parametre is not missing.
+
+			VAL <- match.call()$VAL
+
+			bquote(if (missing( .(VAL) )) {
+
+				message <-
+					"the parametre " %+% ddquote( .(VAL) ) %+%
+					" is required but was missing."
+
+				throw(invoking_call, message)
+			})
+
+		}
+
+	this $ Not_Be_Primitive <-
+		function (FN) {
+			# this macro expands to check if a function is non-primitive.
+
+			FN <- match.call()$FN
+
+			bquote(if (is.primitive( .(FN) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(FN) ) %+%
+					" must be a non-primitive function." %+%
+					summate( .(FN) )
+
+				throw(invoking_call, message)
+			})
+		}
+
+
+
+
+	this
+})
+
+
+
+
+
+ddquote <- function (sym) {
+	paste0(dQuote(sym), collapse = '')
+}
+
+MakeFun <- function (expr) {
+
+	unquote <- function (inner) {
+
+		if (is.pairlist(inner)) {
+			as.pairlist(lapply(inner, unquote))
+		} else if (length(inner) <= 1L) {
+			inner
+		} else if (inner[[1L]] == as.name("MACRO")) {
+			eval(inner[[2L]], parent.frame())
+		} else {
+			as.call(lapply(inner, unquote))
+		}
+	}
+
+	eval(unquote(substitute(expr)), parent.frame())
+}

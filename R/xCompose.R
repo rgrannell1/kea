@@ -67,12 +67,15 @@
 #' @rdname xCompose
 #' @export
 
-xCompose <- function (fns) {
+xCompose <- MakeFun(function (fns) {
 	# Collection function -> function
 
 	invoking_call <- sys.call()
 
-	insist $ must_be_collection(fns, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
+
+	MACRO( arrow ::: Must $ Be_Collection(fns) )
+
 	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
 
 	fns <- lapply(fns, match_fn)
@@ -95,7 +98,7 @@ xCompose <- function (fns) {
 
 		val
 	}
-}
+})
 
 #' @rdname xCompose
 #' @export

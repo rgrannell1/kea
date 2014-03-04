@@ -30,28 +30,29 @@
 #' @rdname xDrop
 #' @export
 
-xDrop <- function (num, coll) {
+xDrop <- MakeFun(function (num, coll) {
 	# Collection any -> [any]
 	# take the first num values of collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_whole(num, invoking_call)
 	insist $ must_be_grequal_than(num, 0, invoking_call)
 
-	insist $ must_be_collection(coll, invoking_call)
-
 	if (length(coll) == 0 || num >= length(coll)) {
 	 	list()
 	} else {
 		as.list(coll)[(num + 1) : length(coll)]
 	}
-}
+})
 
 #' @rdname xDrop
 #' @export

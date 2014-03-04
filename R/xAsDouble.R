@@ -33,14 +33,14 @@
 #' @rdname xAsDouble
 #' @export
 
-xAsDouble <- function (nums) {
+xAsDouble <- MakeFun(function (nums) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
-	insist $ must_be_collection(nums, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 
@@ -49,7 +49,7 @@ xAsDouble <- function (nums) {
 	} else {
 		as.double(nums)
 	}
-}
+})
 
 #' @rdname xAsDouble
 #' @export

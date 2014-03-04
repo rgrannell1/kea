@@ -30,17 +30,17 @@
 #' @rdname xAsCharacter
 #' @export
 
-xAsCharacter <- function (strs) {
+xAsCharacter <- MakeFun(function (strs) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(strs)
-	insist $ must_be_collection(strs, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
+	MACRO( arrow ::: Must $ Be_Collection(strs) )
 
 	as_typed_vector(strs, 'character')
-}
+})
 
 #' @rdname xAsCharacter
 #' @export

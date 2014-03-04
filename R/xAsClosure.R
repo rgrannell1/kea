@@ -37,14 +37,15 @@
 #' @rdname xAsClosure
 #' @export
 
-xAsClosure <- function (fn) {
+xAsClosure <- MakeFun(function (fn) {
 	# (a -> b) -> (a -> b)
 	# convert a primitive function to a closure.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
@@ -62,4 +63,4 @@ xAsClosure <- function (fn) {
 	} else {
 		fn
 	}
-}
+})

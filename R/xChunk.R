@@ -32,22 +32,22 @@
 #' @rdname xChunk
 #' @export
 
-xChunk <- function (num, coll) {
+xChunk <- MakeFun(function (num, coll) {
 	# integer -> Collection any -> [[any]]
 	# groups coll into chunks of num,
 	# when possible.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(num, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	insist $ must_be_grequal_than(num, 0, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
 
 	if (length(coll) == 0) {
 		list()
@@ -60,7 +60,7 @@ xChunk <- function (num, coll) {
 				as.list(coll[ lower:min(length(coll), lower + num - 1) ])
 		})
 	}
-}
+})
 
 #' @rdname xChunk
 #' @export

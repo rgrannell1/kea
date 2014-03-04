@@ -35,22 +35,22 @@
 #' @rdname xAsNamed
 #' @export
 
-xAsNamed <- function (strs, coll) {
+xAsNamed <- MakeFun(function (strs, coll) {
 	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(strs)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(strs, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(strs) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	strs <- as_typed_vector(strs, 'character')
 
-	insist $ must_be_equal_length(strs, coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Equal_Length_To(strs, coll) )
 
 	names(coll) <- strs
 	coll
-}
+})

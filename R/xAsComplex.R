@@ -31,18 +31,17 @@
 #' @rdname xAsComplex
 #' @export
 
-xAsComplex <- function (ims) {
+xAsComplex <- MakeFun(function (ims) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(ims)
-	insist $ must_be_collection(ims, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(ims) )
+	MACRO( arrow ::: Must $ Be_Collection(ims) )
 
 	as_typed_vector(ims, 'complex')
-
-}
+})
 
 #' @rdname xAsComplex
 #' @export

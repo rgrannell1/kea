@@ -30,15 +30,14 @@
 #' @rdname xAny
 #' @export
 
-xAny <- function (pred, coll) {
+xAny <- MakeFun(function (pred, coll) {
+	# (any -> boolean) -> Collection any -> boolean
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-
-    insist $ must_be_collection(coll, invoking_call)
-    insist $ must_be_collection_of_collections(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -47,7 +46,7 @@ xAny <- function (pred, coll) {
 	} else {
 		any(vapply(coll, pred, logical(1), USE.NAMES = False))
 	}
-}
+})
 
 #' @rdname xAny
 #' @export

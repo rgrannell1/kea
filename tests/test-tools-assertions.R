@@ -125,14 +125,6 @@ message("insist $ must_be_parametres_of")
 
 	})
 
-message("insist $ must_be_recursive")
-
-	forall(
-		"must be recursive works for lists & pairlists",
-		test_cases$collection,
-		insist $ must_be_recursive(as.list(coll), invoking_call)
-	)
-
 message("insist $ must_be_unlocked")
 
 	local({

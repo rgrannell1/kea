@@ -27,15 +27,14 @@
 #' @rdname xArityOf
 #' @export
 
-xArityOf <- function (fn) {
+xArityOf <- MakeFun(function (fn) {
 	# function -> integer
 	# get the arity of a function.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 	fn_params <- xParamsOf(fn)
@@ -45,4 +44,4 @@ xArityOf <- function (fn) {
 	} else {
 		length(fn_params)
 	}
-}
+})

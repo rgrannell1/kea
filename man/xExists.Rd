@@ -94,7 +94,9 @@ is_cyclic_permutation(
 True
 }
 \seealso{
-Other quantifier_functions: \code{\link{xForall}},
+Other quantifier_functions: \code{\link{xAll}},
+\code{\link{xAll...}}; \code{\link{xAny}},
+\code{\link{xAny...}}; \code{\link{xForall}},
 \code{\link{xForall...}}; \code{\link{xPoll}},
 \code{\link{xPoll...}}, \code{\link{xRejectNan...}}
 }
