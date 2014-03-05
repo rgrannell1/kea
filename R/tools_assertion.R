@@ -1232,6 +1232,31 @@ Must <- local({
 			})
 		}
 
+	this $ Be_Collection_Of_Equal_Length <-
+		function (COLLS) {
+
+			COLLS <- match.call()$COLLS
+
+			bquote({
+
+				all_equal <-
+					length( .(COLLS) ) == 0 ||
+					all(vapply( .(COLLS), function (coll) length(coll) == length( .(COLLS)[[1]] ), logical(1)))
+
+				if (!all_equal) {
+
+					message <-
+						"the argument matching " %+% ddquote( .(COLLS) ) %+%
+						" must be a collection of collections with equal lengths." %+%
+						summate( .(COLLS) )
+
+					throw_arrow_error(invoking_call, message)
+
+				}
+			})
+
+		}
+
 	this $ Be_Collection_Of_Fn_Matchable <-
 		function (COLL) {
 

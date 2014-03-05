@@ -68,7 +68,7 @@ xZip <- MakeFun(function (colls) {
 	} else {
 
 		MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
-		insist $ must_be_collection_of_equal_length(colls, invoking_call)
+		MACRO( arrow ::: Must $ Be_Collection_Of_Equal_Length(colls) )
 
 		lapply(
 			seq_along( colls[[1]] ),
