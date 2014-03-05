@@ -1,5 +1,5 @@
 
-#' xReadLines
+#' xReadChars
 #'
 #' Import each line in a file to an element in a character vector.
 #'
@@ -20,7 +20,7 @@
 #' @example
 #'    inst/examples/example-xReadChars.R
 #'
-#' @rdname xReadLines
+#' @rdname xReadChars
 #' @export
 
 xReadChars <- MakeFun(function (str) {

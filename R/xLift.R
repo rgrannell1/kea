@@ -16,6 +16,11 @@
 #'
 #' \code{list(1L, 1+1i, 2L, 'string')}
 #'
+#' @param
+#'    fn1 a function.
+#'
+#' @param
+#'    fn2 a function.
 #'
 #' @param
 #'    fn a binary function.

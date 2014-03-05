@@ -45,6 +45,12 @@
 #' \code{xMap(sqrt \%of\% sqrt, 1:10)}
 #'
 #' @param
+#'    fn1 a function.
+#'
+#' @param
+#'    fn2 a function.
+#'
+#' @param
 #'    fns a collection of functions. The functions to
 #'    compose with each other.
 #'

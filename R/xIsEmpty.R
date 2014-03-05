@@ -4,7 +4,7 @@
 #' Is a collection length-zero?
 #'
 #' @param
-#'    val an arbitrary value. A value to check for being length zero.
+#'    coll a collection. The collection to test for being length zero.
 #'
 #' @param
 #'    ... see above.

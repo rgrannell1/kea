@@ -51,7 +51,7 @@ xAt <- MakeFun(function (num, coll) {
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( arrow ::: Must $ Be_Whole(num) )
-	MACRO( arrow ::: Must $ Be_Positive_Indices(nums, coll) )
+	MACRO( arrow ::: Must $ Be_Positive_Indices(num, coll) )
 
 	coll[[num]]
 })
