@@ -48,7 +48,7 @@ xAsDataFrame <- MakeFun(function (colls) {
 	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
 	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
-	insist $ must_be_collection_of_equal_length(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Equal_Length(colls) )
 
 	if (length(colls) == 0) {
 		unname(as.data.frame(matrix(nrow = 0, ncol = 0 )) )

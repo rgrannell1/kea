@@ -1285,6 +1285,20 @@ Must <- local({
 			})
 		}
 
+	this $ Be_Collection_Of_Lengths <-
+		function (COLLS, NUM) {
+
+			COLLS <- match.call()$COLLS
+
+			bquote( if (any(vapply( .(COLLS), function (coll) length(coll) != .(NUM), logical(1) )) ) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(COLLS) ) %+%
+					" must be a collection of length " %+% .(NUM) %+% " values."
+
+			})
+		}
+
 	this $ Be_Equal_Length_To <-
 		function (COLL1, COLL2) {
 

@@ -32,7 +32,11 @@ xCapture <- MakeFun(function (val) {
 	# any -> (... -> any)
 	# return a function that closes over the variable val.
 
+	invoking_call <- sys.call()
+
 	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
+
+	remove(invoking_call)
 
 	function (...) {
 		"a function created xCapture."
