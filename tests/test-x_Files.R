@@ -55,3 +55,4 @@ message('Check that test files exist')
 	if (xNotEmpty(nonexisting)) {
 		write_error( "untested functions: ", deparse(xAsCharacter(nonexisting)) )
 	}
+

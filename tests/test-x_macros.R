@@ -1,0 +1,43 @@
+
+forall <- arrow:::forall
+assert <- arrow:::assert
+test_cases <- arrow:::test_cases
+
+write_error <- arrow:::write_error
+
+require(arrow)
+
+message('Arrow Files')
+message('Check that every function has missing declarations')#
+
+arr <- as.environment('package:arrow')
+
+missing_exceptions <- c(
+	"xFalsity", "xTruth", "xIrrelevance",
+	"xFromChars", "xFromLines", "xFromWords",
+	"xLambda", "xList", "xVersion")
+
+fns <-
+	x_( ls(arr) ) $
+	xSelect (fn_name := {
+		grepl('x[A-Z].+[a-z]$', fn_name) && !(fn_name %in% missing_exceptions)
+	}) $
+	xMap( fn_name := list(fn_name, arr[[fn_name]] ))
+
+fns $ xMapply((fn_name : fn) := {
+
+	body_text <- paste0( deparse(body(fn)), collapse = '\n')
+
+	missing_missing <-
+		x_(xParamsOf(fn)) $
+		x_Any(param := {
+
+			pattern <- paste0('missing[(]', param, '[)]')
+
+			!grepl(pattern, body_text)
+		})
+
+	if (missing_missing)  {
+		stop("no missing macro detected in ", fn_name)
+	}
+})
