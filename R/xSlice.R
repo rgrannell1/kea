@@ -52,7 +52,7 @@ xSlice <- MakeFun(function (nums, coll) {
 	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 
 	MACRO( arrow ::: Must $ Be_Whole(nums) )
-	insist $ must_be_indices_of(nums, coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Indices(nums, coll) )
 
 	as.list(coll[nums])
 })

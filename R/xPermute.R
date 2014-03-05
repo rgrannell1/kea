@@ -56,7 +56,6 @@ xPermute <- MakeFun(function (nums, colls) {
 	nums <- as_typed_vector(nums, 'numeric')
 
 	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
-	insist $ must_be_collections_of_length_matching(colls, nums, invoking_call)
 
 	if (length(nums) == 0) {
 		list()

@@ -1390,6 +1390,22 @@ Must <- local({
 			})
 		}
 
+	this $ Be_Indices <-
+		function (NUMS, COLL) {
+
+			NUMS <- match.call()$NUMS
+			COLL <- match.call()$COLL
+
+			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < -length( .(COLL) ) )) {
+
+				message <-
+					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
+					summate( .(NUMS) )
+
+			})
+		}
+
 	this $ Be_Of_Length <-
 		function (COLL, LENGTHS) {
 			# this macro expands to check that a collection has a certain length.
