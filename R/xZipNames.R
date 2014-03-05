@@ -45,7 +45,7 @@ xZipNames <- MakeFun(function (colls) {
 	MACRO( arrow ::: Must $ Be_Collection(colls) )
 	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection_Of_Lengths(colls, 2) )
+	MACRO( arrow ::: Must $ Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
 
 	if (length(colls) == 0) {
 		list()

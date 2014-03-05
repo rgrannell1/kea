@@ -1285,16 +1285,21 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Collection_Of_Lengths <-
-		function (COLLS, NUM) {
+	this $ Be_Collection_Of_Lengths_In_Range <-
+		function (COLLS, LOWER, UPPER) {
 
 			COLLS <- match.call()$COLLS
+			LOWER <- match.call()$LOWER
+			UPPER <- match.call()$UPPER
 
-			bquote( if (any(vapply( .(COLLS), function (coll) length(coll) != .(NUM), logical(1) )) ) {
+			bquote( if (any(vapply( .(COLLS), function (coll) {
+				length(coll) >= .(LOWER) && length(coll) <= .(UPPER)
+			}, logical(1) )) ) {
 
 				message <-
 					"the argument matching " %+% ddquote( .(COLLS) ) %+%
-					" must be a collection of length " %+% .(NUM) %+% " values."
+					" must be a collection with lengths in the range " %+%
+					.(LOWER) %+% " to " %+% .(UPPER) %+% "."
 
 			})
 		}

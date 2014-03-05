@@ -44,8 +44,7 @@ xAtCol <- MakeFun(function (num, colls) {
 	} else {
 
 		MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
-		insist $ must_be_collections_of_length_grequal_than(
-			colls, num, invoking_call  )
+		MACRO( arrow ::: Must $ Be_Collection_Of_Lengths_In_Range(colls, num, Inf) )
 
 		lapply(colls, function (coll) {
 			coll[[num]]
