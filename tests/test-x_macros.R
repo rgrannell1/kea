@@ -37,7 +37,38 @@ fns $ xMapply((fn_name : fn) := {
 			!grepl(pattern, body_text)
 		})
 
+	missing_fn_matchable <-
+		x_(xParamsOf(fn)) $
+		xSelect(param := param == 'fn' || param == 'pred') $
+		x_Any(param := {
+
+			pattern <- paste0(
+				"if [(][!]is[.]function[(]", param, "[)]")
+
+			!grepl(pattern, body_text)
+		})
+
+	missing_coll <-
+		x_(xParamsOf(fn)) $
+		xSelect(param := param %in% c('coll', 'colls', 'nums', 'num', 'bools', 'ims', 'raws')) $
+		x_Any(param := {
+
+			pattern <- paste0(
+				"if [(][!]is[.]atomic[(]", param, "[)]")
+
+			!grepl(pattern, body_text)
+		})
+
 	if (missing_missing)  {
 		stop("no missing macro detected in ", fn_name)
 	}
-})
+
+	if (xIsTrue(missing_fn_matchable))  {
+		stop("no fn match macro detected in ", fn_name)
+	}
+
+	if (xIsTrue(missing_coll)) {
+		stop("no coll macro detected in ", fn_name)
+	}
+}) $
+xK()
