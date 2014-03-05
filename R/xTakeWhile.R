@@ -34,18 +34,18 @@
 #' @rdname xTakeWhile
 #' @export
 
-xTakeWhile <- function (pred, coll) {
+xTakeWhile <- MakeFun(function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
 	# take every element in a collection
 	# until a predicate returns false.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -59,7 +59,7 @@ xTakeWhile <- function (pred, coll) {
 
 				is_match <- pred( coll[[ith]] )
 
-				insist $ must_be_logical_result(is_match, pred, invoking_call)
+				MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
 				if (!isTRUE(is_match)) {
 					return ( as.list(head(coll, ith - 1)) )
@@ -70,7 +70,7 @@ xTakeWhile <- function (pred, coll) {
 
 		as.list(coll)
 	}
-}
+})
 
 #' @rdname xTakeWhile
 #' @export

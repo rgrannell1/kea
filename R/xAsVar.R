@@ -28,20 +28,20 @@
 #' @rdname xAsVar
 #' @export
 
-xAsVar <- function (sym) {
+xAsVar <- MakeFun(function (sym) {
 	# unlock a constant binding
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing_sym(sym)
+	MACRO( arrow ::: Must $ Not_Be_Missing(sym) )
 
 	sym <- match.call()$sym
-	insist $ must_be_matchable(sym, invoking_call)
+	MACRO( arrow ::: Must $ Be_Matchable(sym) )
 
 	sym <- toString(sym)
 
-	insist $ must_exist(sym, parent_frame, invoking_call)
+	MACRO( arrow ::: Must $ Be_Existing_Ref(sym) )
 
 	unlockBinding(sym, parent_frame)
-}
+})

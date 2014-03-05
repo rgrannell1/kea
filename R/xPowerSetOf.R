@@ -29,14 +29,15 @@
 #' @rdname xPowerSetOf
 #' @export
 
-xPowerSetOf <- function (coll) {
+xPowerSetOf <- MakeFun(function (coll) {
 	# Collection any -> [any]
 	# get the power set of a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
@@ -58,7 +59,7 @@ xPowerSetOf <- function (coll) {
 
 		subsets
 	}
-}
+})
 
 #' @rdname xPowerSetOf
 #' @export

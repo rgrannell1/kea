@@ -37,24 +37,24 @@
 #' @rdname xAt
 #' @export
 
-xAt <- function (num, coll) {
+xAt <- MakeFun(function (num, coll) {
 	# number -> Collection any -> any
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_not_be_missing(num)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
-	insist $ must_be_collection(num, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_whole(num, invoking_call)
-	insist $ must_be_positive_indices_of(num, 0, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(num) )
+	MACRO( arrow ::: Must $ Be_Positive_Indices(nums, coll) )
 
 	coll[[num]]
-}
+})
 
 #' @rdname xAt
 #' @export

@@ -24,15 +24,16 @@
 #' @rdname xFormalsOf
 #' @export
 
-xFormalsOf <- function (fn) {
+xFormalsOf <- MakeFun(function (fn) {
 	# (a -> b) -> [a, b]
 	# get the formals of non-primitive functions, and
 	# the arguments of primitive functions.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
@@ -41,4 +42,4 @@ xFormalsOf <- function (fn) {
 	} else {
 		as.list( formals(fn) )
 	}
-}
+})

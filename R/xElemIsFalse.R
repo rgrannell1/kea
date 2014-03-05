@@ -24,19 +24,20 @@
 #' @rdname xElemIsFalse
 #' @export
 
-xElemIsFalse <- function (coll) {
+xElemIsFalse <- MakeFun(function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection false?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	vapply(coll, function (x) {
 		identical(x, False)
 	}, logical(1), USE.NAMES = False)
-}
+})
 
 #' @rdname xElemIsFalse
 #' @export

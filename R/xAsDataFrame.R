@@ -37,16 +37,17 @@
 #'
 #' @export
 
-xAsDataFrame <- function (colls) {
+xAsDataFrame <- MakeFun(function (colls) {
 	# Collection Collection any -> data.frame any
 	# convert a collection to a data frame.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_collection(colls, invoking_call)
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 	insist $ must_be_collection_of_equal_length(colls, invoking_call)
 
 	if (length(colls) == 0) {
@@ -77,7 +78,7 @@ xAsDataFrame <- function (colls) {
 		rownames(df) <- colls_rownames
 		df
 	}
-}
+})
 
 #' @rdname xAsDataFrame
 #' @export

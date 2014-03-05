@@ -18,17 +18,18 @@
 #' @rdname xIsVariadic
 #' @export
 
-xIsVariadic <- function (fn) {
+xIsVariadic <- MakeFun(function (fn) {
 	# function -> Vector boolean
 	# is ... in fn's parametres?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
 	"..." %in% xParamsOf(fn)
 
-}
+})

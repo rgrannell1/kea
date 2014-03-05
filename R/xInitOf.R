@@ -27,15 +27,15 @@
 #' @rdname xInitOf
 #' @export
 
-xInitOf <- function (coll) {
+xInitOf <- MakeFun(function (coll) {
 	# Collection any -> [any]
 	# return everything but the first element of a
 	# collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0 || length(coll) == 1) {
 		list()
@@ -43,7 +43,7 @@ xInitOf <- function (coll) {
 		coll <- as.list(coll)
 		coll[-length(coll)]
 	}
-}
+})
 
 #' @rdname xInitOf
 #' @export

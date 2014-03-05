@@ -3,7 +3,7 @@
 \alias{xIsEmpty...}
 \title{xIsEmpty}
 \usage{
-xIsEmpty(val)
+xIsEmpty(coll)
 
 xIsEmpty...(...)
 }

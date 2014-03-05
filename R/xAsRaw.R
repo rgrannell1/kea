@@ -29,18 +29,18 @@
 #' @rdname xAsRaw
 #' @export
 
-xAsRaw <- function (raws) {
+xAsRaw <- MakeFun(function (raws) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(raws)
-	insist $ must_be_collection(raws, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(raws) )
+	MACRO( arrow ::: Must $ Be_Collection(raws) )
 
 	as_typed_vector(raws, 'raw')
 
-}
+})
 
 #' @rdname xAsRaw
 #' @export

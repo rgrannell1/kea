@@ -37,22 +37,22 @@
 #' @rdname xVal
 #' @export
 
-xVal <- function (sym, val) {
+xVal <- MakeFun(function (sym, val) {
 	# assign a constant value to the calling environment.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing_sym(sym)
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(sym) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
 	sym <- match.call()$sym
-	insist $ must_be_matchable(sym, invoking_call)
+	MACRO( arrow ::: Must $ Be_Matchable(sym) )
 
 	sym <- toString(sym)
 
-	insist $ must_be_unlocked(sym, parent_frame, invoking_call)
+	# check if binding is unlocked.
 
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)
-}
+})

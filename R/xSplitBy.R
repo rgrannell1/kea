@@ -32,41 +32,40 @@
 
 xSplitBy <- local({
 
-	bisect <- function (pred, coll, invoking_call) {
-		# split a collection into a head and tail
-		# using a predicate.
+	bisect <- MakeFun(function (pred, coll, invoking_call) {
+			# split a collection into a head and tail
+			# using a predicate.
 
-		try_hof({
-			for (ith in 1:(length(coll) - 1)) {
+			try_hof({
+				for (ith in 1:(length(coll) - 1)) {
 
-				is_match <- pred( coll[[ith]], coll[[ith + 1]] )
+					is_match <- pred( coll[[ith]], coll[[ith + 1]] )
 
-				insist $ must_be_logical_result(
-					is_match, pred, invoking_call)
+					MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
-				if (isTRUE(is_match)) {
+					if (isTRUE(is_match)) {
 
-					return (
-						list(
-							head(coll, ith),
-							tail(coll, -ith)) )
-				}
-			}},
-			invoking_call
-		)
+						return (
+							list(
+								head(coll, ith),
+								tail(coll, -ith)) )
+					}
+				}},
+				invoking_call
+			)
 
-		list(coll, list())
-	}
+			list(coll, list())
+		})
 
-	function (pred, coll) {
+	MakeFun(function (pred, coll) {
 
 		invoking_call <- sys.call()
 
-		insist $ must_not_be_missing(pred)
-		insist $ must_not_be_missing(coll)
+		MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+		MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-		insist $ must_be_fn_matchable(pred, invoking_call)
-		insist $ must_be_collection(coll, invoking_call)
+		MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+		MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 		pred <- match_fn(pred)
 
@@ -90,7 +89,8 @@ xSplitBy <- local({
 
 			cleaved
 		}
-	}
+	})
+
 })
 
 #' @rdname xSplitBy

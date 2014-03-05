@@ -38,18 +38,17 @@
 #' @rdname xReducer
 #' @export
 
-xReducer <- function (fn, coll) {
+xReducer <- MakeFun(function (fn, coll) {
 	# (any -> any -> any) -> Collection any -> any
 	# fold a list, starting from the left.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_not_be_missing(coll)
-
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 
@@ -83,7 +82,7 @@ xReducer <- function (fn, coll) {
 			val
 		})
 	}
-}
+})
 
 #' @rdname xReducer
 #' @export

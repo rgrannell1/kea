@@ -33,16 +33,17 @@
 #' @rdname xThread
 #' @export
 
-xThread <- function (val, fns) {
+xThread <- MakeFun(function (val, fns) {
 	# any -> .... -> any
 	# iteratively apply a value to each function in a list.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
 
-	insist $ must_be_collection(fns, invoking_call)
-	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(fns) )
+	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	for (ith in seq_along(fns)) {
 
@@ -50,7 +51,7 @@ xThread <- function (val, fns) {
 			fns[[ith]]( val ), invoking_call)
 	}
 	val
-}
+})
 
 #' @rdname xThread
 #' @export

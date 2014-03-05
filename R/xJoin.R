@@ -29,22 +29,25 @@
 #' @rdname xJoin
 #' @export
 
-xJoin <- function (colls) {
+xJoin <- MakeFun(function (colls) {
 	# Collection any coll -> [any]
 	# Concatenate several collections
 	# into one list.
 
 	invoking_call <- sys.call()
 
-	insist $ must_be_collection(colls, invoking_call)
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	if (length(colls) == 0) {
 		list()
 	} else {
 		as.list(do.call(c, colls))
 	}
-}
+})
 
 #' @rdname xJoin
 #' @export

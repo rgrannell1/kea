@@ -22,15 +22,16 @@
 #' @rdname xToLines
 #' @export
 
-xToLines <- function (str) {
+xToLines <- MakeFun(function (str) {
 	# str -> Vector str
 	# split str at every newline, returning
 	# a character vector of equal or greater length.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
-	insist $ must_be_collection(str, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+
+	MACRO( arrow ::: Must $ Be_Collection(str) )
 
 	str <- as_typed_vector(str, 'character')
 
@@ -40,4 +41,4 @@ xToLines <- function (str) {
 		lines <- strsplit(str, split = "\n+")[[1]]
 		lines[nchar(lines) > 0]
 	}
-}
+})

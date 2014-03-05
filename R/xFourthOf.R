@@ -25,19 +25,19 @@
 #' @rdname xFourthOf
 #' @export
 
-xFourthOf <- function (coll) {
+xFourthOf <- MakeFun(function (coll) {
 	# Collection any -> any
 	# return the fourth element of a collection x.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
-	insist $ must_be_longer_than(coll, 4, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( arrow ::: Must $ Be_Longer_Than(3, coll) )
 
 	coll[[4]]
-}
+})
 
 #' @rdname xFourthOf
 #' @export

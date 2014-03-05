@@ -40,19 +40,18 @@
 #' @rdname xReject
 #' @export
 
-xReject <- function (pred, coll) {
+xReject <- MakeFun(function (pred, coll) {
 	# (a -> boolean) -> Collection a -> [a]
 	# returns collection[i] such that
 	# pred(collection[i]) is false
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_not_be_missing(coll)
-
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -66,7 +65,7 @@ xReject <- function (pred, coll) {
 
 		as.list( coll[is.na(ind) | !ind ] )
 	}
-}
+})
 
 #' @rdname xReject
 #' @export

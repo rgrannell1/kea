@@ -28,17 +28,17 @@
 #' @rdname xPoll
 #' @export
 
-xPoll <- function (pred, coll) {
+xPoll <- MakeFun(function (pred, coll) {
 	# (any -> logical) -> Collection any -> integer
 	# return the number of elements for which a predicate is true.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -53,7 +53,7 @@ xPoll <- function (pred, coll) {
 
 				is_match <- pred( coll[[ith]] )
 
-				insist $ must_be_logical_result(is_match, pred, invoking_call)
+				MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
 				if (isTRUE(is_match)) {
 					count <- count + 1
@@ -64,7 +64,7 @@ xPoll <- function (pred, coll) {
 
 		count
 	}
-}
+})
 
 #' @rdname xPoll
 #' @export

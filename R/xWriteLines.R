@@ -23,20 +23,21 @@
 #' @rdname xWriteLines
 #' @export
 
-xWriteLines <- function (str, strs) {
+xWriteLines <- MakeFun(function (str, strs) {
 	# string -> strings
 	# write character lines .
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
 
-	insist $ must_be_collection(str, invoking_call)
-	insist $ must_be_collection(strs, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( arrow ::: Must $ Be_Collection(strs) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 	strs <- unit_to_value(as_typed_vector(strs, "character"))
 
 	writeLines(strs, str, sep = "\n")
 	invisible (Null)
-}
+})

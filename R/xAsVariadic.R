@@ -29,15 +29,16 @@
 #' @rdname xAsVariadic
 #' @export
 
-xAsVariadic <- function (fn) {
+xAsVariadic <- MakeFun(function (fn) {
 	# (a -> b) -> (... -> b)
 	# Return a variadic function that passes its arguments
 	# as a list to its underlying function.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
@@ -46,4 +47,4 @@ xAsVariadic <- function (fn) {
 		""
 		fn(list(...))
 	}
-}
+})

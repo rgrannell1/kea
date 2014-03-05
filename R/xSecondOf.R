@@ -29,19 +29,19 @@
 #' @rdname xSecondOf
 #' @export
 
-xSecondOf <- function (coll) {
+xSecondOf <- MakeFun(function (coll) {
 	# Collection any -> any
 	# return the second element of a collection x.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
-	insist $ must_be_longer_than(coll, 2, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( arrow ::: Must $ Be_Longer_Than(1, coll) )
 
 	coll[[2]]
-}
+})
 
 #' @rdname xSecondOf
 #' @export

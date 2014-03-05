@@ -51,21 +51,22 @@
 #' @rdname xChop
 #' @export
 
-xChop <- function (num, coll) {
+xChop <- MakeFun(function (num, coll) {
 	# integer -> Collection any -> [[any]]
 	# chop a collection into several collections.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(num, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_grequal_than(num, 0, invoking_call)
-	insist $ must_be_whole(num, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Between(num, 1, Inf))
+	MACRO( arrow ::: Must $ Be_Whole(num) )
 
 	if (length(coll) == 0) {
 		list()
@@ -91,7 +92,7 @@ xChop <- function (num, coll) {
 
 		chopped
 	}
-}
+})
 
 #' @rdname xChop
 #' @export

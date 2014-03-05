@@ -27,22 +27,23 @@
 #' @rdname xAtCol
 #' @export
 
-xAtCol <- function (num, colls) {
+xAtCol <- MakeFun(function (num, colls) {
 	# number -> Collection Collection any -> Collection any
 	# select a column of numbers.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
 	if (length(colls) == 0) {
 		list()
 	} else {
 
-		insist $ must_be_collection_of_collections(colls, invoking_call)
+		MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 		insist $ must_be_collections_of_length_grequal_than(
 			colls, num, invoking_call  )
 
@@ -50,7 +51,7 @@ xAtCol <- function (num, colls) {
 			coll[[num]]
 		})
 	}
-}
+})
 
 #' @rdname xAtCol
 #' @export

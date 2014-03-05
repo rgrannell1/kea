@@ -19,16 +19,17 @@
 #' @rdname xToChars
 #' @export
 
-xToChars <- function (str) {
+xToChars <- MakeFun(function (str) {
 	# str -> Vector str
 	# split str at every character, returning
 	# a character vector of equal or greater length.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
 
-	insist $ must_be_collection (str, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+
 	str <- as_typed_vector(str, 'character')
 
 	if (length(str) == 0 || nchar(str) == 0) {
@@ -37,4 +38,4 @@ xToChars <- function (str) {
 		chars <- strsplit(str, "")[[1]]
 		chars[nchar(chars) > 0]
 	}
-}
+})

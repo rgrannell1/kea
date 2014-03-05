@@ -28,14 +28,14 @@
 #' @rdname xAsLogical
 #' @export
 
-xAsLogical <- function (bools) {
+xAsLogical <- MakeFun(function (bools) {
 	# Collection logical -> Vector logical
 	# convert a collection to a logical vector.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(bools)
-	insist $ must_be_collection(bools, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(bools) )
+	MACRO( arrow ::: Must $ Be_Collection(bools) )
 
 	bools <- as_typed_vector(bools, 'logical')
 
@@ -44,7 +44,7 @@ xAsLogical <- function (bools) {
 	} else {
 		as.logical(bools)
 	}
-}
+})
 
 #' @rdname xAsLogical
 #' @export

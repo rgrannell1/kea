@@ -41,19 +41,21 @@
 #' @rdname xPermute
 #' @export
 
-xPermute <- function (nums, colls) {
+xPermute <- MakeFun(function (nums, colls) {
 	# Vector integer -> [[any]] -> [[any]]
 	# Permute several collections using indices.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 
-	insist $ must_be_collection(colls, invoking_call)
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 	insist $ must_be_collections_of_length_matching(colls, nums, invoking_call)
 
 	if (length(nums) == 0) {
@@ -63,7 +65,7 @@ xPermute <- function (nums, colls) {
 			as.list(permutable[nums])
 		})
 	}
-}
+})
 
 #' @rdname xPermute
 #' @export

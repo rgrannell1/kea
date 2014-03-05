@@ -25,13 +25,13 @@
 #' @rdname xNotNull
 #' @export
 
-xNotNull <- function (val) {
+xNotNull <- MakeFun(function (val) {
 	# any -> boolean
 	# test if a value is na
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(val)
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
 	!is.null(val)
-}
+})

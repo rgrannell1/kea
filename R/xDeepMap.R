@@ -29,18 +29,18 @@
 #' @rdname xDeepMap
 #' @export
 
-xDeepMap <- function (fn, coll) {
+xDeepMap <- MakeFun(function (fn, coll) {
 	# (any -> any) -> Recursive any -> [any]
 	# Map a function into a nested collection,
 	# preserving its structure.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(coll, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 
@@ -56,7 +56,7 @@ xDeepMap <- function (fn, coll) {
 
 	try_hof(
 		recur(as.list(coll)), invoking_call)
-}
+})
 
 #' @rdname xDeepMap
 #' @export

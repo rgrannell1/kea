@@ -23,14 +23,16 @@
 #' @rdname xReadLines
 #' @export
 
-xReadChars <- function (str) {
+xReadChars <- MakeFun(function (str) {
 	# string -> string
 	# read a file by characters.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
-	insist $ must_be_collection(str, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+
+	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( arrow ::: Must $ Be_File(str) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 
@@ -42,4 +44,4 @@ xReadChars <- function (str) {
 
 		chars[nchar(chars) > 0]
 	}
-}
+})

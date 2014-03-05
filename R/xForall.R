@@ -65,19 +65,19 @@
 #' @rdname xForall
 #' @export
 
-xForall <- function (pred, colls) {
+xForall <- MakeFun(function (pred, colls) {
 	# does there not exist any choice of bindings for
 	# pred such that pred is false?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
-    insist $ must_be_collection(colls, invoking_call)
-    insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	pred <- match_fn(pred)
 
@@ -109,7 +109,7 @@ xForall <- function (pred, colls) {
 				do.call(pred, tuple),
 				invoking_call)
 
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
+			MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
 			if (!isTRUE(is_match)) {
 				return (False)
@@ -117,7 +117,7 @@ xForall <- function (pred, colls) {
 		}
 		True
 	}
-}
+})
 
 #' @rdname xForall
 #' @export

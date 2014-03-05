@@ -47,13 +47,15 @@
 #' @rdname xJuxtapose
 #' @export
 
-xJuxtapose <- function (fns) {
+xJuxtapose <- MakeFun(function (fns) {
 	# Recursive fns -> function
 
 	invoking_call <- sys.call()
 
-	insist $ must_be_collection(fns, invoking_call)
-	insist $ must_be_collection_of_fn_matchable(fns, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
+
+	MACRO( arrow ::: Must $ Be_Collection(fns) )
+	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	fns <- lapply(fns, match_fn)
 
@@ -71,7 +73,7 @@ xJuxtapose <- function (fns) {
 				invoking_call)
 		}
 	}
-}
+})
 
 #' @rdname xJuxtapose
 #' @export

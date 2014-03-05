@@ -49,17 +49,17 @@
 #' @rdname xSortBy
 #' @export
 
-xSortBy <- function (pred, coll) {
+xSortBy <- MakeFun(function (pred, coll) {
 	#' (a -> b -> boolean) -> Collection any -> [any]
 	#' sort a collection using a comparison function.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -95,7 +95,7 @@ xSortBy <- function (pred, coll) {
 
 		as.list(coll)
 	}
-}
+})
 
 #' @rdname xSortBy
 #' @export

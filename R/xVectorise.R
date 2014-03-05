@@ -35,14 +35,15 @@
 #' @rdname xVectorise
 #' @export
 
-xVectorise <- function (fn) {
+xVectorise <- MakeFun(function (fn) {
 	# (any -> any) -> ([any] -> [any])
 	# shorthand for partially applying map.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
@@ -54,7 +55,7 @@ xVectorise <- function (fn) {
 		try_hof(
 			xMap(fn, coll), invoking_call)
 	}
-}
+})
 
 #' @rdname xVectorise
 #' @export

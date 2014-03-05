@@ -31,19 +31,18 @@
 #' @rdname xMapply
 #' @export
 
-xMapply <- function (fn, colls) {
+xMapply <- MakeFun(function (fn, colls) {
 	# map over a collection, applying each
 	# function with each tuple.
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	insist $ must_not_be_missing(fn)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_not_be_missing(colls)
-
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
 
 	fn <- match_fn(fn)
 	if (length(colls) == 0) {
@@ -58,7 +57,7 @@ xMapply <- function (fn, colls) {
 		})
 
 	}
-}
+})
 
 #' @rdname xMapply
 #' @export

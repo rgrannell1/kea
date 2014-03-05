@@ -38,18 +38,20 @@
 #' @rdname xDelay
 #' @export
 
-xDelay <- function (fn, num) {
+xDelay <- MakeFun(function (fn, num) {
 	# function -> number -> function
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(num)
-	insist $ must_be_fn_matchable(fn, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(num) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_grequal_than(num, 0, invoking_call)
+	MACRO( arrow ::: Must $ Be_Between(num, 0, Inf))
 
 	fn <- match_fn(fn)
 	remove(invoking_call)
@@ -68,4 +70,4 @@ xDelay <- function (fn, num) {
 			})
 		))
 	}
-}
+})

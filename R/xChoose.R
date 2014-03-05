@@ -37,24 +37,23 @@
 #' @rdname xChoose
 #' @export
 
-xChoose <- function (num, coll) {
+xChoose <- MakeFun(function (num, coll) {
 	# number -> Collection anyf
 	# generate all ways of choosing several
 	# elements from a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(num)
+	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_not_be_missing(coll)
-
-	insist $ must_be_collection(num, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	insist $ must_be_whole(num, invoking_call)
-	insist $ must_be_grequal_than(num, 0, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(num) )
+	MACRO( arrow ::: Must $ Be_Between(num, 0, Inf))
 
 	if (num == 0) {
 		list()
@@ -69,7 +68,7 @@ xChoose <- function (num, coll) {
 		num <- min(length(coll), num)
 		apply(combn(coll, num), 2, as.list)
 	}
-}
+})
 
 #' @rdname xChoose
 #' @export

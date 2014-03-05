@@ -64,17 +64,20 @@
 #' @rdname xExists
 #' @export
 
-xExists <- function (pred, colls) {
+xExists <- MakeFun(function (pred, colls) {
 	# (... -> logical) -> Collection Collection any -> boolean
 	# does there exist any choice of bindings for
 	# pred such that pred is true?
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-    insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
+
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	pred <- match_fn(pred)
 
@@ -105,7 +108,7 @@ xExists <- function (pred, colls) {
 
 			is_match <- try_hof(do.call(pred, tuple), invoking_call)
 
-			insist $ must_be_logical_result(is_match, pred, invoking_call)
+			MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
 
 			if (isTRUE(is_match)) {
 				return (True)
@@ -113,7 +116,7 @@ xExists <- function (pred, colls) {
 		}
 		False
 	}
-}
+})
 
 #' @rdname xExists
 #' @export

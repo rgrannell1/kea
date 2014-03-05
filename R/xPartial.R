@@ -47,20 +47,22 @@
 #' @rdname xPartial
 #' @export
 
-xPartial <- function (fn, coll) {
+xPartial <- MakeFun(function (fn, coll) {
 	# function -> recursive any -> any
 	# partially apply a function.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
-	insist $ must_be_parametres_of(names(coll), fn, invoking_call)
+	names_of_coll <- names(coll)
+
+	MACRO( arrow ::: Must $ Be_Parametres_Of(names_of_coll, fn) )
 
 	names(coll) <- local({
 
@@ -104,7 +106,7 @@ xPartial <- function (fn, coll) {
 			})
 		))
 	}
-}
+})
 
 #' @rdname xPartial
 #' @export

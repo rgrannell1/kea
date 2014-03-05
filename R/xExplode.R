@@ -32,19 +32,20 @@
 #' @rdname xExplode
 #' @export
 
-xExplode <- function (rexp, str) {
+xExplode <- MakeFun(function (rexp, str) {
 	# Vector string -> Vector string -> Vector str
 	# split a str into substrs at a rexp.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(rexp)
-	insist $ must_not_be_missing(str)
+	MACRO( arrow ::: Must $ Not_Be_Missing(rexp) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+
+	MACRO( arrow ::: Must $ Be_Collection(rexp) )
+	MACRO( arrow ::: Must $ Be_Collection(str) )
 
 	str <- as_atom(str, "character")
 	rexp <- unit_to_value(as_atom(rexp, "character"))
-
-	insist $ must_be_of_length(str, 0:1, invoking_call)
 
 	if (length(str) == 0) {
 		character(0)
@@ -54,7 +55,7 @@ xExplode <- function (rexp, str) {
 		exploded <- strsplit(str, rexp)[[1]]
 		exploded[nchar(exploded) > 0]
 	}
-}
+})
 
 #' @rdname xExplode
 #' @export

@@ -27,14 +27,15 @@
 #' @rdname xRankOf
 #' @export
 
-xRankOf <- function (nums) {
+xRankOf <- MakeFun(function (nums) {
 	# Collection numbers -> Vector numbers
 	# Rank numbers in order of size.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
-	insist $ must_be_collection(nums, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 
@@ -43,7 +44,7 @@ xRankOf <- function (nums) {
 	} else {
 		as.integer(rank(nums, ties.method = 'first'))
 	}
-}
+})
 
 #' @rdname xRankOf
 #' @export

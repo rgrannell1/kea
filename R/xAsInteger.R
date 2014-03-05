@@ -34,25 +34,25 @@
 #' @rdname xAsInteger
 #' @export
 
-xAsInteger <- function (nums) {
+xAsInteger <- MakeFun(function (nums) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(nums)
-	insist $ must_be_collection(nums, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( arrow ::: Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'integer')
 
-	insist $ must_be_whole(nums, invoking_call)
+	MACRO( arrow ::: Must $ Be_Whole(nums) )
 
 	if (length(nums) == 0) {
 		integer(0)
 	} else {
 		as.integer(nums)
 	}
-}
+})
 
 #' @rdname xAsInteger
 #' @export

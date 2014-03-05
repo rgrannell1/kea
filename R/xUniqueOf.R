@@ -27,21 +27,22 @@
 #' @rdname xUniqueOf
 #' @export
 
-xUniqueOf <- function (coll) {
+xUniqueOf <- MakeFun(function (coll) {
 	# Collection any -> Collection any
 	# remove duplicated values from a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
 	} else {
 		as.list(unique(coll))
 	}
-}
+})
 
 #' @rdname xUniqueOf
 #' @export

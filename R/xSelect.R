@@ -40,18 +40,18 @@
 #' @rdname xSelect
 #' @export
 
-xSelect <- function (pred, coll) {
+xSelect <- MakeFun(function (pred, coll) {
 	# (any -> boolean) -> Collection any -> [any]
 	# returns coll[i] such that
 	# pred(coll[i]) is true
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(pred)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(pred, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -65,7 +65,7 @@ xSelect <- function (pred, coll) {
 
 		as.list( coll[ !is.na(ind) & ind ] )
 	}
-}
+})
 
 #' @rdname xSelect
 #' @export

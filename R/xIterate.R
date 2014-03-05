@@ -44,18 +44,16 @@
 #' @rdname xIterate
 #' @export
 
-xIterate <- function (fn, val) {
+xIterate <- MakeFun(function (fn, val) {
 	# (any -> any) -> any
 	# iterate until higher-order returned.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
 
-	insist $ must_not_be_missing(val)
-
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_non_primitive(fn, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 
@@ -69,4 +67,4 @@ xIterate <- function (fn, val) {
 		try_hof({repeat val <- fn(val)}, invoking_call)
 
 	})
-}
+})

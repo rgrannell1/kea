@@ -49,18 +49,18 @@
 #' @rdname xFlatMap
 #' @export
 
-xFlatMap <- function (fn, coll) {
+xFlatMap <- MakeFun(function (fn, coll) {
 	# (any -> [any]) -> Collection any -> [any]
 	# map unary over collection, and collate the
 	# results using concatenation.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(fn)
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_fn_matchable(fn, invoking_call)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 
@@ -71,7 +71,7 @@ xFlatMap <- function (fn, coll) {
 			as.list( do.call(c, lapply(coll, fn)) ),
 			invoking_call)
 	}
-}
+})
 
 #' @rdname xFlatMap
 #' @export

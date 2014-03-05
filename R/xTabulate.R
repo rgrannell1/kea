@@ -39,14 +39,15 @@
 #' @rdname xTabulate
 #' @export
 
-xTabulate <- function (coll) {
+xTabulate <- MakeFun(function (coll) {
 	# Collection any -> Collection any
 	# tabulate a collection into tuples of value: frequency
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
@@ -79,7 +80,7 @@ xTabulate <- function (coll) {
 		}
 		pairs
 	}
-}
+})
 
 #' @rdname xTabulate
 #' @export

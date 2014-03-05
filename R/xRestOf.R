@@ -26,23 +26,23 @@
 #' @rdname xRestOf
 #' @export
 
-xRestOf <- function (coll) {
+xRestOf <- MakeFun(function (coll) {
 	# Collection a -> [a]
 	# return everything but the first element of a
 	# collection x.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) < 2) {
 		list()
 	} else {
 		as.list( coll[-1] )
 	}
-}
+})
 
 #' @rdname xRestOf
 #' @export

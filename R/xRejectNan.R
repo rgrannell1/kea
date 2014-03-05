@@ -25,15 +25,15 @@
 #' @rdname xRejectNan
 #' @export
 
-xRejectNan <- function (coll) {
+xRejectNan <- MakeFun(function (coll) {
 	# Collection any -> [any]
 	# remove the nan values from a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(coll)
+	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
 
-	insist $ must_be_collection(coll, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
@@ -42,7 +42,7 @@ xRejectNan <- function (coll) {
 		coll[is.nan(coll)] <- Null
 		coll
 	}
-}
+})
 
 #' @rdname xPoll
 #' @export

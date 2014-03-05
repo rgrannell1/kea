@@ -29,15 +29,15 @@
 #' @rdname xProdSetOf
 #' @export
 
-xProdSetOf <- function (colls) {
+xProdSetOf <- MakeFun(function (colls) {
 	# set the cartesian product of n collections
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(colls)
+	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
 
-	insist $ must_be_collection(colls, invoking_call)
-	insist $ must_be_collection_of_collections(colls, invoking_call)
+	MACRO( arrow ::: Must $ Be_Collection(colls) )
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	coll_lengths <- vapply(colls, length, integer(1))
 
@@ -66,7 +66,7 @@ xProdSetOf <- function (colls) {
 		}
 		tuples
 	}
-}
+})
 
 #' @rdname xProdSetOf
 #' @export

@@ -22,14 +22,15 @@
 #' @rdname xGetKey
 #' @export
 
-xGetKey <- function (str) {
+xGetKey <- MakeFun(function (str) {
 	# Vector string -> (Collection -> [any])
 	# Return a function that selects a key from a collection.
 
 	invoking_call <- sys.call()
 
-	insist $ must_not_be_missing(str)
-	insist $ must_be_collection(str, invoking_call)
+	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+
+	MACRO( arrow ::: Must $ Be_Collection(str) )
 
 	str <- unit_to_value(as_atom(str, 'character'))
 
@@ -38,4 +39,4 @@ xGetKey <- function (str) {
 		""
 		coll[[str]]
 	}
-}
+})
