@@ -1213,13 +1213,13 @@ Must <- local({
 
 			bquote({
 
-				all_match <- all( vapply( .(COLLS) , function (coll) {
+				all_elems_are_collection <- all( vapply( .(COLLS) , function (coll) {
 
 					is.atomic(coll) || is.list(coll) || is.pairlist(coll)
 
 				}, logical(1)) )
 
-				if (!all_match) {
+				if (!all_elems_are_collection) {
 
 					message <-
 						"the argument matching " %+% ddquote( .(COLLS) ) %+%

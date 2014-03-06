@@ -43,6 +43,7 @@ xMapply <- MakeFun(function (fn, colls) {
 
 	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
 	MACRO( arrow ::: Must $ Be_Collection(colls) )
+	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
 
 	fn <- match_fn(fn)
 	if (length(colls) == 0) {

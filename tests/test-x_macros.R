@@ -59,6 +59,16 @@ fns $ xMapply((fn_name : fn) := {
 			!grepl(pattern, body_text)
 		})
 
+	missing_colls <-
+		x_(xParamsOf(fn)) $
+		xSelect(param := param %in% "colls") $
+		x_Any(param := {
+
+			pattern <- "all_elems_are_collection"
+
+			!grepl(pattern, body_text)
+		})
+
 	if (missing_missing)  {
 		stop("no missing macro detected in ", fn_name)
 	}
@@ -70,5 +80,10 @@ fns $ xMapply((fn_name : fn) := {
 	if (xIsTrue(missing_coll)) {
 		stop("no coll macro detected in ", fn_name)
 	}
+
+	if (xIsTrue(missing_colls)) {
+		stop("no coll of coll macro detected in ", fn_name)
+	}
+
 }) $
 xK()
