@@ -23,4 +23,4 @@ inst/vignettes/arrow.Rnw
 .gitignore
 .Rproj.user
 .git
-.travis.yaml
+.travis.yml
