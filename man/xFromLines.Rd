@@ -30,7 +30,7 @@ Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xExplode...}}; \code{\link{xFromChars}},
 \code{\link{xFromChars...}}; \code{\link{xFromWords}},
 \code{\link{xFromWords...}}; \code{\link{xImplode}},
-\code{\link{xImplode...}}; \code{\link{xReadChars}},
+\code{\link{xImplode...}}; \code{\link{xReadChars}};
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToChars}}; \code{\link{xToLines}};

@@ -14,6 +14,10 @@ fn1 \%of\% fn2
 fn1 \%then\% fn2
 }
 \arguments{
+  \item{fn1}{a function.}
+
+  \item{fn2}{a function.}
+
   \item{fns}{a collection of functions. The functions to
   compose with each other.}
 

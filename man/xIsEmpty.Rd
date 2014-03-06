@@ -8,8 +8,8 @@ xIsEmpty(coll)
 xIsEmpty...(...)
 }
 \arguments{
-  \item{val}{an arbitrary value. A value to check for being
-  length zero.}
+  \item{coll}{a collection. The collection to test for
+  being length zero.}
 
   \item{...}{see above.}
 }

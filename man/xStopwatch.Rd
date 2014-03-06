@@ -23,7 +23,7 @@ NULL
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
 \code{\link{xDo}}, \code{\link{xDo...}};
-\code{\link{xExecute}}; \code{\link{xReadChars}},
+\code{\link{xExecute}}; \code{\link{xReadChars}};
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xVersion}}; \code{\link{xWriteChars}};
 \code{\link{xWriteLines}}; \code{\link{xWriteWords}}

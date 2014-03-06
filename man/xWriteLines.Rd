@@ -24,7 +24,7 @@ NULL
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
 \code{\link{xDo}}, \code{\link{xDo...}};
-\code{\link{xExecute}}; \code{\link{xReadChars}},
+\code{\link{xExecute}}; \code{\link{xReadChars}};
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xStopwatch}}; \code{\link{xVersion}};
 \code{\link{xWriteChars}}; \code{\link{xWriteWords}}
@@ -34,7 +34,7 @@ Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
 \code{\link{xFromWords...}}; \code{\link{xImplode}},
-\code{\link{xImplode...}}; \code{\link{xReadChars}},
+\code{\link{xImplode...}}; \code{\link{xReadChars}};
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xSubstring}}, \code{\link{xSubstring...}};
 \code{\link{xToChars}}; \code{\link{xToLines}};

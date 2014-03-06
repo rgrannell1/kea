@@ -39,7 +39,7 @@ Other text_processing_functions: \code{\link{xExplode}},
 \code{\link{xFromChars...}}; \code{\link{xFromLines}},
 \code{\link{xFromLines...}}; \code{\link{xFromWords}},
 \code{\link{xFromWords...}}; \code{\link{xImplode}},
-\code{\link{xImplode...}}; \code{\link{xReadChars}},
+\code{\link{xImplode...}}; \code{\link{xReadChars}};
 \code{\link{xReadLines}}; \code{\link{xReadWords}};
 \code{\link{xToChars}}; \code{\link{xToLines}};
 \code{\link{xToWords}}; \code{\link{xWriteChars}};

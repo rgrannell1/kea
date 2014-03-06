@@ -180,4 +180,5 @@ Collate:
     'xAtCol.R'
     'xAll.R'
     'xAny.R'
+    'xWhere.R'
     'x_.R'

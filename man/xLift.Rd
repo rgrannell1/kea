@@ -14,6 +14,10 @@ fn1 \%or\% fn2
 fn1 \%and\% fn2
 }
 \arguments{
+  \item{fn1}{a function.}
+
+  \item{fn2}{a function.}
+
   \item{fn}{a binary function.}
 
   \item{fns}{a collection functions.}

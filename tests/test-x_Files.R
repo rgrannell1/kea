@@ -4,6 +4,7 @@ assert <- arrow:::assert
 test_cases <- arrow:::test_cases
 
 write_error <- arrow:::write_error
+wail <- arrow:::wail
 
 require(arrow)
 

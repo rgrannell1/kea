@@ -15,6 +15,8 @@ A function that always returns true.
 }
 \examples{
 
+NULL
+
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},

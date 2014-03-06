@@ -1406,6 +1406,12 @@ x_coll_proto <- local({
 
  	# -------- V ------- #
 	# -------- W ------- #
+	# --- xWhere --- #
+	add_x_method(this, xWhere, 'bools')
+	add_x_method(this, xWhere..., '...')
+	add_x_method(this, x_Where, 'bools')
+	add_x_method(this, x_Where..., '...')
+
 	# --- xWriteChars --- #
 	add_x_method(this, xWriteChars, 'str')
 	add_x_method(this, x_WriteChars, 'str')
