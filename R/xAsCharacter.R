@@ -36,8 +36,8 @@ xAsCharacter <- MakeFun(function (strs) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
-	MACRO( arrow ::: Must $ Be_Collection(strs) )
+	MACRO( Must $ Not_Be_Missing(strs) )
+	MACRO( Must $ Be_Collection(strs) )
 
 	as_typed_vector(strs, 'character')
 })

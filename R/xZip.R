@@ -59,16 +59,16 @@ xZip <- MakeFun(function (colls) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+	MACRO( Must $ Not_Be_Missing(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Collection(colls) )
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {
 		list()
 	} else {
 
-		MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
-		MACRO( arrow ::: Must $ Be_Collection_Of_Equal_Length(colls) )
+		MACRO( Must $ Be_Collection_Of_Collections(colls) )
+		MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )
 
 		lapply(
 			seq_along( colls[[1]] ),

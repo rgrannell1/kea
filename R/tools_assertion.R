@@ -1605,6 +1605,8 @@ ddquote <- function (SYM) {
 
 MakeFun <- function (expr) {
 
+	parent_frame <- parent.frame()
+
 	unquote <- function (inner) {
 
 		if (is.pairlist(inner)) {
@@ -1612,11 +1614,11 @@ MakeFun <- function (expr) {
 		} else if (length(inner) <= 1L) {
 			inner
 		} else if (inner[[1L]] == as.name("MACRO")) {
-			eval(inner[[2L]], parent.frame())
+			eval(inner[[2L]], parent_frame)
 		} else {
 			as.call(lapply(inner, unquote))
 		}
 	}
 
-	eval(unquote(substitute(expr)), parent.frame())
+	eval(unquote(substitute(expr)), parent_frame)
 }

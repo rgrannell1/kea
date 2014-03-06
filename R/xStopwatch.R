@@ -27,13 +27,13 @@ xStopwatch <- MakeFun(function (num) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
+	MACRO( Must $ Not_Be_Missing(num) )
 
-	MACRO( arrow ::: Must $ Be_Collection(num) )
+	MACRO( Must $ Be_Collection(num) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	MACRO( arrow ::: Must $ Be_Between(num, 0, Inf))
+	MACRO( Must $ Be_Between(num, 0, Inf))
 
 	remove(invoking_call)
 	genesis <- Sys.time()

@@ -33,9 +33,9 @@ xRankOf <- MakeFun(function (nums) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( Must $ Not_Be_Missing(nums) )
 
-	MACRO( arrow ::: Must $ Be_Collection(nums) )
+	MACRO( Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 

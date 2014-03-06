@@ -41,15 +41,15 @@ xAsNamed <- MakeFun(function (strs, coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(strs) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Collection(strs) )
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Collection(strs) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	strs <- as_typed_vector(strs, 'character')
 
-	MACRO( arrow ::: Must $ Be_Equal_Length_To(strs, coll) )
+	MACRO( Must $ Be_Equal_Length_To(strs, coll) )
 
 	names(coll) <- strs
 	coll

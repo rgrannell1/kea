@@ -41,16 +41,16 @@ xSplitAt <- MakeFun(function (nums, coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(nums) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Collection(nums) )
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Collection(nums) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 
-	MACRO( arrow ::: Must $ Be_Whole(nums) )
-	MACRO( arrow ::: Must $ Be_Positive_Indices(nums, coll) )
+	MACRO( Must $ Be_Whole(nums) )
+	MACRO( Must $ Be_Positive_Indices(nums, coll) )
 
 	if (length(coll) == 0) {
 		list()

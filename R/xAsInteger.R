@@ -40,12 +40,12 @@ xAsInteger <- MakeFun(function (nums) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
-	MACRO( arrow ::: Must $ Be_Collection(nums) )
+	MACRO( Must $ Not_Be_Missing(nums) )
+	MACRO( Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'integer')
 
-	MACRO( arrow ::: Must $ Be_Whole(nums) )
+	MACRO( Must $ Be_Whole(nums) )
 
 	if (length(nums) == 0) {
 		integer(0)

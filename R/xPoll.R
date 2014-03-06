@@ -34,11 +34,11 @@ xPoll <- MakeFun(function (pred, coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(pred) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Fn_Matchable(pred) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	pred <- match_fn(pred)
 
@@ -53,7 +53,7 @@ xPoll <- MakeFun(function (pred, coll) {
 
 				is_match <- pred( coll[[ith]] )
 
-				MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
+				MACRO( Must $ Be_Flag(is_match, pred) )
 
 				if (isTRUE(is_match)) {
 					count <- count + 1

@@ -28,10 +28,10 @@ xReadLines <- MakeFun(function (str) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( Must $ Not_Be_Missing(str) )
 
-	MACRO( arrow ::: Must $ Be_Collection(str) )
-	MACRO( arrow ::: Must $ Be_File(str) )
+	MACRO( Must $ Be_Collection(str) )
+	MACRO( Must $ Be_File(str) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 

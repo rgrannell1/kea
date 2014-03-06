@@ -78,10 +78,10 @@ xCompose <- MakeFun(function (fns) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
+	MACRO( Must $ Not_Be_Missing(fns) )
 
-	MACRO( arrow ::: Must $ Be_Collection(fns) )
-	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
+	MACRO( Must $ Be_Collection(fns) )
+	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	fns <- lapply(fns, match_fn)
 

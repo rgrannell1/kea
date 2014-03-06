@@ -37,8 +37,8 @@ xAsComplex <- MakeFun(function (ims) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(ims) )
-	MACRO( arrow ::: Must $ Be_Collection(ims) )
+	MACRO( Must $ Not_Be_Missing(ims) )
+	MACRO( Must $ Be_Collection(ims) )
 
 	as_typed_vector(ims, 'complex')
 })

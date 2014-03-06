@@ -38,16 +38,16 @@ xSubstring <- MakeFun(function (str, nums) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
+	MACRO( Must $ Not_Be_Missing(str) )
+	MACRO( Must $ Not_Be_Missing(nums) )
 
-	MACRO( arrow ::: Must $ Be_Collection(str) )
-	MACRO( arrow ::: Must $ Be_Collection(nums) )
+	MACRO( Must $ Be_Collection(str) )
+	MACRO( Must $ Be_Collection(nums) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")
 
-	MACRO( arrow ::: Must $ Be_Whole(nums) )
+	MACRO( Must $ Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)

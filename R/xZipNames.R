@@ -40,12 +40,12 @@ xZipNames <- MakeFun(function (colls) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+	MACRO( Must $ Not_Be_Missing(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection(colls) )
-	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
+	MACRO( Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
+	MACRO( Must $ Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
 
 	if (length(colls) == 0) {
 		list()
@@ -57,7 +57,7 @@ xZipNames <- MakeFun(function (colls) {
 
 				key <- as_typed_vector(coll[[1]], "character")
 
-				MACRO( arrow ::: Must $ Be_Of_Length(key, 1) )
+				MACRO( Must $ Be_Of_Length(key, 1) )
 
 				key
 			},

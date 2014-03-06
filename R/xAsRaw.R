@@ -35,8 +35,8 @@ xAsRaw <- MakeFun(function (raws) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(raws) )
-	MACRO( arrow ::: Must $ Be_Collection(raws) )
+	MACRO( Must $ Not_Be_Missing(raws) )
+	MACRO( Must $ Be_Collection(raws) )
 
 	as_typed_vector(raws, 'raw')
 

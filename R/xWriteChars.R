@@ -29,11 +29,11 @@ xWriteChars <- MakeFun(function (str, strs) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(strs) )
+	MACRO( Must $ Not_Be_Missing(str) )
+	MACRO( Must $ Not_Be_Missing(strs) )
 
-	MACRO( arrow ::: Must $ Be_Collection(str) )
-	MACRO( arrow ::: Must $ Be_Collection(strs) )
+	MACRO( Must $ Be_Collection(str) )
+	MACRO( Must $ Be_Collection(strs) )
 
 	str <- unit_to_value(as_atom(str, "character"))
 	strs <- unit_to_value(as_typed_vector(strs, "character"))

@@ -34,9 +34,9 @@ xElemNotNull <- MakeFun(function (coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		# empty pairlist - an odd corner case.

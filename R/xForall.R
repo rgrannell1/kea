@@ -71,13 +71,13 @@ xForall <- MakeFun(function (pred, colls) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(pred) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+	MACRO( Must $ Not_Be_Missing(pred) )
+	MACRO( Must $ Not_Be_Missing(colls) )
 
-	MACRO( arrow ::: Must $ Be_Fn_Matchable(pred) )
-	MACRO( arrow ::: Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Fn_Matchable(pred) )
+	MACRO( Must $ Be_Collection(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
+	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
 	pred <- match_fn(pred)
 
@@ -109,7 +109,7 @@ xForall <- MakeFun(function (pred, colls) {
 				do.call(pred, tuple),
 				invoking_call)
 
-			MACRO( arrow ::: Must $ Be_Flag(is_match, pred) )
+			MACRO( Must $ Be_Flag(is_match, pred) )
 
 			if (!isTRUE(is_match)) {
 				return (False)

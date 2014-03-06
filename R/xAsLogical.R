@@ -34,8 +34,8 @@ xAsLogical <- MakeFun(function (bools) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(bools) )
-	MACRO( arrow ::: Must $ Be_Collection(bools) )
+	MACRO( Must $ Not_Be_Missing(bools) )
+	MACRO( Must $ Be_Collection(bools) )
 
 	bools <- as_typed_vector(bools, 'logical')
 

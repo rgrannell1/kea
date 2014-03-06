@@ -31,10 +31,10 @@ xFourthOf <- MakeFun(function (coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
-	MACRO( arrow ::: Must $ Be_Longer_Than(3, coll) )
+	MACRO( Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Longer_Than(3, coll) )
 
 	coll[[4]]
 })

@@ -37,9 +37,9 @@ xAsUnary <- MakeFun(function (fn) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(fn) )
 
-	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
+	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 

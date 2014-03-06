@@ -38,12 +38,12 @@ xMapply <- MakeFun(function (fn, colls) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(colls) )
 
-	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
-	MACRO( arrow ::: Must $ Be_Collection(colls) )
-	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
+	MACRO( Must $ Be_Fn_Matchable(fn) )
+	MACRO( Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
 	fn <- match_fn(fn)
 	if (length(colls) == 0) {

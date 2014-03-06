@@ -30,9 +30,9 @@ xToWords <- MakeFun(function (str) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( Must $ Not_Be_Missing(str) )
 
-	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( Must $ Be_Collection(str) )
 
 	str <- as_typed_vector(str, 'character')
 

@@ -39,11 +39,11 @@ xMapIndexed <- MakeFun(function (fn, coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Fn_Matchable(fn) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	fn <- match_fn(fn)
 

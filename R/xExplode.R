@@ -38,11 +38,11 @@ xExplode <- MakeFun(function (rexp, str) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(rexp) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(str) )
+	MACRO( Must $ Not_Be_Missing(rexp) )
+	MACRO( Must $ Not_Be_Missing(str) )
 
-	MACRO( arrow ::: Must $ Be_Collection(rexp) )
-	MACRO( arrow ::: Must $ Be_Collection(str) )
+	MACRO( Must $ Be_Collection(rexp) )
+	MACRO( Must $ Be_Collection(str) )
 
 	str <- as_atom(str, "character")
 	rexp <- unit_to_value(as_atom(rexp, "character"))

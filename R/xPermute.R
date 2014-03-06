@@ -47,15 +47,15 @@ xPermute <- MakeFun(function (nums, colls) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(nums) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+	MACRO( Must $ Not_Be_Missing(nums) )
+	MACRO( Must $ Not_Be_Missing(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection(nums) )
-	MACRO( arrow ::: Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Collection(nums) )
+	MACRO( Must $ Be_Collection(colls) )
 
 	nums <- as_typed_vector(nums, 'numeric')
 
-	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
+	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
 	if (length(nums) == 0) {
 		list()

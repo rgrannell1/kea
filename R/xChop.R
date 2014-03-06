@@ -57,16 +57,16 @@ xChop <- MakeFun(function (num, coll) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(coll) )
+	MACRO( Must $ Not_Be_Missing(num) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( arrow ::: Must $ Be_Collection(num) )
-	MACRO( arrow ::: Must $ Be_Collection(coll) )
+	MACRO( Must $ Be_Collection(num) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	MACRO( arrow ::: Must $ Be_Between(num, 1, Inf))
-	MACRO( arrow ::: Must $ Be_Whole(num) )
+	MACRO( Must $ Be_Between(num, 1, Inf))
+	MACRO( Must $ Be_Whole(num) )
 
 	if (length(coll) == 0) {
 		list()

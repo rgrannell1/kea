@@ -43,11 +43,11 @@ xVal <- MakeFun(function (sym, val) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(sym) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(val) )
+	MACRO( Must $ Not_Be_Missing(sym) )
+	MACRO( Must $ Not_Be_Missing(val) )
 
 	sym <- match.call()$sym
-	MACRO( arrow ::: Must $ Be_Matchable(sym) )
+	MACRO( Must $ Be_Matchable(sym) )
 
 	sym <- toString(sym)
 

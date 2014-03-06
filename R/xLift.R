@@ -54,13 +54,13 @@ xLift <- MakeFun(function (fn, fns) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(fn) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(fns) )
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(fns) )
 
-	MACRO( arrow ::: Must $ Be_Fn_Matchable(fn) )
-	MACRO( arrow ::: Must $ Be_Collection(fns) )
+	MACRO( Must $ Be_Fn_Matchable(fn) )
+	MACRO( Must $ Be_Collection(fns) )
 
-	MACRO( arrow ::: Must $ Be_Collection_Of_Fn_Matchable(fns) )
+	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	fn <- match_fn(fn)
 	fns <- lapply(fns, match_fn)

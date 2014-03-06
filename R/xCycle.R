@@ -62,18 +62,18 @@ xCycle <- MakeFun(function (num, colls) {
 
 	invoking_call <- sys.call()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(num) )
-	MACRO( arrow ::: Must $ Not_Be_Missing(colls) )
+	MACRO( Must $ Not_Be_Missing(num) )
+	MACRO( Must $ Not_Be_Missing(colls) )
 
-	MACRO( arrow ::: Must $ Be_Collection(num) )
-	MACRO( arrow ::: Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Collection(num) )
+	MACRO( Must $ Be_Collection(colls) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	MACRO( arrow ::: Must $ Be_Whole(num) )
+	MACRO( Must $ Be_Whole(num) )
 
-	MACRO( arrow ::: Must $ Be_Collection_Of_Collections(colls) )
-	MACRO( arrow ::: Must $ Be_Collection_Of_Equal_Length(colls) )
+	MACRO( Must $ Be_Collection_Of_Collections(colls) )
+	MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )
 
 	if (length(colls) == 0) {
 		list()

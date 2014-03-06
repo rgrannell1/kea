@@ -35,14 +35,14 @@ xAsVal <- MakeFun(function (sym) {
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
-	MACRO( arrow ::: Must $ Not_Be_Missing(sym) )
+	MACRO( Must $ Not_Be_Missing(sym) )
 
 	sym <- match.call()$sym
-	MACRO( arrow ::: Must $ Be_Matchable(sym) )
+	MACRO( Must $ Be_Matchable(sym) )
 
 	sym <- toString(sym)
 
-	MACRO( arrow ::: Must $ Be_Existing_Ref(sym) )
+	MACRO( Must $ Be_Existing_Ref(sym) )
 
 	lockBinding(sym, parent_frame)
 })
