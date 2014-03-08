@@ -151,9 +151,11 @@ assert <- local({
 		if (!is.logical(expr)) {
 			# the assertion was broken.
 
-			write_error(
-				yelp$non_logical_assertion(expr),
-				call. = False)
+			message <-
+				"internal error: the assertion " %+% ddparse(expr) %+%
+				" produced a non-logical value."
+
+			write_error(message, call. = False)
 
 		} else if (!isTRUE(expr)) {
 			# everythings went wrong, throw an error.

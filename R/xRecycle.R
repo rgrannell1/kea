@@ -56,7 +56,7 @@ xRecycle <- MakeFun(function (colls) {
 
 		lapply(colls, function (coll) {
 
-			lapply(1:upper, function (ith) {
+			lapply(seq_len(upper), function (ith) {
 				mod_index <- ((ith - 1) %% length(coll))  + 1
 				coll[[mod_index]]
 			})

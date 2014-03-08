@@ -217,6 +217,58 @@ try_hof <- function (expr, invoking_call) {
 	)
 }
 
+try_write <- local({
+	function (expr, path, invoking_call) {
+
+		tryCatch(
+			expr,
+			warning = function (warn) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					yelp$warning_write(path, warn)
+				)
+			},
+			error = function (err) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					yelp$error_write(path, err)
+				)
+			}
+		)
+	}
+
+})
+
+try_read <- local({
+	function (expr, path, invoking_call) {
+
+		tryCatch(
+			expr,
+			warning = function (warn) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					yelp$warning_read(path, warn)
+				)
+			},
+			error = function (err) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					yelp$error_read(path, err)
+				)
+			}
+		)
+	}
+
+})
+
 # --------------------- testing & message functions --------------------- #
 
 

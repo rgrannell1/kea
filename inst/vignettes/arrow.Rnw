@@ -17,10 +17,6 @@
 \maketitle
 \tableofcontents
 
-
-
-
-
 \chapter{Introduction}
 
 This vignette covers basic usage of Arrow, as well as the design philosophy of the

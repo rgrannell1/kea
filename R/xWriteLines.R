@@ -38,6 +38,8 @@ xWriteLines <- MakeFun(function (str, strs) {
 	str <- unit_to_value(as_atom(str, "character"))
 	strs <- unit_to_value(as_typed_vector(strs, "character"))
 
-	writeLines(strs, str, sep = "\n")
+	try_write(
+		writeLines(strs, str, sep = "\n"), invoking_call)
+
 	invisible (Null)
 })

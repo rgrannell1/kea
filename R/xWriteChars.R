@@ -40,6 +40,8 @@ xWriteChars <- MakeFun(function (str, strs) {
 
 	strs <- paste0(strs, collapse = '')
 
-	writeLines(strs, str, sep = "")
+	try_write(
+		writeLines(strs, str, sep = ""), str, invoking_call)
+
 	invisible (Null)
 })

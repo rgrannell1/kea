@@ -39,8 +39,11 @@ xReadWords <- MakeFun(function (str) {
 	if (length(text) == 0) {
 		character(0)
 	} else {
+		text <- try_read(
+			readLines(str), str, invoking_call)
+
 		words <- strsplit(
-			paste0(readLines(str, warn = False), collapse = '\n'), "[ \n\t]+")[[1]]
+			paste0(text, collapse = '\n'), "[ \n\t]+")[[1]]
 
 		words[nchar(words) > 0]
 	}
