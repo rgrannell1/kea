@@ -546,12 +546,33 @@ x_data_frame_proto <- local({
 	# --- xByCols --- #
 	this$xByCols <-
 		function () {
-			x_(unname( as.list(Self()) ))
+			dims <- dim(Self())
+
+			if (dims[1] == 0 && dims[0] == 0) {
+				x_( list() )
+			} else if (dims[2] == 0) {
+				x_( list() )
+			} else if (dims[1] == 0) {
+				x_( replicate(max(dims), list()))
+			} else {
+				x_( apply(Self(), 2, as.list) )
+			}
 		}
 	this$x_ByCols <-
 		function () {
-			unname( as.list(Self()) )
+			dims <- dim(Self())
+
+			if (dims[1] == 0 && dims[0] == 0) {
+				list()
+			} else if (dims[2] == 0) {
+				list()
+			} else if (dims[1] == 0) {
+				replicate(max(dims), list())
+			} else {
+				apply(Self(), 2, as.list)
+			}
 		}
+
 	# --- xByColnames --- #
 	this$xByColnames <-
 		function () {
@@ -563,6 +584,35 @@ x_data_frame_proto <- local({
 		}
 
 	# --- xByRownames --- #
+	this$xByRows <-
+		function () {
+			dims <- dim(Self())
+
+			if (dims[1] == 0 && dims[0] == 0) {
+				x_( list() )
+			} else if (dims[1] == 0) {
+				x_( list() )
+			} else if (dims[2] == 0) {
+				x_( replicate(max(dims), list()) )
+			} else {
+				x_( apply(Self(), 1, as.list) )
+			}
+		}
+	this$x_ByRows <-
+		function () {
+			dims <- dim(Self())
+
+			if (dims[1] == 0 && dims[0] == 0) {
+				list()
+			} else if (dims[1] == 0) {
+				list()
+			} else if (dims[2] == 0) {
+				replicate(max(dims), list())
+			} else {
+				apply(Self(), 1, as.list)
+			}
+		}
+
 	this$xByRownames <-
 		function () {
 			x_( as.list( rownames(Self()) ) )
@@ -1861,10 +1911,10 @@ get_proto_ref <- local({
 			list(x_fn_proto, x_fn_members)
 		} else if (is.matrix( val )) {
 			list(x_matrix_proto, x_matrix_members)
-		} else  if (is.atomic( val ) || is.list( val ) ||is.pairlist( val )){
-			list(x_coll_proto, x_coll_members)
 		} else if (is.data.frame( val )) {
 			list(x_data_frame_proto, x_data_frame_members)
+		} else  if (is.atomic( val ) || is.list( val ) ||is.pairlist( val )){
+			list(x_coll_proto, x_coll_members)
 		} else  if (is.factor( val )) {
 			list(x_factor_proto, x_factor_members)
 		} else {

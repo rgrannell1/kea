@@ -551,8 +551,6 @@ dictate <- local({
 
 
 
-
-
 Must <- local({
 
 	this <- Object()
@@ -579,7 +577,11 @@ Must <- local({
 
 			COLL <- match.call()$COLL
 
-			bquote(if (!is.atomic( .(COLL) ) && !is.list( .(COLL) ) && !is.pairlist( .(COLL) )) {
+			bquote(if (
+					'arrow' %in% class( .(COLL) ) ||
+					!is.atomic( .(COLL) ) &&
+					!is.list( .(COLL) ) &&
+					!is.pairlist( .(COLL) )) {
 
 				message <-
 					"the argument matching " %+% ddquote( .(COLL) ) %+%
@@ -599,7 +601,8 @@ Must <- local({
 
 				all_elems_are_collection <- all( vapply( .(COLLS) , function (coll) {
 
-					is.atomic(coll) || is.list(coll) || is.pairlist(coll)
+					'arrow' %!in% class(coll) &&
+					(is.atomic(coll) || is.list(coll) || is.pairlist(coll))
 
 				}, logical(1)) )
 
@@ -625,7 +628,9 @@ Must <- local({
 
 				all_equal <-
 					length( .(COLLS) ) == 0 ||
-					all(vapply( .(COLLS), function (coll) length(coll) == length( .(COLLS)[[1]] ), logical(1)))
+					all(vapply( .(COLLS), function (coll) {
+						length(coll) == length( .(COLLS)[[1]] )
+					}, logical(1)))
 
 				if (!all_equal) {
 
