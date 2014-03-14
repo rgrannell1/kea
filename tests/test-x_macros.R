@@ -54,7 +54,7 @@ fns $ xMapply((fn_name : fn) := {
 		x_Any(param := {
 
 			pattern <- paste0(
-				"if [(][!]is[.]atomic[(]", param, "[)]")
+				"[!]is[.]atomic[(]", param, "[)]")
 
 			!grepl(pattern, body_text)
 		})
@@ -69,7 +69,7 @@ fns $ xMapply((fn_name : fn) := {
 			!grepl(pattern, body_text)
 		})
 
-	if (missing_missing)  {
+	if (xIsTrue(missing_missing))  {
 		stop("no missing macro detected in ", fn_name)
 	}
 
