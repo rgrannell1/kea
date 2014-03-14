@@ -14,4 +14,11 @@ primes(17)
 
 # list(2, 3, 5, 7, 11, 13, 17, 19)
 
-# 2.
+# 2. xList has normal lexical scoping
+
+first_name <- "Jack"
+xList[paste(first_name, middleinit, sirname), middleinit,  <- c('K', 'M'), sirname <- c("Black", "Brown", "Gray")]
+
+# list("Jack K Black", "Jack M Black",
+#      "Jack K Brown", "Jack M Brown",
+#      "Jack K Gray", "Jack M Gray")

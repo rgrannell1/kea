@@ -4,8 +4,7 @@
 #' Generate a list using set-builder notation.
 #'
 #' @details
-#'    \bold{xList} allows for shorthand construction
-#'    of lists using a form of set-builder notation.
+#'    \bold{xList} allows for shorthand construction of lists using a form of set-builder notation.
 #'    The notation typically looks like
 #'
 #'    \code{S = {2.x | x ε 1..100, x^2 > 3}}
@@ -23,7 +22,7 @@
 #'    \code{S <- xList[output expression, variable <- set, predicate expression]}
 #'
 #'    Collection comprehensions are a shorthand for several operations; taking
-#'    the \bold{set product} of several Collections, \bold{selecting} them based
+#'    the \bold{set product} of several collections, \bold{selecting} them based
 #'    on a predicate, and \bold{mapping} a function over each result.
 #'
 #'    \bold{1 The output expression}
@@ -52,12 +51,23 @@
 #'
 #'    If the final expression given to a comprehension is not a binding
 #'    expression it is treated as a predicate for selecting particular
-#'    values. This is optional.
+#'    values. This is optional. If it isn't included no elements are filtered out.
 #'
 #'    \code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
 #'
 #'    In the above pairs of a, b such that their sum is larger than
 #'    two are returned.
+#'
+#'
+#'
+#'
+#'
+#' @template
+#'    Variadic
+#'
+#' @example
+#'    inst/examples/example-xList.R
+#'
 #' @rdname xList
 #' @export
 
