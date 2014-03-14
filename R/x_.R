@@ -1011,8 +1011,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_FourthOf..., '...')
 
 	# -------- G ------- #
-	add_x_method(this, xGetKey, 'str')
-	add_x_method(this, x_GetKey, 'str')
 
 	# -------- H ------- #
 	# -------- I ------- #

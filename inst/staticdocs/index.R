@@ -242,7 +242,6 @@ sd_section(
 	),
 	c(
 		"xAsNamed",
-		"xGetKey",
 		"xPluck",
 		"xUnzipNames",
 		"xZipNames"
@@ -328,7 +327,6 @@ sd_section(
 		"xDrop",
 		"xFirstOf",
 		"xFourthOf",
-		"xGetKey",
 		"xInitOf",
 		"xLastOf",
 		"xPluck",

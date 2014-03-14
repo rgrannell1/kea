@@ -134,7 +134,6 @@ Collate:
     'xUnionOf.R'
     'xInter.R'
     'xThread.R'
-    'xGetKey.R'
     'xPluck.R'
     'xJoin.R'
     'xRepeat.R'

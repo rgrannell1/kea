@@ -53,9 +53,8 @@ x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipNames()
 }
 \seealso{
 Other key_functions: \code{\link{xAsNamed}};
-\code{\link{xGetKey}}; \code{\link{xPluck}},
-\code{\link{xPluck...}}; \code{\link{xUnzipNames}},
-\code{\link{xUnzipNames...}}
+\code{\link{xPluck}}, \code{\link{xPluck...}};
+\code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}}
 
 Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xChop...}}; \code{\link{xChunk}},

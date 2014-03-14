@@ -38,9 +38,8 @@ NULL
 }
 \seealso{
 Other key_functions: \code{\link{xAsNamed}};
-\code{\link{xGetKey}}; \code{\link{xPluck}},
-\code{\link{xPluck...}}; \code{\link{xZipNames}},
-\code{\link{xZipNames...}}
+\code{\link{xPluck}}, \code{\link{xPluck...}};
+\code{\link{xZipNames}}, \code{\link{xZipNames...}}
 
 Other reshaping_functions: \code{\link{xChop}},
 \code{\link{xChop...}}; \code{\link{xChunk}},
