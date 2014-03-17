@@ -53,32 +53,26 @@ xTabulate <- MakeFun(function (coll) {
 		list()
 	} else {
 
-		pairs <- list()
+		set <- unique(coll)
 
-		for (ith in seq_along(coll)) {
+		indices <- vapply(coll, function (elem) {
 
-			is_matched <- False
-
-			for (jth in seq_along(pairs)) {
-
-				if (identical( coll[[ith]], pairs[[jth]][[1]] )) {
-
-					pairs[[jth]][[2]] <- pairs[[jth]][[2]] + 1
-
-					# removing the element is slower, because R.
-
-					is_matched <- True
-
-					break
+			for (ith in seq_along(set)) {
+				if (identical( elem, set[[ith]] )) {
+					return(ith)
 				}
 			}
 
-			if (!is_matched) {
-				pairs <- c( pairs, list(list(coll[[ith]], 1)) )
-			}
+		}, numeric(1))
 
-		}
-		pairs
+		index_frequencies <- as.list(table(indices))
+
+		lapply(names(index_frequencies), function (ith) {
+
+			ith <- as.integer(ith)
+
+			list(set[[ith]], index_frequencies[[ith]])
+		})
 	}
 })
 
