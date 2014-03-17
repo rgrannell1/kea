@@ -17,7 +17,7 @@ primes(17)
 # 2. xList has normal lexical scoping
 
 first_name <- "Jack"
-xList[paste(first_name, middleinit, sirname), middleinit,  <- c('K', 'M'), sirname <- c("Black", "Brown", "Gray")]
+xList[paste(first_name, middleinit, sirname), middleinit <- c('K', 'M'), sirname <- c("Black", "Brown", "Gray")]
 
 # list("Jack K Black", "Jack M Black",
 #      "Jack K Brown", "Jack M Brown",

@@ -30,7 +30,7 @@ predicate expression]}
 
 Collection comprehensions are a shorthand for several
 operations; taking the \bold{set product} of several
-Collections, \bold{selecting} them based on a predicate,
+collections, \bold{selecting} them based on a predicate,
 and \bold{mapping} a function over each result.
 
 \bold{1 The output expression}
@@ -59,11 +59,38 @@ The above comprehension loosely translates as
 
 If the final expression given to a comprehension is not a
 binding expression it is treated as a predicate for
-selecting particular values. This is optional.
+selecting particular values. This is optional. If it isn't
+included no elements are filtered out.
 
 \code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
 
 In the above pairs of a, b such that their sum is larger
 than two are returned.
+}
+\examples{
+
+# 1. select prime numbers
+
+primes <- upper := {
+
+	is_prime <- num := {
+	    if (num == 2) True else min(num \%\% 2:(num - 1)) > 0
+	}
+
+	xList[num, num <- 1:upper, is_prime(num)]
+}
+
+primes(17)
+
+# list(2, 3, 5, 7, 11, 13, 17, 19)
+
+# 2. xList has normal lexical scoping
+
+first_name <- "Jack"
+xList[paste(first_name, middleinit, sirname), middleinit <- c('K', 'M'), sirname <- c("Black", "Brown", "Gray")]
+
+# list("Jack K Black", "Jack M Black",
+#      "Jack K Brown", "Jack M Brown",
+#      "Jack K Gray", "Jack M Gray")
 }
 

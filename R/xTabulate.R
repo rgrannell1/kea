@@ -51,8 +51,8 @@ xTabulate <- MakeFun(function (coll) {
 
 	if (length(coll) == 0) {
 		list()
-	} else {
-
+	} else
+{
 		set <- unique(coll)
 
 		indices <- vapply(coll, function (elem) {
@@ -71,7 +71,7 @@ xTabulate <- MakeFun(function (coll) {
 
 			ith <- as.integer(ith)
 
-			list(set[[ith]], index_frequencies[[ith]])
+			list(set[[ith]], as.numeric(index_frequencies[[ith]]) )
 		})
 	}
 })
