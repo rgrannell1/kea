@@ -1854,6 +1854,8 @@ x_fn_proto <- local({
 #'    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
 #'    anonymous function to be executed on an arrow object.
 #'
+#'    The two primary groups of methods are collection methods and function methods.
+#'
 #'    Matrices, data frames, and factors have methods for converting them to collections,
 #'    while normal Arrow functions are also available as methods for collections
 #'    and functions.
