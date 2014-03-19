@@ -18,7 +18,11 @@ Return an argument without modification.
 }
 \examples{
 
-NULL
+# 1. Identity can be useful with higher-order functions.
+
+xAll(xI, c(True, True, False))
+
+# False
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},

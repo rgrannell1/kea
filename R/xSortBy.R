@@ -73,8 +73,7 @@ xSortBy <- MakeFun(function (pred, coll) {
 			isTRUE(pred( coll[[index1]], coll[[index2]] ))
 		}
 
-		# insertion sort; a reasonable enough algorithm to use.
-		# replace with C++; in-place modification in R is rubbish.
+		# insertion sort; extremely slow.
 		for (ith in 2:length(coll)) {
 
 			jth <- ith

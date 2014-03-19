@@ -46,8 +46,12 @@ the data set, and the results are collected in a list.
 }
 \examples{
 
-NULL
+# 1. Collect several summary statistics of a dataset
+#    simultaneously.
 
+nums <- xList[c(a, a^2, a^3), a <- 1:10]
+
+x_(nums) $ x_Map(xJuxtapose...(max, mean, min))
 }
 \seealso{
 Other function_combining_functions: \code{\link{\%and\%}},

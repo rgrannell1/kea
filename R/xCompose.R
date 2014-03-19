@@ -12,7 +12,7 @@
 #'
 #' \code{(as.numeric \%then\% sqrt \%then\% print)('10')}
 #'
-#' Like methods, the order of function execution is from left to right;
+#' Like methods, the order of fwunction execution is from left to right;
 #' convert a string to a number then take the square root then print the value.
 #' The reversed form \%of\% is equally as ubiquitous.
 #'

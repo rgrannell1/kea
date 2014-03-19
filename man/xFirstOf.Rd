@@ -26,8 +26,17 @@ Return the first element of a collection.
 }
 \examples{
 
-NULL
+xFirstOf...('a', 'b', 'c')
 
+# a
+
+x_(letters) $ xFirstOf()
+
+# a
+
+xFirstOf(letters)
+
+# a, yet again
 }
 \seealso{
 Other selection_functions: \code{\link{xAtCol}},

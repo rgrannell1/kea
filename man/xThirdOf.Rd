@@ -26,8 +26,13 @@ Return the third value in a collection.
 }
 \examples{
 
-NULL
+xThirdOf(letters)
 
+# c
+
+x_(letters) $ xThirdOf()
+
+#c
 }
 \seealso{
 Other selection_functions: \code{\link{xAtCol}},

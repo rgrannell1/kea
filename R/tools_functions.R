@@ -225,18 +225,18 @@ try_write <- local({
 			warning = function (warn) {
 				apically_calling_fn <- invoking_call[[1]]
 
-				assert(
-					False, invoking_call,
-					yelp$warning_write(path, warn)
-				)
+				write_warning(
+					yelp$arrow_function_failed(
+						components$invoking, components$calltext, message),
+					call. = False)
 			},
 			error = function (err) {
 				apically_calling_fn <- invoking_call[[1]]
 
-				assert(
-					False, invoking_call,
-					yelp$error_write(path, err)
-				)
+				write_error(
+					yelp$arrow_function_failed(
+						components$invoking, components$calltext, message),
+					call. = False)
 			}
 		)
 	}

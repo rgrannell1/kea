@@ -38,7 +38,7 @@ operator;
 
 \code{(as.numeric \%then\% sqrt \%then\% print)('10')}
 
-Like methods, the order of function execution is from left
+Like methods, the order of fwunction execution is from left
 to right; convert a string to a number then take the square
 root then print the value. The reversed form \%of\% is
 equally as ubiquitous.
@@ -73,7 +73,22 @@ number of anonymous functions needed by some programs.
 }
 \examples{
 
-NULL
+# 1. Composing linear functions
+#    composing linear function 'multiplies' them,
+#    so composing x := 2x and x := 3x returns the
+#    'product' function x := 6x
+
+f <- x := 2*x
+g <- x := 3*x
+
+# h = x := 3(2*x)
+# h = x := 6*x
+
+h <- f \%then\% g
+
+h(2)
+# 12
+
 }
 \seealso{
 Other function_combining_functions: \code{\link{\%and\%}},
