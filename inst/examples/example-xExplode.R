@@ -1,3 +1,7 @@
 
-NULL
+# 1. Create a simple csv parser.
 
+from_csv <- xPartial(xExplode, '[ 	]*,[ 	]*')
+from_csv("field1, field2, field3")
+
+# c("field1, field2, field3")

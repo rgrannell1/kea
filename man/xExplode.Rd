@@ -32,8 +32,12 @@ Split a string into a character vector using a regular expression.
 }
 \examples{
 
-NULL
+# 1. Create a simple csv parser.
 
+from_csv <- xPartial(xExplode, '[ 	]*,[ 	]*')
+from_csv("field1, field2, field3")
+
+# c("field1, field2, field3")
 }
 \seealso{
 Other text_processing_functions: \code{\link{xFromChars}},

@@ -1,7 +1,7 @@
 
 #' xLift
 #'
-#' Compose a function with two other functions.
+#' Compose a function with the outputs of other functions.
 #'
 #' @details
 #'    \bold{xLift} takes a function that works on some type of value, and makes that
@@ -17,8 +17,8 @@
 #'    \code{double <- x := 2*x}
 #'    \code{triple <- x := 3*x}
 #'
-#'    \code{sexdruple <- x := double(x) + triple(x)}
-#'    \code{sexdruple <- x := '+'(double(x), triple(x))}
+#'    \code{sextuple <- x := double(x) + triple(x)}
+#'    \code{sextuple <- x := '+'(double(x), triple(x))}
 #'
 #'    This can be viewed as 'adding' the double and triple function, or composing them
 #'    with addition.
@@ -26,18 +26,18 @@
 #'    Similarily, a function to check if a value is a complex number or an integer can be
 #'    defined by
 #'
-#'    is_positive <- x := x > 0
-#'    is_whole <- x := round(x) == x
+#'    \code{is_positive <- x := x > 0}
+#'    \code{is_whole <- x := round(x) == x}
 #'
-#'    is_positive_and_whole <- x := is_positive(x) && is_whole(x)
-#'    is_positive_and_whole <- x := '&&'(is_positive(x), is_whole(x))
+#'    \code{is_positive_and_whole <- x := is_positive(x) && is_whole(x)}
+#'    \code{is_positive_and_whole <- x := '&&'(is_positive(x), is_whole(x))}
 #'
-#'    \bold{sexdruple} and \bold{is_positive_and_whole} share a common structure. They both
+#'    \bold{sextuple} and \bold{is_positive_and_whole} share a common structure. They both
 #'    have take one value, and call a binary function (plus, and) with the ouput of two other functions.
 #'
 #'    \bold{xLift} factors out this pattern, for binary functions and higher arity functions.
 #'
-#'    \code{sexdruple <- xLift...('+', double, triple)}
+#'    \code{sextuple <- xLift...('+', double, triple)}
 #'    \code{is_positive_and_whole <- xLift...('&&', is_positive, is_whole)}
 #'
 #'   Two partially applied forms of xLift are included in arrow, which are useful for cutting down

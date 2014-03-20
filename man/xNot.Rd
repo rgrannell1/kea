@@ -35,8 +35,11 @@ Return the logical negation of a function.
 }
 \examples{
 
-NULL
+# 1. Reverse a type checking predicate
 
+xSelect...(xNot(is.character), 'a', 'b', 3, 'd', 5)
+
+# list(3, 5)
 }
 \seealso{
 Other function_modifying_functions: \code{\link{\%and\%}},
