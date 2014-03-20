@@ -7,20 +7,50 @@
 #'    \bold{xLift} takes a function that works on some type of value, and makes that
 #'    function work on functions of those values.
 #'
+#'    \bold{xLift} is a fairly abstract operator, best explained by looking at examples.
+#'    The most obvious use for \bold{xLift} is to take normally binary functions like \bold{+},
+#'    and \bold{max} that take numbers, and 'lift' it to work on functions of numbers.
 #'
-#'    Two partially applied version of \bold{xLift} exist; \%and\% & \%or\%.
-#'    These are primarily intended for use with higher-order functions that take a predicate,
-#'    allowing several predicates to be stringed together into a new predicate.
+#'    A function that multiplies a number can be defined in a function that adds the output of
+#'    double that number and triple that number.
 #'
-#' \code{xSelect(is.integer %or% is.complex, list(1L, 1+1i, 2L, 'string'))}
+#'    \code{double <- x := 2*x}
+#'    \code{triple <- x := 3*x}
 #'
-#' \code{list(1L, 1+1i, 2L, 'string')}
+#'    \code{sexdruple <- x := double(x) + triple(x)}
+#'    \code{sexdruple <- x := '+'(double(x), triple(x))}
+#'
+#'    This can be viewed as 'adding' the double and triple function, or composing them
+#'    with addition.
+#'
+#'    Similarily, a function to check if a value is a complex number or an integer can be
+#'    defined by
+#'
+#'    is_positive <- x := x > 0
+#'    is_whole <- x := round(x) == x
+#'
+#'    is_positive_and_whole <- x := is_positive(x) && is_whole(x)
+#'    is_positive_and_whole <- x := '&&'(is_positive(x), is_whole(x))
+#'
+#'    \bold{sexdruple} and \bold{is_positive_and_whole} share a common structure. They both
+#'    have take one value, and call a binary function (plus, and) with the ouput of two other functions.
+#'
+#'    \bold{xLift} factors out this pattern, for binary functions and higher arity functions.
+#'
+#'    \code{sexdruple <- xLift...('+', double, triple)}
+#'    \code{is_positive_and_whole <- xLift...('&&', is_positive, is_whole)}
+#'
+#'   Two partially applied forms of xLift are included in arrow, which are useful for cutting down
+#'   on the amount of anonymous functions you need to pass to higher-order functions.
+#'
+#'   \code{xSelect(is_positive \%and\% is_whole, seq(1, 3, by = 0.1))}
+#'   \code{list(1, 2, 3)}
 #'
 #' @param
-#'    fn1 a function.
+#'    fn1 a function. The left function to compose with locical and or logical or.
 #'
 #' @param
-#'    fn2 a function.
+#'    fn2 a function. The right function to compose with locical and or logical or.
 #'
 #' @param
 #'    fn a binary function.

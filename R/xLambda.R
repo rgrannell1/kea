@@ -1,16 +1,52 @@
 
 #' xLambda
 #'
-#' Syntactic sugar for creating unary functions.
+#' Syntactic sugar for creating functions.
+#'
+#'
+#' @details
+#'     As of version 0.1.0 xLambda functions cannot have default parametres. This
+#'     may change at a later date.
+#'
+#'     The parametre expression is of the form
+#'
+#'     \code{x}
+#'
+#'     Or
+#'
+#'     \code{(x)}
+#'
+#'     Or
+#'
+#'     \code{(x : y : z)}
+#'
+#'    Due to parser limitations parametres are colon-delimited, not comma delimited. Non-unary
+#'    functions must enclose their parametres in parentheses.
+#'
+#'    The body of the function can optionally be enclosed in braces. The ':=' operator has very low
+#'    preceedence, so sometimes parametres may be necessary for the correct function to be created.
+#'
+#'    \code{x := x^2 \%then\% x := x}
+#'
+#'    is interpreted as
+#'
+#'    \code{x := {x^2 \%then\% x := x}}
+#'
+#'    . In this case
+#'
+#'    \code{(x := x^2) \%then\% (x := x)}
+#'
+#'    is required to create the correct composed function.
 #'
 #' @param
-#'    sym a parametres body.
+#'    sym a parametre expression. The parametres to bind to
+#'    to the function.
 #'
 #' @param
-#'    val a valid function body, which will be lazily evaluated.
+#'    val an expression. The body of the function.
 #'
 #' @return
-#'    Returns a unary function.
+#'    Returns a function.
 #'
 #' @example
 #'    inst/examples/example-xLambda.R

@@ -4,13 +4,15 @@
 #' Apply an anonymous function to the contents of an arrow object.
 #'
 #' @details
-#'    \bold{xTap} applies anonymous methods to arrow objects. This
-#'    serves the same purpose as anonymous functions in the base language.
+#'    \bold{xTap} applies non-arrow functions to be applied to arrow objects.
+#'    These functions can be named or unnamed. This allows base functions
+#'    or external libraries to interoperate with arrow's chaining methods.
 #'
-#'    \code{x_(letters) $ xTap(xs := length(xs) == 26)}
+#'    \code{x_(letters) $ xShuffle() $ x_Tap(sort)}
 #'
-#'    \bold{xTap} also allows useful base functions to be used by
-#'    arrow objects.
+#'    \bold{xTap} also allows the use of anonymous methods.
+#'
+#'    \code{x_(1:10) $ x_Tap(nums := all(nums > 0))}
 #'
 #' @usage
 #'      x_(  ) $ xTap(fn)

@@ -186,21 +186,26 @@ x_any_proto <- local({
 	# -------- D ------- #
 	# -------- E ------- #
 	this$xExecute <-
-		function (fn) {
-			# execute a side-effectful function
-			# before using the previous x_ monad
-			# for further chaining.
+		MakeFun(function (fn) {
+
+			MACRO( Must $ Not_Be_Missing(fn) )
+
+			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			fn()
 			x_(Self())
-		}
+		})
 
 	this$x_Execute <-
-		function (fn) {
+		MakeFun(function (fn) {
+
+			MACRO( Must $ Not_Be_Missing(fn) )
+
+			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			fn()
 			Self()
-		}
+		})
 
 	# -------- F ------- #
 	# -------- G ------- #
@@ -275,20 +280,24 @@ x_any_proto <- local({
 	# -------- S ------- #
 	# -------- T ------- #
 	this$xTap <-
-		function (fn) {
-			# call an arbitrary function with self,
-			# effectively allowing anonymous function
-			# to execute arbitrary code before shunting
-			# the output data back into the x_ monad.
+		MakeFun(function (fn) {
+
+			MACRO( Must $ Not_Be_Missing(fn) )
+
+			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			x_( fn(Self()) )
-		}
+		})
 
 	this$x_Tap <-
-		function (fn) {
+		MakeFun(function (fn) {
+
+			MACRO( Must $ Not_Be_Missing(fn) )
+
+			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			fn(Self())
-		}
+		})
 	# -------- U ------- #
 	# -------- V ------- #
 	add_x_method(this, xVersion, '...')
