@@ -80,7 +80,7 @@ Ryan Grannell.
 <img src="gpl3.png" height = "180"> </img>
 
 
-### Versioning
+## Versioning
 
 All versions post-release will be compliant with the Semantic Versioning 2.0.0 standard.
 
