@@ -36,7 +36,8 @@ NULL
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xChop...}}; \code{\link{xFlatten}},
-  \code{\link{xFlatten...}}; \code{\link{xJoin}},
+  \code{\link{xFlatten...}}; \code{\link{xGroupBy}},
+  \code{\link{xGroupBy...}}; \code{\link{xJoin}},
   \code{\link{xJoin...}}; \code{\link{xOneOf}},
   \code{\link{xOneOf...}}; \code{\link{xRecycle}},
   \code{\link{xRecycle...}}; \code{\link{xRepeat}},

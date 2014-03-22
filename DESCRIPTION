@@ -181,4 +181,5 @@ Collate:
     'xAll.R'
     'xAny.R'
     'xWhere.R'
+    'xGroupBy.R'
     'x_.R'

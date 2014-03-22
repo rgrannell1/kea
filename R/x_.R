@@ -272,7 +272,6 @@ x_any_proto <- local({
 	add_x_method(this, xNotFalse, 'val')
 	add_x_method(this, x_NotFalse, 'val')
 
-
 	# -------- O ------- #
 	# -------- P ------- #
 	# -------- Q ------- #
@@ -1020,7 +1019,10 @@ x_coll_proto <- local({
 	add_x_method(this, x_FourthOf..., '...')
 
 	# -------- G ------- #
-
+	add_x_method(this, xGroupBy, 'coll')
+	add_x_method(this, xGroupBy..., '...')
+	add_x_method(this, x_GroupBy, 'coll')
+	add_x_method(this, x_GroupBy..., '...')
 	# -------- H ------- #
 	# -------- I ------- #
 
@@ -1661,7 +1663,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_FormalsOf, 'fn')
 
 	# -------- G ------- #
-
+	# -------- G ------- #
+	add_x_method(this, xGroupBy, 'fn')
+	add_x_method(this, xGroupBy..., 'fn')
+	add_x_method(this, x_GroupBy, 'fn')
+	add_x_method(this, x_GroupBy..., 'fn')
 	# -------- H ------- #
 	# -------- I ------- #
 	# --- xIsVariadic --- #

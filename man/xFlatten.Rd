@@ -59,7 +59,8 @@ xFlatten(1, tree)
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xChop...}}; \code{\link{xChunk}},
-  \code{\link{xChunk...}}; \code{\link{xJoin}},
+  \code{\link{xChunk...}}; \code{\link{xGroupBy}},
+  \code{\link{xGroupBy...}}; \code{\link{xJoin}},
   \code{\link{xJoin...}}; \code{\link{xOneOf}},
   \code{\link{xOneOf...}}; \code{\link{xRecycle}},
   \code{\link{xRecycle...}}; \code{\link{xRepeat}},

@@ -306,66 +306,6 @@ insist <- local({
 			}
 		})
 
-	this$must_be_correct_type <-
-		local({
-
-			message <- function (coll_sym, coll, mode) {
-				"the collection " %+% ddquote(coll_sym) %+% " cannot be " %+%
-				"unlisted to a vector of mode " %+% ddquote(mode) %+%
-				summate(coll)
-			}
-
-			function (coll_sym, coll, mode, invoking_call) {
-
-				# numeric is a superset of integer and double
-
-				type <- typeof(coll)
-
-				if (mode == 'numeric') {
-
-					if (type %!in% c('integer', 'double', 'numeric')) {
-						throw_arrow_error(
-							invoking_call, message(coll_sym, coll, mode))
-					}
-
-				# other types should be the same
-				} else if (!type == mode) {
-
-					throw_arrow_error(
-						invoking_call, message(coll_sym, coll, mode))
-				}
-				True
-			}
-		})
-
-	this$must_be_unlistable <-
-		local({
-			# a vector must be convertable to a type.
-
-			message_type <- function (coll_sym, mode) {
-				"the collection " %+% ddquote(coll_sym) %+%
-				" must be a collection of values of type " %+% ddquote(mode)
-			}
-
-			#message_length()
-
-			is_valid_elem <- function (elem, mode) {
-
-				if (length(elem) != 1) {
-					stop("")
-				} else if (!is(elem, mode)) {
-					stop("")
-				}
-				TRUE
-			}
-
-			function (coll_sym, coll, mode, invoking_call) {
-
-				vapply(coll, is_valid_elem, logical(1), mode = mode)
-				True
-			}
-		})
-
 	this$must_be_existing_file <-
 		local({
 

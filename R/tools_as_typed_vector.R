@@ -58,32 +58,6 @@ as_atom <- function (coll, mode, invoking_call) {
 	}
 }
 
-as_typed_vector <- function (coll, mode) {
-
-	invoking_call <- sys.call()
-	coll_sym <- invoking_call$coll
-
-	if (length(coll) == 0) {
-		vector(mode)
-	} else 	if (is.atomic(coll)) {
-		# atomic vector conversion.
-
-		insist $ must_be_correct_type(
-			coll_sym, coll, mode, invoking_call)
-
-		coll
-
-	} else {
-		# generic vector conversion.
-
-		insist $ must_be_unlistable(
-			coll_sym, coll, mode, invoking_call)
-
-		as.vector(coll, mode = mode)
-	}
-}
-
-
 as_typed_vector <- local({
 
 	check_valid <- function (elem, mode) {
@@ -179,3 +153,4 @@ as_typed_vector <- local({
 
 
 
+as_atom <- as_typed_vector
