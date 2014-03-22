@@ -1,29 +1,24 @@
 
 #' xSortBy
 #'
-#' Sort a collection using a predicate function.
+#' Sort a collection by the output of a function applied to each element.
 #'
 #' @details
 #'     \bold{xSortBy} allows a collection to be sorted by a custom
-#'     comparison operation. A classic example is sorting a collection of collections
+#'     size operation. A classic example is sorting a collection of collections
 #'     (analogous to a data frame) by a particular column.
 #'
 #'     \code{coll <- list(list('key1', 10), list('key2', 12), list('key3', 0))}
 #'
-#'     \code{xSortBy((row1 : row2) := xSecondOf(row1) > xSecondOf(row2), coll)}
+#'     \code{xSortBy(xSecondOf, coll)}
 #'
 #'     \code{list(list("key2", 12), list("key1", 10), list("key3", 0))}
 #'
 #'     In the above example several rows of collection of collections are rearranged
 #'     by the value in one of their columns.
 #'
-#'     \bold{xSortBy} is currently (v0.1.0) inefficient for large collections,
-#'     since both recursive and in-place sorting algorithms are not
-#'     scalable in R.
-#'
 #' @param
-#'    pred a binary predicate. is the left argument \bold{larger} than the
-#'    right argument?
+#'    fn a function that returns a number. The size metric of an element.
 #'
 #' @param
 #'    coll a collection. The collection to sort.
@@ -35,8 +30,7 @@
 #'    A list
 #'
 #' @section Corner Cases:
-#'    If \bold{pred} returns Na it is interpreted as false; the right argument is
-#'    larger than the left.
+#'    If \bold{coll} is a empty collection the empty list is returned.
 #'
 #' @template
 #'    Variadic
@@ -49,57 +43,33 @@
 #' @rdname xSortBy
 #' @export
 
-xSortBy <- MakeFun(function (pred, coll) {
+xSortBy <- MakeFun(function (fn, coll) {
 	#' (a -> b -> boolean) -> Collection any -> [any]
 	#' sort a collection using a comparison function.
 
 	invoking_call <- sys.call()
 
-	MACRO( Must $ Not_Be_Missing(pred) )
+	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( Must $ Be_Fn_Matchable(pred) )
+	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )
 
-	pred <- match_fn(pred)
+	fn <- match_fn(fn)
 
 	if (length(coll) == 0) {
 		list()
 	} else if (length(coll) == 1) {
 		as.list(coll)
 	} else {
-
-		should_swap <- function (index1, index2) {
-			isTRUE(pred( coll[[index1]], coll[[index2]] ))
-		}
-
-		# insertion sort; extremely slow.
-		for (ith in 2:length(coll)) {
-
-			jth <- ith
-
-			try_hof({
-				while (jth > 1 && should_swap(jth - 1, jth)) {
-
-					tmp <- coll[[jth - 1]]
-
-					coll[[jth - 1]] <- coll[[jth]]
-					coll[[jth]] <- tmp
-
-					jth <- jth - 1
-				}},
-				invoking_call
-			)
-		}
-
-		as.list(coll)
+		as.list(coll)[ order( vapply(coll, fn, numeric(1)) ) ]
 	}
 })
 
 #' @rdname xSortBy
 #' @export
 
-xSortBy... <- function (pred, ...) {
-	xSortBy(pred, list(...))
+xSortBy... <- function (fn, ...) {
+	xSortBy(fn, list(...))
 }
 

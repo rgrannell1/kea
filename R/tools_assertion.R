@@ -323,7 +323,7 @@ insist <- local({
 
 				if (mode == 'numeric') {
 
-					if ( all(type != c('integer', 'double', 'numeric')) ) {
+					if (type %!in% c('integer', 'double', 'numeric')) {
 						throw_arrow_error(
 							invoking_call, message(coll_sym, coll, mode))
 					}

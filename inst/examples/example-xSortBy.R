@@ -41,9 +41,7 @@ k_nearest <- (dist : point : space) := {
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-
 		nearest $ xPluck('category') $
-		xTabulate() $ x_SortBy(
-			(a : b) := xSecondOf(b) > xSecondOf(b)
-		)
+		xTabulate() $ x_SortBy(xSecondOf)
 
 	# select the name of the most frequent category
 	xFirstOf(xFirstOf(category_frequencies))
@@ -67,9 +65,7 @@ paragraph <-
 
 x_(paragraph) $
 xToLines() $
-xSortBy((line1 : line2) := {
-	nchar(line2) > nchar(line1)
-}) $
+xSortBy(nchar) $
 x_Take(3)
 
 # list(

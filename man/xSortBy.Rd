@@ -4,13 +4,12 @@
 \alias{xSortBy...}
 \title{xSortBy}
 \usage{
-xSortBy(pred, coll)
+xSortBy(fn, coll)
 
-xSortBy...(pred, ...)
+xSortBy...(fn, ...)
 }
 \arguments{
-\item{pred}{a binary predicate. is the left argument \bold{larger} than the
-   right argument?}
+\item{fn}{a function that returns a number. The size metric of an element.}
 
 \item{coll}{a collection. The collection to sort.}
 
@@ -20,30 +19,25 @@ xSortBy...(pred, ...)
 A list
 }
 \description{
-Sort a collection using a predicate function.
+Sort a collection by the output of a function applied to each element.
 }
 \details{
 \bold{xSortBy} allows a collection to be sorted by a custom
-    comparison operation. A classic example is sorting a collection of collections
+    size operation. A classic example is sorting a collection of collections
     (analogous to a data frame) by a particular column.
 
     \code{coll <- list(list('key1', 10), list('key2', 12), list('key3', 0))}
 
-    \code{xSortBy((row1 : row2) := xSecondOf(row1) > xSecondOf(row2), coll)}
+    \code{xSortBy(xSecondOf, coll)}
 
     \code{list(list("key2", 12), list("key1", 10), list("key3", 0))}
 
     In the above example several rows of collection of collections are rearranged
     by the value in one of their columns.
-
-    \bold{xSortBy} is currently (v0.1.0) inefficient for large collections,
-    since both recursive and in-place sorting algorithms are not
-    scalable in R.
 }
 \section{Corner Cases}{
 
-   If \bold{pred} returns Na it is interpreted as false; the right argument is
-   larger than the left.
+   If \bold{coll} is a empty collection the empty list is returned.
 }
 \examples{
 
@@ -89,9 +83,7 @@ k_nearest <- (dist : point : space) := {
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-
 		nearest $ xPluck('category') $
-		xTabulate() $ x_SortBy(
-			(a : b) := xSecondOf(b) > xSecondOf(b)
-		)
+		xTabulate() $ x_SortBy(xSecondOf)
 
 	# select the name of the most frequent category
 	xFirstOf(xFirstOf(category_frequencies))
@@ -115,9 +107,7 @@ paragraph <-
 
 x_(paragraph) $
 xToLines() $
-xSortBy((line1 : line2) := {
-	nchar(line2) > nchar(line1)
-}) $
+xSortBy(nchar) $
 x_Take(3)
 
 # list(

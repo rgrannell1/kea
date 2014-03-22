@@ -1782,9 +1782,9 @@ x_fn_proto <- local({
 	add_x_method(this, x_Select..., 'pred')
 
 	# --- xSortBy --- #
-	add_x_method(this, xSortBy, 'pred')
+	add_x_method(this, xSortBy, 'fn')
 	add_x_method(this, xSortBy..., '...')
-	add_x_method(this, x_SortBy, 'pred')
+	add_x_method(this, x_SortBy, 'fn')
 	add_x_method(this, x_SortBy..., '...')
 
 	# --- xSplitBy --- #
