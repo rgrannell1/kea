@@ -1,14 +1,52 @@
 
 xVal(letterset, c(letters, LETTERS))
 
-words <-
-x_("/home/ryan/Desktop/war-and-peace.txt") $ xReadWords() $ xUniqueOf() $
+x_("/home/ryan/Desktop/war-and-peace.txt") $
+xReadWords() $ xUniqueOf() $
 xSelect(word := {
 	all(xToChars(word) %in% letterset)
 }) $
-xUniqueOf()
+xUniqueOf() $ xSortBy(nchar) $
+xReverse() $ xTake(10)
 
-words $ xTabulate() $ xSortBy(xSecondOf) $ xTake(10)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

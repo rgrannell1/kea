@@ -11,6 +11,12 @@
 #'     fn a unary function. The function returning the value to group its input by.
 #'
 #' @param
+#'     coll a collection. The elements to group by a property.
+#'
+#'
+#'
+#'
+#' @param
 #'    ... see above.
 #'
 #' @return

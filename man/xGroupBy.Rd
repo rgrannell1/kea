@@ -11,6 +11,8 @@ xGroupBy...(fn, ...)
 \arguments{
 \item{fn}{a unary function. The function returning the value to group its input by.}
 
+\item{coll}{a collection. The elements to group by a property.}
+
 \item{...}{see above.}
 }
 \value{

@@ -297,6 +297,7 @@ sd_section(
 		"xChop",
 		"xChunk",
 		"xFlatten",
+		"xGroupBy",
 		"xJoin",
 		"xOneOf",
 		"xRecycle",
