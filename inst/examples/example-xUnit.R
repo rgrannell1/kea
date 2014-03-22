@@ -11,7 +11,7 @@
 # xUnit will return integer(0), and so on for other vectors.
 
 reverse <- coll := {
-	xFoldl(
+	xFold(
 		(left : right) := {
 			c(right, left)
 		},

@@ -37,12 +37,12 @@
 #' @family short_circuiting_functions
 #'
 #' @example
-#'    inst/examples/example-xFoldl.R
+#'    inst/examples/example-xFold.R
 #'
 #' @rdname xFold
 #' @export
 
-xFoldl <- MakeFun(function (fn, val, coll) {
+xFold <- MakeFun(function (fn, val, coll) {
 	# (any -> any -> any) -> any -> Collection any -> any
 	# fold a list, starting from the left
 
@@ -82,20 +82,10 @@ xFoldl <- MakeFun(function (fn, val, coll) {
 	}
 })
 
-#' @export
-#' @rdname xFold
-
-xFold <- xFoldl
 
 #' @export
 #' @rdname xFold
 
-xFoldl... <- function (fn, val, ...) {
-	xFoldl(fn, val, list(...))
+xFold... <- function (fn, val, ...) {
+	xFold(fn, val, list(...))
 }
-
-
-#' @export
-#' @rdname xFold
-
-xFold... <- xFoldl

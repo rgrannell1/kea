@@ -40,24 +40,6 @@ unit_to_value <- function (coll) {
 	}
 }
 
-as_atom <- function (coll, mode, invoking_call) {
-	# convert a length one vector of any type to an atomic vector.
-
-	invoking_call <- sys.call()
-
-	insist $ must_be_atom(coll, invoking_call)
-
-	if (length(coll) == 0) {
-		vector(mode)
-	} else {
-		coll <- coll[[1]]
-		insist $ must_be_correct_type(
-			invoking_call$coll, coll, mode, invoking_call)
-
-		coll[[1]]
-	}
-}
-
 as_typed_vector <- local({
 
 	check_valid <- function (elem, mode) {

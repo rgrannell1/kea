@@ -175,9 +175,9 @@ sd_section(
 		"These functions are varients of fold."
 	),
 	c(
-		"xFold", "xFoldl",
-		"xReduce", "xReducel",
-		"xScanl"
+		"xFold",
+		"xReduce",
+		"xScan"
 	)
 )
 
@@ -367,9 +367,9 @@ sd_section(
 		"of the subprogram."
 	),
 	c(
-		"xFold", "xFoldr",
-		"xReduce", "xReducer",
-		"xScanl",
+		"xFold", "xFold",
+		"xReduce", "xReduce",
+		"xScan",
 		"xIterate"
 	)
 )

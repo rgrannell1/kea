@@ -958,18 +958,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_FirstOf, 'coll')
 	add_x_method(this, x_FirstOf..., '...')
 
-	# --- xFoldl --- #
-	add_x_method(this, xFoldl, 'coll')
-	add_x_method(this, xFoldl..., '...')
-	add_x_method(this, x_Foldl, 'coll')
-	add_x_method(this, x_Foldl..., '...')
-
 	# --- xFold --- #
-	this$xFold <- this$xFoldl
-	this$xFold... <- this$xFoldl...
-
-	this$x_Fold <- this$x_Foldl
-	this$x_Fold... <- this$x_Foldl...
+	add_x_method(this, xFold, 'coll')
+	add_x_method(this, xFold..., '...')
+	add_x_method(this, x_Fold, 'coll')
+	add_x_method(this, x_Fold..., '...')
 
 	# --- xFlatMap --- #
 	add_x_method(this, xFlatMap, 'coll')
@@ -995,18 +988,7 @@ x_coll_proto <- local({
 	add_x_method(this, x_FromChars, 'strs')
 	add_x_method(this, x_FromChars..., '...')
 
-	# --- xFoldr --- #
-	add_x_method(this, xFoldr, 'coll')
-	add_x_method(this, xFoldr..., '...')
-	add_x_method(this, x_Foldr, 'coll')
-	add_x_method(this, x_Foldr..., '...')
-
-	# --- xScanl --- #
-	add_x_method(this, xScanl, 'coll')
-	add_x_method(this, xScanl..., '...')
-	add_x_method(this, x_Scanl, 'coll')
-	add_x_method(this, x_Scanl..., '...')
-
+	# --- xScan --- #
 	add_x_method(this, xScan, 'coll')
 	add_x_method(this, xScan..., '...')
 	add_x_method(this, x_Scan, 'coll')
@@ -1260,28 +1242,19 @@ x_coll_proto <- local({
 	add_x_method(this, x_DeepMap, 'coll')
 	add_x_method(this, x_DeepMap..., '...')
 
-	# --- xReducel --- #
-
-	add_x_method(this, xReducel, 'coll')
-	add_x_method(this, xReducel..., '...')
-	add_x_method(this, x_Reducel, 'coll')
-	add_x_method(this, x_Reducel..., '...')
+	# --- xReduce --- #
 
 	add_x_method(this, xReduce, 'coll')
 	add_x_method(this, xReduce..., '...')
 	add_x_method(this, x_Reduce, 'coll')
 	add_x_method(this, x_Reduce..., '...')
 
+	# --- xRecycle --- #
+
 	add_x_method(this, xRecycle, 'colls')
 	add_x_method(this, xRecycle..., '...')
 	add_x_method(this, x_Recycle, 'colls')
 	add_x_method(this, x_Recycle..., '...')
-
-	# --- xReducer --- #
-	add_x_method(this, xReducer, 'coll')
-	add_x_method(this, xReducer..., '...')
-	add_x_method(this, x_Reducer, 'coll')
-	add_x_method(this, x_Reducer..., '...')
 
 	# --- xRepeat --- #
 	add_x_method(this, xRepeat, 'coll')
@@ -1630,10 +1603,10 @@ x_fn_proto <- local({
 	add_x_method(this, x_Forall..., 'pred')
 
 	# --- xFold --- #
-	add_x_method(this, xFoldl, 'fn')
-	add_x_method(this, xFoldl..., 'fn')
-	add_x_method(this, x_Foldl, 'fn')
-	add_x_method(this, x_Foldl..., 'fn')
+	add_x_method(this, xFold, 'fn')
+	add_x_method(this, xFold..., 'fn')
+	add_x_method(this, x_Fold, 'fn')
+	add_x_method(this, x_Fold..., 'fn')
 
 	# --- xFold --- #
 	add_x_method(this, xFold, 'fn')
@@ -1641,17 +1614,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_Fold, 'fn')
 	add_x_method(this, x_Fold..., 'fn')
 
-	# --- xFoldr --- #
-	add_x_method(this, xFoldr, 'fn')
-	add_x_method(this, xFoldr..., 'fn')
-	add_x_method(this, x_Foldr, 'fn')
-	add_x_method(this, x_Foldr..., 'fn')
-
-	# --- xScanl --- #
-	add_x_method(this, xScanl, 'fn')
-	add_x_method(this, xScanl..., 'fn')
-	add_x_method(this, x_Scanl, 'fn')
-	add_x_method(this, x_Scanl..., 'fn')
+	# --- xScan --- #
+	add_x_method(this, xScan, 'fn')
+	add_x_method(this, xScan..., 'fn')
+	add_x_method(this, x_Scan, 'fn')
+	add_x_method(this, x_Scan..., 'fn')
 
 	add_x_method(this, xScan, 'fn')
 	add_x_method(this, xScan..., 'fn')
@@ -1757,22 +1724,12 @@ x_fn_proto <- local({
 	add_x_method(this, x_DeepMap, 'fn')
 	add_x_method(this, x_DeepMap..., 'fn')
 
-	# --- xReducel --- #
-	add_x_method(this, xReducel, 'fn')
-	add_x_method(this, xReducel..., 'fn')
-	add_x_method(this, x_Reducel, 'fn')
-	add_x_method(this, x_Reducel..., 'fn')
+	# --- xReduce --- #
 
 	add_x_method(this, xReduce, 'fn')
 	add_x_method(this, xReduce..., 'fn')
 	add_x_method(this, x_Reduce, 'fn')
 	add_x_method(this, x_Reduce..., 'fn')
-
-	# --- xReducer --- #
-	add_x_method(this, xReducer, 'fn')
-	add_x_method(this, xReducer..., 'fn')
-	add_x_method(this, x_Reducer, 'fn')
-	add_x_method(this, x_Reducer..., 'fn')
 
 	# --- xReject --- #
 	add_x_method(this, xReject, 'pred')

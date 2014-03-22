@@ -37,12 +37,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xScanl.R
+#'    inst/examples/example-xScan.R
 #'
 #' @rdname xScan
 #' @export
 
-xScanl <- MakeFun(function (fn, val, coll) {
+xScan <- MakeFun(function (fn, val, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.
 
@@ -73,18 +73,6 @@ xScanl <- MakeFun(function (fn, val, coll) {
 
 	}
 })
-
-#' @rdname xScan
-#' @export
-
-xScan <- xScanl
-
-#' @rdname xScan
-#' @export
-
-xScanl... <- function (fn, val, ...) {
-	xScanl(fn, val, list(...))
-}
 
 #' @rdname xScan
 #' @export

@@ -36,7 +36,6 @@
 #' @rdname xGroupBy
 #' @export
 
-
 xGroupBy <- MakeFun(function (fn, coll) {
 	# (a -> b) -> Collection any -> [any]
 	# group elements of a collection by its map

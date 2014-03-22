@@ -18,12 +18,12 @@
 #'
 #' for arbitrary numbers a, b, c. Bracketing from the left or the right
 #' does not alter the result of adding several numbers together.
-#' The below example involves using \bold{xFoldl} to add a vector of numbers.
-#' \bold{xFoldl} successively combines (with +) the leftmost two values into
+#' The below example involves using \bold{xFold} to add a vector of numbers.
+#' \bold{xFold} successively combines (with +) the leftmost two values into
 #' a single number, and repeats the process until the sum of the entire list
 #' is found.
 #'
-#' \code{xFoldl('+', 0, 1:5)}
+#' \code{xFold('+', 0, 1:5)}
 #'
 #' \code{(((((0 + 1) + 2) + 3) + 4) + 5)}
 #'
@@ -40,7 +40,7 @@
 #' \code{15}
 #'
 #' As stated above the plus operator is associative, so both
-#' \bold{xFoldl} or \bold{xFoldr} yield the same result.
+#' \bold{xFold} or \bold{xFold} yield the same result.
 #'
 #' Non-associative combining functions often focus on accumulating
 #' a data structure entirely different from the input collection,
@@ -54,7 +54,7 @@
 #'
 #' \code{votes <- c('linux', 'mac', 'mac', 'bsd', 'windows', 'linux')}
 #'
-#' \code{xFoldl(combiner, list(linux = 0, bsd = 0), votes) }
+#' \code{xFold(combiner, list(linux = 0, bsd = 0), votes) }
 #'
 #' The votes are tallied in the following order:
 #'
@@ -88,7 +88,7 @@
 #'
 #' \code{coll <- c(1, 2, 3, NA, rep(10, 1000))}
 #'
-#' \code{xFoldl((acc : elem) := acc || is.na(elem), False, coll)}
+#' \code{xFold((acc : elem) := acc || is.na(elem), False, coll)}
 #'
 #' \code{True}
 #'x
@@ -101,7 +101,7 @@
 #' This function can be used to break out of the fold early; in this case upon
 #' discovery of an na value.
 #'
-#' \code{xFoldl((acc : elem) := if (is.na(elem)) Return(True) else False, False, coll)}
+#' \code{xFold((acc : elem) := if (is.na(elem)) Return(True) else False, False, coll)}
 #'
 #' The use of \bold{Return( )} reduces the number of steps required to return a result
 #' from thousands to less than ten.

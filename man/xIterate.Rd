@@ -173,14 +173,9 @@ xIterate(
 )
 }
 \seealso{
-Other short_circuiting_functions: \code{\link{xFoldr}},
-  \code{\link{xFoldr...}}; \code{\link{xFold}},
-  \code{\link{xFold...}}, \code{\link{xFoldl}},
-  \code{\link{xFoldl...}}; \code{\link{xReducer}},
-  \code{\link{xReducer...}}; \code{\link{xReduce}},
-  \code{\link{xReduce...}}, \code{\link{xReducel}},
-  \code{\link{xReducel...}}; \code{\link{xScan}},
-  \code{\link{xScan...}}, \code{\link{xScanl}},
-  \code{\link{xScanl...}}
+Other short_circuiting_functions: \code{\link{xFold}},
+  \code{\link{xFold...}}; \code{\link{xReduce}},
+  \code{\link{xReduce...}}; \code{\link{xScan}},
+  \code{\link{xScan...}}
 }
 

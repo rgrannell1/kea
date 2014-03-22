@@ -1,16 +1,12 @@
 
-#' xFoldr
+#' xReduce
 #'
 #' Successively combine a list of values into a single value
-#' using a binary function (right to left, with an initial value).
+#' using a binary function (left to right).
 #'
 #' @param
-#'    fn a binary function that returns a value that
-#'	  \bold{fn} can later take as its right argument
-#'
-#' @param
-#'    val an arbitrary value. The initial value to be
-#'    used as the first right argument to \bold{fn}.
+#'    fn a binary function that returns a value
+#'	  that \bold{fn} can later take as its left argument.
 #'
 #' @param
 #'    coll a collection. The collection to reduce to a
@@ -23,11 +19,10 @@
 #'    An arbitrary value, depending on the function \bold{fn}.
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} is length-zero then the parametre \bold{val}
-#'    is returned automatically.
+#'    Returns the empty list if \bold{coll} is length-zero, and returns the
+#'    value inside \bold{coll} if coll is length-one.
 #'
 #' @family folding_functions
-#' @family short_circuiting_functions
 #'
 #' @template
 #'    Fold
@@ -35,23 +30,21 @@
 #' @template
 #'    Variadic
 #'
-#' @template
-#'    Return
+#' @family short_circuiting_functions
 #'
 #' @example
-#'    inst/examples/example-xFoldr.R
+#'    inst/examples/example-xReduce.R
 #'
-#' @rdname xFoldr
+#' @rdname xReduce
 #' @export
 
-xFoldr <- MakeFun(function (fn, val, coll) {
-	# (any -> any -> any) -> any -> Collection any -> any
-	# fold a list, starting from the right
+xReduce <- MakeFun(function (fn, coll) {
+	# (any -> any -> any) -> Collection any -> any
+	# fold a list, starting from the left.
 
 	invoking_call <- sys.call()
 
 	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(val) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
@@ -60,8 +53,13 @@ xFoldr <- MakeFun(function (fn, val, coll) {
 	fn <- match_fn(fn)
 
 	if (length(coll) == 0) {
-		val
+		coll
+	} else if (length(coll) == 1) {
+		coll[[1]]
 	} else {
+
+		val <- coll[[1]]
+		coll <- coll[-1]
 
 		callCC(function (Return) {
 
@@ -73,8 +71,9 @@ xFoldr <- MakeFun(function (fn, val, coll) {
 			}
 
 			try_hof({
-				for (ith in length(coll):1) {
-					val <- fn( coll[[ith]], val )
+				for (ith in seq_along(coll)) {
+
+					val <- fn( val, coll[[ith]] )
 				}},
 				invoking_call
 			)
@@ -85,9 +84,9 @@ xFoldr <- MakeFun(function (fn, val, coll) {
 	}
 })
 
-#' @rdname xFoldr
+#' @rdname xReduce
 #' @export
 
-xFoldr... <- function (fn, val, ...) {
-	xFoldr(fn, val, list(...))
+xReduce... <- function (fn, ...) {
+	xReduce(fn, list(...))
 }
