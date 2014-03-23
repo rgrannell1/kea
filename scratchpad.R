@@ -11,45 +11,6 @@ xReverse() $ xTake(10)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 as_atomic <- function (coll, mode) {
 
 }

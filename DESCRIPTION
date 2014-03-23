@@ -180,4 +180,5 @@ Collate:
     'xAny.R'
     'xWhere.R'
     'xGroupBy.R'
+    'xIsSubset.R'
     'x_.R'

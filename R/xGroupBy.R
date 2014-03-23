@@ -13,9 +13,6 @@
 #' @param
 #'     coll a collection. The elements to group by a property.
 #'
-#'
-#'
-#'
 #' @param
 #'    ... see above.
 #'
@@ -72,7 +69,7 @@ xGroupBy <- MakeFun(function (fn, coll) {
 			}
 
 			if (!group_found) {
-				groups <- c( groups, list(list(map, list(elem ))) )
+				groups <- c(groups, list( list(map, list(elem )) ))
 			}
 		}
 		groups

@@ -1066,6 +1066,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_Inter, 'colls')
 	add_x_method(this, x_Inter..., '...')
 
+	# --- xIsSubset --- #
+	add_x_method(this, xIsSubset, 'coll2')
+	add_x_method(this, xIsSubset..., '...')
+	add_x_method(this, x_IsSubset, 'coll2')
+	add_x_method(this, x_IsSubset..., '...')
+
 	# -------- J ------- #
 	# --- xJoin --- #
 	add_x_method(this, xJoin, 'colls')

@@ -46,7 +46,14 @@ xAny <- MakeFun(function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		any(vapply(coll, pred, logical(1), USE.NAMES = False))
+
+		for (elem in coll) {
+			if (pred(elem)) {
+				return(True)
+			}
+		}
+
+		False
 	}
 })
 
