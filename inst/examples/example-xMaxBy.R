@@ -9,4 +9,4 @@ GDP <- list(
 	list('Iran', 551588 * 10^6)
 )
 
-x_(GDP) $ x_MaxBy(GDP, xSecondOf)
+x_(GDP) $ x_MaxBy(xSecondOf)
