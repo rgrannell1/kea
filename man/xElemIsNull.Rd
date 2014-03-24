@@ -45,8 +45,7 @@ Other value_testing_functions: \code{\link{xElemIsFalse}},
   \code{\link{xElemNotTrue...}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty...}}; \code{\link{xIsFalse}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
-  \code{\link{xIsNull}}; \code{\link{xIsSubset}},
-  \code{\link{xIsSubset...}}; \code{\link{xIsTrue}};
+  \code{\link{xIsNull}}; \code{\link{xIsTrue}};
   \code{\link{xNotEmpty}}, \code{\link{xNotEmpty...}};
   \code{\link{xNotFalse}}; \code{\link{xNotNan}};
   \code{\link{xNotNa}}; \code{\link{xNotNull}};

@@ -28,8 +28,11 @@ Concatenate several collections into one collection.
 }
 \examples{
 
-NULL
+# 1.
+# The variadic form of xJoin is very similar to c( )
 
+xJoin...('a', 'b', 'c')
+# list('a', 'b', 'c')
 }
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},

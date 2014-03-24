@@ -25,10 +25,11 @@ NULL
 \seealso{
 Other filtering_functions: \code{\link{xPack}},
   \code{\link{xPack...}}, \code{\link{xRejectEmpty}},
-  \code{\link{xRejectEmpty...}}; \code{\link{xPartition}};
-  \code{\link{xRejectNa}}, \code{\link{xRejectNa...}};
-  \code{\link{xRejectNull}}, \code{\link{xRejectNull...}};
-  \code{\link{xReject}}, \code{\link{xReject...}};
-  \code{\link{xSelect}}, \code{\link{xSelect...}}
+  \code{\link{xRejectEmpty...}}; \code{\link{xPartition}},
+  \code{\link{xPartition...}}; \code{\link{xRejectNa}},
+  \code{\link{xRejectNa...}}; \code{\link{xRejectNull}},
+  \code{\link{xRejectNull...}}; \code{\link{xReject}},
+  \code{\link{xReject...}}; \code{\link{xSelect}},
+  \code{\link{xSelect...}}
 }
 

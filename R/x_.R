@@ -1113,6 +1113,16 @@ x_coll_proto <- local({
 	add_x_method(this, x_Locate..., '...')
 
 	# -------- M ------- #
+	# --- xMaxBy --- #
+	add_x_method(this, xMaxBy, 'coll')
+	add_x_method(this, xMaxBy..., '...')
+	add_x_method(this, x_MaxBy, 'coll')
+	add_x_method(this, x_MaxBy..., '...')
+	# --- xMinBy --- #
+	add_x_method(this, xMinBy, 'coll')
+	add_x_method(this, xMinBy..., '...')
+	add_x_method(this, x_MinBy, 'coll')
+	add_x_method(this, x_MinBy..., '...')
 	# --- xMap --- #
 	add_x_method(this, xMap, 'coll')
 	add_x_method(this, xMap..., '...')
@@ -1676,6 +1686,16 @@ x_fn_proto <- local({
 	add_x_method(this, x_Locate..., 'pred')
 
 	# -------- M ------- #
+	# --- xMaxBy --- #
+	add_x_method(this, xMaxBy, 'fn')
+	add_x_method(this, xMaxBy..., 'fn')
+	add_x_method(this, x_MaxBy, 'fn')
+	add_x_method(this, x_MaxBy..., 'fn')
+	# --- xMinBy --- #
+	add_x_method(this, xMinBy, 'fn')
+	add_x_method(this, xMinBy..., 'fn')
+	add_x_method(this, x_MinBy, 'fn')
+	add_x_method(this, x_MinBy..., 'fn')
 	# --- xMap --- #
 	add_x_method(this, xMap, 'fn')
 	add_x_method(this, xMap..., 'fn')

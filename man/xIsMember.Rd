@@ -36,7 +36,8 @@ NULL
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
-  \code{\link{xInter...}}; \code{\link{xNotMember}},
+  \code{\link{xInter...}}; \code{\link{xIsSubset}},
+  \code{\link{xIsSubset...}}; \code{\link{xNotMember}},
   \code{\link{xNotMember...}}; \code{\link{xPermute}},
   \code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},

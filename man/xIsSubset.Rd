@@ -9,9 +9,9 @@ xIsSubset(coll1, coll2)
 xIsSubset...(coll1, ...)
 }
 \arguments{
-\item{coll1}{a collection.}
+\item{coll1}{a collection. The set to test for membership in a superset.}
 
-\item{coll1}{a collection.}
+\item{coll1}{a collection. The superset to test.}
 
 \item{...}{see above.}
 }
@@ -30,26 +30,15 @@ Test if a collection is a subset of a second collection.
 NULL
 }
 \seealso{
-Other value_testing_functions: \code{\link{xElemIsFalse}},
-  \code{\link{xElemIsFalse...}}; \code{\link{xElemIsNan}},
-  \code{\link{xElemIsNan...}}; \code{\link{xElemIsNa}},
-  \code{\link{xElemIsNa...}}; \code{\link{xElemIsNull}},
-  \code{\link{xElemIsNull...}}; \code{\link{xElemIsTrue}},
-  \code{\link{xElemIsTrue...}};
-  \code{\link{xElemNotFalse}},
-  \code{\link{xElemNotFalse...}};
-  \code{\link{xElemNotNan}}, \code{\link{xElemNotNan...}};
-  \code{\link{xElemNotNa}}, \code{\link{xElemNotNa...}};
-  \code{\link{xElemNotNull}},
-  \code{\link{xElemNotNull...}};
-  \code{\link{xElemNotTrue}},
-  \code{\link{xElemNotTrue...}}; \code{\link{xIsEmpty}},
-  \code{\link{xIsEmpty...}}; \code{\link{xIsFalse}};
-  \code{\link{xIsNan}}; \code{\link{xIsNa}};
-  \code{\link{xIsNull}}; \code{\link{xIsTrue}};
-  \code{\link{xNotEmpty}}, \code{\link{xNotEmpty...}};
-  \code{\link{xNotFalse}}; \code{\link{xNotNan}};
-  \code{\link{xNotNa}}; \code{\link{xNotNull}};
-  \code{\link{xNotTrue}}
+Other set_functions: \code{\link{xDuplicatesOf}},
+  \code{\link{xDuplicatesOf...}}; \code{\link{xInter}},
+  \code{\link{xInter...}}; \code{\link{xIsMember}},
+  \code{\link{xIsMember...}}; \code{\link{xNotMember}},
+  \code{\link{xNotMember...}}; \code{\link{xPermute}},
+  \code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
+  \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
+  \code{\link{xProdSetOf...}}; \code{\link{xUnionOf}},
+  \code{\link{xUnionOf...}}; \code{\link{xUniqueOf}},
+  \code{\link{xUniqueOf...}}
 }
 

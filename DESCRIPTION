@@ -181,4 +181,6 @@ Collate:
     'xWhere.R'
     'xGroupBy.R'
     'xIsSubset.R'
+    'xMaxBy.R'
+    'xMinBy.R'
     'x_.R'
