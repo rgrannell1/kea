@@ -58,10 +58,6 @@
 #'    In the above pairs of a, b such that their sum is larger than
 #'    two are returned.
 #'
-#'
-#'
-#'
-#'
 #' @template
 #'    Variadic
 #'

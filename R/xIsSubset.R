@@ -4,10 +4,10 @@
 #' Test if a collection is a subset of a second collection.
 #'
 #' @param
-#'    coll1 a collection.
+#'    coll1 a collection. The set to test for membership in a superset.
 #'
 #' @param
-#'    coll1 a collection.
+#'    coll1 a collection. The superset to test.
 #'
 #' @param
 #'    ... see above.
@@ -24,7 +24,7 @@
 #' @example
 #'    inst/examples/example-xIsSubset.R
 #'
-#' @family value_testing_functions
+#' @family set_functions
 #'
 #' @rdname xIsSubset
 #' @export

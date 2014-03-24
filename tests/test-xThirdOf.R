@@ -4,7 +4,6 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
 message('xThirdOf')
 
 forall("third always returns the third element of a collection",

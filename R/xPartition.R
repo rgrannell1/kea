@@ -67,6 +67,9 @@ xPartition <- MakeFun(function (pred, coll) {
 	}
 })
 
+#' @rdname xPartition
+#' @export
+
 xPartition... <- function (pred, ...) {
 	xPartition(pred, list(...))
 }
