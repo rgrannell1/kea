@@ -326,6 +326,8 @@ sd_section(
 		"xAtCol",
 		"xDropWhile",
 		"xDrop",
+		"xMaxBy",
+		"xMinBy",
 		"xFirstOf",
 		"xFourthOf",
 		"xInitOf",
