@@ -10,3 +10,6 @@ GDP <- list(
 )
 
 x_(GDP) $ x_MaxBy(xSecondOf)
+
+# 2.
+

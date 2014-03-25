@@ -47,7 +47,11 @@ xMaxBy <- MakeFun(function (fn, coll) {
 
 	fn <- match_fn(fn)
 
-	coll[[ which.max( vapply(coll, fn, numeric(1)) ) ]]
+	if (length(coll) == 1) {
+		coll[[1]]
+	} else {
+		coll[[ which.max( vapply(coll, fn, numeric(1)) ) ]]
+	}
 })
 
 #' @rdname xMaxBy
