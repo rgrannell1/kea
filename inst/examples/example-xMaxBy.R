@@ -1,4 +1,3 @@
-
 # 1. Select the largest row in a data-frame like struture
 #    by an attribute.
 
@@ -11,5 +10,4 @@ GDP <- list(
 
 x_(GDP) $ x_MaxBy(xSecondOf)
 
-# 2.
-
+# list("Netherlands", 7.70067e+11)
