@@ -100,7 +100,7 @@ Collate:
     'xSelect.R'
     'xSplitAt.R'
     'xExplode.R'
-    'xSplitBy.R'
+    'xSplitWith.R'
     'xSubstring.R'
     'xTake.R'
     'xTakeWhile.R'

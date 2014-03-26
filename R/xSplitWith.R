@@ -1,5 +1,5 @@
 
-#' xSplitBy
+#' xSplitWith
 #'
 #' Divide a collection into groups determined by a predicate.
 #'
@@ -25,12 +25,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xSplitBy.R
+#'    inst/examples/example-xSplitWith.R
 #'
-#' @rdname xSplitBy
+#' @rdname xSplitWith
 #' @export
 
-xSplitBy <- local({
+xSplitWith <- local({
 
 	bisect <- MakeFun(function (pred, coll, invoking_call) {
 			# split a collection into a head and tail
@@ -93,10 +93,10 @@ xSplitBy <- local({
 
 })
 
-#' @rdname xSplitBy
+#' @rdname xSplitWith
 #' @export
 
-xSplitBy... <- function (pred, ...) {
-	xSplitBy(pred, list(...))
+xSplitWith... <- function (pred, ...) {
+	xSplitWith(pred, list(...))
 }
 

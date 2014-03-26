@@ -57,7 +57,7 @@ xSplitAt <- MakeFun(function (nums, coll) {
 	} else {
 
 		lapply(
-			xSplitBy(
+			xSplitWith(
 				function (ith, drop) {
 					ith %in% nums
 				},

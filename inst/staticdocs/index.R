@@ -306,7 +306,7 @@ sd_section(
 		"xShuffle",
 		"xSortBy",
 		"xSplitAt",
-		"xSplitBy",
+		"xSplitWith",
 		"xTabulate",
 		"xUnzipNames",
 		"xZipNames",

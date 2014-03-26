@@ -85,11 +85,6 @@ xPartial <- MakeFun(function (fn, coll) {
 			bquote({
 				"a function returned by xPartial."
 				""
-				# the fundemental unit of lisp-like
-				# computation; LE PARENTHESIS!
-				# for the love of god, do not ask how this code works,
-				# it just does, in the kind of way that if you looked at it sideways
-				# it would fall apart, parenthetically he said.
 
 				.(
 					as.call(c(

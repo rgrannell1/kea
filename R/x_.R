@@ -1369,11 +1369,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Shuffle, 'coll')
 	add_x_method(this, x_Shuffle..., '...')
 
-	# --- xSplitBy --- #
-	add_x_method(this, xSplitBy, 'coll')
-	add_x_method(this, xSplitBy..., '...')
-	add_x_method(this, x_SplitBy, 'coll')
-	add_x_method(this, x_SplitBy..., '...')
+	# --- xSplitWith --- #
+	add_x_method(this, xSplitWith, 'coll')
+	add_x_method(this, xSplitWith..., '...')
+	add_x_method(this, x_SplitWith, 'coll')
+	add_x_method(this, x_SplitWith..., '...')
 
 	# --- xStopwatch --- #
 	add_x_method(this, xStopwatch, 'num')
@@ -1776,11 +1776,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_SortBy, 'fn')
 	add_x_method(this, x_SortBy..., '...')
 
-	# --- xSplitBy --- #
-	add_x_method(this, xSplitBy, 'pred')
-	add_x_method(this, xSplitBy..., 'pred')
-	add_x_method(this, x_SplitBy, 'pred')
-	add_x_method(this, x_SplitBy..., 'pred')
+	# --- xSplitWith --- #
+	add_x_method(this, xSplitWith, 'pred')
+	add_x_method(this, xSplitWith..., 'pred')
+	add_x_method(this, x_SplitWith, 'pred')
+	add_x_method(this, x_SplitWith..., 'pred')
 
 	# -------- T ------- #
 	# --- xTakeWhile --- #
