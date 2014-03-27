@@ -157,22 +157,29 @@ sd_section(
 sd_section(
 	"Basic Functions",
 	paste(
-		"These very simple functions are useful for function corner cases."
+		"These very simple functions are difficult to classify.",
+		"They include the identity function, a function that ",
+		"closes of a value, and functions that return true, false or na."
 	),
 	c(
 		"xCapture",
 		"xFalsity",
 		"xIdentity",
 		"xIrrelevance",
-		"xTruth"
+		"xTruth",
+		"xUnit"
 	)
 )
 
 sd_section(
 	"Folding Functions",
 	paste0(
-		"Folding is a fundemental operation in functional programming. ",
-		"These functions are varients of fold."
+		"Folds are fundemental to functional programming. A fold takes ",
+		"a function that combines two values (like the ",
+		"plus operator, the function 'c', or the function rbind), and applies ",
+		"it to a collection of values, ultimately yielding a single value. In general, ",
+		"folds can be in place of tail recursion or loops, and most functions in arrow ",
+		"can be implemented as a fold."
 	),
 	c(
 		"xFold",
@@ -207,8 +214,8 @@ sd_section(
 	"Function Combining Functions",
 	paste(
 		"These functions take several functions and combine them into",
-		"a resultant function. These include xCompose",
-		"and xLift."
+		"a single function. These include functions for composition functions, ",
+		"and for composition a function with a binary operator."
 	),
 	c(
 		"xCompose",
@@ -227,6 +234,7 @@ sd_section(
 		"xCapture",
 		"xDelay",
 		"xJuxtapose",
+		"xLift",
 		"xNot",
 		"xPartial",
 		"xThread",
