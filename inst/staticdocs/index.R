@@ -17,7 +17,7 @@ sd_section(
 		"xReadChars",
 		"xReadLines",
 		"xReadWords",
-		"xSubstring",
+		"xSliceString",
 		"xToChars",
 		"xToLines",
 		"xToWords",
@@ -139,7 +139,7 @@ sd_section(
 	),
 	c(
 		"xAsDataFrame",
-		"xByColnames",
+		"xByColkeys",
 		"xByCols",
 		"xByLevels",
 		"xByRows",
@@ -249,10 +249,10 @@ sd_section(
 		"select from a collection using keys."
 	),
 	c(
-		"xAsNamed",
+		"xAddKeys",
 		"xPluck",
-		"xUnzipNames",
-		"xZipNames"
+		"xUnzipKeys",
+		"xZipKeys"
 	)
 )
 
@@ -318,8 +318,8 @@ sd_section(
 		"xSplitAt",
 		"xSplitWith",
 		"xTabulate",
-		"xUnzipNames",
-		"xZipNames",
+		"xUnzipKeys",
+		"xZipKeys",
 		"xZip"
 	)
 )

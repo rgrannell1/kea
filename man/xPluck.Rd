@@ -34,9 +34,9 @@ selecting fields in each element by name.
 NULL
 }
 \seealso{
-Other key_functions: \code{\link{xAsNamed}};
-  \code{\link{xUnzipNames}}, \code{\link{xUnzipNames...}};
-  \code{\link{xZipNames}}, \code{\link{xZipNames...}}
+Other key_functions: \code{\link{xAddKeys}};
+  \code{\link{xUnzipKeys}}, \code{\link{xUnzipKeys...}};
+  \code{\link{xZipKeys}}, \code{\link{xZipKeys...}}
 
 Other selection_functions: \code{\link{xAtCol}},
   \code{\link{xAtCol...}}; \code{\link{xAt}},

@@ -57,7 +57,7 @@ freqs  <- parsed $ x_Tabulate()
 # list(list("swiss", 2), list("german", 2), list("irish", 1), list("french", 1))
 }
 \seealso{
-Other methods: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xColUnit}}; \code{\link{xElemsByCols}};

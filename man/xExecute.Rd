@@ -23,7 +23,7 @@ Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xVersion}}; \code{\link{xWriteChars}};
   \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 
-Other methods: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xColUnit}}; \code{\link{xElemsByCols}};

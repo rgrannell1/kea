@@ -1,10 +1,10 @@
 
-#' xUnzipNames
+#' xUnzipKeys
 #'
 #' Split a named collection into a list of name: value list pairs.
 #'
 #' @details
-#'     \bold{xUnzipNames} is the inverse function to \bold{xZipNames} - it
+#'     \bold{xUnzipKeys} is the inverse function to \bold{xZipKeys} - it
 #'     takes a named collection and converts it into a list of
 #'     key, value list pairs. This is primarily intended for allowing functions that
 #'     cannot read collection names - like map and select - to be able to operate
@@ -30,12 +30,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xUnzipNames.R
+#'    inst/examples/example-xUnzipKeys.R
 #'
-#' @rdname xUnzipNames
+#' @rdname xUnzipKeys
 #' @export
 
-xUnzipNames <- MakeFun(function (coll) {
+xUnzipKeys <- MakeFun(function (coll) {
 	# Named collection any -> [[string, any]]
 	# split a list into its names and values.
 
@@ -62,9 +62,9 @@ xUnzipNames <- MakeFun(function (coll) {
 	}
 })
 
-#' @rdname xUnzipNames
+#' @rdname xUnzipKeys
 #' @export
 
-xUnzipNames... <- function (...) {
-	xUnzipNames(list(...))
+xUnzipKeys... <- function (...) {
+	xUnzipKeys(list(...))
 }

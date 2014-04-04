@@ -12,7 +12,7 @@ An arrow object containing a list of lists.
 Convert a matrix or data.frame to a collection of columns.
 }
 \seealso{
-Other methods: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColkeys}};
   \code{\link{xByLevels}}, \code{\link{xByLevels}};
   \code{\link{xByRows}}; \code{\link{xColUnit}};
   \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};

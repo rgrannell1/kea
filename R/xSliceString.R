@@ -1,5 +1,5 @@
 
-#' xSubstring
+#' xSliceString
 #'
 #' Subset a string using normal R vector indexing.
 #'
@@ -27,12 +27,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xSubstring.R
+#'    inst/examples/example-xSliceString.R
 #'
-#' @rdname xSubstring
+#' @rdname xSliceString
 #' @export
 
-xSubstring <- MakeFun(function (str, nums) {
+xSliceString <- MakeFun(function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 
@@ -55,19 +55,19 @@ xSubstring <- MakeFun(function (str, nums) {
 		str
 	} else {
 
-		assert(
-			max(nums) <= nchar(str), invoking_call, "")
 
 		chars <- strsplit(str, "")[[1]]
 		chars <- chars[nchar(chars) > 0]
+
+		MACRO( Must $ Be_Indices(nums, chars) )
 
 		paste0(chars[nums], collapse = "")
 	}
 })
 
-#' @rdname xSubstring
+#' @rdname xSliceString
 #' @export
 
-xSubstring... <- function (str, ...) {
-	xSubstring(str, list(...))
+xSliceString... <- function (str, ...) {
+	xSliceString(str, list(...))
 }

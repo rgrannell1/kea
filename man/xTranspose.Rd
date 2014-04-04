@@ -28,7 +28,7 @@ Transpose a matrix.
    Matrices with zero rows or columns are transposed as expected.
 }
 \seealso{
-Other methods: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xColUnit}}; \code{\link{xElemsByCols}};

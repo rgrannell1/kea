@@ -12,7 +12,7 @@ An arrow object containing a list.
 Enumerate the elements of a matrix down columns.
 }
 \seealso{
-Other methods: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xColUnit}}; \code{\link{xElemsByRows}};

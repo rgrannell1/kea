@@ -1,10 +1,10 @@
 
-#' xAsNamed
+#' xAddKeys
 #'
 #' Add names to a collection.
 #'
 #' @details
-#' \bold{xAsNamed} is similar to the in-place assignment
+#' \bold{xAddKeys} is similar to the in-place assignment
 #' function \bold{names<-}, except that it is not an in-place
 #' assignment function.
 #'
@@ -30,12 +30,12 @@
 #' @family key_functions
 #'
 #' @example
-#'    inst/examples/example-xAsNamed.R
+#'    inst/examples/example-xAddKeys.R
 #'
-#' @rdname xAsNamed
+#' @rdname xAddKeys
 #' @export
 
-xAsNamed <- MakeFun(function (strs, coll) {
+xAddKeys <- MakeFun(function (strs, coll) {
 	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 

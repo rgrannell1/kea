@@ -532,7 +532,6 @@ Must <- local({
 						summate( .(COLLS) )
 
 					throw_arrow_error(invoking_call, message)
-
 				}
 			})
 
@@ -582,6 +581,7 @@ Must <- local({
 					" must be a collection with lengths in the range " %+%
 					.(LOWER) %+% " to " %+% .(UPPER) %+% "."
 
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 
@@ -683,6 +683,8 @@ Must <- local({
 					"the argument matching " %+% ddquote( .(NUMS) ) %+%
 					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 					summate( .(NUMS) )
+
+				throw_arrow_error(invoking_call, message)
 
 			})
 		}
@@ -815,6 +817,8 @@ Must <- local({
 					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 					summate( .(NUMS) )
 
+				throw_arrow_error(invoking_call, message)
+
 			})
 		}
 
@@ -830,6 +834,7 @@ Must <- local({
 					" must be round numbers." %+%
 					summate( .(NUMS) )
 
+				throw_arrow_error(invoking_call, message)
 			})
 		}
 

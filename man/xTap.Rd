@@ -23,7 +23,7 @@ Apply an anonymous function to the contents of an arrow object.
    \code{x_(1:10) $ x_Tap(nums := all(nums > 0))}
 }
 \seealso{
-Other methods: \code{\link{xByColnames}};
+Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xColUnit}}; \code{\link{xElemsByCols}};

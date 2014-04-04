@@ -63,9 +63,9 @@ Other reshaping_functions: \code{\link{xChunk}},
   \code{\link{xSortBy...}}; \code{\link{xSplitAt}},
   \code{\link{xSplitAt...}}; \code{\link{xSplitWith}},
   \code{\link{xSplitWith...}}; \code{\link{xTabulate}},
-  \code{\link{xTabulate...}}; \code{\link{xUnzipNames}},
-  \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
-  \code{\link{xZipNames...}}; \code{\link{xZip}},
+  \code{\link{xTabulate...}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys...}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys...}}; \code{\link{xZip}},
   \code{\link{xZip...}}
 }
 

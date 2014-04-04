@@ -39,11 +39,11 @@ message('test that every method has an unchaining version.')
 			},
 		as_unchaining =
 			function (base) {
-				xFromChars...('x_', xSubstring(base, -1))
+				xFromChars...('x_', xSliceString(base, -1))
 			},
 		as_variadic_unchaining =
 			function (base) {
-			xFromChars...('x_', xSubstring(base, -1), '...')
+			xFromChars...('x_', xSliceString(base, -1), '...')
 		}
 	)
 

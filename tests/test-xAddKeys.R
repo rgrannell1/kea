@@ -5,17 +5,17 @@ test_cases <- arrow:::test_cases
 require(arrow)
 
 
-message("xAsNamed")
+message("xAddKeys")
 
 	forall(
 		"unit is named list()",
 		test_cases$str_words,
-		xAsNamed(character(0), list()) %equals% structure(list(), names = character(0))
+		xAddKeys(character(0), list()) %equals% structure(list(), names = character(0))
 	)
 
 	forall(
 		"same length names are correctly added",
 		test_cases$str_words,
-		all(names( xAsNamed(strs, seq_along(strs)) ) == strs)
+		all(names( xAddKeys(strs, seq_along(strs)) ) == strs)
 	)
 

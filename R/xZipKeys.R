@@ -1,5 +1,5 @@
 
-#' xZipNames
+#' xZipKeys
 #'
 #' Convert a collection of name, value pairs into a named collection.
 #'
@@ -28,12 +28,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xZipNames.R
+#'    inst/examples/example-xZipKeys.R
 #'
-#' @rdname xZipNames
+#' @rdname xZipKeys
 #' @export
 
-xZipNames <- MakeFun(function (colls) {
+xZipKeys <- MakeFun(function (colls) {
 	# Collection Collection any -> [any]
 	# take a collection of name:value pairs and associate
 	# them into a named list.
@@ -69,9 +69,9 @@ xZipNames <- MakeFun(function (colls) {
 	}
 })
 
-#' @rdname xZipNames
+#' @rdname xZipKeys
 #' @export
 
-xZipNames... <- function (...) {
-	xZipNames(list(...))
+xZipKeys... <- function (...) {
+	xZipKeys(list(...))
 }

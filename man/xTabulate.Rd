@@ -54,9 +54,9 @@ Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xShuffle...}}; \code{\link{xSortBy}},
   \code{\link{xSortBy...}}; \code{\link{xSplitAt}},
   \code{\link{xSplitAt...}}; \code{\link{xSplitWith}},
-  \code{\link{xSplitWith...}}; \code{\link{xUnzipNames}},
-  \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
-  \code{\link{xZipNames...}}; \code{\link{xZip}},
+  \code{\link{xSplitWith...}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys...}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys...}}; \code{\link{xZip}},
   \code{\link{xZip...}}
 }
 

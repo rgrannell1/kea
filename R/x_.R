@@ -368,11 +368,11 @@ x_matrix_proto <- local({
 			}
 		}
 
-	this$xByColnames <-
+	this$xByColkeys <-
 		function () {
 			x_( as.list( colnames(Self()) ) )
 		}
-	this$x_ByColnames <-
+	this$x_ByColkeys <-
 		function () {
 			as.list( colnames(Self()) )
 		}
@@ -406,13 +406,13 @@ x_matrix_proto <- local({
 				apply(Self(), 1, as.list)
 			}
 		}
-	# --- xByRownames --- #
-		this$xByRownames <-
+	# --- xByRowkeys --- #
+		this$xByRowkeys <-
 			function () {
 				x_( as.list( rownames(Self()) ) )
 			}
 
-		this$x_ByRownames <-
+		this$x_ByRowkeys <-
 			function () {
 				as.list( rownames(Self()) )
 			}
@@ -581,17 +581,17 @@ x_data_frame_proto <- local({
 			}
 		}
 
-	# --- xByColnames --- #
-	this$xByColnames <-
+	# --- xByColkeys --- #
+	this$xByColkeys <-
 		function () {
 			x_( as.list( colnames(Self()) ) )
 		}
-	this$x_ByColnames <-
+	this$x_ByColkeys <-
 		function () {
 			as.list( colnames(Self()) )
 		}
 
-	# --- xByRownames --- #
+	# --- xByRowkeys --- #
 	this$xByRows <-
 		function () {
 			dims <- dim(Self())
@@ -621,11 +621,11 @@ x_data_frame_proto <- local({
 			}
 		}
 
-	this$xByRownames <-
+	this$xByRowkeys <-
 		function () {
 			x_( as.list( rownames(Self()) ) )
 		}
-	this$x_ByRownames <-
+	this$x_ByRowkeys <-
 		function () {
 			as.list( rownames(Self()) )
 		}
@@ -882,11 +882,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Apply, 'coll')
 	add_x_method(this, x_Apply..., '...')
 
-	# --- xZipNames --- #
-	add_x_method(this, xZipNames, 'colls')
-	add_x_method(this, xZipNames..., '...')
-	add_x_method(this, x_ZipNames, 'colls')
-	add_x_method(this, x_ZipNames..., '...')
+	# --- xZipKeys --- #
+	add_x_method(this, xZipKeys, 'colls')
+	add_x_method(this, xZipKeys..., '...')
+	add_x_method(this, x_ZipKeys, 'colls')
+	add_x_method(this, x_ZipKeys..., '...')
 
 	# -------- B ------- #
 	# -------- C ------- #
@@ -910,11 +910,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Cycle..., '...')
 
 	# -------- D ------- #
-	# --- xUnzipNames --- #
-	add_x_method(this, xUnzipNames, 'coll')
-	add_x_method(this, xUnzipNames..., '...')
-	add_x_method(this, x_UnzipNames, 'coll')
-	add_x_method(this, x_UnzipNames..., '...')
+	# --- xUnzipKeys --- #
+	add_x_method(this, xUnzipKeys, 'coll')
+	add_x_method(this, xUnzipKeys..., '...')
+	add_x_method(this, x_UnzipKeys, 'coll')
+	add_x_method(this, x_UnzipKeys..., '...')
 
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')
@@ -1142,9 +1142,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_MapIndexed..., '...')
 
 	# -------- N ------- #
-	# --- xAsNamed --- #
-	add_x_method(this, xAsNamed, 'coll')
-	add_x_method(this, x_AsNamed, 'coll')
+	# --- xAddKeys --- #
+	add_x_method(this, xAddKeys, 'coll')
+	add_x_method(this, x_AddKeys, 'coll')
 
 	# --- xNotMember --- #
 	add_x_method(this, xNotMember, 'coll')
@@ -1379,9 +1379,9 @@ x_coll_proto <- local({
 	add_x_method(this, xStopwatch, 'num')
 	add_x_method(this, x_Stopwatch, 'num')
 
-	# --- x_Substring --- #
-	add_x_method(this, xSubstring, 'str')
-	add_x_method(this, x_Substring, 'str')
+	# --- x_SliceString --- #
+	add_x_method(this, xSliceString, 'str')
+	add_x_method(this, x_SliceString, 'str')
 
 	# --- xSortBy --- #
 	add_x_method(this, xSortBy, 'coll')

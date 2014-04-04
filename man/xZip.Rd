@@ -60,7 +60,7 @@ Transpose a collection of collections.
 csv <- "Monaco,48.9,Japan,44.6,Italy,44.3,Germany,43.7,Jersey,43.4"
 
 x_(csv) $ xExplode(',') $ xChunk(2) $ xZip() $
-x_AsNamed(c('country', 'age'))
+x_AddKeys(c('country', 'age'))
 
 # list(
 #     country =
@@ -95,8 +95,8 @@ Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xSortBy...}}; \code{\link{xSplitAt}},
   \code{\link{xSplitAt...}}; \code{\link{xSplitWith}},
   \code{\link{xSplitWith...}}; \code{\link{xTabulate}},
-  \code{\link{xTabulate...}}; \code{\link{xUnzipNames}},
-  \code{\link{xUnzipNames...}}; \code{\link{xZipNames}},
-  \code{\link{xZipNames...}}
+  \code{\link{xTabulate...}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys...}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys...}}
 }
 
