@@ -28,7 +28,18 @@ Is a predicate true for any element of a collection?
 }
 \examples{
 
-NULL
+# 1. Using any to test if there are any true values in a vector.
+
+xAny(xI, c(True, True, False, True))
+
+# True
+
+# 2. Does a function name with more that 25 characters exist
+#    in the base R libraries?
+
+xAny(name := nchar(name) > 25, ls('package:base'))
+
+# several matches exist, including the terse 'suppressPackageStartupMessages'
 }
 \seealso{
 Other quantifier_functions: \code{\link{xAll}},

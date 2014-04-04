@@ -15,7 +15,7 @@ xCycle...(num, ...)
      while negative numbers cause elements from the head of \bold{coll} to
      appended to the output.}
 
-\item{coll}{a collection. The collection to cycle.}
+\item{colls}{a collection of collections. The collection to cycle.}
 
 \item{...}{see above.}
 }

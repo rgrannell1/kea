@@ -3,6 +3,8 @@
 #'
 #' Apply an anonymous function to the contents of an arrow object.
 #'
+#' @param fn a unary function. The function to apply to the data in an arrow object.
+#'
 #' @details
 #'    \bold{xTap} applies non-arrow functions to be applied to arrow objects.
 #'    These functions can be named or unnamed. This allows base functions

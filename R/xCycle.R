@@ -34,7 +34,7 @@
 #'      appended to the output.
 #'
 #' @param
-#'      coll a collection. The collection to cycle.
+#'      colls a collection of collections. The collection to cycle.
 #'
 #' @param
 #'    ... see above.

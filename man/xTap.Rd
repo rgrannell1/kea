@@ -5,6 +5,9 @@
 \usage{
 x_(  ) $ xTap(fn)
 }
+\arguments{
+\item{fn}{a unary function. The function to apply to the data in an arrow object.}
+}
 \value{
 An arrow object.
 }

@@ -7,7 +7,7 @@
 #'    coll1 a collection. The set to test for membership in a superset.
 #'
 #' @param
-#'    coll1 a collection. The superset to test.
+#'    coll2 a collection. The superset to test.
 #'
 #' @param
 #'    ... see above.

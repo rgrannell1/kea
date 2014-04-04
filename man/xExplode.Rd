@@ -46,9 +46,10 @@ Other text_processing_functions: \code{\link{xFromChars}},
   \code{\link{xFromWords...}}; \code{\link{xImplode}},
   \code{\link{xImplode...}}; \code{\link{xReadChars}};
   \code{\link{xReadLines}}; \code{\link{xReadWords}};
-  \code{\link{xSliceString}}, \code{\link{xSliceString...}};
-  \code{\link{xToChars}}; \code{\link{xToLines}};
-  \code{\link{xToWords}}; \code{\link{xWriteChars}};
-  \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
+  \code{\link{xSliceString}},
+  \code{\link{xSliceString...}}; \code{\link{xToChars}};
+  \code{\link{xToLines}}; \code{\link{xToWords}};
+  \code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+  \code{\link{xWriteWords}}
 }
 

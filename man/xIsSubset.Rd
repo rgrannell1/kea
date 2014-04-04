@@ -11,7 +11,7 @@ xIsSubset...(coll1, ...)
 \arguments{
 \item{coll1}{a collection. The set to test for membership in a superset.}
 
-\item{coll1}{a collection. The superset to test.}
+\item{coll2}{a collection. The superset to test.}
 
 \item{...}{see above.}
 }
