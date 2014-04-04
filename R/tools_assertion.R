@@ -573,7 +573,9 @@ Must <- local({
 			UPPER <- match.call()$UPPER
 
 			bquote( if (any(vapply( .(COLLS), function (coll) {
-				length(coll) >= .(LOWER) && length(coll) <= .(UPPER)
+
+				.(LOWER) > length(coll) || length(coll) > .(UPPER)
+
 			}, logical(1) )) ) {
 
 				message <-
