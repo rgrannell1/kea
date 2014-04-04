@@ -1,7 +1,11 @@
 
-# xAsVariadic lets you take a non-unary function and
-# creates a function that lets you pass it arguments
-# as a single list.
+# 1.
+# Convert a function that takes a single value as an argument to
+# a function that takes many arguments.
 #
 
-# 1. create a version of sum that
+summate <- xAsVariadic(nums := xFold("+", 0, nums) )
+
+summate(1, 2, 3, 4, 5, 6)
+
+# 21

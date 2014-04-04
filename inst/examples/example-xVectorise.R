@@ -10,5 +10,3 @@ absolutes <- xVectorise(abs)
 absolutes(c(-1, 0, +1))
 
 # c(1, 0, 1)
-
-
