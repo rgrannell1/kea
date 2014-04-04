@@ -100,11 +100,22 @@ write_error <- function (..., call. = True) {
 
 get_call_components <- function (invoking_call) {
 	# get the calling function and call text from a call.
-	list(
-		invoking =
-			paste0(invoking_call[[1]], collapse = ''),
-		calltext =
-			stringify_call(invoking_call))
+
+	print(invoking_call)
+
+	if (length(invoking_call) == 1) {
+		list(
+			invoking_call =
+				paste0(invoking_call, collapse = ''),
+			calltext =
+				"")
+	} else {
+		list(
+			invoking =
+				paste0(invoking_call[[1]], collapse = ''),
+			calltext =
+				stringify_call(invoking_call))
+	}
 }
 
 assert <- local({

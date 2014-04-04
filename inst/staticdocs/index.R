@@ -288,6 +288,8 @@ sd_section(
 		" over a data set."
 	),
 	c(
+		"xAny",
+		"xAll",
 		"xForall",
 		"xExists",
 		"xPoll"
