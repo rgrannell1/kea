@@ -101,8 +101,6 @@ write_error <- function (..., call. = True) {
 get_call_components <- function (invoking_call) {
 	# get the calling function and call text from a call.
 
-	print(invoking_call)
-
 	if (length(invoking_call) == 1) {
 		list(
 			invoking_call =
