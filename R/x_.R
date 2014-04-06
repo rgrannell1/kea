@@ -823,6 +823,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_At, 'coll')
 	add_x_method(this, x_At..., '...')
 
+	# --- xAtKey --- #
+	add_x_method(this, xAtKey, 'coll')
+	add_x_method(this, xAtKey..., '...')
+	add_x_method(this, x_AtKey, 'coll')
+	add_x_method(this, x_AtKey..., '...')
+
 	add_x_method(this, xAtCol, 'colls')
 	add_x_method(this, xAtCol..., '...')
 	add_x_method(this, x_AtCol, 'colls')

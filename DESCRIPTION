@@ -183,4 +183,5 @@ Collate:
     'xIsSubset.R'
     'xMaxBy.R'
     'xMinBy.R'
+    'xAtKey.R'
     'x_.R'

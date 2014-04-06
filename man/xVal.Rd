@@ -36,7 +36,10 @@ xVal works like normal R assignment, with the exception
 }
 \examples{
 
-NULL
+# 1. assign a constant value,
+# that can't later be altered.
+
+xVal(tau, 6.283185)
 }
 \seealso{
 Other immutable_value_functions: \code{\link{xAsVal}};

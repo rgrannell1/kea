@@ -16,8 +16,12 @@ A function that always returns true.
 }
 \examples{
 
-NULL
+# 1.
+# xTruth is useful for functions that take predicates .
 
+xSelect(xTruth, 1:3)
+
+# c(1, 2, 3)
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},

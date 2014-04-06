@@ -83,6 +83,8 @@ xForall...(
 	},
 	seq_along(left_to_right)
 )
+
+# True
 }
 \seealso{
 Other quantifier_functions: \code{\link{xAll}},

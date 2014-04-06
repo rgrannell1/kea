@@ -47,7 +47,8 @@ x_SecondOf()
 }
 \seealso{
 Other selection_functions: \code{\link{xAtCol}},
-  \code{\link{xAtCol...}}; \code{\link{xAt}},
+  \code{\link{xAtCol...}}; \code{\link{xAtKey}},
+  \code{\link{xAtKey...}}; \code{\link{xAt}},
   \code{\link{xAt...}}; \code{\link{xDropWhile}},
   \code{\link{xDropWhile...}}; \code{\link{xDrop}},
   \code{\link{xDrop...}}; \code{\link{xFirstOf}},
