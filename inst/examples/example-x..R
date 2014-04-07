@@ -47,26 +47,24 @@ xMap(x. $ `rain (ml)`, rain_data)
 
 max_rainfall <- xMaxBy(xI, xAtCol(2, rain_data))
 
-prop_rain_data <-
-	x_(rain_data) $
-	x_Map(row := {
-		row[[2]] <- round(row[[2]] / max_rainfall, 1)
-		row
-	})
+prop_rain_data <- x_(rain_data) $ x_Map(row := {
+	row[[2]] <- round(row[[2]] / max_rainfall, 1)
+	row
+})
 
 # list(
-#    list(month = "August",		`rain (ml)` = 0.7)
-#    list(month = "September", 	`rain (ml)` = 0.5)
-#    list(month = "October", 	`rain (ml)` = 0.4)
-#    list(month = "November", 	`rain (ml)` = 0.3)
+#    list(month = "August",     `rain (ml)` = 0.7)
+#    list(month = "September",  `rain (ml)` = 0.5)
+#    list(month = "October",    `rain (ml)` = 0.4)
+#    list(month = "November",   `rain (ml)` = 0.3)
 #    list(month = "December", 	`rain (ml)` = 0.2)
 #    list(month = "January", 	`rain (ml)` = 0.2)
 #    list(month = "February", 	`rain (ml)` = 0.3)
-#    list(month = "March", 		`rain (ml)` = 0.4)
-#    list(month = "April", 		`rain (ml)` = 0.5)
-#    list(month =  "May", 		`rain (ml)` = 0.7)
-#    list(month = "June", 		`rain (ml)` = 0.9)
-#    list(month = "July", 		`rain (ml)` = 1.0)
+#    list(month = "March",      `rain (ml)` = 0.4)
+#    list(month = "April",      `rain (ml)` = 0.5)
+#    list(month =  "May",       `rain (ml)` = 0.7)
+#    list(month = "June",       `rain (ml)` = 0.9)
+#    list(month = "July",       `rain (ml)` = 1.0)
 # )
 
 # 3. modulo 6 every element of an atomic vector.
