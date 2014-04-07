@@ -29,8 +29,7 @@ For library documentation and tutorials head to
 * Programs are built in a lego-like manner; stacking small,
 uniquely-purposed functions into a larger program.
 
-* Like Ruby and JavaScript, Arrow has a shorthand syntax
-for creating functions.
+* Like Ruby and JavaScript, Arrow has a shorthand syntax 	for creating functions.
 
 * Arrow implements jQuery-like chaining methods without using R's bulkier
 object-orientation systems. These methods are just as usable as those in
