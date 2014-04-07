@@ -64,7 +64,7 @@ xMap(party := {
 		perjury =
 			x_(party) $ xAtCol(2) $ xTabulate() $ x_ZipKeys(),
 		obstruction =
-			x_(party) $ xAtCol(2) $ xTabulate() $ x_ZipKeys()
+			x_(party) $ xAtCol(3) $ xTabulate() $ x_ZipKeys()
 	)
 
 }) $

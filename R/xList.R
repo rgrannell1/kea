@@ -78,20 +78,20 @@ xList <- structure(
 
 		throw_arrow_error(invoking_call, message)
 	},
-	class = 'list_builder'
+	class = 'xlist_builder'
 )
 
-#' @method print list_builder
+#' @method print xlist_builder
 #' @export
 
-print.list_builder <- function (x, ...) {
+print.xlist_builder <- function (x, ...) {
 	cat("[ the xList object ]\n")
 }
 
-#' @method [ list_builder
+#' @method [ xlist_builder
 #' @export
 
-'[.list_builder' <- function (x, ...) {
+'[.xlist_builder' <- function (x, ...) {
 
 	exprs <- eval( substitute(alist(...)) )
 	parent_frame <- parent.frame()

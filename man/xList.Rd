@@ -4,7 +4,7 @@
 \alias{xList}
 \title{xList[ ]}
 \format{\preformatted{function (...)  
- - attr(*, "class")= chr "list_builder"
+ - attr(*, "class")= chr "xlist_builder"
 }}
 \usage{
 xList

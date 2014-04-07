@@ -35,7 +35,7 @@ xCapture <- MakeFun(function (val) {
 	MACRO( Must $ Not_Be_Missing(val) )
 
 	function (...) {
-		"a function created xCapture."
+		"a function created by xCapture."
 		""
 		val
 	}
