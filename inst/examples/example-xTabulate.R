@@ -46,3 +46,6 @@ clinton_vote $ xAtKey('perjury') $ x_Tabulate()
 clinton_vote $ xAtKey('obstruction') $ x_Tabulate()
 
 # list( list("Guilty", 12), list("NotGuilty", 14) )
+
+clinton_vote $ xZip () $xGroupBy(xFirstOf) $
+xMap(xSecondOf)

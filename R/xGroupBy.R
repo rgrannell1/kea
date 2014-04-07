@@ -62,14 +62,14 @@ xGroupBy <- MakeFun(function (fn, coll) {
 
 				if ( identical(map, groups[[jth]][[1]] ) ) {
 
-					groups[[jth]][[2]] <- c(groups[[jth]][[2]], elem)
+					groups[[jth]][[2]] <- c(groups[[jth]][[2]], list(elem))
 
 					group_found <- True
 				}
 			}
 
 			if (!group_found) {
-				groups <- c(groups, list( list(map, list(elem )) ))
+				groups <- c(groups, list( list(by = map, group = list(elem)) ))
 			}
 		}
 		groups

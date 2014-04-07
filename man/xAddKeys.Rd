@@ -29,8 +29,6 @@ assignment function.
 }
 \examples{
 
-NULL
-
 }
 \seealso{
 Other key_functions: \code{\link{xPluck}},

@@ -1,4 +1,10 @@
 
+#' Special Values
+#'
+#' These are aliases to values already
+#' in R.
+#'
+
 #' @export
 
 Na <- NA
