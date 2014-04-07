@@ -30,7 +30,7 @@ For library documentation and tutorials head to
 uniquely-purposed functions into a larger program.
 
 * Like Ruby and JavaScript, Arrow has a shorthand syntax
-for creating functions to R.
+for creating functions.
 
 * Arrow implements jQuery-like chaining methods without using R's bulkier
 object-orientation systems. These methods are just as usable as those in
