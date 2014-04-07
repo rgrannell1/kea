@@ -10,7 +10,6 @@
 \alias{-.xlambda_builder}
 \alias{/.xlambda_builder}
 \alias{:.xlambda_builder}
-\alias{::.xlambda_builder}
 \alias{<.xlambda_builder}
 \alias{<=.xlambda_builder}
 \alias{==.xlambda_builder}
@@ -34,8 +33,6 @@ x.
 \\method{\\\%\\\%}{xlambda_builder}(dropped, val2)
 
 \\method{\\\%/\\\%}{xlambda_builder}(dropped, val2)
-
-"::.xlambda_builder"(dropped, val2)
 
 \\method{$}{xlambda_builder}(dropped, val2)
 
