@@ -555,7 +555,8 @@ Must <- local({
 					message <-
 						"the argument matching " %+% ddquote( .(COLL) ) %+%
 						" must be a collection of functions, or symbols or strings" %+%
-						" that can be looked up as functions."
+						" that can be looked up as functions." %+%
+						summate( .(COLL) )
 
 					throw_arrow_error(invoking_call, message)
 				}
@@ -579,7 +580,8 @@ Must <- local({
 				message <-
 					"the argument matching " %+% ddquote( .(COLLS) ) %+%
 					" must be a collection with lengths in the range " %+%
-					.(LOWER) %+% " to " %+% .(UPPER) %+% "."
+					.(LOWER) %+% " to " %+% .(UPPER) %+% "." %+%
+					summate( .(COLLS) )
 
 				throw_arrow_error(invoking_call, message)
 			})
