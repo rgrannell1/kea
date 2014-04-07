@@ -26,219 +26,209 @@ x. <- structure(
 #' @export
 #' @rdname x.
 
-'%%.xlambda_builder' <- function (x, y) {
-	function (val) {
-		"a function created by x. %%"
-		val %% y
-	}
+'%%.xlambda_builder' <- function (dropped, val2) {
+    bquote(function (val1) {
+        "a function created by x. %%"
+        val1 %% .(val2)
+    })
 }
 
 #' @export
 #' @rdname x.
 
-'%/%.xlambda_builder' <- function (x, y) {
-	function (val) {
+'%/%.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. %/%"
-		val %/% y
-	}
+		val1 %/% .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'::.xlambda_builder' <- function (x, y) {
-	function (val) {
-		"a function created by x. ::"
-		val :: y
-	}
-}
-
-#' @export
-#' @rdname x.
-
-'$.xlambda_builder' <- function (x, y) {
-	function (val) {
+'$.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. $"
-		val $ y
-	}
+		val1 $ .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'@.xlambda_builder' <- function (x, y) {
-	function (val) {
+'@.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. @"
-		val @ y
-	}
+		val1 @ .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'^.xlambda_builder' <- '**.xlambda_builder' <- function (x, y) {
-	function (val) {
+'^.xlambda_builder' <- '**.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. ^"
-		val ^ y
-	}
+		val1 ^ .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-':.xlambda_builder' <- function (x, y) {
-	function (val) {
+':.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. :"
-		val : y
-	}
+		val1 : .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'*.xlambda_builder' <- function (x, y) {
-	function (val) {
+'*.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. *"
-		val * y
-	}
+		val1 * .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'/.xlambda_builder' <- function (x, y) {
-	function (val) {
+'/.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. /"
-		val / y
-	}
+		val1 / .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'-.xlambda_builder' <- function (x, y) {
-	function (val) {
+'-.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. -"
-		val - y
-	}
+		val1 - .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'+.xlambda_builder' <- function (x, y) {
-	function (val) {
+'+.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. +"
-		val + y
-	}
+		val1 + .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'>.xlambda_builder' <- function (x, y) {
-	function (val) {
+'>.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. >"
-		val > y
-	}
+		val1 > .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'>=.xlambda_builder' <- function (x, y) {
-	function (val) {
+'>=.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. >="
-		val >= y
-	}
+		val1 >= .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'<.xlambda_builder' <- function (x, y) {
-	function (val) {
+'<.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. <"
-		val < y
-	}
+		val1 < .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'<=.xlambda_builder' <- function (x, y) {
-	function (val) {
+'<=.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. <="
-		val <= y
-	}
+		val1 <= .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'==.xlambda_builder' <- function (x, y) {
-	function (val) {
+'==.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. =="
-		val == y
-	}
+		val1 == .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'!=.xlambda_builder' <- function (x, y) {
-	function (val) {
+'!=.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. !="
-		val != y
-	}
+		val1 != .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'&.xlambda_builder' <- function (x, y) {
-	function (val) {
+'&.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. &"
-		val & y
-	}
+		val1 & .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'&&.xlambda_builder' <- function (x, y) {
-	function (val) {
+'&&.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. &&"
-		val && y
-	}
+		val1 && .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'|.xlambda_builder' <- function (x, y) {
-	function (val) {
+'|.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. |"
-		val | y
-	}
+		val1 | .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'||.xlambda_builder' <- function (x, y) {
-	function (val) {
+'||.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. ||"
-		val || y
-	}
+		val1 || .(val2)
+	})
 }
 
 #' @export
 #' @rdname x.
 
-'~.xlambda_builder' <- function (x, y) {
-	function (val) {
+'~.xlambda_builder' <- function (dropped, val2) {
+	bquote(function (val1) {
 		"a function created by x. ~"
-		val ~ y
-	}
+		val1 ~ .(val2)
+	})
 }

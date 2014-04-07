@@ -15,5 +15,5 @@ message("xGroupBy")
 	forall(
 		"grouping an length one is as list(coll)",
 		test_cases$num_positive_integer,
-		xGroupBy(xI, num) %equals% list(list(num, list(num)))
+		xGroupBy(xI, num) %equals% list(list(num, list( list(num) )))
 	)

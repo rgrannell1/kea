@@ -25,55 +25,55 @@
 \alias{||.xlambda_builder}
 \alias{~.xlambda_builder}
 \title{x.}
-\format{\preformatted{ list()
+\format{\preformatted{function (...)  
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
 x.
 
-\\method{\\\%\\\%}{xlambda_builder}(x, y)
+\\method{\\\%\\\%}{xlambda_builder}(dropped, val2)
 
-\\method{\\\%/\\\%}{xlambda_builder}(x, y)
+\\method{\\\%/\\\%}{xlambda_builder}(dropped, val2)
 
-"::.xlambda_builder"(x, y)
+"::.xlambda_builder"(dropped, val2)
 
-\\method{$}{xlambda_builder}(x, y)
+\\method{$}{xlambda_builder}(dropped, val2)
 
-"@.xlambda_builder"(x, y)
+"@.xlambda_builder"(dropped, val2)
 
-\\method{^}{xlambda_builder}(x, y)
+\\method{^}{xlambda_builder}(dropped, val2)
 
-":.xlambda_builder"(x, y)
+":.xlambda_builder"(dropped, val2)
 
-\\method{*}{xlambda_builder}(x, y)
+\\method{*}{xlambda_builder}(dropped, val2)
 
-\\method{/}{xlambda_builder}(x, y)
+\\method{/}{xlambda_builder}(dropped, val2)
 
-\\method{-}{xlambda_builder}(x, y)
+\\method{-}{xlambda_builder}(dropped, val2)
 
-\\method{+}{xlambda_builder}(x, y)
+\\method{+}{xlambda_builder}(dropped, val2)
 
-\\method{>}{xlambda_builder}(x, y)
+\\method{>}{xlambda_builder}(dropped, val2)
 
-\\method{>=}{xlambda_builder}(x, y)
+\\method{>=}{xlambda_builder}(dropped, val2)
 
-\\method{<}{xlambda_builder}(x, y)
+\\method{<}{xlambda_builder}(dropped, val2)
 
-\\method{<=}{xlambda_builder}(x, y)
+\\method{<=}{xlambda_builder}(dropped, val2)
 
-\\method{==}{xlambda_builder}(x, y)
+\\method{==}{xlambda_builder}(dropped, val2)
 
-\\method{!=}{xlambda_builder}(x, y)
+\\method{!=}{xlambda_builder}(dropped, val2)
 
-\\method{&}{xlambda_builder}(x, y)
+\\method{&}{xlambda_builder}(dropped, val2)
 
-"&&.xlambda_builder"(x, y)
+"&&.xlambda_builder"(dropped, val2)
 
-\\method{|}{xlambda_builder}(x, y)
+\\method{|}{xlambda_builder}(dropped, val2)
 
-"||.xlambda_builder"(x, y)
+"||.xlambda_builder"(dropped, val2)
 
-"~.xlambda_builder"(x, y)
+"~.xlambda_builder"(dropped, val2)
 }
 \description{
 Wildcard
