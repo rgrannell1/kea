@@ -72,8 +72,26 @@ x.
 
 "~.xlambda_builder"(dropped, val2)
 }
+\arguments{
+\item{dropped}{the value x.. This isn't used internally.}
+
+\item{val2}{the right hand side of an infix function call.}
+}
+\value{
+an arbitrary value.
+}
 \description{
-Wildcard
+Partially apply an infix function.
+}
+\details{
+One of the most common uses of anonymous functions is
+    to partially apply a binary function.
+}
+\examples{
+
+# 1.
+
+NULL
 }
 \keyword{datasets}
 
