@@ -49,3 +49,5 @@ require(arrow)
 
 x_('/home/ryan/Code/DataSets/AsciiData.txt') $ xReadLines() $
 xMap(xToWords) $ xAtCol(5)
+
+

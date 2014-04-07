@@ -69,7 +69,7 @@ xGroupBy <- MakeFun(function (fn, coll) {
 			}
 
 			if (!group_found) {
-				groups <- c(groups, list( list(by = map, group = list(elem)) ))
+				groups <- c(groups, list( list(map, list(elem)) ))
 			}
 		}
 		groups
