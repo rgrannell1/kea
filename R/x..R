@@ -5,7 +5,26 @@
 #'
 #' @details
 #'     One of the most common uses of anonymous functions is
-#'     to partially apply a binary function.
+#'     to partially apply a binary function. A toy example below
+#'     involves the case of squaring each element of a vector.
+#'
+#'     \code{str <-  c(' ', 'hello', ' ','cruel', ' ', 'world')}
+#'
+#'     \code{xReject(function (x) x == ' ', str)}
+#'
+#'     Arrow has a general short-hand syntax for creating anonymous functions
+#'     already, which works for arbitrary functions.
+#'
+#'     \code{xReject(x := x == ' ', str)}
+#'
+#'     but for the simplest anonymous functions a second syntax exists.
+#'
+#'     \code{xReject(x. == ' ', str)}
+#'
+#'     The above functions are all identical, but the final example is
+#'     the most consise. This syntax is available to most of R's builtin
+#'     infix operators (+, **, etc.), its indexing operators ([[, $, etc.)
+#'     and its unary operators (!, +, -).
 #'
 #' @param
 #'     dropped the value x.. This isn't used internally.
