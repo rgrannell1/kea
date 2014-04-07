@@ -58,6 +58,26 @@ x. <- structure(
 #' @export
 #' @rdname x.
 
+'[[.xlambda_builder' <- function (dropped, val2) {
+	function (val1) {
+		"a function created by x. [["
+		val1[[val2]]
+	}
+}
+
+#' @export
+#' @rdname x.
+
+'[.xlambda_builder' <- function (dropped, val2) {
+	function (val1) {
+		"a function created by x. ["
+		val1[val2]
+	}
+}
+
+#' @export
+#' @rdname x.
+
 '$.xlambda_builder' <- function (dropped, val2) {
 
 	val2 <- match.call()$val2
