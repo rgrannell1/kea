@@ -21,7 +21,7 @@ July		2.9
 # giving the month and rain in millilitres.
 
 rain_data <-
-	x_(data_set) $ xToLines() $
+	x_(raw_rain_data) $ xToLines() $
 	xMap(xToWords %then% as.list) $
 	x_Map(row := {
 
@@ -70,7 +70,11 @@ prop_rain_data <-
 #    list(month = "February", 	`rain (ml)` = 0.3)
 #    list(month = "March", 		`rain (ml)` = 0.4)
 #    list(month = "April", 		`rain (ml)` = 0.5)
-#    list(month = "May", 		`rain (ml)` = 0.7)
+#    list(month =  "May", 		`rain (ml)` = 0.7)
 #    list(month = "June", 		`rain (ml)` = 0.9)
 #    list(month = "July", 		`rain (ml)` = 1.0)
 # )
+
+# 3. modulo 6 every element of an atomic vector.
+
+xMap(x. %% 6, 0:11)

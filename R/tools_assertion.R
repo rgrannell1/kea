@@ -468,15 +468,24 @@ Must <- local({
 			COLL <- match.call()$COLL
 
 			bquote(if (
-					'arrow' %in% class( .(COLL) ) ||
-					!is.atomic( .(COLL) ) &&
-					!is.list( .(COLL) ) &&
-					!is.pairlist( .(COLL) )) {
+				'arrow' %in% class( .(COLL) ) ||
+				!is.atomic( .(COLL) ) &&
+				!is.list( .(COLL) ) &&
+				!is.pairlist( .(COLL) )) {
 
 				message <-
 					"the argument matching " %+% ddquote( .(COLL) ) %+%
-					" must be a list, a pairlist or a typed vector." %+%
-					summate( .(COLL) )
+					" must be a list, a pairlist or a typed vector."
+
+				if ('arrow' %in% class( .(COLL) )) {
+					message <- message %+%
+						"The argument was of class " %+%
+						dQuote("arrow") %+%
+						". Did you use xMethod instead of x_Method?" %+%
+						summate( .(COLL) )
+				} else {
+					message <- message %+% summate( .(COLL) )
+				}
 
 				throw_arrow_error(invoking_call, message)
 			})
@@ -500,8 +509,17 @@ Must <- local({
 
 					message <-
 						"the argument matching " %+% ddquote( .(COLLS) ) %+%
-						" must be a collection of lists, vectors or pairlists." %+%
-						summate( .(COLLS) )
+						" must be a collection of lists, vectors or pairlists."
+
+					if ('arrow' %in% class( .(COLLS) )) {
+						message <- message %+%
+							"The argument was of class " %+%
+							dQuote("arrow") %+%
+							". Did you use xMethod instead of x_Method?" %+%
+							summate( .(COLLS) )
+					} else {
+						message <- message %+% summate( .(COLLS) )
+					}
 
 					throw_arrow_error(invoking_call, message)
 				}
