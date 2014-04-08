@@ -45,7 +45,11 @@ xMap(x. $ `rain (ml)`, rain_data)
 # 2. Convert the column to proportions of
 # the largest value.
 
-max_rainfall <- xMaxBy(xI, xAtCol(2, rain_data))
+
+# you could also use x_(rain_data) $ xAtCol(2) $ x_MaxBy(xI)
+
+max_rainfall <- x_(rain_data) $ xMap(x. $ `rain (ml)`) $ x_MaxBy(xI)
+
 
 prop_rain_data <- x_(rain_data) $ x_Map(row := {
 	row[[2]] <- round(row[[2]] / max_rainfall, 1)

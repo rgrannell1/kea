@@ -27,10 +27,7 @@
 #'     and its unary operators (!, +, -).
 #'
 #' @param
-#'     dropped the value x.. This isn't used internally.
-#'
-#' @param
-#'     ..2 the right hand side of an infix function call.
+#'     ... the argument passed to x.. The right hand side of the operator.
 #'
 #' @return an arbitrary value.
 #'
@@ -297,7 +294,7 @@ x. <- structure(
 #' @export
 #' @rdname x.
 
-'!.xlambda_builder' <- function (dropped) {
+'!.xlambda_builder' <- function (...) {
 	function (val) {
 		"a function created by !x."
 		!val

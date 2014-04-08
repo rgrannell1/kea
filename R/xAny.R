@@ -48,7 +48,7 @@ xAny <- MakeFun(function (pred, coll) {
 	} else {
 
 		for (elem in coll) {
-			if (pred(elem)) {
+			if ( isTRUE(pred(elem)) ) {
 				return(True)
 			}
 		}

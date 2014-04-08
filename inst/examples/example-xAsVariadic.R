@@ -8,4 +8,6 @@ summate <- xAsVariadic(nums := xFold("+", 0, nums) )
 
 summate(1, 2, 3, 4, 5, 6)
 
-# 21
+# 2.
+#
+

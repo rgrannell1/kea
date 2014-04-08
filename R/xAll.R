@@ -46,7 +46,7 @@ xAll <- MakeFun(function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		all(vapply(coll, pred, logical(1), USE.NAMES = False))
+		all(vapply(coll, function (elem) isTRUE(pred(elem)), logical(1), USE.NAMES = False))
 	}
 })
 

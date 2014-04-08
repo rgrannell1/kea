@@ -76,12 +76,10 @@ x.
 
 "||.xlambda_builder"(...)
 
-\\method{!}{xlambda_builder}(dropped)
+\\method{!}{xlambda_builder}(...)
 }
 \arguments{
-\item{dropped}{the value x.. This isn't used internally.}
-
-\item{..2}{the right hand side of an infix function call.}
+\item{...}{the argument passed to x.. The right hand side of the operator.}
 }
 \value{
 an arbitrary value.
@@ -91,13 +89,104 @@ Partially apply an infix function.
 }
 \details{
 One of the most common uses of anonymous functions is
-    to partially apply a binary function.
+    to partially apply a binary function. A toy example below
+    involves the case of squaring each element of a vector.
+
+    \code{str <-  c(' ', 'hello', ' ','cruel', ' ', 'world')}
+
+    \code{xReject(function (x) x == ' ', str)}
+
+    Arrow has a general short-hand syntax for creating anonymous functions
+    already, which works for arbitrary functions.
+
+    \code{xReject(x := x == ' ', str)}
+
+    but for the simplest anonymous functions a second syntax exists.
+
+    \code{xReject(x. == ' ', str)}
+
+    The above functions are all identical, but the final example is
+    the most consise. This syntax is available to most of R's builtin
+    infix operators (+, **, etc.), its indexing operators ([[, $, etc.)
+    and its unary operators (!, +, -).
 }
 \examples{
 
 # 1.
+#
 
-NULL
+raw_rain_data <- "
+August		1.9
+September	1.5
+October		1.3
+November	0.9
+December	0.6
+January		0.7
+February	0.8
+March		1.3
+April		1.4
+May			2.1
+June		2.6
+July		2.9
+"
+
+# convert the data set to a list of named lists,
+# giving the month and rain in millilitres.
+
+rain_data <-
+	x_(raw_rain_data) $ xToLines() $
+	xMap(xToWords \%then\% as.list) $
+	x_Map(row := {
+
+		# convert the second field to a number.
+		row[[2]] <- as.numeric( row[[2]] )
+
+		xAddKeys(c('month', 'rain (ml)'), row)
+	})
+
+# 1. Select the rain data column.
+
+xMap(x. $ `rain (ml)`, rain_data)
+
+# list(
+#     1.9, 1.5, 1.3,
+#     0.9, 0.6, 0.7,
+#     0.8, 1.3, 1.4,
+#     2.1, 2.6, 2.9
+# )
+
+# 2. Convert the column to proportions of
+# the largest value.
+
+
+# you could also use x_(rain_data) $ xAtCol(2) $ x_MaxBy(xI)
+
+max_rainfall <- x_(rain_data) $ xMap(x. $ `rain (ml)`) $ x_MaxBy(xI)
+
+
+prop_rain_data <- x_(rain_data) $ x_Map(row := {
+	row[[2]] <- round(row[[2]] / max_rainfall, 1)
+	row
+})
+
+# list(
+#    list(month = "August",     `rain (ml)` = 0.7)
+#    list(month = "September",  `rain (ml)` = 0.5)
+#    list(month = "October",    `rain (ml)` = 0.4)
+#    list(month = "November",   `rain (ml)` = 0.3)
+#    list(month = "December", 	`rain (ml)` = 0.2)
+#    list(month = "January", 	`rain (ml)` = 0.2)
+#    list(month = "February", 	`rain (ml)` = 0.3)
+#    list(month = "March",      `rain (ml)` = 0.4)
+#    list(month = "April",      `rain (ml)` = 0.5)
+#    list(month =  "May",       `rain (ml)` = 0.7)
+#    list(month = "June",       `rain (ml)` = 0.9)
+#    list(month = "July",       `rain (ml)` = 1.0)
+# )
+
+# 3. modulo 6 every element of an atomic vector.
+
+xMap(x. \%\% 6, 0:11)
 }
 \keyword{datasets}
 

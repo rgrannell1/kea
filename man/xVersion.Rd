@@ -20,7 +20,7 @@ Get the current version number of Arrow.
 # 1. xVersion
 #    the most important (and only) example
 
-xVersion( )
+xVersion()
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};

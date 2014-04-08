@@ -28,8 +28,9 @@ Convert a collection to a double vector.
 }
 \examples{
 
-NULL
+# 1.
 
+NULL
 }
 \seealso{
 Other container_conversion_functions: \code{\link{xAsComplex}},
