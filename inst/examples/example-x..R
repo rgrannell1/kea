@@ -3,18 +3,18 @@
 #
 
 raw_rain_data <- "
-August		1.9
-September	1.5
-October		1.3
-November	0.9
-December	0.6
-January		0.7
-February	0.8
-March		1.3
-April		1.4
-May			2.1
-June		2.6
-July		2.9
+August      1.9
+September   1.5
+October     1.3
+November    0.9
+December    0.6
+January     0.7
+February    0.8
+March       1.3
+April       1.4
+May         2.1
+June        2.6
+July        2.9
 "
 
 # convert the data set to a list of named lists,
