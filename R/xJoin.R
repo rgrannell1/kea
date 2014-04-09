@@ -45,6 +45,7 @@ xJoin <- MakeFun(function (colls) {
 	if (length(colls) == 0) {
 		list()
 	} else {
+		colls <- lapply(colls, as.list)
 		as.list(do.call(c, colls))
 	}
 })

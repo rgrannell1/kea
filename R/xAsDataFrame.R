@@ -50,12 +50,10 @@ xAsDataFrame <- MakeFun(function (colls) {
 	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 	MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )
 
+
 	if (length(colls) == 0) {
 		unname(as.data.frame(matrix(nrow = 0, ncol = 0 )) )
 	} else {
-
-		insist $ must_be_collection_of_equal_names(
-			colls, invoking_call)
 
 		colls_colnames <- if ( !is.null(names(colls)) ) {
 			names(colls)
@@ -69,7 +67,7 @@ xAsDataFrame <- MakeFun(function (colls) {
 			seq_along( colls[[1]] )
 		}
 
-		# use I() to allow a list column, no string coercioun.
+		# use I() to allow a list column, no string coercion.
 		colls <- lapply(colls, I)
 
 		df <- do.call(data.frame, colls)
