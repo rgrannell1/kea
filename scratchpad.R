@@ -1,51 +1,33 @@
 
-xVal(letterset, c(letters, LETTERS))
+raw_cran_data <-"
+MDSGUI				2014-04-09 07:04:25		ligges
+tripack				2014-04-09 06:55:24		ligges
+zipfR				2014-04-09 08:08:00		hornik
+PolynomF			2014-04-09 07:08:57		hornik
+FRBData				2014-04-09 06:59:42		hornik
+gldist				2014-04-09 07:38:15		hornik
+oce					2014-04-09 07:48:04		hornik
+sltl				2014-04-09 08:00:33		ripley
+DistributionUtils	2014-04-09 06:58:06		hornik
+phylosim			2014-04-09 07:50:53		ripley
+mclust				2014-04-09 05:43:41		ripley
+RhpcBLASctl			2014-04-09 07:14:51		ripley
+spBayes				2014-04-09 08:00:52		ripley
+ISLR				2014-04-09 07:02:39		ligges
+RecordLinkage		2014-04-09 07:14:25		hornik
+ProjectTemplate		2014-04-09 07:09:12		ripley
+hydroApps			2014-04-09 07:39:38		hornik
+shiny				2014-04-09 05:32:22		hornik
+pequod				2014-04-09 07:50:28		ripley
+ICEbox				2014-04-09 07:02:26		ripley
+"
+cran_data <-
+	x_(raw_cran_data) $ xToLines() $
+	xMap(row := xExplode("\t+", row)) $
+	xMap(as.list) $ xMap(row := {
 
-x_("/home/ryan/Desktop/war-and-peace.txt") $
-xReadWords() $ xUniqueOf() $
-xSelect(word := {
-	all(xToChars(word) %in% letterset)
-}) $
-xUniqueOf() $ xSortBy(nchar) $
-xReverse() $ xTake(10)
+		row[[2]] <- as.Date( row[[2]] )
+		xAddKeys(c("package", "time", "maintainer"), row)
+	})
 
-
-
-as_atomic <- function (coll, mode) {
-
-}
-
-as_atomic <- local({
-
-	check_valid <- function (elem, mode) {
-		if (length(elem) != 1) {
-			stop("")
-		}
-		if (mode(elem) != mode) {
-			stop("")
-		}
-	}
-
-	function (coll, mode) {
-
-		if (length(coll) == 0) {
-			vector(mode)
-		} else if (is.atomic(coll)) {
-
-		} else {
-			for (elem in coll) check_valid(elem, mode)
-			as.vector(coll, mode = mode)
-		}
-	}
-})
-
-
-
-
-
-
-
-require(arrow)
-
-x_('/home/ryan/Code/DataSets/AsciiData.txt') $ xReadLines() $
-xMap(xToWords) $ xAtCol(5)
+x_(cran_data) $ xGroupBy(x. $ maintainer)

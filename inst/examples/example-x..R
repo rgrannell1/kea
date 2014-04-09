@@ -1,7 +1,4 @@
 
-# 1.
-#
-
 raw_rain_data <- "
 August      1.9
 September   1.5

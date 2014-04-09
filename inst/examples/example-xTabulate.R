@@ -34,8 +34,7 @@ raw_clinton_vote <- "
 
 clinton_vote <-
 	x_(raw_clinton_vote) $ xToLines() $ xMap(xToWords) $
-	xZip() $
-	xAddKeys(c('party', 'perjury', 'obstruction'))
+	xZip() $ xAddKeys(c('party', 'perjury', 'obstruction'))
 
 # 1.
 # Tabulate the overall results for the perjury vote
@@ -56,7 +55,7 @@ clinton_vote $ xAtKey('obstruction') $ x_Tabulate()
 # get the overall vote within each party.
 
 clinton_vote $ xZip () $ xGroupBy(xFirstOf) $ # -- group by party
-xMap(xSecondOf) $ # -- select the groups
+xAtCol(2) $ # -- select the groups
 xMap(party := {
 	# get the perjury and obstruction votes by party.
 
