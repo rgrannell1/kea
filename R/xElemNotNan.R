@@ -41,7 +41,13 @@ xElemNotNan <- MakeFun(function (coll) {
 		logical(0)
 	} else {
 		vapply(coll, function (x) {
-			!identical(x, NaN)
+
+			if (length(x) == 0) {
+				False
+			}
+
+			!is.nan(x)
+
 		}, logical(1), USE.NAMES = False)
 	}
 })

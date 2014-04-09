@@ -1,33 +1,81 @@
 
-raw_cran_data <-"
-MDSGUI				2014-04-09 07:04:25		ligges
-tripack				2014-04-09 06:55:24		ligges
-zipfR				2014-04-09 08:08:00		hornik
-PolynomF			2014-04-09 07:08:57		hornik
-FRBData				2014-04-09 06:59:42		hornik
-gldist				2014-04-09 07:38:15		hornik
-oce					2014-04-09 07:48:04		hornik
-sltl				2014-04-09 08:00:33		ripley
-DistributionUtils	2014-04-09 06:58:06		hornik
-phylosim			2014-04-09 07:50:53		ripley
-mclust				2014-04-09 05:43:41		ripley
-RhpcBLASctl			2014-04-09 07:14:51		ripley
-spBayes				2014-04-09 08:00:52		ripley
-ISLR				2014-04-09 07:02:39		ligges
-RecordLinkage		2014-04-09 07:14:25		hornik
-ProjectTemplate		2014-04-09 07:09:12		ripley
-hydroApps			2014-04-09 07:39:38		hornik
-shiny				2014-04-09 05:32:22		hornik
-pequod				2014-04-09 07:50:28		ripley
-ICEbox				2014-04-09 07:02:26		ripley
-"
-cran_data <-
-	x_(raw_cran_data) $ xToLines() $
-	xMap(row := xExplode("\t+", row)) $
-	xMap(as.list) $ xMap(row := {
+approx_log <- local({
 
-		row[[2]] <- as.Date( row[[2]] )
-		xAddKeys(c("package", "time", "maintainer"), row)
+	makePolynomial <- xAsUnary((a : b : c: d: e) := {
+		function (x, reflect = False) {
+
+			if (reflect) return(c(a, b, c, d, e))
+
+			a*x^4 + b*x^3 + c*x^2 + d *x + e
+		}
 	})
 
-x_(cran_data) $ xGroupBy(x. $ maintainer)
+	fitness <- local({
+
+		xs <- seq(0.001, 100, by = 0.01)
+
+		makePolynomial %then% (fn := {
+			x_(abs(fn(xs) - log(xs)) / log(xs)) $ x_Reduce("+")
+		})
+	})
+
+	mutate <- local({
+
+		indices_sets <- xPowerSetOf(1:5)
+
+		coeffs := {
+
+			indices <- xOneOf(indices_sets)
+
+			x_(coeffs) $ x_MapIndexed((x : ith) := {
+
+				if (ith %in% indices) {
+					x * rnorm(1, 0, 3)
+				} else {
+					x
+				}
+			})
+
+		}
+	})
+
+	xIterate(
+		state := {
+
+			best <- state $ best
+
+			if (state $ iter == 3000) {
+				state $ best <- makePolynomial(best)
+				Return(state)
+			}
+
+			if (state $ iter %% 10 == 0) {
+				print(state $ iter)
+			}
+
+			population <- x_(best) $ xRepeat(5) $ xChunk(5) $ xMap(mutate) $ xJoin...(list(best))
+
+			state $ best <- population $ x_MinBy(fitness)
+
+			state $ scores <- c(state $ scores, fitness(state $ best))
+
+			state $ iter <- state $ iter + 1
+
+			state
+		},
+		list(
+			iter = 0,
+			best = list(1, 1, 1, 1, 1),
+			scores = numeric(0))
+	)
+})
+
+require(ggplot2)
+
+plot(log10(approx_log$scores), type = 'l')
+
+approx_log $ best(10)
+
+plot(log(1:1000))
+lines(approx_log $ best(1:1000), col = 'red')
+

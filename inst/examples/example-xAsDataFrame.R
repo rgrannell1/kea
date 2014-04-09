@@ -1,5 +1,5 @@
 
-# 1. Enumerate the columns of a data frame.
+# 1. Convert a text csv to a data frame.
 #
 # Data from Hadley Wickham's repository `data-stride`
 #

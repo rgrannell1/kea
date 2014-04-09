@@ -42,7 +42,7 @@ xElemIsNan <- MakeFun(function (coll) {
 		res <- vector(mode = 'logical', length(coll))
 
 		for (ith in seq_along(coll)) {
-			res[ith] <- identical(coll[[ith]], NaN)
+			res[ith] <- is.nan( coll[[ith]] )
 		}
 
 		res

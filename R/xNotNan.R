@@ -37,6 +37,6 @@ xNotNan <- MakeFun(function (val) {
 	if (length(val) == 0) {
 		True
 	} else {
-		is.nan(val)
+		!is.nan(val)
 	}
 })

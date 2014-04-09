@@ -39,7 +39,8 @@ xOneOf <- MakeFun(function (coll) {
 	} else if (length(coll) == 1) {
 		coll
 	} else {
-		sample(coll, size = 1)
+		ind <- sample.int(length(coll), 1)
+		coll[[ind]]
 	}
 })
 
