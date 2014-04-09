@@ -3,6 +3,6 @@ xThirdOf(letters)
 
 # c
 
-x_(letters) $ xThirdOf()
+x_(letters) $ x_ThirdOf()
 
 # c
