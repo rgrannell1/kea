@@ -8,10 +8,94 @@
 <link href="css/highlight.css" rel="stylesheet">
 <link href="css/staticdocs.css" rel="stylesheet">
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript">
+// highlight.js
+(function(){"use strict";})();highlight=function(){var e=function(e,t){var r={depth:0,transitions:e,html_output_rules:t(this.depth)};r.consume_token=function(e){var t=function(e,t,n){var i=r.html_output_rules[e][t];var s=n;for(var o in i){if(!i.hasOwnProperty(o)){continue}if(o!=="*nomatch*"&&o===n){s=i[o]}}return s};var i=function(e,t,i){var s=e==="normal"&&t==="open_delim"||e==="open_delim"&&t==="open_delim";var o=e==="close_delim"&&t==="normal"||e==="close_delim"&&t==="close_delim";if(s){i+=1;if(i>13)i=0}else if(o){i-=1;if(i<0)i=13}r.depth=i;r.html_output_rules=n(i);return{depth:i,html_output_rules:n(i)}};for(var s in r.transitions){if(!r.transitions.hasOwnProperty(s)){continue}if(r.transitions[s].active){var o=r.transitions[s];var u=s}}var a=o.edges["*nomatch*"];for(var f in o.edges){if(!o.edges.hasOwnProperty(f)){continue}if(e===f){a=o.edges[f]}}r.transitions[u].active=false;r.transitions[a].active=true;i(u,a,r.depth);return t(u,a,e)};return r};var t=function(){return{str_single:{active:false,edges:{"'":"normal","*nomatch*":"str_single"}},str_double:{active:false,edges:{'"':"normal","*nomatch*":"str_double"}},normal:{active:true,edges:{"'":"str_single",'"':"str_double","#":"comment","(":"open_delim","[":"open_delim","{":"open_delim","}":"close_delim","]":"close_delim",")":"close_delim","*nomatch*":"normal"}},open_delim:{active:false,edges:{"'":"str_single",'"':"str_double","#":"comment","(":"open_delim","[":"open_delim","{":"open_delim","}":"close_delim","]":"close_delim",")":"close_delim","*nomatch*":"normal"}},close_delim:{active:false,edges:{"'":"str_single",'"':"str_double","#":"comment","(":"open_delim","[":"open_delim","{":"open_delim","}":"close_delim","]":"close_delim",")":"close_delim","*nomatch*":"normal"}},comment:{active:false,edges:{"\n":"normal","*nomatch*":"comment"}}}}();var n=function(e){var t={open:function(e){return'<span class = "'+e+'">'},close:function(){return"</span>"},both:function(e,t){return'<span class="'+e+'">'+t+"</span>"}};var n=function(e){return{str_single:{"'":t.open("sstring")+"'"},str_double:{'"':t.open("dstring")+'"'},normal:{$:t.both("dollar","$"),",":t.both("comma lev"+e,","),"*nomatch*":"*token*"},comment:{"#":t.open("comment")+"#"},open_delim:{"(":t.both("lev"+e,"("),"[":t.both("lev"+e,"["),"{":t.both("lev"+e,"{")},close_delim:{")":t.both("lev"+e,")"),"]":t.both("lev"+e,"]"),"}":t.both("lev"+e,"}")}}};return{str_single:{str_single:{'"':t.both("ssdouble",'"'),"*nomatch*":"*token*"},normal:{"'":"'"+t.close()}},str_double:{str_double:{"'":t.both("dssingle","'"),"*nomatch*":"*token*"},normal:{'"':'"'+t.close()}},normal:n(e),open_delim:n(e),close_delim:n(e),comment:{normal:{"\n":"\n"+t.close()},comment:{"*nomatch*":"*token*"}}}};var r=function(r){var i="";var s=e(t,n);for(var o=0;o<r.length;o++){var u=r.substring(o,o+1);i=i+s.consume_token(u)}return i};var i=function(e,t){$(e).replaceWith(function(e,n){return t(r($(this).text()))})};return{StateMachine:e,highlight_text:r,highlight_r_code:i}}()
+</script>
+
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans|Quicksand' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+/*
+	The css for the example syntax highlighting.
+*/
+
+/*
+-- dark to light ->
+
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+
+$base0:     #839496;
+
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+
+-- colours
+
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+*/
+
+
+::selection      {background: #ebebeb}
+::-moz-selection {background: #ebebeb}
+
+.examples {background: white;}
+
+.input {color: #525252; }
+
+.input .comment {
+  color: darkcyan;
+  font-style: italic;
+  background: #ecffff;
+}
+
+.input .inputoxygen {
+  color: darkcyan;
+  background: #ecffff;
+}
+
+.input .ssdouble {color: #00228b}
+.input .dssingle {color: #00228b}
+
+.input .sstring  {color: #dc322f}
+.input .dstring  {color: #dc322f}
+
+.input .at       {color: #859900}
+.input .dollar   {color: #859900}
+
+.input .lev0     {color: #6e00d7}
+.input .lev1     {color: #3800d7}
+.input .lev2     {color: #0200d7}
+.input .lev3     {color: #0035d7}
+.input .lev4     {color: #006bd7}
+.input .lev5     {color: #00a1d7}
+.input .lev6     {color: #00d7d7}
+.input .lev7     {color: #00d7a1}
+.input .lev8     {color: #00d76b}
+.input .lev9     {color: #00d735}
+.input .lev10    {color: #02d700}
+.input .lev11    {color: #38d700}
+.input .lev12    {color: #6ed700}
+.input .lev13    {color: #a4d700}
+
+</style>
 
 <style type="text/css">
 	html * {
