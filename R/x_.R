@@ -188,6 +188,8 @@ x_any_proto <- local({
 	this$xExecute <-
 		MakeFun(function (fn) {
 
+			invoking_call <- sys.call()
+
 			MACRO( Must $ Not_Be_Missing(fn) )
 
 			MACRO( Must $ Be_Fn_Matchable(fn) )
@@ -198,6 +200,8 @@ x_any_proto <- local({
 
 	this$x_Execute <-
 		MakeFun(function (fn) {
+
+			invoking_call <- sys.call()
 
 			MACRO( Must $ Not_Be_Missing(fn) )
 
@@ -281,6 +285,8 @@ x_any_proto <- local({
 	this$xTap <-
 		MakeFun(function (fn) {
 
+			invoking_call <- sys.call()
+
 			MACRO( Must $ Not_Be_Missing(fn) )
 
 			MACRO( Must $ Be_Fn_Matchable(fn) )
@@ -291,11 +297,30 @@ x_any_proto <- local({
 	this$x_Tap <-
 		MakeFun(function (fn) {
 
+			invoking_call <- sys.call()
+
 			MACRO( Must $ Not_Be_Missing(fn) )
 
 			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			fn(Self())
+		})
+
+	this$xThread <-
+		MakeFun(function (fns) {
+			xThread(Self(), fns)
+		})
+	this$xThread... <-
+		MakeFun(function (...) {
+			xThread...(Self(), ...)
+		})
+	this$x_Thread <-
+		MakeFun(function (fns) {
+			xThread(Self(), fns)
+		})
+	this$x_Thread... <-
+		MakeFun(function (...) {
+			xThread...(Self(), ...)
 		})
 	# -------- U ------- #
 	# -------- V ------- #
