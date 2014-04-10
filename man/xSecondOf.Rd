@@ -38,10 +38,7 @@ sentence <- "He just kept talking in one long incredibly unbroken sentence movin
 topic to topic so that no-one had a chance to
 interrupt; it was really quite hypnotic"
 
-x_(sentence) $
-xToWords() $
-xReverse() $
-x_SecondOf()
+x_(sentence) $ xToWords() $ xReverse() $ x_SecondOf()
 
 # 'quite'
 }

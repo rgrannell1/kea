@@ -28,6 +28,9 @@ xVal works like normal R assignment, with the exception
 
    As the above call shows \code{xVal} is a standard function,
    not an infix function like normal assignment.
+
+   Arrow's value functions are built on top of base R's \bold{lockBinding}
+   mechanism, which is seft-described as being 'experimental'.
 }
 \section{Corner Cases}{
 

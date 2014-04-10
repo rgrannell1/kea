@@ -24,6 +24,10 @@ Return an argument without modification.
 xAll(xI, c(True, True, False))
 
 # False
+
+xMaxBy(xI, c(1, 2, 3, 4, 5, 6))
+
+# 6
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},

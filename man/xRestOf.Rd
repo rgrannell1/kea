@@ -26,7 +26,6 @@ Remove the first element from a collection.
 \examples{
 
 NULL
-
 }
 \seealso{
 Other selection_functions: \code{\link{xAtCol}},

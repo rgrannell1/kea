@@ -37,8 +37,7 @@ lorem_ipsum <-
  mauris non purus. Morbi nisi risus, rutrum condimentum sem at, tristique dictum justo.
  Duis tincidunt dictum odio ac dignissim. Sed eget auctor odio."
 
-x_(lorem_ipsum) $
-xToWords() $
+x_(lorem_ipsum) $ xToWords() $
 x_Reduce(
 	(best : new) := {
 		ifelse(nchar(best) < nchar(new), new, best)
