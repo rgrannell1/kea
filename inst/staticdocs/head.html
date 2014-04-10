@@ -56,33 +56,43 @@ $green:     #859900;
 ::selection      {background: #ebebeb}
 ::-moz-selection {background: #ebebeb}
 
-.examples {background: white;}
+.input           {background: #002b36}
+.input           {background: #fdf6e3}
+.input:before    {content: '\A'}
+.input:after     {content: '\A'}
 
-.input {color: #525252; }
+.examples        {background:  #fdfcf9}
+
+/*
+turn off the code examples, but if they are on style them properly.
+*/
+.output          {background: #073642}
+.output          {display: none}
 
 .input .comment {
-  color: darkcyan;
-  font-style: italic;
-  background: #ecffff;
+ 	color: #2aa198;
+ 	font-style: italic;
+ 	background: #eee8d5;
 }
 
 .input .inputoxygen {
-  color: darkcyan;
-  background: #ecffff;
+	color: #2aa198;
+	background: #eee8d5;
 }
+.input           {color: #839496}
 
-.input .ssdouble {color: #00228b}
-.input .dssingle {color: #00228b}
+.input .ssdouble {color: #cb4b16}
+.input .dssingle {color: #cb4b16}
 
-.input .sstring  {color: #dc322f}
-.input .dstring  {color: #dc322f}
+.input .sstring  {color: #cb4b16}
+.input .dstring  {color: #cb4b16}
 
 .input .at       {color: #859900}
 .input .dollar   {color: #859900}
 
-.input .lev0     {color: #6e00d7}
-.input .lev1     {color: #3800d7}
-.input .lev2     {color: #0200d7}
+.input .lev0     {color: #268bd2}
+.input .lev1     {color: #268bd2}
+.input .lev2     {color: #268bd2}
 .input .lev3     {color: #0035d7}
 .input .lev4     {color: #006bd7}
 .input .lev5     {color: #00a1d7}
