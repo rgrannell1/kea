@@ -47,7 +47,8 @@ xDeepMap <- MakeFun(function (fn, coll) {
 	recur <- function (xs) {
 		# recurse into a collection.
 
-		if (is.list(xs) || is.pairlist(xs)) {
+		if (is.recursive(xs)) {
+			# this recursively converts from pairlist to list.
 			lapply(xs, recur)
 		} else {
 			fn(xs)

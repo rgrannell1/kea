@@ -13,7 +13,7 @@ message("xDo")
 	)
 
 	forall(
-		"",
+		"do actually calls a side-effectful function",
 		test_cases$num_positive_integer,
 		capture.output(xDo(cat, 1:num)) == paste0(1:num, collapse = '')
 	)
