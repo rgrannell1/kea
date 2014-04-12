@@ -4,5 +4,4 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
 message("xPluck")

@@ -18,3 +18,9 @@ message("xRankOf")
 		test_cases$num_positive_integer,
 		xRankOf(1:num) %equals% 1:num
 	)
+
+	forall(
+		"rank of a repeated numbers is sequence of equal length",
+		test_cases$num_positive_integer,
+		xRankOf(rep(num, num)) %equals% 1:num
+	)

@@ -43,12 +43,13 @@ xUnzipKeys <- MakeFun(function (coll) {
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 
-	MACRO( Must $ Be_Named(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		list()
 	} else {
+
+		MACRO( Must $ Be_Named(coll) )
 
 		colnames <- names(coll)
 		coll <- unname(coll)

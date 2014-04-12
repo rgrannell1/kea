@@ -60,7 +60,7 @@ xScan <- MakeFun(function (fn, val, coll) {
 	scanned <- c( val, vector("list", length(coll)) )
 
 	if (length(coll) == 0) {
-		val
+		list(val)
 	} else {
 
 		try_hof({
