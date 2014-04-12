@@ -11,3 +11,9 @@ message("xDo")
 		test_cases$collection,
 		is.null( xDo(identity, coll) )
 	)
+
+	forall(
+		"",
+		test_cases$num_positive_integer,
+		capture.output(xDo(cat, 1:num)) == paste0(1:num, collapse = '')
+	)
