@@ -30,7 +30,7 @@ asRow <- (...) := {
 	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
 }
 
-cocaineData <- list(
+cocaineData <- x_(list(
 	asRow("MA", 74,  3,  7,  180),
 	asRow("NY", 83, 34, 10,  960),
 	asRow("SC", 81, 47,  6, 1800),
@@ -40,7 +40,7 @@ cocaineData <- list(
 	asRow("NJ", 47,  6,  5,  400),
 	asRow("FL", 37, 52,  3, 1600),
 	asRow("PA", 74,  2,  1,  200)
-)
+))
 
 "-- 1. get and sort the state seisure frequencies"
 
@@ -60,7 +60,7 @@ list(
 stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 
 "-- 3. get the largest intrastate seizures by price"
-stateSeizures $ xAtCol(2) $ x_Map(group := {
+largestStateSeizures <- stateSeizures $ xAtCol(2) $ x_Map(group := {
     xMaxBy(row := as.numeric(row $ price) , group)  
 })
 
@@ -74,6 +74,10 @@ list(
 	list(state = "PA", potency = "74", weight = "2",  month = "1",  price = "200")
 )
 '
+
+"-- 4. get the average potency of the largest seizure"
+
+stateSeizures $ xMeanBy(x. $ potency)
 ```
 
 ### Arrow is Expressive
