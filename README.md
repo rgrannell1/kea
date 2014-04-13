@@ -77,7 +77,9 @@ list(
 
 "-- 4. get the average potency of the largest seizure"
 
-largestStateSeizures $ xPluck('potency') $ xMean()
+largestStateSeizures $ xPluck('potency') $ x_Mean()
+
+58.8
 ```
 
 ### Arrow is Expressive
