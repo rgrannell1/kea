@@ -86,19 +86,16 @@ list(
 * Programs are built in a lego-like manner; stacking small,
 uniquely-purposed functions into a larger program.
 
-* Like Ruby and JavaScript, Arrow has a shorthand syntax 	for creating functions.
+* Arrow has a shorthand syntax for creating functions.
 
-* Arrow implements jQuery-like chaining methods without using R's bulkier
-object-orientation systems. These methods are just as usable as those in
-Python or JavaScript. This syntax is handy for interactive programming.
+* Arrow implements jQuery-style method-chaining.
 
 * Arrow uses consistent naming conventions to make its functions more predictable.
 
-* Almost every function has a variadic and non-variadic form, to
-reduce boilerplate code.
+* Most functions have variadic and non-variadic forms; this significantly reduces 
+'do.call' boilerplate.
 
-* Arrow adds collection-comprehensions; an expressive syntax
-for creating collections.
+* Arrow adds list-comprehensions; an expressive syntax for creating lists.
 
 ### Arrow is Consistent
 
