@@ -69,6 +69,16 @@ stateSeizures $ xAtCol(2) $ x_Map(group := {
     xMaxBy(row := as.numeric(row $ price) , group)  
 })
 
+'
+list(
+	list(state = "MA", potency = "74", weight = "3",  month = "7",  price = "180"),
+	list(state = "NY", potency = "50", weight = "27", month = "12", price = "1000"), 
+	list(state = "SC", potency = "81", weight = "47", month = "6",  price = "1800"), 
+	list(state = "FL", potency = "37", weight = "52", month = "3",  price = "1600"), 
+	list(state = "NJ", potency = "47", weight = "6",  month = "5",  price = "400"), 
+	list(state = "PA", potency = "74", weight = "2",  month = "1",  price = "200")
+)
+'
 ```
 
 ### Arrow is Expressive
