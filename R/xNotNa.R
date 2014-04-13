@@ -37,6 +37,6 @@ xNotNa <- MakeFun(function (val) {
 	if (length(val) == 0) {
 		True
 	} else {
-		is.na(val)
+		!is.na(val)
 	}
 })

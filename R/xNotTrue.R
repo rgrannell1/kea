@@ -37,6 +37,6 @@ xNotTrue <- MakeFun(function (val) {
 	if (length(val) == 0) {
 		True
 	} else {
-		identical(val, True)
+		!identical(val, True)
 	}
 })
