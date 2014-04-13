@@ -39,7 +39,7 @@ mclust              05:43:41    ripley
 "parse the table."
 
 keys <- 
-    x_(rawCranData) $ xToLines()
+    x_(rawCranData) $ xToLines() $ xTake(1)
 
 cranData <-
     x_(rawCranData) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
