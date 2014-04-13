@@ -38,14 +38,17 @@ mclust              05:43:41    ripley
 
 "parse the table."
 
-cranData <-
-    x_(raw_cran_data) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
+keys <- 
+    x_(rawCranData) $ xToLines()
 
-cranData $ 
-xMap(row := {
-    xAddKeys(c("package", "time", "maintainer"), row)
-}) $ 
-x_GroupBy(x. $ maintainer)
+cranData <-
+    x_(rawCranData) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
+
+cranData
+$ xMap(row := {
+    xAddKeys(keys, row)
+}) 
+$ x_GroupBy(x. $ maintainer)
 ```
 
 ### Arrow is Expressive
