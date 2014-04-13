@@ -60,7 +60,7 @@ list(
 stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 
 "-- 3. get the largest intrastate seizures by price"
-largestStateSeizures <- stateSeizures $ xAtCol(2) $ x_Map(group := {
+largestStateSeizures <- stateSeizures $ xAtCol(2) $ xMap(group := {
     xMaxBy(row := as.numeric(row $ price) , group)  
 })
 
@@ -77,7 +77,7 @@ list(
 
 "-- 4. get the average potency of the largest seizure"
 
-stateSeizures $ xMeanBy(x. $ potency)
+largestStateSeizures $ xPluck('potency') $ xMean()
 ```
 
 ### Arrow is Expressive
