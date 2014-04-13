@@ -24,6 +24,8 @@ For library documentation and tutorials head to
 ## What Does Arrow Look Like?
 
 ```javascript
+"Data From Hadley Wickham's https://github.com/hadley/data-stride"
+
 rawCocaineData <-
 "
 state potency weight month price
@@ -44,8 +46,23 @@ nameRow <- xPartial(xAddKeys, list(keys))
 cocaineData <-
     x_(rawCocaineData) $ xToLines() $ xDrop(1) $ 
     xMap(xToWords %then% as.list %then% nameRow)
+    
+"1. get and sort the state seisure frequencies"
 
-cocaineData $ xGroupBy(x. $ state)
+cocaineData $ xAtCol(1) $ xTabulate() $ x_SortBy(xSecondOf)
+
+'
+list(
+    list("MA", 1), 
+    list("SC", 1), 
+    list("NJ", 1), 
+    list("PA", 1), 
+    list("FL", 2), 
+    list("NY", 3))
+'
+
+"2. group the seizures by state."
+stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 ```
 
 ### Arrow is Expressive
