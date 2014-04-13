@@ -42,10 +42,9 @@ keys <- x_(raw_cran_data) $ xToLines() $ x_Take(1)
 "parse the table, and add rownames."
 
 cran_data <-
-    x_(raw_cran_data) $ xToLines() $ xDrop(1) $ x_Map(xToWords %then% as.list)
+    x_(raw_cran_data) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
   
-
-x_(cran_data) $ x_GroupBy(x. [[3]])
+cran_data $ x_GroupBy(x. [[3]])
 ```
 
 ### Arrow is Expressive
