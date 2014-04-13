@@ -1,9 +1,11 @@
-Arrow pre-v0.1.0
+Arrow < v0.1.0
 -----------------------------------
 
 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 
-**DISCLAIMER: Arrow is in heavy development and is highly liable to change.**
+## What is Arrow?
+
+Arrow makes R the functional language it was born to be.
 
 Arrow is an opinionated toolset of more than one hundred functions from languages
 like Haskell, JavaScript, and functions designed just for R. These
@@ -20,7 +22,7 @@ For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
 
 
-### What Arrow code looks like.
+## What Does Arrow Look Like?
 
 <img src="example-code.png"> </img>
 
