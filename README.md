@@ -34,10 +34,7 @@ sltl                08:00:33    ripley
 DistributionUtils   06:58:06    hornik
 phylosim            07:50:53    ripley
 mclust              05:43:41    ripley
-
 "
-
-keys <- x_(raw_cran_data) $ xToLines() $ x_Take(1)
 
 "parse the table, and add rownames."
 
