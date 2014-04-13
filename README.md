@@ -24,7 +24,7 @@ For library documentation and tutorials head to
 ## What Does Arrow Look Like?
 
 ```javascript
-raw_cran_data <-
+rawCranData <-
 "
 package             time        maintainer
 MDSGUI              07:04:25    ligges
@@ -38,10 +38,14 @@ mclust              05:43:41    ripley
 
 "parse the table."
 
-cran_data <-
+cranData <-
     x_(raw_cran_data) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
-  
-cran_data $ x_GroupBy(x. [[3]])
+
+cranData $ 
+xMap(row := {
+    xAddKeys(c("package", "time", "maintainer"), row)
+}) $ 
+x_GroupBy(x. $ maintainer)
 ```
 
 ### Arrow is Expressive
