@@ -122,10 +122,6 @@ be used to improve the efficiency of functional code.
 * Partial application and function composition are encouraged
 as standard operations.
 
-## Authors
-
-Ryan Grannell.
-
 ## Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3.
@@ -139,3 +135,6 @@ All versions post-release will be compliant with the Semantic Versioning 2.0.0 s
 
 http://semver.org/
 
+## Authors
+
+Ryan Grannell.
