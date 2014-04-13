@@ -63,6 +63,12 @@ list(
 
 "2. group the seizures by state."
 stateSeizures <- cocaineData $ xGroupBy(x. $ state)
+
+"3. get the largest intrastate seizures by price"
+stateSeizures $ xAtCol(2) $ x_Map(group := {
+    xMaxBy(row := as.numeric(row $ price) , group)  
+})
+
 ```
 
 ### Arrow is Expressive
