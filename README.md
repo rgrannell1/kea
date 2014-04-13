@@ -24,31 +24,28 @@ For library documentation and tutorials head to
 ## What Does Arrow Look Like?
 
 ```javascript
-rawCranData <-
+rawCocaineData <-
 "
-package             time        maintainer
-MDSGUI              07:04:25    ligges
-tripack             06:55:24    ligges
-zipfR               08:08:00    hornik
-sltl                08:00:33    ripley
-DistributionUtils   06:58:06    hornik
-phylosim            07:50:53    ripley
-mclust              05:43:41    ripley
+state potency weight month price
+MA    74       3      7     180 
+NY    83      34     10     960
+SC    81      47      6    1800 
+NY    50      27     12    1000 
+NY    81       1     11     100 
+FL    57       1      8     100 
+NJ    47       6      5     400 
+FL    37      52      3    1600 
+PA    74       2      1     200
 "
 
-"parse the table."
+keys <- x_(rawCocaineData) $ xToLines() $ xTake(1) $ x_ToWords()
+nameRow <- xPartial(xAddKeys, list(keys))
 
-keys <- 
-    x_(rawCranData) $ xToLines() $ xTake(1)
+cocaineData <-
+    x_(rawCocaineData) $ xToLines() $ xDrop(1) $ 
+    xMap(xToWords %then% as.list %then% nameRow)
 
-cranData <-
-    x_(rawCranData) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
-
-cranData
-$ xMap(row := {
-    xAddKeys(keys, row)
-}) 
-$ x_GroupBy(x. $ maintainer)
+cocaineData $ xGroupBy(x. $ state)
 ```
 
 ### Arrow is Expressive
