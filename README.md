@@ -1,7 +1,6 @@
-Arrow < v0.1.0
+Arrow < v0.1.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
-[![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 
 ## What is Arrow?
 
@@ -24,7 +23,30 @@ For library documentation and tutorials head to
 
 ## What Does Arrow Look Like?
 
-<img src="example-code.png"> </img>
+```javascript
+raw_cran_data <-
+"
+package             time        maintainer
+MDSGUI              07:04:25    ligges
+tripack             06:55:24    ligges
+zipfR               08:08:00    hornik
+sltl                08:00:33    ripley
+DistributionUtils   06:58:06    hornik
+phylosim            07:50:53    ripley
+mclust              05:43:41    ripley
+
+"
+
+keys <- x_(raw_cran_data) $ xToLines() $ x_Take(1)
+
+"parse the table, and add rownames."
+
+cran_data <-
+    x_(raw_cran_data) $ xToLines() $ xDrop(1) $ x_Map(xToWords %then% as.list)
+  
+
+x_(cran_data) $ x_GroupBy(x. [[3]])
+```
 
 ### Arrow is Expressive
 
