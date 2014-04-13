@@ -90,8 +90,6 @@ uniquely-purposed functions into a larger program.
 
 * Arrow implements jQuery-style method-chaining.
 
-* Arrow uses consistent naming conventions to make its functions more predictable.
-
 * Most functions have variadic and non-variadic forms; this significantly reduces 
 'do.call' boilerplate.
 
@@ -107,6 +105,8 @@ a cryptic error - arguments are always explicitly checked, and the precise
 cause of the error is always given. Error messages are also coloured for readability.
 
 * Arrow is interoperable with base R functions.
+
+* Arrow follows careful thought-out naming conventions.
 
 ### Arrow is Functional
 
