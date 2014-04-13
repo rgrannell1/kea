@@ -62,7 +62,13 @@ list(
 '
 
 "2. group the seizures by state."
-stateSeizures <- cocaineData $ xGroupBy(x. $ state)
+stateSeizures <- cocaineData $ x_GroupBy(x. $ state)
+
+"3. summarise seizure size and price by state."
+stateSeizures $ xMap(xSecondOf %then ( group := {
+
+}) )
+
 ```
 
 ### Arrow is Expressive
