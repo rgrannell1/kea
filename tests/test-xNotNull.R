@@ -14,3 +14,9 @@ message("xNotNull")
 		given =
 			!is.null(coll)
 	)
+
+	forall(
+		"not null of null is true",
+		list(),
+		!xNotNull(Null)
+	)

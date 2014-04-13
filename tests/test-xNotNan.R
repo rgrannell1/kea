@@ -12,3 +12,9 @@ message("xNotNan")
 		test_cases$collection_zero,
 		xNotNan(coll)
 	)
+
+	forall(
+		"isnan of nan is true",
+		list(),
+		!xNotNan(NaN)
+	)

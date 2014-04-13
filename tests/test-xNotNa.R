@@ -8,7 +8,13 @@ require(arrow)
 message("xNotNa")
 
 	forall(
-		"not false of empty collection is False",
+		"not na of empty collection is False",
 		test_cases$collection_zero,
 		xNotNa(coll)
+	)
+
+	forall(
+		"not na of na is false",
+		list(),
+		!xNotNa(Na)
 	)

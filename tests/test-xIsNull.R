@@ -14,3 +14,9 @@ message("xIsNull")
 		given =
 			!is.null(coll)
 	)
+
+	forall(
+		"is null of null is true",
+		list(),
+		xIsNa(Na)
+	)
