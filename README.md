@@ -26,27 +26,22 @@ For library documentation and tutorials head to
 ```javascript
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
-rawCocaineData <-
-"
-state potency weight month price
-MA    74       3      7     180 
-NY    83      34     10     960
-SC    81      47      6    1800 
-NY    50      27     12    1000 
-NY    81       1     11     100 
-FL    57       1      8     100 
-NJ    47       6      5     400 
-FL    37      52      3    1600 
-PA    74       2      1     200
-"
+asRow <- (...) := {
+	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
+}
 
-keys <- x_(rawCocaineData) $ xToLines() $ xTake(1) $ x_ToWords()
-nameRow <- xPartial(xAddKeys, list(keys))
+cocaineData <- list(
+	asRow("MA", 74,  3,  7,  180),
+	asRow("NY", 83, 34, 10,  960),
+	asRow("SC", 81, 47,  6, 1800),
+	asRow("NY", 50, 27, 12, 1000),
+	asRow("NY", 81,  1, 11,  100),
+	asRow("FL", 57,  1,  8,  100),
+	asRow("NJ", 47,  6,  5,  400),
+	asRow("FL", 37, 52,  3, 1600),
+	asRow("PA", 74,  2,  1,  200)
+)
 
-cocaineData <-
-    x_(rawCocaineData) $ xToLines() $ xDrop(1) $ 
-    xMap(xToWords %then% as.list %then% nameRow)
-    
 "-- 1. get and sort the state seisure frequencies"
 
 cocaineData $ xAtCol(1) $ xTabulate() $ x_SortBy(xSecondOf)
