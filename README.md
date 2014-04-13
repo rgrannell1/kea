@@ -36,7 +36,7 @@ phylosim            07:50:53    ripley
 mclust              05:43:41    ripley
 "
 
-"parse the table, and add rownames."
+"parse the table."
 
 cran_data <-
     x_(raw_cran_data) $ xToLines() $ xDrop(1) $ xMap(xToWords %then% as.list)
