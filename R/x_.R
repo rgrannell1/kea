@@ -1,5 +1,6 @@
 
 
+
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
@@ -1957,7 +1958,7 @@ get_proto_ref <- local({
 #' @method $ arrow
 #' @export
 
-'$.arrow' <- local({
+`$.arrow` <- local({
 
 	# some methods are expected to have bad names;
 	# meet the user half way and mention the better name.
