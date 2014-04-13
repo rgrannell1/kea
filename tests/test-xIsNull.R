@@ -18,5 +18,5 @@ message("xIsNull")
 	forall(
 		"is null of null is true",
 		list(),
-		xIsNa(Na)
+		xIsNull(Null)
 	)

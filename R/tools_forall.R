@@ -793,6 +793,11 @@ test_cases <- local({
 			coll1 = compounds$collection,
 			coll2 = compounds$collection)
 
+	this$collection_and_collection_zero =
+		list(
+			coll1 = compounds$collection_zero,
+			coll2 = compounds$collection)
+
 	this
 })
 
