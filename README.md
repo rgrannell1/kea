@@ -60,7 +60,7 @@ list(
 stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 
 "-- 3. get the largest intrastate seizures by price"
-largestStateSeizures <- stateSeizures $ xAtCol(2) $ xMap(group := {
+largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
     xMaxBy(row := as.numeric(row $ price) , group)  
 })
 
