@@ -44,7 +44,7 @@ cocaineData <- x_(list(
 
 "-- 1. get and sort the state seisure frequencies"
 
-cocaineData $ xAtCol(1) $ xTabulate() $ x_SortBy(xSecondOf)
+cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
 
 '
 list(
