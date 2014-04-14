@@ -115,16 +115,22 @@ cause of the error is always given. Error messages are also coloured for readabi
 
 ### Arrow is Functional
 
-* Arrow implements all the standard higher-order functions,
-as well as set operations and combinatoric functions.
+* Every commonly used higher-order-function is included in Arrow, not limited to but including
+map, fold, select, flatmap and iterate.
 
-* Several variants of the most common functionals are implemented,
-including several flavours of map and fold.
+* Arrow includes several mathematical functions, like the set operations and 
+combinatoric functions.
 
-* Arrow adds a big brother of *return()* - *Return()* - to allow breaking out of 
-higher-order functions like fold.
+* Arrow adds a big brother of **return()** - **Return()** - to make functions like fold
+much more efficient.
 
 * Function composition and partial application are encouraged as standard operations.
+
+### Arrow is Practical
+
+* Arrow has many composable functions for parsing and writing to text documents.
+
+* Arrow is great for semantically working with tabular data.
 
 ## Licensing
 
