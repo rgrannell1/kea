@@ -121,11 +121,10 @@ as well as set operations and combinatoric functions.
 * Several variants of the most common functionals are implemented,
 including several flavours of map and fold.
 
-* A new control statement - the ```Return( )``` function - can
-be used to improve the efficiency of functional code.
+* Arrow adds a big brother of *return()* - *Return()* - to allow breaking out of 
+higher-order functions like fold.
 
-* Partial application and function composition are encouraged
-as standard operations.
+* Function composition and partial application are encouraged as standard operations.
 
 ## Licensing
 
