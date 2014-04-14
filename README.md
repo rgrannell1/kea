@@ -23,9 +23,9 @@ For library documentation and tutorials head to
 
 ## What Does Arrow Look Like?
 
-Arrow can be written using normal functions or with chaining methods. Chaining methods take
-an initial piece of data and apply successive transformation to it. These programs tend to be
-very readable, and in some ways resemble *NIX scripts.
+Arrow can be written using normal functions or with chaining methods. I prefer the latter. Chaining 
+methods take an initial piece of data and apply successive transformation to it. 
+This is a very natural way of expressing data munging or preprocessing.
 
 ```javascript
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
