@@ -79,7 +79,7 @@ list(
 
 largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
-58.8
+60.8
 ```
 
 ### Arrow is Expressive
