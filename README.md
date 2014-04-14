@@ -77,7 +77,7 @@ list(
 
 "-- 4. get the average potency of the largest seizure"
 
-largestStateSeizures $ xPluck('potency') $ x_Mean()
+largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
 58.8
 ```
