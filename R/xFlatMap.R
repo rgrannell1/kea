@@ -67,9 +67,7 @@ xFlatMap <- MakeFun(function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		try_hof(
-			as.list( do.call(c, lapply(coll, fn)) ),
-			invoking_call)
+		as.list( do.call(c, lapply(coll, fn)) )
 	}
 })
 

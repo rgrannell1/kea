@@ -46,12 +46,9 @@ xDo <- MakeFun(function (fn, coll) {
 		Null
 	} else {
 
-		try_hof({
-			for (ith in seq_along(coll)) {
-				fn( coll[[ith]] )
-			}},
-			invoking_call
-		)
+		for (ith in seq_along(coll)) {
+			fn( coll[[ith]] )
+		}
 
 		invisible (Null)
 	}

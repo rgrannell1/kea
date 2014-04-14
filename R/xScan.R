@@ -63,12 +63,10 @@ xScan <- MakeFun(function (fn, val, coll) {
 		list(val)
 	} else {
 
-		try_hof({
-			for (ith in seq_along(coll)) {
-				scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
-			}},
-			invoking_call
-		)
+		for (ith in seq_along(coll)) {
+			scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
+		}
+
 		scanned
 
 	}

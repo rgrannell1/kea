@@ -68,9 +68,7 @@ xJuxtapose <- MakeFun(function (fns) {
 			""
 			invoking_call <- sys.call()
 
-			try_hof(
-				lapply(fns, function (fn) fn(...)),
-				invoking_call)
+			lapply(fns, function (fn) fn(...))
 		}
 	}
 })

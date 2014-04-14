@@ -47,8 +47,7 @@ xMap <- MakeFun(function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		try_hof(
-			lapply(coll, fn), invoking_call)
+		lapply(coll, fn)
 	}
 })
 

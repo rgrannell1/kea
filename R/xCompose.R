@@ -92,14 +92,11 @@ xCompose <- MakeFun(function (fns) {
 
 		val <- c(...)
 
-		try_hof({
-			for ( ith in rev(seq_along(fns)) ) {
+		for ( ith in rev(seq_along(fns)) ) {
 
-				fn <- fns[[ith]]
-				val <- fn(val)
-			}},
-			invoking_call
-		)
+			fn <- fns[[ith]]
+			val <- fn(val)
+		}
 
 		val
 	}

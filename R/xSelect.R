@@ -59,9 +59,7 @@ xSelect <- MakeFun(function (pred, coll) {
 		list()
 	} else {
 
-		ind <- try_hof(
-			vapply(coll, pred, logical(1), USE.NAMES = False),
-			invoking_call)
+		ind <- vapply(coll, pred, logical(1), USE.NAMES = False)
 
 		as.list( coll[ !is.na(ind) & ind ] )
 	}

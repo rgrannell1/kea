@@ -47,8 +47,7 @@ xThread <- MakeFun(function (val, fns) {
 
 	for (ith in seq_along(fns)) {
 
-		val <- try_hof(
-			fns[[ith]]( val ), invoking_call)
+		val <- fns[[ith]]( val )
 	}
 	val
 })

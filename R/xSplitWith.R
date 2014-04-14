@@ -33,29 +33,26 @@
 xSplitWith <- local({
 
 	bisect <- MakeFun(function (pred, coll, invoking_call) {
-			# split a collection into a head and tail
-			# using a predicate.
+		# split a collection into a head and tail
+		# using a predicate.
 
-			try_hof({
-				for (ith in 1:(length(coll) - 1)) {
+		for (ith in 1:(length(coll) - 1)) {
 
-					is_match <- pred( coll[[ith]], coll[[ith + 1]] )
+			is_match <- pred( coll[[ith]], coll[[ith + 1]] )
 
-					MACRO( Must $ Be_Flag(is_match, pred) )
+			MACRO( Must $ Be_Flag(is_match, pred) )
 
-					if (isTRUE(is_match)) {
+			if (isTRUE(is_match)) {
 
-						return (
-							list(
-								head(coll, ith),
-								tail(coll, -ith)) )
-					}
-				}},
-				invoking_call
-			)
+				return (
+					list(
+						head(coll, ith),
+						tail(coll, -ith)) )
+			}
+		}
 
-			list(coll, list())
-		})
+		list(coll, list())
+	})
 
 	MakeFun(function (pred, coll) {
 

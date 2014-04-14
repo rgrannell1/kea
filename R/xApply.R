@@ -60,11 +60,9 @@ xApply <- MakeFun(function (fn, coll) {
 
 	fn <- match_fn(fn)
 
-	try_hof(
-		eval(
-			as.call(c(fn, coll)),
-			envir = parent_frame),
-		invoking_call)
+	eval(
+		as.call(c(fn, coll)),
+		envir = parent_frame)
 })
 
 #' @rdname xApply

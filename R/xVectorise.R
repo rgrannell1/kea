@@ -50,10 +50,8 @@ xVectorise <- MakeFun(function (fn) {
 	function (coll) {
 		"a function created by xVectorise."
 		""
-		invoking_call <- sys.call()
 
-		try_hof(
-			xMap(fn, coll), invoking_call)
+		xMap(fn, coll)
 	}
 })
 

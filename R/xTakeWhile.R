@@ -53,20 +53,16 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 		list()
 	} else {
 
-		try_hof({
+		for (ith in seq_along(coll)) {
 
-			for (ith in seq_along(coll)) {
+			is_match <- pred( coll[[ith]] )
 
-				is_match <- pred( coll[[ith]] )
+			MACRO( Must $ Be_Flag(is_match, pred) )
 
-				MACRO( Must $ Be_Flag(is_match, pred) )
-
-				if (!isTRUE(is_match)) {
-					return ( as.list(head(coll, ith - 1)) )
-				}
-			}},
-			invoking_call
-		)
+			if (!isTRUE(is_match)) {
+				return ( as.list(head(coll, ith - 1)) )
+			}
+		}
 
 		as.list(coll)
 	}

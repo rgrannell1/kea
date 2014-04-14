@@ -53,10 +53,7 @@ xMapIndexed <- MakeFun(function (fn, coll) {
 
 		Map(
 			function (ind) {
-
-				try_hof(
-					fn( coll[[ind]], ind ),
-					invoking_call)
+				fn( coll[[ind]], ind )
 			},
 			seq_along(coll)
 		)

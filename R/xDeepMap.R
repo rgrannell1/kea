@@ -55,8 +55,7 @@ xDeepMap <- MakeFun(function (fn, coll) {
 		}
 	}
 
-	try_hof(
-		recur(as.list(coll)), invoking_call)
+	recur(as.list(coll))
 })
 
 #' @rdname xDeepMap

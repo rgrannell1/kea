@@ -105,9 +105,7 @@ xForall <- MakeFun(function (pred, colls) {
 				seq_along(colls)
 			)
 
-			is_match <- try_hof(
-				do.call(pred, tuple),
-				invoking_call)
+			is_match <- do.call(pred, tuple)
 
 			MACRO( Must $ Be_Flag(is_match, pred) )
 

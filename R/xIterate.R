@@ -64,7 +64,7 @@ xIterate <- MakeFun(function (fn, val) {
 
 		environment(fn) <- clone_env
 
-		try_hof({repeat val <- fn(val)}, invoking_call)
+		{repeat val <- fn(val)}
 
 	})
 })

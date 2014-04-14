@@ -70,13 +70,9 @@ xReduce <- MakeFun(function (fn, coll) {
 				environment(fn) <- clone_env
 			}
 
-			try_hof({
-				for (ith in seq_along(coll)) {
-
-					val <- fn( val, coll[[ith]] )
-				}},
-				invoking_call
-			)
+			for (ith in seq_along(coll)) {
+				val <- fn( val, coll[[ith]] )
+			}
 
 			val
 		})
