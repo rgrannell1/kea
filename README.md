@@ -121,12 +121,6 @@ much more efficient.
 
 * Function composition and partial application are encouraged as standard operations.
 
-### Arrow is Practical
-
-* Arrow has many composable functions for parsing and writing to text documents.
-
-* Arrow is great for semantically working with tabular data.
-
 ## Licensing
 
 **Arrow** is released under the terms of the GNU General Public License version 3.
