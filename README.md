@@ -1,21 +1,16 @@
 Arrow < v0.1.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
-
 ## What is Arrow?
 
 Arrow makes R the functional language it was born to be.
 
-Arrow is an opinionated toolset of more than one hundred functions from languages
-like Haskell, JavaScript, and functions designed just for R. These
-include familiar functions like Map, Select, Reduce and Compose, as
-well as many functions for working with na values, reshaping collections,
-composing functions and manipulating strings.
+R can be an uncooperative language. Every function has its own way of
+handling missing values or naming its parametres. As a result, piecing together
+individual functions to make a useful program can be difficult and requires a
+lot of boilerplate code.
 
-I hope you enjoy using Arrow as much as I've enjoyed making it.
-If you'd like to contribute with feedback, bug-reports or code
-you can go to the Arrow [github repository](https://github.com/rgrannell1/arrow).
-Any feedback is appreciated.
+Arrow is an expressive, composible foundation for programming in R.
 
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
@@ -23,9 +18,9 @@ For library documentation and tutorials head to
 
 ## What Does Arrow Look Like?
 
-Arrow can be written using normal functions or with chaining methods. I prefer the latter. Chaining 
-methods take an initial piece of data and apply successive transformation to it. 
-This is a very natural way of expressing data munging or preprocessing.
+Arrow can be written using normal functions or with chaining methods. I prefer the latter. Chaining
+methods take an initial piece of data and apply successive transformation to it.
+This is a very natural way of expressing data munging or reshaping.
 
 ```javascript
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
@@ -52,11 +47,11 @@ cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
 
 '
 list(
-    list("MA", 1), 
-    list("SC", 1), 
-    list("NJ", 1), 
-    list("PA", 1), 
-    list("FL", 2), 
+    list("MA", 1),
+    list("SC", 1),
+    list("NJ", 1),
+    list("PA", 1),
+    list("FL", 2),
     list("NY", 3))
 '
 
@@ -65,16 +60,16 @@ stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 
 "-- 3. get the largest intrastate seizures by price"
 largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
-    xMaxBy(row := as.numeric(row $ price) , group)  
+    xMaxBy(row := as.numeric(row $ price) , group)
 })
 
 '
 list(
 	list(state = "MA", potency = "74", weight = "3",  month = "7",  price = "180"),
-	list(state = "NY", potency = "50", weight = "27", month = "12", price = "1000"), 
-	list(state = "SC", potency = "81", weight = "47", month = "6",  price = "1800"), 
-	list(state = "FL", potency = "37", weight = "52", month = "3",  price = "1600"), 
-	list(state = "NJ", potency = "47", weight = "6",  month = "5",  price = "400"), 
+	list(state = "NY", potency = "50", weight = "27", month = "12", price = "1000"),
+	list(state = "SC", potency = "81", weight = "47", month = "6",  price = "1800"),
+	list(state = "FL", potency = "37", weight = "52", month = "3",  price = "1600"),
+	list(state = "NJ", potency = "47", weight = "6",  month = "5",  price = "400"),
 	list(state = "PA", potency = "74", weight = "2",  month = "1",  price = "200")
 )
 '
@@ -95,7 +90,7 @@ uniquely-purposed functions into a larger program.
 
 * Arrow implements jQuery-style method-chaining.
 
-* Most functions have variadic and non-variadic forms; this significantly reduces 
+* Most functions have variadic and non-variadic forms; this significantly reduces
 'do.call' boilerplate.
 
 * Arrow adds list-comprehensions; an expressive syntax for creating lists.
@@ -118,7 +113,7 @@ cause of the error is always given. Error messages are also coloured for readabi
 * Every commonly used higher-order-function is included in Arrow, not limited to but including
 map, fold, select, flatmap and iterate.
 
-* Arrow includes several mathematical functions, like the set operations and 
+* Arrow includes several mathematical functions, like the set operations and
 combinatoric functions.
 
 * Arrow adds a big brother of **return()** - **Return()** - to make functions like fold
