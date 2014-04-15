@@ -45,8 +45,6 @@ xPermute <- MakeFun(function (nums, colls) {
 	# Vector integer -> [[any]] -> [[any]]
 	# Permute several collections using indices.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Not_Be_Missing(colls) )
 

@@ -76,10 +76,8 @@
 xCompose <- MakeFun(function (fns) {
 	# Collection function -> function
 
-	invoking_call <- sys.call()
 
 	MACRO( Must $ Not_Be_Missing(fns) )
-
 	MACRO( Must $ Be_Collection(fns) )
 	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
 

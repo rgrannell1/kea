@@ -49,9 +49,6 @@ xApply <- MakeFun(function (fn, coll) {
 	# function -> [any] -> any
 	# call the function fn with the list coll.
 
-	invoking_call <- sys.call()
-	parent_frame <- parent.frame()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 
@@ -62,7 +59,7 @@ xApply <- MakeFun(function (fn, coll) {
 
 	eval(
 		as.call(c(fn, coll)),
-		envir = parent_frame)
+		envir = parent.frame())
 })
 
 #' @rdname xApply

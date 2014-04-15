@@ -57,10 +57,7 @@ xZip <- MakeFun(function (colls) {
 	#
 	# zip collections together
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(colls) )
-
 	MACRO( Must $ Be_Collection(colls) )
 
 	if (length(colls) == 0 || length(colls)[[1]] == 0) {

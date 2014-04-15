@@ -33,8 +33,6 @@ xSecondOf <- MakeFun(function (coll) {
 	# Collection any -> any
 	# return the second element of a collection x.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
 
 	MACRO( Must $ Be_Collection(coll) )

@@ -43,10 +43,7 @@ xTabulate <- MakeFun(function (coll) {
 	# Collection any -> Collection any
 	# tabulate a collection into tuples of value: frequency
 
-	invoking_call <- sys.call()
-
-		MACRO( Must $ Not_Be_Missing(coll) )
-
+	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

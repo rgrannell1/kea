@@ -36,8 +36,6 @@ xExplode <- MakeFun(function (rexp, str) {
 	# Vector string -> Vector string -> Vector str
 	# split a str into substrs at a rexp.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(rexp) )
 	MACRO( Must $ Not_Be_Missing(str) )
 

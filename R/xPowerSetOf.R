@@ -33,10 +33,7 @@ xPowerSetOf <- MakeFun(function (coll) {
 	# Collection any -> [any]
 	# get the power set of a collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

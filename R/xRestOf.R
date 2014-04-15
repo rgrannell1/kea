@@ -31,10 +31,7 @@ xRestOf <- MakeFun(function (coll) {
 	# return everything but the first element of a
 	# collection x.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) < 2) {

@@ -31,8 +31,6 @@ xAtCol <- MakeFun(function (num, colls) {
 	# number -> Collection Collection any -> Collection any
 	# select a column of numbers.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(colls) )
 

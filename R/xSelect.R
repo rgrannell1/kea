@@ -45,8 +45,6 @@ xSelect <- MakeFun(function (pred, coll) {
 	# returns coll[i] such that
 	# pred(coll[i]) is true
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

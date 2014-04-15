@@ -37,8 +37,6 @@ xAsDouble <- MakeFun(function (nums) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )
 

@@ -33,8 +33,6 @@ xLocate <- MakeFun(function (pred, coll) {
 	# returns the first index of collection that matches
 	# the predicate pred.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

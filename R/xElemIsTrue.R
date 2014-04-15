@@ -28,10 +28,7 @@ xElemIsTrue <- MakeFun(function (coll) {
 	# Collection a -> Vector boolean
 	# test which elements of a collection are true
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	vapply(coll, function (x) {

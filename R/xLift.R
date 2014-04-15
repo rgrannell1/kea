@@ -81,7 +81,6 @@ xLift <- MakeFun(function (fn, fns) {
 	# (any -> any -> any) -> [(... -> any)] -> any
 	# the phoenix or Phi combinator
 
-	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	MACRO( Must $ Not_Be_Missing(fn) )

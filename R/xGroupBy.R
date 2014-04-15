@@ -37,8 +37,6 @@ xGroupBy <- MakeFun(function (fn, coll) {
 	# (a -> b) -> Collection any -> [any]
 	# group elements of a collection by its map
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

@@ -33,8 +33,6 @@
 xAll <- MakeFun(function (pred, coll) {
 	# (any -> boolean) -> Collection any -> boolean
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

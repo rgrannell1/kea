@@ -35,10 +35,7 @@ xAsUnary <- MakeFun(function (fn) {
 	# takes a function that takes a many values and
 	# makes it into a function that takes one list.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

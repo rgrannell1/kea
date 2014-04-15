@@ -42,8 +42,6 @@ xChoose <- MakeFun(function (num, coll) {
 	# generate all ways of choosing several
 	# elements from a collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

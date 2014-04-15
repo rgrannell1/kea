@@ -31,9 +31,6 @@
 xAsVar <- MakeFun(function (sym) {
 	# unlock a constant binding
 
-	invoking_call <- sys.call()
-	parent_frame <- parent.frame()
-
 	MACRO( Must $ Not_Be_Missing(sym) )
 
 	sym <- match.call()$sym
@@ -43,5 +40,5 @@ xAsVar <- MakeFun(function (sym) {
 
 	MACRO( Must $ Be_Existing_Ref(sym) )
 
-	unlockBinding(sym, parent_frame)
+	unlockBinding(sym, parent.frame())
 })

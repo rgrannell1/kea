@@ -32,8 +32,6 @@ xAsLogical <- MakeFun(function (bools) {
 	# Collection logical -> Vector logical
 	# convert a collection to a logical vector.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(bools) )
 	MACRO( Must $ Be_Collection(bools) )
 

@@ -37,8 +37,6 @@ xThread <- MakeFun(function (val, fns) {
 	# any -> .... -> any
 	# iteratively apply a value to each function in a list.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(val) )
 	MACRO( Must $ Not_Be_Missing(fns) )
 

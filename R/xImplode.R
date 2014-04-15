@@ -33,8 +33,6 @@ xImplode <- MakeFun(function (str, strs) {
 	# Collapse a collection of strs into
 	# a str with by a delim.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(strs) )
 

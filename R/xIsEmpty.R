@@ -27,10 +27,7 @@ xIsEmpty <- MakeFun(function (coll) {
 	# Collection -> boolean
 	# is collection length == 0?
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	length(coll) == 0

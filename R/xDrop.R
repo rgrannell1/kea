@@ -34,8 +34,6 @@ xDrop <- MakeFun(function (num, coll) {
 	# Collection any -> [any]
 	# take the first num values of collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

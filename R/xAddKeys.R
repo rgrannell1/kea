@@ -39,8 +39,6 @@ xAddKeys <- MakeFun(function (strs, coll) {
 	# Vector string -> Collection any -> [any]
 	# add names to a collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(strs) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

@@ -20,8 +20,6 @@
 
 xIdentity <- MakeFun(function (val) {
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(val) )
 
 	val

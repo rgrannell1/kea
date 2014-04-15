@@ -55,8 +55,6 @@ xChop <- MakeFun(function (num, coll) {
 	# integer -> Collection any -> [[any]]
 	# chop a collection into several collections.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

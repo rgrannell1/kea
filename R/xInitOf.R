@@ -32,8 +32,6 @@ xInitOf <- MakeFun(function (coll) {
 	# return everything but the first element of a
 	# collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 

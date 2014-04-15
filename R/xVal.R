@@ -44,7 +44,6 @@
 xVal <- MakeFun(function (sym, val) {
 	# assign a constant value to the calling environment.
 
-	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	MACRO( Must $ Not_Be_Missing(sym) )

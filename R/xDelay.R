@@ -41,8 +41,6 @@
 xDelay <- MakeFun(function (fn, num) {
 	# function -> number -> function
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(num) )
 

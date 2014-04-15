@@ -33,8 +33,6 @@ xLastOf <- MakeFun	(function (coll) {
 	# return the last element of a collection x,
 	# using the subset operator
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
 
 	MACRO( Must $ Be_Collection(coll) )

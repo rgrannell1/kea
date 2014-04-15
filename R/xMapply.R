@@ -35,7 +35,6 @@ xMapply <- MakeFun(function (fn, colls) {
 	# map over a collection, applying each
 	# function with each tuple.
 
-	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	MACRO( Must $ Not_Be_Missing(fn) )

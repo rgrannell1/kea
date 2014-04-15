@@ -37,8 +37,6 @@ xChunk <- MakeFun(function (num, coll) {
 	# groups coll into chunks of num,
 	# when possible.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

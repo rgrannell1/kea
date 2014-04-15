@@ -38,8 +38,6 @@ xZipKeys <- MakeFun(function (colls) {
 	# take a collection of name:value pairs and associate
 	# them into a named list.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(colls) )
 
 	MACRO( Must $ Be_Collection(colls) )

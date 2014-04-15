@@ -1905,8 +1905,6 @@ x_ <- MakeFun(function (val) {
 	# Collection any -> Arrow any
 	# type constructor for the method-chaining data type.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(val) )
 
 	if ('arrow' %in% class(val)) {

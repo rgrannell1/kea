@@ -27,8 +27,6 @@ xWriteWords <- MakeFun(function (str, strs) {
 	# string -> strings
 	# write character lines .
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(strs) )
 

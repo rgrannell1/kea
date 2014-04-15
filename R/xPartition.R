@@ -41,8 +41,6 @@ xPartition <- MakeFun(function (pred, coll) {
 	# returns two lists; a list for which pred returns
 	# true, and a list for which pred returns false
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

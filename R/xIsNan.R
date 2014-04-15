@@ -30,8 +30,6 @@ xIsNan <- MakeFun(function (val) {
 	# any -> boolean
 	# test if a value is na
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(val) )
 
 	if (length(val) == 0) {

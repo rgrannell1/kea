@@ -34,8 +34,6 @@ xMap <- MakeFun(function (fn, coll) {
 	# (any -> any) -> Collection any -> [any]
 	# map a unary function over a collection x.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

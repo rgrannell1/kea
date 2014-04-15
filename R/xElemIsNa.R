@@ -28,10 +28,7 @@ xElemIsNa <- MakeFun(function (coll) {
 	# Collection a -> Vector boolean
 	# Is an element of a collection na?
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	vapply(coll, function (x) {

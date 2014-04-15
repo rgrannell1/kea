@@ -24,10 +24,7 @@ xToChars <- MakeFun(function (str) {
 	# split str at every character, returning
 	# a character vector of equal or greater length.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
-
 	MACRO( Must $ Be_Collection(str) )
 
 	str <- as_typed_vector(str, 'character')

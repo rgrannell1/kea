@@ -50,8 +50,6 @@
 xJuxtapose <- MakeFun(function (fns) {
 	# Recursive fns -> function
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fns) )
 
 	MACRO( Must $ Be_Collection(fns) )

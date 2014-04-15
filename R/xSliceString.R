@@ -36,8 +36,6 @@ xSliceString <- MakeFun(function (str, nums) {
 	# str -> integer -> Vector str
 	# subset a str using normal R vector indexing.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(nums) )
 
@@ -54,7 +52,6 @@ xSliceString <- MakeFun(function (str, nums) {
 	} else if (length(nums) == 0) {
 		str
 	} else {
-
 
 		chars <- strsplit(str, "")[[1]]
 		chars <- chars[nchar(chars) > 0]

@@ -31,10 +31,7 @@ xRankOf <- MakeFun(function (nums) {
 	# Collection numbers -> Vector numbers
 	# Rank numbers in order of size.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(nums) )
-
 	MACRO( Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'numeric')

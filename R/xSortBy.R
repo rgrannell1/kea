@@ -47,8 +47,6 @@ xSortBy <- MakeFun(function (fn, coll) {
 	#' (a -> b -> boolean) -> Collection any -> [any]
 	#' sort a collection using a comparison function.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

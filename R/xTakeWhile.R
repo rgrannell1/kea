@@ -39,8 +39,6 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 	# take every element in a collection
 	# until a predicate returns false.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

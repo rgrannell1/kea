@@ -27,8 +27,6 @@ xReadWords <- MakeFun(function (str) {
 	# string -> string
 	# read a file by characters.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 
 	MACRO( Must $ Be_Collection(str) )

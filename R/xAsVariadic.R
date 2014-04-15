@@ -34,10 +34,7 @@ xAsVariadic <- MakeFun(function (fn) {
 	# Return a variadic function that passes its arguments
 	# as a list to its underlying function.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

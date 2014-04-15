@@ -34,8 +34,6 @@ xAsCharacter <- MakeFun(function (strs) {
 	# Collection integer -> Vector integer
 	# convert a collection to a integer vector.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(strs) )
 	MACRO( Must $ Be_Collection(strs) )
 

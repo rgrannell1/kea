@@ -39,10 +39,7 @@ xVectorise <- MakeFun(function (fn) {
 	# (any -> any) -> ([any] -> [any])
 	# shorthand for partially applying map.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

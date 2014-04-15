@@ -51,8 +51,6 @@ xPartial <- MakeFun(function (fn, coll) {
 	# function -> recursive any -> any
 	# partially apply a function.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

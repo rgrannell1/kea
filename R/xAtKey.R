@@ -29,8 +29,6 @@
 xAtKey <- MakeFun(function (str, coll) {
 	# number -> Collection any -> any
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

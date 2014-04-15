@@ -23,10 +23,7 @@ xUnit <- MakeFun(function (coll) {
 	# Collection any -> Collection
 	# return the neutral element of a collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (is.pairlist(coll)) {

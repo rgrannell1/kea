@@ -45,8 +45,6 @@ xReject <- MakeFun(function (pred, coll) {
 	# returns collection[i] such that
 	# pred(collection[i]) is false
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

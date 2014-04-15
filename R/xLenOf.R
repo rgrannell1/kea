@@ -29,10 +29,7 @@ xLenOf <- MakeFun(function (coll) {
 	# Collection a -> integer
 	# get the length of a collection.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	length(coll)

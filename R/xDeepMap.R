@@ -34,8 +34,6 @@ xDeepMap <- MakeFun(function (fn, coll) {
 	# Map a function into a nested collection,
 	# preserving its structure.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

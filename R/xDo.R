@@ -32,8 +32,6 @@ xDo <- MakeFun(function (fn, coll) {
 	# apply a function to each element of a collection.
 	# and discard the results.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

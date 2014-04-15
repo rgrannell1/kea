@@ -56,8 +56,6 @@ xSplitWith <- local({
 
 	MakeFun(function (pred, coll) {
 
-		invoking_call <- sys.call()
-
 		MACRO( Must $ Not_Be_Missing(pred) )
 		MACRO( Must $ Not_Be_Missing(coll) )
 

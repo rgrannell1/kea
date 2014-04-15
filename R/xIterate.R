@@ -48,8 +48,6 @@ xIterate <- MakeFun(function (fn, val) {
 	# (any -> any) -> any
 	# iterate until higher-order returned.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(val) )
 

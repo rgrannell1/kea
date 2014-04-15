@@ -41,8 +41,6 @@ xSlice <- MakeFun(function (nums, coll) {
 	# Vector numbers -> Collection any -> Collection any
 	# select elements of a collection using indices.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

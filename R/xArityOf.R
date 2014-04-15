@@ -31,8 +31,6 @@ xArityOf <- MakeFun(function (fn) {
 	# function -> integer
 	# get the arity of a function.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 

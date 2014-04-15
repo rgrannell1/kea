@@ -23,7 +23,6 @@ xIsVal <- MakeFun(function (sym) {
 	# symbol | Vector character -> logical
 	# is a name binding locked?
 
-	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
 	MACRO( Must $ Not_Be_Missing(sym) )

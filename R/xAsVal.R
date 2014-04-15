@@ -32,9 +32,6 @@
 xAsVal <- MakeFun(function (sym) {
 	# lock the binding for an R variable.
 
-	invoking_call <- sys.call()
-	parent_frame <- parent.frame()
-
 	MACRO( Must $ Not_Be_Missing(sym) )
 
 	sym <- match.call()$sym
@@ -44,5 +41,5 @@ xAsVal <- MakeFun(function (sym) {
 
 	MACRO( Must $ Be_Existing_Ref(sym) )
 
-	lockBinding(sym, parent_frame)
+	lockBinding(sym, parent.frame())
 })

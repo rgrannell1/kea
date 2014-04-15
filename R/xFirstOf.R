@@ -32,8 +32,6 @@ xFirstOf <- MakeFun(function (coll) {
 	# Collection any -> any
 	# return the first element of a collection x.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
 
 	MACRO( Must $ Be_Collection(coll) )

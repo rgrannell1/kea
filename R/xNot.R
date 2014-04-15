@@ -41,13 +41,8 @@ xNot <- MakeFun(function (pred) {
 	# function -> function
 	# negate a predicate function.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
-
 	MACRO( Must $ Be_Fn_Matchable(pred) )
-
-	remove(invoking_call)
 
 	do.call("function", list(
 		as.pairlist(xFormalsOf(pred)),

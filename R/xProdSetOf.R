@@ -32,8 +32,6 @@
 xProdSetOf <- MakeFun(function (colls) {
 	# set the cartesian product of n collections
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(colls) )
 
 	MACRO( Must $ Be_Collection(colls) )

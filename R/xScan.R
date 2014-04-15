@@ -46,8 +46,6 @@ xScan <- MakeFun(function (fn, val, coll) {
 	# (any -> any -> any) -> any -> Collection any -> [any]
 	# scan across list, starting from the right.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(val) )
 	MACRO( Must $ Not_Be_Missing(coll) )

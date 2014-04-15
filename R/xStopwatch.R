@@ -25,17 +25,13 @@ xStopwatch <- MakeFun(function (num) {
 	# integer -> function
 	# create a timer predicate function.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
-
 	MACRO( Must $ Be_Collection(num) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( Must $ Be_Between(num, 0, Inf))
 
-	remove(invoking_call)
 	genesis <- Sys.time()
 
 	function (...) {

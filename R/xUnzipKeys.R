@@ -39,10 +39,7 @@ xUnzipKeys <- MakeFun(function (coll) {
 	# Named collection any -> [[string, any]]
 	# split a list into its names and values.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

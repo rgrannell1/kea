@@ -69,8 +69,6 @@ xExists <- MakeFun(function (pred, colls) {
 	# does there exist any choice of bindings for
 	# pred such that pred is true?
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(colls) )
 

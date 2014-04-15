@@ -43,8 +43,6 @@ xOrderOf <- MakeFun(function (nums) {
 	# Return a permutation giving the order
 	# of nums.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )
 

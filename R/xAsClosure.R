@@ -41,10 +41,7 @@ xAsClosure <- MakeFun(function (fn) {
 	# (a -> b) -> (a -> b)
 	# convert a primitive function to a closure.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

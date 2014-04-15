@@ -26,8 +26,6 @@
 xReadLines <- MakeFun(function (str) {
 	# string -> string
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 
 	MACRO( Must $ Be_Collection(str) )

@@ -54,8 +54,6 @@ xFlatMap <- MakeFun(function (fn, coll) {
 	# map unary over collection, and collate the
 	# results using concatenation.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

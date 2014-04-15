@@ -40,8 +40,6 @@
 xAt <- MakeFun(function (num, coll) {
 	# number -> Collection any -> any
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

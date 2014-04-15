@@ -41,10 +41,7 @@ xAsDataFrame <- MakeFun(function (colls) {
 	# Collection Collection any -> data.frame any
 	# convert a collection to a data frame.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(colls) )
-
 	MACRO( Must $ Be_Collection(colls) )
 
 	MACRO( Must $ Be_Collection_Of_Collections(colls) )

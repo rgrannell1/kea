@@ -36,8 +36,6 @@ xMinBy <- MakeFun(function (fn, coll) {
 	# (any -> number) -> Collection any -> any
 	# get the smallest value in a collection by a metric.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

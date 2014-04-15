@@ -37,8 +37,6 @@ xMapIndexed <- MakeFun(function (fn, coll) {
 	# Map over a collection, also passing each elements
 	# index.
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

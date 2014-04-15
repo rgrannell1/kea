@@ -39,8 +39,6 @@
 xPluck <- MakeFun(function (str, colls) {
 	# Vector string -> Collection any -> Collection [any]
 
-	invoking_call <- sys.call()
-
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(colls) )
 
