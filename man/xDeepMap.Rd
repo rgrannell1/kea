@@ -23,6 +23,11 @@ A list or pairlist.
 Recursively map a function into a nested collection,
 preserving its structure.
 }
+\details{
+\bold{xDeepMap} is currently recursive, and as such will cause a
+    stack overflow for large inputs. Future versions of Arrow may include
+    a more stable algorithm for \bold{xDeepMap}.
+}
 \examples{
 
 NULL

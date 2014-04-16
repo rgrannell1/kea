@@ -44,18 +44,14 @@ xIsMember <- MakeFun(function (val, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		is_match <- vapply(
-			coll,
-			function (elem) {
-				identical(elem, val, single.NA = True)
-			},
-			logical(1), USE.NAMES = False)
 
-		if ( all(is.na(is_match)) ) {
-			False
-		} else {
-			any(is_match)
+		for (elem in coll) {
+			if ( isTRUE(identical(elem, val, single.NA = True)) ) {
+				return(True)
+			}
 		}
+
+		False
 	}
 })
 

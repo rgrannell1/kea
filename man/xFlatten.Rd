@@ -29,6 +29,9 @@ Unnest a nested list to a given depth.
    (infinitely nested) collection, \bold{num} equals 1 returns a
    collection, \bold{num} equals 2 returns a collection of
    collections, and so on.
+
+   \bold{xFlatten} is currently implemented recursively (except for
+   complete unlisting), so it is unstable for large or deep collections.
 }
 \section{Corner Cases}{
 

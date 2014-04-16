@@ -26,34 +26,34 @@ is true for a predicate.
 }
 \details{
 \bold{xForall} can be used to test if every element of a
-collection is true (like the base function \bold{all( )}) by
-simply using it with the identity function.
+    collection is true (like the base function \bold{all( )}) by
+    simply using it with the identity function.
 
-\code{coll <- c(True, False, True, True)}
+    \code{coll <- c(True, False, True, True)}
 
-\code{xForall...(xIdentity, coll)}
+    \code{xForall...(xIdentity, coll)}
 
-When supplied with a collection of multiple collections the
-set product of those collections is checked with the predicate.
-In order for \bold{xForall} to return true every element of the
-set product must return true for a predicate.
+    When supplied with a collection of multiple collections the
+    set product of those collections is checked with the predicate.
+    In order for \bold{xForall} to return true every element of the
+    set product must return true for a predicate.
 
-\code{commutes <- (a : b) := { a + b == b + a }}
+    \code{commutes <- (a : b) := { a + b == b + a }}
 
-\code{xForall...(commutes, 1:2, 1:2)}
+    \code{xForall...(commutes, 1:2, 1:2)}
 
-The set product is
+    The set product is
 
-\code{list(list(1, 1), list(1, 2), list(2, 1), list(2, 2))}
+    \code{list(list(1, 1), list(1, 2), list(2, 1), list(2, 2))}
 
-Each member of the set product is tested with the
-\bold{commutes} function
+    Each member of the set product is tested with the
+    \bold{commutes} function
 
-\code{list(commutes(1, 1), commutes(1, 2), commutes(2, 1), commutes(2, 2))}
+    \code{list(commutes(1, 1), commutes(1, 2), commutes(2, 1), commutes(2, 2))}
 
-\code{list(True, True, True, True)}
+    \code{list(True, True, True, True)}
 
-\code{True}
+    \code{True}
 }
 \section{Corner Cases}{
 

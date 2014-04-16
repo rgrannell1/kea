@@ -14,7 +14,7 @@
 #'    \bold{xFlatten} is currently implemented recursively (except for
 #'    complete unlisting), so it is unstable for large or deep collections.
 #'
-#' @paramz
+#' @param
 #'    num a nonnegative whole-number. The maximum depth
 #'    of collection in the return value.
 #'

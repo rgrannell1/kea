@@ -5,8 +5,9 @@
 #'
 #' @details
 #'     \bold{xPowerSetOf} generates the set of all subsets of a collection.
-#'     This set has length \bold{2^length(coll)}.
-
+#'     This set has length \bold{2^length(coll)}, so inputs longer than
+#'     twenty elements will take a very long time to compute.
+#'
 #' @param
 #'     coll a collection. The collection to return the subsets of.
 #'

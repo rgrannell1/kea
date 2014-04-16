@@ -45,15 +45,13 @@ xMapply <- MakeFun(function (fn, colls) {
 	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
 	fn <- match_fn(fn)
+
 	if (length(colls) == 0) {
 		list()
 	} else {
 
 		lapply(colls, function (tuple) {
-
-			eval(
-				as.call(c(fn, tuple)),
-				envir = parent_frame)
+			eval(as.call(c(fn, tuple)), envir = parent_frame)
 		})
 
 	}

@@ -21,7 +21,8 @@ Enumerate every way of subsetting a collection.
 }
 \details{
 \bold{xPowerSetOf} generates the set of all subsets of a collection.
-    This set has length \bold{2^length(coll)}.
+    This set has length \bold{2^length(coll)}, so inputs longer than
+    twenty elements will take a very long time to compute.
 }
 \examples{
 
