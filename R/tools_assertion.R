@@ -19,71 +19,34 @@ stringify_call <- function (call) {
 
 		calltext <- ddparse(call)
 
-		if (nchar(calltext) > 35) {
-			paste0(substring(calltext, 1, 35), ' [truncated]', collapse = '')
+		if (nchar(calltext) > 50) {
+			paste0(substring(calltext, 1, 50), ' [truncated]', collapse = '')
 		} else {
 			calltext
 		}
 	}
 }
 
+get_call_components <- function (invoking_call) {
+	# get the calling function and call text from a call.
 
-colourise <- local({
+	if (length(invoking_call) == 1) {
+		# this may be incorrect - I'm assuming this is a
+		# length-one call (xMap()) , not a symbol.
 
-	supports_colour <- function () {
-		# is a terminal colourisable.
-
-		terminal <- Sys.getenv()["TERM"]
-		colour_terminals <- c(
-			"screen", "screen-256color", "xterm-color", "xterm-256color")
-
-		!is.na(terminal) && (terminal %in% colour_terminals)
+		list(
+			invoking_call =
+				paste0(invoking_call, collapse = ''),
+			calltext =
+				paste0(invoking_call, "()", collapse = ''))
+	} else {
+		list(
+			invoking =
+				paste0(invoking_call[[1]], collapse = ''),
+			calltext =
+				stringify_call(invoking_call))
 	}
-
-	list(
-		black =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;30m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
-		red =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;31m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
-		green =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;32m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
-		blue =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;34m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
-		yellow =
-			function (message) {
-				if (supports_colour()) {
-					"\033[1;33m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			}
-	)
-})
-
+}
 
 write_error <- function (..., call. = True) {
 	# to fix wrong terminal type
@@ -95,25 +58,6 @@ write_error <- function (..., call. = True) {
 
 	stop(colourise$red(message), call. = call.)
 
-}
-
-
-get_call_components <- function (invoking_call) {
-	# get the calling function and call text from a call.
-
-	if (length(invoking_call) == 1) {
-		list(
-			invoking_call =
-				paste0(invoking_call, collapse = ''),
-			calltext =
-				"")
-	} else {
-		list(
-			invoking =
-				paste0(invoking_call[[1]], collapse = ''),
-			calltext =
-				stringify_call(invoking_call))
-	}
 }
 
 assert <- local({
@@ -147,7 +91,7 @@ assert <- local({
 
 
 
-throw_arrow_error <- throw <- function (invoking_call, message) {
+throw_arrow_error <- function (invoking_call, message) {
 	# everythings went wrong, throw an error.
 
 	components <- get_call_components(invoking_call)
@@ -468,7 +412,7 @@ Must <- local({
 			COLL <- match.call()$COLL
 
 			bquote(if (
-				'arrow' %in% class( .(COLL) ) ||
+				identical('arrow', class( .(COLL) )) ||
 				!is.atomic( .(COLL) ) &&
 				!is.list( .(COLL) ) &&
 				!is.pairlist( .(COLL) )) {
@@ -477,7 +421,7 @@ Must <- local({
 					"the argument matching " %+% ddquote( .(COLL) ) %+%
 					" must be a list, a pairlist or a typed vector."
 
-				if ('arrow' %in% class( .(COLL) )) {
+				if ( identical('arrow', class( .(COLL) )) ) {
 					message <- message %+%
 						"The argument was of class " %+%
 						dQuote("arrow") %+%
@@ -511,7 +455,7 @@ Must <- local({
 						"the argument matching " %+% ddquote( .(COLLS) ) %+%
 						" must be a collection of lists, vectors or pairlists."
 
-					if ('arrow' %in% class( .(COLLS) )) {
+					if (identical('arrow', class( .(COLLS) ))) {
 						message <- message %+%
 							"The argument was of class " %+%
 							dQuote("arrow") %+%

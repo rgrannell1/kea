@@ -34,7 +34,7 @@ xReadLines <- MakeFun(function (str) {
 	str <- unit_to_value(as_atom(str, "character"))
 
 	text <- try_read(
-		readLines(str, warn = False), str, invoking_call)
+		readLines(str, warn = False), str, sys.call())
 
 	if (length(text) == 0) {
 		character(0)

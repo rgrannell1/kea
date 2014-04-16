@@ -42,9 +42,8 @@ xProdSetOf <- MakeFun(function (colls) {
 	if (length(colls) == 0 || min(coll_lengths) == 0) {
 		list()
 	} else {
-		modulo_iths <- function (num, mods) {
 
-			assert(num <= prod(mods), invoking_call)
+		modulo_iths <- function (num, mods) {
 			as.numeric(arrayInd(num, .dim = mods))
 		}
 

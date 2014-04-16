@@ -39,7 +39,7 @@ xWriteChars <- MakeFun(function (str, strs) {
 	strs <- paste0(strs, collapse = '')
 
 	try_write(
-		writeLines(strs, str, sep = ""), str, invoking_call)
+		writeLines(strs, str, sep = ""), str, sys.call())
 
 	invisible (Null)
 })

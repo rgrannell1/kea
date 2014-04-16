@@ -75,7 +75,7 @@ xSplitWith <- local({
 
 			while (length(coll) > 0) {
 
-				trimmed <- bisect(pred, coll, invoking_call)
+				trimmed <- bisect(pred, coll, sys.call())
 				cleaved[cleaved_current] <- list(as.list(trimmed[1]))
 
 				coll <- trimmed[[2]]

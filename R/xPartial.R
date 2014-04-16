@@ -71,8 +71,6 @@ xPartial <- MakeFun(function (fn, coll) {
 		names(matched_call[-1])
 	})
 
-	remove(invoking_call)
-
 	if (length(coll) == 0) {
 		fn
 	} else {

@@ -52,7 +52,6 @@ xDelay <- MakeFun(function (fn, num) {
 	MACRO( Must $ Be_Between(num, 0, Inf))
 
 	fn <- match_fn(fn)
-	remove(invoking_call)
 
 	if (num == 0) {
 		fn

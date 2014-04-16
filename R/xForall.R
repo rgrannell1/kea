@@ -86,8 +86,6 @@ xForall <- MakeFun(function (pred, colls) {
 	} else {
 
 		modulo_iths <- function (n, mods) {
-
-			assert(n <= prod(mods), invoking_call)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 

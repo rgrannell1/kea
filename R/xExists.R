@@ -86,9 +86,6 @@ xExists <- MakeFun(function (pred, colls) {
 	} else {
 
 		modulo_iths <- function (n, mods) {
-			# get the nth expanded index of an oddly-shaped array.
-
-			assert(n <= prod(mods), invoking_call)
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 

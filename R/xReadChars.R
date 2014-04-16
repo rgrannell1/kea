@@ -38,7 +38,7 @@ xReadChars <- MakeFun(function (str) {
 		character(0)
 	} else {
 		text <- try_read(
-			readLines(str), str, invoking_call)
+			readLines(str), str, sys.call())
 
 		chars <- strsplit(
 			paste0(text, collapse = '\n'), "")[[1]]
