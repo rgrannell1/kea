@@ -47,6 +47,8 @@ xTake <- MakeFun(function (num, coll) {
 
 	if (length(coll) == 0 || num == 0) {
 		list()
+	} else if (is.infinite(num)) {
+		as.list(coll)
 	} else {
 		as.list(coll)[seq_len( min(num, length(coll)) )]
 	}

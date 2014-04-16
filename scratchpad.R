@@ -39,19 +39,64 @@ mergeTable <- (left : right) := {
 		isRightMember <- xIsTrue(xIsMember(key, rightKeys))
 
 		newsum <-
-		if (isLeftMember && isRightMember) {
-			0
-		} else if (isLeftMember) {
-			left[[key]]
-		} else {
-			left[[key]] + right[[key]]
-		}
+			if (isLeftMember && isRightMember) {
+				left[[key]] + right[[key]]
+			} else if (isLeftMember) {
+				left[[key]]
+			} else if (isRightMember) {
+				right[[key]]
+			} else {
+				0
+			}
 
 		list(key, newsum)
 	})
 }
 
-packageFunctions <- x_(rPaths) $ xTake(10) $ xMap(path := {
+packageFunctions <- x_(rPaths) $ xTake(3) $ xFold((longest : path) := {
+
+
+	script <- tryCatch(
+		parse(path),
+		error = xK(Null),
+		warning = xK(Null)
+	)
+
+	func <- allFunctions(script)
+
+	if (length(func) > 0) {
+		this_longest <- func[[ which.max(nchar(func)) ]]
+
+		if (nchar(this_longest) > nchar(longest)) this_longest else longest
+
+	} else {
+		longest
+	}
+
+
+}, "")
+
+
+
+
+
+uniqueFunctions <- x_(rPaths) $ xTake(Inf) $ xMap(path := {
+
+	script <- tryCatch(
+		parse(path),
+		error = xK(Null),
+		warning = xK(Null)
+	)
+
+	xUniqueOf(allFunctions(script))
+}) $
+xReduce(xUniqueOf)
+
+
+
+
+
+packageFunctions <- x_(rPaths) $ xTake(3) $ xMap(path := {
 
 	script <- tryCatch(
 		parse(path),
