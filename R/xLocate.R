@@ -44,7 +44,9 @@ xLocate <- MakeFun(function (pred, coll) {
 	if (length(coll) == 0) {
 		integer(0)
 	} else {
-		which( vapply(coll, pred, logical(1), USE.NAMES = False) )
+		which( vapply(coll, function (x) {
+			isTRUE(pred(x))
+		}, logical(1), USE.NAMES = False) )
 	}
 })
 

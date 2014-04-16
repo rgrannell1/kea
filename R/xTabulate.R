@@ -48,14 +48,17 @@ xTabulate <- MakeFun(function (coll) {
 
 	if (length(coll) == 0) {
 		list()
-	} else
-{
-		set <- unique(coll)
+	} else {
+
+		unique_elements <- unique(coll)
 
 		indices <- vapply(coll, function (elem) {
 
-			for (ith in seq_along(set)) {
-				if (identical( elem, set[[ith]] )) {
+			for (ith in seq_along(unique_elements)) {
+
+				# this may cause problems with NaN.
+
+				if (identical( elem, unique_elements[[ith]] )) {
 					return(ith)
 				}
 			}
@@ -66,9 +69,10 @@ xTabulate <- MakeFun(function (coll) {
 
 		lapply(names(index_frequencies), function (ith) {
 
+			# reparse the index.
 			ith <- as.integer(ith)
 
-			list(set[[ith]], as.numeric(index_frequencies[[ith]]) )
+			list(unique_elements[[ith]], as.numeric(index_frequencies[[ith]]) )
 		})
 	}
 })

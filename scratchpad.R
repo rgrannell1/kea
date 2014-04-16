@@ -90,7 +90,8 @@ uniqueFunctions <- x_(rPaths) $ xTake(Inf) $ xMap(path := {
 
 	xUniqueOf(allFunctions(script))
 }) $
-xReduce(xUniqueOf)
+xFlatten(1) $
+xUniqueOf()
 
 
 

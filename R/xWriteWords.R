@@ -36,6 +36,7 @@ xWriteWords <- MakeFun(function (str, strs) {
 	str <- unit_to_value(as_atom(str, "character"))
 	strs <- unit_to_value(as_typed_vector(strs, "character"))
 
+	# collapse to the final string before writing.
 	strs <- paste0(strs, collapse = ' ')
 
 	try_write(

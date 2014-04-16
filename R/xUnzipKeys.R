@@ -52,10 +52,7 @@ xUnzipKeys <- MakeFun(function (coll) {
 		coll <- unname(coll)
 
 		lapply(seq_along(coll), function (ith) {
-
-			list(
-				colnames[[ith]],
-				coll[[ith]] )
+			list(colnames[[ith]], coll[[ith]] )
 		})
 	}
 })

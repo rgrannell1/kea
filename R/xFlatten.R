@@ -11,7 +11,10 @@
 #'    collection, \bold{num} equals 2 returns a collection of
 #'    collections, and so on.
 #'
-#' @param
+#'    \bold{xFlatten} is currently implemented recursively (except for
+#'    complete unlisting), so it is unstable for large or deep collections.
+#'
+#' @paramz
 #'    num a nonnegative whole-number. The maximum depth
 #'    of collection in the return value.
 #'
@@ -58,10 +61,13 @@ xFlatten <- MakeFun(function (num, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else if (is.atomic(coll)) {
+		# it is flat!
 		as.list(coll)
 	} else if (num == +Inf) {
+		# preserve the structure.
 		as.list(coll)
 	} else if (num == 1) {
+		# unlist entirely.
 		as.list(unlist(coll))
 	} else {
 

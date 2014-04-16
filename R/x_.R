@@ -1493,16 +1493,16 @@ x_coll_proto <- local({
 	add_x_method(this, x_Where..., '...')
 
 	# --- xWriteChars --- #
-	add_x_method(this, xWriteChars, 'str')
-	add_x_method(this, x_WriteChars, 'str')
+	add_x_method(this, xWriteChars, 'strs')
+	add_x_method(this, x_WriteChars, 'strs')
 
 	# --- xWriteLines --- #
-	add_x_method(this, xWriteLines, 'str')
-	add_x_method(this, x_WriteLines, 'str')
+	add_x_method(this, xWriteLines, 'strs')
+	add_x_method(this, x_WriteLines, 'strs')
 
 	# --- xWriteWords --- #
-	add_x_method(this, xWriteWords, 'str')
-	add_x_method(this, x_WriteWords, 'str')
+	add_x_method(this, xWriteWords, 'strs')
+	add_x_method(this, x_WriteWords, 'strs')
 
 	# --- xDelay --- #
 	add_x_method(this, xDelay, 'num')
