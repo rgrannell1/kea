@@ -10,7 +10,14 @@ handling missing values or naming its parametres. As a result, piecing together
 individual functions to make a useful program can be difficult and requires a
 lot of boilerplate code.
 
-Arrow is an expressive, composible foundation for programming in R.
+Arrow is an expressive composible foundation for programming in R. It implements all
+the common higher-order functions - Map, Fold, GroupBy and so on - as well as any reshaping
+operation you might want to perform on a collection. It has simple IO functions that let
+you read and write to files with minimal overhead, and the set and combinatoric functions
+you need for more advanced algorithms.
+
+It aims to be completely consistent and above all else user-friendly. Arrow functions
+rarely have more than two parametres, so functions will just work without configuration.
 
 
 

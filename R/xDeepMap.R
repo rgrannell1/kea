@@ -5,6 +5,11 @@
 #' Recursively map a function into a nested collection,
 #' preserving its structure.
 #'
+#' @details
+#'     \bold{xDeepMap} is currently recursive, and as such will cause a
+#'     stack overflow for large inputs. Future versions of Arrow may include
+#'     a more stable algorithm for \bold{xDeepMap}.
+#'
 #' @param
 #'    fn a unary function. A function to recursively apply
 #'    into a collection.
@@ -43,7 +48,7 @@ xDeepMap <- MakeFun(function (fn, coll) {
 	fn <- match_fn(fn)
 
 	recur <- function (xs) {
-		# recurse into a collection.
+		# recurse into a collection. TODO-non-recursive form.
 
 		if (is.recursive(xs)) {
 			# this recursively converts from pairlist to list.
