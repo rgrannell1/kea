@@ -53,7 +53,6 @@ xMapply <- MakeFun(function (fn, colls) {
 		lapply(colls, function (tuple) {
 			eval(as.call(c(fn, tuple)), envir = parent_frame)
 		})
-
 	}
 })
 
