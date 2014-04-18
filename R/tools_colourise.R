@@ -1,4 +1,3 @@
-
 colourise <- local({
 	# functions that add ANSI colour codes to strings, allowing them to
 	# be colourised.
@@ -22,14 +21,14 @@ colourise <- local({
 					message
 				}
 			},
-		red =
+		blue =
 			function (message) {
 				if (supports_colour()) {
-					"\033[0;31m" %+% message %+% "\033[0m"
+					"\033[0;34m" %+% message %+% "\033[0m"
 				} else {
 					message
 				}
-			},
+			},			
 		green =
 			function (message) {
 				if (supports_colour()) {
@@ -38,14 +37,15 @@ colourise <- local({
 					message
 				}
 			},
-		blue =
+		red =
 			function (message) {
 				if (supports_colour()) {
-					"\033[0;34m" %+% message %+% "\033[0m"
+					"\033[0;31m" %+% message %+% "\033[0m"
 				} else {
 					message
 				}
 			},
+
 		yellow =
 			function (message) {
 				if (supports_colour()) {
