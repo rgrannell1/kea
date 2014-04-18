@@ -1996,7 +1996,7 @@ get_proto_ref <- local({
 
 		alias('xByColkeys', 	'xByColrows'),
 		alias('xByRowkeys', 	'xByRowrows'),
-		alias('xAddNames', 		'xAddKeys')
+		alias('xAddNames', 		'xAddKeys'),
 
 		alias('xC', 			'xJoin'),
 		alias('xConcat', 		'xJoin'),

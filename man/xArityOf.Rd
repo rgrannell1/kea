@@ -17,7 +17,7 @@ Return the number of arguments a function can accept.
 \details{
 \bold{xArityOf} returns the arity of a function - the number of
    arguments that can be passed to the function. R functions can be nullary
-   (0-arguments), have infinitely many arguments (variadic functions), or
+   (zero-arguments), have infinitely many arguments (variadic functions), or
    have a fixed number of arguments (non-variadic functions).
 }
 \section{Corner Cases}{
