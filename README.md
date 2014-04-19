@@ -32,7 +32,7 @@ Arrow can be written using normal functions or with chaining methods. I prefer t
 methods take an initial piece of data and apply successive transformation to it.
 This is a very natural way of expressing data munging or reshaping.
 
-<pre class = "input">
+```r input
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
 asRow <- (...) := {
@@ -89,7 +89,7 @@ list(
 largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
 60.8
-</pre>
+```
 
 ### Arrow is Expressive
 
