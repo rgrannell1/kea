@@ -63,7 +63,7 @@ xTabulate <- MakeFun(function (coll) {
 				}
 			}
 
-		}, numeric(1))
+		}, numeric(1), USE.NAMES = False)
 
 		index_frequencies <- as.list(table(indices))
 

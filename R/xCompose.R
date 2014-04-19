@@ -5,44 +5,44 @@
 #'
 #' @details
 #'
-#' Arrow's function composition is largely done with the infix
-#' operators \%of\% and \%then\%.
+#'    Arrow's function composition is largely done with the infix
+#'    operators \%of\% and \%then\%.
 #'
-#' \bold{\%then\%} is the classic function composition operator;
+#'    \bold{\%then\%} is the classic function composition operator;
 #'
-#' \code{(as.numeric \%then\% sqrt \%then\% print)('10')}
+#'    \code{(as.numeric \%then\% sqrt \%then\% print)('10')}
 #'
-#' Like methods, the order of fwunction execution is from left to right;
-#' convert a string to a number then take the square root then print the value.
-#' The reversed form \%of\% is equally as ubiquitous.
+#'    Like methods, the order of fwunction execution is from left to right;
+#'    convert a string to a number then take the square root then print the value.
+#'    The reversed form \%of\% is equally as ubiquitous.
 #'
-#' The classic example of function composition (apart from
-#' Church numerals) is composing linear functions.
+#'    The classic example of function composition (apart from
+#'    Church numerals) is composing linear functions.
 #'
-#' \code{f <- x := 2*x}
+#'    \code{f <- x := 2*x}
 #'
-#' \code{g <- x := 4*x}
+#'    \code{g <- x := 4*x}
 #'
-#' \code{h <- x := 1*x}
+#'    \code{h <- x := 1*x}
 #'
-#' \code{(f \%of\% g \%of\% h)(1)}
+#'    \code{(f \%of\% g \%of\% h)(1)}
 #'
-#' \code{(x := 2*(4*(1*x)) )(1)}
+#'    \code{(x := 2*(4*(1*x)) )(1)}
 #'
-#' xCompose
+#'    xCompose
 #'
-#' In this case the output of one function is piped to
-#' another:
+#'    In this case the output of one function is piped to
+#'    another:
 #'
-#' \code{1 => 1*1 => 1*4 => 4*2 => 8}
+#'    \code{1 => 1*1 => 1*4 => 4*2 => 8}
 #'
-#' In this case function composition behaves exactly like
-#' multiplication.
+#'    In this case function composition behaves exactly like
+#'    multiplication.
 #'
-#' In more typical use of \bold{xCompose} is to reduce the
-#' number of anonymous functions needed by some programs.
+#'    In more typical use of \bold{xCompose} is to reduce the
+#'    number of anonymous functions needed by some programs.
 #'
-#' \code{xMap(sqrt \%of\% sqrt, 1:10)}
+#'    \code{xMap(sqrt \%of\% sqrt, 1:10)}
 #'
 #' @param
 #'    fn1 a function.
@@ -67,6 +67,10 @@
 #' @template
 #'    Variadic
 #'
+#' @section Corner Cases:
+#'    \bold{xCompose} throws an error if no functions are passed to it, as it has
+#'    no sensible definition in this case.
+#'
 #' @example
 #'    inst/examples/example-xCompose.R
 #'
@@ -76,10 +80,10 @@
 xCompose <- MakeFun(function (fns) {
 	# Collection function -> function
 
-
 	MACRO( Must $ Not_Be_Missing(fns) )
 	MACRO( Must $ Be_Collection(fns) )
 	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
+	MACRO( Must $ Be_Longer_Than(0, fns) )
 
 	fns <- lapply(fns, match_fn)
 

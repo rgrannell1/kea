@@ -12,5 +12,3 @@ message("xChoose")
 		xChoose(num, coll) %equals% list()
 	)
 
-message("xChoose...")
-

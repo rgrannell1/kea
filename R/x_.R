@@ -1960,8 +1960,9 @@ get_proto_ref <- local({
 
 `$.arrow` <- local({
 
-	# some methods are expected to have bad names;
-	# meet the user half way and mention the better name.
+	# some methods are known by their more common
+	# but worse names (like filter, filterNot).
+	# Meet the user half way and suggest the "proper" name.
 
 	alias <- function (incorrect, correct) {
 
@@ -2001,7 +2002,10 @@ get_proto_ref <- local({
 		alias('xC', 			'xJoin'),
 		alias('xConcat', 		'xJoin'),
 		alias('xConcatenate', 	'xJoin'),
+
 		alias('xFilter', 		'xSelect'),
+		alias('xFilterNot',     'xReject'),
+
 		alias('xGroup', 		'xChunk'),
 		alias('xZipWith', 		'xMapMany')
 	)

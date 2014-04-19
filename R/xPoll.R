@@ -20,6 +20,11 @@
 #' @template
 #'    Variadic
 #'
+#'
+#' @section Corner Cases:
+#'    Returns integer(0) when given an empty collection, and zero
+#'    if no matches are found.
+#'
 #' @example
 #'    inst/examples/example-xPoll.R
 #'
