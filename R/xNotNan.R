@@ -32,9 +32,6 @@ xNotNan <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	if (length(val) == 0) {
-		True
-	} else {
-		!isTRUE(is.nan(val))
-	}
+	# fails if no is.atomic check.
+	!is.atomic(val) || !isTRUE(is.nan(val))
 })

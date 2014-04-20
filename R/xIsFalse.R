@@ -32,5 +32,5 @@ xIsFalse <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	!isTRUE(val)
+	isTRUE(identical(val, False))
 })
