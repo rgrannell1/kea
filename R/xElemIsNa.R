@@ -31,14 +31,9 @@ xElemIsNa <- MakeFun(function (coll) {
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
-	vapply(coll, function (x) {
-		identical(x, NA) ||
-		identical(x, NA_integer_) ||
-		identical(x, NA_real_) ||
-		identical(x, NA_character_) ||
-		identical(x, NA_complex_)
-
-	}, logical(1), USE.NAMES = False)
+	vapply(coll, function (elem) {
+		is.na(elem)
+	}, logical(1))
 })
 
 #' @rdname xElemIsNa

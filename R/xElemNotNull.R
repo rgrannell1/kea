@@ -36,15 +36,13 @@ xElemNotNull <- MakeFun(function (coll) {
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
-		# empty pairlist - an odd corner case.
+		# empty pairlist an odd corner case.
 		logical(0)
 	} else {
-		res <- vector(mode = 'logical', length(coll))
 
-		for (ith in seq_along(coll)) {
-			res[ith] <- !identical(coll[[ith]], Null)
-		}
-		res
+		vapply(coll, function (elem) {
+			!isTRUE(is.null(elem))
+		}, logical(1))
 	}
 })
 

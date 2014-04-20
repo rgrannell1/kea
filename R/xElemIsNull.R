@@ -39,12 +39,9 @@ xElemIsNull <- MakeFun(function (coll) {
 		# empty pairlist - a slighty odd corner case.
 		logical(0)
 	} else {
-		res <- vector(mode = 'logical', length(coll))
-
-		for (ith in seq_along(coll)) {
-			res[ith] <- identical(coll[[ith]], Null)
-		}
-		res
+		vapply(coll, function (elem) {
+			isTRUE(is.null(elem))
+		}, logical(1))
 	}
 })
 

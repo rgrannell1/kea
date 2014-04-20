@@ -32,9 +32,5 @@ xIsNan <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	if (length(val) == 0) {
-		False
-	} else {
-		is.nan(val)
-	}
+	isTRUE(is.nan(val))
 })

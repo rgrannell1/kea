@@ -3,7 +3,11 @@
 <script type="text/javascript">
 	// highlight code examples.
 
-	highlight.highlight_r_code(".input", function (text) {
+	highlight.highlight_r_code("code", function (text) {
+		return "<code class = 'input r'>" + text + "</code>"
+	})
+
+	highlight.highlight_r_code("pre .input", function (text) {
 		return "<div class = 'input r'>" + text + "</div>"
 	})
 

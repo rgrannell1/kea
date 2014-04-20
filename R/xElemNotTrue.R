@@ -37,9 +37,9 @@ xElemNotTrue <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		vapply(coll, function (x) {
-			!identical(x, True)
-		}, logical(1), USE.NAMES = False)
+		vapply(coll, function (elem) {
+			!isTRUE(elem)
+		}, logical(1))
 	}
 })
 

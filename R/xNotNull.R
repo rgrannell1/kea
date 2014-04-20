@@ -31,5 +31,5 @@ xNotNull <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	!is.null(val)
+	!isTRUE(is.null(val))
 })

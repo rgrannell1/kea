@@ -76,8 +76,11 @@ Compose a function with the outputs of other functions.
 }
 \examples{
 
-NULL
 
+
+
+
+is_recursive <- is.list \%or\% is.pairlist
 }
 \seealso{
 Other function_combining_functions: \code{\link{\%of\%}},

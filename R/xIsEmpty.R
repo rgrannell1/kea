@@ -30,7 +30,7 @@ xIsEmpty <- MakeFun(function (coll) {
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
-	length(coll) == 0
+	isTRUE(length(coll) == 0)
 })
 
 #' @rdname xIsEmpty

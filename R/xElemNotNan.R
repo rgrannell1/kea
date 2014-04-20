@@ -37,15 +37,9 @@ xElemNotNan <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		vapply(coll, function (x) {
-
-			if (length(x) == 0) {
-				False
-			}
-
-			!is.nan(x)
-
-		}, logical(1), USE.NAMES = False)
+		vapply(coll, function (elem) {
+			!isTRUE(is.nan(elem))
+		}, logical(1))
 	}
 })
 

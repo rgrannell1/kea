@@ -31,9 +31,9 @@ xElemIsFalse <- MakeFun(function (coll) {
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
-	vapply(coll, function (x) {
-		identical(x, False)
-	}, logical(1), USE.NAMES = False)
+	vapply(coll, function (elem) {
+		!isTRUE(elem)
+	}, logical(1))
 })
 
 #' @rdname xElemIsFalse

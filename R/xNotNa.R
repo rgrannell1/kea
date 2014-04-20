@@ -32,9 +32,5 @@ xNotNa <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	if (length(val) == 0) {
-		True
-	} else {
-		!is.na(val)
-	}
+	!isTRUE(is.na(val))
 })

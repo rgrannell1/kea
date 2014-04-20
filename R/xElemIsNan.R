@@ -36,13 +36,9 @@ xElemIsNan <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		res <- vector(mode = 'logical', length(coll))
-
-		for (ith in seq_along(coll)) {
-			res[ith] <- is.nan( coll[[ith]] )
-		}
-
-		res
+		vapply(coll, function (elem) {
+			isTRUE(is.nan(elem))
+		}, logical(1))
 	}
 })
 

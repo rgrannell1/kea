@@ -1,6 +1,4 @@
 
-
-
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
