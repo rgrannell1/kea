@@ -19,9 +19,6 @@ you need for more advanced algorithms.
 It aims to be completely consistent and above all else user-friendly. Arrow functions
 rarely have more than two parametres, so functions will just work without configuration.
 
-
-
-
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
 
@@ -32,7 +29,7 @@ Arrow can be written using normal functions or with chaining methods. I prefer t
 methods take an initial piece of data and apply successive transformation to it.
 This is a very natural way of expressing data munging or reshaping.
 
-<pre class = "input">
+```r
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
 asRow <- (...) := {
@@ -89,7 +86,7 @@ list(
 largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
 60.8
-</pre>
+```
 
 ### Arrow is Expressive
 
