@@ -103,7 +103,7 @@ Other function_combining_functions: \code{\link{\%and\%}},
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
   \code{\link{xLift...}}; \code{\link{xAsClosure}};
-  \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+  \code{\link{xUnspread}}; \code{\link{xSpread}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
   \code{\link{xJuxtapose...}}; \code{\link{xNot}};

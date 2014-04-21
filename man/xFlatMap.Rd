@@ -110,8 +110,8 @@ xFlatMap(num := {
 }
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
-  \code{\link{xApply...}}; \code{\link{xAsUnary}};
-  \code{\link{xAsVariadic}}; \code{\link{xDeepMap}},
+  \code{\link{xApply...}}; \code{\link{xUnspread}};
+  \code{\link{xSpread}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap...}}; \code{\link{xMapIndexed}},
   \code{\link{xMapIndexed...}}; \code{\link{xMapply}},
   \code{\link{xMapply...}}; \code{\link{xMap}},

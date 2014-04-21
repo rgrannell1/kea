@@ -34,8 +34,8 @@ NULL
 }
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
-  \code{\link{xApply...}}; \code{\link{xAsUnary}};
-  \code{\link{xAsVariadic}}; \code{\link{xDeepMap}},
+  \code{\link{xApply...}}; \code{\link{xUnspread}};
+  \code{\link{xSpread}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
   \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
   \code{\link{xMapIndexed...}}; \code{\link{xMapply}},
@@ -48,7 +48,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xLift...}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
   \code{\link{xCompose...}}; \code{\link{xAsClosure}};
-  \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+  \code{\link{xUnspread}}; \code{\link{xSpread}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
   \code{\link{xJuxtapose...}}; \code{\link{xNot}};

@@ -198,8 +198,8 @@ sd_section(
 	),
 	c(
 		"xApply",
-		"xAsUnary",
-		"xAsVariadic",
+		"xUnspread",
+		"xSpread",
 		"xDeepMap",
 		"xFlatMap",
 		"xMap",
@@ -230,7 +230,7 @@ sd_section(
 	c(
 		"xCompose",
 		"xAsClosure",
-		"xAsVariadic",
+		"xSpread",
 		"xCapture",
 		"xDelay",
 		"xJuxtapose",
@@ -273,7 +273,7 @@ sd_section(
 	),
 	c(
 		"xArityOf",
-		"xAsUnary", "xAsVariadic",
+		"xUnspread", "xSpread",
 		"xIsVariadic",
 		"xFormalsOf",
 		"xParamsOf",

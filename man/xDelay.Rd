@@ -42,7 +42,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xLift...}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
   \code{\link{xCompose...}}; \code{\link{xAsClosure}};
-  \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+  \code{\link{xUnspread}}; \code{\link{xSpread}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
   \code{\link{xNot}}; \code{\link{xPartial}},

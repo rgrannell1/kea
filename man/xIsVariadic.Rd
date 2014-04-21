@@ -22,7 +22,7 @@ NULL
 }
 \seealso{
 Other parametre_functions: \code{\link{xArityOf}};
-  \code{\link{xAsUnary}}; \code{\link{xAsVariadic}};
+  \code{\link{xUnspread}}; \code{\link{xSpread}};
   \code{\link{xFormalsOf}}; \code{\link{xParamsOf}};
   \code{\link{xPartial}}, \code{\link{xPartial...}}
 }

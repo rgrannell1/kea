@@ -88,8 +88,8 @@ power_of_e(1)
 }
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
-  \code{\link{xApply...}}; \code{\link{xAsUnary}};
-  \code{\link{xAsVariadic}}; \code{\link{xDeepMap}},
+  \code{\link{xApply...}}; \code{\link{xUnspread}};
+  \code{\link{xSpread}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
   \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
   \code{\link{xMapIndexed...}}; \code{\link{xMapply}},

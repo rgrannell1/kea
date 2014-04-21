@@ -31,7 +31,7 @@ Apply a function to each element of a collection.
 
 # 1. CE Find the minimum distance
 #    between any two points in a set of points.
-#    xMapply could be swapped for xMap(xAsUnary(fn) )
+#    xMapply could be swapped for xMap(xUnspread(fn) )
 #    below, as was done with the call to reject, but
 #    map is important enough to have a few variants for
 #    convenience.
@@ -47,7 +47,7 @@ points <- list(
 # get the set product to generate all pairs of points.
 x_( xProdSetOf...(points, points) ) $
 # remove the pairs wich contain the same point twice.
-xReject(xAsUnary(identical)) $
+xReject(xUnspread(identical)) $
 xMapply(
 	(xs : ys) := {
 		# the distance function.
@@ -62,8 +62,8 @@ x_Reduce(min)
 }
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
-  \code{\link{xApply...}}; \code{\link{xAsUnary}};
-  \code{\link{xAsVariadic}}; \code{\link{xDeepMap}},
+  \code{\link{xApply...}}; \code{\link{xUnspread}};
+  \code{\link{xSpread}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
   \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
   \code{\link{xMapIndexed...}}; \code{\link{xMap}},

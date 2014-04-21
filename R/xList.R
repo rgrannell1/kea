@@ -227,7 +227,7 @@ print.xlist_builder <- function (x, ...) {
 	xMapply(
 		parametreised$yield,
 		xSelect(
-			xAsUnary(parametreised$predicate),
+			xUnspread(parametreised$predicate),
 			xProdSetOf(components$values)
 		)
 	)

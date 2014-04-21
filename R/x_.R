@@ -1595,13 +1595,13 @@ x_fn_proto <- local({
 	add_x_method(this, xAsClosure, 'fn')
 	add_x_method(this, x_AsClosure, 'fn')
 
-	# --- xAsUnary --- #
-	add_x_method(this, xAsUnary, 'fn')
-	add_x_method(this, x_AsUnary, 'fn')
+	# --- xUnspread --- #
+	add_x_method(this, xUnspread, 'fn')
+	add_x_method(this, x_Unspread, 'fn')
 
-	# --- xAsVariadic --- #
-	add_x_method(this, xAsVariadic, 'fn')
-	add_x_method(this, x_AsVariadic, 'fn')
+	# --- xSpread --- #
+	add_x_method(this, xSpread, 'fn')
+	add_x_method(this, x_Spread, 'fn')
 
 	# --- xApply --- #
 	add_x_method(this, xApply, 'fn')

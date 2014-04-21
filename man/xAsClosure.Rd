@@ -65,8 +65,8 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
   \code{\link{xLift...}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xAsUnary}};
-  \code{\link{xAsVariadic}}; \code{\link{xCapture}},
+  \code{\link{xCompose...}}; \code{\link{xUnspread}};
+  \code{\link{xSpread}}; \code{\link{xCapture}},
   \code{\link{xK}}; \code{\link{xDelay}};
   \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
   \code{\link{xNot}}; \code{\link{xPartial}},
