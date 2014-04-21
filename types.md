@@ -5,31 +5,48 @@ including for atomic values.
 
 ## Collections
 
-* [any] or []: a list
-* IanyI or II: a pairlist
-* |any| or ||: a collection
-* <any> or <>: a vector
+* **[any] or []**: a list
+* **IanyI or II**: a pairlist
+* **|any| or ||**: a collection
+* **\<any\> or <>**: a vector
 
 ## Functions
 
 Variadic functions are denoted with a ...,
 and their type is given
 
-(a -> b -> ...c -> d)
+**(a -> b -> ...c -> d)**
 
 nullary functions are denoted as
 
-(-> a)
+**(-> a)**
 
 function that returns null
 
-(a -> II)
+**(a -> II)**
 
 Functions themselves have types; normal functions are denoted
 
-(a -> b)
+**(a -> b)**
 
 primitive functions are denoted 
 
-|a -> b|
+**|a -> b|**
+
+If the type signature of the function is undermined, use 
+
+**function**
+
+## Vector Types
+
+These are both types of vector, and subsets of these types with certain properties.
+
+* **logical**: Logical values (True, False, Na)
+* **boolean**: Logical true or false
+* **integer**: A value of type integer
+* **double** : A value of typedouble (don't use numeric)
+* **number** : An integer or double
+
+
+
 
