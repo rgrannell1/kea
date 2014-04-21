@@ -1,4 +1,3 @@
-
 # Type Signature Notation
 
 - the container type of a variable must always be mentioned,
@@ -6,19 +5,24 @@ including for atomic values.
 
 ## Collections
 
-[any] or [] - a list
-|any| or || - a collection
-||any|| or |||| - a vector
+* [any] or []: a list
+* IanyI or II: a pairlist
+* |any| or ||: a collection
+* <any> or <>: a vector
 
 ## Functions
 
-Variadic functions are denoted with a ...
+Variadic functions are denoted with a ...,
+and their type is given
 
-(a -> b -> ... -> c)
+(a -> b -> ...c -> d)
 
-The null function is
+nullary functions are denoted as
 
-Null -> Null
+(-> a)
 
-(V -> V)
+function that returns null
+
+(a -> II)
+
 
