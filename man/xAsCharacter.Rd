@@ -18,7 +18,7 @@ xAsCharacter...(...)
 A character vector.
 }
 \description{
-Convert a collection to a double vector.
+Convert a collection to a character vector.
 }
 \details{
 \code{xAsCharacter} converts a list, pairlist or vector of

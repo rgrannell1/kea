@@ -44,7 +44,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xChop.R
 #'
@@ -52,7 +51,7 @@
 #' @export
 
 xChop <- MakeFun(function (num, coll) {
-	# integer -> Collection any -> [[any]]
+	# |whole| -> |any| -> [[any]]
 	# chop a collection into several collections.
 
 	MACRO( Must $ Not_Be_Missing(num) )

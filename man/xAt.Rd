@@ -20,7 +20,7 @@ xAt...(num, ...)
 A list.
 }
 \description{
-Select a particular value from a collection.
+Select the value at an index in a collection.
 }
 \details{
 \bold{xAt} is similar to base R's subsetting operator '[[',

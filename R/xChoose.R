@@ -38,7 +38,7 @@
 #' @export
 
 xChoose <- MakeFun(function (num, coll) {
-	# number -> Collection anyf
+	# |whole| -> |any| -> [[any]]
 	# generate all ways of choosing several
 	# elements from a collection.
 

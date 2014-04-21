@@ -198,7 +198,6 @@ sd_section(
 	),
 	c(
 		"xApply",
-		"xUnspread",
 		"xSpread",
 		"xDeepMap",
 		"xFlatMap",
@@ -206,6 +205,7 @@ sd_section(
 		"xMapIndexed",
 		"xMapply",
 		"xThread",
+		"xUnspread",
 		"xVectorise"
 	)
 )
@@ -230,13 +230,13 @@ sd_section(
 	c(
 		"xCompose",
 		"xAsClosure",
-		"xSpread",
 		"xCapture",
 		"xDelay",
 		"xJuxtapose",
 		"xLift",
 		"xNot",
 		"xPartial",
+		"xSpread",
 		"xThread",
 		"xVectorise"
 	)
@@ -273,11 +273,11 @@ sd_section(
 	),
 	c(
 		"xArityOf",
-		"xUnspread", "xSpread",
 		"xIsVariadic",
 		"xFormalsOf",
 		"xParamsOf",
 		"xPartial"
+		"xUnspread", "xSpread"
 	)
 )
 

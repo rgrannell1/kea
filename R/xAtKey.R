@@ -1,7 +1,7 @@
 
 #' xAtKey
 #'
-#' Select a particular key from a selection
+#' Select a value from a collection using a key.
 #'
 #' @param
 #'     str a string. The key to select.
@@ -27,7 +27,8 @@
 #' @export
 
 xAtKey <- MakeFun(function (str, coll) {
-	# number -> Collection any -> any
+	# |character| -> |any| -> |any|
+	# Select a value from a collection using a key.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(coll) )

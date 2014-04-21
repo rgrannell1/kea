@@ -19,7 +19,7 @@ xAtKey...(str, ...)
 an arbitrary value.
 }
 \description{
-Select a particular key from a selection
+Select a value from a collection using a key.
 }
 \examples{
 
