@@ -58,9 +58,9 @@ safeMap <- function (fn, coll) {
 }
 }
 \seealso{
-Other parametre_functions: \code{\link{xUnspread}};
-  \code{\link{xSpread}}; \code{\link{xFormalsOf}};
+Other parametre_functions: \code{\link{xFormalsOf}};
   \code{\link{xIsVariadic}}; \code{\link{xParamsOf}};
-  \code{\link{xPartial}}, \code{\link{xPartial...}}
+  \code{\link{xPartial}}, \code{\link{xPartial...}};
+  \code{\link{xSpread}}; \code{\link{xUnspread}}
 }
 

@@ -44,10 +44,10 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xInter...}}; \code{\link{xIsMember}},
   \code{\link{xIsMember...}}; \code{\link{xIsSubset}},
   \code{\link{xIsSubset...}}; \code{\link{xNotMember}},
-  \code{\link{xNotMember...}}; \code{\link{xReorder}},
-  \code{\link{xReorder...}}; \code{\link{xPowerSetOf}},
+  \code{\link{xNotMember...}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf...}}; \code{\link{xUniqueOf}},
+  \code{\link{xProdSetOf...}}; \code{\link{xReorder}},
+  \code{\link{xReorder...}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf...}}
 }
 

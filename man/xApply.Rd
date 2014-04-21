@@ -82,14 +82,14 @@ xApply...(rbind, list(1, 2), list(3, 4), list(5, 6))
 #     .Dim = c(3L, 2L))
 }
 \seealso{
-Other function_application_functions: \code{\link{xUnspread}};
-  \code{\link{xSpread}}; \code{\link{xDeepMap}},
+Other function_application_functions: \code{\link{xDeepMap}},
   \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
   \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
   \code{\link{xMapIndexed...}}; \code{\link{xMapply}},
   \code{\link{xMapply...}}; \code{\link{xMap}},
-  \code{\link{xMap...}}; \code{\link{xThread}},
-  \code{\link{xThread...}}; \code{\link{xVectorise}},
+  \code{\link{xMap...}}; \code{\link{xSpread}};
+  \code{\link{xThread}}, \code{\link{xThread...}};
+  \code{\link{xUnspread}}; \code{\link{xVectorise}},
   \code{\link{xVectorize}}
 }
 

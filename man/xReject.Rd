@@ -89,9 +89,10 @@ elems_smaller_than(10, c(1, 8, 10, 11, 100))
 Other filtering_functions: \code{\link{xPack}},
   \code{\link{xPack...}}, \code{\link{xRejectEmpty}},
   \code{\link{xRejectEmpty...}}; \code{\link{xPartition}},
-  \code{\link{xPartition...}}; \code{\link{xRejectNan}};
-  \code{\link{xRejectNa}}, \code{\link{xRejectNa...}};
-  \code{\link{xRejectNull}}, \code{\link{xRejectNull...}};
-  \code{\link{xSelect}}, \code{\link{xSelect...}}
+  \code{\link{xPartition...}}; \code{\link{xRejectNan}},
+  \code{\link{xRejectNan...}}; \code{\link{xRejectNa}},
+  \code{\link{xRejectNa...}}; \code{\link{xRejectNull}},
+  \code{\link{xRejectNull...}}; \code{\link{xSelect}},
+  \code{\link{xSelect...}}
 }
 

@@ -46,6 +46,6 @@ Other quantifier_functions: \code{\link{xAll}},
   \code{\link{xAll...}}; \code{\link{xExists}},
   \code{\link{xExists...}}; \code{\link{xForall}},
   \code{\link{xForall...}}; \code{\link{xPoll}},
-  \code{\link{xPoll...}}, \code{\link{xRejectNan...}}
+  \code{\link{xPoll...}}
 }
 
