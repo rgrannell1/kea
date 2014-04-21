@@ -17,8 +17,11 @@ Does a function have ellipsis arguments?
 }
 \examples{
 
-NULL
+# 1. Test if a function is variadic
 
+xIsVariadic(sum)
+
+# true
 }
 \seealso{
 Other parametre_functions: \code{\link{xArityOf}};

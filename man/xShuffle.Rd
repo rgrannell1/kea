@@ -25,8 +25,9 @@ Randomly rearrange a collection.
 }
 \examples{
 
-NULL
+# 1.
 
+NULL
 }
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},

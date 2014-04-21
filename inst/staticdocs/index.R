@@ -276,7 +276,7 @@ sd_section(
 		"xIsVariadic",
 		"xFormalsOf",
 		"xParamsOf",
-		"xPartial"
+		"xPartial",
 		"xUnspread", "xSpread"
 	)
 )

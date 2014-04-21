@@ -24,7 +24,11 @@ Is an value na?
 }
 \examples{
 
-NULL
+# 1. Test if a single value is NA
+
+xIsNa(Na)
+
+# True; every other case will return false.
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemIsFalse}},

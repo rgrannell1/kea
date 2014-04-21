@@ -28,8 +28,7 @@ Remove the empty values from a collection.
 }
 \examples{
 
-NULL
-
+# 1.
 }
 \seealso{
 Other filtering_functions: \code{\link{xPartition}},
