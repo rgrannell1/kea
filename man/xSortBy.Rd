@@ -107,10 +107,7 @@ paragraph <-
  [12] GCL is exclusively located in plastids, and glutathione synthetase is dual-targeted to plastids and cytosol, thus are GSH and gamma-glutamylcysteine exported from the plastids.
  [13] Both glutathione biosynthesis enzymes are essential in plants; knock-outs of GCL and GS are lethal to embryo and seedling."
 
-x_(paragraph) $
-xToLines() $
-xSortBy(nchar) $
-x_Take(3)
+x_(paragraph) $ xToLines() $ xSortBy(nchar) $ x_Take(3)
 
 # list(
 #     " [12] GCL is exclusively located in plastids, and glutathione synthetase is dual-targeted to plastids and cytosol, thus are GSH and gamma-glutamylcysteine exported from the plastids.",
