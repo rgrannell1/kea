@@ -40,8 +40,8 @@ NULL
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xCycle}},
-  \code{\link{xCycle...}}; \code{\link{xPermute}},
-  \code{\link{xPermute...}}; \code{\link{xPowerSetOf}},
+  \code{\link{xCycle...}}; \code{\link{xReorder}},
+  \code{\link{xReorder...}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf...}}; \code{\link{xProdSetOf}},
   \code{\link{xProdSetOf...}}
 }

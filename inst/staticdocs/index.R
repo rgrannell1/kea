@@ -39,7 +39,7 @@ sd_section(
 	c(
 		"xChoose",
 		"xCycle",
-		"xPermute",
+		"xReorder",
 		"xProdSetOf",
 		"xPowerSetOf"
 	)

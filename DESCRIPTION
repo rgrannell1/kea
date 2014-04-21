@@ -145,7 +145,7 @@ Collate:
     'xElemIsNan.R'
     'xElemNotNan.R'
     'xIterate.R'
-    'xPermute.R'
+    'xReorder.R'
     'xReverse.R'
     'xMapply.R'
     'xUniqueOf.R'

@@ -1262,11 +1262,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Partition, 'coll')
 	add_x_method(this, x_Partition..., '...')
 
-	# --- xPermute --- #
-	add_x_method(this, xPermute, 'colls')
-	add_x_method(this, xPermute..., '...')
-	add_x_method(this, x_Permute, 'colls')
-	add_x_method(this, x_Permute..., '...')
+	# --- xReorder --- #
+	add_x_method(this, xReorder, 'colls')
+	add_x_method(this, xReorder..., '...')
+	add_x_method(this, x_Reorder, 'colls')
+	add_x_method(this, x_Reorder..., '...')
 
 	# --- xPowerSetOf --- #
 	add_x_method(this, xPowerSetOf, 'coll')

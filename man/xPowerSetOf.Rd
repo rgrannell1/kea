@@ -56,8 +56,8 @@ xSelect(xs := {
 \seealso{
 Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xChoose...}}; \code{\link{xCycle}},
-  \code{\link{xCycle...}}; \code{\link{xPermute}},
-  \code{\link{xPermute...}}; \code{\link{xProdSetOf}},
+  \code{\link{xCycle...}}; \code{\link{xReorder}},
+  \code{\link{xReorder...}}; \code{\link{xProdSetOf}},
   \code{\link{xProdSetOf...}}
 
 Other set_functions: \code{\link{xDuplicatesOf}},
@@ -65,8 +65,8 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xInter...}}; \code{\link{xIsMember}},
   \code{\link{xIsMember...}}; \code{\link{xIsSubset}},
   \code{\link{xIsSubset...}}; \code{\link{xNotMember}},
-  \code{\link{xNotMember...}}; \code{\link{xPermute}},
-  \code{\link{xPermute...}}; \code{\link{xProdSetOf}},
+  \code{\link{xNotMember...}}; \code{\link{xReorder}},
+  \code{\link{xReorder...}}; \code{\link{xProdSetOf}},
   \code{\link{xProdSetOf...}}; \code{\link{xUnionOf}},
   \code{\link{xUnionOf...}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf...}}
