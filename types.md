@@ -25,4 +25,11 @@ function that returns null
 
 (a -> II)
 
+Functions themselves have types; normal functions are denoted
+
+(a -> b)
+
+primitive functions are denoted 
+
+|a -> b|
 
