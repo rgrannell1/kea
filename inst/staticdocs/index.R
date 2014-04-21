@@ -334,6 +334,7 @@ sd_section(
 	c(
 		"xAt",
 		"xAtCol",
+		"xAtKey",
 		"xDropWhile",
 		"xDrop",
 		"xMaxBy",
@@ -388,6 +389,18 @@ sd_section(
 )
 
 sd_section(
+	"Special Function Constructors",
+	paste(
+		"These constructors are shorthands for creating functions.",
+		"These included arrow functions and wildcard binary functions."
+	),
+	c(
+		"x.",
+		"xLambda"
+	)
+)
+
+sd_section(
 	"Time Functions",
 	paste(
 		"These side-effectful functions work with time, or",
@@ -407,7 +420,8 @@ sd_section(
 	paste(
 		"These functions test values to see if they are a particular type of value.",
 		"These include functions that test for special values like null and na, and",
-		"functions that test each element of a collection for these values."
+		"functions that test each element of a collection for these values.",
+		"They are generally safer or more precise that their base counterparts."
 	),
 	c(
 		"xIsEmpty",
