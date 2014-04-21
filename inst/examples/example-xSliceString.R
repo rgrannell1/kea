@@ -2,14 +2,14 @@
 # 1. k-mers
 #
 # A common problem in molecular biology is to find every
-# unique continous substring of a certain in a set of
+# unique continous substringin a set of
 # dna sequences. For example, the spectrum of length
 # four continous substrings in the below sequences
 
 # contig1: AATTCCGG
 # contig2: TGGTAACGG
 
-# are
+# is
 
 # AATT, ATTC, TTCC, TCCG, CCGG
 # TGGT, GGTA, GTAA, TAAC, AACG, ACGG
