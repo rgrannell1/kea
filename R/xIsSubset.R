@@ -44,7 +44,7 @@ xIsSubset <- MakeFun(function (coll1, coll2) {
 	} else {
 
 		for (elem in coll1) {
-			if (elem %!in% coll2) {
+			if (isTRUE(elem %!in% coll2)) {
 				return(False)
 			}
 		}

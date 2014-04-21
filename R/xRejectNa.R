@@ -34,8 +34,9 @@ xRejectNa <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+		# must be list to be able to replace with NULL
 		coll <- as.list(coll)
-		coll[is.na(coll)] <- Null
+		coll[vapply(coll, function (elem) isTRUE(is.na(elem)), logical(1)) ] <- Null
 		coll
 	}
 })

@@ -34,10 +34,10 @@ xRejectEmpty <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		coll[vapply(
-			as.list(coll),
-			length,
-			integer(1)) == 0 ] <- Null
+		# must be list to be able to replace with NULL
+		coll <- as.list(coll)
+		# vectorise the comparison step
+		coll[vapply(coll, length, integer(1)) == 0 ] <- Null
 
 		coll
 	}

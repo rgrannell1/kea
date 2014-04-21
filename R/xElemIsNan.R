@@ -37,7 +37,6 @@ xElemIsNan <- MakeFun(function (coll) {
 		logical(0)
 	} else {
 		vapply(coll, function (elem) {
-
 			# fails without is atomic.
 			is.atomic(elem) && isTRUE(is.nan(elem))
 

@@ -49,6 +49,7 @@ xUnzipKeys <- MakeFun(function (coll) {
 		MACRO( Must $ Be_Named(coll) )
 
 		colnames <- names(coll)
+		# wipe the names from the collection.
 		coll <- unname(coll)
 
 		lapply(seq_along(coll), function (ith) {

@@ -34,8 +34,9 @@ xRejectNull <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+		# must be list to be able to replace with NULL
 		coll <- as.list(coll)
-		coll[ vapply(coll, is.null, logical(1)) ] <- Null
+		coll[ vapply(coll, function (elem) isTRUE(is.null(elem)), logical(1)) ] <- Null
 		coll
 	}
 })

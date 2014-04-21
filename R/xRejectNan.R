@@ -18,7 +18,6 @@
 #'
 #' @family filtering_functions
 #'
-#'
 #' @example
 #'    inst/examples/example-xRejectNan.R
 #'
@@ -35,13 +34,16 @@ xRejectNan <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+		# must be list to be able to replace with NULL
 		coll <- as.list(coll)
-		coll[is.nan(coll)] <- Null
+		coll[vapply(coll, function (elem) {
+			is.atomic(elem) && isTRUE(is.nan(elem))
+		}, logical(1)) ] <- Null
 		coll
 	}
 })
 
-#' @rdname xPoll
+#' @rdname xRejectNan
 #' @export
 
 xRejectNan... <- function (...) {

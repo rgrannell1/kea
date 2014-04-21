@@ -37,6 +37,6 @@ xStopwatch <- MakeFun(function (num) {
 	function (...) {
 		"a function returned by xStopwatch."
 		""
-		difftime(Sys.time(), genesis, units = 'secs') < num
+		isTRUE(difftime(Sys.time(), genesis, units = 'secs') < num)
 	}
 })
