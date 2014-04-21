@@ -31,7 +31,8 @@
 #' @export
 
 xAll <- MakeFun(function (pred, coll) {
-	# (any -> boolean) -> Collection any -> boolean
+	# (any -> logical) -> |any| -> boolean
+	# is a predicate true for all values of a collection?
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

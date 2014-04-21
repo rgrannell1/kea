@@ -30,6 +30,7 @@
 #' @export
 
 xAsVal <- MakeFun(function (sym) {
+	# symbol -> II
 	# lock the binding for an R variable.
 
 	MACRO( Must $ Not_Be_Missing(sym) )

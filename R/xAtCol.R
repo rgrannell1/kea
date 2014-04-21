@@ -28,7 +28,7 @@
 #' @export
 
 xAtCol <- MakeFun(function (num, colls) {
-	# number -> Collection Collection any -> Collection any
+	# |number| -> ||any|| -> |any|
 	# select a column of numbers.
 
 	MACRO( Must $ Not_Be_Missing(num) )

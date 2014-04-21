@@ -36,7 +36,7 @@
 #' @export
 
 xAddKeys <- MakeFun(function (strs, coll) {
-	# Vector string -> Collection any -> [any]
+	# <character> -> |any| -> [any]
 	# add names to a collection.
 
 	MACRO( Must $ Not_Be_Missing(strs) )

@@ -34,8 +34,8 @@
 #' @export
 
 xAsDouble <- MakeFun(function (nums) {
-	# Collection integer -> Vector integer
-	# convert a collection to a integer vector.
+	# |double| -> <double>
+	# convert a collection to a double vector.
 
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )

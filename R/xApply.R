@@ -46,7 +46,7 @@
 #' @export
 
 xApply <- MakeFun(function (fn, coll) {
-	# function -> [any] -> any
+	# function -> |any| -> any
 	# call the function fn with the list coll.
 
 	MACRO( Must $ Not_Be_Missing(fn) )

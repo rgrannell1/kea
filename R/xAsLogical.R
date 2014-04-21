@@ -29,7 +29,7 @@
 #' @export
 
 xAsLogical <- MakeFun(function (bools) {
-	# Collection logical -> Vector logical
+	# |logical| -> <logical>
 	# convert a collection to a logical vector.
 
 	MACRO( Must $ Not_Be_Missing(bools) )

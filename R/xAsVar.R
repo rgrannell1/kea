@@ -29,6 +29,7 @@
 #' @export
 
 xAsVar <- MakeFun(function (sym) {
+	# symbol -> II
 	# unlock a constant binding
 
 	MACRO( Must $ Not_Be_Missing(sym) )

@@ -1,7 +1,7 @@
 
 #' xAsCharacter
 #'
-#' Convert a collection to a double vector.
+#' Convert a collection to a character vector.
 #'
 #' @details
 #'    \code{xAsCharacter} converts a list, pairlist or vector of
@@ -31,8 +31,8 @@
 #' @export
 
 xAsCharacter <- MakeFun(function (strs) {
-	# Collection integer -> Vector integer
-	# convert a collection to a integer vector.
+	# |character| -> <character>
+	# Convert a collection to a character vector.
 
 	MACRO( Must $ Not_Be_Missing(strs) )
 	MACRO( Must $ Be_Collection(strs) )

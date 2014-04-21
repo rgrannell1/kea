@@ -38,7 +38,7 @@
 #' @export
 
 xAsClosure <- MakeFun(function (fn) {
-	# (a -> b) -> (a -> b)
+	# function -> function
 	# convert a primitive function to a closure.
 
 	MACRO( Must $ Not_Be_Missing(fn) )

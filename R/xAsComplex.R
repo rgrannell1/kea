@@ -32,8 +32,8 @@
 #' @export
 
 xAsComplex <- MakeFun(function (ims) {
-	# Collection integer -> Vector integer
-	# convert a collection to a integer vector.
+	# |complex| -> <complex>
+	# convert a collection to a complex vector.
 
 	MACRO( Must $ Not_Be_Missing(ims) )
 	MACRO( Must $ Be_Collection(ims) )

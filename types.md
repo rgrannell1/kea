@@ -1,3 +1,4 @@
+
 # Type Signature Notation
 
 - the container type of a variable must always be mentioned,
@@ -24,5 +25,3 @@ nullary functions are denoted as
 function that returns null
 
 (a -> II)
-
-

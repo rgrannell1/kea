@@ -31,7 +31,8 @@
 #' @export
 
 xAny <- MakeFun(function (pred, coll) {
-	# (any -> boolean) -> Collection any -> boolean
+	# (any -> logical) -> |any| -> boolean
+	# Is a predicate true for any element of a collection?
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

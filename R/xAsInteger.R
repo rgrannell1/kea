@@ -35,7 +35,7 @@
 #' @export
 
 xAsInteger <- MakeFun(function (nums) {
-	# Collection integer -> Vector integer
+	# |integer| -> <integer>
 	# convert a collection to a integer vector.
 
 	MACRO( Must $ Not_Be_Missing(nums) )
