@@ -33,7 +33,7 @@
 #' @export
 
 xUnionOf <- MakeFun(function (colls) {
-	# Collection any -> Collection any -> Collection any
+	# ||any|| -> [any]
 	# get the set union of several collections.
 
 	MACRO( Must $ Not_Be_Missing(colls) )
@@ -44,6 +44,9 @@ xUnionOf <- MakeFun(function (colls) {
 	if (length(colls) == 0) {
 		list()
 	} else {
+
+		colls <- lapply(colls, as.list)
+
 		unique(do.call(c, colls))
 	}
 })
