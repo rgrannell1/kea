@@ -1,7 +1,7 @@
 Arrow < v0.1.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
-> 'The enjoyment of one's tools is an essential ingredient of successful work.' -- Donald E. Knuth
+> *'The enjoyment of one's tools is an essential ingredient of successful work.'* -- Donald E. Knuth
 
 ## What is Arrow?
 
