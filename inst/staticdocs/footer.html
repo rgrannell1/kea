@@ -14,4 +14,8 @@
 	highlight.highlight_r_code("code.r", function (text) {
 		return "<div class = 'input r'>" + text + "</div>"
 	})
+
+	highlight.highlight_r_code(".span8 pre:first", function (text) {
+		return "<pre class = 'input r'>" + text + "</pre>"
+	})
 </script>
