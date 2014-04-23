@@ -3,19 +3,22 @@
 #'
 #' Convert any function to a unary function.
 #'
+#' @section Type Signature:
+#'     (...any -> any) -> (any -> any)
+#'
 #' @details
-#' \bold{xUnspread} takes a function and returns a function that
-#' has one argument. The first element of the argument is
-#' passed to the first parametre of the underlying function,
-#' the second element to the second parametre, and so on.
+#'     \bold{xUnspread} takes a function and returns a function that
+#'     has one argument. The first element of the argument is
+#'     passed to the first parametre of the underlying function,
+#'     the second element to the second parametre, and so on.
 #'
 #' @param
-#'    fn an arbitrary function. The function to be
-#'    converted to a function that takes a single collection.
+#'     fn an arbitrary function. The function to be
+#'     converted to a function that takes a single collection.
 #'
 #' @return
-#'    A unary function of \bold{coll}, that applies its arguments
-#'    to its underlying function.
+#'     A unary function of \bold{coll}, that applies its arguments
+#'     to its underlying function.
 #'
 #' @family function_modifying_functions
 #'
@@ -30,7 +33,6 @@
 #' @export
 
 xUnspread <- MakeFun(function (fn) {
-	# (...any -> any) -> (any -> any)
 	# dual to xSpread.
 	# takes a function that takes a many values and
 	# makes it into a function that takes one list.

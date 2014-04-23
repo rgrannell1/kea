@@ -3,6 +3,9 @@
 #'
 #' Split a named collection into a list of name: value list pairs.
 #'
+#' @section Type Signature:
+#'     |any| -> [[ <character>, ...any ]]
+#'
 #' @details
 #'     \bold{xUnzipKeys} is the inverse function to \bold{xZipKeys} - it
 #'     takes a named collection and converts it into a list of

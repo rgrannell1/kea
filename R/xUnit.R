@@ -3,6 +3,9 @@
 #'
 #' Return the empty version of a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> ||
+#'
 #' @param
 #'    coll an list, pairlist, or vector of any length.
 #'    The collection to return the length-zero

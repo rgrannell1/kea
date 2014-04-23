@@ -3,6 +3,9 @@
 #'``
 #' Get the set union of several collections.
 #'
+#' @section Type Signature:
+#'     ||any|| -> [any]
+#'
 #' @details
 #'    \code{xUnionOf} returns a list of the unique
 #'    elements in the combination of each collection

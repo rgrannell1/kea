@@ -3,6 +3,9 @@
 #'
 #' Return the unique elements in a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> [any]
+#'
 #' @param
 #'    coll a collection. The collection to return unique
 #'    elements from.
@@ -28,8 +31,6 @@
 #' @export
 
 xUniqueOf <- MakeFun(function (coll) {
-	# Collection any -> Collection any
-	# remove duplicated values from a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
