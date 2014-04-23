@@ -3,6 +3,9 @@
 #'
 #' Invoke a function with a collection of arguments.
 #'
+#' @section Type Signature:
+#'     function -> |any| -> any
+#'
 #' @details
 #'    \bold{xApply} is an adaptor function that allows any function
 #'    to be called with a collection of arguments. A typical use case
@@ -46,8 +49,6 @@
 #' @export
 
 xApply <- MakeFun(function (fn, coll) {
-	# function -> |any| -> any
-	# call the function fn with the list coll.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

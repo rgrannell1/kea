@@ -3,6 +3,7 @@
 #'
 #' Assign a constant value to the calling environment.
 #'
+#'
 #' @details
 #'    xVal works like normal R assignment, with the exception
 #'    that if any attempt to update the assigned variable
@@ -58,4 +59,6 @@ xVal <- MakeFun(function (sym, val) {
 
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)
+
+	invisible(Null)
 })

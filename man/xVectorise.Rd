@@ -30,6 +30,11 @@ Convert a function on one value to a function on collections of values.
 
    \code{list(False, False, True, False)}
 }
+\section{Type Signature}{
+
+    (any -> any) -> (|any| -> [any])
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

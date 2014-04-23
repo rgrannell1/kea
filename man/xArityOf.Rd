@@ -20,6 +20,11 @@ Return the number of arguments a function can accept.
    (zero-arguments), have infinitely many arguments (variadic functions), or
    have a fixed number of arguments (non-variadic functions).
 }
+\section{Type Signature}{
+
+    function -> <numeric>
+}
+
 \section{Corner Cases}{
 
    If \bold{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the

@@ -17,6 +17,9 @@
 #'
 #'    doc
 #'
+#' @section Type Signature:
+#'     function -> function
+#'
 #' @param
 #'    fn an arbitrary function. Either a primitive or
 #'    non-primitive function to convert to a non-primitive function.
@@ -38,8 +41,6 @@
 #' @export
 
 xAsClosure <- MakeFun(function (fn) {
-	# function -> function
-	# convert a primitive function to a closure.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )

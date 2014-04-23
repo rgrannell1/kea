@@ -24,6 +24,11 @@ Convert a collection to a complex vector.
 \code{xAsComplex} converts a list, pairlist or vector of
    length-one complex values to a complex vector.
 }
+\section{Type Signature}{
+
+    |complex| -> <complex>
+}
+
 \section{Corner Cases}{
 
    Corner

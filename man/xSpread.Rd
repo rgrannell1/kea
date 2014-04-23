@@ -14,7 +14,7 @@ A variadic function.
 }
 \description{
 Return a variadic function that passes its arguments
-as a list to ints underyling function.
+as a list to its underyling function.
 }
 \details{
 \code{xSpread} takes a unary function and

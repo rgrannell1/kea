@@ -3,6 +3,9 @@
 #'
 #' Convert a function on one value to a function on collections of values.
 #'
+#' @section Type Signature:
+#'     (any -> any) -> (|any| -> [any])
+#'
 #' @details
 #'    \bold{xVectorise} is a shorthand function for partially applying
 #'    \bold{xMap} with a function, returning a vectorised function.

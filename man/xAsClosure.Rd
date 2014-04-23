@@ -29,6 +29,11 @@ Convert a primitive function to a closure.
 
    doc
 }
+\section{Type Signature}{
+
+    function -> function
+}
+
 \section{Corner Cases}{
 
    \code{xAsClosure} does not work for every primitive function

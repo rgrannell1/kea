@@ -8,6 +8,9 @@
 #' function \bold{names<-}, except that it is not an in-place
 #' assignment function.
 #'
+#' @section Type Signature:
+#'    |character| -> |any| -> [any]
+#'
 #' @param
 #'    strs a collection of strings. The names to add to the
 #'    input collection.
@@ -36,8 +39,6 @@
 #' @export
 
 xAddKeys <- MakeFun(function (strs, coll) {
-	# <character> -> |any| -> [any]
-	# add names to a collection.
 
 	MACRO( Must $ Not_Be_Missing(strs) )
 	MACRO( Must $ Not_Be_Missing(coll) )
@@ -50,5 +51,5 @@ xAddKeys <- MakeFun(function (strs, coll) {
 	MACRO( Must $ Be_Equal_Length_To(strs, coll) )
 
 	names(coll) <- strs
-	coll
+	as.list(coll)
 })

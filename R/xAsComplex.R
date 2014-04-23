@@ -3,6 +3,9 @@
 #'
 #' Convert a collection to a complex vector.
 #'
+#' @section Type Signature:
+#'     |complex| -> <complex>
+#'
 #' @details
 #'    \code{xAsComplex} converts a list, pairlist or vector of
 #'    length-one complex values to a complex vector.
@@ -32,8 +35,6 @@
 #' @export
 
 xAsComplex <- MakeFun(function (ims) {
-	# |complex| -> <complex>
-	# convert a collection to a complex vector.
 
 	MACRO( Must $ Not_Be_Missing(ims) )
 	MACRO( Must $ Be_Collection(ims) )

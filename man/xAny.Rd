@@ -22,6 +22,11 @@ A boolean value.
 \description{
 Is a predicate true for any element of a collection?
 }
+\section{Type Signature}{
+
+    (any -> logical) -> |any| -> <boolean>
+}
+
 \section{Corner Cases}{
 
    If coll is length zero then logical(0) is returned.

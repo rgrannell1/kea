@@ -17,6 +17,10 @@ A character vector, with one or more elements.
 \description{
 Export a collection of strings as lines in a file.
 }
+\section{Type Signature}{
+
+    |character| -> {}
+}
 \examples{
 
 NULL

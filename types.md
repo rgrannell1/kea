@@ -6,7 +6,7 @@ including for atomic values.
 ## Collections
 
 * **[any] or []**: a list
-* **IanyI or II**: a pairlist
+* **{any} or {}**: a pairlist
 * **|any| or ||**: a collection
 * **\<any\> or <>**: a vector
 

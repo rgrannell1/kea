@@ -3,6 +3,9 @@
 #'
 #' Get the current version number of Arrow.
 #'
+#' @section Type Signature:
+#'     ...any -> <integer>
+#'
 #' @param
 #'    ... arguments to be dropped.
 #'

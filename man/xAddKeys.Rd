@@ -22,6 +22,11 @@ Add names to a collection.
 function \bold{names<-}, except that it is not an in-place
 assignment function.
 }
+\section{Type Signature}{
+
+   |character| -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero. Both

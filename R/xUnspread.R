@@ -30,7 +30,7 @@
 #' @export
 
 xUnspread <- MakeFun(function (fn) {
-	# (... -> b) -> (a -> b)
+	# (...any -> any) -> (any -> any)
 	# dual to xSpread.
 	# takes a function that takes a many values and
 	# makes it into a function that takes one list.

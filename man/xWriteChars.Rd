@@ -17,6 +17,10 @@ null -
 \description{
 Export a collection of strings as a single line in a file.
 }
+\section{Type Signature}{
+
+    |character| -> {}
+}
 \examples{
 
 NULL

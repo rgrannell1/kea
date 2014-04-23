@@ -40,6 +40,10 @@ Invoke a function with a collection of arguments.
    It isn't usually necessary to call arrow functions with \bold{xApply},
    since they exist with both variadic and non-variadic forms.
 }
+\section{Type Signature}{
+
+    function -> |any| -> any
+}
 \examples{
 
 # 1. call a variadic function with xApply

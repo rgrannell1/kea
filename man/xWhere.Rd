@@ -20,6 +20,11 @@ An integer vector.
 \description{
 Return the indices for which a boolean vector is true.
 }
+\section{Type Signature}{
+
+    |logical| -> <integer>
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero,

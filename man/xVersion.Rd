@@ -15,6 +15,10 @@ A three-number vector, containing the
 \description{
 Get the current version number of Arrow.
 }
+\section{Type Signature}{
+
+    ...any -> <integer>
+}
 \examples{
 
 # 1. xVersion

@@ -2,7 +2,7 @@
 #' xSpread
 #'
 #' Return a variadic function that passes its arguments
-#' as a list to ints underyling function.
+#' as a list to its underyling function.
 #'
 #' @details
 #'    \code{xSpread} takes a unary function and
@@ -30,7 +30,7 @@
 #' @export
 
 xSpread <- MakeFun(function (fn) {
-	# (a -> b) -> (... -> b)
+	# ([any] -> any) -> (...any -> any)
 	# Return a variadic function that passes its arguments
 	# as a list to its underlying function.
 

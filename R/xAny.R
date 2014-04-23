@@ -3,6 +3,9 @@
 #'
 #' Is a predicate true for any element of a collection?
 #'
+#' @section Type Signature:
+#'     (any -> logical) -> |any| -> <boolean>
+#'
 #' @param
 #'    pred a predicate. The function used to test each element of
 #'    the input collection.
@@ -31,8 +34,6 @@
 #' @export
 
 xAny <- MakeFun(function (pred, coll) {
-	# (any -> logical) -> |any| -> boolean
-	# Is a predicate true for any element of a collection?
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

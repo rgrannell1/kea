@@ -3,6 +3,9 @@
 #'
 #' Export a collection of strings as lines in a file.
 #'
+#' @section Type Signature:
+#'     |character| -> {}
+#'
 #' @param
 #'    str a length-one character vector. The path to
 #'    export to.

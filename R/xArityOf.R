@@ -3,6 +3,9 @@
 #'
 #' Return the number of arguments a function can accept.
 #'
+#' @section Type Signature:
+#'     function -> <numeric>
+#'
 #' @details
 #'    \bold{xArityOf} returns the arity of a function - the number of
 #'    arguments that can be passed to the function. R functions can be nullary
@@ -28,8 +31,6 @@
 #' @export
 
 xArityOf <- MakeFun(function (fn) {
-	# function -> integer
-	# get the arity of a function.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )
@@ -40,6 +41,6 @@ xArityOf <- MakeFun(function (fn) {
 	if ("..." %in% fn_params) {
 		+Inf
 	} else {
-		length(fn_params)
+		as.numeric(length(fn_params))
 	}
 })

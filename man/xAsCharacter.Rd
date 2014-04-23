@@ -26,6 +26,10 @@ Convert a collection to a character vector.
    to convert non-character collections to character vectors - it
    simply converts character lists to character typed vectors.
 }
+\section{Type Signature}{
+
+    |character| -> <character>
+}
 \examples{
 
 # 1.
