@@ -3,6 +3,9 @@
 #'
 #' Split a string at every newline character.
 #'
+#' @section Type Signature:
+#'     <character> -> <character>
+#'
 #' @details
 #'    The input string is split at newline characters.
 #'    Multiple newlines are treated the same as one newline.

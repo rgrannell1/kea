@@ -108,3 +108,53 @@ packageFunctions <- x_(rPaths) $ xTake(3) $ xMap(path := {
 	xTabulate(allFunctions(script))
 }) $
 xReduce(mergeTable)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a1 <- data.frame(a = c(aa = 1, bb = 2), b = c(aa = 2, bb = 3))
+a2 <- data.frame(a = c(aa = 2, bb = 3), d = c(ee = 3, ff = 4))
+
+# merge(a1, a2)
+
+#     x, y: data frames, or objects to be coerced to one.
+
+# by, by.x, by.y: specifications of the columns used for merging.  See
+#           ‘Details’.
+
+#      all: logical; ‘all = L’ is shorthand for ‘all.x = L’ and ‘all.y =
+#           L’, where ‘L’ is either ‘TRUE’ or ‘FALSE’.
+
+#    all.x: logical; if ‘TRUE’, then extra rows will be added to the
+#           output, one for each row in ‘x’ that has no matching row in
+#           ‘y’.  These rows will have ‘NA’s in those columns that are
+#           usually filled with values from ‘y’.  The default is ‘FALSE’,
+#           so that only rows with data from both ‘x’ and ‘y’ are
+#           included in the output.
+
+#    all.y: logical; analogous to ‘all.x’.
+
+#     sort: logical.  Should the result be sorted on the ‘by’ columns?
+
+# suffixes: a character vector of length 2 specifying the suffixes to be
+#           used for making unique the names of columns in the result
+#           which not used for merging (appearing in ‘by’ etc).
+
+# incomparables: values which cannot be matched.  See ‘match’.
+
+#     ...: arguments to be passed to or from methods.
+
+

@@ -3,6 +3,9 @@
 #'
 #' Split a single string into a vector of characters.
 #'
+#' @section Type Signature:
+#'     <character> -> <character>
+#'
 #' @param
 #'    str a length-one character vector. The string to split into
 #'    characters.

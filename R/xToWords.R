@@ -3,6 +3,9 @@
 #'
 #' Split a string at whotespaces.
 #'
+#' @section Type Signature:
+#'     <character> -> <character>
+#'
 #' @details
 #'    The input string is split at spaces, tabs, and newlines,
 #'    or a mix of the above. Multiple whitespaces are treated

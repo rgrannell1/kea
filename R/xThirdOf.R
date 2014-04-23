@@ -3,6 +3,9 @@
 #'
 #' Return the third value in a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> any
+#'
 #' @param
 #'    coll a collection. The collection to get the
 #'    third element of.

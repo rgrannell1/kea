@@ -3,6 +3,9 @@
 #'
 #' Iteratively apply a list of functions to a value.
 #'
+#' @section Type Signature:
+#'     any -> |(any -> any)| -> any
+#'
 #' @param
 #'    val an arbitrary value. The value to feed to
 #'    the input functions.

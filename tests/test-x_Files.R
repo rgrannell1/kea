@@ -57,3 +57,29 @@ message('Check that test files exist')
 		write_error( "untested functions: ", deparse(xAsCharacter(nonexisting)) )
 	}
 
+message('check that there are sufficient examples')
+
+x_(list.files('/home/ryan/Code/arrow.R/inst/examples', full.names = True)) $
+xTap(examples := {
+
+	too_short <-
+		x_(examples) $ xMap(example := {
+
+			x_(example) $ xReadLines() $ xReject(str := grepl('[ 	\n]+', str)) $ x_LenOf()
+
+
+		}) $
+		xSortBy(xI) $
+		xAddKeys(examples) $ xUnzipKeys() $
+		x_Select(xUnspread( (key : val) := val < 10 ))
+
+	too_short_names <-
+		x_(too_short) $ xMap(xFirstOf) $ x_Map(path := xLastOf(xExplode('/example-', path)) )
+
+	if (xNotEmpty(too_short_names)) {
+		warning(
+			xLenOf(too_short_names), " some functions had very few examples: ", xFromWords(too_short_names))
+	}
+
+	invisible(Null)
+})
