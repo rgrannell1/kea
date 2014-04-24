@@ -3,10 +3,26 @@
 #'
 #' Partially apply an infix function.
 #'
+#' @usage
+#'     !x.
+#'     x. !=  RHS
+#'     x. $   RHS
+#'     x. %%  RHS
+#'     x. %/% RHS
+#'     x. &   RHS
+#'     x. &&  RHS
+#'     x. *   RHS
+#'     x. +   RHS
+#'     x. -   RHS
+#'     x. /   RHS
+#'     x. :   RHS
+#'     x. <   RHS
+#'     x. <=  RHS
+#'
 #' @details
 #'     One of the most common uses of anonymous functions is
-#'     to partially apply a binary function. A toy example below
-#'     involves the case of squaring each element of a vector.
+#'     to partially apply a binary function. In the toy example
+#'     below an anonymous function is used to check if a string is empty.
 #'
 #'     \code{str <-  c(' ', 'hello', ' ','cruel', ' ', 'world')}
 #'
@@ -51,6 +67,7 @@ x. <- structure(
 	class = 'xlambda_builder'
 )
 
+#' @method %% xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -61,6 +78,7 @@ x. <- structure(
     }
 }
 
+#' @method %/% xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -71,6 +89,7 @@ x. <- structure(
 	}
 }
 
+#' @method [[ xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -81,6 +100,7 @@ x. <- structure(
 	}
 }
 
+#' @method [ xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -91,6 +111,7 @@ x. <- structure(
 	}
 }
 
+#' @method $ xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -105,6 +126,7 @@ x. <- structure(
 	}
 }
 
+#' @method @@ xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -119,6 +141,7 @@ x. <- structure(
 	}
 }
 
+#' @method ^ xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -129,6 +152,7 @@ x. <- structure(
 	}
 }
 
+#' @method : xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -139,6 +163,7 @@ x. <- structure(
 	}
 }
 
+#' @method * xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -149,6 +174,7 @@ x. <- structure(
 	}
 }
 
+#' @method / xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -159,6 +185,7 @@ x. <- structure(
 	}
 }
 
+#' @method - xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -175,6 +202,7 @@ x. <- structure(
 	}
 }
 
+#' @method + xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -191,6 +219,7 @@ x. <- structure(
 	}
 }
 
+#' @method > xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -201,6 +230,7 @@ x. <- structure(
 	}
 }
 
+#' @method >= xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -211,6 +241,7 @@ x. <- structure(
 	}
 }
 
+#' @method < xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -221,6 +252,7 @@ x. <- structure(
 	}
 }
 
+#' @method <= xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -231,6 +263,7 @@ x. <- structure(
 	}
 }
 
+#' @method == xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -241,6 +274,7 @@ x. <- structure(
 	}
 }
 
+#' @method != xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -251,8 +285,10 @@ x. <- structure(
 	}
 }
 
+#' @method & xlambda_builder
 #' @export
 #' @rdname x.
+
 
 `&.xlambda_builder` <- function (...) {
 	function (val) {
@@ -261,6 +297,7 @@ x. <- structure(
 	}
 }
 
+#' @method && xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -271,6 +308,7 @@ x. <- structure(
 	}
 }
 
+#' @method | xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -281,6 +319,7 @@ x. <- structure(
 	}
 }
 
+#' @method || xlambda_builder
 #' @export
 #' @rdname x.
 
@@ -291,6 +330,7 @@ x. <- structure(
 	}
 }
 
+#' @method ! xlambda_builder
 #' @export
 #' @rdname x.
 

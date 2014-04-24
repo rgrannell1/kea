@@ -19,6 +19,10 @@ Split a string at every newline character.
 The input string is split at newline characters.
    Multiple newlines are treated the same as one newline.
 }
+\section{Type Signature}{
+
+    <character> -> <character>
+}
 \examples{
 
 # 1. Lexically sort a list.

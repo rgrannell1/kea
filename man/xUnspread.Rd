@@ -7,20 +7,24 @@ xUnspread(fn)
 }
 \arguments{
 \item{fn}{an arbitrary function. The function to be
-   converted to a function that takes a single collection.}
+    converted to a function that takes a single collection.}
 }
 \value{
 A unary function of \bold{coll}, that applies its arguments
-   to its underlying function.
+    to its underlying function.
 }
 \description{
 Convert any function to a unary function.
 }
 \details{
 \bold{xUnspread} takes a function and returns a function that
-has one argument. The first element of the argument is
-passed to the first parametre of the underlying function,
-the second element to the second parametre, and so on.
+    has one argument. The first element of the argument is
+    passed to the first parametre of the underlying function,
+    the second element to the second parametre, and so on.
+}
+\section{Type Signature}{
+
+    (...any -> any) -> (any -> any)
 }
 \examples{
 

@@ -2100,5 +2100,5 @@ print.arrow <- function (x, ...) {
 		header  %+% double_newline %+%
 		'$x_()' %+% single_newline)
 
-	print(x$x_())
+	print(x$x_(), ...)
 }

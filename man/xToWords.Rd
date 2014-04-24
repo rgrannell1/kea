@@ -20,6 +20,10 @@ The input string is split at spaces, tabs, and newlines,
    or a mix of the above. Multiple whitespaces are treated
    the same as one whitespace.
 }
+\section{Type Signature}{
+
+    <character> -> <character>
+}
 \examples{
 
 # 1. Find the longest word in a sentence.

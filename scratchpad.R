@@ -156,5 +156,3 @@ a2 <- data.frame(a = c(aa = 2, bb = 3), d = c(ee = 3, ff = 4))
 # incomparables: values which cannot be matched.  See ‘match’.
 
 #     ...: arguments to be passed to or from methods.
-
-

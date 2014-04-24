@@ -20,6 +20,11 @@ The third element in \bold{coll}.
 \description{
 Return the third value in a collection.
 }
+\section{Type Signature}{
+
+    |any| -> any
+}
+
 \section{Corner Cases}{
 
    Throws an error if \bold{coll} has less than

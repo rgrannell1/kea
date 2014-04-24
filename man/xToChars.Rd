@@ -16,6 +16,10 @@ A character vector of length \code{nchar(str)}, with each element being a
 \description{
 Split a single string into a vector of characters.
 }
+\section{Type Signature}{
+
+    <character> -> <character>
+}
 \examples{
 
 # 1. CE: Sum of Digits

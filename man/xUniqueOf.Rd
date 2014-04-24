@@ -20,6 +20,11 @@ A list.
 \description{
 Return the unique elements in a collection.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \code{colls} is length-zero.

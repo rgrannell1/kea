@@ -23,6 +23,11 @@ An arbitrary value.
 \description{
 Iteratively apply a list of functions to a value.
 }
+\section{Type Signature}{
+
+    any -> |(any -> any)| -> any
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

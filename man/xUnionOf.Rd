@@ -29,6 +29,11 @@ Get the set union of several collections.
    elements in the combination of each collection
    in \code{colls}.
 }
+\section{Type Signature}{
+
+    ||any|| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \code{colls} is length-zero.

@@ -18,6 +18,10 @@ Returns null if \bold{coll} is a pairlist, a
 \description{
 Return the empty version of a collection.
 }
+\section{Type Signature}{
+
+    |any| -> ||
+}
 \examples{
 
 # 1. HR Functional Programming

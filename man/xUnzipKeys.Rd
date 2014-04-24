@@ -26,6 +26,11 @@ Split a named collection into a list of name: value list pairs.
     cannot read collection names - like map and select - to be able to operate
     on both a value and its key simultaneouslty.
 }
+\section{Type Signature}{
+
+    |any| -> [[ <character>, ...any ]]
+}
+
 \section{Corner Cases}{
 
      Returns \code{list()} if \code{coll} is length-zero.

@@ -18,8 +18,11 @@ True
 False
 }
 \description{
-These are aliases to values already
-in R.
+These are aliases to values already in R.
+}
+\details{
+The value Nothing is rarely seen in R; the only place
+    it is typically used is for constructing parametre lists for functions without default arguments.
 }
 \keyword{datasets}
 

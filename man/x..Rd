@@ -30,53 +30,60 @@
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
-x.
+!x.
+    x. !=  RHS
+    x. $   RHS
+    x. %%  RHS
+    x. %/% RHS
+    x. &   RHS
+    x. &&  RHS
+    x. *   RHS
 
-\\method{\\\%\\\%}{xlambda_builder}(...)
+\method{\%\%}{xlambda_builder}(...)
 
-\\method{\\\%/\\\%}{xlambda_builder}(...)
+\method{\%/\%}{xlambda_builder}(...)
 
-\\method{[[}{xlambda_builder}(...)
+\method{[[}{xlambda_builder}(...)
 
-\\method{[}{xlambda_builder}(...)
+\method{[}{xlambda_builder}(...)
 
-\\method{$}{xlambda_builder}(...)
+\method{$}{xlambda_builder}(...)
 
-"@.xlambda_builder"(...)
+\method{@}{xlambda_builder}(...)
 
-\\method{^}{xlambda_builder}(...)
+\method{^}{xlambda_builder}(...)
 
-":.xlambda_builder"(...)
+\method{:}{xlambda_builder}(...)
 
-\\method{*}{xlambda_builder}(...)
+\method{*}{xlambda_builder}(...)
 
-\\method{/}{xlambda_builder}(...)
+\method{/}{xlambda_builder}(...)
 
-\\method{-}{xlambda_builder}(...)
+\method{-}{xlambda_builder}(...)
 
-\\method{+}{xlambda_builder}(...)
+\method{+}{xlambda_builder}(...)
 
-\\method{>}{xlambda_builder}(...)
+\method{>}{xlambda_builder}(...)
 
-\\method{>=}{xlambda_builder}(...)
+\method{>=}{xlambda_builder}(...)
 
-\\method{<}{xlambda_builder}(...)
+\method{<}{xlambda_builder}(...)
 
-\\method{<=}{xlambda_builder}(...)
+\method{<=}{xlambda_builder}(...)
 
-\\method{==}{xlambda_builder}(...)
+\method{==}{xlambda_builder}(...)
 
-\\method{!=}{xlambda_builder}(...)
+\method{!=}{xlambda_builder}(...)
 
-\\method{&}{xlambda_builder}(...)
+\method{&}{xlambda_builder}(...)
 
-"&&.xlambda_builder"(...)
+\method{&&}{xlambda_builder}(...)
 
-\\method{|}{xlambda_builder}(...)
+\method{|}{xlambda_builder}(...)
 
-"||.xlambda_builder"(...)
+\method{||}{xlambda_builder}(...)
 
-\\method{!}{xlambda_builder}(...)
+\method{!}{xlambda_builder}(...)
 }
 \arguments{
 \item{...}{the argument passed to x.. The right hand side of the operator.}
@@ -89,8 +96,8 @@ Partially apply an infix function.
 }
 \details{
 One of the most common uses of anonymous functions is
-    to partially apply a binary function. A toy example below
-    involves the case of squaring each element of a vector.
+    to partially apply a binary function. In the toy example
+    below an anonymous function is used to check if a string is empty.
 
     \code{str <-  c(' ', 'hello', ' ','cruel', ' ', 'world')}
 
