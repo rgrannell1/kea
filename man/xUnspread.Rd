@@ -64,14 +64,14 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
   \code{\link{xJuxtapose_}}; \code{\link{xNot}};
-  \code{\link{xPartial}}, \code{\link{xPartial_}};
+  \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xSpread}}; \code{\link{xThread}},
   \code{\link{xThread_}}; \code{\link{xVectorise}},
   \code{\link{xVectorize}}
 
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-  \code{\link{xParamsOf}}; \code{\link{xPartial}},
-  \code{\link{xPartial_}}; \code{\link{xSpread}}
+  \code{\link{xParamsOf}}; \code{\link{xFix}},
+  \code{\link{xFix_}}; \code{\link{xSpread}}
 }
 

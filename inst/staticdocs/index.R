@@ -264,7 +264,7 @@ sd_section(
 		"xJuxtapose",
 		"xLift",
 		"xNot",
-		"xPartial",
+		"xFix",
 		"xSpread",
 		"xThread",
 		"xVectorise"
@@ -313,7 +313,7 @@ sd_section(
 		"xIsVariadic",
 		"xFormalsOf",
 		"xParamsOf",
-		"xPartial",
+		"xFix",
 		"xUnspread", "xSpread"
 	)
 )

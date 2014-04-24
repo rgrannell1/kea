@@ -91,7 +91,7 @@ Collate:
     'xZipKeys.R'
     'xParamsOf.R'
     'xArityOf.R'
-    'xPartial.R'
+    'xFix.R'
     'xPartition.R'
     'xPoll.R'
     'xReduce.R'

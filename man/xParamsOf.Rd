@@ -29,7 +29,7 @@ NULL
 \seealso{
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-  \code{\link{xPartial}}, \code{\link{xPartial_}};
+  \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xSpread}}; \code{\link{xUnspread}}
 }
 

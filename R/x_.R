@@ -1244,11 +1244,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Poll, 'coll')
 	add_x_method(this, x_Poll_, '...')
 
-	# --- xPartial --- #
-	add_x_method(this, xPartial, 'coll')
-	add_x_method(this, xPartial_, '...')
-	add_x_method(this, x_Partial, 'coll')
-	add_x_method(this, x_Partial_, '...')
+	# --- xFix --- #
+	add_x_method(this, xFix, 'coll')
+	add_x_method(this, xFix_, '...')
+	add_x_method(this, x_Fix, 'coll')
+	add_x_method(this, x_Fix_, '...')
 
 	# --- xPluck --- #
 	add_x_method(this, xPluck, 'colls')
@@ -1760,11 +1760,11 @@ x_fn_proto <- local({
 	add_x_method(this, xParamsOf, 'fn')
 	add_x_method(this, x_ParamsOf, 'fn')
 
-	# --- xPartial --- #
-	add_x_method(this, xPartial, 'fn')
-	add_x_method(this, xPartial_, 'fn')
-	add_x_method(this, x_Partial, 'fn')
-	add_x_method(this, x_Partial_, 'fn')
+	# --- xFix --- #
+	add_x_method(this, xFix, 'fn')
+	add_x_method(this, xFix_, 'fn')
+	add_x_method(this, x_Fix, 'fn')
+	add_x_method(this, x_Fix_, 'fn')
 
 	# --- xPoll --- #
 	add_x_method(this, xPoll, 'pred')

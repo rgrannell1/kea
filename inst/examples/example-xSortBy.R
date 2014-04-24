@@ -32,7 +32,7 @@ k_nearest <- (dist : point : training) := {
 
 	k <- floor( sqrt(xLenOf(training)) )
 
-	dist_to_test_point <- xPartial_(dist, point)
+	dist_to_test_point <- xFix_(dist, point)
 
 	distances <-
 		x_(training) $ xPluck('mg per dl (fasting)') $

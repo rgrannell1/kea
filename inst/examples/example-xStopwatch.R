@@ -12,7 +12,7 @@
 # be used to allow the function to run for an acceptable amount of time before
 # ending.
 
-make_point <- xPartial_(runif, 2)
+make_point <- xFix_(runif, 2)
 
 in_unit_circle <- (point) := {
 	# is a point within the unit circle?

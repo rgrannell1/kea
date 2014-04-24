@@ -9,4 +9,4 @@ x_(df) $ x_At(2)
 
 # 2. Create a new positional selector
 
-xFifthOf <- xPartial(xAt, 5)
+xFifthOf <- xFix(xAt, 5)

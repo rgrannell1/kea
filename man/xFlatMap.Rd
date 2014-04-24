@@ -67,7 +67,7 @@ to each element of a collection.
 repeat_elements <- (n : coll) := {
 
 	xFlatMap(
-		xPartial_(xRepeat, num = n),
+		xFix_(xRepeat, num = n),
 		coll)
 
 }

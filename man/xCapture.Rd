@@ -43,7 +43,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
   \code{\link{xJuxtapose_}}; \code{\link{xNot}};
-  \code{\link{xPartial}}, \code{\link{xPartial_}};
+  \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xSpread}}; \code{\link{xThread}},
   \code{\link{xThread_}}; \code{\link{xUnspread}};
   \code{\link{xVectorise}}, \code{\link{xVectorize}}

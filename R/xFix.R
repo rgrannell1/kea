@@ -1,21 +1,21 @@
 
-#' xPartial
+#' xFix
 #'
 #' Fix several arguments of a function, producing a function of smaller arity.
 #'
 #' @details
 #'     Partial application is a mechanism for specialising a general function
 #'     to a particular purpose. For example, the very general function \bold{xMap}
-#'     can be easily specialised to particular tasks using \code{xPartial}:
+#'     can be easily specialised to particular tasks using \code{xFix}:
 #'
-#'     \code{lengths <- xPartial(xMap, list(fn = length))}
+#'     \code{lengths <- xFix(xMap, list(fn = length))}
 #'
-#'     \code{sizes <- xPartial(xMap, object.size))}
+#'     \code{sizes <- xFix(xMap, object.size))}
 #'
-#'     In this case the use of xPartial can match the argument to specialise by
-#'     name, or by position. The use of \bold{xPartial} over \bold{xPartial_} is
+#'     In this case the use of xFix can match the argument to specialise by
+#'     name, or by position. The use of \bold{xFix} over \bold{xFix_} is
 #'     required in the first case, to avoid a parametre name class between the argument of
-#'     \bold{xMap} to fix (fn) and the function passed to \bold{xPartial} (fn).
+#'     \bold{xMap} to fix (fn) and the function passed to \bold{xFix} (fn).
 #'
 #'
 #' @param
@@ -42,12 +42,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xPartial.R
+#'    inst/examples/example-xFix.R
 #'
-#' @rdname xPartial
+#' @rdname xFix
 #' @export
 
-xPartial <- MakeFun(function (fn, coll) {
+xFix <- MakeFun(function (fn, coll) {
 	# function -> recursive any -> any
 	# partially apply a function.
 
@@ -79,7 +79,7 @@ xPartial <- MakeFun(function (fn, coll) {
 			as.pairlist( xFormalsOf(fn)[
 				!(xParamsOf(fn) %in% names(coll)) ] ),
 			bquote({
-				"a function returned by xPartial."
+				"a function returned by xFix."
 				""
 
 				.(
@@ -99,9 +99,9 @@ xPartial <- MakeFun(function (fn, coll) {
 	}
 })
 
-#' @rdname xPartial
+#' @rdname xFix
 #' @export
 
-xPartial_ <- function (fn, ...) {
-	xPartial(fn, list(...))
+xFix_ <- function (fn, ...) {
+	xFix(fn, list(...))
 }
