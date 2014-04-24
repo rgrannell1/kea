@@ -25,6 +25,10 @@ Apply an anonymous function to the contents of an arrow object.
 
    \code{x_(1:10) $ x_Tap(nums := all(nums > 0))}
 }
+\section{Type Signature}{
+
+    (any -> any) -> any -> any
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},

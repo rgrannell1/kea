@@ -2,7 +2,7 @@
 \name{xIsEmpty}
 \alias{xIsEmpty}
 \alias{xIsEmpty_}
-\title{xIsEmpty}
+\title{Is a collection length-zero?}
 \usage{
 xIsEmpty(coll)
 

@@ -2,7 +2,7 @@
 \name{xReorder}
 \alias{xReorder}
 \alias{xReorder_}
-\title{xReorder}
+\title{Permute a collection of collections using indices.}
 \usage{
 xReorder(nums, colls)
 

@@ -35,6 +35,11 @@ Sort a collection by the output of a function applied to each element.
     In the above example several rows of collection of collections are rearranged
     by the value in one of their columns.
 }
+\section{Type Signature}{
+
+   (any -> <number>) -> |any| -> |any|
+}
+
 \section{Corner Cases}{
 
    If \bold{coll} is a empty collection the empty list is returned.

@@ -2,7 +2,7 @@
 \name{xChoose}
 \alias{xChoose}
 \alias{xChoose_}
-\title{xChoose}
+\title{Enumerate all ways of choosing several elements from a collection.}
 \usage{
 xChoose(num, coll)
 

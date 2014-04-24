@@ -22,6 +22,11 @@ A list.
 \description{
 Take several elements from the head of a collection.
 }
+\section{Type Signature}{
+
+   <natural> -> |any| -> |any|
+}
+
 \section{Corner Cases}{
 
    If \bold{coll} is empty the empty list is returned.

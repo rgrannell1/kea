@@ -2,7 +2,7 @@
 \name{xFromLines}
 \alias{xFromLines}
 \alias{xFromLines_}
-\title{xFromLines}
+\title{Concatentate a character vector with newlines as delimiters.}
 \usage{
 xFromLines(strs)
 

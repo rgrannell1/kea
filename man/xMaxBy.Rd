@@ -2,7 +2,7 @@
 \name{xMaxBy}
 \alias{xMaxBy}
 \alias{xMaxBy_}
-\title{xMaxBy}
+\title{Get the largest value in a collection according to a measure function.}
 \usage{
 xMaxBy(fn, coll)
 

@@ -22,6 +22,10 @@ as a list to its underyling function.
    The returned function passes its ellipsis arguments
    as a single list to the underlying function.
 }
+\section{Type Signature}{
+
+   ([any] -> any) -> (...any -> any)
+}
 \examples{
 
 # 1.
@@ -54,16 +58,16 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
   \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xCapture}}, \code{\link{xK}};
-  \code{\link{xDelay}}; \code{\link{xJuxtapose}},
+  \code{\link{xDelay}}; \code{\link{xFix}},
+  \code{\link{xFix_}}; \code{\link{xJuxtapose}},
   \code{\link{xJuxtapose_}}; \code{\link{xNot}};
-  \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xThread}}, \code{\link{xThread_}};
   \code{\link{xUnspread}}; \code{\link{xVectorise}},
   \code{\link{xVectorize}}
 
 Other parametre_functions: \code{\link{xArityOf}};
+  \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-  \code{\link{xParamsOf}}; \code{\link{xFix}},
-  \code{\link{xFix_}}; \code{\link{xUnspread}}
+  \code{\link{xParamsOf}}; \code{\link{xUnspread}}
 }
 

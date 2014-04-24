@@ -32,6 +32,11 @@ Tabulate a collection into pairs of value:frequency lists.
     The result of the tabulation is unsorted for efficiency;
     if sorting is required \bold{xSortBy} can be used.
 }
+\section{Type Signature}{
+
+   |any| -> ||any, <natural>||
+}
+
 \section{Corner Cases}{
 
    If \bold{coll} is length-zero the empty list is returned.

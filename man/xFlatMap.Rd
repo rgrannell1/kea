@@ -2,7 +2,8 @@
 \name{xFlatMap}
 \alias{xFlatMap}
 \alias{xFlatMap_}
-\title{xFlatMap}
+\title{Concatenate the results of applying a function
+to each element of a collection.}
 \usage{
 xFlatMap(fn, coll)
 

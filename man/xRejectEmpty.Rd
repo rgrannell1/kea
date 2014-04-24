@@ -4,7 +4,7 @@
 \alias{xPack_}
 \alias{xRejectEmpty}
 \alias{xRejectEmpty_}
-\title{xRejectEmpty}
+\title{Remove the empty values from a collection.}
 \usage{
 xRejectEmpty(coll)
 

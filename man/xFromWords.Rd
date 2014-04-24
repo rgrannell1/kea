@@ -2,7 +2,7 @@
 \name{xFromWords}
 \alias{xFromWords}
 \alias{xFromWords_}
-\title{xFromWords}
+\title{Concatentate a character vector with spaces as delimiters.}
 \usage{
 xFromWords(strs)
 

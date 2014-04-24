@@ -13,8 +13,11 @@ xStopwatch(num)
 A variadic function that ignores its arguments.
 }
 \description{
-Create a function that returns true for a
-preset time after creation.
+Create a function that returns true for a preset time after creation.
+}
+\section{Type Signature}{
+
+   |numeric| -> (-> <logical>)
 }
 \examples{
 

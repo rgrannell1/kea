@@ -23,6 +23,11 @@ A list.
 Take every element in a collection from the start
 until a predicate returns false.
 }
+\section{Type Signature}{
+
+   (any -> <logical>) -> |any| -> |any|
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is

@@ -2,7 +2,7 @@
 \name{xRestOf}
 \alias{xRestOf}
 \alias{xRestOf_}
-\title{xRestOf}
+\title{Remove the first element from a collection.}
 \usage{
 xRestOf(coll)
 

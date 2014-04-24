@@ -2,7 +2,7 @@
 \name{xInitOf}
 \alias{xInitOf}
 \alias{xInitOf_}
-\title{xInitOf}
+\title{Remove the last element of a collection.}
 \usage{
 xInitOf(coll)
 

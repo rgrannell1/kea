@@ -2,7 +2,8 @@
 \name{xDo}
 \alias{xDo}
 \alias{xDo_}
-\title{xDo}
+\title{Map (a possibly side-effectful) function over a
+collection and discard the results.}
 \usage{
 xDo(fn, coll)
 
