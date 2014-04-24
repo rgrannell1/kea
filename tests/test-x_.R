@@ -35,15 +35,15 @@ message('test that every method has an unchaining version.')
 			identity,
 		as_variadic =
 			function (base) {
-				xFromChars...(base, '...')
+				xFromChars_(base, '_')
 			},
 		as_unchaining =
 			function (base) {
-				xFromChars...('x_', xSliceString(base, -1))
+				xFromChars_('x_', xSliceString(base, -1))
 			},
 		as_variadic_unchaining =
 			function (base) {
-			xFromChars...('x_', xSliceString(base, -1), '...')
+			xFromChars_('x_', xSliceString(base, -1), '_')
 		}
 	)
 
@@ -108,7 +108,7 @@ message('test that every method has an unchaining version.')
 					variadic_unchaining_match <-
 						xIsMember(forms$as_variadic_unchaining, matches)
 
-					# either neither xMethod... or x_Method...
+					# either neither xMethod_ or x_Method_
 					# is present, or they both are.
 
 					if (variadic_match || variadic_unchaining_match) {
@@ -128,7 +128,7 @@ message('test that every method has an unchaining version.')
 			}
 
 		},
-		xProdSetOf...(
+		xProdSetOf_(
 			base_methods_names,
 			names(x_proto_methods))
 	)
@@ -205,7 +205,7 @@ message('test that every function has methods.')
 
 			}
 		},
-		xProdSetOf...(
+		xProdSetOf_(
 			base_methods_names,
 			names(x_proto_methods))
 	)
