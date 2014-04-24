@@ -57,5 +57,8 @@ xExplode <- MakeFun(function (rexp, str) {
 #' @export
 
 xExplode_ <- function (rexp, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xExplode(rexp, list(...))
 }

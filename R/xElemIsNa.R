@@ -38,5 +38,8 @@ xElemIsNa <- MakeFun(function (coll) {
 #' @export
 
 xElemIsNa_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xElemIsNa(list(...))
 }

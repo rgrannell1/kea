@@ -39,5 +39,8 @@ xRestOf <- MakeFun(function (coll) {
 #' @export
 
 xRestOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xRestOf(list(...))
 }

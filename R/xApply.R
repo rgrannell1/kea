@@ -67,5 +67,8 @@ xApply <- MakeFun(function (fn, coll) {
 #' @export
 
 xApply_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xApply(fn, list(...))
 }

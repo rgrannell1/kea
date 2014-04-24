@@ -30,5 +30,8 @@ xFromLines <- function (strs) {
 #' @export
 
 xFromLines_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xFromLines(list(...))
 }

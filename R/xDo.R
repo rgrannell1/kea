@@ -56,5 +56,8 @@ xDo <- MakeFun(function (fn, coll) {
 #' @export
 
 xDo_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xDo(fn, list(...))
 }

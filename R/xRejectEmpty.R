@@ -43,6 +43,9 @@ xRejectEmpty <- MakeFun(function (coll) {
 #' @export
 
 xRejectEmpty_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xRejectEmpty(list(...))
 }
 

@@ -57,5 +57,8 @@ xAt <- MakeFun(function (num, coll) {
 #' @export
 
 xAt_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAt(num, list(...))
 }

@@ -61,5 +61,8 @@ xPluck <- MakeFun(function (str, colls) {
 #' @export
 
 xPluck_ <- function (str, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xPluck(str, list(...))
 }

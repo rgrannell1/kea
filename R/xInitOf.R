@@ -41,5 +41,8 @@ xInitOf <- MakeFun(function (coll) {
 #' @export
 
 xInitOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xInitOf(list(...))
 }

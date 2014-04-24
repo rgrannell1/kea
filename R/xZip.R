@@ -80,5 +80,8 @@ xZip <- MakeFun(function (colls) {
 #' @export
 
 xZip_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xZip(list(...))
 }

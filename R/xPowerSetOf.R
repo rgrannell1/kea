@@ -61,5 +61,8 @@ xPowerSetOf <- MakeFun(function (coll) {
 #' @export
 
 xPowerSetOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xPowerSetOf(list(...))
 }

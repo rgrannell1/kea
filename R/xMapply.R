@@ -58,5 +58,8 @@ xMapply <- MakeFun(function (fn, colls) {
 #' @export
 
 xMapply_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xMapply(fn, list(...))
 }

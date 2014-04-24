@@ -43,5 +43,8 @@ xRejectNa <- MakeFun(function (coll) {
 #' @export
 
 xRejectNa_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xRejectNa(list(...))
 }

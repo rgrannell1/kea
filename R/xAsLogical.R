@@ -46,5 +46,8 @@ xAsLogical <- MakeFun(function (bools) {
 #' @export
 
 xAsLogical_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAsLogical(list(...))
 }

@@ -84,5 +84,8 @@ xFlatten <- MakeFun(function (num, coll) {
 #' @export
 
 xFlatten_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xFlatten(num, list(...))
 }

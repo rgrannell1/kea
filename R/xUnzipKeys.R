@@ -63,5 +63,8 @@ xUnzipKeys <- MakeFun(function (coll) {
 #' @export
 
 xUnzipKeys_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xUnzipKeys(list(...))
 }

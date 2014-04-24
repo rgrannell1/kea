@@ -37,5 +37,8 @@ xLenOf <- MakeFun(function (coll) {
 #' @export
 
 xLenOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xLenOf(list(...))
 }

@@ -36,5 +36,8 @@ xNotEmpty <- MakeFun(function (coll) {
 #' @export
 
 xNotEmpty_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xNotEmpty(list(...))
 }

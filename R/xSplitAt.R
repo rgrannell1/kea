@@ -71,5 +71,8 @@ xSplitAt <- MakeFun(function (nums, coll) {
 #' @export
 
 xSplitAt_ <- function (nums, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xSplitAt(nums, list(...))
 }

@@ -45,6 +45,9 @@ xAsCharacter <- MakeFun(function (strs) {
 #' @export
 
 xAsCharacter_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAsCharacter(list(...))
 }
 

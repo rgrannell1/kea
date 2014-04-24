@@ -80,5 +80,8 @@ xReduce <- MakeFun(function (fn, coll) {
 #' @export
 
 xReduce_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xReduce(fn, list(...))
 }

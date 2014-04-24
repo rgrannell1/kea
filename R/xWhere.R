@@ -49,5 +49,8 @@ xWhere <- MakeFun(function (bools) {
 #' @export
 
 xWhere_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xWhere(list(...))
 }

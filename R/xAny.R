@@ -61,6 +61,9 @@ xAny <- MakeFun(function (pred, coll) {
 #' @export
 
 xAny_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAny(pred, list(...))
 }
 

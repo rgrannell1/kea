@@ -62,5 +62,8 @@ xDeepMap <- MakeFun(function (fn, coll) {
 #' @export
 
 xDeepMap_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xDeepMap(fn, list(...))
 }

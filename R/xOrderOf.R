@@ -68,5 +68,8 @@ xOrderOf <- MakeFun(function (nums) {
 #' @export
 
 xOrderOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xOrderOf(list(...))
 }

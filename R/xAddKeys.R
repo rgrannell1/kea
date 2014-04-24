@@ -53,3 +53,13 @@ xAddKeys <- MakeFun(function (strs, coll) {
 	names(coll) <- strs
 	as.list(coll)
 })
+
+#' @rdname
+#' @export
+
+xAddKeys... <- function (strs, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
+	xAddKeys(strs, list(...))
+}

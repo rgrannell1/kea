@@ -64,5 +64,8 @@ xPartition <- MakeFun(function (pred, coll) {
 #' @export
 
 xPartition_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xPartition(pred, list(...))
 }

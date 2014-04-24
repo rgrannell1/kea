@@ -106,6 +106,9 @@ xLift <- MakeFun(function (fn, fns) {
 #' @export
 
 xLift_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	do.call( xLift, list(fn, list(...)) )
 }
 

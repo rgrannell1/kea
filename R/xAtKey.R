@@ -45,5 +45,8 @@ xAtKey <- MakeFun(function (str, coll) {
 #' @export
 
 xAtKey_ <- function (str, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAtKey(str, list(...))
 }

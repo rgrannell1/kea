@@ -92,6 +92,9 @@ xSplitWith <- local({
 #' @export
 
 xSplitWith_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xSplitWith(pred, list(...))
 }
 

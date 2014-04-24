@@ -74,5 +74,8 @@ xJuxtapose <- MakeFun(function (fns) {
 #' @export
 
 xJuxtapose_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xJuxtapose(list(...))
 }

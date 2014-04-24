@@ -43,5 +43,8 @@ xSecondOf <- MakeFun(function (coll) {
 #' @export
 
 xSecondOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xSecondOf(list(...))
 }

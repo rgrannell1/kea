@@ -93,5 +93,8 @@ xChop <- MakeFun(function (num, coll) {
 #' @export
 
 xChop_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xChop(num, list(...))
 }

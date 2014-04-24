@@ -59,5 +59,8 @@ xMapIndexed <- MakeFun(function (fn, coll) {
 #' @export
 
 xMapIndexed_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xMapIndexed(fn, list(...))
 }

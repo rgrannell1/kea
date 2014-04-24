@@ -72,5 +72,8 @@ xScan <- MakeFun(function (fn, val, coll) {
 #' @export
 
 xScan_ <- function (fn, val, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xScan(fn, val, list(...))
 }

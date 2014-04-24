@@ -64,5 +64,8 @@ xSliceString <- MakeFun(function (str, nums) {
 #' @export
 
 xSliceString_ <- function (str, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xSliceString(str, list(...))
 }

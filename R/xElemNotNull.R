@@ -48,5 +48,8 @@ xElemNotNull <- MakeFun(function (coll) {
 #' @export
 
 xElemNotNull_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xElemNotNull(list(...))
 }

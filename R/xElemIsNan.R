@@ -47,5 +47,8 @@ xElemIsNan <- MakeFun(function (coll) {
 #' @export
 
 xElemIsNan_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xElemIsNan(list(...))
 }

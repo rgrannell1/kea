@@ -114,5 +114,8 @@ xExists <- MakeFun(function (pred, colls) {
 #' @export
 
 xExists_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xExists(pred, list(...))
 }

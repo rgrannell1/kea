@@ -54,5 +54,8 @@ xDrop <- MakeFun(function (num, coll) {
 #' @export
 
 xDrop_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xDrop(num, list(...))
 }

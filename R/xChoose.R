@@ -66,5 +66,8 @@ xChoose <- MakeFun(function (num, coll) {
 #' @export
 
 xChoose_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xChoose(num, list(...))
 }

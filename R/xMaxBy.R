@@ -52,5 +52,8 @@ xMaxBy <- MakeFun(function (fn, coll) {
 #' @export
 
 xMaxBy_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xMaxBy(fn, list(...))
 }

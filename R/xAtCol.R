@@ -52,5 +52,8 @@ xAtCol <- MakeFun(function (num, colls) {
 #' @export
 
 xAtCol_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAtCol(num, list(...))
 }

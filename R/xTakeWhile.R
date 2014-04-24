@@ -70,5 +70,8 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 #' @export
 
 xTakeWhile_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xTakeWhile(pred, list(...))
 }

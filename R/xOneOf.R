@@ -45,5 +45,8 @@ xOneOf <- MakeFun(function (coll) {
 #' @export
 
 xOneOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xOneOf(list(...))
 }

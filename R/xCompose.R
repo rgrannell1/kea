@@ -107,6 +107,9 @@ xCompose <- MakeFun(function (fns) {
 #' @export
 
 xCompose_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xCompose(list(...))
 }
 

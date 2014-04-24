@@ -30,5 +30,8 @@ xFromWords <- function (strs) {
 #' @export
 
 xFromWords_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xImplode(" ", list(...))
 }

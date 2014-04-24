@@ -51,5 +51,8 @@ xLocate <- MakeFun(function (pred, coll) {
 #' @export
 
 xLocate_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xLocate(pred, list(...))
 }

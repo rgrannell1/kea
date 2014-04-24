@@ -36,5 +36,8 @@ xElemIsTrue <- MakeFun(function (coll) {
 #' @export
 
 xElemIsTrue_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xElemIsTrue(list(...))
 }

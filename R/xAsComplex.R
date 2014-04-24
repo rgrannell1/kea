@@ -46,5 +46,8 @@ xAsComplex <- MakeFun(function (ims) {
 #' @export
 
 xAsComplex_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAsComplex(list(...))
 }

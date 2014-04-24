@@ -64,5 +64,8 @@ xReject <- MakeFun(function (pred, coll) {
 #' @export
 
 xReject_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xReject(pred, list(...))
 }

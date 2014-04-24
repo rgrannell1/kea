@@ -76,5 +76,8 @@ xGroupBy <- MakeFun(function (fn, coll) {
 #' @export
 
 xGroupBy_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xGroupBy(fn, list(...))
 }

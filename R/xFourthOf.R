@@ -39,5 +39,8 @@ xFourthOf <- MakeFun(function (coll) {
 #' @export
 
 xFourthOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xFourthOf(list(...))
 }

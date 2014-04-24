@@ -42,5 +42,8 @@ xLastOf <- MakeFun	(function (coll) {
 #' @export
 
 xLastOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xLastOf(list(...))
 }

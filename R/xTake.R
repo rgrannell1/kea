@@ -59,5 +59,8 @@ xTake <- MakeFun(function (num, coll) {
 #' @export
 
 xTake_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xTake(num, list(...))
 }

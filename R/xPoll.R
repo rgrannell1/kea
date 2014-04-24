@@ -68,5 +68,8 @@ xPoll <- MakeFun(function (pred, coll) {
 #' @export
 
 xPoll_ <- function (pred, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xPoll(pred, list(...))
 }

@@ -80,5 +80,8 @@ xFold <- MakeFun(function (fn, val, coll) {
 #' @rdname xFold
 
 xFold_ <- function (fn, val, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xFold(fn, val, list(...))
 }

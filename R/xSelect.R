@@ -66,5 +66,6 @@ xSelect <- MakeFun(function (pred, coll) {
 #' @export
 
 xSelect_ <- function (pred, ...) {
+
 	xSelect(pred, list(...))
 }

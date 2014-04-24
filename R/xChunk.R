@@ -61,5 +61,8 @@ xChunk <- MakeFun(function (num, coll) {
 #' @export
 
 xChunk_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xChunk(num, list(...))
 }

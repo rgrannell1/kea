@@ -33,5 +33,8 @@ xIsEmpty <- MakeFun(function (coll) {
 #' @export
 
 xIsEmpty_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xIsEmpty(list(...))
 }

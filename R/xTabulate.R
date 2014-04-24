@@ -82,5 +82,8 @@ xTabulate <- MakeFun(function (coll) {
 #' @export
 
 xTabulate_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xTabulate(list(...))
 }

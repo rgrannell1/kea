@@ -55,5 +55,8 @@ xRepeat <- MakeFun(function (num, coll) {
 #' @export
 
 xRepeat_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xRepeat(num, list(...))
 }

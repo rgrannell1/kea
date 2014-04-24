@@ -45,5 +45,8 @@ xRankOf <- MakeFun(function (nums) {
 #' @export
 
 xRankOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xRankOf(list(...))
 }

@@ -68,5 +68,8 @@ xProdSetOf <- MakeFun(function (colls) {
 #' @export
 
 xProdSetOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xProdSetOf(list(...))
 }

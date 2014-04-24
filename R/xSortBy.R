@@ -69,6 +69,9 @@ xSortBy <- MakeFun(function (fn, coll) {
 #' @export
 
 xSortBy_ <- function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xSortBy(fn, list(...))
 }
 

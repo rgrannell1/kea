@@ -86,5 +86,8 @@ xCycle <- MakeFun(function (num, colls) {
 #' @export
 
 xCycle_ <- function (num, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xCycle(num, list(...))
 }

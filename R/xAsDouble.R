@@ -51,5 +51,8 @@ xAsDouble <- MakeFun(function (nums) {
 #' @export
 
 xAsDouble_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xAsDouble(list(...))
 }

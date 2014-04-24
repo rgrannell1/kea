@@ -66,5 +66,8 @@ xRecycle <- MakeFun(function (colls) {
 #' @export
 
 xRecycle_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xRecycle(list(...))
 }

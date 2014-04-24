@@ -56,5 +56,8 @@ xUnionOf <- MakeFun(function (colls) {
 #' @export
 
 xUnionOf_ <- function (...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xUnionOf(list(...))
 }
