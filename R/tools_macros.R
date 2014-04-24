@@ -449,8 +449,41 @@ Must <- local({
 			})
 		}
 
+	this $ Have_Canonical_Arguments <-
+		function () {
+			# check that the argument names in ... don't
+			# clash with the parametre names of a function.
 
+			bquote({
 
+				# check that
+				if (!all( names(sys.call()) == names(match.call()) | names(sys.call()) == '')) {
+
+					fn_name <-  sys.call()[[1]]
+
+					if (length(fn_name) == 1) {
+						fn_name <- paste0(fn_name)
+						suggested <- gsub('_', '', fn_name)
+					} else {
+						fn_name <- 'xMethod_'
+						suggested <- 'xMethod'
+					}
+
+					invoked <- names(sys.call())
+					matched <- names(match.call())
+
+					ambigious <- invoked[which(invoked != matched & invoked != '')]
+
+					message <-
+						"the ellipsis argument explicitly named " %+% dQuote(ambigious) %+% " matches a parametre " %+%
+						"of " %+% dQuote(fn_name)  %+% ". This will be misinterpreted by R. Use " %+%
+						dQuote(suggested) %+% " instead of " %+% dQuote(fn_name) %+% "."
+
+					throw_arrow_error(sys.call(), message)
+				}
+
+			})
+		}
 
 	this
 })

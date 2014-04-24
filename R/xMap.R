@@ -52,6 +52,9 @@ xMap <- MakeFun(function (fn, coll) {
 #' @rdname xMap
 #' @export
 
-xMap_ <- function (fn, ...) {
+xMap_ <- MakeFun(function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xMap(fn, list(...))
-}
+})

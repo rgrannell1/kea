@@ -102,6 +102,9 @@ xFix <- MakeFun(function (fn, coll) {
 #' @rdname xFix
 #' @export
 
-xFix_ <- function (fn, ...) {
+xFix_ <- MakeFun(function (fn, ...) {
+
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xFix(fn, list(...))
-}
+})
