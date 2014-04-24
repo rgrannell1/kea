@@ -456,7 +456,16 @@ Must <- local({
 
 			bquote({
 
-				# check that
+				# check that the names aren't interpreted differently
+				# between sys.call (your interpretation of the arguments) and
+				# match.call (the system's interpretation). This fixed an
+				# odd issue in R"s function call semantics
+
+				# xFix_(function (fn, b) fn(b), fn = xI)
+
+				# is misinterpreded by R; fn is not used as an ellipsis arg, but an arg to xFix.
+				# libs like plyr use .fn to try get around this; Arrow uses this odd middleware macro.
+
 				if (!all( names(sys.call()) == names(match.call()) | names(sys.call()) == '')) {
 
 					fn_name <-  sys.call()[[1]]
