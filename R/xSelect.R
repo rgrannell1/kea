@@ -67,5 +67,7 @@ xSelect <- MakeFun(function (pred, coll) {
 
 xSelect_ <- function (pred, ...) {
 
+	MACRO( Must $ Have_Canonical_Arguments() )
+
 	xSelect(pred, list(...))
 }
