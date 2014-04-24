@@ -56,14 +56,17 @@ xGroupBy <- MakeFun(function (fn, coll) {
 
 			for (jth in seq_along(groups)) {
 
+				# -- does the groupee fn(elem) belong in the jth group?
 				if ( identical(map, groups[[jth]][[1]] ) ) {
 
+					# -- append the element to the group.
 					groups[[jth]][[2]] <- c(groups[[jth]][[2]], list(elem))
 
 					group_found <- True
 				}
 			}
 
+			# --- the groupee didn't belong in any group. Construct a new one.
 			if (!group_found) {
 				groups <- c(groups, list( list(map, list(elem)) ))
 			}
