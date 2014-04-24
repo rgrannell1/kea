@@ -3,12 +3,12 @@
 \alias{\%of\%}
 \alias{\%then\%}
 \alias{xCompose}
-\alias{xCompose...}
+\alias{xCompose_}
 \title{xCompose}
 \usage{
 xCompose(fns)
 
-xCompose...(...)
+xCompose_(...)
 
 fn1 \%of\% fn2
 
@@ -97,18 +97,18 @@ h(2)
 \seealso{
 Other function_combining_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift...}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}
+  \code{\link{xLift_}}; \code{\link{xJuxtapose}},
+  \code{\link{xJuxtapose_}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift...}}; \code{\link{xAsClosure}};
+  \code{\link{xLift_}}; \code{\link{xAsClosure}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}; \code{\link{xNot}};
-  \code{\link{xPartial}}, \code{\link{xPartial...}};
+  \code{\link{xJuxtapose_}}; \code{\link{xNot}};
+  \code{\link{xPartial}}, \code{\link{xPartial_}};
   \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread...}}; \code{\link{xUnspread}};
+  \code{\link{xThread_}}; \code{\link{xUnspread}};
   \code{\link{xVectorise}}, \code{\link{xVectorize}}
 }
 

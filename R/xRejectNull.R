@@ -44,6 +44,6 @@ xRejectNull <- MakeFun(function (coll) {
 #' @rdname xRejectNull
 #' @export
 
-xRejectNull... <- function (...) {
+xRejectNull_ <- function (...) {
 	xRejectNull(list(...))
 }

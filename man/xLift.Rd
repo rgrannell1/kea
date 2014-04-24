@@ -3,12 +3,12 @@
 \alias{\%and\%}
 \alias{\%or\%}
 \alias{xLift}
-\alias{xLift...}
+\alias{xLift_}
 \title{xLift}
 \usage{
 xLift(fn, fns)
 
-xLift...(fn, ...)
+xLift_(fn, ...)
 
 fn1 \%or\% fn2
 
@@ -65,8 +65,8 @@ Compose a function with the outputs of other functions.
 
    \bold{xLift} factors out this pattern, for binary functions and higher arity functions.
 
-   \code{sextuple <- xLift...('+', double, triple)}
-   \code{is_positive_and_whole <- xLift...('&&', is_positive, is_whole)}
+   \code{sextuple <- xLift_('+', double, triple)}
+   \code{is_positive_and_whole <- xLift_('&&', is_positive, is_whole)}
 
   Two partially applied forms of xLift are included in arrow, which are useful for cutting down
   on the amount of anonymous functions you need to pass to higher-order functions.
@@ -85,18 +85,18 @@ is_recursive <- is.list \%or\% is.pairlist
 \seealso{
 Other function_combining_functions: \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}
+  \code{\link{xCompose_}}; \code{\link{xJuxtapose}},
+  \code{\link{xJuxtapose_}}
 
 Other function_modifying_functions: \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xAsClosure}};
+  \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}; \code{\link{xNot}};
-  \code{\link{xPartial}}, \code{\link{xPartial...}};
+  \code{\link{xJuxtapose_}}; \code{\link{xNot}};
+  \code{\link{xPartial}}, \code{\link{xPartial_}};
   \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread...}}; \code{\link{xUnspread}};
+  \code{\link{xThread_}}; \code{\link{xUnspread}};
   \code{\link{xVectorise}}, \code{\link{xVectorize}}
 }
 

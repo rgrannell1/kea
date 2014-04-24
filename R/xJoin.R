@@ -50,6 +50,6 @@ xJoin <- MakeFun(function (colls) {
 #' @rdname xJoin
 #' @export
 
-xJoin... <- function (...) {
+xJoin_ <- function (...) {
 	xJoin(list(...))
 }

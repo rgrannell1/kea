@@ -7,7 +7,7 @@ map <- function (fn, coll) {
 	if (xIsEmpty(coll)) {
 		list()
 	} else {
-		xJoin...(
+		xJoin_(
 			fn(xFirstOf(coll)),
 			map(fn, xRestOf(coll)) )
 	}
@@ -20,6 +20,6 @@ map(sqrt, 1:4)
 # 2.
 # xIsEmpty can be used as a predicate for reject.
 
-xReject...(xIsEmpty, 'a', 'b', integer(0), 'c')
+xReject_(xIsEmpty, 'a', 'b', integer(0), 'c')
 
 # list('a', 'b', 'c')

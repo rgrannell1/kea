@@ -15,10 +15,10 @@ is_cyclic_permutation <- (string1 : string2) := {
     } else {
 
         x_(seq_along(string1)) $
-        x_Exists...(ith := {
+        x_Exists_(ith := {
                 # does there exist a cyclic permutation such that the
                 # the permutation is equal to a second string?
-                identical(xCycle...(ith, string1), as.list(string2))
+                identical(xCycle_(ith, string1), as.list(string2))
         })
 
     }

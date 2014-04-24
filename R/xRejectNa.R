@@ -44,6 +44,6 @@ xRejectNa <- MakeFun(function (coll) {
 #' @rdname xRejectNa
 #' @export
 
-xRejectNa... <- function (...) {
+xRejectNa_ <- function (...) {
 	xRejectNa(list(...))
 }

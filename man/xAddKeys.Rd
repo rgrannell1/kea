@@ -37,13 +37,13 @@ assignment function.
 }
 \seealso{
 Other key_functions: \code{\link{xPluck}},
-  \code{\link{xPluck...}}; \code{\link{xUnzipKeys}},
-  \code{\link{xUnzipKeys...}}; \code{\link{xZipKeys}},
-  \code{\link{xZipKeys...}}
+  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys_}}
 
 Other key_functions: \code{\link{xPluck}},
-  \code{\link{xPluck...}}; \code{\link{xUnzipKeys}},
-  \code{\link{xUnzipKeys...}}; \code{\link{xZipKeys}},
-  \code{\link{xZipKeys...}}
+  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys_}}
 }
 

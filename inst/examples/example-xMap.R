@@ -14,7 +14,7 @@ LETTERS
 # 2. grab the second value in a collection
 #    of collections.
 
-xMap...(
+xMap_(
     xSecondOf,
     list("a", "b", "c"),
     list(1, 2, 3)

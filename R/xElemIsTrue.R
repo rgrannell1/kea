@@ -37,6 +37,6 @@ xElemIsTrue <- MakeFun(function (coll) {
 #' @rdname xElemIsTrue
 #' @export
 
-xElemIsTrue... <- function (...) {
+xElemIsTrue_ <- function (...) {
 	xElemIsTrue(list(...))
 }

@@ -48,6 +48,6 @@ xElemIsNull <- MakeFun(function (coll) {
 #' @rdname xElemIsNull
 #' @export
 
-xElemIsNull... <- function (...) {
+xElemIsNull_ <- function (...) {
 	xElemIsNull(list(...))
 }

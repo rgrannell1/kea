@@ -46,6 +46,6 @@ xAtKey <- MakeFun(function (str, coll) {
 #' @rdname xAtKey
 #' @export
 
-xAtKey... <- function (str, ...) {
+xAtKey_ <- function (str, ...) {
 	xAtKey(str, list(...))
 }

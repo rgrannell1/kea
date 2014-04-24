@@ -105,7 +105,7 @@ remove_odds(letters)
 # 5. HR Functional Programming
 # Area under curves and solids of rotation
 
-# Time to flex my atrophied Calculus muscles...
+# Time to flex my atrophied Calculus muscles_
 
 # This particular problem involves finding the area underneath a
 # subsection of a polynomial of x, and finding the area of the solid of

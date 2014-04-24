@@ -45,6 +45,6 @@ xUniqueOf <- MakeFun(function (coll) {
 #' @rdname xUniqueOf
 #' @export
 
-xUniqueOf... <- function (...) {
+xUniqueOf_ <- function (...) {
 	xUniqueOf(list(...))
 }

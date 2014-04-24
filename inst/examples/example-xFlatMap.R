@@ -19,7 +19,7 @@
 repeat_elements <- (n : coll) := {
 
 	xFlatMap(
-		xPartial...(xRepeat, num = n),
+		xPartial_(xRepeat, num = n),
 		coll)
 
 }

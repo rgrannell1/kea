@@ -61,6 +61,6 @@ xPluck <- MakeFun(function (str, colls) {
 #' @rdname xPluck
 #' @export
 
-xPluck... <- function (str, ...) {
+xPluck_ <- function (str, ...) {
 	xPluck(str, list(...))
 }

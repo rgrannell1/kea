@@ -91,7 +91,7 @@ xSplitWith <- local({
 #' @rdname xSplitWith
 #' @export
 
-xSplitWith... <- function (pred, ...) {
+xSplitWith_ <- function (pred, ...) {
 	xSplitWith(pred, list(...))
 }
 

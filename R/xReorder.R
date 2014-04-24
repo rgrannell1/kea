@@ -67,6 +67,6 @@ xReorder <- MakeFun(function (nums, colls) {
 #' @rdname xReorder
 #' @export
 
-xReorder... <- function (nums, ...) {
+xReorder_ <- function (nums, ...) {
 	xReorder(nums, list(...))
 }

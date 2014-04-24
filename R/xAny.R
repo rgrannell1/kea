@@ -60,7 +60,7 @@ xAny <- MakeFun(function (pred, coll) {
 #' @rdname xAny
 #' @export
 
-xAny... <- function (pred, ...) {
+xAny_ <- function (pred, ...) {
 	xAny(pred, list(...))
 }
 

@@ -46,6 +46,6 @@ xElemNotTrue <- MakeFun(function (coll) {
 #' @rdname xElemNotTrue
 #' @export
 
-xElemNotTrue... <- function (...) {
+xElemNotTrue_ <- function (...) {
 	xElemNotTrue(list(...))
 }

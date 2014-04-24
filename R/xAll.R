@@ -53,6 +53,6 @@ xAll <- MakeFun(function (pred, coll) {
 #' @rdname xAll
 #' @export
 
-xAll... <- function (pred, ...) {
+xAll_ <- function (pred, ...) {
 	xAll(pred, list(...))
 }

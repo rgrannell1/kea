@@ -65,6 +65,6 @@ xSliceString <- MakeFun(function (str, nums) {
 #' @rdname xSliceString
 #' @export
 
-xSliceString... <- function (str, ...) {
+xSliceString_ <- function (str, ...) {
 	xSliceString(str, list(...))
 }

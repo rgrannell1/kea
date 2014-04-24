@@ -87,6 +87,6 @@ xFlatten <- MakeFun(function (num, coll) {
 #' @rdname xFlatten
 #' @export
 
-xFlatten... <- function (num, ...) {
+xFlatten_ <- function (num, ...) {
 	xFlatten(num, list(...))
 }

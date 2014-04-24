@@ -13,7 +13,7 @@
 #'     \code{sizes <- xPartial(xMap, object.size))}
 #'
 #'     In this case the use of xPartial can match the argument to specialise by
-#'     name, or by position. The use of \bold{xPartial} over \bold{xPartial...} is
+#'     name, or by position. The use of \bold{xPartial} over \bold{xPartial_} is
 #'     required in the first case, to avoid a parametre name class between the argument of
 #'     \bold{xMap} to fix (fn) and the function passed to \bold{xPartial} (fn).
 #'
@@ -102,6 +102,6 @@ xPartial <- MakeFun(function (fn, coll) {
 #' @rdname xPartial
 #' @export
 
-xPartial... <- function (fn, ...) {
+xPartial_ <- function (fn, ...) {
 	xPartial(fn, list(...))
 }

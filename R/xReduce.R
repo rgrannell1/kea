@@ -81,6 +81,6 @@ xReduce <- MakeFun(function (fn, coll) {
 #' @rdname xReduce
 #' @export
 
-xReduce... <- function (fn, ...) {
+xReduce_ <- function (fn, ...) {
 	xReduce(fn, list(...))
 }

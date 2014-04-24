@@ -32,7 +32,7 @@ xApply(sum, 1:10)
 # 3. Rbind and xApply can be used to build up a matrix
 #    from vectors.
 
-xApply...(rbind, list(1, 2), list(3, 4), list(5, 6))
+xApply_(rbind, list(1, 2), list(3, 4), list(5, 6))
 
 # structure(
 #     list(1, 3, 5, 2, 4, 6),

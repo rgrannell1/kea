@@ -14,7 +14,7 @@ is_pangram <- line := {
 	x_(line) $
 	xToChars() $ xMap(tolower) $ xUniqueOf() $
 	xSelect(
-		xPartial...(xIsMember, coll = letters)
+		xPartial_(xIsMember, coll = letters)
 	) $
 	x_LenOf() == 26
 }

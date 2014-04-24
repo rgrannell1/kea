@@ -37,21 +37,21 @@ Return the logical negation of a function.
 
 # 1. Reverse a type checking predicate
 
-xSelect...(xNot(is.character), 'a', 'b', 3, 'd', 5)
+xSelect_(xNot(is.character), 'a', 'b', 3, 'd', 5)
 
 # list(3, 5)
 }
 \seealso{
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift...}}; \code{\link{\%of\%}},
+  \code{\link{xLift_}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xAsClosure}};
+  \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}; \code{\link{xPartial}},
-  \code{\link{xPartial...}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread...}};
+  \code{\link{xJuxtapose_}}; \code{\link{xPartial}},
+  \code{\link{xPartial_}}; \code{\link{xSpread}};
+  \code{\link{xThread}}, \code{\link{xThread_}};
   \code{\link{xUnspread}}; \code{\link{xVectorise}},
   \code{\link{xVectorize}}
 }

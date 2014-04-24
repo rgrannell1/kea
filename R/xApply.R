@@ -66,6 +66,6 @@ xApply <- MakeFun(function (fn, coll) {
 #' @rdname xApply
 #' @export
 
-xApply... <- function (fn, ...) {
+xApply_ <- function (fn, ...) {
 	xApply(fn, list(...))
 }

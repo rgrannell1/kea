@@ -38,6 +38,6 @@ xLenOf <- MakeFun(function (coll) {
 #' @rdname xLenOf
 #' @export
 
-xLenOf... <- function (...) {
+xLenOf_ <- function (...) {
 	xLenOf(list(...))
 }

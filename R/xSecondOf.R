@@ -44,6 +44,6 @@ xSecondOf <- MakeFun(function (coll) {
 #' @rdname xSecondOf
 #' @export
 
-xSecondOf... <- function (...) {
+xSecondOf_ <- function (...) {
 	xSecondOf(list(...))
 }

@@ -43,6 +43,6 @@ xFirstOf <- MakeFun(function (coll) {
 #' @rdname xFirstOf
 #' @export
 
-xFirstOf... <- function (...) {
+xFirstOf_ <- function (...) {
 	xFirstOf(list(...))
 }

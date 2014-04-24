@@ -50,15 +50,15 @@ x_Reduce(
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}},
-  \code{\link{xExplode...}}; \code{\link{xFromChars}},
-  \code{\link{xFromChars...}}; \code{\link{xFromLines}},
-  \code{\link{xFromLines...}}; \code{\link{xFromWords}},
-  \code{\link{xFromWords...}}; \code{\link{xImplode}},
-  \code{\link{xImplode...}}; \code{\link{xReadChars}};
+  \code{\link{xExplode_}}; \code{\link{xFromChars}},
+  \code{\link{xFromChars_}}; \code{\link{xFromLines}},
+  \code{\link{xFromLines_}}; \code{\link{xFromWords}},
+  \code{\link{xFromWords_}}; \code{\link{xImplode}},
+  \code{\link{xImplode_}}; \code{\link{xReadChars}};
   \code{\link{xReadLines}}; \code{\link{xReadWords}};
-  \code{\link{xSliceString}},
-  \code{\link{xSliceString...}}; \code{\link{xToChars}};
-  \code{\link{xToLines}}; \code{\link{xWriteChars}};
-  \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
+  \code{\link{xSliceString}}, \code{\link{xSliceString_}};
+  \code{\link{xToChars}}; \code{\link{xToLines}};
+  \code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+  \code{\link{xWriteWords}}
 }
 

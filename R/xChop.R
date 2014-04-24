@@ -94,6 +94,6 @@ xChop <- MakeFun(function (num, coll) {
 #' @rdname xChop
 #' @export
 
-xChop... <- function (num, ...) {
+xChop_ <- function (num, ...) {
 	xChop(num, list(...))
 }

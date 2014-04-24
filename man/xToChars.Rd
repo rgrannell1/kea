@@ -32,7 +32,7 @@ x_(toString(12358134L)) $ xToChars() $ xMap(as.numeric) $ x_Reduce("+")
 # 2. Read in protein sequence data, and then find the most frequent
 # amino acid.
 
-dgcr8 <- xFromLines...(
+dgcr8 <- xFromLines_(
 	"METDESPSPLPCGPAGEAVMESRARPFQALPREQSPPPPLQTSSGAEVMDVGSGGDGQSELPAEDPFNFYGASLLSKGSF",
 	"SKGRLLIDPNCSGHSPRTARHAPAVRKFSPDLKLLKDVKISVSFTESCRSKDRKVLYTGAERDVRAECGLLLSPVSGDVHA",
 	"CPFGGSVGDGVGIGGESADKKDEENELDQEKRVEYAVLDELEDFTDNLELDEEGAGGFTAKAIVQRDRVDEEALNFPYEDDF",
@@ -51,15 +51,15 @@ x_(dgcr8) $ xToChars() $ xTabulate() $ x_MaxBy(xSecondOf)
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}},
-  \code{\link{xExplode...}}; \code{\link{xFromChars}},
-  \code{\link{xFromChars...}}; \code{\link{xFromLines}},
-  \code{\link{xFromLines...}}; \code{\link{xFromWords}},
-  \code{\link{xFromWords...}}; \code{\link{xImplode}},
-  \code{\link{xImplode...}}; \code{\link{xReadChars}};
+  \code{\link{xExplode_}}; \code{\link{xFromChars}},
+  \code{\link{xFromChars_}}; \code{\link{xFromLines}},
+  \code{\link{xFromLines_}}; \code{\link{xFromWords}},
+  \code{\link{xFromWords_}}; \code{\link{xImplode}},
+  \code{\link{xImplode_}}; \code{\link{xReadChars}};
   \code{\link{xReadLines}}; \code{\link{xReadWords}};
-  \code{\link{xSliceString}},
-  \code{\link{xSliceString...}}; \code{\link{xToLines}};
-  \code{\link{xToWords}}; \code{\link{xWriteChars}};
-  \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
+  \code{\link{xSliceString}}, \code{\link{xSliceString_}};
+  \code{\link{xToLines}}; \code{\link{xToWords}};
+  \code{\link{xWriteChars}}; \code{\link{xWriteLines}};
+  \code{\link{xWriteWords}}
 }
 

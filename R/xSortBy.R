@@ -67,7 +67,7 @@ xSortBy <- MakeFun(function (fn, coll) {
 #' @rdname xSortBy
 #' @export
 
-xSortBy... <- function (fn, ...) {
+xSortBy_ <- function (fn, ...) {
 	xSortBy(fn, list(...))
 }
 

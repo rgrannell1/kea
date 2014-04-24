@@ -44,6 +44,6 @@ xLastOf <- MakeFun	(function (coll) {
 #' @rdname xLastOf
 #' @export
 
-xLastOf... <- function (...) {
+xLastOf_ <- function (...) {
 	xLastOf(list(...))
 }

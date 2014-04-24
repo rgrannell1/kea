@@ -35,6 +35,6 @@ xFromChars <- function (strs) {
 #' @rdname xFromChars
 #' @export
 
-xFromChars... <- function (...) {
+xFromChars_ <- function (...) {
 	xImplode("", list(...))
 }

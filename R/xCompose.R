@@ -107,7 +107,7 @@ xCompose <- MakeFun(function (fns) {
 #' @rdname xCompose
 #' @export
 
-xCompose... <- function (...) {
+xCompose_ <- function (...) {
 	xCompose(list(...))
 }
 

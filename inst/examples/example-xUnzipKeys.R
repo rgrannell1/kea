@@ -12,7 +12,7 @@ irish_birds <- list(
 
 x_(irish_birds) $ xUnzipKeys() $ x_Map(xUnspread((key : val) := {
 
-		xFromWords...('the', key, 'is of order', val)
+		xFromWords_('the', key, 'is of order', val)
 
 	})
 )

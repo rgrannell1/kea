@@ -40,6 +40,6 @@ xFourthOf <- MakeFun(function (coll) {
 #' @rdname xFourthOf
 #' @export
 
-xFourthOf... <- function (...) {
+xFourthOf_ <- function (...) {
 	xFourthOf(list(...))
 }

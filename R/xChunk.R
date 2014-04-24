@@ -63,6 +63,6 @@ xChunk <- MakeFun(function (num, coll) {
 #' @rdname xChunk
 #' @export
 
-xChunk... <- function (num, ...) {
+xChunk_ <- function (num, ...) {
 	xChunk(num, list(...))
 }

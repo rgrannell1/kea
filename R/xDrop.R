@@ -55,6 +55,6 @@ xDrop <- MakeFun(function (num, coll) {
 #' @rdname xDrop
 #' @export
 
-xDrop... <- function (num, ...) {
+xDrop_ <- function (num, ...) {
 	xDrop(num, list(...))
 }

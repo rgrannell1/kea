@@ -49,6 +49,6 @@ xElemNotNan <- MakeFun(function (coll) {
 #' @rdname xElemNotNan
 #' @export
 
-xElemNotNan... <- function (...) {
+xElemNotNan_ <- function (...) {
 	xElemNotNan(list(...))
 }

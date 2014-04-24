@@ -39,13 +39,13 @@ message('Check that test files exist')
 
 	untested <-
 		xSelect(
-			xPartial...(xNotMember, coll = tests),
+			xPartial_(xNotMember, coll = tests),
 			r_files
 		)
 
 	nonexisting <-
 		xSelect(
-			xPartial...(xNotMember, coll = r_files),
+			xPartial_(xNotMember, coll = r_files),
 			tests
 		)
 

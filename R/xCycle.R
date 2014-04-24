@@ -18,13 +18,13 @@
 #'
 #'     Which map to
 #'
-#'     \code{xCycle...(0, 1:4)}
+#'     \code{xCycle_(0, 1:4)}
 #'
-#'     \code{xCycle...(1, 1:4)}
+#'     \code{xCycle_(1, 1:4)}
 #'
-#'     \code{xCycle...(2, 1:4)}
+#'     \code{xCycle_(2, 1:4)}
 #'
-#'     \code{xCycle...(3, 1:4)}
+#'     \code{xCycle_(3, 1:4)}
 #'
 #' @param
 #'      num a whole number. The magnitude gives number of elements
@@ -87,6 +87,6 @@ xCycle <- MakeFun(function (num, colls) {
 #' @rdname xCycle
 #' @export
 
-xCycle... <- function (num, ...) {
+xCycle_ <- function (num, ...) {
 	xCycle(num, list(...))
 }

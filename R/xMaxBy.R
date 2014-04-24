@@ -55,6 +55,6 @@ xMaxBy <- MakeFun(function (fn, coll) {
 #' @rdname xMaxBy
 #' @export
 
-xMaxBy... <- function (fn, ...) {
+xMaxBy_ <- function (fn, ...) {
 	xMaxBy(fn, list(...))
 }

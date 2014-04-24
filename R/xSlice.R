@@ -58,6 +58,6 @@ xSlice <- MakeFun(function (nums, coll) {
 #' @rdname xSlice
 #' @export
 
-xSlice... <- function (nums, ...) {
+xSlice_ <- function (nums, ...) {
 	xSlice(nums, list(...))
 }

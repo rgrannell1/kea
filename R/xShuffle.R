@@ -45,6 +45,6 @@ xShuffle <- MakeFun(function (coll) {
 #' @rdname xShuffle
 #' @export
 
-xShuffle... <- function (...) {
+xShuffle_ <- function (...) {
 	xShuffle(list(...))
 }

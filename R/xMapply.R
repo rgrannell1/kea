@@ -59,6 +59,6 @@ xMapply <- MakeFun(function (fn, colls) {
 #' @rdname xMapply
 #' @export
 
-xMapply... <- function (fn, ...) {
+xMapply_ <- function (fn, ...) {
 	xMapply(fn, list(...))
 }

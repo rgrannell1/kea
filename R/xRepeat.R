@@ -56,6 +56,6 @@ xRepeat <- MakeFun(function (num, coll) {
 #' @rdname xRepeat
 #' @export
 
-xRepeat... <- function (num, ...) {
+xRepeat_ <- function (num, ...) {
 	xRepeat(num, list(...))
 }

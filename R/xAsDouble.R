@@ -52,6 +52,6 @@ xAsDouble <- MakeFun(function (nums) {
 #' @rdname xAsDouble
 #' @export
 
-xAsDouble... <- function (...) {
+xAsDouble_ <- function (...) {
 	xAsDouble(list(...))
 }

@@ -11,7 +11,7 @@
 #'
 #'     \code{coll <- c(True, False, True, True)}
 #'
-#'     \code{xForall...(xIdentity, coll)}
+#'     \code{xForall_(xIdentity, coll)}
 #'
 #'     When supplied with a collection of multiple collections the
 #'     set product of those collections is checked with the predicate.
@@ -20,7 +20,7 @@
 #'
 #'     \code{commutes <- (a : b) := { a + b == b + a }}
 #'
-#'     \code{xForall...(commutes, 1:2, 1:2)}
+#'     \code{xForall_(commutes, 1:2, 1:2)}
 #'
 #'     The set product is
 #'
@@ -116,6 +116,6 @@ xForall <- MakeFun(function (pred, colls) {
 #' @rdname xForall
 #' @export
 
-xForall... <- function (pred, ...) {
+xForall_ <- function (pred, ...) {
 	xForall(pred, list(...))
 }

@@ -46,6 +46,6 @@ xInitOf <- MakeFun(function (coll) {
 #' @rdname xInitOf
 #' @export
 
-xInitOf... <- function (...) {
+xInitOf_ <- function (...) {
 	xInitOf(list(...))
 }

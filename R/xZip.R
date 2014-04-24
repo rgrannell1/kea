@@ -81,6 +81,6 @@ xZip <- MakeFun(function (colls) {
 #' @rdname xZip
 #' @export
 
-xZip... <- function (...) {
+xZip_ <- function (...) {
 	xZip(list(...))
 }

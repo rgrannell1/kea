@@ -70,6 +70,6 @@ xZipKeys <- MakeFun(function (colls) {
 #' @rdname xZipKeys
 #' @export
 
-xZipKeys... <- function (...) {
+xZipKeys_ <- function (...) {
 	xZipKeys(list(...))
 }

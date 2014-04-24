@@ -35,6 +35,6 @@ xFromWords <- function (strs) {
 #' @rdname xFromWords
 #' @export
 
-xFromWords... <- function (...) {
+xFromWords_ <- function (...) {
 	xImplode(" ", list(...))
 }

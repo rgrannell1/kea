@@ -168,7 +168,7 @@ details in the chapter \"Functions\". Some of the key functions are covered belo
 
 \subsection{Subsetting}
 
-\paragraph{xInit, xRest, xFirstOf...xFourthOf \& xLastOf}
+\paragraph{xInit, xRest, xFirstOf_xFourthOf \& xLastOf}
 These functions select parts of a collection positionally.
 
 
@@ -183,7 +183,7 @@ xLastOf(letters)
 xFirstOf throws an error
 if called on an empty collection.  xFirstOf returns a
 value from inside the collection: empty collections have no values.
-For similar reasons xSecondOf...xFourthOf and xLastOf throws an error if their
+For similar reasons xSecondOf_xFourthOf and xLastOf throws an error if their
 inputs are two short.
 
 \paragraph{}

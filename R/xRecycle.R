@@ -10,7 +10,7 @@
 #'     of varying length - and recycles elements to make the shorter
 #'     collections the same length as the longest collection.
 #'
-#'     \code{xRecycle...( list('a', 'b'), 1:3 )}
+#'     \code{xRecycle_( list('a', 'b'), 1:3 )}
 #'
 #'     \code{list(list("a", "b", "a"), list(1L, 2L, 3L))}
 #'
@@ -66,6 +66,6 @@ xRecycle <- MakeFun(function (colls) {
 #' @rdname xRecycle
 #' @export
 
-xRecycle... <- function (...) {
+xRecycle_ <- function (...) {
 	xRecycle(list(...))
 }

@@ -46,6 +46,6 @@ xRejectNan <- MakeFun(function (coll) {
 #' @rdname xRejectNan
 #' @export
 
-xRejectNan... <- function (...) {
+xRejectNan_ <- function (...) {
 	xRejectNan(list(...))
 }

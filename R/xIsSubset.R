@@ -55,6 +55,6 @@ xIsSubset <- MakeFun(function (coll1, coll2) {
 #' @rdname xIsSubset
 #' @export
 
-xIsSubset... <- function (coll1, ...) {
+xIsSubset_ <- function (coll1, ...) {
 	xIsSubset(coll1, list(...))
 }

@@ -43,6 +43,6 @@ xReverse <- MakeFun(function (coll) {
 #' @rdname xReverse
 #' @export
 
-xReverse... <- function (...) {
+xReverse_ <- function (...) {
 	xReverse(list(...))
 }

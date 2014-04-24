@@ -35,6 +35,6 @@ xFromLines <- function (strs) {
 #' @rdname xFromLines
 #' @export
 
-xFromLines... <- function (...) {
+xFromLines_ <- function (...) {
 	xFromLines(list(...))
 }

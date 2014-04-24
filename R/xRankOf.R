@@ -46,6 +46,6 @@ xRankOf <- MakeFun(function (nums) {
 #' @rdname xRankOf
 #' @export
 
-xRankOf... <- function (...) {
+xRankOf_ <- function (...) {
 	xRankOf(list(...))
 }

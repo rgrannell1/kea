@@ -66,6 +66,6 @@ xReject <- MakeFun(function (pred, coll) {
 #' @rdname xReject
 #' @export
 
-xReject... <- function (pred, ...) {
+xReject_ <- function (pred, ...) {
 	xReject(pred, list(...))
 }

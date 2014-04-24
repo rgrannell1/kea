@@ -37,6 +37,6 @@ xNotEmpty <- MakeFun(function (coll) {
 #' @rdname xNotEmpty
 #' @export
 
-xNotEmpty... <- function (...) {
+xNotEmpty_ <- function (...) {
 	xNotEmpty(list(...))
 }

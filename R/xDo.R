@@ -61,6 +61,6 @@ xDo <- MakeFun(function (fn, coll) {
 #' @rdname xDo
 #' @export
 
-xDo... <- function (fn, ...) {
+xDo_ <- function (fn, ...) {
 	xDo(fn, list(...))
 }

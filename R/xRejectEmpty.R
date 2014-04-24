@@ -46,7 +46,7 @@ xRejectEmpty <- MakeFun(function (coll) {
 #' @rdname xRejectEmpty
 #' @export
 
-xRejectEmpty... <- function (...) {
+xRejectEmpty_ <- function (...) {
 	xRejectEmpty(list(...))
 }
 
@@ -58,4 +58,4 @@ xPack <- xRejectEmpty
 #' @rdname xRejectEmpty
 #' @export
 
-xPack... <- xRejectEmpty...
+xPack_ <- xRejectEmpty_

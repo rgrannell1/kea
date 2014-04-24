@@ -3,7 +3,7 @@
 #    base functions in R
 
 # get the scalar square of a matrix, and sum the rows
-xThread...(matrix(1:4, 2, 2),
+xThread_(matrix(1:4, 2, 2),
 	t,
 	X := X^2,
 	rowSums

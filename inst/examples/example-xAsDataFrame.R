@@ -25,7 +25,7 @@ x_(raw_cocaine_seizure_data) $ xToLines () $
 xMap(row := {
 	row <- xExplode(',', row )
 
-	xJoin...( xFirstOf(row), as.double(xRestOf(row)) )
+	xJoin_( xFirstOf(row), as.double(xRestOf(row)) )
 }) $
 xZip() $
 xAddKeys(c('state', 'potency', 'weight', 'month', 'price')) $ x_AsDataFrame()

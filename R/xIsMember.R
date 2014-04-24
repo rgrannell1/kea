@@ -58,6 +58,6 @@ xIsMember <- MakeFun(function (val, coll) {
 #' @rdname xIsMember
 #' @export
 
-xIsMember... <- function (val, ...) {
+xIsMember_ <- function (val, ...) {
 	xIsMember(val, list(...))
 }

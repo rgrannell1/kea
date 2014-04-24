@@ -71,6 +71,6 @@ xChoose <- MakeFun(function (num, coll) {
 #' @rdname xChoose
 #' @export
 
-xChoose... <- function (num, ...) {
+xChoose_ <- function (num, ...) {
 	xChoose(num, list(...))
 }

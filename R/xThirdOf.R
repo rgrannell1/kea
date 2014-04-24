@@ -47,6 +47,6 @@ xThirdOf <- MakeFun(function (coll) {
 #' @rdname xThirdOf
 #' @export
 
-xThirdOf... <- function (...) {
+xThirdOf_ <- function (...) {
 	xThirdOf(list(...))
 }

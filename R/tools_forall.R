@@ -10,7 +10,7 @@
 # forall:
 #
 #    forall( ) is a function with which unit tests are written. A typical call
-#    might look like...
+#    might look like_
 #
 #    forall(
 #        'check addition commutativity',

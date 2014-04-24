@@ -174,8 +174,8 @@ xIterate(
 }
 \seealso{
 Other short_circuiting_functions: \code{\link{xFold}},
-  \code{\link{xFold...}}; \code{\link{xReduce}},
-  \code{\link{xReduce...}}; \code{\link{xScan}},
-  \code{\link{xScan...}}
+  \code{\link{xFold_}}; \code{\link{xReduce}},
+  \code{\link{xReduce_}}; \code{\link{xScan}},
+  \code{\link{xScan_}}
 }
 

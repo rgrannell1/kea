@@ -56,6 +56,6 @@ xThread <- MakeFun(function (val, fns) {
 #' @rdname xThread
 #' @export
 
-xThread... <- function (val, ...) {
+xThread_ <- function (val, ...) {
 	xThread(val, list(...))
 }

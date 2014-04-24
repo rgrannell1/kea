@@ -38,6 +38,12 @@
     x. &   RHS
     x. &&  RHS
     x. *   RHS
+    x. +   RHS
+    x. -   RHS
+    x. /   RHS
+    x. :   RHS
+    x. <   RHS
+    x. <=  RHS
 
 \method{\%\%}{xlambda_builder}(...)
 

@@ -39,6 +39,6 @@ xElemIsFalse <- MakeFun(function (coll) {
 #' @rdname xElemIsFalse
 #' @export
 
-xElemIsFalse... <- function (...) {
+xElemIsFalse_ <- function (...) {
 	xElemIsFalse(list(...))
 }

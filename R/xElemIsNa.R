@@ -39,6 +39,6 @@ xElemIsNa <- MakeFun(function (coll) {
 #' @rdname xElemIsNa
 #' @export
 
-xElemIsNa... <- function (...) {
+xElemIsNa_ <- function (...) {
 	xElemIsNa(list(...))
 }

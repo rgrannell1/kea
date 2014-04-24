@@ -73,6 +73,6 @@ xScan <- MakeFun(function (fn, val, coll) {
 #' @rdname xScan
 #' @export
 
-xScan... <- function (fn, val, ...) {
+xScan_ <- function (fn, val, ...) {
 	xScan(fn, val, list(...))
 }

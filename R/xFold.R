@@ -81,6 +81,6 @@ xFold <- MakeFun(function (fn, val, coll) {
 #' @export
 #' @rdname xFold
 
-xFold... <- function (fn, val, ...) {
+xFold_ <- function (fn, val, ...) {
 	xFold(fn, val, list(...))
 }

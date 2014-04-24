@@ -57,6 +57,6 @@ xTake <- MakeFun(function (num, coll) {
 #' @rdname xTake
 #' @export
 
-xTake... <- function (num, ...) {
+xTake_ <- function (num, ...) {
 	xTake(num, list(...))
 }

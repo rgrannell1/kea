@@ -27,7 +27,7 @@
 # chaining methods: xMethod. These return an x_ monad to chain off.
 # chaining variadic methods: xMethod . There are similar, but take variadic arguments.
 # non-chaining methods: xMethods. These exit the monad.
-# non-chaining methods: xMethods... . These are variadic, and exit the monad into the land of normal types.
+# non-chaining methods: xMethods_ . These are variadic, and exit the monad into the land of normal types.
 
 
 
@@ -131,7 +131,7 @@ add_x_method <- function (env, fn, fixed) {
 		)
 
 		body(method) <- if (is_unchaining) {
-			# x_Method...
+			# x_Method_
 
 			bquote({
 
@@ -139,7 +139,7 @@ add_x_method <- function (env, fn, fixed) {
 			})
 
 		} else {
-			# x_Method...
+			# x_Method_
 
 			bquote({
 
@@ -233,9 +233,9 @@ x_any_proto <- local({
 
 	# --- xIsEmpty --- #
 	add_x_method(this, xIsEmpty, 'coll')
-	add_x_method(this, xIsEmpty..., '...')
+	add_x_method(this, xIsEmpty_, '...')
 	add_x_method(this, x_IsEmpty, 'coll')
-	add_x_method(this, x_IsEmpty..., '...')
+	add_x_method(this, x_IsEmpty_, '...')
 
 	add_x_method(this, xIsNa, 'val')
 	add_x_method(this, x_IsNa, 'val')
@@ -309,17 +309,17 @@ x_any_proto <- local({
 		MakeFun(function (fns) {
 			xThread(Self(), fns)
 		})
-	this$xThread... <-
+	this$xThread_ <-
 		MakeFun(function (...) {
-			xThread...(Self(), ...)
+			xThread_(Self(), ...)
 		})
 	this$x_Thread <-
 		MakeFun(function (fns) {
 			xThread(Self(), fns)
 		})
-	this$x_Thread... <-
+	this$x_Thread_ <-
 		MakeFun(function (...) {
-			xThread...(Self(), ...)
+			xThread_(Self(), ...)
 		})
 	# -------- U ------- #
 	# -------- V ------- #
@@ -832,150 +832,150 @@ x_coll_proto <- local({
 	# --- xAny --- #
 	add_x_method(this, xAny, 'coll')
 	add_x_method(this, x_Any, 'coll')
-	add_x_method(this, xAny..., '...')
-	add_x_method(this, x_Any..., '...')
+	add_x_method(this, xAny_, '...')
+	add_x_method(this, x_Any_, '...')
 
 	# --- xAll --- #
 	add_x_method(this, xAll, 'coll')
 	add_x_method(this, x_All, 'coll')
-	add_x_method(this, xAll..., '...')
-	add_x_method(this, x_All..., '...')
+	add_x_method(this, xAll_, '...')
+	add_x_method(this, x_All_, '...')
 
 	# --- xAt --- #
 	add_x_method(this, xAt, 'coll')
-	add_x_method(this, xAt..., '...')
+	add_x_method(this, xAt_, '...')
 	add_x_method(this, x_At, 'coll')
-	add_x_method(this, x_At..., '...')
+	add_x_method(this, x_At_, '...')
 
 	# --- xAtKey --- #
 	add_x_method(this, xAtKey, 'coll')
-	add_x_method(this, xAtKey..., '...')
+	add_x_method(this, xAtKey_, '...')
 	add_x_method(this, x_AtKey, 'coll')
-	add_x_method(this, x_AtKey..., '...')
+	add_x_method(this, x_AtKey_, '...')
 
 	add_x_method(this, xAtCol, 'colls')
-	add_x_method(this, xAtCol..., '...')
+	add_x_method(this, xAtCol_, '...')
 	add_x_method(this, x_AtCol, 'colls')
-	add_x_method(this, x_AtCol..., '...')
+	add_x_method(this, x_AtCol_, '...')
 
 	# --- xSlice --- #
 	add_x_method(this, xSlice, 'coll')
-	add_x_method(this, xSlice..., '...')
+	add_x_method(this, xSlice_, '...')
 	add_x_method(this, x_Slice, 'coll')
-	add_x_method(this, x_Slice..., '...')
+	add_x_method(this, x_Slice_, '...')
 
 	# --- xAsLogical --- #
 	add_x_method(this, xAsLogical, 'bools')
-	add_x_method(this, xAsLogical..., '...')
+	add_x_method(this, xAsLogical_, '...')
 	add_x_method(this, x_AsLogical, 'bools')
-	add_x_method(this, x_AsLogical..., '...')
+	add_x_method(this, x_AsLogical_, '...')
 
 	# --- xAsInteger --- #
 	add_x_method(this, xAsInteger, 'nums')
-	add_x_method(this, xAsInteger..., '...')
+	add_x_method(this, xAsInteger_, '...')
 	add_x_method(this, x_AsInteger, 'nums')
-	add_x_method(this, x_AsInteger..., '...')
+	add_x_method(this, x_AsInteger_, '...')
 
 	# --- xAsCharacter --- #
 	add_x_method(this, xAsCharacter, 'strs')
-	add_x_method(this, xAsCharacter..., '...')
+	add_x_method(this, xAsCharacter_, '...')
 	add_x_method(this, x_AsCharacter, 'strs')
-	add_x_method(this, x_AsCharacter..., '...')
+	add_x_method(this, x_AsCharacter_, '...')
 
 	# --- xAsDouble --- #
 	add_x_method(this, xAsDouble, 'nums')
-	add_x_method(this, xAsDouble..., '...')
+	add_x_method(this, xAsDouble_, '...')
 	add_x_method(this, x_AsDouble, 'nums')
-	add_x_method(this, x_AsDouble..., '...')
+	add_x_method(this, x_AsDouble_, '...')
 
 	# --- xAsRaw --- #
 	add_x_method(this, xAsRaw, 'raws')
-	add_x_method(this, xAsRaw..., '...')
+	add_x_method(this, xAsRaw_, '...')
 	add_x_method(this, x_AsRaw, 'raws')
-	add_x_method(this, x_AsRaw..., '...')
+	add_x_method(this, x_AsRaw_, '...')
 
 	# --- xAsComplex --- #
 	add_x_method(this, xAsComplex, 'ims')
-	add_x_method(this, xAsComplex..., '...')
+	add_x_method(this, xAsComplex_, '...')
 	add_x_method(this, x_AsComplex, 'ims')
-	add_x_method(this, x_AsComplex..., '...')
+	add_x_method(this, x_AsComplex_, '...')
 
 	# --- xAsDataFrame --- #
 	add_x_method(this, xAsDataFrame, 'colls')
-	add_x_method(this, xAsDataFrame..., '...')
+	add_x_method(this, xAsDataFrame_, '...')
 	add_x_method(this, x_AsDataFrame, 'colls')
-	add_x_method(this, x_AsDataFrame..., '...')
+	add_x_method(this, x_AsDataFrame_, '...')
 
 	# --- xApply --- #
 	add_x_method(this, xApply, 'coll')
-	add_x_method(this, xApply..., '...')
+	add_x_method(this, xApply_, '...')
 	add_x_method(this, x_Apply, 'coll')
-	add_x_method(this, x_Apply..., '...')
+	add_x_method(this, x_Apply_, '...')
 
 	# --- xZipKeys --- #
 	add_x_method(this, xZipKeys, 'colls')
-	add_x_method(this, xZipKeys..., '...')
+	add_x_method(this, xZipKeys_, '...')
 	add_x_method(this, x_ZipKeys, 'colls')
-	add_x_method(this, x_ZipKeys..., '...')
+	add_x_method(this, x_ZipKeys_, '...')
 
 	# -------- B ------- #
 	# -------- C ------- #
 
 	# --- xChop --- #
 	add_x_method(this, xChop, 'coll')
-	add_x_method(this, xChop..., '...')
+	add_x_method(this, xChop_, '...')
 	add_x_method(this, x_Chop, 'coll')
-	add_x_method(this, x_Chop..., '...')
+	add_x_method(this, x_Chop_, '...')
 
 	# --- xChoose --- #
 	add_x_method(this, xChoose, 'coll')
-	add_x_method(this, xChoose..., '...')
+	add_x_method(this, xChoose_, '...')
 	add_x_method(this, x_Choose, 'coll')
-	add_x_method(this, x_Choose..., '...')
+	add_x_method(this, x_Choose_, '...')
 
 	# --- xCycle --- #
 	add_x_method(this, xCycle, 'colls')
-	add_x_method(this, xCycle..., '...')
+	add_x_method(this, xCycle_, '...')
 	add_x_method(this, x_Cycle, 'colls')
-	add_x_method(this, x_Cycle..., '...')
+	add_x_method(this, x_Cycle_, '...')
 
 	# -------- D ------- #
 	# --- xUnzipKeys --- #
 	add_x_method(this, xUnzipKeys, 'coll')
-	add_x_method(this, xUnzipKeys..., '...')
+	add_x_method(this, xUnzipKeys_, '...')
 	add_x_method(this, x_UnzipKeys, 'coll')
-	add_x_method(this, x_UnzipKeys..., '...')
+	add_x_method(this, x_UnzipKeys_, '...')
 
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')
-	add_x_method(this, xDrop..., '...')
+	add_x_method(this, xDrop_, '...')
 	add_x_method(this, x_Drop, 'coll')
-	add_x_method(this, x_Drop..., '...')
+	add_x_method(this, x_Drop_, '...')
 
 	# --- xDo --- #
 	add_x_method(this, xDo, 'coll')
-	add_x_method(this, xDo..., '...')
+	add_x_method(this, xDo_, '...')
 	add_x_method(this, x_Do, 'coll')
-	add_x_method(this, x_Do..., '...')
+	add_x_method(this, x_Do_, '...')
 
 	# --- xDropWhile --- #
 	add_x_method(this, xDropWhile, 'coll')
-	add_x_method(this, xDropWhile..., '...')
+	add_x_method(this, xDropWhile_, '...')
 	add_x_method(this, x_DropWhile, 'coll')
-	add_x_method(this, x_DropWhile..., '...')
+	add_x_method(this, x_DropWhile_, '...')
 
 	# --- xDuplicatesOf --- #
 	add_x_method(this, xDuplicatesOf, 'coll')
-	add_x_method(this, xDuplicatesOf..., '...')
+	add_x_method(this, xDuplicatesOf_, '...')
 	add_x_method(this, x_DuplicatesOf, 'coll')
-	add_x_method(this, x_DuplicatesOf..., '...')
+	add_x_method(this, x_DuplicatesOf_, '...')
 
 	# -------- E ------- #
 	# --- xExists --- #
 	add_x_method(this, xExists, 'colls')
-	add_x_method(this, xExists..., '...')
+	add_x_method(this, xExists_, '...')
 	add_x_method(this, x_Exists, 'colls')
-	add_x_method(this, x_Exists..., '...')
+	add_x_method(this, x_Exists_, '...')
 
 	# --- xExplode --- #
 	add_x_method(this, xExplode, 'str')
@@ -984,107 +984,107 @@ x_coll_proto <- local({
 	# -------- F ------- #
 	# --- xFirstOf --- #
 	add_x_method(this, xFirstOf, 'coll')
-	add_x_method(this, xFirstOf..., '...')
+	add_x_method(this, xFirstOf_, '...')
 	add_x_method(this, x_FirstOf, 'coll')
-	add_x_method(this, x_FirstOf..., '...')
+	add_x_method(this, x_FirstOf_, '...')
 
 	# --- xFold --- #
 	add_x_method(this, xFold, 'coll')
-	add_x_method(this, xFold..., '...')
+	add_x_method(this, xFold_, '...')
 	add_x_method(this, x_Fold, 'coll')
-	add_x_method(this, x_Fold..., '...')
+	add_x_method(this, x_Fold_, '...')
 
 	# --- xFlatMap --- #
 	add_x_method(this, xFlatMap, 'coll')
-	add_x_method(this, xFlatMap..., '...')
+	add_x_method(this, xFlatMap_, '...')
 	add_x_method(this, x_FlatMap, 'coll')
-	add_x_method(this, x_FlatMap..., '...')
+	add_x_method(this, x_FlatMap_, '...')
 
 	# --- xFlatten --- #
 	add_x_method(this, xFlatten, 'coll')
-	add_x_method(this, xFlatten..., '...')
+	add_x_method(this, xFlatten_, '...')
 	add_x_method(this, x_Flatten, 'coll')
-	add_x_method(this, x_Flatten..., '...')
+	add_x_method(this, x_Flatten_, '...')
 
 	# --- xForall --- #
 	add_x_method(this, xForall, 'colls')
-	add_x_method(this, xForall..., '...')
+	add_x_method(this, xForall_, '...')
 	add_x_method(this, x_Forall, 'colls')
-	add_x_method(this, x_Forall..., '...')
+	add_x_method(this, x_Forall_, '...')
 
 	# --- xFromChars --- #
 	add_x_method(this, xFromChars, 'strs')
-	add_x_method(this, xFromChars..., '...')
+	add_x_method(this, xFromChars_, '...')
 	add_x_method(this, x_FromChars, 'strs')
-	add_x_method(this, x_FromChars..., '...')
+	add_x_method(this, x_FromChars_, '...')
 
 	# --- xScan --- #
 	add_x_method(this, xScan, 'coll')
-	add_x_method(this, xScan..., '...')
+	add_x_method(this, xScan_, '...')
 	add_x_method(this, x_Scan, 'coll')
-	add_x_method(this, x_Scan..., '...')
+	add_x_method(this, x_Scan_, '...')
 
 	# --- xFourthOf --- #
 	add_x_method(this, xFourthOf, 'coll')
-	add_x_method(this, xFourthOf..., '...')
+	add_x_method(this, xFourthOf_, '...')
 	add_x_method(this, x_FourthOf, 'coll')
-	add_x_method(this, x_FourthOf..., '...')
+	add_x_method(this, x_FourthOf_, '...')
 
 	# -------- G ------- #
 	add_x_method(this, xGroupBy, 'coll')
-	add_x_method(this, xGroupBy..., '...')
+	add_x_method(this, xGroupBy_, '...')
 	add_x_method(this, x_GroupBy, 'coll')
-	add_x_method(this, x_GroupBy..., '...')
+	add_x_method(this, x_GroupBy_, '...')
 	# -------- H ------- #
 	# -------- I ------- #
 
 	# --- xImplode --- #
 	add_x_method(this, xImplode, 'strs')
-	add_x_method(this, xImplode..., '...')
+	add_x_method(this, xImplode_, '...')
 	add_x_method(this, x_Implode, 'strs')
-	add_x_method(this, x_Implode..., '...')
+	add_x_method(this, x_Implode_, '...')
 
 	# --- xIsMember --- #
 	add_x_method(this, xIsMember, 'coll')
-	add_x_method(this, xIsMember..., '...')
+	add_x_method(this, xIsMember_, '...')
 	add_x_method(this, x_IsMember, 'coll')
-	add_x_method(this, x_IsMember..., '...')
+	add_x_method(this, x_IsMember_, '...')
 
 	# --- xInitOf --- #
 	add_x_method(this, xInitOf, 'coll')
-	add_x_method(this, xInitOf..., '...')
+	add_x_method(this, xInitOf_, '...')
 	add_x_method(this, x_InitOf, 'coll')
-	add_x_method(this, x_InitOf..., '...')
+	add_x_method(this, x_InitOf_, '...')
 
 	# --- xElemIsFalse --- #
 	add_x_method(this, xElemIsFalse, 'coll')
-	add_x_method(this, xElemIsFalse..., '...')
+	add_x_method(this, xElemIsFalse_, '...')
 	add_x_method(this, x_ElemIsFalse, 'coll')
-	add_x_method(this, x_ElemIsFalse..., '...')
+	add_x_method(this, x_ElemIsFalse_, '...')
 
 	# --- xElemIsTrue --- #
 	add_x_method(this, xElemIsTrue, 'coll')
-	add_x_method(this, xElemIsTrue..., '...')
+	add_x_method(this, xElemIsTrue_, '...')
 	add_x_method(this, x_ElemIsTrue, 'coll')
-	add_x_method(this, x_ElemIsTrue..., '...')
+	add_x_method(this, x_ElemIsTrue_, '...')
 
 	# --- xElemIsNan --- #
 	add_x_method(this, xElemIsNan, 'coll')
-	add_x_method(this, xElemIsNan..., '...')
+	add_x_method(this, xElemIsNan_, '...')
 	add_x_method(this, x_ElemIsNan, 'coll')
-	add_x_method(this, x_ElemIsNan..., '...')
+	add_x_method(this, x_ElemIsNan_, '...')
 
 	# --- xElemIsNa --- #
 	add_x_method(this, xElemIsNa, 'coll')
-	add_x_method(this, xElemIsNa..., '...')
+	add_x_method(this, xElemIsNa_, '...')
 	add_x_method(this, x_ElemIsNa, 'coll')
-	add_x_method(this, x_ElemIsNa..., '...')
+	add_x_method(this, x_ElemIsNa_, '...')
 
 	# --- xElemIsNull --- #
 	add_x_method(this, xElemIsNull, 'coll')
-	add_x_method(this, xElemIsNull..., '...')
+	add_x_method(this, xElemIsNull_, '...')
 	add_x_method(this, x_ElemIsNull, 'coll')
-	add_x_method(this, x_ElemIsNull..., '...')
+	add_x_method(this, x_ElemIsNull_, '...')
 
 	# --- xIterate --- #
 	add_x_method(this, xIterate, 'val')
@@ -1092,22 +1092,22 @@ x_coll_proto <- local({
 
 	# --- xInter --- #
 	add_x_method(this, xInter, 'colls')
-	add_x_method(this, xInter..., '...')
+	add_x_method(this, xInter_, '...')
 	add_x_method(this, x_Inter, 'colls')
-	add_x_method(this, x_Inter..., '...')
+	add_x_method(this, x_Inter_, '...')
 
 	# --- xIsSubset --- #
 	add_x_method(this, xIsSubset, 'coll2')
-	add_x_method(this, xIsSubset..., '...')
+	add_x_method(this, xIsSubset_, '...')
 	add_x_method(this, x_IsSubset, 'coll2')
-	add_x_method(this, x_IsSubset..., '...')
+	add_x_method(this, x_IsSubset_, '...')
 
 	# -------- J ------- #
 	# --- xJoin --- #
 	add_x_method(this, xJoin, 'colls')
-	add_x_method(this, xJoin..., '...')
+	add_x_method(this, xJoin_, '...')
 	add_x_method(this, x_Join, 'colls')
-	add_x_method(this, x_Join..., '...')
+	add_x_method(this, x_Join_, '...')
 
 	# --- xJuxtapose --- #
 	add_x_method(this, xJuxtapose, 'fns')
@@ -1117,15 +1117,15 @@ x_coll_proto <- local({
 	# -------- L ------- #
 	# --- xLastOf --- #
 	add_x_method(this, xLastOf, 'coll')
-	add_x_method(this, xLastOf..., '...')
+	add_x_method(this, xLastOf_, '...')
 	add_x_method(this, x_LastOf, 'coll')
-	add_x_method(this, x_LastOf..., '...')
+	add_x_method(this, x_LastOf_, '...')
 
 	# --- xLenOf --- #
 	add_x_method(this, xLenOf, 'coll')
-	add_x_method(this, xLenOf..., '...')
+	add_x_method(this, xLenOf_, '...')
 	add_x_method(this, x_LenOf, 'coll')
-	add_x_method(this, x_LenOf..., '...')
+	add_x_method(this, x_LenOf_, '...')
 
 	# --- xLimit --- #
 	add_x_method(this, xLimit, 'num')
@@ -1138,38 +1138,38 @@ x_coll_proto <- local({
 	# --- xLocate --- #
 
 	add_x_method(this, xLocate, 'coll')
-	add_x_method(this, xLocate..., '...')
+	add_x_method(this, xLocate_, '...')
 	add_x_method(this, x_Locate, 'coll')
-	add_x_method(this, x_Locate..., '...')
+	add_x_method(this, x_Locate_, '...')
 
 	# -------- M ------- #
 	# --- xMaxBy --- #
 	add_x_method(this, xMaxBy, 'coll')
-	add_x_method(this, xMaxBy..., '...')
+	add_x_method(this, xMaxBy_, '...')
 	add_x_method(this, x_MaxBy, 'coll')
-	add_x_method(this, x_MaxBy..., '...')
+	add_x_method(this, x_MaxBy_, '...')
 	# --- xMinBy --- #
 	add_x_method(this, xMinBy, 'coll')
-	add_x_method(this, xMinBy..., '...')
+	add_x_method(this, xMinBy_, '...')
 	add_x_method(this, x_MinBy, 'coll')
-	add_x_method(this, x_MinBy..., '...')
+	add_x_method(this, x_MinBy_, '...')
 	# --- xMap --- #
 	add_x_method(this, xMap, 'coll')
-	add_x_method(this, xMap..., '...')
+	add_x_method(this, xMap_, '...')
 	add_x_method(this, x_Map, 'coll')
-	add_x_method(this, x_Map..., '...')
+	add_x_method(this, x_Map_, '...')
 
 	# --- xMapply --- #
 	add_x_method(this, xMapply, 'colls')
-	add_x_method(this, xMapply..., '...')
+	add_x_method(this, xMapply_, '...')
 	add_x_method(this, x_Mapply, 'colls')
-	add_x_method(this, x_Mapply..., '...')
+	add_x_method(this, x_Mapply_, '...')
 
 	# --- xMapIndexed --- #
 	add_x_method(this, xMapIndexed, 'coll')
-	add_x_method(this, xMapIndexed..., '...')
+	add_x_method(this, xMapIndexed_, '...')
 	add_x_method(this, x_MapIndexed, 'coll')
-	add_x_method(this, x_MapIndexed..., '...')
+	add_x_method(this, x_MapIndexed_, '...')
 
 	# -------- N ------- #
 	# --- xAddKeys --- #
@@ -1178,177 +1178,177 @@ x_coll_proto <- local({
 
 	# --- xNotMember --- #
 	add_x_method(this, xNotMember, 'coll')
-	add_x_method(this, xNotMember..., '...')
+	add_x_method(this, xNotMember_, '...')
 	add_x_method(this, x_NotMember, 'coll')
-	add_x_method(this, x_NotMember..., '...')
+	add_x_method(this, x_NotMember_, '...')
 
 	# --- xNotEmpty --- #
 	add_x_method(this, xNotEmpty, 'coll')
-	add_x_method(this, xNotEmpty..., '...')
+	add_x_method(this, xNotEmpty_, '...')
 	add_x_method(this, x_NotEmpty, 'coll')
-	add_x_method(this, x_NotEmpty..., '...')
+	add_x_method(this, x_NotEmpty_, '...')
 
 	# --- xElemNotFalse --- #
 	add_x_method(this, xElemNotFalse, 'coll')
-	add_x_method(this, xElemNotFalse..., '...')
+	add_x_method(this, xElemNotFalse_, '...')
 	add_x_method(this, x_ElemNotFalse, 'coll')
-	add_x_method(this, x_ElemNotFalse..., '...')
+	add_x_method(this, x_ElemNotFalse_, '...')
 
 	# --- xElemNotTrue --- #
 	add_x_method(this, xElemNotTrue, 'coll')
-	add_x_method(this, xElemNotTrue..., '...')
+	add_x_method(this, xElemNotTrue_, '...')
 	add_x_method(this, x_ElemNotTrue, 'coll')
-	add_x_method(this, x_ElemNotTrue..., '...')
+	add_x_method(this, x_ElemNotTrue_, '...')
 
 	# --- xElemNotNa --- #
 	add_x_method(this, xElemNotNa, 'coll')
-	add_x_method(this, xElemNotNa..., '...')
+	add_x_method(this, xElemNotNa_, '...')
 	add_x_method(this, x_ElemNotNa, 'coll')
-	add_x_method(this, x_ElemNotNa..., '...')
+	add_x_method(this, x_ElemNotNa_, '...')
 
 	# --- xElemNotNan --- #
 	add_x_method(this, xElemNotNan, 'coll')
-	add_x_method(this, xElemNotNan..., '...')
+	add_x_method(this, xElemNotNan_, '...')
 	add_x_method(this, x_ElemNotNan, 'coll')
-	add_x_method(this, x_ElemNotNan..., '...')
+	add_x_method(this, x_ElemNotNan_, '...')
 
 	# --- xElemNotNull --- #
 	add_x_method(this, xElemNotNull, 'coll')
-	add_x_method(this, xElemNotNull..., '...')
+	add_x_method(this, xElemNotNull_, '...')
 	add_x_method(this, x_ElemNotNull, 'coll')
-	add_x_method(this, x_ElemNotNull..., '...')
+	add_x_method(this, x_ElemNotNull_, '...')
 
 	# -------- O ------- #
 	# --- xOneOf --- #
 	add_x_method(this, xOneOf, 'coll')
-	add_x_method(this, xOneOf..., '...')
+	add_x_method(this, xOneOf_, '...')
 	add_x_method(this, x_OneOf, 'coll')
-	add_x_method(this, x_OneOf..., '...')
+	add_x_method(this, x_OneOf_, '...')
 
 	# --- xOrderOf --- #
 	add_x_method(this, xOrderOf, 'nums')
-	add_x_method(this, xOrderOf..., '...')
+	add_x_method(this, xOrderOf_, '...')
 	add_x_method(this, x_OrderOf, 'nums')
-	add_x_method(this, x_OrderOf..., '...')
+	add_x_method(this, x_OrderOf_, '...')
 
 	# -------- P ------- #
 	# --- xPack --- #
 	add_x_method(this, xPack, 'coll')
-	add_x_method(this, xPack..., '...')
+	add_x_method(this, xPack_, '...')
 	add_x_method(this, x_Pack, 'coll')
-	add_x_method(this, x_Pack..., '...')
+	add_x_method(this, x_Pack_, '...')
 
 	# --- xPoll --- #
 	add_x_method(this, xPoll, 'coll')
-	add_x_method(this, xPoll..., '...')
+	add_x_method(this, xPoll_, '...')
 	add_x_method(this, x_Poll, 'coll')
-	add_x_method(this, x_Poll..., '...')
+	add_x_method(this, x_Poll_, '...')
 
 	# --- xPartial --- #
 	add_x_method(this, xPartial, 'coll')
-	add_x_method(this, xPartial..., '...')
+	add_x_method(this, xPartial_, '...')
 	add_x_method(this, x_Partial, 'coll')
-	add_x_method(this, x_Partial..., '...')
+	add_x_method(this, x_Partial_, '...')
 
 	# --- xPluck --- #
 	add_x_method(this, xPluck, 'colls')
-	add_x_method(this, xPluck..., '...')
+	add_x_method(this, xPluck_, '...')
 	add_x_method(this, x_Pluck, 'colls')
-	add_x_method(this, x_Pluck..., '...')
+	add_x_method(this, x_Pluck_, '...')
 
 	# --- xPartition --- #
 	add_x_method(this, xPartition, 'coll')
-	add_x_method(this, xPartition..., '...')
+	add_x_method(this, xPartition_, '...')
 	add_x_method(this, x_Partition, 'coll')
-	add_x_method(this, x_Partition..., '...')
+	add_x_method(this, x_Partition_, '...')
 
 	# --- xReorder --- #
 	add_x_method(this, xReorder, 'colls')
-	add_x_method(this, xReorder..., '...')
+	add_x_method(this, xReorder_, '...')
 	add_x_method(this, x_Reorder, 'colls')
-	add_x_method(this, x_Reorder..., '...')
+	add_x_method(this, x_Reorder_, '...')
 
 	# --- xPowerSetOf --- #
 	add_x_method(this, xPowerSetOf, 'coll')
-	add_x_method(this, xPowerSetOf..., '...')
+	add_x_method(this, xPowerSetOf_, '...')
 	add_x_method(this, x_PowerSetOf, 'coll')
-	add_x_method(this, x_PowerSetOf..., '...')
+	add_x_method(this, x_PowerSetOf_, '...')
 
 	# -------- Q ------- #
 	# -------- R ------- #
 	# --- xRankOf --- #
 	add_x_method(this, xRankOf, 'nums')
-	add_x_method(this, xRankOf..., '...')
+	add_x_method(this, xRankOf_, '...')
 	add_x_method(this, x_RankOf, 'nums')
-	add_x_method(this, x_RankOf..., '...')
+	add_x_method(this, x_RankOf_, '...')
 
 	# --- xDeepMap --- #
 	add_x_method(this, xDeepMap, 'coll')
-	add_x_method(this, xDeepMap..., '...')
+	add_x_method(this, xDeepMap_, '...')
 	add_x_method(this, x_DeepMap, 'coll')
-	add_x_method(this, x_DeepMap..., '...')
+	add_x_method(this, x_DeepMap_, '...')
 
 	# --- xReduce --- #
 
 	add_x_method(this, xReduce, 'coll')
-	add_x_method(this, xReduce..., '...')
+	add_x_method(this, xReduce_, '...')
 	add_x_method(this, x_Reduce, 'coll')
-	add_x_method(this, x_Reduce..., '...')
+	add_x_method(this, x_Reduce_, '...')
 
 	# --- xRecycle --- #
 
 	add_x_method(this, xRecycle, 'colls')
-	add_x_method(this, xRecycle..., '...')
+	add_x_method(this, xRecycle_, '...')
 	add_x_method(this, x_Recycle, 'colls')
-	add_x_method(this, x_Recycle..., '...')
+	add_x_method(this, x_Recycle_, '...')
 
 	# --- xRepeat --- #
 	add_x_method(this, xRepeat, 'coll')
-	add_x_method(this, xRepeat..., '...')
+	add_x_method(this, xRepeat_, '...')
 	add_x_method(this, x_Repeat, 'coll')
-	add_x_method(this, x_Repeat..., '...')
+	add_x_method(this, x_Repeat_, '...')
 
 	# --- xReject --- #
 	add_x_method(this, xReject, 'coll')
-	add_x_method(this, xReject..., '...')
+	add_x_method(this, xReject_, '...')
 	add_x_method(this, x_Reject, 'coll')
-	add_x_method(this, x_Reject..., '...')
+	add_x_method(this, x_Reject_, '...')
 
 	# --- xRestOf --- #
 	add_x_method(this, xRestOf, 'coll')
-	add_x_method(this, xRestOf..., '...')
+	add_x_method(this, xRestOf_, '...')
 	add_x_method(this, x_RestOf, 'coll')
-	add_x_method(this, x_RestOf..., '...')
+	add_x_method(this, x_RestOf_, '...')
 
 	# --- xReverse --- #
 	add_x_method(this, xReverse, 'coll')
-	add_x_method(this, xReverse..., '...')
+	add_x_method(this, xReverse_, '...')
 	add_x_method(this, x_Reverse, 'coll')
-	add_x_method(this, x_Reverse..., '...')
+	add_x_method(this, x_Reverse_, '...')
 
 	# --- xRejectNa --- #
 	add_x_method(this, xRejectNa, 'coll')
-	add_x_method(this, xRejectNa..., '...')
+	add_x_method(this, xRejectNa_, '...')
 	add_x_method(this, x_RejectNa, 'coll')
-	add_x_method(this, x_RejectNa..., '...')
+	add_x_method(this, x_RejectNa_, '...')
 
 	# --- xRejectNan --- #
 	add_x_method(this, xRejectNan, 'coll')
-	add_x_method(this, xRejectNan..., '...')
+	add_x_method(this, xRejectNan_, '...')
 	add_x_method(this, x_RejectNan, 'coll')
-	add_x_method(this, x_RejectNan..., '...')
+	add_x_method(this, x_RejectNan_, '...')
 
 	# --- xRejectNull --- #
 	add_x_method(this, xRejectNull, 'coll')
-	add_x_method(this, xRejectNull..., '...')
+	add_x_method(this, xRejectNull_, '...')
 	add_x_method(this, x_RejectNull, 'coll')
-	add_x_method(this, x_RejectNull..., '...')
+	add_x_method(this, x_RejectNull_, '...')
 
 	# --- xRejectEmpty --- #
 	add_x_method(this, xRejectEmpty, 'coll')
-	add_x_method(this, xRejectEmpty..., '...')
+	add_x_method(this, xRejectEmpty_, '...')
 	add_x_method(this, x_RejectEmpty, 'coll')
-	add_x_method(this, x_RejectEmpty..., '...')
+	add_x_method(this, x_RejectEmpty_, '...')
 
 	# --- xReadLines --- #
 	add_x_method(this, xReadLines, 'str')
@@ -1365,45 +1365,45 @@ x_coll_proto <- local({
 	# -------- S ------- #
 	# --- xSecondOf --- #
 	add_x_method(this, xSecondOf, 'coll')
-	add_x_method(this, xSecondOf..., '...')
+	add_x_method(this, xSecondOf_, '...')
 	add_x_method(this, x_SecondOf, 'coll')
-	add_x_method(this, x_SecondOf..., '...')
+	add_x_method(this, x_SecondOf_, '...')
 
 	# --- xProdSetOf --- #
 	add_x_method(this, xProdSetOf, 'colls')
-	add_x_method(this, xProdSetOf..., '...')
+	add_x_method(this, xProdSetOf_, '...')
 	add_x_method(this, x_ProdSetOf, 'colls')
-	add_x_method(this, x_ProdSetOf..., '...')
+	add_x_method(this, x_ProdSetOf_, '...')
 
 	# --- xChunk --- #
 	add_x_method(this, xChunk, 'coll')
-	add_x_method(this, xChunk..., '...')
+	add_x_method(this, xChunk_, '...')
 	add_x_method(this, x_Chunk, 'coll')
-	add_x_method(this, x_Chunk..., '...')
+	add_x_method(this, x_Chunk_, '...')
 
 	# --- xSelect --- #
 	add_x_method(this, xSelect, 'coll')
-	add_x_method(this, xSelect..., '...')
+	add_x_method(this, xSelect_, '...')
 	add_x_method(this, x_Select, 'coll')
-	add_x_method(this, x_Select..., '...')
+	add_x_method(this, x_Select_, '...')
 
 	# --- xSplitAt--- #
 	add_x_method(this, xSplitAt, 'coll')
-	add_x_method(this, xSplitAt..., '...')
+	add_x_method(this, xSplitAt_, '...')
 	add_x_method(this, x_SplitAt, 'coll')
-	add_x_method(this, x_SplitAt..., '...')
+	add_x_method(this, x_SplitAt_, '...')
 
 	# --- xShuffle --- #
 	add_x_method(this, xShuffle, 'coll')
-	add_x_method(this, xShuffle..., '...')
+	add_x_method(this, xShuffle_, '...')
 	add_x_method(this, x_Shuffle, 'coll')
-	add_x_method(this, x_Shuffle..., '...')
+	add_x_method(this, x_Shuffle_, '...')
 
 	# --- xSplitWith --- #
 	add_x_method(this, xSplitWith, 'coll')
-	add_x_method(this, xSplitWith..., '...')
+	add_x_method(this, xSplitWith_, '...')
 	add_x_method(this, x_SplitWith, 'coll')
-	add_x_method(this, x_SplitWith..., '...')
+	add_x_method(this, x_SplitWith_, '...')
 
 	# --- xStopwatch --- #
 	add_x_method(this, xStopwatch, 'num')
@@ -1415,29 +1415,29 @@ x_coll_proto <- local({
 
 	# --- xSortBy --- #
 	add_x_method(this, xSortBy, 'coll')
-	add_x_method(this, xSortBy..., '...')
+	add_x_method(this, xSortBy_, '...')
 	add_x_method(this, x_SortBy, 'coll')
-	add_x_method(this, x_SortBy..., '...')
+	add_x_method(this, x_SortBy_, '...')
 
 	# -------- T ------- #
 	# --- xTabulate --- #
 	add_x_method(this, xTabulate, 'coll')
-	add_x_method(this, xTabulate..., '...')
+	add_x_method(this, xTabulate_, '...')
 	add_x_method(this, x_Tabulate, 'coll')
-	add_x_method(this, x_Tabulate..., '...')
+	add_x_method(this, x_Tabulate_, '...')
 
 
 	# --- xTake --- #
 	add_x_method(this, xTake, 'coll')
-	add_x_method(this, xTake..., '...')
+	add_x_method(this, xTake_, '...')
 	add_x_method(this, x_Take, 'coll')
-	add_x_method(this, x_Take..., '...')
+	add_x_method(this, x_Take_, '...')
 
 	# --- xTakeWhile --- #
 	add_x_method(this, xTakeWhile, 'coll')
-	add_x_method(this, xTakeWhile..., '...')
+	add_x_method(this, xTakeWhile_, '...')
 	add_x_method(this, x_TakeWhile, 'coll')
-	add_x_method(this, x_TakeWhile..., '...')
+	add_x_method(this, x_TakeWhile_, '...')
 
 	# --- xToChars --- #
 	add_x_method(this, xToChars, 'str')
@@ -1449,16 +1449,16 @@ x_coll_proto <- local({
 
 	# --- xThirdOf --- #
 	add_x_method(this, xThirdOf, 'coll')
-	add_x_method(this, xThirdOf..., '...')
+	add_x_method(this, xThirdOf_, '...')
 	add_x_method(this, x_ThirdOf, 'coll')
-	add_x_method(this, x_ThirdOf..., '...')
+	add_x_method(this, x_ThirdOf_, '...')
 
 	# -------- U ------- #
 	# --- xUnion --- #
 	add_x_method(this, xUnionOf, 'colls')
-	add_x_method(this, xUnionOf..., '...')
+	add_x_method(this, xUnionOf_, '...')
 	add_x_method(this, x_UnionOf, 'colls')
-	add_x_method(this, x_UnionOf..., '...')
+	add_x_method(this, x_UnionOf_, '...')
 
 	# --- xUnit --- #
 	add_x_method(this, xUnit, 'coll')
@@ -1466,29 +1466,29 @@ x_coll_proto <- local({
 
 	# --- xUniqueOf --- #
 	add_x_method(this, xUniqueOf, 'coll')
-	add_x_method(this, xUniqueOf..., '...')
+	add_x_method(this, xUniqueOf_, '...')
 	add_x_method(this, x_UniqueOf, 'coll')
-	add_x_method(this, x_UniqueOf..., '...')
+	add_x_method(this, x_UniqueOf_, '...')
 
 	# --- xFromLines --- #
 	add_x_method(this, xFromLines, 'strs')
-	add_x_method(this, xFromLines..., '...')
+	add_x_method(this, xFromLines_, '...')
 	add_x_method(this, x_FromLines, 'strs')
-	add_x_method(this, x_FromLines..., '...')
+	add_x_method(this, x_FromLines_, '...')
 
 	# --- xFromWords --- #
 	add_x_method(this, xFromWords, 'strs')
-	add_x_method(this, xFromWords..., '...')
+	add_x_method(this, xFromWords_, '...')
 	add_x_method(this, x_FromWords, 'strs')
-	add_x_method(this, x_FromWords..., '...')
+	add_x_method(this, x_FromWords_, '...')
 
  	# -------- V ------- #
 	# -------- W ------- #
 	# --- xWhere --- #
 	add_x_method(this, xWhere, 'bools')
-	add_x_method(this, xWhere..., '...')
+	add_x_method(this, xWhere_, '...')
 	add_x_method(this, x_Where, 'bools')
-	add_x_method(this, x_Where..., '...')
+	add_x_method(this, x_Where_, '...')
 
 	# --- xWriteChars --- #
 	add_x_method(this, xWriteChars, 'strs')
@@ -1511,9 +1511,9 @@ x_coll_proto <- local({
 	# -------- Z ------- #
 	# --- xZip --- #
 	add_x_method(this, xZip, 'colls')
-	add_x_method(this, xZip..., '...')
+	add_x_method(this, xZip_, '...')
 	add_x_method(this, x_Zip, 'colls')
-	add_x_method(this, x_Zip..., '...')
+	add_x_method(this, x_Zip_, '...')
 
 	local({
 
@@ -1582,14 +1582,14 @@ x_fn_proto <- local({
 	# --- xAny --- #
 	add_x_method(this, xAny, 'pred')
 	add_x_method(this, x_Any, 'pred')
-	add_x_method(this, xAny..., 'pred')
-	add_x_method(this, x_Any..., 'pred')
+	add_x_method(this, xAny_, 'pred')
+	add_x_method(this, x_Any_, 'pred')
 
 	# --- xAll --- #
 	add_x_method(this, xAll, 'pred')
 	add_x_method(this, x_All, 'pred')
-	add_x_method(this, xAll..., 'pred')
-	add_x_method(this, x_All..., 'pred')
+	add_x_method(this, xAll_, 'pred')
+	add_x_method(this, x_All_, 'pred')
 
 	# --- xAsClosure --- #
 	add_x_method(this, xAsClosure, 'fn')
@@ -1605,9 +1605,9 @@ x_fn_proto <- local({
 
 	# --- xApply --- #
 	add_x_method(this, xApply, 'fn')
-	add_x_method(this, xApply..., 'fn')
+	add_x_method(this, xApply_, 'fn')
 	add_x_method(this, x_Apply, 'fn')
-	add_x_method(this, x_Apply..., 'fn')
+	add_x_method(this, x_Apply_, 'fn')
 
 	# --- xArityOf --- #
 	add_x_method(this, xArityOf, 'fn')
@@ -1615,61 +1615,61 @@ x_fn_proto <- local({
 
 	# -------- B ------- #
 	# -------- C ------- #
-	add_x_method(this, xCompose..., '...')
-	add_x_method(this, x_Compose..., '...')
+	add_x_method(this, xCompose_, '...')
+	add_x_method(this, x_Compose_, '...')
 	# -------- D ------- #
 	add_x_method(this, xDropWhile, 'pred')
-	add_x_method(this, xDropWhile..., 'pred')
+	add_x_method(this, xDropWhile_, 'pred')
 	add_x_method(this, x_DropWhile, 'pred')
-	add_x_method(this, x_DropWhile..., 'pred')
+	add_x_method(this, x_DropWhile_, 'pred')
 
 	add_x_method(this, xDo, 'fn')
 	add_x_method(this, x_Do, 'fn')
-	add_x_method(this, xDo..., 'fn')
-	add_x_method(this, x_Do..., 'fn')
+	add_x_method(this, xDo_, 'fn')
+	add_x_method(this, x_Do_, 'fn')
 
 	# -------- E ------- #
 	add_x_method(this, xExists, 'pred')
-	add_x_method(this, xExists..., 'pred')
+	add_x_method(this, xExists_, 'pred')
 
 	add_x_method(this, x_Exists, 'pred')
-	add_x_method(this, x_Exists..., 'pred')
+	add_x_method(this, x_Exists_, 'pred')
 	# -------- F ------- #
 
 	# --- xFlatMap --- #
 	add_x_method(this, xFlatMap, 'fn')
-	add_x_method(this, xFlatMap..., 'fn')
+	add_x_method(this, xFlatMap_, 'fn')
 	add_x_method(this, x_FlatMap, 'fn')
-	add_x_method(this, x_FlatMap..., 'fn')
+	add_x_method(this, x_FlatMap_, 'fn')
 
 	# --- xForall --- #
 	add_x_method(this, xForall, 'pred')
-	add_x_method(this, xForall..., 'pred')
+	add_x_method(this, xForall_, 'pred')
 	add_x_method(this, x_Forall, 'pred')
-	add_x_method(this, x_Forall..., 'pred')
+	add_x_method(this, x_Forall_, 'pred')
 
 	# --- xFold --- #
 	add_x_method(this, xFold, 'fn')
-	add_x_method(this, xFold..., 'fn')
+	add_x_method(this, xFold_, 'fn')
 	add_x_method(this, x_Fold, 'fn')
-	add_x_method(this, x_Fold..., 'fn')
+	add_x_method(this, x_Fold_, 'fn')
 
 	# --- xFold --- #
 	add_x_method(this, xFold, 'fn')
-	add_x_method(this, xFold..., 'fn')
+	add_x_method(this, xFold_, 'fn')
 	add_x_method(this, x_Fold, 'fn')
-	add_x_method(this, x_Fold..., 'fn')
+	add_x_method(this, x_Fold_, 'fn')
 
 	# --- xScan --- #
 	add_x_method(this, xScan, 'fn')
-	add_x_method(this, xScan..., 'fn')
+	add_x_method(this, xScan_, 'fn')
 	add_x_method(this, x_Scan, 'fn')
-	add_x_method(this, x_Scan..., 'fn')
+	add_x_method(this, x_Scan_, 'fn')
 
 	add_x_method(this, xScan, 'fn')
-	add_x_method(this, xScan..., 'fn')
+	add_x_method(this, xScan_, 'fn')
 	add_x_method(this, x_Scan, 'fn')
-	add_x_method(this, x_Scan..., 'fn')
+	add_x_method(this, x_Scan_, 'fn')
 
 	# --- xFormalsOf --- #
 	add_x_method(this, xFormalsOf, 'fn')
@@ -1678,9 +1678,9 @@ x_fn_proto <- local({
 	# -------- G ------- #
 	# -------- G ------- #
 	add_x_method(this, xGroupBy, 'fn')
-	add_x_method(this, xGroupBy..., 'fn')
+	add_x_method(this, xGroupBy_, 'fn')
 	add_x_method(this, x_GroupBy, 'fn')
-	add_x_method(this, x_GroupBy..., 'fn')
+	add_x_method(this, x_GroupBy_, 'fn')
 	# -------- H ------- #
 	# -------- I ------- #
 	# --- xIsVariadic --- #
@@ -1693,8 +1693,8 @@ x_fn_proto <- local({
 
 	# -------- J ------- #
 	# --- xJuxtapose --- #
-	add_x_method(this, xJuxtapose..., '...')
-	add_x_method(this, x_Juxtapose..., '...')
+	add_x_method(this, xJuxtapose_, '...')
+	add_x_method(this, x_Juxtapose_, '...')
 
 	# -------- K ------- #
 
@@ -1705,44 +1705,44 @@ x_fn_proto <- local({
 
 	# --- xLift --- #
 	add_x_method(this, xLift, 'fn')
-	add_x_method(this, xLift..., '...')
+	add_x_method(this, xLift_, '...')
 	add_x_method(this, x_Lift, 'fn')
-	add_x_method(this, x_Lift..., '...')
+	add_x_method(this, x_Lift_, '...')
 
 	# --- xLocate --- #
 	add_x_method(this, xLocate, 'pred')
-	add_x_method(this, xLocate..., 'pred')
+	add_x_method(this, xLocate_, 'pred')
 	add_x_method(this, x_Locate, 'pred')
-	add_x_method(this, x_Locate..., 'pred')
+	add_x_method(this, x_Locate_, 'pred')
 
 	# -------- M ------- #
 	# --- xMaxBy --- #
 	add_x_method(this, xMaxBy, 'fn')
-	add_x_method(this, xMaxBy..., 'fn')
+	add_x_method(this, xMaxBy_, 'fn')
 	add_x_method(this, x_MaxBy, 'fn')
-	add_x_method(this, x_MaxBy..., 'fn')
+	add_x_method(this, x_MaxBy_, 'fn')
 	# --- xMinBy --- #
 	add_x_method(this, xMinBy, 'fn')
-	add_x_method(this, xMinBy..., 'fn')
+	add_x_method(this, xMinBy_, 'fn')
 	add_x_method(this, x_MinBy, 'fn')
-	add_x_method(this, x_MinBy..., 'fn')
+	add_x_method(this, x_MinBy_, 'fn')
 	# --- xMap --- #
 	add_x_method(this, xMap, 'fn')
-	add_x_method(this, xMap..., 'fn')
+	add_x_method(this, xMap_, 'fn')
 	add_x_method(this, x_Map, 'fn')
-	add_x_method(this, x_Map..., 'fn')
+	add_x_method(this, x_Map_, 'fn')
 
 	# --- xMapply --- #
 	add_x_method(this, xMapply, 'fn')
-	add_x_method(this, xMapply..., 'fn')
+	add_x_method(this, xMapply_, 'fn')
 	add_x_method(this, x_Mapply, 'fn')
-	add_x_method(this, x_Mapply..., 'fn')
+	add_x_method(this, x_Mapply_, 'fn')
 
 	# --- xMapIndexed --- #
 	add_x_method(this, xMapIndexed, 'fn')
-	add_x_method(this, xMapIndexed..., 'fn')
+	add_x_method(this, xMapIndexed_, 'fn')
 	add_x_method(this, x_MapIndexed, 'fn')
-	add_x_method(this, x_MapIndexed..., 'fn')
+	add_x_method(this, x_MapIndexed_, 'fn')
 
 	# -------- N ------- #
 	add_x_method(this, xNot, 'pred')
@@ -1752,9 +1752,9 @@ x_fn_proto <- local({
 	# -------- P ------- #
 	# --- xPartition --- #
 	add_x_method(this, xPartition, 'pred')
-	add_x_method(this, xPartition..., 'pred')
+	add_x_method(this, xPartition_, 'pred')
 	add_x_method(this, x_Partition, 'pred')
-	add_x_method(this, x_Partition..., 'pred')
+	add_x_method(this, x_Partition_, 'pred')
 
 	# --- xParamsOf --- #
 	add_x_method(this, xParamsOf, 'fn')
@@ -1762,62 +1762,62 @@ x_fn_proto <- local({
 
 	# --- xPartial --- #
 	add_x_method(this, xPartial, 'fn')
-	add_x_method(this, xPartial..., 'fn')
+	add_x_method(this, xPartial_, 'fn')
 	add_x_method(this, x_Partial, 'fn')
-	add_x_method(this, x_Partial..., 'fn')
+	add_x_method(this, x_Partial_, 'fn')
 
 	# --- xPoll --- #
 	add_x_method(this, xPoll, 'pred')
-	add_x_method(this, xPoll..., 'pred')
+	add_x_method(this, xPoll_, 'pred')
 	add_x_method(this, x_Poll, 'pred')
-	add_x_method(this, x_Poll..., 'pred')
+	add_x_method(this, x_Poll_, 'pred')
 
 	# -------- Q ------- #
 	# -------- R ------- #
 	# --- xDeepMap --- #
 	add_x_method(this, xDeepMap, 'fn')
-	add_x_method(this, xDeepMap..., 'fn')
+	add_x_method(this, xDeepMap_, 'fn')
 	add_x_method(this, x_DeepMap, 'fn')
-	add_x_method(this, x_DeepMap..., 'fn')
+	add_x_method(this, x_DeepMap_, 'fn')
 
 	# --- xReduce --- #
 
 	add_x_method(this, xReduce, 'fn')
-	add_x_method(this, xReduce..., 'fn')
+	add_x_method(this, xReduce_, 'fn')
 	add_x_method(this, x_Reduce, 'fn')
-	add_x_method(this, x_Reduce..., 'fn')
+	add_x_method(this, x_Reduce_, 'fn')
 
 	# --- xReject --- #
 	add_x_method(this, xReject, 'pred')
-	add_x_method(this, xReject..., 'pred')
+	add_x_method(this, xReject_, 'pred')
 	add_x_method(this, x_Reject, 'pred')
-	add_x_method(this, x_Reject..., 'pred')
+	add_x_method(this, x_Reject_, 'pred')
 
 	# -------- S ------- #
 	# --- xSelect --- #
 	add_x_method(this, xSelect, 'pred')
-	add_x_method(this, xSelect..., 'pred')
+	add_x_method(this, xSelect_, 'pred')
 	add_x_method(this, x_Select, 'pred')
-	add_x_method(this, x_Select..., 'pred')
+	add_x_method(this, x_Select_, 'pred')
 
 	# --- xSortBy --- #
 	add_x_method(this, xSortBy, 'fn')
-	add_x_method(this, xSortBy..., '...')
+	add_x_method(this, xSortBy_, '...')
 	add_x_method(this, x_SortBy, 'fn')
-	add_x_method(this, x_SortBy..., '...')
+	add_x_method(this, x_SortBy_, '...')
 
 	# --- xSplitWith --- #
 	add_x_method(this, xSplitWith, 'pred')
-	add_x_method(this, xSplitWith..., 'pred')
+	add_x_method(this, xSplitWith_, 'pred')
 	add_x_method(this, x_SplitWith, 'pred')
-	add_x_method(this, x_SplitWith..., 'pred')
+	add_x_method(this, x_SplitWith_, 'pred')
 
 	# -------- T ------- #
 	# --- xTakeWhile --- #
 	add_x_method(this, xTakeWhile, 'pred')
-	add_x_method(this, xTakeWhile..., 'pred')
+	add_x_method(this, xTakeWhile_, 'pred')
 	add_x_method(this, x_TakeWhile, 'pred')
-	add_x_method(this, x_TakeWhile..., 'pred')
+	add_x_method(this, x_TakeWhile_, 'pred')
 
 	# --- xT --- #
 

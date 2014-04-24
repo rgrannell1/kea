@@ -55,6 +55,6 @@ xMinBy <- MakeFun(function (fn, coll) {
 #' @rdname xMinBy
 #' @export
 
-xMinBy... <- function (fn, ...) {
+xMinBy_ <- function (fn, ...) {
 	xMinBy(fn, list(...))
 }

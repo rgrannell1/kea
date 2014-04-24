@@ -61,6 +61,6 @@ xMapIndexed <- MakeFun(function (fn, coll) {
 #' @rdname xMapIndexed
 #' @export
 
-xMapIndexed... <- function (fn, ...) {
+xMapIndexed_ <- function (fn, ...) {
 	xMapIndexed(fn, list(...))
 }

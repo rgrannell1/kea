@@ -80,6 +80,6 @@ xTabulate <- MakeFun(function (coll) {
 #' @rdname xTabulate
 #' @export
 
-xTabulate... <- function (...) {
+xTabulate_ <- function (...) {
 	xTabulate(list(...))
 }

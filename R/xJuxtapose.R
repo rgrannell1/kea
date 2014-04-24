@@ -12,7 +12,7 @@
 #'
 #'    A function to summarise a data set can be implemented with \bold{xJuxtapose}:
 #'
-#'    \code{summarise <- xJuxtapose...(min, median, max)}
+#'    \code{summarise <- xJuxtapose_(min, median, max)}
 #'
 #'    \code{summarise(c(3, 1, 2, 4))}
 #'
@@ -74,6 +74,6 @@ xJuxtapose <- MakeFun(function (fns) {
 #' @rdname xJuxtapose
 #' @export
 
-xJuxtapose... <- function (...) {
+xJuxtapose_ <- function (...) {
 	xJuxtapose(list(...))
 }

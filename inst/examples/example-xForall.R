@@ -13,7 +13,7 @@ left_to_right <-
 
 right_to_left <- x_(left_to_right) $ x_Reverse()
 
-xForall...(
+xForall_(
 	ith := {
 		xAsCharacter(left_to_right[ith]) ==
 		xAsCharacter(right_to_left[ith])

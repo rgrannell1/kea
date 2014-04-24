@@ -70,6 +70,6 @@ xOrderOf <- MakeFun(function (nums) {
 #' @rdname xOrderOf
 #' @export
 
-xOrderOf... <- function (...) {
+xOrderOf_ <- function (...) {
 	xOrderOf(list(...))
 }

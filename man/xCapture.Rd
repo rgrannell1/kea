@@ -38,14 +38,14 @@ Other basic_functions: \code{\link{xFalsity}};
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift...}}; \code{\link{\%of\%}},
+  \code{\link{xLift_}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xAsClosure}};
+  \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}; \code{\link{xNot}};
-  \code{\link{xPartial}}, \code{\link{xPartial...}};
+  \code{\link{xJuxtapose_}}; \code{\link{xNot}};
+  \code{\link{xPartial}}, \code{\link{xPartial_}};
   \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread...}}; \code{\link{xUnspread}};
+  \code{\link{xThread_}}; \code{\link{xUnspread}};
   \code{\link{xVectorise}}, \code{\link{xVectorize}}
 }
 

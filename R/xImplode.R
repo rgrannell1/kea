@@ -57,6 +57,6 @@ xImplode <- MakeFun(function (str, strs) {
 #' @rdname xImplode
 #' @export
 
-xImplode... <- function (str, ...) {
+xImplode_ <- function (str, ...) {
 	xImplode(str, list(...))
 }

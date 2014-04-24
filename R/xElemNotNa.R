@@ -46,6 +46,6 @@ xElemNotNa <- MakeFun(function (coll) {
 #' @rdname xElemNotNa
 #' @export
 
-xElemNotNa... <- function (...) {
+xElemNotNa_ <- function (...) {
 	xElemNotNa(list(...))
 }

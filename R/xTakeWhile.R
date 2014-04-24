@@ -69,6 +69,6 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 #' @rdname xTakeWhile
 #' @export
 
-xTakeWhile... <- function (pred, ...) {
+xTakeWhile_ <- function (pred, ...) {
 	xTakeWhile(pred, list(...))
 }

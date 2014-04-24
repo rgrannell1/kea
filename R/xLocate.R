@@ -53,6 +53,6 @@ xLocate <- MakeFun(function (pred, coll) {
 #' @rdname xLocate
 #' @export
 
-xLocate... <- function (pred, ...) {
+xLocate_ <- function (pred, ...) {
 	xLocate(pred, list(...))
 }

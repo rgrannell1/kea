@@ -39,19 +39,19 @@ NULL
 \seealso{
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift...}}; \code{\link{\%of\%}},
+  \code{\link{xLift_}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xAsClosure}};
+  \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xCapture}}, \code{\link{xK}};
-  \code{\link{xJuxtapose}}, \code{\link{xJuxtapose...}};
+  \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
   \code{\link{xNot}}; \code{\link{xPartial}},
-  \code{\link{xPartial...}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread...}};
+  \code{\link{xPartial_}}; \code{\link{xSpread}};
+  \code{\link{xThread}}, \code{\link{xThread_}};
   \code{\link{xUnspread}}; \code{\link{xVectorise}},
   \code{\link{xVectorize}}
 
 Other inpure_functions: \code{\link{xDo}},
-  \code{\link{xDo...}}; \code{\link{xExecute}};
+  \code{\link{xDo_}}; \code{\link{xExecute}};
   \code{\link{xReadChars}}; \code{\link{xReadLines}};
   \code{\link{xReadWords}}; \code{\link{xStopwatch}};
   \code{\link{xVersion}}; \code{\link{xWriteChars}};

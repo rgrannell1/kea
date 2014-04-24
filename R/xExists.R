@@ -11,7 +11,7 @@
 #'
 #'     \code{coll <- c(True, False, True, True)}
 #'
-#'     \code{xExists...(xIdentity, coll)}
+#'     \code{xExists_(xIdentity, coll)}
 #'
 #'     When supplied with a collection of multiple collections the
 #'     set product of those collections is checked with the predicate.
@@ -20,7 +20,7 @@
 #'
 #'     \code{commutes <- (a : b) := { a + b == b + a }}
 #'
-#'     \code{xExists...(commutes, 1:2, 1:2)}
+#'     \code{xExists_(commutes, 1:2, 1:2)}
 #'
 #'     The set product is
 #'
@@ -116,6 +116,6 @@ xExists <- MakeFun(function (pred, colls) {
 #' @rdname xExists
 #' @export
 
-xExists... <- function (pred, ...) {
+xExists_ <- function (pred, ...) {
 	xExists(pred, list(...))
 }

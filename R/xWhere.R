@@ -49,6 +49,6 @@ xWhere <- MakeFun(function (bools) {
 #' @rdname xWhere
 #' @export
 
-xWhere... <- function (...) {
+xWhere_ <- function (...) {
 	xWhere(list(...))
 }

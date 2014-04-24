@@ -67,6 +67,6 @@ xDropWhile <- MakeFun(function (pred, coll) {
 #' @rdname xDropWhile
 #' @export
 
-xDropWhile... <- function (pred, ...) {
+xDropWhile_ <- function (pred, ...) {
 	xDropWhile(pred, list(...))
 }

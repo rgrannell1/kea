@@ -15,7 +15,7 @@ points <- list(
 )
 
 # get the set product to generate all pairs of points.
-x_( xProdSetOf...(points, points) ) $
+x_( xProdSetOf_(points, points) ) $
 # remove the pairs wich contain the same point twice.
 xReject(xUnspread(identical)) $
 xMapply(

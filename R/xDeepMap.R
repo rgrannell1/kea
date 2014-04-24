@@ -64,6 +64,6 @@ xDeepMap <- MakeFun(function (fn, coll) {
 #' @rdname xDeepMap
 #' @export
 
-xDeepMap... <- function (fn, ...) {
+xDeepMap_ <- function (fn, ...) {
 	xDeepMap(fn, list(...))
 }

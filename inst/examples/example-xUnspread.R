@@ -2,7 +2,7 @@
 # 1. xUnspread can be used to adapt higher-order
 #    functions to make them work with non-unary functions.
 
-xSelect...(
+xSelect_(
     xUnspread(
         (a : b) := {
             a > 0 && b >= 0

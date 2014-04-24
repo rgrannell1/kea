@@ -44,6 +44,6 @@ xRestOf <- MakeFun(function (coll) {
 #' @rdname xRestOf
 #' @export
 
-xRestOf... <- function (...) {
+xRestOf_ <- function (...) {
 	xRestOf(list(...))
 }

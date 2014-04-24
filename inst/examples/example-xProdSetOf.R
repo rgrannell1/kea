@@ -6,10 +6,10 @@ xMapply(
     (ith : jth) := {
         ith^2 + jth^2
     },
-    xProdSetOf...(1:4, 1:4)
+    xProdSetOf_(1:4, 1:4)
 )
 
-# is roughly the same as base R's...
+# is roughly the same as base R's_
 
 res <- list()
 
@@ -24,4 +24,4 @@ res
 # 2. Compute the standard childhood multiplication
 #    table.
 
-xProdSetOf...(1:12, 1:12)
+xProdSetOf_(1:12, 1:12)

@@ -31,7 +31,7 @@ preset time after creation.
 # be used to allow the function to run for an acceptable amount of time before
 # ending.
 
-make_point <- xPartial...(runif, 2)
+make_point <- xPartial_(runif, 2)
 
 in_unit_circle <- (point) := {
 	# is a point within the unit circle?
@@ -58,7 +58,7 @@ x_Tap(unlist \%then\% mean) * 4
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xDo}}, \code{\link{xDo...}};
+  \code{\link{xDo}}, \code{\link{xDo_}};
   \code{\link{xExecute}}; \code{\link{xReadChars}};
   \code{\link{xReadLines}}; \code{\link{xReadWords}};
   \code{\link{xVersion}}; \code{\link{xWriteChars}};

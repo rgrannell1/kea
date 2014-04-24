@@ -62,6 +62,6 @@ xPowerSetOf <- MakeFun(function (coll) {
 #' @rdname xPowerSetOf
 #' @export
 
-xPowerSetOf... <- function (...) {
+xPowerSetOf_ <- function (...) {
 	xPowerSetOf(list(...))
 }

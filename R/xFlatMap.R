@@ -72,6 +72,6 @@ xFlatMap <- MakeFun(function (fn, coll) {
 #' @rdname xFlatMap
 #' @export
 
-xFlatMap... <- function (fn, ...) {
+xFlatMap_ <- function (fn, ...) {
 	xFlatMap(fn, list(...))
 }

@@ -78,6 +78,6 @@ xAsDataFrame <- MakeFun(function (colls) {
 #' @rdname xAsDataFrame
 #' @export
 
-xAsDataFrame... <- function (...) {
+xAsDataFrame_ <- function (...) {
 	xAsDataFrame(list(...))
 }

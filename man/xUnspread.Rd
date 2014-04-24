@@ -31,7 +31,7 @@ Convert any function to a unary function.
 # 1. xUnspread can be used to adapt higher-order
 #    functions to make them work with non-unary functions.
 
-xSelect...(
+xSelect_(
     xUnspread(
         (a : b) := {
             a > 0 && b >= 0
@@ -47,31 +47,31 @@ xSelect...(
 }
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
-  \code{\link{xApply...}}; \code{\link{xDeepMap}},
-  \code{\link{xDeepMap...}}; \code{\link{xFlatMap}},
-  \code{\link{xFlatMap...}}; \code{\link{xMapIndexed}},
-  \code{\link{xMapIndexed...}}; \code{\link{xMapply}},
-  \code{\link{xMapply...}}; \code{\link{xMap}},
-  \code{\link{xMap...}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread...}};
+  \code{\link{xApply_}}; \code{\link{xDeepMap}},
+  \code{\link{xDeepMap_}}; \code{\link{xFlatMap}},
+  \code{\link{xFlatMap_}}; \code{\link{xMapIndexed}},
+  \code{\link{xMapIndexed_}}; \code{\link{xMapply}},
+  \code{\link{xMapply_}}; \code{\link{xMap}},
+  \code{\link{xMap_}}; \code{\link{xSpread}};
+  \code{\link{xThread}}, \code{\link{xThread_}};
   \code{\link{xVectorise}}, \code{\link{xVectorize}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift...}}; \code{\link{\%of\%}},
+  \code{\link{xLift_}}; \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose...}}; \code{\link{xAsClosure}};
+  \code{\link{xCompose_}}; \code{\link{xAsClosure}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xDelay}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose...}}; \code{\link{xNot}};
-  \code{\link{xPartial}}, \code{\link{xPartial...}};
+  \code{\link{xJuxtapose_}}; \code{\link{xNot}};
+  \code{\link{xPartial}}, \code{\link{xPartial_}};
   \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread...}}; \code{\link{xVectorise}},
+  \code{\link{xThread_}}; \code{\link{xVectorise}},
   \code{\link{xVectorize}}
 
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
   \code{\link{xParamsOf}}; \code{\link{xPartial}},
-  \code{\link{xPartial...}}; \code{\link{xSpread}}
+  \code{\link{xPartial_}}; \code{\link{xSpread}}
 }
 

@@ -52,6 +52,6 @@ xMap <- MakeFun(function (fn, coll) {
 #' @rdname xMap
 #' @export
 
-xMap... <- function (fn, ...) {
+xMap_ <- function (fn, ...) {
 	xMap(fn, list(...))
 }

@@ -57,6 +57,6 @@ xNotMember <- MakeFun(function (val, coll) {
 #' @rdname xNotMember
 #' @export
 
-xNotMember... <- function (val, ...) {
+xNotMember_ <- function (val, ...) {
 	xNotMember(val, list(...))
 }

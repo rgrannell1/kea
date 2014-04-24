@@ -45,6 +45,6 @@ xDuplicatesOf <- MakeFun(function (coll) {
 #' @rdname xDuplicatesOf
 #' @export
 
-xDuplicatesOf... <- function (...) {
+xDuplicatesOf_ <- function (...) {
 	xDuplicatesOf(list(...))
 }

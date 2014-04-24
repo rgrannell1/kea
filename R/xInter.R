@@ -55,6 +55,6 @@ xInter <- MakeFun(function (colls) {
 #' @rdname xInter
 #' @export
 
-xInter... <- function (...) {
+xInter_ <- function (...) {
 	xInter(list(...))
 }

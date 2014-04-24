@@ -53,6 +53,6 @@ xAtCol <- MakeFun(function (num, colls) {
 #' @rdname xAtCol
 #' @export
 
-xAtCol... <- function (num, ...) {
+xAtCol_ <- function (num, ...) {
 	xAtCol(num, list(...))
 }

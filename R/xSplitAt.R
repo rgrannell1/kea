@@ -72,6 +72,6 @@ xSplitAt <- MakeFun(function (nums, coll) {
 #' @rdname xSplitAt
 #' @export
 
-xSplitAt... <- function (nums, ...) {
+xSplitAt_ <- function (nums, ...) {
 	xSplitAt(nums, list(...))
 }

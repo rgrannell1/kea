@@ -58,6 +58,6 @@ xExplode <- MakeFun(function (rexp, str) {
 #' @rdname xExplode
 #' @export
 
-xExplode... <- function (rexp, ...) {
+xExplode_ <- function (rexp, ...) {
 	xExplode(rexp, list(...))
 }

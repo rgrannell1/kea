@@ -57,6 +57,6 @@ xUnionOf <- MakeFun(function (colls) {
 #' @rdname xUnionOf
 #' @export
 
-xUnionOf... <- function (...) {
+xUnionOf_ <- function (...) {
 	xUnionOf(list(...))
 }

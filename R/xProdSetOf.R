@@ -68,6 +68,6 @@ xProdSetOf <- MakeFun(function (colls) {
 #' @rdname xProdSetOf
 #' @export
 
-xProdSetOf... <- function (...) {
+xProdSetOf_ <- function (...) {
 	xProdSetOf(list(...))
 }

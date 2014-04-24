@@ -1,5 +1,5 @@
 
-xFirstOf...('a', 'b', 'c')
+xFirstOf_('a', 'b', 'c')
 
 # a
 

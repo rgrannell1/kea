@@ -37,8 +37,8 @@
 #'
 #'    \bold{xLift} factors out this pattern, for binary functions and higher arity functions.
 #'
-#'    \code{sextuple <- xLift...('+', double, triple)}
-#'    \code{is_positive_and_whole <- xLift...('&&', is_positive, is_whole)}
+#'    \code{sextuple <- xLift_('+', double, triple)}
+#'    \code{is_positive_and_whole <- xLift_('&&', is_positive, is_whole)}
 #'
 #'   Two partially applied forms of xLift are included in arrow, which are useful for cutting down
 #'   on the amount of anonymous functions you need to pass to higher-order functions.
@@ -107,7 +107,7 @@ xLift <- MakeFun(function (fn, fns) {
 #' @rdname xLift
 #' @export
 
-xLift... <- function (fn, ...) {
+xLift_ <- function (fn, ...) {
 	do.call( xLift, list(fn, list(...)) )
 }
 

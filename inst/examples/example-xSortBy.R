@@ -14,12 +14,12 @@
 blood_glucose <- 135
 
 patients_data <-
-	xZip...(
+	xZip_(
 		'mg per dl (fasting)' =
 			c(130, 137, 139, 140, 141, 137, 127, 143, 135, 127,
 				77, 79, 79, 79, 88, 87, 95, 82, 93, 94),
 		'category' =
-			xJoin...(xRepeat(10, 'diabetic'), xRepeat(10, 'non-diabetic'))
+			xJoin_(xRepeat(10, 'diabetic'), xRepeat(10, 'non-diabetic'))
 	)
 
 # shuffle the rows of the data.
@@ -32,7 +32,7 @@ k_nearest <- (dist : point : training) := {
 
 	k <- floor( sqrt(xLenOf(training)) )
 
-	dist_to_test_point <- xPartial...(dist, point)
+	dist_to_test_point <- xPartial_(dist, point)
 
 	distances <-
 		x_(training) $ xPluck('mg per dl (fasting)') $
@@ -78,7 +78,7 @@ x_(paragraph) $ xToLines() $ xSortBy(nchar) $ x_Take(3)
 
 nums <- c(-2, 2, -4, 2, -2, -6)
 
-x_(xProdSetOf...(nums, nums, nums, nums)) $
+x_(xProdSetOf_(nums, nums, nums, nums)) $
 xSelect(
 	xs := {
 		(unlist %then% sum)(xs) == 0

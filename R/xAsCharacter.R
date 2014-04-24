@@ -44,7 +44,7 @@ xAsCharacter <- MakeFun(function (strs) {
 #' @rdname xAsCharacter
 #' @export
 
-xAsCharacter... <- function (...) {
+xAsCharacter_ <- function (...) {
 	xAsCharacter(list(...))
 }
 

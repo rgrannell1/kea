@@ -77,6 +77,6 @@ xGroupBy <- MakeFun(function (fn, coll) {
 #' @rdname xGroupBy
 #' @export
 
-xGroupBy... <- function (fn, ...) {
+xGroupBy_ <- function (fn, ...) {
 	xGroupBy(fn, list(...))
 }

@@ -45,6 +45,6 @@ xOneOf <- MakeFun(function (coll) {
 #' @rdname xOneOf
 #' @export
 
-xOneOf... <- function (...) {
+xOneOf_ <- function (...) {
 	xOneOf(list(...))
 }

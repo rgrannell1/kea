@@ -55,6 +55,6 @@ xAsInteger <- MakeFun(function (nums) {
 #' @rdname xAsInteger
 #' @export
 
-xAsInteger... <- function (...) {
+xAsInteger_ <- function (...) {
 	xAsInteger(list(...))
 }

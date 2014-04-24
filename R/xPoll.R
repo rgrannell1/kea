@@ -69,6 +69,6 @@ xPoll <- MakeFun(function (pred, coll) {
 #' @rdname xPoll
 #' @export
 
-xPoll... <- function (pred, ...) {
+xPoll_ <- function (pred, ...) {
 	xPoll(pred, list(...))
 }
