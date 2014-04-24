@@ -35,9 +35,6 @@
 #' @export
 
 xDeepMap <- MakeFun(function (fn, coll) {
-	# (any -> any) -> Recursive any -> [any]
-	# Map a function into a nested collection,
-	# preserving its structure.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

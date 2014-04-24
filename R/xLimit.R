@@ -42,8 +42,6 @@
 #' @export
 
 xLimit <- MakeFun(function (fn, num) {
-	# integer -> function -> function
-	# limit how many times a function can be called.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(num) )

@@ -1,6 +1,3 @@
-
-#' xDo
-#'
 #' Map (a possibly side-effectful) function over a
 #' collection and discard the results.
 #'
@@ -34,9 +31,6 @@
 #' @export
 
 xDo <- MakeFun(function (fn, coll) {
-	# function -> Collection any -> Null
-	# apply a function to each element of a collection.
-	# and discard the results.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

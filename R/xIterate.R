@@ -45,8 +45,6 @@
 #' @export
 
 xIterate <- MakeFun(function (fn, val) {
-	# (any -> any) -> any
-	# iterate until higher-order returned.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(val) )

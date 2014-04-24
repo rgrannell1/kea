@@ -1,5 +1,3 @@
-
-#' xNot
 #'
 #' Return the logical negation of a function.
 #'
@@ -38,8 +36,6 @@
 #' @export
 
 xNot <- MakeFun(function (pred) {
-	# function -> function
-	# negate a predicate function.
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Be_Fn_Matchable(pred) )

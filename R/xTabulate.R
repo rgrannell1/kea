@@ -3,6 +3,9 @@
 #'
 #' Tabulate a collection into pairs of value:frequency lists.
 #'
+#' @section Type Signature:
+#'    |any| -> ||any, <natural>||
+#'
 #' @details
 #'     \bold{xTabulate} is superficially similar to the base
 #'     function \bold{table}: given a collection that may or
@@ -40,8 +43,6 @@
 #' @export
 
 xTabulate <- MakeFun(function (coll) {
-	# Collection any -> Collection any
-	# tabulate a collection into tuples of value: frequency
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

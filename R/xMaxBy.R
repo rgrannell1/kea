@@ -1,5 +1,3 @@
-
-#' xMaxBy
 #'
 #' Get the largest value in a collection according to a measure function.
 #'
@@ -33,8 +31,6 @@
 #' @export
 
 xMaxBy <- MakeFun(function (fn, coll) {
-	# (any -> number) -> Collection any -> any
-	# get the largest value in a collection by a metric.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

@@ -29,9 +29,6 @@
 #' @export
 
 xImplode <- MakeFun(function (str, strs) {
-	# string -> Vector string -> string
-	# Collapse a collection of strs into
-	# a str with by a delim.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(strs) )

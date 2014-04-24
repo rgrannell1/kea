@@ -29,9 +29,6 @@
 #' @export
 
 xLocate <- MakeFun(function (pred, coll) {
-	# (any -> boolean) -> Collection any -> integer
-	# returns the first index of collection that matches
-	# the predicate pred.
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

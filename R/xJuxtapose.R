@@ -48,7 +48,6 @@
 #' @export
 
 xJuxtapose <- MakeFun(function (fns) {
-	# Recursive fns -> function
 
 	MACRO( Must $ Not_Be_Missing(fns) )
 

@@ -30,7 +30,6 @@
 #' @export
 
 xProdSetOf <- MakeFun(function (colls) {
-	# set the cartesian product of n collections
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 

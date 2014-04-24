@@ -3,6 +3,9 @@
 #'
 #' Take several elements from the head of a collection.
 #'
+#' @section Type Signature:
+#'    <natural> -> |any| -> |any|
+#'
 #' @param
 #'      num a nonnegative whole number. The number of elements to
 #'      return from the input collection.
@@ -31,8 +34,6 @@
 #' @export
 
 xTake <- MakeFun(function (num, coll) {
-	# Collection any -> [any]
-	# take the first num values of collection.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

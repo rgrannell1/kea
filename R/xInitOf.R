@@ -1,6 +1,3 @@
-
-#' xInitOf
-#'
 #' Remove the last element of a collection.
 #'
 #' @param
@@ -28,9 +25,6 @@
 #' @export
 
 xInitOf <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# return everything but the first element of a
-	# collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

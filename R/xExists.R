@@ -65,9 +65,6 @@
 #' @export
 
 xExists <- MakeFun(function (pred, colls) {
-	# (... -> logical) -> Collection Collection any -> boolean
-	# does there exist any choice of bindings for
-	# pred such that pred is true?
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(colls) )

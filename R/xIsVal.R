@@ -20,8 +20,6 @@
 #' @export
 
 xIsVal <- MakeFun(function (sym) {
-	# symbol | Vector character -> logical
-	# is a name binding locked?
 
 	parent_frame <- parent.frame()
 

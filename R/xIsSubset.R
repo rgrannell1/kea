@@ -30,8 +30,6 @@
 #' @export
 
 xIsSubset <- MakeFun(function (coll1, coll2) {
-	# Collection any -> Collection any -> boolean
-	# Is a collection a subset of another collection.
 
 	MACRO( Must $ Not_Be_Missing(coll1) )
 	MACRO( Must $ Not_Be_Missing(coll2) )

@@ -48,8 +48,6 @@
 #' @export
 
 xFix <- MakeFun(function (fn, coll) {
-	# function -> recursive any -> any
-	# partially apply a function.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

@@ -41,9 +41,6 @@
 #' @export
 
 xSelect <- MakeFun(function (pred, coll) {
-	# (any -> boolean) -> Collection any -> [any]
-	# returns coll[i] such that
-	# pred(coll[i]) is true
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

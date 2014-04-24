@@ -25,8 +25,6 @@
 #' @export
 
 xRejectNull <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# remove the nan values from a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

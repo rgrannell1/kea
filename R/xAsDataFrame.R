@@ -38,8 +38,6 @@
 #' @export
 
 xAsDataFrame <- MakeFun(function (colls) {
-	# ||any|| -> data.frame any
-	# convert a collection to a data frame.
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 	MACRO( Must $ Be_Collection(colls) )

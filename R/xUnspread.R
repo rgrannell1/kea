@@ -33,9 +33,6 @@
 #' @export
 
 xUnspread <- MakeFun(function (fn) {
-	# dual to xSpread.
-	# takes a function that takes a many values and
-	# makes it into a function that takes one list.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )

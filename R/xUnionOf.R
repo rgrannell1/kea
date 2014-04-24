@@ -36,8 +36,6 @@
 #' @export
 
 xUnionOf <- MakeFun(function (colls) {
-	# ||any|| -> [any]
-	# get the set union of several collections.
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 

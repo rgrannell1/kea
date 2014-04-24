@@ -44,8 +44,6 @@
 #' @export
 
 xIsTrue <- MakeFun(function (val) {
-	# any -> boolean
-	# test if a value is na
 
 	MACRO( Must $ Not_Be_Missing(val) )
 

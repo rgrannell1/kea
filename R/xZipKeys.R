@@ -34,9 +34,6 @@
 #' @export
 
 xZipKeys <- MakeFun(function (colls) {
-	# Collection Collection any -> [any]
-	# take a collection of name:value pairs and associate
-	# them into a named list.
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 

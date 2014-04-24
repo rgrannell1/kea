@@ -33,8 +33,6 @@
 #' @export
 
 xIsMember <- MakeFun(function (val, coll) {
-	# Collection any -> any -> Vector logical
-	# check if a collection contains a value.
 
 	MACRO( Must $ Not_Be_Missing(val) )
 	MACRO( Must $ Not_Be_Missing(coll) )

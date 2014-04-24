@@ -39,9 +39,6 @@
 #' @export
 
 xOrderOf <- MakeFun(function (nums) {
-	# Collection numbers -> Vector numbers
-	# Return a permutation giving the order
-	# of nums.
 
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )

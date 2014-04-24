@@ -1,8 +1,10 @@
 
 #' xStopwatch
 #'
-#' Create a function that returns true for a
-#' preset time after creation.
+#' Create a function that returns true for a preset time after creation.
+#'
+#' @section Type Signature:
+#'    |numeric| -> (-> <logical>)
 #'
 #' @param
 #'    num a positive number. The number of seconds
@@ -22,8 +24,6 @@
 #' @export
 
 xStopwatch <- MakeFun(function (num) {
-	# integer -> function
-	# create a timer predicate function.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Be_Collection(num) )

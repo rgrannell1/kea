@@ -24,8 +24,6 @@
 #' @export
 
 xReadWords <- MakeFun(function (str) {
-	# string -> string
-	# read a file by characters.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 

@@ -27,7 +27,6 @@
 #' @export
 
 xOneOf <- MakeFun(function (coll) {
-	# collectionction any -> any
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

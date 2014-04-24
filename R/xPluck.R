@@ -37,7 +37,6 @@
 #' @export
 
 xPluck <- MakeFun(function (str, colls) {
-	# Vector string -> Collection any -> Collection [any]
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(colls) )

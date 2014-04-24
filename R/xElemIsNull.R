@@ -30,7 +30,6 @@
 #' @export
 
 xElemIsNull <- MakeFun(function (coll) {
-	# collection any -> vector Boolean
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

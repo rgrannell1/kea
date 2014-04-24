@@ -57,8 +57,6 @@
 #' @export
 
 xCycle <- MakeFun(function (num, colls) {
-	# number -> Collection any -> Collection any
-	# get a cyclic permutation of a collection.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(colls) )

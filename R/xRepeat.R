@@ -32,8 +32,6 @@
 #' @export
 
 xRepeat <- MakeFun(function (num, coll) {
-	# number -> Collection any -> [any]
-	# repeat a collection several times.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

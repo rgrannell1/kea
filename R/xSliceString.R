@@ -33,8 +33,6 @@
 #' @export
 
 xSliceString <- MakeFun(function (str, nums) {
-	# str -> integer -> Vector str
-	# subset a str using normal R vector indexing.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(nums) )

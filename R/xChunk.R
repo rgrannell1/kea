@@ -33,9 +33,6 @@
 #' @export
 
 xChunk <- MakeFun(function (num, coll) {
-	# integer -> Collection any -> [[any]]
-	# groups coll into chunks of num,
-	# when possible.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

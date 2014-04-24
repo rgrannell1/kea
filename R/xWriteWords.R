@@ -27,8 +27,6 @@
 #' @export
 
 xWriteWords <- MakeFun(function (str, strs) {
-	# string -> strings
-	# write character lines .
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(strs) )

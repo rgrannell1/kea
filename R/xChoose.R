@@ -1,6 +1,3 @@
-
-#' xChoose
-#'
 #' Enumerate all ways of choosing several elements from a collection.
 #'
 #' @details
@@ -38,9 +35,6 @@
 #' @export
 
 xChoose <- MakeFun(function (num, coll) {
-	# |whole| -> |any| -> [[any]]
-	# generate all ways of choosing several
-	# elements from a collection.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

@@ -29,8 +29,6 @@
 #' @export
 
 xCapture <- MakeFun(function (val) {
-	# any -> (...any -> any)
-	# return a function that closes over the variable val.
 
 	MACRO( Must $ Not_Be_Missing(val) )
 

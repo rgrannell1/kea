@@ -25,9 +25,6 @@
 #' @export
 
 xFormalsOf <- MakeFun(function (fn) {
-	# (a -> b) -> [a, b]
-	# get the formals of non-primitive functions, and
-	# the arguments of primitive functions.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )

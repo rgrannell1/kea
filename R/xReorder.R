@@ -1,5 +1,3 @@
-
-#' xReorder
 #'
 #' Permute a collection of collections using indices.
 #'
@@ -42,8 +40,6 @@
 #' @export
 
 xReorder <- MakeFun(function (nums, colls) {
-	# Vector integer -> [[any]] -> [[any]]
-	# Permute several collections using indices.
 
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Not_Be_Missing(colls) )

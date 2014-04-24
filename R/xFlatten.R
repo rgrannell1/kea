@@ -1,5 +1,3 @@
-
-#' xFlatten
 #'
 #' Unnest a nested list to a given depth.
 #'
@@ -44,8 +42,6 @@
 #' @export
 
 xFlatten <- MakeFun(function (num, coll) {
-	# integer -> Collection any-> [any]
-	# flatten a collection to an arbitrary depth.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

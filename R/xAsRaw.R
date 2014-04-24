@@ -30,8 +30,6 @@
 #' @export
 
 xAsRaw <- MakeFun(function (raws) {
-	# |raw| -> <raw>
-	# convert a collection to a raw vector.
 
 	MACRO( Must $ Not_Be_Missing(raws) )
 	MACRO( Must $ Be_Collection(raws) )

@@ -4,6 +4,9 @@
 #' Return a variadic function that passes its arguments
 #' as a list to its underyling function.
 #'
+#' @section Type Signature:
+#'    ([any] -> any) -> (...any -> any)
+#'
 #' @details
 #'    \code{xSpread} takes a unary function and
 #'    returns a function with ellipsis parametres.
@@ -30,9 +33,6 @@
 #' @export
 
 xSpread <- MakeFun(function (fn) {
-	# ([any] -> any) -> (...any -> any)
-	# Return a variadic function that passes its arguments
-	# as a list to its underlying function.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )

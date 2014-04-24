@@ -24,7 +24,6 @@
 #' @export
 
 xReadLines <- MakeFun(function (str) {
-	# string -> string
 
 	MACRO( Must $ Not_Be_Missing(str) )
 

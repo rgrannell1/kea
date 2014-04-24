@@ -4,6 +4,9 @@
 #' Take every element in a collection from the start
 #' until a predicate returns false.
 #'
+#' @section Type Signature:
+#'    (any -> <logical>) -> |any| -> |any|
+#'
 #' @param
 #'    pred a predicate. The function to test each element of
 #'    the collection with.
@@ -35,9 +38,6 @@
 #' @export
 
 xTakeWhile <- MakeFun(function (pred, coll) {
-	# (any -> boolean) -> Collection any -> [any]
-	# take every element in a collection
-	# until a predicate returns false.
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

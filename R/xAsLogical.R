@@ -29,8 +29,6 @@
 #' @export
 
 xAsLogical <- MakeFun(function (bools) {
-	# |logical| -> <logical>
-	# convert a collection to a logical vector.
 
 	MACRO( Must $ Not_Be_Missing(bools) )
 	MACRO( Must $ Be_Collection(bools) )

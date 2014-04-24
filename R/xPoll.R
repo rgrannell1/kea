@@ -34,8 +34,6 @@
 #' @export
 
 xPoll <- MakeFun(function (pred, coll) {
-	# (any -> logical) -> Collection any -> integer
-	# return the number of elements for which a predicate is true.
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

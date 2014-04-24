@@ -32,7 +32,6 @@
 #' @export
 
 xWhere <- MakeFun(function (bools) {
-	# <logical> -> integer
 
 	MACRO( Must $ Not_Be_Missing(bools) )
 	MACRO( Must $ Be_Collection(bools) )

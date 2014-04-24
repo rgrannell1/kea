@@ -37,9 +37,6 @@
 #' @export
 
 xPartition <- MakeFun(function (pred, coll) {
-	# (any -> logical) -> Collection any -> [[any],[any]]
-	# returns two lists; a list for which pred returns
-	# true, and a list for which pred returns false
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

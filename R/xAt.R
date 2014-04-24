@@ -38,8 +38,6 @@
 #' @export
 
 xAt <- MakeFun(function (num, coll) {
-	# |number| -> |any| -> any
-	# Select the value at an index in a collection.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

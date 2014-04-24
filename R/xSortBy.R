@@ -3,6 +3,9 @@
 #'
 #' Sort a collection by the output of a function applied to each element.
 #'
+#' @section Type Signature:
+#'    (any -> <number>) -> |any| -> |any|
+#'
 #' @details
 #'     \bold{xSortBy} allows a collection to be sorted by a custom
 #'     size operation. A classic example is sorting a collection of collections
@@ -44,8 +47,6 @@
 #' @export
 
 xSortBy <- MakeFun(function (fn, coll) {
-	#' (a -> b -> boolean) -> Collection any -> [any]
-	#' sort a collection using a comparison function.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

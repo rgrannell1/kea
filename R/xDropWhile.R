@@ -33,9 +33,6 @@
 #' @export
 
 xDropWhile <- MakeFun(function (pred, coll) {
-	# (any -> logical) -> Collection any -> [any]
-	# take every element from the first element for which
-	# pred is false to the end of coll
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

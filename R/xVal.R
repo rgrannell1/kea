@@ -42,7 +42,6 @@
 #' @export
 
 xVal <- MakeFun(function (sym, val) {
-	# assign a constant value to the calling environment.
 
 	parent_frame <- parent.frame()
 

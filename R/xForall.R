@@ -66,8 +66,6 @@
 #' @export
 
 xForall <- MakeFun(function (pred, colls) {
-	# does there not exist any choice of bindings for
-	# pred such that pred is false?
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(colls) )

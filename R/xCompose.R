@@ -78,7 +78,6 @@
 #' @export
 
 xCompose <- MakeFun(function (fns) {
-	# Collection function -> function
 
 	MACRO( Must $ Not_Be_Missing(fns) )
 	MACRO( Must $ Be_Collection(fns) )

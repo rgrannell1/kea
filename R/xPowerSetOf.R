@@ -31,8 +31,6 @@
 #' @export
 
 xPowerSetOf <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# get the power set of a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

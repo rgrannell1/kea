@@ -36,8 +36,6 @@
 #' @export
 
 xSplitAt <- MakeFun(function (nums, coll) {
-	# numsber -> Collection any -> [[any], [any]]
-	# take the first n values of collection.
 
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Not_Be_Missing(coll) )

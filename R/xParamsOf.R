@@ -24,9 +24,6 @@
 #' @export
 
 xParamsOf <- MakeFun(function (fn) {
-	# function -> Vector string
-	# get the formals of non-primitive functions, and
-	# the arguments of primitive functions.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )

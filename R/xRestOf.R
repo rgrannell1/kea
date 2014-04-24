@@ -1,6 +1,3 @@
-
-#' xRestOf
-#'
 #' Remove the first element from a collection.
 #'
 #' @param
@@ -27,9 +24,6 @@
 #' @export
 
 xRestOf <- MakeFun(function (coll) {
-	# Collection a -> [a]
-	# return everything but the first element of a
-	# collection x.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

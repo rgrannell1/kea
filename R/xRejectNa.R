@@ -25,8 +25,6 @@
 #' @export
 
 xRejectNa <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# remove the na values from a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

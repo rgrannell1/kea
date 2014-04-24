@@ -39,7 +39,6 @@
 #' @export
 
 xDelay <- MakeFun(function (fn, num) {
-	# function -> number -> function
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(num) )

@@ -30,9 +30,6 @@
 #' @export
 
 xJoin <- MakeFun(function (colls) {
-	# Collection any coll -> [any]
-	# Concatenate several collections
-	# into one list.
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 	MACRO( Must $ Be_Collection(colls) )

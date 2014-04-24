@@ -39,8 +39,6 @@
 #' @export
 
 xReduce <- MakeFun(function (fn, coll) {
-	# (any -> any -> any) -> Collection any -> any
-	# fold a list, starting from the left.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

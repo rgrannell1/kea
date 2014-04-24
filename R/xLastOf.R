@@ -29,9 +29,6 @@
 #' @export
 
 xLastOf <- MakeFun	(function (coll) {
-	# Collection any -> any
-	# return the last element of a collection x,
-	# using the subset operator
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 

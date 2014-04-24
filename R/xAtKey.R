@@ -27,8 +27,6 @@
 #' @export
 
 xAtKey <- MakeFun(function (str, coll) {
-	# |character| -> |any| -> |any|
-	# Select a value from a collection using a key.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Not_Be_Missing(coll) )

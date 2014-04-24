@@ -29,8 +29,6 @@
 #' @export
 
 xElemNotNull <- MakeFun(function (coll) {
-	# collection any -> vector Boolean
-	# are the elements of a collection not null?
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

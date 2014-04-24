@@ -27,9 +27,6 @@
 #' @export
 
 xToWords <- MakeFun(function (str) {
-	# str -> Vector str
-	# split a str at every whitespace character, returning
-	# a character vector of equal or greater length.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Be_Collection(str) )

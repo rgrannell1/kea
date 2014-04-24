@@ -1,6 +1,3 @@
-
-#' xFromLines
-#'
 #' Concatentate a character vector with newlines as delimiters.
 #'
 #' @param
@@ -26,9 +23,6 @@
 #' @export
 
 xFromLines <- function (strs) {
-	# Collection str -> str;
-	# collapse the collection of strs with a newline.
-
 	xImplode("\n", strs)
 }
 

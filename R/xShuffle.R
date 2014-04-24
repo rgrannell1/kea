@@ -27,8 +27,6 @@
 #' @export
 
 xShuffle <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# shuffle a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

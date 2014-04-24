@@ -23,8 +23,6 @@
 #' @export
 
 xUnit <- MakeFun(function (coll) {
-	# Collection any -> Collection
-	# return the neutral element of a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

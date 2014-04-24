@@ -54,8 +54,6 @@
 #' @export
 
 xZip <- MakeFun(function (colls) {
-	#
-	# zip collections together
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 	MACRO( Must $ Be_Collection(colls) )

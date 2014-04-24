@@ -29,8 +29,6 @@
 #' @export
 
 xDuplicatesOf <- MakeFun(function (coll) {
-	# Collection any -> Collection any
-	# remove duplicated valeus from a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

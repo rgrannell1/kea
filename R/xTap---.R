@@ -3,6 +3,9 @@
 #'
 #' Apply an anonymous function to the contents of an arrow object.
 #'
+#' @section Type Signature:
+#'     (any -> any) -> any -> any
+#'
 #' @param fn a unary function. The function to apply to the data in an arrow object.
 #'
 #' @details

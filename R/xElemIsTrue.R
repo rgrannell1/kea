@@ -25,8 +25,6 @@
 #' @export
 
 xElemIsTrue <- MakeFun(function (coll) {
-	# Collection a -> Vector boolean
-	# test which elements of a collection are true
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

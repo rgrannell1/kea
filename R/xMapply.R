@@ -32,8 +32,6 @@
 #' @export
 
 xMapply <- MakeFun(function (fn, colls) {
-	# map over a collection, applying each
-	# function with each tuple.
 
 	parent_frame <- parent.frame()
 

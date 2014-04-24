@@ -26,9 +26,6 @@
 #' @export
 
 xFromChars <- function (strs) {
-	# Collection str -> str
-	# collapse the collection strs with the empty str.
-
 	xImplode("", strs)
 }
 

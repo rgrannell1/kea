@@ -1,6 +1,3 @@
-
-#' xFromWords
-#'
 #' Concatentate a character vector with spaces as delimiters.
 #'
 #' @param
@@ -26,9 +23,6 @@
 #' @export
 
 xFromWords <- function (strs) {
-	# Collection str -> str
-	# collapse the collection strs with a space.
-
 	xImplode(" ", strs)
 }
 

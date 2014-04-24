@@ -29,8 +29,6 @@
 #' @export
 
 xFirstOf <- MakeFun(function (coll) {
-	# Collection any -> any
-	# return the first element of a collection x.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 

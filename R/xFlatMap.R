@@ -1,6 +1,3 @@
-
-#' xFlatMap
-#'
 #' Concatenate the results of applying a function
 #' to each element of a collection.
 #'
@@ -50,9 +47,6 @@
 #' @export
 
 xFlatMap <- MakeFun(function (fn, coll) {
-	# (any -> [any]) -> Collection any -> [any]
-	# map unary over collection, and collate the
-	# results using concatenation.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

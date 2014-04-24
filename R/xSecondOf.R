@@ -30,8 +30,6 @@
 #' @export
 
 xSecondOf <- MakeFun(function (coll) {
-	# Collection any -> any
-	# return the second element of a collection x.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 

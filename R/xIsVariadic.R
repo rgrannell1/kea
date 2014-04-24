@@ -19,8 +19,6 @@
 #' @export
 
 xIsVariadic <- MakeFun(function (fn) {
-	# function -> Vector boolean
-	# is ... in fn's parametres?
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )

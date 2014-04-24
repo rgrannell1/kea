@@ -1,5 +1,3 @@
-
-#' xRejectEmpty
 #'
 #' Remove the empty values from a collection.
 #'
@@ -25,8 +23,6 @@
 #' @export
 
 xRejectEmpty <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# remove the nan values from a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

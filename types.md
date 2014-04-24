@@ -42,8 +42,6 @@ If the type signature of the function is undermined, use
 These are both types of vector, and subsets of these types with certain properties.
 
 * **logical**: Logical values (True, False, Na)
-* **boolean**: Logical true or false
 * **integer**: A value of type integer
 * **double** : A value of type double (don't use numeric)
 * **number** : An integer or double
-* **whole**  : A number divisible evenly by one, either integer or double.

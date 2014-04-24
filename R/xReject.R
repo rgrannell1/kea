@@ -41,9 +41,6 @@
 #' @export
 
 xReject <- MakeFun(function (pred, coll) {
-	# (a -> boolean) -> Collection a -> [a]
-	# returns collection[i] such that
-	# pred(collection[i]) is false
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )

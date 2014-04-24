@@ -23,9 +23,6 @@
 #' @export
 
 xToChars <- MakeFun(function (str) {
-	# str -> Vector str
-	# split str at every character, returning
-	# a character vector of equal or greater length.
 
 	MACRO( Must $ Not_Be_Missing(str) )
 	MACRO( Must $ Be_Collection(str) )

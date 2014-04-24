@@ -28,8 +28,6 @@
 #' @export
 
 xRankOf <- MakeFun(function (nums) {
-	# Collection numbers -> Vector numbers
-	# Rank numbers in order of size.
 
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )

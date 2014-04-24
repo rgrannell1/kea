@@ -37,7 +37,6 @@
 #' @export
 
 xRecycle <- MakeFun(function (colls) {
-	# recycle elements of a staggered-array
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 

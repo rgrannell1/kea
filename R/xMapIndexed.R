@@ -33,9 +33,6 @@
 #' @export
 
 xMapIndexed <- MakeFun(function (fn, coll) {
-	# (integer -> any -> any) -> Collection any -> [any]
-	# Map over a collection, also passing each elements
-	# index.
 
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )

@@ -27,8 +27,6 @@
 #' @export
 
 xReverse <- MakeFun(function (coll) {
-	# Collection any -> [any]
-	# reverse a collection.
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )

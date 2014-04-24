@@ -31,8 +31,6 @@
 #' @export
 
 xDrop <- MakeFun(function (num, coll) {
-	# Collection any -> [any]
-	# take the first num values of collection.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )

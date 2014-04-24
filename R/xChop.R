@@ -51,8 +51,6 @@
 #' @export
 
 xChop <- MakeFun(function (num, coll) {
-	# |whole| -> |any| -> [[any]]
-	# chop a collection into several collections.
 
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
