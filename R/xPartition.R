@@ -50,7 +50,9 @@ xPartition <- MakeFun(function (pred, coll) {
 		list()
 	} else {
 
-		ind <- vapply(coll, function (elem) isTRUE(pred(elem)), logical(1), USE.NAMES = False)
+		ind <- vapply(coll, function (elem) {
+			isTRUE(pred(elem))
+		}, logical(1), USE.NAMES = False)
 
 		true_ind <- !is.na(ind) & ind
 

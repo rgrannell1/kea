@@ -29,40 +29,44 @@
 #' @rdname xProdSetOf
 #' @export
 
-xProdSetOf <- MakeFun(function (colls) {
+xProdSetOf <- local({
 
-	MACRO( Must $ Not_Be_Missing(colls) )
-
-	MACRO( Must $ Be_Collection(colls) )
-	MACRO( Must $ Be_Collection_Of_Collections(colls) )
-
-	coll_lengths <- vapply(colls, length, integer(1))
-
-	if (length(colls) == 0 || min(coll_lengths) == 0) {
-		list()
-	} else {
-
-		modulo_iths <- function (num, mods) {
-			as.numeric(arrayInd(num, .dim = mods))
-		}
-
-		tuples <- vector(mode = "list", prod(coll_lengths))
-
-		for ( ith in seq_len(prod(coll_lengths)) ) {
-
-			indices <- modulo_iths(ith, coll_lengths)
-
-			tuples[[ith]] <- Map(
-				function (coll_ith) {
-					choice <- indices[coll_ith]
-					colls[[coll_ith]][[choice]]
-				},
-				seq_along(colls))
-
-		}
-		tuples
+	modulo_iths <- function (num, mods) {
+		as.numeric(arrayInd(num, .dim = mods))
 	}
+
+	MakeFun(function (colls) {
+
+		MACRO( Must $ Not_Be_Missing(colls) )
+
+		MACRO( Must $ Be_Collection(colls) )
+		MACRO( Must $ Be_Collection_Of_Collections(colls) )
+
+		coll_lengths <- vapply(colls, length, integer(1))
+
+		if (length(colls) == 0 || min(coll_lengths) == 0) {
+			list()
+		} else {
+
+			tuples <- vector(mode = "list", prod(coll_lengths))
+
+			for ( ith in seq_len(prod(coll_lengths)) ) {
+
+				indices <- modulo_iths(ith, coll_lengths)
+
+				tuples[[ith]] <- Map(
+					function (coll_ith) {
+						choice <- indices[coll_ith]
+						colls[[coll_ith]][[choice]]
+					},
+					seq_along(colls))
+
+			}
+			tuples
+		}
+	})
 })
+
 
 #' @rdname xProdSetOf
 #' @export

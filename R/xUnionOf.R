@@ -46,6 +46,7 @@ xUnionOf <- MakeFun(function (colls) {
 		list()
 	} else {
 
+		# -- ensure that a list is returned.
 		colls <- lapply(colls, as.list)
 
 		unique(do.call(c, colls))

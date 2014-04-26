@@ -36,6 +36,7 @@ xOneOf <- MakeFun(function (coll) {
 	} else if (length(coll) == 1) {
 		coll
 	} else {
+		# -- select a single index in a memory efficient way.
 		ind <- sample.int(length(coll), 1)
 		coll[[ind]]
 	}

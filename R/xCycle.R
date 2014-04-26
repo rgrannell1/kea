@@ -74,6 +74,8 @@ xCycle <- MakeFun(function (num, colls) {
 	if (length(colls) == 0) {
 		list()
 	} else {
+
+		# -- this horrid line (thank 1-indexing) cylically permutes the indices.
 		indices <- ((seq_along( colls[[1]])  - 1 + num) %% length( colls[[1]]) ) + 1
 
 		lapply(colls, function (permutable) {

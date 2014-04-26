@@ -43,7 +43,7 @@ xRecycle <- MakeFun(function (colls) {
 	MACRO( Must $ Be_Collection(colls) )
 	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
-	coll_lens <- vapply(colls, length, integer(1))
+	coll_lens <- vapply(colls, length, integer(1), USE.NAMES = False)
 
 	if (length(colls) == 0 || 0 %in% coll_lens) {
 		list()

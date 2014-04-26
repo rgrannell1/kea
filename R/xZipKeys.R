@@ -59,7 +59,7 @@ xZipKeys <- MakeFun(function (colls) {
 			character(1), USE.NAMES = False)
 
 		structure(
-			Map( function (elem) elem[[2]], colls ),
+			lapply(colls, function (elem) elem[[2]])
 			names = keys)
 	}
 })

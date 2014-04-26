@@ -47,6 +47,7 @@ xRepeat <- MakeFun(function (num, coll) {
 	if (num == 0) {
 		list()
 	} else {
+		# -- rep faster than lapply
 		rep(as.list(coll), num)
 	}
 })

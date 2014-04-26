@@ -57,7 +57,7 @@ xTabulate <- MakeFun(function (coll) {
 
 			for (ith in seq_along(unique_elements)) {
 
-				# this may cause problems with NaN.
+				# -- TODO this may cause problems with NaN.
 
 				if (identical( elem, unique_elements[[ith]] )) {
 					return(ith)
@@ -70,7 +70,7 @@ xTabulate <- MakeFun(function (coll) {
 
 		lapply(names(index_frequencies), function (ith) {
 
-			# reparse the index.
+			# -- reparse the index from string. Dumb, but efficient.
 			ith <- as.integer(ith)
 
 			list(unique_elements[[ith]], as.numeric(index_frequencies[[ith]]) )

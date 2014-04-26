@@ -63,7 +63,7 @@ xSortBy <- MakeFun(function (fn, coll) {
 	} else {
 		iths <- order( vapply(coll, fn, numeric(1)) )
 
-		# TODO test for na values?
+		# -- TODO test for na values?
 
 		as.list(coll)[iths]
 	}
