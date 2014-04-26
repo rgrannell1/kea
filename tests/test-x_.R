@@ -1,4 +1,5 @@
 
+wail <- arrow:::wail
 forall <- arrow:::forall
 assert <- arrow:::assert
 test_cases <- arrow:::test_cases
@@ -63,7 +64,7 @@ message('test that every method has an unchaining version.')
 		unchaining =
 			c('xJuxtapose', 'xCompose', 'xLift'),
 		both_variadics =
-			c()
+			c('xExplode')
 	)
 
 	sink <-

@@ -14,7 +14,7 @@ xAny_(pred, ...)
 
 \item{coll}{a collection. The collection to test each element of.}
 
-\item{...}{see above.}
+\item{...}{see above.MakeFun(}
 }
 \value{
 A boolean value.

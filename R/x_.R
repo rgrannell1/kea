@@ -974,6 +974,7 @@ x_coll_proto <- local({
 
 	# --- xExplode --- #
 	add_x_method(this, xExplode, 'str')
+	add_x_method(this, x_Explode, 'str')
 
 	# -------- F ------- #
 	# --- xFirstOf --- #
@@ -1407,6 +1408,9 @@ x_coll_proto <- local({
 	add_x_method(this, xSliceString, 'str')
 	add_x_method(this, x_SliceString, 'str')
 
+	add_x_method(this, xSliceString_, 'str')
+	add_x_method(this, x_SliceString_, 'str')
+
 	# --- xSortBy --- #
 	add_x_method(this, xSortBy, 'coll')
 	add_x_method(this, xSortBy_, '...')
@@ -1419,7 +1423,6 @@ x_coll_proto <- local({
 	add_x_method(this, xTabulate_, '...')
 	add_x_method(this, x_Tabulate, 'coll')
 	add_x_method(this, x_Tabulate_, '...')
-
 
 	# --- xTake --- #
 	add_x_method(this, xTake, 'coll')
