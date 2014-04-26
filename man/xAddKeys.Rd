@@ -40,12 +40,14 @@ Add names to a collection.
 }
 \seealso{
 Other key_functions: \code{\link{xPluck}},
-  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xPluck_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
 
 Other key_functions: \code{\link{xPluck}},
-  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xPluck_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
 }

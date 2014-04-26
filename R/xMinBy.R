@@ -53,9 +53,9 @@ xMinBy <- MakeFun(function (fn, coll) {
 #' @rdname xMinBy
 #' @export
 
-xMinBy_ <- function (fn, ...) {
+xMinBy_ <- MakeFun(function (fn, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xMinBy(fn, list(...))
-}
+})

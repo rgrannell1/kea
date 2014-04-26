@@ -9,7 +9,7 @@ xUnzipKeys(coll)
 xUnzipKeys_(...)
 }
 \arguments{
-\item{coll}{a named collection. The collection to split into name, value pairs.}
+\item{coll}{a named collection. The collection to split into index, element pairs.}
 
 \item{...}{see above.}
 }
@@ -63,7 +63,8 @@ x_(irish_birds) $ xUnzipKeys() $ x_Map(xUnspread((key : val) := {
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xAddKeys...}}; \code{\link{xPluck}},
-  \code{\link{xPluck_}}; \code{\link{xZipKeys}},
+  \code{\link{xPluck_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
 
 Other reshaping_functions: \code{\link{xChop}},
@@ -80,7 +81,8 @@ Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xSortBy_}}; \code{\link{xSplitAt}},
   \code{\link{xSplitAt_}}; \code{\link{xSplitWith}},
   \code{\link{xSplitWith_}}; \code{\link{xTabulate}},
-  \code{\link{xTabulate_}}; \code{\link{xZipKeys}},
+  \code{\link{xTabulate_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}; \code{\link{xZip}},
   \code{\link{xZip_}}
 }

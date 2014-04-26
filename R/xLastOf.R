@@ -41,9 +41,9 @@ xLastOf <- MakeFun	(function (coll) {
 #' @rdname xLastOf
 #' @export
 
-xLastOf_ <- function (...) {
+xLastOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xLastOf(list(...))
-}
+})

@@ -940,11 +940,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Cycle_, '...')
 
 	# -------- D ------- #
-	# --- xUnzipKeys --- #
-	add_x_method(this, xUnzipKeys, 'coll')
-	add_x_method(this, xUnzipKeys_, '...')
-	add_x_method(this, x_UnzipKeys, 'coll')
-	add_x_method(this, x_UnzipKeys_, '...')
 
 	# --- xDrop --- #
 	add_x_method(this, xDrop, 'coll')
@@ -1480,6 +1475,18 @@ x_coll_proto <- local({
 	add_x_method(this, xFromWords_, '...')
 	add_x_method(this, x_FromWords, 'strs')
 	add_x_method(this, x_FromWords_, '...')
+
+	# --- xUnzipKeys --- #
+	add_x_method(this, xUnzipKeys, 'coll')
+	add_x_method(this, xUnzipKeys_, '...')
+	add_x_method(this, x_UnzipKeys, 'coll')
+	add_x_method(this, x_UnzipKeys_, '...')
+
+	# --- xUnzipIndices --- #
+	add_x_method(this, xUnzipIndices, 'coll')
+	add_x_method(this, xUnzipIndices_, '...')
+	add_x_method(this, x_UnzipIndices, 'coll')
+	add_x_method(this, x_UnzipIndices_, '...')
 
  	# -------- V ------- #
 	# -------- W ------- #

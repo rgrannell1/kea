@@ -114,9 +114,9 @@ xForall <- MakeFun(function (pred, colls) {
 #' @rdname xForall
 #' @export
 
-xForall_ <- function (pred, ...) {
+xForall_ <- MakeFun(function (pred, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xForall(pred, list(...))
-}
+})

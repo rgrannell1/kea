@@ -41,9 +41,9 @@ xFirstOf <- MakeFun(function (coll) {
 #' @rdname xFirstOf
 #' @export
 
-xFirstOf_ <- function (...) {
+xFirstOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xFirstOf(list(...))
-}
+})

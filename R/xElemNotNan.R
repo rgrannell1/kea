@@ -47,9 +47,9 @@ xElemNotNan <- MakeFun(function (coll) {
 #' @rdname xElemNotNan
 #' @export
 
-xElemNotNan_ <- function (...) {
+xElemNotNan_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xElemNotNan(list(...))
-}
+})

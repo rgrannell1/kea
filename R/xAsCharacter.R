@@ -44,10 +44,10 @@ xAsCharacter <- MakeFun(function (strs) {
 #' @rdname xAsCharacter
 #' @export
 
-xAsCharacter_ <- function (...) {
+xAsCharacter_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAsCharacter(list(...))
-}
+})
 

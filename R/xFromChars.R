@@ -32,9 +32,9 @@ xFromChars <- function (strs) {
 #' @rdname xFromChars
 #' @export
 
-xFromChars_ <- function (...) {
+xFromChars_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xImplode("", list(...))
-}
+})

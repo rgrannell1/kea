@@ -45,9 +45,9 @@ xUniqueOf <- MakeFun(function (coll) {
 #' @rdname xUniqueOf
 #' @export
 
-xUniqueOf_ <- function (...) {
+xUniqueOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xUniqueOf(list(...))
-}
+})

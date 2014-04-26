@@ -32,9 +32,9 @@ xIsEmpty <- MakeFun(function (coll) {
 #' @rdname xIsEmpty
 #' @export
 
-xIsEmpty_ <- function (...) {
+xIsEmpty_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xIsEmpty(list(...))
-}
+})

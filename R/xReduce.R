@@ -79,9 +79,9 @@ xReduce <- MakeFun(function (fn, coll) {
 #' @rdname xReduce
 #' @export
 
-xReduce_ <- function (fn, ...) {
+xReduce_ <- MakeFun(function (fn, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xReduce(fn, list(...))
-}
+})

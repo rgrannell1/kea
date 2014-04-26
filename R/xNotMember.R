@@ -55,9 +55,9 @@ xNotMember <- MakeFun(function (val, coll) {
 #' @rdname xNotMember
 #' @export
 
-xNotMember_ <- function (val, ...) {
+xNotMember_ <- MakeFun(function (val, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xNotMember(val, list(...))
-}
+})

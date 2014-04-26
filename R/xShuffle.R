@@ -43,9 +43,9 @@ xShuffle <- MakeFun(function (coll) {
 #' @rdname xShuffle
 #' @export
 
-xShuffle_ <- function (...) {
+xShuffle_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xShuffle(list(...))
-}
+})

@@ -79,9 +79,9 @@ xZip <- MakeFun(function (colls) {
 #' @rdname xZip
 #' @export
 
-xZip_ <- function (...) {
+xZip_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xZip(list(...))
-}
+})

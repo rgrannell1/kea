@@ -45,9 +45,9 @@ xAsComplex <- MakeFun(function (ims) {
 #' @rdname xAsComplex
 #' @export
 
-xAsComplex_ <- function (...) {
+xAsComplex_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAsComplex(list(...))
-}
+})

@@ -31,16 +31,15 @@ Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xVersion}}; \code{\link{xWriteChars}};
   \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 
-Other text_processing_functions: \code{\link{xExplode}},
-  \code{\link{xExplode_}}; \code{\link{xFromChars}},
-  \code{\link{xFromChars_}}; \code{\link{xFromLines}},
-  \code{\link{xFromLines_}}; \code{\link{xFromWords}},
-  \code{\link{xFromWords_}}; \code{\link{xImplode}},
-  \code{\link{xImplode_}}; \code{\link{xReadChars}};
-  \code{\link{xReadLines}}; \code{\link{xSliceString}},
-  \code{\link{xSliceString_}}; \code{\link{xToChars}};
-  \code{\link{xToLines}}; \code{\link{xToWords}};
-  \code{\link{xWriteChars}}; \code{\link{xWriteLines}};
-  \code{\link{xWriteWords}}
+Other text_processing_functions: \code{\link{xExplode}};
+  \code{\link{xFromChars}}, \code{\link{xFromChars_}};
+  \code{\link{xFromLines}}, \code{\link{xFromLines_}};
+  \code{\link{xFromWords}}, \code{\link{xFromWords_}};
+  \code{\link{xImplode}}, \code{\link{xImplode_}};
+  \code{\link{xReadChars}}; \code{\link{xReadLines}};
+  \code{\link{xSliceString}}, \code{\link{xSliceString_}};
+  \code{\link{xToChars}}; \code{\link{xToLines}};
+  \code{\link{xToWords}}; \code{\link{xWriteChars}};
+  \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
 }
 

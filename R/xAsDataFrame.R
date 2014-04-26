@@ -76,9 +76,9 @@ xAsDataFrame <- MakeFun(function (colls) {
 #' @rdname xAsDataFrame
 #' @export
 
-xAsDataFrame_ <- function (...) {
+xAsDataFrame_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAsDataFrame(list(...))
-}
+})

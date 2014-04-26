@@ -66,9 +66,9 @@ xFlatMap <- MakeFun(function (fn, coll) {
 #' @rdname xFlatMap
 #' @export
 
-xFlatMap_ <- function (fn, ...) {
+xFlatMap_ <- MakeFun(function (fn, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xFlatMap(fn, list(...))
-}
+})

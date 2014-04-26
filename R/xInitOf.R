@@ -40,9 +40,9 @@ xInitOf <- MakeFun(function (coll) {
 #' @rdname xInitOf
 #' @export
 
-xInitOf_ <- function (...) {
+xInitOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xInitOf(list(...))
-}
+})

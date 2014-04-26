@@ -43,9 +43,9 @@ xDuplicatesOf <- MakeFun(function (coll) {
 #' @rdname xDuplicatesOf
 #' @export
 
-xDuplicatesOf_ <- function (...) {
+xDuplicatesOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xDuplicatesOf(list(...))
-}
+})

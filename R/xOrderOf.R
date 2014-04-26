@@ -67,9 +67,9 @@ xOrderOf <- MakeFun(function (nums) {
 #' @rdname xOrderOf
 #' @export
 
-xOrderOf_ <- function (...) {
+xOrderOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xOrderOf(list(...))
-}
+})

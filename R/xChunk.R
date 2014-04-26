@@ -60,9 +60,9 @@ xChunk <- MakeFun(function (num, coll) {
 #' @rdname xChunk
 #' @export
 
-xChunk_ <- function (num, ...) {
+xChunk_ <- MakeFun(function (num, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xChunk(num, list(...))
-}
+})

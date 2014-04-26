@@ -56,9 +56,9 @@ xAt <- MakeFun(function (num, coll) {
 #' @rdname xAt
 #' @export
 
-xAt_ <- function (num, ...) {
+xAt_ <- MakeFun(function (num, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAt(num, list(...))
-}
+})

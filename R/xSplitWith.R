@@ -91,10 +91,10 @@ xSplitWith <- local({
 #' @rdname xSplitWith
 #' @export
 
-xSplitWith_ <- function (pred, ...) {
+xSplitWith_ <- MakeFun(function (pred, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xSplitWith(pred, list(...))
-}
+})
 

@@ -14,7 +14,7 @@
 #'     on both a value and its key simultaneouslty.
 #'
 #' @param
-#'    coll a named collection. The collection to split into name, value pairs.
+#'    coll a named collection. The collection to split into index, element pairs.
 #'
 #' @param
 #'    ... see above.
@@ -62,9 +62,9 @@ xUnzipKeys <- MakeFun(function (coll) {
 #' @rdname xUnzipKeys
 #' @export
 
-xUnzipKeys_ <- function (...) {
+xUnzipKeys_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xUnzipKeys(list(...))
-}
+})

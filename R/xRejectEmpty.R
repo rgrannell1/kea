@@ -44,12 +44,12 @@ xRejectEmpty <- MakeFun(function (coll) {
 #' @rdname xRejectEmpty
 #' @export
 
-xRejectEmpty_ <- function (...) {
+xRejectEmpty_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xRejectEmpty(list(...))
-}
+})
 
 #' @rdname xRejectEmpty
 #' @export

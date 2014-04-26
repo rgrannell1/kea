@@ -44,9 +44,9 @@ xElemNotFalse <- MakeFun(function (coll) {
 #' @rdname xElemNotFalse
 #' @export
 
-xElemNotFalse_ <- function (...) {
+xElemNotFalse_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xElemNotFalse(list(...))
-}
+})

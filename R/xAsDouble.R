@@ -50,9 +50,9 @@ xAsDouble <- MakeFun(function (nums) {
 #' @rdname xAsDouble
 #' @export
 
-xAsDouble_ <- function (...) {
+xAsDouble_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAsDouble(list(...))
-}
+})

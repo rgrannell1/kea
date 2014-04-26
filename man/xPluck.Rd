@@ -46,7 +46,8 @@ x_(median_lethal_dose) $ xZip() $ x_Pluck('mg_per_kg')
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
-  \code{\link{xAddKeys...}}; \code{\link{xUnzipKeys}},
+  \code{\link{xAddKeys...}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
 

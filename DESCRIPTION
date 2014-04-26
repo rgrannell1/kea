@@ -187,5 +187,6 @@ Collate:
     'xMaxBy.R'
     'xMinBy.R'
     'xAtKey.R'
+    'xUnzipIndices.R'
     'x_.R'
     'x..R'

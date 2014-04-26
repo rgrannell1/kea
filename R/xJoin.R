@@ -47,9 +47,9 @@ xJoin <- MakeFun(function (colls) {
 #' @rdname xJoin
 #' @export
 
-xJoin_ <- function (...) {
+xJoin_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xJoin(list(...))
-}
+})

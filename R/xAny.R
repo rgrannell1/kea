@@ -14,7 +14,7 @@
 #'    coll a collection. The collection to test each element of.
 #'
 #' @param
-#'    ... see above.
+#'    ... see above.MakeFun(
 #'
 #' @return
 #'    A boolean value.
@@ -60,10 +60,9 @@ xAny <- MakeFun(function (pred, coll) {
 #' @rdname xAny
 #' @export
 
-xAny_ <- function (pred, ...) {
+xAny_ <- MakeFun(function (pred, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAny(pred, list(...))
-}
-
+})

@@ -92,9 +92,9 @@ xChop <- MakeFun(function (num, coll) {
 #' @rdname xChop
 #' @export
 
-xChop_ <- function (num, ...) {
+xChop_ <- MakeFun(function (num, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xChop(num, list(...))
-}
+})

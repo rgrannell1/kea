@@ -37,9 +37,9 @@ xElemIsNa <- MakeFun(function (coll) {
 #' @rdname xElemIsNa
 #' @export
 
-xElemIsNa_ <- function (...) {
+xElemIsNa_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xElemIsNa(list(...))
-}
+})

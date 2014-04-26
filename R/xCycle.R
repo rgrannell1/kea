@@ -85,9 +85,9 @@ xCycle <- MakeFun(function (num, colls) {
 #' @rdname xCycle
 #' @export
 
-xCycle_ <- function (num, ...) {
+xCycle_ <- MakeFun(function (num, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xCycle(num, list(...))
-}
+})

@@ -47,9 +47,9 @@ xElemIsNull <- MakeFun(function (coll) {
 #' @rdname xElemIsNull
 #' @export
 
-xElemIsNull_ <- function (...) {
+xElemIsNull_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xElemIsNull(list(...))
-}
+})

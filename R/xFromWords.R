@@ -29,9 +29,9 @@ xFromWords <- function (strs) {
 #' @rdname xFromWords
 #' @export
 
-xFromWords_ <- function (...) {
+xFromWords_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xImplode(" ", list(...))
-}
+})

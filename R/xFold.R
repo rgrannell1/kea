@@ -79,9 +79,9 @@ xFold <- MakeFun(function (fn, val, coll) {
 #' @export
 #' @rdname xFold
 
-xFold_ <- function (fn, val, ...) {
+xFold_ <- MakeFun(function (fn, val, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xFold(fn, val, list(...))
-}
+})

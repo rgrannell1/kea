@@ -65,9 +65,9 @@ xSelect <- MakeFun(function (pred, coll) {
 #' @rdname xSelect
 #' @export
 
-xSelect_ <- function (pred, ...) {
+xSelect_ <- MakeFun(function (pred, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xSelect(pred, list(...))
-}
+})

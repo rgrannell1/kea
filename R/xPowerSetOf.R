@@ -60,9 +60,9 @@ xPowerSetOf <- MakeFun(function (coll) {
 #' @rdname xPowerSetOf
 #' @export
 
-xPowerSetOf_ <- function (...) {
+xPowerSetOf_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xPowerSetOf(list(...))
-}
+})

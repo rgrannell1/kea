@@ -53,9 +53,9 @@ xInter <- MakeFun(function (colls) {
 #' @rdname xInter
 #' @export
 
-xInter_ <- function (...) {
+xInter_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xInter(list(...))
-}
+})

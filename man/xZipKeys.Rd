@@ -54,7 +54,8 @@ x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipKeys()
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xAddKeys...}}; \code{\link{xPluck}},
-  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xPluck_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}
 
 Other reshaping_functions: \code{\link{xChop}},
@@ -71,7 +72,8 @@ Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xSortBy_}}; \code{\link{xSplitAt}},
   \code{\link{xSplitAt_}}; \code{\link{xSplitWith}},
   \code{\link{xSplitWith_}}; \code{\link{xTabulate}},
-  \code{\link{xTabulate_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xTabulate_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZip}},
   \code{\link{xZip_}}
 }

@@ -64,9 +64,9 @@ xDropWhile <- MakeFun(function (pred, coll) {
 #' @rdname xDropWhile
 #' @export
 
-xDropWhile_ <- function (pred, ...) {
+xDropWhile_ <- MakeFun(function (pred, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xDropWhile(pred, list(...))
-}
+})

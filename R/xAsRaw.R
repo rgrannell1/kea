@@ -41,9 +41,9 @@ xAsRaw <- MakeFun(function (raws) {
 #' @rdname xAsRaw
 #' @export
 
-xAsRaw_ <- function (...) {
+xAsRaw_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xAsRaw(list(...))
-}
+})

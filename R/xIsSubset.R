@@ -53,9 +53,9 @@ xIsSubset <- MakeFun(function (coll1, coll2) {
 #' @rdname xIsSubset
 #' @export
 
-xIsSubset_ <- function (coll1, ...) {
+xIsSubset_ <- MakeFun(function (coll1, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xIsSubset(coll1, list(...))
-}
+})

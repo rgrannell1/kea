@@ -41,9 +41,9 @@ xReverse <- MakeFun(function (coll) {
 #' @rdname xReverse
 #' @export
 
-xReverse_ <- function (...) {
+xReverse_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xReverse(list(...))
-}
+})

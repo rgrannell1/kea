@@ -54,9 +54,9 @@ xThread <- MakeFun(function (val, fns) {
 #' @rdname xThread
 #' @export
 
-xThread_ <- function (val, ...) {
+xThread_ <- MakeFun(function (val, ...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xThread(val, list(...))
-}
+})

@@ -67,9 +67,9 @@ xZipKeys <- MakeFun(function (colls) {
 #' @rdname xZipKeys
 #' @export
 
-xZipKeys_ <- function (...) {
+xZipKeys_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xZipKeys(list(...))
-}
+})

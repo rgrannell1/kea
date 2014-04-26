@@ -106,12 +106,12 @@ xCompose <- MakeFun(function (fns) {
 #' @rdname xCompose
 #' @export
 
-xCompose_ <- function (...) {
+xCompose_ <- MakeFun(function (...) {
 
 	MACRO( Must $ Have_Canonical_Arguments() )
 
 	xCompose(list(...))
-}
+})
 
 #' @rdname xCompose
 #' @export
