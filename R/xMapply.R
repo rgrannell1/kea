@@ -33,8 +33,6 @@
 
 xMapply <- MakeFun(function (fn, colls) {
 
-	parent_frame <- parent.frame()
-
 	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(colls) )
 
@@ -49,7 +47,7 @@ xMapply <- MakeFun(function (fn, colls) {
 	} else {
 
 		lapply(colls, function (tuple) {
-			eval(as.call(c(fn, tuple)), envir = parent_frame)
+			eval(as.call(c(fn, tuple)), envir = sys.frame())
 		})
 	}
 })

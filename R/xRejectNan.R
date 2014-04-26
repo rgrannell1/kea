@@ -36,7 +36,7 @@ xRejectNan <- MakeFun(function (coll) {
 		coll <- as.list(coll)
 		coll[vapply(coll, function (elem) {
 			is.atomic(elem) && isTRUE(is.nan(elem))
-		}, logical(1)) ] <- Null
+		}, logical(1), USE.NAMES = False) ] <- Null
 		coll
 	}
 })
