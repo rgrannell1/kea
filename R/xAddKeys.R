@@ -4,9 +4,9 @@
 #' Add names to a collection.
 #'
 #' @details
-#' \bold{xAddKeys} is similar to the in-place assignment
-#' function \bold{names<-}, except that it is not an in-place
-#' assignment function.
+#'     \bold{xAddKeys} is similar to the in-place assignment
+#'     function \bold{names<-}, except that it is not an in-place
+#'     assignment function.
 #'
 #' @section Type Signature:
 #'    |character| -> |any| -> [any]
@@ -54,7 +54,7 @@ xAddKeys <- MakeFun(function (strs, coll) {
 	as.list(coll)
 })
 
-#' @rdname
+#' @rdname xAddKeys
 #' @export
 
 xAddKeys... <- function (strs, ...) {

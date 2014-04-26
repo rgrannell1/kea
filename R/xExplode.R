@@ -10,9 +10,6 @@
 #' @param
 #'    str a string. The string to split.
 #'
-#' @param
-#'    ... see above
-#'
 #' @return
 #'    A character vector.
 #'
@@ -24,7 +21,6 @@
 #'    generated.
 #'
 #' @family text_processing_functions
-#'
 #'
 #' @example
 #'    inst/examples/example-xExplode.R
@@ -52,13 +48,3 @@ xExplode <- MakeFun(function (rexp, str) {
 		exploded[nchar(exploded) > 0]
 	}
 })
-
-#' @rdname xExplode
-#' @export
-
-xExplode_ <- function (rexp, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xExplode(rexp, list(...))
-}

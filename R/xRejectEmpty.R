@@ -1,3 +1,5 @@
+
+#' xRejectEmpty
 #'
 #' Remove the empty values from a collection.
 #'

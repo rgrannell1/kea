@@ -52,9 +52,10 @@ x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipKeys()
 x_(csv) $ xExplode(',') $ xChunk(2) $ x_ZipKeys()
 }
 \seealso{
-Other key_functions: \code{\link{xAddKeys}};
-  \code{\link{xPluck}}, \code{\link{xPluck_}};
-  \code{\link{xUnzipKeys}}, \code{\link{xUnzipKeys_}}
+Other key_functions: \code{\link{xAddKeys}},
+  \code{\link{xAddKeys...}}; \code{\link{xPluck}},
+  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys_}}
 
 Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xChunk}},

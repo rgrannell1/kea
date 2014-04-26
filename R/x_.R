@@ -979,7 +979,6 @@ x_coll_proto <- local({
 
 	# --- xExplode --- #
 	add_x_method(this, xExplode, 'str')
-	add_x_method(this, x_Explode, 'str')
 
 	# -------- F ------- #
 	# --- xFirstOf --- #

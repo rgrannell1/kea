@@ -61,9 +61,10 @@ x_(irish_birds) $ xUnzipKeys() $ x_Map(xUnspread((key : val) := {
 #     "the  Giant Ibis is of order Ciconiiformes")
 }
 \seealso{
-Other key_functions: \code{\link{xAddKeys}};
-  \code{\link{xPluck}}, \code{\link{xPluck_}};
-  \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}
+Other key_functions: \code{\link{xAddKeys}},
+  \code{\link{xAddKeys...}}; \code{\link{xPluck}},
+  \code{\link{xPluck_}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys_}}
 
 Other reshaping_functions: \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xChunk}},

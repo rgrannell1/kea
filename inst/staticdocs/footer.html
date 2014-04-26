@@ -19,8 +19,16 @@
 		return "<pre class = 'input r'>" + text + "</pre>"
 	})
 
+	// I LOVE having jQuery as a dependency. Best library ever written.
+
 	// reorder the xMethod fields.
 	$('div.Description').prependTo('.span8')
+
+	$('#contact-link').click(function() {
+
+		$('.span8').html("to contact me do stuff.")
+
+	})
 
 </script>
 
