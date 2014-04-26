@@ -82,13 +82,17 @@ xFix <- MakeFun(function (fn, coll) {
 
 				.(
 					as.call(c(
+						# -- call the function 'fn'
 						as.symbol('fn'),
 						lapply(
+							# -- with the parametres of 'fn'
 							xParamsOf(fn),
 							function (param) {
 								if (param %in% names(coll)) {
+									# -- if the parametre is fixed used the supplied argument.
 									coll[[param]]
 								} else {
+									# -- otherwise use the parametre.
 									as.symbol(param)
 								}
 							}) )) )

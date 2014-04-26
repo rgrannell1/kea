@@ -44,9 +44,8 @@ xImplode <- MakeFun(function (str, strs) {
 	} else {
 
 		paste(
-			strs[
-				nchar(strs) != 0 &
-				vapply(strs, length, integer(1)) != 0],
+			strs[nchar(strs) != 0 &
+			vapply(strs, length, integer(1), USE.NAMES = False) != 0],
 			collapse = str)
 	}
 })
