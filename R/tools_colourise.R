@@ -21,7 +21,7 @@ colourise <- local({
 		matching_COLORTERM <-
 			("COLORTERM" %in% set_env_vars) && !is.na(COLORTERM)
 
-		matching_TERM || matching_COLORTERM
+		isTRUE(matching_TERM || matching_COLORTERM)
 	}
 
 	list(
