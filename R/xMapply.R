@@ -1,4 +1,3 @@
-
 #' xMapply
 #'
 #' Apply a function to each element of a collection.
@@ -47,7 +46,7 @@ xMapply <- MakeFun(function (fn, colls) {
 	} else {
 
 		lapply(colls, function (tuple) {
-			eval(as.call(c(fn, tuple)), envir = sys.frame())
+			do.call(fn, tuple)
 		})
 	}
 })
