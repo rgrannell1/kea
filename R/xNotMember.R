@@ -1,4 +1,3 @@
-
 #' xNotMember
 #'
 #' Check if a collection doesn't contain a value.
@@ -43,7 +42,7 @@ xNotMember <- MakeFun(function (val, coll) {
 	} else {
 
 		for (elem in coll) {
-			if ( isTRUE(identical(elem, val, single.NA = True)) ) {
+			if ( isTRUE(identical(elem, val)) ) {
 				return(False)
 			}
 		}
