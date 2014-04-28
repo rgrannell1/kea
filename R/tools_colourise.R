@@ -24,47 +24,26 @@ colourise <- local({
 		isTRUE(matching_TERM || matching_COLORTERM)
 	}
 
+	colouriser <- function (code) {
+		function (message) {
+			if (supports_colour()) {
+				"\033[" %+% code %+% message %+% "\033[0m"
+			} else {
+				message
+			}
+		}
+	}
+
 	list(
 		black =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;30m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
+			colouriser("0;30m"),
 		blue =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;34m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
+			colouriser("0;34m"),
 		green =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;32m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
+			colouriser("0;32m"),
 		red =
-			function (message) {
-				if (supports_colour()) {
-					"\033[0;31m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			},
-
+			colouriser("0;31m"),
 		yellow =
-			function (message) {
-				if (supports_colour()) {
-					"\033[1;33m" %+% message %+% "\033[0m"
-				} else {
-					message
-				}
-			}
+			colouriser("1;33m")
 	)
 })
