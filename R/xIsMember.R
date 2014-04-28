@@ -1,4 +1,3 @@
-
 #' xIsMember
 #'
 #' Check if a collection contains a value.
@@ -44,7 +43,7 @@ xIsMember <- MakeFun(function (val, coll) {
 	} else {
 
 		for (elem in coll) {
-			if ( isTRUE(identical(elem, val, single.NA = True)) ) {
+			if ( isTRUE(identical(elem, val)) ) {
 				return(True)
 			}
 		}
