@@ -46,8 +46,11 @@ add_x_method <- function (env, fn, fixed) {
 	# pass by reference.
 
 	fn_name <- paste0(as.symbol(match.call()$fn))
+	
+	# -- normalise the method name from x_Method to xMethos
 	fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
 
+	# -- detect the type of method.
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic <- grepl('[.]{3}$', fn_name)
 
@@ -57,9 +60,11 @@ add_x_method <- function (env, fn, fixed) {
 		write_error('not a parametre of ' %+% paste0(fn_sym))
 	}
 
+	# -- all parts of this function will be modified.
 	method <- function () {	}
 
-	formals(method) <- if (fixed == '_') {
+	# -- remove the fixed parametre, unless ellipsis is being fixed.
+	formals(method) <- if (fixed == '...') {
 		formals(fn)
 	} else {
 		formals(fn)[ names(formals(fn)) != fixed ]
@@ -67,7 +72,8 @@ add_x_method <- function (env, fn, fixed) {
 
 	if (!is_unchaining && !is_variadic) {
 		# xMethod
-
+		
+		# -- construct the function body.
 		body(method) <-
 			bquote({
 
@@ -93,7 +99,8 @@ add_x_method <- function (env, fn, fixed) {
 
 	} else if (is_unchaining && !is_variadic) {
 		# x_Method
-
+		
+		# -- construct the function body.
 		body(method) <-
 			bquote({
 
