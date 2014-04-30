@@ -1,4 +1,3 @@
-
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
@@ -1160,12 +1159,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Mapply, 'colls')
 	add_x_method(this, x_Mapply_, '...')
 
-	# --- xMapIndexed --- #
-	add_x_method(this, xMapIndexed, 'coll')
-	add_x_method(this, xMapIndexed_, '...')
-	add_x_method(this, x_MapIndexed, 'coll')
-	add_x_method(this, x_MapIndexed_, '...')
-
 	# -------- N ------- #
 	# --- xAddKeys --- #
 	add_x_method(this, xAddKeys, 'coll')
@@ -1746,12 +1739,6 @@ x_fn_proto <- local({
 	add_x_method(this, xMapply_, 'fn')
 	add_x_method(this, x_Mapply, 'fn')
 	add_x_method(this, x_Mapply_, 'fn')
-
-	# --- xMapIndexed --- #
-	add_x_method(this, xMapIndexed, 'fn')
-	add_x_method(this, xMapIndexed_, 'fn')
-	add_x_method(this, x_MapIndexed, 'fn')
-	add_x_method(this, x_MapIndexed_, 'fn')
 
 	# -------- N ------- #
 	add_x_method(this, xNot, 'pred')

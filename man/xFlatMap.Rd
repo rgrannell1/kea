@@ -112,8 +112,7 @@ xFlatMap(num := {
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
   \code{\link{xApply_}}; \code{\link{xDeepMap}},
-  \code{\link{xDeepMap_}}; \code{\link{xMapIndexed}},
-  \code{\link{xMapIndexed_}}; \code{\link{xMapply}},
+  \code{\link{xDeepMap_}}; \code{\link{xMapply}},
   \code{\link{xMapply_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xSpread}};
   \code{\link{xThread}}, \code{\link{xThread_}};

@@ -83,7 +83,6 @@ Collate:
     'xToLines.R'
     'xLocate.R'
     'xMap.R'
-    'xMapIndexed.R'
     'xNot.R'
     'xElemNotFalse.R'
     'xElemNotNa.R'

@@ -45,8 +45,7 @@ summate(1, 2, 3, 4, 5, 6)
 Other function_application_functions: \code{\link{xApply}},
   \code{\link{xApply_}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap_}}; \code{\link{xFlatMap}},
-  \code{\link{xFlatMap_}}; \code{\link{xMapIndexed}},
-  \code{\link{xMapIndexed_}}; \code{\link{xMapply}},
+  \code{\link{xFlatMap_}}; \code{\link{xMapply}},
   \code{\link{xMapply_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xThread}},
   \code{\link{xThread_}}; \code{\link{xUnspread}};

@@ -64,8 +64,7 @@ x_Reduce(min)
 Other function_application_functions: \code{\link{xApply}},
   \code{\link{xApply_}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap_}}; \code{\link{xFlatMap}},
-  \code{\link{xFlatMap_}}; \code{\link{xMapIndexed}},
-  \code{\link{xMapIndexed_}}; \code{\link{xMap}},
+  \code{\link{xFlatMap_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xSpread}};
   \code{\link{xThread}}, \code{\link{xThread_}};
   \code{\link{xUnspread}}; \code{\link{xVectorise}},
