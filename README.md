@@ -1,4 +1,4 @@
-Arrow < v0.1.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+Arrow 0.1.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
 > *'The enjoyment of one's tools is an essential ingredient of successful work.'* -- Donald E. Knuth
@@ -24,13 +24,11 @@ rarely have more than two parametres, so functions will just work without config
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
 
-
 ## What Does Arrow Look Like?
 
 Arrow can be written using normal functions or with chaining methods. I prefer the latter. Chaining
 methods take an initial piece of data and apply successive transformation to it.
-This is a very natural way of expressing data munging or reshaping.
-
+This is a very natural way of expressing data munging or reshaping
 ```r
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
@@ -135,7 +133,6 @@ much more efficient.
 **Arrow** is released under the terms of the GNU General Public License version 3.
 
 <img src="gpl3.png" height = "120"> </img>
-
 
 ## Versioning
 
