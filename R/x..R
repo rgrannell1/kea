@@ -3,22 +3,6 @@
 #'
 #' Partially apply an infix function.
 #'
-#' @usage
-#'     !x.
-#'     x. !=  RHS
-#'     x. $   RHS
-#'     x. %%  RHS
-#'     x. %/% RHS
-#'     x. &   RHS
-#'     x. &&  RHS
-#'     x. *   RHS
-#'     x. +   RHS
-#'     x. -   RHS
-#'     x. /   RHS
-#'     x. :   RHS
-#'     x. <   RHS
-#'     x. <=  RHS
-#'
 #' @details
 #'     One of the most common uses of anonymous functions is
 #'     to partially apply a binary function. In the toy example
@@ -67,6 +51,8 @@ x. <- structure(
 	class = 'xlambda_builder'
 )
 
+#' @usage x. %% ...
+#'
 #' @method %% xlambda_builder
 #' @export
 #' @rdname x.
@@ -78,6 +64,8 @@ x. <- structure(
     }
 }
 
+#' @usage x. %/% ...
+#'
 #' @method %/% xlambda_builder
 #' @export
 #' @rdname x.
@@ -89,6 +77,9 @@ x. <- structure(
 	}
 }
 
+
+#' @usage x. [[...]]
+#'
 #' @method [[ xlambda_builder
 #' @export
 #' @rdname x.
@@ -100,6 +91,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. [...]
+#'
 #' @method [ xlambda_builder
 #' @export
 #' @rdname x.
@@ -111,6 +104,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. $ ...
+#'
 #' @method $ xlambda_builder
 #' @export
 #' @rdname x.
@@ -126,6 +121,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. @@ ...
+#'
 #' @method @@ xlambda_builder
 #' @export
 #' @rdname x.
@@ -141,6 +138,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. ^ ...
+#'
 #' @method ^ xlambda_builder
 #' @export
 #' @rdname x.
@@ -152,6 +151,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. : ...
+#'
 #' @method : xlambda_builder
 #' @export
 #' @rdname x.
@@ -163,6 +164,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. * ...
+#'
 #' @method * xlambda_builder
 #' @export
 #' @rdname x.
@@ -174,6 +177,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. / ...
+#'
 #' @method / xlambda_builder
 #' @export
 #' @rdname x.
@@ -185,6 +190,9 @@ x. <- structure(
 	}
 }
 
+#' @usage x. - ...
+#' @usage -x.
+#'
 #' @method - xlambda_builder
 #' @export
 #' @rdname x.
@@ -202,6 +210,9 @@ x. <- structure(
 	}
 }
 
+#' @usage x. + ...
+#' @usage +x.
+#'
 #' @method + xlambda_builder
 #' @export
 #' @rdname x.
@@ -219,6 +230,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. > ...
+#'
 #' @method > xlambda_builder
 #' @export
 #' @rdname x.
@@ -230,6 +243,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. >= ...
+#'
 #' @method >= xlambda_builder
 #' @export
 #' @rdname x.
@@ -241,6 +256,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. < ...
+#'
 #' @method < xlambda_builder
 #' @export
 #' @rdname x.
@@ -252,6 +269,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. <= ...
+#'
 #' @method <= xlambda_builder
 #' @export
 #' @rdname x.
@@ -263,6 +282,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. == ...
+#'
 #' @method == xlambda_builder
 #' @export
 #' @rdname x.
@@ -274,6 +295,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. != ...
+#'
 #' @method != xlambda_builder
 #' @export
 #' @rdname x.
@@ -285,10 +308,11 @@ x. <- structure(
 	}
 }
 
+#' @usage x. & ...
+#'
 #' @method & xlambda_builder
 #' @export
 #' @rdname x.
-
 
 `&.xlambda_builder` <- function (...) {
 	function (val) {
@@ -297,6 +321,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. && ...
+#'
 #' @method && xlambda_builder
 #' @export
 #' @rdname x.
@@ -308,6 +334,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. | ...
+#'
 #' @method | xlambda_builder
 #' @export
 #' @rdname x.
@@ -319,6 +347,8 @@ x. <- structure(
 	}
 }
 
+#' @usage x. || ...
+#'
 #' @method || xlambda_builder
 #' @export
 #' @rdname x.
@@ -330,6 +360,8 @@ x. <- structure(
 	}
 }
 
+#' @usage !x.
+#'
 #' @method ! xlambda_builder
 #' @export
 #' @rdname x.

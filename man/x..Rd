@@ -30,66 +30,53 @@
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
+x.
+
+x. \%\% ...
+
+x. \%/\% ...
+
+x. [[...]]
+
+x. [...]
+
+x. $ ...
+
+x. @ ...
+
+x. ^ ...
+
+x. : ...
+
+x. * ...
+
+x. / ...
+
+x. - ...
+
+x. + ...
+
+x. > ...
+
+x. >= ...
+
+x. < ...
+
+x. <= ...
+
+x. == ...
+
+x. != ...
+
+x. & ...
+
+x. && ...
+
+x. | ...
+
+x. || ...
+
 !x.
-    x. !=  RHS
-    x. $   RHS
-    x. %%  RHS
-    x. %/% RHS
-    x. &   RHS
-    x. &&  RHS
-    x. *   RHS
-    x. +   RHS
-    x. -   RHS
-    x. /   RHS
-    x. :   RHS
-    x. <   RHS
-    x. <=  RHS
-
-\method{\%\%}{xlambda_builder}(...)
-
-\method{\%/\%}{xlambda_builder}(...)
-
-\method{[[}{xlambda_builder}(...)
-
-\method{[}{xlambda_builder}(...)
-
-\method{$}{xlambda_builder}(...)
-
-\method{@}{xlambda_builder}(...)
-
-\method{^}{xlambda_builder}(...)
-
-\method{:}{xlambda_builder}(...)
-
-\method{*}{xlambda_builder}(...)
-
-\method{/}{xlambda_builder}(...)
-
-\method{-}{xlambda_builder}(...)
-
-\method{+}{xlambda_builder}(...)
-
-\method{>}{xlambda_builder}(...)
-
-\method{>=}{xlambda_builder}(...)
-
-\method{<}{xlambda_builder}(...)
-
-\method{<=}{xlambda_builder}(...)
-
-\method{==}{xlambda_builder}(...)
-
-\method{!=}{xlambda_builder}(...)
-
-\method{&}{xlambda_builder}(...)
-
-\method{&&}{xlambda_builder}(...)
-
-\method{|}{xlambda_builder}(...)
-
-\method{||}{xlambda_builder}(...)
-
-\method{!}{xlambda_builder}(...)
 }
 \arguments{
 \item{...}{the argument passed to x.. The right hand side of the operator.}

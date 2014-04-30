@@ -1963,8 +1963,6 @@ get_proto_ref <- local({
 #' @method $ arrow
 #' @export
 
-
-
 `$.arrow` <- local({
 
 	# some methods are known by their more common
