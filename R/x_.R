@@ -59,7 +59,7 @@ add_x_method <- function (env, fn, fixed) {
 
 	method <- function () {	}
 
-	formals(method) <- if (fixed == '...') {
+	formals(method) <- if (fixed == '_') {
 		formals(fn)
 	} else {
 		formals(fn)[ names(formals(fn)) != fixed ]
@@ -73,14 +73,19 @@ add_x_method <- function (env, fn, fixed) {
 
 				x_(.(
 					( as.call(c(
+						# -- call the function
 						fn_sym,
+						# -- for each parametre in the (always a closure)
 						lapply(
 							names(formals(fn)),
 							function (param) {
-
+								
 								if (as.symbol(param) == fixed) {
+									# -- if this parametre is fixed use 
+									# -- the invoker Self()
 									quote(Self())
 								} else {
+									# -- use the parametre name.
 									as.symbol(param)
 								}
 							}) )) ) ))
@@ -94,14 +99,19 @@ add_x_method <- function (env, fn, fixed) {
 
 				.(
 					( as.call(c(
+						# -- call the function
 						fn_sym,
+						
 						lapply(
 							names(formals(fn)),
 							function (param) {
 
 								if (as.symbol(param) == fixed) {
+									# -- if this parametre is fixed use 
+									# -- the invoker Self()
 									quote(Self())
 								} else {
+									# -- use the parametre name.
 									as.symbol(param)
 								}
 							}) )) ))
@@ -114,8 +124,8 @@ add_x_method <- function (env, fn, fixed) {
 
 				if (as.symbol(param) == fixed) {
 
-					if (fixed == '...') {
-						c( acc, quote(Self()), as.symbol('...') )
+					if (fixed == '_') {
+						c( acc, quote(Self()), as.symbol('_') )
 					} else {
 						c( acc, quote(Self()) )
 					}
@@ -147,8 +157,7 @@ add_x_method <- function (env, fn, fixed) {
 		}
 	}
 
-	# ESSENTIAL for closures; create a new
-	# environment inheriting from the old functions environment.
+	# -- essential for avoiding closure problems.
 	environment(method) <- new.env(parent = environment(fn))
 
 	# side-effectful update.
