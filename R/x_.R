@@ -1999,29 +1999,29 @@ get_proto_ref <- local({
 
 	autosuggested <- c(
 		alias('x', 'x_'),
-		alias('xAsNumeric', 	'xAsDouble'),
+		alias('xAsNumeric', 'xAsDouble'),
 
-		alias('xAsChars',		'xToChars'),
-		alias('xAsWords', 		'xToWords'),
-		alias('xAsLines', 		'xToLines'),
+		alias('xAsChars', 'xToChars'),
+		alias('xAsWords', 'xToWords'),
+		alias('xAsLines', 'xToLines'),
 
-		alias('xToChars', 		'xFromChars'),
-		alias('xToWords', 		'xFromWords'),
-		alias('xToLines', 		'xFromLines'),
+		alias('xToChars', 'xFromChars'),
+		alias('xToWords', 'xFromWords'),
+		alias('xToLines', 'xFromLines'),
 
-		alias('xByColkeys', 	'xByColrows'),
-		alias('xByRowkeys', 	'xByRowrows'),
-		alias('xAddNames', 		'xAddKeys'),
+		alias('xByColkeys', 'xByColrows'),
+		alias('xByRowkeys', 'xByRowrows'),
+		alias('xAddNames', 'xAddKeys'),
 
-		alias('xC', 			'xJoin'),
-		alias('xConcat', 		'xJoin'),
-		alias('xConcatenate', 	'xJoin'),
+		alias('xC', 'xJoin'),
+		alias('xConcat', 'xJoin'),
+		alias('xConcatenate', 'xJoin'),
 
-		alias('xFilter', 		'xSelect'),
-		alias('xFilterNot',     'xReject'),
+		alias('xFilter', 'xSelect'),
+		alias('xFilterNot', 'xReject'),
 
-		alias('xGroup', 		'xChunk'),
-		alias('xZipWith', 		'xMapMany')
+		alias('xGroup', 'xChunk'),
+		alias('xZipWith', 'xMapMany')
 	)
 
 	suggest_similar_method <- local({
