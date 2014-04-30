@@ -12,12 +12,12 @@ colourise <- local({
 
 		set_env_vars <- names(env_vars)
 
-		# term support color.
+		# -- term support color.
 		matching_TERM <-
 			("TERM" %in% set_env_vars) && !is.na(TERM) && TERM %in%
 			c("screen", "screen-256color", "xterm-color", "xterm-256color")
 
-		# colorterm is set at all.
+		# -- colorterm is set at all. This is required for gnome-terminal.
 		matching_COLORTERM <-
 			("COLORTERM" %in% set_env_vars) && !is.na(COLORTERM)
 
