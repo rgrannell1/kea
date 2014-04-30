@@ -1,15 +1,17 @@
-
 #' xCapture
 #'
 #' Create a function that returns a particular value.
 #'
-#' @details
-#' \bold{xCapture} is the contant combinator - a function
-#' that takes an arguments and returns a function that
-#' always returns that value.
+#' @section Type Signature:
+#'    any -> (...any -> any)
 #'
-#' The function returned by \bold{xCapture} has ellipsis arguments,
-#' and ignores those arguments.
+#' @details
+#'     \bold{xCapture} is the contant combinator - a function
+#'     that takes an arguments and returns a function that
+#'     always returns that value.
+#'
+#'     The function returned by \bold{xCapture} has ellipsis arguments,
+#'     and ignores those arguments.
 #'
 #' @param
 #'    val an arbitrary value. The value to close over with a
