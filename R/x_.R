@@ -41,9 +41,9 @@
 # by hand. Many bugs are prevented by creating the methods dynamically in this case.
 
 add_x_method <- function (env, fn, fixed) {
-	# generate a method from an input function.
-	# SIDE EFFECTFULLY UPDATES ENV, since environments are
-	# pass by reference.
+	# -- make a method from an input function.
+	# -- side effectfully assign result into environment, since they
+	# -- are pass by reference.
 
 	fn_name <- paste0(as.symbol(match.call()$fn))
 	
@@ -126,19 +126,24 @@ add_x_method <- function (env, fn, fixed) {
 
 	} else if (is_variadic) {
 
+		# -- accumulate a parametres list.
+		# -- done with Reduce as more work is needed for variadic formals.
 		params <- Reduce(
 			function (acc, param) {
 
+				# -- this parametre is to be fixed.
 				if (as.symbol(param) == fixed) {
-
-					if (fixed == '_') {
-						c( acc, quote(Self()), as.symbol('_') )
+					
+					if (fixed == '..') {
+						# -- fixing an ellipsis parametre
+						c( acc, quote(Self()), as.symbol('...') )
 					} else {
+						# -- normal fixing
 						c( acc, quote(Self()) )
 					}
-
-
+					
 				} else {
+					# -- don't fix this parametre.
 					c(acc, as.symbol(param))
 				}
 			},
@@ -146,6 +151,7 @@ add_x_method <- function (env, fn, fixed) {
 			list()
 		)
 
+		# -- set the body for a variadic function.
 		body(method) <- if (is_unchaining) {
 			# x_Method_
 
@@ -167,7 +173,7 @@ add_x_method <- function (env, fn, fixed) {
 	# -- essential for avoiding closure problems.
 	environment(method) <- new.env(parent = environment(fn))
 
-	# side-effectful update.
+	# -- side-effectful update the environment passed in with a method.
 	env[[fn_name]] <- method
 
 }
