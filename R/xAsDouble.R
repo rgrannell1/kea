@@ -50,9 +50,4 @@ xAsDouble <- MakeFun(function (nums) {
 #' @rdname xAsDouble
 #' @export
 
-xAsDouble_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAsDouble(list(...))
-})
+xAsDouble_ <- MakeVariadic(xAsDouble, 'nums')

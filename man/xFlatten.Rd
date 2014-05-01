@@ -2,7 +2,7 @@
 \name{xFlatten}
 \alias{xFlatten}
 \alias{xFlatten_}
-\title{Unnest a nested list to a given depth.}
+\title{xFlatten}
 \usage{
 xFlatten(num, coll)
 

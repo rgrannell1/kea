@@ -45,9 +45,4 @@ xAsComplex <- MakeFun(function (ims) {
 #' @rdname xAsComplex
 #' @export
 
-xAsComplex_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAsComplex(list(...))
-})
+xAsComplex_ <- MakeVariadic(xAsComplex, 'ims')

@@ -78,9 +78,4 @@ xGroupBy <- MakeFun(function (fn, coll) {
 #' @rdname xGroupBy
 #' @export
 
-xGroupBy_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xGroupBy(fn, list(...))
-})
+xGroupBy_ <- MakeVariadic(xGroupBy, 'coll')

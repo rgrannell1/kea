@@ -87,9 +87,4 @@ xCycle <- MakeFun(function (num, colls) {
 #' @rdname xCycle
 #' @export
 
-xCycle_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xCycle(num, list(...))
-})
+xCycle_ <- MakeVariadic(xCycle, 'colls')

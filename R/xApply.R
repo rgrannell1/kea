@@ -66,9 +66,4 @@ xApply <- MakeFun(function (fn, coll) {
 #' @rdname xApply
 #' @export
 
-xApply_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xApply(fn, list(...))
-})
+xApply_ <- MakeVariadic(xApply, 'coll')

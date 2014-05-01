@@ -53,9 +53,4 @@ xInter <- MakeFun(function (colls) {
 #' @rdname xInter
 #' @export
 
-xInter_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xInter(list(...))
-})
+xInter_ <- MakeVariadic(xInter, 'colls')

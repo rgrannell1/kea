@@ -44,9 +44,4 @@ xAtKey <- MakeFun(function (str, coll) {
 #' @rdname xAtKey
 #' @export
 
-xAtKey_ <- MakeFun(function (str, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAtKey(str, list(...))
-})
+xAtKey_ <- MakeVariadic(xAtKey, 'coll')

@@ -53,9 +53,4 @@ xImplode <- MakeFun(function (str, strs) {
 #' @rdname xImplode
 #' @export
 
-xImplode_ <- MakeFun(function (str, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xImplode(str, list(...))
-})
+xImplode_ <- MakeVariadic(xImplode, 'strs')

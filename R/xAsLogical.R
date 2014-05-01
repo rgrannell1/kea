@@ -45,9 +45,4 @@ xAsLogical <- MakeFun(function (bools) {
 #' @rdname xAsLogical
 #' @export
 
-xAsLogical_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAsLogical(list(...))
-})
+xAsLogical_ <- MakeVariadic(xAsLogical, 'bools')

@@ -29,9 +29,4 @@ xFromWords <- function (strs) {
 #' @rdname xFromWords
 #' @export
 
-xFromWords_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xImplode(" ", list(...))
-})
+xFromWords_ <- MakeVariadic(xFromWords, 'strs')

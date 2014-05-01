@@ -56,9 +56,4 @@ xAt <- MakeFun(function (num, coll) {
 #' @rdname xAt
 #' @export
 
-xAt_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAt(num, list(...))
-})
+xAt_ <- MakeVariadic(xAt, 'coll')

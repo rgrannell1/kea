@@ -60,9 +60,4 @@ xChunk <- MakeFun(function (num, coll) {
 #' @rdname xChunk
 #' @export
 
-xChunk_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xChunk(num, list(...))
-})
+xChunk_ <- MakeVariadic(xChunk, 'coll')

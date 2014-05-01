@@ -528,3 +528,69 @@ MakeFun <- function (expr) {
 
 	eval(unquote(substitute(expr)), parent_frame)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MakeVariadic <- function (fn, fixed) {
+
+	env <- new.env(parent = environment(fn))
+	fn_sym <- as.symbol(match.call()$fn)
+
+	out <- function () {}
+
+	# -- will break if defaults are ever added to arrow.
+
+	params <- names(formals(fn))
+	params[params == fixed] <- '...'
+
+	# -- create a formal list from the new parametres with no defaults.
+	formals(out) <-
+		structure(
+			as.pairlist( lapply(params, function (x) {
+				quote(expr = )
+			}) ),
+			names = params)
+
+	body(out) <- MakeFun( bquote({
+
+		MACRO( Must $ Have_Canonical_Arguments() )
+
+		x_(.(
+			( as.call(c(
+				# -- call the non-variadic form
+				fn_sym,
+					# -- for each parametre in the (always a closure)
+					lapply(
+						params,
+						function (param) {
+
+							if (param == '...') {
+								# -- if the param is ... return `list(...)
+								as.call(list(
+									as.symbol('list'),
+									as.symbol('...') ))
+							} else {
+								# -- return the param as a symbol
+								as.symbol(param)
+							}
+
+						}) )) ) ))
+	}) )
+
+	environment(out) <- env
+
+	out
+}

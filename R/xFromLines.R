@@ -29,9 +29,4 @@ xFromLines <- function (strs) {
 #' @rdname xFromLines
 #' @export
 
-xFromLines_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xFromLines(list(...))
-})
+xFromLines_ <- MakeVariadic(xFromLines, 'strs')

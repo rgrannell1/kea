@@ -92,9 +92,4 @@ xChop <- MakeFun(function (num, coll) {
 #' @rdname xChop
 #' @export
 
-xChop_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xChop(num, list(...))
-})
+xChop_ <- MakeVariadic(xChop, 'coll')

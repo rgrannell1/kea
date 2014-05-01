@@ -35,9 +35,4 @@ xElemIsTrue <- MakeFun(function (coll) {
 #' @rdname xElemIsTrue
 #' @export
 
-xElemIsTrue_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xElemIsTrue(list(...))
-})
+xElemIsTrue_ <- MakeVariadic(xElemIsTrue, 'coll')

@@ -61,9 +61,4 @@ xDeepMap <- MakeFun(function (fn, coll) {
 #' @rdname xDeepMap
 #' @export
 
-xDeepMap_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xDeepMap(fn, list(...))
-})
+xDeepMap_ <- MakeVariadic(xDeepMap, 'coll')

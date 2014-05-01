@@ -47,9 +47,4 @@ xElemNotNull <- MakeFun(function (coll) {
 #' @rdname xElemNotNull
 #' @export
 
-xElemNotNull_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xElemNotNull(list(...))
-})
+xElemNotNull_ <- MakeVariadic(xElemNotNull, 'coll')

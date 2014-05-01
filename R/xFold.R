@@ -79,9 +79,4 @@ xFold <- MakeFun(function (fn, val, coll) {
 #' @export
 #' @rdname xFold
 
-xFold_ <- MakeFun(function (fn, val, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xFold(fn, val, list(...))
-})
+xFold_ <- MakeVariadic(xFold, 'coll')

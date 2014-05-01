@@ -53,9 +53,4 @@ xAll <- MakeFun(function (pred, coll) {
 #' @rdname xAll
 #' @export
 
-xAll_ <- MakeFun(function (pred, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAll(pred, list(...))
-})
+xAll_ <- MakeVariadic(xAll, 'coll')

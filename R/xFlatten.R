@@ -1,3 +1,5 @@
+
+#' xFlatten
 #'
 #' Unnest a nested list to a given depth.
 #'
@@ -83,9 +85,4 @@ xFlatten <- MakeFun(function (num, coll) {
 #' @rdname xFlatten
 #' @export
 
-xFlatten_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xFlatten(num, list(...))
-})
+xFlatten_ <- MakeVariadic(xFlatten, 'coll')

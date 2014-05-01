@@ -44,10 +44,4 @@ xAsCharacter <- MakeFun(function (strs) {
 #' @rdname xAsCharacter
 #' @export
 
-xAsCharacter_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAsCharacter(list(...))
-})
-
+xAsCharacter_ <- MakeVariadic(xAsCharacter, 'strs')

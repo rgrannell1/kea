@@ -106,12 +106,7 @@ xCompose <- MakeFun(function (fns) {
 #' @rdname xCompose
 #' @export
 
-xCompose_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xCompose(list(...))
-})
+xCompose_ <- MakeVariadic(xCompose, 'fns')
 
 #' @rdname xCompose
 #' @export

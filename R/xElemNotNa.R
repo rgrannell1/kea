@@ -44,9 +44,4 @@ xElemNotNa <- MakeFun(function (coll) {
 #' @rdname xElemNotNa
 #' @export
 
-xElemNotNa_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xElemNotNa(list(...))
-})
+xElemNotNa_ <- MakeVariadic(xElemNotNa, 'coll')

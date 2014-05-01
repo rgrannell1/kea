@@ -76,9 +76,4 @@ xAsDataFrame <- MakeFun(function (colls) {
 #' @rdname xAsDataFrame
 #' @export
 
-xAsDataFrame_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAsDataFrame(list(...))
-})
+xAsDataFrame_ <- MakeVariadic(xAsDataFrame, 'colls')

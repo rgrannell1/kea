@@ -43,9 +43,4 @@ xDuplicatesOf <- MakeFun(function (coll) {
 #' @rdname xDuplicatesOf
 #' @export
 
-xDuplicatesOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xDuplicatesOf(list(...))
-})
+xDuplicatesOf_ <- MakeVariadic(xDuplicatesOf, 'coll')

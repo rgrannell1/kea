@@ -53,9 +53,4 @@ xDrop <- MakeFun(function (num, coll) {
 #' @rdname xDrop
 #' @export
 
-xDrop_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xDrop(num, list(...))
-})
+xDrop_ <- MakeVariadic(xDrop, 'coll')

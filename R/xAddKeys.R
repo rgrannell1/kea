@@ -57,9 +57,4 @@ xAddKeys <- MakeFun(function (strs, coll) {
 #' @rdname xAddKeys
 #' @export
 
-xAddKeys... <- MakeFun(function (strs, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAddKeys(strs, list(...))
-})
+xAddKeys... <- MakeVariadic(xAddKeys, 'coll')

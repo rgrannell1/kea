@@ -53,9 +53,4 @@ xAsInteger <- MakeFun(function (nums) {
 #' @rdname xAsInteger
 #' @export
 
-xAsInteger_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAsInteger(list(...))
-})
+xAsInteger_ <- MakeVariadic(xAsInteger, 'nums')

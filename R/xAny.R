@@ -60,9 +60,4 @@ xAny <- MakeFun(function (pred, coll) {
 #' @rdname xAny
 #' @export
 
-xAny_ <- MakeFun(function (pred, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAny(pred, list(...))
-})
+xAny_ <- MakeVariadic(xAny, 'coll')

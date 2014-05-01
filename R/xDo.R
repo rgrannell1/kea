@@ -55,9 +55,4 @@ xDo <- MakeFun(function (fn, coll) {
 #' @rdname xDo
 #' @export
 
-xDo_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xDo(fn, list(...))
-})
+xDo_ <- MakeVariadic(xDo, 'coll')

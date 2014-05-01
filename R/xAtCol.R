@@ -51,9 +51,4 @@ xAtCol <- MakeFun(function (num, colls) {
 #' @rdname xAtCol
 #' @export
 
-xAtCol_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xAtCol(num, list(...))
-})
+xAtCol_ <- MakeVariadic(xAtCol, 'colls')
