@@ -56,20 +56,7 @@
 
 xLambda <- local({
 
-	# ------ tokens of particular importance ------ #
-
-	token <- list(
-		open =
-			function (symbol = True) {
-				(if (symbol) as.symbol else paste)( "(" )
-			},
-		delim =
-			function (symbol = True) {
-				(if (symbol) as.symbol else paste)( ":" )
-			}
-	)
-
-	# ------ grab different parts of the parse tree ------ #
+	# -- grab different parts of the parse tree
 
 	get_tree <- list(
 		delim =
@@ -86,39 +73,36 @@ xLambda <- local({
 			}
 	)
 
-	make_formals <- function (names) {
-		structure(
-			rep(list(quote(expr=)), length(names)),
-			names = names)
-	}
-
 	function (sym, val) {
 		# symbol -> any -> function
 		# construct a function from a symbol and
 		# a function body.
 
 		parent_frame <- parent.frame()
+		matched <- match.call()
 
-		sym <- match.call()$sym
-		val <- match.call()$val
+		sym <- matched$sym
+		val <- matched$val
 
-		invoking_call <- as.symbol("xLambda")
+		# -- will always be length > 0, but may deparse badly if
+		# -- the formals aren't symbols, so use selectively.
+		invoking_call <- paste0(ddparse( matched[-1][[1]] ), ' := { [truncated]')
 
 		lambda <- function () {}
 
 		body(lambda) <- val
 
 		if (is.name(sym)) {
-			# ------ make lambda a default-free unary function ------ #
+			# -- make lambda a default-free unary function
 
 			formals(lambda) <- make_formals(sym)
 
 		} else {
-			# ------ try parse the bracket-enclosed formals ------ #
+			# -- try parse the bracket-enclosed formals
 
 			collect_params <- function (tree, state) {
-				# recur into the formals parse tree, accumulating
-				# parametre names and validating the tree.
+				# -- recur into the formals parse tree, accumulating
+				# -- parametre names and validating the tree.
 
 				if (is.name(tree)) {
 
@@ -126,12 +110,21 @@ xLambda <- local({
 
 				} else if (is.call(tree)) {
 
-					#insist $ must_have_correct_delimiter(
-					#	get_tree, token, tree, invoking_call)
+					if ( !is.name(get_tree$param(tree)) ) {
+						# -- the parametre isn't a symbol
 
-					assert(
-						is.name(get_tree$param(tree)), invoking_call,
-						proclaim$non_symbol_param(get_tree$param(tree)) )
+						message <- "function parametres must by symbols." %+%
+						summate(get_tree$param(tree))
+
+						throw_arrow_error(invoking_call, message)
+					}
+
+					if (get_tree$delim(tree) != ":") {
+
+						message <- "parametres must be delimited by ':'"
+
+						throw_arrow_error(invoking_call, message)
+					}
 
 					new_state <- list(
 						params =
@@ -143,24 +136,26 @@ xLambda <- local({
 				}
 			}
 
+			# -- check the formals are bracket-enclosed
 
-			# ------ check the formals are bracket-enclosed ------ #
+			if (get_tree$delim(sym) != '(') {
 
-			assert(
-				get_tree$delim(sym) == token$open(), invoking_call,
-				proclaim$no_enclosing_parens())
+				message <- "the formals for non-unary functions" %+%
+					" must be enclosed in parentheses."
+
+				throw_arrow_error(invoking_call, message)
+			}
 
 			params <- collect_params(
 				tree = sym[[2]],
 				state = list(
 					params = character(0)) )
 
-			# ------ set the formals to the parsed param names ------ #
+			# -- set the formals to the parsed param names
 			formals(lambda) <- make_formals(params)
-
 		}
 
-		# ------ make sure lexical scoping works is as expected ------ #
+		# -- set the environment to exclude all the clutter in this function
 		environment(lambda) <- parent_frame
 		lambda
 	}

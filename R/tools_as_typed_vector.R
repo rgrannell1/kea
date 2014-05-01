@@ -29,6 +29,8 @@ unit_to_value <- function (coll) {
 			False
 		} else if (is.raw(coll)) {
 			as.raw(00)
+		} else if (is.complex()) {
+			0 + 0i
 		} else {
 			write_error(
 				"internal arrow error: cannot convert to non-implemented vector type.",

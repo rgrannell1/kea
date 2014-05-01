@@ -23,6 +23,11 @@ A character vector.
 \description{
 Subset a string using normal R vector indexing.
 }
+\section{Type Signature}{
+
+    |character| -> |numeric| -> <character>
+}
+
 \section{Corner Cases}{
 
      Returns the empty list if \bold{coll} is length-zero. If any number in

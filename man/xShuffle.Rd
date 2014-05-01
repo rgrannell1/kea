@@ -17,8 +17,15 @@ xShuffle_(...)
 A list.
 }
 \description{
+xShuffle
+}
+\section{Type Signature}{
+
+    |any| -> [any]
+
 Randomly rearrange a collection.
 }
+
 \section{Corner Cases}{
 
      Returns the empty list if \bold{coll} is length-zero.

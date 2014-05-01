@@ -1,38 +1,4 @@
 
-# -------------------------------- proclaim -------------------------------- #
-#
-# To Developers,
-#
-# lament is virtually identical to exclaim in its implementation and purpose,
-# except that it is used for the error messages that xLambda and only xLambda
-# generates; there is no point bloating exclaim.
-
-
-proclaim <- list(
-	incorrent_delimiter =
-		function (actual, expected) {
-
-			"the unexpected delimiter " %+% dQuote(actual) %+%
-			" was encountered, but the delimiter " %+% dQuote(expected) %+%
-			" was expected."
-
-		},
-	non_symbol_param =
-		function (actual) {
-
-			"function parametres must be symbols." %+%
-			summate(actual)
-
-		},
-	no_enclosing_parens =
-		function () {
-
-			"the formals for non-unary functions" %+%
-			" must be enclosed in parentheses."
-
-		}
-)
-
 # -------------------------------- lament -------------------------------- #
 #
 # To Developers,

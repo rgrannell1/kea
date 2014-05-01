@@ -27,6 +27,11 @@ Select a collection at certain indices.
     except that it performs more validation on the input indices,
     and it acts as a normal function.
 }
+\section{Type Signature}{
+
+    |numeric| -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    \bold{xSlice} does not allow subscripting values out of bounds, unlike

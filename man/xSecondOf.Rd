@@ -20,6 +20,11 @@ The second element in \bold{coll}.
 \description{
 Return the second element in a collection.
 }
+\section{Type Signature}{
+
+    |any| -> any
+}
+
 \section{Corner Cases}{
 
    Throws an error if \bold{coll} has less than two

@@ -17,7 +17,7 @@ Create a function that returns true for a preset time after creation.
 }
 \section{Type Signature}{
 
-   |numeric| -> (-> <logical>)
+   |number| -> (-> <logical>)
 }
 \examples{
 

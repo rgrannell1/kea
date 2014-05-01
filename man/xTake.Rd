@@ -24,7 +24,7 @@ Take several elements from the head of a collection.
 }
 \section{Type Signature}{
 
-   <natural> -> |any| -> |any|
+   <number> -> |any| -> |any|
 }
 
 \section{Corner Cases}{

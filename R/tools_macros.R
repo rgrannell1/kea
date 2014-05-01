@@ -502,12 +502,6 @@ Must <- local({
 
 
 
-ddquote <- function (SYM) {
-
-	SYM <- match.call()$SYM
-
-	paste0(dQuote(SYM), collapse = '')
-}
 
 MakeFun <- function (expr) {
 

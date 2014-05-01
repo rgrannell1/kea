@@ -52,6 +52,18 @@ one_of <- function (coll) {
 	identical(a, b)
 }
 
+#'
+#' Construct empty formals from parametre names.
+#'
+#'
+
+make_formals <- function (params) {
+	structure(
+		rep(list(quote(expr=)), length(params)),
+		names = params)
+}
+
+
 # @section call_with_params:
 #
 # Construct a call to a function 'fnname' with the parametres of
