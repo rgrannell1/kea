@@ -549,12 +549,23 @@ MakeVariadic <- function (fn, fixed) {
 	env <- new.env(parent = environment(fn))
 	fn_sym <- as.symbol(match.call()$fn)
 
-	out <- function () {}
+	if ( grepl('_', paste0(fn_sym)) ) {
+		stop("MakeVariadic: _ in method name ", paste0(fn_sym))
+	}
+
+	# -- will replace formals & body, env will be same.
+	out <- fn
 
 	# -- will break if defaults are ever added to arrow.
 
 	params <- names(formals(fn))
+
+	if (fixed %!in% params) {
+		stop("MakeVariadic: tried to fix param that doesn't exist ", paste0(fn_sym))
+	}
+
 	params[params == fixed] <- '...'
+
 
 	# -- create a formal list from the new parametres with no defaults.
 	formals(out) <-
@@ -568,7 +579,7 @@ MakeVariadic <- function (fn, fixed) {
 
 		MACRO( Must $ Have_Canonical_Arguments() )
 
-		x_(.(
+		.(
 			( as.call(c(
 				# -- call the non-variadic form
 				fn_sym,
@@ -587,7 +598,7 @@ MakeVariadic <- function (fn, fixed) {
 								as.symbol(param)
 							}
 
-						}) )) ) ))
+						}) )) ) )
 	}) )
 
 	environment(out) <- env
