@@ -1,3 +1,4 @@
+
 Must <- local({
 
 	this <- Object()
@@ -559,7 +560,6 @@ MakeVariadic <- function (fn, fixed) {
 	}
 
 	params[params == fixed] <- '...'
-
 
 	# -- create a formal list from the new parametres with no defaults.
 	formals(out) <-

@@ -235,9 +235,7 @@ x_any_proto <- local({
 	# -------- G ------- #
 	this$xGraft <-
 		function (str, fn) {
-			# add a function to the x_
-			# call chain for the
-			# current R session.
+			# -- add a function to the x_ call chain for the current R session.
 
 			chainable <- function (...) {
 				x_(fn(Self(), ...))
@@ -258,18 +256,23 @@ x_any_proto <- local({
 	add_x_method(this, x_IsEmpty, 'coll')
 	add_x_method(this, x_IsEmpty_, '...')
 
+	# --- xIsNa --- #
 	add_x_method(this, xIsNa, 'val')
 	add_x_method(this, x_IsNa, 'val')
 
+	# --- xIsNan --- #
 	add_x_method(this, xIsNan, 'val')
 	add_x_method(this, x_IsNan, 'val')
 
+	# --- xIsNull --- #
 	add_x_method(this, xIsNull, 'val')
 	add_x_method(this, x_IsNull, 'val')
 
+	# --- xIsTrue --- #
 	add_x_method(this, xIsTrue, 'val')
 	add_x_method(this, x_IsTrue, 'val')
 
+	# --- xIsFalse --- #
 	add_x_method(this, xIsFalse, 'val')
 	add_x_method(this, x_IsFalse, 'val')
 
