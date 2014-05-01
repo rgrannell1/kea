@@ -60,9 +60,4 @@ xPluck <- MakeFun(function (str, colls) {
 #' @rdname xPluck
 #' @export
 
-xPluck_ <- MakeFun(function (str, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xPluck(str, list(...))
-})
+xPluck_ <- MakeVariadic(xPluck, 'colls')

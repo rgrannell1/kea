@@ -14,7 +14,7 @@ xAny_(pred, ...)
 
 \item{coll}{a collection. The collection to test each element of.}
 
-\item{...}{see above.MakeFun(}
+\item{...}{see above.}
 }
 \value{
 A boolean value.
@@ -24,7 +24,7 @@ Is a predicate true for any element of a collection?
 }
 \section{Type Signature}{
 
-    (any -> logical) -> |any| -> <boolean>
+    (any -> <logical>) -> |any| -> <logical>
 }
 
 \section{Corner Cases}{

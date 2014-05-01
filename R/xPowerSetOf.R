@@ -60,9 +60,4 @@ xPowerSetOf <- MakeFun(function (coll) {
 #' @rdname xPowerSetOf
 #' @export
 
-xPowerSetOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xPowerSetOf(list(...))
-})
+xPowerSetOf_ <- MakeVariadic(xPowerSetOf, 'coll')

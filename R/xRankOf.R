@@ -44,9 +44,4 @@ xRankOf <- MakeFun(function (nums) {
 #' @rdname xRankOf
 #' @export
 
-xRankOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xRankOf(list(...))
-})
+xRankOf_ <- MakeVariadic(xRankOf, 'nums')

@@ -65,9 +65,4 @@ xRecycle <- MakeFun(function (colls) {
 #' @rdname xRecycle
 #' @export
 
-xRecycle_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xRecycle(list(...))
-})
+xRecycle_ <- MakeVariadic(xRecycle, 'colls')

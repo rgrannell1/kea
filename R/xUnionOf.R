@@ -56,9 +56,4 @@ xUnionOf <- MakeFun(function (colls) {
 #' @rdname xUnionOf
 #' @export
 
-xUnionOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xUnionOf(list(...))
-})
+xUnionOf_ <- MakeVariadic(xUnionOf, 'colls')

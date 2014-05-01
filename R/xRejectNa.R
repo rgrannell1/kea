@@ -42,9 +42,4 @@ xRejectNa <- MakeFun(function (coll) {
 #' @rdname xRejectNa
 #' @export
 
-xRejectNa_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xRejectNa(list(...))
-})
+xRejectNa_ <- MakeVariadic(xRejectNa, 'coll')

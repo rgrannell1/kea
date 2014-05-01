@@ -50,9 +50,4 @@ xLocate <- MakeFun(function (pred, coll) {
 #' @rdname xLocate
 #' @export
 
-xLocate_ <- MakeFun(function (pred, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xLocate(pred, list(...))
-})
+xLocate_ <- MakeVariadic(xLocate, 'coll')

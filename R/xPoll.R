@@ -67,9 +67,4 @@ xPoll <- MakeFun(function (pred, coll) {
 #' @rdname xPoll
 #' @export
 
-xPoll_ <- MakeFun(function (pred, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xPoll(pred, list(...))
-})
+xPoll_ <- MakeVariadic(xPoll, 'coll')

@@ -63,9 +63,4 @@ xReorder <- MakeFun(function (nums, colls) {
 #' @rdname xReorder
 #' @export
 
-xReorder_ <- MakeFun(function (nums, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xReorder(nums, list(...))
-})
+xReorder_ <- MakeVariadic(xReorder, 'colls')

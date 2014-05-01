@@ -41,9 +41,4 @@ xLastOf <- MakeFun	(function (coll) {
 #' @rdname xLastOf
 #' @export
 
-xLastOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xLastOf(list(...))
-})
+xLastOf_ <- MakeVariadic(xLastOf, 'coll')

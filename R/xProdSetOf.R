@@ -71,9 +71,4 @@ xProdSetOf <- local({
 #' @rdname xProdSetOf
 #' @export
 
-xProdSetOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xProdSetOf(list(...))
-})
+xProdSetOf_ <- MakeVariadic(xProdSetOf, 'colls')

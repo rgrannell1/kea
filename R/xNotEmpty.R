@@ -35,9 +35,4 @@ xNotEmpty <- MakeFun(function (coll) {
 #' @rdname xNotEmpty
 #' @export
 
-xNotEmpty_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xNotEmpty(list(...))
-})
+xNotEmpty_ <- MakeVariadic(xNotEmpty, 'coll')

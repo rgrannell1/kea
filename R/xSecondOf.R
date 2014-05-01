@@ -42,9 +42,4 @@ xSecondOf <- MakeFun(function (coll) {
 #' @rdname xSecondOf
 #' @export
 
-xSecondOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xSecondOf(list(...))
-})
+xSecondOf_ <- MakeVariadic(xSecondOf, 'coll')

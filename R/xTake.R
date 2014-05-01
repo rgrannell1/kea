@@ -58,9 +58,4 @@ xTake <- MakeFun(function (num, coll) {
 #' @rdname xTake
 #' @export
 
-xTake_ <- MakeFun(function (num, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xTake(num, list(...))
-})
+xTake_ <- MakeVariadic(xTake, 'coll')

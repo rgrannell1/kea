@@ -48,9 +48,4 @@ xWhere <- MakeFun(function (bools) {
 #' @rdname xWhere
 #' @export
 
-xWhere_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xWhere(list(...))
-})
+xWhere_ <- MakeVariadic(xWhere, 'bools')

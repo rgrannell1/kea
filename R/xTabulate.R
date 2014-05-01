@@ -81,9 +81,4 @@ xTabulate <- MakeFun(function (coll) {
 #' @rdname xTabulate
 #' @export
 
-xTabulate_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xTabulate(list(...))
-})
+xTabulate_ <- MakeVariadic(xTabulate, 'coll')

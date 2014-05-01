@@ -33,6 +33,11 @@ Unnest a nested list to a given depth.
    \bold{xFlatten} is currently implemented recursively (except for
    complete unlisting), so it is unstable for large or deep collections.
 }
+\section{Type Signature}{
+
+   |numeric| -> |any| -> |any|
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

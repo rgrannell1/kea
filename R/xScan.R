@@ -71,9 +71,4 @@ xScan <- MakeFun(function (fn, val, coll) {
 #' @rdname xScan
 #' @export
 
-xScan_ <- MakeFun(function (fn, val, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xScan(fn, val, list(...))
-})
+xScan_ <- MakeVariadic(xScan, 'coll')

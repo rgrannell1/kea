@@ -20,13 +20,20 @@ xAt_(num, ...)
 A list.
 }
 \description{
-Select the value at an index in a collection.
+xAt
 }
 \details{
 \bold{xAt} is similar to base R's subsetting operator '[[',
     except that it performs more validation on the input indices,
     and it acts as a normal function.
 }
+\section{Type Signature}{
+
+   |numeric| -> |any| -> any
+
+Select the value at an index in a collection.
+}
+
 \section{Corner Cases}{
 
    \bold{xAt} does not allow subscripting of values out of bounds.

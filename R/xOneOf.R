@@ -45,9 +45,4 @@ xOneOf <- MakeFun(function (coll) {
 #' @rdname xOneOf
 #' @export
 
-xOneOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xOneOf(list(...))
-})
+xOneOf_ <- MakeVariadic(xOneOf, 'coll')

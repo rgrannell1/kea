@@ -65,9 +65,4 @@ xReject <- MakeFun(function (pred, coll) {
 #' @rdname xReject
 #' @export
 
-xReject_ <- MakeFun(function (pred, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xReject(pred, list(...))
-})
+xReject_ <- MakeVariadic(xReject, 'coll')

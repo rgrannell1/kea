@@ -72,9 +72,4 @@ xSortBy <- MakeFun(function (fn, coll) {
 #' @rdname xSortBy
 #' @export
 
-xSortBy_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xSortBy(fn, list(...))
-})
+xSortBy_ <- MakeVariadic(xSortBy, 'coll')

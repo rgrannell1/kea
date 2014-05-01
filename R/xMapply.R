@@ -54,9 +54,4 @@ xMapply <- MakeFun(function (fn, colls) {
 #' @rdname xMapply
 #' @export
 
-xMapply_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xMapply(fn, list(...))
-})
+xMapply_ <- MakeVariadic(xMapply, 'colls')

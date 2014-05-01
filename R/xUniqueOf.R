@@ -45,9 +45,4 @@ xUniqueOf <- MakeFun(function (coll) {
 #' @rdname xUniqueOf
 #' @export
 
-xUniqueOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xUniqueOf(list(...))
-})
+xUniqueOf_ <- MakeVariadic(xUniqueOf, 'coll')

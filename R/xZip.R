@@ -79,9 +79,4 @@ xZip <- MakeFun(function (colls) {
 #' @rdname xZip
 #' @export
 
-xZip_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xZip(list(...))
-})
+xZip_ <- MakeVariadic(xZip, 'colls')

@@ -42,9 +42,4 @@ xRejectNull <- MakeFun(function (coll) {
 #' @rdname xRejectNull
 #' @export
 
-xRejectNull_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xRejectNull(list(...))
-})
+xRejectNull_ <- MakeVariadic(xRejectNull, 'coll')

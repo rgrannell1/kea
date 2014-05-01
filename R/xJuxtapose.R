@@ -73,9 +73,4 @@ xJuxtapose <- MakeFun(function (fns) {
 #' @rdname xJuxtapose
 #' @export
 
-xJuxtapose_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xJuxtapose(list(...))
-})
+xJuxtapose_ <- MakeVariadic(xJuxtapose, 'fns')

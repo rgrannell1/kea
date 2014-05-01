@@ -49,9 +49,4 @@ xUnzipIndices <- MakeFun(function (coll) {
 #' @rdname xUnzipIndices
 #' @export
 
-xUnzipIndices_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xUnzipIndices(list(...))
-})
+xUnzipIndices_ <- MakeVariadic(xUnzipIndices, 'coll')

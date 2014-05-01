@@ -70,9 +70,4 @@ xOrderOf <- MakeFun(function (nums) {
 #' @rdname xOrderOf
 #' @export
 
-xOrderOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xOrderOf(list(...))
-})
+xOrderOf_ <- MakeVariadic(xOrderOf, 'nums')

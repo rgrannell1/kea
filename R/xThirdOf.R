@@ -45,9 +45,4 @@ xThirdOf <- MakeFun(function (coll) {
 #' @rdname xThirdOf
 #' @export
 
-xThirdOf_ <- MakeFun(function (...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xThirdOf(list(...))
-})
+xThirdOf_ <- MakeVariadic(xThirdOf, 'coll')

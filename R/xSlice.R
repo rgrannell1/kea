@@ -56,9 +56,4 @@ xSlice <- MakeFun(function (nums, coll) {
 #' @rdname xSlice
 #' @export
 
-xSlice_ <- MakeFun(function (nums, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xSlice(nums, list(...))
-})
+xSlice_ <- MakeVariadic(xSlice, 'coll')

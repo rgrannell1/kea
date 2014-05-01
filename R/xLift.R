@@ -105,12 +105,7 @@ xLift <- MakeFun(function (fn, fns) {
 #' @rdname xLift
 #' @export
 
-xLift_ <- MakeFun(function (fn, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	do.call( xLift, list(fn, list(...)) )
-})
+xLift_ <- MakeVariadic(xLift, 'fns')
 
 #' @rdname xLift
 #' @export

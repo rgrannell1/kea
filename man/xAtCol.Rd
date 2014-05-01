@@ -22,6 +22,10 @@ A list.
 \description{
 Select a column of values from a collection of rows.
 }
+\section{Type Signature}{
+
+   |numeric| -> ||any|| -> |any|
+}
 \examples{
 
 # 1. Selecting columns in data-frame like structures

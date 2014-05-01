@@ -65,9 +65,4 @@ xPartition <- MakeFun(function (pred, coll) {
 #' @rdname xPartition
 #' @export
 
-xPartition_ <- MakeFun(function (pred, ...) {
-
-	MACRO( Must $ Have_Canonical_Arguments() )
-
-	xPartition(pred, list(...))
-})
+xPartition_ <- MakeVariadic(xPartition, 'coll')
