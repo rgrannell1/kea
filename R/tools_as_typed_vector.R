@@ -46,19 +46,19 @@ as_typed_vector <- local({
 
 	typecheck <- list(
 		numeric =
-			function (x) is.numeric(x),
+			function (x) is.numeric(x) || is.na(x),
 		integer =
-			function (x) is.integer(x),
+			function (x) is.integer(x) || is.na(x),
 		double =
-			function (x) is.double(x),
+			function (x) is.double(x) || is.na(x),
 		character =
-			function (x) is.character(x),
+			function (x) is.character(x) || is.na(x),
 		logical =
-			function (x) is.logical(x),
+			function (x) is.logical(x) || is.na(x),
 		complex =
-			function (x) is.complex(x),
+			function (x) is.complex(x) || is.na(x),
 		raw =
-			function (x) is.raw(x)
+			function (x) is.raw(x) || is.na(x)
 	)
 
 	function (coll, mode) {
@@ -132,19 +132,19 @@ as_atom <- local({
 
 	typecheck <- list(
 		numeric =
-			function (x) is.numeric(x),
+			function (x) is.numeric(x) || is.na(x),
 		integer =
-			function (x) is.integer(x),
+			function (x) is.integer(x) || is.na(x),
 		double =
-			function (x) is.double(x),
+			function (x) is.double(x) || is.na(x),
 		character =
-			function (x) is.character(x),
+			function (x) is.character(x) || is.na(x),
 		logical =
-			function (x) is.logical(x),
+			function (x) is.logical(x) || is.na(x),
 		complex =
-			function (x) is.complex(x),
+			function (x) is.complex(x) || is.na(x),
 		raw =
-			function (x) is.raw(x)
+			function (x) is.raw(x) || is.na(x)
 	)
 
 	function (coll, mode) {
