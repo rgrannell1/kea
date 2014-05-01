@@ -1,7 +1,10 @@
-
 #' xAtCol
 #'
 #' Select a column of values from a collection of rows.
+#'
+#'
+#' @section Type Signature:
+#'    |numeric| -> ||any|| -> |any|
 #'
 #' @param
 #'     num a whole number. The number of the column to select.

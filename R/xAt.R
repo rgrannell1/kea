@@ -1,5 +1,8 @@
-
 #' xAt
+#'
+#'
+#' @section Type Signature:
+#'    |numeric| -> |any| -> any
 #'
 #' Select the value at an index in a collection.
 #'

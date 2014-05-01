@@ -3,6 +3,9 @@
 #'
 #' Unnest a nested list to a given depth.
 #'
+#' @section Type Signature:
+#'    |numeric| -> |any| -> |any|
+#'
 #' @details
 #'    \bold{xFlatten} flattens nested collections to a
 #'    specific depth. \bold{num} specifies the maximum

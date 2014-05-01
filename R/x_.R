@@ -41,13 +41,16 @@
 # by hand. Many bugs are prevented by creating the methods dynamically in this case.
 
 add_x_method <- function (env, fn, fixed) {
-	# generate a method from an input function.
-	# SIDE EFFECTFULLY UPDATES ENV, since environments are
-	# pass by reference.
+	# -- make a method from an input function.
+	# -- side effectfully assign result into environment, since they
+	# -- are pass by reference.
 
 	fn_name <- paste0(as.symbol(match.call()$fn))
+	
+	# -- normalise the method name from x_Method to xMethos
 	fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
 
+	# -- detect the type of method.
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic <- grepl('[.]{3}$', fn_name)
 
@@ -57,9 +60,11 @@ add_x_method <- function (env, fn, fixed) {
 		write_error('not a parametre of ' %+% paste0(fn_sym))
 	}
 
+	# -- all parts of this function will be modified.
 	method <- function () {	}
 
-	formals(method) <- if (fixed == '_') {
+	# -- remove the fixed parametre, unless ellipsis is being fixed.
+	formals(method) <- if (fixed == '...') {
 		formals(fn)
 	} else {
 		formals(fn)[ names(formals(fn)) != fixed ]
@@ -67,7 +72,8 @@ add_x_method <- function (env, fn, fixed) {
 
 	if (!is_unchaining && !is_variadic) {
 		# xMethod
-
+		
+		# -- construct the function body.
 		body(method) <-
 			bquote({
 
@@ -93,7 +99,8 @@ add_x_method <- function (env, fn, fixed) {
 
 	} else if (is_unchaining && !is_variadic) {
 		# x_Method
-
+		
+		# -- construct the function body.
 		body(method) <-
 			bquote({
 
@@ -119,19 +126,24 @@ add_x_method <- function (env, fn, fixed) {
 
 	} else if (is_variadic) {
 
+		# -- accumulate a parametres list.
+		# -- done with Reduce as more work is needed for variadic formals.
 		params <- Reduce(
 			function (acc, param) {
 
+				# -- this parametre is to be fixed.
 				if (as.symbol(param) == fixed) {
-
-					if (fixed == '_') {
-						c( acc, quote(Self()), as.symbol('_') )
+					
+					if (fixed == '..') {
+						# -- fixing an ellipsis parametre
+						c( acc, quote(Self()), as.symbol('...') )
 					} else {
+						# -- normal fixing
 						c( acc, quote(Self()) )
 					}
-
-
+					
 				} else {
+					# -- don't fix this parametre.
 					c(acc, as.symbol(param))
 				}
 			},
@@ -139,6 +151,7 @@ add_x_method <- function (env, fn, fixed) {
 			list()
 		)
 
+		# -- set the body for a variadic function.
 		body(method) <- if (is_unchaining) {
 			# x_Method_
 
@@ -160,7 +173,7 @@ add_x_method <- function (env, fn, fixed) {
 	# -- essential for avoiding closure problems.
 	environment(method) <- new.env(parent = environment(fn))
 
-	# side-effectful update.
+	# -- side-effectful update the environment passed in with a method.
 	env[[fn_name]] <- method
 
 }
@@ -1986,29 +1999,29 @@ get_proto_ref <- local({
 
 	autosuggested <- c(
 		alias('x', 'x_'),
-		alias('xAsNumeric', 	'xAsDouble'),
+		alias('xAsNumeric', 'xAsDouble'),
 
-		alias('xAsChars',		'xToChars'),
-		alias('xAsWords', 		'xToWords'),
-		alias('xAsLines', 		'xToLines'),
+		alias('xAsChars', 'xToChars'),
+		alias('xAsWords', 'xToWords'),
+		alias('xAsLines', 'xToLines'),
 
-		alias('xToChars', 		'xFromChars'),
-		alias('xToWords', 		'xFromWords'),
-		alias('xToLines', 		'xFromLines'),
+		alias('xToChars', 'xFromChars'),
+		alias('xToWords', 'xFromWords'),
+		alias('xToLines', 'xFromLines'),
 
-		alias('xByColkeys', 	'xByColrows'),
-		alias('xByRowkeys', 	'xByRowrows'),
-		alias('xAddNames', 		'xAddKeys'),
+		alias('xByColkeys', 'xByColrows'),
+		alias('xByRowkeys', 'xByRowrows'),
+		alias('xAddNames', 'xAddKeys'),
 
-		alias('xC', 			'xJoin'),
-		alias('xConcat', 		'xJoin'),
-		alias('xConcatenate', 	'xJoin'),
+		alias('xC', 'xJoin'),
+		alias('xConcat', 'xJoin'),
+		alias('xConcatenate', 'xJoin'),
 
-		alias('xFilter', 		'xSelect'),
-		alias('xFilterNot',     'xReject'),
+		alias('xFilter', 'xSelect'),
+		alias('xFilterNot', 'xReject'),
 
-		alias('xGroup', 		'xChunk'),
-		alias('xZipWith', 		'xMapMany')
+		alias('xGroup', 'xChunk'),
+		alias('xZipWith', 'xMapMany')
 	)
 
 	suggest_similar_method <- local({

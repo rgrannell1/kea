@@ -1,10 +1,9 @@
-
 #' xAny
 #'
 #' Is a predicate true for any element of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> logical) -> |any| -> <boolean>
+#'     (any -> <logical>) -> |any| -> <logical>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of
@@ -14,7 +13,7 @@
 #'    coll a collection. The collection to test each element of.
 #'
 #' @param
-#'    ... see above.MakeFun(
+#'    ... see above.
 #'
 #' @return
 #'    A boolean value.
