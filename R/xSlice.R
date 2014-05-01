@@ -3,6 +3,10 @@
 #'
 #' Select a collection at certain indices.
 #'
+#'
+#' @section Type Signature:
+#'     |numeric| -> |any| -> [any]
+#'
 #' @details
 #'     \bold{xSlice} is similar to base R's subsetting operator '[',
 #'     except that it performs more validation on the input indices,

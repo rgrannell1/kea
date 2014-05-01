@@ -4,7 +4,7 @@
 #' Create a function that returns true for a preset time after creation.
 #'
 #' @section Type Signature:
-#'    |numeric| -> (-> <logical>)
+#'    |number| -> (-> <logical>)
 #'
 #' @param
 #'    num a positive number. The number of seconds

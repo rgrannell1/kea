@@ -3,6 +3,9 @@
 #'
 #' Return the second element in a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> any
+#'
 #' @param
 #'    coll a collection. The collection to get the
 #'    second element of.

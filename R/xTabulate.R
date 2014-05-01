@@ -4,7 +4,7 @@
 #' Tabulate a collection into pairs of value:frequency lists.
 #'
 #' @section Type Signature:
-#'    |any| -> ||any, <natural>||
+#'    |any| -> ||any, <number>||
 #'
 #' @details
 #'     \bold{xTabulate} is superficially similar to the base

@@ -42,15 +42,6 @@ unit_to_value <- function (coll) {
 
 as_typed_vector <- local({
 
-	check_valid <- function (elem, mode) {
-		if (length(elem) != 1) {
-			stop("")
-		}
-		if (mode(elem) != mode) {
-			stop("")
-		}
-	}
-
 	typecheck <- list(
 		numeric =
 			function (x) is.numeric(x),
@@ -136,15 +127,6 @@ as_typed_vector <- local({
 
 
 as_atom <- local({
-
-	check_valid <- function (elem, mode) {
-		if (length(elem) != 1) {
-			stop("")
-		}
-		if (mode(elem) != mode) {
-			stop("")
-		}
-	}
 
 	typecheck <- list(
 		numeric =

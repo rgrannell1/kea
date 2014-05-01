@@ -46,7 +46,7 @@ add_x_method <- function (env, fn, fixed) {
 	# -- are pass by reference.
 
 	fn_name <- paste0(as.symbol(match.call()$fn))
-	
+
 	# -- normalise the method name from x_Method to xMethos
 	fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
 
@@ -72,7 +72,7 @@ add_x_method <- function (env, fn, fixed) {
 
 	if (!is_unchaining && !is_variadic) {
 		# xMethod
-		
+
 		# -- construct the function body.
 		body(method) <-
 			bquote({
@@ -85,9 +85,9 @@ add_x_method <- function (env, fn, fixed) {
 						lapply(
 							names(formals(fn)),
 							function (param) {
-								
+
 								if (as.symbol(param) == fixed) {
-									# -- if this parametre is fixed use 
+									# -- if this parametre is fixed use
 									# -- the invoker Self()
 									quote(Self())
 								} else {
@@ -99,7 +99,7 @@ add_x_method <- function (env, fn, fixed) {
 
 	} else if (is_unchaining && !is_variadic) {
 		# x_Method
-		
+
 		# -- construct the function body.
 		body(method) <-
 			bquote({
@@ -108,13 +108,13 @@ add_x_method <- function (env, fn, fixed) {
 					( as.call(c(
 						# -- call the function
 						fn_sym,
-						
+
 						lapply(
 							names(formals(fn)),
 							function (param) {
 
 								if (as.symbol(param) == fixed) {
-									# -- if this parametre is fixed use 
+									# -- if this parametre is fixed use
 									# -- the invoker Self()
 									quote(Self())
 								} else {
@@ -133,15 +133,15 @@ add_x_method <- function (env, fn, fixed) {
 
 				# -- this parametre is to be fixed.
 				if (as.symbol(param) == fixed) {
-					
-					if (fixed == '..') {
+
+					if (fixed == '...') {
 						# -- fixing an ellipsis parametre
 						c( acc, quote(Self()), as.symbol('...') )
 					} else {
 						# -- normal fixing
 						c( acc, quote(Self()) )
 					}
-					
+
 				} else {
 					# -- don't fix this parametre.
 					c(acc, as.symbol(param))
