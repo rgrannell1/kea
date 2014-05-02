@@ -3,9 +3,13 @@
 #'
 #' Does a function have ellipsis arguments?
 #'
+#'
+#' @section Type Signature:
+#'     any -> <logical>
+#'
 #' @param
 #'    fn an function. The function to test for
-#'    variadic parametres.
+#'    variadic parametres
 #'
 #' @return
 #'    A boolean value.
@@ -25,6 +29,6 @@ xIsVariadic <- MakeFun(function (fn) {
 
 	fn <- match_fn(fn)
 
-	"..." %in% xParamsOf(fn)
+	isTRUE("..." %in% xParamsOf(fn))
 
 })

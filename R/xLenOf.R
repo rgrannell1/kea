@@ -3,6 +3,9 @@
 #'
 #' Get the length of a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> <number>
+#'
 #' @param
 #'    coll a collection. The collection to test the
 #'    length of.

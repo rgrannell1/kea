@@ -3,6 +3,9 @@
 #'
 #' Return the last element in a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> any
+#'
 #' @param
 #'    coll a collection. The collection to return
 #'    the last element of.

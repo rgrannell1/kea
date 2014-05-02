@@ -3,6 +3,9 @@
 #'
 #' Is a variable locked?
 #'
+#' @section Type Signature:
+#'     any -> <logical>
+#'
 #' @param
 #'    sym a symbol or string. The variable name to test.
 #'

@@ -1,5 +1,10 @@
+
+#' xIsNan
 #'
 #' Is an value nan?
+#'
+#' @section Type Signature:
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for being

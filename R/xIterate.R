@@ -3,23 +3,26 @@
 #'
 #' Iteratively apply a function to a value.
 #'
+#' @section Type Signature:
+#'    (any -> any) -> any -> any
+#'
 #' @details
 #'
-#' \bold{xIterate} repeatedly calls a function on an initial value until
-#' it is explicitely halted using \bold{Return( )}. It is similar
-#' for a while loop, with the added benefits of an explicit return value
-#' and easier debugging.
+#'     \bold{xIterate} repeatedly calls a function on an initial value until
+#'     it is explicitely halted using \bold{Return( )}. It is similar
+#'     for a while loop, with the added benefits of an explicit return value
+#'     and easier debugging.
 #'
-#' The only way to end \bold{xIterate} is to call \bold{Return( )}. A
-#' trivial example of ending an \bold{xIterate} call is given below.
+#'     The only way to end \bold{xIterate} is to call \bold{Return( )}. A
+#'     trivial example of ending an \bold{xIterate} call is given below.
 #'
-#' \code{xIterate(num := if (num >= 10) Return(num) else num + 1, 0)}
+#'     \code{xIterate(num := if (num >= 10) Return(num) else num + 1, 0)}
 #'
-#' \code{10}
+#'     \code{10}
 #'
-#' The above call iterates from zero to ten, before returning the
-#' last number it encounters - ten. More useful examples are given below,
-#' but the above example demonstrates the basic usage of \bold{xIterate}.
+#'     The above call iterates from zero to ten, before returning the
+#'     last number it encounters - ten. More useful examples are given below,
+#'     but the above example demonstrates the basic usage of \bold{xIterate}.
 #'
 #' @param
 #'    fn a function. The function to repeatedly apply to an initial value.

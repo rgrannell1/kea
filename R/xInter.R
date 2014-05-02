@@ -3,6 +3,9 @@
 #'
 #' Get the set intersection of several collections.
 #'
+#' @section Type Signature:
+#'     |any| -> [any]
+#'
 #' @param
 #'    colls a collection of collections. The collections to
 #'    take the intersection of.

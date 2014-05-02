@@ -3,7 +3,6 @@
 #'
 #' Syntactic sugar for creating functions.
 #'
-#'
 #' @details
 #'     As of version 0.1.0 xLambda functions cannot have default parametres. This
 #'     may change at a later date.

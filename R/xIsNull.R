@@ -3,6 +3,10 @@
 #'
 #' Is an value null?
 #'
+#'
+#' @section Type Signature:
+#'     any -> <logical>
+#'
 #' @param
 #'    val an arbitrary value. The value to test for
 #'    being null.

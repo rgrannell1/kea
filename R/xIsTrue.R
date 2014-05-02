@@ -3,6 +3,9 @@
 #'
 #' Is an value true?
 #'
+#' @section Type Signature:
+#'     any -> <logical>
+#'
 #' @details
 #'     \bold{xIsTrue} is primarily meant for use with conditional
 #'     statements like if and while. \bold{xIsTrue} always returns a
