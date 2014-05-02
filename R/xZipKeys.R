@@ -3,6 +3,8 @@
 #'
 #' Convert a collection of name, value pairs into a named collection.
 #'
+#' @section Type Signature:
+#'     ||any|| -> |any|
 #'
 #' @param
 #'    colls a list or pairlist of two-element lists or pairlists,
