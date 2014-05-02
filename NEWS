@@ -8,9 +8,28 @@ the version the public will see.
 
 Arrow 0.2.0
 ------------------------------------------------------------------------------
-Date: 2014-5-1
+Date: 2014-5-2
+
+A minor release, mostly housekeeping and repaying technical debt.
+
+Bug-Fixes:
 
 * the xAsComplex, xAsInteger... family of functions now support conversion
 of lists that contain NA values of any mode, at the cost of some performance.
+
+* xLambda now checks that ':' is used as a parametre delimiter;
+previously several infix functions could be used.
+
+Documentation:
+
+* type signatures added to several more function's documentation.
+
+Package Internals:
+
+* internal function `MakeVariadic` used to generate variadic forms of
+functions, which should help avoid bugs in their definitions.
+
+* eliminated most error-message functions, in favour of in-place
+definitions and macros. This removed a lot of unneeded code.
 
 * internal function `unit_to_value` now supports complex values.
