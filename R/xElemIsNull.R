@@ -3,6 +3,9 @@
 #'
 #' Is an element of a collection null?
 #'
+#' @section Type Signature:
+#'     |any| -> <logical>
+#'
 #' @param
 #'    coll a collection. The collection to test each element
 #'    of for being null.
@@ -15,8 +18,6 @@
 #'
 #' @section Corner Cases:
 #'    Returns logical(0) if coll is itself Null.
-#'
-#'
 #'
 #' @template
 #'    Variadic

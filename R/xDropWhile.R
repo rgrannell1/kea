@@ -4,6 +4,9 @@
 #' Take every element in a collection from the first time a predicate
 #' is false or na until the end of the collection.
 #'
+#' @section Type Signature:
+#'     (any -> <logical>) -> |any| -> [any]
+#'
 #' @param
 #'    pred a predicate. The functionto test each element of
 #'    the collection with.

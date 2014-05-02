@@ -3,6 +3,9 @@
 #'
 #' Divide a collection into segments of fixed length.
 #'
+#' @section Type Signature:
+#'     |numeric| -> |any| -> [[any]]
+#'
 #' @param
 #'    num a nonnegative whole number. The desired
 #'    length of each group of elements.

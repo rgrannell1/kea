@@ -3,6 +3,9 @@
 #'
 #' Convert a collection to a raw vector.
 #'
+#' @section Type Signature:
+#'     |raw| -> <raw>
+#'
 #' @details
 #'    \code{xAsRaw} converts a list, pairlist or vector of
 #'    length-one raw numbers to a raw vector. It does not attempt

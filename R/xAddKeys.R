@@ -3,13 +3,13 @@
 #'
 #' Add names to a collection.
 #'
+#' @section Type Signature:
+#'    |character| -> |any| -> [any]
+#'
 #' @details
 #'     \bold{xAddKeys} is similar to the in-place assignment
 #'     function \bold{names<-}, except that it is not an in-place
 #'     assignment function.
-#'
-#' @section Type Signature:
-#'    |character| -> |any| -> [any]
 #'
 #' @param
 #'    strs a collection of strings. The names to add to the

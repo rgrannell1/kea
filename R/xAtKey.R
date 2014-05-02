@@ -3,6 +3,9 @@
 #'
 #' Select a value from a collection using a key.
 #'
+#' @section Type Signature:
+#'     |character| -> |any| -> any
+#'
 #' @param
 #'     str a string. The key to select.
 #'
@@ -38,6 +41,7 @@ xAtKey <- MakeFun(function (str, coll) {
 
 	str <- unit_to_value(as_atom(str, 'character'))
 
+	# -- will select the first key match
 	coll[[str]]
 })
 

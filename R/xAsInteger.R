@@ -3,6 +3,9 @@
 #'
 #' Convert a collection to a integer vector.
 #'
+#' @section Type Signature:
+#'     |integer| -> <integer>
+#'
 #' @details
 #'    \code{xAsInteger} converts a list, pairlist or vector of
 #'    length-one integers to a integer vector. It does not attempt

@@ -42,3 +42,7 @@ Bug-Fixes:
 
 * Fixed corner-case for xOneOf; if given a length one vector it extracts the value
 from its collection (if it is a list).
+
+Documentation:
+
+* Added over 40 more type signatures to documentation.

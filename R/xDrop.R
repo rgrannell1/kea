@@ -3,6 +3,9 @@
 #'
 #' Take several elements from the head of a collection.
 #'
+#' @section Type Signature:
+#'     |number| -> |any| -> [any]
+#'
 #' @param
 #'      num a nonnegative whole number. The number of elements to
 #'      return from the input collection.

@@ -3,6 +3,9 @@
 #'
 #' Is an element in a collection NaN?
 #'
+#' @section Type Signature:
+#'     |any| -> <logical>
+#'
 #' @param
 #'    coll a collection. The collection to test each element
 #'    of for being nan.

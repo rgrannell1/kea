@@ -4,6 +4,9 @@
 #' Delay the evalution of a function after invokation
 #' for a set amount of time.
 #'
+#' @section Type Signature:
+#'     function -> |number| -> function
+#'
 #' @details
 #'    \bold{xDelay} is primarily meant for use with side-effectful functions;
 #'    likely examples including functions that call web API's and functions that

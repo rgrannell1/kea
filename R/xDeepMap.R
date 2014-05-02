@@ -1,9 +1,11 @@
 
-
 #' xDeepMap
 #'
 #' Recursively map a function into a nested collection,
 #' preserving its structure.
+#'
+#' @section Type Signature:
+#'     (any -> any) -> |any| -> [any]
 #'
 #' @details
 #'     \bold{xDeepMap} is currently recursive, and as such will cause a

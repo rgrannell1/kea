@@ -3,6 +3,9 @@
 #'
 #' Convert a collection to a double vector.
 #'
+#' @section Type Signature:
+#'     |number| -> <numeric>
+#'
 #' @details
 #'    \code{xAsDouble} converts a list, pairlist or vector of
 #'    length-one double precision numbers to a double vector. It does not attempt

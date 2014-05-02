@@ -3,6 +3,9 @@
 #'
 #' Test every element in a collection for being \code{Na} of any type.
 #'
+#' @section Type Signature:
+#'     |any| -> <logical>
+#'
 #' @param
 #'    coll a collection. The collection to test each element
 #'    of for being non-na.

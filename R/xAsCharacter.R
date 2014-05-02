@@ -3,15 +3,14 @@
 #'
 #' Convert a collection to a character vector.
 #'
+#' @section Type Signature:
+#'     |character| -> <character>
+#'
 #' @details
 #'    \code{xAsCharacter} converts a list, pairlist or vector of
 #'    length-one strings to a character vector. It does not attempt
 #'    to convert non-character collections to character vectors - it
 #'    simply converts character lists to character typed vectors.
-#'
-#' @section Type Signature:
-#'     |character| -> <character>
-#'
 #' @param
 #'    strs a collection of strings. A list, pairlist or vector
 #'    of length-one character vectors to convert to a character vector.

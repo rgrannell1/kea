@@ -10,6 +10,9 @@
 #' @param
 #'    ... see above.
 #'
+#' @section Type Signature:
+#'     |any| -> [any]
+#'
 #' @return
 #'    A list.
 #'

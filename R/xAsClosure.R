@@ -3,6 +3,9 @@
 #'
 #' Convert a primitive function to a closure.
 #'
+#' @section Type Signature:
+#'     function -> function
+#'
 #' @details
 #'    \bold{xAsClosure} takes a primitive function and wraps it in a
 #'    normal R function that passes its arguments to the underlying
@@ -17,8 +20,6 @@
 #'
 #'    doc
 #'
-#' @section Type Signature:
-#'     function -> function
 #'
 #' @param
 #'    fn an arbitrary function. Either a primitive or

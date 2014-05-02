@@ -3,6 +3,9 @@
 #'
 #' Take several functions and return a composite function.
 #'
+#' @section Type Signature:
+#'     |function| -> (..any -> any)
+#'
 #' @details
 #'
 #'    Arrow's function composition is largely done with the infix

@@ -1,9 +1,10 @@
+
 #' xChop
 #'
 #' Divide a collection into a fixed number of segments.
 #'
 #' @section Type Signature:
-#'     |numeric| -> |any| -> ||any||
+#'     |numeric| -> |any| -> [[any]]
 #'
 #' @details
 #'     \bold{xChop} is used to divide a collection into several

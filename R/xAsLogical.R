@@ -3,6 +3,9 @@
 #'
 #' Convert a collection to a logical vector.
 #'
+#' @section Type Signature:
+#'     |logical| -> <logical>
+#'
 #' @details
 #'    \code{xAsLogical} converts a list, pairlist or vector of
 #'    length-one logical values to a logical vector. It does not attempt

@@ -1,10 +1,10 @@
+
 #' xAt
 #'
+#' Select the value at an index in a collection.
 #'
 #' @section Type Signature:
 #'    |numeric| -> |any| -> any
-#'
-#' Select the value at an index in a collection.
 #'
 #' @details
 #'     \bold{xAt} is similar to base R's subsetting operator '[[',
