@@ -29,7 +29,7 @@ unit_to_value <- function (coll) {
 			False
 		} else if (is.raw(coll)) {
 			as.raw(00)
-		} else if (is.complex()) {
+		} else if (is.complex(coll)) {
 			0 + 0i
 		} else {
 			write_error(

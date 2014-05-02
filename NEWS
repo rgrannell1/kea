@@ -10,4 +10,7 @@ Arrow 0.2.0
 ------------------------------------------------------------------------------
 Date: 2014-5-1
 
-A minor release feature-wise.
+* the xAsComplex, xAsInteger... family of functions now support conversion
+of lists that contain NA values of any mode, at the cost of some performance.
+
+* internal function `unit_to_value` now supports complex values.
