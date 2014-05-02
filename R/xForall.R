@@ -4,6 +4,9 @@
 #' Test if every ordered group of arguments from several collections
 #' is true for a predicate.
 #'
+#' @section Type Signature:
+#'     (..any -> <logical>) -> ||any|| -> <logical>
+#'
 #' @details
 #'     \bold{xForall} can be used to test if every element of a
 #'     collection is true (like the base function \bold{all( )}) by

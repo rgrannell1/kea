@@ -1,4 +1,10 @@
+
+#' xInitOf
+#'
 #' Remove the last element of a collection.
+#'
+#' @section Type Signature:
+#'     |any| -> [any]
 #'
 #' @param
 #'    coll a collection. A collection to return

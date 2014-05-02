@@ -1,5 +1,11 @@
+
+#' xFlatMap
+#'
 #' Concatenate the results of applying a function
 #' to each element of a collection.
+#'
+#' @section Type Signature:
+#'     (any -> any) -> |any| -> [any]
 #'
 #' @details
 #'     \bold{xFlatMap} is similar to \bold{xMap} but allows more
@@ -59,6 +65,7 @@ xFlatMap <- MakeFun(function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+		# -- this might need a more rigourous implementation.
 		as.list( do.call(c, lapply(coll, fn)) )
 	}
 })

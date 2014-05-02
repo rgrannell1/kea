@@ -1,6 +1,9 @@
 
 #' xFromChars
 #'
+#' @section Type Signature:
+#'     |character| -> <character>
+#'
 #' Concatentate a character vector with empty strs as delimiters.
 #'
 #' @param

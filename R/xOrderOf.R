@@ -1,7 +1,10 @@
 
 #' xOrderOf
 #'
-#' Return a permutation of indices that reorders an integer vector.
+#' Return a permutation of indices that reorders a collection of numbers.
+#'
+#' @section Type Signature:
+#'     |numeric| -> <integer>
 #'
 #' @details
 #'    \bold{xOrderOf} returns the indices for a collection that are required to

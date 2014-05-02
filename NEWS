@@ -33,3 +33,14 @@ functions, which should help avoid bugs in their definitions.
 definitions and macros. This removed a lot of unneeded code.
 
 * internal function `unit_to_value` now supports complex values.
+
+Arrow 0.3.0
+------------------------------------------------------------------------------
+Date:
+
+Bug-Fixes:
+
+* Fixed corner-case for xOneOf; if given a length one vector it extracts the value
+from its collection (if it is a list).
+
+*

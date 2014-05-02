@@ -1,6 +1,9 @@
 
 #' xFormalsOf
 #'
+#' @section Type Signature:
+#'     function -> |any|
+#'
 #' Get the parametres and defaults of a function or primitive function.
 #'
 #' @param

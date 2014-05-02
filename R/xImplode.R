@@ -3,6 +3,9 @@
 #'
 #' Concatenate a character vector into a single string using a delimiter.
 #'
+#' @section Type Signature:
+#'     |character| -> |character| -> <character>
+#'
 #' @param
 #'    str a length one character vector. The
 #'    string to use as a delimiter.

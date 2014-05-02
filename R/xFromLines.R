@@ -1,4 +1,11 @@
+
+#' xFromLines
+#'
 #' Concatentate a character vector with newlines as delimiters.
+#'
+#'
+#' @section Type Signature:
+#'     |character| -> <character>
 #'
 #' @param
 #'    strs a collection of strings. The

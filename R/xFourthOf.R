@@ -1,6 +1,9 @@
 
 #' xFourthOf
 #'
+#' @section Type Signature:
+#'     |any| -> any
+#'
 #' Return the fourth value in a collection.
 #'
 #' @param

@@ -2,6 +2,9 @@
 #' xGroupBy
 #'
 #' Group elements of a collection by the output of a function applied to each element.
+#
+#' @section Type Signature:
+#'     (any -> any) -> |any| -> [[any]]
 #'
 #' @details
 #'     xGroupBy allows the grouping of a heterogenous dataset into groups of elements

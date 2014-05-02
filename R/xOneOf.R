@@ -3,6 +3,9 @@
 #'
 #' Select a random value from a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> any
+#'
 #' @param
 #'      coll a collection. The collection to take a value from.
 #'
@@ -34,7 +37,7 @@ xOneOf <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else if (length(coll) == 1) {
-		coll
+		coll[[1]]
 	} else {
 		# -- select a single index in a memory efficient way.
 		ind <- sample.int(length(coll), 1)

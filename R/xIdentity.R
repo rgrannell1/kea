@@ -3,6 +3,9 @@
 #'
 #' Return an argument without modification.
 #'
+#' @section Type Signature:
+#'     any -> any
+#'
 #' @param
 #'    val an arbitrary value.
 #'
