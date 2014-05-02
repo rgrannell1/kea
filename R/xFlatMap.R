@@ -1,3 +1,5 @@
+#' xFlatMap
+#'
 #' Concatenate the results of applying a function
 #' to each element of a collection.
 #'
