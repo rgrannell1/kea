@@ -812,82 +812,134 @@ test_cases <- local({
 # forall tests if an expression holds true over a range of random test-cases.
 #
 
-forall <- function (info = "", cases, expect, given, max_time = 0.15) {
+forall <- local({
 
-	invoking_call <- sys.call()
+	# -- error messages only used by forall.
+	lament <- list(
+		null_cases =
+			function (info, profile = '') {
 
-	assert(
-		!is.null(cases), invoking_call,
-		lament$null_cases(info))
+				param <- paste(match.call()$param)
 
-	assert(
-		all( vapply(cases, is.function, logical(1)) ), invoking_call,
-		lament$non_function_cases(info))
+				write_error(info, "\n",
+					dQuote("cases"), " must not be null.",
+					call. = False)
+			},
+		non_function_cases =
+			function (info, profile = '') {
 
-	# ----- capture the expect and given expressions as functions
+				param <- paste(match.call()$param)
 
-	expect_expr <- match.call()$expect
-	given_expr <-
-		if (missing(given)) {
-			True
-		} else {
-			match.call()$given
-		}
+				write_error(info, "\n",
+					dQuote("cases"), " must be a list of functions.",
+					call. = False)
+			},
+		non_boolean_expectation =
+			function (info, case, profile = '') {
 
-	expect <- given <-
-		function () {}
+				write_error(info, "\n",
+					"expectation returned a non-boolean ",
+					"value when called with \n\n",
+					ddparse(case), call. = False)
+			},
+		non_singular_expectation =
+			function (info, len, profile = '') {
 
-	formals(expect) <-
-		as_parametres(names(cases))
+				write_error(info, "\n",
+					"expectation returned a non-length-one ",
+					"value (actual length was ", len , ")", call. = False)
+			},
+		failed_cases =
+			function (info, after, failed, profile = '') {
 
-	formals(given) <-
-		as_parametres(names(cases))
+				cases <- sapply(lapply(failed, unname), ddparse)
+				cases <- newline(cases[ seq_along( min(10, length(cases)) ) ])
 
-	body(expect) <- expect_expr
-	body(given) <- given_expr
+				write_error(info, "\n",
+					"failed after the ", ith_suffix(after),
+					" case!\n\n", cases, "\n",
+					call. = False)
+			}
+	)
 
-	# ----- check that the expectation is true for a range of cases
+	function (info = "", cases, expect, given, max_time = 0.15) {
 
-	state <- list(
-		tests_run = 0,
-		failed_after = Inf,
-		time_left = xStopwatch(max_time),
-		failed = list())
+		invoking_call <- sys.call()
 
-	while (state$time_left()) {
+		assert(
+			!is.null(cases), invoking_call,
+			lament$null_cases(info))
 
-		case <- lapply(cases, function (fn) fn())
+		assert(
+			all( vapply(cases, is.function, logical(1)) ), invoking_call,
+			lament$non_function_cases(info))
 
-		if (do.call(given, case)) {
+		# ----- capture the expect and given expressions as functions
 
-			state$tests_run <- state$tests_run + 1
-			result <- do.call(expect, case)
+		expect_expr <- match.call()$expect
+		given_expr <-
+			if (missing(given)) {
+				True
+			} else {
+				match.call()$given
+			}
 
-			assert(
-				length(result) == 1, invoking_call,
-				lament$non_singular_expectation(info, length(result)) )
+		expect <- given <-
+			function () {}
 
-			assert(
-				result %in% c(True, False), invoking_call,
-				lament$non_boolean_expectation(info, case))
+		formals(expect) <-
+			as_parametres(names(cases))
 
-			if (!result) {
-				state$failed_after <-
-					min(state$failed_after, state$tests_run)
+		formals(given) <-
+			as_parametres(names(cases))
 
-				state$failed <-
-					c(state$failed, list(case))
+		body(expect) <- expect_expr
+		body(given) <- given_expr
+
+		# ----- check that the expectation is true for a range of cases
+
+		state <- list(
+			tests_run = 0,
+			failed_after = Inf,
+			time_left = xStopwatch(max_time),
+			failed = list())
+
+		while (state$time_left()) {
+
+			case <- lapply(cases, function (fn) fn())
+
+			if (do.call(given, case)) {
+
+				state$tests_run <- state$tests_run + 1
+				result <- do.call(expect, case)
+
+				assert(
+					length(result) == 1, invoking_call,
+					lament$non_singular_expectation(info, length(result)) )
+
+				assert(
+					result %in% c(True, False), invoking_call,
+					lament$non_boolean_expectation(info, case))
+
+				if (!result) {
+					state$failed_after <-
+						min(state$failed_after, state$tests_run)
+
+					state$failed <-
+						c(state$failed, list(case))
+				}
 			}
 		}
+
+		assert(
+			length(state$failed) == 0,
+			invoking_call,
+			lament$failed_cases(
+				info,
+				state$failed_after,
+				state$failed))
+
+		message(info, " passed!", " (", state$tests_run, ")")
 	}
 
-	assert(
-		length(state$failed) == 0,
-		invoking_call,
-		lament$failed_cases(
-			info,
-			state$failed_after,
-			state$failed))
-
-	message(info, " passed!", " (", state$tests_run, ")")
-}
+})

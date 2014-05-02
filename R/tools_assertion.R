@@ -81,7 +81,7 @@ assert <- local({
 			components <- get_call_components(invoking_call)
 
 			write_error(
-				yelp$arrow_function_failed(
+				exclaim$arrow_function_failed(
 					components$invoking, components$calltext, message),
 				call. = False)
 		}
@@ -97,7 +97,7 @@ throw_arrow_error <- function (invoking_call, message) {
 	components <- get_call_components(invoking_call)
 
 	write_error(
-		yelp$arrow_function_failed(
+		exclaim$arrow_function_failed(
 			components$invoking, components$calltext, message),
 			call. = False)
 }
@@ -143,7 +143,7 @@ insist <- local({
 					components <- get_call_components(sys.call(-1))
 
 					write_error(
-						yelp$arrow_function_failed(
+						exclaim$arrow_function_failed(
 							components$invoking, components$calltext, message(param)),
 						call. = False)
 				}
@@ -169,7 +169,7 @@ insist <- local({
 					components <- get_call_components(sys.call(-1))
 
 					write_error(
-						yelp$arrow_function_failed(
+						exclaim$arrow_function_failed(
 							components$invoking, components$calltext, message(param)),
 						call. = False)
 				}

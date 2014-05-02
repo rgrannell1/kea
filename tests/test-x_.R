@@ -1,10 +1,10 @@
 
-wail <- arrow:::wail
 forall <- arrow:::forall
 assert <- arrow:::assert
 test_cases <- arrow:::test_cases
 match_fn <- arrow:::match_fn
 '%!in%' <- arrow:::'%!in%'
+wail <- arrow:::wail
 
 require(arrow)
 
