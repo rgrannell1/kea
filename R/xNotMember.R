@@ -1,6 +1,10 @@
+
 #' xNotMember
 #'
 #' Check if a collection doesn't contain a value.
+#'
+#' @section Type Signature:
+#'     any -> |any| -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for

@@ -37,6 +37,7 @@ xRankOf <- MakeFun(function (nums) {
 	if (length(nums) == 0) {
 		integer(0)
 	} else {
+		# -- this should be double-checked
 		as.integer(rank(nums, ties.method = 'first'))
 	}
 })

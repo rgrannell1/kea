@@ -3,6 +3,9 @@
 #'
 #' Get the smallest value in a collection according to a measure function.
 #'
+#' @section Type Signature:
+#'     (any -> <number>) -> |any| -> [any]
+#'
 #' @param
 #'     fn a unary function. The function to measure the size of
 #'     an element.

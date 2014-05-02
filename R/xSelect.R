@@ -3,7 +3,6 @@
 #'
 #' Include all elements from a collection matching a predicate.
 #'
-#'
 #' @section Type Signature:
 #'     (any -> <logical>) -> |any| -> [any]
 #'

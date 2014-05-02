@@ -3,6 +3,9 @@
 #'
 #' Remove all elements from a collection matching a predicate.
 #'
+#' @section Type Signature:
+#'     (any -> <logical>) -> |any| -> [any]
+#'
 #' @details
 #'    \bold{xReject} applies a predicate function
 #'    such as \bold{is.integer} or \bold{is.null} to each element

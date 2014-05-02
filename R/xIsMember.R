@@ -3,7 +3,6 @@
 #'
 #' Check if a collection contains a value.
 #'
-#'
 #' @section Type Signature:
 #'     any -> |any| -> <logical>
 #'

@@ -1,5 +1,10 @@
+
+#' xReorder
 #'
 #' Permute a collection of collections using indices.
+#'
+#' @section Type Signature:
+#'     <number> -> ||any|| -> ||any||
 #'
 #' @details
 #'    \bold{xReorder} allows several collections to be rearranged

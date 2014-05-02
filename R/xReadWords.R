@@ -3,6 +3,9 @@
 #'
 #' Import each word in a file to an element in a character vector.
 #'
+#' @section Type Signature:
+#'     |character| -> <character>
+#'
 #' @param
 #'    str a length-one character vector. The path to
 #'    import files from.

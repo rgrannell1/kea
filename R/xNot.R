@@ -1,5 +1,10 @@
+
+#' xNot
 #'
 #' Return the logical negation of a function.
+#'
+#' @section Type Signature:
+#'     (any -> <logical>) -> (any -> <logical>)
 #'
 #' @details
 #'

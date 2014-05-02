@@ -3,6 +3,9 @@
 #'
 #' Reverse the order of elements in a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> [any]
+#'
 #' @param
 #'    coll a collection. The collection to reverse.
 #'

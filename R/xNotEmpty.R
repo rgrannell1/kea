@@ -3,6 +3,10 @@
 #'
 #' Is a collection not length-zero?
 #'
+#'
+#' @section Type Signature:
+#'     any -> <logical>
+#'
 #' @param
 #'    coll a collection. The value to test for
 #'    having non-zero length.

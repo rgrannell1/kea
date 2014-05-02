@@ -4,6 +4,9 @@
 #' Count the number of times a function returns
 #' true when mapped over a collection.
 #'
+#' @section Type Signature:
+#'     (any -> <logical>) -> |any| -> <integer>
+#'
 #' @param
 #'    pred a unary predicate function. The function with
 #'    which to poll each element of the input collection.
@@ -19,7 +22,6 @@
 #'
 #' @template
 #'    Variadic
-#'
 #'
 #' @section Corner Cases:
 #'    Returns integer(0) when given an empty collection, and zero

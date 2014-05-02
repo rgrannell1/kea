@@ -4,6 +4,9 @@
 #' Make every subcollection in a collection the same
 #' length by cyclically reusing elements.
 #'
+#' @section Type Signature:
+#'     ||any|| -> [[any]]
+#'
 #' @details
 #'
 #'     xRecycle takes a ragged collection - a collection of collections

@@ -3,6 +3,9 @@
 #'
 #' Get the parametre names of a function or primitive function.
 #'
+#' @section Type Signature:
+#'     function -> <character>
+#'
 #' @param
 #'   fn an arbitrary function or primitive function. The function to
 #'   find the parametre names of.

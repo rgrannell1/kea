@@ -4,6 +4,9 @@
 #' Successively combine a list of values into a single value
 #' using a binary function (left to right).
 #'
+#' @section Type Signature:
+#'     (any -> any -> any) -> |any| -> any
+#'
 #' @param
 #'    fn a binary function that returns a value
 #'	  that \bold{fn} can later take as its left argument.

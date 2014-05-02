@@ -3,6 +3,9 @@
 #'
 #' Return the first element of a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> any
+#'
 #' @param
 #'    coll a collection. The collection to get the
 #'    first element of.

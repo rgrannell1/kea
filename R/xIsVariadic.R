@@ -3,7 +3,6 @@
 #'
 #' Does a function have ellipsis arguments?
 #'
-#'
 #' @section Type Signature:
 #'     any -> <logical>
 #'

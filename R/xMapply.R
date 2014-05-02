@@ -1,6 +1,10 @@
+
 #' xMapply
 #'
 #' Apply a function to each element of a collection.
+#'
+#' @section Type Signature:
+#'     (..any -> any) -> ||any|| -> |any|
 #'
 #' @param
 #'    fn a function. The function to apply to each tuple

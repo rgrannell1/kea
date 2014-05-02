@@ -3,7 +3,6 @@
 #'
 #' Is an value null?
 #'
-#'
 #' @section Type Signature:
 #'     any -> <logical>
 #'

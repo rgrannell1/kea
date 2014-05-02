@@ -3,6 +3,9 @@
 #'
 #' Fix several arguments of a function, producing a function of smaller arity.
 #'
+#' @section Type Signature:
+#'     function -> |any| -> function
+#'
 #' @details
 #'     Partial application is a mechanism for specialising a general function
 #'     to a particular purpose. For example, the very general function \bold{xMap}

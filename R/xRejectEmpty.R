@@ -3,6 +3,9 @@
 #'
 #' Remove the empty values from a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> [any]
+#'
 #' @param
 #'    coll a collection. The collection to remove
 #'    length-zero values from.

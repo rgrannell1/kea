@@ -3,6 +3,9 @@
 #'
 #' Compose a function with the outputs of other functions.
 #'
+#' @section Type Signature:
+#'     (any -> any -> any) -> |(any -> any)| -> (...any -> any)
+#'
 #' @details
 #'    \bold{xLift} takes a function that works on some type of value, and makes that
 #'    function work on functions of those values.
@@ -56,7 +59,7 @@
 #'    fn a binary function.
 #'
 #' @param
-#'    fns a collection functions.
+#'    fns a collection of functions.
 #'
 #' @param
 #'    ... see above.

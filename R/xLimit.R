@@ -4,6 +4,9 @@
 #' Create a function that can call its underlying
 #' function a limited number of times.
 #'
+#' @section Type Signature:
+#'     function -> <numeric> -> function
+#'
 #' @details
 #'    \bold{xLimit} limits the number of times a function
 #'    can be called. It is primarily used for functions that

@@ -4,6 +4,9 @@
 #' Divide elements in a collection into two collections
 #' based on a predicate function.
 #'
+#' @section Type Signature:
+#'     (any -> <logical>) -> |any| -> [[any]]
+#'
 #' @param
 #'    pred a predicate. The predicate function with which to partition
 #'    the input collection.

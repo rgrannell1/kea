@@ -4,6 +4,9 @@
 #' Map over a collection of lists or pairlists,
 #' selecting fields in each element by name.
 #'
+#' @section Type Signature:
+#'     <character> -> ||any|| -> [any]
+#'
 #' @param
 #'    str a string. The key to select from each collection.
 #'

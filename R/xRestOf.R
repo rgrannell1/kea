@@ -1,4 +1,10 @@
+
+#' xRestOf
+#'
 #' Remove the first element from a collection.
+#'
+#' @section Type Signature:
+#'     |any| -> [any]
 #'
 #' @param
 #'    coll a collection. The collection to subset.

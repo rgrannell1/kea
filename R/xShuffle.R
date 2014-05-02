@@ -1,12 +1,10 @@
 
 #' xShuffle
 #'
+#' Randomly rearrange a collection.
 #'
 #' @section Type Signature:
 #'     |any| -> [any]
-#'
-#' Randomly rearrange a collection.
-#'
 #' @param
 #'      coll a collection. The collection to rearrange.
 #'

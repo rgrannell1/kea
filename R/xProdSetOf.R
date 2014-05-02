@@ -3,6 +3,9 @@
 #'
 #' Get the cartesian product of several collections.
 #'
+#' @section Type Signature:
+#'     ||any|| -> [[any]]
+#'
 #' @param
 #'      colls a collection of collections. The collections to
 #'      use to take the cartesian product.
@@ -54,13 +57,10 @@ xProdSetOf <- local({
 
 				indices <- modulo_iths(ith, coll_lengths)
 
-				tuples[[ith]] <- Map(
-					function (coll_ith) {
-						choice <- indices[coll_ith]
-						colls[[coll_ith]][[choice]]
-					},
-					seq_along(colls))
-
+				tuples[[ith]] <- lapply(seq_along(colls), function (coll_ith) {
+					choice <- indices[coll_ith]
+					colls[[coll_ith]][[choice]]
+				})
 			}
 			tuples
 		}

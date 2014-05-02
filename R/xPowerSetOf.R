@@ -3,6 +3,9 @@
 #'
 #' Enumerate every way of subsetting a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> [[any]]
+#'
 #' @details
 #'     \bold{xPowerSetOf} generates the set of all subsets of a collection.
 #'     This set has length \bold{2^length(coll)}, so inputs longer than

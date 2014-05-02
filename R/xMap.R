@@ -3,6 +3,9 @@
 #'
 #' Apply a function to each element of a collection.
 #'
+#' @section Type Signature:
+#'     (any -> any) -> |any| -> [any]
+#'
 #' @param
 #'    fn a unary function. The function to modify each
 #'    element of a collection with.

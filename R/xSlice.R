@@ -3,7 +3,6 @@
 #'
 #' Select a collection at certain indices.
 #'
-#'
 #' @section Type Signature:
 #'     |numeric| -> |any| -> [any]
 #'
