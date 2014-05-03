@@ -45,6 +45,11 @@ Transpose a collection of collections.
 
    \code{xZip(coll)}
 }
+\section{Type Signature}{
+
+    ||any|| -> ||any||
+}
+
 \section{Corner Cases}{
 
    The empty list is returned if the shortest collection

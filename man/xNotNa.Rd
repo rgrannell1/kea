@@ -17,6 +17,11 @@ A true or false value.
 \description{
 Is an value not na?
 }
+\section{Type Signature}{
+
+    any -> <logical>
+}
+
 \section{Corner Cases}{
 
     xNotNa returns either true or false, to make it

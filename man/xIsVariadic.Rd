@@ -7,13 +7,17 @@ xIsVariadic(fn)
 }
 \arguments{
 \item{fn}{an function. The function to test for
-   variadic parametres.}
+   variadic parametres}
 }
 \value{
 A boolean value.
 }
 \description{
 Does a function have ellipsis arguments?
+}
+\section{Type Signature}{
+
+    any -> <logical>
 }
 \examples{
 

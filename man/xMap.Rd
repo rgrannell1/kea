@@ -22,6 +22,11 @@ A list.
 \description{
 Apply a function to each element of a collection.
 }
+\section{Type Signature}{
+
+    (any -> any) -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

@@ -30,6 +30,11 @@ xRecycle takes a ragged collection - a collection of collections
 
     \code{list(list("a", "b", "a"), list(1L, 2L, 3L))}
 }
+\section{Type Signature}{
+
+    ||any|| -> [[any]]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{colls} is length-zero, or if a

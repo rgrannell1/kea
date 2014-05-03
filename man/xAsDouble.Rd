@@ -25,6 +25,11 @@ Convert a collection to a double vector.
    length-one double precision numbers to a double vector. It does not attempt
    to convert non-double collections to double vectors.
 }
+\section{Type Signature}{
+
+    |number| -> <numeric>
+}
+
 \section{Corner Cases}{
 
    Integer vectors are coerced to double vectors freely, since the

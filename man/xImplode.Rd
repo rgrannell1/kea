@@ -23,6 +23,10 @@ A length-one character vector.
 \description{
 Concatenate a character vector into a single string using a delimiter.
 }
+\section{Type Signature}{
+
+    |character| -> |character| -> <character>
+}
 \examples{
 
 # 1. create a simple csv writer.

@@ -14,6 +14,11 @@ A boolean value.
 \description{
 Is a variable locked?
 }
+\section{Type Signature}{
+
+    any -> <logical>
+}
+
 \section{Corner Cases}{
 
    If a variable isn't assigned, then \code{false} is returned.

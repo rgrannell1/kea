@@ -17,13 +17,11 @@ xShuffle_(...)
 A list.
 }
 \description{
-xShuffle
+Randomly rearrange a collection.
 }
 \section{Type Signature}{
 
     |any| -> [any]
-
-Randomly rearrange a collection.
 }
 
 \section{Corner Cases}{

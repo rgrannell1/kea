@@ -15,6 +15,11 @@ A character vector, with one or more elements.
 \description{
 Import each word in a file to an element in a character vector.
 }
+\section{Type Signature}{
+
+    |character| -> <character>
+}
+
 \section{Corner Cases}{
 
    xReadWords ignores missing terminal newlines.

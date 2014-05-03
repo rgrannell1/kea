@@ -26,6 +26,10 @@ A list.
 \description{
 Remove the empty values from a collection.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
 \examples{
 
 # 1.

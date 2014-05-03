@@ -19,6 +19,11 @@ A value from \bold{coll}.
 \description{
 Select a random value from a collection.
 }
+\section{Type Signature}{
+
+    |any| -> any
+}
+
 \section{Corner Cases}{
 
      Returns the empty list if \bold{coll} is length-zero.

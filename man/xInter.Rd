@@ -20,6 +20,11 @@ A list.
 \description{
 Get the set intersection of several collections.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

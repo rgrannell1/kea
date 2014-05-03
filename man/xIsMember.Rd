@@ -23,6 +23,11 @@ A boolean value.
 \description{
 Check if a collection contains a value.
 }
+\section{Type Signature}{
+
+    any -> |any| -> <logical>
+}
+
 \section{Corner Cases}{
 
    Various types of \code{Na} are not-distinguished between.

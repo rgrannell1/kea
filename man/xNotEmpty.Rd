@@ -20,6 +20,10 @@ A boolean value.
 \description{
 Is a collection not length-zero?
 }
+\section{Type Signature}{
+
+    any -> <logical>
+}
 \examples{
 
 NULL

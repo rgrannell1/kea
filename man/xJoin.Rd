@@ -20,6 +20,11 @@ A list.
 \description{
 Concatenate several collections into one collection.
 }
+\section{Type Signature}{
+
+   ||any|| -> [any]
+}
+
 \section{Corner Cases}{
 
    Empty collections act as a unit for concatenation;

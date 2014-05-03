@@ -17,6 +17,11 @@ A true or false value.
 \description{
 Is an value not null?
 }
+\section{Type Signature}{
+
+    any -> <logical>
+}
+
 \section{Corner Cases}{
 
     xNotNull returns either true or false, to make it

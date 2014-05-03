@@ -15,6 +15,11 @@ A character vector.
 \description{
 Get the parametre names of a function or primitive function.
 }
+\section{Type Signature}{
+
+    function -> <character>
+}
+
 \section{Corner Cases}{
 
 	 If \bold{fn} is a primitive function a heuristic is used to obtain

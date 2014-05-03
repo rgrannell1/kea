@@ -22,6 +22,11 @@ A list of lists.
 \description{
 Divide a collection into segments of fixed length.
 }
+\section{Type Signature}{
+
+    |numeric| -> |any| -> [[any]]
+}
+
 \section{Corner Cases}{
 
    The final list in the return value will have less than \bold{num}

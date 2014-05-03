@@ -24,6 +24,10 @@ Enumerate every way of subsetting a collection.
     This set has length \bold{2^length(coll)}, so inputs longer than
     twenty elements will take a very long time to compute.
 }
+\section{Type Signature}{
+
+    |any| -> [[any]]
+}
 \examples{
 
 # 1. generate all integer partitions of a number with distinct parts

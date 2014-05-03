@@ -2,7 +2,7 @@
 \name{xRestOf}
 \alias{xRestOf}
 \alias{xRestOf_}
-\title{Remove the first element from a collection.}
+\title{xRestOf}
 \usage{
 xRestOf(coll)
 
@@ -19,6 +19,11 @@ A list.
 \description{
 Remove the first element from a collection.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

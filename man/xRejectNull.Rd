@@ -20,6 +20,10 @@ A list.
 \description{
 Remove the null values from a collection.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
 \examples{
 
 NULL

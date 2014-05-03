@@ -2,8 +2,7 @@
 \name{xFlatMap}
 \alias{xFlatMap}
 \alias{xFlatMap_}
-\title{Concatenate the results of applying a function
-to each element of a collection.}
+\title{xFlatMap}
 \usage{
 xFlatMap(fn, coll)
 
@@ -42,6 +41,11 @@ to each element of a collection.
 
     \code{list(num = 1, sqrt = 1, num = 2, sqrt = 1.41, num = 3, sqrt = 1.73)}
 }
+\section{Type Signature}{
+
+    (any -> any) -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
 	  Returns the empty list if \bold{coll} is length-zero.

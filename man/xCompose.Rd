@@ -70,6 +70,11 @@ Arrow's function composition is largely done with the infix
 
    \code{xMap(sqrt \%of\% sqrt, 1:10)}
 }
+\section{Type Signature}{
+
+    |function| -> (..any -> any)
+}
+
 \section{Corner Cases}{
 
    \bold{xCompose} throws an error if no functions are passed to it, as it has

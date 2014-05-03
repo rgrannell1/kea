@@ -18,6 +18,12 @@ xFromChars_(...)
 A length-one character vector.
 }
 \description{
+xFromChars
+}
+\section{Type Signature}{
+
+    |character| -> <character>
+
 Concatentate a character vector with empty strs as delimiters.
 }
 \examples{

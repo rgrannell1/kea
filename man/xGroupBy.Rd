@@ -25,6 +25,11 @@ Group elements of a collection by the output of a function applied to each eleme
 xGroupBy allows the grouping of a heterogenous dataset into groups of elements
     similar in some way.
 }
+\section{Type Signature}{
+
+    (any -> any) -> |any| -> [[any]]
+}
+
 \section{Corner Cases}{
 
    If \bold{coll} is a empty collection the empty list is returned.

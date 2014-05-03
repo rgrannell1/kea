@@ -34,6 +34,11 @@ Is an value true?
 
     \code{if (xIsTrue(mybool)) 1 else 2}
 }
+\section{Type Signature}{
+
+    any -> <logical>
+}
+
 \section{Corner Cases}{
 
     xIsTrue returns either true or false, to make it

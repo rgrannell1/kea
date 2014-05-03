@@ -18,7 +18,7 @@ xOrderOf_(...)
 A vector of numbers.
 }
 \description{
-Return a permutation of indices that reorders an integer vector.
+Return a permutation of indices that reorders a collection of numbers.
 }
 \details{
 \bold{xOrderOf} returns the indices for a collection that are required to
@@ -33,6 +33,11 @@ Return a permutation of indices that reorders an integer vector.
    This is a trivial use of \bold{xOrderOf}; a more common use is to
    re-order a collection of collections by the indices of one row or column.
 }
+\section{Type Signature}{
+
+    |numeric| -> <integer>
+}
+
 \section{Corner Cases}{
 
    If nums is empty then \bold{integer(0)} is returned.

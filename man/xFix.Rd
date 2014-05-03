@@ -36,6 +36,11 @@ Partial application is a mechanism for specialising a general function
     required in the first case, to avoid a parametre name class between the argument of
     \bold{xMap} to fix (fn) and the function passed to \bold{xFix} (fn).
 }
+\section{Type Signature}{
+
+    function -> |any| -> function
+}
+
 \section{Corner Cases}{
 
    Partial application also works for ellipses (eg list(... = 1)).

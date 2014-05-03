@@ -2,7 +2,7 @@
 \name{xIsEmpty}
 \alias{xIsEmpty}
 \alias{xIsEmpty_}
-\title{Is a collection length-zero?}
+\title{xIsEmpty}
 \usage{
 xIsEmpty(coll)
 
@@ -18,6 +18,10 @@ A boolean value.
 }
 \description{
 Is a collection length-zero?
+}
+\section{Type Signature}{
+
+    |any| -> <logical>
 }
 \examples{
 

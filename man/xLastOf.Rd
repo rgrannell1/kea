@@ -20,6 +20,11 @@ The value of the last element in \bold{coll}.
 \description{
 Return the last element in a collection.
 }
+\section{Type Signature}{
+
+    |any| -> any
+}
+
 \section{Corner Cases}{
 
    Throws an error if \bold{coll} has less than one element; this is

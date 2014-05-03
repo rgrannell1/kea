@@ -19,6 +19,11 @@ A list of the same length as \bold{coll}
 \description{
 Reverse the order of elements in a collection.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Reversing the empty list yields the empty list.

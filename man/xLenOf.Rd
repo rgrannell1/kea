@@ -20,6 +20,11 @@ A nonnegative integer.
 \description{
 Get the length of a collection.
 }
+\section{Type Signature}{
+
+    |any| -> <number>
+}
+
 \section{Corner Cases}{
 
      Returns zero if \bold{coll} is empty.

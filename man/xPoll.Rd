@@ -23,6 +23,11 @@ A non-negative whole number.
 Count the number of times a function returns
 true when mapped over a collection.
 }
+\section{Type Signature}{
+
+    (any -> <logical>) -> |any| -> <integer>
+}
+
 \section{Corner Cases}{
 
    Returns integer(0) when given an empty collection, and zero

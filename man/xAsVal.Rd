@@ -17,9 +17,9 @@ Convert a normal R variable to a constant value.
 }
 \details{
 \bold{xAsVal} takes a variable that exists in the
-calling environment, and locks it. This prevents
-further modification, and if any attempt is made to
-modify the variable an error is thrown.
+    calling environment, and locks it. This prevents
+    further modification, and if any attempt is made to
+    modify the variable an error is thrown.
 }
 \section{Corner Cases}{
 

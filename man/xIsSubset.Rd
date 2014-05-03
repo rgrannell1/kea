@@ -21,6 +21,11 @@ A boolean value.
 \description{
 Test if a collection is a subset of a second collection.
 }
+\section{Type Signature}{
+
+    |any| -> |any| -> <logical>
+}
+
 \section{Corner Cases}{
 
    Returns logical(0) if \bold{coll1} or \bold{coll2} is length-zero.

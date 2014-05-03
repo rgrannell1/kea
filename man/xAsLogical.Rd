@@ -24,6 +24,10 @@ Convert a collection to a logical vector.
    length-one logical values to a logical vector. It does not attempt
    to convert non-logical collections to logical vectors.
 }
+\section{Type Signature}{
+
+    |logical| -> <logical>
+}
 \examples{
 
 NULL

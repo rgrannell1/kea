@@ -38,6 +38,11 @@ Create a function that applies an argument to a list of underlying functions.
    Each function passed to \bold{xJuxtapose} is invoked with the data set,
    and the results are collected in a list.
 }
+\section{Type Signature}{
+
+    |function| -> (..any -> [any])
+}
+
 \section{Corner Cases}{
 
    If no functions are provided the empty list is returned.

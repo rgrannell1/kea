@@ -25,6 +25,11 @@ Convert a collection to a integer vector.
    length-one integers to a integer vector. It does not attempt
    to convert non-integer collections to integer vectors.
 }
+\section{Type Signature}{
+
+    |integer| -> <integer>
+}
+
 \section{Corner Cases}{
 
    Double vectors are not coerced to integer vectors:

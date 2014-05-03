@@ -55,6 +55,11 @@ is true for a predicate.
 
     \code{True}
 }
+\section{Type Signature}{
+
+    (..any -> <logical>) -> ||any|| -> <logical>
+}
+
 \section{Corner Cases}{
 
    If any collection is length zero (or no

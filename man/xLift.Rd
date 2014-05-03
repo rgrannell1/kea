@@ -21,7 +21,7 @@ fn1 \%and\% fn2
 
 \item{fn}{a binary function.}
 
-\item{fns}{a collection functions.}
+\item{fns}{a collection of functions.}
 
 \item{...}{see above.}
 }
@@ -73,6 +73,10 @@ Compose a function with the outputs of other functions.
 
   \code{xSelect(is_positive \%and\% is_whole, seq(1, 3, by = 0.1))}
   \code{list(1, 2, 3)}
+}
+\section{Type Signature}{
+
+    (any -> any -> any) -> |(any -> any)| -> (...any -> any)
 }
 \examples{
 

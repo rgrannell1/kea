@@ -20,6 +20,10 @@ A vector of boolean values.
 \description{
 Is an element of a collection true?
 }
+\section{Type Signature}{
+
+    |any| -> <logical>
+}
 \examples{
 
 NULL

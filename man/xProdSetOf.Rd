@@ -21,6 +21,11 @@ A list of collections, with as many elements per collection as
 \description{
 Get the cartesian product of several collections.
 }
+\section{Type Signature}{
+
+    ||any|| -> [[any]]
+}
+
 \section{Corner Cases}{
 
      Returns the empty list if \bold{colls} is length-zero.

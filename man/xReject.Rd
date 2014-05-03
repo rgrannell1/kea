@@ -29,6 +29,11 @@ Remove all elements from a collection matching a predicate.
    returned false are kept, and the remaining elements are
    removed from the collection.
 }
+\section{Type Signature}{
+
+    (any -> <logical>) -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero,

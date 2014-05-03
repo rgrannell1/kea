@@ -23,6 +23,11 @@ A named list.
 \description{
 Convert a collection of name, value pairs into a named collection.
 }
+\section{Type Signature}{
+
+    ||any|| -> |any|
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

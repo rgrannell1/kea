@@ -26,6 +26,11 @@ Returns two lists; a list of elements in a collection for which a
 Divide elements in a collection into two collections
 based on a predicate function.
 }
+\section{Type Signature}{
+
+    (any -> <logical>) -> |any| -> [[any]]
+}
+
 \section{Corner Cases}{
 
 	  If \bold{coll} is empty the empty list is returned. If all the

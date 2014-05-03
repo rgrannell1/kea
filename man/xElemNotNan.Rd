@@ -20,6 +20,11 @@ A vector of boolean values.
 \description{
 Is an element of a collection not NaN?
 }
+\section{Type Signature}{
+
+    |any| -> <logical>
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \code{coll is length-zero}.

@@ -17,6 +17,10 @@ Returns \code{val}.
 \description{
 Return an argument without modification.
 }
+\section{Type Signature}{
+
+    any -> any
+}
 \examples{
 
 # 1. Identity can be useful with higher-order functions.

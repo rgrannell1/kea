@@ -28,6 +28,10 @@ preserving its structure.
     stack overflow for large inputs. Future versions of Arrow may include
     a more stable algorithm for \bold{xDeepMap}.
 }
+\section{Type Signature}{
+
+    (any -> any) -> |any| -> [any]
+}
 \examples{
 
 NULL

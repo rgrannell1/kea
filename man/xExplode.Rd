@@ -17,6 +17,11 @@ A character vector.
 \description{
 Split a string into a character vector using a regular expression.
 }
+\section{Type Signature}{
+
+    <character> -> <character> -> <character>
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

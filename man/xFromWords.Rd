@@ -2,7 +2,7 @@
 \name{xFromWords}
 \alias{xFromWords}
 \alias{xFromWords_}
-\title{Concatentate a character vector with spaces as delimiters.}
+\title{xFromWords}
 \usage{
 xFromWords(strs)
 
@@ -19,6 +19,10 @@ A length-one character vector.
 }
 \description{
 Concatentate a character vector with spaces as delimiters.
+}
+\section{Type Signature}{
+
+    |character| -> <character>
 }
 \examples{
 

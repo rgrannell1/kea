@@ -25,6 +25,10 @@ Convert a collection to a raw vector.
    length-one raw numbers to a raw vector. It does not attempt
    to convert non-raw collections to raw vectors.
 }
+\section{Type Signature}{
+
+    |raw| -> <raw>
+}
 \examples{
 
 NULL

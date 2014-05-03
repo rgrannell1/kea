@@ -27,6 +27,11 @@ for a set amount of time.
    excecuted. This can be useful in preventing API rate limits from being
    exceeded or to emulate a refresh rate.
 }
+\section{Type Signature}{
+
+    function -> |number| -> function
+}
+
 \section{Corner Cases}{
 
    If \bold{num} is zero then \bold{fn} is returned untouched.

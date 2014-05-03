@@ -22,6 +22,11 @@ An length-one or length-zero whole number.
 \description{
 Get the indices of the elements that return true for a predicate.
 }
+\section{Type Signature}{
+
+    (any -> <logical>) -> |any| -> <integer>
+}
+
 \section{Corner Cases}{
 
      returns integer(0) if no match is found.

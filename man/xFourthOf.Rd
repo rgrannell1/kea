@@ -18,8 +18,15 @@ xFourthOf_(...)
 The fourth value in \bold{coll}.
 }
 \description{
+xFourthOf
+}
+\section{Type Signature}{
+
+    |any| -> any
+
 Return the fourth value in a collection.
 }
+
 \section{Corner Cases}{
 
    Throws an error if \bold{coll} has less than four element; this is

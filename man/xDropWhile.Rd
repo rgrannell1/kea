@@ -23,6 +23,11 @@ A list.
 Take every element in a collection from the first time a predicate
 is false or na until the end of the collection.
 }
+\section{Type Signature}{
+
+    (any -> <logical>) -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
 	  Returns the emty list if \bold{coll} is length-zero.

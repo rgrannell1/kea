@@ -21,6 +21,10 @@ an arbitrary value.
 \description{
 Select a value from a collection using a key.
 }
+\section{Type Signature}{
+
+    |character| -> |any| -> any
+}
 \examples{
 
 NULL

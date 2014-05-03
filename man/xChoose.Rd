@@ -2,7 +2,7 @@
 \name{xChoose}
 \alias{xChoose}
 \alias{xChoose_}
-\title{Enumerate all ways of choosing several elements from a collection.}
+\title{xChoose}
 \usage{
 xChoose(num, coll)
 
@@ -24,10 +24,10 @@ Enumerate all ways of choosing several elements from a collection.
 }
 \details{
 \bold{xChoose} enumerates all ways of choosing \bold{num} distinct
-elements from a larger collection, where order doesn't matter.
+    elements from a larger collection, where order doesn't matter.
 
-The number of ways of choosing \bold{num} elements from a collection
-is given by the base R function \code{choose(num, length(coll))}.
+    The number of ways of choosing \bold{num} elements from a collection
+    is given by the base R function \code{choose(num, length(coll))}.
 }
 \section{Corner Cases}{
 

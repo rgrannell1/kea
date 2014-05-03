@@ -135,6 +135,11 @@ discovery of an na value.
 The use of \bold{Return( )} reduces the number of steps required to return a result
 from thousands to less than ten.
 }
+\section{Type Signature}{
+
+    (any -> any -> any) -> any -> [any]
+}
+
 \section{Corner Cases}{
 
 	  Returns \bold{list(val)} if \bold{coll} is length-zero.

@@ -37,6 +37,10 @@ function a limited number of times.
 
    \code{list("mashy\r\n", "iridectomy\r\n", "cystopyelitis\r\n")}
 }
+\section{Type Signature}{
+
+    function -> <numeric> -> function
+}
 \examples{
 
 # 1. Get random words from an API.

@@ -2,7 +2,7 @@
 \name{xMaxBy}
 \alias{xMaxBy}
 \alias{xMaxBy_}
-\title{Get the largest value in a collection according to a measure function.}
+\title{xMaxBy}
 \usage{
 xMaxBy(fn, coll)
 
@@ -23,6 +23,11 @@ An element from \bold{coll}.
 \description{
 Get the largest value in a collection according to a measure function.
 }
+\section{Type Signature}{
+
+    (any -> <number>) -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    If an empty collection is given, an error is thrown. This is because

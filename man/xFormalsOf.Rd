@@ -13,8 +13,15 @@ A named list, where each element's name is a parametre in \bold{fn} and each val
 	  is the default value of that parametre.
 }
 \description{
+xFormalsOf
+}
+\section{Type Signature}{
+
+    function -> |any|
+
 Get the parametres and defaults of a function or primitive function.
 }
+
 \section{Corner Cases}{
 
    If \bold{fn} is a primitive function a heuristic is used to obtain

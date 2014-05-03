@@ -20,6 +20,11 @@ A vector of boolean values.
 \description{
 Test every element in a collection for being \code{Na} of any type.
 }
+\section{Type Signature}{
+
+    |any| -> <logical>
+}
+
 \section{Corner Cases}{
 
    Returns logical(0) if \bold{coll} is length-zero.

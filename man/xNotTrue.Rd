@@ -17,6 +17,11 @@ A true or false value.
 \description{
 Is an value not true?
 }
+\section{Type Signature}{
+
+    any -> <logical>
+}
+
 \section{Corner Cases}{
 
     xNotTrue returns either true or false, to make it

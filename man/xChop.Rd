@@ -40,7 +40,7 @@ Divide a collection into a fixed number of segments.
 }
 \section{Type Signature}{
 
-    |numeric| -> |any| -> ||any||
+    |numeric| -> |any| -> [[any]]
 }
 
 \section{Corner Cases}{

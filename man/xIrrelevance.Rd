@@ -12,6 +12,12 @@ xIrrelevance(...)
 na
 }
 \description{
+xIrrelevance
+}
+\section{Type Signature}{
+
+    ..any -> <logical>
+
 A function that always returns na.
 }
 \examples{

@@ -2,7 +2,7 @@
 \name{xInitOf}
 \alias{xInitOf}
 \alias{xInitOf_}
-\title{Remove the last element of a collection.}
+\title{xInitOf}
 \usage{
 xInitOf(coll)
 
@@ -20,6 +20,11 @@ A list.
 \description{
 Remove the last element of a collection.
 }
+\section{Type Signature}{
+
+    |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero.

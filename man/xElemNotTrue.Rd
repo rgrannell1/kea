@@ -20,6 +20,11 @@ A vector of boolean values.
 \description{
 Is an element of a collection not true?
 }
+\section{Type Signature}{
+
+    |any| -> <logical>
+}
+
 \section{Corner Cases}{
 
    Returns logical(0) if \bold{coll} is length-zero.

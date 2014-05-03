@@ -2,7 +2,7 @@
 \name{xReorder}
 \alias{xReorder}
 \alias{xReorder_}
-\title{Permute a collection of collections using indices.}
+\title{xReorder}
 \usage{
 xReorder(nums, colls)
 
@@ -31,6 +31,11 @@ Permute a collection of collections using indices.
 
    \code{xReorder(xOrderOf( xFirstOf(colls) ), colls)}
 }
+\section{Type Signature}{
+
+    <number> -> ||any|| -> ||any||
+}
+
 \section{Corner Cases}{
 
    returns the empty list is \bold{nums} is length-zero.

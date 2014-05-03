@@ -52,17 +52,11 @@ one_of <- function (coll) {
 	identical(a, b)
 }
 
-#'
-#' Construct empty formals from parametre names.
-#'
-#'
-
 make_formals <- function (params) {
 	structure(
 		rep(list(quote(expr=)), length(params)),
 		names = params)
 }
-
 
 # @section call_with_params:
 #
@@ -263,7 +257,7 @@ ddparse <- function (val, collapse = "") {
 }
 
 ddquote <- function (sym) {
-	paste0(dQuote(sym), collapse = '')
+	paste0(dQuote(match.call()$sym), collapse = '')
 }
 
 newline <- function (val) {

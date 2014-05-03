@@ -23,6 +23,11 @@ A list.
 \description{
 Create a collection by repeating another collection several times.
 }
+\section{Type Signature}{
+
+    <number> -> |any| -> [any]
+}
+
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero or num is zero.

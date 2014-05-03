@@ -2,7 +2,7 @@
 \name{xFromLines}
 \alias{xFromLines}
 \alias{xFromLines_}
-\title{Concatentate a character vector with newlines as delimiters.}
+\title{xFromLines}
 \usage{
 xFromLines(strs)
 
@@ -19,6 +19,10 @@ A length-one character vector.
 }
 \description{
 Concatentate a character vector with newlines as delimiters.
+}
+\section{Type Signature}{
+
+    |character| -> <character>
 }
 \examples{
 

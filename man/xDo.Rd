@@ -2,8 +2,7 @@
 \name{xDo}
 \alias{xDo}
 \alias{xDo_}
-\title{Map (a possibly side-effectful) function over a
-collection and discard the results.}
+\title{xDo}
 \usage{
 xDo(fn, coll)
 
@@ -28,6 +27,10 @@ collection and discard the results.
     it applies a function to each element of a collection. However
     \bold{xDo} does not accumulate a result, so it is more memory-efficient
     and faster at executing side-effectful functions than \bold{xMap}.
+}
+\section{Type Signature}{
+
+    (any -> any) -> |any| -> {}
 }
 \examples{
 
