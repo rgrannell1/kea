@@ -119,7 +119,7 @@ message('check that the start of each arrow function is the functions file name'
 		xMap(xReadLines) $
 		xMap(line := xSelect(line := grepl("#'", line), line) )
 
-	comments $ xUnzipKeys() $ xMap( xUnspread( (path : lines) := {
+	missing_titles <- comments $ xUnzipKeys() $ xMap( xUnspread( (path : lines) := {
 
 		function_name <- x_(path) $ xExplode('/') $ xLastOf() $ xExplode('[.]R') $ x_FirstOf()
 
@@ -129,5 +129,9 @@ message('check that the start of each arrow function is the functions file name'
 		xAny(xI) $ x_Join_(function_name)
 
 	}) ) $
-	xSelect(xFirstOf)
+	xReject(xFirstOf) $ xMap(xSecondOf)
 
+	if (missing_titles $ xReject(name := grepl('[-]{3}', name)) $ x_LenOf() > 0  ) {
+
+		stop("missing titles in ", missing_titles $ x_Implode(", "))
+	}
