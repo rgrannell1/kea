@@ -63,7 +63,7 @@ as_typed_vector <- local({
 
 	function (coll, mode) {
 
-		invoking_call <- sys.call()
+		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
 			vector(mode)
@@ -149,7 +149,7 @@ as_atom <- local({
 
 	function (coll, mode) {
 
-		invoking_call <- sys.call()
+		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
 			vector(mode)

@@ -34,7 +34,7 @@ definitions and macros. This removed a lot of unneeded code.
 
 * internal function `unit_to_value` now supports complex values.
 
-Arrow 0.3.0
+Arrow 0.3.
 ------------------------------------------------------------------------------
 Date:
 
@@ -42,6 +42,9 @@ Bug-Fixes:
 
 * Fixed corner-case for xOneOf; if given a length one vector it extracts the value
 from its collection (if it is a list).
+
+* Type-errors in functions that take collections (xExplode for example) now report
+the user-facing function they were thrown from.
 
 Documentation:
 

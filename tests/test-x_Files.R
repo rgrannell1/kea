@@ -109,3 +109,25 @@ message('check that there is a type signature for every file')
 	if (!missing_types $ x_IsSubset_("xLambda.R", "xList.R", "")) {
 		warning("type signatures missing from ", missing_types $ x_Implode(", "))
 	}
+
+message('check that the start of each arrow function is the functions file name')
+
+	comments <-
+		x_(list.files('/home/ryan/Code/arrow.R/R', full.names = True)) $
+		xSelect(path := grepl('x[A-Z].+', path)) $
+		xMap(path := c(path, path)) $ xZipKeys() $
+		xMap(xReadLines) $
+		xMap(line := xSelect(line := grepl("#'", line), line) )
+
+	comments $ xUnzipKeys() $ xMap( xUnspread( (path : lines) := {
+
+		function_name <- x_(path) $ xExplode('/') $ xLastOf() $ xExplode('[.]R') $ x_FirstOf()
+
+		x_(lines) $ xMap(line := {
+			grepl(xFromChars_("#'[ 	]+", function_name), line)
+		}) $
+		xAny(xI) $ x_Join_(function_name)
+
+	}) ) $
+	xSelect(xFirstOf)
+

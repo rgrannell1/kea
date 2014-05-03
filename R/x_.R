@@ -52,7 +52,7 @@ add_x_method <- function (env, fn, fixed) {
 
 	# -- detect the type of method.
 	is_unchaining <- grepl('^x_', fn_name)
-	is_variadic <- grepl('[.]{3}$', fn_name)
+	is_variadic <- grepl('_$', fn_name)
 
 	fn <- match.fun(fn_sym)
 
@@ -132,7 +132,8 @@ add_x_method <- function (env, fn, fixed) {
 			function (acc, param) {
 
 				# -- this parametre is to be fixed.
-				if (as.symbol(param) == fixed) {
+
+				if (param == fixed) {
 
 					if (fixed == '...') {
 						# -- fixing an ellipsis parametre
