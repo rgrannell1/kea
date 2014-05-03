@@ -34,9 +34,11 @@ definitions and macros. This removed a lot of unneeded code.
 
 * internal function `unit_to_value` now supports complex values.
 
-Arrow 0.3.
+Arrow 0.3.0
 ------------------------------------------------------------------------------
-Date:
+Date: 2014-5-3
+
+A bug-fix release.
 
 Enhancements:
 
