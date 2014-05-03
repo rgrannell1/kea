@@ -1,3 +1,6 @@
+
+<img src="logo.png" width="100"></img>
+
 Arrow 0.3.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
