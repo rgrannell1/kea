@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/logo.png" width="100"></img>
+<img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/logo.png" width="200"></img>
 
 Arrow 0.4.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
