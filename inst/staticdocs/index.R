@@ -331,6 +331,7 @@ sd_section(
 		"xAll",
 		"xForall",
 		"xExists",
+		"xNone",
 		"xPoll"
 	)
 )

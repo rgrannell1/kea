@@ -56,6 +56,7 @@ Other quantifier_functions: \code{\link{xAll}},
   \code{\link{xAll_}}; \code{\link{xAny}},
   \code{\link{xAny_}}; \code{\link{xExists}},
   \code{\link{xExists_}}; \code{\link{xForall}},
-  \code{\link{xForall_}}
+  \code{\link{xForall_}}; \code{\link{xNone}},
+  \code{\link{xNone_}}
 }
 

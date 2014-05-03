@@ -1186,6 +1186,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_Mapply_, '...')
 
 	# -------- N ------- #
+	# --- xNone --- #
+	add_x_method(this, xNone, 'coll')
+	add_x_method(this, x_None, 'coll')
+	add_x_method(this, xNone_, '...')
+	add_x_method(this, x_None_, '...')
+
 	# --- xAddKeys --- #
 	add_x_method(this, xAddKeys, 'coll')
 	add_x_method(this, x_AddKeys, 'coll')
@@ -1767,6 +1773,11 @@ x_fn_proto <- local({
 	add_x_method(this, x_Mapply_, 'fn')
 
 	# -------- N ------- #
+	add_x_method(this, xNone, 'pred')
+	add_x_method(this, x_None, 'pred')
+	add_x_method(this, xNone_, 'pred')
+	add_x_method(this, x_None_, 'pred')
+
 	add_x_method(this, xNot, 'pred')
 	add_x_method(this, x_Not, 'pred')
 

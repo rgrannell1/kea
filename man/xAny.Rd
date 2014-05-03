@@ -50,7 +50,8 @@ xAny(name := nchar(name) > 25, ls('package:base'))
 Other quantifier_functions: \code{\link{xAll}},
   \code{\link{xAll_}}; \code{\link{xExists}},
   \code{\link{xExists_}}; \code{\link{xForall}},
-  \code{\link{xForall_}}; \code{\link{xPoll}},
+  \code{\link{xForall_}}; \code{\link{xNone}},
+  \code{\link{xNone_}}; \code{\link{xPoll}},
   \code{\link{xPoll_}}
 }
 

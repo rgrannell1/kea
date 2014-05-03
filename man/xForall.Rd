@@ -95,7 +95,8 @@ xForall_(
 Other quantifier_functions: \code{\link{xAll}},
   \code{\link{xAll_}}; \code{\link{xAny}},
   \code{\link{xAny_}}; \code{\link{xExists}},
-  \code{\link{xExists_}}; \code{\link{xPoll}},
+  \code{\link{xExists_}}; \code{\link{xNone}},
+  \code{\link{xNone_}}; \code{\link{xPoll}},
   \code{\link{xPoll_}}
 }
 
