@@ -1,5 +1,5 @@
 
-<img src="logo.png" width="100"></img>
+<img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/logo.png" width="100"></img>
 
 Arrow 0.3.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
@@ -135,7 +135,7 @@ much more efficient.
 
 **Arrow** is released under the terms of the GNU General Public License version 3.
 
-<img src="gpl3.png" height = "120"> </img>
+<img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/gpl3.png" height = "120"> </img>
 
 ## Versioning
 

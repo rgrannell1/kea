@@ -22,6 +22,22 @@ A list.
 \description{
 Apply a function to each element of a collection.
 }
+\details{
+\bold{xMap} is probably the most commonly used higher-order function.
+    It is also one of the easier ones to understand. \bold{xMap} takes a function
+    that works on a single value (like \bold{isTRUE}) and a collection of such values.
+    It then calls that function on each element of a collection.
+
+    \code{xMap(isTRUE, list(True, False, 10))}
+
+    is essentially transformed to
+
+    \code{list(isTRUE(True), isTRUE(False), isTRUE(10))}
+
+    which result in
+
+    \code{list(True, False, False)}
+}
 \section{Type Signature}{
 
     (any -> any) -> |any| -> [any]
