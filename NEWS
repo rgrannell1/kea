@@ -38,14 +38,31 @@ Arrow 0.3.
 ------------------------------------------------------------------------------
 Date:
 
+Enhancements:
+
+* Very slightly improved xProdSetOf's efficiency by changing an inner Map
+to lapply.
+
 Bug-Fixes:
 
-* Fixed corner-case for xOneOf; if given a length one vector it extracts the value
-from its collection (if it is a list).
+* Fixed a bug in as_method, in which variadic methods were not being generated
+due to the use of an outdated regular expression to test whether the input function
+was variadic.
 
 * Type-errors in functions that take collections (xExplode for example) now report
 the user-facing function they were thrown from.
 
+* Fixed corner-case for xOneOf; if given a length one vector it extracts the value
+from its collection (if it is a list).
+
 Documentation:
 
-* Added over 40 more type signatures to documentation.
+* Added most missing type signatures to function docs.
+* Added several missing titles to function docs.
+
+Package Internals:
+
+* as_atom and as_typed_vector now use the parent call
+(sys.call(-1)) in error reports.
+
+* Added test to check that every function has a type signature and title.
