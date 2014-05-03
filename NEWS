@@ -1,38 +1,35 @@
 
-Arrow 0.1.0
--------------------------------------------------------------------------------
-Date: 2014-4-30
-
-The initial release of Arrow. A highly experimental release, and ideally not
-the version the public will see.
-
-Arrow 0.2.0
+Arrow 0.4.0
 ------------------------------------------------------------------------------
-Date: 2014-5-2
+Date: 2014-5-4
 
-A minor release, mostly housekeeping and repaying technical debt.
+This version adds xNone and a logo, and fixes an important bug in error-reporting
+functions (no irony whatsoever).
+
+Enhancements:
+
+* Added xNone; the antonym of xAll. It completes the set of functions
+xAll (does every element match a predicate?), xAny (does any element match a predicate?)
+and now xNone (does no value match a predicate?).
 
 Bug-Fixes:
 
-* the xAsComplex, xAsInteger... family of functions now support conversion
-of lists that contain NA values of any mode, at the cost of some performance.
-
-* xLambda now checks that ':' is used as a parametre delimiter;
-previously several infix functions could be used.
+* Fixed an issue in reporting of missing arguments (and possibly other exceptions). The
+name of the argument for which an error is thrown is now displayed properly.
 
 Documentation:
 
-* type signatures added to several more function's documentation.
+* Added a prototype logo for Arrow!
+* Added details section to xMap, explaining the basic concept of map.
+* Added details section to xVersion, explaining the semantic versioning standard.
+* Added example for xLastOf.
 
 Package Internals:
 
-* internal function `MakeVariadic` used to generate variadic forms of
-functions, which should help avoid bugs in their definitions.
-
-* eliminated most error-message functions, in favour of in-place
-definitions and macros. This removed a lot of unneeded code.
-
-* internal function `unit_to_value` now supports complex values.
+* Fixed broken link tags in header of staticdocs head file.
+* Added contact page (though jQuery) to staticdocs site.
+* dQuote now lazily captures its argument.
+* added tests for xNone.
 
 Arrow 0.3.0
 ------------------------------------------------------------------------------
@@ -69,34 +66,37 @@ Package Internals:
 
 * Added test to check that every function has a type signature and title.
 
-Arrow 0.4.0
+Arrow 0.2.0
 ------------------------------------------------------------------------------
-Date: 2014-5-4
+Date: 2014-5-2
 
-This version adds xNone and a logo, and fixes an important bug in error-reporting
-functions (no irony whatsoever).
-
-Enhancements:
-
-* Added xNone; the antonym of xAll. It completes the set of functions
-xAll (does every element match a predicate?), xAny (does any element match a predicate?)
-and now xNone (does no value match a predicate?).
+A minor release, mostly housekeeping and repaying technical debt.
 
 Bug-Fixes:
 
-* Fixed an issue in reporting of missing arguments (and possibly other exceptions). The
-name of the argument for which an error is thrown is now displayed properly.
+* the xAsComplex, xAsInteger... family of functions now support conversion
+of lists that contain NA values of any mode, at the cost of some performance.
+
+* xLambda now checks that ':' is used as a parametre delimiter;
+previously several infix functions could be used.
 
 Documentation:
 
-* Added a prototype logo for Arrow!
-* Added details section to xMap, explaining the basic concept of map.
-* Added details section to xVersion, explaining the semantic versioning standard.
-* Added example for xLastOf.
+* type signatures added to several more function's documentation.
 
 Package Internals:
 
-* Fixed broken link tags in header of staticdocs head file.
-* Added contact page (though jQuery) to staticdocs site.
-* dQuote now lazily captures its argument.
-* added tests for xNone.
+* internal function `MakeVariadic` used to generate variadic forms of
+functions, which should help avoid bugs in their definitions.
+
+* eliminated most error-message functions, in favour of in-place
+definitions and macros. This removed a lot of unneeded code.
+
+* internal function `unit_to_value` now supports complex values.
+
+Arrow 0.1.0
+-------------------------------------------------------------------------------
+Date: 2014-4-30
+
+The initial release of Arrow. A highly experimental release, and ideally not
+the version the public will see.
