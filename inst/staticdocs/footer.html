@@ -25,8 +25,43 @@
 	$('div.Description').prependTo('.span8')
 
 	$('#contact-link').click(function() {
+		// I know this is sub-optimal, but it'll do.
 
-		$('.span8').html("to contact me do stuff.")
+		var h1 = function (text) {
+			return "<h1>" + text + "</h1>"
+		}
+		var p = function (text) {
+			return "<p>" + text + "</p>"
+		}
+		var ul = function (text) {
+			return "<ul>" + text + "</ul>"
+		}
+		var li = function (text) {
+			return "<li>" + text + "</li>"
+		}
+		var a = function (href, text) {
+			return "<a href='" + href + "'>" + text + "</a>"
+		}
+		var em = function (text) {
+			return "<em>" + text + "</em>"
+		}
+
+		$('.span8').html(
+
+			h1("Contact / Queries") +
+			p("Feel free to contact me if any issue with or queries about Arrow through the following channels:</p>") +
+			ul(
+				li(p("my gmail address is r.grannell2")) +
+				li(a("https://twitter.com/RyanGrannell", "Twitter")) +
+				li(a("https://github.com/rgrannell1", "Github"))
+			) +
+			p("If you spot a typo or slight error in this documentation I would really appreciate if you sent " +
+				"a " + a("https://help.github.com/articles/using-pull-requests", "pull request") + " with the typo fixed.") +
+			p("Thanks for using Arrow") +
+			p("Ryan Grannell")
+
+		)
+
 
 	})
 
