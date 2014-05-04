@@ -34,7 +34,7 @@ NULL
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
-  \code{\link{xAddKeys...}}; \code{\link{xPluck}},
+  \code{\link{xAddKeys_}}; \code{\link{xPluck}},
   \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}

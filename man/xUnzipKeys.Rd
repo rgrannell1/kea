@@ -62,7 +62,7 @@ x_(irish_birds) $ xUnzipKeys() $ x_Map(xUnspread((key : val) := {
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
-  \code{\link{xAddKeys...}}; \code{\link{xPluck}},
+  \code{\link{xAddKeys_}}; \code{\link{xPluck}},
   \code{\link{xPluck_}}; \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
