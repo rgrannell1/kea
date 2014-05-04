@@ -189,5 +189,6 @@ Collate:
     'xAtKey.R'
     'xUnzipIndices.R'
     'xNone.R'
+    'xIs.R'
     'x_.R'
     'x..R'

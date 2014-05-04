@@ -1109,6 +1109,8 @@ x_coll_proto <- local({
 	# --- xIterate --- #
 	add_x_method(this, xIterate, 'val')
 	add_x_method(this, x_Iterate, 'val')
+	add_x_method(this, xIs, 'val1')
+	add_x_method(this, x_Is, 'val1')
 
 	# --- xInter --- #
 	add_x_method(this, xInter, 'colls')
