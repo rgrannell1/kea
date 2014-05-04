@@ -57,4 +57,4 @@ xAddKeys <- MakeFun(function (strs, coll) {
 #' @rdname xAddKeys
 #' @export
 
-xAddKeys... <- MakeVariadic(xAddKeys, 'coll')
+xAddKeys_ <- MakeVariadic(xAddKeys, 'coll')
