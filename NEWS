@@ -1,4 +1,30 @@
 
+Arrow 0.5.0
+------------------------------------------------------------------------------
+Date: 2014-5-4
+
+A feature-rich version; adds three new functions for testing equality
+and match/mismatch against a regular expression.
+
+Enhancements:
+
+* Added xIs; a function for testing if values are identical.
+* Added xIsMatch; tests if a string matches a regular expression.
+* Added xNotMatch; tests if a string doesn't match a regular expression.
+
+Bug-Fixes:
+
+* renamed xAddKeys... to xAddKeys_, to keep in step with other variadic
+methods.
+
+Documentation:
+
+* Added example for xIs.
+
+Package Internals:
+
+* Added tests for xIs, xIsMatch, xNotMatch.
+
 Arrow 0.4.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
