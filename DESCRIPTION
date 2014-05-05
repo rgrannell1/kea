@@ -190,5 +190,7 @@ Collate:
     'xUnzipIndices.R'
     'xNone.R'
     'xIs.R'
+    'xIsMatch.R'
+    'xNotMatch.R'
     'x_.R'
     'x..R'

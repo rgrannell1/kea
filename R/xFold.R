@@ -62,6 +62,7 @@ xFold <- MakeFun(function (fn, val, coll) {
 
 		callCC(function (Return) {
 
+			# -- can only use Return() in non-primitives
 			if (!is.primitive(fn)) {
 				clone_env <- new.env(parent = environment(fn))
 				clone_env$Return <- Return

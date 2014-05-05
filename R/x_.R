@@ -1106,6 +1106,10 @@ x_coll_proto <- local({
 	add_x_method(this, x_ElemIsNull, 'coll')
 	add_x_method(this, x_ElemIsNull_, '...')
 
+	# --- xIsMatch --- #
+	add_x_method(this, xIsMatch, 'str')
+	add_x_method(this, x_IsMatch, 'str')
+
 	# --- xIterate --- #
 	add_x_method(this, xIterate, 'val')
 	add_x_method(this, x_Iterate, 'val')
@@ -1197,6 +1201,10 @@ x_coll_proto <- local({
 	# --- xAddKeys --- #
 	add_x_method(this, xAddKeys, 'coll')
 	add_x_method(this, x_AddKeys, 'coll')
+
+	# --- xNotMatch --- #
+	add_x_method(this, xNotMatch, 'str')
+	add_x_method(this, x_NotMatch, 'str')
 
 	# --- xNotMember --- #
 	add_x_method(this, xNotMember, 'coll')

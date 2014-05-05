@@ -45,6 +45,7 @@ Other text_processing_functions: \code{\link{xExplode}};
   \code{\link{xFromLines}}, \code{\link{xFromLines_}};
   \code{\link{xFromWords}}, \code{\link{xFromWords_}};
   \code{\link{xImplode}}, \code{\link{xImplode_}};
+  \code{\link{xIsMatch}}; \code{\link{xNotMatch}};
   \code{\link{xReadChars}}; \code{\link{xReadLines}};
   \code{\link{xReadWords}}; \code{\link{xSliceString}},
   \code{\link{xSliceString_}}; \code{\link{xToChars}};

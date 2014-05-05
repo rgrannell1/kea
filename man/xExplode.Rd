@@ -24,7 +24,7 @@ Split a string into a character vector using a regular expression.
 
 \section{Corner Cases}{
 
-   Returns the empty list if \bold{coll} is length-zero.
+   Returns the empty string if \bold{str} is length-zero.
    If no match is found the original string is returned.
    Every element of the returned character vector has one
    or more characters - no zero-character elements are ever
@@ -44,7 +44,8 @@ Other text_processing_functions: \code{\link{xFromChars}},
   \code{\link{xFromChars_}}; \code{\link{xFromLines}},
   \code{\link{xFromLines_}}; \code{\link{xFromWords}},
   \code{\link{xFromWords_}}; \code{\link{xImplode}},
-  \code{\link{xImplode_}}; \code{\link{xReadChars}};
+  \code{\link{xImplode_}}; \code{\link{xIsMatch}};
+  \code{\link{xNotMatch}}; \code{\link{xReadChars}};
   \code{\link{xReadLines}}; \code{\link{xReadWords}};
   \code{\link{xSliceString}}, \code{\link{xSliceString_}};
   \code{\link{xToChars}}; \code{\link{xToLines}};
