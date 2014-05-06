@@ -35,7 +35,6 @@ Collate:
     'xElemsByCols---.R'
     'xElemsByRows---.R'
     'xExecute---.R'
-    'tools_exclaim.R'
     'tools_wail.R'
     'tools_forall.R'
     'xLambda.R'

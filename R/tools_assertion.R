@@ -1,8 +1,4 @@
 
-find_error_line <- function (text, env) {
-	findLineNum(text, env)
-}
-
 stringify_call <- function (call) {
 	# call -> string
 	# format the call nicely for printing, fixing the representation of ':='.
@@ -35,8 +31,8 @@ get_call_components <- function (invoking_call) {
 	# get the calling function and call text from a call.
 
 	if (length(invoking_call) == 1) {
-		# this may be incorrect - I'm assuming this is a
-		# length-one call (xMap()) , not a symbol.
+		# -- this may be incorrect - I'm assuming this is a
+		# -- length-one call (xMap()), not a symbol.
 
 		list(
 			invoking_call =
@@ -53,45 +49,37 @@ get_call_components <- function (invoking_call) {
 }
 
 write_error <- function (..., call. = True) {
-	# to fix wrong terminal type
-	# sudo nano ~/.bashrc
-	# export TERM=term-color
-	# . ~/.bashenv
 
 	message <- c(...)
 
 	stop(colourise$red(message), call. = call.)
-
 }
 
-assert <- local({
+assert <- function (expr, invoking_call, message) {
 
-	function (expr, invoking_call, message) {
-		# does an expression evaluate to true?
-		# if not, throw a lovely error.
+	if (!is.logical(expr)) {
+		# -- the assertion was broken.
 
-		if (!is.logical(expr)) {
-			# the assertion was broken.
+		message <-
+			"internal error: the assertion " %+% ddparse(expr) %+%
+			" produced a non-logical value."
 
-			message <-
-				"internal error: the assertion " %+% ddparse(expr) %+%
-				" produced a non-logical value."
+		write_error(message, call. = False)
 
-			write_error(message, call. = False)
+	} else if (!isTRUE(expr)) {
+		# -- everything went wrong, throw an error.
 
-		} else if (!isTRUE(expr)) {
-			# everythings went wrong, throw an error.
+		components <- get_call_components(invoking_call)
 
-			components <- get_call_components(invoking_call)
+		write_error(
+			exclaim$arrow_function_failed(
+				components$invoking, components$calltext, message),
+			call. = False)
 
-			write_error(
-				exclaim$arrow_function_failed(
-					components$invoking, components$calltext, message),
-				call. = False)
-		}
-		True
 	}
-})
+	True
+}
+
 
 
 
@@ -105,3 +93,141 @@ throw_arrow_error <- function (invoking_call, message) {
 			components$invoking, components$calltext, message),
 			call. = False)
 }
+
+# -------------------------------- exclaim -------------------------------- #
+#
+# To Developers,
+#
+# exclaim stores the error messages specific to assert itself.
+
+exclaim <- list(
+	arrow_function_failed =
+		function (callname, callinfo, message) {
+
+			stopifnot(is.character(message))
+
+			callname <- paste0(callname, collapse = '')
+			callinfo <- wrap(callinfo, indent = 4)
+
+			overview <-
+			'\n[ error thrown from ' %+% callname %+% ' ]:\n\n'
+
+			overview %+%
+			callinfo %+% '\n\n' %+%
+			'[ details ]:\n\n' %+%
+			message
+
+		},
+
+	warning_higher_order =
+		function (fn, warn, profile = '') {
+
+			warnmessage <-
+				paste0(warn$message, collapse = '')
+
+			inner_call <- stringify_call(warn$call) %+% ":\n\n"
+
+			overview <-
+			"[ warning occurred while executing a function passed to " %+% fn %+% " ]\n\n"
+
+			inner_call <- paste0('    ', inner_call)
+
+			warnmessage <- strsplit(warnmessage, '\n')[[1]]
+			warnmessage <- paste0('    ', warnmessage, collapse = '\n')
+
+			overview %+% inner_call %+% warnmessage
+		},
+
+	error_higher_order =
+		function (fn, err, profile = '') {
+
+			errmessage <-
+				paste0(err$message, collapse = '')
+
+			inner_call <- stringify_call(err$call) %+% ':\n\n'
+
+			overview <-
+			"[ an error occurred while executing a function passed to " %+% fn %+% " ]:\n\n"
+
+			inner_call <- paste0('    ', inner_call)
+
+			errmessage <- strsplit(errmessage, '\n')[[1]]
+			errmessage <- paste0('    ', errmessage, collapse = '\n')
+
+			overview %+% inner_call %+% errmessage
+		},
+
+	warning_write =
+		function (path, err, profile = '') {
+
+			errmessage <-
+				paste0(err$message, collapse = '')
+
+			overview <-
+			"[ a warning occurred while writing to the path " %+% dQuote(path) %+% " ]:\n\n"
+
+			inner_call <- stringify_call(err$call) %+% ':\n\n'
+
+			inner_call <- paste0('    ', inner_call)
+
+			errmessage <- strsplit(errmessage, '\n')[[1]]
+			errmessage <- paste0('    ', errmessage, collapse = '\n')
+
+			overview %+% inner_call %+% errmessage
+		},
+	error_write =
+		function (path, err, profile = '') {
+
+			errmessage <-
+				paste0(err$message, collapse = '')
+
+			overview <-
+			"[ an error occurred while writing to the path " %+% dQuote(path) %+% " ]:\n\n"
+
+			inner_call <- stringify_call(err$call) %+% ':\n\n'
+
+			inner_call <- paste0('    ', inner_call)
+
+			errmessage <- strsplit(errmessage, '\n')[[1]]
+			errmessage <- paste0('    ', errmessage, collapse = '\n')
+
+			overview %+% inner_call %+% errmessage
+		},
+
+	warning_read =
+		function (path, warn, profile = '') {
+
+			warnmessage <-
+				paste0(warn$message, collapse = '')
+
+			overview <-
+			"[ a warning occurred while reading from the path " %+% dQuote(path) %+% " ]:\n\n"
+
+			inner_call <- stringify_call(warn$call) %+% ':\n\n'
+
+			inner_call <- paste0('    ', inner_call)
+
+			warnmessage <- strsplit(warnmessage, '\n')[[1]]
+			warnmessage <- paste0('1    ', warnmessage, collapse = '\n')
+
+			overview %+% inner_call %+% warnmessage
+		},
+	error_read =
+		function (path, err, profile = '') {
+
+			errmessage <-
+				paste0(err$message, collapse = '')
+
+			overview <-
+			"[ an error occurred while reading from the path " %+% dQuote(path) %+% " ]:\n\n"
+
+			inner_call <- stringify_call(err$call) %+% ':\n\n'
+
+			inner_call <- paste0('    ', inner_call)
+
+			errmessage <- strsplit(errmessage, '\n')[[1]]
+			errmessage <- paste0('    ', errmessage, collapse = '\n')
+
+			overview %+% inner_call %+% errmessage
+		}
+)

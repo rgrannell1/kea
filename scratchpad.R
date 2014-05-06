@@ -161,12 +161,15 @@ a2 <- data.frame(a = c(aa = 2, bb = 3), d = c(ee = 3, ff = 4))
 
 
 
+x_(list.files('/home/ryan/Code/arrow.R', full.names = TRUE, recursive = TRUE)) $
+xReject(path := {
+	xIsMatch('DESCRIPTION|png', path)
+}) $
+xMap(xReadWords) $ xFlatten(1) $
+xSelect(word := {
+	xIsMatch('_', word)
+}) $
+xUniqueOf() $
+xReject(word := {
 
-
-
-
-
-
-
-
-> x_
+})
