@@ -30,21 +30,33 @@ stringify_call <- function (call) {
 get_call_components <- function (invoking_call) {
 	# get the calling function and call text from a call.
 
-	if (length(invoking_call) == 1) {
-		# -- this may be incorrect - I'm assuming this is a
-		# -- length-one call (xMap()), not a symbol.
+	if (length(invoking_call) == 1 && any(class(invoking_call) == "call")) {
+		# -- is it a nullary call ( foo() )
 
 		list(
 			invoking_call =
 				paste0(invoking_call, collapse = ''),
 			calltext =
 				paste0(invoking_call, "()", collapse = ''))
-	} else {
+
+	} else if (any(class(invoking_call) == "call")) {
+		# -- the general case
+
 		list(
 			invoking =
 				paste0(invoking_call[[1]], collapse = ''),
 			calltext =
 				stringify_call(invoking_call))
+
+	} else {
+		# -- internal error; something bad was passed in.
+
+		list(
+			invoking =
+				"",
+			calltext =
+				"")
+
 	}
 }
 
@@ -93,6 +105,59 @@ throw_arrow_error <- function (invoking_call, message) {
 			components$invoking, components$calltext, message),
 			call. = False)
 }
+
+
+try_write <- local({
+	function (expr, path, invoking_call) {
+
+		tryCatch(
+			expr,
+			warning = function (warn) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				write_warning(
+					exclaim$arrow_function_failed(
+						components$invoking, components$calltext, message),
+					call. = False)
+			},
+			error = function (err) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				write_error(
+					exclaim$arrow_function_failed(
+						components$invoking, components$calltext, message),
+					call. = False)
+			}
+		)
+	}
+
+})
+
+try_read <- local({
+	function (expr, path, invoking_call) {
+
+		tryCatch(
+			expr,
+			warning = function (warn) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					exclaim$warning_read(path, warn)
+				)
+			},
+			error = function (err) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					exclaim$error_read(path, err)
+				)
+			}
+		)
+	}
+
+})
 
 # -------------------------------- exclaim -------------------------------- #
 #

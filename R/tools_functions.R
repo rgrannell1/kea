@@ -195,58 +195,6 @@ as_parametres <- function (names) {
 	)
 }
 
-try_write <- local({
-	function (expr, path, invoking_call) {
-
-		tryCatch(
-			expr,
-			warning = function (warn) {
-				apically_calling_fn <- invoking_call[[1]]
-
-				write_warning(
-					exclaim$arrow_function_failed(
-						components$invoking, components$calltext, message),
-					call. = False)
-			},
-			error = function (err) {
-				apically_calling_fn <- invoking_call[[1]]
-
-				write_error(
-					exclaim$arrow_function_failed(
-						components$invoking, components$calltext, message),
-					call. = False)
-			}
-		)
-	}
-
-})
-
-try_read <- local({
-	function (expr, path, invoking_call) {
-
-		tryCatch(
-			expr,
-			warning = function (warn) {
-				apically_calling_fn <- invoking_call[[1]]
-
-				assert(
-					False, invoking_call,
-					exclaim$warning_read(path, warn)
-				)
-			},
-			error = function (err) {
-				apically_calling_fn <- invoking_call[[1]]
-
-				assert(
-					False, invoking_call,
-					exclaim$error_read(path, err)
-				)
-			}
-		)
-	}
-
-})
-
 # --------------------- testing & message functions --------------------- #
 
 
