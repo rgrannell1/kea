@@ -31,7 +31,8 @@ you will spend a lot of time chasing down empty values and NA's in the debugger.
 
 The remedy? Arrow is a composable functional programming framework. It includes
 all the functionals you know and love from Haskell (map, fold, select, flatmap)
-it has functions for reshaping and summarising your data structures.
+it has functions for reshaping and summarising your data structures. These functions
+slot neatly together without boilerplate code.
 
 Above all else it is designed to be pleasant to use. Functional
 programming, unix-style pipelines and shorthand functions reduce the keystrokes
