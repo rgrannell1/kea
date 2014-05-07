@@ -57,13 +57,6 @@ xList[x, x <- 1:10, x %% 2 == 0]             \# generates 2, 4, ..., 10
 x_(letters) $ xMap(toupper) $ x_FromChars()  \# generates the string ABCD...Z
 ```
 
-
-
-
-
-
-
-
 ```r
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
@@ -125,7 +118,7 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
 ### Arrow is Expressive
 
-* Programs are built in a lego-like manner; stacking small,
+* Programs are built like lego; stacking small,
 uniquely-purposed functions into a larger program.
 
 * Arrow has a shorthand syntax for creating functions.
