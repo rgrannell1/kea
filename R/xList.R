@@ -51,7 +51,7 @@
 #'
 #'    If the final expression given to a comprehension is not a binding
 #'    expression it is treated as a predicate for selecting particular
-#'    values. This is optional. If it isn't included no elements are filtered out.
+#'    values. this is optional. If it isn't included no elements are filtered out.
 #'
 #'    \code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
 #'
@@ -96,15 +96,19 @@ print.xlist_builder <- function (x, ...) {
 	exprs <- eval( substitute(alist(...)) )
 	parent_frame <- parent.frame()
 
+	# -- grab the named unevaluated parametres
 	invoking_call <- match.call()[-1]
 
+	# -- no args; just return list()
 	if ( identical(exprs[[1]], quote(expr=)) ) {
 		return(list())
 	}
 
 	components <- local({
 
-		this <- list()
+		self <- list()
+
+		# -- which expressions match any <- any?
 		binding_indices <-
 			which( vapply(exprs, function (expr) {
 
@@ -112,6 +116,7 @@ print.xlist_builder <- function (x, ...) {
 
 			}, logical(1)) )
 
+		# -- you must start with a yield expression.
 		if (1 %in% binding_indices) {
 
 			message <-
@@ -121,6 +126,7 @@ print.xlist_builder <- function (x, ...) {
 			throw_arrow_error(invoking_call, message)
 		}
 
+		# -- you can't name the expressions!
 		if ( !is.null(names(exprs)) ) {
 
 			message <-
@@ -131,19 +137,24 @@ print.xlist_builder <- function (x, ...) {
 
 		bindings <- exprs[binding_indices]
 
-		this$yield <-
+		# -- the first expression is always the yield expression.
+		self$yield <-
 			exprs[[1]]
 
+		# -- is the last expression a non-binding expression?
 		is_predicated <-
 			length(exprs) %!in% binding_indices && length(exprs) > 1
 
-		this$predicate <-
+		# -- the selection predicate defaults to true.
+		self$predicate <-
 			if (is_predicated) {
 				exprs[[ length(exprs) ]]
 			} else {
 				True
 			}
 
+		# -- are there any expressions that aren't the yield expression, binding
+		# -- expression or predicate?
 		unmatched <- if (is_predicated) {
 			expr_indices <- seq_along(exprs)
 			expr_indices[ expr_indices %!in% c(1, binding_indices, length(exprs)) ]
@@ -152,6 +163,7 @@ print.xlist_builder <- function (x, ...) {
 			expr_indices[expr_indices %!in% c(1, binding_indices)]
 		}
 
+		# -- some abnormal expressions
 		if (length(unmatched) != 0) {
 
 			unmatched_str <- paste0(lapply(unmatched, ith_suffix), collapse = ', ')
@@ -164,16 +176,17 @@ print.xlist_builder <- function (x, ...) {
 			throw_arrow_error(invoking_call, message)
 		}
 
-		# check that all expressions are matched.
+		# -- check that all expressions are matched.
 
-		this$variables <-
+		self$variables <-
 			vapply(bindings, function (expr) {
 				paste0( expr[[2]] )
 			}, character(1))
 
-		if ( any(duplicated(this$variables)) ) {
+		# -- some variable was matched multiple times (x <- 1:10, x <- letters)
+		if ( any(duplicated(self$variables)) ) {
 
-			duplicated_var <- this$variables[duplicated(this$variables)]
+			duplicated_var <- self$variables[duplicated(self$variables)]
 
 			message <-
 				"The variables " %+% paste0(duplicated_var, collapse = ', ') %+%
@@ -182,8 +195,8 @@ print.xlist_builder <- function (x, ...) {
 				throw_arrow_error(invoking_call, message)
 		}
 
-
-		if (length(this$variables) == 0) {
+		# -- no variables were bound (x <- 1:10)
+		if (length(self$variables) == 0) {
 
 			message <-
 				"a non-empty collection-comprehension must have " %+%
@@ -192,36 +205,38 @@ print.xlist_builder <- function (x, ...) {
 			throw_arrow_error(invoking_call, message)
 		}
 
-		this$values <-
+		# -- evaluate coll in the expression x <- coll
+		self$values <-
 			lapply(bindings, function (expr) {
 				eval(expr[[3]], envir = parent_frame)
 			})
 
-		this
+		self
 	})
 
 	parametreised <- local({
 
-		this <- list()
+		self <- list()
 
 		parametreise <- function (expr, params) {
-			# add the parametres to the functions
 
+			# -- add parametres to the expression, creating a function.
 			fn <- do.call('function', list(
 				as.pairlist(as_parametres(params)),
 				expr
 			))
+			# -- evaluate in the parent environment.
 			environment(fn) <- parent_frame
 			fn
 		}
 
-		this$yield <- parametreise(
+		self$yield <- parametreise(
 			components$yield, components$variables)
 
-		this$predicate <- parametreise(
+		self$predicate <- parametreise(
 			components$predicate, components$variables)
 
-		this
+		self
 	})
 
 	xMapply(

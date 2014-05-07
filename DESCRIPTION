@@ -22,7 +22,6 @@ Collate:
     'tools_colourise.R'
     'tools_assertion.R'
     'tools_macros.R'
-    'tools_generators.R'
     'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'

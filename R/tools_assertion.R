@@ -9,6 +9,7 @@ stringify_call <- function (call) {
 
 		call <- as.call(lapply(call, function (term) {
 
+			# -- refactor `:=`(a, {a + a}) to function (a) {a + a}
 			if(is.call(term) && term[[1]] == as.symbol(':=')) {
 				eval(term)
 			} else {
@@ -96,8 +97,8 @@ assert <- function (expr, invoking_call, message) {
 
 
 throw_arrow_error <- function (invoking_call, message) {
-	# everythings went wrong, throw an error.
 
+	# -- stringify the call, get the function name.
 	components <- get_call_components(invoking_call)
 
 	write_error(

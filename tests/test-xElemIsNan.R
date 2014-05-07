@@ -4,12 +4,11 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
 message('xElemIsNan')
 
 	forall(
-		"a vector of nan's is nan",
-		test_cases$nans,
-		all(xElemIsNan(coll))
+		"the empty collection is logical 0",
+		test_cases$collection_zero,
+		xElemIsNan(list()) %equals% logical(0)
 	)
 
