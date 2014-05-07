@@ -6,14 +6,30 @@ Arrow 0.6.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https:
 
 > *'The enjoyment of one's tools is an essential ingredient of successful work.'* -- Donald E. Knuth
 
+Arrow makes R the functional language it was always meant to be.
+
+### Installation
+
+Arrow isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
+is considered bad etiquite to update a CRAN package more than once a month.
+
+```
+install.packages("devtools")
+install_github("arrow", "rgrannell1", ref = "releases")
+```
+
 ## What is Arrow?
 
-Arrow makes R the functional language it was born to be.
+R's base packages are uncooperative. Functions in the standard library have a tonne
+of arcane parametres. They can't decide on how to handle empty values, NA values or even
+the humble list. Sometimes they crash a program, sometimes they fail silently or 
+are handled gracefully. In any case, every function requires you to memorise its precise
+behaviour. 
 
-R can be an uncooperative language. Every function has its own way of
-handling missing values or naming its parametres. As a result, piecing together
-individual functions to make a useful program can be difficult and requires a
-lot of boilerplate code.
+Worse still, base functions stack badly. You will spend a lot of time chasing down
+empty values and NA's in the debugger.
+
+
 
 Arrow is an expressive composible foundation for programming in R. It implements all
 the common higher-order functions - Map, Fold, GroupBy and so on - as well as any reshaping
