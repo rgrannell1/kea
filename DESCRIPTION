@@ -38,7 +38,6 @@ Collate:
     'tools_forall.R'
     'xLambda.R'
     'xApply.R'
-    'xAsClosure.R'
     'xAsLogical.R'
     'xAsInteger.R'
     'xAsDouble.R'

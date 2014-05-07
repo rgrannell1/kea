@@ -1635,10 +1635,6 @@ x_fn_proto <- local({
 	add_x_method(this, xAll_, 'pred')
 	add_x_method(this, x_All_, 'pred')
 
-	# --- xAsClosure --- #
-	add_x_method(this, xAsClosure, 'fn')
-	add_x_method(this, x_AsClosure, 'fn')
-
 	# --- xUnspread --- #
 	add_x_method(this, xUnspread, 'fn')
 	add_x_method(this, x_Unspread, 'fn')
