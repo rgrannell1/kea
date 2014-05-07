@@ -1206,6 +1206,12 @@ x_coll_proto <- local({
 	add_x_method(this, xNotMatch, 'str')
 	add_x_method(this, x_NotMatch, 'str')
 
+	# --- xNotSubset --- #
+	add_x_method(this, xNotSubset, 'coll2')
+	add_x_method(this, xNotSubset_, '...')
+	add_x_method(this, x_NotSubset, 'coll2')
+	add_x_method(this, x_NotSubset_, '...')
+
 	# --- xNotMember --- #
 	add_x_method(this, xNotMember, 'coll')
 	add_x_method(this, xNotMember_, '...')
