@@ -1790,8 +1790,8 @@ x_fn_proto <- local({
 	add_x_method(this, xNone_, 'pred')
 	add_x_method(this, x_None_, 'pred')
 
-	add_x_method(this, xNot, 'pred')
-	add_x_method(this, x_Not, 'pred')
+	add_x_method(this, xNegate, 'pred')
+	add_x_method(this, x_Negate, 'pred')
 
 	# -------- O ------- #
 	# -------- P ------- #

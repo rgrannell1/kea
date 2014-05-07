@@ -60,7 +60,7 @@ Generate a list using set-builder notation.
 
    If the final expression given to a comprehension is not a binding
    expression it is treated as a predicate for selecting particular
-   values. This is optional. If it isn't included no elements are filtered out.
+   values. this is optional. If it isn't included no elements are filtered out.
 
    \code{xList[c(a, b), a <- 1:3, b <- 1:3, a + b > 2]}
 

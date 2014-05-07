@@ -173,3 +173,23 @@ xUniqueOf() $
 xReject(word := {
 
 })
+
+
+
+
+
+
+methods <-
+	x_(xReadLines('/home/ryan/Code/arrow.R/NAMESPACE')) $
+	xSelect(line := {
+		xIsMatch('export', line)
+	}) $
+	xMap(line := {
+		xExplode('export[(]|[)]', line)
+	}) $
+	xReject(line := {
+		xIsMatch('_', line)
+	})
+
+methods $ xSelect(fn := xIsMatch('Is', fn))
+methods $ xSelect(fn := xIsMatch('Not', fn))

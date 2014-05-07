@@ -94,13 +94,13 @@ Other function_combining_functions: \code{\link{\%of\%}},
 
 Other function_modifying_functions: \code{\link{\%of\%}},
   \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose_}}; \code{\link{xAsClosure}};
-  \code{\link{xCapture}}, \code{\link{xK}};
-  \code{\link{xDelay}}; \code{\link{xFix}},
-  \code{\link{xFix_}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose_}}; \code{\link{xNot}};
-  \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread_}}; \code{\link{xUnspread}};
-  \code{\link{xVectorise}}, \code{\link{xVectorize}}
+  \code{\link{xCompose_}}; \code{\link{xCapture}},
+  \code{\link{xK}}; \code{\link{xDelay}};
+  \code{\link{xFix}}, \code{\link{xFix_}};
+  \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
+  \code{\link{xNegate}}; \code{\link{xSpread}};
+  \code{\link{xThread}}, \code{\link{xThread_}};
+  \code{\link{xUnspread}}; \code{\link{xVectorise}},
+  \code{\link{xVectorize}}
 }
 

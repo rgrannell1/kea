@@ -81,7 +81,7 @@ Collate:
     'xToLines.R'
     'xLocate.R'
     'xMap.R'
-    'xNot.R'
+    'xNegate.R'
     'xElemNotFalse.R'
     'xElemNotNa.R'
     'xElemNotTrue.R'
