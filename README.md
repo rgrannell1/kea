@@ -46,16 +46,18 @@ For library documentation and tutorials head to
 First, a table of Arrow's (optional) new syntax.
 
 ```r
-\# function shorthands
-x := 2 * x + 1                               \# instead of function (x) 2 * x + 1
-x. $ Species                                 \# instead of function (x) x $ Species
+"-- function shorthands"
+x := 2 * x + 1                               "-- instead of function (x) 2 * x + 1"
+x. $ Species                                 "-- instead of function (x) x $ Species"
 
-\# list comprehensions
-xList[x, x <- 1:10, x %% 2 == 0]             \# generates 2, 4, ..., 10
+"-- list comprehensions"
+xList[x, x <- 1:10, x %% 2 == 0]             "-- generates 2, 4, ..., 10"
 
-\# methods!
-x_(letters) $ xMap(toupper) $ x_FromChars()  \# generates the string ABCD...Z
+"-- methods!"
+x_(letters) $ xMap(toupper) $ x_FromChars()  "-- generates the string ABCD...Z"
 ```
+
+With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
 
 ```r
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
