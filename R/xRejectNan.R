@@ -35,7 +35,7 @@ xRejectNan <- MakeFun(function (coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
-		# must be list to be able to replace with NULL
+		# -- must be list to be able to replace with NULL
 		coll <- as.list(coll)
 		coll[vapply(coll, function (elem) {
 			is.atomic(elem) && isTRUE(is.nan(elem))

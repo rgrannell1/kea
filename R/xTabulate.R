@@ -57,8 +57,6 @@ xTabulate <- MakeFun(function (coll) {
 
 			for (ith in seq_along(unique_elements)) {
 
-				# -- TODO this may cause problems with NaN.
-
 				if (identical( elem, unique_elements[[ith]] )) {
 					return(ith)
 				}
