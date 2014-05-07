@@ -22,9 +22,9 @@ install_github("arrow", "rgrannell1", ref = "releases")
 
 R's base packages are uncooperative. Functions in the standard library have a tonne
 of arcane parametres. They can't decide on how to handle empty values, NA values or even
-the humble list. Sometimes they crash a program, sometimes they fail silently or 
+the humble list. Sometimes they crash a program, sometimes they fail silently or
 are handled gracefully. In any case, every function requires you to memorise its precise
-behaviour. 
+behaviour.
 
 Worse still, base functions stack badly. Despite knowing exactly what you want to do,
 you will spend a lot of time chasing down empty values and NA's in the debugger.
@@ -43,9 +43,27 @@ For library documentation and tutorials head to
 
 ## What Does Arrow Look Like?
 
-Arrow can be written using normal functions or with chaining methods. I prefer the latter. Chaining
-methods take an initial piece of data and apply successive transformation to it.
-This is a very natural way of expressing data munging or reshaping
+First, a table of Arrow's (optional) new syntax.
+
+```r
+\# function shorthands
+x := 2 * x + 1                               \# instead of function (x) 2 * x + 1
+x. $ Species                                 \# instead of function (x) x $ Species
+
+\# list comprehensions
+xList[x, x <- 1:10, x %% 2 == 0]             \# generates 2, 4, ..., 10
+
+\# methods!
+x_(letters) $ xMap(toupper) $ x_FromChars()  \# generates the string ABCD...Z
+```
+
+
+
+
+
+
+
+
 ```r
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
@@ -140,7 +158,7 @@ map, fold, select, flatmap and iterate.
 * Arrow includes several mathematical functions, like the set operations and
 combinatoric functions.
 
-* Arrow adds a big brother of **return()** - **Return()** - to make functions like fold
+* Arrow adds a big brother of **return( )** - **Return( )** - to make functions like fold
 much more efficient.
 
 * Function composition and partial application are encouraged as standard operations.

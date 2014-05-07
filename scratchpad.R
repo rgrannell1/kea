@@ -193,3 +193,12 @@ methods <-
 
 methods $ xSelect(fn := xIsMatch('Is', fn))
 methods $ xSelect(fn := xIsMatch('Not', fn))
+
+
+
+
+
+
+x_(ls('package:base')) $ xSelect(word := {
+	xIsMatch(".*[\\.].*[A-Z].*|.*[A-Z].*[\\.].*", word)
+})
