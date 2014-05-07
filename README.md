@@ -43,9 +43,6 @@ For library documentation and tutorials head to
 
 ## What Does Arrow Look Like?
 
-Arrow can be written using normal functions or with chaining methods. I prefer the latter. Chaining
-methods take an initial piece of data and apply successive transformation to it.
-This is a very natural way of expressing data munging or reshaping
 ```r
 "-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
 
@@ -107,7 +104,7 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
 ### Arrow is Expressive
 
-* Programs are built in a lego-like manner; stacking small,
+* Programs are built like lego; stacking small,
 uniquely-purposed functions into a larger program.
 
 * Arrow has a shorthand syntax for creating functions.
