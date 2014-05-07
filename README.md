@@ -26,19 +26,16 @@ the humble list. Sometimes they crash a program, sometimes they fail silently or
 are handled gracefully. In any case, every function requires you to memorise its precise
 behaviour. 
 
-Worse still, base functions stack badly. You will spend a lot of time chasing down
-empty values and NA's in the debugger.
+Worse still, base functions stack badly. Despite knowing exactly what you want to do,
+you will spend a lot of time chasing down empty values and NA's in the debugger.
 
+The remedy? Arrow is a composable functional programming framework. It includes
+all the functionals you know and love from Haskell (map, fold, select, flatmap)
+it has functions for reshaping and summarising your data structures.
 
-
-Arrow is an expressive composible foundation for programming in R. It implements all
-the common higher-order functions - Map, Fold, GroupBy and so on - as well as any reshaping
-operation you might want to perform on a collection. It has simple IO functions that let
-you read and write to files with minimal overhead, and the set and combinatoric functions
-you need for more advanced algorithms.
-
-It aims to be completely consistent and above all else user-friendly. Arrow functions
-rarely have more than two parametres, so functions will just work without configuration.
+Above all else it is designed to be pleasant to use. Functional
+programming, unix-style pipelines and shorthand functions reduce the keystrokes
+and mental effort needed to go from "I have an idea" to a working prototype.
 
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
