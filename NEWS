@@ -1,4 +1,24 @@
 
+Arrow 0.6.0
+------------------------------------------------------------------------------
+Date: 2014-7-4
+
+Added xNotSubset, renamed xNot and removex xAsClosure.
+
+Enhancements:
+
+* Added xNotSubset, to complement the function xIsSubset.
+* Renamed xNot to xNegate, to allow for a complement to be added to xIs.
+* Removed xAsClosure; the function had very minimal likely use-cases,
+and did not work for every primitive function.
+
+Package Internals:
+
+* Removed a lot of dead code (mostly error message code).
+* Added tests to xElemIs_ functions.
+* Made stringify_call more robust.
+* Commented xList code extensively.
+
 Arrow 0.5.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
