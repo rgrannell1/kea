@@ -46,19 +46,25 @@ For library documentation and tutorials head to
 First, a table of Arrow's (optional) new syntax.
 
 ```r
-\# function shorthands
-x := 2 * x + 1                               \# instead of function (x) 2 * x + 1
-x. $ Species                                 \# instead of function (x) x $ Species
+# function shorthands
+x := 2 * x + 1                               # instead of function (x) 2 * x + 1
+x. $ Species                                 # instead of function (x) x $ Species
 
-\# list comprehensions
-xList[x, x <- 1:10, x %% 2 == 0]             \# generates 2, 4, ..., 10
+# list comprehensions
+xList[x, x <- 1:10, x %% 2 == 0]             # generates 2, 4, ..., 10
 
-\# methods!
-x_(letters) $ xMap(toupper) $ x_FromChars()  \# generates the string ABCD...Z
+# function composition
+(unlist %then% mean)(list(1, 2, 3))          # instead of ( function (x) mean(unlist(x)) )(list(1, 2, 3))
+(is.integer %or% is.double %or% is.list)(1)  # instead of is.integer(1) || is.double(1) || is.list(1)
+
+# methods!
+x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
 ```
 
+With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
+
 ```r
-"-- Data From Hadley Wickham's https://github.com/hadley/data-stride"
+# Data From Hadley Wickham's https://github.com/hadley/data-stride
 
 asRow <- (...) := {
 	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
@@ -76,7 +82,7 @@ cocaineData <- x_(list(
 	asRow("PA", 74,  2,  1,  200)
 ))
 
-"-- 1. get and sort the state seisure frequencies"
+# 1. get and sort the state seisure frequencies
 
 cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
 
@@ -90,10 +96,10 @@ list(
     list("NY", 3))
 '
 
-"-- 2. group the seizures by state."
+# 2. group the seizures by state.
 stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 
-"-- 3. get the largest intrastate seizures by price"
+# 3. get the largest intrastate seizures by price
 largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
     xMaxBy(x. $ price, group)
 })
@@ -109,7 +115,7 @@ list(
 )
 '
 
-"-- 4. get the average potency of the largest seizure"
+# 4. get the average potency of the largest seizure
 
 largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
