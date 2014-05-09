@@ -35,11 +35,10 @@ Must <- local({
 					"the argument matching " %+% ddquote( .(COLL) ) %+%
 					" must be a list, a pairlist or a typed vector."
 
-				if ( identical('arrow', class( .(COLL) )) ) {
+				if (any(class( .(COLL) ) == 'arrow')) {
 					message <- message %+%
-						"The argument was of class " %+%
-						dQuote("arrow") %+%
-						". Did you use xMethod instead of x_Method?" %+%
+						"The argument was of class " %+% dQuote("arrow") %+%
+						". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
 						summate( .(COLL) )
 				} else {
 					message <- message %+% summate( .(COLL) )
@@ -69,12 +68,12 @@ Must <- local({
 						"the argument matching " %+% ddquote( .(COLLS) ) %+%
 						" must be a collection of lists, vectors or pairlists."
 
-					if (identical('arrow', class( .(COLLS) ))) {
+					if (any(class( .(COLLS) ) == 'arrow')) {
 						message <- message %+%
-							"The argument was of class " %+%
-							dQuote("arrow") %+%
-							". Did you use xMethod instead of x_Method?" %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
 							summate( .(COLLS) )
+
 					} else {
 						message <- message %+% summate( .(COLLS) )
 					}
@@ -131,8 +130,22 @@ Must <- local({
 					message <-
 						"the argument matching " %+% ddquote( .(COLL) ) %+%
 						" must be a collection of functions, or symbols or strings" %+%
-						" that can be looked up as functions." %+%
-						summate( .(COLL) )
+						" that can be looked up as functions."
+
+					contains_arrow <- any( vapply( .(COLL), function (elem) {
+						any(class( .(COLL) ) == "arrow")
+					}, logical(1)) )
+
+					if (contains_arrow) {
+
+						message <- message %+%
+							"The collection supplied contained arrow objects. " %+%
+							"Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate( .(COLL) )
+
+					} else {
+						message <- message %+% summate( .(COLL) )
+					}
 
 					throw_arrow_error(sys.call(), message)
 				}
@@ -242,8 +255,16 @@ Must <- local({
 
 					message <-
 						"the argument matching " %+% ddquote( .(VAL) ) %+%
-						" must be a function, or a string or symbol naming a function." %+%
-						summate( .(VAL) )
+						" must be a function, or a string or symbol naming a function."
+
+					if (any(class( .(VAL) ) == 'arrow')) {
+						message <- message %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate( .(VAL) )
+					} else {
+						message <- message %+% summate( .(VAL) )
+					}
 
 					throw_arrow_error(sys.call(), message)
 			})
@@ -335,8 +356,17 @@ Must <- local({
 
 					message <-
 						"the argument matching " %+% ddquote( .(SYM) ) %+%
-						" must be a symbol or a string." %+%
-						summate( .(SYM) )
+						" must be a symbol or a string."
+
+					# -- this might not work with lazy evaluation.
+					if (any(class( .(SYM) ) == 'arrow')) {
+						message <- message %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate( .(SYM) )
+					} else {
+						message <- message %+% summate( .(SYM) )
+					}
 
 					throw_arrow_error(sys.call(), message)
 				}
@@ -467,6 +497,7 @@ Must <- local({
 
 				# is misinterpreded by R; fn is not used as an ellipsis arg, but an arg to xFix.
 				# libs like plyr use .fn to try get around this; Arrow uses this odd middleware macro.
+				# It'll throw an error for argument lists that are ambigious.
 
 				if (!all( names(sys.call()) == names(match.call()) | names(sys.call()) == '')) {
 
@@ -571,6 +602,8 @@ MakeVariadic <- function (fn, fixed) {
 
 	body(out) <- MakeFun( bquote({
 
+		# -- check that the argument list supplied can be
+		# --  correctly resolved.
 		MACRO( Must $ Have_Canonical_Arguments() )
 
 		.(
