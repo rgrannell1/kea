@@ -91,7 +91,7 @@ print.xlist_builder <- function (x, ...) {
 #' @method [ xlist_builder
 #' @export
 
-'[.xlist_builder' <- function (x, ...) {
+`[.xlist_builder` <- function (x, ...) {
 
 	exprs <- eval( substitute(alist(...)) )
 	parent_frame <- parent.frame()
