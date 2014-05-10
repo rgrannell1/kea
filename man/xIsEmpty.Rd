@@ -21,7 +21,7 @@ Is a collection length-zero?
 }
 \section{Type Signature}{
 
-    |any| -> <logical>
+    |any| -> &lt;logical>
 }
 \examples{
 

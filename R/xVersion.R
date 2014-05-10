@@ -4,7 +4,7 @@
 #' Get the current version number of Arrow.
 #'
 #' @section Type Signature:
-#'     ...any -> <integer>
+#'     ...any -> &lt;integer>
 #'
 #' @details
 #'     Arrow versioning follows the semantic version

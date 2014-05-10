@@ -4,7 +4,7 @@
 #' Is an value true?
 #'
 #' @section Type Signature:
-#'     any -> <logical>
+#'     any -> &lt;logical>
 #'
 #' @details
 #'     \bold{xIsTrue} is primarily meant for use with conditional

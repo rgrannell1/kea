@@ -22,7 +22,7 @@ Test every element in a collection for being \code{Na} of any type.
 }
 \section{Type Signature}{
 
-    |any| -> <logical>
+    |any| -> &lt;logical>
 }
 
 \section{Corner Cases}{

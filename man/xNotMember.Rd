@@ -24,7 +24,7 @@ Check if a collection doesn't contain a value.
 }
 \section{Type Signature}{
 
-    any -> |any| -> <logical>
+    any -> |any| -> &lt;logical>
 }
 
 \section{Corner Cases}{

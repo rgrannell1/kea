@@ -24,7 +24,7 @@ Is a predicate true for none elements of a collection?
 }
 \section{Type Signature}{
 
-    (any -> logical) -> |any| -> <boolean>
+    (any -> logical) -> |any| -> &lt;boolean>
 }
 
 \section{Corner Cases}{

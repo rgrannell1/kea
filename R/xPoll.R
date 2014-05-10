@@ -5,7 +5,7 @@
 #' true when mapped over a collection.
 #'
 #' @section Type Signature:
-#'     (any -> <logical>) -> |any| -> <integer>
+#'     (any -> &lt;logical>) -> |any| -> &lt;integer>
 #'
 #' @param
 #'    pred a unary predicate function. The function with

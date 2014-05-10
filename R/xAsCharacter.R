@@ -1,13 +1,13 @@
 
 #' xAsCharacter
 #'
-#' Convert a collection to a character vector.
+#' Convert a collection of characters to a character vector.
 #'
 #' @section Type Signature:
-#'     |character| -> <character>
+#'     |character| -> &lt;character>
 #'
 #' @details
-#'    \code{xAsCharacter} converts a list, pairlist or vector of
+#'    \bold{xAsCharacter} converts a list, pairlist or vector of
 #'    length-one strings to a character vector. It does not attempt
 #'    to convert non-character collections to character vectors - it
 #'    simply converts character lists to character typed vectors.

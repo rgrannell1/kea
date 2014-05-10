@@ -28,7 +28,7 @@ based on a predicate function.
 }
 \section{Type Signature}{
 
-    (any -> <logical>) -> |any| -> [[any]]
+    (any -> &lt;logical>) -> |any| -> [[any]]
 }
 
 \section{Corner Cases}{

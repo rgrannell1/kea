@@ -25,7 +25,7 @@ is false or na until the end of the collection.
 }
 \section{Type Signature}{
 
-    (any -> <logical>) -> |any| -> [any]
+    (any -> &lt;logical>) -> |any| -> [any]
 }
 
 \section{Corner Cases}{

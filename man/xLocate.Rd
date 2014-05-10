@@ -24,7 +24,7 @@ Get the indices of the elements that return true for a predicate.
 }
 \section{Type Signature}{
 
-    (any -> <logical>) -> |any| -> <integer>
+    (any -> &lt;logical>) -> |any| -> &lt;integer>
 }
 
 \section{Corner Cases}{

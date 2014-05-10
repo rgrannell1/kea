@@ -22,7 +22,7 @@ Return the indices for which a boolean vector is true.
 }
 \section{Type Signature}{
 
-    |logical| -> <integer>
+    |logical| -> &lt;integer>
 }
 
 \section{Corner Cases}{

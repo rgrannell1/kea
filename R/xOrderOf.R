@@ -4,7 +4,7 @@
 #' Return a permutation of indices that reorders a collection of numbers.
 #'
 #' @section Type Signature:
-#'     |numeric| -> <integer>
+#'     |numeric| -> &lt;integer>
 #'
 #' @details
 #'    \bold{xOrderOf} returns the indices for a collection that are required to

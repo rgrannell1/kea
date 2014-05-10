@@ -22,7 +22,7 @@ Concatentate a character vector with spaces as delimiters.
 }
 \section{Type Signature}{
 
-    |character| -> <character>
+    |character| -> &lt;character>
 }
 \examples{
 

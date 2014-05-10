@@ -22,7 +22,7 @@ Is an element of a collection true?
 }
 \section{Type Signature}{
 
-    |any| -> <logical>
+    |any| -> &lt;logical>
 }
 \examples{
 

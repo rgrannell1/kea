@@ -2,7 +2,7 @@
 #' xIrrelevance
 #'
 #' @section Type Signature:
-#'     ..any -> <logical>
+#'     ..any -> &lt;logical>
 #'
 #' A function that always returns na.
 #'

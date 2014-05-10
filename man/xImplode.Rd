@@ -25,7 +25,7 @@ Concatenate a character vector into a single string using a delimiter.
 }
 \section{Type Signature}{
 
-    |character| -> |character| -> <character>
+    |character| -> |character| -> &lt;character>
 }
 \examples{
 

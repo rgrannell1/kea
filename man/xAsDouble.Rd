@@ -18,16 +18,16 @@ xAsDouble_(...)
 A double vector.
 }
 \description{
-Convert a collection to a double vector.
+Convert a collection of doubles or integers to a double vector.
 }
 \details{
-\code{xAsDouble} converts a list, pairlist or vector of
+\bold{xAsDouble} converts a list, pairlist or vector of
    length-one double precision numbers to a double vector. It does not attempt
    to convert non-double collections to double vectors.
 }
 \section{Type Signature}{
 
-    |number| -> <numeric>
+    |number| -> &lt;numeric>
 }
 
 \section{Corner Cases}{

@@ -35,7 +35,7 @@ Return a permutation of indices that reorders a collection of numbers.
 }
 \section{Type Signature}{
 
-    |numeric| -> <integer>
+    |numeric| -> &lt;integer>
 }
 
 \section{Corner Cases}{

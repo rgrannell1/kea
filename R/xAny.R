@@ -3,7 +3,7 @@
 #' Is a predicate true for any element of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> <logical>) -> |any| -> <logical>
+#'     (any -> &lt;logical>) -> |any| -> &lt;logical>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of

@@ -33,7 +33,7 @@ Permute a collection of collections using indices.
 }
 \section{Type Signature}{
 
-    <number> -> ||any|| -> ||any||
+    &lt;number> -> ||any|| -> ||any||
 }
 
 \section{Corner Cases}{

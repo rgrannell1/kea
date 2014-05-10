@@ -25,7 +25,7 @@ until a predicate returns false.
 }
 \section{Type Signature}{
 
-   (any -> <logical>) -> |any| -> |any|
+   (any -> &lt;logical>) -> |any| -> |any|
 }
 
 \section{Corner Cases}{

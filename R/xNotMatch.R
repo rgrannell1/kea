@@ -4,7 +4,7 @@
 #' Test if a string doesn't match a regular expression.
 #'
 #' @section Type Signature:
-#'     |character| -> |character| -> <logical>
+#'     |character| -> |character| -> &lt;logical>
 #'
 #' @param
 #'    rexp a string. The regular expression to test against a string.

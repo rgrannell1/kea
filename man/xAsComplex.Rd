@@ -15,23 +15,18 @@ xAsComplex_(...)
 \item{...}{see above.}
 }
 \value{
-An integer vector.
+An complex vector.
 }
 \description{
-Convert a collection to a complex vector.
+Convert a collection of complex values to a complex vector.
 }
 \details{
-\code{xAsComplex} converts a list, pairlist or vector of
+\bold{xAsComplex} converts a list, pairlist or vector of
    length-one complex values to a complex vector.
 }
 \section{Type Signature}{
 
-    |complex| -> <complex>
-}
-
-\section{Corner Cases}{
-
-   Corner
+    |complex| -> &lt;complex>
 }
 \examples{
 

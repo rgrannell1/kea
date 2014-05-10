@@ -4,7 +4,7 @@
 #' Test every element in a collection for being \code{Na} of any type.
 #'
 #' @section Type Signature:
-#'     |any| -> <logical>
+#'     |any| -> &lt;logical>
 #'
 #' @param
 #'    coll a collection. The collection to test each element

@@ -5,7 +5,7 @@
 #'
 #'
 #' @section Type Signature:
-#'     |character| -> <character>
+#'     |character| -> &lt;character>
 #'
 #' @param
 #'    strs a collection of strings. The

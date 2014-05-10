@@ -57,7 +57,7 @@ is true for a predicate.
 }
 \section{Type Signature}{
 
-    (..any -> <logical>) -> ||any|| -> <logical>
+    (..any -> &lt;logical>) -> ||any|| -> &lt;logical>
 }
 
 \section{Corner Cases}{

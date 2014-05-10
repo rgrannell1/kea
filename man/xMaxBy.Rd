@@ -25,7 +25,7 @@ Get the largest value in a collection according to a measure function.
 }
 \section{Type Signature}{
 
-    (any -> <number>) -> |any| -> [any]
+    (any -> &lt;number>) -> |any| -> [any]
 }
 
 \section{Corner Cases}{

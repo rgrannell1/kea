@@ -19,7 +19,7 @@ Is an value null?
 }
 \section{Type Signature}{
 
-    any -> <logical>
+    any -> &lt;logical>
 }
 
 \section{Corner Cases}{

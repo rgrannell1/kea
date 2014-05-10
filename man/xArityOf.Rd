@@ -22,7 +22,7 @@ Return the number of arguments a function can accept.
 }
 \section{Type Signature}{
 
-    function -> <numeric>
+    function -> &lt;numeric>
 }
 
 \section{Corner Cases}{

@@ -5,7 +5,7 @@
 #'
 #'
 #' @section Type Signature:
-#'     any -> <logical>
+#'     any -> &lt;logical>
 #'
 #' @param
 #'    coll a collection. The value to test for

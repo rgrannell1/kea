@@ -4,7 +4,7 @@
 #' Return the indices for which a boolean vector is true.
 #'
 #' @section Type Signature:
-#'     |logical| -> <integer>
+#'     |logical| -> &lt;integer>
 #'
 #' @param
 #'    bools a collection of boolean values. The collection to

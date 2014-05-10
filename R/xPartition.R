@@ -5,7 +5,7 @@
 #' based on a predicate function.
 #'
 #' @section Type Signature:
-#'     (any -> <logical>) -> |any| -> [[any]]
+#'     (any -> &lt;logical>) -> |any| -> [[any]]
 #'
 #' @param
 #'    pred a predicate. The predicate function with which to partition

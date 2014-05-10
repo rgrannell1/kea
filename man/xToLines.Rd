@@ -21,7 +21,7 @@ The input string is split at newline characters.
 }
 \section{Type Signature}{
 
-    <character> -> <character>
+    <character> -> &lt;character>
 }
 \examples{
 

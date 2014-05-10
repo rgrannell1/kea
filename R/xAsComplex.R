@@ -1,13 +1,13 @@
 
 #' xAsComplex
 #'
-#' Convert a collection to a complex vector.
+#' Convert a collection of complex values to a complex vector.
 #'
 #' @section Type Signature:
-#'     |complex| -> <complex>
+#'     |complex| -> &lt;complex>
 #'
 #' @details
-#'    \code{xAsComplex} converts a list, pairlist or vector of
+#'    \bold{xAsComplex} converts a list, pairlist or vector of
 #'    length-one complex values to a complex vector.
 #'
 #' @param
@@ -18,10 +18,7 @@
 #'    ... see above.
 #'
 #' @return
-#'    An integer vector.
-#'
-#' @section Corner Cases:
-#'    Corner
+#'    An complex vector.
 #'
 #' @template
 #'    Variadic

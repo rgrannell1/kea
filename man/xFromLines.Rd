@@ -22,7 +22,7 @@ Concatentate a character vector with newlines as delimiters.
 }
 \section{Type Signature}{
 
-    |character| -> <character>
+    |character| -> &lt;character>
 }
 \examples{
 

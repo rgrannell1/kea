@@ -4,7 +4,7 @@
 #' Is an value na?
 #'
 #' @section Type Signature:
-#'     any -> <logical>
+#'     any -> &lt;logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for being na.

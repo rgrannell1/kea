@@ -4,7 +4,7 @@
 #' Does a function have ellipsis arguments?
 #'
 #' @section Type Signature:
-#'     any -> <logical>
+#'     any -> &lt;logical>
 #'
 #' @param
 #'    fn an function. The function to test for

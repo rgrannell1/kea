@@ -5,7 +5,7 @@
 #' is true for a predicate.
 #'
 #' @section Type Signature:
-#'     (..any -> <logical>) -> ||any|| -> <logical>
+#'     (..any -> &lt;logical>) -> ||any|| -> &lt;logical>
 #'
 #' @details
 #'     \bold{xForall} can be used to test if every element of a

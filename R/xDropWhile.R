@@ -5,7 +5,7 @@
 #' is false or na until the end of the collection.
 #'
 #' @section Type Signature:
-#'     (any -> <logical>) -> |any| -> [any]
+#'     (any -> &lt;logical>) -> |any| -> [any]
 #'
 #' @param
 #'    pred a predicate. The functionto test each element of

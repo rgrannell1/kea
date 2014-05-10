@@ -4,7 +4,7 @@
 #' A function that always returns false.
 #'
 #' @section Type Signature:
-#'    ..any -> <logical>
+#'    ..any -> &lt;logical>
 #'
 #' @param
 #'    ... arguments to be dropped.

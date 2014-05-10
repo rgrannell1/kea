@@ -4,7 +4,7 @@
 #' Check if a collection contains a value.
 #'
 #' @section Type Signature:
-#'     any -> |any| -> <logical>
+#'     any -> |any| -> &lt;logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for membership
@@ -21,7 +21,7 @@
 #'    A boolean value.
 #'
 #' @section Corner Cases:
-#'    Various types of \code{Na} are not-distinguished between.
+#'    Various types of \bold{Na} are not-distinguished between.
 #'    Type conversion is not carried out.
 #'
 #' @family set_functions

@@ -18,16 +18,16 @@ xAsRaw_(...)
 A raw vector.
 }
 \description{
-Convert a collection to a raw vector.
+Convert a collection of raw values to a raw vector.
 }
 \details{
-\code{xAsRaw} converts a list, pairlist or vector of
+\bold{xAsRaw} converts a list, pairlist or vector of
    length-one raw numbers to a raw vector. It does not attempt
    to convert non-raw collections to raw vectors.
 }
 \section{Type Signature}{
 
-    |raw| -> <raw>
+    |raw| -> &lt;raw>
 }
 \examples{
 

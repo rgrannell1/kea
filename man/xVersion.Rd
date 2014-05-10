@@ -30,7 +30,7 @@ Arrow versioning follows the semantic version
 }
 \section{Type Signature}{
 
-    ...any -> <integer>
+    ...any -> &lt;integer>
 }
 \examples{
 

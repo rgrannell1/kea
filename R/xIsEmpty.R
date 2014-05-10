@@ -4,7 +4,7 @@
 #' Is a collection length-zero?
 #'
 #' @section Type Signature:
-#'     |any| -> <logical>
+#'     |any| -> &lt;logical>
 #'
 #' @param
 #'    coll a collection. The collection to test for being length zero.

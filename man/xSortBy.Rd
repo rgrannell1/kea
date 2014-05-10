@@ -37,7 +37,7 @@ Sort a collection by the output of a function applied to each element.
 }
 \section{Type Signature}{
 
-   (any -> <number>) -> |any| -> |any|
+   (any -> &lt;number>) -> |any| -> |any|
 }
 
 \section{Corner Cases}{

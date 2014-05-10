@@ -4,7 +4,7 @@
 #' Include all elements from a collection matching a predicate.
 #'
 #' @section Type Signature:
-#'     (any -> <logical>) -> |any| -> [any]
+#'     (any -> &lt;logical>) -> |any| -> [any]
 #'
 #' @details
 #'    \bold{xSelect} applies a predicate function

@@ -18,16 +18,16 @@ xAsInteger_(...)
 An integer vector.
 }
 \description{
-Convert a collection to a integer vector.
+Convert a collection of integers to a integer vector.
 }
 \details{
-\code{xAsInteger} converts a list, pairlist or vector of
+\bold{xAsInteger} converts a list, pairlist or vector of
    length-one integers to a integer vector. It does not attempt
    to convert non-integer collections to integer vectors.
 }
 \section{Type Signature}{
 
-    |integer| -> <integer>
+    |integer| -> &lt;integer>
 }
 
 \section{Corner Cases}{

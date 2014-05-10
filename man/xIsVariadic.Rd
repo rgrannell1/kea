@@ -17,7 +17,7 @@ Does a function have ellipsis arguments?
 }
 \section{Type Signature}{
 
-    any -> <logical>
+    any -> &lt;logical>
 }
 \examples{
 

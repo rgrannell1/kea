@@ -17,7 +17,7 @@ Import each word in a file to an element in a character vector.
 }
 \section{Type Signature}{
 
-    |character| -> <character>
+    |character| -> &lt;character>
 }
 
 \section{Corner Cases}{
