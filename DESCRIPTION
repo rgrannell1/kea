@@ -36,6 +36,7 @@ Collate:
     'xExecute---.R'
     'tools_wail.R'
     'tools_forall.R'
+    'tools_forall_next.R'
     'xLambda.R'
     'xApply.R'
     'xAsLogical.R'

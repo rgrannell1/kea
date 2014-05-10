@@ -10,7 +10,9 @@
 # fails(expr, [str]):            add a single function to test for expected failure.
 # failsWhen(expr, expr, [str]):  add a single function to test for expected failure, over a limited domain.
 
-# filter(expr):                  select a subset of the stream.
+# select(expr):                  select a subset of the stream.
+
+# chain with '|': it('this is a test') | over(x, y)
 
 # -- the description
 

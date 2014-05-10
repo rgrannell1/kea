@@ -136,18 +136,19 @@ uniquely-purposed functions into a larger program.
 
 * Arrow adds list-comprehensions; an expressive syntax for creating lists.
 
+* Arrow is general enough to let you use the same functions for your
+data reshaping and general purpose programming code.
+
 ### Arrow is Consistent
 
 * Functions don't discriminate between different types of vectors; lists, pairlists
 and typed vectors are all interchangable.
 
-* Extensive effort was made to make sure that Arrow never throws
-a cryptic error - arguments are always explicitly checked, and the precise
-cause of the error is always given. Error messages are also coloured for readability.
+* Arrow is very easy to debug, thanks to input validation and automatically summarising bad input.
 
-* Arrow is interoperable with base R functions.
+* Arrow is completely interoperable with base R functions.
 
-* Arrow follows careful thought-out naming conventions.
+* Arrow follows careful thought-out naming conventions, to make it a joy to write.
 
 ### Arrow is Functional
 

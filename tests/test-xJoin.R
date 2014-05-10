@@ -17,3 +17,9 @@ message("xJoin")
 		test_cases$collection_and_collection_zero,
 		xJoin(list(coll2, coll1)) %equals% xJoin(list(coll1, coll2))
 	)
+
+	forall(
+		"xJoin is always a list",
+		test_cases$collection,
+		is.list( xJoin(list(coll)) ) && is.list( xJoin(list(coll, coll)) )
+	)
