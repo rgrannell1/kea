@@ -126,7 +126,7 @@ message('check that the start of each arrow function is the functions file name'
 		x_(lines) $ xMap(line := {
 			grepl(xFromChars_("#'[ 	]+", function_name), line)
 		}) $
-		xAny(xI) $ x_Join_(function_name)
+		xAnyOf(xI) $ x_Join_(function_name)
 
 	}) ) $
 	xReject(xFirstOf) $ xMap(xSecondOf)

@@ -52,11 +52,11 @@ lenof(c(1,2,3,4))
 # 4
 }
 \seealso{
-Other quantifier_functions: \code{\link{xAll}},
-  \code{\link{xAll_}}; \code{\link{xAny}},
-  \code{\link{xAny_}}; \code{\link{xExists}},
+Other quantifier_functions: \code{\link{xAllOf}},
+  \code{\link{xAllOf_}}; \code{\link{xAnyOf}},
+  \code{\link{xAnyOf_}}; \code{\link{xExists}},
   \code{\link{xExists_}}; \code{\link{xForall}},
-  \code{\link{xForall_}}; \code{\link{xNone}},
-  \code{\link{xNone_}}
+  \code{\link{xForall_}}; \code{\link{xNoneOf}},
+  \code{\link{xNoneOf_}}
 }
 

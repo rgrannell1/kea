@@ -324,11 +324,11 @@ sd_section(
 		"</p>"
 	),
 	c(
-		"xAny",
-		"xAll",
+		"xAnyOf",
+		"xAllOf",
 		"xForall",
 		"xExists",
-		"xNone",
+		"xNoneOf",
 		"xPoll"
 	)
 )

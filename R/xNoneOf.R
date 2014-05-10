@@ -1,5 +1,5 @@
 
-#' xNone
+#' xNoneOf
 #'
 #' Is a predicate true for none elements of a collection?
 #'
@@ -28,12 +28,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xNone.R
+#'    inst/examples/example-xNoneOf.R
 #'
-#' @rdname xNone
+#' @rdname xNoneOf
 #' @export
 
-xNone <- MakeFun(function (pred, coll) {
+xNoneOf <- MakeFun(function (pred, coll) {
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
@@ -50,7 +50,7 @@ xNone <- MakeFun(function (pred, coll) {
 	}
 })
 
-#' @rdname xNone
+#' @rdname xNoneOf
 #' @export
 
-xNone_ <- MakeVariadic(xNone, 'coll')
+xNoneOf_ <- MakeVariadic(xNoneOf, 'coll')

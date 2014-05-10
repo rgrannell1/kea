@@ -25,7 +25,7 @@ Return an argument without modification.
 
 # 1. Identity can be useful with higher-order functions.
 
-xAll(xI, c(True, True, False))
+xAllOf(xI, c(True, True, False))
 
 # False
 

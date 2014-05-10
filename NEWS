@@ -49,14 +49,14 @@ Arrow 0.4.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
-This version adds xNone and a logo, and fixes an important bug in error-reporting
+This version adds xNoneOf and a logo, and fixes an important bug in error-reporting
 functions (no irony whatsoever).
 
 Enhancements:
 
-* Added xNone; the antonym of xAll. It completes the set of functions
-xAll (does every element match a predicate?), xAny (does any element match a predicate?)
-and now xNone (does no value match a predicate?).
+* Added xNoneOf; the antonym of xAllOf. It completes the set of functions
+xAllOf (does every element match a predicate?), xAnyOf (does any element match a predicate?)
+and now xNoneOf (does no value match a predicate?).
 
 Bug-Fixes:
 
@@ -75,7 +75,7 @@ Package Internals:
 * Fixed broken link tags in header of staticdocs head file.
 * Added contact page (though jQuery) to staticdocs site.
 * dQuote now lazily captures its argument.
-* added tests for xNone.
+* added tests for xNoneOf.
 
 Arrow 0.3.0
 ------------------------------------------------------------------------------

@@ -1,10 +1,9 @@
-
-#' xAll
+#' xAnyOf
 #'
-#' Is a predicate true for all elements of a collection?
+#' Is a predicate true for any element of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> logical) -> |any| -> &lt;boolean>
+#'     (any -> &lt;logical>) -> |any| -> &lt;logical>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of
@@ -28,12 +27,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xAll.R
+#'    inst/examples/example-xAnyOf.R
 #'
-#' @rdname xAll
+#' @rdname xAnyOf
 #' @export
 
-xAll <- MakeFun(function (pred, coll) {
+xAnyOf <- MakeFun(function (pred, coll) {
 
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
@@ -46,13 +45,18 @@ xAll <- MakeFun(function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		all(vapply(coll, function (elem) {
-			isTRUE(pred(elem))
-		}, logical(1), USE.NAMES = False))
+
+		for (elem in coll) {
+			if ( isTRUE(pred(elem)) ) {
+				return(True)
+			}
+		}
+
+		False
 	}
 })
 
-#' @rdname xAll
+#' @rdname xAnyOf
 #' @export
 
-xAll_ <- MakeVariadic(xAll, 'coll')
+xAnyOf_ <- MakeVariadic(xAnyOf, 'coll')

@@ -854,16 +854,16 @@ x_coll_proto <- local({
 	this <- Object()
 
 	# -------- A ------- #
-	# --- xAny --- #
-	add_x_method(this, xAny, 'coll')
+	# --- xAnyOf --- #
+	add_x_method(this, xAnyOf, 'coll')
 	add_x_method(this, x_Any, 'coll')
-	add_x_method(this, xAny_, '...')
+	add_x_method(this, xAnyOf_, '...')
 	add_x_method(this, x_Any_, '...')
 
-	# --- xAll --- #
-	add_x_method(this, xAll, 'coll')
+	# --- xAllOf --- #
+	add_x_method(this, xAllOf, 'coll')
 	add_x_method(this, x_All, 'coll')
-	add_x_method(this, xAll_, '...')
+	add_x_method(this, xAllOf_, '...')
 	add_x_method(this, x_All_, '...')
 
 	# --- xAt --- #
@@ -1192,10 +1192,10 @@ x_coll_proto <- local({
 	add_x_method(this, x_Mapply_, '...')
 
 	# -------- N ------- #
-	# --- xNone --- #
-	add_x_method(this, xNone, 'coll')
+	# --- xNoneOf --- #
+	add_x_method(this, xNoneOf, 'coll')
 	add_x_method(this, x_None, 'coll')
-	add_x_method(this, xNone_, '...')
+	add_x_method(this, xNoneOf_, '...')
 	add_x_method(this, x_None_, '...')
 
 	# --- xAddKeys --- #
@@ -1629,16 +1629,16 @@ x_fn_proto <- local({
 	this <- Object()
 
 	# -------- A ------- #
-	# --- xAny --- #
-	add_x_method(this, xAny, 'pred')
+	# --- xAnyOf --- #
+	add_x_method(this, xAnyOf, 'pred')
 	add_x_method(this, x_Any, 'pred')
-	add_x_method(this, xAny_, 'pred')
+	add_x_method(this, xAnyOf_, 'pred')
 	add_x_method(this, x_Any_, 'pred')
 
-	# --- xAll --- #
-	add_x_method(this, xAll, 'pred')
+	# --- xAllOf --- #
+	add_x_method(this, xAllOf, 'pred')
 	add_x_method(this, x_All, 'pred')
-	add_x_method(this, xAll_, 'pred')
+	add_x_method(this, xAllOf_, 'pred')
 	add_x_method(this, x_All_, 'pred')
 
 	# --- xUnspread --- #
@@ -1785,9 +1785,9 @@ x_fn_proto <- local({
 	add_x_method(this, x_Mapply_, 'fn')
 
 	# -------- N ------- #
-	add_x_method(this, xNone, 'pred')
+	add_x_method(this, xNoneOf, 'pred')
 	add_x_method(this, x_None, 'pred')
-	add_x_method(this, xNone_, 'pred')
+	add_x_method(this, xNoneOf_, 'pred')
 	add_x_method(this, x_None_, 'pred')
 
 	add_x_method(this, xNegate, 'pred')

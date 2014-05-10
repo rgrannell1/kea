@@ -4,18 +4,18 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-message("xAny")
+message("xAllOf")
 
 	forall(
 		"the empty collection always yields the empty list.",
 		test_cases$logical_functions_with_collection_zero,
-		xAny(fn, coll) %equals% logical(0)
+		xAllOf(fn, coll) %equals% logical(0)
 	)
 
 	forall(
 		"a truth function is list identity for collection.",
 		test_cases$truth_with_coll,
-		xAny(fn, coll) == True,
+		xAllOf(fn, coll) == True,
 		given =
 			length(coll) > 0
 	)
@@ -23,7 +23,7 @@ message("xAny")
 	forall(
 		"a falsity function is list unit for collection.",
 		test_cases$falsity_with_coll,
-		xAny(fn, coll) == False,
+		xAllOf(fn, coll) == False,
 		given =
 			length(coll) > 0
 	)
@@ -31,7 +31,7 @@ message("xAny")
 	forall(
 		"a na function is list unit for collection.",
 		test_cases$moot_with_coll,
-		xAny(fn, coll) == False,
+		xAllOf(fn, coll) == False,
 		given =
 			length(coll) > 0
 	)
