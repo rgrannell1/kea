@@ -33,7 +33,8 @@ unit_to_value <- function (coll) {
 			0 + 0i
 		} else {
 			write_error(
-				"internal arrow error: cannot convert to non-implemented vector type.",
+				"internal arrow error: cannot convert to non-implemented vector type." %+%
+				"please report this at the arrow github repo!",
 				call. = False)
 		}
 
