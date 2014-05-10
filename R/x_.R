@@ -193,7 +193,7 @@ add_x_method <- function (env, fn, fixed) {
 # these prototypes contain methods that can be called by an x_() object, using an
 # overloaded definition of the $ function.
 
-x_AnyOf_proto <- local({
+x_any_proto <- local({
 
 	this <- Object()
 
@@ -572,13 +572,13 @@ x_matrix_proto <- local({
 	local({
 
 		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_AnyOf_proto)
+		inherited <- ls(envir = x_any_proto)
 
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
 			as.list(this),
-			as.list(x_AnyOf_proto)[non_overwritten]) )
+			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "matrices")
@@ -755,13 +755,13 @@ x_data_frame_proto <- local({
 	local({
 
 		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_AnyOf_proto)
+		inherited <- ls(envir = x_any_proto)
 
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
 			as.list(this),
-			as.list(x_AnyOf_proto)[non_overwritten]) )
+			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "data.frames")
@@ -827,13 +827,13 @@ x_factor_proto <- local({
 	local({
 
 		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_AnyOf_proto)
+		inherited <- ls(envir = x_any_proto)
 
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
 			as.list(this),
-			as.list(x_AnyOf_proto)[non_overwritten]) )
+			as.list(x_any_proto)[non_overwritten]) )
 		this$private <- list(
 			contents_are = "factors")
 
@@ -1568,13 +1568,13 @@ x_coll_proto <- local({
 	local({
 
 		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_AnyOf_proto)
+		inherited <- ls(envir = x_any_proto)
 
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
 			as.list(this),
-			as.list(x_AnyOf_proto)[non_overwritten]) )
+			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "collections")
@@ -1888,13 +1888,13 @@ x_fn_proto <- local({
 	local({
 
 		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_AnyOf_proto)
+		inherited <- ls(envir = x_any_proto)
 
 		non_overwritten <- setdiff(inherited, non_inherited)
 
 		this <- as.environment(c(
 			as.list(this),
-			as.list(x_AnyOf_proto)[non_overwritten]) )
+			as.list(x_any_proto)[non_overwritten]) )
 
 		this$private <- list(
 			contents_are = "functions")
@@ -1972,7 +1972,7 @@ get_proto_ref <- local({
 	x_factor_members <-
 		ls(x_factor_proto)
 	x_AnyOf_members <-
-		ls(x_AnyOf_proto)
+		ls(x_any_proto)
 
 	function (val) {
 		# get the reference to the appropriate methods.
@@ -1989,7 +1989,7 @@ get_proto_ref <- local({
 		} else  if (is.factor( val )) {
 			list(x_factor_proto, x_factor_members)
 		} else {
-			list(x_AnyOf_proto, x_AnyOf_members)
+			list(x_any_proto, x_AnyOf_members)
 		}
 	}
 

@@ -1,9 +1,44 @@
 
+Arrow 0.7.0
+------------------------------------------------------------------------------
+Date: 2014-5-10
+
+
+
+Enhancements:
+
+* Renamed xAll, xAny, xNone, to xAllOf, xAnyOf, xNoneOf. This complies better
+with Arrow's naming conventions.
+
+* Functions that require collections, functions, or collections of functions
+will now inform the user if they were (accidentally) given an arrow object.
+
+Bug-Fixes:
+
+
+Documentation:
+
+* Added more accurate desciption to the xAs* family of container converters.
+
+* Escaped most special characters in type signatures; html documentation will now
+render correctly.
+
+* Minor updates to the readme.
+
+Package Internals:
+
+* Deprecated and removed assert, moving over to the more flexible
+functions throw_arrow_error and throw_arrow_warning.
+
+* Added extensive tests for xUnzipIndices.
+
+* Added test to ensure xJoin always returns a list.
+
 Arrow 0.6.0
 ------------------------------------------------------------------------------
-Date: 2014-7-4
+Date: 2014-5-7
 
-Added xNotSubset, renamed xNot and removex xAsClosure.
+Added xNotSubset, renamed xNot and removed xAsClosure.
 
 Enhancements:
 
@@ -49,14 +84,14 @@ Arrow 0.4.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
-This version adds xNoneOf and a logo, and fixes an important bug in error-reporting
+This version adds xNone and a logo, and fixes an important bug in error-reporting
 functions (no irony whatsoever).
 
 Enhancements:
 
-* Added xNoneOf; the antonym of xAllOf. It completes the set of functions
+* Added xNone; the antonym of xAllOf. It completes the set of functions
 xAllOf (does every element match a predicate?), xAnyOf (does any element match a predicate?)
-and now xNoneOf (does no value match a predicate?).
+and now xNone (does no value match a predicate?).
 
 Bug-Fixes:
 
@@ -75,7 +110,7 @@ Package Internals:
 * Fixed broken link tags in header of staticdocs head file.
 * Added contact page (though jQuery) to staticdocs site.
 * dQuote now lazily captures its argument.
-* added tests for xNoneOf.
+* added tests for xNone.
 
 Arrow 0.3.0
 ------------------------------------------------------------------------------

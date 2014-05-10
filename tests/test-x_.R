@@ -18,7 +18,7 @@ message('test that every method has an unchaining version.')
 
 	x_proto_methods <- list(
 		xAnyOf =
-			ls(arrow ::: x_AnyOf_proto),
+			ls(arrow ::: x_any_proto),
 		fn =
 			ls(arrow ::: x_fn_proto),
 		coll =
