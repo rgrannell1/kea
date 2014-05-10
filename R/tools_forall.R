@@ -1,6 +1,8 @@
 
 # -------------------------------- forall -------------------------------- #
 #
+# WILL PROBABLY BE SUCCEEDED by a more advanced tool in future version.
+#
 # To Developers,
 #
 # The forall() set of tools allows Quickcheck-style unit testing to
@@ -815,63 +817,23 @@ test_cases <- local({
 forall <- local({
 
 	# -- error messages only used by forall.
-	lament <- list(
-		null_cases =
-			function (info, profile = '') {
-
-				param <- paste(match.call()$param)
-
-				write_error(info, "\n",
-					dQuote("cases"), " must not be null.",
-					call. = False)
-			},
-		non_function_cases =
-			function (info, profile = '') {
-
-				param <- paste(match.call()$param)
-
-				write_error(info, "\n",
-					dQuote("cases"), " must be a list of functions.",
-					call. = False)
-			},
-		non_boolean_expectation =
-			function (info, case, profile = '') {
-
-				write_error(info, "\n",
-					"expectation returned a non-boolean ",
-					"value when called with \n\n",
-					ddparse(case), call. = False)
-			},
-		non_singular_expectation =
-			function (info, len, profile = '') {
-
-				write_error(info, "\n",
-					"expectation returned a non-length-one ",
-					"value (actual length was ", len , ")", call. = False)
-			},
-		failed_cases =
-			function (info, after, failed, profile = '') {
-
-				cases <- sapply(lapply(failed, unname), ddparse)
-				cases <- newline(cases[ seq_along( min(10, length(cases)) ) ])
-
-				write_error(info, "\n",
-					"failed after the ", ith_suffix(after),
-					" case!\n\n", cases, "\n",
-					call. = False)
-			}
-	)
 
 	function (info = "", cases, expect, given, max_time = 0.15) {
 
 		invoking_call <- sys.call()
 
 		if (is.null(cases)) {
-			throw_arrow_error(lament$null_cases(info), invoking_call)
+
+			message <- info %+% "\ncases must not be null."
+
+			throw_arrow_error(message, invoking_call)
 		}
 
 		if (!all( vapply(cases, is.function, logical(1)) )) {
-			throw_arrow_error(lament$non_function_cases(info), invoking_call)
+
+			message <- info %+% "\ncases must be a list of functions."
+
+			throw_arrow_error(message, invoking_call)
 		}
 
 		# ----- capture the expect and given expressions as functions
@@ -914,13 +876,17 @@ forall <- local({
 				result <- do.call(expect, case)
 
 				if (length(result) != 1) {
-					throw_arrow_error(
-						lament$non_singular_expectation(info, length(result)), invoking_call)
+
+					message <- info %+% "\nnon-length one value returned to forall: actual length was" %+%
+					length(result)
+
+					throw_arrow_error(message, invoking_call)
 				}
 
 				if (result %!in% c(True, False)) {
-					throw_arrow_error(
-						lament$non_boolean_expectation(info, case), invoking_call)
+					message <- info %+% 'non boolean result returned by forall.'
+
+					throw_arrow_error(message, invoking_call)
 				}
 
 				if (!result) {
@@ -934,11 +900,17 @@ forall <- local({
 		}
 
 		if (length(state$failed) > 0) {
-			throw_arrow_error(lament$failed_cases(
-				info,
-				state$failed_after,
-				state$failed),
-			invoking_call)
+
+			after <- state$failed_after
+			failed <- state$failed
+
+			cases <- sapply(lapply(failed, unname), ddparse)
+			cases <- newline(cases[ seq_along( min(10, length(cases)) ) ])
+
+			message <- info %+% "\nfailed after the " %+%
+				ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+
+			throw_arrow_error(message, invoking_call)
 		}
 
 		message(info, " passed!", " (", state$tests_run, ")")

@@ -3,7 +3,6 @@ forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
 write_error <- arrow:::write_error
-wail <- arrow:::wail
 
 require(arrow)
 
@@ -89,7 +88,7 @@ message('check that there are sufficient examples')
 
 
 
-
+# this code needs rewriting: there are new methods that would make it clearer.
 
 message('check that there is a type signature for every file')
 

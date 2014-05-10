@@ -9,7 +9,7 @@ stringify_call <- function (call) {
 	# format the call nicely for printing, fixing the representation of ':='.
 
 	if (length(call) == 0) {
-		"[ call information not included in error ]"
+		"erroneous call not included"
 	} else {
 
 		call <- as.call(lapply(call, function (term) {
@@ -139,7 +139,7 @@ try_read <- local({
 
 })
 
-# -- TODO FIX THIS CODE!
+# -- TODO FIX THIS CODE! there is no way this works.
 
 try_write <- local({
 	function (expr, path, invoking_call) {
@@ -149,18 +149,22 @@ try_write <- local({
 			warning = function (warn) {
 				apically_calling_fn <- invoking_call[[1]]
 
-				write_warning(
+
+				throw_arrow_warning(
 					exclaim$arrow_function_failed(
 						components$invoking, components$calltext, message),
-					call. = False)
+						invoking_call)
+
 			},
 			error = function (err) {
 				apically_calling_fn <- invoking_call[[1]]
 
-				write_error(
+				throw_arrow_error(
 					exclaim$arrow_function_failed(
 						components$invoking, components$calltext, message),
-					call. = False)
+					invoking_call
+				)
+
 			}
 		)
 	}

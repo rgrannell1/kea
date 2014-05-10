@@ -3,7 +3,6 @@ forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 match_fn <- arrow:::match_fn
 '%!in%' <- arrow:::'%!in%'
-wail <- arrow:::wail
 
 require(arrow)
 
@@ -90,16 +89,24 @@ message('test that every method has an unchaining version.')
 					# every xMethod should have an xMethod
 
 					if (method %!in% matches && method %!in% exceptions$normal) {
-						stop(
-							wail$normal_form_missing(method, proto_name, matches))
+
+					normal_form_missing =
+
+						message <- 'the xMethod form of ' %+% method %+% ' was expected but ' %+%
+							' was missing (' %+% proto_name %+% ')'
+
+						stop(message)
 
 					}
 
 					# every xMethod will have an unchaining x_Method
 
 					if (forms$as_unchaining %!in% matches && method %!in% exceptions$unchaining) {
-						stop(wail$unchaining_form_missing(
-							method, proto_name, matches))
+
+						message <- 'the x_Method form of ' %+% method %+% ' was expected but ' %+%
+							' was missing (' %+% proto_name %+% ')'
+
+						stop(message)
 					}
 
 					variadic_match <-
@@ -114,14 +121,18 @@ message('test that every method has an unchaining version.')
 					if (variadic_match || variadic_unchaining_match) {
 
 						if (!variadic_match) {
-							stop(wail$variadic_form_missing(
-								method, proto_name, matches))
+							message <- 'the xMethod_ form of ' %+% method %+% ' was expected but ' %+%
+								' was missing (' %+% proto_name %+% ')'
+
+							stop(message)
 						}
 
 						if (!variadic_unchaining_match) {
 
-							stop(wail$variadic_unchaining_form_missing(
-								method, proto_name, matches))
+							message <- 'the x_Method_ form of ' %+% method %+% ' was expected but ' %+%
+								' was missing (' %+% proto_name %+% ')'
+
+							stop(message)
 						}
 
 					}
@@ -199,8 +210,11 @@ message('test that every function has methods.')
 				# if the method is in a non-expected class, complain.
 
 				if (proto_name %in% expected_proto && (method %!in% proto)) {
-					stop(
-						wail$method_not_in_proto(method, proto_name))
+
+					message <- 'the method ' %+% method %+% ' should be in the prototype ' %+% proto_name %+%
+						' but was not.'
+
+					stop(message)
 				}
 
 			}
