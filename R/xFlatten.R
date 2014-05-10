@@ -62,16 +62,17 @@ xFlatten <- MakeFun(function (num, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else if (is.atomic(coll)) {
-		# it is flat!
+		# -- it is flat!
 		as.list(coll)
 	} else if (num == +Inf) {
-		# preserve the structure.
+		# -- preserve the structure.
 		as.list(coll)
 	} else if (num == 1) {
-		# unlist entirely.
+		# -- unlist entirely.
 		as.list(unlist(coll))
 	} else {
 
+		# -- todo write this non-recursively!
 		recur <- function (depth, xs) {
 			if (!is_recursive(xs)) {
 				xs

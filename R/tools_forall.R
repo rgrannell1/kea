@@ -866,13 +866,13 @@ forall <- local({
 
 		invoking_call <- sys.call()
 
-		assert(
-			!is.null(cases), invoking_call,
-			lament$null_cases(info))
+		if (is.null(cases)) {
+			throw_arrow_error(lament$null_cases(info), invoking_call)
+		}
 
-		assert(
-			all( vapply(cases, is.function, logical(1)) ), invoking_call,
-			lament$non_function_cases(info))
+		if (!all( vapply(cases, is.function, logical(1)) )) {
+			throw_arrow_error(lament$non_function_cases(info), invoking_call)
+		}
 
 		# ----- capture the expect and given expressions as functions
 
@@ -913,13 +913,15 @@ forall <- local({
 				state$tests_run <- state$tests_run + 1
 				result <- do.call(expect, case)
 
-				assert(
-					length(result) == 1, invoking_call,
-					lament$non_singular_expectation(info, length(result)) )
+				if (length(results) != 1) {
+					throw_arrow_error(
+						lament$non_singular_expectation(info, length(result)), invoking_call)
+				}
 
-				assert(
-					result %in% c(True, False), invoking_call,
-					lament$non_boolean_expectation(info, case))
+				if (result %!in% c(True, False)) {
+					throw_arrow_error(
+						lament$non_boolean_expectation(info, case), invoking_call)
+				}
 
 				if (!result) {
 					state$failed_after <-
@@ -931,13 +933,13 @@ forall <- local({
 			}
 		}
 
-		assert(
-			length(state$failed) == 0,
-			invoking_call,
-			lament$failed_cases(
+		if (length(state$failed) > 0) {
+			throw_arrow_error(lament$failed_cases(
 				info,
 				state$failed_after,
-				state$failed))
+				state$failed),
+			invoking_call)
+		}
 
 		message(info, " passed!", " (", state$tests_run, ")")
 	}

@@ -1,4 +1,9 @@
 
+# ----------------------------------------------------------------------------
+# Accessory Functions
+#
+# These functions reformat the call data passed to a string.
+
 stringify_call <- function (call) {
 	# call -> string
 	# format the call nicely for printing, fixing the representation of ':='.
@@ -61,52 +66,83 @@ get_call_components <- function (invoking_call) {
 	}
 }
 
-write_error <- function (..., call. = True) {
+# -------------------------------------------------------------------------
+#
+# DEPRECATE ME
+#
+# Error colourisers
+#
+# This takes your message, and throws either an error or warning.
 
+write_error <- function (..., call. = True) {
+	# -- take a string, colourise it and throw an error
 	message <- c(...)
 
 	stop(colourise$red(message), call. = call.)
 }
 
-assert <- function (expr, invoking_call, message) {
+write_warning <- function (..., call. = True) {
+	# -- take a string, colourise it and throw a warning
+	message <- c(...)
 
-	if (!is.logical(expr)) {
-		# -- the assertion was broken.
-
-		message <-
-			"internal error: the assertion " %+% ddparse(expr) %+%
-			" produced a non-logical value."
-
-		write_error(message, call. = False)
-
-	} else if (!isTRUE(expr)) {
-		# -- everything went wrong, throw an error.
-
-		components <- get_call_components(invoking_call)
-
-		write_error(
-			exclaim$arrow_function_failed(
-				components$invoking, components$calltext, message),
-			call. = False)
-
-	}
-	True
+	stop(colourise$yellow(message), call. = call.)
 }
 
-
-
+# -------------------------------------------------------------------------
+#
+# Top Level Interface
+#
+# This takes your message, and throws either an error or warning.
 
 throw_arrow_error <- function (invoking_call, message) {
+	# the top level interface to throwing an arrow error.
 
 	# -- stringify the call, get the function name.
 	components <- get_call_components(invoking_call)
 
-	write_error(
+	stop(colourise$red()
 		exclaim$arrow_function_failed(
-			components$invoking, components$calltext, message),
-			call. = False)
+			components$invoking, components$calltext, message)
+		, call. = False)
+
 }
 
+# -------------------------------------------------------------------------
+#
+# Try Functions
+#
+# There wrap dangerous tasks, like reading and writing.
+
+try_read <- local({
+	function (expr, path, invoking_call) {
+
+		tryCatch(
+			expr,
+			warning = function (warn) {
+				apically_calling_fn <- invoking_call[[1]]
+
+
+				# -- add the error to the text manually
+				write_error(, call. = False)
+
+
+				assert(
+					False, invoking_call,
+					exclaim$warning_read(path, warn)
+				)
+			},
+			error = function (err) {
+				apically_calling_fn <- invoking_call[[1]]
+
+				assert(
+					False, invoking_call,
+					exclaim$error_read(path, err)
+				)
+			}
+		)
+	}
+
+})
 
 try_write <- local({
 	function (expr, path, invoking_call) {
@@ -134,37 +170,13 @@ try_write <- local({
 
 })
 
-try_read <- local({
-	function (expr, path, invoking_call) {
-
-		tryCatch(
-			expr,
-			warning = function (warn) {
-				apically_calling_fn <- invoking_call[[1]]
-
-				assert(
-					False, invoking_call,
-					exclaim$warning_read(path, warn)
-				)
-			},
-			error = function (err) {
-				apically_calling_fn <- invoking_call[[1]]
-
-				assert(
-					False, invoking_call,
-					exclaim$error_read(path, err)
-				)
-			}
-		)
-	}
-
-})
-
 # -------------------------------- exclaim -------------------------------- #
 #
 # To Developers,
 #
 # exclaim stores the error messages specific to assert itself.
+#
+# DEPRECATE ME.
 
 exclaim <- list(
 	arrow_function_failed =
@@ -297,3 +309,34 @@ exclaim <- list(
 			overview %+% inner_call %+% errmessage
 		}
 )
+
+
+
+# DEPRECATE ME!
+#
+# NO LONGER USED BY CORE ERROR SYSTEM.
+
+assert <- function (expr, invoking_call, message) {
+
+	if (!is.logical(expr)) {
+		# -- the assertion was broken.
+
+		message <-
+			"internal error: the assertion " %+% ddparse(expr) %+%
+			" produced a non-logical value."
+
+		write_error(message, call. = False)
+
+	} else if (!isTRUE(expr)) {
+		# -- everything went wrong, throw an error.
+
+		components <- get_call_components(invoking_call)
+
+		write_error(
+			exclaim$arrow_function_failed(
+				components$invoking, components$calltext, message),
+			call. = False)
+
+	}
+	True
+}
