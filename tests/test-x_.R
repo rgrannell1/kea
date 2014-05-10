@@ -1,6 +1,6 @@
 
 forall <- arrow:::forall
-assert <- arrow:::assert
+throw_arrow_error <- arrow:::throw_arrow_error
 test_cases <- arrow:::test_cases
 match_fn <- arrow:::match_fn
 '%!in%' <- arrow:::'%!in%'
@@ -19,7 +19,7 @@ message('test that every method has an unchaining version.')
 
 	x_proto_methods <- list(
 		xAnyOf =
-			ls(arrow ::: x_any_proto),
+			ls(arrow ::: x_AnyOf_proto),
 		fn =
 			ls(arrow ::: x_fn_proto),
 		coll =
@@ -90,19 +90,19 @@ message('test that every method has an unchaining version.')
 
 					# every xMethod should have an xMethod
 
-					assert(
-						(method %in% matches) ||
-						(method %in% exceptions$normal), invoking_call,
-						wail$normal_form_missing(
-							method, proto_name, matches))
+					if ( (method %!in% matches) && (method %!in% exceptions$normal) ) {
+						throw_arrow_error(
+							wail$normal_form_missing(method, proto_name, matches),
+							invoking_call)
+					}
 
 					# every xMethod will have an unchaining x_Method
 
-					assert(
-						(forms$as_unchaining %in% matches) ||
-						(method %in% exceptions$unchaining), invoking_call,
-						wail$unchaining_form_missing(
-							method, proto_name, matches))
+					if (forms$as_unchaining %!in% matches) {
+						throw_arrow_error(wail$unchaining_form_missing(
+							method, proto_name, matches), invoking_call)
+					}
+
 
 					variadic_match <-
 						xIsMember(forms$as_variadic, matches)
@@ -114,15 +114,15 @@ message('test that every method has an unchaining version.')
 
 					if (variadic_match || variadic_unchaining_match) {
 
-						assert(
-							variadic_match, invoking_call,
-							wail$variadic_form_missing(
-								method, proto_name, matches))
+						if (!variadic_match) {
+							throw_arrow_error(wail$variadic_form_missing(
+								method, proto_name, matches), invoking_call)
+						}
 
-						assert(
-							variadic_unchaining_match, invoking_call,
-							wail$variadic_unchaining_form_missing(
-								method, proto_name, matches))
+						if (!variadic_unchaining_match) {
+							throw_arrow_error(wail$variadic_unchaining_form_missing(
+								method, proto_name, matches), invoking_call)
+						}
 
 					}
 				}
@@ -198,11 +198,10 @@ message('test that every function has methods.')
 
 				# if the method is in a non-expected class, complain.
 
-				assert(
-					proto_name %!in% expected_proto || (method %in% proto) ||
-					( method %in% implement_exception[[proto_name]] ),
-					invoking_call,
-					wail$method_not_in_proto(method, proto_name))
+				if (proto_name %in% expected_proto && (method %!in% proto)) {
+					throw_arrow_error(
+						wail$method_not_in_proto(method, proto_name), invoking_call)
+				}
 
 			}
 		},

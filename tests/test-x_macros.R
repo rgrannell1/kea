@@ -1,6 +1,5 @@
 
 forall <- arrow:::forall
-assert <- arrow:::assert
 test_cases <- arrow:::test_cases
 
 write_error <- arrow:::write_error
@@ -30,7 +29,7 @@ fns $ xMapply((fn_name : fn) := {
 
 	missing_missing <-
 		x_(xParamsOf(fn)) $
-		x_Any(param := {
+		x_AnyOf(param := {
 
 			pattern <- paste0('missing[(]', param, '[)]')
 
@@ -40,7 +39,7 @@ fns $ xMapply((fn_name : fn) := {
 	missing_fn_matchable <-
 		x_(xParamsOf(fn)) $
 		xSelect(param := param == 'fn' || param == 'pred') $
-		x_Any(param := {
+		x_AnyOf(param := {
 
 			pattern <- paste0(
 				"if [(][!]is[.]function[(]", param, "[)]")
@@ -51,7 +50,7 @@ fns $ xMapply((fn_name : fn) := {
 	missing_coll <-
 		x_(xParamsOf(fn)) $
 		xSelect(param := param %in% c('coll', 'colls', 'nums', 'num', 'bools', 'ims', 'raws')) $
-		x_Any(param := {
+		x_AnyOf(param := {
 
 			pattern <- paste0(
 				"[!]is[.]atomic[(]", param, "[)]")
@@ -62,7 +61,7 @@ fns $ xMapply((fn_name : fn) := {
 	missing_colls <-
 		x_(xParamsOf(fn)) $
 		xSelect(param := param %in% "colls") $
-		x_Any(param := {
+		x_AnyOf(param := {
 
 			pattern <- "all_elems_are_collection"
 

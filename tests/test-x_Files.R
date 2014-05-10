@@ -1,6 +1,5 @@
 
 forall <- arrow:::forall
-assert <- arrow:::assert
 test_cases <- arrow:::test_cases
 
 write_error <- arrow:::write_error
@@ -100,7 +99,7 @@ message('check that there is a type signature for every file')
 		xMap(path := c(path, path)) $ xZipKeys() $
 		xMap(xReadLines) $ xMap(file := {
 
-			x_(file) $ x_Any(line := grepl("Type Signature", line))
+			x_(file) $ x_AnyOf(line := grepl("Type Signature", line))
 
 		}) $
 		# -- get the paths that don't have examples and should.

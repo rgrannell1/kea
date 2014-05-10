@@ -913,7 +913,7 @@ forall <- local({
 				state$tests_run <- state$tests_run + 1
 				result <- do.call(expect, case)
 
-				if (length(results) != 1) {
+				if (length(result) != 1) {
 					throw_arrow_error(
 						lament$non_singular_expectation(info, length(result)), invoking_call)
 				}

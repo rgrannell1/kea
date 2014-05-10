@@ -100,10 +100,9 @@ throw_arrow_error <- function (invoking_call, message) {
 	# -- stringify the call, get the function name.
 	components <- get_call_components(invoking_call)
 
-	stop(colourise$red()
+	stop(colourise$red(
 		exclaim$arrow_function_failed(
-			components$invoking, components$calltext, message)
-		, call. = False)
+			components$invoking, components$calltext, message)), call. = False)
 
 }
 
@@ -123,26 +122,24 @@ try_read <- local({
 
 
 				# -- add the error to the text manually
-				write_error(, call. = False)
 
+				throw_arrow_warning(
+					exclaim$warning_read(path, warn), invoking_call)
 
-				assert(
-					False, invoking_call,
-					exclaim$warning_read(path, warn)
-				)
 			},
 			error = function (err) {
 				apically_calling_fn <- invoking_call[[1]]
 
-				assert(
-					False, invoking_call,
-					exclaim$error_read(path, err)
-				)
+				throw_arrow_error(
+					exclaim$warning_read(path, err), invoking_call)
+
 			}
 		)
 	}
 
 })
+
+# -- TODO FIX THIS CODE!
 
 try_write <- local({
 	function (expr, path, invoking_call) {
@@ -309,34 +306,3 @@ exclaim <- list(
 			overview %+% inner_call %+% errmessage
 		}
 )
-
-
-
-# DEPRECATE ME!
-#
-# NO LONGER USED BY CORE ERROR SYSTEM.
-
-assert <- function (expr, invoking_call, message) {
-
-	if (!is.logical(expr)) {
-		# -- the assertion was broken.
-
-		message <-
-			"internal error: the assertion " %+% ddparse(expr) %+%
-			" produced a non-logical value."
-
-		write_error(message, call. = False)
-
-	} else if (!isTRUE(expr)) {
-		# -- everything went wrong, throw an error.
-
-		components <- get_call_components(invoking_call)
-
-		write_error(
-			exclaim$arrow_function_failed(
-				components$invoking, components$calltext, message),
-			call. = False)
-
-	}
-	True
-}

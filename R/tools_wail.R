@@ -1,6 +1,10 @@
 
 # -------------------------------- wail -------------------------------- #
 #
+# DEPRECATE ME: ADD MESSAGES DIRECTLY TO CODE
+#
+#
+#
 # To Developers,
 #
 # wail is specific to customised errors thrown by the arrow method chaining unit tests,
