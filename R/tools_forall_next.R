@@ -17,14 +17,26 @@
 
 # -- the description
 
-it <- function () {
-
+it <- function (info) {
+	out <- list(info = info)
 }
 
 # -- the domain over which to bind
 
-over <- function () {
+over <- function (...) {
 
+	# -- capture the symbols
+	symbols <- as.list(match.call()[-1])
+
+	# -- validate the symbols
+
+	stopifnot( vapply(symbols, is.name, logical(1)) )
+
+	params <- vapply(symbols, as.character, character(1))
+
+	out <- list(
+
+	)
 }
 
 # -- test properties (+ controls)
@@ -42,6 +54,14 @@ fails <- function () {
 failsWhen <- function () {
 
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -100,9 +120,9 @@ fromStream <- function () {
 			paste0(lines, collapse = '\n')
 		}
 
-	# logical vectors
+	# -- logical vectors
 
-	this $ -- empty_logical <-
+	this $ empty_logical <-
 		function () {
 			logical(0)
 		}
@@ -148,6 +168,18 @@ fromStream <- function () {
 
 	# -- integer
 
+	this $ empty_integer <-
+		function () {
+			integer(0)
+		}
+
+	this $ integer <-
+		function () {
+			sample.int(2147483647, 1) * sample(c(-1, 1), size = 1)
+		}
+
+	# -- function
+
 	# -- with that out of the way, yield a value.
 
 	implemented <- ls(envir = this)
@@ -155,20 +187,3 @@ fromStream <- function () {
 	sampler <- this[[ sample(implemented, size = 1) ]]
 	sampler()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

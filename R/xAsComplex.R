@@ -23,6 +23,11 @@
 #' @template
 #'    Variadic
 #'
+#' @section Corner Cases:
+#'     xAsComplex will throw an error if its input is
+#'     not a collection of complex numbers. All length-zero collections
+#'     can be converted to complex.
+#'
 #' @family container_conversion_functions
 #'
 #' @example
