@@ -42,7 +42,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a character vector with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a character vector with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -63,7 +63,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a function with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a function with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -83,7 +83,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a value with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a value with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -115,7 +115,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a double vector with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a double vector with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -137,7 +137,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a factor with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a factor with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -160,7 +160,7 @@ summate <- local({
 					}, logical(1)) )
 			)
 
-			"\n\n" %+% "the actual input was a list or pairlist with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a list or pairlist with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -186,7 +186,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a integer vector with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a integer vector with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -212,7 +212,7 @@ summate <- local({
 			)
 
 
-			"\n\n" %+% "the actual input was a logical vector with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a logical vector with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -233,7 +233,7 @@ summate <- local({
 					deparse(class(obj))
 			)
 
-			"\n\n" %+% "the actual input was a matrix with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a matrix with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}
@@ -243,7 +243,7 @@ summate <- local({
 	profile$null <-
 		function (obj) {
 
-			"\n\n" %+% "the actual input was NULL" %+% "\n\n"
+			"\n\n" %+% "The actual input was NULL" %+% "\n\n"
 		}
 
 	# --- O --- #
@@ -262,7 +262,7 @@ summate <- local({
 			)
 
 
-			"\n\n" %+% "the actual input was a raw vector with these properties" %+% "\n\n" %+%
+			"\n\n" %+% "The actual input was a raw vector with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
 
 		}

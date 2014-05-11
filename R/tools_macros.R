@@ -30,7 +30,7 @@ Must <- local({
 			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					"The argument matching " %+% ddquote( .(NUMS) ) %+%
 					" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
 					summate( .(NUMS) )
 
@@ -51,7 +51,7 @@ Must <- local({
 				!is.pairlist( .(COLL) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					"The argument matching " %+% ddquote( .(COLL) ) %+%
 					" must be a list, a pairlist or a typed vector."
 
 				if (any(class( .(COLL) ) == 'arrow')) {
@@ -84,7 +84,7 @@ Must <- local({
 				if (!all_elems_are_collection) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(COLLS) ) %+%
+						"The argument matching " %+% ddquote( .(COLLS) ) %+%
 						" must be a collection of lists, vectors or pairlists."
 
 					if (any(class( .(COLLS) ) == 'arrow')) {
@@ -119,7 +119,7 @@ Must <- local({
 				if (!all_equal) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(COLLS) ) %+%
+						"The argument matching " %+% ddquote( .(COLLS) ) %+%
 						" must be a collection of collections with equal lengths." %+%
 						summate( .(COLLS) )
 
@@ -147,7 +147,7 @@ Must <- local({
 				if (!all_match) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(COLL) ) %+%
+						"The argument matching " %+% ddquote( .(COLL) ) %+%
 						" must be a collection of functions, or symbols or strings" %+%
 						" that can be looked up as functions."
 
@@ -186,7 +186,7 @@ Must <- local({
 			}, logical(1) )) ) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(COLLS) ) %+%
+					"The argument matching " %+% ddquote( .(COLLS) ) %+%
 					" must be a collection with lengths in the range " %+%
 					.(LOWER) %+% " to " %+% .(UPPER) %+% "." %+%
 					summate( .(COLLS) )
@@ -204,8 +204,8 @@ Must <- local({
 			bquote(if (length( .(COLL1) ) != length( .(COLL2) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(COLL1) ) %+%
-					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
+					"The argument matching " %+% ddquote( .(COLL1) ) %+%
+					" must be equal length to The argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
 					summate( .(COLL1) )
 
 				throw_arrow_error(sys.call(), message)
@@ -220,7 +220,7 @@ Must <- local({
 			bquote(if ( !exists( .(SYM), envir = parent.frame()) ) {
 
 				message <-
-					"the variable referenced by the symbol " %+% ddquote( .(SYM) ) %+%
+					"The variable referenced by the symbol " %+% ddquote( .(SYM) ) %+%
 					" does not exist."
 
 				throw_arrow_error(sys.call(), message)
@@ -237,7 +237,7 @@ Must <- local({
 			bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
 
 				message <-
-					"the predicate function " %+% ddquote( .(PRED) ) %+%
+					"The predicate function " %+% ddquote( .(PRED) ) %+%
 					" produced a non-{True, False, Na} value." %+%
 					summate( .(BOOL) )
 
@@ -253,7 +253,7 @@ Must <- local({
 			bquote(if (!file.exists( .(STR) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(STR) ) %+%
+					"The argument matching " %+% ddquote( .(STR) ) %+%
 					" must be a path to an existing file."
 
 				throw_arrow_error(sys.call(), message)
@@ -273,7 +273,7 @@ Must <- local({
 				!(is.character( .(VAL) ) && length( .(VAL) ) == 1)) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(VAL) ) %+%
+						"The argument matching " %+% ddquote( .(VAL) ) %+%
 						" must be a function, or a string or symbol naming a function."
 
 					if (any(class( .(VAL) ) == 'arrow')) {
@@ -298,7 +298,7 @@ Must <- local({
 			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < -length( .(COLL) ) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					"The argument matching " %+% ddquote( .(NUMS) ) %+%
 					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 					summate( .(NUMS) )
 
@@ -317,7 +317,7 @@ Must <- local({
 			bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					"The argument matching " %+% ddquote( .(COLL) ) %+%
 					" must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
 					summate( .(COLL) )
 
@@ -335,7 +335,7 @@ Must <- local({
 			bquote(if (!(length( .(COLL) ) >= .(LENGTH) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					"The argument matching " %+% ddquote( .(COLL) ) %+%
 					" must have at least " %+%  .(LENGTH) %+% " elements." %+%
 					summate( .(COLL) )
 
@@ -354,7 +354,7 @@ Must <- local({
 			bquote(if (!(length( .(COLL) ) > .(LENGTH) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(COLL) ) %+%
+					"The argument matching " %+% ddquote( .(COLL) ) %+%
 					" must have more than " %+%  .(LENGTH) %+% " elements." %+%
 					summate( .(COLL) )
 
@@ -374,7 +374,7 @@ Must <- local({
 				if (!is.name( .(SYM) ) && (!is.character( .(SYM) ) || length( .(SYM) ) != 1)) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(SYM) ) %+%
+						"The argument matching " %+% ddquote( .(SYM) ) %+%
 						" must be a symbol or a string."
 
 					# -- this might not work with lazy evaluation.
@@ -404,7 +404,7 @@ Must <- local({
 				if ( is.null(names( .(COLL) )) ) {
 
 					message <-
-						"the argument matching " %+% ddquote( .(COLL) ) %+%
+						"The argument matching " %+% ddquote( .(COLL) ) %+%
 						" must be named." %+%
 						summate( .(COLL) )
 
@@ -424,7 +424,7 @@ Must <- local({
 			bquote(if (any( .(STRS) %!in% names(formals( .(FN) )) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(STRS) ) %+%
+					"The argument matching " %+% ddquote( .(STRS) ) %+%
 					" must be parametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
 					summate( .(STRS) )
 
@@ -441,7 +441,7 @@ Must <- local({
 			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < 1 )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					"The argument matching " %+% ddquote( .(NUMS) ) %+%
 					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 					summate( .(NUMS) )
 
@@ -458,7 +458,7 @@ Must <- local({
 			bquote(if (!all(round( .(NUMS) ) ==  .(NUMS) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(NUMS) ) %+%
+					"The argument matching " %+% ddquote( .(NUMS) ) %+%
 					" must be round numbers." %+%
 					summate( .(NUMS) )
 
@@ -475,7 +475,7 @@ Must <- local({
 			bquote(if (missing( .(VAL) )) {
 
 				message <-
-					"the parametre " %+% ddquote( .(VAL) ) %+%
+					"The parametre " %+% ddquote( .(VAL) ) %+%
 					" is required but was missing."
 
 				throw_arrow_error(sys.call(), message)
@@ -492,7 +492,7 @@ Must <- local({
 			bquote(if (is.primitive( .(FN) )) {
 
 				message <-
-					"the argument matching " %+% ddquote( .(FN) ) %+%
+					"The argument matching " %+% ddquote( .(FN) ) %+%
 					" must be a non-primitive function." %+%
 					summate( .(FN) )
 
@@ -536,7 +536,7 @@ Must <- local({
 					ambigious <- invoked[which(invoked != matched & invoked != '')]
 
 					message <-
-						"the ellipsis argument explicitly named " %+% dQuote(ambigious) %+% " matches a parametre " %+%
+						"The ellipsis argument explicitly named " %+% dQuote(ambigious) %+% " matches a parametre " %+%
 						"of " %+% dQuote(fn_name)  %+% ". This will be misinterpreted by R. Use " %+%
 						dQuote(suggested) %+% " instead of " %+% dQuote(fn_name) %+% "."
 
