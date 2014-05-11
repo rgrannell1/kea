@@ -5,6 +5,7 @@ summate <- local({
 	output_key_value_pairs <-
 		function (coll) {
 
+			# -- collapse the properties into a string.
 			Reduce(
 				'%+%',
 				lapply(names(coll), function (name) {
@@ -142,9 +143,13 @@ summate <- local({
 				length =
 					length(obj),
 				`is nested` =
-					any( vapply(obj, function (x) isTRUE(is.list(x) || is.pairlist(x)), logical(1)) ),
+					any( vapply(obj, function (x) {
+						isTRUE(is.list(x) || is.pairlist(x))
+					}, logical(1)) ),
 				`all nested` =
-					all( vapply(obj, function (x) isTRUE(is.list(x) || is.pairlist(x)), logical(1)) )
+					all( vapply(obj, function (x) {
+						isTRUE(is.list(x) || is.pairlist(x))
+					}, logical(1)) )
 			)
 
 			"\n\n" %+% "the actual input was a list or pairlist with these properties" %+% "\n\n" %+%

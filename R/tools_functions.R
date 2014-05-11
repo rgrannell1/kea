@@ -10,6 +10,7 @@
 # @rdname pkg-internal
 
 # --------------------- shorthand logical functions --------------------- #
+# these are exported by arrow seperately.
 
 Truth <- function (...) {
 	True
@@ -169,19 +170,14 @@ is_fn_matchable <- function (val) {
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
 
-	# don't change - is.vector doesn't handle attributes.
+	# -- don't change - is.vector doesn't handle attributes.
 	is.atomic(val) || is.list(val) || is.pairlist(val)
 }
 
 is_recursive <- function (val) {
+	# -- don't change. is.recursive is ~ !is.atomic.
 	is.list(val) || is.pairlist(val)
 }
-
-maybe_atomic <- function (val) {
-	length(val) %in% 0:1
-}
-
-
 
 # --------------------- coercion functions --------------------- #
 
@@ -208,10 +204,6 @@ ddquote <- function (sym) {
 	paste0(dQuote(match.call()$sym), collapse = '')
 }
 
-newline <- function (val) {
-	paste0(val, collapse = "\n")
-}
-
 wrap <- function (...) {
 	# wrap and indent a string,
 
@@ -223,7 +215,7 @@ wrap <- function (...) {
 ith_suffix <- function (num) {
 	# number -> string
 	# takes a number i, adds the
-	# appropriate suffix (ith, ind, ist)
+	# appropriate suffix (1th, 2nd, 3rd, ...)
 	# useful for error messages.
 
 	last <- as.numeric(substr(

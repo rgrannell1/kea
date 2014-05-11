@@ -905,7 +905,9 @@ forall <- local({
 			failed <- state$failed
 
 			cases <- sapply(lapply(failed, unname), ddparse)
-			cases <- newline(cases[ seq_along( min(10, length(cases)) ) ])
+			cases <-
+				paste0(cases[ seq_along( min(10, length(cases)) ) ],
+				collapse = "'\n")
 
 			message <- info %+% "\nfailed after the " %+%
 				ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
