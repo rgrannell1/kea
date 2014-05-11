@@ -1,4 +1,7 @@
 
+#
+# this could do with a dose of code review and commenting; it is core code.
+
 # ----------------------------------------------------------------------------
 # Accessory Functions
 #
@@ -81,13 +84,6 @@ write_error <- function (..., call. = True) {
 	stop(colourise$red(message), call. = call.)
 }
 
-write_warning <- function (..., call. = True) {
-	# -- take a string, colourise it and throw a warning
-	message <- c(...)
-
-	stop(colourise$yellow(message), call. = call.)
-}
-
 # -------------------------------------------------------------------------
 #
 # Top Level Interface
@@ -98,26 +94,23 @@ throw_arrow_error <- function (invoking_call, message) {
 	# the top level interface to throwing an arrow error.
 
 	# -- stringify the call, get the function name.
+	# -- get the function foo, and the stringified call foo(baz, bar, ...)
 	components <- get_call_components(invoking_call)
 
-	# -- the function foo, and the stringified call foo(baz, bar, ...)
 	callname <- components$invoking
 	calltext <- components$calltext
 
 	# -- just in case
 	callname <- paste0(callname, collapse = '')
-	calltext <- wrap(calltext, indent = 4)
+	calltext <- wrap(calltext, indent = 0)
 
 	# -- these few lines dicate how an arrow error message will be formatted
-
-	overview <-
-	'\n[ error thrown from ' %+% callname %+% ' ]:\n\n'
+	# -- rewrite with string interpolation.
 
 	final_message <-
-		overview %+%
-		calltext %+% '\n\n' %+%
-		'[ details ]:\n\n' %+%
-		message
+	"\n" %+% message %+%
+	"\nThrow from " %+% callname %+% "\n" %+%
+	"In the call " %+% calltext
 
 	# -- tput as red (if possible) and report the error.
 
@@ -125,7 +118,7 @@ throw_arrow_error <- function (invoking_call, message) {
 
 }
 
-throw_arrow_error <- function (invoking_call, message) {
+throw_arrow_warning <- function (invoking_call, message) {
 	# the top level interface to throwing an arrow error.
 
 	# -- stringify the call, get the function name.
@@ -160,6 +153,7 @@ throw_arrow_error <- function (invoking_call, message) {
 # Try Functions
 #
 # There wrap dangerous tasks, like reading and writing.
+#
 
 try_read <- local({
 	function (expr, path, invoking_call) {
@@ -176,12 +170,14 @@ try_read <- local({
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
 
+
+				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)
 
 				warnmessage <- strsplit(warnmessage, '\n')[[1]]
 				warnmessage <- paste0('    ', warnmessage, collapse = '\n')
 
-				thrown_arrow_warning(
+				throw_arrow_warning(
 					overview %+% inner_call %+% warnmessage, invoking_call)
 
 			},
@@ -196,6 +192,7 @@ try_read <- local({
 
 				inner_call <- stringify_call(err$call) %+% ':\n\n'
 
+				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)
 
 				errmessage <- strsplit(errmessage, '\n')[[1]]
@@ -208,8 +205,6 @@ try_read <- local({
 	}
 
 })
-
-# -- TODO FIX THIS CODE!
 
 try_write <- local({
 	function (expr, path, invoking_call) {
@@ -229,6 +224,7 @@ try_write <- local({
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
 
+				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)
 
 				warnmessage <- strsplit(warnmessage, '\n')[[1]]
@@ -242,7 +238,6 @@ try_write <- local({
 			error = function (err) {
 				# -- path is lexically scoped to here
 
-
 				errmessage <-
 					paste0(err$message, collapse = '')
 
@@ -252,6 +247,7 @@ try_write <- local({
 
 				inner_call <- stringify_call(err$call) %+% ':\n\n'
 
+				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)
 
 				errmessage <- strsplit(errmessage, '\n')[[1]]

@@ -18,6 +18,7 @@ Roxygen: list(wrap = FALSE)
 Collate:
     'values.R'
     'tools_functions.R'
+    'tools_summate.R'
     'tools_as_typed_vector.R'
     'tools_colourise.R'
     'tools_assertion.R'
