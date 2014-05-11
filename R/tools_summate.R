@@ -16,7 +16,9 @@ summate <- local({
 				'%+%',
 				lapply(names(coll), function (name) {
 
-					name %+% ': ' %+%
+					padded_name <- gettextf("%-16s", name %+% ":")
+
+					padded_name %+%
 					'    ' %+% paste0(coll[[name]], collapse = '') %+% '\n'
 
 			}) )
