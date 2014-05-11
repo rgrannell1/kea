@@ -2052,6 +2052,7 @@ get_proto_ref <- local({
 	)
 
 	suggest_similar_method <- local({
+		# -- the spell-checker for Arrow's methods.
 
 		message <- function (name, contents_are, similar) {
 
@@ -2074,9 +2075,11 @@ get_proto_ref <- local({
 			method_name <- method_name
 
 			candidate_methods <- setdiff(proto[[2]], 'private')
+
+			# -- get the edit distance to each method in the prototype.
 			distances <- adist(method_name, candidate_methods)
 
-			similar <- if (method_name %in% names(autosuggested)) {
+			similar <- if ( any(method_name == names(autosuggested)) ) {
 				autosuggested[[method_name]]
 			} else if (min(distances) < nchar(method_name) / 2) {
 
