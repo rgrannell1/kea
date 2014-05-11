@@ -573,6 +573,7 @@ MakeFun <- function (expr) {
 }
 
 # MakeVariadic
+#
 # MakeVariadic takes a function, and the variable to fix, and it generates
 # a variadic form of a function.
 
@@ -600,11 +601,7 @@ MakeVariadic <- function (fn, fixed) {
 
 	# -- create a formal list from the new parametres with no defaults.
 	formals(out) <-
-		structure(
-			as.pairlist( lapply(params, function (x) {
-				quote(expr = )
-			}) ),
-			names = params)
+		as_parametres(params)
 
 	body(out) <- MakeFun( bquote({
 

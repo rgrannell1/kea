@@ -45,8 +45,11 @@ unit_to_value <- function (coll) {
 
 as_typed_vector <- local({
 
+	# -- is.na is essential; all na's are treated the same.
+
 	typecheck <- list(
 		numeric =
+			# -- is.numeric checks if integer or double
 			function (x) is.numeric(x) || is.na(x),
 		integer =
 			function (x) is.integer(x) || is.na(x),
@@ -69,12 +72,14 @@ as_typed_vector <- local({
 		if (length(coll) == 0) {
 			vector(mode)
 		} else if (is.atomic(coll)) {
+			# -- this branch is faster; check the vector is the correct type.
 
 			type <- typeof(coll)
 
 			if (mode == 'numeric') {
+				# -- integers, doubles, numerics are all valid numerics.
 
-				if (type %!in% c('integer', 'double', 'numeric')) {
+				if ( !any(type == c('integer', 'double', 'numeric')) ) {
 
 					coll_sym <- match.call()$coll
 
@@ -86,6 +91,7 @@ as_typed_vector <- local({
 
 				coll
 			} else if (!type == mode) {
+				# -- otherwise the type has to be the mode.
 
 				coll_sym <- match.call()$coll
 
@@ -97,11 +103,13 @@ as_typed_vector <- local({
 
 			coll
 		} else {
+			# -- check that the generic vector is correct mode; the slow path.
 
 			is_correct_type <- typecheck[[mode]]
 
 			for (elem in coll) {
 
+				# -- check the element is length-one
 				if (length(elem) != 1) {
 
 					coll_sym <- match.call()$coll
@@ -111,6 +119,8 @@ as_typed_vector <- local({
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
 				}
+
+				# -- check the element is a vector of the correct type.
 				if (!is_correct_type(elem)) {
 
 					coll_sym <- match.call()$coll
@@ -131,8 +141,11 @@ as_typed_vector <- local({
 
 as_atom <- local({
 
+	# -- is.na is essential; all na's are treated the same.
+
 	typecheck <- list(
 		numeric =
+			# -- is.numeric checks if integer or double
 			function (x) is.numeric(x) || is.na(x),
 		integer =
 			function (x) is.integer(x) || is.na(x),
@@ -164,12 +177,14 @@ as_atom <- local({
 			)
 
 		} else if (is.atomic(coll)) {
+			# -- fast track; check if the atomic vector is atomic.
 
 			type <- typeof(coll)
 
 			if (mode == 'numeric') {
+				# -- integers, doubles, numerics are all valid numerics.
 
-				if (type %!in% c('integer', 'double', 'numeric')) {
+				if ( !any(type == c('integer', 'double', 'numeric')) ) {
 
 					coll_sym <- match.call()$coll
 
@@ -181,6 +196,7 @@ as_atom <- local({
 
 				coll
 			} else if (!type == mode) {
+				# -- check that the expected type
 
 				coll_sym <- match.call()$coll
 
@@ -192,6 +208,7 @@ as_atom <- local({
 
 			coll
 		} else {
+			# -- generic vectors; more work needed.
 
 			is_correct_type <- typecheck[[mode]]
 
@@ -217,6 +234,7 @@ as_atom <- local({
 				}
 			}
 
+			# -- convert. This might be replacable with coll[[ 1 ]]
 			as.vector(coll, mode = mode)
 		}
 	}

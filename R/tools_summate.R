@@ -1,4 +1,10 @@
 
+# ---------------------------------------------------------------------------
+#
+# summate
+#
+# Summate summarises properties of an object as a list.
+
 summate <- local({
 	# Returns a string of information about an input object.
 

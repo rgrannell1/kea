@@ -166,7 +166,7 @@ try_read <- local({
 					paste0(warn$message, collapse = '')
 
 				overview <-
-				"[ a warning occurred while reading from the path " %+% dQuote(path) %+% " ]:\n\n"
+				"a warning occurred while reading from the path " %+% dQuote(path) %+% ":\n\n"
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
 
@@ -188,7 +188,7 @@ try_read <- local({
 					paste0(err$message, collapse = '')
 
 				overview <-
-				"[ an error occurred while reading from the path " %+% dQuote(path) %+% " ]:\n\n"
+				"an error occurred while reading from the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(err$call) %+% ':\n\n'
 
@@ -220,7 +220,7 @@ try_write <- local({
 
 				# -- this must be changed when the error style is changed.
 				overview <-
-				"[ a warning occurred while writing to the path " %+% dQuote(path) %+% " ]:\n\n"
+				"a warning occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
 
@@ -243,7 +243,7 @@ try_write <- local({
 
 				# -- this must be changed when the error style is changed.
 				overview <-
-				"[ an error occurred while writing to the path " %+% dQuote(path) %+% " ]:\n\n"
+				"an error occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(err$call) %+% ':\n\n'
 
