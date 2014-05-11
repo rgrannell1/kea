@@ -73,6 +73,14 @@ summate <- local({
 	profile$`data frame` <-
 		function (obj) {
 
+			traits <- list(
+				classes =
+					deparse(class(obj))
+			)
+
+			"\n\n" %+% "The actual input was a data frame with these properties:" %+% "\n\n" %+%
+			output_key_value_pairs(traits)
+
 		}
 
 	profile$default <-

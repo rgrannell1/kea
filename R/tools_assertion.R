@@ -109,7 +109,7 @@ throw_arrow_error <- function (invoking_call, message) {
 
 	final_message <-
 	"\n" %+% message %+%
-	"\nThrow from " %+% callname %+% "\n" %+%
+	"\nThrown from " %+% callname %+% "\n" %+%
 	"In the call " %+% calltext
 
 	# -- tput as red (if possible) and report the error.
