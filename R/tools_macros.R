@@ -1,4 +1,23 @@
 
+# ----------------------------------------------------------------------------------------------
+#
+# Must
+#
+# Arrow uses macro's instead of higher-order functions to check
+# that input is valid. There are good reasons for this. I found that
+# higher-order functions ended up failing when they were run, and capturing symbols and
+# testing was a nightmare.
+#
+# Macro's just get injected into the code, so a lot of runtime errors are made into
+# build-time errors, in particular missing variables and misbound variables are
+# much easier to find. The code can also be visually inspected without
+# crawling throw ten functions.
+
+# There are two components;
+#
+# Must: an object containing macros. These return expressions that
+#     that test for some property. These are injected into the document.
+
 Must <- local({
 
 	this <- Object()
@@ -530,10 +549,8 @@ Must <- local({
 	this
 })
 
-
-
-
-
+# MakeFun:
+# this injects the code into the document, by evaluating the contents of MACRO.
 
 MakeFun <- function (expr) {
 
@@ -555,20 +572,9 @@ MakeFun <- function (expr) {
 	eval(unquote(substitute(expr)), parent_frame)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# MakeVariadic
+# MakeVariadic takes a function, and the variable to fix, and it generates
+# a variadic form of a function.
 
 MakeVariadic <- function (fn, fixed) {
 
