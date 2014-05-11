@@ -3,23 +3,14 @@ Arrow 0.8.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
-
+This release drastically improves the appearance of error messages.
 
 Enhancements:
 
 * improved the appearance of error messages; they now take up less space.
 
-*
-
-Bug-Fixes:
-
-*
-
-Documentation:
-
-*
-
-*
+* for error-causing lists, two new properties are displayed in the error:
+'is nested' and 'all nested'.
 
 Package Internals:
 
