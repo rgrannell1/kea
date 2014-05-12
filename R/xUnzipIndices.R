@@ -1,10 +1,22 @@
 
 #' xUnzipIndices
 #'
-#' Split a named collection into a list of name: value list pairs.
+#' Split a collection into a list of index: value pairs
 #'
 #' @section Type Signature:
 #'     |any| -> [[ <number>, ...any ]]
+#'
+#' @details
+#'     \bold{xUnzipIndices} reshapes a collection to allow you to pass
+#'     both the indices and elements to another higher order function.
+#'     For example, if you wanted to double every second value in a collection
+#'     you could use.
+#'
+#'     \code{x_(c(6,5,4)) $ xUnzipIndices() $ x_Mapply((ith : val) := if (ith %% 2 == 0) val^2 else val)}
+#'
+#'     More generally, xUnzipIndices allows you to selectively work on 
+#'     elements based on their position in a collection, which functions like
+#'     \bold{xMap} and \bold{xSelect} otherwise do not support. 
 #'
 #' @param
 #'    coll a collection. The collection to split into index, element pairs.

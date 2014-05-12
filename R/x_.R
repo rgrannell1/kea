@@ -57,7 +57,7 @@ add_x_method <- function (env, fn, fixed) {
 	fn <- match.fun(fn_sym)
 
 	if ( fixed %!in% names(formals(fn)) ) {
-		write_error('not a parametre of ' %+% paste0(fn_sym))
+		stop('not a parametre of ' %+% paste0(fn_sym))
 	}
 
 	# -- all parts of this function will be modified.
@@ -2059,10 +2059,10 @@ get_proto_ref <- local({
 		message <- function (name, contents_are, similar) {
 
 			if (length(similar) == 0) {
-				"could not find the method " %+% dQuote(name) %+%
+				"Could not find the method " %+% dQuote(name) %+%
 				" in the methods available for " %+% contents_are %+% "."
 			} else {
-				"could not find the method " %+% dQuote(name) %+%
+				"Could not find the method " %+% dQuote(name) %+%
 				" in the methods available for " %+% contents_are %+%
 				":\n" %+%
 				colourise$green("did you mean " %+% sample(similar, size = 1) %+% "?")
@@ -2091,9 +2091,8 @@ get_proto_ref <- local({
 				character(0)
 			}
 
-			write_error(
-				message(method_name, contents_are, similar),
-				call. = False)
+			throw_arrow_error(
+				message = message(method_name, contents_are, similar))
 		}
 	})
 

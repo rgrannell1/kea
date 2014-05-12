@@ -2,8 +2,6 @@
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
 
-write_error <- arrow:::write_error
-
 require(arrow)
 
 message('Arrow Files')

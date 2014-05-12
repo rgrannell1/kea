@@ -6,6 +6,12 @@
 #' @section Type Signature:
 #'    |numeric| -> ||any|| -> |any|
 #'
+#' @details
+#'     If \bold{xAt} behaves like \bold{coll[[ith,]]} then 
+#'     \bold{xAtCol} is its counterpart, coll[[,ith]]. Tabular
+#'     data can be encoded as a list of row-lists, and it is 
+#'     to be able to select this data "by-columns".
+#'
 #' @param
 #'     num a whole number. The number of the column to select.
 #'
@@ -18,6 +24,11 @@
 #'
 #' @return
 #'    A list.
+#'
+#' @section Corner Cases:
+#'    If cols is length-zero the empty list is returned. \bold{xAtCol}
+#'    can operate on lists of mixed-length collections, if the smallest
+#'    collection has length equal to or longer than \bold{num}.s
 #'
 #' @template
 #'    Variadic
@@ -37,6 +48,8 @@ xAtCol <- MakeFun(function (num, colls) {
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(colls) )
+
+	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	if (length(colls) == 0) {
 		list()

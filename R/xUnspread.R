@@ -12,6 +12,9 @@
 #'     passed to the first parametre of the underlying function,
 #'     the second element to the second parametre, and so on.
 #'
+#'     \bold{xUnspread} adapts a multi-parametre function to work 
+#'     as a unary function; for example in functions like \bold{xMap}.
+#'
 #' @param
 #'     fn an arbitrary function. The function to be
 #'     converted to a function that takes a single collection.

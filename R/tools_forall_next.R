@@ -10,8 +10,6 @@
 # fails(expr, [str]):            add a single function to test for expected failure.
 # failsWhen(expr, expr, [str]):  add a single function to test for expected failure, over a limited domain.
 
-# select(expr):                  select a subset of the stream.
-
 # chain with '|': it('this is a test') | over(x, y) | go()
 #
 
@@ -32,22 +30,27 @@ over <- function (...) {
 
 	stopifnot( vapply(symbols, is.name, logical(1)) )
 
-	params <- vapply(symbols, as.character, character(1))
+	params <- vapply(symbols, toString, character(1))
 
-	out <- list(
-
-	)
+	out <- list(params = params)
 }
 
 # -- test properties (+ controls)
 
-when <- function () {
+when <- function (expr1, expr2) {
+	
+	exprs <- as.list(match.call()[-1])
+
+	out <- list(
+		condition = exprs[[1]],
+		expectation = exprs[[2]]
+	)
 
 }
 
 # -- test failures (- controls)
 
-fails <- function () {
+fails <- function (expr) {
 
 }
 
@@ -55,7 +58,9 @@ failsWhen <- function () {
 
 }
 
-
+run <- function (time = 0.15) {
+	
+}
 
 
 

@@ -95,21 +95,26 @@ throw_arrow_error <- function (invoking_call, message) {
 
 	# -- stringify the call, get the function name.
 	# -- get the function foo, and the stringified call foo(baz, bar, ...)
-	components <- get_call_components(invoking_call)
 
-	callname <- components$invoking
-	calltext <- components$calltext
+	if (!missing(invoking_call)) {
+		components <- get_call_components(invoking_call)
 
-	# -- just in case
-	callname <- paste0(callname, collapse = '')
-	calltext <- wrap(calltext, indent = 0)
+		callname <- components$invoking
+		calltext <- components$calltext
 
-	# -- these few lines dicate how an arrow error message will be formatted
+		# -- just in case
+		callname <- paste0(callname, collapse = '')
+		calltext <- wrap(calltext, indent = 0)
 
-	final_message <-
-	"\n" %+% message %+%
-	"\nThrown from " %+% callname %+% "\n" %+%
-	"In the call " %+% calltext
+		# -- these few lines dicate how an arrow error message will be formatted
+
+		final_message <-
+		"\n" %+% message %+%
+		"\nThrown from " %+% callname %+% "\n" %+%
+		"In the call " %+% calltext
+	} else {
+		final_message <- "\n" %+% message
+	}
 
 	# -- tput as red (if possible) and report the error.
 
