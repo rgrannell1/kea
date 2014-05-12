@@ -105,7 +105,6 @@ throw_arrow_error <- function (invoking_call, message) {
 	calltext <- wrap(calltext, indent = 0)
 
 	# -- these few lines dicate how an arrow error message will be formatted
-	# -- rewrite with string interpolation.
 
 	final_message <-
 	"\n" %+% message %+%
@@ -134,18 +133,15 @@ throw_arrow_warning <- function (invoking_call, message) {
 
 	# -- these few lines dicate how an arrow error message will be formatted
 
-	overview <-
-	'\n[ warning thrown from ' %+% callname %+% ' ]:\n\n'
 
 	final_message <-
-		overview %+%
-		calltext %+% '\n\n' %+%
-		'[ details ]:\n\n' %+%
-		message
+	"\n" %+% message %+%
+	"\nThrown from " %+% callname %+% "\n" %+%
+	"In the call " %+% calltext
 
 	# -- tput as red (if possible) and report the error.
 
-	stop(colourise$yellow(final_message), call. = False)
+	warning(colourise$yellow(final_message), call. = False)
 
 }
 # -------------------------------------------------------------------------
@@ -166,7 +162,7 @@ try_read <- local({
 					paste0(warn$message, collapse = '')
 
 				overview <-
-				"a warning occurred while reading from the path " %+% dQuote(path) %+% ":\n\n"
+				"A warning occurred while reading from the path " %+% dQuote(path) %+% ":\n\n"
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
 
@@ -188,7 +184,7 @@ try_read <- local({
 					paste0(err$message, collapse = '')
 
 				overview <-
-				"an error occurred while reading from the path " %+% dQuote(path) %+% "\n\n"
+				"An error occurred while reading from the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(err$call) %+% ':\n\n'
 
@@ -220,7 +216,7 @@ try_write <- local({
 
 				# -- this must be changed when the error style is changed.
 				overview <-
-				"a warning occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
+				"A warning occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
 
@@ -243,7 +239,7 @@ try_write <- local({
 
 				# -- this must be changed when the error style is changed.
 				overview <-
-				"an error occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
+				"An error occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(err$call) %+% ':\n\n'
 

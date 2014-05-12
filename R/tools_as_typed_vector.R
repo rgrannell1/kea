@@ -67,6 +67,7 @@ as_typed_vector <- local({
 
 	function (coll, mode) {
 
+		# -- important! this captures the invoking call.
 		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
@@ -83,10 +84,20 @@ as_typed_vector <- local({
 
 					coll_sym <- match.call()$coll
 
+					message <- "the collection " %+% dQuote(coll_sym) %+%
+						"must be a collection of values of type " %+% mode %+% "."
+
+					if (any(class(coll) == 'arrow')) {
+						message <- message %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate(coll)
+					} else {
+						message <- message %+% summate(coll)
+					}
+
 					throw_arrow_error(
-						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-						"must be a collection of values of type " %+% mode %+%
-						summate(coll))
+						invoking_call, message)
 				}
 
 				coll
@@ -95,10 +106,20 @@ as_typed_vector <- local({
 
 				coll_sym <- match.call()$coll
 
+				message <- "the collection " %+% dQuote(coll_sym) %+%
+					"must be a collection of values of type " %+% mode %+% "."
+
+				if (any(class(coll) == 'arrow')) {
+					message <- message %+%
+						"The argument was of class " %+% dQuote("arrow") %+%
+						". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+						summate(coll)
+				} else {
+					message <- message %+% summate(coll)
+				}
+
 				throw_arrow_error(
-					invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-					"must be a collection of values of type " %+% mode %+% "." %+%
-					summate(coll))
+					invoking_call, message)
 			}
 
 			coll
@@ -125,10 +146,20 @@ as_typed_vector <- local({
 
 					coll_sym <- match.call()$coll
 
+					message <- "the collection " %+% dQuote(coll_sym) %+%
+						"must be a collection of values of type " %+% mode %+% "."
+
+					if (any(class(coll) == 'arrow')) {
+						message <- message %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate(coll)
+					} else {
+						message <- message %+% summate(coll)
+					}
+
 					throw_arrow_error(
-						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-						" must be a collection of values of type " %+% mode %+% "." %+%
-						summate(coll))
+						invoking_call, message)
 				}
 			}
 
@@ -163,6 +194,7 @@ as_atom <- local({
 
 	function (coll, mode) {
 
+		# -- important! this captures the invoking call.
 		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
@@ -188,10 +220,20 @@ as_atom <- local({
 
 					coll_sym <- match.call()$coll
 
+					message <- "the collection " %+% dQuote(coll_sym) %+%
+						"must be a collection of values of type " %+% mode %+% "."
+
+					if (any(class(coll) == 'arrow')) {
+						message <- message %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate(coll)
+					} else {
+						message <- message %+% summate(coll)
+					}
+
 					throw_arrow_error(
-						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-						 "must be a collection of values of type " %+% mode %+%
-						summate(coll))
+						invoking_call, message)
 				}
 
 				coll
@@ -200,10 +242,20 @@ as_atom <- local({
 
 				coll_sym <- match.call()$coll
 
+				message <- "the collection " %+% dQuote(coll_sym) %+%
+					"must be a collection of values of type " %+% mode %+% "."
+
+				if (any(class(coll) == 'arrow')) {
+					message <- message %+%
+						"The argument was of class " %+% dQuote("arrow") %+%
+						". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+						summate(coll)
+				} else {
+					message <- message %+% summate(coll)
+				}
+
 				throw_arrow_error(
-					invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-					" must be a collection of values of type " %+% mode %+% "." %+%
-					summate(coll))
+					invoking_call, message)
 			}
 
 			coll
@@ -227,10 +279,20 @@ as_atom <- local({
 
 					coll_sym <- match.call()$coll
 
+				message <- "the collection " %+% dQuote(coll_sym) %+%
+						"must be a collection of values of type " %+% mode %+% "."
+
+					if (any(class(coll) == 'arrow')) {
+						message <- message %+%
+							"The argument was of class " %+% dQuote("arrow") %+%
+							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							summate(coll)
+					} else {
+						message <- message %+% summate(coll)
+					}
+
 					throw_arrow_error(
-						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-						" must be a collection of values of type " %+% mode %+% "." %+%
-						summate(coll))
+						invoking_call, message)
 				}
 			}
 
