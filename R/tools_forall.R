@@ -826,14 +826,14 @@ forall <- local({
 
 			message <- info %+% "\ncases must not be null."
 
-			throw_arrow_error(message, invoking_call)
+			throw_arrow_error(invoking_call, message)
 		}
 
 		if (!all( vapply(cases, is.function, logical(1)) )) {
 
 			message <- info %+% "\ncases must be a list of functions."
 
-			throw_arrow_error(message, invoking_call)
+			throw_arrow_error(invoking_call, message)
 		}
 
 		# ----- capture the expect and given expressions as functions
@@ -880,13 +880,13 @@ forall <- local({
 					message <- info %+% "\nnon-length one value returned to forall: actual length was" %+%
 					length(result)
 
-					throw_arrow_error(message, invoking_call)
+					throw_arrow_error(invoking_call, message)
 				}
 
 				if (result %!in% c(True, False)) {
 					message <- info %+% 'non boolean result returned by forall.'
 
-					throw_arrow_error(message, invoking_call)
+					throw_arrow_error(invoking_call, message)
 				}
 
 				if (!result) {
@@ -912,7 +912,7 @@ forall <- local({
 			message <- info %+% "\nfailed after the " %+%
 				ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
 
-			throw_arrow_error(message, invoking_call)
+			throw_arrow_error(invoking_call, message)
 		}
 
 		message(info, " passed!", " (", state$tests_run, ")")

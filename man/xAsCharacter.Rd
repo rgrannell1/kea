@@ -30,6 +30,13 @@ Convert a collection of characters to a character vector.
 
     |character| -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+    xAsCharacter will throw an error if its input is
+    not a collection of characters. All length-zero collections
+    can be converted to character.
+}
 \examples{
 
 # 1.

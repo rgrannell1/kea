@@ -191,5 +191,6 @@ Collate:
     'xIsMatch.R'
     'xNotMatch.R'
     'xNotSubset.R'
+    'xIsNot.R'
     'x_.R'
     'x..R'

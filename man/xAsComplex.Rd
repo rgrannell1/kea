@@ -28,6 +28,13 @@ Convert a collection of complex values to a complex vector.
 
     |complex| -> &lt;complex>
 }
+
+\section{Corner Cases}{
+
+    xAsComplex will throw an error if its input is
+    not a collection of complex numbers. All length-zero collections
+    can be converted to complex.
+}
 \examples{
 
 NULL
