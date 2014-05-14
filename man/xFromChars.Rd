@@ -34,10 +34,7 @@ Concatentate a character vector with empty strs as delimiters.
 
 x_('the letter e is overrated') $
 xToChars() $
-xReject(
-	char := {
-		char == 'e'
-}) $
+xReject(x. == 'e') $
 x_FromChars()
 }
 \seealso{

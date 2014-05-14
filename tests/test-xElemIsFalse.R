@@ -11,3 +11,10 @@ message('xElemIsFalse')
 		test_cases$collection_zero,
 		xElemIsFalse(list()) %equals% logical(0)
 	)
+
+	forall(
+		"elemnotnull of null is false",
+		list(),
+		xElemIsFalse(False) == True
+	)
+	

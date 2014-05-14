@@ -6,6 +6,12 @@
 #' @section Type Signature:
 #'     |character| -> |character| -> &lt;logical>
 #'
+#' @details
+#'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in 
+#'     base R.
+#'
+#'
+#'
 #' @param
 #'    rexp a string. The regular expression to test against a string.
 #'

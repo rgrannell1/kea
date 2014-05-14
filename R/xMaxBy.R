@@ -4,7 +4,7 @@
 #' Get the largest value in a collection according to a measure function.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;number>) -> |any| -> [any]
+#'     (any -> &lt;number>) -> |any| -> any
 #'
 #' @param
 #'     fn a unary function. The function to measure the size of

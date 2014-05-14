@@ -4,16 +4,16 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-message("xRejectNa")
+message("xRejectNan")
 
 	forall(
 		"removena of the empty collection is list()",
 		test_cases$collection_zero,
-		xRejectNa(coll) %equals% list()
+		xRejectNan(coll) %equals% list()
 	)
 
 	forall(
-		"rejecting a list of nas is the empty list",
+		"rejecting a list of nans is the empty list",
 		test_cases$num_positive_integer,
-		xRejectNa(rep(list(NA), num)) %equals% list()
+		xRejectNan(rep(list(NaN), num)) %equals% list()
 	)

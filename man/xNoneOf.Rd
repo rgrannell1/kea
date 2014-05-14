@@ -29,7 +29,7 @@ Is a predicate true for none elements of a collection?
 
 \section{Corner Cases}{
 
-   If coll is length zero then logical(0) is returned.
+   If coll is length zero then logical(0) is returned. Na is treated as False.
 }
 \examples{
 

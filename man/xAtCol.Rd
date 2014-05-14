@@ -22,9 +22,22 @@ A list.
 \description{
 Select a column of values from a collection of rows.
 }
+\details{
+If \bold{xAt} behaves like \bold{coll[[ith,]]} then
+    \bold{xAtCol} is its counterpart, coll[[,ith]]. Tabular
+    data can be encoded as a list of row-lists, and it is
+    to be able to select this data "by-columns".
+}
 \section{Type Signature}{
 
    |numeric| -> ||any|| -> |any|
+}
+
+\section{Corner Cases}{
+
+   If cols is length-zero the empty list is returned. \bold{xAtCol}
+   can operate on lists of mixed-length collections, if the smallest
+   collection has length equal to or longer than \bold{num}.s
 }
 \examples{
 

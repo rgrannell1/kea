@@ -4,7 +4,7 @@
 #' Transpose a collection of collections.
 #'
 #' @section Type Signature:
-#'     ||any|| -> ||any||
+#'     |any| -> |any|
 #'
 #' @details
 #'    \bold{xZip} converts the 'columns' of a collection of
@@ -61,21 +61,27 @@ xZip <- MakeFun(function (colls) {
 	MACRO( Must $ Not_Be_Missing(colls) )
 	MACRO( Must $ Be_Collection(colls) )
 
-	if (length(colls) == 0 || length(colls)[[1]] == 0) {
+	if (length(colls) == 0) {
 		list()
 	} else {
 
 		MACRO( Must $ Be_Collection_Of_Collections(colls) )
 		MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )
 
-		lapply(
-			seq_along( colls[[1]] ),
-			function (ith_elem) {
+		if (length( colls[[1]] ) == 0) {
+			# -- this might by an incorrect corner case.
+			list()
+		} else {
 
-				lapply( colls, function (coll) {
-					coll[[ith_elem]]
-				})
-		})
+			lapply(
+				seq_along( colls[[1]] ),
+				function (ith_elem) {
+
+					lapply( colls, function (coll) {
+						coll[[ith_elem]]
+					})
+			})
+		}
 	}
 })
 

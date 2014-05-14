@@ -4,7 +4,7 @@
 Arrow 0.9.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
-> *'The enjoyment of one's tools is an essential ingredient of successful work.'* -- Donald E. Knuth
+> *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
 Arrow makes R the functional language it was always meant to be.
 

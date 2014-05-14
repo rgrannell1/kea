@@ -17,7 +17,14 @@ xUnzipIndices_(...)
 A named list.
 }
 \description{
-Split a named collection into a list of name: value list pairs.
+Split a collection into a list of index: value pairs
+}
+\details{
+\bold{xUnzipIndices} reshapes a collection to allow you to pass
+    both the indices and elements to another higher order function.
+    More generally, \bold{xUnzipIndices} allows you to selectively work on
+    elements based on their position in a collection, which functions like
+    \bold{xMap} and \bold{xSelect} otherwise do not support.
 }
 \section{Type Signature}{
 

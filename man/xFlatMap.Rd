@@ -52,7 +52,6 @@ to each element of a collection.
 }
 \examples{
 
-
 # 1. HR Functional Programming
 #    Given an input list repeat each element n times
 

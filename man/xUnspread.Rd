@@ -21,6 +21,9 @@ Convert any function to a unary function.
     has one argument. The first element of the argument is
     passed to the first parametre of the underlying function,
     the second element to the second parametre, and so on.
+
+    \bold{xUnspread} adapts a multi-parametre function to work
+    as a unary function; for example in functions like \bold{xMap}.
 }
 \section{Type Signature}{
 

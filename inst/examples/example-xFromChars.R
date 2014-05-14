@@ -5,8 +5,5 @@
 
 x_('the letter e is overrated') $
 xToChars() $
-xReject(
-	char := {
-		char == 'e'
-}) $
+xReject(x. == 'e') $
 x_FromChars()

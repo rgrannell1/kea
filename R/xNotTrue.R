@@ -8,7 +8,7 @@
 #'
 #' @param
 #'    val an arbitrary value. The value to test for
-#'    not-truth.
+#'    non-truth.
 #'
 #' @param
 #'    ... see above.

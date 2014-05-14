@@ -177,8 +177,6 @@ xReject(word := {
 
 
 
-
-
 methods <-
 	x_(xReadLines('/home/ryan/Code/arrow.R/NAMESPACE')) $
 	xSelect(line := {

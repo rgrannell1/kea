@@ -7,7 +7,7 @@ xNotTrue(val)
 }
 \arguments{
 \item{val}{an arbitrary value. The value to test for
-   not-truth.}
+   non-truth.}
 
 \item{...}{see above.}
 }

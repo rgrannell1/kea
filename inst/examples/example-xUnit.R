@@ -21,4 +21,9 @@ reverse <- coll := {
 }
 
 reverse(1:4)
+
 # c(4, 3, 2, 1)
+
+reverse(integer(0))
+
+# integer(0)

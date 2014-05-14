@@ -23,6 +23,7 @@ ME,81,12,1,2500
 "
 x_(raw_cocaine_seizure_data) $ xToLines () $
 xMap(row := {
+	# -- de-delimit each row, and type convert the numeric entries.
 	row <- xExplode(',', row )
 
 	xJoin_( xFirstOf(row), as.double(xRestOf(row)) )

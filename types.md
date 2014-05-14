@@ -8,7 +8,7 @@ including for atomic values.
 * **[any] or []**: a list
 * **{any} or {}**: a pairlist
 * **|any| or ||**: a collection
-* **\<any\> or <>**: a vector
+* **\<any\> or \<\>**: a vector
 
 ## Functions
 

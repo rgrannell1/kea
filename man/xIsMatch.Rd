@@ -18,6 +18,10 @@ A logical value.
 \description{
 Test if a string matches a regular expression.
 }
+\details{
+\bold{xIsMatch} is roughly equivalent to \bold{grep} in
+    base R.
+}
 \section{Type Signature}{
 
     |character| -> |character| -> &lt;logical>
