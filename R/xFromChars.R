@@ -4,7 +4,7 @@
 #' @section Type Signature:
 #'     |character| -> &lt;character>
 #'
-#' Concatentate a character vector with empty strs as delimiters.
+#' Concatentate a character vector with no delimiter.
 #'
 #' @param
 #'    strs a collection of strings. The
@@ -20,7 +20,6 @@
 #'
 #' @template
 #'    Variadic
-#'
 #'
 #' @example
 #'    inst/examples/example-xFromChars.R

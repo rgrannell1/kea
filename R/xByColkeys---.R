@@ -4,15 +4,13 @@
 #' Convert a matrix or data.frame to a collection of column names.
 #'
 #' @details
-#'     \bold{xByColkeys}.
-#'
-#'
+#'     \bold{xByColkeys} returns the column names of a data frame or matrix.
 #'
 #' @usage
 #'      x_(  ) $ xByColkeys()
 #'
 #' @return
-#'      An arrow containing a list of strings.
+#'      An arrow containing a character vector.
 #'
 #' @family methods
 #'

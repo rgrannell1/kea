@@ -633,11 +633,11 @@ x_data_frame_proto <- local({
 	# --- xByColkeys --- #
 	this$xByColkeys <-
 		function () {
-			x_( as.list( colnames(Self()) ) )
+			x_( colnames(Self()) )
 		}
 	this$x_ByColkeys <-
 		function () {
-			as.list( colnames(Self()) )
+			colnames(Self())
 		}
 
 	# --- xByRowkeys --- #
@@ -672,11 +672,11 @@ x_data_frame_proto <- local({
 
 	this$xByRowkeys <-
 		function () {
-			x_( as.list( rownames(Self()) ) )
+			x_( rownames(Self()) )
 		}
 	this$x_ByRowkeys <-
 		function () {
-			as.list( rownames(Self()) )
+			rownames(Self())
 		}
 
 	# -------- C ------- #
