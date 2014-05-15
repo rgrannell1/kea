@@ -43,12 +43,7 @@ NULL
 
 }
 \seealso{
-Other filtering_functions: \code{\link{xPack}},
-  \code{\link{xPack_}}, \code{\link{xRejectEmpty}},
-  \code{\link{xRejectEmpty_}}; \code{\link{xRejectNan}},
-  \code{\link{xRejectNan_}}; \code{\link{xRejectNa}},
-  \code{\link{xRejectNa_}}; \code{\link{xRejectNull}},
-  \code{\link{xRejectNull_}}; \code{\link{xReject}},
+Other filtering_functions: \code{\link{xReject}},
   \code{\link{xReject_}}; \code{\link{xSelect}},
   \code{\link{xSelect_}}
 }

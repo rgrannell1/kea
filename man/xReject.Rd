@@ -91,13 +91,8 @@ elems_smaller_than(10, c(1, 8, 10, 11, 100))
 # c(1, 8, 10)
 }
 \seealso{
-Other filtering_functions: \code{\link{xPack}},
-  \code{\link{xPack_}}, \code{\link{xRejectEmpty}},
-  \code{\link{xRejectEmpty_}}; \code{\link{xPartition}},
-  \code{\link{xPartition_}}; \code{\link{xRejectNan}},
-  \code{\link{xRejectNan_}}; \code{\link{xRejectNa}},
-  \code{\link{xRejectNa_}}; \code{\link{xRejectNull}},
-  \code{\link{xRejectNull_}}; \code{\link{xSelect}},
+Other filtering_functions: \code{\link{xPartition}},
+  \code{\link{xPartition_}}; \code{\link{xSelect}},
   \code{\link{xSelect_}}
 }
 

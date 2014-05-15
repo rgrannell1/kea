@@ -1270,11 +1270,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_OrderOf_, '...')
 
 	# -------- P ------- #
-	# --- xPack --- #
-	add_x_method(this, xPack, 'coll')
-	add_x_method(this, xPack_, '...')
-	add_x_method(this, x_Pack, 'coll')
-	add_x_method(this, x_Pack_, '...')
 
 	# --- xPoll --- #
 	add_x_method(this, xPoll, 'coll')
@@ -1363,30 +1358,6 @@ x_coll_proto <- local({
 	add_x_method(this, xReverse_, '...')
 	add_x_method(this, x_Reverse, 'coll')
 	add_x_method(this, x_Reverse_, '...')
-
-	# --- xRejectNa --- #
-	add_x_method(this, xRejectNa, 'coll')
-	add_x_method(this, xRejectNa_, '...')
-	add_x_method(this, x_RejectNa, 'coll')
-	add_x_method(this, x_RejectNa_, '...')
-
-	# --- xRejectNan --- #
-	add_x_method(this, xRejectNan, 'coll')
-	add_x_method(this, xRejectNan_, '...')
-	add_x_method(this, x_RejectNan, 'coll')
-	add_x_method(this, x_RejectNan_, '...')
-
-	# --- xRejectNull --- #
-	add_x_method(this, xRejectNull, 'coll')
-	add_x_method(this, xRejectNull_, '...')
-	add_x_method(this, x_RejectNull, 'coll')
-	add_x_method(this, x_RejectNull_, '...')
-
-	# --- xRejectEmpty --- #
-	add_x_method(this, xRejectEmpty, 'coll')
-	add_x_method(this, xRejectEmpty_, '...')
-	add_x_method(this, x_RejectEmpty, 'coll')
-	add_x_method(this, x_RejectEmpty_, '...')
 
 	# --- xReadLines --- #
 	add_x_method(this, xReadLines, 'str')
