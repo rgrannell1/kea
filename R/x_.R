@@ -2019,8 +2019,6 @@ get_proto_ref <- local({
 		}
 	})
 
-
-
 	function (obj, method) {
 		# Arrow a -> symbol -> function
 		# return an arrow method associated with the type a.

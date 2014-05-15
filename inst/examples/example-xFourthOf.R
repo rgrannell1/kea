@@ -4,3 +4,5 @@
 xFourthOf(letters)
 
 # 'd'
+
+x_(letters) $ xFourthOf()

@@ -14,7 +14,7 @@
 #'    strs a character vector. Lines to write to a file.
 #'
 #' @return
-#'    A character vector, with one or more elements.
+#'    Null, as this is a purely side-effectful function.
 #'
 #' @family text_processing_functions
 #'
