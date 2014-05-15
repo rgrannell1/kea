@@ -487,15 +487,7 @@ sd_section(
 		"xNotNa",
 		"xNotNull",
 		"xNotTrue",
-		"xElemIsFalse",
-		"xElemIsNa",
-		"xElemIsNan",
-		"xElemIsNull",
-		"xElemIsTrue",
-		"xElemNotFalse",
-		"xElemNotNa",
-		"xElemNotNan",
-		"xElemNotNull",
-		"xElemNotTrue"
+		"xElemIs",
+		"xElemNot"
 	)
 )

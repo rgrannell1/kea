@@ -1076,35 +1076,17 @@ x_coll_proto <- local({
 	add_x_method(this, x_InitOf, 'coll')
 	add_x_method(this, x_InitOf_, '...')
 
-	# --- xElemIsFalse --- #
-	add_x_method(this, xElemIsFalse, 'coll')
-	add_x_method(this, xElemIsFalse_, '...')
-	add_x_method(this, x_ElemIsFalse, 'coll')
-	add_x_method(this, x_ElemIsFalse_, '...')
+	# --- xElemIs
+	add_x_method(this, xElemIs, 'coll')
+	add_x_method(this, xElemIs_, '...')
+	add_x_method(this, x_ElemIs, 'coll')
+	add_x_method(this, x_ElemIs_, '...')
 
-	# --- xElemIsTrue --- #
-	add_x_method(this, xElemIsTrue, 'coll')
-	add_x_method(this, xElemIsTrue_, '...')
-	add_x_method(this, x_ElemIsTrue, 'coll')
-	add_x_method(this, x_ElemIsTrue_, '...')
-
-	# --- xElemIsNan --- #
-	add_x_method(this, xElemIsNan, 'coll')
-	add_x_method(this, xElemIsNan_, '...')
-	add_x_method(this, x_ElemIsNan, 'coll')
-	add_x_method(this, x_ElemIsNan_, '...')
-
-	# --- xElemIsNa --- #
-	add_x_method(this, xElemIsNa, 'coll')
-	add_x_method(this, xElemIsNa_, '...')
-	add_x_method(this, x_ElemIsNa, 'coll')
-	add_x_method(this, x_ElemIsNa_, '...')
-
-	# --- xElemIsNull --- #
-	add_x_method(this, xElemIsNull, 'coll')
-	add_x_method(this, xElemIsNull_, '...')
-	add_x_method(this, x_ElemIsNull, 'coll')
-	add_x_method(this, x_ElemIsNull_, '...')
+	# --- xElemNot
+	add_x_method(this, xElemNot, 'coll')
+	add_x_method(this, xElemNot_, '...')
+	add_x_method(this, x_ElemNot, 'coll')
+	add_x_method(this, x_ElemNot_, '...')
 
 	# --- xIsMatch --- #
 	add_x_method(this, xIsMatch, 'str')
@@ -1115,8 +1097,8 @@ x_coll_proto <- local({
 	add_x_method(this, x_Iterate, 'val')
 	add_x_method(this, xIs, 'val1')
 	add_x_method(this, x_Is, 'val1')
-	add_x_method(this, xIsNot, 'val1')
-	add_x_method(this, x_IsNot, 'val1')
+	add_x_method(this, xNot, 'val1')
+	add_x_method(this, x_Not, 'val1')
 
 	# --- xInter --- #
 	add_x_method(this, xInter, 'colls')
@@ -1225,36 +1207,6 @@ x_coll_proto <- local({
 	add_x_method(this, xNotEmpty_, '...')
 	add_x_method(this, x_NotEmpty, 'coll')
 	add_x_method(this, x_NotEmpty_, '...')
-
-	# --- xElemNotFalse --- #
-	add_x_method(this, xElemNotFalse, 'coll')
-	add_x_method(this, xElemNotFalse_, '...')
-	add_x_method(this, x_ElemNotFalse, 'coll')
-	add_x_method(this, x_ElemNotFalse_, '...')
-
-	# --- xElemNotTrue --- #
-	add_x_method(this, xElemNotTrue, 'coll')
-	add_x_method(this, xElemNotTrue_, '...')
-	add_x_method(this, x_ElemNotTrue, 'coll')
-	add_x_method(this, x_ElemNotTrue_, '...')
-
-	# --- xElemNotNa --- #
-	add_x_method(this, xElemNotNa, 'coll')
-	add_x_method(this, xElemNotNa_, '...')
-	add_x_method(this, x_ElemNotNa, 'coll')
-	add_x_method(this, x_ElemNotNa_, '...')
-
-	# --- xElemNotNan --- #
-	add_x_method(this, xElemNotNan, 'coll')
-	add_x_method(this, xElemNotNan_, '...')
-	add_x_method(this, x_ElemNotNan, 'coll')
-	add_x_method(this, x_ElemNotNan_, '...')
-
-	# --- xElemNotNull --- #
-	add_x_method(this, xElemNotNull, 'coll')
-	add_x_method(this, xElemNotNull_, '...')
-	add_x_method(this, x_ElemNotNull, 'coll')
-	add_x_method(this, x_ElemNotNull_, '...')
 
 	# -------- O ------- #
 	# --- xOneOf --- #

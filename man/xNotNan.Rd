@@ -33,23 +33,15 @@ Is an value not nan?
 NULL
 }
 \seealso{
-Other value_testing_functions: \code{\link{xElemIsFalse}},
-  \code{\link{xElemIsFalse_}}; \code{\link{xElemIsNan}},
-  \code{\link{xElemIsNan_}}; \code{\link{xElemIsNa}},
-  \code{\link{xElemIsNa_}}; \code{\link{xElemIsNull}},
-  \code{\link{xElemIsNull_}}; \code{\link{xElemIsTrue}},
-  \code{\link{xElemIsTrue_}}; \code{\link{xElemNotFalse}},
-  \code{\link{xElemNotFalse_}}; \code{\link{xElemNotNan}},
-  \code{\link{xElemNotNan_}}; \code{\link{xElemNotNa}},
-  \code{\link{xElemNotNa_}}; \code{\link{xElemNotNull}},
-  \code{\link{xElemNotNull_}}; \code{\link{xElemNotTrue}},
-  \code{\link{xElemNotTrue_}}; \code{\link{xIsEmpty}},
+Other value_testing_functions: \code{\link{xElemIs}},
+  \code{\link{xElemIs_}}; \code{\link{xElemNot}},
+  \code{\link{xElemNot_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsFalse}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
-  \code{\link{xIsNot}}; \code{\link{xIsNull}};
-  \code{\link{xIsTrue}}; \code{\link{xIs}};
-  \code{\link{xNotEmpty}}, \code{\link{xNotEmpty_}};
-  \code{\link{xNotFalse}}; \code{\link{xNotNa}};
-  \code{\link{xNotNull}}; \code{\link{xNotTrue}}
+  \code{\link{xIsNull}}; \code{\link{xIsTrue}};
+  \code{\link{xIs}}; \code{\link{xNotEmpty}},
+  \code{\link{xNotEmpty_}}; \code{\link{xNotFalse}};
+  \code{\link{xNotNa}}; \code{\link{xNotNull}};
+  \code{\link{xNotTrue}}; \code{\link{xNot}}
 }
 
