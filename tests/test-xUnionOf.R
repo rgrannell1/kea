@@ -15,5 +15,5 @@ message("xUnionOf")
 	forall(
 		"the union of two equals sets is the first set",
 		test_cases$collection,
-		xUnionOf_(unique(coll), unique(coll)) %equals% unique(coll)
+		xUnionOf_(unique(coll), unique(coll)) %equals% as.list(unique(coll))
 	)
