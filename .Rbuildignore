@@ -24,5 +24,7 @@ inst/vignettes/arrow.Rnw
 .Rhistory
 .gitignore
 .Rproj.user
+
 .git
 .travis.yml
+.babelignore
