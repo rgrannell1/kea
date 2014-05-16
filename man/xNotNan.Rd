@@ -30,6 +30,12 @@ Is an value not nan?
 }
 \examples{
 
+# 1. The most obvious example.
+
+xNotNan(NaN)
+
+# False
+
 NULL
 }
 \seealso{

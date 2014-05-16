@@ -29,7 +29,11 @@ Is an value null?
 }
 \examples{
 
-NULL
+# 1. The obvious example
+
+xIsNull(Null)
+
+# True
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemIs}},

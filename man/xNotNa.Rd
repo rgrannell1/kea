@@ -30,7 +30,11 @@ Is an value not na?
 }
 \examples{
 
-NULL
+# 1. The obvious example
+
+xNotNa(Na)
+
+# False
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemIs}},

@@ -24,7 +24,7 @@ xFromChars
 
     |character| -> &lt;character>
 
-Concatentate a character vector with empty strs as delimiters.
+Concatentate a character vector with no delimiter.
 }
 \examples{
 

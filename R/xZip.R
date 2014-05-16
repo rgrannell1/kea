@@ -4,7 +4,7 @@
 #' Transpose a collection of collections.
 #'
 #' @section Type Signature:
-#'     |any| -> |any|
+#'     ||any|| -> ||any||
 #'
 #' @details
 #'    \bold{xZip} converts the 'columns' of a collection of

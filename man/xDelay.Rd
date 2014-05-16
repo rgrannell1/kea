@@ -39,7 +39,6 @@ for a set amount of time.
 \examples{
 
 NULL
-
 }
 \seealso{
 Other function_modifying_functions: \code{\link{\%and\%}},

@@ -31,7 +31,7 @@ Convert a collection of raw values to a raw vector.
 }
 \examples{
 
-NULL
+# 1. convert a raw vector to a list
 
 }
 \seealso{

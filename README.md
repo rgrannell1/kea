@@ -1,7 +1,7 @@
 
 <img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/logo.png" width="200"></img>
 
-Arrow 0.9.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+Arrow 0.10.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*

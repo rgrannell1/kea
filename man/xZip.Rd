@@ -47,7 +47,7 @@ Transpose a collection of collections.
 }
 \section{Type Signature}{
 
-    |any| -> |any|
+    ||any|| -> ||any||
 }
 
 \section{Corner Cases}{

@@ -26,8 +26,6 @@ Concatentate a character vector with newlines as delimiters.
 }
 \examples{
 
-NULL
-
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}};

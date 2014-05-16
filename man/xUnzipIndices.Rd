@@ -37,7 +37,11 @@ Split a collection into a list of index: value pairs
 }
 \examples{
 
-NULL
+# 1. enumerate the letters with their indices.
+
+x_(letters) $ xUnzipIndices() $ xMapply((ith : val) := {
+	xFromWords_('the ', ith, ' letter is ', val)
+})
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},

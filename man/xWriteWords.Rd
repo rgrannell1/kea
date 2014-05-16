@@ -12,7 +12,7 @@ xWriteWords(str, strs)
 \item{strs}{a character vector. Lines to write to a file.}
 }
 \value{
-A character vector, with one or more elements.
+Null, as this is a purely side-effectful function.
 }
 \description{
 Export a collection of strings as a single line in a file.

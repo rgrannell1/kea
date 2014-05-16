@@ -1,4 +1,62 @@
 
+Arrow 0.10.0
+------------------------------------------------------------------------------
+Date: 2014-5-16
+
+Removes the xElemIs*, xElemNot* and xReject* family of functions,
+replacing them with the more generix xElemIs and xElemNot.
+
+Enhancements:
+
+* Added xElemIs and xElemNot. These functions test each element of a
+collection for equality to a value.
+
+* Renamed xIsNot to xNot, for consistency with the other predicate names
+in Arrow.
+
+* Removed xElemIsFalse, xElemIsNa, xElemIsTrue, xElemNotFalse, xElemNotNa,
+xElemNotTrue, xElemIsNull, xElemIsNan, xElemNotNan, xElemNotNull,
+xRejectNa, xRejectNan, xRejectNull, xRejectEmpty. The rational for this
+is that arrow emphasises compositionality, and each case these functions solve can easily be done with other functions. This reduces the number
+of tests and documentation to be maintained significantly.
+
+Bug-Fixes:
+
+* xByColkeys and xByRowkeys now return character vectors.
+
+Documentation:
+
+* Added large example to xFix.
+
+* Clarified/corrected return values of xWrite* family of functions.
+
+* Corrected type signatures of xMinBy and xMayBy.
+
+* Corrected return value of xByColkeys.
+
+* Clarified xFromChars' description.
+
+* Added minor details to xIsMatch.
+
+* Added example to xByCols and xByRows.
+
+* Added example to xNotNa.
+
+* Added example to xNotNan.
+
+* Removed non-parsing example from xUnzipIndices.
+
+* Added example to xUnzipIndices.
+
+* Extended xUnit's example.
+
+Package Internals:
+
+* Removed unevaluated check for arrow objects in one case
+of as_typed_vector's if condition.
+
+* Added test to xUnionOf.
+
 Arrow 0.9.0
 ------------------------------------------------------------------------------
 Date: 2014-5-12

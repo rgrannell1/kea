@@ -6,13 +6,13 @@
 x_(  ) $ xByColkeys()
 }
 \value{
-An arrow containing a list of strings.
+An arrow containing a character vector.
 }
 \description{
 Convert a matrix or data.frame to a collection of column names.
 }
 \details{
-\bold{xByColkeys}.
+\bold{xByColkeys} returns the column names of a data frame or matrix.
 }
 \seealso{
 Other methods: \code{\link{xByCols}};
