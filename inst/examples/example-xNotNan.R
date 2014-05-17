@@ -4,5 +4,3 @@
 xNotNan(NaN)
 
 # False
-
-NULL

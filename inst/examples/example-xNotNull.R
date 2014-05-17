@@ -1,2 +1,6 @@
 
-NULL
+# 1. An obvious example.
+
+xNotNull(Null)
+
+# False
