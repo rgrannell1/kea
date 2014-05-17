@@ -96,10 +96,6 @@ sd_section(
 	c(
 		"xDropWhile",
 		"xPartition",
-		"xRejectEmpty",
-		"xRejectNan",
-		"xRejectNa",
-		"xRejectNull",
 		"xReject",
 		"xSelect",
 		"xTakeWhile"
@@ -279,6 +275,7 @@ sd_section(
 	c(
 		"xAddKeys",
 		"xPluck",
+		"xUnzipIndices",
 		"xUnzipKeys",
 		"xZipKeys"
 	)
@@ -409,6 +406,7 @@ sd_section(
 		"xIsMember",
 		"xIsSubset",
 		"xNotMember",
+		"xNotSubset",
 		"xUnionOf",
 		"xUniqueOf"
 	)
@@ -475,14 +473,18 @@ sd_section(
 		"</p>"
 	),
 	c(
+		"xIs",
 		"xIsEmpty",
 		"xIsFalse",
+		"xIsMatch",
 		"xIsNa",
 		"xIsNan",
 		"xIsNull",
 		"xIsTrue",
+		"xNot",
 		"xNotEmpty",
 		"xNotFalse",
+		"xNotMatch",
 		"xNotNan",
 		"xNotNa",
 		"xNotNull",

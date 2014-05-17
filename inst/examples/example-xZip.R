@@ -1,4 +1,6 @@
 
+# 1. Working with csv data.
+#
 # seperate a csv of country,median age pairs
 # into a list of countries and ages.
 # this is a nicer format for Arrow to work with

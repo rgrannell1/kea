@@ -11,6 +11,13 @@ An arrow object containing a list of lists.
 \description{
 Convert a matrix or data.frame to a collection of rows.
 }
+\details{
+\bold{xByRows} is the most common way in which data-frames
+    are reformatted for use by arrow. Internally dataframes are
+    represented as lists of lists, and arrow prefers this explicit representation.
+
+    Column names are preserved by \bold{xByRows}.
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
