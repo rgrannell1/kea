@@ -29,7 +29,7 @@ Concatenate several collections into one collection.
 
    Empty collections act as a unit for concatenation;
    concatenating the empty list to another list returns
-   the second list, without modification.
+   the second, without modification.
 }
 \examples{
 

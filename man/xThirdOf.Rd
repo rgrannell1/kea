@@ -33,6 +33,8 @@ Return the third value in a collection.
 }
 \examples{
 
+# 1. A simple example.
+
 xThirdOf(letters)
 
 # c

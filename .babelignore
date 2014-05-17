@@ -4,3 +4,9 @@
 
 man/
 man-roxygen/
+
+.travis.yml
+.Rhistory
+.Rbuildignore
+
+NAMESPACE

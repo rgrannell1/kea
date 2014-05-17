@@ -40,10 +40,16 @@ constant = xFix_(xFix_, xIdentity)
 five <- constant(5)
 five()
 
-# 5
+# 3. Avoiding Anonymous Functions
+#
+# Partial application cuts down the number of small anonymous functions you need.
+# The following example matches every species from the genus 'Homo' (H. )
+#
 
+x_(c('H. ergaster', 'H. habilis', 'H. sapiens', 'C. elegans')) $
+x_Select(xFix(xIsMatch, 'H[.] '))
 
+# list('H. ergaster', 'H. habilis', 'H. sapiens')
 
-
-
-
+# Only use partial application like this if improves readability or
+# shortens code significantly.

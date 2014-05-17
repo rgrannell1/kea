@@ -5,7 +5,7 @@
 #' selecting fields in each element by name.
 #'
 #' @section Type Signature:
-#'     <character> -> ||any|| -> [any]
+#'     |character| -> ||any|| -> [any]
 #'
 #' @param
 #'    str a string. The key to select from each collection.

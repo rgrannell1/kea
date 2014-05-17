@@ -4,7 +4,7 @@
 #' Create a collection by repeating another collection several times.
 #'
 #' @section Type Signature:
-#'     <number> -> |any| -> [any]
+#'     |number| -> |any| -> [any]
 #'
 #' @param
 #'    num a nonnegative positive number. The number of

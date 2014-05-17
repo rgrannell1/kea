@@ -30,7 +30,11 @@ Is an value false?
 }
 \examples{
 
-NULL
+# 1. The most obvious example.
+
+xIsFalse(False)
+
+# True
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemIs}},

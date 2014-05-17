@@ -34,7 +34,11 @@ Is a predicate true for all elements of a collection?
 }
 \examples{
 
-NULL
+# 1. Test if all the elements of a vector are true.
+
+xAllOf(xI, c(True, False, True))
+
+# False
 }
 \seealso{
 Other quantifier_functions: \code{\link{xAnyOf}},

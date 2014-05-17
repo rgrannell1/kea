@@ -25,7 +25,7 @@ selecting fields in each element by name.
 }
 \section{Type Signature}{
 
-    <character> -> ||any|| -> [any]
+    |character| -> ||any|| -> [any]
 }
 
 \section{Corner Cases}{

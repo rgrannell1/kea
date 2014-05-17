@@ -25,7 +25,7 @@ Create a collection by repeating another collection several times.
 }
 \section{Type Signature}{
 
-    <number> -> |any| -> [any]
+    |number| -> |any| -> [any]
 }
 
 \section{Corner Cases}{

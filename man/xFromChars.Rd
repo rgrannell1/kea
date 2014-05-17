@@ -32,10 +32,7 @@ Concatentate a character vector with no delimiter.
 #    in all likelyhood I'd use the base function gsub() here,
 #    but xFromChars and xReject work too.
 
-x_('the letter e is overrated') $
-xToChars() $
-xReject(x. == 'e') $
-x_FromChars()
+x_('the letter e is overrated') $ xToChars() $ xReject(x. == 'e') $ x_FromChars()
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}};

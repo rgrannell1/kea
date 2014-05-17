@@ -29,5 +29,4 @@ xIsVariadic <- MakeFun(function (fn) {
 	fn <- match_fn(fn)
 
 	isTRUE("..." %in% xParamsOf(fn))
-
 })

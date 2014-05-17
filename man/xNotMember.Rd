@@ -34,8 +34,11 @@ Check if a collection doesn't contain a value.
 }
 \examples{
 
-NULL
+# 1. A toy example with the letters
 
+xNotMember('a', LETTERS)
+
+# False
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},

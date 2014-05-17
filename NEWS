@@ -1,4 +1,13 @@
 
+
+
+
+
+
+
+
+
+
 Arrow 0.10.0
 ------------------------------------------------------------------------------
 Date: 2014-5-16
@@ -57,6 +66,16 @@ of as_typed_vector's if condition.
 
 * Added test to xUnionOf.
 
+
+
+
+
+
+
+
+
+
+
 Arrow 0.9.0
 ------------------------------------------------------------------------------
 Date: 2014-5-12
@@ -93,6 +112,16 @@ Package Internals:
 * forall will now correctly report errors; previously the argument order was backwards.
 
 
+
+
+
+
+
+
+
+
+
+
 Arrow 0.8.0
 ------------------------------------------------------------------------------
 Date: 2014-5-11
@@ -118,6 +147,16 @@ in favour of in-place definitions.
 * removed maybe_atomic & newline
 
 * used as_parameters in MakeVariadic, to avoid code duplication.
+
+
+
+
+
+
+
+
+
+
 
 Arrow 0.7.0
 ------------------------------------------------------------------------------
@@ -151,6 +190,16 @@ functions throw_arrow_error and throw_arrow_warning.
 
 * Added test to ensure xJoin always returns a list.
 
+
+
+
+
+
+
+
+
+
+
 Arrow 0.6.0
 ------------------------------------------------------------------------------
 Date: 2014-5-7
@@ -175,6 +224,17 @@ Package Internals:
 * Made stringify_call more robust.
 
 * Commented xList code extensively.
+
+
+
+
+
+
+
+
+
+
+
 
 Arrow 0.5.0
 ------------------------------------------------------------------------------
@@ -203,6 +263,16 @@ Documentation:
 Package Internals:
 
 * Added tests for xIs, xIsMatch, xNotMatch.
+
+
+
+
+
+
+
+
+
+
 
 Arrow 0.4.0
 ------------------------------------------------------------------------------
@@ -242,6 +312,15 @@ Package Internals:
 
 * added tests for xNone.
 
+
+
+
+
+
+
+
+
+
 Arrow 0.3.0
 ------------------------------------------------------------------------------
 Date: 2014-5-3
@@ -277,6 +356,16 @@ Package Internals:
 
 * Added test to check that every function has a type signature and title.
 
+
+
+
+
+
+
+
+
+
+
 Arrow 0.2.0
 ------------------------------------------------------------------------------
 Date: 2014-5-2
@@ -304,6 +393,15 @@ functions, which should help avoid bugs in their definitions.
 definitions and macros. This removed a lot of unneeded code.
 
 * internal function `unit_to_value` now supports complex values.
+
+
+
+
+
+
+
+
+
 
 Arrow 0.1.0
 -------------------------------------------------------------------------------

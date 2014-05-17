@@ -30,9 +30,12 @@ Randomly rearrange a collection.
 }
 \examples{
 
-# 1.
+# 1. Shuffling can allow you to take a random sample from a dataset
+# that may or may not be ordered.
 
-NULL
+x_(runif(100)) $ xShuffle() $ xTake(30) $ x_Reduce('+') / 30
+
+# ~ 0.5
 }
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},

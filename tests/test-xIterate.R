@@ -4,7 +4,6 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
 message("xIterate")
 
 	forall(
@@ -20,7 +19,7 @@ message("xIterate")
 			function (n) {
 				if (n == num) Return(n) else n + 1
 			},
-			0) %equals% num,
+			0) == num,
 		given =
 			length(num) > 0
 	)

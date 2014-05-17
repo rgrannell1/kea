@@ -1,4 +1,6 @@
 
+# 1. A simple example.
+
 xThirdOf(letters)
 
 # c

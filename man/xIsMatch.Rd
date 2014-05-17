@@ -32,7 +32,11 @@ Test if a string matches a regular expression.
 }
 \examples{
 
-NULL
+# 1. Test if a string matches a regular expression
+
+xIsMatch('Over 90+[!]$', 'Over 9000!')
+
+# True
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}};
