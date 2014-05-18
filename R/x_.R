@@ -204,6 +204,9 @@ x_any_proto <- local({
 	add_x_method(this, xCapture, 'val')
 	add_x_method(this, x_Capture, 'val')
 
+	add_x_method(this, xK, 'val')
+	add_x_method(this, x_K, 'val')
+
 	# -------- D ------- #
 	# -------- E ------- #
 	this$xExecute <-

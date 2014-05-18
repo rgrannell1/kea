@@ -39,6 +39,18 @@ one_of <- function (coll) {
 	coll[[ith]]
 }
 
+# Sample is insane in R.
+# sample(10, size = 1) ~ 10, which makes it awful for
+# shuffling random integer vectors.
+
+rsample <- function (coll, size = 1) {
+	if (is.numeric(coll) && length(coll) == 1) {
+		coll
+	} else {
+		sample(coll, size = size)
+	}
+}
+
 # @section equals:
 #
 # R's equal operator doesn't work on lists or strange values.
