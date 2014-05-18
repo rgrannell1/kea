@@ -26,9 +26,7 @@ Other inpure_functions: \code{\link{xDelay}};
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
-  \code{\link{xColUnit}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xRowUnit}};
-  \code{\link{xTap}}; \code{\link{xTranspose}};
-  \code{\link{x_}}
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xTap}}; \code{\link{x_}}
 }
 

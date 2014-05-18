@@ -33,7 +33,11 @@ Is a predicate true for none elements of a collection?
 }
 \examples{
 
-NULL
+# 1. Test if none of the elements of a vector are true.
+
+xNoneOf(xI, c(True, False, True))
+
+# False
 }
 \seealso{
 Other quantifier_functions: \code{\link{xAllOf}},

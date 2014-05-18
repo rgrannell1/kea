@@ -156,13 +156,10 @@ sd_section(
 		"xByCols",
 		"xByLevels",
 		"xByRows",
-		"xColUnit",
 		"xElemsByCols",
 		"xExecute",
 		"xElemsByRows",
-		"xRowUnit",
 		"xTap",
-		"xTranspose",
 		"x_"
 	)
 )

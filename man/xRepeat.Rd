@@ -34,7 +34,7 @@ Create a collection by repeating another collection several times.
 }
 \examples{
 
-# Example 1
+# 1.
 #
 # Use xRepeat to repeat a sine wave.
 

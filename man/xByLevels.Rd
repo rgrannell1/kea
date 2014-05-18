@@ -20,16 +20,14 @@ Convert a factor to a collection of the factor's data.
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByRows}};
-  \code{\link{xColUnit}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xRowUnit}}; \code{\link{xTap}};
-  \code{\link{xTranspose}}; \code{\link{x_}}
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}};
+  \code{\link{x_}}
 
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByRows}};
-  \code{\link{xColUnit}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xRowUnit}}; \code{\link{xTap}};
-  \code{\link{xTranspose}}; \code{\link{x_}}
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}};
+  \code{\link{x_}}
 }
 

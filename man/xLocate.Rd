@@ -33,6 +33,10 @@ Get the indices of the elements that return true for a predicate.
 }
 \examples{
 
-NULL
+# 1. Use xLocate like xWhich
+
+xLocate(xI, c(True, False, True, Na))
+
+# c(1, 3)
 }
 

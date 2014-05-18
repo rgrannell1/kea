@@ -35,8 +35,6 @@ Is an value not nan?
 xNotNan(NaN)
 
 # False
-
-NULL
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemIs}},

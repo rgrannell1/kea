@@ -35,7 +35,6 @@ is false or na until the end of the collection.
 \examples{
 
 NULL
-
 }
 \seealso{
 Other selection_functions: \code{\link{xAtCol}},

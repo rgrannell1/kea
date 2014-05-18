@@ -694,6 +694,9 @@ test_cases <- local({
 			coll = compounds$collection
 		)
 
+	this$logical_function <-
+		list(fn = atoms$logical_function)
+
 	this$logical_functions_with_collection_zero <-
 		list(
 			fn = atoms$logical_function,

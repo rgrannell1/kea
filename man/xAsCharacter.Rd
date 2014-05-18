@@ -39,9 +39,11 @@ Convert a collection of characters to a character vector.
 }
 \examples{
 
-# 1.
+# 1. Convert a list of character values to a character vector.
 
-NULL
+xAsCharacter(list('this', 'is', 'much', 'words'))
+
+# c('this', 'is', 'much', 'words')
 }
 \seealso{
 Other container_conversion_functions: \code{\link{xAsComplex}},

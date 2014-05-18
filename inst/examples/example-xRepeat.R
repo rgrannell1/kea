@@ -1,5 +1,5 @@
 
-# Example 1
+# 1.
 #
 # Use xRepeat to repeat a sine wave.
 

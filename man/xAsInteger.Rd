@@ -38,8 +38,11 @@ Convert a collection of integers to a integer vector.
 }
 \examples{
 
-NULL
+# 1. Convert a list of integers to an integer vector.
 
+xAsInteger(list(1L, 2L, 3L))
+
+# c(1, 2, 3)
 }
 \seealso{
 Other container_conversion_functions: \code{\link{xAsCharacter}},

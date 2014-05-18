@@ -273,18 +273,6 @@ x_any_proto <- local({
 	add_x_method(this, xIsTrue, 'val')
 	add_x_method(this, x_IsTrue, 'val')
 
-	# --- xIsFalse --- #
-	add_x_method(this, xIsFalse, 'val')
-	add_x_method(this, x_IsFalse, 'val')
-
-	# -------- J ------- #
-	# -------- K ------- #
-	add_x_method(this, xK, 'val')
-	add_x_method(this, x_K, 'val')
-
-	# -------- L ------- #
-	# -------- M ------- #
-	# -------- N ------- #
 	add_x_method(this, xNotNa, 'val')
 	add_x_method(this, x_NotNa, 'val')
 
@@ -419,11 +407,11 @@ x_matrix_proto <- local({
 
 	this$xByColkeys <-
 		function () {
-			x_( as.list( colnames(Self()) ) )
+			x_( colnames(Self()) )
 		}
 	this$x_ByColkeys <-
 		function () {
-			as.list( colnames(Self()) )
+			colnames(Self())
 		}
 
 	this$xByRows <-
@@ -456,29 +444,17 @@ x_matrix_proto <- local({
 			}
 		}
 	# --- xByRowkeys --- #
-		this$xByRowkeys <-
-			function () {
-				x_( as.list( rownames(Self()) ) )
-			}
+	this$xByRowkeys <-
+		function () {
+			x_( rownames(Self()) )
+		}
 
-		this$x_ByRowkeys <-
-			function () {
-				as.list( rownames(Self()) )
-			}
+	this$x_ByRowkeys <-
+		function () {
+			rownames(Self())
+		}
 
 	# -------- C ------- #
-	this$xColUnit <-
-		function () {
-			x_(matrix(
-				nrow = nrow(Self()),
-				ncol = 0))
-		}
-	this$x_ColUnit <-
-		function () {
-			matrix(
-				nrow = nrow(Self()),
-				ncol = 0)
-		}
 
 	# -------- D ------- #
 	# -------- E ------- #
@@ -498,7 +474,6 @@ x_matrix_proto <- local({
 				as.list(Self())
 			}
 		}
-
 
 	this$xElemsByRows <-
 		function () {
@@ -530,39 +505,12 @@ x_matrix_proto <- local({
 	# -------- P ------- #
 	# -------- Q ------- #
 	# -------- R ------- #
-	# --- xRowUnit --- #
-	this$xRowUnit <-
-		function () {
-			x_(matrix(
-				nrow = 0,
-				ncol = ncol(Self()) ))
-		}
-	this$x_RowUnit <-
-		function () {
-			matrix(
-				nrow = 0,
-				ncol = ncol(Self()) )
-		}
 
 	# -------- S ------- #
 	# -------- T ------- #
-	this$xTranspose <-
-		function () {
-			x_( t(Self()) )
-		}
-	this$x_Transpose <-
-		function () {
-			t(Self())
-		}
+
 	# -------- U ------- #
-	this$xFullUnit <-
-		function () {
-			x_( matrix(nrow = 0, ncol = 0) )
-		}
-	this$x_FullUnit <-
-		function () {
-			matrix(nrow = 0, ncol = 0)
-		}
+
 	# -------- V ------- #
 	# -------- W ------- #
 	# -------- X ------- #
@@ -680,21 +628,6 @@ x_data_frame_proto <- local({
 		}
 
 	# -------- C ------- #
-	# --- xColUnit --- #
-	this$xColUnit <-
-		function () {
-			x_( unname(as.data.frame(
-				matrix(
-					nrow = nrow(Self()),
-					ncol = 0)) ))
-		}
-	this$x_ColUnit <-
-		function () {
-			unname(as.data.frame(
-				matrix(
-					nrow = nrow(Self()),
-					ncol = 0)) )
-		}
 
 	# -------- D ------- #
 	# -------- E ------- #
@@ -711,40 +644,11 @@ x_data_frame_proto <- local({
 	# -------- P ------- #
 	# -------- Q ------- #
 	# -------- R ------- #
-	# --- xRowUnit --- #
-	this$xRowUnit <-
-		function () {
-			x_( unname(as.data.frame(
-				matrix(
-					nrow = 0,
-					ncol = ncol(Self()) )) ))
-		}
-	this$x_RowUnit <-
-		function () {
-			unname(as.data.frame(
-				matrix(
-					nrow = 0,
-					ncol = ncol(Self()) )) )
-		}
 
 	# -------- S ------- #
 	# -------- T ------- #
 	# -------- U ------- #
 	# --- xFull --- #
-	this$xFullUnit <-
-		function () {
-			x_( unname(as.data.frame(
-				matrix(
-					nrow = 0,
-					ncol = 0 )) ))
-		}
-	this$x_FullUnit <-
-		function () {
-			x_( unname(as.data.frame(
-				matrix(
-					nrow = 0,
-					ncol = 0 )) ))
-		}
 
 	# -------- V ------- #
 	# -------- W ------- #

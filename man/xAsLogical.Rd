@@ -30,8 +30,11 @@ Convert a collection of logicals to a logical vector.
 }
 \examples{
 
-NULL
+# 1. Convert a list of logicals to an logical vector.
 
+xAsLogical(list(True, False, True))
+
+# c(True, False, True)
 }
 \seealso{
 Other container_conversion_functions: \code{\link{xAsCharacter}},

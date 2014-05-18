@@ -31,8 +31,11 @@ Get the parametres and defaults of a function or primitive function.
 }
 \examples{
 
-NULL
+# 1. Get the formals of a base function.
 
+xFormalsOf(Reduce)
+
+# list(f = , x = , init = , right = FALSE, accumulate = FALSE)
 }
 \seealso{
 Other parametre_functions: \code{\link{xArityOf}};

@@ -4,7 +4,6 @@ test_cases <- arrow:::test_cases
 
 require(arrow)
 
-
 message('xSecondOf')
 
 forall("second always returns the second element of a collection",
