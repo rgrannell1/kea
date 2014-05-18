@@ -5,13 +5,47 @@ Date: 2014-5-19
 
 Enhancements:
 
+* Removed xColUnit, xRowUnit, xFullUnit. Although theoretically useful
+they were largely untested and unused. May be added in future if genuinely needed.
+
+* Removed xTranspose. Arrow as a policy does not support matrices and data frames,
+only their conversion to other types. There are effective ways to transpose lists
+in Arrow already.
+
 Bug-Fixes:
+
+* Added xCapture alias xK to the methods avaiable to all values. More rigourous
+tests will be added in future to avoid missing methods.
+
+* xByColkeys & xByRowkeys for matrices now return character vectors.
 
 Documentation:
 
+* Fixed type signature of xPluck, xRepeat.
+
+* Added example to (or improved example for):
+xAddKeys, xAllOf, xAsCharacter, xAsComplex,
+xAsDouble, xAsInteger, xAsLogical, xCapture, xChunk, xDeepMap,
+xDelay, xElemsByCols, xElemsByRows, xExecute, xFix, xFormalsOf,
+xFromChars, xIsFalse, xIsMatch, xLift, xLocate, xMinBy, xNoneOf,
+xNotEmpty, xNotFalse, xNotMember, xNotNan, xNotNull, xPartition,
+xShuffle, xSlice, xThread, xToChars, xUniqueOf,
+
+* Added details to xByRows.
+
+* Html-escaped docs for xToChars, xToLines, xToWords.
+
 Package Internals:
 
+* Added tests for xIsSubset, xNotSubset.
 
+* Added tests for xNegate.
+
+* Added .babelignore, to allow easier random access of useful arrow files.
+
+* Added rsample, which corrects a bad length-one corner case in sample. Will
+remove direct use of sample from arrow in future. Bugs caused by sample may
+come to light in the next release.
 
 Arrow 0.10.0
 ------------------------------------------------------------------------------

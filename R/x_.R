@@ -276,6 +276,9 @@ x_any_proto <- local({
 	add_x_method(this, xIsTrue, 'val')
 	add_x_method(this, x_IsTrue, 'val')
 
+	add_x_method(this, xIsFalse, 'val')
+	add_x_method(this, x_IsFalse, 'val')
+
 	add_x_method(this, xNotNa, 'val')
 	add_x_method(this, x_NotNa, 'val')
 
