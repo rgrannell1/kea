@@ -65,8 +65,9 @@ in Arrow.
 * Removed xElemIsFalse, xElemIsNa, xElemIsTrue, xElemNotFalse, xElemNotNa,
 xElemNotTrue, xElemIsNull, xElemIsNan, xElemNotNan, xElemNotNull,
 xRejectNa, xRejectNan, xRejectNull, xRejectEmpty. The rational for this
-is that arrow emphasises compositionality, and each case these functions solve can easily be done with other functions. This reduces the number
-of tests and documentation to be maintained significantly.
+is that arrow emphasises compositionality, and each case these functions solve
+can easily be done with other functions. This reduces the number of tests and
+documentation to be maintained significantly.
 
 Bug-Fixes:
 

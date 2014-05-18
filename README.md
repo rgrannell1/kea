@@ -125,17 +125,16 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 * Programs are built like lego; stacking small,
 uniquely-purposed functions into a larger program.
 
+* Arrow is general enough to let you use the same functions for your
+data reshaping and general purpose programming code.
+
 * Arrow has a shorthand syntax for creating functions.
 
 * Arrow implements jQuery-style method-chaining.
 
-* Most functions have variadic and non-variadic forms; this significantly reduces
-'do.call' boilerplate.
+* Functions have variadic and non-variadic forms, cutting out all 'do.call' boilerplate.
 
-* Arrow adds list-comprehensions; an expressive syntax for creating lists.
-
-* Arrow is general enough to let you use the same functions for your
-data reshaping and general purpose programming code.
+* Arrow adds list-comprehensions, an expressive syntax for creating lists.
 
 ### Arrow is Consistent
 
@@ -144,13 +143,13 @@ and typed vectors are all interchangable.
 
 * Arrow is very easy to debug, thanks to input validation and automatically summarising bad input.
 
-* Arrow is completely interoperable with base R functions.
+* Arrow functions work perfectly with base R functions.
 
-* Arrow follows careful thought-out naming conventions, to make it a joy to write.
+* Arrow uses consistent naming conventions.
 
 ### Arrow is Functional
 
-* Every commonly used higher-order-function is included in Arrow, not limited to but including
+* Every commonly used higher-order-function is included in Arrow, including but not limited to
 map, fold, select, flatmap and iterate.
 
 * Arrow includes several mathematical functions, like the set operations and
