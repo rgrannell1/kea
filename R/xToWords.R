@@ -4,7 +4,7 @@
 #' Split a string at whotespaces.
 #'
 #' @section Type Signature:
-#'     <character> -> &lt;character>
+#'     &lt;character> -> &lt;character>
 #'
 #' @details
 #'    The input string is split at spaces, tabs, and newlines,

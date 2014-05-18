@@ -24,7 +24,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xDuplicatesOf.R
 #'

@@ -1,10 +1,8 @@
 
-# 1. Find the smallest unique number in a list.
+# 1. Find the smallest number in a list.
 
 lowest <-
-x_( list(1, 1, 3, 2, 2, 2, 5, 4, 9, 9) ) $
-xUniqueOf() $
-x_Tap(xAsDouble %then% min)
+	x_(list(1, 1, 3, 2, 2, 2, 5, 4, 9, 9)) $ x_MinBy(xI)
 
 # 2. CE is a string a pangram?
 #    does a string contain each letter.
