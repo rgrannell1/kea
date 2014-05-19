@@ -23,7 +23,7 @@ message("xIsMember")
 	forall(
 		"xIsMember with an element outside of the set is always false",
 		test_cases$letters,{
-			letter <- sample(letters, size = 1)
+			letter <- rsample(letters, size = 1)
 			!xIsMember(toupper(letter), coll)
 		},
 		given =

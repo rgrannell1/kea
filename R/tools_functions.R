@@ -24,6 +24,18 @@ Moot <- function (...) {
 
 # --------------------- misc. tools --------------------- #
 
+# Sample is insane in R.
+# sample(10, size = 1) ~ 10, which makes it awful for
+# shuffling random integer vectors.
+
+rsample <- function (coll, ...) {
+	if (is.numeric(coll) && length(coll) == 1) {
+		coll
+	} else {
+		sample(coll, ...)
+	}
+}
+
 # @section one_of:
 #
 # Return one value from a collection.
@@ -35,20 +47,8 @@ one_of <- function (coll) {
 	# coll [any] -> any
 	# select a single value from a collection.
 
-	ith <- sample(seq_along(coll), size = 1)
+	ith <- rsample(seq_along(coll), size = 1)
 	coll[[ith]]
-}
-
-# Sample is insane in R.
-# sample(10, size = 1) ~ 10, which makes it awful for
-# shuffling random integer vectors.
-
-rsample <- function (coll, size = 1) {
-	if (is.numeric(coll) && length(coll) == 1) {
-		coll
-	} else {
-		sample(coll, size = size)
-	}
 }
 
 # @section equals:

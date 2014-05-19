@@ -38,7 +38,7 @@ over <- function (...) {
 # -- test properties (+ controls)
 
 when <- function (expr1, expr2) {
-	
+
 	exprs <- as.list(match.call()[-1])
 
 	out <- list(
@@ -59,7 +59,7 @@ failsWhen <- function () {
 }
 
 run <- function (time = 0.15) {
-	
+
 }
 
 
@@ -102,7 +102,7 @@ fromStream <- function () {
 			no_chars <- abs( rnorm(1, 1, sd = length(extended_ascii)) )
 
 			paste0(
-				sample(extended_ascii, size = no_chars, replace = True),
+				rsample(extended_ascii, size = no_chars, replace = True),
 				collapse = '')
 		}
 
@@ -113,7 +113,7 @@ fromStream <- function () {
 
 			words <- unlist(lapply(seq_len(no_words), this $ word))
 
-			paste0(words, collapse = sample(whitespace, size = 1))
+			paste0(words, collapse = rsample(whitespace, size = 1))
 	}
 
 	this $ paragraph <-
@@ -141,7 +141,7 @@ fromStream <- function () {
 		function () {
 			no_bools <- abs(rnorm(1, 1, sd = 100))
 
-			sample(c(True, False, Na), size = no_bools, replace = True)
+			rsample(c(True, False, Na), size = no_bools, replace = True)
 		}
 
 	# -- symbols
@@ -180,7 +180,7 @@ fromStream <- function () {
 
 	this $ integer <-
 		function () {
-			sample.int(2147483647, 1) * sample(c(-1, 1), size = 1)
+			sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
 		}
 
 	# -- function
@@ -189,6 +189,6 @@ fromStream <- function () {
 
 	implemented <- ls(envir = this)
 
-	sampler <- this[[ sample(implemented, size = 1) ]]
+	sampler <- this[[ rsample(implemented, size = 1) ]]
 	sampler()
 }

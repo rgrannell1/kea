@@ -257,7 +257,7 @@ atoms <- local({
 	this$range_integer <-
 		function (lower, upper) {
 			function () {
-				sample(lower:upper, size = 1)
+				rsample(lower:upper, size = 1)
 			}
 		}
 
@@ -288,7 +288,7 @@ atoms <- local({
 				size <- abs(round(rnorm(1, 0, sd), 0))
 
 				paste0(
-					sample(letters, size = size, replace = True),
+					rsample(letters, size = size, replace = True),
 					collapse = "")
 			}
 		}

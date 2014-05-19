@@ -1898,7 +1898,7 @@ get_proto_ref <- local({
 				"Could not find the method " %+% dQuote(name) %+%
 				" in the methods available for " %+% contents_are %+%
 				":\n" %+%
-				colourise$green("did you mean " %+% sample(similar, size = 1) %+% "?")
+				colourise$green("did you mean " %+% rsample(similar, size = 1) %+% "?")
 			}
 		}
 

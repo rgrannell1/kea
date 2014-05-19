@@ -3,6 +3,8 @@ Arrow 0.11.0
 -----------------------------------------------------------------------------
 Date: 2014-5-19
 
+Removes several data frame and matrix methods, and adds many examples.
+
 Enhancements:
 
 * Removed xColUnit, xRowUnit, xFullUnit. Although theoretically useful
@@ -46,6 +48,16 @@ Package Internals:
 * Added rsample, which corrects a bad length-one corner case in sample. Will
 remove direct use of sample from arrow in future. Bugs caused by sample may
 come to light in the next release.
+
+
+
+
+
+
+
+
+
+
 
 Arrow 0.10.0
 ------------------------------------------------------------------------------

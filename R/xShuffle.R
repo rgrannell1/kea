@@ -38,7 +38,7 @@ xShuffle <- MakeFun(function (coll) {
 	} else if (length(coll) == 1)
 		as.list(coll)
 	else {
-		as.list(sample(coll))
+		as.list(rsample(coll))
 	}
 })
 
