@@ -90,6 +90,37 @@ write_error <- function (..., call. = True) {
 #
 # This takes your message, and throws either an error or warning.
 
+throw_arrow_warning <- function (invoking_call, message) {
+	# the top level interface to throwing an arrow error.
+
+	# -- stringify the call, get the function name.
+	if (!missing(invoking_call)) {
+		components <- get_call_components(invoking_call)
+
+		# -- the function foo, and the stringified call foo(baz, bar, ...)
+		callname <- components$invoking
+		calltext <- components$calltext
+
+		# -- just in case
+		callname <- paste0(callname, collapse = '')
+		calltext <- wrap(calltext, indent = 4)
+
+		# -- these few lines dicate how an arrow error message will be formatted
+
+		final_message <-
+		"\n" %+% message %+%
+		"\nThrown from " %+% callname %+% "\n" %+%
+		"In the call " %+% calltext
+	} else {
+		final_message <- "\n" %+% message
+	}
+
+	# -- tput as red (if possible) and report the error.
+
+	warning(colourise$yellow(final_message), call. = False)
+
+}
+
 throw_arrow_error <- function (invoking_call, message) {
 	# the top level interface to throwing an arrow error.
 
@@ -122,33 +153,6 @@ throw_arrow_error <- function (invoking_call, message) {
 
 }
 
-throw_arrow_warning <- function (invoking_call, message) {
-	# the top level interface to throwing an arrow error.
-
-	# -- stringify the call, get the function name.
-	components <- get_call_components(invoking_call)
-
-	# -- the function foo, and the stringified call foo(baz, bar, ...)
-	callname <- components$invoking
-	calltext <- components$calltext
-
-	# -- just in case
-	callname <- paste0(callname, collapse = '')
-	calltext <- wrap(calltext, indent = 4)
-
-	# -- these few lines dicate how an arrow error message will be formatted
-
-
-	final_message <-
-	"\n" %+% message %+%
-	"\nThrown from " %+% callname %+% "\n" %+%
-	"In the call " %+% calltext
-
-	# -- tput as red (if possible) and report the error.
-
-	warning(colourise$yellow(final_message), call. = False)
-
-}
 # -------------------------------------------------------------------------
 #
 # Try Functions

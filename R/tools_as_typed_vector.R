@@ -85,7 +85,7 @@ as_typed_vector <- local({
 					coll_sym <- match.call()$coll
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
-						"must be a collection of values of type " %+% mode %+% "."
+						" must be a collection of values of type " %+% mode %+% "."
 
 					throw_arrow_error(
 						invoking_call, message)
@@ -98,7 +98,7 @@ as_typed_vector <- local({
 				coll_sym <- match.call()$coll
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
-					"must be a collection of values of type " %+% mode %+% "."
+					" must be a collection of values of type " %+% mode %+% "."
 
 				throw_arrow_error(
 					invoking_call, message)
@@ -129,7 +129,7 @@ as_typed_vector <- local({
 					coll_sym <- match.call()$coll
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
-						"must be a collection of values of type " %+% mode %+% "."
+						" must be a collection of values of type " %+% mode %+% "."
 
 					if (any(class(coll) == 'arrow')) {
 						message <- message %+%
@@ -203,7 +203,7 @@ as_atom <- local({
 					coll_sym <- match.call()$coll
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
-						"must be a collection of values of type " %+% mode %+% "."
+						" must be a collection of values of type " %+% mode %+% "."
 
 					if (any(class(coll) == 'arrow')) {
 						message <- message %+%
@@ -225,7 +225,7 @@ as_atom <- local({
 				coll_sym <- match.call()$coll
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
-					"must be a collection of values of type " %+% mode %+% "."
+					" must be a collection of values of type " %+% mode %+% "."
 
 				if (any(class(coll) == 'arrow')) {
 					message <- message %+%
@@ -262,7 +262,7 @@ as_atom <- local({
 					coll_sym <- match.call()$coll
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
-						"must be a collection of values of type " %+% mode %+% "."
+						" must be a collection of values of type " %+% mode %+% "."
 
 					if (any(class(coll) == 'arrow')) {
 						message <- message %+%
