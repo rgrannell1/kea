@@ -4,6 +4,9 @@ require(arrow)
 '%+%' <- arrow ::: '%+%'
 throw_arrow_warning <- arrow ::: throw_arrow_warning
 
+# -- this will be removed soon.
+is_ryan <- arrow ::: is_ryan
+
 # -- This unit test checks if the examples are empty.
 
 
@@ -43,6 +46,10 @@ message(
 	'check that every example ' %+%
 	'has non-blank / NULL lines')
 
+# -- this is awful, and should be changed.
+
+if (is_ryan()) {
+
 	example_lengths <-
 		x_(list.files(r_examples, full.names = True)) $
 		xMap(path := {
@@ -75,3 +82,5 @@ message(
 
 		throw_arrow_warning(message = message)
 	}
+
+}

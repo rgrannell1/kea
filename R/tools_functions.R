@@ -34,6 +34,7 @@ rsample <- function (coll, ...) {
 	} else {
 		sample(coll, ...)
 	}
+
 }
 
 # @section one_of:
@@ -255,3 +256,8 @@ ith_suffix <- function (num) {
 	paste0(num, suffix)
 }
 
+# -- made into a function so I can eventually remove all calls to it at once.
+
+is_ryan <- function () {
+	Sys.getenv() == 'ryan'
+}

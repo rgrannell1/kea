@@ -4,15 +4,15 @@ require(arrow)
 '%+%' <- arrow ::: '%+%'
 throw_arrow_error <- arrow ::: throw_arrow_error
 
+# -- this will be removed soon.
+is_ryan <- arrow ::: is_ryan
+
 # -- This series of unit tests checks that files that
 # -- should exist, do exist.
 
 
 
 
-
-# -- For now, just perform this tests locally on my machine,
-# -- I'm not familiar with the installed package structure.
 
 r_paths <- x_(list(
 	R =
@@ -44,7 +44,6 @@ as_example_path <- function (fnname) {
 as_test_path <- function (fnname) {
 	xFromChars_(r_paths $ x_AtKey('tests'), '/', fnname, '.R')
 }
-
 
 
 
@@ -99,25 +98,27 @@ check_for_missing_exports <- (as_path : dir_message : exceptions) := {
 
 
 
+if (is_ryan()) {
 
+	message(
+		'check that every exported function ' %+%
+		'Fun has a corresponding xFun.R file')
 
-message(
-	'check that every exported function ' %+%
-	'Fun has a corresponding xFun.R file')
+		check_for_missing_exports(as_r_path, 'arrow/R',
+			c('xVectorize'))
 
-	check_for_missing_exports(as_r_path, 'arrow/R',
-		c('xVectorize'))
+	message(
+		'check that every exported function ' %+%
+		'Fun has a corresponding example-xFun.R file')
 
-message(
-	'check that every exported function ' %+%
-	'Fun has a corresponding example-xFun.R file')
+		check_for_missing_exports(as_example_path, 'arrow/inst/examples',
+			c('xVectorize'))
 
-	check_for_missing_exports(as_example_path, 'arrow/inst/examples',
-		c('xVectorize'))
+	message(
+		'check that every exported function ' %+%
+		'Fun has a corresponding test-xFun.R file')
 
-message(
-	'check that every exported function ' %+%
-	'Fun has a corresponding test-xFun.R file')
+		check_for_missing_exports(as_test_path, 'arrow/inst/tests',
+			c('xVectorize'))
 
-	check_for_missing_exports(as_test_path, 'arrow/inst/tests',
-		c('xVectorize'))
+}
