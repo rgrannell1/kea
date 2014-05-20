@@ -19,7 +19,6 @@ is_ryan <- arrow ::: is_ryan
 
 
 
-r_examples <- '/home/ryan/Code/arrow.R/inst/examples'
 
 comment_or_null <-
 	xImplode_(
@@ -48,10 +47,22 @@ message(
 
 # -- this is awful, and should be changed.
 
-if (is_ryan()) {
+example_path      <- system.file(package = 'arrow', 'examples')
+inst_example_path <- system.file(package = 'arrow', 'inst/examples')
+
+if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
+
+	message("testing for empty examples...")
+
+	dir_path <-
+		x_(c(example_path, inst_example_path)) $
+		xSelect(path := {
+			nchar(path) > 0
+		}) $
+		x_FirstOf()
 
 	example_lengths <-
-		x_(list.files(r_examples, full.names = True)) $
+		x_(list.files(dir_path, full.names = True)) $
 		xMap(path := {
 
 			# -- what is the file name?
@@ -76,11 +87,10 @@ if (is_ryan()) {
 		message <- xFromChars_(
 			'the following ',
 			toString(empty_examples $ x_LenOf()),
-			' examples were empty; ',
-			empty_examples $ xAtCol(2) $ x_Implode(', ')
+			' examples were empty;\n',
+			empty_examples $ xAtCol(2) $ x_FromLines()
 		)
 
 		throw_arrow_warning(message = message)
 	}
-
 }

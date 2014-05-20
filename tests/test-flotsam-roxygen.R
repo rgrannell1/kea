@@ -32,8 +32,9 @@ validate_docs <- docs := {
 
 
 r_path <- '/home/ryan/Code/arrow.R/R'
+r_path <- system.file(package = 'arrow', 'R')
 
-if (is_ryan()) {
+if (nchar(r_path) > 0) {
 
 	rdocs <-
 		x_(list.files(r_path, full.names = True)) $
@@ -44,9 +45,10 @@ if (is_ryan()) {
 
 			# -- how many non-empty lines are there?
 			roxygen <-
-				x_(path) $ xReadLines() $ x_Select(xFix_(xIsMatch, "[#][']"))
+				x_(path) $ xReadLines() $
+				x_Select(
+					xFix_(xIsMatch, "[#][']"))
 
 			list(path, roxygen)
 		})
-
 }
