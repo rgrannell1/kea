@@ -1831,7 +1831,7 @@ get_proto_ref <- local({
 })
 
 
-#' @method $ arrow
+
 #' @export
 
 `$.arrow` <- local({
@@ -1959,7 +1959,7 @@ get_proto_ref <- local({
 
 # -------------------------------- Print Method -------------------------------- #
 
-#' @method print arrow
+
 #' @export
 
 print.arrow <- function (x, ...) {

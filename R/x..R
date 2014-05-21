@@ -53,7 +53,7 @@ x. <- structure(
 
 #' @usage x. %% ...
 #'
-#' @method %% xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -66,7 +66,7 @@ x. <- structure(
 
 #' @usage x. %/% ...
 #'
-#' @method %/% xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -80,7 +80,7 @@ x. <- structure(
 
 #' @usage x. [[...]]
 #'
-#' @method [[ xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -93,7 +93,7 @@ x. <- structure(
 
 #' @usage x. [...]
 #'
-#' @method [ xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -106,7 +106,7 @@ x. <- structure(
 
 #' @usage x. $ ...
 #'
-#' @method $ xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -123,7 +123,7 @@ x. <- structure(
 
 #' @usage x. @@ ...
 #'
-#' @method @@ xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -140,7 +140,7 @@ x. <- structure(
 
 #' @usage x. ^ ...
 #'
-#' @method ^ xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -153,7 +153,7 @@ x. <- structure(
 
 #' @usage x. : ...
 #'
-#' @method : xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -166,7 +166,7 @@ x. <- structure(
 
 #' @usage x. * ...
 #'
-#' @method * xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -179,7 +179,7 @@ x. <- structure(
 
 #' @usage x. / ...
 #'
-#' @method / xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -193,7 +193,7 @@ x. <- structure(
 #' @usage x. - ...
 #' @usage -x.
 #'
-#' @method - xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -213,7 +213,7 @@ x. <- structure(
 #' @usage x. + ...
 #' @usage +x.
 #'
-#' @method + xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -232,7 +232,7 @@ x. <- structure(
 
 #' @usage x. > ...
 #'
-#' @method > xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -245,7 +245,7 @@ x. <- structure(
 
 #' @usage x. >= ...
 #'
-#' @method >= xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -258,7 +258,7 @@ x. <- structure(
 
 #' @usage x. < ...
 #'
-#' @method < xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -271,7 +271,7 @@ x. <- structure(
 
 #' @usage x. <= ...
 #'
-#' @method <= xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -284,7 +284,7 @@ x. <- structure(
 
 #' @usage x. == ...
 #'
-#' @method == xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -297,7 +297,7 @@ x. <- structure(
 
 #' @usage x. != ...
 #'
-#' @method != xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -310,7 +310,7 @@ x. <- structure(
 
 #' @usage x. & ...
 #'
-#' @method & xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -323,7 +323,7 @@ x. <- structure(
 
 #' @usage x. && ...
 #'
-#' @method && xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -336,7 +336,7 @@ x. <- structure(
 
 #' @usage x. | ...
 #'
-#' @method | xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -349,7 +349,7 @@ x. <- structure(
 
 #' @usage x. || ...
 #'
-#' @method || xlambda_builder
+
 #' @export
 #' @rdname x.
 
@@ -362,7 +362,7 @@ x. <- structure(
 
 #' @usage !x.
 #'
-#' @method ! xlambda_builder
+
 #' @export
 #' @rdname x.
 

@@ -10,7 +10,7 @@
 #'    val an arbitrary value.
 #'
 #' @return
-#'    Returns \code{val}.
+#'    Returns \bold{val}.
 #'
 #' @family basic_functions
 #'

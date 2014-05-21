@@ -81,14 +81,14 @@ xList <- structure(
 	class = 'xlist_builder'
 )
 
-#' @method print xlist_builder
+
 #' @export
 
 print.xlist_builder <- function (x, ...) {
 	cat("[ the xList object ]\n")
 }
 
-#' @method [ xlist_builder
+
 #' @export
 
 `[.xlist_builder` <- function (x, ...) {
