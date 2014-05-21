@@ -28,8 +28,11 @@ Get the parametre names of a function or primitive function.
 }
 \examples{
 
-NULL
+# 1. Get the parametre names of a function.
 
+xParamsOf(xMap)
+
+# c('fn', 'coll')
 }
 \seealso{
 Other parametre_functions: \code{\link{xArityOf}};

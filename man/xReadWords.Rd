@@ -26,7 +26,13 @@ Import each word in a file to an element in a character vector.
 }
 \examples{
 
-NULL
+# 1. Read the last word of arrow's description.
+
+x_(system.file(package = 'arrow', 'DESCRIPTION')) $
+xReadWords() $
+xLastOf()
+
+# "unix"
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};

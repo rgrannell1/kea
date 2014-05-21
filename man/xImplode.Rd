@@ -34,8 +34,7 @@ Concatenate a character vector into a single string using a delimiter.
 to_csv <- xFix(xImplode, ', ')
 to_csv(xTake(10, letters))
 
-# c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j')
-
+# 'a,b,c,d,e,f,g,h,i,j'
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}};

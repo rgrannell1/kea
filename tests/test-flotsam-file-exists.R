@@ -49,46 +49,6 @@ as_test_path <- function (fnname) {
 
 
 
-variadic_exports <-
-	r_paths $ xAtKey('namespace') $ xReadLines() $
-	xSelect(export := {
-		xIsMatch(
-			# -- match any non-variadic exports.
-			xFromChars_('export[(]', non_variadic_pattern, '[)]'),
-			export)
-	}) $
-	xMap(export := {
-		# -- positionally remove the export tag.
-		x_(export) $ xToChars() $ xDrop(7) $ xInitOf() $ x_FromChars()
-	})
-
-
-
-
-
-
-check_for_missing_exports <- (as_path : dir_message : exceptions) := {
-	# -- complain about variadic_exports missing from a file.
-
-	not_found <-
-		variadic_exports $ xReject(export := {
-			# -- remove the functions that do have matching files.
-			xIsTrue( file.exists(as_r_path(export)) )
-		}) $
-		xReject(export := {
-			# -- these functions are sanctioned to be missing their own file.
-			xIsMember_(export, exceptions)
-		})
-
-	if (not_found $ x_NotEmpty()){
-
-		message <- xFromChars_(
-			"the following functions were missing their own ", dir_message, " files:",
-			not_found $ x_Implode(', '))
-
-		throw_arrow_error(message = message)
-	}
-}
 
 
 
@@ -99,6 +59,47 @@ check_for_missing_exports <- (as_path : dir_message : exceptions) := {
 
 
 if (is_ryan()) {
+
+	variadic_exports <-
+		r_paths $ xAtKey('namespace') $ xReadLines() $
+		xSelect(export := {
+			xIsMatch(
+				# -- match any non-variadic exports.
+				xFromChars_('export[(]', non_variadic_pattern, '[)]'),
+				export)
+		}) $
+		xMap(export := {
+			# -- positionally remove the export tag.
+			x_(export) $ xToChars() $ xDrop(7) $ xInitOf() $ x_FromChars()
+		})
+
+
+
+
+
+
+	check_for_missing_exports <- (as_path : dir_message : exceptions) := {
+		# -- complain about variadic_exports missing from a file.
+
+		not_found <-
+			variadic_exports $ xReject(export := {
+				# -- remove the functions that do have matching files.
+				xIsTrue( file.exists(as_r_path(export)) )
+			}) $
+			xReject(export := {
+				# -- these functions are sanctioned to be missing their own file.
+				xIsMember_(export, exceptions)
+			})
+
+		if (not_found $ x_NotEmpty()){
+
+			message <- xFromChars_(
+				"the following functions were missing their own ", dir_message, " files:",
+				not_found $ x_Implode(', '))
+
+			throw_arrow_error(message = message)
+		}
+	}
 
 	message(
 		'check that every exported function ' %+%

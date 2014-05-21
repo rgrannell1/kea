@@ -26,7 +26,13 @@ Import each line in a file to an element in a character vector.
 }
 \examples{
 
-NULL
+# 1. Read the first line of arrow's description.
+
+x_(system.file(package = 'arrow', 'DESCRIPTION')) $
+xReadLines() $
+x_Take(1)
+
+# list("Package: arrow")
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
