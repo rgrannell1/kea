@@ -19,8 +19,3 @@ message('xIsEmpty')
 		given =
 			length(coll) > 0
 	)
-
-
-
-
-
