@@ -16,8 +16,8 @@
 
 x_(1:5) $
 xPowerSetOf() $
-xSelect(xs := {
-	(unlist %then% sum)(xs) == 5
+xSelect(nums := {
+	(unlist %then% sum)(nums) == 5
 })
 
 # list(
