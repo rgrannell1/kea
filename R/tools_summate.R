@@ -38,6 +38,10 @@ summate <- local({
 					length(obj),
 				`no empty` =
 					length(which(nchar(obj) == 0)),
+				`any empty` =
+					all(nchar(obj) == 0),
+				`any empty` =
+					any(nchar(obj) == 0),
 				classes =
 					deparse(class(obj))
 			)
@@ -65,7 +69,6 @@ summate <- local({
 
 			"\n\n" %+% "The actual input was a function with these properties:" %+% "\n\n" %+%
 			output_key_value_pairs(traits)
-
 		}
 
 	# --- D --- #
@@ -165,7 +168,11 @@ summate <- local({
 				`all nested` =
 					all( vapply(obj, function (x) {
 						isTRUE(is.list(x) || is.pairlist(x))
-					}, logical(1)) )
+					}, logical(1)) ),
+				`any arrow objects` =
+					any( vapply(obj, function (x) any(class(x) == 'arrow'), logical(1)) ),
+				`all arrow objects` =
+					all( vapply(obj, function (x) any(class(x) == 'arrow'), logical(1)) )
 			)
 
 			"\n\n" %+% "The actual input was a list or pairlist with these properties:" %+% "\n\n" %+%
