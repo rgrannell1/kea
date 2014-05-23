@@ -1,3 +1,4 @@
+
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
@@ -215,7 +216,6 @@ x_any_proto <- local({
 			invoking_call <- sys.call()
 
 			MACRO( Must $ Not_Be_Missing(fn) )
-
 			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			fn()
@@ -228,7 +228,6 @@ x_any_proto <- local({
 			invoking_call <- sys.call()
 
 			MACRO( Must $ Not_Be_Missing(fn) )
-
 			MACRO( Must $ Be_Fn_Matchable(fn) )
 
 			fn()
