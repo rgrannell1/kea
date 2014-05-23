@@ -121,17 +121,28 @@ fromStream <- function () {
 	sampler()
 }
 
+
+
+
+
+
+
+
+
+
+
 executeTest <- function (test) {
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
 
+	# -- attach the test object to the local environment.
 	info       <- test $ info
 	params     <- test $ params
 	properties <- test $ properties
-	max_time   <- test $ max_time
+	time   <- test $ time
 
-	# -- throw an error if any fields are missing.
+	# -- throw an error if any test fields are missing.
 	for (key in c('info', 'params', 'properties')) {
 		if (is.null( test[[key]] )) {
 			message <-
@@ -141,12 +152,29 @@ executeTest <- function (test) {
 		}
 	}
 
+	# -- validate the test fields
+	if (!is.character(info) || length(info) != 1) {
+		message <-
+			'the property info must be a length-one character vector.'
+
+		throw_arrow_error(invoking_call, message)
+	}
+
+	if (!is.numeric(time) || length(time) < 0) {
+		message <-
+			'time must be a positive number'
+
+		throw_arrow_error(invoking_call, message)
+	}
+
+
 	# -- parameterise all the expressions
 	properties <- lapply(properties, function (prop) {
 		lapply(prop, function (expr) {
-			# -- bind each function
+
 			shell <- function () {}
 
+			# -- add the parameters given by over, and use the parent env.
 			body(shell) <- expr
 			environment(shell) <- parent_frame
 			formals(shell) <- make_formals(params)
@@ -155,15 +183,67 @@ executeTest <- function (test) {
 		})
 	})
 
-	# -- test
+	# -- the state that is modified after running several tests.
 
 	state <- list(
 		tests_run = 0,
 		failed_after = Inf,
-		time_left = xStopwatch(max_time)
-
+		time_left = xStopwatch(time)
 	)
 
+	while (state$time_left()) {
+
+		case <- lapply(seq_along(params), function (x) {
+			fromStream()
+		})
+
+		for (prop in properties) {
+			given <- prop[[1]]
+
+			is_match <- do.call(given, case)
+
+			if (!isTRUE(is_match) && !identical(is_match, False)) {
+				message <- ''
+				throw_arrow_error(invoking_call, 'a non-boolean value was produced for a precondition')
+			}
+
+			if (!is_match) {
+				next
+			}
+
+			for (expect in tail(prop, -1)) {
+
+				result <- do.call(expect, case)
+
+				if (!result) {
+					state$failed_after <-
+						min(state$failed_after, state$tests_run)
+
+					state$failed <-
+						c(state$failed, list(case))
+				}
+			}
+
+		}
+	}
+
+	if (length(state$failed) > 0) {
+
+		after <- state  $ failed_after
+		failed <- state $ failed
+
+		cases <- sapply(lapply(failed, unname), ddparse)
+		cases <-
+			paste0(cases[ seq_along( min(10, length(cases)) ) ],
+			collapse = "'\n")
+
+		message <- info %+% "\nfailed after the " %+%
+			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+
+		throw_arrow_error(invoking_call, message)
+	}
+
+	message(info, " passed!", " (", state$tests_run, ")")
 }
 
 
@@ -240,8 +320,8 @@ failsWhen <- function () {
 
 }
 
-run <- function (time = 0.15) {
-	out <- list()
+run <- function (time = 1) {
+	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out
 }
@@ -286,6 +366,8 @@ run <- function (time = 0.15) {
 			function () {
 				# -- execute the test.
 
+				acc $ time <- new $ time
+
 				executeTest(acc)
 			}
 	)
@@ -303,12 +385,6 @@ run <- function (time = 0.15) {
 
 
 
-test <-
-	over(x, y) |
-	it('is always false') |
-	when(x > 0, x %% 2 == 0)
-
-test | run()
 
 
 # ----------------------- The Actual Implementation ----------------------- #
@@ -321,5 +397,8 @@ test | run()
 
 
 
-
+# over(x) |
+# it('is always divisible by itself') |
+# when(is.integer(x) && x != 0, x/x == 1) |
+# run()
 
