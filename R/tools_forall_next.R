@@ -1,76 +1,4 @@
 
-# Grammar
-
-# it(str):                       add a description (singleton field).
-# over(...symbols):              give the parametres to be bound (singleton field).
-
-# check(expr):                   add a single predicate to test.
-# checkWhen(expr, expr):         add a single predicate to test of a subset of the domain.
-
-# fails(expr, [str]):            add a single function to test for expected failure.
-# failsWhen(expr, expr, [str]):  add a single function to test for expected failure, over a limited domain.
-
-# chain with '|': it('this is a test') | over(x, y) | go()
-#
-
-# -- the description
-
-it <- function (info) {
-	out <- list(info = info)
-}
-
-# -- the domain over which to bind
-
-over <- function (...) {
-
-	# -- capture the symbols
-	symbols <- as.list(match.call()[-1])
-
-	# -- validate the symbols
-
-	stopifnot( vapply(symbols, is.name, logical(1)) )
-
-	params <- vapply(symbols, toString, character(1))
-
-	out <- list(params = params)
-}
-
-# -- test properties (+ controls)
-
-when <- function (expr1, expr2) {
-
-	exprs <- as.list(match.call()[-1])
-
-	out <- list(
-		condition = exprs[[1]],
-		expectation = exprs[[2]]
-	)
-
-}
-
-# -- test failures (- controls)
-
-fails <- function (expr) {
-
-}
-
-failsWhen <- function () {
-
-}
-
-run <- function (time = 0.15) {
-
-}
-
-
-
-
-
-
-
-
-
-
 fromStream <- function () {
 	# -- yield a single valid R object.
 
@@ -192,3 +120,206 @@ fromStream <- function () {
 	sampler <- this[[ rsample(implemented, size = 1) ]]
 	sampler()
 }
+
+executeTest <- function (test) {
+
+	invoking_call <- sys.call()
+	parent_frame <- parent.frame()
+
+	info       <- test $ info
+	params     <- test $ params
+	properties <- test $ properties
+	max_time   <- test $ max_time
+
+	# -- throw an error if any fields are missing.
+	for (key in c('info', 'params', 'properties')) {
+		if (is.null( test[[key]] )) {
+			message <-
+				'the property ' %+% key %+% ' is missing from the test object.'
+
+			throw_arrow_error(invoking_call, message)
+		}
+	}
+
+	# -- parameterise all the expressions
+	properties <- lapply(properties, function (prop) {
+		lapply(prop, function (expr) {
+			# -- bind each function
+			shell <- function () {}
+
+			body(shell) <- expr
+			environment(shell) <- parent_frame
+			formals(shell) <- make_formals(params)
+
+			shell
+		})
+	})
+
+	# -- test
+
+	state <- list(
+		tests_run = 0,
+		failed_after = Inf,
+		time_left = xStopwatch(max_time)
+
+	)
+
+}
+
+
+
+
+
+
+
+
+
+
+# Grammar
+
+# it(str):                       add a description (singleton field).
+# over(...symbols):              give the parametres to be bound (singleton field).
+
+# check(expr):                   add a single predicate to test.
+# checkWhen(expr, expr):         add a single predicate to test of a subset of the domain.
+
+# fails(expr, [str]):            add a single function to test for expected failure.
+# failsWhen(expr, expr, [str]):  add a single function to test for expected failure, over a limited domain.
+
+# chain with '|': it('this is a test') | over(x, y) | go()
+#
+
+# -- the description
+
+it <- function (info) {
+	out <- list(info = info)
+	class(out) <- c('xforall', 'xit')
+	out
+}
+
+# -- the domain over which to bind
+
+over <- function (...) {
+
+	# -- capture the symbols
+	symbols <- as.list(match.call()[-1])
+
+	# -- validate the symbols
+
+	stopifnot( vapply(symbols, is.name, logical(1)) )
+
+	params <- vapply(symbols, toString, character(1))
+
+	out <- list(params = params)
+	class(out) <- c('xforall', 'xover')
+	out
+}
+
+# -- test properties (+ controls)
+
+when <- function (expr1, ...) {
+
+	exprs <- as.list(match.call(expand.dots = False)[-1])
+
+	out <- list(
+		properties =
+			c(list( exprs[[1]] ), exprs$...)
+	)
+	class(out) <- c('xforall', 'xwhen')
+	out
+
+}
+
+# -- test failures (- controls)
+
+fails <- function (expr) {
+
+}
+
+failsWhen <- function () {
+
+}
+
+run <- function (time = 0.15) {
+	out <- list()
+	class(out) <- c('xforall', 'xrun')
+	out
+}
+
+
+
+
+
+
+
+
+
+
+'|.xforall' <- function (acc, new) {
+	# a monoidal operation that joins any
+	# member of 'xforall' into a compound object,
+	# unless run is joined.
+	# run signals execution.
+
+
+	responses <- list(
+		'xit' =
+			function () {
+				acc $ info = new $ info
+				acc
+			},
+		'xover' =
+			function () {
+				acc $ params = new $ params
+				acc
+			},
+		'xwhen' =
+			function () {
+				if (length(acc $ properties) > 0) {
+					acc $ properties <- c(acc $ properties, list(new $ properties))
+				} else {
+					acc $ properties <- list(new $ properties)
+				}
+				acc
+			},
+		'xrun' =
+			function () {
+				# -- execute the test.
+
+				executeTest(acc)
+			}
+	)
+
+	new_classes <- class(new)
+
+	for (classname in names(responses)) {
+		if (any(new_classes == classname)) {
+			return ( responses[[classname]]() )
+		}
+	}
+}
+
+
+
+
+
+test <-
+	over(x, y) |
+	it('is always false') |
+	when(x > 0, x %% 2 == 0)
+
+test | run()
+
+
+# ----------------------- The Actual Implementation ----------------------- #
+#
+# Given a list representing a test program
+
+
+
+
+
+
+
+
+
