@@ -5,7 +5,7 @@ xDo(print, list.files('.'))
 
 #    or
 
-x_(list.files('.'))$xDo(print)
+x_(list.files('.')) $ xDo(print)
 
 #    or even
 
@@ -39,3 +39,4 @@ n <- 5
 
 xDo(print %of% xK('hello'), 1:n)
 xDo(num := print('hello'),  1:n)
+

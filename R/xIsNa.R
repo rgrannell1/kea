@@ -32,5 +32,6 @@ xIsNa <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	isTRUE(is.na(val))
+	# -- is_na is vectorised.
+	isTRUE(length(val) == 1 && is_na(val))
 })

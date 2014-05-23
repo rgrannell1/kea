@@ -3,6 +3,7 @@ require(arrow)
 
 '%+%' <- arrow ::: '%+%'
 throw_arrow_error <- arrow ::: throw_arrow_error
+is_na <- arrow:::is_na
 
 # -- This series of unit tests checks that files that
 # -- should exist, do exist.
@@ -43,7 +44,7 @@ message(
 	'test that no forbidden functions are ever called')
 
 	forbidden_calls <- calls := {
-		x_(calls) $ xInter_(c('sample'))
+		x_(calls) $ xInter_(c('sample', 'is.na'))
 	}
 
 	# -- select the functions that make dangerous calls.
@@ -66,5 +67,8 @@ message(
 		# -- collapse into one message.
 		x_FromLines()
 
-	throw_arrow_error(message = error_message)
+	if (isTRUE(nchar(error_message) > 0)) {
+		throw_arrow_error(message = error_message)
+	}
+
 

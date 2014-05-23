@@ -229,29 +229,29 @@ message('test that the constructor works for each data type')
 	forall(
 		"collections work",
 		test_cases$collection,
-		x_(coll) $ x_() %equals% coll
+		x_(coll) $ x_Identity() %equals% coll
 	)
 
 	forall(
 		"matrices work",
 		test_cases$collection,
-		x_(as.matrix(coll)) $ x_() %equals% as.matrix(coll)
+		x_(as.matrix(coll)) $ x_Identity() %equals% as.matrix(coll)
 	)
 
 	forall(
 		"data.frames work",
 		test_cases$collection,
-		x_(as.data.frame(coll)) $ x_() %equals% as.data.frame(coll)
+		x_(as.data.frame(coll)) $ x_Identity() %equals% as.data.frame(coll)
 	)
 
 	forall(
 		"factors work",
 		test_cases$collection,
-		x_(as.factor(coll)) $ x_() %equals% as.factor(coll)
+		x_(as.factor(coll)) $ x_Identity() %equals% as.factor(coll)
 	)
 
 	forall(
 		"functions work",
 		test_cases$base_function,
-		x_(fn) $ x_() %equals% fn
+		x_(fn) $ x_Identity() %equals% fn
 	)

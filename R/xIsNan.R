@@ -33,6 +33,5 @@ xIsNan <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	# fails if no atomic check.
-	is.atomic(val) && isTRUE(is.nan(val))
+	isTRUE(identical(val, NaN))
 })

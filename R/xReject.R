@@ -61,7 +61,7 @@ xReject <- MakeFun(function (pred, coll) {
 			isTRUE(pred(elem))
 		}, logical(1), USE.NAMES = False)
 
-		as.list( coll[is.na(ind) | !ind ] )
+		as.list( coll[is_na(ind) | !ind ] )
 	}
 })
 

@@ -16,15 +16,15 @@ is_ryan <- arrow ::: is_ryan
 
 r_paths <- x_(list(
 	R =
-		'/home/ryan/Code/arrow.R/R',
+		system.file(package = 'arrow', 'R'),
 	examples =
-		'/home/ryan/Code/arrow.R/inst/examples',
+		system.file(package = 'arrow', 'inst/examples'),
 	tests =
-		'/home/ryan/Code/arrow.R/tests',
+		system.file(package = 'arrow', 'tests'),
 	man =
-		'/home/ryan/Code/arrow.R/man',
+		system.file(package = 'arrow', 'man'),
 	namespace =
-		'/home/ryan/Code/arrow.R/NAMESPACE'
+		system.file(package = 'arrow', 'NAMESPACE')
 ))
 
 # 1. Regular expression patterns.
@@ -58,7 +58,7 @@ as_test_path <- function (fnname) {
 
 
 
-if (is_ryan()) {
+if (nchar(r_paths $ x_AtKey('tests')) > 0) {
 
 	variadic_exports <-
 		r_paths $ xAtKey('namespace') $ xReadLines() $

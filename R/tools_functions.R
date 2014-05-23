@@ -22,7 +22,8 @@ Moot <- function (...) {
 	Na
 }
 
-# --------------------- misc. tools --------------------- #
+# --------------------- safe replacements
+
 
 # Sample is insane in R.
 # sample(10, size = 1) ~ 10, which makes it awful for
@@ -36,6 +37,24 @@ rsample <- function (coll, ...) {
 	}
 
 }
+
+# is.na fails for Null and other annoying cases.
+
+is_na <- function (coll) {
+
+	vapply(coll, function (elem) {
+
+		isTRUE(
+			identical(elem, NA) ||
+			identical(elem, NA_integer_) ||
+			identical(elem, NA_character_) ||
+			identical(elem, NA_real_) ||
+			identical(elem, NA_complex_))
+
+	}, logical(1))
+}
+
+# --------------------- misc. tools --------------------- #
 
 # @section one_of:
 #

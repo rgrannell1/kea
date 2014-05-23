@@ -45,24 +45,24 @@ unit_to_value <- function (coll) {
 
 as_typed_vector <- local({
 
-	# -- is.na is essential; all na's are treated the same.
+	# -- is_na is essential; all na's are treated the same.
 
 	typecheck <- list(
 		numeric =
 			# -- is.numeric checks if integer or double
-			function (x) is.numeric(x) || is.na(x),
+			function (x) is.numeric(x) || is_na(x),
 		integer =
-			function (x) is.integer(x) || is.na(x),
+			function (x) is.integer(x) || is_na(x),
 		double =
-			function (x) is.double(x) || is.na(x),
+			function (x) is.double(x) || is_na(x),
 		character =
-			function (x) is.character(x) || is.na(x),
+			function (x) is.character(x) || is_na(x),
 		logical =
-			function (x) is.logical(x) || is.na(x),
+			function (x) is.logical(x) || is_na(x),
 		complex =
-			function (x) is.complex(x) || is.na(x),
+			function (x) is.complex(x) || is_na(x),
 		raw =
-			function (x) is.raw(x) || is.na(x)
+			function (x) is.raw(x) || is_na(x)
 	)
 
 	function (coll, mode) {
@@ -154,24 +154,24 @@ as_typed_vector <- local({
 
 as_atom <- local({
 
-	# -- is.na is essential; all na's are treated the same.
+	# -- is_na is essential; all na's are treated the same.
 
 	typecheck <- list(
 		numeric =
 			# -- is.numeric checks if integer or double
-			function (x) is.numeric(x) || is.na(x),
+			function (x) is.numeric(x) || is_na(x),
 		integer =
-			function (x) is.integer(x) || is.na(x),
+			function (x) is.integer(x) || is_na(x),
 		double =
-			function (x) is.double(x) || is.na(x),
+			function (x) is.double(x) || is_na(x),
 		character =
-			function (x) is.character(x) || is.na(x),
+			function (x) is.character(x) || is_na(x),
 		logical =
-			function (x) is.logical(x) || is.na(x),
+			function (x) is.logical(x) || is_na(x),
 		complex =
-			function (x) is.complex(x) || is.na(x),
+			function (x) is.complex(x) || is_na(x),
 		raw =
-			function (x) is.raw(x) || is.na(x)
+			function (x) is.raw(x) || is_na(x)
 	)
 
 	function (coll, mode) {

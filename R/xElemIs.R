@@ -16,8 +16,8 @@
 #'    ... see above.
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} is length-zero \bold{logical(0)} is 
-#'    returned. If NA is used as \bold{val} then all forms of 
+#'    If \bold{coll} is length-zero \bold{logical(0)} is
+#'    returned. If NA is used as \bold{val} then all forms of
 #'    NA are treated identically.
 #
 #' @template
@@ -35,14 +35,14 @@ xElemIs <- MakeFun(function (val, coll) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 	MACRO( Must $ Not_Be_Missing(coll) )
-	
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {
 		logical(0)
-	} else if (is.na(val)) {
+	} else if ( isTRUE(is_na(val)) ) {
 		# -- treat all na's identical.
-		vapply(coll, function (x) isTRUE(is.na(x)), logical(1))
+		vapply(coll, function (x) isTRUE(is_na(x)), logical(1))
 	} else {
 		# -- otherwise just test normally.
 		vapply(coll, function (elem) {

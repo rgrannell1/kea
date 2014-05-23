@@ -5,7 +5,6 @@ x_(letters)
 
 # 2. Get data back out of an arrow object
 
-x_(letters) $ x_()
 x_(letters) $ x_Identity()
 
 # 3. Call methods off an arrow object.

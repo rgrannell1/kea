@@ -1,6 +1,7 @@
 
 forall <- arrow:::forall
 test_cases <- arrow:::test_cases
+is_na <- arrow:::is_na
 
 require(arrow)
 
@@ -11,7 +12,7 @@ message("xNegate")
 		test_cases$logical_function,
 		!fn() %equals% xNegate(fn)(),
 		given =
-			!is.na(fn())
+			!is_na(fn())
 	)
 
 	forall(
@@ -19,5 +20,5 @@ message("xNegate")
 		test_cases$logical_function,
 		fn() %equals% xNegate(fn)(),
 		given =
-			is.na(fn())
+			is_na(fn())
 	)

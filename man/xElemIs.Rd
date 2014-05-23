@@ -31,7 +31,9 @@ Test if the elements of a collection are equal to a value.
 }
 \examples{
 
-NULL
+# 1. test if the elements of a list are NULL
+
+xElemIs(Null, list(1, 2, 3, Null, 4))
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemNot}},

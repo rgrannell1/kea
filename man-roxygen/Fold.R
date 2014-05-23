@@ -88,7 +88,7 @@
 #'
 #' \code{coll <- c(1, 2, 3, NA, rep(10, 1000))}
 #'
-#' \code{xFold((acc : elem) := acc || is.na(elem), False, coll)}
+#' \code{xFold((acc : elem) := acc || is_na(elem), False, coll)}
 #'
 #' \code{True}
 #'x
@@ -101,7 +101,7 @@
 #' This function can be used to break out of the fold early; in this case upon
 #' discovery of an na value.
 #'
-#' \code{xFold((acc : elem) := if (is.na(elem)) Return(True) else False, False, coll)}
+#' \code{xFold((acc : elem) := if (is_na(elem)) Return(True) else False, False, coll)}
 #'
 #' The use of \bold{Return( )} reduces the number of steps required to return a result
 #' from thousands to less than ten.

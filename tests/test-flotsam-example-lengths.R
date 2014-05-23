@@ -4,8 +4,6 @@ require(arrow)
 '%+%' <- arrow ::: '%+%'
 throw_arrow_warning <- arrow ::: throw_arrow_warning
 
-# -- this will be removed soon.
-is_ryan <- arrow ::: is_ryan
 
 # -- This unit test checks if the examples are empty.
 

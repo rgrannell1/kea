@@ -4,9 +4,6 @@ require(arrow)
 '%+%' <- arrow ::: '%+%'
 throw_arrow_warning <- arrow ::: throw_arrow_warning
 
-# -- this will be removed soon.
-is_ryan <- arrow ::: is_ryan
-
 # -- This test suite checks to see if each file has the proper roxygen2
 # -- documentation
 
