@@ -191,22 +191,32 @@ executeTest <- function (test) {
 		time_left = xStopwatch(time)
 	)
 
+	# -- test random test cases for a preset amount of time.
 	while (state$time_left()) {
 
+		# -- generate a random test case.
 		case <- lapply(seq_along(params), function (x) {
 			fromStream()
 		})
 
+
+		# -- check every property group with the case
 		for (prop in properties) {
+
 			given <- prop[[1]]
 
 			is_match <- do.call(given, case)
 
 			if (!isTRUE(is_match) && !identical(is_match, False)) {
-				message <- ''
-				throw_arrow_error(invoking_call, 'a non-boolean value was produced for a precondition')
+
+				message <-
+					'a non-boolean value was produced for a precondition'
+
+				throw_arrow_error(
+					invoking_call, message)
 			}
 
+			# -- the precondition doesn't match, so don't check the expectations.
 			if (!is_match) {
 				next
 			}
@@ -395,10 +405,11 @@ run <- function (time = 1) {
 
 
 
+if (False) {
 
+	over(x) |
+	it('is always divisible by itself') |
+	when(isTRUE(is.integer(x) && x != 0, x/x == 1) |
+	run()
 
-# over(x) |
-# it('is always divisible by itself') |
-# when(is.integer(x) && x != 0, x/x == 1) |
-# run()
-
+}
