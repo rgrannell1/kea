@@ -5,15 +5,47 @@ Date: 2014-5-22
 
 Enhancements:
 
+* Added all empty and any empty property tests to value summation for lists.
+
+* Added property tests for inner arrow objects in summated lists.
+
+* Removed special handling of NA's from xElemIs and xElemNot, but this may be
+re-implemented in the future.
+
 Bug-Fixes:
+
+* Simplified behaviour of xIsNan, xNotNa, xNotNan, xIsNan, potentially
+correcting issues for non length-one vectors.
+
+* Removed the x_ method from Arrow, since x_Identity does the same thing
+in a more obvious way.
+
+* Removed use of sample, potetentially fixing bugs with numeric vectors.
 
 Documentation:
 
+* Added example for xElemIs, xLocate, xReadChars, xReadLines, xReadwords,
+xRestOf, xParamsOf.
+
+* Removed redundant @method tags from documentation.
+
 Package Internals:
 
+* Added a rigourous test for example length, file existance, function calls
+to dangerous functions, and removed an older similar test suite.
 
+* Implemented a new testing tool for Arrow, which should give more complete
+test coverage and both positive and negative controls. The syntax is also
+improved.
 
+* Removed direct use of is.na; the function can fail for null values, and
+testing functions should never fail.
 
+* Removed direct use of sample, as the function has a bizzare corner case
+for length-one number vectors.
+
+* Added a minor fix to ith_corner case, which adds a behaviour for infinite
+values.
 
 
 

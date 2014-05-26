@@ -57,7 +57,7 @@ xPartition <- MakeFun(function (pred, coll) {
 			isTRUE(pred(elem))
 		}, logical(1), USE.NAMES = False)
 
-		true_ind <- !is_na(ind) & ind
+		true_ind <- !elem_is_na(ind) & ind
 
 		list(
 			as.list(coll[true_ind]),

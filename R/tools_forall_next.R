@@ -346,7 +346,16 @@ over <- function (...) {
 
 when <- function (expr1, ...) {
 
+	invoking_call <- sys.call()
+
 	exprs <- as.list(match.call(expand.dots = False)[-1])
+
+	if (missing(..1)) {
+		message <-
+			'when must specify expectations.'
+
+		throw_arrow_error(invoking_call, message)
+	}
 
 	out <- list(
 		properties =
@@ -359,11 +368,13 @@ when <- function (expr1, ...) {
 
 # -- test failures (- controls)
 
-fails <- function (expr) {
+failsWhen <- function (expr, str = '') {
 
-}
+	invoking_call <- sys.call()
 
-failsWhen <- function () {
+	exprs <- as.list(match.call(expand.dots = False)[-1])
+
+
 
 }
 

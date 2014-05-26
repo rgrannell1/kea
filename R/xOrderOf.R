@@ -55,7 +55,7 @@ xOrderOf <- MakeFun(function (nums) {
 		# -- treat broken numbers like the smallest
 		# -- values; might want to throw an error.
 
-		nums[is.nan(nums) | is_na(nums)] <- -Inf
+		nums[elem_is_nan(nums) | elem_is_na(nums)] <- -Inf
 		ordering <- vector('integer', length(nums))
 
 		for (ith in seq_along(nums)) {

@@ -61,7 +61,7 @@ xSelect <- MakeFun(function (pred, coll) {
 			isTRUE(pred(elem))
 		}, logical(1), USE.NAMES = False)
 
-		as.list( coll[ !is_na(ind) & ind ] )
+		as.list( coll[ !elem_is_na(ind) & ind ] )
 	}
 })
 

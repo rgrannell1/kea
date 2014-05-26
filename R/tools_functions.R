@@ -54,6 +54,33 @@ is_na <- function (coll) {
 	}, logical(1))
 }
 
+elem_is_na <- function (coll) {
+	if (is.atomic(coll)) {
+		is.na(coll)
+	} else if (is.list(coll) || is.pairlist(coll)) {
+		vapply(coll, function (elem) {
+
+			isTRUE(
+				identical(elem, NA) ||
+				identical(elem, NA_integer_) ||
+				identical(elem, NA_character_) ||
+				identical(elem, NA_real_) ||
+				identical(elem, NA_complex_))
+
+		}, logical(1))
+	}
+}
+
+elem_is_nan <- function (coll) {
+	if (is.atomic(coll)) {
+		is.nan(coll)
+	} else if (is.list(coll) || is.pairlist(coll)) {
+		vapply(coll, function (elem) {
+			isTRUE(identical(elem, NaN))
+		}, logical(1))
+	}
+}
+
 # --------------------- misc. tools --------------------- #
 
 # @section one_of:
