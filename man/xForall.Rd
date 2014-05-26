@@ -72,11 +72,9 @@ is true for a predicate.
 palindromic <- "Marge let a moody baby doom a telegram."
 
 left_to_right <-
-    x_(palindromic) $
-    xToChars() $
-    xMap(tolower) $
+    x_(palindromic) $ xToChars() $ xMap(tolower) $
     x_Select(
-        function (char) xIsMember(char, letters)
+        char := xIsMember(char, letters)
     )
 
 right_to_left <- x_(left_to_right) $ x_Reverse()

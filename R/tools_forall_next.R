@@ -147,10 +147,11 @@ execute_test <- function (test) {
 	info       <- test $ info
 	params     <- test $ params
 	properties <- test $ properties
+	failures   <- test $ failures
 	time       <- test $ time
 
 	# -- throw an error if any test fields are missing.
-	for (key in c('info', 'params', 'properties')) {
+	for (key in c('info', 'params', 'properties', 'time')) {
 		if (is.null( test[[key]] )) {
 			message <-
 				'the property ' %+% key %+% ' is missing from the test object.'
@@ -200,6 +201,13 @@ execute_test <- function (test) {
 			list(),
 		failed_after =
 			Inf,
+
+		no_fail_for =
+			list(),
+
+		no_fail_after =
+			Inf,
+
 		time_left =
 			xStopwatch(time)
 	)
@@ -243,7 +251,16 @@ execute_test <- function (test) {
 
 				# -- to aid debugging.
 				if (length(has_property) != 1) {
-					message <- ''
+
+					message <-
+						info %+% '\n' %+%
+						'the property ' %+%
+						ddparse(body(expect)) %+%
+						' returned a non length-one result\n' %+%
+						'For the test case ' %+%
+						ddparse(case)
+
+					throw_arrow_error(invoking_call, message)
 				}
 
 				# -- this must always be true or false.
@@ -295,12 +312,25 @@ execute_test <- function (test) {
 			# -- test each property that should fail for this case.
 			for (fail in tail(failprop, -1)) {
 
+				case_fails <- tryCatch({
+					do.call(fail, case)
+					False
+					},
+					warning = function (warn) True,
+					error   = function (err) True
+				)
+
+				if (!isTRUE(case_fails)) {
+
+					state $ no_fail_after <-
+						min(no_fail_after, state$tests_run)
+
+					state $ no_fail_for <- c(state $ no_fail_for, list(case))
+
+				}
 			}
 
-
-
 		}
-
 	}
 
 	# we have a problem; the test failed.
@@ -336,7 +366,7 @@ execute_test <- function (test) {
 
 # Grammar
 
-# it(str):                       add a description (singleton field).
+# describe(str):                       add a description (singleton field).
 # over(...symbols):              give the parametres to be bound (singleton field).
 
 # check(expr):                   add a single predicate to test.
@@ -350,9 +380,9 @@ execute_test <- function (test) {
 
 # -- the description
 
-it <- function (info) {
+describe <- function (info) {
 	out <- list(info = info)
-	class(out) <- c('xforall', 'xit')
+	class(out) <- c('xforall', 'xdescribe')
 	out
 }
 
@@ -444,7 +474,7 @@ run <- function (time = 2) {
 
 
 	responses <- list(
-		'xit' =
+		'xdescribe' =
 			function () {
 				acc $ info = new $ info
 				acc
@@ -494,9 +524,14 @@ run <- function (time = 2) {
 
 if (False) {
 
-over(x) |
-    it('is always divisible by itself') |
-    when(is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0, x/x == 1)
+	over(x) |
+    describe('is always divisible by itself') |
+    when(
+    	is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0,
+    	x / x == 1) |
+    failsWhen(
+    	is.numeric(x),
+    	x + '') |
     run()
 
 }
