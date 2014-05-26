@@ -11,7 +11,7 @@ message("xSelect")
 	when(
 		length(coll) == 0,
 		xSelect(function (x) True, coll)  %equals% list(),
-		xSelect(function (x) False, coll) %equals% list()
+		xSelect(function (x) False, coll) %equals% list(),
 		xSelect(function (x) Na, coll)    %equals% list()) +
 	run()
 
