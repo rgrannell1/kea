@@ -147,7 +147,7 @@ execute_test <- function (test) {
 	info       <- test $ info
 	params     <- test $ params
 	properties <- test $ properties
-	time   <- test $ time
+	time       <- test $ time
 
 	# -- throw an error if any test fields are missing.
 	for (key in c('info', 'params', 'properties')) {
@@ -195,6 +195,7 @@ execute_test <- function (test) {
 
 	state <- list(
 		tests_run = 0,
+		fails_for = list(),
 		failed_after = Inf,
 		time_left = xStopwatch(time)
 	)
@@ -259,7 +260,7 @@ execute_test <- function (test) {
 						min(state$failed_after, state$tests_run)
 
 					# -- store the failed case.
-					state$failed <- c(state$failed, list(case))
+					state$fails_for <- c(state$fails_for, list(case))
 
 				}
 			}
@@ -268,13 +269,13 @@ execute_test <- function (test) {
 	}
 
 	# we have a problem; the test failed.
-	if (length(state$failed) > 0) {
+	if (length(state$fails_for) > 0) {
 
 		after <- state  $ failed_after
-		failed <- state $ failed
+		fails_for <- state $ fails_for
 
 		# -- remove keys to simplify output.
-		cases <- vapply(lapply(failed, unname), ddparse, character(1))
+		cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
 
 		cases <-
 			paste0(cases[ seq_along( min(10, length(cases)) ) ],
