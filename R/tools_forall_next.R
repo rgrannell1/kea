@@ -466,7 +466,7 @@ run <- function (time = 2) {
 
 
 
-'|.xforall' <- function (acc, new) {
+'+.xforall' <- function (acc, new) {
 	# a monoidal operation that joins any
 	# member of 'xforall' into a compound object,
 	# unless run is joined.
@@ -490,6 +490,15 @@ run <- function (time = 2) {
 					acc $ properties <- c(acc $ properties, list(new $ properties))
 				} else {
 					acc $ properties <- list(new $ properties)
+				}
+				acc
+			},
+		'xfailswhen' =
+			function () {
+				if (length(acc $ failures) > 0) {
+					acc $ failures <- c(acc $ failures, list(new $ failures))
+				} else {
+					acc $ failures <- list(new $ failures)
 				}
 				acc
 			},
@@ -524,14 +533,14 @@ run <- function (time = 2) {
 
 if (False) {
 
-	over(x) |
-    describe('is always divisible by itself') |
-    when(
-    	is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0,
-    	x / x == 1) |
-    failsWhen(
-    	is.numeric(x),
-    	x + '') |
-    run()
+	over(x) +
+	describe('is always divisible by itself') +
+	when(
+		is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0,
+		x / x == 1) +
+	failsWhen(
+		is.numeric(x),
+		x + '') +
+	run()
 
 }
