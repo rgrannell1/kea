@@ -250,6 +250,13 @@ ith_suffix <- function (num) {
 	# appropriate suffix (1th, 2nd, 3rd, ...)
 	# useful for error messages.
 
+	# -- just in case...
+	if (num == Inf) {
+		return("infinith")
+	} else if (num == -Inf) {
+		return("-infinith")
+	}
+
 	last <- as.numeric(substr(
 		toString(num),
 		nchar(toString(num)),

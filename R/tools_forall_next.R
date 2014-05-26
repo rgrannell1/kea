@@ -1,8 +1,8 @@
 
-fromStream <- function () {
+from_stream <- function () {
 	# -- yield a single valid R object.
 
-	# -- finish this alphabet
+	#-- finish this alphabet
 	extended_ascii <- strsplit("abcdefghijklmnopqrsruvwxyz0123456789", '')[[1]]
 	# -- needed, as strsplit can do weird things.
 	extended_ascii <- Filter(function (x) length(x) > 0, extended_ascii)
@@ -75,7 +75,14 @@ fromStream <- function () {
 	# -- symbols
 	this $ symbol <-
 		function () {
-			as.symbol(this $ word())
+
+			word <- this $ word()
+
+			while (nchar(word) == 0) {
+				word <- this $ word()
+			}
+
+			as.symbol(word)
 		}
 
 	# -- double
@@ -131,7 +138,7 @@ fromStream <- function () {
 
 
 
-executeTest <- function (test) {
+execute_test <- function (test) {
 
 	invoking_call <- sys.call()
 	parent_frame <- parent.frame()
@@ -167,6 +174,7 @@ executeTest <- function (test) {
 		throw_arrow_error(invoking_call, message)
 	}
 
+	info <- dQuote(info)
 
 	# -- parameterise all the expressions
 	properties <- lapply(properties, function (prop) {
@@ -196,53 +204,78 @@ executeTest <- function (test) {
 
 		# -- generate a random test case.
 		case <- lapply(seq_along(params), function (x) {
-			fromStream()
+			from_stream()
 		})
-
 
 		# -- check every property group with the case
 		for (prop in properties) {
 
 			given <- prop[[1]]
 
-			is_match <- do.call(given, case)
-
-			if (!isTRUE(is_match) && !identical(is_match, False)) {
-
-				message <-
-					'a non-boolean value was produced for a precondition'
-
-				throw_arrow_error(
-					invoking_call, message)
-			}
+			# -- we don't care if the precondition always works;
+			# -- accept errors and non-boolean values
+			is_match <- tryCatch(
+				do.call(given, case),
+				warning =
+					function (warn) False,
+				error =
+					function (err) False
+			)
 
 			# -- the precondition doesn't match, so don't check the expectations.
-			if (!is_match) {
+			if (!isTRUE(is_match)) {
 				next
 			}
 
+			# -- if the precondition matches iterate over each expectation.
 			for (expect in tail(prop, -1)) {
 
-				result <- do.call(expect, case)
+				has_property <- do.call(expect, case)
 
-				if (!result) {
+				# -- to aid debugging.
+				if (length(has_property) != 1) {
+					message <- ''
+				}
+
+				# -- this must always be true or false.
+				if (!isTRUE(has_property) && !identical(has_property, False)) {
+
+					message <-
+						info %+% '\n' %+%
+						'the property ' %+%
+						ddparse(body(expect)) %+%
+						' returned a non-logical result\n' %+%
+						'For the test case ' %+%
+						ddparse(case)
+
+					throw_arrow_error(invoking_call, message)
+				}
+
+				# -- the result must be true to pass.
+				if (!isTRUE(has_property)) {
+
+					# -- make sure the earliest failure is noted.
 					state$failed_after <-
 						min(state$failed_after, state$tests_run)
 
-					state$failed <-
-						c(state$failed, list(case))
+					# -- store the failed case.
+					state$failed <- c(state$failed, list(case))
+
 				}
 			}
 
 		}
 	}
 
+	# we have a problem; the test failed.
 	if (length(state$failed) > 0) {
 
 		after <- state  $ failed_after
 		failed <- state $ failed
 
-		cases <- sapply(lapply(failed, unname), ddparse)
+		# -- remove keys to simplify output.
+		cases <- vapply(lapply(failed, unname), ddparse, character(1))
+
 		cases <-
 			paste0(cases[ seq_along( min(10, length(cases)) ) ],
 			collapse = "'\n")
@@ -378,7 +411,7 @@ run <- function (time = 1) {
 
 				acc $ time <- new $ time
 
-				executeTest(acc)
+				execute_test(acc)
 			}
 	)
 
@@ -401,15 +434,11 @@ run <- function (time = 1) {
 #
 # Given a list representing a test program
 
-
-
-
-
 if (False) {
 
 	over(x) |
 	it('is always divisible by itself') |
-	when(isTRUE(is.integer(x) && x != 0, x/x == 1) |
+	when(is.integer(x) && x != 0, x/x == 1) |
 	run()
 
 }
