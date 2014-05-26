@@ -39,13 +39,14 @@ test coverage and both positive and negative controls. The syntax is also
 improved.
 
 * Removed direct use of is.na; the function can fail for null values, and
-testing functions should never fail.
+testing functions should never fail. Further testing functions will be added
+at a later date.
 
 * Removed direct use of sample, as the function has a bizzare corner case
 for length-one number vectors.
 
-* Added a minor fix to ith_corner case, which adds a behaviour for infinite
-values.
+* Added a minor fix to ith_suffix corner case which now supports infinite
+values, in the unlikely case they will arise.
 
 
 

@@ -6,11 +6,14 @@ require(arrow)
 
 message("xSelect")
 
-	forall(
-		"the empty collection always yields the empty list.",
-		test_cases$logical_functions_with_collection_zero,
-		xSelect(fn, coll) %equals% list()
-	)
+	over(coll) +
+	describe("the empty collection always yields the list") +
+	when(
+		length(coll) == 0,
+		xSelect(function (x) True, coll)  %equals% list(),
+		xSelect(function (x) False, coll) %equals% list()
+		xSelect(function (x) Na, coll)    %equals% list()) +
+	run()
 
 	forall(
 		"a truth function is list identity for collection.",

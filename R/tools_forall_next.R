@@ -375,7 +375,7 @@ execute_test <- function (test) {
 # fails(expr, [str]):            add a single function to test for expected failure.
 # failsWhen(expr, expr, [str]):  add a single function to test for expected failure, over a limited domain.
 
-# chain with '|': it('this is a test') | over(x, y) | go()
+# chain with '+': it('this is a test') + over(x, y) + go()
 #
 
 # -- the description
@@ -519,28 +519,4 @@ run <- function (time = 2) {
 			return ( responses[[classname]]() )
 		}
 	}
-}
-
-
-
-
-
-
-
-# ----------------------- The Actual Implementation ----------------------- #
-#
-# Given a list representing a test program
-
-if (False) {
-
-	over(x) +
-	describe('is always divisible by itself') +
-	when(
-		is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0,
-		x / x == 1) +
-	failsWhen(
-		is.numeric(x),
-		x + '') +
-	run()
-
 }

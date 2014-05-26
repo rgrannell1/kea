@@ -78,7 +78,11 @@ summate <- local({
 
 			traits <- list(
 				classes =
-					deparse(class(obj))
+					deparse(class(obj)),
+				nrow =
+					nrow(obj),
+				ncol =
+					ncol(obj)
 			)
 
 			"\n\n" %+% "The actual input was a data frame with these properties:" %+% "\n\n" %+%
