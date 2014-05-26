@@ -309,8 +309,28 @@ ith_suffix <- function (num) {
 	paste0(num, suffix)
 }
 
-# -- made into a function so I can eventually remove all calls to it at once.
+# -- load the internal tools needed for testing through assign.
 
-is_ryan <- function () {
-	Sys.getenv() == 'ryan'
+load_test_dependencies <- function (envir) {
+
+	deps <-
+		list(
+			over =
+				arrow ::: over,
+			describe =
+				arrow ::: describe,
+			when =
+				arrow ::: when,
+			run =
+				arrow ::: run,
+			failsWhen =
+				arrow ::: failsWhen,
+
+			`+.xforall` =
+				arrow ::: `+.xforall`
+		)
+
+	for (key in names(deps)) {
+		assign(key, deps[[key]], envir = envir)
+	}
 }

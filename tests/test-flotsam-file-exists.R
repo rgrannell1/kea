@@ -4,9 +4,6 @@ require(arrow)
 '%+%' <- arrow ::: '%+%'
 throw_arrow_error <- arrow ::: throw_arrow_error
 
-# -- this will be removed soon.
-is_ryan <- arrow ::: is_ryan
-
 # -- This series of unit tests checks that files that
 # -- should exist, do exist.
 
