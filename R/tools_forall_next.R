@@ -228,6 +228,9 @@ execute_test <- function (test) {
 				next
 			}
 
+			# -- the tests will be run once each.
+			state$tests_run <- state$tests_run + 1
+
 			# -- if the precondition matches iterate over each expectation.
 			for (expect in tail(prop, -1)) {
 
@@ -281,7 +284,7 @@ execute_test <- function (test) {
 			paste0(cases[ seq_along( min(10, length(cases)) ) ],
 			collapse = "'\n")
 
-		message <- info %+% "\nfailed after the " %+%
+		message <- info %+% "\nFailed after the " %+%
 			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
 
 		throw_arrow_error(invoking_call, message)
@@ -364,7 +367,7 @@ failsWhen <- function () {
 
 }
 
-run <- function (time = 1) {
+run <- function (time = 2) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out
@@ -437,9 +440,9 @@ run <- function (time = 1) {
 
 if (False) {
 
-	over(x) |
-	it('is always divisible by itself') |
-	when(is.integer(x) && x != 0, x/x == 1) |
-	run()
+over(x) |
+    it('is always divisible by itself') |
+    when(is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0, x/x == 1) |
+    run()
 
 }
