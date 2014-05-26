@@ -150,8 +150,22 @@ execute_test <- function (test) {
 	failures   <- test $ failures
 	time       <- test $ time
 
+	# -- make sure properties or failures is set.
+	if (is.null(properties) && is.null(failures)) {
+		message <-
+			'either properties or failures must be set.'
+
+		throw_arrow_error(invoking_call, message)
+
+	} else if (is.null(properties)) {
+		properties <- list()
+	} else if (is.null(failures)) {
+		failures <- list()
+	}
+
+
 	# -- throw an error if any test fields are missing.
-	for (key in c('info', 'params', 'properties', 'time')) {
+	for (key in c('info', 'params', 'time')) {
 		if (is.null( test[[key]] )) {
 			message <-
 				'the property ' %+% key %+% ' is missing from the test object.'
