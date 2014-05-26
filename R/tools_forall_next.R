@@ -194,10 +194,14 @@ execute_test <- function (test) {
 	# -- the state that is modified after running several tests.
 
 	state <- list(
-		tests_run = 0,
-		fails_for = list(),
-		failed_after = Inf,
-		time_left = xStopwatch(time)
+		tests_run =
+			0,
+		fails_for =
+			list(),
+		failed_after =
+			Inf,
+		time_left =
+			xStopwatch(time)
 	)
 
 	# -- test random test cases for a preset amount of time.
@@ -208,7 +212,8 @@ execute_test <- function (test) {
 			from_stream()
 		})
 
-		# -- check every property group with the case
+		# -- Act One: Check each property is true give a precondition. (+ controls)
+
 		for (prop in properties) {
 
 			given <- prop[[1]]
@@ -269,6 +274,33 @@ execute_test <- function (test) {
 			}
 
 		}
+
+		# -- Act Two: test that failures occur when expected to (- control)
+		for (failprop in failures) {
+
+			given <- failprop[[1]]
+
+			is_match <- tryCatch(
+				do.call(given, case),
+				warning =
+					function (warn) False,
+				error =
+					function (err) False
+			)
+
+			if (!isTRUE(is_match)) {
+				next
+			}
+
+			# -- test each property that should fail for this case.
+			for (fail in tail(failprop, -1)) {
+
+			}
+
+
+
+		}
+
 	}
 
 	# we have a problem; the test failed.
@@ -368,13 +400,24 @@ when <- function (expr1, ...) {
 
 # -- test failures (- controls)
 
-failsWhen <- function (expr, str = '') {
+failsWhen <- function (expr1, ...) {
 
 	invoking_call <- sys.call()
 
 	exprs <- as.list(match.call(expand.dots = False)[-1])
+	if (missing(..1)) {
+		message <-
+			'when must specify expectations.'
 
+		throw_arrow_error(invoking_call, message)
+	}
 
+	out <- list(
+		failures =
+			c(list( exprs[[1]] ), exprs$...)
+	)
+	class(out) <- c('xforall', 'xfailswhen')
+	out
 
 }
 
@@ -453,7 +496,7 @@ if (False) {
 
 over(x) |
     it('is always divisible by itself') |
-    when(is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0, x/x == 1) |
+    when(is.numeric(x) && length(x) > 0 && is.finite(x) && x != 0, x/x == 1)
     run()
 
 }
