@@ -120,6 +120,15 @@ from_stream <- function () {
 
 	# -- function
 
+	this $ base <-
+		local({
+			base <- Filter(is.function, lapply(ls('package:base'), get))
+
+			function () {
+				one_of(base)
+			}
+		})
+
 	# -- with that out of the way, yield a value.
 
 	implemented <- ls(envir = this)
@@ -399,6 +408,8 @@ execute_test <- function (test) {
 
 	# -- no tests were run.
 
+	print(state)
+
 	message(info, " passed!", " (", state$tests_run, ")")
 }
 
@@ -518,7 +529,6 @@ run <- function (time = 0.2) {
 	# member of 'xforall' into a compound object,
 	# unless run is joined.
 	# run signals execution.
-
 
 	responses <- list(
 		'xdescribe' =

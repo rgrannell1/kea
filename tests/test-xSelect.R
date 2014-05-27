@@ -34,7 +34,7 @@ message("xSelect (-)")
 	over(fn, coll) +
 	describe("coll must always be a collection") +
 	failsWhen(
-		!is.list(coll) && !is.pairlist(coll) && !is.atomic(coll),
-		xSelect(fn, coll)
+		!is_generic(coll) && !is_atomic(coll),
+		xSelect(identity, coll)
 	) +
 	run()
