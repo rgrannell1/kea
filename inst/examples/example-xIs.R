@@ -1,7 +1,7 @@
 
-# 1. check if a value is NA
+# 1. check if a value is Nan
 
-x_(Na) $ xIs(Na)
-xIs(Na, Na)
+x_(Nan) $ xIs(Nan)
+xIs(Nan, Nan)
 
 # true

@@ -1,7 +1,6 @@
 
 rPaths <- list.files("/home/ryan/packages", '.[R]$', full.names = True, recursive = True)
 
-
 allFunctions <- expr := {
 
 	allVariables    <- all.names(expr)
