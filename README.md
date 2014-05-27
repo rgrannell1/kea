@@ -4,6 +4,8 @@ Arrow 0.11.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
+### Public Release: ~1 August 2014
+
 Arrow makes R the functional language it was always meant to be.
 
 ### Installation
