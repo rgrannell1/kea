@@ -44,7 +44,7 @@ message(
 	'test that no forbidden functions are ever called')
 
 	forbidden_calls <- calls := {
-		x_(calls) $ xInter_(c('sample', 'is.na'))
+		x_(calls) $ xInter_(c('sample', 'is.na', 'is.nan', 'is.atomic', 'is.list'))
 	}
 
 	# -- select the functions that make dangerous calls.

@@ -57,7 +57,9 @@ is_na <- function (coll) {
 elem_is_na <- function (coll) {
 	if (is.atomic(coll)) {
 		is.na(coll)
-	} else if (is.list(coll) || is.pairlist(coll)) {
+	} else if (is.list(coll) || identical(coll, NULL)) {
+		# -- runs if any list or pairlist.
+
 		vapply(coll, function (elem) {
 
 			isTRUE(
@@ -74,12 +76,43 @@ elem_is_na <- function (coll) {
 elem_is_nan <- function (coll) {
 	if (is.atomic(coll)) {
 		is.nan(coll)
-	} else if (is.list(coll) || is.pairlist(coll)) {
+	} else if (is.list(coll) || identical(coll, Null)) {
+		# -- runs if any list or pairlist.
 		vapply(coll, function (elem) {
 			isTRUE(identical(elem, NaN))
 		}, logical(1))
 	}
 }
+
+# -- corrects the null corner case of is.atomic
+
+is_atomic <- function (coll) {
+	if (identical(coll, NULL)) {
+		False
+	} else {
+		is.atomic(coll)
+	}
+}
+
+# -- corrects the null corner case of is.list
+
+is_generic <- function (coll) {
+	if (identical(coll, NULL)) {
+		True
+	} else {
+		is.list(coll)
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 # --------------------- misc. tools --------------------- #
 
@@ -229,13 +262,15 @@ is_fn_matchable <- function (val) {
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
 
-	# -- don't change - is.vector doesn't handle attributes.
-	is.atomic(val) || is.list(val) || is.pairlist(val)
+	# -- the two bad coner cases of is atomic and is null
+	# -- counteract; will be true for any pairlist, list or vector, including NULL.
+	is.atomic(val) || is.list(val)
 }
 
 is_recursive <- function (val) {
 	# -- don't change. is.recursive is ~ !is.atomic.
-	is.list(val) || is.pairlist(val)
+	# -- is list checks lists, pairlists. Add null check.
+	is.list(val) || identical(val, NULL)
 }
 
 # --------------------- coercion functions --------------------- #

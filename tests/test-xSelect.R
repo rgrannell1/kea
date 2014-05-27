@@ -1,10 +1,5 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
-
 arrow ::: load_test_dependencies(environment())
-
-require(arrow)
 
 message("xSelect (+)")
 
@@ -35,14 +30,6 @@ message("xSelect (+)")
 	run()
 
 message("xSelect (-)")
-
-	over(fn, coll) +
-	describe("fn must always be a function") +
-	failsWhen(
-		!is.function(fn),
-		xSelect(fn, coll)
-	) +
-	run()
 
 	over(fn, coll) +
 	describe("coll must always be a collection") +

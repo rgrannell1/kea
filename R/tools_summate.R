@@ -167,11 +167,11 @@ summate <- local({
 					length(obj),
 				`is nested` =
 					any( vapply(obj, function (x) {
-						isTRUE(is.list(x) || is.pairlist(x))
+						isTRUE(is_generic(x))
 					}, logical(1)) ),
 				`all nested` =
 					all( vapply(obj, function (x) {
-						isTRUE(is.list(x) || is.pairlist(x))
+						isTRUE(is_generic(x))
 					}, logical(1)) ),
 				`any arrow objects` =
 					any( vapply(obj, function (x) any(class(x) == 'arrow'), logical(1)) ),
@@ -316,7 +316,7 @@ summate <- local({
 				profile$factor),
 
 			list(
-				function (x) is.list(x) || is.pairlist(x),
+				is_generic,
 				profile$`generic vector`),
 
 			list(

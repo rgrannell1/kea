@@ -46,6 +46,7 @@ mergeTable <- (left : right) := {
 			} else if (isRightMember) {
 				right[[key]]
 			} else {
+
 				0
 			}
 
@@ -191,3 +192,22 @@ methods <-
 
 methods $ xSelect(fn := xIsMatch('Is', fn))
 methods $ xSelect(fn := xIsMatch('Not', fn))
+
+
+
+
+
+
+
+
+
+
+
+
+freq <- base_or_utils <-
+    x_(ls('package:base')) $
+    x_Join_(ls('package:utils'))
+
+inner_calls $ xAtCol(3) $ xFlatten(1) $ xSelect(name := {
+    xIsMember(name, base_or_utils)
+}) $ xTabulate() $ xSortBy(xSecondOf)

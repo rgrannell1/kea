@@ -1814,7 +1814,7 @@ get_proto_ref <- local({
 			list(x_matrix_proto, x_matrix_members)
 		} else if (is.data.frame( val )) {
 			list(x_data_frame_proto, x_data_frame_members)
-		} else  if (is.atomic( val ) || is.list( val ) ||is.pairlist( val )){
+		} else if (is_atomic( val ) || is_generic( val )){
 			list(x_coll_proto, x_coll_members)
 		} else  if (is.factor( val )) {
 			list(x_factor_proto, x_factor_members)

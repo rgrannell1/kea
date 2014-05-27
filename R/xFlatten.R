@@ -61,7 +61,7 @@ xFlatten <- MakeFun(function (num, coll) {
 
 	if (length(coll) == 0) {
 		list()
-	} else if (is.atomic(coll)) {
+	} else if (is_atomic(coll)) {
 		# -- it is flat!
 		as.list(coll)
 	} else if (num == +Inf) {

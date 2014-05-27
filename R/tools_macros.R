@@ -46,9 +46,8 @@ Must <- local({
 
 			bquote(if (
 				identical('arrow', class( .(COLL) )) ||
-				!is.atomic( .(COLL) ) &&
-				!is.list( .(COLL) ) &&
-				!is.pairlist( .(COLL) )) {
+				!is_atomic( .(COLL) ) &&
+				!is_generic( .(COLL) )) {
 
 				message <-
 					"The argument matching " %+% ddquote( .(COLL) ) %+%
@@ -77,7 +76,7 @@ Must <- local({
 				all_elems_are_collection <- all( vapply( .(COLLS) , function (coll) {
 
 					'arrow' %!in% class(coll) &&
-					(is.atomic(coll) || is.list(coll) || is.pairlist(coll))
+					(is_atomic(coll) || is_generic(coll))
 
 				}, logical(1)) )
 

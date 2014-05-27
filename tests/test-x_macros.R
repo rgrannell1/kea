@@ -51,7 +51,7 @@ fns $ xMapply((fn_name : fn) := {
 		x_AnyOf(param := {
 
 			pattern <- paste0(
-				"[!]is[.]atomic[(]", param, "[)]")
+				"[!]is[_]atomic[(]", param, "[)]")
 
 			!grepl(pattern, body_text)
 		})

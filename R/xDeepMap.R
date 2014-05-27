@@ -49,7 +49,7 @@ xDeepMap <- MakeFun(function (fn, coll) {
 	recur <- function (xs) {
 		# recurse into a collection. TODO-non-recursive form.
 
-		if (is.list(xs) || is.pairlist(xs)) {
+		if (is_generic(xs)) {
 			# this recursively converts from pairlist to list.
 			lapply(xs, recur)
 		} else {

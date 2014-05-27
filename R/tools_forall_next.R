@@ -163,7 +163,6 @@ execute_test <- function (test) {
 		failures <- list()
 	}
 
-
 	# -- throw an error if any test fields are missing.
 	for (key in c('info', 'params', 'time')) {
 		if (is.null( test[[key]] )) {
@@ -194,6 +193,20 @@ execute_test <- function (test) {
 	# -- parameterise all the expressions
 	properties <- lapply(properties, function (prop) {
 		lapply(prop, function (expr) {
+
+			shell <- function () {}
+
+			# -- add the parameters given by over, and use the parent env.
+			body(shell) <- expr
+			environment(shell) <- parent_frame
+			formals(shell) <- make_formals(params)
+
+			shell
+		})
+	})
+
+	failures <- lapply(failures, function (failprop) {
+		lapply(failprop, function (expr) {
 
 			shell <- function () {}
 
@@ -347,7 +360,7 @@ execute_test <- function (test) {
 		}
 	}
 
-	# we have a problem; the test failed.
+	# -- we have a problem; the test failed.
 	if (length(state$fails_for) > 0) {
 
 		after <- state  $ failed_after
@@ -365,6 +378,26 @@ execute_test <- function (test) {
 
 		throw_arrow_error(invoking_call, message)
 	}
+
+	# -- the negative controls didn't fail.
+	if (length(state$no_fail_for) > 0) {
+
+		after <- state $ no_fail_after
+		no_fail_for <- state $ no_fail_for
+
+		cases <- vapply(lapply(no_fail_for, unname), ddparse, character(1))
+
+		cases <-
+			paste0(cases[ seq_along( min(10, length(cases)) ) ],
+			collapse = "'\n")
+
+		message <- info %+% "\nFailed after the " %+%
+			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+
+		throw_arrow_error(invoking_call, message)
+	}
+
+	# -- no tests were run.
 
 	message(info, " passed!", " (", state$tests_run, ")")
 }
@@ -465,7 +498,7 @@ failsWhen <- function (expr1, ...) {
 
 }
 
-run <- function (time = 2) {
+run <- function (time = 0.2) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out
