@@ -1780,9 +1780,14 @@ x_ <- MakeFun(function (val) {
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
-	if ('arrow' %in% class(val)) {
+	# -- a useful corner case; there are no methods
+	# -- specifically for arrow objects with arrow
+	# -- objects in them
+	if (any(class(val) == 'arrow')) {
 		val
 	} else {
+		# -- cannot just be a val with a class label,
+		# -- as if val is null then x_ will fail.
 		structure(list(x = val), class = 'arrow')
 	}
 })

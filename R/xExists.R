@@ -89,6 +89,7 @@ xExists <- MakeFun(function (pred, colls) {
 			as.numeric(arrayInd(n, .dim = mods))
 		}
 
+		# -- might be infinite!
 		for ( ith in seq_len(prod(coll_lengths)) ) {
 
 			indices <- modulo_iths(ith, coll_lengths)
