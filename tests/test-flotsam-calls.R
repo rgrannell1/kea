@@ -6,7 +6,7 @@
 # -- select the name and every function in arrow.
 
 arrow_function_regexp <- 'x[A-Z].+[a-z]$'
-arrow_env <- as.environment()
+arrow_env <- as.environment('package:arrow')
 
 arrow_fns <-
 	x_(ls('package:arrow')) $
