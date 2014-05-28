@@ -1,7 +1,7 @@
 
-# 1. check if a value isn't Nan
+# 1. check if a value isn't NaN
 
-x_(Nan) $ xNot(Nan)
-xNot(Nan, Nan)
+x_(NaN) $ xNot(NaN)
+xNot(NaN, NaN)
 
 # False

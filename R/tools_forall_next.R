@@ -408,8 +408,6 @@ execute_test <- function (test) {
 
 	# -- no tests were run.
 
-	print(state)
-
 	message(info, " passed!", " (", state$tests_run, ")")
 }
 

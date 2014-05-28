@@ -52,8 +52,6 @@ Divide a collection into a fixed number of segments.
 }
 \examples{
 
-# 1.
-
 NULL
 }
 \seealso{

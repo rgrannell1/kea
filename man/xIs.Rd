@@ -28,10 +28,10 @@ Are two values equal?
 }
 \examples{
 
-# 1. check if a value is NA
+# 1. check if a value is Nan
 
-x_(Na) $ xIs(Na)
-xIs(Na, Na)
+x_(NaN) $ xIs(NaN)
+xIs(NaN, NaN)
 
 # true
 }

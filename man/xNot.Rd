@@ -28,7 +28,12 @@ Are two values not equal?
 }
 \examples{
 
-NULL
+# 1. check if a value isn't NaN
+
+x_(NaN) $ xNot(NaN)
+xNot(NaN, NaN)
+
+# False
 }
 \seealso{
 Other value_testing_functions: \code{\link{xElemIs}},
