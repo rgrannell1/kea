@@ -38,7 +38,7 @@ summate <- local({
 					length(obj),
 				`no empty` =
 					length(which(nchar(obj) == 0)),
-				`any empty` =
+				`all empty` =
 					all(nchar(obj) == 0),
 				`any empty` =
 					any(nchar(obj) == 0),

@@ -5,20 +5,23 @@ Date: 2014-5-22
 
 Enhancements:
 
-* Added all empty and any empty property tests to value summation for lists.
+* Added 'all empty' and 'any empty' property tests to value summation for lists,
+and dimension reporting for data frames.
 
 * Added property tests for inner arrow objects in summated lists.
 
 * Removed special handling of NA's from xElemIs and xElemNot, but this may be
 re-implemented in the future.
 
+* Removed the x_ method from Arrow, since x_Identity does the same thing
+in a more obvious way.
+
 Bug-Fixes:
+
+* Fixed missing spaces in error messages produced by incorrectly typed vectors.
 
 * Simplified behaviour of xIsNan, xNotNa, xNotNan, xIsNan, potentially
 correcting issues for non length-one vectors.
-
-* Removed the x_ method from Arrow, since x_Identity does the same thing
-in a more obvious way.
 
 * Removed use of sample, potetentially fixing bugs with numeric vectors.
 
@@ -31,25 +34,35 @@ xRestOf, xParamsOf.
 
 Package Internals:
 
-* Added a rigourous test for example length, file existance, function calls
-to dangerous functions, and removed an older similar test suite.
+* Added a rigourous test for example length, file existence, function calls
+to dangerous functions, and for missing 'missing' functions, and removed an
+older similar test suite.
 
 * Implemented a new testing tool for Arrow, which should give more complete
 test coverage and both positive and negative controls. The syntax is also
-improved.
+improved. xSelect currently uses this tool exclusively, and its use will be
+expanded in future versions.
+
+* Added a simple test for the new forall tool, though more are needed.
 
 * Removed direct use of is.na; the function can fail for null values, and
-testing functions should never fail. Further testing functions will be added
-at a later date.
+testing functions should never fail. Further testing functions will be wrapped
+or removed at a later date.
 
 * Removed direct use of sample, as the function has a bizzare corner case
 for length-one number vectors.
 
+* Added elem_is_na and elem_is_nan, to replace the use of is.na and
+is.nan for vectors.
+
+* Removed direct use of is.atomic and is.list, replacing them with functions that
+fix their null corner case.
+
 * Added a minor fix to ith_suffix corner case which now supports infinite
 values, in the unlikely case they will arise.
 
-
-
+* throw_arrow_warning now actually throws a warning, not an error. The function
+was not used, so no bug fixes are required.
 
 
 

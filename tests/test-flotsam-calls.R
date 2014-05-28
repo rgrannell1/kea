@@ -5,6 +5,8 @@
 
 # -- select the name and every function in arrow.
 
+require(arrow)
+
 arrow_function_regexp <- 'x[A-Z].+[a-z]$'
 arrow_env <- as.environment('package:arrow')
 
