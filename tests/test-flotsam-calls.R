@@ -22,6 +22,11 @@ inner_vars <- arrow_fns $ xMapply((fn_name : fn) := {
 	list( fn_name, fn, all.names(body(fn)) )
 })
 
+
+
+
+
+
 message('test that every function checks if its parametres are missing')
 
 	inner_vars $
@@ -57,5 +62,7 @@ message('test that every function checks if its parametres are missing')
 	}) $
 	# -- select the messages
 	xAtCol(2) $ xFromLines() $ xDo(miss := {
-		stop(xFromLines_('the following functions are missing missing parametre checks.', miss))
+		stop(xFromLines_(
+			'the following functions are missing missing parametre checks.',
+			miss))
 	})

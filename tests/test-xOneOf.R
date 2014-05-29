@@ -1,21 +1,28 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xOneOf (+)")
 
-message("xOneOf")
+	over(coll) +
+	describe("oneof always selects an element from the list") +
+	when(
+		length(coll) > 0 && is_collection(coll),
+		xOneOf(coll) %in% coll) +
+	run()
 
-	forall(
-		"one of the empty collection returns the empty list",
-		test_cases$collection_zero,
-		xOneOf(coll) %equals% list()
-	)
+message("xOneOf (-)")
 
-	forall(
-		"one of the empty collection is in the collection",
-		test_cases$collection,
-		xOneOf(coll) %in% coll,
-		given =
-			length(coll) > 0
-	)
+	over(coll) +
+	describe("xOneOf fails if the collection is empty") +
+	when(
+		length(coll) == 0 && is_collection(coll),
+		xOneOf(coll)) +
+	run()
+
+	over(coll) +
+	describe("xOneOf fails for non-collections") +
+	failsWhen(
+		!is_collection(coll),
+		xOneOf(coll)) +
+	run()
