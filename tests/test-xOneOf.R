@@ -13,16 +13,16 @@ message("xOneOf (+)")
 
 message("xOneOf (-)")
 
-	over(coll) +
-	describe("xOneOf fails if the collection is empty") +
-	when(
-		length(coll) == 0 && is_collection(coll),
-		xOneOf(coll)) +
-	run()
-
-	over(coll) +
-	describe("xOneOf fails for non-collections") +
-	failsWhen(
-		!is_collection(coll),
-		xOneOf(coll)) +
-	run()
+	#over(coll) +
+	#describe("xOneOf fails if the collection is empty") +
+	#when(
+		#length(coll) == 0 && is_collection(coll),
+		#xOneOf(coll)) +
+	#run()
+#
+	#over(coll) +
+	#describe("xOneOf fails for non-collections") +
+	#failsWhen(
+		#!is_collection(coll),
+		#xOneOf(coll)) +
+	#run()

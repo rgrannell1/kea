@@ -1,5 +1,5 @@
 
-from_stream <- function () {
+from_stream <- function (...) {
 	# -- yield a single valid R object.
 
 	#-- finish this alphabet
@@ -146,30 +146,19 @@ from_stream <- function () {
 
 
 
+validate_test <- function (invoking_call, test) {
 
-execute_test <- function (test) {
-
-	invoking_call <- sys.call()
-	parent_frame <- parent.frame()
-
-	# -- attach the test object to the local environment.
-	info       <- test $ info
-	params     <- test $ params
-	properties <- test $ properties
-	failures   <- test $ failures
-	time       <- test $ time
-
-	# -- make sure properties or failures is set.
-	if (is.null(properties) && is.null(failures)) {
+	# -- make sure positives or negatives is set.
+	if (is.null(test $ positives) && is.null(test $ negatives)) {
 		message <-
-			'either properties or failures must be set.'
+			'either positives or negatives must be set.'
 
 		throw_arrow_error(invoking_call, message)
 
-	} else if (is.null(properties)) {
-		properties <- list()
-	} else if (is.null(failures)) {
-		failures <- list()
+	} else if (is.null(test $ positives)) {
+		test $ positives <- list()
+	} else if (is.null(test $ negatives)) {
+		test $ negatives <- list()
 	}
 
 	# -- throw an error if any test fields are missing.
@@ -183,39 +172,34 @@ execute_test <- function (test) {
 	}
 
 	# -- validate the test fields
-	if (!is.character(info) || length(info) != 1) {
+	if (!is.character(test $ info) || length(test $ info) != 1) {
 		message <-
 			'the property info must be a length-one character vector.'
 
 		throw_arrow_error(invoking_call, message)
 	}
 
-	if (!is.numeric(time) || length(time) < 0) {
+	if (!is.numeric(test $ time) || length(test $ time) < 0) {
 		message <-
 			'time must be a positive number'
 
 		throw_arrow_error(invoking_call, message)
 	}
 
-	info <- dQuote(info)
+	test $ info <- dQuote(test $ info)
 
-	# -- parameterise all the expressions
-	properties <- lapply(properties, function (prop) {
-		lapply(prop, function (expr) {
+	test
+}
 
-			shell <- function () {}
 
-			# -- add the parameters given by over, and use the parent env.
-			body(shell) <- expr
-			environment(shell) <- parent_frame
-			formals(shell) <- make_formals(params)
 
-			shell
-		})
-	})
 
-	failures <- lapply(failures, function (failprop) {
-		lapply(failprop, function (expr) {
+
+
+parameterise <- function (exprgroups, params, parent_frame) {
+
+	lapply(exprgroups, function (exprs) {
+		lapply(exprs, function (expr) {
 
 			shell <- function () {}
 
@@ -227,188 +211,6 @@ execute_test <- function (test) {
 			shell
 		})
 	})
-
-	# -- the state that is modified after running several tests.
-
-	state <- list(
-		tests_run =
-			0,
-		fails_for =
-			list(),
-		failed_after =
-			Inf,
-
-		no_fail_for =
-			list(),
-
-		no_fail_after =
-			Inf,
-
-		time_left =
-			xStopwatch(time)
-	)
-
-	# -- test random test cases for a preset amount of time.
-	while (state$time_left()) {
-
-		# -- generate a random test case.
-		case <- lapply(seq_along(params), function (x) {
-			from_stream()
-		})
-
-		# -- Act One: Check each property is true give a precondition. (+ controls)
-
-		for (prop in properties) {
-
-			given <- prop[[1]]
-
-			# -- we don't care if the precondition always works;
-			# -- accept errors and non-boolean values
-			is_match <- tryCatch(
-				do.call(given, case),
-				warning =
-					function (warn) False,
-				error =
-					function (err) False
-			)
-
-			# -- the precondition doesn't match, so don't check the expectations.
-			if (!isTRUE(is_match)) {
-				next
-			}
-
-			# -- the tests will be run once each.
-			state$tests_run <- state$tests_run + 1
-
-			# -- if the precondition matches iterate over each expectation.
-			for (expect in tail(prop, -1)) {
-
-				has_property <- do.call(expect, case)
-
-				# -- to aid debugging.
-				if (length(has_property) != 1) {
-
-					message <-
-						info %+% '\n' %+%
-						'the property ' %+%
-						ddparse(body(expect)) %+%
-						' returned a non length-one result\n' %+%
-						'For the test case ' %+%
-						ddparse(case)
-
-					throw_arrow_error(invoking_call, message)
-				}
-
-				# -- this must always be true or false.
-				if (!isTRUE(has_property) && !identical(has_property, False)) {
-
-					message <-
-						info %+% '\n' %+%
-						'the property ' %+%
-						ddparse(body(expect)) %+%
-						' returned a non-logical result\n' %+%
-						'For the test case ' %+%
-						ddparse(case)
-
-					throw_arrow_error(invoking_call, message)
-				}
-
-				# -- the result must be true to pass.
-				if (!isTRUE(has_property)) {
-
-					# -- make sure the earliest failure is noted.
-					state$failed_after <-
-						min(state$failed_after, state$tests_run)
-
-					# -- store the failed case.
-					state$fails_for <- c(state$fails_for, list(case))
-
-				}
-			}
-
-		}
-
-		# -- Act Two: test that failures occur when expected to (- control)
-		for (failprop in failures) {
-
-			given <- failprop[[1]]
-
-			is_match <- tryCatch(
-				do.call(given, case),
-				warning =
-					function (warn) False,
-				error =
-					function (err) False
-			)
-
-			if (!isTRUE(is_match)) {
-				next
-			}
-
-			# -- test each property that should fail for this case.
-			for (fail in tail(failprop, -1)) {
-
-				case_fails <- tryCatch({
-					do.call(fail, case)
-					False
-					},
-					warning = function (warn) True,
-					error   = function (err) True
-				)
-
-				if (!isTRUE(case_fails)) {
-
-					state $ no_fail_after <-
-						min(no_fail_after, state$tests_run)
-
-					state $ no_fail_for <- c(state $ no_fail_for, list(case))
-
-				}
-			}
-
-		}
-	}
-
-	# -- we have a problem; the test failed.
-	if (length(state$fails_for) > 0) {
-
-		after <- state  $ failed_after
-		fails_for <- state $ fails_for
-
-		# -- remove keys to simplify output.
-		cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
-
-		cases <-
-			paste0(cases[ seq_along( min(10, length(cases)) ) ],
-			collapse = "'\n")
-
-		message <- info %+% "\nFailed after the " %+%
-			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
-
-		throw_arrow_error(invoking_call, message)
-	}
-
-	# -- the negative controls didn't fail.
-	if (length(state$no_fail_for) > 0) {
-
-		after <- state $ no_fail_after
-		no_fail_for <- state $ no_fail_for
-
-		cases <- vapply(lapply(no_fail_for, unname), ddparse, character(1))
-
-		cases <-
-			paste0(cases[ seq_along( min(10, length(cases)) ) ],
-			collapse = "'\n")
-
-		message <- info %+% "\nFailed after the " %+%
-			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
-
-		throw_arrow_error(invoking_call, message)
-	}
-
-	# -- no tests were run.
-
-	message(info, " passed!", " (", state$tests_run, ")")
 }
 
 
@@ -420,7 +222,271 @@ execute_test <- function (test) {
 
 
 
-# Grammar
+test_positives <- function (positives, case, info, state, invoking_call) {
+	#
+
+	for (prop_group in positives) {
+
+		prop_predicate <- prop_group[[1]]
+
+		# -- we don't care if the precondition always works;
+		# -- accept errors and non-boolean values
+		is_match <- tryCatch(
+			do.call(prop_predicate, case),
+			warning =
+				function (warn) False,
+			error =
+				function (err) False
+		)
+
+		# -- the precondition doesn't match,
+		# -- so don't check the properties.
+		if (!isTRUE(is_match)) {
+			next
+		}
+
+		state $ positive_tests_run <-
+			state $ positive_tests_run + 1
+
+		for (property in tail(prop_group, -1)) {
+
+			has_property <- do.call(property, case)
+
+			# -- to aid debugging.
+			if (length(has_property) != 1) {
+
+				message <-
+					test $ info %+% '\n' %+%
+					'the property ' %+% ddparse(body(property)) %+%
+					' returned a non length-one result\n' %+%
+					'For the test case ' %+% ddparse(case)
+
+				throw_arrow_error(invoking_call, message)
+			}
+
+			# -- the result of the property must always be true or false.
+			if (!isTRUE(has_property) && !identical(has_property, False)) {
+
+				message <-
+					test $ info %+% '\n' %+%
+					'the property ' %+% ddparse(body(property)) %+%
+					' returned a non-logical result\n' %+%
+					'For the test case ' %+% ddparse(case)
+
+				throw_arrow_error(invoking_call, message)
+			}
+
+			# -- the result must be true to pass.
+			if (!isTRUE(has_property)) {
+
+				# -- make sure the earliest failure is noted.
+				state $ positive_failed_after <-
+					min(state $ positive_failed_after, state $ positive_tests_run)
+
+				# -- store the failed case.
+				state $ positive_fails_for <-
+					c(state $ positive_fails_for, list(case))
+			}
+
+		}
+	}
+
+	state
+}
+
+
+
+
+
+test_negatives <- function (negative, state) {
+
+	given <- failprop[[1]]
+
+	is_match <- tryCatch(
+		do.call(given, case),
+		warning =
+			function (warn) False,
+		error =
+			function (err) False
+	)
+
+	if (!isTRUE(is_match)) {
+		next
+	}
+
+	# -- test each property that should fail for this case.
+	for (fail in tail(failprop, -1)) {
+
+		case_fails <- tryCatch({
+			do.call(fail, case)
+			False
+			},
+			warning = function (warn) True,
+			error   = function (err) True
+		)
+
+		if (!isTRUE(case_fails)) {
+
+			state $ no_fail_after <-
+				min(no_fail_after, state$tests_run)
+
+			state $ no_fail_for <- c(state $ no_fail_for, list(case))
+
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+yield_case <- function (params) {
+	lapply(seq_along(params), from_stream)
+}
+
+
+
+
+
+
+
+
+
+
+
+throw_positive_errors <- function (state) {
+
+	after <- state  $ failed_after
+	fails_for <- state $ fails_for
+
+	# -- remove keys to simplify output.
+	cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
+
+	cases <-
+		paste0(cases[ seq_along( min(10, length(cases)) ) ],
+		collapse = "'\n")
+
+	message <- info %+% "\nFailed after the " %+%
+		ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+
+	throw_arrow_error(invoking_call, message)
+}
+
+
+
+
+
+
+
+
+
+
+
+throw_negative_errors <- function (state) {
+
+	after <- state $ no_fail_after
+	no_fail_for <- state $ no_fail_for
+
+	cases <- vapply(lapply(no_fail_for, unname), ddparse, character(1))
+
+	cases <-
+		paste0(cases[ seq_along( min(10, length(cases)) ) ],
+		collapse = "'\n")
+
+	message <- info %+% "\nFailed after the " %+%
+		ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+
+	throw_arrow_error(invoking_call, message)
+}
+
+
+
+
+
+
+
+
+
+
+state_sucess <- function (state) {
+	# -- report that the tests all passed.
+
+	message <- "passed! (" %+% state $ positive_tests_run %+% ")"
+	message(info, message)
+}
+
+
+
+
+
+
+
+
+
+
+execute_test <- function (test) {
+
+	invoking_call <- sys.call()
+	parent_frame <- parent.frame()
+
+	test <- validate_test(invoking_call, test)
+
+	# -- attach the test object to the local environment.
+	info       <- test $ info
+	params     <- test $ params
+	positives  <- test $ positives
+	negatives  <- test $ negatives
+	time       <- test $ time
+
+	# -- add parametres to each failure and property.
+	positives   <- parameterise(positives, params, parent_frame)
+	negatives   <- parameterise(negatives,   params, parent_frame)
+
+	# -- the state that is modified after running several tests.
+
+	state <- list(
+		tests_run     = 0,
+		fails_for     = list(),
+		failed_after  = Inf,
+		no_fail_for   = list(),
+		no_fail_after = Inf,
+		time_left     = xStopwatch(time)
+	)
+
+	# -- test random test cases for a preset amount of time.
+	while (state $ time_left()) {
+
+		# -- generate a random test case.
+		case <- yield_case(params)
+
+		state <- test_positives(positives)
+		state <- test_negatives(negatives)
+
+	}
+
+	throw_positive_errors(state)
+	throw_negative_errors(state)
+
+	state_sucess(state)
+
+}
+
+
+
+
+
+
+
+
+
+
+# -------------------------------- Grammar -------------------------------- #
 
 # describe(str):                       add a description (singleton field).
 # over(...symbols):              give the parametres to be bound (singleton field).
@@ -442,6 +508,10 @@ describe <- function (info) {
 	out
 }
 
+
+
+
+
 # -- the domain over which to bind
 
 over <- function (...) {
@@ -460,7 +530,12 @@ over <- function (...) {
 	out
 }
 
-# -- test properties (+ controls)
+
+
+
+
+
+# -- test positives (+ controls)
 
 when <- function (expr1, ...) {
 
@@ -476,13 +551,18 @@ when <- function (expr1, ...) {
 	}
 
 	out <- list(
-		properties =
+		positives =
 			c(list( exprs[[1]] ), exprs$...)
 	)
 	class(out) <- c('xforall', 'xwhen')
 	out
 
 }
+
+
+
+
+
 
 # -- test failures (- controls)
 
@@ -499,13 +579,18 @@ failsWhen <- function (expr1, ...) {
 	}
 
 	out <- list(
-		failures =
+		negatives =
 			c(list( exprs[[1]] ), exprs$...)
 	)
 	class(out) <- c('xforall', 'xfailswhen')
 	out
 
 }
+
+
+
+
+
 
 run <- function (time = 0.2) {
 	out <- list(time = time)
@@ -520,7 +605,11 @@ run <- function (time = 0.2) {
 
 
 
-
+# -------------------------------- + -------------------------------- #
+#
+# The + operator joins two forall objects into a new forall object.
+# Non-associative.
+#
 
 '+.xforall' <- function (acc, new) {
 	# a monoidal operation that joins any
@@ -528,43 +617,36 @@ run <- function (time = 0.2) {
 	# unless run is joined.
 	# run signals execution.
 
-	responses <- list(
-		'xdescribe' =
-			function () {
-				acc $ info = new $ info
-				acc
-			},
-		'xover' =
-			function () {
-				acc $ params = new $ params
-				acc
-			},
-		'xwhen' =
-			function () {
-				if (length(acc $ properties) > 0) {
-					acc $ properties <- c(acc $ properties, list(new $ properties))
-				} else {
-					acc $ properties <- list(new $ properties)
-				}
-				acc
-			},
-		'xfailswhen' =
-			function () {
-				if (length(acc $ failures) > 0) {
-					acc $ failures <- c(acc $ failures, list(new $ failures))
-				} else {
-					acc $ failures <- list(new $ failures)
-				}
-				acc
-			},
-		'xrun' =
-			function () {
-				# -- execute the test.
+	override <- function (key) {
+		# -- set or override a key the accumulator object.
+		# -- optionally execute a callback on the accumulator.
 
-				acc $ time <- new $ time
+		function (fn = identity) {
+			acc[[key]] <- new[[key]]
+			fn(acc)
+		}
+	}
 
-				execute_test(acc)
+	join <- function (key) {
+		# -- concatenate the new value at a key to the old value.
+		# -- optionally execute a callback on the accumulator.
+
+		function (fn = identity) {
+			if (length(acc[[key]]) > 0) {
+				acc[[key]] <- c(acc[[key]], list(new[[key]]))
+			} else {
+				acc[[key]] <- list(new[[key]])
 			}
+			fn(acc)
+		}
+	}
+
+	responses <- list(
+		'xdescribe'  = override('info'),
+		'xover'      = override('params'),
+		'xwhen'      = join('positives'),
+		'xfailswhen' = join('negatives'),
+		'xrun'       = xFix_(override('time'), execute_test)
 	)
 
 	new_classes <- class(new)
