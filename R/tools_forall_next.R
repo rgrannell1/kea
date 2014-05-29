@@ -145,6 +145,9 @@ from_stream <- function (...) {
 
 
 
+# validate test takes the test object generated with the
+# forall language functions, and modifies and checks it
+# for use in execute_test.
 
 validate_test <- function (invoking_call, test) {
 
@@ -196,7 +199,12 @@ validate_test <- function (invoking_call, test) {
 
 
 
-parameterise <- function (exprgroups, params, parent_frame) {
+
+# Parameterise takes a list of expression-lists, and
+# adds parametres to each expression, and attaches the
+# correct environment.
+
+parameterise <- function (exprgroups, params, envir) {
 
 	lapply(exprgroups, function (exprs) {
 		lapply(exprs, function (expr) {
@@ -205,7 +213,7 @@ parameterise <- function (exprgroups, params, parent_frame) {
 
 			# -- add the parameters given by over, and use the parent env.
 			body(shell) <- expr
-			environment(shell) <- parent_frame
+			environment(shell) <- envir
 			formals(shell) <- make_formals(params)
 
 			shell
@@ -221,6 +229,8 @@ parameterise <- function (exprgroups, params, parent_frame) {
 
 
 
+#
+#
 
 test_positives <- function (positives, case, info, state, invoking_call) {
 	#
@@ -298,6 +308,13 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 
 
 
+
+
+
+
+#
+#
+
 test_negatives <- function (negatives, case, info, state, invoking_call) {
 
 	for (failprop in negatives) {
@@ -346,7 +363,8 @@ test_negatives <- function (negatives, case, info, state, invoking_call) {
 
 
 
-
+# Generate a random test case for each parametre we decided to
+# test over.
 
 yield_case <- function (params) {
 	lapply(seq_along(params), from_stream)
@@ -360,24 +378,29 @@ yield_case <- function (params) {
 
 
 
+# Positive controls failed.
+#
 
+throw_positive_errors <- function (info, state, invoking_call) {
 
-throw_positive_errors <- function (state) {
+	if (length(state $ positive_fails_for) > 0) {
 
-	after     <- state $ positive_failed_after
-	fails_for <- state $ positive_fails_for
+		after     <- state $ positive_failed_after
+		fails_for <- state $ positive_fails_for
 
-	# -- remove keys to simplify output.
-	cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
+		# -- remove keys to simplify output.
+		cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
 
-	cases <-
-		paste0(cases[ seq_along( min(10, length(cases)) ) ],
-		collapse = "'\n")
+		cases <-
+			paste0(cases[ seq_along( min(10, length(cases)) ) ],
+			collapse = "'\n")
 
-	message <- info %+% "\nFailed after the " %+%
-		ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+		message <- info %+% "\nFailed after the " %+%
+			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
 
-	throw_arrow_error(invoking_call, message)
+		throw_arrow_error(invoking_call, message)
+
+	}
 }
 
 
@@ -388,23 +411,28 @@ throw_positive_errors <- function (state) {
 
 
 
+# Negative controls failed.
+#
 
+throw_negative_errors <- function (info, state, invoking_call) {
 
-throw_negative_errors <- function (state) {
+	if (length(state $ negative_fails_for) > 0) {
 
-	after <- state $ no_fail_after
-	no_fail_for <- state $ no_fail_for
+		after <- state $ no_fail_after
+		no_fail_for <- state $ no_fail_for
 
-	cases <- vapply(lapply(no_fail_for, unname), ddparse, character(1))
+		cases <- vapply(lapply(no_fail_for, unname), ddparse, character(1))
 
-	cases <-
-		paste0(cases[ seq_along( min(10, length(cases)) ) ],
-		collapse = "'\n")
+		cases <-
+			paste0(cases[ seq_along( min(10, length(cases)) ) ],
+			collapse = "'\n")
 
-	message <- info %+% "\nFailed after the " %+%
-		ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+		message <- info %+% "\nFailed after the " %+%
+			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
 
-	throw_arrow_error(invoking_call, message)
+		throw_arrow_error(invoking_call, message)
+
+	}
 }
 
 
@@ -414,13 +442,13 @@ throw_negative_errors <- function (state) {
 
 
 
+# Everything worked. Report the fact.
 
-
-state_sucess <- function (state) {
+state_sucess <- function (state, info) {
 	# -- report that the tests all passed.
 
-	msg <- "passed! (" %+% state $ positive_tests_run %+% ")"
-	message(info, msg)
+	msg <- info %+% " passed! (" %+% state $ positive_tests_run %+% ")"
+	message(msg)
 
 }
 
@@ -431,7 +459,17 @@ state_sucess <- function (state) {
 
 
 
-
+# The backend for the test. Takes a forall object,
+# and executes the encoded test.
+#
+# The terms positive and negative (as in controls) are loosely
+# related to the scientific usage.
+#
+# Positive controls are expected to return true, that is
+# they verify that the function has the expected property.
+#
+# Negative controls are expected to not work (this is the looser
+# of the two terms), in that it throws an error.
 
 execute_test <- function (test) {
 
@@ -449,7 +487,7 @@ execute_test <- function (test) {
 
 	# -- add parametres to each failure and property.
 	positives   <- parameterise(positives, params, parent_frame)
-	negatives   <- parameterise(negatives,   params, parent_frame)
+	negatives   <- parameterise(negatives, params, parent_frame)
 
 	# -- the state that is modified after running several tests.
 
@@ -473,13 +511,13 @@ execute_test <- function (test) {
 		case <- yield_case(params)
 
 		state <- test_positives(positives, case, info, state, invoking_call)
-		state <- test_negatives(negatives, case, info, state, invoking_call)
+		#state <- test_negatives(negatives, case, info, state, invoking_call)
 	}
 
-	throw_positive_errors(state)
-	throw_negative_errors(state)
+	throw_positive_errors(info, state, invoking_call)
+	throw_negative_errors(info, state, invoking_call)
 
-	state_sucess(state)
+	state_sucess(state, info)
 }
 
 

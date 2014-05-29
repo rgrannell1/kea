@@ -16,9 +16,7 @@ message("forall positive controls")
 	over(a) +
 	describe("multiplication by 1 is identity") +
 	when(
-		is.numeric(a)  && is.numeric(b) &&
-		length(a) == 0 && length(b) == 0 &&
-		is.finite(a)   && is.finite(b),
+		is.integer(a) && length(a) == 1,
 		a * 1 == a
 	) +
 	run()
