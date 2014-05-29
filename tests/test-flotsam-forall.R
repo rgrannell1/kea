@@ -7,7 +7,7 @@ message("forall positive controls")
 	describe("addition is commutative") +
 	when(
 		is.numeric(a)  && is.numeric(b) &&
-		length(a) == 0 && length(b) == 0 &&
+		length(a) == 1 && length(b) == 1 &&
 		is.finite(a)   && is.finite(b),
 		a + b == b + a
 	) +

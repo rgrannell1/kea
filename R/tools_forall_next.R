@@ -251,6 +251,10 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 
 		# -- the precondition doesn't match,
 		# -- so don't check the properties.
+
+		state $ positive_case_examined <-
+			state $ positive_case_examined + 1
+
 		if (!isTRUE(is_match)) {
 			next
 		}
@@ -328,6 +332,9 @@ test_negatives <- function (negatives, case, info, state, invoking_call) {
 				function (err) False
 		)
 
+		state $ negative_case_examined <-
+			state $ negative_case_examined + 1
+
 		if (!isTRUE(is_match)) {
 			next
 		}
@@ -383,6 +390,17 @@ yield_case <- function (params) {
 
 throw_positive_errors <- function (info, state, invoking_call) {
 
+	if (state $ positive_tests_run == 0) {
+
+		run      <- state $ positive_tests_run
+		examined <- state $ positive_case_examined
+
+		message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
+			" were rejected."
+
+		throw_arrow_error(invoking_call, message)
+	}
+
 	if (length(state $ positive_fails_for) > 0) {
 
 		after     <- state $ positive_failed_after
@@ -415,6 +433,17 @@ throw_positive_errors <- function (info, state, invoking_call) {
 #
 
 throw_negative_errors <- function (info, state, invoking_call) {
+
+	if (state $ negative_tests_run == 0) {
+
+		run      <- state $ negative_tests_run
+		examined <- state $ negative_case_examined
+
+		message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
+			" were rejected."
+
+		throw_arrow_error(invoking_call, message)
+	}
 
 	if (length(state $ negative_fails_for) > 0) {
 
@@ -492,15 +521,17 @@ execute_test <- function (test) {
 	# -- the state that is modified after running several tests.
 
 	state <- list(
-		positive_tests_run    = 0,
-		positive_fails_for    = list(),
-		positive_failed_after = Inf,
+		positive_case_examined = 0,
+		positive_tests_run     = 0,
+		positive_fails_for     = list(),
+		positive_failed_after  = Inf,
 
-		negative_tests_run    = 0,
-		negative_fails_for    = list(),
-		negative_failed_after = Inf,
+		negative_case_examined = 0,
+		negative_tests_run     = 0,
+		negative_fails_for     = list(),
+		negative_failed_after  = Inf,
 
-		time_left             = xStopwatch(time)
+		time_left              = xStopwatch(time)
 	)
 
 
@@ -544,6 +575,8 @@ execute_test <- function (test) {
 #
 
 # -- the description
+#
+#
 
 describe <- function (info) {
 	out <- list(info = info)
@@ -556,6 +589,8 @@ describe <- function (info) {
 
 
 # -- the domain over which to bind
+#
+#
 
 over <- function (...) {
 
@@ -579,6 +614,8 @@ over <- function (...) {
 
 
 # -- test positives (+ controls)
+#
+#
 
 when <- function (expr1, ...) {
 
@@ -608,6 +645,8 @@ when <- function (expr1, ...) {
 
 
 # -- test failures (- controls)
+#
+#
 
 failsWhen <- function (expr1, ...) {
 
@@ -633,9 +672,10 @@ failsWhen <- function (expr1, ...) {
 
 
 
+# Run specifies that the test object should now be
+# executes. Also specifies how long to run the test for.
 
-
-run <- function (time = 0.2) {
+run <- function (time = 1) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out
@@ -651,8 +691,8 @@ run <- function (time = 0.2) {
 # -------------------------------- + -------------------------------- #
 #
 # The + operator joins two forall objects into a new forall object.
-# Non-associative.
-#
+# Non-associative, list concatenation that either overrides or joins
+# shared keys.
 
 '+.xforall' <- function (acc, new) {
 	# -- an operation that joins any
