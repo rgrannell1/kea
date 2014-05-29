@@ -298,40 +298,42 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 
 
 
-test_negatives <- function (negative, state) {
+test_negatives <- function (negatives, case, info, state, invoking_call) {
 
-	given <- failprop[[1]]
+	for (failprop in negatives) {
+		given <- failprop[[1]]
 
-	is_match <- tryCatch(
-		do.call(given, case),
-		warning =
-			function (warn) False,
-		error =
-			function (err) False
-	)
-
-	if (!isTRUE(is_match)) {
-		next
-	}
-
-	# -- test each property that should fail for this case.
-	for (fail in tail(failprop, -1)) {
-
-		case_fails <- tryCatch({
-			do.call(fail, case)
-			False
-			},
-			warning = function (warn) True,
-			error   = function (err) True
+		is_match <- tryCatch(
+			do.call(given, case),
+			warning =
+				function (warn) False,
+			error =
+				function (err) False
 		)
 
-		if (!isTRUE(case_fails)) {
+		if (!isTRUE(is_match)) {
+			next
+		}
 
-			state $ no_fail_after <-
-				min(no_fail_after, state$tests_run)
+		# -- test each property that should fail for this case.
+		for (fail in tail(failprop, -1)) {
 
-			state $ no_fail_for <- c(state $ no_fail_for, list(case))
+			case_fails <- tryCatch({
+				do.call(fail, case)
+				False
+				},
+				warning = function (warn) True,
+				error   = function (err) True
+			)
 
+			if (!isTRUE(case_fails)) {
+
+				state $ no_fail_after <-
+					min(no_fail_after, state$tests_run)
+
+				state $ no_fail_for <- c(state $ no_fail_for, list(case))
+
+			}
 		}
 	}
 }
@@ -362,8 +364,8 @@ yield_case <- function (params) {
 
 throw_positive_errors <- function (state) {
 
-	after <- state  $ failed_after
-	fails_for <- state $ fails_for
+	after     <- state $ positive_failed_after
+	fails_for <- state $ positive_fails_for
 
 	# -- remove keys to simplify output.
 	cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
@@ -417,8 +419,9 @@ throw_negative_errors <- function (state) {
 state_sucess <- function (state) {
 	# -- report that the tests all passed.
 
-	message <- "passed! (" %+% state $ positive_tests_run %+% ")"
-	message(info, message)
+	msg <- "passed! (" %+% state $ positive_tests_run %+% ")"
+	message(info, msg)
+
 }
 
 
@@ -451,13 +454,17 @@ execute_test <- function (test) {
 	# -- the state that is modified after running several tests.
 
 	state <- list(
-		tests_run     = 0,
-		fails_for     = list(),
-		failed_after  = Inf,
-		no_fail_for   = list(),
-		no_fail_after = Inf,
-		time_left     = xStopwatch(time)
+		positive_tests_run    = 0,
+		positive_fails_for    = list(),
+		positive_failed_after = Inf,
+
+		negative_tests_run    = 0,
+		negative_fails_for    = list(),
+		negative_failed_after = Inf,
+
+		time_left             = xStopwatch(time)
 	)
+
 
 	# -- test random test cases for a preset amount of time.
 	while (state $ time_left()) {
@@ -465,16 +472,14 @@ execute_test <- function (test) {
 		# -- generate a random test case.
 		case <- yield_case(params)
 
-		state <- test_positives(positives)
-		state <- test_negatives(negatives)
-
+		state <- test_positives(positives, case, info, state, invoking_call)
+		state <- test_negatives(negatives, case, info, state, invoking_call)
 	}
 
 	throw_positive_errors(state)
 	throw_negative_errors(state)
 
 	state_sucess(state)
-
 }
 
 
@@ -612,18 +617,18 @@ run <- function (time = 0.2) {
 #
 
 '+.xforall' <- function (acc, new) {
-	# a monoidal operation that joins any
-	# member of 'xforall' into a compound object,
-	# unless run is joined.
-	# run signals execution.
+	# -- an operation that joins any
+	# -- member of 'xforall' into a compound object,
+	# -- unless run is joined.
+	# -- run signals execution.
 
 	override <- function (key) {
 		# -- set or override a key the accumulator object.
 		# -- optionally execute a callback on the accumulator.
 
-		function (fn = identity) {
+		function () {
 			acc[[key]] <- new[[key]]
-			fn(acc)
+			acc
 		}
 	}
 
@@ -631,13 +636,13 @@ run <- function (time = 0.2) {
 		# -- concatenate the new value at a key to the old value.
 		# -- optionally execute a callback on the accumulator.
 
-		function (fn = identity) {
+		function () {
 			if (length(acc[[key]]) > 0) {
 				acc[[key]] <- c(acc[[key]], list(new[[key]]))
 			} else {
 				acc[[key]] <- list(new[[key]])
 			}
-			fn(acc)
+			acc
 		}
 	}
 
@@ -646,7 +651,11 @@ run <- function (time = 0.2) {
 		'xover'      = override('params'),
 		'xwhen'      = join('positives'),
 		'xfailswhen' = join('negatives'),
-		'xrun'       = xFix_(override('time'), execute_test)
+		'xrun'       = function () {
+			acc $ time <- new $ time
+
+			execute_test(acc)
+		}
 	)
 
 	new_classes <- class(new)
