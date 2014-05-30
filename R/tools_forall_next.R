@@ -270,7 +270,7 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 			if (length(has_property) != 1) {
 
 				message <-
-					test $ info %+% '\n' %+%
+					info %+% '\n' %+%
 					'the property ' %+% ddparse(body(property)) %+%
 					' returned a non length-one result\n' %+%
 					'For the test case ' %+% ddparse(case)
@@ -282,7 +282,7 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 			if (!isTRUE(has_property) && !identical(has_property, False)) {
 
 				message <-
-					test $ info %+% '\n' %+%
+					info %+% '\n' %+%
 					'the property ' %+% ddparse(body(property)) %+%
 					' returned a non-logical result\n' %+%
 					'For the test case ' %+% ddparse(case)
@@ -463,7 +463,6 @@ throw_negative_errors <- function (info, state, invoking_call) {
 
 	}
 }
-
 
 
 

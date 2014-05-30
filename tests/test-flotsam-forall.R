@@ -8,7 +8,7 @@ message("forall positive controls")
 	when(
 		is.numeric(a)  && is.numeric(b) &&
 		length(a) == 1 && length(b) == 1 &&
-		is.finite(a)   && is.finite(b),
+		is.finite(a)  && is.finite(b),
 		a + b == b + a
 	) +
 	run()

@@ -57,6 +57,7 @@ message('test that every function checks if its parametres are missing')
 		}
 
 	}) $
+	# -- filter out exemptions
 	xSelect(xNotEmpty) $ xReject(pair := {
 		xIsMember_(xFirstOf(pair), 'xFromChars', 'xFromWords', 'xFromLines', 'xLambda')
 	}) $
@@ -66,3 +67,7 @@ message('test that every function checks if its parametres are missing')
 			'the following functions are missing missing parametre checks.',
 			miss))
 	})
+
+message("test that the is_fn_matchable macro is used for all functions")
+
+message("test that the is_collection macro is used for all collections")
