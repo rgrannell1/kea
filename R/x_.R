@@ -1773,20 +1773,13 @@ x_ <- MakeFun(function (val) {
 
 get_proto_ref <- local({
 
-	x_fn_members <-
-		ls(x_fn_proto)
-	x_matrix_members <-
-		ls(x_matrix_proto)
-	x_coll_members <-
-		ls(x_coll_proto)
-	x_data_frame_members <-
-		ls(x_data_frame_proto)
-	x_data_frame_members <-
-		ls(x_data_frame_proto)
-	x_factor_members <-
-		ls(x_factor_proto)
-	x_AnyOf_members <-
-		ls(x_any_proto)
+	x_fn_members         <- ls(x_fn_proto)
+	x_matrix_members     <- ls(x_matrix_proto)
+	x_coll_members       <- ls(x_coll_proto)
+	x_data_frame_members <- ls(x_data_frame_proto)
+	x_data_frame_members <- ls(x_data_frame_proto)
+	x_factor_members     <- ls(x_factor_proto)
+	x_any_members        <- ls(x_any_proto)
 
 	function (val) {
 		# get the reference to the appropriate methods.
@@ -1798,12 +1791,12 @@ get_proto_ref <- local({
 			list(x_matrix_proto, x_matrix_members)
 		} else if (is.data.frame( val )) {
 			list(x_data_frame_proto, x_data_frame_members)
-		} else if (is_atomic( val ) || is_generic( val )){
-			list(x_coll_proto, x_coll_members)
-		} else  if (is.factor( val )) {
+		} else if (is.factor( val )){
 			list(x_factor_proto, x_factor_members)
+		} else if (is_atomic( val ) || is_generic( val )) {
+			list(x_coll_proto, x_coll_members)
 		} else {
-			list(x_any_proto, x_AnyOf_members)
+			list(x_any_proto, x_any_members)
 		}
 	}
 
