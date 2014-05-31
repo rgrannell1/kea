@@ -320,8 +320,6 @@ sd_section(
 	c(
 		"xAnyOf",
 		"xAllOf",
-		"xForall",
-		"xExists",
 		"xNoneOf",
 		"xPoll"
 	)

@@ -398,7 +398,7 @@ throw_positive_errors <- function (info, state, invoking_call) {
 		message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
 			" were rejected."
 
-		throw_arrow_error(invoking_call, message)
+		throw_arrow_warning(invoking_call, message)
 	}
 
 	if (length(state $ positive_fails_for) > 0) {
@@ -442,7 +442,7 @@ throw_negative_errors <- function (info, state, invoking_call) {
 		message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
 			" were rejected."
 
-		throw_arrow_error(invoking_call, message)
+		throw_arrow_warning(invoking_call, message)
 	}
 
 	if (length(state $ negative_fails_for) > 0) {

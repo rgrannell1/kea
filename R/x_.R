@@ -896,11 +896,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_DuplicatesOf_, '...')
 
 	# -------- E ------- #
-	# --- xExists --- #
-	add_x_method(this, xExists, 'colls')
-	add_x_method(this, xExists_, '...')
-	add_x_method(this, x_Exists, 'colls')
-	add_x_method(this, x_Exists_, '...')
 
 	# --- xExplode --- #
 	add_x_method(this, xExplode, 'str')
@@ -930,12 +925,6 @@ x_coll_proto <- local({
 	add_x_method(this, xFlatten_, '...')
 	add_x_method(this, x_Flatten, 'coll')
 	add_x_method(this, x_Flatten_, '...')
-
-	# --- xForall --- #
-	add_x_method(this, xForall, 'colls')
-	add_x_method(this, xForall_, '...')
-	add_x_method(this, x_Forall, 'colls')
-	add_x_method(this, x_Forall_, '...')
 
 	# --- xFromChars --- #
 	add_x_method(this, xFromChars, 'strs')
@@ -1505,11 +1494,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_Do_, 'fn')
 
 	# -------- E ------- #
-	add_x_method(this, xExists, 'pred')
-	add_x_method(this, xExists_, 'pred')
-
-	add_x_method(this, x_Exists, 'pred')
-	add_x_method(this, x_Exists_, 'pred')
 	# -------- F ------- #
 
 	# --- xFlatMap --- #
@@ -1518,11 +1502,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_FlatMap, 'fn')
 	add_x_method(this, x_FlatMap_, 'fn')
 
-	# --- xForall --- #
-	add_x_method(this, xForall, 'pred')
-	add_x_method(this, xForall_, 'pred')
-	add_x_method(this, x_Forall, 'pred')
-	add_x_method(this, x_Forall_, 'pred')
 
 	# --- xFold --- #
 	add_x_method(this, xFold, 'fn')

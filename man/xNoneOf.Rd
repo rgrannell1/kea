@@ -42,9 +42,7 @@ xNoneOf(xI, c(True, False, True))
 \seealso{
 Other quantifier_functions: \code{\link{xAllOf}},
   \code{\link{xAllOf_}}; \code{\link{xAnyOf}},
-  \code{\link{xAnyOf_}}; \code{\link{xExists}},
-  \code{\link{xExists_}}; \code{\link{xForall}},
-  \code{\link{xForall_}}; \code{\link{xPoll}},
+  \code{\link{xAnyOf_}}; \code{\link{xPoll}},
   \code{\link{xPoll_}}
 }
 
