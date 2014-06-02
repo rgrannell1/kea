@@ -25,15 +25,6 @@ fns $ xMapply((fn_name : fn) := {
 
 	body_text <- paste0( deparse(body(fn)), collapse = '\n')
 
-	missing_missing <-
-		x_(xParamsOf(fn)) $
-		x_AnyOf(param := {
-
-			pattern <- paste0('missing[(]', param, '[)]')
-
-			!grepl(pattern, body_text)
-		})
-
 	missing_fn_matchable <-
 		x_(xParamsOf(fn)) $
 		xSelect(param := param == 'fn' || param == 'pred') $
@@ -65,10 +56,6 @@ fns $ xMapply((fn_name : fn) := {
 
 			!grepl(pattern, body_text)
 		})
-
-	if (xIsTrue(missing_missing))  {
-		stop("no missing macro detected in ", fn_name)
-	}
 
 	if (xIsTrue(missing_fn_matchable))  {
 		stop("no fn match macro detected in ", fn_name)

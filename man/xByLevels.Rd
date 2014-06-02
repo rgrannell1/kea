@@ -22,12 +22,12 @@ Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByRows}};
   \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
   \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}
+  \code{\link{x_}}, \code{\link{x__}}
 
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByRows}};
   \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
   \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

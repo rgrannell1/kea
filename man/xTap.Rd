@@ -34,6 +34,7 @@ Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{x_}}
+  \code{\link{xExecute}}; \code{\link{x_}},
+  \code{\link{x__}}
 }
 

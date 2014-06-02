@@ -1,7 +1,51 @@
 
+Arrow 0.13.0
+-----------------------------------------------------------------------------
+Date: 2014-6-2
+
+A mostly internal update, removes two quantifier functions and adds x__.
+
+Enhancements:
+
+* Added x__, the variadic form of x_.
+
+* Removed xExists and xForall; the addition of xAnyOf and xAnyOf is equivalent
+for most cases, and for the remaining cases (polyadic functions) using xProdSetOf
+and a quantifier is identical, and favours composition.
+
+Documentation:
+
+* Added examples to xAddKeys, xByLevels, xChoose, xElemNot, xIsMember, xNotTrue,
+
+Bug-Fixes:
+
+* xOneOf now throws an error for an empty collection, as it is impossible to
+return any elements in this case.
+
+* Factors passed to x_ now get assigned the correct set of methods; previously
+they were given collection methods, as factors are technically collections.
+
+Package Internals:
+
+* Seperated the next forall tool into modules, fixed several bugs. The tool is now
+effective for simple test cases, but more work is required for negative tests.
+
+* Added new-style tests to xIs, xNot, xOneOf.
+
+* Simplified the '+.xforall' method with higher-order functions.
+
+
+
+
+
+
+
 Arrow 0.12.0
 -----------------------------------------------------------------------------
-Date: 2014-5-22
+Date: 2014-5-28
+
+A major but mostly internal update; upgraded testing tools and removed dangerous
+function calls.
 
 A major but mostly internal update; upgraded testing tools and removed dangerous
 function calls.

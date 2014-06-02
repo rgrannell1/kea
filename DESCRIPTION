@@ -4,9 +4,9 @@ Title: Arrow
 Description: **Arrow** is a functional programming framework that adds partial
     application, jQuery-like method calling, function composition, and nearly
     one-hundred higher-order functions and utility functions to the R language.
-    Arrow helps make R an elegant functional language with an emphasis on the
+    Arrow makes R an elegant functional language with an emphasis on the
     composition of simple functions to create complex, expressive programs.
-Version: 0.12.0
+Version: 0.13.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -109,8 +109,6 @@ Collate:
     'xFlatten.R'
     'xDelay.R'
     'xStopwatch.R'
-    'xExists.R'
-    'xForall.R'
     'xProdSetOf.R'
     'xCycle.R'
     'xDo.R'

@@ -15,7 +15,7 @@
 #'     The below example will throw an error; forall of an empty list is
 #'     logical zero, which if cannot handle:
 #'
-#'     \code{mybool <- xForall(xI, list())}
+#'     \code{mybool <- xAnyOf(xI, list())}
 #'
 #'     \code{if (mybool) 1 else 2}
 #'

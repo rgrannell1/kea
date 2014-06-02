@@ -16,8 +16,8 @@ throw_arrow_warning <- arrow ::: throw_arrow_warning
 
 
 
-validate_docs <- docs := {
-	# TODO
+anyIsMatch <- (rexp : docs) := {
+	xAnyOf(xFix_(xIsMatch, rexp), docs)
 }
 
 
@@ -28,8 +28,8 @@ validate_docs <- docs := {
 
 
 
-r_path <- '/home/ryan/Code/arrow.R/R'
 r_path <- system.file(package = 'arrow', 'R')
+r_path <- '/home/ryan/Code/arrow.R/R'
 
 if (nchar(r_path) > 0) {
 
@@ -40,7 +40,6 @@ if (nchar(r_path) > 0) {
 			fname <-
 				x_(path) $ xExplode('/') $ x_LastOf()
 
-			# -- how many non-empty lines are there?
 			roxygen <-
 				x_(path) $ xReadLines() $
 				x_Select(
@@ -48,4 +47,18 @@ if (nchar(r_path) > 0) {
 
 			list(path, roxygen)
 		})
+
+	rdocs $
+	xMapply((path : docs) := {
+
+		has_type <- anyIsMatch("@section Type Signature", docs)
+
+		list(path, has_type)
+	}) $
+	xReject(props := {
+		xAllOf(xIdentity, xRestOf(props))
+	})
+
+
+
 }

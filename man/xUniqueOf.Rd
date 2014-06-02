@@ -33,8 +33,9 @@ Return the unique elements in a collection.
 
 # 1. Find the smallest number in a list.
 
-lowest <-
-	x_(list(1, 1, 3, 2, 2, 2, 5, 4, 9, 9)) $ x_MinBy(xI)
+lowest <- x_(list(1, 1, 3, 2, 2, 2, 5, 4, 9, 9)) $ x_MinBy(xI)
+
+x__(1, 2, 3, 4, 5)
 
 # 2. CE is a string a pangram?
 #    does a string contain each letter.

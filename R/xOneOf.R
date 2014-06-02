@@ -34,9 +34,9 @@ xOneOf <- MakeFun(function (coll) {
 	MACRO( Must $ Not_Be_Missing(coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
-	if (length(coll) == 0) {
-		list()
-	} else if (length(coll) == 1) {
+	MACRO( Must $ Be_Longer_Than(0, coll) )
+
+	if (length(coll) == 1) {
 		coll[[1]]
 	} else {
 		# -- select a single index in a memory efficient way.

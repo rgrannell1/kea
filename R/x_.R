@@ -1,4 +1,5 @@
 
+
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
@@ -53,11 +54,11 @@ add_x_method <- function (env, fn, fixed) {
 
 	# -- detect the type of method.
 	is_unchaining <- grepl('^x_', fn_name)
-	is_variadic <- grepl('_$', fn_name)
+	is_variadic   <- grepl('_$', fn_name)
 
 	fn <- match.fun(fn_sym)
 
-	if ( fixed %!in% names(formals(fn)) ) {
+	if (!any( fixed == names(formals(fn)) )) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
 	}
 
@@ -896,11 +897,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_DuplicatesOf_, '...')
 
 	# -------- E ------- #
-	# --- xExists --- #
-	add_x_method(this, xExists, 'colls')
-	add_x_method(this, xExists_, '...')
-	add_x_method(this, x_Exists, 'colls')
-	add_x_method(this, x_Exists_, '...')
 
 	# --- xExplode --- #
 	add_x_method(this, xExplode, 'str')
@@ -930,12 +926,6 @@ x_coll_proto <- local({
 	add_x_method(this, xFlatten_, '...')
 	add_x_method(this, x_Flatten, 'coll')
 	add_x_method(this, x_Flatten_, '...')
-
-	# --- xForall --- #
-	add_x_method(this, xForall, 'colls')
-	add_x_method(this, xForall_, '...')
-	add_x_method(this, x_Forall, 'colls')
-	add_x_method(this, x_Forall_, '...')
 
 	# --- xFromChars --- #
 	add_x_method(this, xFromChars, 'strs')
@@ -1505,11 +1495,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_Do_, 'fn')
 
 	# -------- E ------- #
-	add_x_method(this, xExists, 'pred')
-	add_x_method(this, xExists_, 'pred')
-
-	add_x_method(this, x_Exists, 'pred')
-	add_x_method(this, x_Exists_, 'pred')
 	# -------- F ------- #
 
 	# --- xFlatMap --- #
@@ -1518,11 +1503,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_FlatMap, 'fn')
 	add_x_method(this, x_FlatMap_, 'fn')
 
-	# --- xForall --- #
-	add_x_method(this, xForall, 'pred')
-	add_x_method(this, xForall_, 'pred')
-	add_x_method(this, x_Forall, 'pred')
-	add_x_method(this, x_Forall_, 'pred')
 
 	# --- xFold --- #
 	add_x_method(this, xFold, 'fn')
@@ -1772,6 +1752,7 @@ x_fn_proto <- local({
 #' @example
 #'    inst/examples/example-x_.R
 #'
+#' @rdname x_
 #' @export
 
 x_ <- MakeFun(function (val) {
@@ -1794,20 +1775,13 @@ x_ <- MakeFun(function (val) {
 
 get_proto_ref <- local({
 
-	x_fn_members <-
-		ls(x_fn_proto)
-	x_matrix_members <-
-		ls(x_matrix_proto)
-	x_coll_members <-
-		ls(x_coll_proto)
-	x_data_frame_members <-
-		ls(x_data_frame_proto)
-	x_data_frame_members <-
-		ls(x_data_frame_proto)
-	x_factor_members <-
-		ls(x_factor_proto)
-	x_AnyOf_members <-
-		ls(x_any_proto)
+	x_fn_members         <- ls(x_fn_proto)
+	x_matrix_members     <- ls(x_matrix_proto)
+	x_coll_members       <- ls(x_coll_proto)
+	x_data_frame_members <- ls(x_data_frame_proto)
+	x_data_frame_members <- ls(x_data_frame_proto)
+	x_factor_members     <- ls(x_factor_proto)
+	x_any_members        <- ls(x_any_proto)
 
 	function (val) {
 		# get the reference to the appropriate methods.
@@ -1819,16 +1793,24 @@ get_proto_ref <- local({
 			list(x_matrix_proto, x_matrix_members)
 		} else if (is.data.frame( val )) {
 			list(x_data_frame_proto, x_data_frame_members)
-		} else if (is_atomic( val ) || is_generic( val )){
-			list(x_coll_proto, x_coll_members)
-		} else  if (is.factor( val )) {
+		} else if (is.factor( val )){
 			list(x_factor_proto, x_factor_members)
+		} else if (is_atomic( val ) || is_generic( val )) {
+			list(x_coll_proto, x_coll_members)
 		} else {
-			list(x_any_proto, x_AnyOf_members)
+			list(x_any_proto, x_any_members)
 		}
 	}
 
 })
+
+#' @rdname x_
+#' @export
+
+x__ <- function (...) {
+	x_(list(...))
+}
+
 
 
 

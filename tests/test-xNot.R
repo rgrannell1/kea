@@ -1,25 +1,21 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
 
-require(arrow)
+message("xNot (+)")
 
-message('xNot')
+	over(val) +
+	describe("a value is always equal to itself.") +
+	when(
+		True,
+		!xNot(val, val)
+	) +
+	run()
 
-	forall(
-		"na is na",
-		list(),
-		!xNot(Na, Na)
-	)
-
-	forall(
-		"null is null",
-		list(),
-		!xNot(NULL, NULL)
-	)
-
-	forall(
-		"nan is nan",
-		list(),
-		!xNot(NaN, NaN)
-	)
+	over(val1, val2) +
+	describe("always returns a logical value.") +
+	when(
+		True,
+		is.logical(xNot(val1, val2)),
+		length(xNot(val1, val2)) == 1
+	) +
+	run()

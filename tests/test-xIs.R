@@ -1,25 +1,21 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
 
-require(arrow)
+message("xIs (+)")
 
-message('xIs')
+	over(val) +
+	describe("a value is always equal to itself.") +
+	when(
+		True,
+		xIs(val, val)
+	) +
+	run()
 
-	forall(
-		"na is na",
-		list(),
-		xIs(Na, Na)
-	)
-
-	forall(
-		"null is null",
-		list(),
-		xIs(NULL, NULL)
-	)
-
-	forall(
-		"nan is nan",
-		list(),
-		xIs(NaN, NaN)
-	)
+	over(val1, val2) +
+	describe("always returns a logical value.") +
+	when(
+		True,
+		is.logical(xIs(val1, val2)),
+		length(xIs(val1, val2)) == 1
+	) +
+	run()

@@ -48,9 +48,7 @@ xAnyOf(name := nchar(name) > 25, ls('package:base'))
 }
 \seealso{
 Other quantifier_functions: \code{\link{xAllOf}},
-  \code{\link{xAllOf_}}; \code{\link{xExists}},
-  \code{\link{xExists_}}; \code{\link{xForall}},
-  \code{\link{xForall_}}; \code{\link{xNoneOf}},
+  \code{\link{xAllOf_}}; \code{\link{xNoneOf}},
   \code{\link{xNoneOf_}}; \code{\link{xPoll}},
   \code{\link{xPoll_}}
 }

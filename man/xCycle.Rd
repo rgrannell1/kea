@@ -47,6 +47,11 @@ Cyclic permutations are an important combinatorial object.
 
     \code{xCycle_(3, 1:4)}
 }
+\section{Type Signature}{
+
+    <number> -> ||any|| -> ||any||
+}
+
 \section{Corner Cases}{
 
    If \bold{coll} is empty the empty list is returned.
