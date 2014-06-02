@@ -103,20 +103,20 @@ if (nchar(r_paths $ x_AtKey('tests')) > 0) {
 		'Fun has a corresponding xFun.R file')
 
 		check_for_missing_exports(as_r_path, 'arrow/R',
-			c('xVectorize'))
+			c())
 
 	message(
 		'check that every exported function ' %+%
 		'Fun has a corresponding example-xFun.R file')
 
 		check_for_missing_exports(as_example_path, 'arrow/inst/examples',
-			c('xVectorize'))
+			c())
 
 	message(
 		'check that every exported function ' %+%
 		'Fun has a corresponding test-xFun.R file')
 
 		check_for_missing_exports(as_test_path, 'arrow/inst/tests',
-			c('xVectorize'))
+			c())
 
 }

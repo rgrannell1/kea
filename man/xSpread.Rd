@@ -48,8 +48,7 @@ Other function_application_functions: \code{\link{xApply}},
   \code{\link{xFlatMap_}}; \code{\link{xMapply}},
   \code{\link{xMapply_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xThread}},
-  \code{\link{xThread_}}; \code{\link{xUnspread}};
-  \code{\link{xVectorise}}, \code{\link{xVectorize}}
+  \code{\link{xThread_}}; \code{\link{xUnspread}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
@@ -60,8 +59,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
   \code{\link{xNegate}}; \code{\link{xThread}},
-  \code{\link{xThread_}}; \code{\link{xUnspread}};
-  \code{\link{xVectorise}}, \code{\link{xVectorize}}
+  \code{\link{xThread_}}; \code{\link{xUnspread}}
 
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFix}}, \code{\link{xFix_}};

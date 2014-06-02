@@ -54,7 +54,6 @@ Collate:
     'xDropWhile.R'
     'xFirstOf.R'
     'xFlatMap.R'
-    'xVectorise.R'
     'xFold.R'
     'xFormalsOf.R'
     'xFourthOf.R'

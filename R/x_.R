@@ -1678,12 +1678,6 @@ x_fn_proto <- local({
 
 	# -------- U ------- #
 	# -------- V ------- #
-	# --- xVectorise --- #
-	add_x_method(this, xVectorise, 'fn')
-	add_x_method(this, x_Vectorise, 'fn')
-
-	add_x_method(this, xVectorize, 'fn')
-	add_x_method(this, x_Vectorize, 'fn')
 
 	# -------- W ------- #
 

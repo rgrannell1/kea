@@ -73,7 +73,6 @@ Other function_application_functions: \code{\link{xApply}},
   \code{\link{xMapply_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xSpread}};
   \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}; \code{\link{xVectorise}},
-  \code{\link{xVectorize}}
+  \code{\link{xUnspread}}
 }
 

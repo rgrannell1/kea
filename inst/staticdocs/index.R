@@ -220,8 +220,7 @@ sd_section(
 		"xMap",
 		"xMapply",
 		"xThread",
-		"xUnspread",
-		"xVectorise"
+		"xUnspread"
 	)
 )
 
@@ -256,8 +255,7 @@ sd_section(
 		"xLift",
 		"xFix",
 		"xSpread",
-		"xThread",
-		"xVectorise"
+		"xThread"
 	)
 )
 

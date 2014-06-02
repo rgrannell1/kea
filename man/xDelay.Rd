@@ -70,8 +70,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xFix_}}; \code{\link{xJuxtapose}},
   \code{\link{xJuxtapose_}}; \code{\link{xNegate}};
   \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread_}}; \code{\link{xUnspread}};
-  \code{\link{xVectorise}}, \code{\link{xVectorize}}
+  \code{\link{xThread_}}; \code{\link{xUnspread}}
 
 Other inpure_functions: \code{\link{xDo}},
   \code{\link{xDo_}}; \code{\link{xExecute}};
