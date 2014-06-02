@@ -20,7 +20,7 @@ install_github("arrow", "rgrannell1", ref = "releases")
 
 ## What is Arrow?
 
-Functional programming has become common-place in languages like JavaScript
+Functional programming has become commonplace in languages like JavaScript
 and Python, but R is conspicuously lacking such a library. Arrow is a functional
 library for general-purpose programming in R. It adds all the common higher-order
 functions (Map, Fold, Compose, ...) and useful functions taken from

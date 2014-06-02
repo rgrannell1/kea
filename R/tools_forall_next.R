@@ -73,17 +73,17 @@ from_stream <- function (...) {
 		}
 
 	# -- symbols
-	this $ symbol <-
-		function () {
+#	this $ symbol <-
+#		function () {
 
-			word <- this $ word()
+#			word <- this $ word()
 
-			while (nchar(word) == 0) {
-				word <- this $ word()
-			}
+#			while (nchar(word) == 0) {
+#				word <- this $ word()
+#			}
 
-			as.symbol(word)
-		}
+#			as.symbol(word)
+#		}
 
 	# -- double
 
@@ -544,10 +544,17 @@ execute_test <- function (test) {
 		#state <- test_negatives(negatives, case, info, state, invoking_call)
 	}
 
-	throw_positive_errors(info, state, invoking_call)
-	throw_negative_errors(info, state, invoking_call)
+	if (length(positives) > 0) {
+		throw_positive_errors(info, state, invoking_call)
+	}
+
+	if (length(negatives) > 0) {
+		throw_negative_errors(info, state, invoking_call)
+	}
+
 
 	state_sucess(state, info)
+	invisible(Null)
 }
 
 
@@ -732,6 +739,7 @@ run <- function (time = 1) {
 			acc $ time <- new $ time
 
 			execute_test(acc)
+			invisible(Null)
 		}
 	)
 
@@ -742,4 +750,6 @@ run <- function (time = 1) {
 			return ( responses[[classname]]() )
 		}
 	}
+
+	invisible(Null)
 }
