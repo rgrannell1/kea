@@ -181,10 +181,37 @@ add_x_method <- function (env, fn, fixed) {
 
 }
 
+# -------------------------------- Inheritance -------------------------------- #
+#
+# There are certain functions that every prototype gets, like identity. These are
+# factored into their own prototype. These methods are then inherited by the other
+# prototypes (allowing for the possibility of overridding methods in the inheritee).
+#
+# This might eventually just be a combination of joining the search paths, and
+# assigning the private variable manually, but this might make function lookup slower.
 
+inherit_prototypes <- function (parent, child, description) {
 
+	child_methods  <- ls(envir = child)
+	parent_methods <- ls(envir = parent)
 
+	# -- methods in parent can be overwritten by the child
+	non_overwritten <- setdiff(parent_methods, child_methods)
 
+	# -- fairly slow, so use this function only during building.
+	child <- as.environment(c(
+		as.list(child),
+		as.list(parent)[non_overwritten]
+	))
+
+	child $ private <- list(contents_are = description)
+
+	child
+}
+
+inherit_x_any <- function (child, description) {
+	inherit_prototypes(x_any_proto, child, description)
+}
 
 
 
@@ -216,17 +243,6 @@ x_any_proto <- local({
 
 	# -------- F ------- #
 	# -------- G ------- #
-	this$xGraft <-
-		function (str, fn) {
-			# -- add a function to the x_ call chain for the current R session.
-
-			chainable <- function (...) {
-				x_(fn(Self(), ...))
-			}
-
-			proto <- get_proto_ref(Self())
-			assign(str, chainable, envir = proto_ref[[1]])
-		}
 
 	# -------- H ------- #
 	# -------- I ------- #
@@ -297,8 +313,7 @@ x_any_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	this$private <- list(
-		contents_are = "arbitrary values")
+	this $ private <- list(contents_are = "arbitrary values")
 	this
 })
 
@@ -466,23 +481,8 @@ x_matrix_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'matrices')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "matrices")
-
-		this
-
-	})
 })
 
 
@@ -605,23 +605,8 @@ x_data_frame_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'data.frames')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "data.frames")
-
-		this
-
-	})
 })
 
 
@@ -677,22 +662,8 @@ x_factor_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'factors')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-		this$private <- list(
-			contents_are = "factors")
-
-		this
-
-	})
 })
 
 
@@ -1332,23 +1303,8 @@ x_coll_proto <- local({
 	add_x_method(this, x_Zip, 'colls')
 	add_x_method(this, x_Zip_, '...')
 
-	local({
+	inherit_x_any(this, 'collections')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "collections")
-
-		this
-
-	})
 })
 
 
@@ -1636,23 +1592,8 @@ x_fn_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'functions')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "functions")
-
-		this
-
-	})
 })
 
 # -------------------------------- Type Constructor -------------------------------- #
