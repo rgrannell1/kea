@@ -1,6 +1,5 @@
 
 arrow ::: load_test_dependencies(environment())
-is_collection <- arrow ::: is_collection
 
 message("xIs (+)")
 
