@@ -1,4 +1,35 @@
 
+Arrow 0.14.0
+-----------------------------------------------------------------------------
+Date: 2014-6-2
+
+This version removes xVectorise and xGraft, and cleans up the method code.
+
+Enhancements:
+
+* Removed xVectorise/xVectorize; future versions of Arrow will include
+automatic partial application (or at the very least pre-currying), so
+vectorise will become redundant.
+
+* Removed xGraft, which allowed custom methods to be added to the arrow
+call chain. It was untested, unusued, and barely more useful than xTap.
+
+* Bug-Fixes:
+
+* xExecute & xTap now performs matchin on its input function/string argument.
+
+Package Internals:
+
+* Moved xTap and xExecute into their own files, rather that direct definition
+in x_.R. This will be done for all other method-only functions, for code
+uniformity.
+
+* factored prototype inheritance into a function.
+
+* Removed errant in-prototype definitions of xThread; now uses the method-adding
+function.
+
+
 Arrow 0.13.0
 -----------------------------------------------------------------------------
 Date: 2014-6-2
