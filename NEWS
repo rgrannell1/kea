@@ -30,6 +30,15 @@ uniformity.
 function.
 
 
+
+
+
+
+
+
+
+
+
 Arrow 0.13.0
 -----------------------------------------------------------------------------
 Date: 2014-6-2
@@ -64,6 +73,10 @@ effective for simple test cases, but more work is required for negative tests.
 * Added new-style tests to xIs, xNot, xOneOf.
 
 * Simplified the '+.xforall' method with higher-order functions.
+
+
+
+
 
 
 
