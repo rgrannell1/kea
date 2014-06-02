@@ -3,6 +3,9 @@
 #'
 #' Generate a cyclic permutation of a collection.
 #'
+#' @section Type Signature:
+#'     <number> -> ||any|| -> ||any||
+#'
 #' @details
 #'
 #'    Cyclic permutations are an important combinatorial object.

@@ -50,8 +50,9 @@ xAddKeys <- MakeFun(function (strs, coll) {
 
 	MACRO( Must $ Be_Equal_Length_To(strs, coll) )
 
+	coll <- as.list(coll)
 	names(coll) <- strs
-	as.list(coll)
+	coll
 })
 
 #' @rdname xAddKeys

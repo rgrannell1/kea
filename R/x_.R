@@ -1,4 +1,5 @@
 
+
 # -------------------------------- x_( ) -------------------------------- #
 #
 # The x_() function is a constructor that wraps a datum, and allows methods
@@ -53,11 +54,11 @@ add_x_method <- function (env, fn, fixed) {
 
 	# -- detect the type of method.
 	is_unchaining <- grepl('^x_', fn_name)
-	is_variadic <- grepl('_$', fn_name)
+	is_variadic   <- grepl('_$', fn_name)
 
 	fn <- match.fun(fn_sym)
 
-	if ( fixed %!in% names(formals(fn)) ) {
+	if (!any( fixed == names(formals(fn)) )) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
 	}
 

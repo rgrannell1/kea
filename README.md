@@ -6,12 +6,12 @@ Arrow 0.12.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https
 
 ### Public Release: ~1 August 2014
 
-Arrow makes R the functional language it was always meant to be.
+Arrow makes R an effective language for functional programming.
 
 ### Installation
 
 Arrow isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
-is considered bad etiquite to update a CRAN package more than once a month.
+is considered bad etiquette to update a CRAN package more than once a month.
 
 ```
 install.packages("devtools")
@@ -20,23 +20,12 @@ install_github("arrow", "rgrannell1", ref = "releases")
 
 ## What is Arrow?
 
-R's base packages are uncooperative. Functions in the standard library have a tonne
-of arcane parametres. They can't decide on how to handle empty values, NA values or even
-the humble list. Sometimes they crash a program, sometimes they fail silently or
-are handled gracefully. In any case, every function requires you to memorise its precise
-behaviour.
-
-Worse still, base functions stack badly. Despite knowing exactly what you want to do,
-you will spend a lot of time chasing down empty values and NA's in the debugger.
-
-The remedy? Arrow is a composable functional programming framework. It includes
-all the functionals you know and love from Haskell (map, fold, select, flatmap)
-it has functions for reshaping and summarising your data structures. These functions
-slot neatly together without boilerplate code.
-
-Above all else it is designed to be pleasant to use. Functional
-programming, unix-style pipelines and shorthand functions reduce the keystrokes
-and mental effort needed to go from "I have an idea" to a working prototype.
+Functional programming has become common-place in languages like JavaScript
+and Python, but R is conspicuously lacking such a library. Arrow is a functional
+library for general-purpose programming in R. It adds all the common higher-order
+functions (Map, Fold, Compose, ...) and useful functions taken from
+set theory and combinatorics. Arrow also exploits R's flexibility to add
+arrow functions, methods, wildcards & list-comprehensions to the language.
 
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
