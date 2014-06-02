@@ -1752,6 +1752,7 @@ x_fn_proto <- local({
 #' @example
 #'    inst/examples/example-x_.R
 #'
+#' @rdname x_
 #' @export
 
 x_ <- MakeFun(function (val) {
@@ -1802,6 +1803,14 @@ get_proto_ref <- local({
 	}
 
 })
+
+#' @rdname x_
+#' @export
+
+x__ <- function (...) {
+	x_(list(...))
+}
+
 
 
 

@@ -1,6 +1,14 @@
 
 # 1.
 #
+# A really basic and unlikely use.
+
+x_(c(1, 2, 3)) $ x_AddKeys(c('a', 'b', 'c'))
+
+# c(a = 1, b = 2, c = 3)
+
+# 2.
+#
 # Add the keys 'country' and 'age' to each row of a csv.
 
 csv <- "Chad,16.6,Congo,16.5,Yemen,16.4,Mali,16.2,Niger,15.2,Uganda,15.0"
