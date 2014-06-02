@@ -34,7 +34,7 @@ For library documentation and tutorials head to
 
 First, a table of Arrow's (optional) new syntax.
 
-```r
+```R
 # function shorthands
 x := 2 * x + 1                               # instead of function (x) 2 * x + 1
 x. $ Species                                 # instead of function (x) x $ Species
@@ -52,7 +52,7 @@ x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
 
 With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
 
-```r
+```R
 # Data From Hadley Wickham's https://github.com/hadley/data-stride
 
 asRow <- (...) := {
