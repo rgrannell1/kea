@@ -211,29 +211,8 @@ x_any_proto <- local({
 
 	# -------- D ------- #
 	# -------- E ------- #
-	this$xExecute <-
-		MakeFun(function (fn) {
-
-			invoking_call <- sys.call()
-
-			MACRO( Must $ Not_Be_Missing(fn) )
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			fn()
-			x_(Self())
-		})
-
-	this$x_Execute <-
-		MakeFun(function (fn) {
-
-			invoking_call <- sys.call()
-
-			MACRO( Must $ Not_Be_Missing(fn) )
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			fn()
-			Self()
-		})
+	add_x_method(this, xExecute, 'val')
+	add_x_method(this, x_Execute, 'val')
 
 	# -------- F ------- #
 	# -------- G ------- #
@@ -300,46 +279,14 @@ x_any_proto <- local({
 	# -------- R ------- #
 	# -------- S ------- #
 	# -------- T ------- #
-	this$xTap <-
-		MakeFun(function (fn) {
+	add_x_method(this, xTap, 'val')
+	add_x_method(this, x_Tap, 'val')
 
-			invoking_call <- sys.call()
+	add_x_method(this, xThread, 'val')
+	add_x_method(this, xThread_, 'val')
+	add_x_method(this, x_Thread, 'val')
+	add_x_method(this, x_Thread_, 'val')
 
-			MACRO( Must $ Not_Be_Missing(fn) )
-
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			x_( fn(Self()) )
-		})
-
-	this$x_Tap <-
-		MakeFun(function (fn) {
-
-			invoking_call <- sys.call()
-
-			MACRO( Must $ Not_Be_Missing(fn) )
-
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			fn(Self())
-		})
-
-	this$xThread <-
-		MakeFun(function (fns) {
-			xThread(Self(), fns)
-		})
-	this$xThread_ <-
-		MakeFun(function (...) {
-			xThread_(Self(), ...)
-		})
-	this$x_Thread <-
-		MakeFun(function (fns) {
-			xThread(Self(), fns)
-		})
-	this$x_Thread_ <-
-		MakeFun(function (...) {
-			xThread_(Self(), ...)
-		})
 	# -------- U ------- #
 	# -------- V ------- #
 	add_x_method(this, xVersion, '...')

@@ -29,4 +29,14 @@
 #'
 #' @name xTap
 
-NULL
+xTap <- MakeFun(function (fn, val) {
+
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(val) )
+
+	MACRO( Must $ Be_Fn_Matchable(fn) )
+
+	fn <- match_fn(fn)
+
+	fn(val)
+})
