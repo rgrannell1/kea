@@ -1,5 +1,5 @@
 
-Arrow 0.12.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+Arrow 0.13.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -23,7 +23,7 @@ install_github("arrow", "rgrannell1", ref = "releases")
 Functional programming has become commonplace in languages like JavaScript
 and Python, but R is conspicuously lacking such a library. Arrow is a functional
 library for general-purpose programming in R. It adds all the common higher-order
-functions (Map, Fold, Compose, ...) and useful functions taken from
+functions (Map, Fold, Compose, ...) and functions taken from
 set theory and combinatorics. Arrow also exploits R's flexibility to add
 arrow functions, methods, wildcards & list-comprehensions to the language.
 
