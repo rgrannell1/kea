@@ -6,7 +6,11 @@
 #' @section Type Signature:
 #'     (any -> any) -> any -> any
 #'
-#' @param fn a unary function. The function to apply to the data in an arrow object.
+#' @param
+#'    fn a unary function. The function to apply to the data in the arrow object.
+#'
+#' @param
+#'    val an arbitrary value. The contents of the arrow object.
 #'
 #' @details
 #'    \bold{xTap} applies non-arrow functions to be applied to arrow objects.

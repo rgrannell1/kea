@@ -8,7 +8,10 @@
 #'      x_(  ) $ xExecute(fn)
 #'
 #' @param
-#'      fn a nullary function
+#'      fn a unary function. The function to apply to the data in the arrow object.
+#'
+#' @param
+#'    val an arbitrary value. The contents of the arrow object.
 #'
 #' @return
 #'      The return value of the previous method.
@@ -28,6 +31,6 @@ xExecute <- MakeFun(function (fn, val) {
 
 	fn <- match_fn(fn)
 
-	fn()
+	fn(val)
 	val
 })
