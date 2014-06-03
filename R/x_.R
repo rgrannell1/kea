@@ -1239,8 +1239,8 @@ x_coll_proto <- local({
 	# --- xUnit --- #
 	add_x_method(this, xUnit, 'coll')
 	add_x_method(this, x_Unit, 'coll')
-	add_x_method(this, xUnit_, 'coll')
-	add_x_method(this, x_Unit_, 'coll')
+	add_x_method(this, xUnit_, '...')
+	add_x_method(this, x_Unit_, '...')
 
 	# --- xUniqueOf --- #
 	add_x_method(this, xUniqueOf, 'coll')
