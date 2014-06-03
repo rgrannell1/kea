@@ -212,29 +212,6 @@ Object <- function () {
 	new.env(parent = emptyenv())
 }
 
-# @section join_env:
-#
-# Join two environments together into one environment. This
-# allows for inheritance of environments without having
-# to traverse multiple environments.
-#
-# @keywords internal
-# @rdname pkg-internal
-
-join_env <- function (x, y) {
-	# do not use this often; it's a very slow
-	# way of joining two environments.
-
-	if (missing(x)) {
-		stop("internal error: joining environments failed.")
-	}
-	if (missing(y)) {
-		stop("internal error: joining environments failed.")
-	}
-
-	as.environment( c(as.list( x ), as.list( y )) )
-}
-
 # --------------------- property tests --------------------- #
 
 # @section is_fn_matchable:
