@@ -13,7 +13,7 @@ Arrow makes R an effective language for functional programming.
 Arrow isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
 is considered bad etiquette to update a CRAN package more than once a month.
 
-```
+```js
 install.packages("devtools")
 install_github("arrow", "rgrannell1", ref = "releases")
 ```
@@ -34,7 +34,7 @@ For library documentation and tutorials head to
 
 First, a table of Arrow's (optional) new syntax.
 
-```R
+```js
 # function shorthands
 x := 2 * x + 1                               # instead of function (x) 2 * x + 1
 x. $ Species                                 # instead of function (x) x $ Species
@@ -52,7 +52,7 @@ x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
 
 With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
 
-```R
+```js
 # Data From Hadley Wickham's https://github.com/hadley/data-stride
 
 asRow <- (...) := {
