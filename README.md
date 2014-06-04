@@ -95,7 +95,7 @@ largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
 
 '
 list(
-	list(state = "MA", potency = 74, weight = 3", month = 7,  price = 180),
+	list(state = "MA", potency = 74, weight = 3, month = 7,  price = 180),
 	list(state = "NY", potency = 50, weight = 27, month = 12, price = 1000),
 	list(state = "SC", potency = 81, weight = 47, month = 6,  price = 1800),
 	list(state = "FL", potency = 37, weight = 5", month = 3,  price = 1600),
