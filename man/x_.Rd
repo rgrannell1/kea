@@ -13,6 +13,8 @@ x__(...)
    arrow object.
    The methods available depend on the input
    type; functions and collections have the most methods available.}
+
+\item{...}{see above.}
 }
 \value{
 An object of class "arrow". Internally the object is represented as a

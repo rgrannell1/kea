@@ -6,7 +6,9 @@
 x_(  ) $ xExecute(fn)
 }
 \arguments{
-\item{fn}{a nullary function}
+\item{fn}{a unary function. The function to apply to the data in the arrow object.}
+
+\item{val}{an arbitrary value. The contents of the arrow object.}
 }
 \value{
 The return value of the previous method.

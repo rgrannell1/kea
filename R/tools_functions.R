@@ -22,7 +22,7 @@ Moot <- function (...) {
 	Na
 }
 
-# --------------------- safe replacements
+# --------------------- safe replacements --------------------- #
 
 
 # Sample is insane in R.
@@ -104,6 +104,13 @@ is_generic <- function (coll) {
 	}
 }
 
+# -- more useful than is.recursive
+
+is_recursive <- function (val) {
+	# -- don't change. is.recursive is ~ !is.atomic.
+	# -- is list checks lists, pairlists. Add null check.
+	is.list(val) || identical(val, NULL)
+}
 
 
 
@@ -145,7 +152,7 @@ one_of <- function (coll) {
 	identical(a, b)
 }
 
-make_formals <- function (params) {
+as_formals <- function (params) {
 	structure(
 		rep(list(quote(expr=)), length(params)),
 		names = params)
@@ -214,20 +221,6 @@ Object <- function () {
 
 # --------------------- property tests --------------------- #
 
-# @section is_fn_matchable:
-#
-# Is a value a function, or possibly the name of a function.
-#
-# @keywords internal
-# @rdname pkg-internal
-
-is_fn_matchable <- function (val) {
-	# is a value a function or matchable as a function?
-
-	is.function(val) || is.symbol(val) ||
-	(is.character(val) && length(val) == 1)
-}
-
 # @section is_collection:
 #
 # Is a value a generic or atomic vector or a pairlist.
@@ -235,31 +228,12 @@ is_fn_matchable <- function (val) {
 # @keywords internal
 # @rdname pkg-internal
 
-
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
 
 	# -- the two bad coner cases of is atomic and is null
 	# -- counteract; will be true for any pairlist, list or vector, including NULL.
 	is.atomic(val) || is.list(val)
-}
-
-is_recursive <- function (val) {
-	# -- don't change. is.recursive is ~ !is.atomic.
-	# -- is list checks lists, pairlists. Add null check.
-	is.list(val) || identical(val, NULL)
-}
-
-# --------------------- coercion functions --------------------- #
-
-as_parametres <- function (names) {
-	# takes a string of names and converts them to
-	# a pairlist of formals with no defaults.
-
-	structure(
-		replicate(length(names), quote(expr=)),
-		names = names
-	)
 }
 
 # --------------------- testing & message functions --------------------- #

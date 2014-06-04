@@ -1610,6 +1610,9 @@ x_fn_proto <- local({
 #'    The methods available depend on the input
 #'    type; functions and collections have the most methods available.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    An object of class "arrow". Internally the object is represented as a
 #'    list with a single field \bold{x}, but this field cannot be accessed directly.

@@ -214,7 +214,7 @@ parameterise <- function (exprgroups, params, envir) {
 			# -- add the parameters given by over, and use the parent env.
 			body(shell) <- expr
 			environment(shell) <- envir
-			formals(shell) <- make_formals(params)
+			formals(shell) <- as_formals(params)
 
 			shell
 		})

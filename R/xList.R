@@ -222,7 +222,7 @@ print.xlist_builder <- function (x, ...) {
 
 			# -- add parametres to the expression, creating a function.
 			fn <- do.call('function', list(
-				as.pairlist(as_parametres(params)),
+				as.pairlist(as_formals(params)),
 				expr
 			))
 			# -- evaluate in the parent environment.
