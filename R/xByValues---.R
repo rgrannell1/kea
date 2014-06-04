@@ -13,11 +13,11 @@
 #'
 #' @name xByLevels
 
-xByValues <- function (fact) {
+xByValues <- function (coll) {
 
-	MACRO( Must $ Not_Be_Missing(fact) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	values <- as.vector(fact)
+	values <- as.vector(coll)
 
 	if (length(values) == 0) {
 		character(0)

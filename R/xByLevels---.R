@@ -1,7 +1,7 @@
 
 #' $ xByLevels
 #'
-#' Convert a factor to a collection of levels.
+#' Convert a collor to a collection of levels.
 #'
 #' @usage
 #'      x_(  ) $ xByLevels()
@@ -13,16 +13,16 @@
 #'
 #' @name xByLevels
 
-xByLevels <- function (fact) {
+xByLevels <- function (coll) {
 
 	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(fact) )
+	MACRO( Must $ Not_Be_Missing(coll) )
 
-	fact_levels <- levels(fact)
+	coll_levels <- levels(coll)
 
-	if (length(fact_levels) == 0) {
+	if (length(coll_levels) == 0) {
 		character(0)
 	} else {
-		fact_levels
+		coll_levels
 	}
 }

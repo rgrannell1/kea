@@ -1,4 +1,16 @@
 
+
+Arrow 0.15.0
+-----------------------------------------------------------------------------
+Date: 2014-6
+
+
+Bug-Fixes:
+
+* Fixed xByCol's handing of empty collections; now returns empty list.
+
+
+
 Arrow 0.14.0
 -----------------------------------------------------------------------------
 Date: 2014-6-2
@@ -16,7 +28,7 @@ call chain. It was untested, unusued, and barely more useful than xTap.
 
 * Bug-Fixes:
 
-* xExecute & xTap now performs matchin on its input function/string argument.
+* xExecute & xTap now performs matching on its input function/string argument.
 
 Package Internals:
 

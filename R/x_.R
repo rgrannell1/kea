@@ -56,7 +56,13 @@ add_x_method <- function (env, fn, fixed) {
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic   <- grepl('_$', fn_name)
 
-	fn <- match.fun(fn_sym)
+	fn <- tryCatch(match.fun(fn_sym), error = function (err) {
+
+		message(fn_name, ' ', fixed)
+		stop(err)
+
+	})
+
 
 	if (!any( fixed == names(formals(fn)) )) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
@@ -335,35 +341,8 @@ x_matrix_proto <- local({
 
 	# -------- A ------- #
 	# -------- B ------- #
-	this$xByCols <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( replicate(max(dims), list()))
-			} else {
-				x_( apply(Self(), 2, as.list) )
-			}
-		}
-
-	this$x_ByCols <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 2, as.list)
-			}
-		}
+	add_x_method(this, xByCols, 'colls')
+	add_x_method(this, x_ByCols, 'colls')
 
 	this$xByColkeys <-
 		function () {
@@ -494,34 +473,8 @@ x_data_frame_proto <- local({
 
 	# -------- B ------- #
 	# --- xByCols --- #
-	this$xByCols <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( replicate(max(dims), list()))
-			} else {
-				x_( apply(Self(), 2, as.list) )
-			}
-		}
-	this$x_ByCols <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 2, as.list)
-			}
-		}
+	add_x_method(this, xByCols, 'colls')
+	add_x_method(this, x_ByCols, 'colls')
 
 	# --- xByColkeys --- #
 	this$xByColkeys <-
@@ -593,7 +546,6 @@ x_data_frame_proto <- local({
 	# -------- S ------- #
 	# -------- T ------- #
 	# -------- U ------- #
-	# --- xFull --- #
 
 	# -------- V ------- #
 	# -------- W ------- #
@@ -613,11 +565,11 @@ x_factor_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 
-	add_x_method(this, xByLevels, 'fact')
-	add_x_method(this, x_ByLevels, 'fact')
+	add_x_method(this, xByLevels, 'coll')
+	add_x_method(this, x_ByLevels, 'coll')
 
-	add_x_method(this, xValues, 'fact')
-	add_x_method(this, x_Values, 'fact')
+	add_x_method(this, xByValues, 'coll')
+	add_x_method(this, x_ByValues, 'coll')
 
 	# -------- C ------- #
 	# -------- D ------- #
@@ -1632,7 +1584,7 @@ x_ <- MakeFun(function (val) {
 
 	# -- a useful corner case; there are no methods
 	# -- specifically for arrow objects with arrow
-	# -- objects in them
+	# -- objects in them. Makes defining methods easier.
 	if (any(class(val) == 'arrow')) {
 		val
 	} else {
@@ -1642,18 +1594,29 @@ x_ <- MakeFun(function (val) {
 	}
 })
 
+
+
+
+
+
+
+
+
+
+
 get_proto_ref <- local({
 
 	x_fn_members         <- ls(x_fn_proto)
 	x_matrix_members     <- ls(x_matrix_proto)
 	x_coll_members       <- ls(x_coll_proto)
 	x_data_frame_members <- ls(x_data_frame_proto)
-	x_data_frame_members <- ls(x_data_frame_proto)
 	x_factor_members     <- ls(x_factor_proto)
 	x_any_members        <- ls(x_any_proto)
 
 	function (val) {
 		# get the reference to the appropriate methods.
+
+		# -- keep this code fairly efficient.
 
 		proto_ref <-
 		if (is.function( val )) {
@@ -1673,12 +1636,30 @@ get_proto_ref <- local({
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
 #' @rdname x_
 #' @export
 
 x__ <- function (...) {
 	x_(list(...))
 }
+
+
+
+
+
+
+
 
 
 
@@ -1712,29 +1693,29 @@ x__ <- function (...) {
 
 	autosuggested <- c(
 		alias('x', 'x_'),
-		alias('xAsNumeric', 'xAsDouble'),
+		alias('xAsNumeric',   'xAsDouble'),
 
-		alias('xAsChars', 'xToChars'),
-		alias('xAsWords', 'xToWords'),
-		alias('xAsLines', 'xToLines'),
+		alias('xAsChars',     'xToChars'),
+		alias('xAsWords',     'xToWords'),
+		alias('xAsLines',     'xToLines'),
 
-		alias('xToChars', 'xFromChars'),
-		alias('xToWords', 'xFromWords'),
-		alias('xToLines', 'xFromLines'),
+		alias('xToChars',     'xFromChars'),
+		alias('xToWords',     'xFromWords'),
+		alias('xToLines',     'xFromLines'),
 
-		alias('xByColkeys', 'xByColrows'),
-		alias('xByRowkeys', 'xByRowrows'),
-		alias('xAddNames', 'xAddKeys'),
+		alias('xByColkeys',   'xByColrows'),
+		alias('xByRowkeys',   'xByRowrows'),
+		alias('xAddNames',    'xAddKeys'),
 
-		alias('xC', 'xJoin'),
-		alias('xConcat', 'xJoin'),
+		alias('xC',           'xJoin'),
+		alias('xConcat',      'xJoin'),
 		alias('xConcatenate', 'xJoin'),
 
-		alias('xFilter', 'xSelect'),
-		alias('xFilterNot', 'xReject'),
+		alias('xFilter',      'xSelect'),
+		alias('xFilterNot',   'xReject'),
 
-		alias('xGroup', 'xChunk'),
-		alias('xZipWith', 'xMapMany')
+		alias('xGroup',       'xChunk'),
+		alias('xZipWith',     'xMapMany')
 	)
 
 	suggest_similar_method <- local({
