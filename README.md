@@ -53,7 +53,7 @@ x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
 With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
 
 ```js
-# Data From Hadley Wickham's https://github.com/hadley/data-stride
+# // Data From Hadley Wickham's https://github.com/hadley/data-stride
 
 asRow <- (...) := {
 	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
