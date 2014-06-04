@@ -13,4 +13,15 @@
 #'
 #' @name xByLevels
 
-NULL
+xByValues <- function (fact) {
+
+	MACRO( Must $ Not_Be_Missing(fact) )
+
+	values <- as.vector(fact)
+
+	if (length(values) == 0) {
+		character(0)
+	} else {
+		values
+	}
+}

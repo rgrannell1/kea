@@ -13,4 +13,16 @@
 #'
 #' @name xByLevels
 
-NULL
+xByLevels <- function (fact) {
+
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(fact) )
+
+	fact_levels <- levels(fact)
+
+	if (length(fact_levels) == 0) {
+		character(0)
+	} else {
+		fact_levels
+	}
+}

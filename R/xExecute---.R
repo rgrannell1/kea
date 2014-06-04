@@ -4,6 +4,9 @@
 #' Execute a (possibly side-effectful) function before
 #' continuing with the previous method result.
 #'
+#' @section Type Signature:
+#'     (any -> any) -> any -> any
+#'
 #' @usage
 #'      x_(  ) $ xExecute(fn)
 #'

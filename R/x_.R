@@ -213,10 +213,6 @@ inherit_x_any <- function (child, description) {
 	inherit_prototypes(x_any_proto, child, description)
 }
 
-
-
-
-
 # -------------------------------- Universal methods -------------------------------- #
 #
 # these prototypes contain methods that can be called by an x_() object, using an
@@ -617,25 +613,11 @@ x_factor_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 
-	this$xByLevels <-
-		function () {
-			x_( as.character( levels(Self()) ) )
-		}
+	add_x_method(this, xByLevels, 'fact')
+	add_x_method(this, x_ByLevels, 'fact')
 
-	this$x_ByLevels <-
-		function () {
-			as.character( levels(Self()) )
-		}
-
-	this$xByValues <-
-		function () {
-			x_( as.vector(Self()) )
-		}
-
-	this$x_ByValues <-
-		function () {
-			as.vector(Self())
-		}
+	add_x_method(this, xValues, 'fact')
+	add_x_method(this, x_Values, 'fact')
 
 	# -------- C ------- #
 	# -------- D ------- #
