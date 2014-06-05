@@ -16,4 +16,6 @@
 #'
 #' @name xByColkeys
 
-NULL
+xByColkeys <- function (colls) {
+	colnames(colls)
+}

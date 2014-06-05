@@ -17,6 +17,10 @@ The return value of the previous method.
 Execute a (possibly side-effectful) function before
 continuing with the previous method result.
 }
+\section{Type Signature}{
+
+    (any -> any) -> any -> any
+}
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xDo}}, \code{\link{xDo_}};
@@ -27,8 +31,10 @@ Other inpure_functions: \code{\link{xDelay}};
 
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
-  \code{\link{xByLevels}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByLevels}}, \code{\link{xByValues}};
+  \code{\link{xByRowkeys}}, \code{\link{xByRownames}};
+  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xTap}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

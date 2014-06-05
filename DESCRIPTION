@@ -174,5 +174,6 @@ Collate:
     'xNot.R'
     'xElemIs.R'
     'xElemNot.R'
+    'xByRowkeys.R'
     'x_.R'
     'x..R'

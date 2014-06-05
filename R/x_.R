@@ -344,54 +344,15 @@ x_matrix_proto <- local({
 	add_x_method(this, xByCols, 'colls')
 	add_x_method(this, x_ByCols, 'colls')
 
-	this$xByColkeys <-
-		function () {
-			x_( colnames(Self()) )
-		}
-	this$x_ByColkeys <-
-		function () {
-			colnames(Self())
-		}
+	add_x_method(this, xByColkeys, 'colls')
+	add_x_method(this, x_ByColkeys, 'colls')
 
-	this$xByRows <-
-		function () {
-			dims <- dim(Self())
+	add_x_method(this, xByRows, 'colls')
+	add_x_method(this, x_ByRows, 'colls')
 
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( replicate(max(dims), list()) )
-			} else {
-				x_( apply(Self(), 1, as.list) )
-			}
-		}
-
-	this$x_ByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 1, as.list)
-			}
-		}
 	# --- xByRowkeys --- #
-	this$xByRowkeys <-
-		function () {
-			x_( rownames(Self()) )
-		}
-
-	this$x_ByRowkeys <-
-		function () {
-			rownames(Self())
-		}
+	add_x_method(this, xByRowkeys, 'colls')
+	add_x_method(this, x_ByRowkeys, 'colls')
 
 	# -------- C ------- #
 
@@ -477,53 +438,16 @@ x_data_frame_proto <- local({
 	add_x_method(this, x_ByCols, 'colls')
 
 	# --- xByColkeys --- #
-	this$xByColkeys <-
-		function () {
-			x_( colnames(Self()) )
-		}
-	this$x_ByColkeys <-
-		function () {
-			colnames(Self())
-		}
+	add_x_method(this, xByColkeys, 'colls')
+	add_x_method(this, x_ByColkeys, 'colls')
+
+	# --- xByRows --- #
+	add_x_method(this, xByRows, 'colls')
+	add_x_method(this, x_ByRows, 'colls')
 
 	# --- xByRowkeys --- #
-	this$xByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( replicate(max(dims), list()) )
-			} else {
-				x_( apply(Self(), 1, as.list) )
-			}
-		}
-	this$x_ByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 1, as.list)
-			}
-		}
-
-	this$xByRowkeys <-
-		function () {
-			x_( rownames(Self()) )
-		}
-	this$x_ByRowkeys <-
-		function () {
-			rownames(Self())
-		}
+	add_x_method(this, xByRowkeys, 'colls')
+	add_x_method(this, x_ByRowkeys, 'colls')
 
 	# -------- C ------- #
 

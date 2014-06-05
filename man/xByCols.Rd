@@ -5,6 +5,9 @@
 \usage{
 x_(  ) $ xByCols()
 }
+\arguments{
+\item{colls}{a matrix or data frame. The object to convert to column-lists.}
+}
 \value{
 An arrow object containing a list of lists.
 }
@@ -13,9 +16,11 @@ Convert a matrix or data.frame to a collection of columns.
 }
 \seealso{
 Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByLevels}}, \code{\link{xByLevels}};
-  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByLevels}}, \code{\link{xByLevels}},
+  \code{\link{xByValues}}; \code{\link{xByRowkeys}},
+  \code{\link{xByRownames}}; \code{\link{xByRows}};
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 
