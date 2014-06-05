@@ -1,23 +1,16 @@
 
-
-Arrow 0.15.0
------------------------------------------------------------------------------
-Date: 2014-6
-
-
-Bug-Fixes:
-
-* Fixed xByCol's handing of empty collections; now returns empty list.
-
-
-
 Arrow 0.14.0
 -----------------------------------------------------------------------------
-Date: 2014-6-2
+Date: 2014-6-5
 
 This version removes xVectorise and xGraft, and cleans up the method code.
 
 Enhancements:
+
+* Added xUnit_, a variadic form of xUnit.
+
+* The method $ xExecute now passes its left-hand side self argument to its
+anonymous function (the lambda was previous zero-argument).
 
 * Removed xVectorise/xVectorize; future versions of Arrow will include
 automatic partial application (or at the very least pre-currying), so
@@ -26,26 +19,38 @@ vectorise will become redundant.
 * Removed xGraft, which allowed custom methods to be added to the arrow
 call chain. It was untested, unusued, and barely more useful than xTap.
 
-* Bug-Fixes:
+Documentation:
 
-* xExecute & xTap now performs matching on its input function/string argument.
+* Added missing parametre documentation for x__ (its ... argument).
+
+Bug-Fixes:
+
+* xExecute & xTap now performs function lookup on its input function/string argument.
+For example, xTap('mean') will now call xTap with the mean function.
+
+* Fixed potential error in xByRows, xByCols for empty matrices/data.frames. Now returns
+the empty list for that case.
 
 Package Internals:
 
-* Moved xTap and xExecute into their own files, rather that direct definition
-in x_.R. This will be done for all other method-only functions, for code
-uniformity.
+* Moved all functions only available as methods into their own files,
+instead of having direct definitions in x_.R. This aids code uniformity & testing.
+
+* forall-next can now take multiple descriptions, and has improved error reporting for
+positive failures.
+
+* changed describe from an overriding field to a joining field in the forall-next tools.
 
 * factored prototype inheritance into a function.
 
 * Removed errant in-prototype definitions of xThread; now uses the method-adding
 function.
 
+* added forall-next tests for x_
 
+* renamed make_formals to as_formals, removed the 'as_parametres' alias for as_formals
 
-
-
-
+* removed join-env, is_fn_matchable; neither was ever called by arrow.
 
 
 

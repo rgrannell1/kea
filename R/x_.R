@@ -56,13 +56,7 @@ add_x_method <- function (env, fn, fixed) {
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic   <- grepl('_$', fn_name)
 
-	fn <- tryCatch(match.fun(fn_sym), error = function (err) {
-
-		message(fn_name, ' ', fixed)
-		stop(err)
-
-	})
-
+	fn <- match.fun(fn_sym)
 
 	if (!any( fixed == names(formals(fn)) )) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
