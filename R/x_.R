@@ -358,39 +358,11 @@ x_matrix_proto <- local({
 
 	# -------- D ------- #
 	# -------- E ------- #
-	this$xElemsByCols <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				x_( list() )
-			} else {
-				x_( as.list(Self()) )
-			}
-		}
-	this$x_ElemsByCols <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				list()
-			} else {
-				as.list(Self())
-			}
-		}
+	add_x_method(this, xElemsByCols, 'colls')
+	add_x_method(this, x_ElemsByCols, 'colls')
 
-	this$xElemsByRows <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				x_( list() )
-			} else {
-				x_(as.list( t(Self()) ))
-			}
-		}
-	this$x_ElemsByRows <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				list()
-			} else {
-				as.list( t(Self()) )
-			}
-		}
+	add_x_method(this, xElemsByRows, 'colls')
+	add_x_method(this, x_ElemsByRows, 'colls')
 
 	# -------- F ------- #
 	# -------- G ------- #

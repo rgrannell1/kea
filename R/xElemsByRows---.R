@@ -13,4 +13,13 @@
 #'
 #' @name xElemsByRows
 
-NULL
+xElemsByRows <- MakeFun(function (colls) {
+
+	MACRO( Must $ Not_Be_Missing(colls) )
+
+	if (prod(dim(colls) == 0)) {
+		list()
+	} else {
+		as.list(t(colls))
+	}
+})
