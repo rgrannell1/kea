@@ -1,13 +1,16 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xVersion (+)")
 
-message("xVersion")
+	over(val) +
 
-	forall(
-		"check that the version matches the current version",
-		list(),
-		paste0(xVersion(), collapse = '.') == packageVersion("arrow")
-	)
+	describe('xVersion always gives the current version') +
+	when(
+		True,
+		paste0(xVersion(val), collapse = '.') == packageVersion("arrow")		
+	) +
+
+	run()
+	

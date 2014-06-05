@@ -68,7 +68,8 @@ xChop <- MakeFun(function (num, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else if (is.infinite(num)) {
-		as.list(coll)
+		# -- return a list of length-one lists: NOT as.list
+		lapply(coll, list)
 	} else {
 
 		ith <- current <-1

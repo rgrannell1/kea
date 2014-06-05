@@ -25,8 +25,8 @@ message("xChop (+)")
 	describe("xChopping infinite times / length times is as.list") +
 	when(
 		is_collection(coll) && length(coll) > 0,
-		xChop(Inf,          coll) %equals% as.list(coll),
-		xChop(length(coll), coll) %equals% as.list(coll)
+		xChop(Inf,          coll) %equals% lapply(coll, list),
+		xChop(length(coll), coll) %equals% lapply(coll, list)
 	) +
 
 	describe("xChop once is almost identity") +

@@ -1,21 +1,21 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xZip (+)")
 
-message("xZip")
+	over(coll) +
 
-	forall(
-		"xZip of the empty collection is list()",
-		test_cases$collection_zero,
+	describe('xZip of the empty collection is list()') +
+	when(
+		is_collection(coll) && length(coll) == 0,
 		xZip(coll) %equals% list()
-	)
+	) +
 
-	forall(
-		"xZip a collection is list(collection)",
-		test_cases$collection,
-		xZip(coll)[[1]] %equals% as.list(coll),
-		given =
-			length(coll) > 0
-	)
+	describe('xZip of a collection is list(coll)') +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xZip(coll) %equals% list(as.list(coll))
+	) +
+
+	run()
