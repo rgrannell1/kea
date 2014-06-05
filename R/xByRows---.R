@@ -21,7 +21,7 @@
 #'
 #' @name xByRows
 
-xByRows <- function (colls) {
+xByRows <- MakeFun(function (colls) {
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 
@@ -39,4 +39,4 @@ xByRows <- function (colls) {
 	} else {
 		apply(colls, 1, as.list)
 	}
-}
+})

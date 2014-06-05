@@ -16,6 +16,9 @@
 #'
 #' @name xByColkeys
 
-xByColkeys <- function (colls) {
+xByColkeys <- MakeFun(function (colls) {
+
+	MACRO( Must $ Not_Be_Missing(colls) )
+
 	colnames(colls)
-}
+})

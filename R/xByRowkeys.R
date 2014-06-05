@@ -16,6 +16,9 @@
 #'
 #' @name xByRownames
 
-xByRowkeys <- function (colls) {
+xByRowkeys <- MakeFun(function (colls) {
+
+	MACRO( Must $ Not_Be_Missing(colls) )
+
 	rownames(colls)
-}
+})

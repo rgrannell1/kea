@@ -13,7 +13,7 @@
 #'
 #' @name xByLevels
 
-xByValues <- function (coll) {
+xByValues <- MakeFun(function (coll) {
 
 	MACRO( Must $ Not_Be_Missing(coll) )
 
@@ -24,4 +24,4 @@ xByValues <- function (coll) {
 	} else {
 		values
 	}
-}
+})
