@@ -1,26 +1,16 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xArityOf (+)")
 
-message('xArityOf')
+	over(fn) +
 
-	forall(
-		"the arity of the null function is null",
-		list(),
-		xArityOf(function () Null) == 0
-	)
-
-	forall(
-		"the arity of the primitive functions is defined",
-		test_cases$base_primitive,
+	describe("xArityOf is always a nonnegative number") +
+	when(
+		is.function(fn),
 		xArityOf(fn) >= 0
-	)
+	) +
 
-	forall(
-		"the arity of the non-primitive functions is defined",
-		test_cases$base_function,
-		xArityOf(fn) >= 0
-	)
+	run()
 

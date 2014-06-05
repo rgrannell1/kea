@@ -21,13 +21,9 @@ message("xNoneOf (+)")
 	describe('partially applying with false is true') +
 	when(
 		is_collection(coll) && length(coll) > 0,
-		xNoneOf(function (x) False, coll) == True
+		xNoneOf(function (x) False, coll) == True,
+		xNoneOf(function (x) Na,    coll) == True
 	) +
 
-	describe('partially applying with na is true') +
-	when(
-		is_collection(coll) && length(coll) > 0,
-		xNoneOf(function (x) Na, coll) == True
-	) +
 	run()
 
