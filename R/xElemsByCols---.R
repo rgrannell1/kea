@@ -6,7 +6,7 @@
 #' @usage
 #'      x_(  ) $ xElemsByCols()
 #'
-#' @params
+#' @param
 #'      colls a matrix.
 #'
 #' @return

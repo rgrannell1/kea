@@ -1,13 +1,18 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xIsTrue (+)")
 
-message("xIsTrue")
-
-	forall(
-		"istrue of empty collection is False",
-		test_cases$collection_zero,
-		!xIsTrue(coll)
-	)
+	over(val) +
+	describe('xIsTrue is true when the value is false.') +
+	when(
+		isTRUE(val),
+		xIsTrue(val)
+	) +
+	describe('xIsTrue is false when the value isnt') +
+	when(
+		!isTRUE(val),
+		!xIsTrue(val)
+	) +
+	run()

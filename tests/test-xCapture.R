@@ -1,19 +1,20 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
 
-require(arrow)
+message("xCapture (+)")
 
-message("xCapture")
+	over(val) +
+	describe('xCapture always yields the same value.') +
+	when(
+		True,
+		xCapture(val)() %equals% val
+	) +
+	run()
 
-	forall(
-		"const of a value is a function",
-		test_cases$collection,
-		xCapture(coll)() %equals% coll
-	)
-
-	forall(
-		"const can swallow as many arguments as its given.",
-		test_cases$collection,
-		do.call( xCapture(1), as.list(coll) ) == 1
-	)
+	over(val1, val2) +
+	describe('xCaptures result ignores input.') +
+	when(
+		True,
+		xCapture(val1)(val2) %equals% val1
+	) +
+	run()

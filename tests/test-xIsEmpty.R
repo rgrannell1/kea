@@ -1,21 +1,13 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xIsEmpty (+)")
 
-message('xIsEmpty')
-
-	forall(
-		"is empty of empty is True",
-		test_cases$collection_zero,
-		xIsEmpty(coll)
-	)
-
-	forall(
-		"is empty of empty is True",
-		test_cases$collection,
-		!xIsEmpty(coll),
-		given =
-			length(coll) > 0
-	)
+	over(coll) +
+	describe('xIsEmpty correctly reports lengths.') +
+	when(
+		is_collection(coll),
+		if (length(coll) == 0) xIsEmpty(coll) else !xIsEmpty(coll)
+	) +
+	run()

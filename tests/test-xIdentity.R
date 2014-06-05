@@ -1,13 +1,12 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
 
-require(arrow)
+message("xIdentity (+)")
 
-message("xIdentity")
-
-	forall(
-		"identity returns the collection.",
-		test_cases$collection,
-		xIdentity(coll) %equals% coll
-	)
+	over(val) +
+	describe('xIdentity always yields its input') +
+	when(
+		True,
+		xIdentity(val) %equals% val
+	) +
+	run()
