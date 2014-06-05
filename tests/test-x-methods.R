@@ -184,7 +184,7 @@ message('test that every function has methods.')
 		fn =
 			c(),
 		coll =
-			c('xAsVal', 'xAsVar', 'xIsVal', 'xVal', 'xByColkeys', 'xByRowkeys', 'xByCols', 'xByRows', 'xByLevels'),
+			c('xAsVal', 'xAsVar', 'xIsVal', 'xVal', 'xByColkeys', 'xByRowkeys', 'xByCols', 'xByRows', 'xByLevels', 'xByValues'),
 		data_frame =
 			c(),
 		matrix =

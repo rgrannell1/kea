@@ -235,6 +235,11 @@ parameterise <- function (exprgroups, params, envir) {
 test_positives <- function (positives, case, info, state, invoking_call) {
 	#
 
+
+	# -- there can be several when(pred, exp1, exp2) groups.
+
+	group_number <- 1
+
 	for (prop_group in positives) {
 
 		prop_predicate <- prop_group[[1]]
@@ -261,6 +266,9 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 
 		state $ positive_tests_run <-
 			state $ positive_tests_run + 1
+
+		# -- count which inner property is being tested.
+		property_number <- 1
 
 		for (property in tail(prop_group, -1)) {
 
@@ -300,9 +308,18 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 				# -- store the failed case.
 				state $ positive_fails_for <-
 					c(state $ positive_fails_for, list(case))
+
+				# -- store the pair of numbers locating which expression failed;
+				# -- this also allows display of correct associated information.
+				state $ positive_failed_indices <-
+					c(state $ positive_failed_indices, list(group_number, property_number))
 			}
 
+			property_number <- property_number + 1
+
 		}
+
+		group_number <- group_number + 1
 	}
 
 	state
@@ -320,6 +337,8 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 #
 
 test_negatives <- function (negatives, case, info, state, invoking_call) {
+
+	group_number <- 1
 
 	for (failprop in negatives) {
 		given <- failprop[[1]]
@@ -340,6 +359,9 @@ test_negatives <- function (negatives, case, info, state, invoking_call) {
 		}
 
 		# -- test each property that should fail for this case.
+
+		property_number <- 1
+
 		for (fail in tail(failprop, -1)) {
 
 			case_fails <- tryCatch({
@@ -357,8 +379,14 @@ test_negatives <- function (negatives, case, info, state, invoking_call) {
 
 				state $ no_fail_for <- c(state $ no_fail_for, list(case))
 
+				state $ negative_failed_indices <-
+					c(state $ negative_failed_indices, list(group_number, property_number))
+
 			}
+			property_number <- property_number + 1
+
 		}
+		group_number <- group_number + 1
 	}
 }
 
@@ -518,19 +546,22 @@ execute_test <- function (test) {
 	negatives   <- parameterise(negatives, params, parent_frame)
 
 	# -- the state that is modified after running several tests.
+	# -- failed_indices needed to identify failing expression & associated description.
 
 	state <- list(
-		positive_case_examined = 0,
-		positive_tests_run     = 0,
-		positive_fails_for     = list(),
-		positive_failed_after  = Inf,
+		positive_case_examined  = 0,
+		positive_tests_run      = 0,
+		positive_fails_for      = list(),
+		positive_failed_after   = Inf,
+		positive_failed_indices = list(),
 
-		negative_case_examined = 0,
-		negative_tests_run     = 0,
-		negative_fails_for     = list(),
-		negative_failed_after  = Inf,
+		negative_case_examined  = 0,
+		negative_tests_run      = 0,
+		negative_fails_for      = list(),
+		negative_failed_after   = Inf,
+		negative_failed_indices = list(),
 
-		time_left              = xStopwatch(time)
+		time_left               = xStopwatch(time)
 	)
 
 
