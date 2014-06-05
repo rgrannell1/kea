@@ -6,7 +6,9 @@
 x_(  ) $ xTap(fn)
 }
 \arguments{
-\item{fn}{a unary function. The function to apply to the data in an arrow object.}
+\item{fn}{a unary function. The function to apply to the data in the arrow object.}
+
+\item{val}{an arbitrary value. The contents of the arrow object.}
 }
 \value{
 An arrow object.
@@ -32,9 +34,10 @@ Apply an anonymous function to the contents of an arrow object.
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
-  \code{\link{xByLevels}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{x_}},
-  \code{\link{x__}}
+  \code{\link{xByLevels}}, \code{\link{xByValues}};
+  \code{\link{xByRowkeys}}, \code{\link{xByRownames}};
+  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

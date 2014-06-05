@@ -1,6 +1,6 @@
 
 # 1. xExecute calls can be added to the method
-#    chain to print progress messages.
+#    chain to print progress messages, at the expense of code bulk.
 
 LETTERS <-
 	x_(letters) $

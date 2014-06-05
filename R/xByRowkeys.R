@@ -1,24 +1,24 @@
 
-#' $ xByColkeys
+#' $ xByRownames
 #'
 #' Convert a matrix or data.frame to a collection of column names.
 #'
 #' @details
-#'     \bold{xByColkeys} returns the column names of a data frame or matrix.
+#'     \bold{xByRownames} returns the column names of a data frame or matrix.
 #'
 #' @usage
-#'      x_(  ) $ xByColkeys()
+#'      x_(  ) $ xByRownames()
 #'
 #' @return
 #'      An arrow containing a character vector.
 #'
 #' @family methods
 #'
-#' @name xByColkeys
+#' @name xByRownames
 
-xByColkeys <- MakeFun(function (colls) {
+xByRowkeys <- MakeFun(function (colls) {
 
 	MACRO( Must $ Not_Be_Missing(colls) )
 
-	colnames(colls)
+	rownames(colls)
 })

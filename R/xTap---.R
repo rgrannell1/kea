@@ -6,7 +6,11 @@
 #' @section Type Signature:
 #'     (any -> any) -> any -> any
 #'
-#' @param fn a unary function. The function to apply to the data in an arrow object.
+#' @param
+#'    fn a unary function. The function to apply to the data in the arrow object.
+#'
+#' @param
+#'    val an arbitrary value. The contents of the arrow object.
 #'
 #' @details
 #'    \bold{xTap} applies non-arrow functions to be applied to arrow objects.
@@ -29,4 +33,14 @@
 #'
 #' @name xTap
 
-NULL
+xTap <- MakeFun(function (fn, val) {
+
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(val) )
+
+	MACRO( Must $ Be_Fn_Matchable(fn) )
+
+	fn <- match_fn(fn)
+
+	fn(val)
+})

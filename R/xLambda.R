@@ -94,7 +94,7 @@ xLambda <- local({
 		if (is.name(sym)) {
 			# -- make lambda a default-free unary function
 
-			formals(lambda) <- make_formals(sym)
+			formals(lambda) <- as_formals(sym)
 
 		} else {
 			# -- try parse the bracket-enclosed formals
@@ -151,7 +151,7 @@ xLambda <- local({
 					params = character(0)) )
 
 			# -- set the formals to the parsed param names
-			formals(lambda) <- make_formals(params)
+			formals(lambda) <- as_formals(params)
 		}
 
 		# -- set the environment to exclude all the clutter in this function

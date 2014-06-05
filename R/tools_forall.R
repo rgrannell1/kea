@@ -853,10 +853,10 @@ forall <- local({
 			function () {}
 
 		formals(expect) <-
-			as_parametres(names(cases))
+			as_formals(names(cases))
 
 		formals(given) <-
-			as_parametres(names(cases))
+			as_formals(names(cases))
 
 		body(expect) <- expect_expr
 		body(given) <- given_expr

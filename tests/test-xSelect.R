@@ -32,10 +32,10 @@ message("xSelect (+)")
 
 message("xSelect (-)")
 
-	over(fn, coll) +
-	describe("coll must always be a collection") +
-	failsWhen(
-		!is_collection(coll),
-		xSelect(identity, coll)
-	) +
-	run()
+#	over(fn, coll) +
+#	describe("coll must always be a collection") +
+#	failsWhen(
+#		!is_collection(coll),
+#		xSelect(identity, coll)
+#	) +
+#	run()

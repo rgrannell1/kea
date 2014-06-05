@@ -33,3 +33,8 @@ xUnit <- MakeFun(function (coll) {
 		unname(coll[0])
 	}
 })
+
+#' @rdname xUnit
+#' @export
+
+xUnit_ <- MakeVariadic(xUnit, 'coll')

@@ -174,17 +174,16 @@ validate_test <- function (invoking_call, test) {
 		}
 	}
 
-	# -- validate the test fields
-	if (!is.character(test $ info) || length(test $ info) != 1) {
+	if (!is.numeric(test $ time) || length(test $ time) < 0) {
 		message <-
-			'the property info must be a length-one character vector.'
+			'time must be a positive number'
 
 		throw_arrow_error(invoking_call, message)
 	}
 
-	if (!is.numeric(test $ time) || length(test $ time) < 0) {
+	if (length(test $ info) != length(test $ positives) + length(test $ negatives)) {
 		message <-
-			'time must be a positive number'
+			'there must be a one and only one description for each positive or negative test.'
 
 		throw_arrow_error(invoking_call, message)
 	}
@@ -214,7 +213,7 @@ parameterise <- function (exprgroups, params, envir) {
 			# -- add the parameters given by over, and use the parent env.
 			body(shell) <- expr
 			environment(shell) <- envir
-			formals(shell) <- make_formals(params)
+			formals(shell) <- as_formals(params)
 
 			shell
 		})
@@ -234,6 +233,11 @@ parameterise <- function (exprgroups, params, envir) {
 
 test_positives <- function (positives, case, info, state, invoking_call) {
 	#
+
+
+	# -- there can be several when(pred, exp1, exp2) groups.
+
+	group_number <- 1
 
 	for (prop_group in positives) {
 
@@ -261,6 +265,9 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 
 		state $ positive_tests_run <-
 			state $ positive_tests_run + 1
+
+		# -- count which inner property is being tested.
+		property_number <- 1
 
 		for (property in tail(prop_group, -1)) {
 
@@ -300,9 +307,20 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 				# -- store the failed case.
 				state $ positive_fails_for <-
 					c(state $ positive_fails_for, list(case))
+
+				# -- store the pair of numbers locating which expression failed;
+				# -- this also allows display of correct associated information.
+				state $ positive_failed_indices <-
+					c(state $ positive_failed_indices, list( list(
+						group_number, property_number,
+						paste0(group_number, ', ', property_number)) ))
 			}
 
+			property_number <- property_number + 1
+
 		}
+
+		group_number <- group_number + 1
 	}
 
 	state
@@ -321,7 +339,10 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 
 test_negatives <- function (negatives, case, info, state, invoking_call) {
 
+	group_number <- 1
+
 	for (failprop in negatives) {
+
 		given <- failprop[[1]]
 
 		is_match <- tryCatch(
@@ -340,6 +361,9 @@ test_negatives <- function (negatives, case, info, state, invoking_call) {
 		}
 
 		# -- test each property that should fail for this case.
+
+		property_number <- 1
+
 		for (fail in tail(failprop, -1)) {
 
 			case_fails <- tryCatch({
@@ -357,9 +381,19 @@ test_negatives <- function (negatives, case, info, state, invoking_call) {
 
 				state $ no_fail_for <- c(state $ no_fail_for, list(case))
 
+				state $ negative_failed_indices <-
+					c(state $ negative_failed_indices, list( list(
+						group_number, property_number,
+						paste0(group_number, ', ', property_number)) ))
+
 			}
+			property_number <- property_number + 1
+
 		}
+		group_number <- group_number + 1
 	}
+
+	state
 }
 
 
@@ -388,7 +422,10 @@ yield_case <- function (params) {
 # Positive controls failed.
 #
 
-throw_positive_errors <- function (info, state, invoking_call) {
+throw_positive_errors <- function (test_data, state, invoking_call) {
+
+
+	info <- test_data $ info
 
 	if (state $ positive_tests_run == 0) {
 
@@ -406,6 +443,54 @@ throw_positive_errors <- function (info, state, invoking_call) {
 		after     <- state $ positive_failed_after
 		fails_for <- state $ positive_fails_for
 
+		# -- FACTOR ME INTO A FUNCTION SHARED WITH NEGATIVES
+		# -- FACTOR ME INTO A FUNCTION SHARED WITH NEGATIVES
+		# -- generate detailed output on which expressions failed.
+		summary   <- local({
+
+			indices <- state $ positive_failed_indices
+			freqs_failed <- as.numeric(as.list( table(sapply( indices, function (x) x[[3]] )) ))
+
+			# which_failed, expressions, and descriptions are all co-ordered.
+
+			which_failed <- unique(indices)
+
+			# -- grab the expressions that failed.
+			expressions  <- lapply(which_failed, function (triple) {
+
+				ith <- triple[[1]]
+				# -- to account for the predicate at the head.
+				jth <- triple[[2]] + 1
+
+				test_data $ positives[[ith]][[jth]]
+			})
+
+			# -- get the corresponding description:
+			# -- it's up to the user to multiple calls to describe ordered.
+
+			descriptions <- lapply(which_failed, function (triple) {
+				ith <- triple[[1]]
+				test_data $ info[[ith]]
+			})
+
+			paragraphs <- Map(
+				function (freq, expr, info) {
+
+					# -- info is already double quoted.
+					paste0(
+						info, '\n',
+						'the assertion "', ddparse(expr), '" failed ', freq, ' times.')
+
+				},
+				freqs_failed,
+				expressions,
+				descriptions
+			)
+
+			paste(paragraphs, collapse = '\n\n')
+
+		})
+
 		# -- remove keys to simplify output.
 		cases <- vapply(lapply(fails_for, unname), ddparse, character(1))
 
@@ -413,8 +498,10 @@ throw_positive_errors <- function (info, state, invoking_call) {
 			paste0(cases[ seq_along( min(10, length(cases)) ) ],
 			collapse = "'\n")
 
-		message <- info %+% "\nFailed after the " %+%
-			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
+		message <- "\nFailed after the " %+%
+			ith_suffix(after) %+% " case!\n\n" %+%
+			summary %+% "\n\n" %+%
+			cases %+% "\n"
 
 		throw_arrow_error(invoking_call, message)
 
@@ -432,7 +519,7 @@ throw_positive_errors <- function (info, state, invoking_call) {
 # Negative controls failed.
 #
 
-throw_negative_errors <- function (info, state, invoking_call) {
+throw_negative_errors <- function (test_data, state, invoking_call) {
 
 	if (state $ negative_tests_run == 0) {
 
@@ -475,7 +562,8 @@ throw_negative_errors <- function (info, state, invoking_call) {
 state_sucess <- function (state, info) {
 	# -- report that the tests all passed.
 
-	msg <- info %+% " passed! (" %+% state $ positive_tests_run %+% ")"
+	# -- info is vectorised (many descriptions), create newline for each.
+	msg <- paste0(info %+% " passed! (" %+% state $ positive_tests_run %+% ")", collapse = '\n')
 	message(msg)
 
 }
@@ -514,25 +602,27 @@ execute_test <- function (test) {
 	time       <- test $ time
 
 	# -- add parametres to each failure and property.
-	positives   <- parameterise(positives, params, parent_frame)
-	negatives   <- parameterise(negatives, params, parent_frame)
+	fn_positives   <- parameterise(positives, params, parent_frame)
+	fn_negatives   <- parameterise(negatives, params, parent_frame)
 
 	# -- the state that is modified after running several tests.
+	# -- failed_indices needed to identify failing expression & associated description.
 
 	state <- list(
-		positive_case_examined = 0,
-		positive_tests_run     = 0,
-		positive_fails_for     = list(),
-		positive_failed_after  = Inf,
+		positive_case_examined  = 0,
+		positive_tests_run      = 0,
+		positive_fails_for      = list(),
+		positive_failed_after   = Inf,
+		positive_failed_indices = list(),
 
-		negative_case_examined = 0,
-		negative_tests_run     = 0,
-		negative_fails_for     = list(),
-		negative_failed_after  = Inf,
+		negative_case_examined  = 0,
+		negative_tests_run      = 0,
+		negative_fails_for      = list(),
+		negative_failed_after   = Inf,
+		negative_failed_indices = list(),
 
-		time_left              = xStopwatch(time)
+		time_left               = xStopwatch(time)
 	)
-
 
 	# -- test random test cases for a preset amount of time.
 	while (state $ time_left()) {
@@ -540,18 +630,25 @@ execute_test <- function (test) {
 		# -- generate a random test case.
 		case <- yield_case(params)
 
-		state <- test_positives(positives, case, info, state, invoking_call)
-		#state <- test_negatives(negatives, case, info, state, invoking_call)
+		state <- test_positives(fn_positives, case, info, state, invoking_call)
+		state <- test_negatives(fn_negatives, case, info, state, invoking_call)
 	}
 
+
+	test_data <- list(
+		info      = info,
+		positives = positives,
+		negatives = negatives,
+		time      = time
+	)
+
 	if (length(positives) > 0) {
-		throw_positive_errors(info, state, invoking_call)
+		throw_positive_errors(test_data, state, invoking_call)
 	}
 
 	if (length(negatives) > 0) {
-		throw_negative_errors(info, state, invoking_call)
+		throw_negative_errors(test_data, state, invoking_call)
 	}
-
 
 	state_sucess(state, info)
 	invisible(Null)
@@ -731,7 +828,7 @@ run <- function (time = 1) {
 	}
 
 	responses <- list(
-		'xdescribe'  = override('info'),
+		'xdescribe'  = join('info'),
 		'xover'      = override('params'),
 		'xwhen'      = join('positives'),
 		'xfailswhen' = join('negatives'),

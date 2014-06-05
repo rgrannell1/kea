@@ -6,6 +6,9 @@
 #' @usage
 #'      x_(  ) $ xElemsByCols()
 #'
+#' @params
+#'      colls a matrix.
+#'
 #' @return
 #'      An arrow object containing a list.
 #'
@@ -13,4 +16,13 @@
 #'
 #' @name xElemsByCols
 
-NULL
+xElemsByCols <- MakeFun(function (colls) {
+
+	MACRO( Must $ Not_Be_Missing(colls) )
+
+	if (prod(dim(colls) == 0)) {
+		list()
+	} else {
+		as.list(colls)
+	}
+})

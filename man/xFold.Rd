@@ -24,7 +24,7 @@ xFold_(fn, val, ...)
 An arbitrary value, depending on the function \bold{fn}.
 }
 \description{
-Successively combine a list of values into a single value
+Successively combine a collection of values into a single value
 using a binary function (left to right, with an initial value).
 }
 \details{

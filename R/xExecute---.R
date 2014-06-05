@@ -4,11 +4,17 @@
 #' Execute a (possibly side-effectful) function before
 #' continuing with the previous method result.
 #'
+#' @section Type Signature:
+#'     (any -> any) -> any -> any
+#'
 #' @usage
 #'      x_(  ) $ xExecute(fn)
 #'
 #' @param
-#'      fn a nullary function
+#'      fn a unary function. The function to apply to the data in the arrow object.
+#'
+#' @param
+#'    val an arbitrary value. The contents of the arrow object.
 #'
 #' @return
 #'      The return value of the previous method.
@@ -19,4 +25,15 @@
 #'
 #' @name xExecute
 
-NULL
+xExecute <- MakeFun(function (fn, val) {
+
+	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Must $ Not_Be_Missing(val) )
+
+	MACRO( Must $ Be_Fn_Matchable(fn) )
+
+	fn <- match_fn(fn)
+
+	fn(val)
+	val
+})

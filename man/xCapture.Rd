@@ -53,7 +53,6 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
   \code{\link{xNegate}}; \code{\link{xSpread}};
   \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}; \code{\link{xVectorise}},
-  \code{\link{xVectorize}}
+  \code{\link{xUnspread}}
 }
 

@@ -11,6 +11,6 @@ x_(nums) $ x_Slice(xWhere(nums %% 3 == 0))
 #
 # which is similar to
 
-# nums[[ nums %% 3 == 0 ]]
+# nums[w nums %% 3 == 0 ]
 
 # using standard subsetting.

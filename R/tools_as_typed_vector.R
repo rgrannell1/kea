@@ -43,6 +43,15 @@ unit_to_value <- function (coll) {
 	}
 }
 
+
+
+
+
+
+
+
+
+
 as_typed_vector <- local({
 
 	# -- is_na is essential; all na's are treated the same.
@@ -149,6 +158,14 @@ as_typed_vector <- local({
 		}
 	}
 })
+
+
+
+
+
+
+
+
 
 
 

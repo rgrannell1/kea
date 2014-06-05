@@ -181,14 +181,37 @@ add_x_method <- function (env, fn, fixed) {
 
 }
 
+# -------------------------------- Inheritance -------------------------------- #
+#
+# There are certain functions that every prototype gets, like identity. These are
+# factored into their own prototype. These methods are then inherited by the other
+# prototypes (allowing for the possibility of overridding methods in the inheritee).
+#
+# This might eventually just be a combination of joining the search paths, and
+# assigning the private variable manually, but this might make function lookup slower.
 
+inherit_prototypes <- function (parent, child, description) {
 
+	child_methods  <- ls(envir = child)
+	parent_methods <- ls(envir = parent)
 
+	# -- methods in parent can be overwritten by the child
+	non_overwritten <- setdiff(parent_methods, child_methods)
 
+	# -- fairly slow, so use this function only during building.
+	child <- as.environment(c(
+		as.list(child),
+		as.list(parent)[non_overwritten]
+	))
 
+	child $ private <- list(contents_are = description)
 
+	child
+}
 
-
+inherit_x_any <- function (child, description) {
+	inherit_prototypes(x_any_proto, child, description)
+}
 
 # -------------------------------- Universal methods -------------------------------- #
 #
@@ -211,43 +234,11 @@ x_any_proto <- local({
 
 	# -------- D ------- #
 	# -------- E ------- #
-	this$xExecute <-
-		MakeFun(function (fn) {
-
-			invoking_call <- sys.call()
-
-			MACRO( Must $ Not_Be_Missing(fn) )
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			fn()
-			x_(Self())
-		})
-
-	this$x_Execute <-
-		MakeFun(function (fn) {
-
-			invoking_call <- sys.call()
-
-			MACRO( Must $ Not_Be_Missing(fn) )
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			fn()
-			Self()
-		})
+	add_x_method(this, xExecute, 'val')
+	add_x_method(this, x_Execute, 'val')
 
 	# -------- F ------- #
 	# -------- G ------- #
-	this$xGraft <-
-		function (str, fn) {
-			# -- add a function to the x_ call chain for the current R session.
-
-			chainable <- function (...) {
-				x_(fn(Self(), ...))
-			}
-
-			proto <- get_proto_ref(Self())
-			assign(str, chainable, envir = proto_ref[[1]])
-		}
 
 	# -------- H ------- #
 	# -------- I ------- #
@@ -300,46 +291,14 @@ x_any_proto <- local({
 	# -------- R ------- #
 	# -------- S ------- #
 	# -------- T ------- #
-	this$xTap <-
-		MakeFun(function (fn) {
+	add_x_method(this, xTap, 'val')
+	add_x_method(this, x_Tap, 'val')
 
-			invoking_call <- sys.call()
+	add_x_method(this, xThread, 'val')
+	add_x_method(this, xThread_, 'val')
+	add_x_method(this, x_Thread, 'val')
+	add_x_method(this, x_Thread_, 'val')
 
-			MACRO( Must $ Not_Be_Missing(fn) )
-
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			x_( fn(Self()) )
-		})
-
-	this$x_Tap <-
-		MakeFun(function (fn) {
-
-			invoking_call <- sys.call()
-
-			MACRO( Must $ Not_Be_Missing(fn) )
-
-			MACRO( Must $ Be_Fn_Matchable(fn) )
-
-			fn(Self())
-		})
-
-	this$xThread <-
-		MakeFun(function (fns) {
-			xThread(Self(), fns)
-		})
-	this$xThread_ <-
-		MakeFun(function (...) {
-			xThread_(Self(), ...)
-		})
-	this$x_Thread <-
-		MakeFun(function (fns) {
-			xThread(Self(), fns)
-		})
-	this$x_Thread_ <-
-		MakeFun(function (...) {
-			xThread_(Self(), ...)
-		})
 	# -------- U ------- #
 	# -------- V ------- #
 	add_x_method(this, xVersion, '...')
@@ -350,8 +309,7 @@ x_any_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	this$private <- list(
-		contents_are = "arbitrary values")
+	this $ private <- list(contents_are = "arbitrary values")
 	this
 })
 
@@ -377,122 +335,28 @@ x_matrix_proto <- local({
 
 	# -------- A ------- #
 	# -------- B ------- #
-	this$xByCols <-
-		function () {
-			dims <- dim(Self())
+	add_x_method(this, xByCols, 'colls')
+	add_x_method(this, x_ByCols, 'colls')
 
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( replicate(max(dims), list()))
-			} else {
-				x_( apply(Self(), 2, as.list) )
-			}
-		}
+	add_x_method(this, xByColkeys, 'colls')
+	add_x_method(this, x_ByColkeys, 'colls')
 
-	this$x_ByCols <-
-		function () {
-			dims <- dim(Self())
+	add_x_method(this, xByRows, 'colls')
+	add_x_method(this, x_ByRows, 'colls')
 
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 2, as.list)
-			}
-		}
-
-	this$xByColkeys <-
-		function () {
-			x_( colnames(Self()) )
-		}
-	this$x_ByColkeys <-
-		function () {
-			colnames(Self())
-		}
-
-	this$xByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( replicate(max(dims), list()) )
-			} else {
-				x_( apply(Self(), 1, as.list) )
-			}
-		}
-
-	this$x_ByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 1, as.list)
-			}
-		}
 	# --- xByRowkeys --- #
-	this$xByRowkeys <-
-		function () {
-			x_( rownames(Self()) )
-		}
-
-	this$x_ByRowkeys <-
-		function () {
-			rownames(Self())
-		}
+	add_x_method(this, xByRowkeys, 'colls')
+	add_x_method(this, x_ByRowkeys, 'colls')
 
 	# -------- C ------- #
 
 	# -------- D ------- #
 	# -------- E ------- #
-	this$xElemsByCols <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				x_( list() )
-			} else {
-				x_( as.list(Self()) )
-			}
-		}
-	this$x_ElemsByCols <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				list()
-			} else {
-				as.list(Self())
-			}
-		}
+	add_x_method(this, xElemsByCols, 'colls')
+	add_x_method(this, x_ElemsByCols, 'colls')
 
-	this$xElemsByRows <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				x_( list() )
-			} else {
-				x_(as.list( t(Self()) ))
-			}
-		}
-	this$x_ElemsByRows <-
-		function () {
-			if (prod(dim(Self()) == 0)) {
-				list()
-			} else {
-				as.list( t(Self()) )
-			}
-		}
+	add_x_method(this, xElemsByRows, 'colls')
+	add_x_method(this, x_ElemsByRows, 'colls')
 
 	# -------- F ------- #
 	# -------- G ------- #
@@ -519,23 +383,8 @@ x_matrix_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'matrices')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "matrices")
-
-		this
-
-	})
 })
 
 
@@ -551,83 +400,20 @@ x_data_frame_proto <- local({
 
 	# -------- B ------- #
 	# --- xByCols --- #
-	this$xByCols <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( replicate(max(dims), list()))
-			} else {
-				x_( apply(Self(), 2, as.list) )
-			}
-		}
-	this$x_ByCols <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 2, as.list)
-			}
-		}
+	add_x_method(this, xByCols, 'colls')
+	add_x_method(this, x_ByCols, 'colls')
 
 	# --- xByColkeys --- #
-	this$xByColkeys <-
-		function () {
-			x_( colnames(Self()) )
-		}
-	this$x_ByColkeys <-
-		function () {
-			colnames(Self())
-		}
+	add_x_method(this, xByColkeys, 'colls')
+	add_x_method(this, x_ByColkeys, 'colls')
+
+	# --- xByRows --- #
+	add_x_method(this, xByRows, 'colls')
+	add_x_method(this, x_ByRows, 'colls')
 
 	# --- xByRowkeys --- #
-	this$xByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				x_( list() )
-			} else if (dims[1] == 0) {
-				x_( list() )
-			} else if (dims[2] == 0) {
-				x_( replicate(max(dims), list()) )
-			} else {
-				x_( apply(Self(), 1, as.list) )
-			}
-		}
-	this$x_ByRows <-
-		function () {
-			dims <- dim(Self())
-
-			if (dims[1] == 0 && dims[0] == 0) {
-				list()
-			} else if (dims[1] == 0) {
-				list()
-			} else if (dims[2] == 0) {
-				replicate(max(dims), list())
-			} else {
-				apply(Self(), 1, as.list)
-			}
-		}
-
-	this$xByRowkeys <-
-		function () {
-			x_( rownames(Self()) )
-		}
-	this$x_ByRowkeys <-
-		function () {
-			rownames(Self())
-		}
+	add_x_method(this, xByRowkeys, 'colls')
+	add_x_method(this, x_ByRowkeys, 'colls')
 
 	# -------- C ------- #
 
@@ -650,7 +436,6 @@ x_data_frame_proto <- local({
 	# -------- S ------- #
 	# -------- T ------- #
 	# -------- U ------- #
-	# --- xFull --- #
 
 	# -------- V ------- #
 	# -------- W ------- #
@@ -658,23 +443,8 @@ x_data_frame_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'data.frames')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "data.frames")
-
-		this
-
-	})
 })
 
 
@@ -685,25 +455,11 @@ x_factor_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 
-	this$xByLevels <-
-		function () {
-			x_( as.character( levels(Self()) ) )
-		}
+	add_x_method(this, xByLevels, 'coll')
+	add_x_method(this, x_ByLevels, 'coll')
 
-	this$x_ByLevels <-
-		function () {
-			as.character( levels(Self()) )
-		}
-
-	this$xByValues <-
-		function () {
-			x_( as.vector(Self()) )
-		}
-
-	this$x_ByValues <-
-		function () {
-			as.vector(Self())
-		}
+	add_x_method(this, xByValues, 'coll')
+	add_x_method(this, x_ByValues, 'coll')
 
 	# -------- C ------- #
 	# -------- D ------- #
@@ -730,22 +486,8 @@ x_factor_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'factors')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-		this$private <- list(
-			contents_are = "factors")
-
-		this
-
-	})
 })
 
 
@@ -1321,6 +1063,8 @@ x_coll_proto <- local({
 	# --- xUnit --- #
 	add_x_method(this, xUnit, 'coll')
 	add_x_method(this, x_Unit, 'coll')
+	add_x_method(this, xUnit_, '...')
+	add_x_method(this, x_Unit_, '...')
 
 	# --- xUniqueOf --- #
 	add_x_method(this, xUniqueOf, 'coll')
@@ -1385,23 +1129,8 @@ x_coll_proto <- local({
 	add_x_method(this, x_Zip, 'colls')
 	add_x_method(this, x_Zip_, '...')
 
-	local({
+	inherit_x_any(this, 'collections')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "collections")
-
-		this
-
-	})
 })
 
 
@@ -1678,12 +1407,6 @@ x_fn_proto <- local({
 
 	# -------- U ------- #
 	# -------- V ------- #
-	# --- xVectorise --- #
-	add_x_method(this, xVectorise, 'fn')
-	add_x_method(this, x_Vectorise, 'fn')
-
-	add_x_method(this, xVectorize, 'fn')
-	add_x_method(this, x_Vectorize, 'fn')
 
 	# -------- W ------- #
 
@@ -1695,23 +1418,8 @@ x_fn_proto <- local({
 	# -------- Y ------- #
 	# -------- Z ------- #
 
-	local({
+	inherit_x_any(this, 'functions')
 
-		non_inherited <- ls(envir = this)
-		inherited <- ls(envir = x_any_proto)
-
-		non_overwritten <- setdiff(inherited, non_inherited)
-
-		this <- as.environment(c(
-			as.list(this),
-			as.list(x_any_proto)[non_overwritten]) )
-
-		this$private <- list(
-			contents_are = "functions")
-
-		this
-
-	})
 })
 
 # -------------------------------- Type Constructor -------------------------------- #
@@ -1725,6 +1433,9 @@ x_fn_proto <- local({
 #'    arrow object.
 #'    The methods available depend on the input
 #'    type; functions and collections have the most methods available.
+#'
+#' @param
+#'    ... see above.
 #'
 #' @return
 #'    An object of class "arrow". Internally the object is represented as a
@@ -1763,7 +1474,7 @@ x_ <- MakeFun(function (val) {
 
 	# -- a useful corner case; there are no methods
 	# -- specifically for arrow objects with arrow
-	# -- objects in them
+	# -- objects in them. Makes defining methods easier.
 	if (any(class(val) == 'arrow')) {
 		val
 	} else {
@@ -1773,18 +1484,29 @@ x_ <- MakeFun(function (val) {
 	}
 })
 
+
+
+
+
+
+
+
+
+
+
 get_proto_ref <- local({
 
 	x_fn_members         <- ls(x_fn_proto)
 	x_matrix_members     <- ls(x_matrix_proto)
 	x_coll_members       <- ls(x_coll_proto)
 	x_data_frame_members <- ls(x_data_frame_proto)
-	x_data_frame_members <- ls(x_data_frame_proto)
 	x_factor_members     <- ls(x_factor_proto)
 	x_any_members        <- ls(x_any_proto)
 
 	function (val) {
 		# get the reference to the appropriate methods.
+
+		# -- keep this code fairly efficient.
 
 		proto_ref <-
 		if (is.function( val )) {
@@ -1804,12 +1526,30 @@ get_proto_ref <- local({
 
 })
 
+
+
+
+
+
+
+
+
+
+
+
 #' @rdname x_
 #' @export
 
 x__ <- function (...) {
 	x_(list(...))
 }
+
+
+
+
+
+
+
 
 
 
@@ -1843,29 +1583,29 @@ x__ <- function (...) {
 
 	autosuggested <- c(
 		alias('x', 'x_'),
-		alias('xAsNumeric', 'xAsDouble'),
+		alias('xAsNumeric',   'xAsDouble'),
 
-		alias('xAsChars', 'xToChars'),
-		alias('xAsWords', 'xToWords'),
-		alias('xAsLines', 'xToLines'),
+		alias('xAsChars',     'xToChars'),
+		alias('xAsWords',     'xToWords'),
+		alias('xAsLines',     'xToLines'),
 
-		alias('xToChars', 'xFromChars'),
-		alias('xToWords', 'xFromWords'),
-		alias('xToLines', 'xFromLines'),
+		alias('xToChars',     'xFromChars'),
+		alias('xToWords',     'xFromWords'),
+		alias('xToLines',     'xFromLines'),
 
-		alias('xByColkeys', 'xByColrows'),
-		alias('xByRowkeys', 'xByRowrows'),
-		alias('xAddNames', 'xAddKeys'),
+		alias('xByColkeys',   'xByColrows'),
+		alias('xByRowkeys',   'xByRowrows'),
+		alias('xAddNames',    'xAddKeys'),
 
-		alias('xC', 'xJoin'),
-		alias('xConcat', 'xJoin'),
+		alias('xC',           'xJoin'),
+		alias('xConcat',      'xJoin'),
 		alias('xConcatenate', 'xJoin'),
 
-		alias('xFilter', 'xSelect'),
-		alias('xFilterNot', 'xReject'),
+		alias('xFilter',      'xSelect'),
+		alias('xFilterNot',   'xReject'),
 
-		alias('xGroup', 'xChunk'),
-		alias('xZipWith', 'xMapMany')
+		alias('xGroup',       'xChunk'),
+		alias('xZipWith',     'xMapMany')
 	)
 
 	suggest_similar_method <- local({

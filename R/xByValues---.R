@@ -13,4 +13,15 @@
 #'
 #' @name xByLevels
 
-NULL
+xByValues <- MakeFun(function (coll) {
+
+	MACRO( Must $ Not_Be_Missing(coll) )
+
+	values <- as.vector(coll)
+
+	if (length(values) == 0) {
+		character(0)
+	} else {
+		values
+	}
+})

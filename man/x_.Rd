@@ -13,6 +13,8 @@ x__(...)
    arrow object.
    The methods available depend on the input
    type; functions and collections have the most methods available.}
+
+\item{...}{see above.}
 }
 \value{
 An object of class "arrow". Internally the object is represented as a
@@ -61,8 +63,10 @@ freqs  <- parsed $ x_Tabulate()
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
-  \code{\link{xByLevels}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{xTap}}
+  \code{\link{xByLevels}}, \code{\link{xByValues}};
+  \code{\link{xByRowkeys}}, \code{\link{xByRownames}};
+  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{xTap}}
 }
 

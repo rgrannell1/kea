@@ -600,7 +600,7 @@ MakeVariadic <- function (fn, fixed) {
 
 	# -- create a formal list from the new parametres with no defaults.
 	formals(out) <-
-		as_parametres(params)
+		as_formals(params)
 
 	body(out) <- MakeFun( bquote({
 

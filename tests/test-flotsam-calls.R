@@ -25,8 +25,6 @@ inner_vars <- arrow_fns $ xMapply((fn_name : fn) := {
 
 
 
-
-
 message('test that every function checks if its parametres are missing')
 
 	inner_vars $
@@ -71,3 +69,4 @@ message('test that every function checks if its parametres are missing')
 message("test that the is_fn_matchable macro is used for all functions")
 
 message("test that the is_collection macro is used for all collections")
+

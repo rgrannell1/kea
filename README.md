@@ -1,5 +1,5 @@
 
-Arrow 0.13.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+Arrow 0.14.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -13,7 +13,7 @@ Arrow makes R an effective language for functional programming.
 Arrow isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
 is considered bad etiquette to update a CRAN package more than once a month.
 
-```
+```js
 install.packages("devtools")
 install_github("arrow", "rgrannell1", ref = "releases")
 ```
@@ -34,7 +34,7 @@ For library documentation and tutorials head to
 
 First, a table of Arrow's (optional) new syntax.
 
-```R
+```js
 # function shorthands
 x := 2 * x + 1                               # instead of function (x) 2 * x + 1
 x. $ Species                                 # instead of function (x) x $ Species
@@ -52,8 +52,8 @@ x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
 
 With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
 
-```R
-# Data From Hadley Wickham's https://github.com/hadley/data-stride
+```js
+# // Data From Hadley Wickham's https://github.com/hadley/data-stride
 
 asRow <- (...) := {
 	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
@@ -95,7 +95,7 @@ largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
 
 '
 list(
-	list(state = "MA", potency = 74, weight = 3", month = 7,  price = 180),
+	list(state = "MA", potency = 74, weight = 3, month = 7,  price = 180),
 	list(state = "NY", potency = 50, weight = 27, month = 12, price = 1000),
 	list(state = "SC", potency = 81, weight = 47, month = 6,  price = 1800),
 	list(state = "FL", potency = 37, weight = 5", month = 3,  price = 1600),
