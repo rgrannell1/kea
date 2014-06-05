@@ -10,9 +10,6 @@ message('x_(+)')
 		True,
 		x_(val) $ x_Identity() %equals% val
 	) +
-	run()
-
-	over(val) +
 	describe('x_(x_(val)) flattens.') +
 	when(
 		True,
