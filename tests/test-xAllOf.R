@@ -1,38 +1,29 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xAllOf (+)")
 
-message("xAllOf")
+	over(coll) +
 
-	forall(
-		"the empty collection always yields the empty list.",
-		test_cases$logical_functions_with_collection_zero,
-		xAllOf(fn, coll) %equals% logical(0)
-	)
+	describe('xAllOf with identity is !any.') +
+	when(
+		is.logical(coll) && length(coll) > 0,
+		xAllOf(identity, coll) %equals% length(which(!coll)) == 0
+	) +
 
-	forall(
-		"a truth function is list identity for collection.",
-		test_cases$truth_with_coll,
-		xAllOf(fn, coll) == True,
-		given =
-			length(coll) > 0
-	)
+	describe('partially applying with true is false') +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xAllOf(function (x) True, coll) == True
+	) +
 
-	forall(
-		"a falsity function is list unit for collection.",
-		test_cases$falsity_with_coll,
-		xAllOf(fn, coll) == False,
-		given =
-			length(coll) > 0
-	)
+	describe('partially applying with false is true') +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xAllOf(function (x) False, coll) == False,
+		xAllOf(function (x) Na,    coll) == False
+	) +
 
-	forall(
-		"a na function is list unit for collection.",
-		test_cases$moot_with_coll,
-		xAllOf(fn, coll) == False,
-		given =
-			length(coll) > 0
-	)
+	run()
 

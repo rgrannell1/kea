@@ -1,4 +1,29 @@
 
+Arrow 0.15.0
+-----------------------------------------------------------------------------
+Date: 2014-6-5
+
+This release adds some rigourous tests to arrow, and fixes several bugs.
+
+Bug-Fixes:
+
+* xChop called with Inf now returns a list of length-one lists, instead of
+converting its input to a list.
+
+* xNoneOf now detects whether not-any result was true, instead of not-any.
+
+Documentation:
+
+* Fixed a broken roxygen tag in xElemsByCols.
+
+Package Internals:
+
+* Added forall-next tests for xAllOf, xAnyOf, xArityOf, xCapture, xChop,
+xFalsity, xFirstOf, xIdentity, xIrrelevance, xIsEmpty, xIsFalse, xIsTrue,
+xNoneOf, xNotEmpty, xPoll, xReject, xSecondOf, xTabulate, xThirdOf,
+xTruth, xVersion, xZip and xZipKeys.
+
+
 Arrow 0.14.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5

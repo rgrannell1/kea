@@ -10,8 +10,8 @@ message("xSelect (+)")
 		length(coll) == 0 && is_collection(coll),
 		xSelect(function (x) True, coll)  %equals% list(),
 		xSelect(function (x) False, coll) %equals% list(),
-		xSelect(function (x) Na, coll)    %equals% list()) +
-	run()
+		xSelect(function (x) Na, coll)    %equals% list()
+	) +
 
 	over(coll) +
 	describe("truth function acts as identity") +
@@ -19,14 +19,13 @@ message("xSelect (+)")
 		length(coll) > 0 && is_collection(coll),
 		xSelect(function (x) True, coll) %equals% as.list(coll)
 	) +
-	run()
 
 	over(coll) +
 	describe("false or na function acts as unit") +
 	when(
 		length(coll) > 0 && is_collection(coll),
 		xSelect(function (x) False, coll) %equals% list(),
-		xSelect(function (x) Na, coll) %equals% list()
+		xSelect(function (x) Na,    coll) %equals% list()
 	) +
 	run()
 

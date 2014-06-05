@@ -1,13 +1,25 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xZipKeys (+)")
 
-message("xZipKeys")
+	over(coll) +
 
-	forall(
-		"xZipKeys of the empty collection is list()",
-		test_cases$collection_zero,
+	describe('xZipKeys of the empty collection is list()') +
+	when(
+		is_collection(coll) && length(coll) == 0,
 		xZipKeys(coll) %equals% list()
-	)
+	) +
+
+	describe('xZipKeys zips names for pairs') +
+	when(
+		is_collection(coll) && is.character(coll) && length(coll) > 0,
+		{
+			pairs <- lapply(coll, function (elem) list(elem, elem))
+
+			xZipKeys(pairs) %equals% as.list(structure(coll, names = coll))
+		}
+	) +
+
+	run()

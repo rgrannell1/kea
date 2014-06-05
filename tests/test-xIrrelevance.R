@@ -1,5 +1,12 @@
 
-require(arrow)
+arrow ::: load_test_dependencies(environment())
 
-	stopifnot( is.na(xIrrelevance()) )
-	stopifnot( is.na(xIrrelevance(letters)) )
+message("xIrrelevance (+)")
+
+	over(val) +
+	describe('xIrrelevance always yields false') +
+	when(
+		True,
+		is.na(xIrrelevance(val))
+	) +
+	run()

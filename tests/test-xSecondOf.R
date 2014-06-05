@@ -1,15 +1,14 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
-
-require(arrow)
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
 message('xSecondOf')
 
-forall("second always returns the second element of a collection",
-	test_cases$collection,
-	expect =
-		xSecondOf(coll) %equals% coll[[2]],
-	given =
-		length(coll) >= 2
-)
+	over(coll) +
+
+	describe('always returns the correct element') +
+	when(
+		is_collection(coll) && length(coll) >= 2,
+		xSecondOf(coll) %equals% coll[[2]]
+	) +
+	run()

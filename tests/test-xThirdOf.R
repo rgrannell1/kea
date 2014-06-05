@@ -1,16 +1,14 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
-
-require(arrow)
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
 message('xThirdOf')
 
-forall("third always returns the third element of a collection",
-	test_cases$collection,
-	expect =
-		xThirdOf(coll) %equals% coll[[3]],
-	given =
-		length(coll) >= 3
-)
+	over(coll) +
 
+	describe('always returns the correct element') +
+	when(
+		is_collection(coll) && length(coll) >= 3,
+		xThirdOf(coll) %equals% coll[[3]]
+	) +
+	run()

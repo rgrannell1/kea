@@ -1,5 +1,14 @@
 
-require(arrow)
+arrow ::: load_test_dependencies(environment())
 
-stopifnot( xTruth() )
-stopifnot( xTruth(letters) )
+message("xTruth (+)")
+
+	over(val) +
+
+	describe('xTruth always yields false') +
+	when(
+		True,
+		xTruth(val)
+	) +
+
+	run()

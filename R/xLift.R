@@ -99,9 +99,7 @@ xLift <- MakeFun(function (fn, fns) {
 		"A function created by xLift."
 		""
 		do.call(fn,
-			lapply(fns, function (lifted) {
-				lifted(...)
-			}) )
+			lapply(fns, function (lifted) lifted(...)) )
 	}
 })
 

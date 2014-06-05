@@ -1,40 +1,39 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xReject (+)")
 
-message("xReject")
+	over(coll) +
 
-	forall(
-		"the empty collection always yields the empty list.",
-		test_cases$logical_functions_with_collection_zero,
-		xReject(fn, coll) %equals% list()
-	)
+	describe("the empty collection always yields the list") +
+	when(
+		length(coll) == 0 && is_collection(coll),
+		xReject(function (x) True, coll)  %equals% list(),
+		xReject(function (x) False, coll) %equals% list(),
+		xReject(function (x) Na, coll)    %equals% list()
+	) +
 
-	forall(
-		"a truth function is list unit for collection.",
-		test_cases$truth_with_coll,
-		expect =
-			xReject(fn, coll) %equals% list(),
-		given =
-			length(coll) > 0
-	)
+	describe("truth function acts as identity") +
+	when(
+		length(coll) > 0 && is_collection(coll),
+		xReject(function (x) True, coll) %equals% list()
+	) +
 
-	forall(
-		"a falsity function is list identity for collection.",
-		test_cases$falsity_with_coll,
-		xReject(fn, coll) %equals% as.list(coll)
-	)
+	describe("false or na function acts as unit") +
+	when(
+		length(coll) > 0 && is_collection(coll),
+		xReject(function (x) False, coll) %equals% as.list(coll),
+		xReject(function (x) Na,    coll) %equals% as.list(coll)
+	) +
+	run()
 
-	forall(
-		"a na function is list identity for collection.",
-		test_cases$moot_with_coll,
-		xReject(fn, coll) %equals% as.list(coll)
-	)
+message("xReject (-)")
 
-	forall(
-		"selecting the odd-numbers works as expected, and ordering is preserved.",
-		test_cases$mod2_over_ints,
-		xReject(fn, coll) %equals% as.list(coll[coll %% 2 == 1])
-	)
+#	over(fn, coll) +
+#	describe("coll must always be a collection") +
+#	failsWhen(
+#		!is_collection(coll),
+#		xReject(identity, coll)
+#	) +
+#	run()

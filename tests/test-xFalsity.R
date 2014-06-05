@@ -1,5 +1,12 @@
 
-require(arrow)
+arrow ::: load_test_dependencies(environment())
 
-stopifnot( xFalsity() == False )
-stopifnot( xFalsity(letters) == False )
+message("xFalsity (+)")
+
+	over(val) +
+	describe('falsity always yields false') +
+	when(
+		True,
+		xFalsity(val) == False
+	) +
+	run()

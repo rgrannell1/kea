@@ -22,3 +22,4 @@ message("xNegate")
 		given =
 			is_na(fn())
 	)
+
