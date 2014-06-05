@@ -1,16 +1,14 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
-
-require(arrow)
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
 message('xFirstOf')
 
-	forall("first always returns the first element of a collection",
-		test_cases$collection,
-		expect =
-			xFirstOf(coll) %equals% coll[[1]],
-		given =
-			length(coll) >= 1
-	)
+	over(coll) +
 
+	describe('always returns the correct element') +
+	when(
+		is_collection(coll) && length(coll) >= 1,
+		xFirstOf(coll) %equals% coll[[1]]
+	) +
+	run()
