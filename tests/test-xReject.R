@@ -5,6 +5,7 @@ is_collection <- arrow ::: is_collection
 message("xReject (+)")
 
 	over(coll) +
+
 	describe("the empty collection always yields the list") +
 	when(
 		length(coll) == 0 && is_collection(coll),

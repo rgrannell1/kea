@@ -9,7 +9,7 @@ message("xAnyOf (+)")
 	describe('xAnyOf with identity is !any.') +
 	when(
 		is.logical(coll) && length(coll) > 0,
-		xAnyOf(identity, coll) %equals% length(which(coll)) > 0
+		xAnyOf(identity, coll) %equals% (length(which(coll)) > 0)
 	) +
 
 	describe('partially applying with true is false') +
