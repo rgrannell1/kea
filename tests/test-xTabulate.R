@@ -1,28 +1,37 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+arrow ::: load_test_dependencies(environment())
+is_collection <- arrow ::: is_collection
 
-require(arrow)
+message("xTabulate (+)")
 
-message("xTabulate")
-
-	forall(
-		"tabulation of the empty coll is the empty list",
-		test_cases$collection_zero,
+	over(coll) +
+	describe('tabulating an empty collection is empty list') +
+	when(
+		is_collection(coll) && length(coll) == 0,
 		xTabulate(coll) %equals% list()
-	)
+	) +
 
-	forall(
-		"tabulates a num repeat num times is [num, num]",
-		test_cases$num_positive_integer,
-		xTabulate(rep(num, num)) %equals% list(list(num, num))
-	)
+	describe('the length of the table is the number of unique elements') +
+	when(
+		is_collection(coll),
+		length(xTabulate(coll)) == length(unique(coll))
+	) +
 
-	forall(
-		"tabulates a num repeat num times is [num, num]",
-		test_cases$num_positive_integer,
-		xTabulate( c(rep(num, num), rep(num+1, num+1)) ) %equals%
-		list(
-			list(num, num),
-			list(num+1, num+1))
-	)
+	describe('the first values of the table-tuples is the set of coll') +
+	when(
+		is_collection(coll),
+		{
+			seta <- lapply( xTabulate(coll), function (x) x[[1]] )
+			setb <- as.list(unique(coll))
+
+			length(setdiff(seta, setb)) == 0 && length(setdiff(setb, seta)) == 0
+		}
+	) +
+
+	describe('the first value of the table-tuples is unique') +
+	when(
+		is_collection(coll),
+		length(unique(lapply( xTabulate(coll), function (x) x[[1]] ) )) == length(unique(coll))
+	) +
+
+	run()
