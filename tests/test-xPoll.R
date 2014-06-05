@@ -5,6 +5,7 @@ is_collection <- arrow ::: is_collection
 message("xPoll (+)")
 
 	over(coll) +
+
 	describe('xPoll counts true occurrences.') +
 	when(
 		is.logical(coll) && length(coll) > 0,

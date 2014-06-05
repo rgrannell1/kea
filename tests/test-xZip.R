@@ -18,4 +18,10 @@ message("xZip (+)")
 		xZip(coll) %equals% list(as.list(coll))
 	) +
 
+	describe('xZip of two collection makes two-tuples') +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xZip_(coll, coll) %equals% lapply(coll, function (elem) list(elem, elem))
+	) +
+
 	run()
