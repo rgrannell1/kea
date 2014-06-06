@@ -25,7 +25,7 @@ and Python, but R is conspicuously lacking such a library. Kiwi is a functional
 library for general-purpose programming in R. It adds all the common higher-order
 functions (Map, Fold, Compose, ...) and functions taken from
 set theory and combinatorics. Kiwi also exploits R's flexibility to add
-kiwi functions, methods, wildcards & list-comprehensions to the language.
+arrow functions, methods, wildcards & list-comprehensions to the language.
 
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/kiwi/](http://rgrannell1.github.io/kiwi/).
@@ -91,16 +91,22 @@ xJoin( list(list(1, 2), list(3, 4)) )
 Kiwi is a functional programming library; it uses higher-order functions and successive
 function calls to transform immutable data.
 
+Most types have operations that join multiple values into a new, compositve value; numbers
+have addition and multiplication, strings have paste and lists have concatenation. Since functions
+are values too it stands to reason that there are similar functions on functions.
+
+
+composition of integers, analogous to funtion composition.
+
+
+
 Partial application you specialise a general function for one task. It can be a useful form
-of code reuse, and cuts down on throwaway anonymous functions.
+of code reuse, and prevents throwaway anonymous functions.
 
 ```js
 # -- grab strings with the pattern 'face' in them.
 x__('facebook', 'facetime', 'faceoff', 'facile') $ xSelect(xFix_(xIsMatch, 'face'))
 ```
-
-
-
 
 Fold is the king of functionals, powerful enough to implement Map, Select and
 the other common functionals. In most languages Fold executes in time linearly-propotional

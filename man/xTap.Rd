@@ -17,7 +17,7 @@ A kiwi object.
 Apply an anonymous function to the contents of an kiwi object.
 }
 \details{
-\bold{xTap} applies non-kiwi functions to be applied to kiwi objects.
+\bold{xTap} applies non-arrow functions to be applied to kiwi objects.
    These functions can be named or unnamed. This allows base functions
    or external libraries to interoperate with kiwi's chaining methods.
 

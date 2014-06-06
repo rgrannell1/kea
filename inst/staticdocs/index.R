@@ -429,7 +429,7 @@ sd_section(
 	paste(
 		"<p>",
 		"These constructors are shorthands for creating functions.",
-		"These included kiwi functions and wildcard binary functions.",
+		"These included arrow functions and wildcard binary functions.",
 		"</p>"
 	),
 	c(
