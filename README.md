@@ -151,27 +151,17 @@ to use the ellipsis parametre (...), which gathers up any arguments passed to a 
 simply pass one list of arguments to the function. Both approaches have their merits and pitfalls.
 
 The first approach - using ellipsis - is less verbose, but less flexible. The second approach - using a
-list or arguments- is conversely more flexible, but more verbose.
+list or arguments- is conversely more flexible, but more verbose. The adapter functions `do.call` and `Reduce`
+in base R are mainly used to get around only the ellipsis form of the function being included. Kiwi's functions
+come in both forms, completely removing this boilerplate.
 
 ```js
+# -- less verbose
 xJoin_(list(1, 2), list(3, 4))
+
+# -- more flexible
+xJoin( list(list(1, 2), list(3, 4)) )
 ```
-
-### Kiwi is Expressive
-
-* Programs are built like lego; stacking small,
-uniquely-purposed functions into a larger program.
-
-* Kiwi is general enough to let you use the same functions for your
-data reshaping and general purpose programming code.
-
-* Kiwi has a shorthand syntax for creating functions.
-
-* Kiwi implements jQuery-style method-chaining.
-
-* Functions have variadic and non-variadic forms, cutting out all 'do.call' boilerplate.
-
-* Kiwi adds list-comprehensions, an expressive syntax for creating lists.
 
 ### Kiwi is Consistent
 
