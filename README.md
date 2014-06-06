@@ -114,7 +114,11 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 60.8
 ```
 
-#### Kiwi is Expressive
+Feel under no obligation to read the following; Kiwi's documentation is sufficient to
+get you up and running quickly. If you are interested in Kiwi's key features and design
+decisions, read on.
+
+### Kiwi is Expressive
 
 It is easier to write a sentence from left to right than from the middle out; writing programs
 as chains of functions is similarily natural.
@@ -163,18 +167,33 @@ xJoin_(list(1, 2), list(3, 4))
 xJoin( list(list(1, 2), list(3, 4)) )
 ```
 
+### Kiwi is Functional
+
+
 ### Kiwi is Consistent
 
-R is frustrating.
-
-
-
-
+Kiwi is a *generic* collection library; its functions abstract over the differences between lists,
+vectors and pairlists. This is in contrast with the base language, which neglects lists in favour of
+vectors and data.frames.
 
 ```js
+sum(1:3)
+sum(list(1, 2, 3)) # fails
+```
 
-xTake(-1, 1:3)
+```js
+# -- these are identical.
+xRepeat(2, 10)
+xRepeat(list(2), list(10))
+xRepeat(pairlist(2), pairlist(10))
+```
 
+When code fails it should tell you where it failed, what the root cause of the problem was, and
+give you enough information to fix the problem. More time is spent debugging than writing code, so
+Kiwi provides good error messages.
+
+```js
+xRepeat(-1, 1:10)
 '
 Error:
 The argument matching “num” must be in the range {0...Inf}.
@@ -191,25 +210,10 @@ no whole:           1
 no infinite:        0
 classes:            "numeric"
 
-Thrown from xTake
-In the call xTake(-1, 1:3)
+Thrown from xRepeat
+In the call xRepeat(-1, 1:10)
 '
 ```
-
-
-
-
-
-
-
-* Functions don't discriminate between different types of vectors; lists, pairlists
-and typed vectors are all interchangable.
-
-* Kiwi is very easy to debug, thanks to input validation and automatically summarising bad input.
-
-* Kiwi functions work perfectly with base R functions.
-
-* Kiwi uses consistent naming conventions.
 
 ### Kiwi is Functional
 
