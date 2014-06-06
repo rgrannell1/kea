@@ -86,6 +86,51 @@ xJoin( list(list(1, 2), list(3, 4)) )
 ### Kiwi is Functional
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Kiwi is Functional
+
+Kiwi is a functional programming library; it uses higher-order
+functions and successive function calls to transform immutable data.
+
+Fold is the king of functionals, powerful enough to implement Map, Select and
+the other common functionals. In most languages Fold executes in time linearly-propotional
+to its input collection size.
+
+But sometimes the result of a fold *can* be determined in
+sub-linear time; folds are often used to check for the existence of a value in a dataset, and
+in the best case you do not need to iterate over every input value to find a match. Kiwi's Fold
+can run in sub-linear time, by using a special return statement - Return. This makes your
+functional code much more efficient.
+
+```js
+firstOdd <- nums := {
+	xReduce((left : right) := {
+		if (right %% 2 == 1) Return (right)
+	}, nums)
+}
+
+firstOdd(c(2, 1, 4, 5, 6))
+# -- returns after only two checks; Reduce needs to do five checks.
+```
+
 ### Kiwi is Consistent
 
 Kiwi is a *generic* collection library; its functions abstract over the differences between lists,
@@ -131,7 +176,6 @@ In the call xRepeat(-1, 1:10)
 '
 ```
 
-### Kiwi is Functional
 
 
 
@@ -140,9 +184,6 @@ map, fold, select, flatmap and iterate.
 
 * Kiwi includes several mathematical functions, like the set operations and
 combinatoric functions.
-
-* Kiwi adds a big brother of **return( )** - **Return( )** - to make functions like fold
-much more efficient.
 
 * Function composition and partial application are encouraged as standard operations.
 
