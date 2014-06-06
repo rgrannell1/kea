@@ -114,7 +114,6 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 60.8
 ```
 
-
 It is easier to write a sentence from left to right than from the middle out; writing programs
 as chains of functions is similarily natural.
 
@@ -133,10 +132,18 @@ definitions are verbose. Arrow-functions are terser than normal function express
 
 ```js
 # -- generate the pairs [[a, A], [b, B], ...]
-x_(letters) $ xFlatMap(letter := {
-	list( list(letter, toupper(letter)) )
+x_(letters) $ xMap(letter := {
+	list(letter, toupper(letter))
 })
-``
+```
+
+Alternatively you could make this collection using list-comprehensions; syntax sugar for creating
+new collections.
+
+```js
+xList[ list(l, toupper(l)), l <- letters ]
+```
+
 
 
 ### Arrow is Expressive
