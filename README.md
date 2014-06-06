@@ -166,18 +166,6 @@ xJoin_(list(1, 2), list(3, 4))
 # -- more flexible
 xJoin( list(list(1, 2), list(3, 4)) )
 ```
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
-< br />
 
 ### Kiwi is Functional
 
