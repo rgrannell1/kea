@@ -246,5 +246,3 @@ http://semver.org/
 ## Authors
 
 Ryan Grannell.
-
-With that out the way, here is a simple use of Kiwi to examine cocaine seizure data.
