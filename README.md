@@ -30,6 +30,9 @@ arrow functions, methods, wildcards & list-comprehensions to the language.
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
 
+
+
+
 ## What Does Arrow Look Like?
 
 First, a table of Arrow's (optional) new syntax.
@@ -110,6 +113,31 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 
 60.8
 ```
+
+
+It is easier to write a sentence from left to right than from the middle out; writing programs
+as chains of functions is similarily natural.
+
+Arrow code is *compositional*; to create an arrow program you chain functions
+together into a pipeline that takes your input and transforms it in multiple
+steps. You don't need to worry about odd output of one function suddenly killing
+the next, as corner cases are consistent within Arrow.
+
+```js
+# method example
+```
+
+R was an early language to include anonymous, first-class functions. They are a common part of the
+language, and are widely used with functions like `lapply` and `Filter`. Unfortunately R's function's
+definitions are verbose. Arrow-functions are terser than normal function expressions.
+
+```js
+# -- generate the pairs [[a, A], [b, B], ...]
+x_(letters) $ xFlatMap(letter := {
+	list( list(letter, toupper(letter)) )
+})
+``
+
 
 ### Arrow is Expressive
 
