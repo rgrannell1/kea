@@ -1,9 +1,9 @@
 
 # 1. xByRows is the canonical way to work with
-#    data frames in Arrow.
+#    data frames in Kiwi.
 
 toxicity <- x_(data.frame(
-	"toxicant" = 
+	"toxicant" =
 		c("melamine", "caffeine", "nicotine"),
 	"ld50 (mg/kg)" =
 		c(6800, 192, 50)

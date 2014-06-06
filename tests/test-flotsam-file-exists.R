@@ -1,8 +1,8 @@
 
-require(arrow)
+require(kiwi)
 
-'%+%' <- arrow ::: '%+%'
-throw_arrow_error <- arrow ::: throw_arrow_error
+'%+%' <- kiwi ::: '%+%'
+throw_kiwi_error <- kiwi ::: throw_kiwi_error
 
 # -- This series of unit tests checks that files that
 # -- should exist, do exist.
@@ -13,15 +13,15 @@ throw_arrow_error <- arrow ::: throw_arrow_error
 
 r_paths <- x_(list(
 	R =
-		system.file(package = 'arrow', 'R'),
+		system.file(package = 'kiwi', 'R'),
 	examples =
-		system.file(package = 'arrow', 'inst/examples'),
+		system.file(package = 'kiwi', 'inst/examples'),
 	tests =
-		system.file(package = 'arrow', 'tests'),
+		system.file(package = 'kiwi', 'tests'),
 	man =
-		system.file(package = 'arrow', 'man'),
+		system.file(package = 'kiwi', 'man'),
 	namespace =
-		system.file(package = 'arrow', 'NAMESPACE')
+		system.file(package = 'kiwi', 'NAMESPACE')
 ))
 
 # 1. Regular expression patterns.
@@ -94,7 +94,7 @@ if (nchar(r_paths $ x_AtKey('tests')) > 0) {
 				"the following functions were missing their own ", dir_message, " files:",
 				not_found $ x_Implode(', '))
 
-			throw_arrow_error(message = message)
+			throw_kiwi_error(message = message)
 		}
 	}
 
@@ -102,21 +102,21 @@ if (nchar(r_paths $ x_AtKey('tests')) > 0) {
 		'check that every exported function ' %+%
 		'Fun has a corresponding xFun.R file')
 
-		check_for_missing_exports(as_r_path, 'arrow/R',
+		check_for_missing_exports(as_r_path, 'kiwi/R',
 			c())
 
 	message(
 		'check that every exported function ' %+%
 		'Fun has a corresponding example-xFun.R file')
 
-		check_for_missing_exports(as_example_path, 'arrow/inst/examples',
+		check_for_missing_exports(as_example_path, 'kiwi/inst/examples',
 			c())
 
 	message(
 		'check that every exported function ' %+%
 		'Fun has a corresponding test-xFun.R file')
 
-		check_for_missing_exports(as_test_path, 'arrow/inst/tests',
+		check_for_missing_exports(as_test_path, 'kiwi/inst/tests',
 			c())
 
 }

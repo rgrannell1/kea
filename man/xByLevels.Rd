@@ -9,9 +9,9 @@ x_(  ) $ xByLevels()
 x_(  ) $ xByLevels()
 }
 \value{
-An arrow object containing a character vector.
+An kiwi object containing a character vector.
 
-An arrow object containing a list.
+An kiwi object containing a list.
 }
 \description{
 Convert a collor to a collection of levels.

@@ -13,7 +13,7 @@
 # as_typed_vector:
 #     A function to try convert a list of values to a typed vector.
 #     A list of integers should be interconvertable to an integer vector,
-#     if required. This function is used to make sure arrow functions are
+#     if required. This function is used to make sure kiwi functions are
 #     agnostic to the difference between typed and generic vectors.
 
 unit_to_value <- function (coll) {
@@ -33,8 +33,8 @@ unit_to_value <- function (coll) {
 			0 + 0i
 		} else {
 			stop(
-				"internal arrow error: cannot convert to non-implemented vector type." %+%
-				"please report this at the arrow github repo!",
+				"internal kiwi error: cannot convert to non-implemented vector type." %+%
+				"please report this at the kiwi github repo!",
 				call. = False)
 		}
 
@@ -96,7 +96,7 @@ as_typed_vector <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					throw_arrow_error(
+					throw_kiwi_error(
 						invoking_call, message)
 				}
 
@@ -109,7 +109,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_arrow_error(
+				throw_kiwi_error(
 					invoking_call, message)
 			}
 
@@ -126,7 +126,7 @@ as_typed_vector <- local({
 
 					coll_sym <- match.call()$coll
 
-					throw_arrow_error(
+					throw_kiwi_error(
 						invoking_call, "the collection " %+% dQuote(coll) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
@@ -140,16 +140,16 @@ as_typed_vector <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					if (any(class(coll) == 'arrow')) {
+					if (any(class(coll) == 'kiwi')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("arrow") %+%
-							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kiwi") %+%
+							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate(coll)
 					} else {
 						message <- message %+% summate(coll)
 					}
 
-					throw_arrow_error(
+					throw_kiwi_error(
 						invoking_call, message)
 				}
 			}
@@ -202,7 +202,7 @@ as_atom <- local({
 
 			coll_sym <- match.call()$coll
 
-			throw_arrow_error(
+			throw_kiwi_error(
 				invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 				" must be a length-one value." %+% summate(coll)
 			)
@@ -222,16 +222,16 @@ as_atom <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					if (any(class(coll) == 'arrow')) {
+					if (any(class(coll) == 'kiwi')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("arrow") %+%
-							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kiwi") %+%
+							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate(coll)
 					} else {
 						message <- message %+% summate(coll)
 					}
 
-					throw_arrow_error(
+					throw_kiwi_error(
 						invoking_call, message)
 				}
 
@@ -244,16 +244,16 @@ as_atom <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				if (any(class(coll) == 'arrow')) {
+				if (any(class(coll) == 'kiwi')) {
 					message <- message %+%
-						"The argument was of class " %+% dQuote("arrow") %+%
-						". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+						"The argument was of class " %+% dQuote("kiwi") %+%
+						". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 						summate(coll)
 				} else {
 					message <- message %+% summate(coll)
 				}
 
-				throw_arrow_error(
+				throw_kiwi_error(
 					invoking_call, message)
 			}
 
@@ -269,7 +269,7 @@ as_atom <- local({
 
 					coll_sym <- match.call()$coll
 
-					throw_arrow_error(
+					throw_kiwi_error(
 						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
@@ -281,16 +281,16 @@ as_atom <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					if (any(class(coll) == 'arrow')) {
+					if (any(class(coll) == 'kiwi')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("arrow") %+%
-							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kiwi") %+%
+							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate(coll)
 					} else {
 						message <- message %+% summate(coll)
 					}
 
-					throw_arrow_error(
+					throw_kiwi_error(
 						invoking_call, message)
 				}
 			}

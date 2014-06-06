@@ -161,7 +161,7 @@ a2 <- data.frame(a = c(aa = 2, bb = 3), d = c(ee = 3, ff = 4))
 
 
 
-x_(list.files('/home/ryan/Code/arrow.R', full.names = TRUE, recursive = TRUE)) $
+x_(list.files('/home/ryan/Code/kiwi.R', full.names = TRUE, recursive = TRUE)) $
 xReject(path := {
 	xIsMatch('DESCRIPTION|png', path)
 }) $
@@ -178,7 +178,7 @@ xReject(word := {
 
 
 methods <-
-	x_(xReadLines('/home/ryan/Code/arrow.R/NAMESPACE')) $
+	x_(xReadLines('/home/ryan/Code/kiwi.R/NAMESPACE')) $
 	xSelect(line := {
 		xIsMatch('export', line)
 	}) $

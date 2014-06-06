@@ -7,7 +7,7 @@
 #'      x_(  ) $ xByLevels()
 #'
 #' @return
-#'      An arrow object containing a character vector.
+#'      An kiwi object containing a character vector.
 #'
 #' @family methods
 #'

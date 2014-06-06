@@ -1,41 +1,41 @@
 
-Arrow 0.15.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+Kiwi 0.15.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
 ### Public Release: ~1 August 2014
 
-Arrow makes R an effective language for functional programming.
+Kiwi makes R an effective language for functional programming.
 
 ### Installation
 
-Arrow isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
+Kiwi isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
 is considered bad etiquette to update a CRAN package more than once a month.
 
 ```js
 install.packages("devtools")
-install_github("arrow", "rgrannell1", ref = "releases")
+install_github("kiwi", "rgrannell1", ref = "releases")
 ```
 
-## What is Arrow?
+## What is Kiwi?
 
 Functional programming has become commonplace in languages like JavaScript
-and Python, but R is conspicuously lacking such a library. Arrow is a functional
+and Python, but R is conspicuously lacking such a library. Kiwi is a functional
 library for general-purpose programming in R. It adds all the common higher-order
 functions (Map, Fold, Compose, ...) and functions taken from
-set theory and combinatorics. Arrow also exploits R's flexibility to add
-arrow functions, methods, wildcards & list-comprehensions to the language.
+set theory and combinatorics. Kiwi also exploits R's flexibility to add
+kiwi functions, methods, wildcards & list-comprehensions to the language.
 
 For library documentation and tutorials head to
-[http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
+[http://rgrannell1.github.io/kiwi/](http://rgrannell1.github.io/kiwi/).
 
 
 
 
-## What Does Arrow Look Like?
+## What Does Kiwi Look Like?
 
-First, a table of Arrow's (optional) new syntax.
+First, a table of Kiwi's (optional) new syntax.
 
 ```js
 # function shorthands
@@ -53,7 +53,7 @@ xList[x, x <- 1:10, x %% 2 == 0]             # generates 2, 4, ..., 10
 x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
 ```
 
-With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
+With that out the way, here is a simple use of Kiwi to examine cocaine seizure data.
 
 ```js
 # // Data From Hadley Wickham's https://github.com/hadley/data-stride
@@ -114,15 +114,15 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 60.8
 ```
 
-#### Arrow is Expressive
+#### Kiwi is Expressive
 
 It is easier to write a sentence from left to right than from the middle out; writing programs
 as chains of functions is similarily natural.
 
-Arrow code is *compositional*; to create an arrow program you chain functions
+Kiwi code is *compositional*; to create an kiwi program you chain functions
 together into a pipeline that takes your input and transforms it in multiple
 steps. You don't need to worry about odd output of one function suddenly killing
-the next, as corner cases are consistent within Arrow.
+the next, as corner cases are consistent within Kiwi.
 
 ```js
 # method example
@@ -153,51 +153,55 @@ simply pass one list of arguments to the function. Both approaches have their me
 The first approach - using ellipsis - is less verbose, but less flexible. The second approach - using a
 list or arguments- is conversely more flexible, but more verbose.
 
-### Arrow is Expressive
+```js
+xJoin_(list(1, 2), list(3, 4))
+```
+
+### Kiwi is Expressive
 
 * Programs are built like lego; stacking small,
 uniquely-purposed functions into a larger program.
 
-* Arrow is general enough to let you use the same functions for your
+* Kiwi is general enough to let you use the same functions for your
 data reshaping and general purpose programming code.
 
-* Arrow has a shorthand syntax for creating functions.
+* Kiwi has a shorthand syntax for creating functions.
 
-* Arrow implements jQuery-style method-chaining.
+* Kiwi implements jQuery-style method-chaining.
 
 * Functions have variadic and non-variadic forms, cutting out all 'do.call' boilerplate.
 
-* Arrow adds list-comprehensions, an expressive syntax for creating lists.
+* Kiwi adds list-comprehensions, an expressive syntax for creating lists.
 
-### Arrow is Consistent
+### Kiwi is Consistent
 
 * Functions don't discriminate between different types of vectors; lists, pairlists
 and typed vectors are all interchangable.
 
-* Arrow is very easy to debug, thanks to input validation and automatically summarising bad input.
+* Kiwi is very easy to debug, thanks to input validation and automatically summarising bad input.
 
-* Arrow functions work perfectly with base R functions.
+* Kiwi functions work perfectly with base R functions.
 
-* Arrow uses consistent naming conventions.
+* Kiwi uses consistent naming conventions.
 
-### Arrow is Functional
+### Kiwi is Functional
 
-* Every commonly used higher-order-function is included in Arrow, including but not limited to
+* Every commonly used higher-order-function is included in Kiwi, including but not limited to
 map, fold, select, flatmap and iterate.
 
-* Arrow includes several mathematical functions, like the set operations and
+* Kiwi includes several mathematical functions, like the set operations and
 combinatoric functions.
 
-* Arrow adds a big brother of **return( )** - **Return( )** - to make functions like fold
+* Kiwi adds a big brother of **return( )** - **Return( )** - to make functions like fold
 much more efficient.
 
 * Function composition and partial application are encouraged as standard operations.
 
 ## Licensing
 
-**Arrow** is released under the terms of the GNU General Public License version 3.
+**Kiwi** is released under the terms of the GNU General Public License version 3.
 
-<img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/gpl3.png" height = "120"> </img>
+<img src="https://raw.githubusercontent.com/rgrannell1/kiwi/develop/gpl3.png" height = "120"> </img>
 
 ## Versioning
 

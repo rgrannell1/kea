@@ -1,13 +1,13 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+forall <- kiwi:::forall
+test_cases <- kiwi:::test_cases
 
-require(arrow)
+require(kiwi)
 
-message('Arrow Files')
+message('Kiwi Files')
 message('Check that every function has missing declarations')#
 
-arr <- as.environment('package:arrow')
+arr <- as.environment('package:kiwi')
 
 missing_exceptions <- c(
 	"xFalsity", "xTruth", "xIrrelevance",

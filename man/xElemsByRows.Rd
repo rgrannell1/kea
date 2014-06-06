@@ -6,7 +6,7 @@
 x_(  ) $ xElemsByRows()
 }
 \value{
-An arrow object containing a list.
+An kiwi object containing a list.
 }
 \description{
 Enumerate the elements of a matrix across rows.

@@ -1,6 +1,6 @@
 
-arrow ::: load_test_dependencies(environment())
-is_collection <- arrow ::: is_collection
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message('xFirstOf')
 

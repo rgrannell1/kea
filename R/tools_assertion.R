@@ -90,8 +90,8 @@ write_error <- function (..., call. = True) {
 #
 # This takes your message, and throws either an error or warning.
 
-throw_arrow_warning <- function (invoking_call, message) {
-	# the top level interface to throwing an arrow error.
+throw_kiwi_warning <- function (invoking_call, message) {
+	# the top level interface to throwing an kiwi error.
 
 	# -- stringify the call, get the function name.
 	if (!missing(invoking_call)) {
@@ -105,7 +105,7 @@ throw_arrow_warning <- function (invoking_call, message) {
 		callname <- paste0(callname, collapse = '')
 		calltext <- wrap(calltext, indent = 4)
 
-		# -- these few lines dicate how an arrow error message will be formatted
+		# -- these few lines dicate how an kiwi error message will be formatted
 
 		final_message <-
 		"\n" %+% message %+%
@@ -121,8 +121,8 @@ throw_arrow_warning <- function (invoking_call, message) {
 
 }
 
-throw_arrow_error <- function (invoking_call, message) {
-	# the top level interface to throwing an arrow error.
+throw_kiwi_error <- function (invoking_call, message) {
+	# the top level interface to throwing an kiwi error.
 
 	# -- stringify the call, get the function name.
 	# -- get the function foo, and the stringified call foo(baz, bar, ...)
@@ -137,7 +137,7 @@ throw_arrow_error <- function (invoking_call, message) {
 		callname <- paste0(callname, collapse = '')
 		calltext <- wrap(calltext, indent = 0)
 
-		# -- these few lines dicate how an arrow error message will be formatted
+		# -- these few lines dicate how an kiwi error message will be formatted
 
 		final_message <-
 		"\n" %+% message %+%
@@ -182,7 +182,7 @@ try_read <- local({
 				warnmessage <- strsplit(warnmessage, '\n')[[1]]
 				warnmessage <- paste0('    ', warnmessage, collapse = '\n')
 
-				throw_arrow_warning(
+				throw_kiwi_warning(
 					overview %+% inner_call %+% warnmessage, invoking_call)
 
 			},
@@ -203,7 +203,7 @@ try_read <- local({
 				errmessage <- strsplit(errmessage, '\n')[[1]]
 				errmessage <- paste0('    ', errmessage, collapse = '\n')
 
-				thrown_arrow_error(
+				thrown_kiwi_error(
 					overview %+% inner_call %+% errmessage, invoking_call)
 			}
 		)

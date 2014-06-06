@@ -24,7 +24,7 @@ Generate a list using set-builder notation.
 
    \code{S = {output expression, variable ε set, predicate expression}}
 
-   Arrow's syntax is similar
+   Kiwi's syntax is similar
 
    \code{S <- xList[ 2*x, x <- 1:10 x^2 > 3 ]}
 
@@ -41,7 +41,7 @@ Generate a list using set-builder notation.
 
    \code{xList[2*x, x <- 1:10]}
 
-   is loosely translated into normal arrow code as
+   is loosely translated into normal kiwi code as
 
    \code{xMapply(x := x^2, 1:10)}
 

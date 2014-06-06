@@ -10,7 +10,7 @@
 #'     colls a matrix or data frame. The object to convert to column-lists.
 #'
 #' @return
-#'      An arrow object containing a list of lists.
+#'      An kiwi object containing a list of lists.
 #'
 #' @family methods
 #'

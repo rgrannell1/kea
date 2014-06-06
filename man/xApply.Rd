@@ -37,7 +37,7 @@ Invoke a function with a collection of arguments.
    In the above case the function rbind is called on several rows, without
    having to use reduce or a for loop to successively bind the rows.
 
-   It isn't usually necessary to call arrow functions with \bold{xApply},
+   It isn't usually necessary to call kiwi functions with \bold{xApply},
    since they exist with both variadic and non-variadic forms.
 }
 \section{Type Signature}{

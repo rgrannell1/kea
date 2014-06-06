@@ -1,6 +1,6 @@
 
 # 1. xByCols is the canonical way to work with
-#    data frames in Arrow.
+#    data frames in Kiwi.
 
 toxicity <- x_(data.frame(
 	"toxicant" =

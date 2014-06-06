@@ -1,5 +1,5 @@
 
-arrow ::: load_test_dependencies(environment())
+kiwi ::: load_test_dependencies(environment())
 
 message("xNot (+)")
 

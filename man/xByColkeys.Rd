@@ -6,7 +6,7 @@
 x_(  ) $ xByColkeys()
 }
 \value{
-An arrow containing a character vector.
+An kiwi containing a character vector.
 }
 \description{
 Convert a matrix or data.frame to a collection of column names.

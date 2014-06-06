@@ -1,34 +1,34 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
-match_fn <- arrow:::match_fn
-'%!in%' <- arrow:::'%!in%'
-'%+%'   <- arrow:::'%+%'
+forall <- kiwi:::forall
+test_cases <- kiwi:::test_cases
+match_fn <- kiwi:::match_fn
+'%!in%' <- kiwi:::'%!in%'
+'%+%'   <- kiwi:::'%+%'
 
-require(arrow)
+require(kiwi)
 
-message('Arrow Methods')
+message('Kiwi Methods')
 message('test that every method has an unchaining version.')
 
-	exports <- ls(getNamespace('arrow'))
+	exports <- ls(getNamespace('kiwi'))
 
-	arrow <- list(
+	kiwi <- list(
 		functions =
 			exports[grepl('^x[A-Z]', exports)] )
 
 	x_proto_methods <- list(
 		xAnyOf =
-			ls(arrow ::: x_any_proto),
+			ls(kiwi ::: x_any_proto),
 		fn =
-			ls(arrow ::: x_fn_proto),
+			ls(kiwi ::: x_fn_proto),
 		coll =
-			ls(arrow ::: x_coll_proto),
+			ls(kiwi ::: x_coll_proto),
 		data_frame =
-			ls(arrow ::: x_data_frame_proto),
+			ls(kiwi ::: x_data_frame_proto),
 		matrix =
-			ls(arrow ::: x_matrix_proto) )
+			ls(kiwi ::: x_matrix_proto) )
 
-	base_methods_names <- gsub('[.]{3}', '', arrow$functions)
+	base_methods_names <- gsub('[.]{3}', '', kiwi$functions)
 
 	method_types <- list(
 		as_normal =

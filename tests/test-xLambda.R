@@ -1,18 +1,18 @@
 
 # note - shorten imports
 
-':=' <- arrow:::':='
-atoms <- arrow:::atoms
-forall <- arrow:::forall
-compounds <- arrow:::compounds
-test_cases <- arrow:::test_cases
+':=' <- kiwi:::':='
+atoms <- kiwi:::atoms
+forall <- kiwi:::forall
+compounds <- kiwi:::compounds
+test_cases <- kiwi:::test_cases
 
-require(arrow)
+require(kiwi)
 
 
-arrow_unary <- function () {
+kiwi_unary <- function () {
 
-	arrow:::one_of(
+	kiwi:::one_of(
 		list(
 			x := {
 				x
@@ -25,9 +25,9 @@ arrow_unary <- function () {
 	))
 }
 
-arrow_binary <- function () {
+kiwi_binary <- function () {
 
-	arrow:::one_of(
+	kiwi:::one_of(
 		list(
 			(a : b) := {
 				a + b
@@ -36,9 +36,9 @@ arrow_binary <- function () {
 	))
 }
 
-arrow_trinary <- function () {
+kiwi_trinary <- function () {
 
-	arrow:::one_of(
+	kiwi:::one_of(
 		list(
 			(a : b : c) := {
 				a + b + c
@@ -47,9 +47,9 @@ arrow_trinary <- function () {
 	))
 }
 
-arrow_unary_variadic <- function () {
+kiwi_unary_variadic <- function () {
 
-	arrow:::one_of(
+	kiwi:::one_of(
 		list(
 			(...) := {
 				list(...)
@@ -60,9 +60,9 @@ arrow_unary_variadic <- function () {
 	))
 }
 
-arrow_binary_variadic <- function () {
+kiwi_binary_variadic <- function () {
 
-	arrow:::one_of(
+	kiwi:::one_of(
 		list(
 			(a : ...) := {
 				sum(a, ...)
@@ -79,20 +79,20 @@ message("non_variadic functions")
 
 	forall(
 		"all forms of unary functions are functioning.",
-		list(id = arrow_unary, coll = compounds$collection),
+		list(id = kiwi_unary, coll = compounds$collection),
 		id(coll) %equals% coll
 	)
 
 	forall(
 		"all forms of binary functions are functioning.",
-		list(plus2 = arrow_binary, a = atoms$integer(), b = atoms$integer()),
+		list(plus2 = kiwi_binary, a = atoms$integer(), b = atoms$integer()),
 		plus2(a, b) == a + b
 	)
 
 	forall(
 		"all forms of trinary functions are functioning.",
 		list(
-			plus3 = arrow_trinary,
+			plus3 = kiwi_trinary,
 			a = atoms$integer(),
 			b = atoms$integer(),
 			c = atoms$integer()),
@@ -104,7 +104,7 @@ message("variadic functions")
 	forall(
 		"all forms of variadic unary functions are functioning.",
 		list(
-			id = arrow_unary_variadic,
+			id = kiwi_unary_variadic,
 			coll = compounds$collection),
 		id(coll) %equals% list(coll)
 	)
@@ -112,7 +112,7 @@ message("variadic functions")
 	forall(
 		"all forms of variadic binary functions are functioning.",
 		list(
-			plus2 = arrow_binary_variadic,
+			plus2 = kiwi_binary_variadic,
 			a = atoms$integer(),
 			b = atoms$integer()),
 		plus2(a, b) == a + b

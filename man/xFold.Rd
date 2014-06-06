@@ -122,7 +122,7 @@ x
 The obvious problem is the fourth element of the very long collection is na,
 but the code searches though thousands of elements after finding a match. If
 we were searching the collection with a for loop we would use \bold{break} or \bold{return( )}
-to terminate the search early and return true. Arrow adds a similar construct for
+to terminate the search early and return true. Kiwi adds a similar construct for
 terminating certain higher-order functions called the \bold{Return( )} function.
 
 This function can be used to break out of the fold early; in this case upon
@@ -179,7 +179,7 @@ xFold(
 # xFold takes a binary function (in this case 'plus'), and successively merges values (from
 # left to right) in a collection until a single result is returned.
 
-# Arrow chaining methods work nicely for multi-part processing of data.
+# Kiwi chaining methods work nicely for multi-part processing of data.
 
 sum_odds <- nums := {
 
@@ -220,7 +220,7 @@ sum_odds(c(1, 2, 3, 4, 5, 6))
 #    Remove the odd indices from a collection
 
 # As is normal for functional programming, fold is the solution to all problems.
-# Most functions in Arrow could actually be expressed by partially applying fold,
+# Most functions in Kiwi could actually be expressed by partially applying fold,
 # but that would be inefficient.
 
 #

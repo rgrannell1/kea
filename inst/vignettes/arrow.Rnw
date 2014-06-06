@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\title{Arrow: Functional Composable R}
+\title{Kiwi: Functional Composable R}
 \author{Ryan Grannell}
 
 \maketitle
@@ -19,7 +19,7 @@
 
 \chapter{Introduction}
 
-This vignette covers basic usage of Arrow, as well as the design philosophy of the
+This vignette covers basic usage of Kiwi, as well as the design philosophy of the
 framework.
 
 
@@ -29,7 +29,7 @@ framework.
 \paragraph{}
 
 The R language has a wealth of classes, including factors, data frames, matrices, lists, pairlists and vectors.
-Arrow unifies the latter three under the abstraction of a \textit{collection}. Collections are finite linear
+Kiwi unifies the latter three under the abstraction of a \textit{collection}. Collections are finite linear
 ordered sequences of values. Lists, pairlists and atomic vectors are the most fundemental and flexible
 classes, while less foundatial classes can have odd corner cases that hinder compositionality.
 
@@ -46,8 +46,8 @@ lists and atomic vectors of numbers, but the function sum cannot sum a list of n
 \end{verbatim}
 
 \paragraph{}
-Arrow smooths out the differences between lists and other vectors. The \textit{contents} of the container
-is what Arrow functions examine, not the container type. Functions that work on vectors will
+Kiwi smooths out the differences between lists and other vectors. The \textit{contents} of the container
+is what Kiwi functions examine, not the container type. Functions that work on vectors will
 always work on lists and pairlists.
 
 \section{Types of Collection}
@@ -93,7 +93,7 @@ that each element must satisfy to be a member of the collection. These are a tra
 notation, which defines a set in terms of membership constraints. The comprehension
 
 \begin{equation} \label{eq:comprehensions-squares}
-xList[x^{2},\ x\ \leftarrow\ 1..10,\ x\ \%\%\ 2 ==\ 0 ]
+xList[x^{2},\ x\ \leftkiwi\ 1..10,\ x\ \%\%\ 2 ==\ 0 ]
 \end{equation}
 
 \paragraph{}
@@ -117,7 +117,7 @@ have two parts; a symbol dictating what to bind, and a collection of values that
 runtime
 
 \begin{equation} \label{eq:comprehension-sum}
-xList[\ x\ +\ y,\ x\ \leftarrow\ 1:10,\ y\ \leftarrow\ 1:10\ ]
+xList[\ x\ +\ y,\ x\ \leftkiwi\ 1:10,\ y\ \leftkiwi\ 1:10\ ]
 \end{equation}
 
 \paragraph{}
@@ -139,7 +139,7 @@ drawn from the binding expressions. The predicate expression is the test for eli
 \paragraph{}
 
 \begin{equation} \label{eq:comprehension-letters}
-xList[toupper(letters),\ letter\ \leftarrow\ letters]
+xList[toupper(letters),\ letter\ \leftkiwi\ letters]
 \end{equation}
 
 \paragraph{}
@@ -156,12 +156,12 @@ internally. When no predicate expression is provided it defaults to the predicat
 that is always true. A user can optionally provide a more selective membership test.
 
 \begin{equation} \label{eq:comprehension-letters-pred}
-xList[toupper(letters),\ letter\ \leftarrow\ letters,\ is.element(letter,\ letters[1:10])]
+xList[toupper(letters),\ letter\ \leftkiwi\ letters,\ is.element(letter,\ letters[1:10])]
 \end{equation}
 
 \section{Collection Operations}
 
-Arrow has a wide range of collection operations. Most of these functions are general and
+Kiwi has a wide range of collection operations. Most of these functions are general and
 have many non-specific use cases. They tend to be used for reshaping, subsetting and
 performing set operations on data. Higher-order functions on collections will be
 details in the chapter \"Functions\". Some of the key functions are covered below.
@@ -196,7 +196,7 @@ elements respectively.
 Functions are mathematical objects that relate each input to one fixed output.
 
 \paragraph{}
-Not all R or Arrow functions are mathematical functions. For example,
+Not all R or Kiwi functions are mathematical functions. For example,
 xOneOf takes a collection and returns a random value from the collection. Although
 it associates each input (a collection) with an output (an element from the collection),
 the output may differ for the same input. This means that xOneOf is an impure function.
@@ -208,7 +208,7 @@ Functions like print, readLines and dput are impure.
 \chapter{Text Processing}
 
 \paragraph{}
-Arrow has a range of functions for working with text data. Generally text data will be
+Kiwi has a range of functions for working with text data. Generally text data will be
 used as lines, words or individual characters.
 
 \section{Reading \& Writing Text}
@@ -254,7 +254,7 @@ The inverse of this operation is xFromWords, which delimits a vector of words wi
 Strings can be split or joined using the function xExplode and xImplode, respectively.
 
 \begin{equation}\label{eq:to-csv}
-	as\_csv \leftarrow strs\ :=\ xImplode(", ",\ strs)
+	as\_csv \leftkiwi strs\ :=\ xImplode(", ",\ strs)
 \end{equation}
 
 \paragraph{}
@@ -264,7 +264,7 @@ with a comma-delimiter. A (rough) inverse function can be created by partially-a
 xExplode with the same delimiter.
 
 \begin{equation}\label{eq:from-csv}
-	from\_csv \leftarrow strs\ :=\ xExplode(", ",\ strs)
+	from\_csv \leftkiwi strs\ :=\ xExplode(", ",\ strs)
 \end{equation}
 
 \paragraph{}
@@ -302,7 +302,7 @@ a variable depends on its history. Variables can be deleted and modified during 
 of a program, and the double-edge sword \'<<- \' can modify variables across functions.
 
 \paragraph{}
-Arrow wraps a self-described \'experimental interface\' in R to add immutable values to R. R
+Kiwi wraps a self-described \'experimental interface\' in R to add immutable values to R. R
 technically has values, but the functions that implement them are deeply unfriendly. These functions
 lock variables after creation, stopping them being altered. This adds a degree
 of referential transparency to data, making it easier to reason about what is and isn\'t

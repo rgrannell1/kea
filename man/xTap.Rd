@@ -6,20 +6,20 @@
 x_(  ) $ xTap(fn)
 }
 \arguments{
-\item{fn}{a unary function. The function to apply to the data in the arrow object.}
+\item{fn}{a unary function. The function to apply to the data in the kiwi object.}
 
-\item{val}{an arbitrary value. The contents of the arrow object.}
+\item{val}{an arbitrary value. The contents of the kiwi object.}
 }
 \value{
-An arrow object.
+An kiwi object.
 }
 \description{
-Apply an anonymous function to the contents of an arrow object.
+Apply an anonymous function to the contents of an kiwi object.
 }
 \details{
-\bold{xTap} applies non-arrow functions to be applied to arrow objects.
+\bold{xTap} applies non-kiwi functions to be applied to kiwi objects.
    These functions can be named or unnamed. This allows base functions
-   or external libraries to interoperate with arrow's chaining methods.
+   or external libraries to interoperate with kiwi's chaining methods.
 
    \code{x_(letters) $ xShuffle() $ x_Tap(sort)}
 

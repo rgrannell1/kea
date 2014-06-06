@@ -12,7 +12,7 @@
 #'
 #'     \code{xReject(function (x) x == ' ', str)}
 #'
-#'     Arrow has a general short-hand syntax for creating anonymous functions
+#'     Kiwi has a general short-hand syntax for creating anonymous functions
 #'     already, which works for arbitrary functions.
 #'
 #'     \code{xReject(x := x == ' ', str)}
@@ -46,7 +46,7 @@ x. <- structure(
 			"lambda builder objects cannot be invoked as a " %+%
 			"function."
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 	},
 	class = 'xlambda_builder'
 )

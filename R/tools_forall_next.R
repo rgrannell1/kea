@@ -156,7 +156,7 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'either positives or negatives must be set.'
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 
 	} else if (is.null(test $ positives)) {
 		test $ positives <- list()
@@ -170,7 +170,7 @@ validate_test <- function (invoking_call, test) {
 			message <-
 				'the property ' %+% key %+% ' is missing from the test object.'
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 	}
 
@@ -178,14 +178,14 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'time must be a positive number'
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 	}
 
 	if (length(test $ info) != length(test $ positives) + length(test $ negatives)) {
 		message <-
 			'there must be a one and only one description for each positive or negative test.'
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 	}
 
 	test $ info <- dQuote(test $ info)
@@ -282,7 +282,7 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 					' returned a non length-one result\n' %+%
 					'For the test case ' %+% ddparse(case)
 
-				throw_arrow_error(invoking_call, message)
+				throw_kiwi_error(invoking_call, message)
 			}
 
 			# -- the result of the property must always be true or false.
@@ -294,7 +294,7 @@ test_positives <- function (positives, case, info, state, invoking_call) {
 					' returned a non-logical result\n' %+%
 					'For the test case ' %+% ddparse(case)
 
-				throw_arrow_error(invoking_call, message)
+				throw_kiwi_error(invoking_call, message)
 			}
 
 			# -- the result must be true to pass.
@@ -435,7 +435,7 @@ throw_positive_errors <- function (test_data, state, invoking_call) {
 		message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
 			" were rejected."
 
-		throw_arrow_warning(invoking_call, message)
+		throw_kiwi_warning(invoking_call, message)
 	}
 
 	if (length(state $ positive_fails_for) > 0) {
@@ -503,7 +503,7 @@ throw_positive_errors <- function (test_data, state, invoking_call) {
 			summary %+% "\n\n" %+%
 			cases %+% "\n"
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 
 	}
 }
@@ -529,7 +529,7 @@ throw_negative_errors <- function (test_data, state, invoking_call) {
 		message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
 			" were rejected."
 
-		throw_arrow_warning(invoking_call, message)
+		throw_kiwi_warning(invoking_call, message)
 	}
 
 	if (length(state $ negative_fails_for) > 0) {
@@ -546,7 +546,7 @@ throw_negative_errors <- function (test_data, state, invoking_call) {
 		message <- info %+% "\nFailed after the " %+%
 			ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 
 	}
 }
@@ -730,7 +730,7 @@ when <- function (expr1, ...) {
 		message <-
 			'when must specify expectations.'
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 	}
 
 	out <- list(
@@ -760,7 +760,7 @@ failsWhen <- function (expr1, ...) {
 		message <-
 			'when must specify expectations.'
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 	}
 
 	out <- list(

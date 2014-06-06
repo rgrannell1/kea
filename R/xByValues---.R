@@ -7,7 +7,7 @@
 #'      x_(  ) $ xByLevels()
 #'
 #' @return
-#'      An arrow object containing a list.
+#'      An kiwi object containing a list.
 #'
 #' @family methods
 #'

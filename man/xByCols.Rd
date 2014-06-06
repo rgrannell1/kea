@@ -9,7 +9,7 @@ x_(  ) $ xByCols()
 \item{colls}{a matrix or data frame. The object to convert to column-lists.}
 }
 \value{
-An arrow object containing a list of lists.
+An kiwi object containing a list of lists.
 }
 \description{
 Convert a matrix or data.frame to a collection of columns.

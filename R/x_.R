@@ -15,7 +15,7 @@
 # upon invocation of an x_()$method, the Self function is updated to return the
 # value contained in the x_() object. The Self function should be unbound unless it is called by an x_() function,
 # so an error is thrown if these prototypes are called directly. This workaround is to keep memory usage
-# low by only customising the method when it is being called, rather than when the arrow monad is created.
+# low by only customising the method when it is being called, rather than when the kiwi monad is created.
 
 # Inheritance Diagram
 #
@@ -324,7 +324,7 @@ x_any_proto <- local({
 
 # -------------------------------- Not-quite-a-collection methods -------------------------------- #
 #
-# methods for non-canonical data types in arrow; data frames, tables, matrices and other odd and
+# methods for non-canonical data types in kiwi; data frames, tables, matrices and other odd and
 # sometimes awkward structures. I don't want these to be treated as first-class citizens (particularily data frames),
 # but there is no reason they shouldn't have methods to convert them into a list representation.
 #
@@ -1164,7 +1164,7 @@ x_coll_proto <- local({
 
 # -------------------------------- Function methods -------------------------------- #
 #
-# These methods operate on functions wrapped in the arrow object.
+# These methods operate on functions wrapped in the kiwi object.
 # I anticipate that these methods will be less used, but there's no reason to exclude them
 # entirely. Methods such as Apply work nicely with this style.
 
@@ -1426,11 +1426,11 @@ x_fn_proto <- local({
 
 #' x_
 #'
-#' Generate an arrow object with methods available to it.
+#' Generate an kiwi object with methods available to it.
 #'
 #' @param
 #'    val an arbitrary value. The value to wrap in an
-#'    arrow object.
+#'    kiwi object.
 #'    The methods available depend on the input
 #'    type; functions and collections have the most methods available.
 #'
@@ -1438,20 +1438,20 @@ x_fn_proto <- local({
 #'    ... see above.
 #'
 #' @return
-#'    An object of class "arrow". Internally the object is represented as a
+#'    An object of class "kiwi". Internally the object is represented as a
 #'    list with a single field \bold{x}, but this field cannot be accessed directly.
 #'    Instead, the method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used to
-#'    return the data stored in an arrow object.
+#'    return the data stored in an kiwi object.
 #'
-#'    The methods available to an arrow object depend on the type of the data it
-#'    contains. All arrow objects inherit a handful of methods regardless of their
+#'    The methods available to an kiwi object depend on the type of the data it
+#'    contains. All kiwi objects inherit a handful of methods regardless of their
 #'    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
-#'    anonymous function to be executed on an arrow object.
+#'    anonymous function to be executed on an kiwi object.
 #'
 #'    The two primary groups of methods are collection methods and function methods.
 #'
 #'    Matrices, data frames, and factors have methods for converting them to collections,
-#'    while normal Arrow functions are also available as methods for collections
+#'    while normal Kiwi functions are also available as methods for collections
 #'    and functions.
 #'
 #' @section Corner Cases:
@@ -1467,20 +1467,20 @@ x_fn_proto <- local({
 #' @export
 
 x_ <- MakeFun(function (val) {
-	# Collection any -> Arrow any
+	# Collection any -> Kiwi any
 	# type constructor for the method-chaining data type.
 
 	MACRO( Must $ Not_Be_Missing(val) )
 
 	# -- a useful corner case; there are no methods
-	# -- specifically for arrow objects with arrow
+	# -- specifically for kiwi objects with kiwi
 	# -- objects in them. Makes defining methods easier.
-	if (any(class(val) == 'arrow')) {
+	if (any(class(val) == 'kiwi')) {
 		val
 	} else {
 		# -- cannot just be a val with a class label,
 		# -- as if val is null then x_ will fail.
-		structure(list(x = val), class = 'arrow')
+		structure(list(x = val), class = 'kiwi')
 	}
 })
 
@@ -1556,7 +1556,7 @@ x__ <- function (...) {
 
 #' @export
 
-`$.arrow` <- local({
+`$.kiwi` <- local({
 
 	# some methods are known by their more common
 	# but worse names (like filter, filterNot).
@@ -1609,7 +1609,7 @@ x__ <- function (...) {
 	)
 
 	suggest_similar_method <- local({
-		# -- the spell-checker for Arrow's methods.
+		# -- the spell-checker for Kiwi's methods.
 
 		message <- function (name, contents_are, similar) {
 
@@ -1646,14 +1646,14 @@ x__ <- function (...) {
 				character(0)
 			}
 
-			throw_arrow_error(
+			throw_kiwi_error(
 				message = message(method_name, contents_are, similar))
 		}
 	})
 
 	function (obj, method) {
-		# Arrow a -> symbol -> function
-		# return an arrow method associated with the type a.
+		# Kiwi a -> symbol -> function
+		# return an kiwi method associated with the type a.
 
 		method_name <- paste0(match.call()$method)
 
@@ -1684,8 +1684,8 @@ x__ <- function (...) {
 
 #' @export
 
-print.arrow <- function (x, ...) {
-	# custom print statement for the arrow object.
+print.kiwi <- function (x, ...) {
+	# custom print statement for the kiwi object.
 
 	proto <- get_proto_ref( x[['x']] )
 	contents_are <- proto[[1]][['private']] [['contents_are']]
@@ -1694,7 +1694,7 @@ print.arrow <- function (x, ...) {
 	double_newline <- '\n\n'
 
 	header <- colourise$blue(
-		'[ an arrow object with methods for ' %+% contents_are %+% ' ]')
+		'[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
 
 	cat(
 		header  %+% double_newline %+%

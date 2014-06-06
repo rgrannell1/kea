@@ -10,7 +10,7 @@
 #'      x_(  ) $ xByColkeys()
 #'
 #' @return
-#'      An arrow containing a character vector.
+#'      An kiwi containing a character vector.
 #'
 #' @family methods
 #'

@@ -173,10 +173,10 @@ summate <- local({
 					all( vapply(obj, function (x) {
 						isTRUE(is_generic(x))
 					}, logical(1)) ),
-				`any arrow objects` =
-					any( vapply(obj, function (x) any(class(x) == 'arrow'), logical(1)) ),
-				`all arrow objects` =
-					all( vapply(obj, function (x) any(class(x) == 'arrow'), logical(1)) )
+				`any kiwi objects` =
+					any( vapply(obj, function (x) any(class(x) == 'kiwi'), logical(1)) ),
+				`all kiwi objects` =
+					all( vapply(obj, function (x) any(class(x) == 'kiwi'), logical(1)) )
 			)
 
 			"\n\n" %+% "The actual input was a list or pairlist with these properties:" %+% "\n\n" %+%

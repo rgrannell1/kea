@@ -145,8 +145,8 @@ sd_section(
 	"Methods",
 	paste(
 		"<p>",
-		"These functions involve arrow methods, or are only available as arrow methods.",
-		"Most functions that are only available as methods convert second-class citizens of arrow",
+		"These functions involve kiwi methods, or are only available as kiwi methods.",
+		"Most functions that are only available as methods convert second-class citizens of kiwi",
 		"like data frames and factors to collection representations.",
 		"</p>"
 	),
@@ -191,7 +191,7 @@ sd_section(
 		"a function that combines two values (like the ",
 		"plus operator, the function 'c', or the function rbind), and applies ",
 		"it to a collection of values, ultimately yielding a single value. In general, ",
-		"folds can be in place of tail recursion or loops, and most functions in arrow ",
+		"folds can be in place of tail recursion or loops, and most functions in kiwi ",
 		"can be implemented as a fold.",
 		"</p>"
 	),
@@ -429,7 +429,7 @@ sd_section(
 	paste(
 		"<p>",
 		"These constructors are shorthands for creating functions.",
-		"These included arrow functions and wildcard binary functions.",
+		"These included kiwi functions and wildcard binary functions.",
 		"</p>"
 	),
 	c(

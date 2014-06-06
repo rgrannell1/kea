@@ -1,16 +1,16 @@
 
 # Package Internals
 #
-# Documentation for the internals of Arrow.
+# Documentation for the internals of Kiwi.
 # Every sufficiently large utility library will contain its own utility library.
-# These functions are required to reduce repetition of code when implementing arrow
+# These functions are required to reduce repetition of code when implementing kiwi
 # functions.
 #
 # @keywords internal
 # @rdname pkg-internal
 
 # --------------------- shorthand logical functions --------------------- #
-# these are exported by arrow seperately.
+# these are exported by kiwi seperately.
 
 Truth <- function (...) {
 	True
@@ -302,18 +302,18 @@ load_test_dependencies <- function (envir) {
 	deps <-
 		list(
 			over =
-				arrow ::: over,
+				kiwi ::: over,
 			describe =
-				arrow ::: describe,
+				kiwi ::: describe,
 			when =
-				arrow ::: when,
+				kiwi ::: when,
 			run =
-				arrow ::: run,
+				kiwi ::: run,
 			failsWhen =
-				arrow ::: failsWhen,
+				kiwi ::: failsWhen,
 
 			`+.xforall` =
-				arrow ::: `+.xforall`
+				kiwi ::: `+.xforall`
 		)
 
 	for (key in names(deps)) {

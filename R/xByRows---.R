@@ -5,8 +5,8 @@
 #'
 #' @details
 #'     \bold{xByRows} is the most common way in which data-frames
-#'     are reformatted for use by arrow. Internally dataframes are
-#'     represented as lists of lists, and arrow prefers this explicit representation.
+#'     are reformatted for use by kiwi. Internally dataframes are
+#'     represented as lists of lists, and kiwi prefers this explicit representation.
 #'
 #'     Column names are preserved by \bold{xByRows}.
 #'
@@ -15,7 +15,7 @@
 #'      x_(  ) $ xByRows()
 #'
 #' @return
-#'      An arrow object containing a list of lists.
+#'      An kiwi object containing a list of lists.
 #'
 #' @family methods
 #'

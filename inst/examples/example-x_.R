@@ -1,13 +1,13 @@
 
-# 1. Construct an arrow object.
+# 1. Construct an kiwi object.
 
 x_(letters)
 
-# 2. Get data back out of an arrow object
+# 2. Get data back out of an kiwi object
 
 x_(letters) $ x_Identity()
 
-# 3. Call methods off an arrow object.
+# 3. Call methods off an kiwi object.
 
 csv_string <- "swiss, swiss, german, irish, french, german"
 

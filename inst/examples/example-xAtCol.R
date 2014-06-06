@@ -1,6 +1,6 @@
 
 # 1. Selecting columns in data-frame like structures
-#    Arrow eshews data frames, but works well with lists of rows.
+#    Kiwi eshews data frames, but works well with lists of rows.
 #    All
 
 df <- xList[ list(ith, letters[ith], LETTERS[ith]), ith <- 1:26 ]
