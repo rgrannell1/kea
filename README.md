@@ -93,15 +93,17 @@ function calls to transform immutable data.
 
 Most types have operations that join multiple values into a new, compositve value; numbers
 have addition and multiplication, strings have paste and lists have concatenation. Since functions
-are values too it stands to reason that there are similar functions on functions.
+are values too it stands to reason that there are similar operations on functions. Function
+composition joins multiple functions by successively piping input from one to the next.
 
+```js
+x__(1, 2, 3, 4, 5, 6) $ xMap(sqrt %then% toString)
+```
 
-composition of integers, analogous to funtion composition.
-
-
-
-Partial application you specialise a general function for one task. It can be a useful form
-of code reuse, and prevents throwaway anonymous functions.
+Kiwi implements lots of higher-order functions and general collection functions. These include
+functions like Map, Fold, Select, Iterate, but there are also many functions not commonly found
+in other libraries. Partial application you specialise these general function for one
+task. It can be a useful form of code reuse, and prevents throwaway anonymous functions.
 
 ```js
 # -- grab strings with the pattern 'face' in them.
@@ -174,17 +176,6 @@ In the call xRepeat(-1, 1:10)
 '
 ```
 
-
-
-
-* Every commonly used higher-order-function is included in Kiwi, including but not limited to
-map, fold, select, flatmap and iterate.
-
-* Kiwi includes several mathematical functions, like the set operations and
-combinatoric functions.
-
-* Function composition and partial application are encouraged as standard operations.
-
 ## Licensing
 
 **Kiwi** is released under the terms of the GNU General Public License version 3.
@@ -200,17 +191,6 @@ http://semver.org/
 ## Authors
 
 Ryan Grannell.
-
-
-
-
-
-
-
-
-
-
-
 
 ## What Does Kiwi Look Like?
 
