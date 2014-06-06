@@ -29,6 +29,7 @@ Test if a string matches a regular expression.
 
 \section{Corner Cases}{
 
+     the empty character vector is returned for when \bold{str} is empty.
 }
 \examples{
 

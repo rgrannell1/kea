@@ -12,6 +12,8 @@ xUnit_(...)
 \item{coll}{an list, pairlist, or vector of any length.
    The collection to return the length-zero
    unit element of.}
+
+\item{...}{see above}
 }
 \value{
 Returns null if \bold{coll} is a pairlist, a

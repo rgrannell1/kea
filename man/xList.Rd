@@ -16,7 +16,7 @@ Generate a list using set-builder notation.
 \bold{xList} allows for shorthand construction of lists using a form of set-builder notation.
    The notation typically looks like
 
-   \code{S = {2.x | x ε 1..100, x^2 > 3}}
+   \code{S = {2.x | x e 1..100, x^2 > 3}}
 
    which reads "S is the set of numbers '2x' from the
    numbers 1...100, where x^2 is larger than three".

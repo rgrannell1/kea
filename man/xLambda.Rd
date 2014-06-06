@@ -67,8 +67,8 @@ gcd(156, 87)
 
 # 2. Boolean logic using only functions.
 
-true  <- x := y := x # λx.λy.x
-false <- x := y := y # λx.λy.y
+true  <- x := y := x # \\x.\\y.x
+false <- x := y := y # \\x.\\y.y
 
 # if the function is 'true', the first value True is returned.
 # if the function is 'false', the second value False is returned.

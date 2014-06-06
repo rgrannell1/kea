@@ -203,7 +203,7 @@ try_read <- local({
 				errmessage <- strsplit(errmessage, '\n')[[1]]
 				errmessage <- paste0('    ', errmessage, collapse = '\n')
 
-				thrown_kiwi_error(
+				throw_kiwi_error(
 					overview %+% inner_call %+% errmessage, invoking_call)
 			}
 		)

@@ -1,5 +1,5 @@
 
-#' $ xTap
+#' xTap
 #'
 #' Apply an anonymous function to the contents of an kiwi object.
 #'
@@ -27,7 +27,7 @@
 #'      x_(  ) $ xTap(fn)
 #'
 #' @return
-#'      An kiwi object.
+#'      A kiwi object.
 #'
 #' @family methods
 #'

@@ -1,5 +1,5 @@
 
-#' $ xByRows
+#' xByRows
 #'
 #' Convert a matrix or data.frame to a collection of rows.
 #'
@@ -15,7 +15,7 @@
 #'      x_(  ) $ xByRows()
 #'
 #' @return
-#'      An kiwi object containing a list of lists.
+#'      A kiwi object containing a list of lists.
 #'
 #' @family methods
 #'

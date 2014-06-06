@@ -1,5 +1,5 @@
 
-#' $ xByColkeys
+#' xByColkeys
 #'
 #' Convert a matrix or data.frame to a collection of column names.
 #'
@@ -10,7 +10,7 @@
 #'      x_(  ) $ xByColkeys()
 #'
 #' @return
-#'      An kiwi containing a character vector.
+#'      A kiwi containing a character vector.
 #'
 #' @family methods
 #'

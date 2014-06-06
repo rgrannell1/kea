@@ -1,20 +1,4 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
-
-message("xChop")
-
-	forall(
-		"chopping into one slice is sortof identity",
-		test_cases$collection,
-		xChop(1, coll) %equals% list(as.list(coll)),
-		given =
-			length(coll) > 0
-	)
-
-
 kiwi ::: load_test_dependencies(environment())
 is_collection <- kiwi ::: is_collection
 

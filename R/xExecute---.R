@@ -1,5 +1,5 @@
 
-#' $ xExecute
+#' xExecute
 #'
 #' Execute a (possibly side-effectful) function before
 #' continuing with the previous method result.

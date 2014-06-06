@@ -1,5 +1,5 @@
 
-#' $ xByCols
+#' xByCols
 #'
 #' Convert a matrix or data.frame to a collection of columns.
 #'
@@ -10,7 +10,7 @@
 #'     colls a matrix or data frame. The object to convert to column-lists.
 #'
 #' @return
-#'      An kiwi object containing a list of lists.
+#'      A kiwi object containing a list of lists.
 #'
 #' @family methods
 #'
