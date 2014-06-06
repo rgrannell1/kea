@@ -114,6 +114,8 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 60.8
 ```
 
+#### Arrow is Expressive
+
 It is easier to write a sentence from left to right than from the middle out; writing programs
 as chains of functions is similarily natural.
 
@@ -137,12 +139,14 @@ x_(letters) $ xMap(letter := {
 })
 ```
 
-Alternatively you could make this collection using list-comprehensions; syntax sugar for creating
-new collections.
+You could also create this collection using collection-comprehensions; syntax sugar for creating
+new collections by filtering, joining & transforming existing collections.
 
 ```js
 xList[ list(l, toupper(l)), l <- letters ]
 ```
+
+
 
 
 
