@@ -165,6 +165,43 @@ xJoin( list(list(1, 2), list(3, 4)) )
 
 ### Kiwi is Consistent
 
+R is frustrating.
+
+
+
+
+
+```js
+
+xTake(-1, 1:3)
+
+'
+Error:
+The argument matching “num” must be in the range {0...Inf}.
+
+The actual input was a double vector with these properties:
+
+length:             1
+no positive:        0
+no zero:            0
+no negative:        1
+no na:              0
+no nan:             0
+no whole:           1
+no infinite:        0
+classes:            "numeric"
+
+Thrown from xTake
+In the call xTake(-1, 1:3)
+'
+```
+
+
+
+
+
+
+
 * Functions don't discriminate between different types of vectors; lists, pairlists
 and typed vectors are all interchangable.
 
