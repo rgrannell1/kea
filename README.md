@@ -146,9 +146,12 @@ new collections by filtering, joining & transforming existing collections.
 xList[ list(l, toupper(l)), l <- letters ]
 ```
 
+There are two approaches to making a function that can take a variable number of arguments. The first is
+to use the ellipsis parametre (...), which gathers up any arguments passed to a function. The second is to
+simply pass one list of arguments to the function. Both approaches have their merits and pitfalls.
 
-
-
+The first approach - using ellipsis - is less verbose, but less flexible. The second approach - using a
+list or arguments- is conversely more flexible, but more verbose.
 
 ### Arrow is Expressive
 
