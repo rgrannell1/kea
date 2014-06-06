@@ -45,7 +45,62 @@ steps. You don't need to worry about odd output of one function suddenly killing
 the next, as corner cases are consistent within Kiwi.
 
 ```js
-# method example
+# // Data From Hadley Wickham's https://github.com/hadley/data-stride
+
+asRow <- (...) := {
+	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
+}
+
+cocaineData <- x_(list(
+	asRow("MA", 74,  3,  7,  180),
+	asRow("NY", 83, 34, 10,  960),
+	asRow("SC", 81, 47,  6, 1800),
+	asRow("NY", 50, 27, 12, 1000),
+	asRow("NY", 81,  1, 11,  100),
+	asRow("FL", 57,  1,  8,  100),
+	asRow("NJ", 47,  6,  5,  400),
+	asRow("FL", 37, 52,  3, 1600),
+	asRow("PA", 74,  2,  1,  200)
+))
+
+# 1. get and sort the state seisure frequencies
+
+cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
+
+'
+list(
+    list("MA", 1),
+    list("SC", 1),
+    list("NJ", 1),
+    list("PA", 1),
+    list("FL", 2),
+    list("NY", 3))
+'
+
+# 2. group the seizures by state.
+stateSeizures <- cocaineData $ xGroupBy(x. $ state)
+
+# 3. get the largest intrastate seizures by price
+largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
+    xMaxBy(x. $ price, group)
+})
+
+'
+list(
+	list(state = "MA", potency = 74, weight = 3, month = 7,  price = 180),
+	list(state = "NY", potency = 50, weight = 27, month = 12, price = 1000),
+	list(state = "SC", potency = 81, weight = 47, month = 6,  price = 1800),
+	list(state = "FL", potency = 37, weight = 5", month = 3,  price = 1600),
+	list(state = "NJ", potency = 47, weight = 6,  month = 5,  price = 400),
+	list(state = "PA", potency = 74, weight = 2,  month = 1,  price = 200)
+)
+'
+
+# 4. get the average potency of the largest seizure
+
+largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
+
+60.8
 ```
 
 R was an early language with anonymous, first-class functions. They are a common part of the
@@ -192,83 +247,4 @@ http://semver.org/
 
 Ryan Grannell.
 
-## What Does Kiwi Look Like?
-
-First, a table of Kiwi's (optional) new syntax.
-
-```js
-# function shorthands
-x := 2 * x + 1                               # instead of function (x) 2 * x + 1
-x. $ Species                                 # instead of function (x) x $ Species
-
-# list comprehensions
-xList[x, x <- 1:10, x %% 2 == 0]             # generates 2, 4, ..., 10
-
-# function composition
-(unlist %then% mean)(list(1, 2, 3))          # instead of ( function (x) mean(unlist(x)) )(list(1, 2, 3))
-(is.integer %or% is.double %or% is.list)(1)  # instead of is.integer(1) || is.double(1) || is.list(1)
-
-# methods!
-x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
-```
-
 With that out the way, here is a simple use of Kiwi to examine cocaine seizure data.
-
-```js
-# // Data From Hadley Wickham's https://github.com/hadley/data-stride
-
-asRow <- (...) := {
-	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
-}
-
-cocaineData <- x_(list(
-	asRow("MA", 74,  3,  7,  180),
-	asRow("NY", 83, 34, 10,  960),
-	asRow("SC", 81, 47,  6, 1800),
-	asRow("NY", 50, 27, 12, 1000),
-	asRow("NY", 81,  1, 11,  100),
-	asRow("FL", 57,  1,  8,  100),
-	asRow("NJ", 47,  6,  5,  400),
-	asRow("FL", 37, 52,  3, 1600),
-	asRow("PA", 74,  2,  1,  200)
-))
-
-# 1. get and sort the state seisure frequencies
-
-cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
-
-'
-list(
-    list("MA", 1),
-    list("SC", 1),
-    list("NJ", 1),
-    list("PA", 1),
-    list("FL", 2),
-    list("NY", 3))
-'
-
-# 2. group the seizures by state.
-stateSeizures <- cocaineData $ xGroupBy(x. $ state)
-
-# 3. get the largest intrastate seizures by price
-largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
-    xMaxBy(x. $ price, group)
-})
-
-'
-list(
-	list(state = "MA", potency = 74, weight = 3, month = 7,  price = 180),
-	list(state = "NY", potency = 50, weight = 27, month = 12, price = 1000),
-	list(state = "SC", potency = 81, weight = 47, month = 6,  price = 1800),
-	list(state = "FL", potency = 37, weight = 5", month = 3,  price = 1600),
-	list(state = "NJ", potency = 47, weight = 6,  month = 5,  price = 400),
-	list(state = "PA", potency = 74, weight = 2,  month = 1,  price = 200)
-)
-'
-
-# 4. get the average potency of the largest seizure
-
-largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
-
-60.8
-```
