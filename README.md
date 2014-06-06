@@ -83,32 +83,24 @@ xJoin_(list(1, 2), list(3, 4))
 xJoin( list(list(1, 2), list(3, 4)) )
 ```
 
-### Kiwi is Functional
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 ### Kiwi is Functional
 
-Kiwi is a functional programming library; it uses higher-order
-functions and successive function calls to transform immutable data.
+Kiwi is a functional programming library; it uses higher-order functions and successive
+function calls to transform immutable data.
+
+Partial application you specialise a general function for one task. It can be a useful form
+of code reuse, and cuts down on throwaway anonymous functions.
+
+```js
+# -- grab strings with the pattern 'face' in them.
+x__('facebook', 'facetime', 'faceoff', 'facile') $ xSelect(xFix_(xIsMatch, 'face'))
+```
+
+
+
 
 Fold is the king of functionals, powerful enough to implement Map, Select and
 the other common functionals. In most languages Fold executes in time linearly-propotional
