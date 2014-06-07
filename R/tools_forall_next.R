@@ -251,19 +251,7 @@ parameterise <- function (exprgroups, params, envir) {
 
 
 
-# -- evaluate a dangerous expression, on error return a default value.
-tryDefault <- function (expr, val) {
-	tryCatch(
-		expr,
-		warning = function (warn) val,
-		error   = function (err)  val
-	)
-}
 
-add_field <- function (coll, field, val) {
-	coll [[field]] <- val
-	coll
-}
 
 
 

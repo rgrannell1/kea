@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("forall positive controls")
+message("forall-next (+)")
 
 	over(a, b) +
 	describe("addition is commutative") +
@@ -16,8 +16,34 @@ message("forall positive controls")
 	over(a) +
 	describe("multiplication by 1 is identity") +
 	when(
-		is.integer(a) && length(a) == 1,
+		is.numeric(a) && length(a) == 1,
 		a * 1 == a
 	) +
 	run()
 
+message("forall-next (-)")
+
+	assert_throws_error <- function (expr) {
+
+		res <- tryDefault(expr, True)
+
+		if (!isTRUE(res)) {
+			stop('error in test')
+		}
+	}
+
+
+	assert_throws_error({
+
+		over(a) +
+
+		describe('a is not a') +
+		when(
+			is.numeric(a) && length(a) == 1 &&
+			!is.nan(a),
+			a != a
+		) +
+
+		run()
+
+	})

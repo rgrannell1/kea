@@ -197,6 +197,23 @@ call_with_params <- function (fnname, fn) {
 # to dedottify my code.
 match_fn <- match.fun
 
+# -- evaluate a dangerous expression, on error return a default value.
+tryDefault <- function (expr, val) {
+	tryCatch(
+		expr,
+		warning = function (warn) val,
+		error   = function (err)  val
+	)
+}
+
+# -- set a field on list.
+#
+
+add_field <- function (coll, field, val) {
+	coll [[field]] <- val
+	coll
+}
+
 # --------------------- environment manipulation --------------------- #
 
 # @section Object:
