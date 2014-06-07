@@ -426,11 +426,11 @@ throw_property_error <- function (test_data, state, invoking_call) {
 
 # Everything worked. Report the fact.
 
-state_sucess <- function (positive_state, negative_state, info) {
+state_sucess <- function (states, info) {
 	# -- report that the tests all passed.
 
-	positive_run <- positive_state $ tests_run
-	negative_run <- negative_state $ tests_run
+	positive_run <- states [[1]] $ tests_run
+	negative_run <- states [[2]] $ tests_run
 
 	# -- info is vectorised (many descriptions), create newline for each.
 	msg <- paste0(info %+% " passed! (" %+% positive_run %+% ")", collapse = '\n')
@@ -438,6 +438,24 @@ state_sucess <- function (positive_state, negative_state, info) {
 
 }
 
+
+
+
+	positive_test <- function (prop, case) {
+		do.call(prop, case)
+	}
+
+	negative_test <- function (prop, case) {
+		# -- return false if the test doesn't throw an error. Otherwise
+		# -- return true.
+		tryDefault(
+			{
+				prop(case)
+				False
+			},
+			True
+		)
+	}
 
 
 
@@ -471,10 +489,6 @@ execute_test <- function (test) {
 	negatives  <- test $ negatives
 	time       <- test $ time
 
-	# -- add parametres to each failure and property.
-	fn_positives   <- parameterise(positives, params, parent_frame)
-	fn_negatives   <- parameterise(negatives, params, parent_frame)
-
 	# -- the state that is modified after running several tests.
 	# -- failed_indices needed to identify failing expression & associated description.
 
@@ -488,36 +502,42 @@ execute_test <- function (test) {
 		)
 	}
 
-	positive_state <- negative_state <- initial_state()
+	# -- add parametres to each failure and property.
+	group_types <- Map(
+		function (group) {
+			parameterise(group, params, parent_frame)
+		},
+		list(positives, negatives)
+	)
+
+	states <- list(
+		positive = initial_state(),
+		negative = initial_state()
+	)
+
+	testers <- list(
+		positive_test,
+		negative_test
+	)
 
 	# -- test random test cases for a preset amount of time.
-
-	positive_test <- function (prop, case) {
-		do.call(prop, case)
-	}
-
-	negative_test <- function (prop, case) {
-		# -- return false if the test doesn't throw an error. Otherwise
-		# -- return true.
-		tryDefault(
-			{
-				prop(case)
-				False
-			},
-			True
-		)
-	}
 
 	time_left <- xStopwatch(time)
 
 	while (time_left()) {
 
 		# -- generate a random test case.
-		case <- yield_case(params)
+		case   <- yield_case(params)
+		states <- Map(
+			function (test, group, state) {
 
-		positive_state <- run_test(positive_test, fn_positives, positive_state, case, info, invoking_call)
-		negative_state <- run_test(negative_test, fn_negatives, negative_state, case, info, invoking_call)
+				run_test(test, group, state, case, info, invoking_call)
 
+			},
+			testers,
+			group_types,
+			states
+		)
 	}
 
 	test_data <- list(info = info, time = time)
@@ -535,13 +555,12 @@ execute_test <- function (test) {
 					add_field(test_data, 'properties', group), state, invoking_call)
 			}
 
-
 		},
-		list(positives,      negatives),
-		list(positive_state, negative_state)
+		list(positives, negatives),
+		states
 	)
 
-	state_sucess(positive_state, negative_state, info)
+	state_sucess(states, info)
 	invisible(Null)
 }
 
