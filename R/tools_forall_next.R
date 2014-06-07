@@ -459,7 +459,10 @@ state_sucess <- function (states, info) {
 	negative_run <- states [[2]] $ tests_run
 
 	# -- info is vectorised (many descriptions), create newline for each.
-	msg <- paste0(info %+% " passed! (" %+% positive_run %+% ")", collapse = '\n')
+	msg <- paste0(info %+% " passed! (" %+%
+		positive_run %+% ' +, ' %+% negative_run %+%
+	" -)", collapse = '\n')
+
 	message(msg)
 
 }
