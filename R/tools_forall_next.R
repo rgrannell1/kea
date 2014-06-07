@@ -1,4 +1,12 @@
 
+# -------------------------------- from_stream -------------------------------- #
+#
+# from_stream emits random values.
+#
+#
+#
+#
+
 from_stream <- function (...) {
 	# -- yield a single valid R object.
 
@@ -136,6 +144,25 @@ from_stream <- function (...) {
 	sampler <- this[[ rsample(implemented, size = 1) ]]
 	sampler()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -440,21 +467,30 @@ state_sucess <- function (states, info) {
 
 
 
-	positive_test <- function (prop, case) {
-		do.call(prop, case)
-	}
 
-	negative_test <- function (prop, case) {
-		# -- return false if the test doesn't throw an error. Otherwise
-		# -- return true.
-		tryDefault(
-			{
-				prop(case)
-				False
-			},
-			True
-		)
-	}
+
+
+
+
+
+positive_test <- function (prop, case) {
+	do.call(prop, case)
+}
+
+negative_test <- function (prop, case) {
+	# -- return false if the test doesn't throw an error. Otherwise
+	# -- return true.
+	tryDefault(
+		{
+			prop(case)
+			False
+		},
+		True
+	)
+}
+
+
+
 
 
 
@@ -514,6 +550,7 @@ execute_test <- function (test) {
 		negative = initial_state()
 	)
 
+	# -- testers take a property, and a test case, and return a boolean value.
 	testers <- list(
 		positive_test,
 		negative_test
@@ -541,6 +578,7 @@ execute_test <- function (test) {
 
 	test_data <- list(info = info, time = time)
 
+	# -- check that the correct number of tests were run, and that no tests failed.
 	Map(
 		function (group, state) {
 
@@ -574,17 +612,26 @@ execute_test <- function (test) {
 
 # -------------------------------- Grammar -------------------------------- #
 
-# describe(str):                       add a description (singleton field).
-# over(...symbols):              give the parametres to be bound (singleton field).
-
-# check(expr):                   add a single predicate to test.
-# checkWhen(expr, expr):         add a single predicate to test of a subset of the domain.
-
-# fails(expr, [str]):            add a single function to test for expected failure.
-# failsWhen(expr, expr, [str]):  add a single function to test for expected failure, over a limited domain.
-
-# chain with '+': it('this is a test') + over(x, y) + go()
+# describe(str)                 add a description to a property group. Printed
+#                                on error.
 #
+# over(...symbols)              give the parametres to be bound to random values
+#                                (singleton field).
+#
+# when(expr, ...expr)           when a predicate is true of the randomly generated test cases,
+#                               check that several properties are also true.
+#
+# failsWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
+#                               check that several functions fail.
+#
+# run(num)                      execute the unit test object, set the time to execute for.
+#
+# chains with +
+
+
+
+
+
 
 # -- the description
 #

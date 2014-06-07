@@ -13,7 +13,7 @@
 #'    numbers 1...100, where x^2 is larger than three".
 #'    In general the syntax is of the form
 #'
-#'    \code{S = {output expression, variable ε set, predicate expression}}
+#'    \code{S = {output expression, variable e set, predicate expression}}
 #'
 #'    Kiwi's syntax is similar
 #'
