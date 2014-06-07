@@ -18,9 +18,6 @@ Truth <- function (...) {
 Falsity <- function (...) {
 	False
 }
-Moot <- function (...) {
-	Na
-}
 
 # --------------------- safe replacements --------------------- #
 
@@ -55,6 +52,7 @@ is_na <- function (coll) {
 }
 
 elem_is_na <- function (coll) {
+
 	if (is.atomic(coll)) {
 		is.na(coll)
 	} else if (is.list(coll) || identical(coll, NULL)) {
@@ -74,6 +72,7 @@ elem_is_na <- function (coll) {
 }
 
 elem_is_nan <- function (coll) {
+
 	if (is.atomic(coll)) {
 		is.nan(coll)
 	} else if (is.list(coll) || identical(coll, Null)) {
@@ -146,11 +145,7 @@ one_of <- function (coll) {
 # @keywords internal
 # @rdname pkg-internal
 
-'%equals%' <- function (a, b) {
-	# are two values identical?
-
-	identical(a, b)
-}
+'%equals%' <- function (a, b) identical(a, b)
 
 as_formals <- function (params) {
 	structure(
@@ -185,8 +180,6 @@ call_with_params <- function (fnname, fn) {
 # @rdname pkg-internal
 
 "%+%" <- function (x, y) {
-	# javascript-style string concatenation.
-
 	paste0(x, y, sep = "")
 }
 

@@ -56,7 +56,7 @@ add_x_method <- function (env, fn, fixed) {
 	is_unchaining <- grepl('^x_', fn_name)
 	is_variadic   <- grepl('_$', fn_name)
 
-	fn <- match.fun(fn_sym)
+	fn <- match_fn(fn_sym)
 
 	if (!any( fixed == names(formals(fn)) )) {
 		stop('not a parametre of ' %+% paste0(fn_sym))
@@ -1628,8 +1628,8 @@ x__ <- function (...) {
 			# given an incorrect method name throw an error
 			# suggesting a similar
 
-			proto <- get_proto_ref(val)
-			method_name <- method_name
+			proto             <- get_proto_ref(val)
+			method_name       <- method_name
 
 			candidate_methods <- setdiff(proto[[2]], 'private')
 
@@ -1685,20 +1685,16 @@ x__ <- function (...) {
 #' @export
 
 print.kiwi <- function (x, ...) {
-	# custom print statement for the kiwi object.
 
-	proto <- get_proto_ref( x[['x']] )
+	proto        <- get_proto_ref( x[['x']] )
 	contents_are <- proto[[1]][['private']] [['contents_are']]
-
-	single_newline <- '\n'
-	double_newline <- '\n\n'
 
 	header <- colourise$blue(
 		'[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
 
 	cat(
-		header  %+% double_newline %+%
-		'$x_()' %+% single_newline)
+		header  %+% '\n\n' %+%
+		'$x_()' %+% '\n')
 
 	print(x $ x_Identity(), ...)
 }
