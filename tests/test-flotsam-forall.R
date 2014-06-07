@@ -26,6 +26,14 @@ message("forall-next (-)")
 
 	assert_throws_error <- function (expr) {
 
+		tryDefault <- function (expr, val) {
+			tryCatch(
+				expr,
+				warning = function (warn) val,
+				error   = function (err)  val
+			)
+		}
+
 		res <- tryDefault(expr, True)
 
 		if (!isTRUE(res)) {
