@@ -233,6 +233,10 @@ tryDefault <- function (expr, val) {
 	)
 }
 
+add_field <- function (coll, field, val) {
+	coll [[field]] <- val
+	coll
+}
 
 
 
@@ -240,13 +244,13 @@ tryDefault <- function (expr, val) {
 run_test <- function (tester, groups, state, case, info, invoking_call) {
 	# -- there can be several when(pred, exp1, exp2) groups.
 
-	for (group_ith in seq_along(state $ property)) {
+	for (group_ith in seq_along(groups)) {
 
-		group       <- groups[group_ith]
+		group       <- groups[[group_ith]]
 		group_pred  <- group[[1]]
 		group_props <- group[2:length(group)]
 
-		is_match <- tryDefault(do.call(group_pred	, case), False)
+		is_match <- tryDefault(do.call(group_pred, case), False)
 
 		state $ case_examined <- state $ case_examined + 1
 
@@ -262,7 +266,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 			has_prop <- tester(prop, case)
 
 			# -- to aid debugging.
-			if (length(has_property) != 1) {
+			if (length(has_prop) != 1) {
 
 				message <-
 					info %+% '\n' %+%
@@ -274,7 +278,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 			}
 
 			# -- the result of the property must always be true or false.
-			if (!isTRUE(has_property) && !identical(has_property, False)) {
+			if (!isTRUE(has_prop) && !identical(has_prop, False)) {
 
 				message <-
 					info %+% '\n' %+%
@@ -363,16 +367,8 @@ throw_property_error <- function (test_data, state, invoking_call) {
 	fails_for  <- state $ fails_for
 
 	# -- remove names for readability.
+
 	case_string <- vapply(lapply(fails_for, unname), ddparse, character(1))[[1]]
-
-	message <- "\nFailed after the " %+%
-		ith_suffix(after) %+% " case!\n\n" %+%
-		summary %+% "\n\n" %+%
-		cases %+% "\n"
-
-	throw_kiwi_error(message, invoking_call)
-
-
 
 	indices   <- state $ failed_indices
 	num_fails <- as.numeric(as.list( table(sapply( indices, function (triple) {
@@ -410,7 +406,14 @@ throw_property_error <- function (test_data, state, invoking_call) {
 		descriptions
 	)
 
-	paste(paragraphs, collapse = '\n\n')
+	summary <- paste(paragraphs, collapse = '\n\n')
+
+	message <- "\nFailed after the " %+%
+		ith_suffix(after) %+% " case!\n\n" %+%
+		summary %+% "\n\n" %+%
+		cases %+% "\n"
+
+	throw_kiwi_error(message, invoking_call)
 
 }
 
@@ -489,13 +492,13 @@ execute_test <- function (test) {
 
 	# -- test random test cases for a preset amount of time.
 
-	time_left <- xStopwatch(time)
-
 	positive_test <- function (prop, case) {
 		do.call(prop, case)
 	}
 
 	negative_test <- function (prop, case) {
+		# -- return false if the test doesn't throw an error. Otherwise
+		# -- return true.
 		tryDefault(
 			{
 				prop(case)
@@ -505,10 +508,7 @@ execute_test <- function (test) {
 		)
 	}
 
-	add_field <- function (coll, field, val) {
-		coll [[field]] <- val
-		coll
-	}
+	time_left <- xStopwatch(time)
 
 	while (time_left()) {
 
@@ -520,30 +520,26 @@ execute_test <- function (test) {
 
 	}
 
-	test_data <- list(
-		info      = info,
-		time      = time
+	test_data <- list(info = info, time = time)
+
+	Map(
+		function (group, state) {
+
+			if (length(group) > 0 && state $ tests_run == 0) {
+				throw_exhaustion_warning(test_data, state, info, invoking_call)
+			}
+
+			if (length(state $ fails_for) > 0) {
+				# -- throw errors for +, - if required.
+				throw_property_error(
+					add_field(test_data, 'properties', group), state, invoking_call)
+			}
+
+
+		},
+		list(positives,      negatives),
+		list(positive_state, negative_state)
 	)
-
-
-	if (positive_state $ tests_run == 0) {
-		throw_exhaustion_warning(test_data, positive_state, info, invoking_call)
-	}
-	if (negative_state $ tests_run == 0) {
-		throw_exhaustion_warning(test_data, positive_state, info, invoking_call)
-	}
-
-	if (length(positives) > 0 && length(positive_state $ fails_for) > 0) {
-		throw_property_error(
-			add_field(test_data, 'properties', positives),
-			positive_state, invoking_call)
-	}
-
-	if (length(negatives) > 0 && length(negative_state $ fails_for) > 0) {
-		throw_property_error(
-			add_field(test_data, 'properties', negatives),
-			negative_state, invoking_call)
-	}
 
 	state_sucess(positive_state, negative_state, info)
 	invisible(Null)
