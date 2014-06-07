@@ -307,7 +307,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 				)
 
 				state $ failed_indices <-
-					c(state $ failed_indices, list(failed_indices))
+					c(state $ failed_indices, list(failed_index))
 			}
 		}
 	}
@@ -381,15 +381,15 @@ throw_property_error <- function (test_data, state, invoking_call) {
 
 	expressions  <- lapply(which_failed, function (triple) {
 
-		ith <- triple $ ith
+		ith <- triple $ group
 		# -- to account for the predicate at the head.
-		jth <- triple $ jth + 1
+		jth <- triple $ property + 1
 
 		test_data $ properties[[ith]][[jth]]
 	})
 
 	descriptions <- lapply(which_failed, function (triple) {
-		test_data $ info[[ triple $ ith ]]
+		test_data $ info[[ triple $ group ]]
 	})
 
 	paragraphs <- Map(
@@ -411,10 +411,9 @@ throw_property_error <- function (test_data, state, invoking_call) {
 	message <- "\nFailed after the " %+%
 		ith_suffix(after) %+% " case!\n\n" %+%
 		summary %+% "\n\n" %+%
-		cases %+% "\n"
+		case_string %+% "\n"
 
-	throw_kiwi_error(message, invoking_call)
-
+	throw_kiwi_error(invoking_call, message)
 }
 
 
