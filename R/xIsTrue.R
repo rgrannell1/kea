@@ -19,7 +19,7 @@
 #'
 #'     \code{if (mybool) 1 else 2}
 #'
-#'     The correct way to test for truth in Arrow is \bold{xIsTrue}, which will
+#'     The correct way to test for truth in Kiwi is \bold{xIsTrue}, which will
 #'     return false in this case since logical zero isn't the value true.
 #'
 #'     \code{if (xIsTrue(mybool)) 1 else 2}

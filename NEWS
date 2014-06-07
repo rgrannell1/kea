@@ -1,9 +1,47 @@
 
-Arrow 0.15.0
+Kiwi 0.16.0
+-----------------------------------------------------------------------------
+Date: 2014-6-7
+
+A very minor update. Renamed library from it's working name (Arrow) to
+a final name (Kiwi), refactored internals
+.
+Documentation:
+
+* Removed non-ascii characters from documentation (lambda, epsilon).
+
+* Renamed method-only function's title from $ xMethod to xMethod.
+
+* Rewrote readme.
+
+Package Internals
+
+* Refactored forall-next to remove code duplication.
+
+* forall-next now works correctly for negative tests.
+
+* added additional tests for forall-next itself.
+
+* added negative test to xAt.
+
+* added tests to xChunk, xDo, xMap, xSelect.
+
+
+
+
+
+
+
+
+
+
+
+
+Kiwi 0.15.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5
 
-This release adds some rigourous tests to arrow, and fixes several bugs.
+This release adds some rigourous tests to kiwi, and fixes several bugs.
 
 Bug-Fixes:
 
@@ -24,7 +62,17 @@ xNoneOf, xNotEmpty, xPoll, xReject, xSecondOf, xTabulate, xThirdOf,
 xTruth, xVersion, xZip and xZipKeys.
 
 
-Arrow 0.14.0
+
+
+
+
+
+
+
+
+
+
+Kiwi 0.14.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5
 
@@ -37,11 +85,11 @@ Enhancements:
 * The method $ xExecute now passes its left-hand side self argument to its
 anonymous function (the lambda was previous zero-argument).
 
-* Removed xVectorise/xVectorize; future versions of Arrow will include
+* Removed xVectorise/xVectorize; future versions of Kiwi will include
 automatic partial application (or at the very least pre-currying), so
 vectorise will become redundant.
 
-* Removed xGraft, which allowed custom methods to be added to the arrow
+* Removed xGraft, which allowed custom methods to be added to the kiwi
 call chain. It was untested, unusued, and barely more useful than xTap.
 
 Documentation:
@@ -75,13 +123,20 @@ function.
 
 * renamed make_formals to as_formals, removed the 'as_parametres' alias for as_formals
 
-* removed join-env, is_fn_matchable; neither was ever called by arrow.
+* removed join-env, is_fn_matchable; neither was ever called by kiwi.
 
 
 
 
 
-Arrow 0.13.0
+
+
+
+
+
+
+
+Kiwi 0.13.0
 -----------------------------------------------------------------------------
 Date: 2014-6-2
 
@@ -126,7 +181,7 @@ effective for simple test cases, but more work is required for negative tests.
 
 
 
-Arrow 0.12.0
+Kiwi 0.12.0
 -----------------------------------------------------------------------------
 Date: 2014-5-28
 
@@ -141,12 +196,12 @@ Enhancements:
 * Added 'all empty' and 'any empty' property tests to value summation for lists,
 and dimension reporting for data frames.
 
-* Added property tests for inner arrow objects in summated lists.
+* Added property tests for inner kiwi objects in summated lists.
 
 * Removed special handling of NA's from xElemIs and xElemNot, but this may be
 re-implemented in the future.
 
-* Removed the x_ method from Arrow, since x_Identity does the same thing
+* Removed the x_ method from Kiwi, since x_Identity does the same thing
 in a more obvious way.
 
 Bug-Fixes:
@@ -171,7 +226,7 @@ Package Internals:
 to dangerous functions, and for missing 'missing' functions, and removed an
 older similar test suite.
 
-* Implemented a new testing tool for Arrow, which should give more complete
+* Implemented a new testing tool for Kiwi, which should give more complete
 test coverage and both positive and negative controls. The syntax is also
 improved. xSelect currently uses this tool exclusively, and its use will be
 expanded in future versions.
@@ -194,7 +249,7 @@ fix their null corner case.
 * Added a minor fix to ith_suffix corner case which now supports infinite
 values, in the unlikely case they will arise.
 
-* throw_arrow_warning now actually throws a warning, not an error. The function
+* throw_kiwi_warning now actually throws a warning, not an error. The function
 was not used, so no bug fixes are required.
 
 
@@ -207,7 +262,7 @@ was not used, so no bug fixes are required.
 
 
 
-Arrow 0.11.0
+Kiwi 0.11.0
 -----------------------------------------------------------------------------
 Date: 2014-5-19
 
@@ -218,9 +273,9 @@ Enhancements:
 * Removed xColUnit, xRowUnit, xFullUnit. Although theoretically useful
 they were largely untested and unused. May be added in future if genuinely needed.
 
-* Removed xTranspose. Arrow as a policy does not support matrices and data frames,
+* Removed xTranspose. Kiwi as a policy does not support matrices and data frames,
 only their conversion to other types. There are effective ways to transpose lists
-in Arrow already.
+in Kiwi already.
 
 Bug-Fixes:
 
@@ -251,10 +306,10 @@ Package Internals:
 
 * Added tests for xNegate.
 
-* Added .babelignore, to allow easier random access of useful arrow files.
+* Added .babelignore, to allow easier random access of useful kiwi files.
 
 * Added rsample, which corrects a bad length-one corner case in sample. Will
-remove direct use of sample from arrow in future. Bugs caused by sample may
+remove direct use of sample from kiwi in future. Bugs caused by sample may
 come to light in the next release.
 
 
@@ -267,7 +322,7 @@ come to light in the next release.
 
 
 
-Arrow 0.10.0
+Kiwi 0.10.0
 ------------------------------------------------------------------------------
 Date: 2014-5-16
 
@@ -280,12 +335,12 @@ Enhancements:
 collection for equality to a value.
 
 * Renamed xIsNot to xNot, for consistency with the other predicate names
-in Arrow.
+in Kiwi.
 
 * Removed xElemIsFalse, xElemIsNa, xElemIsTrue, xElemNotFalse, xElemNotNa,
 xElemNotTrue, xElemIsNull, xElemIsNan, xElemNotNan, xElemNotNull,
 xRejectNa, xRejectNan, xRejectNull, xRejectEmpty. The rational for this
-is that arrow emphasises compositionality, and each case these functions solve
+is that kiwi emphasises compositionality, and each case these functions solve
 can easily be done with other functions. This reduces the number of tests and
 documentation to be maintained significantly.
 
@@ -321,7 +376,7 @@ Documentation:
 
 Package Internals:
 
-* Removed unevaluated check for arrow objects in one case
+* Removed unevaluated check for kiwi objects in one case
 of as_typed_vector's if condition.
 
 * Added test to xUnionOf.
@@ -336,7 +391,7 @@ of as_typed_vector's if condition.
 
 
 
-Arrow 0.9.0
+Kiwi 0.9.0
 ------------------------------------------------------------------------------
 Date: 2014-5-12
 
@@ -347,7 +402,7 @@ Enhancements:
 * added xIsNot, a complement to xIs.
 
 * Improved error messages provided when converting vector types;
-if an arrow object is supplied (accidentally) this is stated.
+if an kiwi object is supplied (accidentally) this is stated.
 
 * Implemented basic object summarisation for data frames (upon error).
 
@@ -368,7 +423,7 @@ Documentation:
 Package Internals:
 
 * added fromStream, part of the testing tool in development.
-* throw_arrow_error can now be called without a call argument.
+* throw_kiwi_error can now be called without a call argument.
 * forall will now correctly report errors; previously the argument order was backwards.
 
 
@@ -382,7 +437,7 @@ Package Internals:
 
 
 
-Arrow 0.8.0
+Kiwi 0.8.0
 ------------------------------------------------------------------------------
 Date: 2014-5-11
 
@@ -418,7 +473,7 @@ in favour of in-place definitions.
 
 
 
-Arrow 0.7.0
+Kiwi 0.7.0
 ------------------------------------------------------------------------------
 Date: 2014-5-10
 
@@ -427,10 +482,10 @@ A mostly internal release, renamed Any, xNone, to xAllOf, xAnyOf, xNoneOf.
 Enhancements:
 
 * Renamed xAll, xAny, xNone, to xAllOf, xAnyOf, xNoneOf. This complies better
-with Arrow's naming conventions.
+with Kiwi's naming conventions.
 
 * Functions that require collections, functions, or collections of functions
-will now inform the user if they were (accidentally) given an arrow object.
+will now inform the user if they were (accidentally) given an kiwi object.
 
 Documentation:
 
@@ -444,7 +499,7 @@ render correctly in most cases.
 Package Internals:
 
 * Deprecated and removed assert, moving over to the more flexible
-functions throw_arrow_error and throw_arrow_warning.
+functions throw_kiwi_error and throw_kiwi_warning.
 
 * Added extensive tests for xUnzipIndices.
 
@@ -460,7 +515,7 @@ functions throw_arrow_error and throw_arrow_warning.
 
 
 
-Arrow 0.6.0
+Kiwi 0.6.0
 ------------------------------------------------------------------------------
 Date: 2014-5-7
 
@@ -496,7 +551,7 @@ Package Internals:
 
 
 
-Arrow 0.5.0
+Kiwi 0.5.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
@@ -534,7 +589,7 @@ Package Internals:
 
 
 
-Arrow 0.4.0
+Kiwi 0.4.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
@@ -554,7 +609,7 @@ name of the argument for which an error is thrown is now displayed properly.
 
 Documentation:
 
-* Added a prototype logo for Arrow!
+* Added a prototype logo for Kiwi!
 
 * Added details section to xMap, explaining the basic concept of map.
 
@@ -581,7 +636,7 @@ Package Internals:
 
 
 
-Arrow 0.3.0
+Kiwi 0.3.0
 ------------------------------------------------------------------------------
 Date: 2014-5-3
 
@@ -626,7 +681,7 @@ Package Internals:
 
 
 
-Arrow 0.2.0
+Kiwi 0.2.0
 ------------------------------------------------------------------------------
 Date: 2014-5-2
 
@@ -663,9 +718,9 @@ definitions and macros. This removed a lot of unneeded code.
 
 
 
-Arrow 0.1.0
+Kiwi 0.1.0
 -------------------------------------------------------------------------------
 Date: 2014-4-30
 
-The initial release of Arrow. A highly experimental release, and ideally not
+The initial release of Kiwi. A highly experimental release, and ideally not
 the version the public will see.

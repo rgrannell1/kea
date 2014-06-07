@@ -1,5 +1,5 @@
 
-#' $ xElemsByCols
+#' xElemsByCols
 #'
 #' Enumerate the elements of a matrix down columns.
 #'
@@ -10,7 +10,7 @@
 #'      colls a matrix.
 #'
 #' @return
-#'      An arrow object containing a list.
+#'      A kiwi object containing a list.
 #'
 #' @family methods
 #'

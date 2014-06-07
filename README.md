@@ -1,56 +1,48 @@
 
-Arrow 0.15.0 [![Build Status](https://travis-ci.org/rgrannell1/arrow.png)](https://travis-ci.org/rgrannell1/arrow)
+Kiwi 0.16.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
 ### Public Release: ~1 August 2014
 
-Arrow makes R an effective language for functional programming.
+Kiwi makes R an effective language for functional programming.
 
 ### Installation
 
-Arrow isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
+Kiwi isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
 is considered bad etiquette to update a CRAN package more than once a month.
 
 ```js
 install.packages("devtools")
-install_github("arrow", "rgrannell1", ref = "releases")
+install_github("kiwi", "rgrannell1", ref = "releases")
 ```
 
-## What is Arrow?
+## What is Kiwi?
 
 Functional programming has become commonplace in languages like JavaScript
-and Python, but R is conspicuously lacking such a library. Arrow is a functional
+and Python, but R is conspicuously lacking such a library. Kiwi is a functional
 library for general-purpose programming in R. It adds all the common higher-order
 functions (Map, Fold, Compose, ...) and functions taken from
-set theory and combinatorics. Arrow also exploits R's flexibility to add
+set theory and combinatorics. Kiwi also exploits R's flexibility to add
 arrow functions, methods, wildcards & list-comprehensions to the language.
 
 For library documentation and tutorials head to
-[http://rgrannell1.github.io/arrow/](http://rgrannell1.github.io/arrow/).
+[http://rgrannell1.github.io/kiwi/](http://rgrannell1.github.io/kiwi/).
 
-## What Does Arrow Look Like?
+Feel under no obligation to read the following sections; Kiwi's documentation is sufficient to
+get you up and running quickly. If you are interested in Kiwi's key features and design decisions,
+read on.
 
-First, a table of Arrow's (optional) new syntax.
+### Kiwi is Expressive
 
-```js
-# function shorthands
-x := 2 * x + 1                               # instead of function (x) 2 * x + 1
-x. $ Species                                 # instead of function (x) x $ Species
+It is easier to write a sentence from left to right than from the middle out; writing programs
+as chains of functions is similarily natural.
 
-# list comprehensions
-xList[x, x <- 1:10, x %% 2 == 0]             # generates 2, 4, ..., 10
-
-# function composition
-(unlist %then% mean)(list(1, 2, 3))          # instead of ( function (x) mean(unlist(x)) )(list(1, 2, 3))
-(is.integer %or% is.double %or% is.list)(1)  # instead of is.integer(1) || is.double(1) || is.list(1)
-
-# methods!
-x_(letters) $ xMap(toupper) $ x_FromChars()  # generates the string ABCD...Z
-```
-
-With that out the way, here is a simple use of Arrow to examine cocaine seizure data.
+Kiwi code is *compositional*; to create an kiwi program you chain functions
+together into a pipeline that takes your input and transforms it in multiple
+steps. You don't need to worry about odd output of one function suddenly killing
+the next, as corner cases are consistent within Kiwi.
 
 ```js
 # // Data From Hadley Wickham's https://github.com/hadley/data-stride
@@ -59,7 +51,7 @@ asRow <- (...) := {
 	list(state = ..1, potency = ..2, weight = ..3, month = ..4, price = ..5)
 }
 
-cocaineData <- x_(list(
+cocaineData <- x__(
 	asRow("MA", 74,  3,  7,  180),
 	asRow("NY", 83, 34, 10,  960),
 	asRow("SC", 81, 47,  6, 1800),
@@ -69,7 +61,7 @@ cocaineData <- x_(list(
 	asRow("NJ", 47,  6,  5,  400),
 	asRow("FL", 37, 52,  3, 1600),
 	asRow("PA", 74,  2,  1,  200)
-))
+)
 
 # 1. get and sort the state seisure frequencies
 
@@ -111,51 +103,139 @@ largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
 60.8
 ```
 
-### Arrow is Expressive
+R was an early language with anonymous, first-class functions. They are a common part of the
+language, and are widely used with functions like `lapply` and `Filter`. Unfortunately R's function's
+definitions are verbose. Arrow-functions are terser than normal function expressions.
 
-* Programs are built like lego; stacking small,
-uniquely-purposed functions into a larger program.
+```js
+# -- generate the pairs [[a, A], [b, B], ...]
+x_(letters) $ xMap(letter := {
+	list(letter, toupper(letter))
+})
+```
 
-* Arrow is general enough to let you use the same functions for your
-data reshaping and general purpose programming code.
+You could also create this collection using collection-comprehensions; syntax sugar for creating
+new collections by filtering, joining & transforming existing collections.
 
-* Arrow has a shorthand syntax for creating functions.
+```js
+xList[ list(l, toupper(l)), l <- letters ]
+```
 
-* Arrow implements jQuery-style method-chaining.
+There are two approaches to making a function that can take a variable number of arguments. The first is
+to use the ellipsis parametre (...), which gathers up any arguments passed to a function. The second is to
+simply pass one list of arguments to the function. Both approaches have their merits and pitfalls.
 
-* Functions have variadic and non-variadic forms, cutting out all 'do.call' boilerplate.
+The first approach - using ellipsis - is less verbose, but less flexible. The second approach - using a
+list or arguments- is conversely more flexible, but more verbose. The adapter functions `do.call` and `Reduce`
+in base R are mainly used to get around only the ellipsis form of the function being included. Kiwi's functions
+come in both forms, completely removing this boilerplate.
 
-* Arrow adds list-comprehensions, an expressive syntax for creating lists.
+```js
+# -- less verbose
+xJoin_(list(1, 2), list(3, 4))
 
-### Arrow is Consistent
+# -- more flexible
+xJoin( list(list(1, 2), list(3, 4)) )
+```
 
-* Functions don't discriminate between different types of vectors; lists, pairlists
-and typed vectors are all interchangable.
 
-* Arrow is very easy to debug, thanks to input validation and automatically summarising bad input.
 
-* Arrow functions work perfectly with base R functions.
 
-* Arrow uses consistent naming conventions.
+### Kiwi is Functional
 
-### Arrow is Functional
+Kiwi is a functional programming library; it uses higher-order functions and successive
+function calls to transform immutable data.
 
-* Every commonly used higher-order-function is included in Arrow, including but not limited to
-map, fold, select, flatmap and iterate.
+Most types have operations that join multiple values into a new, compositve value; numbers
+have addition and multiplication, strings have paste and lists have concatenation. Since functions
+are values too it stands to reason that there are similar operations on functions. Function
+composition joins multiple functions by successively piping input from one to the next.
 
-* Arrow includes several mathematical functions, like the set operations and
-combinatoric functions.
+```js
+x__(1, 2, 3, 4, 5, 6) $ xMap(sqrt %then% toString)
+```
 
-* Arrow adds a big brother of **return( )** - **Return( )** - to make functions like fold
-much more efficient.
+Kiwi implements lots of higher-order functions and general collection functions. These include
+functions like Map, Fold, Select, Iterate, but there are also many functions not commonly found
+in other libraries. Partial application you specialise these general function for one
+task. It can be a useful form of code reuse, and prevents throwaway anonymous functions.
 
-* Function composition and partial application are encouraged as standard operations.
+```js
+# -- grab strings with the pattern 'face' in them.
+x__('facebook', 'facetime', 'faceoff', 'facile') $ xSelect(xFix_(xIsMatch, 'face'))
+```
+
+Fold is the king of functionals, powerful enough to implement Map, Select and
+the other common functionals. In most languages Fold executes in time linearly-propotional
+to its input collection size.
+
+But sometimes the result of a fold *can* be determined in
+sub-linear time; folds are often used to check for the existence of a value in a dataset, and
+in the best case you do not need to iterate over every input value to find a match. Kiwi's Fold
+can run in sub-linear time, by using a special return statement - Return. This makes your
+functional code much more efficient.
+
+```js
+firstOdd <- nums := {
+	xReduce((left : right) := {
+		if (right %% 2 == 1) Return (right)
+	}, nums)
+}
+
+firstOdd(c(2, 1, 4, 5, 6))
+# -- returns after only two checks; Reduce needs to do five checks.
+```
+
+### Kiwi is Consistent
+
+Kiwi is a *generic* collection library; its functions abstract over the differences between lists,
+vectors and pairlists. This is in contrast with the base language, which neglects lists in favour of
+vectors and data.frames.
+
+```js
+sum(1:3)
+sum(list(1, 2, 3)) # fails
+```
+
+```js
+# -- these are identical.
+xRepeat(2, 10)
+xRepeat(list(2), list(10))
+xRepeat(pairlist(2), pairlist(10))
+```
+
+When code fails it should tell you where it failed, what the root cause of the problem was, and
+give you enough information to fix the problem. More time is spent debugging than writing code, so
+Kiwi provides good error messages.
+
+```js
+xRepeat(-1, 1:10)
+'
+Error:
+The argument matching “num” must be in the range {0...Inf}.
+
+The actual input was a double vector with these properties:
+
+length:             1
+no positive:        0
+no zero:            0
+no negative:        1
+no na:              0
+no nan:             0
+no whole:           1
+no infinite:        0
+classes:            "numeric"
+
+Thrown from xRepeat
+In the call xRepeat(-1, 1:10)
+'
+```
 
 ## Licensing
 
-**Arrow** is released under the terms of the GNU General Public License version 3.
+**Kiwi** is released under the terms of the GNU General Public License version 3.
 
-<img src="https://raw.githubusercontent.com/rgrannell1/arrow/develop/gpl3.png" height = "120"> </img>
+<img src="https://raw.githubusercontent.com/rgrannell1/kiwi/develop/gpl3.png" height = "120"> </img>
 
 ## Versioning
 

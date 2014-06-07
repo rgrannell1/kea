@@ -1,23 +1,22 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(arrow)
+message("xChunk (+)")
 
-message("xChunk")
+	over(coll) +
 
-	forall(
-		"one divides into lists of one.",
-		test_cases$collection,
-		length(xChunk(1, coll)) == length(coll),
-		given =
-			length(coll) > 0
-	)
+	describe("xChunking infinite times / length times creates one chunk") +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xChunk(Inf,          coll) %equals% list(as.list(coll)),
+		xChunk(length(coll), coll) %equals% list(as.list(coll))
+	) +
 
-	forall(
-		"infinite doesn't divide collection.",
-		test_cases$collection,
-		xChunk(Inf, coll) %equals% list(as.list(coll)),
-		given =
-			length(coll) > 0
-	)
+	describe("xChunk once is identity") +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xChunk(1, coll) %equals% lapply(coll, list)
+	) +
+
+	run()

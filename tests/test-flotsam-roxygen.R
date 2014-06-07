@@ -1,8 +1,8 @@
 
-require(arrow)
+require(kiwi)
 
-'%+%' <- arrow ::: '%+%'
-throw_arrow_warning <- arrow ::: throw_arrow_warning
+'%+%' <- kiwi ::: '%+%'
+throw_kiwi_warning <- kiwi ::: throw_kiwi_warning
 
 # -- This test suite checks to see if each file has the proper roxygen2
 # -- documentation
@@ -28,8 +28,8 @@ anyIsMatch <- (rexp : docs) := {
 
 
 
-r_path <- system.file(package = 'arrow', 'R')
-r_path <- '/home/ryan/Code/arrow.R/R'
+r_path <- system.file(package = 'kiwi', 'R')
+r_path <- '/home/ryan/Code/kiwi.R/R'
 
 if (nchar(r_path) > 0) {
 

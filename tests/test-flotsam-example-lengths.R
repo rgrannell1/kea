@@ -1,8 +1,8 @@
 
-require(arrow)
+require(kiwi)
 
-'%+%' <- arrow ::: '%+%'
-throw_arrow_warning <- arrow ::: throw_arrow_warning
+'%+%' <- kiwi ::: '%+%'
+throw_kiwi_warning <- kiwi ::: throw_kiwi_warning
 
 
 # -- This unit test checks if the examples are empty.
@@ -45,8 +45,8 @@ message(
 
 # -- this is awful, and should be changed.
 
-example_path      <- system.file(package = 'arrow', 'examples')
-inst_example_path <- system.file(package = 'arrow', 'inst/examples')
+example_path      <- system.file(package = 'kiwi', 'examples')
+inst_example_path <- system.file(package = 'kiwi', 'inst/examples')
 
 if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 
@@ -89,6 +89,6 @@ if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 			empty_examples $ xAtCol(2) $ x_FromLines()
 		)
 
-		throw_arrow_warning(message = message)
+		throw_kiwi_warning(message = message)
 	}
 }

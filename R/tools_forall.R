@@ -6,7 +6,7 @@
 # To Developers,
 #
 # The forall() set of tools allows Quickcheck-style unit testing to
-# verify that arrow's functions are working correctly. The system is organised
+# verify that kiwi's functions are working correctly. The system is organised
 # as follows:
 #
 # forall:
@@ -96,7 +96,7 @@
 #
 #    Ultimately, the function forall( ) takes generator functions and binds their results to
 #    variable name. In order to reduce repetition, test_cases contains an environment
-#    of 'pre-approved' test_cases lists. For example, a lot of arrow functions take a
+#    of 'pre-approved' test_cases lists. For example, a lot of kiwi functions take a
 #    boolean function and a collection. It is prudent to test these functions with a logical function
 #    and an empty collection of any type, so a pre-approved test case is contained in this
 #    object for just that purpose.
@@ -829,14 +829,14 @@ forall <- local({
 
 			message <- info %+% "\ncases must not be null."
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		if (!all( vapply(cases, is.function, logical(1)) )) {
 
 			message <- info %+% "\ncases must be a list of functions."
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		# ----- capture the expect and given expressions as functions
@@ -883,13 +883,13 @@ forall <- local({
 					message <- info %+% "\nnon-length one value returned to forall: actual length was" %+%
 					length(result)
 
-					throw_arrow_error(invoking_call, message)
+					throw_kiwi_error(invoking_call, message)
 				}
 
 				if (result %!in% c(True, False)) {
 					message <- info %+% 'non boolean result returned by forall.'
 
-					throw_arrow_error(invoking_call, message)
+					throw_kiwi_error(invoking_call, message)
 				}
 
 				if (!result) {
@@ -915,7 +915,7 @@ forall <- local({
 			message <- info %+% "\nfailed after the " %+%
 				ith_suffix(after) %+% " case!\n\n" %+% cases %+% "\n"
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		message(info, " passed!", " (", state$tests_run, ")")

@@ -1,6 +1,6 @@
 
-arrow ::: load_test_dependencies(environment())
-is_collection <- arrow ::: is_collection
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message("xReject (+)")
 
@@ -11,7 +11,7 @@ message("xReject (+)")
 		length(coll) == 0 && is_collection(coll),
 		xReject(function (x) True, coll)  %equals% list(),
 		xReject(function (x) False, coll) %equals% list(),
-		xReject(function (x) Na, coll)    %equals% list()
+		xReject(function (x) Na,    coll) %equals% list()
 	) +
 
 	describe("truth function acts as identity") +

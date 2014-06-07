@@ -115,14 +115,14 @@ xLambda <- local({
 						message <- "function parametres must by symbols." %+%
 						summate(get_tree$param(tree))
 
-						throw_arrow_error(invoking_call, message)
+						throw_kiwi_error(invoking_call, message)
 					}
 
 					if (get_tree$delim(tree) != ":") {
 
 						message <- "parametres must be delimited by ':'"
 
-						throw_arrow_error(invoking_call, message)
+						throw_kiwi_error(invoking_call, message)
 					}
 
 					new_state <- list(
@@ -142,7 +142,7 @@ xLambda <- local({
 				message <- "the formals for non-unary functions" %+%
 					" must be enclosed in parentheses."
 
-				throw_arrow_error(invoking_call, message)
+				throw_kiwi_error(invoking_call, message)
 			}
 
 			params <- collect_params(

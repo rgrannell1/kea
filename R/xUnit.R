@@ -11,6 +11,8 @@
 #'    The collection to return the length-zero
 #'    unit element of.
 #'
+#' @param ... see above
+#'
 #' @return
 #'    Returns null if \bold{coll} is a pairlist, a
 #'    typed vector of length zero if \bold{coll}

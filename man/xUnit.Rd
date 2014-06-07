@@ -12,6 +12,8 @@ xUnit_(...)
 \item{coll}{an list, pairlist, or vector of any length.
    The collection to return the length-zero
    unit element of.}
+
+\item{...}{see above}
 }
 \value{
 Returns null if \bold{coll} is a pairlist, a
@@ -30,7 +32,7 @@ Return the empty version of a collection.
 # 1. HR Functional Programming
 #    Reverse a list without using reverse
 
-# Arrow has a function for reversing a list, but it is trivial to reverse a list with
+# Kiwi has a function for reversing a list, but it is trivial to reverse a list with
 # xFold. The function xFold needs to be given a value to return if the input collection
 # is length-zero; xUnit returns the empty version of a collection.
 

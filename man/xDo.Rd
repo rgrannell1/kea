@@ -66,9 +66,10 @@ xDo(
 #3. HR Functional Programming
 #   Print "Hello World" n times
 
-# xDo is Arrow's construct for mapping over a collection and discarding the result, for use
-# with side-effectful functions. An anonymous function or print composed with a constant function can
-# be used to print the actual message.
+# xDo is Kiwi's construct for mapping over a collection
+# and discarding the result, for use with side-effectful
+# functions. An anonymous function or print composed with
+# a constant function can be used to print the actual message.
 
 n <- 5
 

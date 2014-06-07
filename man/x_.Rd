@@ -10,31 +10,31 @@ x__(...)
 }
 \arguments{
 \item{val}{an arbitrary value. The value to wrap in an
-   arrow object.
+   kiwi object.
    The methods available depend on the input
    type; functions and collections have the most methods available.}
 
 \item{...}{see above.}
 }
 \value{
-An object of class "arrow". Internally the object is represented as a
+An object of class "kiwi". Internally the object is represented as a
    list with a single field \bold{x}, but this field cannot be accessed directly.
    Instead, the method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used to
-   return the data stored in an arrow object.
+   return the data stored in an kiwi object.
 
-   The methods available to an arrow object depend on the type of the data it
-   contains. All arrow objects inherit a handful of methods regardless of their
+   The methods available to an kiwi object depend on the type of the data it
+   contains. All kiwi objects inherit a handful of methods regardless of their
    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
-   anonymous function to be executed on an arrow object.
+   anonymous function to be executed on an kiwi object.
 
    The two primary groups of methods are collection methods and function methods.
 
    Matrices, data frames, and factors have methods for converting them to collections,
-   while normal Arrow functions are also available as methods for collections
+   while normal Kiwi functions are also available as methods for collections
    and functions.
 }
 \description{
-Generate an arrow object with methods available to it.
+Generate an kiwi object with methods available to it.
 }
 \section{Corner Cases}{
 
@@ -43,15 +43,15 @@ Generate an arrow object with methods available to it.
 }
 \examples{
 
-# 1. Construct an arrow object.
+# 1. Construct an kiwi object.
 
 x_(letters)
 
-# 2. Get data back out of an arrow object
+# 2. Get data back out of an kiwi object
 
 x_(letters) $ x_Identity()
 
-# 3. Call methods off an arrow object.
+# 3. Call methods off an kiwi object.
 
 csv_string <- "swiss, swiss, german, irish, french, german"
 

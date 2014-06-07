@@ -7,15 +7,15 @@
 #'    \bold{xList} allows for shorthand construction of lists using a form of set-builder notation.
 #'    The notation typically looks like
 #'
-#'    \code{S = {2.x | x ε 1..100, x^2 > 3}}
+#'    \code{S = {2.x | x e 1..100, x^2 > 3}}
 #'
 #'    which reads "S is the set of numbers '2x' from the
 #'    numbers 1...100, where x^2 is larger than three".
 #'    In general the syntax is of the form
 #'
-#'    \code{S = {output expression, variable ε set, predicate expression}}
+#'    \code{S = {output expression, variable e set, predicate expression}}
 #'
-#'    Arrow's syntax is similar
+#'    Kiwi's syntax is similar
 #'
 #'    \code{S <- xList[ 2*x, x <- 1:10 x^2 > 3 ]}
 #'
@@ -32,7 +32,7 @@
 #'
 #'    \code{xList[2*x, x <- 1:10]}
 #'
-#'    is loosely translated into normal arrow code as
+#'    is loosely translated into normal kiwi code as
 #'
 #'    \code{xMapply(x := x^2, 1:10)}
 #'
@@ -76,7 +76,7 @@ xList <- structure(
 			"comprehension objects cannot be invoked as a " %+%
 			"function: they must be invoked with square brackets ( [] )"
 
-		throw_arrow_error(invoking_call, message)
+		throw_kiwi_error(invoking_call, message)
 	},
 	class = 'xlist_builder'
 )
@@ -123,7 +123,7 @@ print.xlist_builder <- function (x, ...) {
 				"a collection-comprehension must not begin with a " %+%
 				"variable bind expression."
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		# -- you can't name the expressions!
@@ -132,7 +132,7 @@ print.xlist_builder <- function (x, ...) {
 			message <-
 				"a collection-comprehension cannot have named sub-terms."
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		bindings <- exprs[binding_indices]
@@ -173,7 +173,7 @@ print.xlist_builder <- function (x, ...) {
 				"could not be matched as variable bindings, a predicate, or " %+%
 				"a yield expression."
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		# -- check that all expressions are matched.
@@ -192,7 +192,7 @@ print.xlist_builder <- function (x, ...) {
 				"The variables " %+% paste0(duplicated_var, collapse = ', ') %+%
 				" were bound several times by binding expressions."
 
-				throw_arrow_error(invoking_call, message)
+				throw_kiwi_error(invoking_call, message)
 		}
 
 		# -- no variables were bound (x <- 1:10)
@@ -202,7 +202,7 @@ print.xlist_builder <- function (x, ...) {
 				"a non-empty collection-comprehension must have " %+%
 				"at least one variable binding."
 
-			throw_arrow_error(invoking_call, message)
+			throw_kiwi_error(invoking_call, message)
 		}
 
 		# -- evaluate coll in the expression x <- coll

@@ -3,7 +3,7 @@
 #
 # Must
 #
-# Arrow uses macro's instead of higher-order functions to check
+# Kiwi uses macro's instead of higher-order functions to check
 # that input is valid. There are good reasons for this. I found that
 # higher-order functions ended up failing when they were run, and capturing symbols and
 # testing was a nightmare.
@@ -34,7 +34,7 @@ Must <- local({
 					" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
 					summate( .(NUMS) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -45,7 +45,7 @@ Must <- local({
 			COLL <- match.call()$COLL
 
 			bquote(if (
-				identical('arrow', class( .(COLL) )) ||
+				identical('kiwi', class( .(COLL) )) ||
 				!is_atomic( .(COLL) ) &&
 				!is_generic( .(COLL) )) {
 
@@ -53,16 +53,16 @@ Must <- local({
 					"The argument matching " %+% ddquote( .(COLL) ) %+%
 					" must be a list, a pairlist or a typed vector."
 
-				if (any(class( .(COLL) ) == 'arrow')) {
+				if (any(class( .(COLL) ) == 'kiwi')) {
 					message <- message %+%
-						"The argument was of class " %+% dQuote("arrow") %+%
-						". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+						"The argument was of class " %+% dQuote("kiwi") %+%
+						". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 						summate( .(COLL) )
 				} else {
 					message <- message %+% summate( .(COLL) )
 				}
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -75,7 +75,7 @@ Must <- local({
 
 				all_elems_are_collection <- all( vapply( .(COLLS) , function (coll) {
 
-					'arrow' %!in% class(coll) &&
+					'kiwi' %!in% class(coll) &&
 					(is_atomic(coll) || is_generic(coll))
 
 				}, logical(1)) )
@@ -86,17 +86,17 @@ Must <- local({
 						"The argument matching " %+% ddquote( .(COLLS) ) %+%
 						" must be a collection of lists, vectors or pairlists."
 
-					if (any(class( .(COLLS) ) == 'arrow')) {
+					if (any(class( .(COLLS) ) == 'kiwi')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("arrow") %+%
-							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kiwi") %+%
+							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate( .(COLLS) )
 
 					} else {
 						message <- message %+% summate( .(COLLS) )
 					}
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 				}
 
 			})
@@ -122,7 +122,7 @@ Must <- local({
 						" must be a collection of collections with equal lengths." %+%
 						summate( .(COLLS) )
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 				}
 			})
 
@@ -150,22 +150,22 @@ Must <- local({
 						" must be a collection of functions, or symbols or strings" %+%
 						" that can be looked up as functions."
 
-					contains_arrow <- any( vapply( .(COLL), function (elem) {
-						any(class( .(COLL) ) == "arrow")
+					contains_kiwi <- any( vapply( .(COLL), function (elem) {
+						any(class( .(COLL) ) == "kiwi")
 					}, logical(1)) )
 
-					if (contains_arrow) {
+					if (contains_kiwi) {
 
 						message <- message %+%
-							"The collection supplied contained arrow objects. " %+%
-							"Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The collection supplied contained kiwi objects. " %+%
+							"Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate( .(COLL) )
 
 					} else {
 						message <- message %+% summate( .(COLL) )
 					}
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 				}
 
 			})
@@ -190,7 +190,7 @@ Must <- local({
 					.(LOWER) %+% " to " %+% .(UPPER) %+% "." %+%
 					summate( .(COLLS) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -207,7 +207,7 @@ Must <- local({
 					" must be equal length to The argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
 					summate( .(COLL1) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -222,7 +222,7 @@ Must <- local({
 					"The variable referenced by the symbol " %+% ddquote( .(SYM) ) %+%
 					" does not exist."
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -240,7 +240,7 @@ Must <- local({
 					" produced a non-{True, False, Na} value." %+%
 					summate( .(BOOL) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -255,7 +255,7 @@ Must <- local({
 					"The argument matching " %+% ddquote( .(STR) ) %+%
 					" must be a path to an existing file."
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -275,16 +275,16 @@ Must <- local({
 						"The argument matching " %+% ddquote( .(VAL) ) %+%
 						" must be a function, or a string or symbol naming a function."
 
-					if (any(class( .(VAL) ) == 'arrow')) {
+					if (any(class( .(VAL) ) == 'kiwi')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("arrow") %+%
-							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kiwi") %+%
+							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate( .(VAL) )
 					} else {
 						message <- message %+% summate( .(VAL) )
 					}
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -301,7 +301,7 @@ Must <- local({
 					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 					summate( .(NUMS) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 
 			})
 		}
@@ -320,7 +320,7 @@ Must <- local({
 					" must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
 					summate( .(COLL) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -338,7 +338,7 @@ Must <- local({
 					" must have at least " %+%  .(LENGTH) %+% " elements." %+%
 					summate( .(COLL) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 
 		}
@@ -357,7 +357,7 @@ Must <- local({
 					" must have more than " %+%  .(LENGTH) %+% " elements." %+%
 					summate( .(COLL) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 
 		}
@@ -377,16 +377,16 @@ Must <- local({
 						" must be a symbol or a string."
 
 					# -- this might not work with lazy evaluation.
-					if (any(class( .(SYM) ) == 'arrow')) {
+					if (any(class( .(SYM) ) == 'kiwi')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("arrow") %+%
-							". Did you use the wrong form of arrow method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kiwi") %+%
+							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
 							summate( .(SYM) )
 					} else {
 						message <- message %+% summate( .(SYM) )
 					}
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 				}
 			})
 
@@ -407,7 +407,7 @@ Must <- local({
 						" must be named." %+%
 						summate( .(COLL) )
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 				}
 			})
 		}
@@ -427,7 +427,7 @@ Must <- local({
 					" must be parametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
 					summate( .(STRS) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -444,7 +444,7 @@ Must <- local({
 					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 					summate( .(NUMS) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 
 			})
 		}
@@ -461,7 +461,7 @@ Must <- local({
 					" must be round numbers." %+%
 					summate( .(NUMS) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -477,7 +477,7 @@ Must <- local({
 					"The parametre " %+% ddquote( .(VAL) ) %+%
 					" is required but was missing."
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 
 		}
@@ -495,7 +495,7 @@ Must <- local({
 					" must be a non-primitive function." %+%
 					summate( .(FN) )
 
-				throw_arrow_error(sys.call(), message)
+				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
@@ -514,7 +514,7 @@ Must <- local({
 				# xFix_(function (fn, b) fn(b), fn = xI)
 
 				# is misinterpreded by R; fn is not used as an ellipsis arg, but an arg to xFix.
-				# libs like plyr use .fn to try get around this; Arrow uses this odd middleware macro.
+				# libs like plyr use .fn to try get around this; Kiwi uses this odd middleware macro.
 				# It'll throw an error for argument lists that are ambigious.
 
 				if (!all( names(sys.call()) == names(match.call()) | names(sys.call()) == '')) {
@@ -539,7 +539,7 @@ Must <- local({
 						"of " %+% dQuote(fn_name)  %+% ". This will be misinterpreted by R. Use " %+%
 						dQuote(suggested) %+% " instead of " %+% dQuote(fn_name) %+% "."
 
-					throw_arrow_error(sys.call(), message)
+					throw_kiwi_error(sys.call(), message)
 				}
 
 			})
@@ -588,7 +588,7 @@ MakeVariadic <- function (fn, fixed) {
 	# -- will replace formals & body, env will be same.
 	out <- fn
 
-	# -- will break if defaults are ever added to arrow.
+	# -- will break if defaults are ever added to kiwi.
 
 	params <- names(formals(fn))
 

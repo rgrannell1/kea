@@ -1,6 +1,6 @@
 
-arrow ::: load_test_dependencies(environment())
-is_collection <- arrow ::: is_collection
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message("xSelect (+)")
 
@@ -10,7 +10,7 @@ message("xSelect (+)")
 		length(coll) == 0 && is_collection(coll),
 		xSelect(function (x) True, coll)  %equals% list(),
 		xSelect(function (x) False, coll) %equals% list(),
-		xSelect(function (x) Na, coll)    %equals% list()
+		xSelect(function (x) Na,    coll) %equals% list()
 	) +
 
 	over(coll) +
@@ -31,10 +31,18 @@ message("xSelect (+)")
 
 message("xSelect (-)")
 
-#	over(fn, coll) +
-#	describe("coll must always be a collection") +
-#	failsWhen(
-#		!is_collection(coll),
-#		xSelect(identity, coll)
-#	) +
-#	run()
+	over(fn, coll) +
+
+	describe("coll must always be a collection") +
+	failsWhen(
+		!is_collection(coll),
+		xSelect(identity, coll)
+	) +
+
+	describe("fn must always be a function") +
+	failsWhen(
+		!is.function(fn),
+		xSelect(fn, list())
+	) +
+
+	run()

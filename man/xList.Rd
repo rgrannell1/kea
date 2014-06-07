@@ -16,15 +16,15 @@ Generate a list using set-builder notation.
 \bold{xList} allows for shorthand construction of lists using a form of set-builder notation.
    The notation typically looks like
 
-   \code{S = {2.x | x ε 1..100, x^2 > 3}}
+   \code{S = {2.x | x e 1..100, x^2 > 3}}
 
    which reads "S is the set of numbers '2x' from the
    numbers 1...100, where x^2 is larger than three".
    In general the syntax is of the form
 
-   \code{S = {output expression, variable ε set, predicate expression}}
+   \code{S = {output expression, variable e set, predicate expression}}
 
-   Arrow's syntax is similar
+   Kiwi's syntax is similar
 
    \code{S <- xList[ 2*x, x <- 1:10 x^2 > 3 ]}
 
@@ -41,7 +41,7 @@ Generate a list using set-builder notation.
 
    \code{xList[2*x, x <- 1:10]}
 
-   is loosely translated into normal arrow code as
+   is loosely translated into normal kiwi code as
 
    \code{xMapply(x := x^2, 1:10)}
 
@@ -87,7 +87,7 @@ primes(17)
 # 2. xList has normal lexical scoping
 
 first_name <- "Jack"
-xList[paste(first_name, middleinit, sirname), middleinit <- c('K', 'M'), sirname <- c("Black", "Brown", "Gray")]
+xList[paste(first_name, mid, sir), mid <- c('K', 'M'), sir <- c("Black", "Brown", "Gray")]
 
 # list("Jack K Black", "Jack M Black",
 #      "Jack K Brown", "Jack M Brown",

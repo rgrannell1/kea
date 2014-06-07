@@ -1,5 +1,5 @@
 
-#' $ xByValues
+#' xByValues
 #'
 #' Convert a factor to a collection of the factor's data.
 #'
@@ -7,7 +7,7 @@
 #'      x_(  ) $ xByLevels()
 #'
 #' @return
-#'      An arrow object containing a list.
+#'      A kiwi object containing a list.
 #'
 #' @family methods
 #'

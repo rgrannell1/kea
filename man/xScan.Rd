@@ -124,7 +124,7 @@ x
 The obvious problem is the fourth element of the very long collection is na,
 but the code searches though thousands of elements after finding a match. If
 we were searching the collection with a for loop we would use \bold{break} or \bold{return( )}
-to terminate the search early and return true. Arrow adds a similar construct for
+to terminate the search early and return true. Kiwi adds a similar construct for
 terminating certain higher-order functions called the \bold{Return( )} function.
 
 This function can be used to break out of the fold early; in this case upon

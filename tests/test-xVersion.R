@@ -1,6 +1,6 @@
 
-arrow ::: load_test_dependencies(environment())
-is_collection <- arrow ::: is_collection
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message("xVersion (+)")
 
@@ -9,8 +9,7 @@ message("xVersion (+)")
 	describe('xVersion always gives the current version') +
 	when(
 		True,
-		paste0(xVersion(val), collapse = '.') == packageVersion("arrow")		
+		paste0(xVersion(val), collapse = '.') == packageVersion("kiwi")
 	) +
 
 	run()
-	

@@ -1,9 +1,9 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
-is_na <- arrow:::is_na
+forall <- kiwi:::forall
+test_cases <- kiwi:::test_cases
+is_na <- kiwi:::is_na
 
-require(arrow)
+require(kiwi)
 
 message("xNegate")
 

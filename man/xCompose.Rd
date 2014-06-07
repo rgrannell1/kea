@@ -31,7 +31,7 @@ A variadic function.
 Take several functions and return a composite function.
 }
 \details{
-Arrow's function composition is largely done with the infix
+Kiwi's function composition is largely done with the infix
    operators \%of\% and \%then\%.
 
    \bold{\%then\%} is the classic function composition operator;

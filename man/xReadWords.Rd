@@ -26,9 +26,9 @@ Import each word in a file to an element in a character vector.
 }
 \examples{
 
-# 1. Read the last word of arrow's description.
+# 1. Read the last word of kiwi's description.
 
-x_(system.file(package = 'arrow', 'DESCRIPTION')) $ xReadWords() $ xLastOf()
+x_(system.file(package = 'kiwi', 'DESCRIPTION')) $ xReadWords() $ xLastOf()
 
 # "unix"
 }

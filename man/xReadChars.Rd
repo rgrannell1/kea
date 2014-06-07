@@ -26,9 +26,9 @@ Import each line in a file to an element in a character vector.
 }
 \examples{
 
-# 1. Read the first 100 letters of arrow's description.
+# 1. Read the first 100 letters of kiwi's description.
 
-x_(system.file(package = 'arrow', 'DESCRIPTION')) $
+x_(system.file(package = 'kiwi', 'DESCRIPTION')) $
 xReadChars() $
 x_Take(100)
 

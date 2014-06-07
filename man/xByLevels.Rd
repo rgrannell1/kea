@@ -2,16 +2,16 @@
 \name{xByLevels}
 \alias{xByLevels}
 \alias{xByValues}
-\title{$ xByLevels}
+\title{xByLevels}
 \usage{
 x_(  ) $ xByLevels()
 
 x_(  ) $ xByLevels()
 }
 \value{
-An arrow object containing a character vector.
+A kiwi object containing a character vector.
 
-An arrow object containing a list.
+A kiwi object containing a list.
 }
 \description{
 Convert a collor to a collection of levels.

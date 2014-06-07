@@ -42,7 +42,7 @@ Select a collection at certain indices.
 
 # 1. Subsetting a ocllection
 #
-# Slice is the replacement for '[[' in Arrow. It behaves similarily.
+# Slice is the replacement for '[[' in Kiwi. It behaves similarily.
 
 nums <- 1:10
 

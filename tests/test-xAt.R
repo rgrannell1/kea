@@ -1,8 +1,11 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+forall <- kiwi:::forall
+test_cases <- kiwi:::test_cases
 
-require(arrow)
+require(kiwi)
+
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message("xAt")
 
@@ -11,3 +14,17 @@ message("xAt")
 		test_cases$letters_and_index,
 		xAt(num, coll) == coll[[num]]
 	)
+
+
+
+message('xAt (-)')
+
+	over(coll) +
+
+	describe('always returns the correct element') +
+	failsWhen(
+		is_collection(coll) && length(coll) >= 1,
+		xAt(length(coll) + 1, coll)
+	) +
+
+	run()

@@ -1,10 +1,10 @@
 
-forall <- arrow:::forall
-test_cases <- arrow:::test_cases
+forall <- kiwi:::forall
+test_cases <- kiwi:::test_cases
 
-require(arrow)
+require(kiwi)
 
-message('Arrow Wildcard Lambda\'s')
+message('Kiwi Wildcard Lambda\'s')
 
 	forall(
 		"test that binary %% works",

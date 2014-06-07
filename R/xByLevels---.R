@@ -1,5 +1,5 @@
 
-#' $ xByLevels
+#' xByLevels
 #'
 #' Convert a collor to a collection of levels.
 #'
@@ -7,7 +7,7 @@
 #'      x_(  ) $ xByLevels()
 #'
 #' @return
-#'      An arrow object containing a character vector.
+#'      A kiwi object containing a character vector.
 #'
 #' @family methods
 #'
@@ -15,7 +15,6 @@
 
 xByLevels <- MakeFun(function (coll) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 
 	coll_levels <- levels(coll)

@@ -9,7 +9,7 @@
 #'
 #' @details
 #'     \bold{xDeepMap} is currently recursive, and as such will cause a
-#'     stack overflow for large inputs. Future versions of Arrow may include
+#'     stack overflow for large inputs. Future versions of Kiwi may include
 #'     a more stable algorithm for \bold{xDeepMap}.
 #'
 #' @param

@@ -1,21 +1,21 @@
 
-#' $ xTap
+#' xTap
 #'
-#' Apply an anonymous function to the contents of an arrow object.
+#' Apply an anonymous function to the contents of an kiwi object.
 #'
 #' @section Type Signature:
 #'     (any -> any) -> any -> any
 #'
 #' @param
-#'    fn a unary function. The function to apply to the data in the arrow object.
+#'    fn a unary function. The function to apply to the data in the kiwi object.
 #'
 #' @param
-#'    val an arbitrary value. The contents of the arrow object.
+#'    val an arbitrary value. The contents of the kiwi object.
 #'
 #' @details
-#'    \bold{xTap} applies non-arrow functions to be applied to arrow objects.
+#'    \bold{xTap} applies non-kiwi functions to be applied to kiwi objects.
 #'    These functions can be named or unnamed. This allows base functions
-#'    or external libraries to interoperate with arrow's chaining methods.
+#'    or external libraries to interoperate with kiwi's chaining methods.
 #'
 #'    \code{x_(letters) $ xShuffle() $ x_Tap(sort)}
 #'
@@ -27,7 +27,7 @@
 #'      x_(  ) $ xTap(fn)
 #'
 #' @return
-#'      An arrow object.
+#'      A kiwi object.
 #'
 #' @family methods
 #'

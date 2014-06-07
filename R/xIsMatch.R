@@ -7,7 +7,7 @@
 #'     |character| -> |character| -> &lt;logical>
 #'
 #' @details
-#'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in 
+#'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in
 #'     base R.
 #'
 #'
@@ -25,6 +25,7 @@
 #'      A logical value.
 #'
 #' @section Corner Cases:
+#'      the empty character vector is returned for when \bold{str} is empty.
 #'
 #' @family text_processing_functions
 #'
@@ -42,7 +43,7 @@ xIsMatch <- MakeFun(function (rexp, str) {
 	MACRO( Must $ Be_Collection(rexp) )
 	MACRO( Must $ Be_Collection(str) )
 
-	str <- as_atom(str, "character")
+	str  <- as_atom(str, "character")
 	rexp <- unit_to_value(as_atom(rexp, "character"))
 
 	# -- flags like rexp are usually made into the unit.

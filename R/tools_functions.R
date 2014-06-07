@@ -1,25 +1,22 @@
 
 # Package Internals
 #
-# Documentation for the internals of Arrow.
+# Documentation for the internals of Kiwi.
 # Every sufficiently large utility library will contain its own utility library.
-# These functions are required to reduce repetition of code when implementing arrow
+# These functions are required to reduce repetition of code when implementing kiwi
 # functions.
 #
 # @keywords internal
 # @rdname pkg-internal
 
 # --------------------- shorthand logical functions --------------------- #
-# these are exported by arrow seperately.
+# these are exported by kiwi seperately.
 
 Truth <- function (...) {
 	True
 }
 Falsity <- function (...) {
 	False
-}
-Moot <- function (...) {
-	Na
 }
 
 # --------------------- safe replacements --------------------- #
@@ -55,6 +52,7 @@ is_na <- function (coll) {
 }
 
 elem_is_na <- function (coll) {
+
 	if (is.atomic(coll)) {
 		is.na(coll)
 	} else if (is.list(coll) || identical(coll, NULL)) {
@@ -74,6 +72,7 @@ elem_is_na <- function (coll) {
 }
 
 elem_is_nan <- function (coll) {
+
 	if (is.atomic(coll)) {
 		is.nan(coll)
 	} else if (is.list(coll) || identical(coll, Null)) {
@@ -146,11 +145,7 @@ one_of <- function (coll) {
 # @keywords internal
 # @rdname pkg-internal
 
-'%equals%' <- function (a, b) {
-	# are two values identical?
-
-	identical(a, b)
-}
+'%equals%' <- function (a, b) identical(a, b)
 
 as_formals <- function (params) {
 	structure(
@@ -185,8 +180,6 @@ call_with_params <- function (fnname, fn) {
 # @rdname pkg-internal
 
 "%+%" <- function (x, y) {
-	# javascript-style string concatenation.
-
 	paste0(x, y, sep = "")
 }
 
@@ -203,6 +196,23 @@ call_with_params <- function (fnname, fn) {
 
 # to dedottify my code.
 match_fn <- match.fun
+
+# -- evaluate a dangerous expression, on error return a default value.
+tryDefault <- function (expr, val) {
+	tryCatch(
+		expr,
+		warning = function (warn) val,
+		error   = function (err)  val
+	)
+}
+
+# -- set a field on list.
+#
+
+add_field <- function (coll, field, val) {
+	coll [[field]] <- val
+	coll
+}
 
 # --------------------- environment manipulation --------------------- #
 
@@ -302,18 +312,18 @@ load_test_dependencies <- function (envir) {
 	deps <-
 		list(
 			over =
-				arrow ::: over,
+				kiwi ::: over,
 			describe =
-				arrow ::: describe,
+				kiwi ::: describe,
 			when =
-				arrow ::: when,
+				kiwi ::: when,
 			run =
-				arrow ::: run,
+				kiwi ::: run,
 			failsWhen =
-				arrow ::: failsWhen,
+				kiwi ::: failsWhen,
 
 			`+.xforall` =
-				arrow ::: `+.xforall`
+				kiwi ::: `+.xforall`
 		)
 
 	for (key in names(deps)) {
