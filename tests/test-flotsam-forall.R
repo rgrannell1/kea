@@ -34,7 +34,7 @@ message("forall-next (-)")
 			)
 		}
 
-		res <- tryDefault(expr, True)
+		res <- tryDefault(expr, TRUE)
 
 		if (!isTRUE(res)) {
 			stop('error in test')
