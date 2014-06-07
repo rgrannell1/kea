@@ -16,7 +16,8 @@ message("forall-next (+)")
 	over(a) +
 	describe("multiplication by 1 is identity") +
 	when(
-		is.numeric(a) && length(a) == 1,
+		is.numeric(a) && length(a) == 1 &&
+		is.finite(a),
 		a * 1 == a
 	) +
 	run()

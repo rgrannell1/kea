@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 is_collection <- kiwi ::: is_collection
 
-message('xFirstOf')
+message('xFirstOf (+)')
 
 	over(coll) +
 
@@ -11,4 +11,5 @@ message('xFirstOf')
 		is_collection(coll) && length(coll) >= 1,
 		xFirstOf(coll) %equals% coll[[1]]
 	) +
+
 	run()
