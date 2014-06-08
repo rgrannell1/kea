@@ -1,26 +1,39 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xUnit (+)")
 
-message('xUnit')
+	over(coll) +
 
-	forall(
-		"unit of pairlist is Null",
-		list(),
-		xUnit(pairlist()) %equals% Null
-	)
-
-	forall(
-		"the unit of a collection is the same type as the collection",
-		test_cases$collection,
-		typeof(xUnit(coll)) == typeof(coll)
-	)
-
-	forall(
-		"the unit of a collection is length zero",
-		test_cases$collection,
+	describe("xUnit is length-zero") +
+	when(
+		is_collection(coll),
 		length(xUnit(coll)) == 0
-	)
+	) +
 
+	describe("xUnit preserves type") +
+	when(
+		is_collection(coll),
+		typeof(xUnit(coll)) == typeof(coll)
+	) +
+
+	describe("xUnit of pairlist is null") +
+	when(
+		is.pairlist(coll) || is.null(coll),
+		is.null(xUnit(coll))
+	) +
+
+	run()
+
+message("xUnit (-)")
+
+	over(fn, coll) +
+
+	describe("coll must always be a collection") +
+	failsWhen(
+		!is_collection(coll),
+		xUnit(coll)
+	) +
+
+	run()
