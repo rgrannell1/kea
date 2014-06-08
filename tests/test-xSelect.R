@@ -5,6 +5,7 @@ is_collection <- kiwi ::: is_collection
 message("xSelect (+)")
 
 	over(coll) +
+
 	describe("the empty collection always yields the list") +
 	when(
 		length(coll) == 0 && is_collection(coll),
@@ -27,6 +28,7 @@ message("xSelect (+)")
 		xSelect(function (x) False, coll) %equals% list(),
 		xSelect(function (x) Na,    coll) %equals% list()
 	) +
+
 	run()
 
 message("xSelect (-)")
