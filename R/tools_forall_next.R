@@ -554,6 +554,7 @@ execute_test <- function (test) {
 	while (time_left()) {
 
 		# -- generate a random test case.
+
 		case   <- yield_case(params)
 		states <- Map(
 			function (test, group, state) {
