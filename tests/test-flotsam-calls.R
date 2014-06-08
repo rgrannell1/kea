@@ -22,50 +22,6 @@ inner_vars <- kiwi_fns $ xMapply((fn_name : fn) := {
 	list( fn_name, fn, all.names(body(fn)) )
 })
 
-
-
-
-message('test that every function checks if its parametres are missing')
-
-	inner_vars $
-	xMapply((fn_name : fn : vars) := {
-
-		# -- generate a sliding window of var name pairs
-		# -- (var names are ordered).
-
-		pairs <- x_(1:length(vars)) $ xMap(ith := {
-			xTake(2, xFirstOf( xCycle_(ith, vars)) )
-		})
-
-		# -- for each parametre of a functions,
-		# -- reject those that have a missing
-		# -- function followed by the parametre name
-
-		param_missing_check <-
-			x_(xParamsOf(fn)) $ xReject(x. == '...') $ x_Reject(param := {
-				pairs $ x_AnyOf(pair := {
-					xFirstOf(pair) == 'missing' && xSecondOf(pair) == param
-				})
-			})
-
-		# -- report functions with missing parametres.
-
-		if (xNotEmpty(param_missing_check)) {
-			list( fn_name, xFromWords_(fn_name, '(', toString(param_missing_check), ')') )
-		}
-
-	}) $
-	# -- filter out exemptions
-	xSelect(xNotEmpty) $ xReject(pair := {
-		xIsMember_(xFirstOf(pair), 'xFromChars', 'xFromWords', 'xFromLines', 'xLambda')
-	}) $
-	# -- select the messages
-	xAtCol(2) $ xFromLines() $ xDo(miss := {
-		stop(xFromLines_(
-			'the following functions are missing missing parametre checks.',
-			miss))
-	})
-
 message("test that the is_fn_matchable macro is used for all functions")
 
 message("test that the is_collection macro is used for all collections")
