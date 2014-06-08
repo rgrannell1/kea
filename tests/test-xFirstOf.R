@@ -13,3 +13,15 @@ message('xFirstOf (+)')
 	) +
 
 	run()
+
+message('xFirstOf (-)')
+
+	over(coll) +
+
+	describe('fails when the collection is too short') +
+	failsWhen(
+		is_collection(coll) && length(coll) == 0,
+		xFirstOf(coll)
+	) +
+
+	run()

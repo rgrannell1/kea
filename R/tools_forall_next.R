@@ -473,7 +473,7 @@ negative_test <- function (prop, case) {
 	# -- return true.
 	tryDefault(
 		{
-			prop(case)
+			do.call(prop, case)
 			False
 		},
 		True
@@ -660,8 +660,32 @@ over <- function (...) {
 	out
 }
 
+# --
+
+suchThat <- function (...) {
+
+	invoking_call <- sys.call()
+
+	args    <- as.list(match.call()[-1])
+	pred    <- args[[ length(args) ]]
+	symbols <- args[1:(length(args)-1)]
+
+	if (missing(..1)) {
+		message <-
+			'suchThat must provide a symbol to select over.'
+
+		throw_kiwi_error(invoking_call, message)
+	}
+
+	out <- list(
 
 
+
+	)
+
+	class(out) <- c('xforall', ' xsuchthat')
+	out
+}
 
 
 
@@ -799,3 +823,11 @@ run <- function (time = 1) {
 
 	invisible(Null)
 }
+
+
+
+
+over(x, y) +
+
+suchThat(x, y, predicate)
+suchThat(x, predicate)
