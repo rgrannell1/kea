@@ -63,7 +63,7 @@ xFold <- MakeFun(function (fn, val, coll) {
 			# -- can only use Return() in non-primitives
 			if (!is.primitive(fn)) {
 				clone_env <- new.env(parent = environment(fn))
-				clone_env$Return <- Return
+				clone_env $ Return <- Return
 
 				environment(fn) <- clone_env
 			}

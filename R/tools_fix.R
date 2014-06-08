@@ -16,10 +16,9 @@ fix <- local({
 		# -- interpret positional / named arguments; may be possible to remove.
 
 		coll_names  <- names(coll)
-
 		do.call('function', list(
 			# -- select the non-used parametres.
-			as.pairlist(fn_formals[ !(arg_keys %in% coll_names) ]),
+			as.pairlist(fn_formals[ !(arg_keys[1:length(fn_formals)] %in% coll_names) ]),
 			bquote({
 
 				.( as.call(c(fn_symbol, lapply(seq_along(fn_params), function (ith) {
