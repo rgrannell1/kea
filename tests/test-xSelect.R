@@ -41,10 +41,4 @@ message("xSelect (-)")
 		xSelect(identity, coll)
 	) +
 
-	describe("fn must always be a function") +
-	failsWhen(
-		!is.function(fn),
-		xSelect(fn, list())
-	) +
-
 	run()
