@@ -20,7 +20,7 @@
 #'    A boolean value.
 #'
 #' @section Corner Cases:
-#'    If coll is length zero then logical(0) is returned. Na values 
+#'    If coll is length zero then logical(0) is returned. Na values
 #'    are treated as False.
 #'
 #' @family quantifier_functions
@@ -36,8 +36,7 @@
 
 xAllOf <- MakeFun(function (pred, coll) {
 
-	MACRO( Must $ Not_Be_Missing(pred) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xAllOf, pred, coll) )
 
 	MACRO( Must $ Be_Fn_Matchable(pred) )
 	MACRO( Must $ Be_Collection(coll) )

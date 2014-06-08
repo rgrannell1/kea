@@ -1,27 +1,32 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xLocate (+)")
 
-message("xLocate")
+	over(coll) +
 
-	forall(
-		"the empty collection yields integer(0)",
-		test_cases$logical_functions_with_collection_zero,
-		xLocate(fn, coll) %equals% integer(0)
-	)
+	describe("the empty collection yields integer(0)") +
+	when(
+		is_collection(coll) && length(coll) == 0,
+		xLocate(function (x) True,  coll) %equals% integer(0),
+		xLocate(function (x) False, coll) %equals% integer(0),
+		xLocate(function (x) Na,    coll) %equals% integer(0)
+	) +
 
-	forall(
-		"a false function yields integer(0)",
-		test_cases$falsity_with_coll,
-		xLocate(fn, coll) %equals% integer(0)
-	)
+	describe("non-truth functions yield integer(0)") +
+	when(
+		is_collection(coll),
+		xLocate(function (x) False, coll) %equals% integer(0),
+		xLocate(function (x)    Na, coll) %equals% integer(0)
+	) +
 
-	forall(
-		"a true function yields 1",
-		test_cases$truth_with_coll,
-		xLocate(fn, coll) %equals% seq_along(coll),
-		given =
-			length(coll) > 0
-	)
+	describe("truth function yields seq_along coll") +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		xLocate(function (x) True, coll) %equals% seq_along(coll)
+	) +
+
+	run()
+
+message("xLocate (-)")

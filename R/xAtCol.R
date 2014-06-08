@@ -7,9 +7,9 @@
 #'    |numeric| -> ||any|| -> |any|
 #'
 #' @details
-#'     If \bold{xAt} behaves like \bold{coll[[ith,]]} then 
+#'     If \bold{xAt} behaves like \bold{coll[[ith,]]} then
 #'     \bold{xAtCol} is its counterpart, coll[[,ith]]. Tabular
-#'     data can be encoded as a list of row-lists, and it is 
+#'     data can be encoded as a list of row-lists, and it is
 #'     to be able to select this data "by-columns".
 #'
 #' @param
@@ -43,8 +43,7 @@
 
 xAtCol <- MakeFun(function (num, colls) {
 
-	MACRO( Must $ Not_Be_Missing(num) )
-	MACRO( Must $ Not_Be_Missing(colls) )
+	MACRO( Fix(xAtCol, num, colls) )
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(colls) )

@@ -1,5 +1,4 @@
 
-#' xLimit
 #'
 #' Create a function that can call its underlying
 #' function a limited number of times.
@@ -46,8 +45,7 @@
 
 xLimit <- MakeFun(function (fn, num) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(num) )
+	MACRO( Fix(xLimit, fn, num) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(num) )

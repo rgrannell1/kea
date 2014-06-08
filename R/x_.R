@@ -1470,7 +1470,7 @@ x_ <- MakeFun(function (val) {
 	# Collection any -> Kiwi any
 	# type constructor for the method-chaining data type.
 
-	MACRO( Must $ Not_Be_Missing(val) )
+	MACRO( Fix(x_, val) )
 
 	# -- a useful corner case; there are no methods
 	# -- specifically for kiwi objects with kiwi

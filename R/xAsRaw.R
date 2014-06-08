@@ -34,7 +34,8 @@
 
 xAsRaw <- MakeFun(function (raws) {
 
-	MACRO( Must $ Not_Be_Missing(raws) )
+	MACRO( Fix(xAsRaw, raws) )
+
 	MACRO( Must $ Be_Collection(raws) )
 
 	as_typed_vector(raws, 'raw')

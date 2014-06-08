@@ -25,7 +25,8 @@
 
 xStopwatch <- MakeFun(function (num) {
 
-	MACRO( Must $ Not_Be_Missing(num) )
+	MACRO( Fix(xStopwatch, num) )
+
 	MACRO( Must $ Be_Collection(num) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))

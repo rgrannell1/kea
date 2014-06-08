@@ -12,7 +12,7 @@
 #'     passed to the first parametre of the underlying function,
 #'     the second element to the second parametre, and so on.
 #'
-#'     \bold{xUnspread} adapts a multi-parametre function to work 
+#'     \bold{xUnspread} adapts a multi-parametre function to work
 #'     as a unary function; for example in functions like \bold{xMap}.
 #'
 #' @param
@@ -37,7 +37,7 @@
 
 xUnspread <- MakeFun(function (fn) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Fix(xUnspread, fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

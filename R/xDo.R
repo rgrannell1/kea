@@ -38,8 +38,7 @@
 
 xDo <- MakeFun(function (fn, coll) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xDo, fn, coll) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )

@@ -28,7 +28,8 @@
 
 xParamsOf <- MakeFun(function (fn) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
+	MACRO( Fix(xParamsOf, fn) )
+
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

@@ -39,7 +39,8 @@
 
 xAsInteger <- MakeFun(function (nums) {
 
-	MACRO( Must $ Not_Be_Missing(nums) )
+	MACRO( Fix(xAsInteger, nums) )
+
 	MACRO( Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'integer')

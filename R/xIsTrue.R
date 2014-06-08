@@ -48,7 +48,7 @@
 
 xIsTrue <- MakeFun(function (val) {
 
-	MACRO( Must $ Not_Be_Missing(val) )
+	MACRO( Fix(xIsTrue, val) )
 
 	isTRUE(val)
 })

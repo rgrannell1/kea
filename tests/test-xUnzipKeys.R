@@ -1,13 +1,27 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xUnzipKeys (+)")
 
-message("xUnzipKeys")
+	over(coll) +
 
-	forall(
-		"xUnzipKeys of the empty collection is list()",
-		test_cases$collection_zero,
-		xUnzipKeys(coll) %equals% list()
-	)
+	describe("the empty collection always yields the list") +
+	when(
+		is_collection(coll) && length(coll) == 0,
+		xUnzipKeys(coll)  %equals% list()
+	) +
+
+	run()
+
+message("xUnzipKeys (-)")
+
+	over(fn, coll) +
+
+	describe("coll must always be a collection") +
+	failsWhen(
+		!is_collection(coll),
+		xUnzipKeys(coll)
+	) +
+
+	run()

@@ -9,9 +9,9 @@
 #' @details
 #'     \bold{xUnzipIndices} reshapes a collection to allow you to pass
 #'     both the indices and elements to another higher order function.
-#'     More generally, \bold{xUnzipIndices} allows you to selectively work on 
+#'     More generally, \bold{xUnzipIndices} allows you to selectively work on
 #'     elements based on their position in a collection, which functions like
-#'     \bold{xMap} and \bold{xSelect} otherwise do not support. 
+#'     \bold{xMap} and \bold{xSelect} otherwise do not support.
 #'
 #' @param
 #'    coll a collection. The collection to split into index, element pairs.
@@ -40,7 +40,7 @@
 
 xUnzipIndices <- MakeFun(function (coll) {
 
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xUnzipIndices, coll) )
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

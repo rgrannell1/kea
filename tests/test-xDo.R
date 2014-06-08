@@ -16,18 +16,12 @@ message("xDo (+)")
 
 message("xDo (-)")
 
-	over(fn, coll) +
+	over(coll) +
 
 	describe("coll must always be a collection") +
 	failsWhen(
 		!is_collection(coll),
 		xDo(identity, coll)
-	) +
-
-	describe("fn must always be a function") +
-	failsWhen(
-		!is.function(fn),
-		xDo(fn, list())
 	) +
 
 	run()

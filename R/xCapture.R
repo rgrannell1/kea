@@ -33,7 +33,7 @@
 
 xCapture <- MakeFun(function (val) {
 
-	MACRO( Must $ Not_Be_Missing(val) )
+	MACRO( Fix(xCapture, val) )
 
 	function (...) {
 		"a function created by xCapture."

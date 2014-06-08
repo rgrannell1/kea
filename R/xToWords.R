@@ -28,7 +28,7 @@
 
 xToWords <- MakeFun(function (str) {
 
-	MACRO( Must $ Not_Be_Missing(str) )
+	MACRO( Fix(xToWords, str) )
 	MACRO( Must $ Be_Collection(str) )
 
 	str <- as_typed_vector(str, 'character')

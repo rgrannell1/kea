@@ -42,18 +42,52 @@ get_call_components <- function (invoking_call) {
 	if (length(invoking_call) == 1 && any(class(invoking_call) == "call")) {
 		# -- is it a nullary call ( foo() )
 
+		fn <- invoking_call[[1]]
+
+		fn_text <- if (is.name(fn)) {
+			paste(fn)
+		} else {
+			# -- calling position may be a function literal occasionally.
+			# -- can be quite large, so truncate
+
+			tmp <- ddparse(fn)
+
+			if (nchar(tmp) > 50) {
+				paste0(substring(tmp, 1, 50), ' [truncated]', collapse = '')
+			} else {
+				tmp
+			}
+		}
+
 		list(
 			invoking_call =
-				paste0(invoking_call, collapse = ''),
+				fn_text,
 			calltext =
 				paste0(invoking_call, "()", collapse = ''))
 
 	} else if (any(class(invoking_call) == "call")) {
 		# -- the general case
 
+		fn <- invoking_call[[1]]
+
+		fn_text <- if (is.name(fn)) {
+			paste(fn)
+		} else {
+			# -- calling position may be a function literal occasionally.
+			# -- can be quite large, so truncate
+
+			tmp <- ddparse(fn)
+
+			if (nchar(tmp) > 50) {
+				paste0(substring(tmp, 1, 50), ' [truncated]', collapse = '')
+			} else {
+				tmp
+			}
+		}
+
 		list(
 			invoking =
-				paste0(invoking_call[[1]], collapse = ''),
+				fn_text,
 			calltext =
 				stringify_call(invoking_call))
 

@@ -473,7 +473,7 @@ negative_test <- function (prop, case) {
 	# -- return true.
 	tryDefault(
 		{
-			prop(case)
+			do.call(prop, case)
 			False
 		},
 		True
@@ -554,6 +554,7 @@ execute_test <- function (test) {
 	while (time_left()) {
 
 		# -- generate a random test case.
+
 		case   <- yield_case(params)
 		states <- Map(
 			function (test, group, state) {
@@ -660,8 +661,32 @@ over <- function (...) {
 	out
 }
 
+# -- TODO
+
+suchThat <- function (...) {
+
+	invoking_call <- sys.call()
+
+	args    <- as.list(match.call()[-1])
+	pred    <- args[[ length(args) ]]
+	symbols <- args[1:(length(args)-1)]
+
+	if (missing(..1)) {
+		message <-
+			'suchThat must provide a symbol to select over.'
+
+		throw_kiwi_error(invoking_call, message)
+	}
+
+	out <- list(
 
 
+
+	)
+
+	class(out) <- c('xforall', ' xsuchthat')
+	out
+}
 
 
 

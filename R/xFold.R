@@ -47,9 +47,7 @@
 
 xFold <- MakeFun(function (fn, val, coll) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(val) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xFold, fn, val, coll) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )
@@ -65,7 +63,7 @@ xFold <- MakeFun(function (fn, val, coll) {
 			# -- can only use Return() in non-primitives
 			if (!is.primitive(fn)) {
 				clone_env <- new.env(parent = environment(fn))
-				clone_env$Return <- Return
+				clone_env $ Return <- Return
 
 				environment(fn) <- clone_env
 			}

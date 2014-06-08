@@ -1,40 +1,48 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xList (+)")
 
-message("xList[ ]")
+	over(coll) +
 
-	forall(
-		"xList of nothing is the empty list",
-		test_cases$collection,
-		xList[ ] %equals% list()
-	)
+	describe("xList can construct empty lists") +
+	when(
+		is_collection(coll),
+		xList[] %equals% list()
+	) +
 
-	forall(
-		"xList of a collection is as.list",
-		test_cases$collection,
-		xList[ x, x <- coll ] %equals% as.list(coll)
-	)
+	describe('xList on one list is similar to as.list') +
+	when(
+		is_collection(coll),
+		xList[x, x <- coll] %equals% as.list(coll)
+	) +
 
-	forall(
-		"xList can support predicate with one binding",
-		test_cases$collection,
-		xList[ x, x <- coll, True ] %equals% as.list(coll)
-	)
+	describe('predicates work with one binding') +
+	when(
+		is_collection(coll),
+		xList[x, x <- coll, True]  %equals% as.list(coll)
+	) +
 
-	forall(
-		"xList can support predicate with one binding",
-		test_cases$positive_integers,
-		xList[ x, x <- coll, x %% 2 == 0 ] %equals% as.list(coll[ coll %% 2 == 0 ]),
-		given =
-			length(coll) > 0
-	)
+	run()
 
-	forall(
-		"xList can support multiple bindings",
-		test_cases$positive_integers,
-		xList[ x + y, x <- coll, y <- coll ] %equals%
-			as.list(apply(expand.grid(coll, coll), 1, sum))
-	)
+message('xList (-)')
+
+	over(coll) +
+
+	describe('must have at least one binding') +
+	failsWhen(
+		is_collection(coll),
+		xList[x],
+		xList[x, y],
+		xList[True]
+	) +
+
+	describe('must not being with binding expression') +
+	failsWhen(
+		is_collection(coll),
+		xList[x <- coll, x],
+		xList[x <- coll, y <- coll, x, y]
+	) +
+
+	run()

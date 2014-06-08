@@ -12,3 +12,15 @@ message('xFourthOf')
 		xFourthOf(coll) %equals% coll[[4]]
 	) +
 	run()
+
+message('xFourthOf (-)')
+
+	over(coll) +
+
+	describe('fails when the collection is too short') +
+	failsWhen(
+		is_collection(coll) && length(coll) < 4,
+		xFourthOf(coll)
+	) +
+
+	run()

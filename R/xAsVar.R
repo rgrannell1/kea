@@ -30,7 +30,7 @@
 
 xAsVar <- MakeFun(function (sym) {
 
-	MACRO( Must $ Not_Be_Missing(sym) )
+	MACRO( Fix(xAsVar, sym) )
 
 	sym <- match.call()$sym
 	MACRO( Must $ Be_Matchable(sym) )

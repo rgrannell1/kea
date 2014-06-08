@@ -39,8 +39,7 @@
 
 xChoose <- MakeFun(function (num, coll) {
 
-	MACRO( Must $ Not_Be_Missing(num) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xChoose, num, coll) )
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(coll) )

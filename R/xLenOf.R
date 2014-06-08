@@ -30,7 +30,8 @@
 
 xLenOf <- MakeFun(function (coll) {
 
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xLenOf, coll) )
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	length(coll)

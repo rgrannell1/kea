@@ -1,33 +1,55 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xUnzipIndices (+)")
 
-message("xUnzipIndices")
+	over(coll) +
 
-	forall(
-		"xUnzipIndices of the empty collection is list()",
-		test_cases$collection_zero,
-		xUnzipIndices(coll) %equals% list()
-	)
+	describe("the empty collection always yields the list") +
+	when(
+		is_collection(coll) && length(coll) == 0,
+		xUnzipIndices(coll)  %equals% list()
+	) +
 
-	forall(
-		"unzipping indiced is length two",
-		test_cases$collection,
+	describe("otherwise made of two-tuples") +
+	when(
+		is_collection(coll) && length(coll) > 0,
 		all(sapply( xUnzipIndices(coll), length ) == 2)
-	)
+	) +
 
-	forall(
-		"the first column is the indices",
-		test_cases$collection,
-		all(sapply( xUnzipIndices(coll), function (x) x[[1]] ) == seq_along(coll))
-	)
+	describe("the first column is made of indices") +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		{
 
-	forall(
-		"the second column is the values",
-		test_cases$collection,
-		all( sapply(seq_along(coll), function (ith) {
-			identical(coll[[ith]], xUnzipIndices(coll)[[ith]][[2]])
-		}) )
-	)
+			firsts <- lapply(xUnzipIndices(coll), '[[', 1)
+
+			firsts %equals% as.list(seq_along(coll))
+		}
+	) +
+
+	describe("the second column is the values") +
+	when(
+		is_collection(coll) && length(coll) > 0,
+		{
+
+			seconds <- lapply(xUnzipIndices(coll), '[[', 2)
+
+			seconds %equals% as.list(coll)
+		}
+	) +
+
+	run()
+
+message("xUnzipIndices (-)")
+
+	over(fn, coll) +
+
+	describe("coll must always be a collection") +
+	failsWhen(
+		!is_collection(coll),
+		xUnzipIndices(coll)
+	) +
+
+	run()

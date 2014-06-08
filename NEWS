@@ -1,11 +1,52 @@
 
+
+Kiwi 0.17.0
+-----------------------------------------------------------------------------
+Date: 2014-6-7
+
+Adds automatic partial application to every function in Kiwi. No tests are
+currently breaking, but this feature likely interferes with error reporting.
+
+Enhancements:
+
+* Kiwi functions are now partially-appliable; not all arguments need to be
+provided at once. This is an important milestone. Errors are no longer thrown
+for missing inputs for this reason.
+
+Bug-Fixes:
+
+* Fixed a bug that crashed error handing due to improper conversion of a
+function to a string during error message creation.
+
+
+Package Internals:
+
+* Added fix, a variant of xFix required for efficient partial application of
+internal functions.
+
+* Added Fix, a macro added to functions that need to be partially applied.
+
+* Fixed an incorrect definition of test_negative; now correctly applies case
+to property.
+
+* Removed test for the missing macro, since this is no longer needed.
+
+* Added unit tests for xFirstOf, xFourthOf, xIsNan, xIsTrue, xList, xLocate,
+xNotNan, xOneOf, xPoll, xReject, xSecondOf, xThirdOf, xUnit, xUnspread,
+xUnzipIndices, and xUnzipKeys.
+
+* Added inject_expr, which inserts a line into the head of an expression body.
+Currenty untested.
+
+
+
 Kiwi 0.16.0
 -----------------------------------------------------------------------------
 Date: 2014-6-7
 
 A very minor update. Renamed library from it's working name (Arrow) to
-a final name (Kiwi), refactored internals
-.
+a final name (Kiwi), refactored internals.
+
 Documentation:
 
 * Removed non-ascii characters from documentation (lambda, epsilon).

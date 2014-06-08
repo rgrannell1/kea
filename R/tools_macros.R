@@ -551,6 +551,17 @@ Must <- local({
 # MakeFun:
 # this injects the code into the document, by evaluating the contents of MACRO.
 
+
+
+
+
+
+
+
+
+
+
+
 MakeFun <- function (expr) {
 
 	parent_frame <- parent.frame()
@@ -568,8 +579,148 @@ MakeFun <- function (expr) {
 		}
 	}
 
+	# -- generate a fix macro to inject
+
 	eval(unquote(substitute(expr)), parent_frame)
 }
+
+
+
+
+Fix <- function (FN, SYM1, SYM2, SYM3) {
+
+	len_args <- (!missing(SYM1)) + (!missing(SYM2)) + (!missing(SYM3))
+
+
+	# -- get the symbols for the parametres passed to Fix (if given).
+	FN <- match.call()$FN
+
+	if (!missing(SYM1)) {
+		SYM1 <- match.call()$SYM1
+	}
+	if (!missing(SYM2)) {
+		SYM2 <- match.call()$SYM2
+	}
+	if (!missing(SYM3)) {
+		SYM3 <- match.call()$SYM3
+	}
+
+	if (len_args == 1) {
+		# -- the simplest case; if no arguments are given return the
+		# -- called function unchanged.
+
+		bquote(
+			if (missing( .(SYM1) )) {
+				# _
+				return( .(FN) )
+			}
+
+			# |
+			# -- otherwise run
+
+		)
+
+	} else if (len_args == 2) {
+
+		bquote({
+			# -- more complicated; if no parametres given
+			# -- return function unchanged. if both are given
+			# -- fix both. Otherwise fix the given parametre
+			# --
+			# -- 1 + 2 + 1
+
+			missing_1 <- missing( .(SYM1) )
+			missing_2 <- missing( .(SYM2) )
+
+			if (missing_1) {
+				if (missing_2) {
+					# __
+					return ( .(FN) )
+				} else {
+					# _|
+					return ( fix( .(FN), list(arg2 = .(SYM2) )) )
+				}
+			} else if (missing_2) {
+				# |_
+				return ( fix( .(FN), list(arg1 = .(SYM1) )) )
+			}
+
+			# ||
+			# -- otherwise run
+		})
+
+	} else if (len_args == 3) {
+
+		bquote({
+			missing_1 <- missing( .(SYM1) )
+			missing_2 <- missing( .(SYM2) )
+			missing_3 <- missing( .(SYM3) )
+
+			if (missing_1) {
+
+				if (missing_2) {
+					if (missing_3) {
+						# -- all three are missing; return the function
+						# ___
+						return ( .(FN) )
+					} else {
+						# __|
+						# first two missing; fix three
+
+						return ( fix( .(FN), list(arg3 = .(SYM3) )) )
+					}
+				} else{
+
+					if (missing_3) {
+						# _|_
+						# -- first and third missing; fix second.
+
+						return ( fix( .(FN), list(arg2 = .(SYM2) )) )
+
+					} else {
+						# _||
+						# - first missing; fix second and third.
+
+						return ( fix( .(FN), list(arg2 = .(SYM2), arg3 = .(SYM3) )) )
+					}
+
+				}
+
+			} else if (missing_2) {
+
+				if (missing_3) {
+					# |__
+					# -- second and third missing; set first
+
+					return ( fix( .(FN), list(arg1 = .(SYM1) )) )
+				} else {
+					# |_|
+					# -- first and third missing; fix second.
+
+					return (fix( .(FN), list(arg1 = .(SYM1), arg3 = .(SYM3)) ))
+				}
+
+			} else if (missing_3) {
+				# ||_
+				# -- third missingl set first and second.
+
+				return (fix( .(FN), list(arg1 = .(SYM1), arg2 = .(SYM2)) ))
+			}
+
+		})
+
+	} else {
+		stop('internal error in Fix.')
+	}
+
+}
+
+Fix(as.symbol('xFold'), as.symbol('fn'), as.symbol('val'), as.symbol('coll'))
+
+
+
+
+
 
 # MakeVariadic
 #

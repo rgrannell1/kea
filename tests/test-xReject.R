@@ -26,14 +26,17 @@ message("xReject (+)")
 		xReject(function (x) False, coll) %equals% as.list(coll),
 		xReject(function (x) Na,    coll) %equals% as.list(coll)
 	) +
+
 	run()
 
 message("xReject (-)")
 
-#	over(fn, coll) +
-#	describe("coll must always be a collection") +
-#	failsWhen(
-#		!is_collection(coll),
-#		xReject(identity, coll)
-#	) +
-#	run()
+	over(fn, coll) +
+
+	describe("coll must always be a collection") +
+	failsWhen(
+		!is_collection(coll),
+		xReject(identity, coll)
+	) +
+
+	run()

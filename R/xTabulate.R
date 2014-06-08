@@ -44,7 +44,8 @@
 
 xTabulate <- MakeFun(function (coll) {
 
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xTabulate, coll) )
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

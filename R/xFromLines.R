@@ -29,9 +29,12 @@
 #' @rdname xFromLines
 #' @export
 
-xFromLines <- function (strs) {
+xFromLines <- MakeFun(function (strs) {
+
+	MACRO( Fix(xFromLines, strs) )
+
 	xImplode("\n", strs)
-}
+})
 
 #' @rdname xFromLines
 #' @export

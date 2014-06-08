@@ -31,7 +31,8 @@
 
 xRestOf <- MakeFun(function (coll) {
 
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xRestOf, coll) )
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) < 2) {
