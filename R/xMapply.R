@@ -36,7 +36,7 @@
 
 xMapply <- MakeFun(function (fn, colls) {
 
-	MACRO( Fix(fn, colls) )
+	MACRO( Fix(xMapply, fn, colls) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(colls) )
@@ -49,7 +49,7 @@ xMapply <- MakeFun(function (fn, colls) {
 	} else {
 
 		lapply(colls, function (tuple) {
-			do.call(fn, tuple)
+			do.call(fn, as.list(tuple))
 		})
 	}
 })
