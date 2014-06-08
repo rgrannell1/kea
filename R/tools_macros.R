@@ -551,6 +551,17 @@ Must <- local({
 # MakeFun:
 # this injects the code into the document, by evaluating the contents of MACRO.
 
+
+
+
+
+
+
+
+
+
+
+
 MakeFun <- function (expr) {
 
 	parent_frame <- parent.frame()
@@ -570,6 +581,116 @@ MakeFun <- function (expr) {
 
 	eval(unquote(substitute(expr)), parent_frame)
 }
+
+
+
+
+
+
+Fix <- function (FN, SYM1, SYM2, SYM3) {
+
+	len_args <- (!missing(SYM1)) + (!missing(SYM2)) + (!missing(SYM3))
+
+	FN <- match.call()$FN
+
+	if (!missing(SYM1)) {
+		SYM1 <- match.call()$SYM1
+	}
+	if (!missing(SYM2)) {
+		SYM2 <- match.call()$SYM2
+	}
+	if (!missing(SYM3)) {
+		SYM3 <- match.call()$SYM3
+	}
+
+	if (len_args == 1) {
+
+		bquote({
+			if (missing( .(SYM1) )) {
+				return( .(FN) )
+			}
+		})
+
+	} else if (len_args == 2) {
+
+		bquote({
+
+			missing_1 <- missing( .(SYM1) )
+			missing_2 <- missing( .(SYM2) )
+
+			if (missing_1) {
+				if (missing_2) {
+					return ( .(FN) )
+				} else {
+					return ( fix( .(FN), list(arg2 = .(SYM2) )) )
+				}
+			} else if (missing_2) {
+				return ( fix( .(FN), list(arg1 = .(SYM1) )) )
+			}
+		})
+
+	} else if (len_args == 3) {
+
+		bquote({
+			missing_1 <- missing( .(SYM1) )
+			missing_2 <- missing( .(SYM2) )
+			missing_3 <- missing( .(SYM3) )
+
+			if (missing_1) {
+
+				if (missing_2) {
+					if (missing_3) {
+						# ___
+						return ( .(FN) )
+					} else {
+						# __|
+						return ( fix( .(FN), list(arg3 = .(SYM3) )) )
+					}
+				} else{
+
+					if (missing_3) {
+						# _|_
+						return ( fix( .(FN), list(arg2 = .(SYM2) )) )
+
+					} else {
+						# _||
+						return ( fix( .(FN), list(arg2 = .(SYM2), arg3 = .(SYM3) )) )
+					}
+
+				}
+
+			} else if (missing_2) {
+
+				if (missing_3) {
+					# |__
+					return ( fix( .(FN), list(arg1 = .(SYM1) )) )
+				} else {
+					# |_|
+					return (fix( .(FN), list(arg1 = .(SYM1), arg3 = .(SYM3)) ))
+				}
+
+			} else if (missing_3) {
+				# ||_
+
+				return (fix( .(FN), list(arg1 = .(SYM1), arg2 = .(SYM2)) ))
+			}
+
+		})
+
+
+
+	} else {
+		stop('internal error in Fix.')
+	}
+
+}
+
+Fix(as.symbol('xFold'), as.symbol('fn'), as.symbol('val'), as.symbol('coll'))
+
+
+
+
+
 
 # MakeVariadic
 #
