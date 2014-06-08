@@ -42,9 +42,6 @@ xAddKeys <- MakeFun(function (strs, coll) {
 
 	MACRO( Fix(xAddKeys, strs, coll) )
 
-	MACRO( Must $ Not_Be_Missing(strs) )
-	MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Collection(strs) )
 	MACRO( Must $ Be_Collection(coll) )
 

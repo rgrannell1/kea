@@ -42,7 +42,6 @@ xAsCharacter <- MakeFun(function (strs) {
 
 	MACRO( Fix(xAsCharacter, strs) )
 
-	MACRO( Must $ Not_Be_Missing(strs) )
 	MACRO( Must $ Be_Collection(strs) )
 
 	as_typed_vector(strs, 'character')

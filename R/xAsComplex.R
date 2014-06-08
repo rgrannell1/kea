@@ -40,7 +40,6 @@ xAsComplex <- MakeFun(function (ims) {
 
 	MACRO( Fix(xAsComplex, ims) )
 
-	MACRO( Must $ Not_Be_Missing(ims) )
 	MACRO( Must $ Be_Collection(ims) )
 
 	as_typed_vector(ims, 'complex')

@@ -40,7 +40,6 @@ xAsDouble <- MakeFun(function (nums) {
 
 	MACRO( Fix(xAsDouble, nums) )
 
-	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )
 
 	nums <- as_typed_vector(nums, 'numeric')

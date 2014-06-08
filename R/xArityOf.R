@@ -34,7 +34,6 @@ xArityOf <- MakeFun(function (fn) {
 
 	MACRO( Fix(xArityOf, fn) )
 
-	MACRO( Must $ Not_Be_Missing(fn) )
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)

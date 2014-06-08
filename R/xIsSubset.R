@@ -36,9 +36,6 @@ xIsSubset <- MakeFun(function (coll1, coll2) {
 
 	MACRO( Fix(xIsSubset, coll1, coll2) )
 
-	MACRO( Must $ Not_Be_Missing(coll1) )
-	MACRO( Must $ Not_Be_Missing(coll2) )
-
 	MACRO( Must $ Be_Collection(coll1) )
 	MACRO( Must $ Be_Collection(coll2) )
 
