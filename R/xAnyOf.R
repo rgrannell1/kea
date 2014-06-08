@@ -34,6 +34,8 @@
 
 xAnyOf <- MakeFun(function (pred, coll) {
 
+	MACRO( Fix(xAnyOf, pred, coll) )
+
 	MACRO( Must $ Not_Be_Missing(pred) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

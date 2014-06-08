@@ -42,6 +42,8 @@
 
 xAt <- MakeFun(function (num, coll) {
 
+	MACRO( Fix(xAt, num, coll) )
+
 	MACRO( Must $ Not_Be_Missing(num) )
 	MACRO( Must $ Not_Be_Missing(coll) )
 

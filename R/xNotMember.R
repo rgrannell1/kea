@@ -36,8 +36,7 @@
 
 xNotMember <- MakeFun(function (val, coll) {
 
-	MACRO( Must $ Not_Be_Missing(val) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xNotMember, val, coll) )
 
 	MACRO( Must $ Be_Collection(coll) )
 

@@ -18,7 +18,7 @@
 
 xByColkeys <- MakeFun(function (colls) {
 
-	MACRO( Must $ Not_Be_Missing(colls) )
+	MACRO( Fix(xByColkeys, colls) )
 
 	colnames(colls)
 })

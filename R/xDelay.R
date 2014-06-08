@@ -43,8 +43,7 @@
 
 xDelay <- MakeFun(function (fn, num) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(num) )
+	MACRO( Fix(xDelay, fn, num) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(num) )

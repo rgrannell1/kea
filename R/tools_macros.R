@@ -579,36 +579,6 @@ MakeFun <- function (expr) {
 		}
 	}
 
-	expr_clone <- expr
-
-	fn_formals <-
-		formals(eval(unquote(substitute(expr)), parent_frame))
-
-	if (!is.null(fn_formals)) {
-
-		expr_clone <- eval(expr_clone)
-
-		body(expr_clone) <- local({
-
-			bquote(
-				.( as.symbol('.') )( .(
-
-					as.call(c(
-						as.symbol('Fix'),
-						local({
-
-							.invoking_fn <- sys.function()
-							quote(.invoking_fn)
-
-						}),
-						lapply(names(fn_formals), as.symbol) ))
-
-				) )
-
-			)
-		})
-	}
-
 	# -- generate a fix macro to inject
 
 	eval(unquote(substitute(expr)), parent_frame)

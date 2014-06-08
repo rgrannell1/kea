@@ -28,7 +28,7 @@
 
 xReadWords <- MakeFun(function (str) {
 
-	MACRO( Must $ Not_Be_Missing(str) )
+	MACRO( Fix(xReadWords, str) )
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_File(str) )

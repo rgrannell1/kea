@@ -37,8 +37,7 @@
 
 xSliceString <- MakeFun(function (str, nums) {
 
-	MACRO( Must $ Not_Be_Missing(str) )
-	MACRO( Must $ Not_Be_Missing(nums) )
+	MACRO( Fix(xSliceString, str, nums) )
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_Collection(nums) )

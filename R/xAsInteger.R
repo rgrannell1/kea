@@ -39,6 +39,8 @@
 
 xAsInteger <- MakeFun(function (nums) {
 
+	MACRO( Fix(xAsInteger, nums) )
+
 	MACRO( Must $ Not_Be_Missing(nums) )
 	MACRO( Must $ Be_Collection(nums) )
 

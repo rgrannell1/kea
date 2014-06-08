@@ -1,5 +1,5 @@
 
-#' xByRownames
+#' xByRowkeys
 #'
 #' Convert a matrix or data.frame to a collection of column names.
 #'
@@ -18,7 +18,7 @@
 
 xByRowkeys <- MakeFun(function (colls) {
 
-	MACRO( Must $ Not_Be_Missing(colls) )
+	MACRO( Fix(xByRowkeys, colls) )
 
 	rownames(colls)
 })

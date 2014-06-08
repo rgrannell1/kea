@@ -30,7 +30,7 @@
 
 xNotNull <- MakeFun(function (val) {
 
-	MACRO( Must $ Not_Be_Missing(val) )
+	MACRO( Fix(xNotNull, val) )
 
 	!isTRUE(is.null(val))
 })

@@ -54,8 +54,7 @@
 
 xFlatMap <- MakeFun(function (fn, coll) {
 
-	MACRO( Must $ Not_Be_Missing(fn) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xFlatMap, fn, coll) )
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )

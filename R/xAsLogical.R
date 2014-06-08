@@ -33,6 +33,8 @@
 
 xAsLogical <- MakeFun(function (bools) {
 
+	MACRO( Fix(xAsLogical, bools) )
+
 	MACRO( Must $ Not_Be_Missing(bools) )
 	MACRO( Must $ Be_Collection(bools) )
 

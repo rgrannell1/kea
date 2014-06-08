@@ -18,7 +18,7 @@
 
 xByCols <- MakeFun(function (colls) {
 
-	MACRO( Must $ Not_Be_Missing(colls) )
+	MACRO( Fix(xByCols, colls) )
 
 	dims <- dim(colls)
 

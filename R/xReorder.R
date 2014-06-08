@@ -46,8 +46,7 @@
 
 xReorder <- MakeFun(function (nums, colls) {
 
-	MACRO( Must $ Not_Be_Missing(nums) )
-	MACRO( Must $ Not_Be_Missing(colls) )
+	MACRO( Fix(xReorder, nums, colls) )
 
 	MACRO( Must $ Be_Collection(nums) )
 	MACRO( Must $ Be_Collection(colls) )

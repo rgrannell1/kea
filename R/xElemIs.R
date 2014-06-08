@@ -33,8 +33,7 @@
 
 xElemIs <- MakeFun(function (val, coll) {
 
-	MACRO( Must $ Not_Be_Missing(val) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xElemIs, val, coll) )
 
 	MACRO( Must $ Be_Collection(coll) )
 

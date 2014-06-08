@@ -27,9 +27,12 @@
 #' @rdname xFromChars
 #' @export
 
-xFromChars <- function (strs) {
+xFromChars <- MakeFun(function (strs) {
+
+	MACRO( Fix(xFromChars, strs) )
+
 	xImplode("", strs)
-}
+})
 
 #' @rdname xFromChars
 #' @export

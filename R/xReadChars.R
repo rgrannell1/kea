@@ -28,7 +28,7 @@
 
 xReadChars <- MakeFun(function (str) {
 
-	MACRO( Must $ Not_Be_Missing(str) )
+	MACRO( Fix(xReadChars, str) )
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_File(str) )

@@ -42,7 +42,8 @@
 
 xNegate <- MakeFun(function (pred) {
 
-	MACRO( Must $ Not_Be_Missing(pred) )
+	MACRO( Fix(xNegate, pred) )
+
 	MACRO( Must $ Be_Fn_Matchable(pred) )
 
 	do.call("function", list(

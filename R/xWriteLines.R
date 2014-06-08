@@ -28,8 +28,7 @@
 
 xWriteLines <- MakeFun(function (str, strs) {
 
-	MACRO( Must $ Not_Be_Missing(str) )
-	MACRO( Must $ Not_Be_Missing(strs) )
+	MACRO( Fix(xWriteLines, str, strs) )
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_Collection(strs) )

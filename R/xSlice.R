@@ -42,8 +42,7 @@
 
 xSlice <- MakeFun(function (nums, coll) {
 
-	MACRO( Must $ Not_Be_Missing(nums) )
-	MACRO( Must $ Not_Be_Missing(coll) )
+	MACRO( Fix(xSlice, nums, coll) )
 
 	MACRO( Must $ Be_Collection(nums) )
 	MACRO( Must $ Be_Collection(coll) )
