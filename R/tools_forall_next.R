@@ -661,7 +661,7 @@ over <- function (...) {
 	out
 }
 
-# --
+# -- TODO
 
 suchThat <- function (...) {
 
@@ -824,11 +824,3 @@ run <- function (time = 1) {
 
 	invisible(Null)
 }
-
-
-
-
-over(x, y) +
-
-suchThat(x, y, predicate)
-suchThat(x, predicate)
