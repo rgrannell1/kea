@@ -1,19 +1,21 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xNotNan (+)")
 
-message("xNotNan")
+	over(val) +
 
-	forall(
-		"not false of empty collection is False",
-		test_cases$collection_zero,
-		xNotNan(coll)
-	)
+	describe('xNotNan is false when the value is NaN.') +
+	when(
+		identical(val, NaN),
+		!xNotNan(val)
+	) +
 
-	forall(
-		"isnan of nan is true",
-		list(),
-		!xNotNan(NaN)
-	)
+	describe('xNotNan isnt NaN when the value is') +
+	when(
+		!identical(val, NaN),
+		xNotNan(val)
+	) +
+
+	run()
