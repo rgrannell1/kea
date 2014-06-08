@@ -49,10 +49,6 @@ xFold <- MakeFun(function (fn, val, coll) {
 
 	MACRO( Fix(xFold, fn, val, coll) )
 
-	#MACRO( Must $ Not_Be_Missing(fn) )
-	#MACRO( Must $ Not_Be_Missing(val) )
-	#MACRO( Must $ Not_Be_Missing(coll) )
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )
 
