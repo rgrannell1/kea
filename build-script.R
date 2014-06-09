@@ -3,7 +3,4 @@
 
 build_site('/home/ryan/Code/kiwi.R', examples = T, hook = function (opts) {
 
-	file.copy(
-		'/home/ryan/Code/kiwi.R/inst/site-content/',
-		'/home/ryan/Code/staticdocs/inst/web/', recursive = TRUE)
 })
