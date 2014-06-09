@@ -366,7 +366,7 @@ throw_exhaustion_warning <- function (test_data, state, info, invoking_call) {
 	"all " %+% examined %+% " test cases" %+%
 		" were rejected."
 
-	stop(message, call. = False)
+	warning(message, call. = False)
 }
 
 
@@ -451,12 +451,15 @@ state_sucess <- function (states, info) {
 	negative_run <- states [[2]] $ tests_run
 
 	# -- info is vectorised (many descriptions), create newline for each.
-	msg <- paste0(
-		sprintf("%-80s", info %+% " passed! ") %+%
+
+	run_summary <-
 		"(" %+%
-			sprintf("%-8s",colourise $ green(positive_run %+% ' +') %+% ',') %+%
-			colourise $ red  (negative_run %+%" -") %+%
-		')', collapse = '\n')
+			sprintf("%-8s",colourise $ green(positive_run %+% '+') %+% ',') %+%
+			colourise $ red  (negative_run %+%"-") %+%
+		')'
+
+	msg <- paste0(
+		sprintf("%-80s", info %+% " passed! ") %+% run_summary, collapse = '\n')
 
 	message(msg)
 
@@ -759,7 +762,7 @@ failsWhen <- function (expr1, ...) {
 # Run specifies that the test object should now be
 # executes. Also specifies how long to run the test for.
 
-run <- function (time = 1) {
+run <- function (time = 2) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out

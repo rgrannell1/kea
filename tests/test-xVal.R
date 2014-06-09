@@ -11,4 +11,7 @@ message("xVal")
 		stopifnot(a == 10)
 		stopifnot(bindingIsLocked(
 			as.symbol('a'), environment()) )
+
+		unlockBinding(as.symbol('a'), environment())
+		rm(a)
 	}

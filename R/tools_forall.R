@@ -918,7 +918,7 @@ forall <- local({
 			throw_kiwi_error(invoking_call, message)
 		}
 
-		message(info, " passed!", " (", state$tests_run, ")")
+		message(sprintf("%-75s", info %+% " passed!"), " (", colourise $ blue(state$tests_run), ")")
 	}
 
 })
