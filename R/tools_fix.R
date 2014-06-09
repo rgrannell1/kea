@@ -58,12 +58,27 @@ Fix <- function (FN, SYM1, SYM2, SYM3) {
 
 	if (!missing(SYM1)) {
 		SYM1 <- invoking_call[[2]]
+
+		if (paste0(SYM1) == 'SPREAD_PARAMETRE') {
+			SYM1 = as.symbol('...')
+		}
+
 	}
 	if (!missing(SYM2)) {
 		SYM2 <- invoking_call[[3]]
+
+		if (paste0(SYM2) == 'SPREAD_PARAMETRE') {
+			SYM2 = as.symbol('...')
+		}
+
 	}
 	if (!missing(SYM3)) {
 		SYM3 <- invoking_call[[4]]
+
+		if (paste0(SYM3) == 'SPREAD_PARAMETRE') {
+			SYM3 = as.symbol('...')
+		}
+
 	}
 
 	if (len_args == 1) {

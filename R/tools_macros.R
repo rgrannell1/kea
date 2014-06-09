@@ -593,7 +593,9 @@ MakeFun <- function (expr) {
 MakeVariadic <- function (fn, fixed) {
 
 	env <- new.env(parent = environment(fn))
-	fn_sym <- as.symbol(match.call()$fn)
+
+	fn_sym    <- as.symbol(match.call()$fn)
+	varfn_sym <- as.symbol(paste0(fn_sym, '_'))
 
 	if ( grepl('_', paste0(fn_sym)) ) {
 		stop("MakeVariadic: _ in method name ", paste0(fn_sym))
@@ -613,13 +615,36 @@ MakeVariadic <- function (fn, fixed) {
 	params[params == fixed] <- '...'
 
 	# -- create a formal list from the new parametres with no defaults.
-	formals(out) <-
-		as_formals(params)
+	formals(out) <- as_formals(params)
+
+
+
+
+	tbody = bquote(
+
+		.(as.call( c(
+				as.symbol('Fix'),
+				varfn_sym,
+				lapply(params, function (param) {
+
+					# -- needed to go through a song-and-dance to
+					# -- get ... injected into the macro; this is done
+					# -- by handling of SPREAD_PARAMETRE in Fix.
+					if (param == '...') {
+						quote(SPREAD_PARAMETRE)
+					} else {
+						as.symbol(param)
+					}
+
+				})) ))
+		)
 
 	body(out) <- MakeFun( bquote({
 
 		# -- check that the argument list supplied can be
 		# --  correctly resolved.
+		.( eval(tbody) )
+
 		MACRO( Must $ Have_Canonical_Arguments() )
 
 		.(
