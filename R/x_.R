@@ -657,6 +657,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_FirstOf, 'coll')
 	add_x_method(this, x_FirstOf_, '...')
 
+	# --- xFirstAs --- #
+	add_x_method(this, xFirstAs, 'coll')
+	add_x_method(this, xFirstAs_, '...')
+	add_x_method(this, x_FirstAs, 'coll')
+	add_x_method(this, x_FirstAs_, '...')
+
 	# --- xFold --- #
 	add_x_method(this, xFold, 'coll')
 	add_x_method(this, xFold_, '...')
@@ -692,6 +698,12 @@ x_coll_proto <- local({
 	add_x_method(this, xFourthOf_, '...')
 	add_x_method(this, x_FourthOf, 'coll')
 	add_x_method(this, x_FourthOf_, '...')
+
+	# --- xFourthAs --- #
+	add_x_method(this, xFourthAs, 'coll')
+	add_x_method(this, xFourthAs_, '...')
+	add_x_method(this, x_FourthAs, 'coll')
+	add_x_method(this, x_FourthAs_, '...')
 
 	# -------- G ------- #
 	add_x_method(this, xGroupBy, 'coll')
@@ -967,6 +979,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_SecondOf, 'coll')
 	add_x_method(this, x_SecondOf_, '...')
 
+	# --- xSecondAs --- #
+	add_x_method(this, xSecondAs, 'coll')
+	add_x_method(this, xSecondAs_, '...')
+	add_x_method(this, x_SecondAs, 'coll')
+	add_x_method(this, x_SecondAs_, '...')
+
 	# --- xProdSetOf --- #
 	add_x_method(this, xProdSetOf, 'colls')
 	add_x_method(this, xProdSetOf_, '...')
@@ -1052,6 +1070,12 @@ x_coll_proto <- local({
 	add_x_method(this, xThirdOf_, '...')
 	add_x_method(this, x_ThirdOf, 'coll')
 	add_x_method(this, x_ThirdOf_, '...')
+
+	# --- xThirdAs --- #
+	add_x_method(this, xThirdAs, 'coll')
+	add_x_method(this, xThirdAs_, '...')
+	add_x_method(this, x_ThirdAs, 'coll')
+	add_x_method(this, x_ThirdAs_, '...')
 
 	# -------- U ------- #
 	# --- xUnion --- #
