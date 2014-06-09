@@ -481,8 +481,6 @@ sd_section(
 		"xNotNan",
 		"xNotNa",
 		"xNotNull",
-		"xNotTrue",
-		"xElemIs",
-		"xElemNot"
+		"xNotTrue"
 	)
 )

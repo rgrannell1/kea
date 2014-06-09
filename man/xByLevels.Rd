@@ -20,17 +20,15 @@ Convert a factor to a collection of the factor's data.
 }
 \seealso{
 Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByCols}}; \code{\link{xByRowkeys}},
-  \code{\link{xByRownames}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByCols}}; \code{\link{xByRowkeys}};
+  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
 
 Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByCols}}; \code{\link{xByRowkeys}},
-  \code{\link{xByRownames}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByCols}}; \code{\link{xByRowkeys}};
+  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
 }
 

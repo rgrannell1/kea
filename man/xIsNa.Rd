@@ -36,9 +36,7 @@ xIsNa(Na)
 # True; every other case will return false.
 }
 \seealso{
-Other value_testing_functions: \code{\link{xElemIs}},
-  \code{\link{xElemIs_}}; \code{\link{xElemNot}},
-  \code{\link{xElemNot_}}; \code{\link{xIsEmpty}},
+Other value_testing_functions: \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsFalse}};
   \code{\link{xIsNan}}; \code{\link{xIsNull}};
   \code{\link{xIsTrue}}; \code{\link{xIs}};

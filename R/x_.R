@@ -713,18 +713,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_InitOf, 'coll')
 	add_x_method(this, x_InitOf_, '...')
 
-	# --- xElemIs
-	add_x_method(this, xElemIs, 'coll')
-	add_x_method(this, xElemIs_, '...')
-	add_x_method(this, x_ElemIs, 'coll')
-	add_x_method(this, x_ElemIs_, '...')
-
-	# --- xElemNot
-	add_x_method(this, xElemNot, 'coll')
-	add_x_method(this, xElemNot_, '...')
-	add_x_method(this, x_ElemNot, 'coll')
-	add_x_method(this, x_ElemNot_, '...')
-
 	# --- xIsMatch --- #
 	add_x_method(this, xIsMatch, 'str')
 	add_x_method(this, x_IsMatch, 'str')

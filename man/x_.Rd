@@ -64,9 +64,8 @@ freqs  <- parsed $ x_Tabulate()
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}, \code{\link{xByValues}};
-  \code{\link{xByRowkeys}}, \code{\link{xByRownames}};
-  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xTap}}
+  \code{\link{xByRowkeys}}; \code{\link{xByRows}};
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}}
 }
 

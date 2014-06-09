@@ -17,10 +17,9 @@ Convert a matrix or data.frame to a collection of columns.
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByLevels}}, \code{\link{xByLevels}},
-  \code{\link{xByValues}}; \code{\link{xByRowkeys}},
-  \code{\link{xByRownames}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByValues}}; \code{\link{xByRowkeys}};
+  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
 }
 

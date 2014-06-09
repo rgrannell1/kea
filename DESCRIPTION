@@ -173,8 +173,6 @@ Collate:
     'xNotMatch.R'
     'xNotSubset.R'
     'xNot.R'
-    'xElemIs.R'
-    'xElemNot.R'
     'xByRowkeys.R'
     'x_.R'
     'x..R'
