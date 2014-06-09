@@ -1,21 +1,17 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message('xCycle (+)')
 
-message('xCycle')
+	over(coll) +
 
-	forall(
-		"cycling the empty collection is the empty collection",
-		test_cases$integer_with_collection_zero,
-		xCycle(num, coll) %equals% list()
-	)
+	describe("multiples of coll length are identity") +
+	when(
+		is_collection(coll),
+		xCycle(-length(coll), coll) %equals% as.list(coll),
+		xCycle(0,             coll) %equals% as.list(coll),
+		xCycle(+length(coll), coll) %equals% as.list(coll)
+	) +
 
-	forall(
-		"cycling with zero yields the correct collection.",
-		test_cases$collection,
-		xCycle(0, list(coll)) %equals% list(as.list(coll)),
-		given =
-			length(coll) > 0
- 	)
+	run()

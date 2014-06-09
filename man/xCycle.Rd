@@ -4,7 +4,7 @@
 \alias{xCycle_}
 \title{xCycle}
 \usage{
-xCycle(num, colls)
+xCycle(num, coll)
 
 xCycle_(num, ...)
 }
@@ -15,7 +15,7 @@ xCycle_(num, ...)
      while negative numbers cause elements from the head of \bold{coll} to
      appended to the output.}
 
-\item{colls}{a collection of collections. The collection to cycle.}
+\item{coll}{a collection. The collection to cycle.}
 
 \item{...}{see above.}
 }
@@ -49,7 +49,7 @@ Cyclic permutations are an important combinatorial object.
 }
 \section{Type Signature}{
 
-    <number> -> ||any|| -> ||any||
+    <number> -> |any| -> [any]
 }
 
 \section{Corner Cases}{
@@ -63,7 +63,7 @@ Cyclic permutations are an important combinatorial object.
 
 all_cyclic_permutations <- coll := {
     xMap(
-    	xFix_(xCycle, colls = coll),
+    	xCycle(coll = coll),
         seq_along(coll) - 1
     )
 }

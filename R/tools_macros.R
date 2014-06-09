@@ -6,7 +6,8 @@
 # Kiwi uses macro's instead of higher-order functions to check
 # that input is valid. There are good reasons for this. I found that
 # higher-order functions ended up failing when they were run, and capturing symbols and
-# testing was a nightmare.
+# testing was a nightmare. Functions like missing can only be called at the top level.
+# so there are also things possible with macros that just aren't with higher-order functions.
 #
 # Macro's just get injected into the code, so a lot of runtime errors are made into
 # build-time errors, in particular missing variables and misbound variables are

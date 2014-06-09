@@ -607,9 +607,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_Choose_, '...')
 
 	# --- xCycle --- #
-	add_x_method(this, xCycle, 'colls')
+	add_x_method(this, xCycle, 'coll')
 	add_x_method(this, xCycle_, '...')
-	add_x_method(this, x_Cycle, 'colls')
+	add_x_method(this, x_Cycle, 'coll')
 	add_x_method(this, x_Cycle_, '...')
 
 	# -------- D ------- #

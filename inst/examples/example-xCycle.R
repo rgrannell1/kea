@@ -4,7 +4,7 @@
 
 all_cyclic_permutations <- coll := {
     xMap(
-    	xFix_(xCycle, colls = coll),
+    	xCycle(coll = coll),
         seq_along(coll) - 1
     )
 }
