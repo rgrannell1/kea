@@ -31,7 +31,15 @@ xFromChars <- MakeFun(function (strs) {
 
 	MACRO( Fix(xFromChars, strs) )
 
-	xImplode("", strs)
+	MACRO( Must $ Be_Collection(strs) )
+
+	strs <- as_typed_vector(strs, 'character')
+
+	if (length(strs) == 0) {
+		character()
+	} else {
+		paste(strs, collapse = '')
+	}
 })
 
 #' @rdname xFromChars

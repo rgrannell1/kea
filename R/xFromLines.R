@@ -3,7 +3,6 @@
 #'
 #' Concatentate a character vector with newlines as delimiters.
 #'
-#'
 #' @section Type Signature:
 #'     |character| -> &lt;character>
 #'
@@ -33,7 +32,15 @@ xFromLines <- MakeFun(function (strs) {
 
 	MACRO( Fix(xFromLines, strs) )
 
-	xImplode("\n", strs)
+	MACRO( Must $ Be_Collection(strs) )
+
+	strs <- as_typed_vector(strs, 'character')
+
+	if (length(strs) == 0) {
+		character()
+	} else {
+		paste(strs, collapse = '\n')
+	}
 })
 
 #' @rdname xFromLines
