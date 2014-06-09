@@ -362,7 +362,7 @@ throw_exhaustion_warning <- function (test_data, state, info, invoking_call) {
 	run      <- state $ tests_run
 	examined <- state $ case_examined
 
-	message <- info %+% colourise $ yellow("Failed!\n") %+%
+	message <- info %+% colourise $ yellow(" Failed!\n") %+%
 	"all " %+% examined %+% " test cases" %+%
 		" were rejected."
 
@@ -454,7 +454,7 @@ state_sucess <- function (states, info) {
 	msg <- paste0(
 		sprintf("%-80s", info %+% " passed! ") %+%
 		"(" %+%
-			colourise $ green(positive_run %+% ' +') %+% ',' %+%
+			sprintf("%-8s",colourise $ green(positive_run %+% ' +') %+% ',') %+%
 			colourise $ red  (negative_run %+%" -") %+%
 		')', collapse = '\n')
 
