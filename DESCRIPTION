@@ -174,5 +174,7 @@ Collate:
     'xNotSubset.R'
     'xNot.R'
     'xByRowkeys.R'
+    'xAppend.R'
+    'xPrepend.R'
     'x_.R'
     'x..R'

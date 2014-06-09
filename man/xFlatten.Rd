@@ -65,12 +65,14 @@ xFlatten(1, tree)
 # list(3, 4, 9)
 }
 \seealso{
-Other reshaping_functions: \code{\link{xChop}},
+Other reshaping_functions: \code{\link{xAppend}},
+  \code{\link{xAppend_}}; \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xGroupBy}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},
   \code{\link{xJoin_}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRecycle}},
+  \code{\link{xOneOf_}}; \code{\link{xPrepend}},
+  \code{\link{xPrepend_}}; \code{\link{xRecycle}},
   \code{\link{xRecycle_}}; \code{\link{xRepeat}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xShuffle}},

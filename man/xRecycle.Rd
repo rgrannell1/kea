@@ -41,13 +41,15 @@ xRecycle takes a ragged collection - a collection of collections
    collection in \bold{colls} is length-zero.
 }
 \seealso{
-Other reshaping_functions: \code{\link{xChop}},
+Other reshaping_functions: \code{\link{xAppend}},
+  \code{\link{xAppend_}}; \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGroupBy}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},
   \code{\link{xJoin_}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRepeat}},
+  \code{\link{xOneOf_}}; \code{\link{xPrepend}},
+  \code{\link{xPrepend_}}; \code{\link{xRepeat}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xShuffle}},
   \code{\link{xShuffle_}}; \code{\link{xSortBy}},

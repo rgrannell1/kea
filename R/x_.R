@@ -579,6 +579,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_AsDataFrame, 'colls')
 	add_x_method(this, x_AsDataFrame_, '...')
 
+	# --- xAppend --- #
+	add_x_method(this, xAppend, 'coll')
+	add_x_method(this, xAppend_, '...')
+	add_x_method(this, x_Append, 'coll')
+	add_x_method(this, x_Append_, '...')
+
 	# --- xApply --- #
 	add_x_method(this, xApply, 'coll')
 	add_x_method(this, xApply_, '...')
@@ -859,6 +865,12 @@ x_coll_proto <- local({
 	add_x_method(this, xFix_, '...')
 	add_x_method(this, x_Fix, 'coll')
 	add_x_method(this, x_Fix_, '...')
+
+	# --- xPrepend --- #
+	add_x_method(this, xPrepend, 'coll')
+	add_x_method(this, xPrepend_, '...')
+	add_x_method(this, x_Prepend, 'coll')
+	add_x_method(this, x_Prepend_, '...')
 
 	# --- xPluck --- #
 	add_x_method(this, xPluck, 'colls')

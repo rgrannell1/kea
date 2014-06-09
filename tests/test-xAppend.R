@@ -1,0 +1,34 @@
+
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
+
+message("xAppend (+)")
+
+	over(val, coll) +
+
+	describe("joining with empty collection is list(val)") +
+	when(
+		is_collection(coll) && length(coll) == 0,
+		xAppend(val, coll) %equals% list(val)
+	) +
+
+	describe("adds to end of collection") +
+	when(
+		is_collection(coll),
+		length(xAppend(val, coll)) == length(coll) + 1,
+		xAppend(val, coll)[[length(coll) + 1]] %equals% val
+	) +
+
+	run()
+
+message("xAppend (-)")
+
+	over(val, coll) +
+
+	describe("fails if not a collection") +
+	failsWhen(
+		!is_collection(coll),
+		xAppend(val, coll)
+	) +
+
+	run()
