@@ -46,7 +46,6 @@ xExplode <- MakeFun(function (rexp, str) {
 	} else if (nchar(str) == 0) {
 		''
 	} else {
-		exploded <- strsplit(str, rexp)[[1]]
-		exploded[nchar(exploded) > 0]
+		strsplit(str, rexp)[[1]]
 	}
 })

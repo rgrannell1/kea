@@ -49,6 +49,7 @@ fix <- local({
 Fix <- function (FN, SYM1, SYM2, SYM3) {
 
 	# -- marginally more performant than length(which( ))
+
 	len_args <- (!missing(SYM1)) + (!missing(SYM2)) + (!missing(SYM3))
 
 	# -- get the symbols for the parametres passed to Fix (if given).
@@ -83,31 +84,27 @@ Fix <- function (FN, SYM1, SYM2, SYM3) {
 
 	} else if (len_args == 2) {
 
-		bquote({
-			# -- more complicated; if no parametres given
-			# -- return function unchanged. if both are given
-			# -- fix both. Otherwise fix the given parametre
-			# --
-			# -- 1 + 2 + 1
+			.this   <- sys.function()
+			.params <- names( formals(.this) )
 
-			missing_1 <- missing( .(SYM1) )
-			missing_2 <- missing( .(SYM2) )
+			.arguments <- list()
 
-			if (missing_1) {
-				if (missing_2) {
-					# __
-					return ( .(FN) )
-				} else {
-					# _|
-					return ( fix( .(FN), list(arg2 = .(SYM2) )) )
+			for (.ith in seq_along(.params)) {
+				# -- if an argument is given
+				if ( !do.call(missing, list( .params[[.ith]] )) ) {
+
+					# -- append the argument to a list.
+					.arguments[[ paste0('arg', .ith) ]] <- eval(as.symbol( .params[[.ith]] ))
 				}
-			} else if (missing_2) {
-				# |_
-				return ( fix( .(FN), list(arg1 = .(SYM1) )) )
 			}
 
-			# ||
-			# -- otherwise run
+			# -- no arguments given; return this function unchanged.
+			if (length(.arguments) == 0) {
+				return (.this)
+			} else if (length(.arguments) != length(.params) ) {
+				return(fix(.this, .arguments))
+			}
+
 		})
 
 	} else if (len_args == 3) {
