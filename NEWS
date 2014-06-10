@@ -1,4 +1,42 @@
 
+Kiwi 0.19.0
+-----------------------------------------------------------------------------
+
+A minor update. Adds xLastAs, fixes a bug in xFirstAs...xFourthAs.
+
+Date: 2014-6-10
+
+Enhancements:
+
+* Added xLastAs, which sets the last value of a collection.
+
+Bug Fixes:
+
+* xFirstAs ... xFourthAs could not be correctly partially-applied. This is fixed, and
+a future version of Kiwi will guard against these errors.
+
+Documentation:
+
+Package Internals:
+
+* Updated the xVal test to work correctly with Rscript testing commands;
+tests now run correctly from the command line.
+
+* Added Rscript to run a single unit test.
+
+* Added a forall-next test for xGroupBy, xLastAs.
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.18.0
 -----------------------------------------------------------------------------
 Date: 2014-6-9

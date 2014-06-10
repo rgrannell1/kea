@@ -1,7 +1,7 @@
 
-#' xFourthAs
+#' xLastAs
 #'
-#' Set the fourth value in a collection.
+#' Set the last value in a collection.
 #'
 #' @section Type Signature:
 #'     any -> |any| -> [any]
@@ -11,7 +11,7 @@
 #'
 #' @param
 #'    coll a collection. The collection to set the
-#'    fourth element of.
+#'    last element of.
 #'
 #' @param
 #'    ... see above.
@@ -20,32 +20,32 @@
 #'    A collection.
 #'
 #' @section Corner Cases:
-#'     Throws an error for collections shorter than four
-#'     elements.
+#'     Throws an error for collections shorter than one
+#'     element.
 #'
 #' @template
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xFourthAs.R
+#'    inst/examples/example-xLastAs.R
 #'
-#' @rdname xFourthAs
+#' @rdname xLastAs
 #' @export
 
-xFourthAs <- MakeFun(function (val, coll) {
+xLastAs <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xFourthAs, val, coll) )
+	MACRO( Fix(xLastAs, val, coll) )
 
 	MACRO( Must $ Be_Collection(coll) )
-	MACRO( Must $ Be_Longer_Than(3, coll) )
+	MACRO( Must $ Be_Longer_Than(0, coll) )
 
 	coll <- as.list(coll)
-	coll[[4]] <- val
+	coll[[ length(coll) ]] <- val
 	coll
 
 })
 
-#' @rdname xFourthAs
+#' @rdname xLastAs
 #' @export
 
-xFourthAs_ <- MakeVariadic(xFourthAs, 'coll')
+xLastAs_ <- MakeVariadic(xLastAs, 'coll')

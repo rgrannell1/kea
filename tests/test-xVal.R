@@ -7,11 +7,11 @@ require(kiwi)
 message("xVal")
 
 	{
-		xVal(a, 10)
-		stopifnot(a == 10)
+		xVal(test_value, 10)
+		stopifnot(test_value == 10)
 		stopifnot(bindingIsLocked(
-			as.symbol('a'), environment()) )
+			as.symbol('test_value'), environment()) )
 
-		unlockBinding(as.symbol('a'), environment())
-		rm(a)
+		unlockBinding(as.symbol('test_value'), environment())
+		rm(test_value)
 	}

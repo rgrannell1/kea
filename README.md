@@ -1,5 +1,5 @@
 
-Kiwi 0.18.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.19.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -157,12 +157,22 @@ x__(1, 2, 3, 4, 5, 6) $ xMap(sqrt %then% toString)
 
 Kiwi implements lots of higher-order functions and general collection functions. These include
 functions like Map, Fold, Select, Iterate, but there are also many functions not commonly found
-in other libraries. Partial application you specialise these general function for one
-task. It can be a useful form of code reuse, and prevents throwaway anonymous functions.
+in other libraries.
+
+These functions are *partially appliable*; you don't have to give a function
+all its arguments at once. You can specialise general functions - like isMatch, which tests
+if a string matches a regexp - for a specific use, like testing if a string matches the pattern
+'face'. Partial application lets you reuse code & avoid throwaway anonymous functions.
 
 ```js
-# -- grab strings with the pattern 'face' in them.
-x__('facebook', 'facetime', 'faceoff', 'facile') $ xSelect(xFix_(xIsMatch, 'face'))
+# specialise fold in two different ways.
+
+sumOf  <- xFold('+', 0)
+prodOf <- xFold('*', 1)
+
+sumOf(1:10)
+prodOf(1:10)
+
 ```
 
 Fold is the king of functionals, powerful enough to implement Map, Select and
@@ -245,4 +255,8 @@ http://semver.org/
 
 ## Authors
 
-Ryan Grannell.
+Ordered by contribution date.
+
+| Author                      | Changes            |
+| --------------------------- | ------------------ |
+| Ryan Grannell               | 177 704+, 145 757- |

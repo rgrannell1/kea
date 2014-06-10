@@ -4,16 +4,23 @@ test_cases <- kiwi:::test_cases
 
 require(kiwi)
 
-message("xGroupBy")
-
-	forall(
-		"grouping an empty collection is list()",
-		test_cases$collection_zero,
-		xGroupBy(xI, coll) %equals% list()
-	)
-
 	forall(
 		"grouping an length one is as list(coll)",
 		test_cases$num_positive_integer,
 		xGroupBy(xI, num) %equals% list(list(num, list( num )))
 	)
+
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
+
+message("xGroupBy")
+
+	over(coll) +
+
+	describe("grouping an empty collection is list()") +
+	when(
+		is_collection(coll) && length(coll) == 0,
+		xGroupBy(identity, coll) %equals% list()
+	) +
+
+	run()
