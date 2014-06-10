@@ -18,9 +18,8 @@ Enumerate the elements of a matrix down columns.
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}, \code{\link{xByValues}};
-  \code{\link{xByRowkeys}}, \code{\link{xByRownames}};
-  \code{\link{xByRows}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByRowkeys}}; \code{\link{xByRows}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
 }
 

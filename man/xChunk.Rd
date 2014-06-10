@@ -51,12 +51,14 @@ age_by_country <-
 #     Germany = "43.7", Jersey = "43.4", `Hong Kong` = "42.8")
 }
 \seealso{
-Other reshaping_functions: \code{\link{xChop}},
+Other reshaping_functions: \code{\link{xAppend}},
+  \code{\link{xAppend_}}; \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGroupBy}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},
   \code{\link{xJoin_}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRecycle}},
+  \code{\link{xOneOf_}}; \code{\link{xPrepend}},
+  \code{\link{xPrepend_}}; \code{\link{xRecycle}},
   \code{\link{xRecycle_}}; \code{\link{xRepeat}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xShuffle}},

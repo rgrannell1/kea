@@ -3,15 +3,15 @@
 #'
 #' Return the duplicated elements in a collection.
 #'
+#' @section Type Signature:
+#'     |any| -> [any]
+#'
 #' @param
 #'    coll a collection. The collection to return
 #'    duplicated elements from.
 #'
 #' @param
 #'    ... see above.
-#'
-#' @section Type Signature:
-#'     |any| -> [any]
 #'
 #' @return
 #'    A list.

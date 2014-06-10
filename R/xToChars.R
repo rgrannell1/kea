@@ -27,7 +27,7 @@ xToChars <- MakeFun(function (str) {
 	MACRO( Fix(xToChars, str) )
 	MACRO( Must $ Be_Collection(str) )
 
-	str <- as_typed_vector(str, 'character')
+	str <- as_atom(str, 'character')
 
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)

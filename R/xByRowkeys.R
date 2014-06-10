@@ -4,17 +4,17 @@
 #' Convert a matrix or data.frame to a collection of column names.
 #'
 #' @details
-#'     \bold{xByRownames} returns the column names of a data frame or matrix.
+#'     \bold{xByRowkeys} returns the column names of a data frame or matrix.
 #'
 #' @usage
-#'      x_(  ) $ xByRownames()
+#'      x_(  ) $ xByRowkeys()
 #'
 #' @return
 #'      A kiwi containing a character vector.
 #'
 #' @family methods
 #'
-#' @name xByRownames
+#' @name xByRowkeys
 
 xByRowkeys <- MakeFun(function (colls) {
 

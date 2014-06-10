@@ -11,7 +11,7 @@ message("forall-next (+)")
 		is.finite(a)  && is.finite(b),
 		a + b == b + a
 	) +
-	run()
+	run(5)
 
 	over(a) +
 	describe("multiplication by 1 is identity") +
@@ -20,7 +20,7 @@ message("forall-next (+)")
 		is.finite(a),
 		a * 1 == a
 	) +
-	run()
+	run(5)
 
 message("forall-next (-)")
 
@@ -53,6 +53,6 @@ message("forall-next (-)")
 			a != a
 		) +
 
-		run()
+		run(5)
 
 	})

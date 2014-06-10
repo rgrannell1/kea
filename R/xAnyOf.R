@@ -1,3 +1,4 @@
+
 #' xAnyOf
 #'
 #' Is a predicate true for any element of a collection?

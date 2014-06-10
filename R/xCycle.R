@@ -4,7 +4,7 @@
 #' Generate a cyclic permutation of a collection.
 #'
 #' @section Type Signature:
-#'     <number> -> ||any|| -> ||any||
+#'     <number> -> |any| -> [any]
 #'
 #' @details
 #'
@@ -37,7 +37,7 @@
 #'      appended to the output.
 #'
 #' @param
-#'      colls a collection of collections. The collection to cycle.
+#'      coll a collection. The collection to cycle.
 #'
 #' @param
 #'    ... see above.
@@ -59,34 +59,29 @@
 #' @rdname xCycle
 #' @export
 
-xCycle <- MakeFun(function (num, colls) {
+xCycle <- MakeFun(function (num, coll) {
 
-	MACRO( Fix(xCycle, num, colls) )
+	MACRO( Fix(xCycle, num, coll) )
 
 	MACRO( Must $ Be_Collection(num) )
-	MACRO( Must $ Be_Collection(colls) )
+	MACRO( Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( Must $ Be_Whole(num) )
 
-	MACRO( Must $ Be_Collection_Of_Collections(colls) )
-	MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )
-
-	if (length(colls) == 0) {
+	if (length(coll) == 0) {
 		list()
 	} else {
 
 		# -- this horrid line (thank 1-indexing) cylically permutes the indices.
-		indices <- ((seq_along( colls[[1]])  - 1 + num) %% length( colls[[1]]) ) + 1
+		indices <- ((seq_along( coll)  - 1 + num) %% length( coll) ) + 1
 
-		lapply(colls, function (permutable) {
-			as.list(permutable[indices])
-		})
+		as.list(coll[indices])
 	}
 })
 
 #' @rdname xCycle
 #' @export
 
-xCycle_ <- MakeVariadic(xCycle, 'colls')
+xCycle_ <- MakeVariadic(xCycle, 'coll')

@@ -285,11 +285,12 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 
 				message <-
 					info %+% '\n' %+%
+					colourise $ red('Failed!') %+%
 					'the property ' %+% ddparse(body(prop)) %+%
 					' returned a non length-one result\n' %+%
 					'For the test case ' %+% ddparse(case)
 
-				throw_kiwi_error(invoking_call, message)
+				stop(message, call. = False)
 			}
 
 			# -- the result of the property must always be true or false.
@@ -297,11 +298,12 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 
 				message <-
 					info %+% '\n' %+%
+					colourise $ red('Failed!') %+%
 					'the property ' %+% ddparse(body(prop)) %+%
 					' returned a non-logical result\n' %+%
 					'For the test case ' %+% ddparse(case)
 
-				throw_kiwi_error(invoking_call, message)
+				stop(message, call. = False)
 			}
 
 			if (!isTRUE(has_prop)) {
@@ -360,10 +362,11 @@ throw_exhaustion_warning <- function (test_data, state, info, invoking_call) {
 	run      <- state $ tests_run
 	examined <- state $ case_examined
 
-	message <- info %+% "\nFailed; all " %+% examined %+% " test cases" %+%
+	message <- info %+% colourise $ yellow(" Failed!\n") %+%
+	"all " %+% examined %+% " test cases" %+%
 		" were rejected."
 
-	throw_kiwi_warning(invoking_call, message)
+	warning(message, call. = False)
 }
 
 
@@ -423,12 +426,13 @@ throw_property_error <- function (test_data, state, invoking_call) {
 
 	summary <- paste(paragraphs, collapse = '\n\n')
 
-	message <- "\nFailed after the " %+%
+	message <- colourise $ red("\nFailed ") %+%
+	"after the " %+%
 		ith_suffix(after) %+% " case!\n\n" %+%
 		summary %+% "\n\n" %+%
 		case_string %+% "\n"
 
-	throw_kiwi_error(invoking_call, message)
+	stop(message, call. = False)
 }
 
 
@@ -447,9 +451,15 @@ state_sucess <- function (states, info) {
 	negative_run <- states [[2]] $ tests_run
 
 	# -- info is vectorised (many descriptions), create newline for each.
-	msg <- paste0(info %+% " passed! (" %+%
-		positive_run %+% ' +, ' %+% negative_run %+%
-	" -)", collapse = '\n')
+
+	run_summary <-
+		"(" %+%
+			sprintf("%-8s",colourise $ green(positive_run %+% '+') %+% ',') %+%
+			colourise $ red  (negative_run %+%"-") %+%
+		')'
+
+	msg <- paste0(
+		sprintf("%-80s", info %+% " passed! ") %+% run_summary, collapse = '\n')
 
 	message(msg)
 
@@ -752,7 +762,7 @@ failsWhen <- function (expr1, ...) {
 # Run specifies that the test object should now be
 # executes. Also specifies how long to run the test for.
 
-run <- function (time = 1) {
+run <- function (time = 2) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out

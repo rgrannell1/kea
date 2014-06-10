@@ -51,9 +51,7 @@ xReject_(xIsEmpty, 'a', 'b', integer(0), 'c')
 # list('a', 'b', 'c')
 }
 \seealso{
-Other value_testing_functions: \code{\link{xElemIs}},
-  \code{\link{xElemIs_}}; \code{\link{xElemNot}},
-  \code{\link{xElemNot_}}; \code{\link{xIsFalse}};
+Other value_testing_functions: \code{\link{xIsFalse}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
   \code{\link{xIsNull}}; \code{\link{xIsTrue}};
   \code{\link{xIs}}; \code{\link{xNotEmpty}},

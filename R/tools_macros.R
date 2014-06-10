@@ -6,7 +6,8 @@
 # Kiwi uses macro's instead of higher-order functions to check
 # that input is valid. There are good reasons for this. I found that
 # higher-order functions ended up failing when they were run, and capturing symbols and
-# testing was a nightmare.
+# testing was a nightmare. Functions like missing can only be called at the top level.
+# so there are also things possible with macros that just aren't with higher-order functions.
 #
 # Macro's just get injected into the code, so a lot of runtime errors are made into
 # build-time errors, in particular missing variables and misbound variables are
@@ -584,144 +585,6 @@ MakeFun <- function (expr) {
 	eval(unquote(substitute(expr)), parent_frame)
 }
 
-
-
-
-Fix <- function (FN, SYM1, SYM2, SYM3) {
-
-	len_args <- (!missing(SYM1)) + (!missing(SYM2)) + (!missing(SYM3))
-
-
-	# -- get the symbols for the parametres passed to Fix (if given).
-	FN <- match.call()$FN
-
-	if (!missing(SYM1)) {
-		SYM1 <- match.call()$SYM1
-	}
-	if (!missing(SYM2)) {
-		SYM2 <- match.call()$SYM2
-	}
-	if (!missing(SYM3)) {
-		SYM3 <- match.call()$SYM3
-	}
-
-	if (len_args == 1) {
-		# -- the simplest case; if no arguments are given return the
-		# -- called function unchanged.
-
-		bquote(
-			if (missing( .(SYM1) )) {
-				# _
-				return( .(FN) )
-			}
-
-			# |
-			# -- otherwise run
-
-		)
-
-	} else if (len_args == 2) {
-
-		bquote({
-			# -- more complicated; if no parametres given
-			# -- return function unchanged. if both are given
-			# -- fix both. Otherwise fix the given parametre
-			# --
-			# -- 1 + 2 + 1
-
-			missing_1 <- missing( .(SYM1) )
-			missing_2 <- missing( .(SYM2) )
-
-			if (missing_1) {
-				if (missing_2) {
-					# __
-					return ( .(FN) )
-				} else {
-					# _|
-					return ( fix( .(FN), list(arg2 = .(SYM2) )) )
-				}
-			} else if (missing_2) {
-				# |_
-				return ( fix( .(FN), list(arg1 = .(SYM1) )) )
-			}
-
-			# ||
-			# -- otherwise run
-		})
-
-	} else if (len_args == 3) {
-
-		bquote({
-			missing_1 <- missing( .(SYM1) )
-			missing_2 <- missing( .(SYM2) )
-			missing_3 <- missing( .(SYM3) )
-
-			if (missing_1) {
-
-				if (missing_2) {
-					if (missing_3) {
-						# -- all three are missing; return the function
-						# ___
-						return ( .(FN) )
-					} else {
-						# __|
-						# first two missing; fix three
-
-						return ( fix( .(FN), list(arg3 = .(SYM3) )) )
-					}
-				} else{
-
-					if (missing_3) {
-						# _|_
-						# -- first and third missing; fix second.
-
-						return ( fix( .(FN), list(arg2 = .(SYM2) )) )
-
-					} else {
-						# _||
-						# - first missing; fix second and third.
-
-						return ( fix( .(FN), list(arg2 = .(SYM2), arg3 = .(SYM3) )) )
-					}
-
-				}
-
-			} else if (missing_2) {
-
-				if (missing_3) {
-					# |__
-					# -- second and third missing; set first
-
-					return ( fix( .(FN), list(arg1 = .(SYM1) )) )
-				} else {
-					# |_|
-					# -- first and third missing; fix second.
-
-					return (fix( .(FN), list(arg1 = .(SYM1), arg3 = .(SYM3)) ))
-				}
-
-			} else if (missing_3) {
-				# ||_
-				# -- third missingl set first and second.
-
-				return (fix( .(FN), list(arg1 = .(SYM1), arg2 = .(SYM2)) ))
-			}
-
-		})
-
-	} else {
-		stop('internal error in Fix.')
-	}
-
-}
-
-Fix(as.symbol('xFold'), as.symbol('fn'), as.symbol('val'), as.symbol('coll'))
-
-
-
-
-
-
 # MakeVariadic
 #
 # MakeVariadic takes a function, and the variable to fix, and it generates
@@ -730,7 +593,9 @@ Fix(as.symbol('xFold'), as.symbol('fn'), as.symbol('val'), as.symbol('coll'))
 MakeVariadic <- function (fn, fixed) {
 
 	env <- new.env(parent = environment(fn))
-	fn_sym <- as.symbol(match.call()$fn)
+
+	fn_sym    <- as.symbol(match.call()$fn)
+	varfn_sym <- as.symbol(paste0(fn_sym, '_'))
 
 	if ( grepl('_', paste0(fn_sym)) ) {
 		stop("MakeVariadic: _ in method name ", paste0(fn_sym))
@@ -750,13 +615,36 @@ MakeVariadic <- function (fn, fixed) {
 	params[params == fixed] <- '...'
 
 	# -- create a formal list from the new parametres with no defaults.
-	formals(out) <-
-		as_formals(params)
+	formals(out) <- as_formals(params)
+
+
+
+
+	fix_macro_call = bquote(
+
+		.(as.call( c(
+				as.symbol('Fix'),
+				varfn_sym,
+				lapply(params, function (param) {
+
+					# -- needed to go through a song-and-dance to
+					# -- get ... injected into the macro; this is done
+					# -- by handling of SPREAD_PARAMETRE in Fix.
+					if (param == '...') {
+						quote(SPREAD_PARAMETRE)
+					} else {
+						as.symbol(param)
+					}
+
+				})) ))
+		)
 
 	body(out) <- MakeFun( bquote({
 
 		# -- check that the argument list supplied can be
 		# --  correctly resolved.
+		.( eval(fix_macro_call) )
+
 		MACRO( Must $ Have_Canonical_Arguments() )
 
 		.(

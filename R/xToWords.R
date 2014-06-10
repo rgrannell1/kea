@@ -31,7 +31,7 @@ xToWords <- MakeFun(function (str) {
 	MACRO( Fix(xToWords, str) )
 	MACRO( Must $ Be_Collection(str) )
 
-	str <- as_typed_vector(str, 'character')
+	str <- as_atom(str, 'character')
 
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)

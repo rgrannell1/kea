@@ -1,5 +1,5 @@
 
-Kiwi 0.17.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.18.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -21,18 +21,18 @@ install_github("kiwi", "rgrannell1", ref = "releases")
 ## What is Kiwi?
 
 Functional programming has become commonplace in languages like JavaScript
-and Python, but R is conspicuously lacking such a library. Kiwi is a functional
+and Python, but R is sorely lacking such a library. Kiwi is a functional
 library for general-purpose programming in R. It adds all the common higher-order
-functions (Map, Fold, Compose, ...) and functions taken from
-set theory and combinatorics. Kiwi also exploits R's flexibility to add
-arrow functions, methods, wildcards & list-comprehensions to the language.
+functions (Map, Fold, Compose, ...), collection functions, and functions taken from set theory and combinatorics.
+
+Kiwi extends R's semantics - by adding Haskell-style automatic partial application -
+and syntax, with arrow functions, methods, wildcards and list-comprehensions.
 
 For library documentation and tutorials head to
-[http://rgrannell1.github.io/kiwi/](http://rgrannell1.github.io/kiwi/).
+[http://rgrannell1.github.io/kiwi/](htti://rgrannell1.github.io/kiwi/).
 
-Feel under no obligation to read the following sections; Kiwi's documentation is sufficient to
-get you up and running quickly. If you are interested in Kiwi's key features and design decisions,
-read on.
+Feel no obligation to read the following sections; Kiwi's documentation is sufficient to
+get you up and running quickly. If you are interested in Kiwi's key features and design decisions, read on.
 
 ### Kiwi is Expressive
 

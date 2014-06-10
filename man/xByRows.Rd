@@ -22,9 +22,8 @@ Convert a matrix or data.frame to a collection of rows.
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},
   \code{\link{xByLevels}}, \code{\link{xByValues}};
-  \code{\link{xByRowkeys}}, \code{\link{xByRownames}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xExecute}}; \code{\link{xTap}};
-  \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByRowkeys}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
+  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
 }
 

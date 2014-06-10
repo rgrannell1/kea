@@ -1,4 +1,60 @@
 
+Kiwi 0.18.0
+-----------------------------------------------------------------------------
+Date: 2014-6-9
+
+Adds further support for automatic partial application, adds mutator
+functions & removed some vectorised functions.
+
+Enhancements:
+
+* Added automatic partial application to the variadic forms of functions.
+
+* Added xAppend, xPrepend for inserting elements into a collection.
+
+* Added xFirstAs, xSecondAs, xThirdAs, and xFourthAs. These functions set their
+respective position in a collection to a value.
+
+* xCycle no longer operates on collections of collections, instead on flat collections.
+Partial application reduces the need for collection-of-collection functions, and simple
+type signatures are more composable than complex ones.
+
+* Removed xElemIs, xElemNot; partial application means that 'xMap(xIs(val))' works
+perfectly well, eliminating the benefit of these functions.
+
+* xExplode no longer removes length-zero elements produced on exploding; although
+strsplit can introduce such elements spuriously, removing them can cause difficulties.
+This may be addressed by not ussing strsplit internally in a future version.
+
+* xFromChars, xFromWords, xFromLines no longer call xImplode internally, so error-messages
+should be identified as coming from them, not xImplode.
+
+Documentation:
+
+* xByRowKeys documentation now correctly builds.
+
+* Removed embarassing use of the word 'automatical' from README.
+
+Package Internals:
+
+* Testing tools can now be run from the command line, with colourised output. Some
+tests currently break when run in this mode.
+
+* MakeVariadic now inserts the 'Fix' macro into its generated functions.
+
+* Wrote forall-next tests for xCycle, xAppend, xPrepend, xFirstAs, xSecondAs,
+xThirdAs, xFourthAs, xUniqueOf.
+
+
+
+
+
+
+
+
+
+
+
 
 Kiwi 0.17.0
 -----------------------------------------------------------------------------
@@ -18,7 +74,6 @@ Bug-Fixes:
 * Fixed a bug that crashed error handing due to improper conversion of a
 function to a string during error message creation.
 
-
 Package Internals:
 
 * Added fix, a variant of xFix required for efficient partial application of
@@ -37,6 +92,15 @@ xUnzipIndices, and xUnzipKeys.
 
 * Added inject_expr, which inserts a line into the head of an expression body.
 Currenty untested.
+
+
+
+
+
+
+
+
+
 
 
 
