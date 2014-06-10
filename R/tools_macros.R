@@ -549,6 +549,8 @@ Must <- local({
 	this
 })
 
+# MakeFun:
+# this injects the code into the document, by evaluating the contents of MACRO.
 
 
 
@@ -556,8 +558,14 @@ Must <- local({
 
 
 
-bmacro <- function (expr, env = parent.frame()) {
-	# -- almost identical to bquote, with MACRO instead of `.` .
+
+
+
+
+
+MakeFun <- function (expr) {
+
+	parent_frame <- parent.frame()
 
 	unquote <- function (inner) {
 
@@ -566,7 +574,7 @@ bmacro <- function (expr, env = parent.frame()) {
 		} else if (length(inner) <= 1L) {
 			inner
 		} else if (inner[[1L]] == as.name("MACRO")) {
-			eval(inner[[2L]], env)
+			eval(inner[[2L]], parent_frame)
 		} else {
 			as.call(lapply(inner, unquote))
 		}
@@ -574,13 +582,8 @@ bmacro <- function (expr, env = parent.frame()) {
 
 	# -- generate a fix macro to inject
 
-	eval(unquote(substitute(expr)), env)
+	eval(unquote(substitute(expr)), parent_frame)
 }
-
-# MakeFun:
-# this injects the code into the document, by evaluating the contents of MACRO.
-
-MakeFun <- bmacro
 
 # MakeVariadic
 #
@@ -614,26 +617,33 @@ MakeVariadic <- function (fn, fixed) {
 	# -- create a formal list from the new parametres with no defaults.
 	formals(out) <- as_formals(params)
 
-	body(out) <- bmacro( bquote({
+
+
+
+	fix_macro_call = bquote(
+
+		.(as.call( c(
+				as.symbol('Fix'),
+				varfn_sym,
+				lapply(params, function (param) {
+
+					# -- needed to go through a song-and-dance to
+					# -- get ... injected into the macro; this is done
+					# -- by handling of SPREAD_PARAMETRE in Fix.
+					if (param == '...') {
+						quote(SPREAD_PARAMETRE)
+					} else {
+						as.symbol(param)
+					}
+
+				})) ))
+		)
+
+	body(out) <- MakeFun( bquote({
 
 		# -- check that the argument list supplied can be
 		# --  correctly resolved.
-
-		.(as.call( c(
-			as.symbol('Fix'),
-			varfn_sym,
-			lapply(params, function (param) {
-
-				# -- needed to go through a song-and-dance to
-				# -- get ... injected into the macro; this is done
-				# -- by handling of SPREAD_PARAMETRE in Fix.
-				if (param == '...') {
-					quote(SPREAD_PARAMETRE)
-				} else {
-					as.symbol(param)
-				}
-
-			})) ))
+		.( eval(fix_macro_call) )
 
 		MACRO( Must $ Have_Canonical_Arguments() )
 
@@ -657,9 +667,7 @@ MakeVariadic <- function (fn, fixed) {
 							}
 
 						}) )) ) )
-	}) , environment())
-	# -- get bmacro to evaluate in this local environment, not
-	# -- the package namespace.
+	}) )
 
 	environment(out) <- env
 
