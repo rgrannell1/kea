@@ -1,7 +1,7 @@
 
-#' xFirstAs
+#' xLastAs
 #'
-#' Set the first value in a collection.
+#' Set the last value in a collection.
 #'
 #' @section Type Signature:
 #'     any -> |any| -> [any]
@@ -11,7 +11,7 @@
 #'
 #' @param
 #'    coll a collection. The collection to set the
-#'    first element of.
+#'    last element of.
 #'
 #' @param
 #'    ... see above.
@@ -27,25 +27,24 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xFirstAs.R
+#'    inst/examples/example-xLastAs.R
 #'
-#' @rdname xFirstAs
+#' @rdname xLastAs
 #' @export
 
-xFirstAs <- MakeFun(function (val, coll) {
+xLastAs <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xFirstAs, val, coll) )
+	MACRO( Fix(xLastAs, val, coll) )
 
 	MACRO( Must $ Be_Collection(coll) )
 	MACRO( Must $ Be_Longer_Than(0, coll) )
 
-	coll <- as.list(coll)
-	coll[[1]] <- val
+	coll[[ length(coll) ]] <- val
 	coll
 
 })
 
-#' @rdname xFirstAs
+#' @rdname xLastAs
 #' @export
 
-xFirstAs_ <- MakeVariadic(xFirstAs, 'coll')
+xLastAs_ <- MakeVariadic(xLastAs, 'coll')
