@@ -2,6 +2,8 @@
 
 require(kiwi)
 
+fn_name <- commandArgs(trailingOnly = TRUE)
+
 test_path <- system.file('tests', package = 'kiwi')
 
 if (nchar(test_path) == 0) {
@@ -10,8 +12,8 @@ if (nchar(test_path) == 0) {
 	}
 }
 
-
 x_( list.files(test_path, full.names = True) ) $
+xSelect(xIsMatch( paste0('test-', fn_name, '[.]R') )) $
 xDo(path := {
 	source(path)
 	cat('\n')

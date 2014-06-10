@@ -1,10 +1,10 @@
 
-# ----------------------------------------------------------------------------------------------
+# -------------------------------- fix -------------------------------- #
 #
 # fix
 #
 # An efficient implementation of xFix, lacking safe-guards and some features.
-# The is used internally when a function is called with only some of its arguments.
+# This is used internally when a function is called with only some of its arguments.
 
 fix <- local({
 
@@ -31,6 +31,7 @@ fix <- local({
 				# -- using the pseudoindices arg1, arg2, arg3.
 				.( as.call(c(fn_symbol, lapply(seq_along(fn_params), function (ith) {
 
+					# -- the ith parametre has a matching argument.
 					if (any( coll_names == arg_keys[[ith]] )) {
 						coll[[ arg_keys[[ith]] ]]
 					} else {
@@ -45,6 +46,14 @@ fix <- local({
 
 	}
 })
+
+
+# -------------------------------- Fix -------------------------------- #
+#
+# Fix
+#
+# An efficient implementation of xFix, lacking safe-guards and some features.
+# This is used internally when a function is called with only some of its arguments.
 
 Fix <- function (FN, SYM1, SYM2, SYM3) {
 
