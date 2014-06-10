@@ -165,8 +165,14 @@ if a string matches a regexp - for a specific use, like testing if a string matc
 'face'. Partial application lets you reuse code & avoid throwaway anonymous functions.
 
 ```js
-# -- grab strings with the pattern 'face' in them.
-x__('facebook', 'facetime', 'faceoff', 'facile') $ xSelect(xIsMatch('face'))
+# specialise fold in two different ways.
+
+sumOf  <- xFold('+', 0)
+prodOf <- xFold('*', 1)
+
+sumOf(1:10)
+prodOf(1:10)
+
 ```
 
 Fold is the king of functionals, powerful enough to implement Map, Select and
