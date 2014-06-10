@@ -620,7 +620,7 @@ MakeVariadic <- function (fn, fixed) {
 
 
 
-	tbody = bquote(
+	fix_macro_call = bquote(
 
 		.(as.call( c(
 				as.symbol('Fix'),
@@ -643,7 +643,7 @@ MakeVariadic <- function (fn, fixed) {
 
 		# -- check that the argument list supplied can be
 		# --  correctly resolved.
-		.( eval(tbody) )
+		.( eval(fix_macro_call) )
 
 		MACRO( Must $ Have_Canonical_Arguments() )
 
