@@ -774,6 +774,13 @@ x_coll_proto <- local({
 	add_x_method(this, x_LastOf, 'coll')
 	add_x_method(this, x_LastOf_, '...')
 
+	# --- xLastAs --- #
+	add_x_method(this, xLastAs, 'coll')
+	add_x_method(this, xLastAs_, '...')
+	add_x_method(this, x_LastAs, 'coll')
+	add_x_method(this, x_LastAs_, '...')
+
+
 	# --- xLenOf --- #
 	add_x_method(this, xLenOf, 'coll')
 	add_x_method(this, xLenOf_, '...')
