@@ -25,9 +25,39 @@ make_multipreconditon <- function (params) {
 
 }
 
+
+# -- only three params allowed
+
 make_final <- function (params) {
 
+	final_of <- function (param) {
+		if (param == 'fn') {
+			quote(fn <- match_fn(fn))
+		} else if (param == 'pred') {
+			quote(pred <- match_fn(pred))
+		}
+	}
 
+	composite <- if (length(params) == 1) {
+
+		bquote( .(final_of( params[[1]] )) )
+
+	} else if (length(params) == 2) {
+
+		bquote({
+			.(final_of( params[[1]] ))
+			.(final_of( params[[2]] ))
+		})
+
+	} else if (length(params) == 3) {
+
+		bquote({
+
+		})
+
+	}
+
+	list(FINAL = composite)
 }
 
 
