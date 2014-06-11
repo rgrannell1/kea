@@ -1,4 +1,33 @@
 
+Kiwi 0.20.0
+-----------------------------------------------------------------------------
+
+Removed specialised reading/writing functions, adds xRead and xWrite.
+
+Date: 2014-6-11
+
+Enhancements:
+
+* Added xRead, which reads a file as a single string.
+
+* Added xWrite, which writes a single string to a file.
+
+Documentation:
+
+* Updated xAddKey examples to exploit partial application.
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.19.0
 -----------------------------------------------------------------------------
 
