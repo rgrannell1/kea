@@ -38,8 +38,6 @@
 
 xDeepMap <- MakeFun(function (fn, coll) {
 
-
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )
 

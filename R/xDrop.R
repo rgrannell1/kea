@@ -35,8 +35,6 @@
 
 xDrop <- MakeFun(function (num, coll) {
 
-
-
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(coll) )
 

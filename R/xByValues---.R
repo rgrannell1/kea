@@ -15,8 +15,6 @@
 
 xByValues <- MakeFun(function (coll) {
 
-
-
 	values <- as.vector(coll)
 
 	if (length(values) == 0) {

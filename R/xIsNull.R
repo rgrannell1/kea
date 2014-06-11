@@ -30,7 +30,5 @@
 
 xIsNull <- MakeFun(function (val) {
 
-
-
 	isTRUE(is.null(val))
 })

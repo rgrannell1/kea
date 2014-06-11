@@ -31,7 +31,5 @@
 
 xIsFalse <- MakeFun(function (val) {
 
-
-
 	isTRUE(identical(val, False))
 })

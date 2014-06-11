@@ -33,8 +33,6 @@
 
 xCapture <- MakeFun(function (val) {
 
-
-
 	function (...) {
 		"a function created by xCapture."
 		""

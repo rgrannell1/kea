@@ -47,8 +47,6 @@
 
 xScan <- MakeFun(function (fn, val, coll) {
 
-
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(coll) )
 

@@ -15,8 +15,6 @@
 
 xElemsByRows <- MakeFun(function (colls) {
 
-
-
 	if (prod(dim(colls) == 0)) {
 		list()
 	} else {

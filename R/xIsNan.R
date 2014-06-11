@@ -31,7 +31,5 @@
 
 xIsNan <- MakeFun(function (val) {
 
-
-
 	isTRUE(identical(val, NaN))
 })

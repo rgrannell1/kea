@@ -46,8 +46,6 @@
 
 xReorder <- MakeFun(function (nums, colls) {
 
-
-
 	MACRO( Must $ Be_Collection(nums) )
 	MACRO( Must $ Be_Collection(colls) )
 

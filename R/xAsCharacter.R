@@ -40,8 +40,6 @@
 
 xAsCharacter <- MakeFun(function (strs) {
 
-
-
 	MACRO( Must $ Be_Collection(strs) )
 
 	as_typed_vector(strs, 'character')

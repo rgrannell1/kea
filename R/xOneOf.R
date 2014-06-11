@@ -31,8 +31,6 @@
 
 xOneOf <- MakeFun(function (coll) {
 
-
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	MACRO( Must $ Be_Longer_Than(0, coll) )

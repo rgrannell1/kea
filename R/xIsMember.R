@@ -37,8 +37,6 @@
 
 xIsMember <- MakeFun(function (val, coll) {
 
-
-
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

@@ -29,8 +29,6 @@
 
 xFromChars <- MakeFun(function (strs) {
 
-
-
 	MACRO( Must $ Be_Collection(strs) )
 
 	strs <- as_typed_vector(strs, 'character')

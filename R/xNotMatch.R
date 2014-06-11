@@ -31,8 +31,6 @@
 
 xNotMatch <- MakeFun(function (rexp, str) {
 
-
-
 	MACRO( Must $ Be_Collection(rexp) )
 	MACRO( Must $ Be_Collection(str) )
 

@@ -30,8 +30,6 @@
 
 xAsVar <- MakeFun(function (sym) {
 
-
-
 	sym <- match.call()$sym
 	MACRO( Must $ Be_Matchable(sym) )
 

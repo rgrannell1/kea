@@ -23,8 +23,6 @@
 
 xIdentity <- MakeFun(function (val) {
 
-
-
 	val
 })
 

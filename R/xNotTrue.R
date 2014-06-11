@@ -31,7 +31,5 @@
 
 xNotTrue <- MakeFun(function (val) {
 
-
-
 	!isTRUE(val)
 })

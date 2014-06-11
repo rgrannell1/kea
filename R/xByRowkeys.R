@@ -18,7 +18,5 @@
 
 xByRowkeys <- MakeFun(function (colls) {
 
-
-
 	rownames(colls)
 })

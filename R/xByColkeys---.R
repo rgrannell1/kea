@@ -18,7 +18,5 @@
 
 xByColkeys <- MakeFun(function (colls) {
 
-
-
 	colnames(colls)
 })

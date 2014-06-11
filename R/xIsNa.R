@@ -30,8 +30,6 @@
 
 xIsNa <- MakeFun(function (val) {
 
-
-
 	# -- is_na is vectorised.
 	isTRUE(length(val) == 1 && is_na(val))
 })

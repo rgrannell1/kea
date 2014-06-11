@@ -28,8 +28,6 @@
 
 xWrite <- MakeFun(function (str1, str2) {
 
-
-
 	MACRO( Must $ Be_Collection(str1) )
 	MACRO( Must $ Be_Collection(str2) )
 

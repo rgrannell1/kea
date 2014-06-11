@@ -15,8 +15,6 @@
 
 xByLevels <- MakeFun(function (coll) {
 
-
-
 	coll_levels <- levels(coll)
 
 	if (length(coll_levels) == 0) {

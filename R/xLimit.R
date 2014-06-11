@@ -45,8 +45,6 @@
 
 xLimit <- MakeFun(function (fn, num) {
 
-
-
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(num) )
 
