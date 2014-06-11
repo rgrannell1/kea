@@ -14,8 +14,6 @@ make_preconditions <- function (params) {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
 		}
 
-
-
 	}
 
 	preconds
@@ -52,7 +50,9 @@ make_final <- function (params) {
 	} else if (length(params) == 3) {
 
 		bquote({
-
+			.(final_of( params[[1]] ))
+			.(final_of( params[[2]] ))
+			.(final_of( params[[3]] ))
 		})
 
 	}

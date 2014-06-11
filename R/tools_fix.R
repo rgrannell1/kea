@@ -169,15 +169,26 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 					return ( .(FN) )
 				} else {
 					# _|
+
+					.(if (!missing(PRE2))  PRE2  else {})
+
 					return ( fix( .(FN), list(arg2 = .(SYM2) )) )
 				}
 			} else if (missing_2) {
 				# |_
+
+				.(if (!missing(PRE1))  PRE1  else {})
+
 				return ( fix( .(FN), list(arg1 = .(SYM1) )) )
 			}
 
 			# ||
+
+			.(if (!missing(PRE))   PRE   else {})
+			.(if (!missing(FINAL)) FINAL else {})
+
 			# -- run
+
 		})
 
 	} else if (len_args == 3) {
@@ -198,6 +209,8 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 						# __|
 						# first two missing; fix three
 
+						.(if (!missing(PRE3))  PRE3  else {})
+
 						return ( fix( .(FN), list(arg3 = .(SYM3) )) )
 					}
 				} else{
@@ -206,11 +219,16 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 						# _|_
 						# -- first and third missing; fix second.
 
+						.(if (!missing(PRE2))  PRE2  else {})
+
 						return ( fix( .(FN), list(arg2 = .(SYM2) )) )
 
 					} else {
 						# _||
 						# - first missing; fix second and third.
+
+						.(if (!missing(PRE2))  PRE2  else {})
+						.(if (!missing(PRE3))  PRE3  else {})
 
 						return ( fix( .(FN), list(arg2 = .(SYM2), arg3 = .(SYM3) )) )
 					}
@@ -223,10 +241,15 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 					# |__
 					# -- second and third missing; set first.
 
+					.(if (!missing(PRE1))  PRE1  else {})
+
 					return ( fix( .(FN), list(arg1 = .(SYM1) )) )
 				} else {
 					# |_|
 					# -- first and third missing; fix second.
+
+					.(if (!missing(PRE1))  PRE1  else {})
+					.(if (!missing(PRE3))  PRE3  else {})
 
 					return (fix( .(FN), list(arg1 = .(SYM1), arg3 = .(SYM3)) ))
 				}
@@ -235,10 +258,16 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 				# ||_
 				# -- third missingl set first and second.
 
+				.(if (!missing(PRE1))  PRE1  else {})
+				.(if (!missing(PRE2))  PRE2  else {})
+
 				return (fix( .(FN), list(arg1 = .(SYM1), arg2 = .(SYM2)) ))
 			}
 
 			# |||
+			.(if (!missing(PRE))   PRE   else {})
+			.(if (!missing(FINAL)) FINAL else {})
+
 			# -- run in this case
 
 		})
