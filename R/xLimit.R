@@ -52,8 +52,6 @@ xLimit <- MakeFun(function (fn, num) {
 	MACRO( Must $ Be_Whole(num) )
 	MACRO( Must $ Be_Between(num, 0, Inf))
 
-	fn <- match_fn(fn)
-
 	.count <- 0
 
 	do.call( 'function', list(

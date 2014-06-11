@@ -37,8 +37,6 @@
 
 xUnspread <- MakeFun(function (fn) {
 
-	fn <- match_fn(fn)
-
 	function (coll) {
 		"a function returned by xUnspread."
 		""

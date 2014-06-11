@@ -37,8 +37,6 @@ xAnyOf <- MakeFun(function (pred, coll) {
 
 	MACRO( Must $ Be_Collection(coll) )
 
-	pred <- match_fn(pred)
-
 	if (length(coll) == 0) {
 		logical(0)
 	} else {

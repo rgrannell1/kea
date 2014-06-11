@@ -49,9 +49,6 @@
 
 xIterate <- MakeFun(function (fn, val) {
 
-
-	fn <- match_fn(fn)
-
 	callCC(function (Return) {
 
 		# assign the Return( ) function into an anonymous function.

@@ -34,8 +34,6 @@
 
 xSpread <- MakeFun(function (fn) {
 
-	fn <- match_fn(fn)
-
 	function (...) {
 		"a function returned by xSpread."
 		""

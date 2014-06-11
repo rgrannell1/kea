@@ -27,9 +27,6 @@
 
 xExecute <- MakeFun(function (fn, val) {
 
-
-	fn <- match_fn(fn)
-
 	fn(val)
 	val
 })

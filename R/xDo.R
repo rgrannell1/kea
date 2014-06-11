@@ -40,8 +40,6 @@ xDo <- MakeFun(function (fn, coll) {
 
 	MACRO( Must $ Be_Collection(coll) )
 
-	fn <- match_fn(fn)
-
 	if (length(coll) == 0) {
 		Null
 	} else {

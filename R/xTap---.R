@@ -34,9 +34,5 @@
 #' @name xTap
 
 xTap <- MakeFun(function (fn, val) {
-
-
-	fn <- match_fn(fn)
-
 	fn(val)
 })

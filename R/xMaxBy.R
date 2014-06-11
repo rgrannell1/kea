@@ -40,8 +40,6 @@ xMaxBy <- MakeFun(function (fn, coll) {
 	MACRO( Must $ Be_Collection(coll) )
 	MACRO( Must $ Be_Longer_Than(0, coll) )
 
-	fn <- match_fn(fn)
-
 	if (length(coll) == 1) {
 		coll[[1]]
 	} else {

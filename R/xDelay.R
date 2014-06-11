@@ -49,8 +49,6 @@ xDelay <- MakeFun(function (fn, num) {
 
 	MACRO( Must $ Be_Between(num, 0, Inf))
 
-	fn <- match_fn(fn)
-
 	if (num == 0) {
 		fn
 	} else {
