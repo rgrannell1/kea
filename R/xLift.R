@@ -86,7 +86,7 @@ xLift <- MakeFun(function (fn, fns) {
 
 
 
-	MACRO( Must $ Be_Fn_Matchable(fn) )
+
 	MACRO( Must $ Be_Collection(fns) )
 
 	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )

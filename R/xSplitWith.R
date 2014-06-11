@@ -56,7 +56,6 @@ xSplitWith <- local({
 
 	MakeFun(function (pred, coll) {
 
-		MACRO( Must $ Be_Fn_Matchable(pred) )
 		MACRO( Must $ Be_Collection(coll) )
 
 		pred <- match_fn(pred)

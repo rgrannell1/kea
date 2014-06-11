@@ -116,7 +116,19 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 
 	if (!missing(PRE1)) {
 		PRE1 <- invoking_call $ PRE1
+	}
+	if (!missing(PRE2)) {
+		PRE1 <- invoking_call $ PRE1
+	}
+	if (!missing(PRE3)) {
+		PRE1 <- invoking_call $ PRE1
+	}
 
+	if (!missing(PRE)) {
+		PRE <- invoking_call $ PRE
+	}
+	if (!missing(FINAL)) {
+		FINAL <- invoking_call $ FINAL
 	}
 
 	if (len_args == 1) {

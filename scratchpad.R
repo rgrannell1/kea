@@ -55,7 +55,6 @@ mergeTable <- (left : right) := {
 
 packageFunctions <- x_(rPaths) $ xTake(3) $ xFold((longest : path) := {
 
-
 	script <- tryCatch(
 		parse(path),
 		error = xK(Null),

@@ -35,7 +35,6 @@
 
 xTap <- MakeFun(function (fn, val) {
 
-	MACRO( Must $ Be_Fn_Matchable(fn) )
 
 	fn <- match_fn(fn)
 

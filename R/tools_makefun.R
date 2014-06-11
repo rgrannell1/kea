@@ -9,19 +9,26 @@ make_preconditions <- function (params) {
 		param <- params[[ith]]
 
 		if (param == 'fn') {
-
 			preconds[[key]] <- Must $ Be_Fn_Matchable(fn)
-
+		} else if (param == 'pred') {
+			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
 		}
+
+
 
 	}
 
 	preconds
 }
 
+make_multipreconditon <- function (params) {
+
+}
+
+make_final <- function (params) {
 
 
-
+}
 
 
 
@@ -61,7 +68,9 @@ MakeFun <- function (expr) {
 	#
 	# -- generate checks on property one
 
-	predicates <- make_preconditions(params)
+	preconds     <- make_preconditions(params)
+	multiprecond <- make_multipreconditon(params)
+	final        <- make_final(params)
 
 	# -------------------------------- Fix Macro -------------------------------- #
 	#
@@ -81,9 +90,9 @@ MakeFun <- function (expr) {
 				# -- the parametres to bind over.
 				lapply(params, as.symbol),
 				# -- single arguments checks to be injected.
-				predicates,
+				preconds,
 				# -- a multi argument check to run.
-				multipredicate,
+				multiprecond,
 				# -- a final expression to run (coersion functions)
 				final)
 		) ))
