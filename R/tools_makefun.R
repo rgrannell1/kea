@@ -1,6 +1,12 @@
 
-make_preconditions <- function (params) {
+# write_preconditions
+#
+# returns either null, or a list containing some
+# of the fields PRE1, PRE2, and PRE3. These fields will
+# have corresponding expressions that check properties of
+# the coresponding argument.
 
+write_preconditions <- function (params) {
 	preconds <- list()
 
 	for (ith in seq_along(params)) {
@@ -18,20 +24,25 @@ make_preconditions <- function (params) {
 	}
 
 	if (length(preconds) == 0) {
-		NULL
+		list()
 	} else {
 		preconds
 	}
 }
 
-make_multipreconditon <- function (params) {
+write_multipreconditon <- function (params) {
 
 }
 
+# write_boilerplate
+#
+# .
+#
+#
+#
+#
 
-# -- only three params allowed
-
-make_final <- function (params) {
+write_boilerplate <- function (params) {
 
 	param_boilerplate <- list(
 		fn   = list(
@@ -42,19 +53,15 @@ make_final <- function (params) {
 		)
 	)
 
-
-
 	expr_body <- list(as.symbol('{'))
 
 	for (ith in seq_along(params)) {
 
 		param <- params[[ith]]
 
-		boilerplate <- if (any(names(param_boilerplate) == param)) {
-			param_boilerplate[[param]]
-		} else {
-			list()
-		}
+		# -- returns NULL is no corresponding param,
+		# -- but this is unit under concatenation.
+		boilerplate <- param_boilerplate[[param]]
 
 		expr_body <- c(expr_body, boilerplate)
 	}
@@ -104,9 +111,11 @@ MakeFun <- function (expr) {
 	#
 	# -- generate checks on property one
 
-	preconds     <- make_preconditions(params)
-	multiprecond <- make_multipreconditon(params)
-	final        <- make_final(params)
+	preconds     <- write_preconditions(params)
+	multiprecond <- write_multipreconditon(params)
+	final        <- write_boilerplate(params)
+
+
 
 	# -------------------------------- Fix Macro -------------------------------- #
 	#

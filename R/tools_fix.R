@@ -180,12 +180,16 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 				.(if (!missing(PRE1)) PRE1 else NULL)
 
 				return ( fix( .(FN), list(arg1 = .(SYM1) )) )
-			}
-
+			} else {
 			# ||
 
+				.(if (!missing(PRE1)) PRE1 else NULL)
+				.(if (!missing(PRE2)) PRE2 else NULL)
+
+			}
 			.(if (!missing(PRE))   PRE   else NULL)
 			.(if (!missing(FINAL)) FINAL else NULL)
+
 
 			# -- run
 
@@ -262,9 +266,14 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 				.(if (!missing(PRE2))  PRE2  else NULL)
 
 				return (fix( .(FN), list(arg1 = .(SYM1), arg2 = .(SYM2)) ))
+			} else {
+				# |||
+				.(if (!missing(PRE1)) PRE1 else NULL)
+				.(if (!missing(PRE2)) PRE2 else NULL)
+				.(if (!missing(PRE3)) PRE3 else NULL)
+
 			}
 
-			# |||
 			.(if (!missing(PRE))   PRE   else NULL)
 			.(if (!missing(FINAL)) FINAL else NULL)
 
