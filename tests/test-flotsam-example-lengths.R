@@ -69,7 +69,7 @@ if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 
 			# -- how many non-empty lines are there?
 			len <-
-				x_(path)  $ xReadLines() $
+				x_(path)  $ xRead() $ xToLines() $
 				xReject(
 					xFix_(xIsMatch, comment_or_null)) $
 				x_LenOf()

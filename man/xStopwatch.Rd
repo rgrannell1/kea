@@ -62,10 +62,8 @@ x_Tap(unlist \%then\% mean) * 4
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xReadChars}};
-  \code{\link{xReadLines}}; \code{\link{xReadWords}};
-  \code{\link{xVersion}}; \code{\link{xWriteChars}};
-  \code{\link{xWriteLines}}; \code{\link{xWriteWords}}
+  \code{\link{xExecute}}; \code{\link{xRead}};
+  \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other time_functions: \code{\link{xDelay}};
   \code{\link{xLimit}}

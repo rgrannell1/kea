@@ -79,10 +79,8 @@ xDo(num := print('hello'),  1:n)
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xExecute}}; \code{\link{xReadChars}};
-  \code{\link{xReadLines}}; \code{\link{xReadWords}};
+  \code{\link{xExecute}}; \code{\link{xRead}};
   \code{\link{xStopwatch}}; \code{\link{xVersion}};
-  \code{\link{xWriteChars}}; \code{\link{xWriteLines}};
-  \code{\link{xWriteWords}}
+  \code{\link{xWrite}}
 }
 
