@@ -50,27 +50,48 @@ fix <- local({
 
 # -------------------------------- Fix -------------------------------- #
 #
-# Fix
-#
-# An efficient implementation of xFix, lacking safe-guards and some features.
-# This is used internally when a function is called with only some of its arguments.
+#' An efficient implementation of xFix, lacking safe-guards and some features.
+#' This is used internally when a function is called with only some of its arguments.
+#'
+#' @param FN   a symbol, used as a reference to the function to fix.
+#'
+#' @param SYM1 a symbol, the name of the first parametre.
+#' @param SYM2 a symbol, the name of the first parametre. Optional.
+#' @param SYM3 a symbol, the name of the first parametre. Optional.
+#'
+#' @param PRE1 an expression. Input checks that are run exclusively
+#' on the first argument. Optional.
+#'
+#' @param PRE2 an expression. Input checks that are run exclusively
+#' on the second argument. Optional.
+#'
+#' @param PRE3 an expression. Input checks that are run exclusively
+#' on the third argument. Optional.
+#'
+#' @param PRE an expression. Input checks that need more than one
+#' argument at once (checking if two lengths are equal for example). Optional.
+#'
+#' @param FINAL an expression. An arbitrary code block to run before running
+#' the function body.
 
-Fix <- function (FN, SYM1, SYM2, SYM3) {
+Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 
 	# -- marginally more performant than length(which( ))
 	len_args <- (!missing(SYM1)) + (!missing(SYM2)) + (!missing(SYM3))
 
 	# -- get the symbols for the parametres passed to Fix (if given).
-	invoking_call <- as.list(sys.call())[-1]
+	invoking_call <- as.list(match.call())[-1]
 
 	FN <- invoking_call[[1]]
+
+	# -- rebind arguments as their lazy form with match.call
 
 	# -- the use of SPREAD_PARAMETRE instead of ...
 	# -- directly appears to be essential. Swap the symbol SPREAD_PARAMETRE
 	# -- back for ... here.
 
 	if (!missing(SYM1)) {
-		SYM1 <- invoking_call[[2]]
+		SYM1 <- invoking_call $ SYM1
 
 		if (paste0(SYM1) == 'SPREAD_PARAMETRE') {
 			SYM1 <- as.symbol('...')
@@ -78,7 +99,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3) {
 	}
 
 	if (!missing(SYM2)) {
-		SYM2 <- invoking_call[[3]]
+		SYM2 <- invoking_call $ SYM2
 
 		if (paste0(SYM2) == 'SPREAD_PARAMETRE') {
 			SYM2 <- as.symbol('...')
@@ -86,27 +107,37 @@ Fix <- function (FN, SYM1, SYM2, SYM3) {
 	}
 
 	if (!missing(SYM3)) {
-		SYM3 <- invoking_call[[4]]
+		SYM3 <- invoking_call $ SYM3
 
 		if (paste0(SYM3) == 'SPREAD_PARAMETRE') {
 			SYM3 <- as.symbol('...')
 		}
 	}
 
+	if (!missing(PRE1)) {
+		PRE1 <- invoking_call $ PRE1
+
+	}
+
 	if (len_args == 1) {
 		# -- the simplest case; if no arguments are given return the
 		# -- called function unchanged.
 
-		bquote(
+		bquote({
 			if (missing( .(SYM1) )) {
 				# _
 				return( .(FN) )
 			}
 
 			# |
-			# -- otherwise run
+			# -- check the supplied arguments.
+			.(if (!missing(PRE1))  PRE1  else {})
+			.(if (!missing(PRE))   PRE   else {})
+			.(if (!missing(FINAL)) FINAL else {})
 
-		)
+			# -- run
+
+		})
 
 	} else if (len_args == 2) {
 
@@ -134,7 +165,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3) {
 			}
 
 			# ||
-			# -- otherwise run
+			# -- run
 		})
 
 	} else if (len_args == 3) {

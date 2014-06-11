@@ -1,4 +1,34 @@
 
+make_preconditions <- function (params) {
+
+	preconds <- list()
+
+	for (ith in seq_along(params)) {
+
+		key   <- paste0('PRE', ith)
+		param <- params[[ith]]
+
+		if (param == 'fn') {
+
+			preconds[[key]] <- Must $ Be_Fn_Matchable(fn)
+
+		}
+
+	}
+
+	preconds
+}
+
+
+
+
+
+
+
+
+
+# TODO split into several, small functions, with MakeFun as a main function.
+
 MakeFun <- function (expr) {
 
 	parent_frame <- parent.frame()
@@ -25,6 +55,14 @@ MakeFun <- function (expr) {
 	# -- the function to ultimately return.
 	boilerplated <- function () {}
 
+	multipredicate <- final <- list()
+
+	# -------------------------------- Arg Checks -------------------------------- #
+	#
+	# -- generate checks on property one
+
+	predicates <- make_preconditions(params)
+
 	# -------------------------------- Fix Macro -------------------------------- #
 	#
 	# -- this macro calls a second macro, which injects partial application
@@ -39,15 +77,20 @@ MakeFun <- function (expr) {
 			# -- the function to return in a fixed form.
 			call('sys.function'),
 
-			# -- the parametres to bind over.
-			lapply(params, as.symbol)
-
-
+			c(
+				# -- the parametres to bind over.
+				lapply(params, as.symbol),
+				# -- single arguments checks to be injected.
+				predicates,
+				# -- a multi argument check to run.
+				multipredicate,
+				# -- a final expression to run (coersion functions)
+				final)
 		) ))
 	)
 
-	formals(boilerplated)     <- formals(fn)
-	body(boilerplated)        <- bquote({
+	formals(boilerplated) <- formals(fn)
+	body(boilerplated)    <- bquote({
 
 		# -- all functions are partially applied.
 		.(eval(fix_macro_call))
