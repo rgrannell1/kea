@@ -6,7 +6,7 @@ Description: **Kiwi** is a functional programming framework that adds partial
     one-hundred higher-order functions and utility functions to the R language.
     Kiwi makes R an elegant functional language with an emphasis on the
     composition of simple functions to create complex, expressive programs.
-Version: 0.19.0
+Version: 0.20.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -149,12 +149,6 @@ Collate:
     'xIrrelevance.R'
     'xList.R'
     'xOneOf.R'
-    'xReadLines.R'
-    'xReadWords.R'
-    'xReadChars.R'
-    'xWriteLines.R'
-    'xWriteWords.R'
-    'xWriteChars.R'
     'xAt.R'
     'xRecycle.R'
     'xAtCol.R'
@@ -181,5 +175,7 @@ Collate:
     'xThirdAs.R'
     'xFourthAs.R'
     'xLastAs.R'
+    'xRead.R'
+    'xWrite.R'
     'x_.R'
     'x..R'

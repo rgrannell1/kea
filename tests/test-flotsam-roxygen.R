@@ -41,7 +41,7 @@ if (nchar(r_path) > 0) {
 				x_(path) $ xExplode('/') $ x_LastOf()
 
 			roxygen <-
-				x_(path) $ xReadLines() $
+				x_(path) $ xRead() $ xToLines() $
 				x_Select(
 					xFix_(xIsMatch, "[#][']"))
 

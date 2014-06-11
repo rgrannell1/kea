@@ -1,7 +1,7 @@
 
-#' xReadLines
+#' xRead
 #'
-#' Import each line in a file to an element in a character vector.
+#' Read the contents of a file as a single string.
 #'
 #' @section Type Signature:
 #'     |character| -> &lt;character>
@@ -11,24 +11,24 @@
 #'    import files from.
 #'
 #' @return
-#'    A character vector, with one or more elements.
+#'    A length-one character vector.
 #'
 #' @section Corner Cases:
-#'   xReadLines ignores missing terminal newlines.
+#'   xRead ignores missing terminal newlines.
 #'
 #' @family text_processing_functions
 #'
 #' @family inpure_functions
 #'
 #' @example
-#'    inst/examples/example-xReadLines.R
+#'    inst/examples/example-xRead.R
 #'
-#' @rdname xReadLines
+#' @rdname xRead
 #' @export
 
-xReadLines <- MakeFun(function (str) {
+xRead <- MakeFun(function (str) {
 
-	MACRO( Fix(xReadLines, str) )
+	MACRO( Fix(xRead, str) )
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_File(str) )

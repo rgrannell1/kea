@@ -222,6 +222,7 @@ x_any_proto <- local({
 
 	this <- Object()
 
+
 	# -------- A ------- #
 	# -------- B ------- #
 	# -------- C ------- #
@@ -967,17 +968,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reverse, 'coll')
 	add_x_method(this, x_Reverse_, '...')
 
-	# --- xReadLines --- #
-	add_x_method(this, xReadLines, 'str')
-	add_x_method(this, x_ReadLines, 'str')
-
-	# --- xReadChars --- #
-	add_x_method(this, xReadChars, 'str')
-	add_x_method(this, x_ReadChars, 'str')
-
-	# --- xReadWords --- #
-	add_x_method(this, xReadWords, 'str')
-	add_x_method(this, x_ReadWords, 'str')
+	# --- xRead --- #
+	add_x_method(this, xRead, 'str')
+	add_x_method(this, x_Read, 'str')
 
 	# -------- S ------- #
 	# --- xSecondOf --- #
@@ -1135,17 +1128,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_Where, 'bools')
 	add_x_method(this, x_Where_, '...')
 
-	# --- xWriteChars --- #
-	add_x_method(this, xWriteChars, 'strs')
-	add_x_method(this, x_WriteChars, 'strs')
-
-	# --- xWriteLines --- #
-	add_x_method(this, xWriteLines, 'strs')
-	add_x_method(this, x_WriteLines, 'strs')
-
-	# --- xWriteWords --- #
-	add_x_method(this, xWriteWords, 'strs')
-	add_x_method(this, x_WriteWords, 'strs')
+	# --- xWrite --- #
+	add_x_method(this, xWrite, 'str1')
+	add_x_method(this, x_Write, 'str1')
 
 	# --- xDelay --- #
 	add_x_method(this, xDelay, 'num')

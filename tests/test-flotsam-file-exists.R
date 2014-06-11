@@ -58,7 +58,7 @@ as_test_path <- function (fnname) {
 if (nchar(r_paths $ x_AtKey('tests')) > 0) {
 
 	variadic_exports <-
-		r_paths $ xAtKey('namespace') $ xReadLines() $
+		r_paths $ xAtKey('namespace') $ xRead() $ xToLines()
 		xSelect(export := {
 			xIsMatch(
 				# -- match any non-variadic exports.
