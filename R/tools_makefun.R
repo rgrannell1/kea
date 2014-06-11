@@ -10,45 +10,39 @@ write_preconditions <- function (params) {
 
 	preconds <- list()
 
+	param_preconds <- list(
+		fn    = Must $ Be_Fn_Matchable(fn),
+		fn1   = Must $ Be_Fn_Matchable(fn1),
+		fn2   = Must $ Be_Fn_Matchable(fn2),
+		pred  = Must $ Be_Fn_Matchable(pred),
+
+		fns   = {
+			Must $ Be_Collection(fns)
+			Must $ Be_Collection_Of_Fn_Matchable(fns)
+		},
+
+		coll   = Must $ Be_Collection(coll),
+		colls  = Must $ Be_Collection_Of_Collections(colls),
+
+		bools = Must $ Be_Collection(bools),
+		ims   = Must $ Be_Collection(ims),
+		raws  = Must $ Be_Collection(raws),
+
+		nums  = Must $ Be_Collection(nums),
+		num   = Must $ Be_Collection(num),
+
+		str   = Must $ Be_Collection(str),
+		str1   = Must $ Be_Collection(str1),
+		str2   = Must $ Be_Collection(str2)
+	)
+
 	for (ith in seq_along(params)) {
 
 		key   <- paste0('PRE', ith)
 		param <- params[[ith]]
 
-		if (param == 'fn') {
-			preconds[[key]] <- Must $ Be_Fn_Matchable(fn)
-		} else if (param == 'fn1') {
-			preconds[[key]] <- Must $ Be_Fn_Matchable(fn1)
-		} else if (param == 'fn2') {
-			preconds[[key]] <- Must $ Be_Fn_Matchable(fn2)
-		} else if (param == 'pred') {
-			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
-		} else if (param == 'coll') {
-			preconds[[key]] <- Must $ Be_Collection(coll)
-		} else if (param == 'nums') {
-			preconds[[key]] <- Must $ Be_Collection(nums)
-		} else if (param == 'bools') {
-			preconds[[key]] <- Must $ Be_Collection(bools)
-		} else if (param == 'ims') {
-			preconds[[key]] <- Must $ Be_Collection(ims)
-		} else if (param == 'raws') {
-			preconds[[key]] <- Must $ Be_Collection(raws)
-		} else if (param == 'num') {
-			preconds[[key]] <- Must $ Be_Collection(num)
-		} else if (param  == 'str') {
-			preconds[[key]] <- Must $ Be_Collection(str)
-		} else if (param == 'str1') {
-			preconds[[key]] <- Must $ Be_Collection(str1)
-		} else if (param == 'str2') {
-			preconds[[key]] <- Must $ Be_Collection(str2)
-		} else if (param == 'fns') {
-			preconds[[key]] <- {
-				Must $ Be_Collection(fns)
-				Must $ Be_Collection_Of_Fn_Matchable(fns)
-			}
-		} else if (param == 'colls') {
-			preconds[[key]] <- Must $ Be_Collection_Of_Collections(colls)
-		}
+		preconds[[key]] <- param_preconds[[param]]
+
 	}
 
 	if (length(preconds) == 0) {
@@ -134,8 +128,8 @@ MakeFun <- function (expr) {
 	# -- the function to ultimately return; all parts will be overwritten.
 	boilerplated <- function () {}
 
-	preconds     <- write_preconditions(params)
-	final        <- write_boilerplate(params)
+	preconds <- write_preconditions(params)
+	final    <- write_boilerplate(params)
 
 	# -------------------------------- Fix Macro -------------------------------- #
 	#
