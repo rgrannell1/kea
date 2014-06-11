@@ -257,6 +257,6 @@ http://semver.org/
 
 Ordered by contribution date.
 
-| Author                      | Changes            |
-| --------------------------- | ------------------ |
-| Ryan Grannell               | 177 704+, 145 757- |
+| Author                      | Changes                 |
+| --------------------------- | ----------------------- |
+| Ryan Grannell               | 178,366 ++ / 146,605 -- |
