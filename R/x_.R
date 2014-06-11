@@ -1706,7 +1706,7 @@ print.kiwi <- function (x, ...) {
 	contents_are <- proto[[1]][['private']] [['contents_are']]
 
 	header <- colourise$blue(
-		'[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
+		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
 
 	cat(
 		header  %+% '\n\n' %+%

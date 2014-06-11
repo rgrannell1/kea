@@ -24,6 +24,7 @@ Collate:
     'tools_assertion.R'
     'tools_macros.R'
     'tools_fix.R'
+    'tools_makefun.R'
     'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'
