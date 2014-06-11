@@ -59,17 +59,13 @@ message('variadic functions can be partially applied (+)')
 
 message('normal methods can be partially applied (+)')
 
-
 	over(val, coll) +
 
 	describe('binary methods are partially appliable') +
 	when(
-		False,
-
-		x_(coll) $ xMap()
+		is_collection(coll),
+		x_(coll) $ x_Map(identity) %equals% x_(coll) $ x_Map()(identity)
 	) +
-
-
 
 	describe('trinary methods are partially appliable') +
 	when(

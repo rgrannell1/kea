@@ -210,7 +210,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 						# __|
 						# first two missing; fix three
 
-						.(if (!missing(PRE3))  PRE3  else NULL)
+						.(if (!missing(PRE3)) PRE3 else NULL)
 
 						return ( fix( .(FN), list(arg3 = .(SYM3) )) )
 					}
@@ -220,7 +220,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 						# _|_
 						# -- first and third missing; fix second.
 
-						.(if (!missing(PRE2))  PRE2  else NULL)
+						.(if (!missing(PRE2)) PRE2 else NULL)
 
 						return ( fix( .(FN), list(arg2 = .(SYM2) )) )
 
@@ -228,8 +228,8 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 						# _||
 						# - first missing; fix second and third.
 
-						.(if (!missing(PRE2))  PRE2  else NULL)
-						.(if (!missing(PRE3))  PRE3  else NULL)
+						.(if (!missing(PRE2)) PRE2 else NULL)
+						.(if (!missing(PRE3)) PRE3 else NULL)
 
 						return ( fix( .(FN), list(arg2 = .(SYM2), arg3 = .(SYM3) )) )
 					}
@@ -242,15 +242,15 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 					# |__
 					# -- second and third missing; set first.
 
-					.(if (!missing(PRE1))  PRE1  else NULL)
+					.(if (!missing(PRE1)) PRE1 else NULL)
 
 					return ( fix( .(FN), list(arg1 = .(SYM1) )) )
 				} else {
 					# |_|
 					# -- first and third missing; fix second.
 
-					.(if (!missing(PRE1))  PRE1  else NULL)
-					.(if (!missing(PRE3))  PRE3  else NULL)
+					.(if (!missing(PRE1)) PRE1 else NULL)
+					.(if (!missing(PRE3)) PRE3 else NULL)
 
 					return (fix( .(FN), list(arg1 = .(SYM1), arg3 = .(SYM3)) ))
 				}
@@ -259,8 +259,8 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 				# ||_
 				# -- third missingl set first and second.
 
-				.(if (!missing(PRE1))  PRE1  else NULL)
-				.(if (!missing(PRE2))  PRE2  else NULL)
+				.(if (!missing(PRE1)) PRE1 else NULL)
+				.(if (!missing(PRE2)) PRE2 else NULL)
 
 				return (fix( .(FN), list(arg1 = .(SYM1), arg2 = .(SYM2)) ))
 			} else {
@@ -270,7 +270,6 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 				.(if (!missing(PRE3)) PRE3 else NULL)
 
 			}
-
 
 			.(if (!missing(FINAL)) FINAL else NULL)
 
