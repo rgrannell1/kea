@@ -24,7 +24,16 @@ write_preconditions <- function (params) {
 			preconds[[key]] <- Must $ Be_Collection(nums)
 		} else if (param == 'bools') {
 			preconds[[key]] <- Must $ Be_Collection(bools)
+		} else if (param == 'ims') {
+			preconds[[key]] <- Must $ Be_Collection(ims)
+		} else if (param == 'raws') {
+			preconds[[key]] <- Must $ Be_Collection(raws)
+		} else if (param == 'num') {
+			preconds[[key]] <- Must $ Be_Collection(num)
+		} else if (param == 'str') {
+			preconds[[key]] <- Must $ Be_Collection(str)
 		}
+
 	}
 
 	if (length(preconds) == 0) {
