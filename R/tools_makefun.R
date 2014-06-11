@@ -20,6 +20,10 @@ write_preconditions <- function (params) {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
 		} else if (param == 'coll') {
 			preconds[[key]] <- Must $ Be_Collection(coll)
+		} else if (param == 'nums') {
+			preconds[[key]] <- Must $ Be_Collection(nums)
+		} else if (param == 'bools') {
+			preconds[[key]] <- Must $ Be_Collection(bools)
 		}
 	}
 
