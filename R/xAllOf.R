@@ -36,8 +36,6 @@
 
 xAllOf <- MakeFun(function (pred, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	if (length(coll) == 0) {
 		logical(0)
 	} else {

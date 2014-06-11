@@ -47,8 +47,6 @@
 
 xScan <- MakeFun(function (fn, val, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	scanned <- c( val, vector("list", length(coll)) )
 
 	if (length(coll) == 0) {

@@ -52,8 +52,6 @@
 
 xFix <- MakeFun(function (fn, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	fn <- match_fn(fn)
 	names_of_coll <- names(coll)
 

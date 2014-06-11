@@ -38,8 +38,6 @@
 
 xDeepMap <- MakeFun(function (fn, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	recur <- function (xs) {
 		# recurse into a collection. TODO-non-recursive form.
 

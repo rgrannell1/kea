@@ -37,8 +37,6 @@
 xRepeat <- MakeFun(function (num, coll) {
 
 	MACRO( Must $ Be_Collection(num) )
-	MACRO( Must $ Be_Collection(coll) )
-
 	num <- unit_to_value(as_atom(num, "numeric"))
 
 	MACRO( Must $ Be_Between(num, 0, Inf))

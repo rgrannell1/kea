@@ -50,8 +50,6 @@
 
 xApply <- MakeFun(function (fn, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	eval(
 		as.call(c(fn, coll)),
 		envir = parent.frame())

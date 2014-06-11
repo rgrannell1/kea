@@ -41,8 +41,6 @@
 xAddKeys <- MakeFun(function (strs, coll) {
 
 	MACRO( Must $ Be_Collection(strs) )
-	MACRO( Must $ Be_Collection(coll) )
-
 	strs <- as_typed_vector(strs, 'character')
 
 	MACRO( Must $ Be_Equal_Length_To(strs, coll) )

@@ -43,7 +43,7 @@ Must <- local({
 		function (COLL) {
 			# this macro expands to check if a value is a collection.
 
-			COLL <- match.call()$COLL
+			COLL <- match.call() $ COLL
 
 			bquote(if (
 				identical('kiwi', class( .(COLL) )) ||

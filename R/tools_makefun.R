@@ -12,6 +12,8 @@ make_preconditions <- function (params) {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(fn)
 		} else if (param == 'pred') {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
+		} else if (param == 'coll') {
+			#preconds[[key]] <- Must $ Be_Collection(coll)
 		}
 
 	}
@@ -30,34 +32,26 @@ make_final <- function (params) {
 
 	final_of <- function (param) {
 		if (param == 'fn') {
-			quote(fn <- match_fn(fn))
+			list(
+				quote(fn <- match_fn(fn))
+			)
 		} else if (param == 'pred') {
-			quote(pred <- match_fn(pred))
+			list(
+				quote(pred <- match_fn(pred))
+			)
 		}
 	}
 
-	composite <- if (length(params) == 1) {
+	expr_body <- list(as.symbol('{'))
 
-		bquote( .(final_of( params[[1]] )) )
+	for (ith in seq_along(params)) {
 
-	} else if (length(params) == 2) {
-
-		bquote({
-			.(final_of( params[[1]] ))
-			.(final_of( params[[2]] ))
-		})
-
-	} else if (length(params) == 3) {
-
-		bquote({
-			.(final_of( params[[1]] ))
-			.(final_of( params[[2]] ))
-			.(final_of( params[[3]] ))
-		})
+		param = params[[ith]]
+		params <- c(params, final_of(param))
 
 	}
 
-	list(FINAL = composite)
+	list(FINAL = as.call(expr_body))
 }
 
 

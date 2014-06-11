@@ -47,8 +47,6 @@
 
 xFold <- MakeFun(function (fn, val, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	if (length(coll) == 0) {
 		val
 	} else {

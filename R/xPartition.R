@@ -41,8 +41,6 @@
 
 xPartition <- MakeFun(function (pred, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	if (length(coll) == 0) {
 		list()
 	} else {

@@ -30,8 +30,6 @@
 
 xNotEmpty <- MakeFun(function (coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
-
 	isTRUE(length(coll) != 0)
 })
 
