@@ -35,7 +35,7 @@
 
 xDrop <- MakeFun(function (num, coll) {
 
-	MACRO( Must $ Be_Collection(num) )
+
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( Must $ Be_Whole(num) )

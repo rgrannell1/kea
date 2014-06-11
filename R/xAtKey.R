@@ -31,7 +31,7 @@
 
 xAtKey <- MakeFun(function (str, coll) {
 
-	MACRO( Must $ Be_Collection(str) )
+
 	MACRO( Must $ Be_Named(coll) )
 
 	str <- unit_to_value(as_atom(str, 'character'))

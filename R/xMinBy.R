@@ -37,7 +37,7 @@
 
 xMinBy <- MakeFun(function (fn, coll) {
 
-	MACRO( Must $ Be_Collection(coll) )
+
 	MACRO( Must $ Be_Longer_Than(0, coll) )
 
 	if (length(coll) == 1) {

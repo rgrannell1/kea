@@ -13,12 +13,15 @@ make_preconditions <- function (params) {
 		} else if (param == 'pred') {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
 		} else if (param == 'coll') {
-			#preconds[[key]] <- Must $ Be_Collection(coll)
+			preconds[[key]] <- Must $ Be_Collection(coll)
 		}
-
 	}
 
-	preconds
+	if (length(preconds) == 0) {
+		NULL
+	} else {
+		preconds
+	}
 }
 
 make_multipreconditon <- function (params) {
@@ -126,6 +129,8 @@ MakeFun <- function (expr) {
 	body(boilerplated)    <- bquote({
 
 		# -- all functions are partially applied.
+
+
 		.(eval(fix_macro_call))
 
 		# -- add the real function body after the boilerplate headers.

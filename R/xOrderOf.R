@@ -43,7 +43,7 @@
 
 xOrderOf <- MakeFun(function (nums) {
 
-	MACRO( Must $ Be_Collection(nums) )
+
 
 	nums <- as_typed_vector(nums, 'numeric')
 

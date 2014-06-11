@@ -33,8 +33,8 @@
 
 xImplode <- MakeFun(function (str, strs) {
 
-	MACRO( Must $ Be_Collection(str) )
-	MACRO( Must $ Be_Collection(strs) )
+
+
 
 	str  <- unit_to_value(as_atom(str, 'character'))
 	strs <- as_typed_vector(strs, 'character')

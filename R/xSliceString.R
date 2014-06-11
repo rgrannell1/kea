@@ -37,8 +37,8 @@
 
 xSliceString <- MakeFun(function (str, nums) {
 
-	MACRO( Must $ Be_Collection(str) )
-	MACRO( Must $ Be_Collection(nums) )
+
+
 
 	str <- unit_to_value(as_atom(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")

@@ -37,7 +37,7 @@
 
 xZipKeys <- MakeFun(function (colls) {
 
-	MACRO( Must $ Be_Collection(colls) )
+
 	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
 	MACRO( Must $ Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )

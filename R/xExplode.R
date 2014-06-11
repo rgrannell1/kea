@@ -33,8 +33,8 @@
 
 xExplode <- MakeFun(function (rexp, str) {
 
-	MACRO( Must $ Be_Collection(rexp) )
-	MACRO( Must $ Be_Collection(str) )
+
+
 
 	str <- as_atom(str, "character")
 	rexp <- unit_to_value(as_atom(rexp, "character"))

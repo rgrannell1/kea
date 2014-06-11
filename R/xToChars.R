@@ -24,7 +24,7 @@
 
 xToChars <- MakeFun(function (str) {
 
-	MACRO( Must $ Be_Collection(str) )
+
 
 	str <- as_atom(str, 'character')
 

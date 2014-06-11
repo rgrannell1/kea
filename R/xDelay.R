@@ -43,7 +43,7 @@
 
 xDelay <- MakeFun(function (fn, num) {
 
-	MACRO( Must $ Be_Collection(num) )
+
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 

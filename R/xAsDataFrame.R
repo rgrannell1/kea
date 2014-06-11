@@ -39,7 +39,7 @@
 
 xAsDataFrame <- MakeFun(function (colls) {
 
-	MACRO( Must $ Be_Collection(colls) )
+
 
 	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 	MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )

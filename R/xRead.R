@@ -28,7 +28,7 @@
 
 xRead <- MakeFun(function (str) {
 
-	MACRO( Must $ Be_Collection(str) )
+
 	MACRO( Must $ Be_File(str) )
 
 	str <- unit_to_value(as_atom(str, "character"))
