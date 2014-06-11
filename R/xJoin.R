@@ -34,7 +34,7 @@
 
 xJoin <- MakeFun(function (colls) {
 
-	MACRO( Fix(xJoin, colls) )
+
 
 	MACRO( Must $ Be_Collection(colls) )
 

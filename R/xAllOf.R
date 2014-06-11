@@ -36,7 +36,7 @@
 
 xAllOf <- MakeFun(function (pred, coll) {
 
-	MACRO( Fix(xAllOf, pred, coll) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(pred) )
 	MACRO( Must $ Be_Collection(coll) )

@@ -37,7 +37,7 @@
 
 xSplitAt <- MakeFun(function (nums, coll) {
 
-	MACRO( Fix(xSplitAt, nums, coll) )
+
 
 	MACRO( Must $ Be_Collection(nums) )
 	MACRO( Must $ Be_Collection(coll) )

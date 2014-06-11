@@ -29,7 +29,7 @@
 
 xFromChars <- MakeFun(function (strs) {
 
-	MACRO( Fix(xFromChars, strs) )
+
 
 	MACRO( Must $ Be_Collection(strs) )
 

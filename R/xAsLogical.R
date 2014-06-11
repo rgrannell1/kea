@@ -33,7 +33,7 @@
 
 xAsLogical <- MakeFun(function (bools) {
 
-	MACRO( Fix(xAsLogical, bools) )
+
 
 	MACRO( Must $ Be_Collection(bools) )
 

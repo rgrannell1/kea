@@ -26,7 +26,7 @@
 
 xUnit <- MakeFun(function (coll) {
 
-	MACRO( Fix(xUnit, coll) )
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (is.pairlist(coll)) {

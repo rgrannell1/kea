@@ -32,7 +32,7 @@
 
 xDuplicatesOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xDuplicatesOf, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

@@ -31,7 +31,7 @@
 
 xReverse <- MakeFun(function (coll) {
 
-	MACRO( Fix(xReverse, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

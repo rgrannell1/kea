@@ -18,7 +18,7 @@
 
 xByCols <- MakeFun(function (colls) {
 
-	MACRO( Fix(xByCols, colls) )
+
 
 	dims <- dim(colls)
 

@@ -44,7 +44,7 @@
 
 xTabulate <- MakeFun(function (coll) {
 
-	MACRO( Fix(xTabulate, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

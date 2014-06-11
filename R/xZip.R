@@ -58,7 +58,7 @@
 
 xZip <- MakeFun(function (colls) {
 
-	MACRO( Fix(xZip, colls) )
+
 	MACRO( Must $ Be_Collection(colls) )
 
 	if (length(colls) == 0) {

@@ -32,7 +32,7 @@
 
 xInitOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xInitOf, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

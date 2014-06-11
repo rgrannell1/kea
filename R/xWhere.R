@@ -33,7 +33,7 @@
 
 xWhere <- MakeFun(function (bools) {
 
-	MACRO( Fix(xWhere, bools) )
+
 	MACRO( Must $ Be_Collection(bools) )
 
 	bools <- as_typed_vector(bools, "logical")

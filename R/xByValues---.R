@@ -15,7 +15,7 @@
 
 xByValues <- MakeFun(function (coll) {
 
-	MACRO( Fix(xByValues, coll) )
+
 
 	values <- as.vector(coll)
 

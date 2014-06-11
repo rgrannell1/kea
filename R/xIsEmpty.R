@@ -28,7 +28,7 @@
 
 xIsEmpty <- MakeFun(function (coll) {
 
-	MACRO( Fix(xIsEmpty, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

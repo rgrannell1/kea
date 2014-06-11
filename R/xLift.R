@@ -84,7 +84,7 @@ xLift <- MakeFun(function (fn, fns) {
 
 	parent_frame <- parent.frame()
 
-	MACRO( Fix(xLift, fn, fns) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(fns) )

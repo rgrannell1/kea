@@ -82,7 +82,7 @@
 
 xCompose <- MakeFun(function (fns) {
 
-	MACRO( Fix(xCompose, fns) )
+
 
 	MACRO( Must $ Be_Collection(fns) )
 	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )

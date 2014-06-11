@@ -33,7 +33,7 @@
 
 xImplode <- MakeFun(function (str, strs) {
 
-	MACRO( Fix(xImplode, str, strs) )
+
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_Collection(strs) )

@@ -32,7 +32,7 @@
 
 xInter <- MakeFun(function (colls) {
 
-	MACRO( Fix(xInter, colls) )
+
 
 	MACRO( Must $ Be_Collection(colls) )
 

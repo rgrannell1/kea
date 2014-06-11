@@ -34,7 +34,7 @@
 
 xAsRaw <- MakeFun(function (raws) {
 
-	MACRO( Fix(xAsRaw, raws) )
+
 
 	MACRO( Must $ Be_Collection(raws) )
 

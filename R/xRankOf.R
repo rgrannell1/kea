@@ -29,7 +29,7 @@
 
 xRankOf <- MakeFun(function (nums) {
 
-	MACRO( Fix(xRankOf, nums) )
+
 
 	MACRO( Must $ Be_Collection(nums) )
 

@@ -27,7 +27,7 @@
 
 xToLines <- MakeFun(function (str) {
 
-	MACRO( Fix(xToLines, str) )
+
 	MACRO( Must $ Be_Collection(str) )
 
 	str <- as_typed_vector(str, 'character')

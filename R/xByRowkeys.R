@@ -18,7 +18,7 @@
 
 xByRowkeys <- MakeFun(function (colls) {
 
-	MACRO( Fix(xByRowkeys, colls) )
+
 
 	rownames(colls)
 })

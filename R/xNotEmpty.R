@@ -30,7 +30,7 @@
 
 xNotEmpty <- MakeFun(function (coll) {
 
-	MACRO( Fix(xNotEmpty, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

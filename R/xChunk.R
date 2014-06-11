@@ -37,7 +37,7 @@
 
 xChunk <- MakeFun(function (num, coll) {
 
-	MACRO( Fix(xChunk, num, coll) )
+
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(coll) )

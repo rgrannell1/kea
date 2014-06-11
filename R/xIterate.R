@@ -49,7 +49,7 @@
 
 xIterate <- MakeFun(function (fn, val) {
 
-	MACRO( Fix(xIterate, fn, val) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 

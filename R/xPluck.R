@@ -41,7 +41,7 @@
 
 xPluck <- MakeFun(function (str, colls) {
 
-	MACRO( Fix(xPluck, str, colls) )
+
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_Collection(colls) )

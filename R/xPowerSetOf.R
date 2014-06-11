@@ -35,7 +35,7 @@
 
 xPowerSetOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xPowerSetOf, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

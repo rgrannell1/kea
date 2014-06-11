@@ -34,7 +34,7 @@
 
 xSecondAs <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xSecondAs, val, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 	MACRO( Must $ Be_Longer_Than(1, coll) )

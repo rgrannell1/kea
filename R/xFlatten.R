@@ -48,7 +48,7 @@
 
 xFlatten <- MakeFun(function (num, coll) {
 
-	MACRO( Fix(xFlatten, num, coll) )
+
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(coll) )

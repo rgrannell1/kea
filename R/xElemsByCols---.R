@@ -18,7 +18,7 @@
 
 xElemsByCols <- MakeFun(function (colls) {
 
-	MACRO( Fix(xElemsByCols, colls) )
+
 
 	if (prod(dim(colls) == 0)) {
 		list()

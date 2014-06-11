@@ -31,7 +31,7 @@
 
 xAtKey <- MakeFun(function (str, coll) {
 
-	MACRO( Fix(xAtKey, str, coll) )
+
 
 	MACRO( Must $ Be_Collection(str) )
 	MACRO( Must $ Be_Collection(coll) )

@@ -25,7 +25,7 @@
 
 xStopwatch <- MakeFun(function (num) {
 
-	MACRO( Fix(xStopwatch, num) )
+
 
 	MACRO( Must $ Be_Collection(num) )
 

@@ -23,7 +23,7 @@
 
 xByRows <- MakeFun(function (colls) {
 
-	MACRO( Fix(xByRows, colls) )
+
 
 	dims <- dim(colls)
 

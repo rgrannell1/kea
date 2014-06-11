@@ -43,7 +43,7 @@
 
 xAtCol <- MakeFun(function (num, colls) {
 
-	MACRO( Fix(xAtCol, num, colls) )
+
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(colls) )

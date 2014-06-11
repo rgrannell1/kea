@@ -27,7 +27,7 @@
 
 xExecute <- MakeFun(function (fn, val) {
 
-	MACRO( Fix(xExecute, fn, val) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 

@@ -30,7 +30,7 @@
 
 xShuffle <- MakeFun(function (coll) {
 
-	MACRO( Fix(xShuffle, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

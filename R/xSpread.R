@@ -34,7 +34,7 @@
 
 xSpread <- MakeFun(function (fn) {
 
-	MACRO( Fix(xSpread, fn) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 

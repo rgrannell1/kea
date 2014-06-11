@@ -30,7 +30,7 @@
 
 xFromWords <- MakeFun(function (strs) {
 
-	MACRO( Fix(xFromWords, strs) )
+
 
 	MACRO( Must $ Be_Collection(strs) )
 

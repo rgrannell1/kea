@@ -61,7 +61,7 @@
 
 xCycle <- MakeFun(function (num, coll) {
 
-	MACRO( Fix(xCycle, num, coll) )
+
 
 	MACRO( Must $ Be_Collection(num) )
 	MACRO( Must $ Be_Collection(coll) )

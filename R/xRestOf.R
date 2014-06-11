@@ -31,7 +31,7 @@
 
 xRestOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xRestOf, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

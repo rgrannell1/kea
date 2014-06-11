@@ -29,7 +29,7 @@
 
 xFormalsOf <- MakeFun(function (fn) {
 
-	MACRO( Fix(xFormalsOf, fn) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 

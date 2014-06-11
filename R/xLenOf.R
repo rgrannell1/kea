@@ -30,7 +30,7 @@
 
 xLenOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xLenOf, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

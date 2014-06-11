@@ -42,7 +42,7 @@
 
 xNegate <- MakeFun(function (pred) {
 
-	MACRO( Fix(xNegate, pred) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(pred) )
 

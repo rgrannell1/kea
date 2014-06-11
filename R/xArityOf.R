@@ -32,7 +32,7 @@
 
 xArityOf <- MakeFun(function (fn) {
 
-	MACRO( Fix(xArityOf, fn) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 

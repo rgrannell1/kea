@@ -40,7 +40,7 @@
 
 xAsCharacter <- MakeFun(function (strs) {
 
-	MACRO( Fix(xAsCharacter, strs) )
+
 
 	MACRO( Must $ Be_Collection(strs) )
 

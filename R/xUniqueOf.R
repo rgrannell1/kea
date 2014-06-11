@@ -32,7 +32,7 @@
 
 xUniqueOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xUniqueOf, coll) )
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

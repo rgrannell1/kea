@@ -33,7 +33,7 @@
 
 xExplode <- MakeFun(function (rexp, str) {
 
-	MACRO( Fix(xExplode, rexp, str) )
+
 
 	MACRO( Must $ Be_Collection(rexp) )
 	MACRO( Must $ Be_Collection(str) )

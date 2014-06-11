@@ -31,7 +31,7 @@
 
 xAppend <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xAppend, val, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

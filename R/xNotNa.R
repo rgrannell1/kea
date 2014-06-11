@@ -31,7 +31,7 @@
 
 xNotNa <- MakeFun(function (val) {
 
-	MACRO( Fix(xNotNa, val) )
+
 
 	if (length(val) != 1) {
 		True

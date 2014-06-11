@@ -1,4 +1,5 @@
 
+
 #' xUnzipIndices
 #'
 #' Split a collection into a list of index: value pairs
@@ -40,7 +41,7 @@
 
 xUnzipIndices <- MakeFun(function (coll) {
 
-	MACRO( Fix(xUnzipIndices, coll) )
+
 	MACRO( Must $ Be_Collection(coll) )
 
 	if (length(coll) == 0) {

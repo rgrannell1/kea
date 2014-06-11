@@ -31,7 +31,7 @@
 
 xOneOf <- MakeFun(function (coll) {
 
-	MACRO( Fix(xOneOf, coll) )
+
 
 	MACRO( Must $ Be_Collection(coll) )
 

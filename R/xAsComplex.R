@@ -38,7 +38,7 @@
 
 xAsComplex <- MakeFun(function (ims) {
 
-	MACRO( Fix(xAsComplex, ims) )
+
 
 	MACRO( Must $ Be_Collection(ims) )
 

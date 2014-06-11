@@ -36,7 +36,7 @@
 
 xMapply <- MakeFun(function (fn, colls) {
 
-	MACRO( Fix(xMapply, fn, colls) )
+
 
 	MACRO( Must $ Be_Fn_Matchable(fn) )
 	MACRO( Must $ Be_Collection(colls) )

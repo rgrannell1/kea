@@ -31,7 +31,7 @@
 
 xNotNan <- MakeFun(function (val) {
 
-	MACRO( Fix(xNotNan, val) )
+
 
 	!isTRUE(identical(val, NaN))
 })
