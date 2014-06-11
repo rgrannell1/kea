@@ -24,14 +24,14 @@ write_preconditions <- function (params) {
 		coll   = Must $ Be_Collection(coll),
 		colls  = Must $ Be_Collection_Of_Collections(colls),
 
-		bools = Must $ Be_Collection(bools),
-		ims   = Must $ Be_Collection(ims),
-		raws  = Must $ Be_Collection(raws),
+		bools  = Must $ Be_Collection(bools),
+		ims    = Must $ Be_Collection(ims),
+		raws   = Must $ Be_Collection(raws),
 
-		nums  = Must $ Be_Collection(nums),
-		num   = Must $ Be_Collection(num),
+		nums   = Must $ Be_Collection(nums),
+		num    = Must $ Be_Collection(num),
 
-		str   = Must $ Be_Collection(str),
+		str    = Must $ Be_Collection(str),
 		str1   = Must $ Be_Collection(str1),
 		str2   = Must $ Be_Collection(str2)
 	)
@@ -42,7 +42,6 @@ write_preconditions <- function (params) {
 		param <- params[[ith]]
 
 		preconds[[key]] <- param_preconds[[param]]
-
 	}
 
 	if (length(preconds) == 0) {
