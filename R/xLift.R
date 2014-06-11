@@ -84,16 +84,6 @@ xLift <- MakeFun(function (fn, fns) {
 
 	parent_frame <- parent.frame()
 
-
-
-
-
-
-	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
-
-	fn <- match_fn(fn)
-	fns <- lapply(fns, match_fn)
-
 	function (...) {
 		"A function created by xLift."
 		""

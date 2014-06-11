@@ -52,11 +52,6 @@
 
 xJuxtapose <- MakeFun(function (fns) {
 
-
-	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
-
-	fns <- lapply(fns, match_fn)
-
 	if (length(fns) == 0) {
 		list()
 	} else {

@@ -7,6 +7,7 @@
 # the coresponding argument.
 
 write_preconditions <- function (params) {
+
 	preconds <- list()
 
 	for (ith in seq_along(params)) {
@@ -32,6 +33,11 @@ write_preconditions <- function (params) {
 			preconds[[key]] <- Must $ Be_Collection(num)
 		} else if (param == 'str') {
 			preconds[[key]] <- Must $ Be_Collection(str)
+		} else if (param == 'fns') {
+			preconds[[key]] <- {
+				Must $ Be_Collection(fns)
+				Must $ Be_Collection_Of_Fn_Matchable(fns)
+			}
 		}
 
 	}
@@ -63,6 +69,9 @@ write_boilerplate <- function (params) {
 		),
 		pred = list(
 			quote(pred <- match_fn(pred))
+		),
+		fns  = list(
+			quote(lapply(fns, match_fn))
 		)
 	)
 
