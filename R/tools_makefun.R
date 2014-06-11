@@ -41,7 +41,6 @@ write_preconditions <- function (params) {
 		} else if (param == 'colls') {
 			preconds[[key]] <- Must $ Be_Collection_Of_Collections(colls)
 		}
-
 	}
 
 	if (length(preconds) == 0) {
@@ -57,10 +56,8 @@ write_multipreconditon <- function (params) {
 
 # write_boilerplate
 #
-# .
-#
-#
-#
+# this writes code that needs to be executed predictably for
+# a given parametre; fn must always be looked-up, for example.
 #
 
 write_boilerplate <- function (params) {
@@ -126,20 +123,11 @@ MakeFun <- function (expr) {
 	fn     <- eval(unquote(expr), parent_frame)
 	params <- names(formals(fn))
 
-	# -- the function to ultimately return.
+	# -- the function to ultimately return; all parts will be overwritten.
 	boilerplated <- function () {}
 
-	multipredicate <- final <- list()
-
-	# -------------------------------- Arg Checks -------------------------------- #
-	#
-	# -- generate checks on property one
-
 	preconds     <- write_preconditions(params)
-	multiprecond <- write_multipreconditon(params)
 	final        <- write_boilerplate(params)
-
-
 
 	# -------------------------------- Fix Macro -------------------------------- #
 	#
@@ -160,10 +148,9 @@ MakeFun <- function (expr) {
 				lapply(params, as.symbol),
 				# -- single arguments checks to be injected.
 				preconds,
-				# -- a multi argument check to run.
-				multiprecond,
 				# -- a final expression to run (coersion functions)
-				final)
+				final
+			)
 		) ))
 	)
 
@@ -172,7 +159,6 @@ MakeFun <- function (expr) {
 
 		# -- all functions are partially applied.
 
-
 		.(eval(fix_macro_call))
 
 		# -- add the real function body after the boilerplate headers.
@@ -180,9 +166,6 @@ MakeFun <- function (expr) {
 	})
 
 	environment(boilerplated) <- parent.frame()
-
-	# -- now evaluate calls to MACRO
-	# eval(unquote(expr), parent_frame)
 
 	boilerplated
 }

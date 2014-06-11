@@ -74,7 +74,7 @@ fix <- local({
 #' @param FINAL an expression. An arbitrary code block to run before running
 #' the function body.
 
-Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
+Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 
 	# -- marginally more performant than length(which( ))
 	len_args <- (!missing(SYM1)) + (!missing(SYM2)) + (!missing(SYM3))
@@ -124,9 +124,6 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 		PRE3 <- invoking_call $ PRE3
 	}
 
-	if (!missing(PRE)) {
-		PRE <- invoking_call $ PRE
-	}
 	if (!missing(FINAL)) {
 		FINAL <- invoking_call $ FINAL
 	}
@@ -144,7 +141,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 			# |
 			# -- check the supplied arguments.
 			.(if (!missing(PRE1))  PRE1  else NULL)
-			.(if (!missing(PRE))   PRE   else NULL)
+
 			.(if (!missing(FINAL)) FINAL else NULL)
 
 			# -- run
@@ -187,7 +184,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 				.(if (!missing(PRE2)) PRE2 else NULL)
 
 			}
-			.(if (!missing(PRE))   PRE   else NULL)
+
 			.(if (!missing(FINAL)) FINAL else NULL)
 
 
@@ -274,7 +271,7 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL) {
 
 			}
 
-			.(if (!missing(PRE))   PRE   else NULL)
+
 			.(if (!missing(FINAL)) FINAL else NULL)
 
 			# -- run in this case

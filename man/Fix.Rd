@@ -4,7 +4,7 @@
 \title{An efficient implementation of xFix, lacking safe-guards and some features.
 This is used internally when a function is called with only some of its arguments.}
 \usage{
-Fix(FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, PRE, FINAL)
+Fix(FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL)
 }
 \arguments{
 \item{FN}{a symbol, used as a reference to the function to fix.}
