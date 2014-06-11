@@ -33,28 +33,37 @@ make_multipreconditon <- function (params) {
 
 make_final <- function (params) {
 
-	final_of <- function (param) {
-		if (param == 'fn') {
-			list(
-				quote(fn <- match_fn(fn))
-			)
-		} else if (param == 'pred') {
-			list(
-				quote(pred <- match_fn(pred))
-			)
-		}
-	}
+	param_boilerplate <- list(
+		fn   = list(
+			quote(fn <- match_fn(fn))
+		),
+		pred = list(
+			quote(pred <- match_fn(pred))
+		)
+	)
+
+
 
 	expr_body <- list(as.symbol('{'))
 
 	for (ith in seq_along(params)) {
 
-		param = params[[ith]]
-		params <- c(params, final_of(param))
+		param <- params[[ith]]
 
+		boilerplate <- if (any(names(param_boilerplate) == param)) {
+			param_boilerplate[[param]]
+		} else {
+			list()
+		}
+
+		expr_body <- c(expr_body, boilerplate)
 	}
 
-	list(FINAL = as.call(expr_body))
+	if (length(expr_body) == 1) {
+		list()
+	} else {
+		list(FINAL = as.call(expr_body))
+	}
 }
 
 
