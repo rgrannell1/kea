@@ -24,8 +24,6 @@
 
 xToChars <- MakeFun(function (str) {
 
-
-
 	str <- as_atom(str, 'character')
 
 	if (length(str) == 0 || nchar(str) == 0) {

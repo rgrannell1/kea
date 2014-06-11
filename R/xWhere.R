@@ -33,8 +33,6 @@
 
 xWhere <- MakeFun(function (bools) {
 
-
-
 	bools <- as_typed_vector(bools, "logical")
 
 	if (length(bools) == 0) {

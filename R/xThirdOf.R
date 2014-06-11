@@ -34,7 +34,6 @@
 
 xThirdOf <- MakeFun(function (coll) {
 
-
 	MACRO( Must $ Be_Longer_Than(2, coll) )
 
 	coll[[3]]

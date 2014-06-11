@@ -38,7 +38,6 @@
 
 xThread <- MakeFun(function (val, fns) {
 
-
 	MACRO( Must $ Be_Collection_Of_Fn_Matchable(fns) )
 
 	for (ith in seq_along(fns)) {

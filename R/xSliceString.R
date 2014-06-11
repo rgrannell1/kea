@@ -37,9 +37,6 @@
 
 xSliceString <- MakeFun(function (str, nums) {
 
-
-
-
 	str <- unit_to_value(as_atom(str, "character"))
 	nums <- as_typed_vector(nums, "numeric")
 

@@ -17,6 +17,10 @@ write_preconditions <- function (params) {
 
 		if (param == 'fn') {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(fn)
+		} else if (param == 'fn1') {
+			preconds[[key]] <- Must $ Be_Fn_Matchable(fn1)
+		} else if (param == 'fn2') {
+			preconds[[key]] <- Must $ Be_Fn_Matchable(fn2)
 		} else if (param == 'pred') {
 			preconds[[key]] <- Must $ Be_Fn_Matchable(pred)
 		} else if (param == 'coll') {
@@ -31,8 +35,12 @@ write_preconditions <- function (params) {
 			preconds[[key]] <- Must $ Be_Collection(raws)
 		} else if (param == 'num') {
 			preconds[[key]] <- Must $ Be_Collection(num)
-		} else if (param == 'str') {
+		} else if (param  == 'str') {
 			preconds[[key]] <- Must $ Be_Collection(str)
+		} else if (param == 'str1') {
+			preconds[[key]] <- Must $ Be_Collection(str1)
+		} else if (param == 'str2') {
+			preconds[[key]] <- Must $ Be_Collection(str2)
 		} else if (param == 'fns') {
 			preconds[[key]] <- {
 				Must $ Be_Collection(fns)
