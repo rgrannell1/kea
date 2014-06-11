@@ -23,14 +23,27 @@ MakeFun <- function (expr) {
 	params <- names(formals(fn))
 
 	# -- the function to ultimately return.
-	boilerplated          <- function () {}
+	boilerplated <- function () {}
+
+	# -------------------------------- Fix Macro -------------------------------- #
+	#
+	# -- this macro calls a second macro, which injects partial application
+	# -- into the returned function.
 
 	fix_macro_call <- bquote(
 		# -- no need to work about '...' in this case
 
 		.(as.call( c(
 			as.symbol('Fix'),
-			call('sys.function'), lapply(params, as.symbol)) ))
+
+			# -- the function to return in a fixed form.
+			call('sys.function'),
+
+			# -- the parametres to bind over.
+			lapply(params, as.symbol)
+
+
+		) ))
 	)
 
 	formals(boilerplated)     <- formals(fn)
@@ -46,7 +59,7 @@ MakeFun <- function (expr) {
 	environment(boilerplated) <- parent.frame()
 
 	# -- now evaluate calls to MACRO
-	#eval(unquote(expr), parent_frame)
+	# eval(unquote(expr), parent_frame)
 
 	boilerplated
 }
