@@ -14,13 +14,11 @@ x_(c(1, 2, 3)) $ x_AddKeys(c('a', 'b', 'c'))
 csv <- "Chad,16.6,Congo,16.5,Yemen,16.4,Mali,16.2,Niger,15.2,Uganda,15.0"
 
 age_by_country <-
-	x_(csv) $ xExplode(',') $
-	xChunk(2) $ xMapply((key : value) := {
+	x_(csv) $ xExplode(',') $ xChunk(2) $
+	xMapply((key : value) := {
 		list(key, as.numeric(value))
 	}) $
-	x_Map(row := {
-		xAddKeys(c('country', 'age'), row)
-	})
+	x_Map( xAddKeys(c('country', 'age')) )
 
 #
 # list(

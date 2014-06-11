@@ -32,9 +32,8 @@ ICEbox              07:02:26    ripley
 cran_data <-
 	x_(raw_cran_data) $ xToLines() $
 	xMap(row := xExplode("[ ]+", row)) $
-	xMap(as.list) $ xMap(row := {
-		xAddKeys(c("package", "time", "maintainer"), row)
-	})
+	xMap(as.list) $
+	xMap( xAddKeys(c("package", "time", "maintainer")) )
 
 x_(cran_data) $ x_GroupBy(x. $ maintainer)
 

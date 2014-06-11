@@ -132,14 +132,13 @@ July        2.9
 
 rain_data <-
 	x_(raw_rain_data) $ xToLines() $
-	xMap(xToWords \%then\% as.list) $
-	x_Map(row := {
-
-		# convert the second field to a number.
-		row[[2]] <- as.numeric( row[[2]] )
-
-		xAddKeys(c('month', 'rain (ml)'), row)
-	})
+	xMap(xToWords \%then\% as.list)  $
+	xMap( xAddKeys(c('month', 'rain (ml)')) ) $
+	x_Map(
+		xSecondAs(
+			as.numeric(xSecondOf(row)),
+			row)
+	)
 
 # 1. Select the rain data column.
 
