@@ -38,6 +38,8 @@ write_preconditions <- function (params) {
 				Must $ Be_Collection(fns)
 				Must $ Be_Collection_Of_Fn_Matchable(fns)
 			}
+		} else if (param == 'colls') {
+			preconds[[key]] <- Must $ Be_Collection_Of_Collections(colls)
 		}
 
 	}

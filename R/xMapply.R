@@ -36,9 +36,6 @@
 
 xMapply <- MakeFun(function (fn, colls) {
 
-
-	MACRO( Must $ Be_Collection_Of_Collections(colls) )
-
 	if (length(colls) == 0) {
 		list()
 	} else {

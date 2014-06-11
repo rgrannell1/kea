@@ -52,7 +52,6 @@ xAtCol <- MakeFun(function (num, colls) {
 		list()
 	} else {
 
-		MACRO( Must $ Be_Collection_Of_Collections(colls) )
 		MACRO( Must $ Be_Collection_Of_Lengths_In_Range(colls, num, Inf) )
 
 		lapply(colls, function (coll) {
