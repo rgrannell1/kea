@@ -523,13 +523,13 @@ Must <- local({
 
 				if (!all( names(.sys_call) == names(.match_call) | names(.sys_call) == '')) {
 
-					fn_name <-  .sys_call[[1]]
+					fn_name <- .sys_call[[1]]
 
 					if (length(fn_name) == 1) {
 						fn_name <- paste0(fn_name)
 						suggested <- gsub('_', '', fn_name)
 					} else {
-						fn_name <- 'xMethod_'
+						fn_name   <- 'xMethod_'
 						suggested <- 'xMethod'
 					}
 

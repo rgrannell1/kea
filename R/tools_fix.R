@@ -8,14 +8,14 @@
 
 fix <- local({
 
-	fn_symbol <- as.symbol('fn')
+	fn_symbol <- as.symbol('.fixed_function')
 	arg_keys  <- c('arg1', 'arg2', 'arg3')
 
-	function (fn, coll) {
+	function (.fixed_function, coll) {
 		# MUST be called with fixed arguments!
 		# coll MUST be a list
 
-		fn_formals <- formals(fn)
+		fn_formals <- formals(.fixed_function)
 		fn_params  <- names(fn_formals)
 
 		# -- interpret positional / named arguments; may be possible to remove.
