@@ -5,6 +5,9 @@
 \usage{
 x_(  ) $ xElemsByRows()
 }
+\arguments{
+\item{tab}{a matrix. The matrix to enumerate by elements.}
+}
 \value{
 A kiwi object containing a list.
 }

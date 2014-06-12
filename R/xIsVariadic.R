@@ -22,5 +22,12 @@
 #' @export
 
 xIsVariadic <- MakeFun(function (fn) {
-	isTRUE("..." %in% xParamsOf(fn))
+
+	params <- xParamsOf(fn)
+
+	if (length(params) == 0) {
+		logical(0)
+	} else {
+		"..." %in% xParamsOf(fn)
+	}
 })

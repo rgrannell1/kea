@@ -110,7 +110,22 @@ is_recursive <- function (val) {
 	is.list(val) || identical(val, NULL)
 }
 
+# -- strsplit has a bad case of overcomplicated type signature,
+# -- and it adds leading spaces.
 
+str_split <- function (rexp, str) {
+	if (length(str) == 0 || nchar(str) == 0) {
+		character(0)
+	} else {
+		out <- strsplit(str, rexp)[[1]]
+
+		if (out[1] == '') {
+			out[2:length(out)]
+		} else {
+			out
+		}
+	}
+}
 
 
 
@@ -260,7 +275,6 @@ is_collection <- function (val) {
 
 # --------------------- testing & message functions --------------------- #
 
-
 ddparse <- function (val, collapse = "") {
 	# safely deparse a string.
 
@@ -268,7 +282,7 @@ ddparse <- function (val, collapse = "") {
 }
 
 ddquote <- function (sym) {
-	paste0(dQuote(match.call()$sym), collapse = '')
+	paste0(dQuote(substitute(sym)), collapse = '')
 }
 
 wrap <- function (...) {
@@ -293,9 +307,9 @@ ith_suffix <- function (num) {
 	}
 
 	last <- as.numeric(substr(
-		toString(num),
-		nchar(toString(num)),
-		nchar(toString(num)) ))
+		paste(num),
+		nchar(paste(num)),
+		nchar(paste(num)) ))
 
 	suffix <-
 		if (num == 2) {

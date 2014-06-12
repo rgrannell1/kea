@@ -38,8 +38,6 @@
 
 xAsComplex <- MakeFun(function (ims) {
 
-
-
 	as_typed_vector(ims, 'complex')
 })
 

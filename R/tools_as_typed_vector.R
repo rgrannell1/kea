@@ -21,7 +21,8 @@ unit_to_value <- function (coll) {
 	# convert a length-zero collection.
 
 	if (length(coll) == 0) {
-		if (is.double(coll) || is.integer(coll)) {
+		# -- marginally more efficient that checking integer or double.
+		if (is.numeric(coll)) {
 			0
 		} else if (is.character(coll)) {
 			""
@@ -58,20 +59,21 @@ as_typed_vector <- local({
 
 	typecheck <- list(
 		numeric =
-			# -- is.numeric checks if integer or double
-			function (x) is.numeric(x) || is_na(x),
+			# -- is.numeric checks if integer or double efficiently
+			# -- na check is less efficent; make second.
+			function (x) is.numeric(x)   || is_na(x),
 		integer =
-			function (x) is.integer(x) || is_na(x),
+			function (x) is.integer(x)   || is_na(x),
 		double =
-			function (x) is.double(x) || is_na(x),
+			function (x) is.double(x)    || is_na(x),
 		character =
 			function (x) is.character(x) || is_na(x),
 		logical =
-			function (x) is.logical(x) || is_na(x),
+			function (x) is.logical(x)   || is_na(x),
 		complex =
-			function (x) is.complex(x) || is_na(x),
+			function (x) is.complex(x)   || is_na(x),
 		raw =
-			function (x) is.raw(x) || is_na(x)
+			function (x) is.raw(x)       || is_na(x)
 	)
 
 	function (coll, mode) {
@@ -89,28 +91,26 @@ as_typed_vector <- local({
 			if (mode == 'numeric') {
 				# -- integers, doubles, numerics are all valid numerics.
 
-				if ( !any(type == c('integer', 'double', 'numeric')) ) {
+				if ( !any(type == c('integer', 'double')) ) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					throw_kiwi_error(
-						invoking_call, message)
+					throw_kiwi_error(invoking_call, message)
 				}
 
 				coll
 			} else if (!type == mode) {
 				# -- otherwise the type has to be the mode.
 
-				coll_sym <- match.call()$coll
+				coll_sym <- substitute(coll)
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_kiwi_error(
-					invoking_call, message)
+				throw_kiwi_error(invoking_call, message)
 			}
 
 			coll
@@ -124,7 +124,7 @@ as_typed_vector <- local({
 				# -- check the element is length-one
 				if (length(elem) != 1) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					throw_kiwi_error(
 						invoking_call, "the collection " %+% dQuote(coll) %+%
@@ -135,7 +135,7 @@ as_typed_vector <- local({
 				# -- check the element is a vector of the correct type.
 				if (!is_correct_type(elem)) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
@@ -149,8 +149,7 @@ as_typed_vector <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_kiwi_error(
-						invoking_call, message)
+					throw_kiwi_error(invoking_call, message)
 				}
 			}
 
@@ -200,7 +199,7 @@ as_atom <- local({
 			vector(mode)
 		} else if (length(coll) != 1) {
 
-			coll_sym <- match.call()$coll
+			coll_sym <- substitute(coll)
 
 			throw_kiwi_error(
 				invoking_call, "the collection " %+% dQuote(coll_sym) %+%
@@ -217,7 +216,7 @@ as_atom <- local({
 
 				if ( !any(type == c('integer', 'double', 'numeric')) ) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
@@ -239,7 +238,7 @@ as_atom <- local({
 			} else if (!type == mode) {
 				# -- check that the expected type
 
-				coll_sym <- match.call()$coll
+				coll_sym <- substitute(coll)
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
@@ -267,7 +266,7 @@ as_atom <- local({
 
 				if (length(elem) != 1) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					throw_kiwi_error(
 						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
@@ -276,7 +275,7 @@ as_atom <- local({
 				}
 				if (!is_correct_type(elem)) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."

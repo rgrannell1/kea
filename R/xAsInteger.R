@@ -12,7 +12,7 @@
 #'    to convert non-integer collections to integer vectors.
 #'
 #' @param
-#'    nums a collection of integer values. A list, pairlist or vector
+#'    ints a collection of integer values. A list, pairlist or vector
 #'    of length-one integer vectors to convert to a integer vector.
 #'
 #' @param
@@ -37,22 +37,18 @@
 #' @rdname xAsInteger
 #' @export
 
-xAsInteger <- MakeFun(function (nums) {
+xAsInteger <- MakeFun(function (ints) {
 
+	MACRO( Must $ Be_Whole(ints) )
 
-
-	nums <- as_typed_vector(nums, 'integer')
-
-	MACRO( Must $ Be_Whole(nums) )
-
-	if (length(nums) == 0) {
+	if (length(ints) == 0) {
 		integer(0)
 	} else {
-		as.integer(nums)
+		as.integer(ints)
 	}
 })
 
 #' @rdname xAsInteger
 #' @export
 
-xAsInteger_ <- MakeVariadic(xAsInteger, 'nums')
+xAsInteger_ <- MakeVariadic(xAsInteger, 'ints')

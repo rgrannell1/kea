@@ -26,7 +26,7 @@ Must <- local({
 	this $ Be_Between <-
 		function (NUMS, LOWER, UPPER) {
 
-			NUMS <- match.call() $ NUMS
+			NUMS <- substitute(NUMS)
 
 			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
 
@@ -43,7 +43,7 @@ Must <- local({
 		function (COLL) {
 			# this macro expands to check if a value is a collection.
 
-			COLL <- match.call() $ COLL
+			COLL <- substitute(COLL)
 
 			bquote(if (
 				identical('kiwi', class( .(COLL) )) ||
@@ -70,7 +70,7 @@ Must <- local({
 	this $ Be_Collection_Of_Collections <-
 		function (COLLS) {
 
-			COLLS <- match.call() $ COLLS
+			COLLS <- substitute(COLLS)
 
 			bquote({
 
@@ -106,7 +106,7 @@ Must <- local({
 	this $ Be_Collection_Of_Equal_Length <-
 		function (COLLS) {
 
-			COLLS <- match.call() $ COLLS
+			COLLS <- substitute(COLLS)
 
 			bquote({
 
@@ -132,7 +132,7 @@ Must <- local({
 	this $ Be_Collection_Of_Fn_Matchable <-
 		function (COLL) {
 
-			COLL <- match.call() $ COLL
+			COLL <- substitute(COLL)
 
 			bquote({
 
@@ -175,9 +175,9 @@ Must <- local({
 	this $ Be_Collection_Of_Lengths_In_Range <-
 		function (COLLS, LOWER, UPPER) {
 
-			COLLS <- match.call() $ COLLS
-			LOWER <- match.call() $ LOWER
-			UPPER <- match.call() $ UPPER
+			COLLS <- substitute(COLLS)
+			LOWER <- substitute(LOWER)
+			UPPER <- substitute(UPPER)
 
 			bquote( if (any(vapply( .(COLLS), function (coll) {
 
@@ -198,14 +198,14 @@ Must <- local({
 	this $ Be_Equal_Length_To <-
 		function (COLL1, COLL2) {
 
-			COLL1 <- match.call() $ COLL1
-			COLL2 <- match.call() $ COLL2
+			COLL1 <- substitute(COLL1)
+			COLL2 <- substitute(COLL2)
 
 			bquote(if (length( .(COLL1) ) != length( .(COLL2) )) {
 
 				message <-
 					"The argument matching " %+% ddquote( .(COLL1) ) %+%
-					" must be equal length to The argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
+					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
 					summate( .(COLL1) )
 
 				throw_kiwi_error(sys.call(), message)
@@ -215,7 +215,7 @@ Must <- local({
 	this $ Be_Existing_Ref <-
 		function (SYM) {
 
-			SYM <- match.call() $ SYM
+			SYM <- substitute(SYM)
 
 			bquote(if ( !exists( .(SYM), envir = parent.frame()) ) {
 
@@ -231,8 +231,8 @@ Must <- local({
 		function (BOOL, PRED) {
 			# this macro expands to check if a value is True, False or Na.
 
-			BOOL <- match.call() $ BOOL
-			PRED <- match.call() $ PRED
+			BOOL <- substitute(BOOL)
+			PRED <- substitute(PRED)
 
 			bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
 
@@ -248,7 +248,7 @@ Must <- local({
 	this $ Be_File <-
 		function (STR) {
 
-			STR <- match.call() $ STR
+			STR <- substitute(STR)
 
 			bquote(if (!file.exists( .(STR) )) {
 
@@ -265,7 +265,7 @@ Must <- local({
 			# this macro expands to check if a value is a function or
 			# can be looked up as a function.
 
-			VAL <- match.call() $ VAL
+			VAL <- substitute(VAL)
 
 			bquote(if (
 				!is.function( .(VAL) ) &&
@@ -292,8 +292,8 @@ Must <- local({
 	this $ Be_Indices <-
 		function (NUMS, COLL) {
 
-			NUMS <- match.call() $ NUMS
-			COLL <- match.call() $ COLL
+			NUMS <- substitute(NUMS)
+			COLL <- substitute(COLL)
 
 			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < -length( .(COLL) ) )) {
 
@@ -311,8 +311,8 @@ Must <- local({
 		function (COLL, LENGTHS) {
 			# this macro expands to check that a collection has a certain length.
 
-			COLL    <- match.call() $ COLL
-			LENGTHS <- match.call() $ LENGTHS
+			COLL    <- substitute(COLL)
+			LENGTHS <- substitute(LENGTHS)
 
 			bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
 
@@ -329,8 +329,8 @@ Must <- local({
 		function (COLL, LENGTH) {
 			# this macro expands to check that a collection is lequal than a certain length.
 
-			COLL   <- match.call() $ COLL
-			LENGTH <- match.call() $ LENGTH
+			COLL   <- substitute(COLL)
+			LENGTH <- substitute(LENGTH)
 
 			bquote(if (!(length( .(COLL) ) >= .(LENGTH) )) {
 
@@ -348,8 +348,8 @@ Must <- local({
 		function (LENGTH, COLL) {
 			# this macro expands to check that a collection is longer than a certain length.
 
-			COLL   <- match.call() $ COLL
-			LENGTH <- match.call() $ LENGTH
+			COLL   <- substitute(COLL)
+			LENGTH <- substitute(LENGTH)
 
 			bquote(if (!(length( .(COLL) ) > .(LENGTH) )) {
 
@@ -367,7 +367,7 @@ Must <- local({
 		function (SYM) {
 			# this macro expands to test if a value is a symbol.
 
-			SYM <- match.call() $ SYM
+			SYM <- substitute(SYM)
 
 			bquote({
 
@@ -397,7 +397,7 @@ Must <- local({
 	this $ Be_Named <-
 		function (COLL) {
 
-			COLL <- match.call() $ COLL
+			COLL <- substitute(COLL)
 
 			bquote({
 
@@ -418,8 +418,8 @@ Must <- local({
 		function (STRS, FN) {
 			# this macro expands to check if a set of names are parametres of a function.
 
-			STRS <- match.call() $ STRS
-			FN   <- match.call() $ FN
+			STRS <- substitute(STRS)
+			FN   <- substitute(FN)
 
 			bquote(if (any( .(STRS) %!in% names(formals( .(FN) )) )) {
 
@@ -435,8 +435,8 @@ Must <- local({
 	this $ Be_Positive_Indices <-
 		function (NUMS, COLL) {
 
-			NUMS <- match.call() $ NUMS
-			COLL <- match.call() $ COLL
+			NUMS <- substitute(NUMS)
+			COLL <- substitute(COLL)
 
 			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < 1 )) {
 
@@ -453,7 +453,7 @@ Must <- local({
 	this $ Be_Whole <-
 		function (NUMS) {
 
-			NUMS <- match.call() $ NUMS
+			NUMS <- substitute(NUMS)
 
 			bquote(if (!all(round( .(NUMS) ) == .(NUMS) )) {
 
@@ -470,7 +470,7 @@ Must <- local({
 		function (VAL) {
 			# this macro expands to check if a parametre is not missing.
 
-			VAL <- match.call() $ VAL
+			VAL <- substitute(VAL)
 
 			bquote(if (missing( .(VAL) )) {
 
@@ -487,7 +487,7 @@ Must <- local({
 		function (FN) {
 			# this macro expands to check if a function is non-primitive.
 
-			FN <- match.call() $ FN
+			FN <- substitute(FN)
 
 			bquote(if (is.primitive( .(FN) )) {
 

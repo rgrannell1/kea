@@ -18,7 +18,12 @@ message('normal functions can be partially applied (+)')
 		is_collection(coll),
 		xMap(identity, coll) %equals% as.list(coll),
 		xMap(identity, coll) %equals% xMap(identity)(coll),
-		xMap(identity, coll) %equals% xMap()()(identity)(coll)
+		xMap(identity, coll) %equals% xMap()()(identity)(coll),
+
+
+		xMap(identity, coll) %equals% as.list(coll),
+		xMap(identity, coll) %equals% xMap(coll = coll)(identity),
+		xMap(identity, coll) %equals% xMap()()(coll = coll)(identity)
 	) +
 
 	describe('trinary functions are partially appliable') +

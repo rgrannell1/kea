@@ -6,54 +6,54 @@
 # have corresponding expressions that check properties of
 # the coresponding argument.
 
-write_preconditions <- function (params) {
+write_preconditions <- local({
 
-	preconds <- list()
+	param_preconds <- list()
 
-	param_preconds <- list(
-		fn    = Must $ Be_Fn_Matchable(fn),
-		fn1   = Must $ Be_Fn_Matchable(fn1),
-		fn2   = Must $ Be_Fn_Matchable(fn2),
-		pred  = Must $ Be_Fn_Matchable(pred),
-
-		fns   = {
-			Must $ Be_Collection(fns)
-			Must $ Be_Collection_Of_Fn_Matchable(fns)
-		},
-
-		coll   = Must $ Be_Collection(coll),
-		colls  = Must $ Be_Collection_Of_Collections(colls),
-
-		bools  = Must $ Be_Collection(bools),
-		ims    = Must $ Be_Collection(ims),
-		raws   = Must $ Be_Collection(raws),
-
-		nums   = Must $ Be_Collection(nums),
-		num    = Must $ Be_Collection(num),
-
-		str    = Must $ Be_Collection(str),
-		str1   = Must $ Be_Collection(str1),
-		str2   = Must $ Be_Collection(str2)
-	)
-
-	for (ith in seq_along(params)) {
-
-		key   <- paste0('PRE', ith)
-		param <- params[[ith]]
-
-		preconds[[key]] <- param_preconds[[param]]
+	for (param in c('fn', 'fn1', 'fn2', 'pred', 'pred1', 'pred2')) {
+		param_preconds[[param]] <-
+			do.call( Must $ Be_Fn_Matchable, list(as.symbol(param)) )
 	}
 
-	if (length(preconds) == 0) {
-		list()
-	} else {
-		preconds
+	param_preconds $ fns <- {
+		Must $ Be_Collection(fns)
+		Must $ Be_Collection_Of_Fn_Matchable(fns)
 	}
-}
 
-write_multipreconditon <- function (params) {
+	for (param in c(
+		'coll', 'coll1', 'coll2',
+		'bools', 'ims', 'raws',
+		'nums', 'num', 'num1', 'num2',
+		'str', 'str1', 'str2')) {
 
-}
+		param_preconds[[param]] <-
+			do.call( Must $ Be_Collection, list(as.symbol(param)) )
+	}
+
+	param_preconds $ colls <-
+		Must $ Be_Collection_Of_Collections(colls)
+
+	function (params) {
+
+		preconds <- list()
+
+		# -- refactor this to make it smaller.
+
+		for (ith in seq_along(params)) {
+
+			key   <- paste0('PRE', ith)
+			param <- params[[ith]]
+
+			preconds[[key]] <- param_preconds[[param]]
+		}
+
+		if (length(preconds) == 0) {
+			list()
+		} else {
+			preconds
+		}
+	}
+})
 
 # write_boilerplate
 #
@@ -72,6 +72,18 @@ write_boilerplate <- function (params) {
 		),
 		fns  = list(
 			quote(lapply(fns, match_fn))
+		),
+		nums = list(
+			quote(nums <- as_typed_vector(nums, 'numeric'))
+		),
+		strs = list(
+			quote(strs <- as_typed_vector(strs, 'character'))
+		),
+		ints = list(
+			quote(ints <- as_typed_vector(ints, 'integer'))
+		),
+		bools = list(
+			quote(bools <- as_typed_vector(bools, 'logical'))
 		)
 	)
 
@@ -118,7 +130,7 @@ MakeFun <- function (expr) {
 		}
 	}
 
-	expr <- match.call() $ expr
+	expr <- substitute(expr)
 
 	# -- evaluate the function, to allow access to its parts.
 	fn     <- eval(unquote(expr), parent_frame)
@@ -190,7 +202,7 @@ MakeVariadic <- function (fn, fixed) {
 
 	env <- new.env(parent = environment(fn))
 
-	fn_sym    <- as.symbol(match.call()$fn)
+	fn_sym    <- as.symbol(substitute(fn))
 	varfn_sym <- as.symbol(paste0(fn_sym, '_'))
 
 	if ( grepl('_', paste0(fn_sym)) ) {

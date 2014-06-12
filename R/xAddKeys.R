@@ -18,6 +18,9 @@
 #' @param
 #'    coll a collection. The collection to add names to.
 #'
+#' @param
+#'    ... see above.
+#'
 #' @return
 #'    A named list.
 #'
@@ -39,9 +42,6 @@
 #' @export
 
 xAddKeys <- MakeFun(function (strs, coll) {
-
-
-	strs <- as_typed_vector(strs, 'character')
 
 	MACRO( Must $ Be_Equal_Length_To(strs, coll) )
 

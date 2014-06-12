@@ -42,12 +42,14 @@
 
 xSlice <- MakeFun(function (nums, coll) {
 
-	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
-
 	MACRO( Must $ Be_Whole(nums) )
 	MACRO( Must $ Be_Indices(nums, coll) )
 
-	as.list(coll[nums])
+	if (length(nums) == 0) {
+		list()
+	} else {
+		as.list(coll[nums])
+	}
 })
 
 #' @rdname xSlice

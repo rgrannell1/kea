@@ -1,5 +1,5 @@
 
-Kiwi 0.21.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.22.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -152,7 +152,7 @@ are values too it stands to reason that there are similar operations on function
 composition joins multiple functions by successively piping input from one to the next.
 
 ```js
-x__(1, 2, 3, 4, 5, 6) $ xMap(sqrt %then% toString)
+x__(1, 2, 3, 4, 5, 6) $ xMap(sqrt %then% paste)
 ```
 
 Kiwi implements lots of higher-order functions and general collection functions. These include
@@ -259,4 +259,4 @@ Ordered by contribution date.
 
 | Author                      | Changes                 |
 | --------------------------- | ----------------------- |
-| Ryan Grannell               | 179,132 ++ / 147,701 -- |
+| Ryan Grannell               | 179,739 ++ / 148,327 -- |

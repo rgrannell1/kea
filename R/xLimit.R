@@ -18,7 +18,7 @@
 #'
 #'    \code{url <- "http://randomword.setgetgo.com/get.php"}
 #'
-#'    \code{random_word <- xLimit(function () toString(httpGET(url)), 3)}
+#'    \code{random_word <- xLimit(function () paste(httpGET(url)), 3)}
 #'
 #'    \code{xMap(function (ith) random_word(), 1:3)}
 #'

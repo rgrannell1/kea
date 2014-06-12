@@ -9,6 +9,9 @@
 #' @usage
 #'      x_(  ) $ xByColkeys()
 #'
+#' @param
+#'      tab a matrix or data frame. The tabular structure to get the column names of.
+#'
 #' @return
 #'      A kiwi containing a character vector.
 #'
@@ -16,7 +19,6 @@
 #'
 #' @name xByColkeys
 
-xByColkeys <- MakeFun(function (colls) {
-
-	colnames(colls)
+xByColkeys <- MakeFun(function (tab) {
+	colnames(tab)
 })

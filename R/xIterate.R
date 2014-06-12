@@ -53,11 +53,10 @@ xIterate <- MakeFun(function (fn, val) {
 
 		# assign the Return( ) function into an anonymous function.
 		clone_env <- new.env(parent = environment(fn))
-		clone_env$Return <- Return
+		clone_env $ Return <- Return
 
 		environment(fn) <- clone_env
 
-		{repeat val <- fn(val)}
-
+		repeat val <- fn(val)
 	})
 })

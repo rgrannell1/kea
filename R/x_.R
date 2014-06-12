@@ -336,28 +336,28 @@ x_matrix_proto <- local({
 
 	# -------- A ------- #
 	# -------- B ------- #
-	add_x_method(this, xByCols, 'colls')
-	add_x_method(this, x_ByCols, 'colls')
+	add_x_method(this, xByCols, 'tab')
+	add_x_method(this, x_ByCols, 'tab')
 
-	add_x_method(this, xByColkeys, 'colls')
-	add_x_method(this, x_ByColkeys, 'colls')
+	add_x_method(this, xByColkeys, 'tab')
+	add_x_method(this, x_ByColkeys, 'tab')
 
-	add_x_method(this, xByRows, 'colls')
-	add_x_method(this, x_ByRows, 'colls')
+	add_x_method(this, xByRows, 'tab')
+	add_x_method(this, x_ByRows, 'tab')
 
 	# --- xByRowkeys --- #
-	add_x_method(this, xByRowkeys, 'colls')
-	add_x_method(this, x_ByRowkeys, 'colls')
+	add_x_method(this, xByRowkeys, 'tab')
+	add_x_method(this, x_ByRowkeys, 'tab')
 
 	# -------- C ------- #
 
 	# -------- D ------- #
 	# -------- E ------- #
-	add_x_method(this, xElemsByCols, 'colls')
-	add_x_method(this, x_ElemsByCols, 'colls')
+	add_x_method(this, xElemsByCols, 'tab')
+	add_x_method(this, x_ElemsByCols, 'tab')
 
-	add_x_method(this, xElemsByRows, 'colls')
-	add_x_method(this, x_ElemsByRows, 'colls')
+	add_x_method(this, xElemsByRows, 'tab')
+	add_x_method(this, x_ElemsByRows, 'tab')
 
 	# -------- F ------- #
 	# -------- G ------- #
@@ -401,20 +401,20 @@ x_data_frame_proto <- local({
 
 	# -------- B ------- #
 	# --- xByCols --- #
-	add_x_method(this, xByCols, 'colls')
-	add_x_method(this, x_ByCols, 'colls')
+	add_x_method(this, xByCols, 'tab')
+	add_x_method(this, x_ByCols, 'tab')
 
 	# --- xByColkeys --- #
-	add_x_method(this, xByColkeys, 'colls')
-	add_x_method(this, x_ByColkeys, 'colls')
+	add_x_method(this, xByColkeys, 'tab')
+	add_x_method(this, x_ByColkeys, 'tab')
 
 	# --- xByRows --- #
-	add_x_method(this, xByRows, 'colls')
-	add_x_method(this, x_ByRows, 'colls')
+	add_x_method(this, xByRows, 'tab')
+	add_x_method(this, x_ByRows, 'tab')
 
 	# --- xByRowkeys --- #
-	add_x_method(this, xByRowkeys, 'colls')
-	add_x_method(this, x_ByRowkeys, 'colls')
+	add_x_method(this, xByRowkeys, 'tab')
+	add_x_method(this, x_ByRowkeys, 'tab')
 
 	# -------- C ------- #
 
@@ -456,11 +456,11 @@ x_factor_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 
-	add_x_method(this, xByLevels, 'coll')
-	add_x_method(this, x_ByLevels, 'coll')
+	add_x_method(this, xByLevels, 'fact')
+	add_x_method(this, x_ByLevels, 'fact')
 
-	add_x_method(this, xByValues, 'coll')
-	add_x_method(this, x_ByValues, 'coll')
+	add_x_method(this, xByValues, 'fact')
+	add_x_method(this, x_ByValues, 'fact')
 
 	# -------- C ------- #
 	# -------- D ------- #
@@ -545,9 +545,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_AsLogical_, '...')
 
 	# --- xAsInteger --- #
-	add_x_method(this, xAsInteger, 'nums')
+	add_x_method(this, xAsInteger, 'ints')
 	add_x_method(this, xAsInteger_, '...')
-	add_x_method(this, x_AsInteger, 'nums')
+	add_x_method(this, x_AsInteger, 'ints')
 	add_x_method(this, x_AsInteger_, '...')
 
 	# --- xAsCharacter --- #
@@ -1644,8 +1644,8 @@ x__ <- function (...) {
 			# given an incorrect method name throw an error
 			# suggesting a similar
 
-			proto             <- get_proto_ref(val)
-			method_name       <- method_name
+			proto       <- get_proto_ref(val)
+			method_name <- method_name
 
 			candidate_methods <- setdiff(proto[[2]], 'private')
 
@@ -1671,13 +1671,12 @@ x__ <- function (...) {
 		# Kiwi a -> symbol -> function
 		# return an kiwi method associated with the type a.
 
-		method_name <- paste0(match.call()$method)
+		method_name <- paste0(substitute(method))
 
 		proto <- get_proto_ref( obj[['x']] )
 
-		if (method_name %!in% proto[[2]] || method_name == "private") {
-			# the invoked method wasn't found,
-			# so we should give a suggestion.
+		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
+			# -- the invoked method wasn't found, so we should give a suggestion.
 
 			invoking_call <- paste0('$', method_name)
 

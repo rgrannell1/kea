@@ -1,7 +1,7 @@
 
 #' xToWords
 #'
-#' Split a string at whotespaces.
+#' Split a string at whitespaces.
 #'
 #' @section Type Signature:
 #'     &lt;character> -> &lt;character>
@@ -33,7 +33,6 @@ xToWords <- MakeFun(function (str) {
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)
 	} else {
-		words <- strsplit(str, split = '[ \n\t]+')[[1]]
-		words[nchar(words) > 0]
+		str_split('[ \n\t]+', str)
 	}
 })

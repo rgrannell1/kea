@@ -9,6 +9,9 @@
 #' @usage
 #'      x_(  ) $ xByRowkeys()
 #'
+#' @param
+#'      tab a matrix or data frame. The tabular structure to get the rownames of.
+#'
 #' @return
 #'      A kiwi containing a character vector.
 #'
@@ -16,7 +19,6 @@
 #'
 #' @name xByRowkeys
 
-xByRowkeys <- MakeFun(function (colls) {
-
-	rownames(colls)
+xByRowkeys <- MakeFun(function (tab) {
+	rownames(tab)
 })

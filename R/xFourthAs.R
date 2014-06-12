@@ -34,7 +34,6 @@
 
 xFourthAs <- MakeFun(function (val, coll) {
 
-
 	MACRO( Must $ Be_Longer_Than(3, coll) )
 
 	coll <- as.list(coll)

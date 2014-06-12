@@ -6,10 +6,10 @@
 xWrite(str1, str2)
 }
 \arguments{
-\item{str}{a length-one character vector. The path to
+\item{str1}{a length-one character vector. The path to
    export to.}
 
-\item{str}{a length-one character vector. The text to write.}
+\item{str2}{a length-one character vector. The text to write.}
 }
 \value{
 Null, as this is a purely side-effectful function.

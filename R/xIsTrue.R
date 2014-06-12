@@ -47,6 +47,5 @@
 #' @export
 
 xIsTrue <- MakeFun(function (val) {
-
 	isTRUE(val)
 })

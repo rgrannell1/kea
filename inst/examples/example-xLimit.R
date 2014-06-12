@@ -6,7 +6,7 @@
 # url <- "http://randomword.setgetgo.com/get.php"
 
 # random_word <-
-#	x_( function (...) toString(httpGET(url)) ) $
+#	x_( function (...) paste(httpGET(url)) ) $
 #	x_Limit(3)
 
 

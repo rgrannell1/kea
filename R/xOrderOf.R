@@ -43,10 +43,6 @@
 
 xOrderOf <- MakeFun(function (nums) {
 
-
-
-	nums <- as_typed_vector(nums, 'numeric')
-
 	if (length(nums) == 0) {
 		integer(0)
 	} else {

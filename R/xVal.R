@@ -45,10 +45,10 @@ xVal <- MakeFun(function (sym, val) {
 
 	parent_frame <- parent.frame()
 
-	sym <- match.call()$sym
+	sym <- substitute(sym)
 	MACRO( Must $ Be_Matchable(sym) )
 
-	sym <- toString(sym)
+	sym <- paste(sym)
 
 	# -- check if binding is unlocked.
 

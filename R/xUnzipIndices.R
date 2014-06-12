@@ -1,5 +1,4 @@
 
-
 #' xUnzipIndices
 #'
 #' Split a collection into a list of index: value pairs

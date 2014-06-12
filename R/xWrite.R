@@ -7,11 +7,11 @@
 #'     |character| -> {}
 #'
 #' @param
-#'    str a length-one character vector. The path to
+#'    str1 a length-one character vector. The path to
 #'    export to.
 #'
 #' @param
-#'    str a length-one character vector. The text to write.
+#'    str2 a length-one character vector. The text to write.
 #'
 #' @return
 #'    Null, as this is a purely side-effectful function.

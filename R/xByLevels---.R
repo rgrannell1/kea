@@ -1,10 +1,13 @@
 
 #' xByLevels
 #'
-#' Convert a collor to a collection of levels.
+#' Convert a factor to a collection of levels.
 #'
 #' @usage
 #'      x_(  ) $ xByLevels()
+#'
+#' @param
+#'     fact a factor. The factor to get the levels of.
 #'
 #' @return
 #'      A kiwi object containing a character vector.
@@ -13,13 +16,13 @@
 #'
 #' @name xByLevels
 
-xByLevels <- MakeFun(function (coll) {
+xByLevels <- MakeFun(function (fact) {
 
-	coll_levels <- levels(coll)
+	fact_levels <- levels(fact)
 
-	if (length(coll_levels) == 0) {
+	if (length(fact_levels) == 0) {
 		character(0)
 	} else {
-		coll_levels
+		fact_levels
 	}
 })

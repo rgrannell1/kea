@@ -7,7 +7,7 @@
 #'      x_(  ) $ xElemsByCols()
 #'
 #' @param
-#'      colls a matrix.
+#'      tab a matrix. The matrix to enumerate by elements.
 #'
 #' @return
 #'      A kiwi object containing a list.
@@ -16,11 +16,11 @@
 #'
 #' @name xElemsByCols
 
-xElemsByCols <- MakeFun(function (colls) {
+xElemsByCols <- MakeFun(function (tab) {
 
-	if (prod(dim(colls) == 0)) {
+	if (prod(dim(tab) == 0)) {
 		list()
 	} else {
-		as.list(colls)
+		as.list(tab)
 	}
 })

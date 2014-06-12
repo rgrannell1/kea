@@ -9,15 +9,18 @@
 #' @return
 #'      A kiwi object containing a list.
 #'
+#' @param
+#'      tab a matrix. The matrix to enumerate by elements.
+#'
 #' @family methods
 #'
 #' @name xElemsByRows
 
-xElemsByRows <- MakeFun(function (colls) {
+xElemsByRows <- MakeFun(function (tab) {
 
-	if (prod(dim(colls) == 0)) {
+	if (prod(dim(tab) == 0)) {
 		list()
 	} else {
-		as.list(t(colls))
+		as.list(t(tab))
 	}
 })
