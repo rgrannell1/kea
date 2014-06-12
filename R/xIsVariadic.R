@@ -22,12 +22,5 @@
 #' @export
 
 xIsVariadic <- MakeFun(function (fn) {
-
-	MACRO( Fix(xIsVariadic, fn) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-
-	fn <- match_fn(fn)
-
 	isTRUE("..." %in% xParamsOf(fn))
 })

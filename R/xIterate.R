@@ -49,12 +49,6 @@
 
 xIterate <- MakeFun(function (fn, val) {
 
-	MACRO( Fix(xIterate, fn, val) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-
-	fn <- match_fn(fn)
-
 	callCC(function (Return) {
 
 		# assign the Return( ) function into an anonymous function.

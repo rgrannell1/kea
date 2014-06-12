@@ -16,9 +16,6 @@ throw_kiwi_warning <- kiwi ::: throw_kiwi_warning
 
 
 
-anyIsMatch <- (rexp : docs) := {
-	xAnyOf(xFix_(xIsMatch, rexp), docs)
-}
 
 
 

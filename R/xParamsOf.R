@@ -28,12 +28,6 @@
 
 xParamsOf <- MakeFun(function (fn) {
 
-	MACRO( Fix(xParamsOf, fn) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-
-	fn <- match_fn(fn)
-
 	formals_fn <- if (is.primitive(fn)) {
 		# -- use the args function to get the primitive arguments.
 		as.list( head(as.list(args(fn)), -1) )

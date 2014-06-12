@@ -48,7 +48,5 @@
 
 xIsTrue <- MakeFun(function (val) {
 
-	MACRO( Fix(xIsTrue, val) )
-
 	isTRUE(val)
 })

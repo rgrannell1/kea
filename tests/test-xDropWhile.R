@@ -1,25 +1,22 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xDropWhile (+)")
 
-message("xDropWhile")
+	over(coll) +
 
-	forall(
-		"dropwhile with truth returns the collection.",
-		test_cases$truth_with_coll,
-		xDropWhile(fn, coll) %equals% list()
-	)
+	describe("true predicates returns the collection") +
+	when(
+		is_collection(coll),
+		xDropWhile(function (x) True,  coll) %equals% list()
+	) +
 
-	forall(
-		"dropwhile with falsity returns the collection.",
-		test_cases$falsity_with_coll,
-		xDropWhile(fn, coll) %equals% as.list(coll)
-	)
+	describe("non true predicates return empty list") +
+	when(
+		is_collection(coll),
+		xDropWhile(function (x) False, coll) %equals% as.list(coll),
+		xDropWhile(function (x) Na,    coll) %equals% as.list(coll)
+	) +
 
-	forall(
-		"dropwhile with moot returns the collection.",
-		test_cases$moot_with_coll,
-		xDropWhile(fn, coll) %equals% as.list(coll)
-	)
+	run()

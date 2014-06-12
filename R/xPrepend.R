@@ -31,10 +31,6 @@
 
 xPrepend <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xPrepend, val, coll) )
-
-	MACRO( Must $ Be_Collection(coll) )
-
 	if (length(coll) == 0) {
 		list(val)
 	} else {

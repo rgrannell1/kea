@@ -15,8 +15,6 @@
 
 xByLevels <- MakeFun(function (coll) {
 
-	MACRO( Fix(xByLevels, coll) )
-
 	coll_levels <- levels(coll)
 
 	if (length(coll_levels) == 0) {

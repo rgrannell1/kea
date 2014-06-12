@@ -35,10 +35,6 @@
 
 xDrop <- MakeFun(function (num, coll) {
 
-	MACRO( Fix(xDrop, num, coll) )
-
-	MACRO( Must $ Be_Collection(num) )
-	MACRO( Must $ Be_Collection(coll) )
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 

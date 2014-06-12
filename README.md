@@ -1,5 +1,5 @@
 
-Kiwi 0.20.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.21.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -257,6 +257,6 @@ http://semver.org/
 
 Ordered by contribution date.
 
-| Author                      | Changes            |
-| --------------------------- | ------------------ |
-| Ryan Grannell               | 177 704+, 145 757- |
+| Author                      | Changes                 |
+| --------------------------- | ----------------------- |
+| Ryan Grannell               | 179,132 ++ / 147,701 -- |

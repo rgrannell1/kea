@@ -40,11 +40,6 @@ xProdSetOf <- local({
 
 	MakeFun(function (colls) {
 
-		MACRO( Fix(xProdSetOf, colls) )
-
-		MACRO( Must $ Be_Collection(colls) )
-		MACRO( Must $ Be_Collection_Of_Collections(colls) )
-
 		coll_lengths <- vapply(colls, length, integer(1))
 
 		if (length(colls) == 0 || min(coll_lengths) == 0) {

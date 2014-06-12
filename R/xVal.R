@@ -45,8 +45,6 @@ xVal <- MakeFun(function (sym, val) {
 
 	parent_frame <- parent.frame()
 
-	MACRO( Fix(xVal, sym, val) )
-
 	sym <- match.call()$sym
 	MACRO( Must $ Be_Matchable(sym) )
 

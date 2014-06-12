@@ -40,10 +40,6 @@
 
 xAddKeys <- MakeFun(function (strs, coll) {
 
-	MACRO( Fix(xAddKeys, strs, coll) )
-
-	MACRO( Must $ Be_Collection(strs) )
-	MACRO( Must $ Be_Collection(coll) )
 
 	strs <- as_typed_vector(strs, 'character')
 

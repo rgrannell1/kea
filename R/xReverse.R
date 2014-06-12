@@ -31,10 +31,6 @@
 
 xReverse <- MakeFun(function (coll) {
 
-	MACRO( Fix(xReverse, coll) )
-
-	MACRO( Must $ Be_Collection(coll) )
-
 	if (length(coll) == 0) {
 		list()
 	} else {

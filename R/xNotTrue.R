@@ -31,7 +31,5 @@
 
 xNotTrue <- MakeFun(function (val) {
 
-	MACRO( Fix(xNotTrue, val) )
-
 	!isTRUE(val)
 })

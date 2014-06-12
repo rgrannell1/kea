@@ -56,14 +56,7 @@ xSplitWith <- local({
 
 	MakeFun(function (pred, coll) {
 
-		MACRO( Fix(xSplitWith, pred, coll) )
-
-		MACRO( Must $ Be_Fn_Matchable(pred) )
-		MACRO( Must $ Be_Collection(coll) )
-
-		pred <- match_fn(pred)
-
-		if (length(coll) == 0) {
+			if (length(coll) == 0) {
 			list()
 		} else if (length(coll) == 1) {
 			list(as.list(coll))

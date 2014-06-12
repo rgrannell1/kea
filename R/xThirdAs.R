@@ -34,9 +34,6 @@
 
 xThirdAs <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xThirdAs, val, coll) )
-
-	MACRO( Must $ Be_Collection(coll) )
 	MACRO( Must $ Be_Longer_Than(2, coll) )
 
 	coll <- as.list(coll)

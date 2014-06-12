@@ -29,8 +29,6 @@
 
 xNot <- MakeFun(function (val1, val2) {
 
-	MACRO( Fix(xNot, val1, val2) )
-
 	# -- NaN == Nan, Na == Na, 0. == -0.
 	!identical(val1, val2)
 })

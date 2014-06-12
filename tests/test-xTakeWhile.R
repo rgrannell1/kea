@@ -1,26 +1,22 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xTakeWhile (+)")
 
-message("xTakeWhile")
+	over(coll) +
 
-	forall(
-		"takewhile with truth returns the collection.",
-		test_cases$truth_with_coll,
-		xTakeWhile(fn, coll) %equals% as.list(coll)
-	)
+	describe("true predicates returns the collection") +
+	when(
+		is_collection(coll),
+		xTakeWhile(function (x) True,  coll) %equals% as.list(coll)
+	) +
 
-	forall(
-		"takewhile with falsity returns the collection.",
-		test_cases$falsity_with_coll,
-		xTakeWhile(fn, coll) %equals% list()
-	)
+	describe("non true predicates return empty list") +
+	when(
+		is_collection(coll),
+		xTakeWhile(function (x) False, coll) %equals% list(),
+		xTakeWhile(function (x) Na,    coll) %equals% list()
+	) +
 
-	forall(
-		"takewhile with moot returns the collection.",
-		test_cases$moot_with_coll,
-		xTakeWhile(fn, coll) %equals% list()
-	)
-
+	run()

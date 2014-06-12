@@ -26,7 +26,7 @@ Must <- local({
 	this $ Be_Between <-
 		function (NUMS, LOWER, UPPER) {
 
-			NUMS <- match.call()$NUMS
+			NUMS <- match.call() $ NUMS
 
 			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
 
@@ -43,7 +43,7 @@ Must <- local({
 		function (COLL) {
 			# this macro expands to check if a value is a collection.
 
-			COLL <- match.call()$COLL
+			COLL <- match.call() $ COLL
 
 			bquote(if (
 				identical('kiwi', class( .(COLL) )) ||
@@ -70,7 +70,7 @@ Must <- local({
 	this $ Be_Collection_Of_Collections <-
 		function (COLLS) {
 
-			COLLS <- match.call()$COLLS
+			COLLS <- match.call() $ COLLS
 
 			bquote({
 
@@ -106,7 +106,7 @@ Must <- local({
 	this $ Be_Collection_Of_Equal_Length <-
 		function (COLLS) {
 
-			COLLS <- match.call()$COLLS
+			COLLS <- match.call() $ COLLS
 
 			bquote({
 
@@ -132,7 +132,7 @@ Must <- local({
 	this $ Be_Collection_Of_Fn_Matchable <-
 		function (COLL) {
 
-			COLL <- match.call()$COLL
+			COLL <- match.call() $ COLL
 
 			bquote({
 
@@ -175,9 +175,9 @@ Must <- local({
 	this $ Be_Collection_Of_Lengths_In_Range <-
 		function (COLLS, LOWER, UPPER) {
 
-			COLLS <- match.call()$COLLS
-			LOWER <- match.call()$LOWER
-			UPPER <- match.call()$UPPER
+			COLLS <- match.call() $ COLLS
+			LOWER <- match.call() $ LOWER
+			UPPER <- match.call() $ UPPER
 
 			bquote( if (any(vapply( .(COLLS), function (coll) {
 
@@ -198,8 +198,8 @@ Must <- local({
 	this $ Be_Equal_Length_To <-
 		function (COLL1, COLL2) {
 
-			COLL1 <- match.call()$COLL1
-			COLL2 <- match.call()$COLL2
+			COLL1 <- match.call() $ COLL1
+			COLL2 <- match.call() $ COLL2
 
 			bquote(if (length( .(COLL1) ) != length( .(COLL2) )) {
 
@@ -215,7 +215,7 @@ Must <- local({
 	this $ Be_Existing_Ref <-
 		function (SYM) {
 
-			SYM <- match.call()$SYM
+			SYM <- match.call() $ SYM
 
 			bquote(if ( !exists( .(SYM), envir = parent.frame()) ) {
 
@@ -231,8 +231,8 @@ Must <- local({
 		function (BOOL, PRED) {
 			# this macro expands to check if a value is True, False or Na.
 
-			BOOL <- match.call()$BOOL
-			PRED <- match.call()$PRED
+			BOOL <- match.call() $ BOOL
+			PRED <- match.call() $ PRED
 
 			bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
 
@@ -248,7 +248,7 @@ Must <- local({
 	this $ Be_File <-
 		function (STR) {
 
-			STR <- match.call()$STR
+			STR <- match.call() $ STR
 
 			bquote(if (!file.exists( .(STR) )) {
 
@@ -265,7 +265,7 @@ Must <- local({
 			# this macro expands to check if a value is a function or
 			# can be looked up as a function.
 
-			VAL <- match.call()$VAL
+			VAL <- match.call() $ VAL
 
 			bquote(if (
 				!is.function( .(VAL) ) &&
@@ -292,8 +292,8 @@ Must <- local({
 	this $ Be_Indices <-
 		function (NUMS, COLL) {
 
-			NUMS <- match.call()$NUMS
-			COLL <- match.call()$COLL
+			NUMS <- match.call() $ NUMS
+			COLL <- match.call() $ COLL
 
 			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < -length( .(COLL) ) )) {
 
@@ -311,8 +311,8 @@ Must <- local({
 		function (COLL, LENGTHS) {
 			# this macro expands to check that a collection has a certain length.
 
-			COLL <- match.call()$COLL
-			LENGTHS <- match.call()$LENGTHS
+			COLL    <- match.call() $ COLL
+			LENGTHS <- match.call() $ LENGTHS
 
 			bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
 
@@ -329,8 +329,8 @@ Must <- local({
 		function (COLL, LENGTH) {
 			# this macro expands to check that a collection is lequal than a certain length.
 
-			COLL <- match.call()$COLL
-			LENGTH <- match.call()$LENGTH
+			COLL   <- match.call() $ COLL
+			LENGTH <- match.call() $ LENGTH
 
 			bquote(if (!(length( .(COLL) ) >= .(LENGTH) )) {
 
@@ -348,8 +348,8 @@ Must <- local({
 		function (LENGTH, COLL) {
 			# this macro expands to check that a collection is longer than a certain length.
 
-			COLL <- match.call()$COLL
-			LENGTH <- match.call()$LENGTH
+			COLL   <- match.call() $ COLL
+			LENGTH <- match.call() $ LENGTH
 
 			bquote(if (!(length( .(COLL) ) > .(LENGTH) )) {
 
@@ -367,7 +367,7 @@ Must <- local({
 		function (SYM) {
 			# this macro expands to test if a value is a symbol.
 
-			SYM <- match.call()$SYM
+			SYM <- match.call() $ SYM
 
 			bquote({
 
@@ -397,7 +397,7 @@ Must <- local({
 	this $ Be_Named <-
 		function (COLL) {
 
-			COLL <- match.call()$COLL
+			COLL <- match.call() $ COLL
 
 			bquote({
 
@@ -418,8 +418,8 @@ Must <- local({
 		function (STRS, FN) {
 			# this macro expands to check if a set of names are parametres of a function.
 
-			STRS <- match.call()$STRS
-			FN <- match.call()$FN
+			STRS <- match.call() $ STRS
+			FN   <- match.call() $ FN
 
 			bquote(if (any( .(STRS) %!in% names(formals( .(FN) )) )) {
 
@@ -435,8 +435,8 @@ Must <- local({
 	this $ Be_Positive_Indices <-
 		function (NUMS, COLL) {
 
-			NUMS <- match.call()$NUMS
-			COLL <- match.call()$COLL
+			NUMS <- match.call() $ NUMS
+			COLL <- match.call() $ COLL
 
 			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < 1 )) {
 
@@ -453,9 +453,9 @@ Must <- local({
 	this $ Be_Whole <-
 		function (NUMS) {
 
-			NUMS <- match.call()$NUMS
+			NUMS <- match.call() $ NUMS
 
-			bquote(if (!all(round( .(NUMS) ) ==  .(NUMS) )) {
+			bquote(if (!all(round( .(NUMS) ) == .(NUMS) )) {
 
 				message <-
 					"The argument matching " %+% ddquote( .(NUMS) ) %+%
@@ -470,7 +470,7 @@ Must <- local({
 		function (VAL) {
 			# this macro expands to check if a parametre is not missing.
 
-			VAL <- match.call()$VAL
+			VAL <- match.call() $ VAL
 
 			bquote(if (missing( .(VAL) )) {
 
@@ -487,7 +487,7 @@ Must <- local({
 		function (FN) {
 			# this macro expands to check if a function is non-primitive.
 
-			FN <- match.call()$FN
+			FN <- match.call() $ FN
 
 			bquote(if (is.primitive( .(FN) )) {
 
@@ -518,20 +518,23 @@ Must <- local({
 				# libs like plyr use .fn to try get around this; Kiwi uses this odd middleware macro.
 				# It'll throw an error for argument lists that are ambigious.
 
-				if (!all( names(sys.call()) == names(match.call()) | names(sys.call()) == '')) {
+				.sys_call   <- sys.call()
+				.match_call <- match.call()
 
-					fn_name <-  sys.call()[[1]]
+				if (!all( names(.sys_call) == names(.match_call) | names(.sys_call) == '')) {
+
+					fn_name <- .sys_call[[1]]
 
 					if (length(fn_name) == 1) {
 						fn_name <- paste0(fn_name)
 						suggested <- gsub('_', '', fn_name)
 					} else {
-						fn_name <- 'xMethod_'
+						fn_name   <- 'xMethod_'
 						suggested <- 'xMethod'
 					}
 
-					invoked <- names(sys.call())
-					matched <- names(match.call())
+					invoked <- names(.sys_call)
+					matched <- names(.match_call)
 
 					ambigious <- invoked[which(invoked != matched & invoked != '')]
 
@@ -540,7 +543,7 @@ Must <- local({
 						"of " %+% dQuote(fn_name)  %+% ". This will be misinterpreted by R. Use " %+%
 						dQuote(suggested) %+% " instead of " %+% dQuote(fn_name) %+% "."
 
-					throw_kiwi_error(sys.call(), message)
+					throw_kiwi_error(.sys_call, message)
 				}
 
 			})
@@ -563,7 +566,7 @@ Must <- local({
 
 
 
-MakeFun <- function (expr) {
+bmacro <- function (expr) {
 
 	parent_frame <- parent.frame()
 
@@ -583,93 +586,4 @@ MakeFun <- function (expr) {
 	# -- generate a fix macro to inject
 
 	eval(unquote(substitute(expr)), parent_frame)
-}
-
-# MakeVariadic
-#
-# MakeVariadic takes a function, and the variable to fix, and it generates
-# a variadic form of a function.
-
-MakeVariadic <- function (fn, fixed) {
-
-	env <- new.env(parent = environment(fn))
-
-	fn_sym    <- as.symbol(match.call()$fn)
-	varfn_sym <- as.symbol(paste0(fn_sym, '_'))
-
-	if ( grepl('_', paste0(fn_sym)) ) {
-		stop("MakeVariadic: _ in method name ", paste0(fn_sym))
-	}
-
-	# -- will replace formals & body, env will be same.
-	out <- fn
-
-	# -- will break if defaults are ever added to kiwi.
-
-	params <- names(formals(fn))
-
-	if (fixed %!in% params) {
-		stop("MakeVariadic: tried to fix param that doesn't exist ", paste0(fn_sym))
-	}
-
-	params[params == fixed] <- '...'
-
-	# -- create a formal list from the new parametres with no defaults.
-	formals(out) <- as_formals(params)
-
-
-
-
-	fix_macro_call = bquote(
-
-		.(as.call( c(
-				as.symbol('Fix'),
-				varfn_sym,
-				lapply(params, function (param) {
-
-					# -- needed to go through a song-and-dance to
-					# -- get ... injected into the macro; this is done
-					# -- by handling of SPREAD_PARAMETRE in Fix.
-					if (param == '...') {
-						quote(SPREAD_PARAMETRE)
-					} else {
-						as.symbol(param)
-					}
-
-				})) ))
-		)
-
-	body(out) <- MakeFun( bquote({
-
-		# -- check that the argument list supplied can be
-		# --  correctly resolved.
-		.( eval(fix_macro_call) )
-
-		MACRO( Must $ Have_Canonical_Arguments() )
-
-		.(
-			( as.call(c(
-				# -- call the non-variadic form
-				fn_sym,
-					# -- for each parametre in the (always a closure)
-					lapply(
-						params,
-						function (param) {
-
-							if (param == '...') {
-								# -- if the param is ... return `list(...)
-								as.call(list(
-									as.symbol('list'),
-									as.symbol('...') ))
-							} else {
-								# -- return the param as a symbol
-								as.symbol(param)
-							}
-
-						}) )) ) )
-	}) )
-
-	environment(out) <- env
-
-	out
 }

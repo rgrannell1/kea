@@ -23,8 +23,6 @@
 
 xByRows <- MakeFun(function (colls) {
 
-	MACRO( Fix(xByRows, colls) )
-
 	dims <- dim(colls)
 
 	if (dims[1] == 0 && dims[2] == 0) {

@@ -15,8 +15,6 @@
 
 xElemsByRows <- MakeFun(function (colls) {
 
-	MACRO( Fix(xElemsByRows, pred, coll) )
-
 	if (prod(dim(colls) == 0)) {
 		list()
 	} else {

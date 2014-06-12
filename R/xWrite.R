@@ -28,11 +28,6 @@
 
 xWrite <- MakeFun(function (str1, str2) {
 
-	MACRO( Fix(xWrite, str, strs) )
-
-	MACRO( Must $ Be_Collection(str1) )
-	MACRO( Must $ Be_Collection(str2) )
-
 	str  <- unit_to_value(as_atom(str1, "character"))
 	str  <- unit_to_value(as_atom(str2, "character"))
 

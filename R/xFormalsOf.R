@@ -29,12 +29,6 @@
 
 xFormalsOf <- MakeFun(function (fn) {
 
-	MACRO( Fix(xFormalsOf, fn) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-
-	fn <- match_fn(fn)
-
 	if (is.primitive(fn)) {
 		as.list( head(as.list(args(fn)), -1) )
 	} else {

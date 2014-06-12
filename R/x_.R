@@ -1486,7 +1486,7 @@ x_ <- MakeFun(function (val) {
 	# Collection any -> Kiwi any
 	# type constructor for the method-chaining data type.
 
-	MACRO( Fix(x_, val) )
+
 
 	# -- a useful corner case; there are no methods
 	# -- specifically for kiwi objects with kiwi
@@ -1706,7 +1706,7 @@ print.kiwi <- function (x, ...) {
 	contents_are <- proto[[1]][['private']] [['contents_are']]
 
 	header <- colourise$blue(
-		'[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
+		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
 
 	cat(
 		header  %+% '\n\n' %+%

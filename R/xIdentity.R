@@ -23,8 +23,6 @@
 
 xIdentity <- MakeFun(function (val) {
 
-	MACRO( Fix(xIdentity, val) )
-
 	val
 })
 

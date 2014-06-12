@@ -215,7 +215,6 @@ message('test that every function has methods.')
 
 				if (proto_name %in% expected_proto && (method %!in% proto) && !is_exception) {
 
-
 					message <- 'the method ' %+% method %+% ' should be in the prototype ' %+% proto_name %+%
 						' but was not.'
 

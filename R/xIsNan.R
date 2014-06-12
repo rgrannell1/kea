@@ -31,7 +31,5 @@
 
 xIsNan <- MakeFun(function (val) {
 
-	MACRO( Fix(xIsNan, val) )
-
 	isTRUE(identical(val, NaN))
 })

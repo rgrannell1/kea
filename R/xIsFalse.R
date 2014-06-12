@@ -31,7 +31,5 @@
 
 xIsFalse <- MakeFun(function (val) {
 
-	MACRO( Fix(xIsFalse, val) )
-
 	isTRUE(identical(val, False))
 })

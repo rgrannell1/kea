@@ -29,10 +29,6 @@
 
 xRankOf <- MakeFun(function (nums) {
 
-	MACRO( Fix(xRankOf, nums) )
-
-	MACRO( Must $ Be_Collection(nums) )
-
 	nums <- as_typed_vector(nums, 'numeric')
 
 	if (length(nums) == 0) {

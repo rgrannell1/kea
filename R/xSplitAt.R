@@ -37,10 +37,6 @@
 
 xSplitAt <- MakeFun(function (nums, coll) {
 
-	MACRO( Fix(xSplitAt, nums, coll) )
-
-	MACRO( Must $ Be_Collection(nums) )
-	MACRO( Must $ Be_Collection(coll) )
 
 	nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 

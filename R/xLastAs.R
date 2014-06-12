@@ -34,9 +34,6 @@
 
 xLastAs <- MakeFun(function (val, coll) {
 
-	MACRO( Fix(xLastAs, val, coll) )
-
-	MACRO( Must $ Be_Collection(coll) )
 	MACRO( Must $ Be_Longer_Than(0, coll) )
 
 	coll <- as.list(coll)

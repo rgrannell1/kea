@@ -1,31 +1,35 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xWhere (+)")
 
-message("xWhere")
+	over(coll) +
 
-	forall(
-		"the empty collection always yields integer(0)",
-		test_cases$collection_zero,
+	describe("length one corner cases") +
+	when(
+		is_collection(coll) && length(coll) == 0,
 		xWhere(coll) %equals% integer(0)
-	)
+	) +
 
-	forall(
-		"true yields 1",
-		test_cases$collection_zero,
-		xWhere(True) %equals% 1L
-	)
+	describe("length one corner cases") +
+	when(
+		TRUE,
+		xWhere(TRUE) == 1,
+		xWhere(FALSE) %equals% integer(0),
+		xWhere(NA) %equals% integer(0)
+	) +
 
-	forall(
-		"false yields int(0)",
-		test_cases$collection_zero,
-		xWhere(False) %equals% integer(0)
-	)
+	run()
 
-	forall(
-		"na yields int(0)",
-		test_cases$collection_zero,
-		xWhere(Na) %equals% integer(0)
-	)
+message("xWhere (-)")
+
+	over(coll) +
+
+	describe("length one corner cases") +
+	failsWhen(
+		!is.logical(coll) && length(coll) > 0,
+		xWhere(coll)
+	) +
+
+	run()

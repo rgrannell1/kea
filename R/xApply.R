@@ -50,13 +50,6 @@
 
 xApply <- MakeFun(function (fn, coll) {
 
-	MACRO( Fix(xApply, fn, coll) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-	MACRO( Must $ Be_Collection(coll) )
-
-	fn <- match_fn(fn)
-
 	eval(
 		as.call(c(fn, coll)),
 		envir = parent.frame())

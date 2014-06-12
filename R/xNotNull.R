@@ -30,7 +30,5 @@
 
 xNotNull <- MakeFun(function (val) {
 
-	MACRO( Fix(xNotNull, val) )
-
 	!isTRUE(is.null(val))
 })

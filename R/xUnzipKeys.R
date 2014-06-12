@@ -40,9 +40,6 @@
 
 xUnzipKeys <- MakeFun(function (coll) {
 
-	MACRO( Fix(xUnzipKeys, coll) )
-	MACRO( Must $ Be_Collection(coll) )
-
 	if (length(coll) == 0) {
 		list()
 	} else {

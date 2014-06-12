@@ -46,14 +46,7 @@
 
 xReorder <- MakeFun(function (nums, colls) {
 
-	MACRO( Fix(xReorder, nums, colls) )
-
-	MACRO( Must $ Be_Collection(nums) )
-	MACRO( Must $ Be_Collection(colls) )
-
 	nums <- as_typed_vector(nums, 'numeric')
-
-	MACRO( Must $ Be_Collection_Of_Collections(colls) )
 
 	if (length(nums) == 0) {
 		list()

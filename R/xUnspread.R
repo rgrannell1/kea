@@ -37,11 +37,6 @@
 
 xUnspread <- MakeFun(function (fn) {
 
-	MACRO( Fix(xUnspread, fn) )
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-
-	fn <- match_fn(fn)
-
 	function (coll) {
 		"a function returned by xUnspread."
 		""

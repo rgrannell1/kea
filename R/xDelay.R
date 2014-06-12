@@ -43,16 +43,9 @@
 
 xDelay <- MakeFun(function (fn, num) {
 
-	MACRO( Fix(xDelay, fn, num) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-	MACRO( Must $ Be_Collection(num) )
-
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( Must $ Be_Between(num, 0, Inf))
-
-	fn <- match_fn(fn)
 
 	if (num == 0) {
 		fn

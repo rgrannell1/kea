@@ -34,12 +34,6 @@
 
 xSpread <- MakeFun(function (fn) {
 
-	MACRO( Fix(xSpread, fn) )
-
-	MACRO( Must $ Be_Fn_Matchable(fn) )
-
-	fn <- match_fn(fn)
-
 	function (...) {
 		"a function returned by xSpread."
 		""

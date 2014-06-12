@@ -32,12 +32,6 @@
 
 xInter <- MakeFun(function (colls) {
 
-	MACRO( Fix(xInter, colls) )
-
-	MACRO( Must $ Be_Collection(colls) )
-
-	MACRO( Must $ Be_Collection_Of_Collections(colls) )
-
 	if (length(colls) == 0) {
 		list()
 	} else if (length(colls) == 1) {
