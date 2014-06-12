@@ -8,39 +8,30 @@
 
 write_preconditions <- local({
 
-	param_preconds <- list(
-		fn     = Must $ Be_Fn_Matchable(fn),
-		fn1    = Must $ Be_Fn_Matchable(fn1),
-		fn2    = Must $ Be_Fn_Matchable(fn2),
+	param_preconds <- list()
 
-		pred   = Must $ Be_Fn_Matchable(pred),
-		pred1  = Must $ Be_Fn_Matchable(pred1),
-		pred2  = Must $ Be_Fn_Matchable(pred2),
+	for (param in c('fn', 'fn1', 'fn2', 'pred', 'pred1', 'pred2')) {
+		param_preconds[[param]] <-
+			do.call( Must $ Be_Fn_Matchable, list(as.symbol(param)) )
+	}
 
-		fns   = {
-			Must $ Be_Collection(fns)
-			Must $ Be_Collection_Of_Fn_Matchable(fns)
-		},
+	param_preconds $ fns <- {
+		Must $ Be_Collection(fns)
+		Must $ Be_Collection_Of_Fn_Matchable(fns)
+	}
 
-		coll   = Must $ Be_Collection(coll),
-		coll1  = Must $ Be_Collection(coll1),
-		coll2  = Must $ Be_Collection(coll2),
+	for (param in c(
+		'coll', 'coll1', 'coll2',
+		'bools', 'ims', 'raws',
+		'nums', 'num', 'num1', 'num2',
+		'str', 'str1', 'str2')) {
 
-		colls  = Must $ Be_Collection_Of_Collections(colls),
+		param_preconds[[param]] <-
+			do.call( Must $ Be_Collection, list(as.symbol(param)) )
+	}
 
-		bools  = Must $ Be_Collection(bools),
-		ims    = Must $ Be_Collection(ims),
-		raws   = Must $ Be_Collection(raws),
-
-		nums   = Must $ Be_Collection(nums),
-		num    = Must $ Be_Collection(num),
-		num1   = Must $ Be_Collection(num1),
-		num2   = Must $ Be_Collection(num2),
-
-		str    = Must $ Be_Collection(str),
-		str1   = Must $ Be_Collection(str1),
-		str2   = Must $ Be_Collection(str2)
-	)
+	param_preconds $ colls <-
+		Must $ Be_Collection_Of_Collections(colls)
 
 	function (params) {
 
