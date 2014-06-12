@@ -46,8 +46,6 @@
 
 xReorder <- MakeFun(function (nums, colls) {
 
-	nums <- as_typed_vector(nums, 'numeric')
-
 	if (length(nums) == 0) {
 		list()
 	} else {

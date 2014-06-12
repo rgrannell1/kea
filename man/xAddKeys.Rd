@@ -13,6 +13,8 @@ xAddKeys_(strs, ...)
    input collection.}
 
 \item{coll}{a collection. The collection to add names to.}
+
+\item{...}{see above.}
 }
 \value{
 A named list.

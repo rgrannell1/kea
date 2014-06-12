@@ -38,7 +38,6 @@
 xSliceString <- MakeFun(function (str, nums) {
 
 	str <- unit_to_value(as_atom(str, "character"))
-	nums <- as_typed_vector(nums, "numeric")
 
 	MACRO( Must $ Be_Whole(nums) )
 
@@ -48,7 +47,7 @@ xSliceString <- MakeFun(function (str, nums) {
 		str
 	} else {
 
-		chars <- strsplit(str, "")[[1]]
+		chars <- str_split("", str)
 
 		MACRO( Must $ Be_Indices(nums, chars) )
 

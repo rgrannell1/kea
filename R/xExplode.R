@@ -33,10 +33,7 @@
 
 xExplode <- MakeFun(function (rexp, str) {
 
-
-
-
-	str <- as_atom(str, "character")
+	str  <- as_atom(str, "character")
 	rexp <- unit_to_value(as_atom(rexp, "character"))
 
 	if (length(str) == 0) {
@@ -44,6 +41,6 @@ xExplode <- MakeFun(function (rexp, str) {
 	} else if (nchar(str) == 0) {
 		''
 	} else {
-		strsplit(str, rexp)[[1]]
+		str_split(rexp, str)
 	}
 })

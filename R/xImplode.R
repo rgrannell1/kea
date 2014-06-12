@@ -34,7 +34,6 @@
 xImplode <- MakeFun(function (str, strs) {
 
 	str  <- unit_to_value(as_atom(str, 'character'))
-	strs <- as_typed_vector(strs, 'character')
 
 	if (length(strs) == 0) {
 		character()

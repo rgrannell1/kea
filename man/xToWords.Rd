@@ -13,7 +13,7 @@ xToWords(str)
 A character vector, with one or more elements.
 }
 \description{
-Split a string at whotespaces.
+Split a string at whitespaces.
 }
 \details{
 The input string is split at spaces, tabs, and newlines,

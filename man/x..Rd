@@ -135,6 +135,7 @@ rain_data <-
 	xMap(xToWords \%then\% as.list)  $
 	xMap( xAddKeys(c('month', 'rain (ml)')) ) $
 	x_Map(row := {
+
 		xSecondAs(
 			as.numeric(xSecondOf(row)), row)
 	})

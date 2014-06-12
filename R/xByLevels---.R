@@ -6,6 +6,9 @@
 #' @usage
 #'      x_(  ) $ xByLevels()
 #'
+#' @param
+#'     fact a factor. The factor to get the levels of.
+#'
 #' @return
 #'      A kiwi object containing a character vector.
 #'

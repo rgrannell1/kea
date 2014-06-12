@@ -205,7 +205,7 @@ Must <- local({
 
 				message <-
 					"The argument matching " %+% ddquote( .(COLL1) ) %+%
-					" must be equal length to The argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
+					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
 					summate( .(COLL1) )
 
 				throw_kiwi_error(sys.call(), message)

@@ -30,8 +30,6 @@
 
 xFromLines <- MakeFun(function (strs) {
 
-	strs <- as_typed_vector(strs, 'character')
-
 	if (length(strs) == 0) {
 		character()
 	} else {

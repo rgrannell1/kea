@@ -545,9 +545,9 @@ x_coll_proto <- local({
 	add_x_method(this, x_AsLogical_, '...')
 
 	# --- xAsInteger --- #
-	add_x_method(this, xAsInteger, 'nums')
+	add_x_method(this, xAsInteger, 'ints')
 	add_x_method(this, xAsInteger_, '...')
-	add_x_method(this, x_AsInteger, 'nums')
+	add_x_method(this, x_AsInteger, 'ints')
 	add_x_method(this, x_AsInteger_, '...')
 
 	# --- xAsCharacter --- #

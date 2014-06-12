@@ -110,7 +110,22 @@ is_recursive <- function (val) {
 	is.list(val) || identical(val, NULL)
 }
 
+# -- strsplit has a bad case of overcomplicated type signature,
+# -- and it adds leading spaces.
 
+str_split <- function (rexp, str) {
+	if (length(str) == 0 || nchar(str) == 0) {
+		character(0)
+	} else {
+		out <- strsplit(str, rexp)[[1]]
+
+		if (out[1] == '') {
+			out[2:length(out)]
+		} else {
+			out
+		}
+	}
+}
 
 
 
@@ -259,7 +274,6 @@ is_collection <- function (val) {
 }
 
 # --------------------- testing & message functions --------------------- #
-
 
 ddparse <- function (val, collapse = "") {
 	# safely deparse a string.

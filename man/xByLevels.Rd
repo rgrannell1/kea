@@ -9,6 +9,8 @@ x_(  ) $ xByLevels()
 x_(  ) $ xByLevels()
 }
 \arguments{
+\item{fact}{a factor. The factor to get the levels of.}
+
 \item{fact}{a factor. The factor to get the underlying values from.}
 }
 \value{

@@ -38,8 +38,6 @@
 
 xAsDouble <- MakeFun(function (nums) {
 
-	nums <- as_typed_vector(nums, 'numeric')
-
 	if (length(nums) == 0) {
 		double(0)
 	} else {

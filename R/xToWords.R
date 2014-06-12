@@ -33,6 +33,6 @@ xToWords <- MakeFun(function (str) {
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)
 	} else {
-		words <- strsplit(str, split = '[ \n\t]+')[[1]]
+		str_split('[ \n\t]+', str)
 	}
 })

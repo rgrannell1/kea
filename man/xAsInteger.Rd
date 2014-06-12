@@ -4,12 +4,12 @@
 \alias{xAsInteger_}
 \title{xAsInteger}
 \usage{
-xAsInteger(nums)
+xAsInteger(ints)
 
 xAsInteger_(...)
 }
 \arguments{
-\item{nums}{a collection of integer values. A list, pairlist or vector
+\item{ints}{a collection of integer values. A list, pairlist or vector
    of length-one integer vectors to convert to a integer vector.}
 
 \item{...}{see above.}

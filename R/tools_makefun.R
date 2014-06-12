@@ -72,6 +72,18 @@ write_boilerplate <- function (params) {
 		),
 		fns  = list(
 			quote(lapply(fns, match_fn))
+		),
+		nums = list(
+			quote(nums <- as_typed_vector(nums, 'numeric'))
+		),
+		strs = list(
+			quote(strs <- as_typed_vector(strs, 'character'))
+		),
+		ints = list(
+			quote(ints <- as_typed_vector(ints, 'integer'))
+		),
+		bools = list(
+			quote(bools <- as_typed_vector(bools, 'logical'))
 		)
 	)
 
