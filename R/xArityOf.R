@@ -32,7 +32,12 @@
 
 xArityOf <- MakeFun(function (fn) {
 
-	fn_params <- xParamsOf(fn)
+	fn_params <- if (is.primitive(fn)) {
+		# -- use the args function to get the primitive arguments.
+		names(as.list( head(as.list(args(fn)), -1) ))
+	} else {
+		names(as.list( formals(fn) ))
+	}
 
 	if (any(fn_params == '...')) {
 		+Inf

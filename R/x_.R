@@ -1644,8 +1644,8 @@ x__ <- function (...) {
 			# given an incorrect method name throw an error
 			# suggesting a similar
 
-			proto             <- get_proto_ref(val)
-			method_name       <- method_name
+			proto       <- get_proto_ref(val)
+			method_name <- method_name
 
 			candidate_methods <- setdiff(proto[[2]], 'private')
 
@@ -1671,13 +1671,12 @@ x__ <- function (...) {
 		# Kiwi a -> symbol -> function
 		# return an kiwi method associated with the type a.
 
-		method_name <- paste0(match.call()$method)
+		method_name <- paste0(substitute(method))
 
 		proto <- get_proto_ref( obj[['x']] )
 
-		if (method_name %!in% proto[[2]] || method_name == "private") {
-			# the invoked method wasn't found,
-			# so we should give a suggestion.
+		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
+			# -- the invoked method wasn't found, so we should give a suggestion.
 
 			invoking_call <- paste0('$', method_name)
 

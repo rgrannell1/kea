@@ -6,10 +6,12 @@ Kiwi 0.22.0
 
 Enhancements:
 
-* Speedup of xArityOf, xAsVar, xAsVal, xIsVal, xVal, and the wildcard
-operators x. $ something and x. @ something.
+* Speedup of xArityOf, xAsVar, xAsVal, xIsVal, xVal, xShuffle, xUnspread,
+and the wildcard operators x. $ and x. @.
 
 * Minor speedup of functions that call 'unit_to_value' or 'as_typed_vector'.
+
+* Minor speedup to method lookup.
 
 Bug-Fixes:
 

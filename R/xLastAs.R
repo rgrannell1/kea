@@ -39,7 +39,6 @@ xLastAs <- MakeFun(function (val, coll) {
 	coll <- as.list(coll)
 	coll[[ length(coll) ]] <- val
 	coll
-
 })
 
 #' @rdname xLastAs

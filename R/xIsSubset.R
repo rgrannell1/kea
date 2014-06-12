@@ -34,14 +34,12 @@
 
 xIsSubset <- MakeFun(function (coll1, coll2) {
 
-
-
-
 	if (length(coll1) == 0 || length(coll2) == 0) {
 		logical(0)
 	} else {
 
 		for (elem in coll1) {
+			# -- 'in' is needed here.
 			if (isTRUE(elem %!in% coll2)) {
 				return(False)
 			}
