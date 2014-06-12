@@ -13,6 +13,9 @@ and the wildcard operators x. $ and x. @.
 
 * Minor speedup to method lookup.
 
+* Removed filtering of no-character strings from xToWords, xToLines, xToChars,
+to keep in line with xImplode's recent change.
+
 Bug-Fixes:
 
 * xIsVariadic of nullary functions is now logical(0), to be consistant

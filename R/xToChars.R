@@ -30,6 +30,5 @@ xToChars <- MakeFun(function (str) {
 		character(0)
 	} else {
 		chars <- strsplit(str, "")[[1]]
-		chars[nchar(chars) > 0]
 	}
 })

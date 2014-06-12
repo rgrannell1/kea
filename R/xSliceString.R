@@ -49,7 +49,6 @@ xSliceString <- MakeFun(function (str, nums) {
 	} else {
 
 		chars <- strsplit(str, "")[[1]]
-		chars <- chars[nchar(chars) > 0]
 
 		MACRO( Must $ Be_Indices(nums, chars) )
 

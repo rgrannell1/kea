@@ -33,6 +33,5 @@ xToLines <- MakeFun(function (str) {
 		character(0)
 	} else {
 		lines <- strsplit(str, split = "\n+")[[1]]
-		lines[nchar(lines) > 0]
 	}
 })
