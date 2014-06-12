@@ -6,20 +6,51 @@ Kiwi 0.22.0
 
 Enhancements:
 
+* To simplify code injection, factors now have the corresponding
+parametre 'fact' and matrices/data-frames the parametre 'tab'.
+
+* Removed filtering of no-character strings from xToWords, xToLines, xToChars,
+to keep in line with xImplode's recent change. Leading whitespaces ARE
+still removed, though this may be modified in the future.
+
 * Speedup of xArityOf, xAsVar, xAsVal, xIsVal, xVal, xShuffle, xUnspread,
 and the wildcard operators x. $ and x. @.
 
 * Minor speedup of functions that call 'unit_to_value' or 'as_typed_vector'.
 
-* Minor speedup to method lookup.
-
-* Removed filtering of no-character strings from xToWords, xToLines, xToChars,
-to keep in line with xImplode's recent change.
+* Method lookup is now slightly quicker.
 
 Bug-Fixes:
 
 * xIsVariadic of nullary functions is now logical(0), to be consistant
 with other logical functions.
+
+Documentation:
+
+* Fixed a type of xToWords.
+
+Package Internals:
+
+* Simplified automatic precondition writing.
+
+* The parametres nums, strs, ints, and bools now automatically inject
+their boilerplate into their respective functions.
+
+* Removed explicit use of strsplit, replacing it with str_split.
+
+* Removed use of toString, for efficiencies sake now using paste.
+
+* Added a forall-next test, testing if partial application works when
+parametres are matched out-of-order.
+
+* Added a forall-next test for xIsVariadic, xJoin.
+
+
+
+
+
+
+
 
 
 
