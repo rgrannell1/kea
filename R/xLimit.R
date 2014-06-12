@@ -45,8 +45,6 @@
 
 xLimit <- MakeFun(function (fn, num) {
 
-
-
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	MACRO( Must $ Be_Whole(num) )

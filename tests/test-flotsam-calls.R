@@ -12,8 +12,7 @@ kiwi_env <- as.environment('package:kiwi')
 
 kiwi_fns <-
 	x_(ls('package:kiwi')) $
-	xSelect(
-		xFix(xIsMatch, kiwi_function_regexp)) $
+	xSelect(xIsMatch(kiwi_function_regexp)) $
 	xMap(fn_name := {
 		list( fn_name, kiwi_env[[fn_name]] )
 	})
