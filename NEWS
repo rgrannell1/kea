@@ -9,6 +9,8 @@ Enhancements:
 * Speedup of xArityOf, xAsVar, xAsVal, xIsVal, xVal, and the wildcard
 operators x. $ something and x. @ something.
 
+* Minor speedup of functions that call 'unit_to_value' or 'as_typed_vector'.
+
 Bug-Fixes:
 
 * xIsVariadic of nullary functions is now logical(0), to be consistant

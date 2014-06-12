@@ -55,10 +55,6 @@ write_preconditions <- local({
 	}
 })
 
-write_multipreconditon <- function (params) {
-
-}
-
 # write_boilerplate
 #
 # this writes code that needs to be executed predictably for
