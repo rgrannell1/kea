@@ -1,25 +1,22 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xJoin (+)")
 
-message("xJoin")
+	over(coll1, coll2, coll3) +
 
-	forall(
-		"a single collection acts as identity",
-		test_cases$collection,
-		xJoin(list(coll)) %equals% as.list(coll)
-	)
+	describe('a single collection acts as identity') +
+	when(
+		is_collection(coll1),
+		xJoin(list(coll1)) %equals% as.list(coll1)
+	) +
 
-	forall(
-		"a single collection and null acts as identity",
-		test_cases$collection_and_collection_zero,
-		xJoin(list(coll2, coll1)) %equals% xJoin(list(coll1, coll2))
-	)
+	describe('joining an empty collection with non-empty is the non-empty collection (left)') +
+	when(
+		is_collection(coll1) && is_collection(coll2) && length(coll2) == 0,
+		xJoin(list(coll1, coll2)) %equals% as.list(coll1),
+		xJoin(list(coll2, coll1)) %equals% as.list(coll1)
+	) +
 
-	forall(
-		"xJoin is always a list",
-		test_cases$collection,
-		is.list( xJoin(list(coll)) ) && is.list( xJoin(list(coll, coll)) )
-	)
+	run()
