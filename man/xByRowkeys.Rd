@@ -5,6 +5,9 @@
 \usage{
 x_(  ) $ xByRowkeys()
 }
+\arguments{
+\item{tab}{a matrix or data frame. The tabular structure to get the rownames of.}
+}
 \value{
 A kiwi containing a character vector.
 }

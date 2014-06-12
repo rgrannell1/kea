@@ -5,6 +5,9 @@
 \usage{
 x_(  ) $ xByColkeys()
 }
+\arguments{
+\item{tab}{a matrix or data frame. The tabular structure to get the column names of.}
+}
 \value{
 A kiwi containing a character vector.
 }

@@ -6,7 +6,7 @@
 x_(  ) $ xElemsByCols()
 }
 \arguments{
-\item{colls}{a matrix.}
+\item{tab}{a matrix. The matrix to enumerate by elements.}
 }
 \value{
 A kiwi object containing a list.

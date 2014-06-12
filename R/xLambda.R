@@ -80,8 +80,8 @@ xLambda <- local({
 		parent_frame <- parent.frame()
 		matched <- match.call()
 
-		sym <- matched$sym
-		val <- matched$val
+		sym <- matched $ sym
+		val <- matched $ val
 
 		# -- will always be length > 0, but may deparse badly if
 		# -- the formals aren't symbols, so use selectively.

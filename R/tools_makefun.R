@@ -10,26 +10,35 @@ write_preconditions <- function (params) {
 
 	preconds <- list()
 
+	# -- refactor this to make it smaller.
 	param_preconds <- list(
 		fn    = Must $ Be_Fn_Matchable(fn),
 		fn1   = Must $ Be_Fn_Matchable(fn1),
 		fn2   = Must $ Be_Fn_Matchable(fn2),
+
 		pred  = Must $ Be_Fn_Matchable(pred),
+		pred1  = Must $ Be_Fn_Matchable(pred1),
+		pred2  = Must $ Be_Fn_Matchable(pred2),
 
 		fns   = {
 			Must $ Be_Collection(fns)
 			Must $ Be_Collection_Of_Fn_Matchable(fns)
 		},
 
-		coll   = Must $ Be_Collection(coll),
-		colls  = Must $ Be_Collection_Of_Collections(colls),
+		coll    = Must $ Be_Collection(coll),
+		coll1   = Must $ Be_Collection(coll1),
+		coll2   = Must $ Be_Collection(coll2),
 
-		bools  = Must $ Be_Collection(bools),
-		ims    = Must $ Be_Collection(ims),
-		raws   = Must $ Be_Collection(raws),
+		colls   = Must $ Be_Collection_Of_Collections(colls),
 
-		nums   = Must $ Be_Collection(nums),
-		num    = Must $ Be_Collection(num),
+		bools   = Must $ Be_Collection(bools),
+		ims     = Must $ Be_Collection(ims),
+		raws    = Must $ Be_Collection(raws),
+
+		nums    = Must $ Be_Collection(nums),
+		num     = Must $ Be_Collection(num),
+		num1    = Must $ Be_Collection(num1),
+		num2     = Must $ Be_Collection(num2),
 
 		str    = Must $ Be_Collection(str),
 		str1   = Must $ Be_Collection(str1),

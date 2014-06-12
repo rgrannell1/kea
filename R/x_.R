@@ -336,28 +336,28 @@ x_matrix_proto <- local({
 
 	# -------- A ------- #
 	# -------- B ------- #
-	add_x_method(this, xByCols, 'colls')
-	add_x_method(this, x_ByCols, 'colls')
+	add_x_method(this, xByCols, 'tab')
+	add_x_method(this, x_ByCols, 'tab')
 
-	add_x_method(this, xByColkeys, 'colls')
-	add_x_method(this, x_ByColkeys, 'colls')
+	add_x_method(this, xByColkeys, 'tab')
+	add_x_method(this, x_ByColkeys, 'tab')
 
-	add_x_method(this, xByRows, 'colls')
-	add_x_method(this, x_ByRows, 'colls')
+	add_x_method(this, xByRows, 'tab')
+	add_x_method(this, x_ByRows, 'tab')
 
 	# --- xByRowkeys --- #
-	add_x_method(this, xByRowkeys, 'colls')
-	add_x_method(this, x_ByRowkeys, 'colls')
+	add_x_method(this, xByRowkeys, 'tab')
+	add_x_method(this, x_ByRowkeys, 'tab')
 
 	# -------- C ------- #
 
 	# -------- D ------- #
 	# -------- E ------- #
-	add_x_method(this, xElemsByCols, 'colls')
-	add_x_method(this, x_ElemsByCols, 'colls')
+	add_x_method(this, xElemsByCols, 'tab')
+	add_x_method(this, x_ElemsByCols, 'tab')
 
-	add_x_method(this, xElemsByRows, 'colls')
-	add_x_method(this, x_ElemsByRows, 'colls')
+	add_x_method(this, xElemsByRows, 'tab')
+	add_x_method(this, x_ElemsByRows, 'tab')
 
 	# -------- F ------- #
 	# -------- G ------- #
@@ -401,20 +401,20 @@ x_data_frame_proto <- local({
 
 	# -------- B ------- #
 	# --- xByCols --- #
-	add_x_method(this, xByCols, 'colls')
-	add_x_method(this, x_ByCols, 'colls')
+	add_x_method(this, xByCols, 'tab')
+	add_x_method(this, x_ByCols, 'tab')
 
 	# --- xByColkeys --- #
-	add_x_method(this, xByColkeys, 'colls')
-	add_x_method(this, x_ByColkeys, 'colls')
+	add_x_method(this, xByColkeys, 'tab')
+	add_x_method(this, x_ByColkeys, 'tab')
 
 	# --- xByRows --- #
-	add_x_method(this, xByRows, 'colls')
-	add_x_method(this, x_ByRows, 'colls')
+	add_x_method(this, xByRows, 'tab')
+	add_x_method(this, x_ByRows, 'tab')
 
 	# --- xByRowkeys --- #
-	add_x_method(this, xByRowkeys, 'colls')
-	add_x_method(this, x_ByRowkeys, 'colls')
+	add_x_method(this, xByRowkeys, 'tab')
+	add_x_method(this, x_ByRowkeys, 'tab')
 
 	# -------- C ------- #
 
@@ -456,11 +456,11 @@ x_factor_proto <- local({
 	# -------- A ------- #
 	# -------- B ------- #
 
-	add_x_method(this, xByLevels, 'coll')
-	add_x_method(this, x_ByLevels, 'coll')
+	add_x_method(this, xByLevels, 'fact')
+	add_x_method(this, x_ByLevels, 'fact')
 
-	add_x_method(this, xByValues, 'coll')
-	add_x_method(this, x_ByValues, 'coll')
+	add_x_method(this, xByValues, 'fact')
+	add_x_method(this, x_ByValues, 'fact')
 
 	# -------- C ------- #
 	# -------- D ------- #

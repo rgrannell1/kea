@@ -8,13 +8,16 @@ x_(  ) $ xByLevels()
 
 x_(  ) $ xByLevels()
 }
+\arguments{
+\item{fact}{a factor. The factor to get the underlying values from.}
+}
 \value{
 A kiwi object containing a character vector.
 
 A kiwi object containing a list.
 }
 \description{
-Convert a collor to a collection of levels.
+Convert a factor to a collection of levels.
 
 Convert a factor to a collection of the factor's data.
 }

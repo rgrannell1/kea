@@ -10,9 +10,11 @@
 #'
 #'     Column names are preserved by \bold{xByRows}.
 #'
-#'
 #' @usage
 #'      x_(  ) $ xByRows()
+#'
+#' @param
+#'     tab a matrix or data frame. The object to convert to column-lists.
 #'
 #' @return
 #'      A kiwi object containing a list of lists.
@@ -21,9 +23,9 @@
 #'
 #' @name xByRows
 
-xByRows <- MakeFun(function (colls) {
+xByRows <- MakeFun(function (tab) {
 
-	dims <- dim(colls)
+	dims <- dim(tab)
 
 	if (dims[1] == 0 && dims[2] == 0) {
 		# -- if both are empty, return list()
@@ -35,6 +37,6 @@ xByRows <- MakeFun(function (colls) {
 		# -- no columns.
 		replicate(max(dims), list())
 	} else {
-		apply(colls, 1, as.list)
+		apply(tab, 1, as.list)
 	}
 })

@@ -7,7 +7,7 @@
 #'      x_(  ) $ xByCols()
 #'
 #' @param
-#'     colls a matrix or data frame. The object to convert to column-lists.
+#'     tab a matrix or data frame. The object to convert to column-lists.
 #'
 #' @return
 #'      A kiwi object containing a list of lists.
@@ -16,9 +16,9 @@
 #'
 #' @name xByCols
 
-xByCols <- MakeFun(function (colls) {
+xByCols <- MakeFun(function (tab) {
 
-	dims <- dim(colls)
+	dims <- dim(tab)
 
 	if (dims[1] == 0 && dims[2] == 0) {
 		# -- if both are empty, return list()
@@ -30,6 +30,6 @@ xByCols <- MakeFun(function (colls) {
 		# -- no rows
 		replicate(max(dims), list())
 	} else {
-		apply(colls, 2, as.list)
+		apply(tab, 2, as.list)
 	}
 })
