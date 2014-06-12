@@ -664,7 +664,7 @@ over <- function (...) {
 
 	stopifnot( vapply(symbols, is.name, logical(1)) )
 
-	params <- vapply(symbols, toString, character(1))
+	params <- vapply(symbols, paste, character(1))
 
 	out <- list(params = params)
 	class(out) <- c('xforall', 'xover')

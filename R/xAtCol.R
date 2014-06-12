@@ -43,9 +43,6 @@
 
 xAtCol <- MakeFun(function (num, colls) {
 
-
-
-
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
 	if (length(colls) == 0) {

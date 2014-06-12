@@ -268,7 +268,7 @@ ddparse <- function (val, collapse = "") {
 }
 
 ddquote <- function (sym) {
-	paste0(dQuote(match.call()$sym), collapse = '')
+	paste0(dQuote(substitute(sym)), collapse = '')
 }
 
 wrap <- function (...) {
@@ -293,9 +293,9 @@ ith_suffix <- function (num) {
 	}
 
 	last <- as.numeric(substr(
-		toString(num),
-		nchar(toString(num)),
-		nchar(toString(num)) ))
+		paste(num),
+		nchar(paste(num)),
+		nchar(paste(num)) ))
 
 	suffix <-
 		if (num == 2) {

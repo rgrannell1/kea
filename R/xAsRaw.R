@@ -34,8 +34,6 @@
 
 xAsRaw <- MakeFun(function (raws) {
 
-
-
 	as_typed_vector(raws, 'raw')
 
 })

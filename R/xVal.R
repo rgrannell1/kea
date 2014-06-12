@@ -48,7 +48,7 @@ xVal <- MakeFun(function (sym, val) {
 	sym <- match.call()$sym
 	MACRO( Must $ Be_Matchable(sym) )
 
-	sym <- toString(sym)
+	sym <- paste(sym)
 
 	# -- check if binding is unlocked.
 

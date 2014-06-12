@@ -91,7 +91,7 @@ as_typed_vector <- local({
 
 				if ( !any(type == c('integer', 'double', 'numeric')) ) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
@@ -104,7 +104,7 @@ as_typed_vector <- local({
 			} else if (!type == mode) {
 				# -- otherwise the type has to be the mode.
 
-				coll_sym <- match.call()$coll
+				coll_sym <- substitute(coll)
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
@@ -124,7 +124,7 @@ as_typed_vector <- local({
 				# -- check the element is length-one
 				if (length(elem) != 1) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					throw_kiwi_error(
 						invoking_call, "the collection " %+% dQuote(coll) %+%
@@ -135,7 +135,7 @@ as_typed_vector <- local({
 				# -- check the element is a vector of the correct type.
 				if (!is_correct_type(elem)) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
@@ -200,7 +200,7 @@ as_atom <- local({
 			vector(mode)
 		} else if (length(coll) != 1) {
 
-			coll_sym <- match.call()$coll
+			coll_sym <- substitute(coll)
 
 			throw_kiwi_error(
 				invoking_call, "the collection " %+% dQuote(coll_sym) %+%
@@ -217,7 +217,7 @@ as_atom <- local({
 
 				if ( !any(type == c('integer', 'double', 'numeric')) ) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
@@ -239,7 +239,7 @@ as_atom <- local({
 			} else if (!type == mode) {
 				# -- check that the expected type
 
-				coll_sym <- match.call()$coll
+				coll_sym <- substitute(coll)
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
@@ -267,7 +267,7 @@ as_atom <- local({
 
 				if (length(elem) != 1) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 					throw_kiwi_error(
 						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
@@ -276,7 +276,7 @@ as_atom <- local({
 				}
 				if (!is_correct_type(elem)) {
 
-					coll_sym <- match.call()$coll
+					coll_sym <- substitute(coll)
 
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."

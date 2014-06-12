@@ -32,10 +32,9 @@
 
 xArityOf <- MakeFun(function (fn) {
 
-	fn <- match_fn(fn)
 	fn_params <- xParamsOf(fn)
 
-	if ("..." %in% fn_params) {
+	if (any(fn_params == '...')) {
 		+Inf
 	} else {
 		as.numeric(length(fn_params))

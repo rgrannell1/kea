@@ -6,17 +6,14 @@
 # have corresponding expressions that check properties of
 # the coresponding argument.
 
-write_preconditions <- function (params) {
+write_preconditions <- local({
 
-	preconds <- list()
-
-	# -- refactor this to make it smaller.
 	param_preconds <- list(
-		fn    = Must $ Be_Fn_Matchable(fn),
-		fn1   = Must $ Be_Fn_Matchable(fn1),
-		fn2   = Must $ Be_Fn_Matchable(fn2),
+		fn     = Must $ Be_Fn_Matchable(fn),
+		fn1    = Must $ Be_Fn_Matchable(fn1),
+		fn2    = Must $ Be_Fn_Matchable(fn2),
 
-		pred  = Must $ Be_Fn_Matchable(pred),
+		pred   = Must $ Be_Fn_Matchable(pred),
 		pred1  = Must $ Be_Fn_Matchable(pred1),
 		pred2  = Must $ Be_Fn_Matchable(pred2),
 
@@ -25,40 +22,47 @@ write_preconditions <- function (params) {
 			Must $ Be_Collection_Of_Fn_Matchable(fns)
 		},
 
-		coll    = Must $ Be_Collection(coll),
-		coll1   = Must $ Be_Collection(coll1),
-		coll2   = Must $ Be_Collection(coll2),
+		coll   = Must $ Be_Collection(coll),
+		coll1  = Must $ Be_Collection(coll1),
+		coll2  = Must $ Be_Collection(coll2),
 
-		colls   = Must $ Be_Collection_Of_Collections(colls),
+		colls  = Must $ Be_Collection_Of_Collections(colls),
 
-		bools   = Must $ Be_Collection(bools),
-		ims     = Must $ Be_Collection(ims),
-		raws    = Must $ Be_Collection(raws),
+		bools  = Must $ Be_Collection(bools),
+		ims    = Must $ Be_Collection(ims),
+		raws   = Must $ Be_Collection(raws),
 
-		nums    = Must $ Be_Collection(nums),
-		num     = Must $ Be_Collection(num),
-		num1    = Must $ Be_Collection(num1),
-		num2     = Must $ Be_Collection(num2),
+		nums   = Must $ Be_Collection(nums),
+		num    = Must $ Be_Collection(num),
+		num1   = Must $ Be_Collection(num1),
+		num2   = Must $ Be_Collection(num2),
 
 		str    = Must $ Be_Collection(str),
 		str1   = Must $ Be_Collection(str1),
 		str2   = Must $ Be_Collection(str2)
 	)
 
-	for (ith in seq_along(params)) {
+	function (params) {
 
-		key   <- paste0('PRE', ith)
-		param <- params[[ith]]
+		preconds <- list()
 
-		preconds[[key]] <- param_preconds[[param]]
+		# -- refactor this to make it smaller.
+
+		for (ith in seq_along(params)) {
+
+			key   <- paste0('PRE', ith)
+			param <- params[[ith]]
+
+			preconds[[key]] <- param_preconds[[param]]
+		}
+
+		if (length(preconds) == 0) {
+			list()
+		} else {
+			preconds
+		}
 	}
-
-	if (length(preconds) == 0) {
-		list()
-	} else {
-		preconds
-	}
-}
+})
 
 write_multipreconditon <- function (params) {
 
@@ -127,7 +131,7 @@ MakeFun <- function (expr) {
 		}
 	}
 
-	expr <- match.call() $ expr
+	expr <- substitute(expr)
 
 	# -- evaluate the function, to allow access to its parts.
 	fn     <- eval(unquote(expr), parent_frame)
@@ -199,7 +203,7 @@ MakeVariadic <- function (fn, fixed) {
 
 	env <- new.env(parent = environment(fn))
 
-	fn_sym    <- as.symbol(match.call()$fn)
+	fn_sym    <- as.symbol(substitute(fn))
 	varfn_sym <- as.symbol(paste0(fn_sym, '_'))
 
 	if ( grepl('_', paste0(fn_sym)) ) {

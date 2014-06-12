@@ -112,7 +112,7 @@ x. <- structure(
 
 `$.xlambda_builder` <- function (...) {
 
-	..2 <- match.call()$..2
+	..2 <- substitute(..2)
 
 	function (val) {
 		"a function created by x. $"
@@ -129,7 +129,7 @@ x. <- structure(
 
 `@.xlambda_builder` <- function (...) {
 
-	..2 <- match.call()$..2
+	..2 <- substitute(..2)
 
 	function (val) {
 		"a function created by x. @"

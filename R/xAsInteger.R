@@ -39,8 +39,6 @@
 
 xAsInteger <- MakeFun(function (nums) {
 
-
-
 	nums <- as_typed_vector(nums, 'integer')
 
 	MACRO( Must $ Be_Whole(nums) )

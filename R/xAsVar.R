@@ -30,10 +30,10 @@
 
 xAsVar <- MakeFun(function (sym) {
 
-	sym <- match.call()$sym
+	sym <- substitute(sym)
 	MACRO( Must $ Be_Matchable(sym) )
 
-	sym <- toString(sym)
+	sym <- paste(sym)
 
 	MACRO( Must $ Be_Existing_Ref(sym) )
 

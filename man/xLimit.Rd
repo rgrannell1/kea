@@ -32,7 +32,7 @@ function a limited number of times.
 
    \code{url <- "http://randomword.setgetgo.com/get.php"}
 
-   \code{random_word <- xLimit(function () toString(httpGET(url)), 3)}
+   \code{random_word <- xLimit(function () paste(httpGET(url)), 3)}
 
    \code{xMap(function (ith) random_word(), 1:3)}
 
@@ -51,7 +51,7 @@ function a limited number of times.
 # url <- "http://randomword.setgetgo.com/get.php"
 
 # random_word <-
-#	x_( function (...) toString(httpGET(url)) ) $
+#	x_( function (...) paste(httpGET(url)) ) $
 #	x_Limit(3)
 
 

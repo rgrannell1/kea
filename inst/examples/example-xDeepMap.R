@@ -16,7 +16,7 @@ tree <- list(
 	8
 )
 
-xDeepMap(toString, tree)
+xDeepMap(paste, tree)
 
 # list(
 #     '1',
