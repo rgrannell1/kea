@@ -2,9 +2,43 @@
 Kiwi 0.21.0
 -----------------------------------------------------------------------------
 
+An internal update, that adds automatic addition of argument-writing code.
+
+Enhancements:
+
+* Variadic functions are now more efficient.
+
 Bug-Fixes:
 
 * x_ now adds a newline before printing.
+
+* Fixed a name collision in partially applied functions that affected
+functions with a 'fn' parametre.
+
+Package Internals:
+
+* The Fix macro now injects argument-checking macros into a function
+based on the parametre name, making it an ad-hoc type system.
+
+* Removed most explicit calls to macro's from function definitions;
+they are now automatically injected.
+
+* Removed explicit function matching from functions with fn, pred or
+fns parametres.
+
+* Added forall-next test for partially-applied methods, xDropWhile,
+xTakeWhile, xUnionOf, xWhere.
+
+* Removed test for macros, since they are no longer written by hand.
+
+
+
+
+
+
+
+
+
 
 
 
