@@ -54,38 +54,92 @@
 
 xLambda <- local({
 
-	# -- grab different parts of the parse tree
+	# -- grab different parts of the abstract syntax tree.
 
 	get_tree <- list(
 		delim =
 			function (tree, symbol = True) {
-				(if (symbol) identity else paste)( tree[[1]] )
+
+				if (symbol) {
+					tree[[1]]
+				} else {
+					paste( tree[[1]] )
+				}
+
 			},
 		rest =
 			function (tree, symbol = True) {
-				(if (symbol) identity else paste)( tree[[2]] )
+
+				if (symbol) {
+					tree[[2]]
+				} else {
+					paste( tree[[2]] )
+				}
+
 			},
 		param =
 			function (tree, symbol = True) {
-				(if (symbol) identity else paste)( tree[[3]] )
+
+				if (symbol) {
+					tree[[3]]
+				} else {
+					paste( tree[[3]] )
+				}
+
 			}
 	)
+
+	# -- try parse the bracket-enclosed formals
+
+	collect_params <- function (tree, state) {
+		# -- recur into the formals parse tree, accumulating
+		# -- parametre names and validating the tree.
+
+		if (is.name(tree)) {
+
+			c(paste(tree), state $ params)
+
+		} else if (is.call(tree)) {
+
+			if ( !is.name(get_tree $ param(tree)) ) {
+				# -- the parametre isn't a symbol
+
+				message <- "function parametres must by symbols." %+%
+				summate(get_tree $ param(tree))
+
+				invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+				throw_kiwi_error(invoking_call, message)
+			}
+
+			if (get_tree $ delim(tree) != ":") {
+
+				message <- "parametres must be delimited by ':'"
+
+				invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+				throw_kiwi_error(invoking_call, message)
+			}
+
+			new_state <- list(
+				params =
+					c(paste(get_tree $ param(tree, True)), state $ params) )
+
+			collect_params(get_tree $ rest(tree), new_state)
+
+		}
+	}
+
 
 	brace <- as.symbol('{')
 
 	function (sym, val) {
 		# symbol -> any -> function
-		# construct a function from a symbol and
-		# a function body.
-
-		parent_frame <- parent.frame()
+		# -- construct a function from a symbol and
+		# -- a function body.
 
 		sym <- substitute(sym)
 		val <- substitute(val)
 
 		lambda <- function () {}
-
-		body(lambda) <- val
 
 		if (is.name(sym)) {
 			# -- make lambda a default-free unary function
@@ -96,6 +150,7 @@ xLambda <- local({
 			if (!any(is_underscored)) {
 				# -- the parametres can be used as is.
 				formals(lambda) <- as_formals(param)
+				body(lambda)    <- val
 			} else {
 
 				# -- set the formals to the parsed param names
@@ -122,45 +177,6 @@ xLambda <- local({
 
 
 		} else {
-			# -- try parse the bracket-enclosed formals
-
-			collect_params <- function (tree, state) {
-				# -- recur into the formals parse tree, accumulating
-				# -- parametre names and validating the tree.
-
-				if (is.name(tree)) {
-
-					c(paste(tree), state $ params)
-
-				} else if (is.call(tree)) {
-
-					if ( !is.name(get_tree $ param(tree)) ) {
-						# -- the parametre isn't a symbol
-
-						message <- "function parametres must by symbols." %+%
-						summate(get_tree $ param(tree))
-
-						invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
-						throw_kiwi_error(invoking_call, message)
-					}
-
-					if (get_tree $ delim(tree) != ":") {
-
-						message <- "parametres must be delimited by ':'"
-
-						invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
-						throw_kiwi_error(invoking_call, message)
-					}
-
-					new_state <- list(
-						params =
-							c(paste(get_tree $ param(tree, True)), state $ params) )
-
-					collect_params(
-						get_tree $ rest(tree), new_state)
-
-				}
-			}
 
 			# -- check the formals are bracket-enclosed
 
@@ -174,7 +190,7 @@ xLambda <- local({
 			}
 
 			params <- collect_params(
-				tree = sym[[2]],
+				tree  = sym[[2]],
 				state = list(
 					params = character(0)) )
 
@@ -184,6 +200,7 @@ xLambda <- local({
 			if (!any(is_underscored)) {
 				# -- the parametres can be used as is.
 				formals(lambda) <- as_formals(params)
+				body(lambda)    <- val
 			} else {
 
 				# -- set the formals to the parsed param names
@@ -204,12 +221,12 @@ xLambda <- local({
 				formals(lambda) <-
 					as_formals(substr(params, 1, nchar(params) - 1))
 
-				body(lambda) <- boilerplated_body
+				body(lambda)    <- boilerplated_body
 			}
 		}
 
 		# -- set the environment to exclude all the clutter in this function
-		environment(lambda) <- parent_frame
+		environment(lambda) <- parent.frame()
 		lambda
 	}
 })
