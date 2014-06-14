@@ -91,7 +91,7 @@ xLambda <- local({
 
 	# -- try parse the bracket-enclosed formals
 
-	collect_params <- function (tree, state) {
+	collect_params <- function (tree, state, invoking_call = sys.call(1)) {
 		# -- recur into the formals parse tree, accumulating
 		# -- parametre names and validating the tree.
 
@@ -108,9 +108,10 @@ xLambda <- local({
 					"function parametres must by symbols." %+%
 					summate(get_tree $ param(tree))
 
-				invoking_call <- paste0(
-					ddparse( match.call()[-1][[1]] ),
-					' := { [truncated]')
+				invoking_call <- call(
+					'%:=%',
+					invoking_call[-1][[1]],
+					invoking_call[-1][[2]])
 
 				throw_kiwi_error(invoking_call, message)
 			}
@@ -120,9 +121,10 @@ xLambda <- local({
 				message <-
 					"parametres must be delimited by ':'"
 
-				invoking_call <- paste0(
-					ddparse( match.call()[-1][[1]] ),
-					' := { [truncated]')
+				invoking_call <- call(
+					'%:=%',
+					invoking_call[-1][[1]],
+					invoking_call[-1][[2]])
 
 				throw_kiwi_error(invoking_call, message)
 			}
@@ -142,13 +144,16 @@ xLambda <- local({
 
 		which_duplicated <- which(duplicated(params))
 
+
 		if (length(which_duplicated) > 0) {
 
 			message <-
 				"parametres must not be duplicated: " %+% toString(params[which_duplicated])
 
-			invoking_call <-
-				paste0(ddparse( invoking_call[-1][[1]] ), ' := { [truncated]')
+			invoking_call <- call(
+				'%:=%',
+				invoking_call[-1][[1]],
+				invoking_call[-1][[2]])
 
 			throw_kiwi_error(invoking_call, message)
 		}
@@ -183,10 +188,13 @@ xLambda <- local({
 				# -- duplicated upon truncation.
 
 				message <-
-					"parametres must not be duplicated when the final underscore is removed: " %+% toString(final_params[which_duplicated])
+					"parametres must not be duplicated when the final underscore is removed: " %+%
+					toString(final_params[which_duplicated])
 
-				invoking_call <-
-					paste0(ddparse( invoking_call[-1][[1]] ), ' := { [truncated]')
+				invoking_call <- call(
+					'%:=%',
+					invoking_call[-1][[1]],
+					invoking_call[-1][[2]])
 
 				throw_kiwi_error(invoking_call, message)
 
@@ -232,8 +240,10 @@ xLambda <- local({
 					"the formals for non-unary functions" %+%
 					" must be enclosed in parentheses."
 
-				invoking_call <-
-					paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+				invoking_call <- call(
+					'%:=%',
+					sys.call()[-1][[1]],
+					sys.call()[-1][[2]])
 
 				throw_kiwi_error(invoking_call, message)
 			}
