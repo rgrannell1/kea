@@ -138,12 +138,11 @@ xLambda <- local({
 		}
 	}
 
-	construct_function <- function (params, exprbody, env, invoking_call = sys.call(1)) {
+	construct_function <- function (params, exprbody, env) {
 		# -- create a function from parametres, body and an environment.
 		# -- underscored parametres write code into the function body.
 
 		which_duplicated <- which(duplicated(params))
-
 
 		if (length(which_duplicated) > 0) {
 
@@ -152,20 +151,19 @@ xLambda <- local({
 
 			invoking_call <- call(
 				'%:=%',
-				invoking_call[-1][[1]],
-				invoking_call[-1][[2]])
+				sys.call(1)[-1][[1]],
+				sys.call(1)[-1][[2]])
 
 			throw_kiwi_error(invoking_call, message)
 		}
-
-
-		lambda <- function () {}
 
 		is_underscored <- grepl('_$', params)
 
 		if (!any(is_underscored)) {
 			# -- this is just a normal R function; map one-to-one onto
 			# -- R code.
+
+			lambda <- function () {}
 
 			formals(lambda)     <- as_formals(params)
 			body(lambda)        <- exprbody
@@ -175,12 +173,11 @@ xLambda <- local({
 			# -- some parametres are underscored, so the matching argument
 			# -- must be converted to an arrow object first.
 
-			final_params     <- params
+			final_params <- params
 
 			# -- throws a runtime error if a parametre ends up duplicated.
 			final_params[is_underscored] <-
 				substr(params[is_underscored], 1, nchar(params[is_underscored]) - 1)
-
 
 			which_duplicated <- which(duplicated(final_params))
 
@@ -193,8 +190,8 @@ xLambda <- local({
 
 				invoking_call <- call(
 					'%:=%',
-					invoking_call[-1][[1]],
-					invoking_call[-1][[2]])
+					sys.call(1)[-1][[1]],
+					sys.call(1)[-1][[2]])
 
 				throw_kiwi_error(invoking_call, message)
 
@@ -209,11 +206,15 @@ xLambda <- local({
 				bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
 			})
 
+			lambda <- function () {}
+
 			formals(lambda)     <- as_formals(final_params)
 			body(lambda)        <- join_exprs(kiwi_assignments, exprbody)
 			environment(lambda) <- env
 		}
+
 		lambda
+
 	}
 
 	brace <- as.symbol('{')
