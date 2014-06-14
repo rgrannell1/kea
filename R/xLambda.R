@@ -242,6 +242,8 @@ xLambda <- local({
 				))
 				environment(lambda) <- parent.frame()
 
+				lambda
+
 			} else {
 				construct_function(paste(param_block), val, parent.frame())
 			}
