@@ -104,18 +104,26 @@ xLambda <- local({
 			if ( !is.name(get_tree $ param(tree)) ) {
 				# -- the parametre isn't a symbol
 
-				message <- "function parametres must by symbols." %+%
-				summate(get_tree $ param(tree))
+				message <-
+					"function parametres must by symbols." %+%
+					summate(get_tree $ param(tree))
 
-				invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+				invoking_call <- paste0(
+					ddparse( match.call()[-1][[1]] ),
+					' := { [truncated]')
+
 				throw_kiwi_error(invoking_call, message)
 			}
 
 			if (get_tree $ delim(tree) != ":") {
 
-				message <- "parametres must be delimited by ':'"
+				message <-
+					"parametres must be delimited by ':'"
 
-				invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+				invoking_call <- paste0(
+					ddparse( match.call()[-1][[1]] ),
+					' := { [truncated]')
+
 				throw_kiwi_error(invoking_call, message)
 			}
 
@@ -128,6 +136,38 @@ xLambda <- local({
 		}
 	}
 
+	construct_function <- function (params, exprbody, env) {
+
+		lambda <- function () {}
+
+		is_underscored <- grepl('_$', params)
+
+		if (!any(is_underscored)) {
+			# -- this is just a normal R function; map one-to-one onto
+			# -- R code.
+
+			formals(lambda) <- as_formals(params)
+			body(lambda)    <- exprbody
+
+		} else {
+			# -- some parametres are underscored, so the matching argument
+			# -- must be converted to an arrow object first.
+
+			final_params     <- substr(params, 1, nchar(params) - 1)
+
+			kiwi_assignments <- lapply(which(is_underscored), function (ith) {
+
+				param       <- params[[ith]]
+				final_param <- final_params[[ith]]
+
+				bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
+			})
+
+			formals(lambda) <- as_formals(final_params)
+			body(lambda)    <- join_exprs(kiwi_assignments, exprbody)
+		}
+		lambda
+	}
 
 	brace <- as.symbol('{')
 
@@ -136,98 +176,34 @@ xLambda <- local({
 		# -- construct a function from a symbol and
 		# -- a function body.
 
-		sym <- substitute(sym)
-		val <- substitute(val)
+		param_block <- substitute(sym)
+		val         <- substitute(val)
 
 		lambda <- function () {}
 
-		if (is.name(sym)) {
+		if (is.name(param_block)) {
 			# -- make lambda a default-free unary function
-
-			param <- paste(sym)
-			is_underscored <- grepl('.+_$', param)
-
-			if (!any(is_underscored)) {
-				# -- the parametres can be used as is.
-				formals(lambda) <- as_formals(param)
-				body(lambda)    <- val
-			} else {
-
-				# -- set the formals to the parsed param names
-
-				kiwised <- lapply(param[is_underscored], function (param) {
-					# -- remove the underscore from the parametre name.
-
-					final_param <- substr(param, 1, nchar(param) - 1)
-
-					# -- create a kiwi-assignment operator.
-					bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
-				})
-
-				boilerplated_body <- join_exprs(kiwised, val)
-
-				# -- remove the underscores from the paramtre names
-				# -- before setting.
-				formals(lambda) <-
-					as_formals(substr(param, 1, nchar(param) - 1))
-
-				body(lambda) <- boilerplated_body
-			}
-
-
+			construct_function(paste(param_block), val, parent.frame())
 
 		} else {
 
-			# -- check the formals are bracket-enclosed
+			if (get_tree $ delim(param_block) != '(') {
+				# -- check the formals are bracket-enclosed
 
-			if (get_tree $ delim(sym) != '(') {
-
-				message <- "the formals for non-unary functions" %+%
+				message <-
+					"the formals for non-unary functions" %+%
 					" must be enclosed in parentheses."
 
-				invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+				invoking_call <-
+					paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
+
 				throw_kiwi_error(invoking_call, message)
 			}
 
-			params <- collect_params(
-				tree  = sym[[2]],
-				state = list(
-					params = character(0)) )
+			params <- collect_params( param_block[[2]], list(params = character(0)) )
 
-			# -- does the parametre end in an underscore?
-			is_underscored <- grepl('.+_$', params)
-
-			if (!any(is_underscored)) {
-				# -- the parametres can be used as is.
-				formals(lambda) <- as_formals(params)
-				body(lambda)    <- val
-			} else {
-
-				# -- set the formals to the parsed param names
-
-				kiwised <- lapply(params[is_underscored], function (param) {
-					# -- remove the underscore from the parametre name.
-
-					final_param <- substr(param, 1, nchar(param) - 1)
-
-					# -- create a kiwi-assignment operator.
-					bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
-				})
-
-				boilerplated_body <- join_exprs(kiwised, val)
-
-				# -- remove the underscores from the paramtre names
-				# -- before setting.
-				formals(lambda) <-
-					as_formals(substr(params, 1, nchar(params) - 1))
-
-				body(lambda)    <- boilerplated_body
-			}
+			construct_function(paste(params), val, parent.frame())
 		}
-
-		# -- set the environment to exclude all the clutter in this function
-		environment(lambda) <- parent.frame()
-		lambda
 	}
 })
 
