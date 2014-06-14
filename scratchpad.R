@@ -210,3 +210,13 @@ inner_calls $ xAtCol(3) $ xFlatten(1) $ xSelect(name := {
     xIsMember(name, base_or_utils)
 }) $ xTabulate() $ xSortBy(xSecondOf)
 
+
+
+
+
+
+
+
+fn <- (x_) := {
+	x_ $ xMap(toupper) $ xRepeat(3) $ x_FromWords()
+}

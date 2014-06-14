@@ -168,15 +168,7 @@ MakeFun <- function (expr) {
 	)
 
 	formals(boilerplated) <- formals(fn)
-	body(boilerplated)    <- bquote({
-
-		# -- all functions are partially applied.
-
-		.(eval(fix_macro_call))
-
-		# -- add the real function body after the boilerplate headers.
-		.(body(fn))
-	})
+	body(boilerplated)    <- join_exprs(eval(fix_macro_call), body(fn))
 
 	environment(boilerplated) <- parent.frame()
 

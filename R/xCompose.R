@@ -87,8 +87,9 @@ xCompose <- MakeFun(function (fns) {
 	function (...) {
 		"a function returned by xCompose."
 		""
-		invoking_call <- sys.call()
 
+		# -- can't use do.call here, since the value has
+		# -- to be passed to several functions.
 		val <- c(...)
 
 		for ( ith in rev(seq_along(fns)) ) {

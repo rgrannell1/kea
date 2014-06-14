@@ -51,112 +51,224 @@
 #'    inst/examples/example-xLambda.R
 #'
 #' @rdname xLambda
-#' @export
 
 xLambda <- local({
 
-	# -- grab different parts of the parse tree
+	# -- grab different parts of the abstract syntax tree.
 
 	get_tree <- list(
 		delim =
 			function (tree, symbol = True) {
-				(if (symbol) identity else paste)( tree[[1]] )
+
+				if (symbol) {
+					tree[[1]]
+				} else {
+					paste( tree[[1]] )
+				}
+
 			},
 		rest =
 			function (tree, symbol = True) {
-				(if (symbol) identity else paste)( tree[[2]] )
+
+				if (symbol) {
+					tree[[2]]
+				} else {
+					paste( tree[[2]] )
+				}
+
 			},
 		param =
 			function (tree, symbol = True) {
-				(if (symbol) identity else paste)( tree[[3]] )
+
+				if (symbol) {
+					tree[[3]]
+				} else {
+					paste( tree[[3]] )
+				}
+
 			}
 	)
 
-	function (sym, val) {
-		# symbol -> any -> function
-		# construct a function from a symbol and
-		# a function body.
+	# -- try parse the bracket-enclosed formals
 
-		parent_frame <- parent.frame()
-		matched <- match.call()
+	collect_params <- function (tree, state, invoking_call = sys.call(1)) {
+		# -- recur into the formals parse tree, accumulating
+		# -- parametre names and validating the tree.
 
-		sym <- matched $ sym
-		val <- matched $ val
+		if (is.name(tree)) {
 
-		# -- will always be length > 0, but may deparse badly if
-		# -- the formals aren't symbols, so use selectively.
-		invoking_call <- paste0(ddparse( matched[-1][[1]] ), ' := { [truncated]')
+			c(paste(tree), state $ params)
 
-		lambda <- function () {}
+		} else if (is.call(tree)) {
 
-		body(lambda) <- val
+			if ( !is.name(get_tree $ param(tree)) ) {
+				# -- the parametre isn't a symbol
 
-		if (is.name(sym)) {
-			# -- make lambda a default-free unary function
+				message <-
+					"function parametres must be symbols." %+%
+					summate(get_tree $ param(tree))
 
-			formals(lambda) <- as_formals(sym)
-
-		} else {
-			# -- try parse the bracket-enclosed formals
-
-			collect_params <- function (tree, state) {
-				# -- recur into the formals parse tree, accumulating
-				# -- parametre names and validating the tree.
-
-				if (is.name(tree)) {
-
-					c(paste(tree), state$params)
-
-				} else if (is.call(tree)) {
-
-					if ( !is.name(get_tree$param(tree)) ) {
-						# -- the parametre isn't a symbol
-
-						message <- "function parametres must by symbols." %+%
-						summate(get_tree$param(tree))
-
-						throw_kiwi_error(invoking_call, message)
-					}
-
-					if (get_tree$delim(tree) != ":") {
-
-						message <- "parametres must be delimited by ':'"
-
-						throw_kiwi_error(invoking_call, message)
-					}
-
-					new_state <- list(
-						params =
-							c(get_tree$param(tree, True), state$params) )
-
-					collect_params(
-						get_tree$rest(tree), new_state)
-
-				}
-			}
-
-			# -- check the formals are bracket-enclosed
-
-			if (get_tree$delim(sym) != '(') {
-
-				message <- "the formals for non-unary functions" %+%
-					" must be enclosed in parentheses."
+				invoking_call <- call(
+					'%:=%',
+					invoking_call[-1][[1]],
+					invoking_call[-1][[2]])
 
 				throw_kiwi_error(invoking_call, message)
 			}
 
-			params <- collect_params(
-				tree = sym[[2]],
-				state = list(
-					params = character(0)) )
+			if (get_tree $ delim(tree) != ":") {
 
-			# -- set the formals to the parsed param names
-			formals(lambda) <- as_formals(params)
+				message <-
+					"parametres must be delimited by ':'"
+
+				invoking_call <- call(
+					'%:=%',
+					invoking_call[-1][[1]],
+					invoking_call[-1][[2]])
+
+				throw_kiwi_error(invoking_call, message)
+			}
+
+			new_state <- list(
+				params =
+					c(paste(get_tree $ param(tree, True)), state $ params) )
+
+			collect_params(get_tree $ rest(tree), new_state)
+
+		}
+	}
+
+	construct_function <- function (params, exprbody, env) {
+		# -- create a function from parametres, body and an environment.
+		# -- underscored parametres write code into the function body.
+
+		which_duplicated <- which(duplicated(params))
+
+		if (length(which_duplicated) > 0) {
+
+			message <-
+				"parametres must not be duplicated: " %+% toString(params[which_duplicated])
+
+			invoking_call <- call(
+				'%:=%',
+				sys.call(1)[-1][[1]],
+				sys.call(1)[-1][[2]])
+
+			throw_kiwi_error(invoking_call, message)
 		}
 
-		# -- set the environment to exclude all the clutter in this function
-		environment(lambda) <- parent_frame
+		is_underscored <- grepl('_$', params)
+
+		if (!any(is_underscored)) {
+			# -- this is just a normal R function; map one-to-one onto
+			# -- R code.
+
+			lambda <- function () {}
+
+			formals(lambda)     <- as_formals(params)
+			body(lambda)        <- exprbody
+			environment(lambda) <- env
+
+		} else {
+			# -- some parametres are underscored, so the matching argument
+			# -- must be converted to an arrow object first.
+
+			final_params <- params
+
+			# -- throws a runtime error if a parametre ends up duplicated.
+			final_params[is_underscored] <-
+				substr(params[is_underscored], 1, nchar(params[is_underscored]) - 1)
+
+			which_duplicated <- which(duplicated(final_params))
+
+			if (length(which_duplicated) > 0) {
+				# -- duplicated upon truncation.
+
+				message <-
+					"parametres must not be duplicated when the final underscore is removed: " %+%
+					toString(final_params[which_duplicated])
+
+				invoking_call <- call(
+					'%:=%',
+					sys.call(1)[-1][[1]],
+					sys.call(1)[-1][[2]])
+
+				throw_kiwi_error(invoking_call, message)
+
+			}
+
+			# construct assignments of the form 'a_ <- x_(a)'.
+			kiwi_assignments <- lapply(which(is_underscored), function (ith) {
+
+				param       <- params[[ith]]
+				final_param <- final_params[[ith]]
+
+				bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
+			})
+
+			lambda <- do.call('function', list(
+				as.pairlist(as_formals(final_params)),
+				join_exprs(kiwi_assignments, exprbody)
+			))
+
+			environment(lambda) <- env
+		}
+
 		lambda
+
+	}
+
+	brace <- as.symbol('{')
+
+	function (sym, val) {
+		# symbol -> any -> function
+		# -- construct a function from a symbol and
+		# -- a function body.
+
+		param_block <- substitute(sym)
+		val         <- substitute(val)
+
+		if (is.name(param_block)) {
+			# -- make lambda a default-free unary function.
+
+			param_block <- paste(param_block)
+
+			if (!grepl('_$', param_block)) {
+				# -- fast track.
+
+				lambda <- do.call('function', list(
+					as.pairlist(as_formals(param_block)),
+					val
+				))
+				environment(lambda) <- parent.frame()
+
+				lambda
+
+			} else {
+				construct_function(paste(param_block), val, parent.frame())
+			}
+		} else {
+
+			if (get_tree $ delim(param_block) != '(') {
+				# -- check the formals are bracket-enclosed
+
+				message <-
+					"the formals for non-unary functions" %+%
+					" must be enclosed in parentheses."
+
+				invoking_call <- call(
+					'%:=%',
+					sys.call()[-1][[1]],
+					sys.call()[-1][[2]])
+
+				throw_kiwi_error(invoking_call, message)
+			}
+
+			params <- collect_params( param_block[[2]], list(params = character(0)) )
+
+			construct_function(paste(params), val, parent.frame())
+
+		}
 	}
 })
 

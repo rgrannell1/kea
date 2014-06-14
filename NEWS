@@ -1,8 +1,56 @@
 
+Kiwi 0.23.0
+-----------------------------------------------------------------------------
+Date: 2014-6-14
+
+Improves arrow function, with speed improvements, bug-fixes, new features.
+
+Enhancements:
+
+* Arrow functions now support underscore parametres; any parametre with an underscore
+suffix is automatically made into a kiwi object, and the underscores are removed from the parametre.
+
+* xLambda is no longer directly exported, as kiwi is not a metaprogramming library
+and there are no tests validating it works when directly called.
+
+* Improved the performance of arrow functions, particularily for unary functions with no
+underscores.
+
+Bug Fixes:
+
+* arrow functions now correctly displays where its errors were raised from.
+
+* Fixed a typo in arrow function error message.
+
+* Errors are now thrown for duplicated parametres before the function is invoked.
+
+* Removed unneeded call to `sys.call` in xCompose, which should speed up generated
+functions significantly.
+
+Documentation:
+
+* Added an example to xChunk.
+
+Package Internals:
+
+* Added join_exprs, which joins two expressions into a single expression.
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.22.0
 -----------------------------------------------------------------------------
+Date: 2014-6-12
 
-
+Improved performance of some functions significantly.
 
 Enhancements:
 
@@ -58,6 +106,7 @@ parametres are matched out-of-order.
 
 Kiwi 0.21.0
 -----------------------------------------------------------------------------
+Date: 2014-6-11
 
 An internal update, that adds automatic addition of argument-writing code.
 
@@ -102,6 +151,7 @@ xTakeWhile, xUnionOf, xWhere.
 
 Kiwi 0.20.0
 -----------------------------------------------------------------------------
+Date: 2014-6-10
 
 Removed specialised reading/writing functions, adds xRead and xWrite.
 
@@ -131,6 +181,7 @@ Documentation:
 
 Kiwi 0.19.0
 -----------------------------------------------------------------------------
+Date: 2014-6-10
 
 A minor update. Adds xLastAs, fixes a bug in xFirstAs...xFourthAs.
 

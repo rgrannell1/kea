@@ -127,6 +127,38 @@ str_split <- function (rexp, str) {
 	}
 }
 
+# -- join_exprs
+# --
+# -- join two expressions into a composite expression.
+
+join_exprs <- local({
+
+	brace <- as.symbol('{')
+
+	function (expr1, expr2) {
+
+		list_expr1 <- as.list(expr1)
+		list_expr2 <- as.list(expr2)
+
+		has_brace1 <- list_expr1[[1]] == '{'
+		has_brace2 <- list_expr2[[1]] == '{'
+
+		if (has_brace1) {
+			if (has_brace2) {
+				as.call( c(list_expr1, list_expr2[-1]) )
+			} else {
+				as.call(c(list_expr1, expr2))
+			}
+		} else {
+			if (has_brace2) {
+				as.call( c(brace, expr1, list_expr2[-1])  )
+			} else {
+				as.call( c(brace, expr1, 	expr2)  )
+			}
+		}
+	}
+})
+
 
 
 
