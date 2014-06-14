@@ -206,10 +206,11 @@ xLambda <- local({
 				bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
 			})
 
-			lambda <- function () {}
+			lambda <- do.call('function', list(
+				as.pairlist(as_formals(final_params)),
+				join_exprs(kiwi_assignments, exprbody)
+			))
 
-			formals(lambda)     <- as_formals(final_params)
-			body(lambda)        <- join_exprs(kiwi_assignments, exprbody)
 			environment(lambda) <- env
 		}
 
@@ -230,8 +231,20 @@ xLambda <- local({
 		if (is.name(param_block)) {
 			# -- make lambda a default-free unary function.
 
-			construct_function(paste(param_block), val, parent.frame())
+			param_block <- paste(param_block)
 
+			if (!grepl('_$', param_block)) {
+				# -- fast track.
+
+				lambda <- do.call('function', list(
+					as.pairlist(as_formals(param_block)),
+					val
+				))
+				environment(lambda) <- parent.frame()
+
+			} else {
+				construct_function(paste(param_block), val, parent.frame())
+			}
 		} else {
 
 			if (get_tree $ delim(param_block) != '(') {
