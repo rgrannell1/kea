@@ -105,7 +105,7 @@ xLambda <- local({
 				# -- the parametre isn't a symbol
 
 				message <-
-					"function parametres must by symbols." %+%
+					"function parametres must be symbols." %+%
 					summate(get_tree $ param(tree))
 
 				invoking_call <- call(
