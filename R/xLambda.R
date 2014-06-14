@@ -51,7 +51,6 @@
 #'    inst/examples/example-xLambda.R
 #'
 #' @rdname xLambda
-#' @export
 
 xLambda <- local({
 
@@ -78,14 +77,9 @@ xLambda <- local({
 		# a function body.
 
 		parent_frame <- parent.frame()
-		matched <- match.call()
 
-		sym <- matched $ sym
-		val <- matched $ val
-
-		# -- will always be length > 0, but may deparse badly if
-		# -- the formals aren't symbols, so use selectively.
-		invoking_call <- paste0(ddparse( matched[-1][[1]] ), ' := { [truncated]')
+		sym <- substitute(sym)
+		val <- substitute(val)
 
 		lambda <- function () {}
 
@@ -109,39 +103,42 @@ xLambda <- local({
 
 				} else if (is.call(tree)) {
 
-					if ( !is.name(get_tree$param(tree)) ) {
+					if ( !is.name(get_tree $ param(tree)) ) {
 						# -- the parametre isn't a symbol
 
 						message <- "function parametres must by symbols." %+%
-						summate(get_tree$param(tree))
+						summate(get_tree $ param(tree))
 
+						invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
 						throw_kiwi_error(invoking_call, message)
 					}
 
-					if (get_tree$delim(tree) != ":") {
+					if (get_tree $ delim(tree) != ":") {
 
 						message <- "parametres must be delimited by ':'"
 
+						invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
 						throw_kiwi_error(invoking_call, message)
 					}
 
 					new_state <- list(
 						params =
-							c(get_tree$param(tree, True), state$params) )
+							c(get_tree $ param(tree, True), state $ params) )
 
 					collect_params(
-						get_tree$rest(tree), new_state)
+						get_tree $ rest(tree), new_state)
 
 				}
 			}
 
 			# -- check the formals are bracket-enclosed
 
-			if (get_tree$delim(sym) != '(') {
+			if (get_tree $ delim(sym) != '(') {
 
 				message <- "the formals for non-unary functions" %+%
 					" must be enclosed in parentheses."
 
+				invoking_call <- paste0(ddparse( match.call()[-1][[1]] ), ' := { [truncated]')
 				throw_kiwi_error(invoking_call, message)
 			}
 

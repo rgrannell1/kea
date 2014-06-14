@@ -87,7 +87,6 @@ xCompose <- MakeFun(function (fns) {
 	function (...) {
 		"a function returned by xCompose."
 		""
-		invoking_call <- sys.call()
 
 		val <- c(...)
 
