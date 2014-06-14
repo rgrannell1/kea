@@ -146,8 +146,9 @@ xLambda <- local({
 			# -- this is just a normal R function; map one-to-one onto
 			# -- R code.
 
-			formals(lambda) <- as_formals(params)
-			body(lambda)    <- exprbody
+			formals(lambda)     <- as_formals(params)
+			body(lambda)        <- exprbody
+			environment(lambda) <- env
 
 		} else {
 			# -- some parametres are underscored, so the matching argument
@@ -163,8 +164,9 @@ xLambda <- local({
 				bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
 			})
 
-			formals(lambda) <- as_formals(final_params)
-			body(lambda)    <- join_exprs(kiwi_assignments, exprbody)
+			formals(lambda)     <- as_formals(final_params)
+			body(lambda)        <- join_exprs(kiwi_assignments, exprbody)
+			environment(lambda) <- env
 		}
 		lambda
 	}
@@ -182,7 +184,7 @@ xLambda <- local({
 		lambda <- function () {}
 
 		if (is.name(param_block)) {
-			# -- make lambda a default-free unary function
+			# -- make lambda a default-free unary function.
 			construct_function(paste(param_block), val, parent.frame())
 
 		} else {
