@@ -71,6 +71,8 @@ xLambda <- local({
 			}
 	)
 
+	brace <- as.symbol('{')
+
 	function (sym, val) {
 		# symbol -> any -> function
 		# construct a function from a symbol and
@@ -99,7 +101,7 @@ xLambda <- local({
 
 				if (is.name(tree)) {
 
-					c(paste(tree), state$params)
+					c(paste(tree), state $ params)
 
 				} else if (is.call(tree)) {
 
@@ -123,7 +125,7 @@ xLambda <- local({
 
 					new_state <- list(
 						params =
-							c(get_tree $ param(tree, True), state $ params) )
+							c(paste(get_tree $ param(tree, True)), state $ params) )
 
 					collect_params(
 						get_tree $ rest(tree), new_state)
@@ -147,8 +149,34 @@ xLambda <- local({
 				state = list(
 					params = character(0)) )
 
-			# -- set the formals to the parsed param names
-			formals(lambda) <- as_formals(params)
+			# -- does the parametre end in an underscore?
+			is_underscored <- grepl('.+_$', params)
+
+			if (!any(is_underscored)) {
+				# -- the parametres can be used as is.
+				formals(lambda) <- as_formals(params)
+			} else {
+
+				# -- set the formals to the parsed param names
+
+				kiwised <- lapply(params[is_underscored], function (param) {
+					# -- remove the underscore from the parametre name.
+
+					final_param <- substr(param, 1, nchar(param) - 1)
+
+					# -- create a kiwi-assignment operator.
+					bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
+				})
+
+				boilerplated_body <- join_exprs(kiwised, val)
+
+				# -- remove the underscores from the paramtre names
+				# -- before setting.
+				formals(lambda) <-
+					as_formals(substr(params, 1, nchar(params) - 1))
+
+				body(lambda) <- boilerplated_body
+			}
 		}
 
 		# -- set the environment to exclude all the clutter in this function

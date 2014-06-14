@@ -210,3 +210,13 @@ inner_calls $ xAtCol(3) $ xFlatten(1) $ xSelect(name := {
     xIsMember(name, base_or_utils)
 }) $ xTabulate() $ xSortBy(xSecondOf)
 
+
+
+
+
+
+
+
+fn <- (a_: b_: c_) := {
+    a_ $ xMap(toupper)
+}
