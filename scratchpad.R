@@ -217,6 +217,6 @@ inner_calls $ xAtCol(3) $ xFlatten(1) $ xSelect(name := {
 
 
 
-fn <- (a_: b_: c_) := {
-    a_ $ xMap(toupper)
+fn <- (x_) := {
+	x_ $ xMap(toupper) $ xRepeat(3) $ x_FromWords()
 }

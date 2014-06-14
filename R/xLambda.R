@@ -90,7 +90,36 @@ xLambda <- local({
 		if (is.name(sym)) {
 			# -- make lambda a default-free unary function
 
-			formals(lambda) <- as_formals(sym)
+			param <- paste(sym)
+			is_underscored <- grepl('.+_$', param)
+
+			if (!any(is_underscored)) {
+				# -- the parametres can be used as is.
+				formals(lambda) <- as_formals(param)
+			} else {
+
+				# -- set the formals to the parsed param names
+
+				kiwised <- lapply(param[is_underscored], function (param) {
+					# -- remove the underscore from the parametre name.
+
+					final_param <- substr(param, 1, nchar(param) - 1)
+
+					# -- create a kiwi-assignment operator.
+					bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
+				})
+
+				boilerplated_body <- join_exprs(kiwised, val)
+
+				# -- remove the underscores from the paramtre names
+				# -- before setting.
+				formals(lambda) <-
+					as_formals(substr(param, 1, nchar(param) - 1))
+
+				body(lambda) <- boilerplated_body
+			}
+
+
 
 		} else {
 			# -- try parse the bracket-enclosed formals
