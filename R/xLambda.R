@@ -136,9 +136,23 @@ xLambda <- local({
 		}
 	}
 
-	construct_function <- function (params, exprbody, env) {
+	construct_function <- function (params, exprbody, env, invoking_call = sys.call(1)) {
 		# -- create a function from parametres, body and an environment.
 		# -- underscored parametres write code into the function body.
+
+		which_duplicated <- which(duplicated(params))
+
+		if (length(which_duplicated) > 0) {
+
+			message <-
+				"parametres must not be duplicated: " %+% toString(params[which_duplicated])
+
+			invoking_call <-
+				paste0(ddparse( invoking_call[-1][[1]] ), ' := { [truncated]')
+
+			throw_kiwi_error(invoking_call, message)
+		}
+
 
 		lambda <- function () {}
 
@@ -161,6 +175,22 @@ xLambda <- local({
 			# -- throws a runtime error if a parametre ends up duplicated.
 			final_params[is_underscored] <-
 				substr(params[is_underscored], 1, nchar(params[is_underscored]) - 1)
+
+
+			which_duplicated <- which(duplicated(final_params))
+
+			if (length(which_duplicated) > 0) {
+				# -- duplicated upon truncation.
+
+				message <-
+					"parametres must not be duplicated when the final underscore is removed: " %+% toString(final_params[which_duplicated])
+
+				invoking_call <-
+					paste0(ddparse( invoking_call[-1][[1]] ), ' := { [truncated]')
+
+				throw_kiwi_error(invoking_call, message)
+
+			}
 
 			# construct assignments of the form 'a_ <- x_(a)'.
 			kiwi_assignments <- lapply(which(is_underscored), function (ith) {
@@ -187,8 +217,6 @@ xLambda <- local({
 
 		param_block <- substitute(sym)
 		val         <- substitute(val)
-
-		lambda <- function () {}
 
 		if (is.name(param_block)) {
 			# -- make lambda a default-free unary function.
