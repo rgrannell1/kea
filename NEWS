@@ -18,7 +18,7 @@ underscores.
 
 Bug Fixes:
 
-* arrow functions now correctly displays where its errors were raised from.
+* Arrow functions now correctly displays where its errors were raised from.
 
 * Fixed a typo in arrow function error message.
 

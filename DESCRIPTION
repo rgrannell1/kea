@@ -131,7 +131,6 @@ Collate:
     'xAsVar.R'
     'xAsVal.R'
     'xIterate.R'
-    'xReorder.R'
     'xReverse.R'
     'xMapply.R'
     'xUniqueOf.R'

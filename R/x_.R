@@ -904,12 +904,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Partition, 'coll')
 	add_x_method(this, x_Partition_, '...')
 
-	# --- xReorder --- #
-	add_x_method(this, xReorder, 'colls')
-	add_x_method(this, xReorder_, '...')
-	add_x_method(this, x_Reorder, 'colls')
-	add_x_method(this, x_Reorder_, '...')
-
 	# --- xPowerSetOf --- #
 	add_x_method(this, xPowerSetOf, 'coll')
 	add_x_method(this, xPowerSetOf_, '...')
