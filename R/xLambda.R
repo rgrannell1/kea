@@ -137,6 +137,8 @@ xLambda <- local({
 	}
 
 	construct_function <- function (params, exprbody, env) {
+		# -- create a function from parametres, body and an environment.
+		# -- underscored parametres write code into the function body.
 
 		lambda <- function () {}
 
@@ -154,8 +156,13 @@ xLambda <- local({
 			# -- some parametres are underscored, so the matching argument
 			# -- must be converted to an arrow object first.
 
-			final_params     <- substr(params, 1, nchar(params) - 1)
+			final_params     <- params
 
+			# -- throws a runtime error if a parametre ends up duplicated.
+			final_params[is_underscored] <-
+				substr(params[is_underscored], 1, nchar(params[is_underscored]) - 1)
+
+			# construct assignments of the form 'a_ <- x_(a)'.
 			kiwi_assignments <- lapply(which(is_underscored), function (ith) {
 
 				param       <- params[[ith]]
@@ -185,6 +192,7 @@ xLambda <- local({
 
 		if (is.name(param_block)) {
 			# -- make lambda a default-free unary function.
+
 			construct_function(paste(param_block), val, parent.frame())
 
 		} else {
@@ -205,6 +213,7 @@ xLambda <- local({
 			params <- collect_params( param_block[[2]], list(params = character(0)) )
 
 			construct_function(paste(params), val, parent.frame())
+
 		}
 	}
 })
