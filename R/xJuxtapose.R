@@ -59,8 +59,6 @@ xJuxtapose <- MakeFun(function (fns) {
 		function (...) {
 			"a function created by xJuxtapose."
 			""
-			invoking_call <- sys.call()
-
 			lapply(fns, function (fn) fn(...))
 		}
 	}
