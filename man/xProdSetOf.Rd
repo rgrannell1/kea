@@ -63,8 +63,7 @@ xProdSetOf_(1:12, 1:12)
 Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xChoose_}}; \code{\link{xCycle}},
   \code{\link{xCycle_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}
+  \code{\link{xPowerSetOf_}}
 
 Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xInter}},
@@ -73,8 +72,7 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xIsSubset_}}; \code{\link{xNotMember}},
   \code{\link{xNotMember_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}; \code{\link{xUnionOf}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xUnionOf}},
   \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf_}}
 }

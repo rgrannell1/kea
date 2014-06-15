@@ -61,8 +61,7 @@ xSelect(nums := {
 Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xChoose_}}; \code{\link{xCycle}},
   \code{\link{xCycle_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}
+  \code{\link{xProdSetOf_}}
 
 Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xInter}},
@@ -71,8 +70,7 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xIsSubset_}}; \code{\link{xNotMember}},
   \code{\link{xNotMember_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}; \code{\link{xUnionOf}},
+  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
   \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf_}}
 }

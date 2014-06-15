@@ -42,8 +42,7 @@ Other set_functions: \code{\link{xInter}},
   \code{\link{xNotMember_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}; \code{\link{xUnionOf}},
+  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
   \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf_}}
 }
