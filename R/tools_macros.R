@@ -23,21 +23,7 @@ Must <- local({
 
 	this <- Object()
 
-	this $ Be_Between <-
-		function (NUMS, LOWER, UPPER) {
 
-			NUMS <- substitute(NUMS)
-
-			bquote(if (any( .(NUMS) > .(UPPER) | .(NUMS) < .(LOWER) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(NUMS) ) %+%
-					" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
-					summate( .(NUMS) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
 
 	this $ Be_Collection <-
 		function (COLL) {
@@ -450,54 +436,7 @@ Must <- local({
 			})
 		}
 
-	# Be_Whole
-	#
-	# test if a single number is an element of the set {-Inf, ... -1, 0. +1, ..., +Inf}
-	#
-	# the type of the input is NOT assumemd to be Numeric; another function must test for this.
-	# fails for NA values, NaN values and infinite values.
-	#
 
-	this $ Be_Whole <-
-		function (NUM) {
-
-			NUM <- substitute(NUM)
-
-			bquote( if (is.infinite( .(NUM) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(NUM) ) %+%
-					" must not be infinite; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
-
-				throw_kiwi_error(sys.call(), message)
-
-			} else if (is_na( .(NUM) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(NUM) ) %+%
-					" must not be NA; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
-
-				throw_kiwi_error(sys.call(), message)
-
-			} else if (is_nan( .(NUM) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(NUM) ) %+%
-					" must not be NaN; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
-
-				throw_kiwi_error(sys.call(), message)
-
-			} else if (!round( .(NUM) ) == .( NUM )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(NUM) ) %+%
-					" must be a round number: the actual argument was not round: \n" %+%
-					paste(.(NUM))
-
-			} else {
-				True
-			})
-		}
 
 	this $ All_Be_Whole <-
 		function (NUMS) {

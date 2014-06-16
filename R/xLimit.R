@@ -47,8 +47,8 @@ xLimit <- MakeFun(function (fn, num) {
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	MACRO( Must $ Be_Whole(num) )
-	MACRO( Must $ Be_Between(num, 0, Inf))
+	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 0, Inf))
 
 	.count <- 0
 

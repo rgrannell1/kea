@@ -56,8 +56,8 @@ xChop <- MakeFun(function (num, coll) {
 
 	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	MACRO( Must $ Be_Between(num, 1, Inf))
-	MACRO( Must $ Be_Whole(num) )
+	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 1, Inf))
 
 	if (length(coll) == 0) {
 		list()

@@ -1,4 +1,10 @@
 
+
+* xChop and xChunk now respond usef*ul errors for NaN values.
+
+
+
+
 Kiwi 0.23.0
 -----------------------------------------------------------------------------
 Date: 2014-6-14
