@@ -16,7 +16,7 @@ write_preconditions <- local({
 	}
 
 	param_preconds $ fns <- {
-		Must $ Be_Collection(fns)
+		Must_Be_Collection(fns)
 		Must $ Be_Collection_Of_Fn_Matchable(fns)
 	}
 
@@ -27,7 +27,7 @@ write_preconditions <- local({
 		'str', 'str1', 'str2')) {
 
 		param_preconds[[param]] <-
-			do.call( Must $ Be_Collection, list(as.symbol(param)) )
+			do.call( Must_Be_Collection, list(as.symbol(param)) )
 	}
 
 	param_preconds $ colls <-

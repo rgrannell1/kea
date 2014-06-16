@@ -23,36 +23,6 @@ Must <- local({
 
 	this <- Object()
 
-
-
-	this $ Be_Collection <-
-		function (COLL) {
-			# this macro expands to check if a value is a collection.
-
-			COLL <- substitute(COLL)
-
-			bquote(if (
-				identical('kiwi', class( .(COLL) )) ||
-				!is_atomic( .(COLL) ) &&
-				!is_generic( .(COLL) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(COLL) ) %+%
-					" must be a list, a pairlist or a typed vector."
-
-				if (any(class( .(COLL) ) == 'kiwi')) {
-					message <- message %+%
-						"The argument was of class " %+% dQuote("kiwi") %+%
-						". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
-						summate( .(COLL) )
-				} else {
-					message <- message %+% summate( .(COLL) )
-				}
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
 	this $ Be_Collection_Of_Collections <-
 		function (COLLS) {
 

@@ -25,6 +25,7 @@ Collate:
     'tools_macros.R'
     'must-be-whole.R'
     'must-be-between.R'
+    'must-be-collection.R'
     'tools_fix.R'
     'tools_makefun.R'
     'xTap---.R'

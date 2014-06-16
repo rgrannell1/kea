@@ -92,7 +92,7 @@ is_atomic <- function (coll) {
 	if (identical(coll, NULL)) {
 		False
 	} else {
-		is.atomic(coll)
+		is.atomic(coll) && !is.factor(coll)
 	}
 }
 
