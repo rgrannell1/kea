@@ -266,25 +266,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Longer_Than <-
-		function (LENGTH, COLL) {
-			# this macro expands to check that a collection is longer than a certain length.
-
-			COLL   <- substitute(COLL)
-			LENGTH <- substitute(LENGTH)
-
-			bquote(if (!(length( .(COLL) ) > .(LENGTH) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(COLL) ) %+%
-					" must have more than " %+%  .(LENGTH) %+% " elements." %+%
-					summate( .(COLL) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-
-		}
-
 	this $ Be_Named <-
 		function (COLL) {
 

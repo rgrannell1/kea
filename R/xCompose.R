@@ -82,7 +82,7 @@
 
 xCompose <- MakeFun(function (fns) {
 
-	MACRO( Must $ Be_Longer_Than(0, fns) )
+	MACRO( Must_Be_Longer_Than(0, fns) )
 
 	function (...) {
 		"a function returned by xCompose."

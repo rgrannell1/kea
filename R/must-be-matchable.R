@@ -25,14 +25,18 @@ Must_Be_Matchable <- function (SYM) {
 			TRUE
 
 		} else if (!is.name( .(SYM) )) {
+
 			message <-
 				"The argument matching " %+% ddquote( "sym" ) %+%
 				" must be a symbol or a string that can be used as a variable name." %+%
 				summate( .(SYM) )
 
 			throw_kiwi_error(sys.call(), message)
+
 		} else {
+
 			TRUE
+
 		}
 	)
 }

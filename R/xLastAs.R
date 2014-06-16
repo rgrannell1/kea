@@ -34,7 +34,7 @@
 
 xLastAs <- MakeFun(function (val, coll) {
 
-	MACRO( Must $ Be_Longer_Than(0, coll) )
+	MACRO( Must_Be_Longer_Than(0, coll) )
 
 	coll <- as.list(coll)
 	coll[[ length(coll) ]] <- val
