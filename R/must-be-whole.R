@@ -11,15 +11,7 @@ Must_Be_Whole <- function (NUM) {
 
 	NUM <- substitute(NUM)
 
-	bquote( if (is.infinite( .(NUM) )) {
-
-		message <-
-			"The argument matching " %+% ddquote( .(NUM) ) %+%
-			" must not be infinite; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
-
-		throw_kiwi_error(sys.call(), message)
-
-	} else if (is_na( .(NUM) )) {
+	bquote( if (is_na( .(NUM) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
