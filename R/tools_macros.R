@@ -92,65 +92,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Collection_Of_Lengths_In_Range <-
-		function (COLLS, LOWER, UPPER) {
-
-			COLLS <- substitute(COLLS)
-			LOWER <- substitute(LOWER)
-			UPPER <- substitute(UPPER)
-
-			bquote( if (any(vapply( .(COLLS), function (coll) {
-
-				.(LOWER) > length(coll) || length(coll) > .(UPPER)
-
-			}, logical(1) )) ) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(COLLS) ) %+%
-					" must be a collection with lengths in the range " %+%
-					.(LOWER) %+% " to " %+% .(UPPER) %+% "." %+%
-					summate( .(COLLS) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
-	this $ Be_Flag <-
-		function (BOOL, PRED) {
-			# this macro expands to check if a value is True, False or Na.
-
-			BOOL <- substitute(BOOL)
-			PRED <- substitute(PRED)
-
-			bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
-
-				message <-
-					"The predicate function " %+% ddquote( .(PRED) ) %+%
-					" produced a non-{True, False, Na} value." %+%
-					summate( .(BOOL) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
-	this $ Be_Of_Length <-
-		function (COLL, LENGTHS) {
-			# this macro expands to check that a collection has a certain length.
-
-			COLL    <- substitute(COLL)
-			LENGTHS <- substitute(LENGTHS)
-
-			bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(COLL) ) %+%
-					" must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
-					summate( .(COLL) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
 	this
 })
 

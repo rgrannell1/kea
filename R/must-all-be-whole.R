@@ -18,7 +18,7 @@ Must_All_Be_Whole <- function (NUMS) {
 
 		throw_kiwi_error(sys.call(), message)
 
-	} else if (round( .(NUMS) ) != .(NUMS)) {
+	} else if (isTRUE(round( .(NUMS) ) != .(NUMS))) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUMS) ) %+% " must be a collection of round numbers.\n\n" %+%

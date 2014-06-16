@@ -37,7 +37,7 @@
 
 xZipKeys <- MakeFun(function (colls) {
 
-	MACRO( Must $ Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
+	MACRO( Must_Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
 
 	if (length(colls) == 0) {
 		list()
@@ -49,7 +49,7 @@ xZipKeys <- MakeFun(function (colls) {
 
 				key <- as_typed_vector(coll[[1]], "character")
 
-				MACRO( Must $ Be_Of_Length(key, 1) )
+				MACRO( Must_Be_Of_Length(key, 1) )
 
 				key
 			},

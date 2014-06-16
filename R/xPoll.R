@@ -47,7 +47,7 @@ xPoll <- MakeFun(function (pred, coll) {
 
 			is_match <- pred( coll[[ith]] )
 
-			MACRO( Must $ Be_Flag(is_match, pred) )
+			MACRO( Must_Be_Flag(is_match, pred) )
 
 			if (isTRUE(is_match)) {
 				count <- count + 1

@@ -44,6 +44,10 @@ message("Must_Be_Whole (-)")
 	failsWhen(
 		is.numeric(num) && length(num) == 1&& !is.infinite(num) && round(num) != num,
 		as_function(Must_Be_Whole)(num)
-	) #+
+	) +
+
+	describe('Be_Whole fails for length != numbers')
+
+	#+
 
 	#run()
