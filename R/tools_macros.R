@@ -369,65 +369,12 @@ Must <- local({
 			})
 		}
 
-
-	this $ Be_Parametres_Of <-
-		function (STRS, FN) {
-			# this macro expands to check if a set of names are parametres of a function.
-
-			STRS <- substitute(STRS)
-			FN   <- substitute(FN)
-
-			bquote(if (any( .(STRS) %!in% names(formals( .(FN) )) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(STRS) ) %+%
-					" must be parametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
-					summate( .(STRS) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
 	this $ All_Be_Whole <-
 		function (NUMS) {
 			bquote({
 				if (FALSE) {
 					stop('')
 				}
-			})
-		}
-
-	this $ Not_Be_Missing <-
-		function (VAL) {
-			# this macro expands to check if a parametre is not missing.
-
-			VAL <- substitute(VAL)
-
-			bquote(if (missing( .(VAL) )) {
-
-				message <-
-					"The parametre " %+% ddquote( .(VAL) ) %+%
-					" is required but was missing."
-
-				throw_kiwi_error(sys.call(), message)
-			})
-
-		}
-
-	this $ Not_Be_Primitive <-
-		function (FN) {
-			# this macro expands to check if a function is non-primitive.
-
-			FN <- substitute(FN)
-
-			bquote(if (is.primitive( .(FN) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(FN) ) %+%
-					" must be a non-primitive function." %+%
-					summate( .(FN) )
-
-				throw_kiwi_error(sys.call(), message)
 			})
 		}
 
