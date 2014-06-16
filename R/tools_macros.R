@@ -23,42 +23,6 @@ Must <- local({
 
 	this <- Object()
 
-	this $ Be_Collection_Of_Collections <-
-		function (COLLS) {
-
-			COLLS <- substitute(COLLS)
-
-			bquote({
-
-				all_elems_are_collection <- all( vapply( .(COLLS) , function (coll) {
-
-					'kiwi' %!in% class(coll) &&
-					(is_atomic(coll) || is_generic(coll))
-
-				}, logical(1)) )
-
-				if (!all_elems_are_collection) {
-
-					message <-
-						"The argument matching " %+% ddquote( .(COLLS) ) %+%
-						" must be a collection of lists, vectors or pairlists."
-
-					if (any(class( .(COLLS) ) == 'kiwi')) {
-						message <- message %+%
-							"The argument was of class " %+% dQuote("kiwi") %+%
-							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
-							summate( .(COLLS) )
-
-					} else {
-						message <- message %+% summate( .(COLLS) )
-					}
-
-					throw_kiwi_error(sys.call(), message)
-				}
-
-			})
-		}
-
 	this $ Be_Collection_Of_Equal_Length <-
 		function (COLLS) {
 
@@ -169,50 +133,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_File <-
-		function (STR) {
-
-			STR <- substitute(STR)
-
-			bquote(if (!file.exists( .(STR) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(STR) ) %+%
-					" must be a path to an existing file."
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
-	this $ Be_Fn_Matchable <-
-		function (VAL) {
-			# this macro expands to check if a value is a function or
-			# can be looked up as a function.
-
-			VAL <- substitute(VAL)
-
-			bquote(if (
-				!is.function( .(VAL) ) &&
-				!is.name( .(VAL) ) &&
-				!(is.character( .(VAL) ) && length( .(VAL) ) == 1)) {
-
-					message <-
-						"The argument matching " %+% ddquote( .(VAL) ) %+%
-						" must be a function, or a string or symbol naming a function."
-
-					if (any(class( .(VAL) ) == 'kiwi')) {
-						message <- message %+%
-							"The argument was of class " %+% dQuote("kiwi") %+%
-							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
-							summate( .(VAL) )
-					} else {
-						message <- message %+% summate( .(VAL) )
-					}
-
-					throw_kiwi_error(sys.call(), message)
-			})
-		}
-
 	this $ Be_Of_Length <-
 		function (COLL, LENGTHS) {
 			# this macro expands to check that a collection has a certain length.
@@ -228,25 +148,6 @@ Must <- local({
 					summate( .(COLL) )
 
 				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
-	this $ Be_Named <-
-		function (COLL) {
-
-			COLL <- substitute(COLL)
-
-			bquote({
-
-				if ( is.null(names( .(COLL) )) ) {
-
-					message <-
-						"The argument matching " %+% ddquote( .(COLL) ) %+%
-						" must be named." %+%
-						summate( .(COLL) )
-
-					throw_kiwi_error(sys.call(), message)
-				}
 			})
 		}
 
