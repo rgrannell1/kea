@@ -50,6 +50,10 @@ is_na <- function (coll) {
 	}, logical(1))
 }
 
+is_nan <- function (val) {
+	isTRUE(identical(val, NaN))
+}
+
 elem_is_na <- function (coll) {
 
 	if (is.atomic(coll)) {
@@ -127,6 +131,10 @@ str_split <- function (rexp, str) {
 	}
 }
 
+is_whole_number <- function (num) {
+	is.numeric(num) && !is_na(num) && !is.finite(num) && round(num) == num
+}
+
 # -- join_exprs
 # --
 # -- join two expressions into a composite expression.
@@ -191,7 +199,7 @@ one_of <- function (coll) {
 # @keywords internal
 # @rdname pkg-internal
 
-'%equals%' <- function (a, b) identical(a, b)
+'%is%' <- function (a, b) identical(a, b)
 
 as_formals <- function (params) {
 	structure(

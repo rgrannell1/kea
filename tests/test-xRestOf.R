@@ -9,7 +9,7 @@ message("xRestOf")
 	forall(
 		"xRestOf of an empty collection always yields the empty list.",
 		test_cases$collection,
-		xRestOf(coll) %equals% list(),
+		xRestOf(coll) %is% list(),
 		given =
 			length(coll) == 0
 	)

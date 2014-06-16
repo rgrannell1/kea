@@ -9,13 +9,13 @@ message('x_(+)')
 	describe('the identity of x_(val) is always itself.') +
 	when(
 		True,
-		x_(val) $ x_Identity() %equals% val
+		x_(val) $ x_Identity() %is% val
 	) +
 
 	describe('x_(x_(val)) flattens.') +
 	when(
 		True,
-		x_(x_(val)) %equals% x_(val)
+		x_(x_(val)) %is% x_(val)
 	) +
 
 	run()

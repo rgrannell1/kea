@@ -9,7 +9,7 @@ message('xLastAs (+)')
 	describe('always sets the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 1,
-		xLastAs(val, coll)[[length(coll)]] %equals% val
+		xLastAs(val, coll)[[length(coll)]] %is% val
 	) +
 
 	run()

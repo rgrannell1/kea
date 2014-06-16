@@ -9,14 +9,14 @@ message("xAppend (+)")
 	describe("joining with empty collection is list(val)") +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xAppend(val, coll) %equals% list(val)
+		xAppend(val, coll) %is% list(val)
 	) +
 
 	describe("adds to end of collection") +
 	when(
 		is_collection(coll),
 		length(xAppend(val, coll)) == length(coll) + 1,
-		xAppend(val, coll)[[length(coll) + 1]] %equals% val
+		xAppend(val, coll)[[length(coll) + 1]] %is% val
 	) +
 
 	run()

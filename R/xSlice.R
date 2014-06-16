@@ -42,7 +42,7 @@
 
 xSlice <- MakeFun(function (nums, coll) {
 
-	MACRO( Must $ Be_Whole(nums) )
+	MACRO( Must $ All_Be_Whole(nums) )
 	MACRO( Must $ Be_Indices(nums, coll) )
 
 	if (length(nums) == 0) {

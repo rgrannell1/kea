@@ -39,7 +39,7 @@ xSplitAt <- MakeFun(function (nums, coll) {
 
 	# nums <- unit_to_value(as_typed_vector(nums, 'numeric'))
 
-	MACRO( Must $ Be_Whole(nums) )
+	MACRO( Must $ All_Be_Whole(nums) )
 	MACRO( Must $ Be_Positive_Indices(nums, coll) )
 
 	if (length(coll) == 0) {

@@ -9,7 +9,7 @@ message("xDo (+)")
 	describe("xDo is always null") +
 	when(
 		is_collection(coll),
-		xDo(identity, coll)  %equals% NULL
+		xDo(identity, coll)  %is% NULL
 	) +
 
 	run()

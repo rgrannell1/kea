@@ -9,7 +9,7 @@ message("xNoneOf (+)")
 	describe('xNoneOf with identity is !any.') +
 	when(
 		is.logical(coll) && length(coll) > 0,
-		xNoneOf(identity, coll) %equals% length(which(coll)) == 0
+		xNoneOf(identity, coll) %is% length(which(coll)) == 0
 	) +
 
 	describe('partially applying with true is false') +

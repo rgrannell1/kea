@@ -9,14 +9,14 @@ message("xJoin (+)")
 	describe('a single collection acts as identity') +
 	when(
 		is_collection(coll1),
-		xJoin(list(coll1)) %equals% as.list(coll1)
+		xJoin(list(coll1)) %is% as.list(coll1)
 	) +
 
 	describe('joining an empty collection with non-empty is the non-empty collection (left)') +
 	when(
 		is_collection(coll1) && is_collection(coll2) && length(coll2) == 0,
-		xJoin(list(coll1, coll2)) %equals% as.list(coll1),
-		xJoin(list(coll2, coll1)) %equals% as.list(coll1)
+		xJoin(list(coll1, coll2)) %is% as.list(coll1),
+		xJoin(list(coll2, coll1)) %is% as.list(coll1)
 	) +
 
 	run()

@@ -76,5 +76,5 @@ message('Kiwi Wildcard Lambda\'s')
 	forall(
 		"test that unary - works",
 		test_cases$logical,
-		(!x.)(coll) %equals% !coll
+		(!x.)(coll) %is% !coll
 	)

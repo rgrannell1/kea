@@ -9,7 +9,7 @@ message("xUnzipKeys (+)")
 	describe("the empty collection always yields the list") +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xUnzipKeys(coll)  %equals% list()
+		xUnzipKeys(coll)  %is% list()
 	) +
 
 	run()

@@ -9,5 +9,5 @@ message("xSpread")
 	forall(
 		"identity as variadic collects a list of arguments.",
 		test_cases$num_integer,
-		xSpread(identity)(num, num) %equals% list(num, num)
+		xSpread(identity)(num, num) %is% list(num, num)
 	)

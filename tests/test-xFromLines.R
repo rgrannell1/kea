@@ -9,13 +9,13 @@ message('xFromLines')
 	forall(
 		"xFromLines of character(0) is character(0)",
 		list(),
-		xFromLines(character(0)) %equals% character(0)
+		xFromLines(character(0)) %is% character(0)
 	)
 
 	forall(
 		"xFromLines of letters is pasted letters",
 		test_cases$letters,
-		xFromLines(coll) %equals% paste0(coll, collapse = '\n'),
+		xFromLines(coll) %is% paste0(coll, collapse = '\n'),
 		given =
 			length(coll) > 0
 	)

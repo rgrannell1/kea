@@ -9,7 +9,7 @@ message("xIsMember")
 	forall(
 		"xIsMember of the empty set is logical(0)",
 		test_cases$nonnegative_with_collection_zero,
-		xIsMember(num, coll) %equals% logical(0)
+		xIsMember(num, coll) %is% logical(0)
 	)
 
 	forall(

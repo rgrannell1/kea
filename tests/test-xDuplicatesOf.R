@@ -9,7 +9,7 @@ message('xDuplicatesOf')
 	forall(
 		"duplicate of empty coll is empty list",
 		test_cases$collection_zero,
-		xDuplicatesOf(coll) %equals% list()
+		xDuplicatesOf(coll) %is% list()
 	)
 
 	forall(

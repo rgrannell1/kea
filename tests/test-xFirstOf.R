@@ -9,7 +9,7 @@ message('xFirstOf (+)')
 	describe('always returns the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 1,
-		xFirstOf(coll) %equals% coll[[1]]
+		xFirstOf(coll) %is% coll[[1]]
 	) +
 
 	run()

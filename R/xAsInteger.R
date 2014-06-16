@@ -39,8 +39,6 @@
 
 xAsInteger <- MakeFun(function (ints) {
 
-	MACRO( Must $ Be_Whole(ints) )
-
 	if (length(ints) == 0) {
 		integer(0)
 	} else {

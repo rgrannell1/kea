@@ -9,13 +9,13 @@ message("xSplitWith")
 	forall(
 		"splitting with truth is as list",
 		test_cases$collection_zero,
-		xSplitWith(Truth, list()) %equals% list()
+		xSplitWith(Truth, list()) %is% list()
 	)
 
 	forall(
 		"splitting with truth is as list",
 		test_cases$collection,
-		xSplitWith(Truth, coll) %equals% lapply(coll, list),
+		xSplitWith(Truth, coll) %is% lapply(coll, list),
 		given =
 			length(coll) > 0
 	)
@@ -23,7 +23,7 @@ message("xSplitWith")
 	forall(
 		"splitting with truth is list(coll)",
 		test_cases$collection,
-		xSplitWith(Falsity, coll) %equals% list(list(coll)),
+		xSplitWith(Falsity, coll) %is% list(list(coll)),
 		given =
 			length(coll) > 0
 	)

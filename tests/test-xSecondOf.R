@@ -9,7 +9,7 @@ message('xSecondOf')
 	describe('always returns the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 2,
-		xSecondOf(coll) %equals% coll[[2]]
+		xSecondOf(coll) %is% coll[[2]]
 	) +
 	run()
 

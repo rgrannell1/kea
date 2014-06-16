@@ -298,7 +298,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 
 				message <-
 					info %+% '\n' %+%
-					colourise $ red('Failed!') %+%
+					colourise $ red('Failed! ') %+%
 					'the property ' %+% ddparse(body(prop)) %+%
 					' returned a non-logical result\n' %+%
 					'For the test case ' %+% ddparse(case)

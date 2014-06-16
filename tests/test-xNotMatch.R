@@ -27,6 +27,6 @@ message('xNotMatch')
 	forall(
 		"str never matches empty string",
 		test_cases$str_word,
-		xNotMatch(str, character(0)) %equals% logical(0)
+		xNotMatch(str, character(0)) %is% logical(0)
 	)
 

@@ -9,7 +9,7 @@ message('xThirdAs (+)')
 	describe('always sets the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 3,
-		xThirdAs(val, coll)[[3]] %equals% val
+		xThirdAs(val, coll)[[3]] %is% val
 	) +
 
 	run()

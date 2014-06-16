@@ -9,14 +9,14 @@ message("xTakeWhile (+)")
 	describe("true predicates returns the collection") +
 	when(
 		is_collection(coll),
-		xTakeWhile(function (x) True,  coll) %equals% as.list(coll)
+		xTakeWhile(function (x) True,  coll) %is% as.list(coll)
 	) +
 
 	describe("non true predicates return empty list") +
 	when(
 		is_collection(coll),
-		xTakeWhile(function (x) False, coll) %equals% list(),
-		xTakeWhile(function (x) Na,    coll) %equals% list()
+		xTakeWhile(function (x) False, coll) %is% list(),
+		xTakeWhile(function (x) Na,    coll) %is% list()
 	) +
 
 	run()

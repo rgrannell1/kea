@@ -9,7 +9,7 @@ message("xShuffle")
 	forall(
 		"shuffling the empty collection returns the empty list",
 		test_cases$collection_zero,
-		xShuffle(coll) %equals% list()
+		xShuffle(coll) %is% list()
 	)
 
 	forall(

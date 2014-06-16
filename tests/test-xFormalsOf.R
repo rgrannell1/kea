@@ -9,11 +9,11 @@ message('xFormalsOf')
 	forall(
 		"nullary functions yield the empty list.",
 		list(),
-		xFormalsOf(function () {}) %equals% list()
+		xFormalsOf(function () {}) %is% list()
 	)
 
 	forall(
 		"formals of normal functions is well behaved.",
 		test_cases$base_function,
-		xFormalsOf(fn) %equals% as.list(formals(fn))
+		xFormalsOf(fn) %is% as.list(formals(fn))
 	)

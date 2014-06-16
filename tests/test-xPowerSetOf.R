@@ -9,7 +9,7 @@ message("xPowerSetOf")
 	forall(
 		"power set of empty set is list()",
 		test_cases$collection_zero,
-		xPowerSetOf(coll) %equals% list()
+		xPowerSetOf(coll) %is% list()
 	)
 
 	forall(

@@ -9,7 +9,7 @@ message("xAddKeys")
 	forall(
 		"unit is named list()",
 		test_cases$str_words,
-		xAddKeys(character(0), list()) %equals% structure(list(), names = character(0))
+		xAddKeys(character(0), list()) %is% structure(list(), names = character(0))
 	)
 
 	forall(

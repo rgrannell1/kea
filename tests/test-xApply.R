@@ -9,7 +9,7 @@ message('xApply')
 	forall(
 		"applying to an list function identity yields the list",
 		test_cases$collection,
-		xApply(list, as.list(coll)) %equals% as.list(coll)
+		xApply(list, as.list(coll)) %is% as.list(coll)
 	)
 
 	forall(
@@ -25,6 +25,6 @@ message('xApply')
 				double(a)
 			}
 
-			lazy_double(num) %equals% (2*num)
+			lazy_double(num) %is% (2*num)
 		}
 	)

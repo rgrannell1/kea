@@ -9,7 +9,7 @@ message("xUnzipIndices (+)")
 	describe("the empty collection always yields the list") +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xUnzipIndices(coll)  %equals% list()
+		xUnzipIndices(coll)  %is% list()
 	) +
 
 	describe("otherwise made of two-tuples") +
@@ -25,7 +25,7 @@ message("xUnzipIndices (+)")
 
 			firsts <- lapply(xUnzipIndices(coll), '[[', 1)
 
-			firsts %equals% as.list(seq_along(coll))
+			firsts %is% as.list(seq_along(coll))
 		}
 	) +
 
@@ -36,7 +36,7 @@ message("xUnzipIndices (+)")
 
 			seconds <- lapply(xUnzipIndices(coll), '[[', 2)
 
-			seconds %equals% as.list(coll)
+			seconds %is% as.list(coll)
 		}
 	) +
 

@@ -9,33 +9,33 @@ message('normal functions can be partially applied (+)')
 	describe('unary functions are partially appliable') +
 	when(
 		is_collection(coll),
-		xIdentity(val) %equals% val,
-		xIdentity(val) %equals% xIdentity()(val)
+		xIdentity(val) %is% val,
+		xIdentity(val) %is% xIdentity()(val)
 	) +
 
 	describe('binary functions are partially appliable') +
 	when(
 		is_collection(coll),
-		xMap(identity, coll) %equals% as.list(coll),
-		xMap(identity, coll) %equals% xMap(identity)(coll),
-		xMap(identity, coll) %equals% xMap()()(identity)(coll),
+		xMap(identity, coll) %is% as.list(coll),
+		xMap(identity, coll) %is% xMap(identity)(coll),
+		xMap(identity, coll) %is% xMap()()(identity)(coll),
 
 
-		xMap(identity, coll) %equals% as.list(coll),
-		xMap(identity, coll) %equals% xMap(coll = coll)(identity),
-		xMap(identity, coll) %equals% xMap()()(coll = coll)(identity)
+		xMap(identity, coll) %is% as.list(coll),
+		xMap(identity, coll) %is% xMap(coll = coll)(identity),
+		xMap(identity, coll) %is% xMap()()(coll = coll)(identity)
 	) +
 
 	describe('trinary functions are partially appliable') +
 	when(
 		is_collection(coll),
-		xFold('+', 0L, seq_along(coll)) %equals% sum(seq_along(coll)),
-		xFold('+', 0L, seq_along(coll)) %equals% xFold('+')(0L, seq_along(coll)),
-		xFold('+', 0L, seq_along(coll)) %equals% xFold('+')(0L)(seq_along(coll)),
-		xFold('+', 0L, seq_along(coll)) %equals% xFold('+', 0L)(seq_along(coll)),
-		xFold('+', 0L, seq_along(coll)) %equals% xFold('+')(0L)(seq_along(coll)),
-		xFold('+', 0L, seq_along(coll)) %equals% xFold('+')()(0L)(seq_along(coll)),
-		xFold('+', 0L, seq_along(coll)) %equals% xFold('+')(0L)()(seq_along(coll))
+		xFold('+', 0L, seq_along(coll)) %is% sum(seq_along(coll)),
+		xFold('+', 0L, seq_along(coll)) %is% xFold('+')(0L, seq_along(coll)),
+		xFold('+', 0L, seq_along(coll)) %is% xFold('+')(0L)(seq_along(coll)),
+		xFold('+', 0L, seq_along(coll)) %is% xFold('+', 0L)(seq_along(coll)),
+		xFold('+', 0L, seq_along(coll)) %is% xFold('+')(0L)(seq_along(coll)),
+		xFold('+', 0L, seq_along(coll)) %is% xFold('+')()(0L)(seq_along(coll)),
+		xFold('+', 0L, seq_along(coll)) %is% xFold('+')(0L)()(seq_along(coll))
 	) +
 
 	run()
@@ -47,8 +47,8 @@ message('variadic functions can be partially applied (+)')
 	describe('unary variadic functions are partially appliable') +
 	when(
 		is_collection(coll),
-		xJoin_(coll) %equals% as.list(coll),
-		xJoin_(coll) %equals% xJoin_()(coll)
+		xJoin_(coll) %is% as.list(coll),
+		xJoin_(coll) %is% xJoin_()(coll)
 	) +
 
 	describe('binary variadic functions work') +
@@ -69,14 +69,14 @@ message('normal methods can be partially applied (+)')
 	describe('binary methods are partially appliable') +
 	when(
 		is_collection(coll),
-		x_(coll) $ x_Map(identity) %equals% x_(coll) $ x_Map()(identity)
+		x_(coll) $ x_Map(identity) %is% x_(coll) $ x_Map()(identity)
 	) +
 
 	describe('trinary methods are partially appliable') +
 	when(
 		is_collection(coll),
-		x_(coll) $ x_Fold(c, c()) %equals% x_(coll) $ x_Fold(c)(c()),
-		x_(c) $ x_Fold(c(), coll) %equals% x_(c) $ x_Fold(c())(coll)
+		x_(coll) $ x_Fold(c, c()) %is% x_(coll) $ x_Fold(c)(c()),
+		x_(c) $ x_Fold(c(), coll) %is% x_(c) $ x_Fold(c())(coll)
 	) +
 
 	run()

@@ -10,7 +10,7 @@ message("xInitOf")
 		"init of an empty collection always yields the empty list.",
 		test_cases$collection,
 		expect =
-			xInitOf(coll) %equals% list(),
+			xInitOf(coll) %is% list(),
 		given =
 			length(coll) == 0
 	)

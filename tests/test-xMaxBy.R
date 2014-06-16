@@ -9,7 +9,7 @@ message("xMaxBy")
 	forall(
 		"max of one element in one element",
 		test_cases $ collection,
-		xMaxBy( xI, coll[1] ) %equals% coll[[1]],
+		xMaxBy( xI, coll[1] ) %is% coll[[1]],
 		given =
 			length(coll) > 0
 	)

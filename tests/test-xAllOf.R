@@ -9,7 +9,7 @@ message("xAllOf (+)")
 	describe('xAllOf with identity is !any.') +
 	when(
 		is.logical(coll) && length(coll) > 0,
-		xAllOf(identity, coll) %equals% length(which(!coll)) == 0
+		xAllOf(identity, coll) %is% length(which(!coll)) == 0
 	) +
 
 	describe('partially applying with true is false') +

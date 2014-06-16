@@ -9,7 +9,7 @@ message('xThirdOf')
 	describe('always returns the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 3,
-		xThirdOf(coll) %equals% coll[[3]]
+		xThirdOf(coll) %is% coll[[3]]
 	) +
 	run()
 

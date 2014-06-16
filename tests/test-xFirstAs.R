@@ -9,7 +9,7 @@ message('xFirstAs (+)')
 	describe('always sets the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 1,
-		xFirstAs(val, coll)[[1]] %equals% val
+		xFirstAs(val, coll)[[1]] %is% val
 	) +
 
 	run()

@@ -9,14 +9,14 @@ message("xDropWhile (+)")
 	describe("true predicates returns the collection") +
 	when(
 		is_collection(coll),
-		xDropWhile(function (x) True,  coll) %equals% list()
+		xDropWhile(function (x) True,  coll) %is% list()
 	) +
 
 	describe("non true predicates return empty list") +
 	when(
 		is_collection(coll),
-		xDropWhile(function (x) False, coll) %equals% as.list(coll),
-		xDropWhile(function (x) Na,    coll) %equals% as.list(coll)
+		xDropWhile(function (x) False, coll) %is% as.list(coll),
+		xDropWhile(function (x) Na,    coll) %is% as.list(coll)
 	) +
 
 	run()

@@ -9,13 +9,13 @@ message("xReduce")
 	forall(
 		"reducing the empty collection is the empty collection",
 		test_cases$collection_zero,
-		xReduce(stop, coll) %equals% coll
+		xReduce(stop, coll) %is% coll
 	)
 
 	forall(
 		"reducing one value is that value",
 		test_cases$num_positive_integer,
-		xReduce(stop, num) %equals% num
+		xReduce(stop, num) %is% num
 	)
 
 	forall(
@@ -33,7 +33,7 @@ message("xReduce")
 	forall(
 		"reducing plus is sum",
 		test_cases$sum_over_integers,
-		xReduce(fn, coll) %equals% sum(coll),
+		xReduce(fn, coll) %is% sum(coll),
 		given =
 			length(coll) > 0
 	)

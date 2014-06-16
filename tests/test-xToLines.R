@@ -9,7 +9,7 @@ message('xToLines')
 	forall(
 		"lines of the empty string is an empty vector",
 		list(),
-		xToLines('') %equals% character(0)
+		xToLines('') %is% character(0)
 	)
 
 	forall(
@@ -17,7 +17,7 @@ message('xToLines')
 		test_cases$letters_with_newlines,
 		{
 			delim <- paste0(str, collapse = '')
-			xToLines(paste0(coll, collapse = delim)) %equals% coll
+			xToLines(paste0(coll, collapse = delim)) %is% coll
 		},
 		given =
 			length(coll) > 0 && length(str) > 0
