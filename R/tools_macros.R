@@ -285,37 +285,6 @@ Must <- local({
 
 		}
 
-	this $ Be_Matchable <-
-		function (SYM) {
-			# this macro expands to test if a value is a symbol.
-
-			SYM <- substitute(SYM)
-
-			bquote({
-
-				if (!is.name( .(SYM) ) && (!is.character( .(SYM) ) || length( .(SYM) ) != 1)) {
-
-					message <-
-						"The argument matching " %+% ddquote( .(SYM) ) %+%
-						" must be a symbol or a string."
-
-					# -- this might not work with lazy evaluation.
-					if (any(class( .(SYM) ) == 'kiwi')) {
-						message <- message %+%
-							"The argument was of class " %+% dQuote("kiwi") %+%
-							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
-							summate( .(SYM) )
-					} else {
-						message <- message %+% summate( .(SYM) )
-					}
-
-					throw_kiwi_error(sys.call(), message)
-				}
-			})
-
-
-		}
-
 	this $ Be_Named <-
 		function (COLL) {
 

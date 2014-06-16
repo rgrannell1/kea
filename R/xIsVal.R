@@ -26,15 +26,6 @@ xIsVal <- MakeFun(function (sym) {
 
 	parent_frame <- parent.frame()
 
-	sym <- substitute(sym)
-	MACRO( Must $ Be_Matchable(sym) )
-
-	sym <- paste(sym)
-
-	if (nchar(sym) == 0) {
-		False
-	} else {
-		exists(sym, parent_frame) &&
-			bindingIsLocked(sym, parent_frame)
-	}
+	exists(sym, parent_frame) &&
+		bindingIsLocked(sym, parent_frame)
 })

@@ -45,11 +45,6 @@ xVal <- MakeFun(function (sym, val) {
 
 	parent_frame <- parent.frame()
 
-	sym <- substitute(sym)
-	MACRO( Must $ Be_Matchable(sym) )
-
-	sym <- paste(sym)
-
 	# -- check if binding is unlocked.
 
 	assign(sym, val, envir = parent_frame)

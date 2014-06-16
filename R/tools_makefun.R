@@ -20,6 +20,9 @@ write_preconditions <- local({
 		Must $ Be_Collection_Of_Fn_Matchable(fns)
 	}
 
+	param_preconds $ sym <-
+		Must_Be_Matchable(substitute(sym))
+
 	for (param in c(
 		'coll', 'coll1', 'coll2',
 		'bools', 'ims', 'raws',
@@ -84,6 +87,10 @@ write_boilerplate <- function (params) {
 		),
 		bools = list(
 			quote(bools <- as_typed_vector(bools, 'logical'))
+		),
+		sym   = list(
+			quote(sym   <- substitute(sym)),
+			quote(sym   <- paste(sym))
 		)
 	)
 

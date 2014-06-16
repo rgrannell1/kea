@@ -31,13 +31,6 @@
 
 xAsVal <- MakeFun(function (sym) {
 
-	sym <- substitute(sym)
-	MACRO( Must $ Be_Matchable(sym) )
-
-	# -- afterwards in case something not coercible to
-	# -- string is given to sym.
-	sym <- paste(sym)
-
 	MACRO( Must_Be_Existing_Ref(sym) )
 
 	lockBinding(sym, parent.frame())
