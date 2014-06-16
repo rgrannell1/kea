@@ -151,23 +151,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Equal_Length_To <-
-		function (COLL1, COLL2) {
-
-			COLL1 <- substitute(COLL1)
-			COLL2 <- substitute(COLL2)
-
-			bquote(if (length( .(COLL1) ) != length( .(COLL2) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(COLL1) ) %+%
-					" must be equal length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
-					summate( .(COLL1) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
 	this $ Be_Flag <-
 		function (BOOL, PRED) {
 			# this macro expands to check if a value is True, False or Na.
