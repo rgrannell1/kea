@@ -15,15 +15,7 @@ Must_Be_Whole <- function (NUM) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
-			" must not be NA; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
-
-		throw_kiwi_error(sys.call(), message)
-
-	} else if (is_nan( .(NUM) )) {
-
-		message <-
-			"The argument matching " %+% ddquote( .(NUM) ) %+%
-			" must not be NaN; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
+			" must not be NA or NaN; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
 
 		throw_kiwi_error(sys.call(), message)
 

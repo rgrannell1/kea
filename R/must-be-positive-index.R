@@ -21,6 +21,16 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 
 		throw_kiwi_error(sys.call(), message)
 
+	} else if (.(NUM) < 1) {
+
+		message <-
+			"The argument matching " %+% ddquote( .(NUM) ) %+%
+			" must be a positive index of the collection matching " %+%
+			ddquote( .(COLL) ) %+% "." %+%
+			summate( .(NUM) )
+
+		throw_kiwi_error(sys.call(), message)
+
 	} else {
 		TRUE
 	})

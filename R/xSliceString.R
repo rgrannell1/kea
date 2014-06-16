@@ -39,7 +39,7 @@ xSliceString <- MakeFun(function (str, nums) {
 
 	str <- unit_to_value(as_atom(str, "character"))
 
-	MACRO( Must $ All_Be_Whole(nums) )
+	MACRO( Must_All_Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)
@@ -49,7 +49,7 @@ xSliceString <- MakeFun(function (str, nums) {
 
 		chars <- str_split("", str)
 
-		MACRO( Must $ Be_Indices(nums, chars) )
+		MACRO( Must_All_Be_Indices(nums, chars) )
 
 		paste0(chars[nums], collapse = "")
 	}

@@ -213,24 +213,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Indices <-
-		function (NUMS, COLL) {
-
-			NUMS <- substitute(NUMS)
-			COLL <- substitute(COLL)
-
-			bquote(if (any( .(NUMS) > length( .(COLL) ) | .(NUMS) < -length( .(COLL) ) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(NUMS) ) %+%
-					" must be positive indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
-					summate( .(NUMS) )
-
-				throw_kiwi_error(sys.call(), message)
-
-			})
-		}
-
 	this $ Be_Of_Length <-
 		function (COLL, LENGTHS) {
 			# this macro expands to check that a collection has a certain length.
@@ -264,15 +246,6 @@ Must <- local({
 						summate( .(COLL) )
 
 					throw_kiwi_error(sys.call(), message)
-				}
-			})
-		}
-
-	this $ All_Be_Whole <-
-		function (NUMS) {
-			bquote({
-				if (FALSE) {
-					stop('')
 				}
 			})
 		}
