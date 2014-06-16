@@ -242,7 +242,7 @@ MakeVariadic <- function (fn, fixed) {
 		# --  correctly resolved.
 		.( eval(fix_macro_call) )
 
-		MACRO( Must $ Have_Canonical_Arguments() )
+		MACRO( Must_Have_Canonical_Arguments() )
 
 		.(
 			( as.call(c(

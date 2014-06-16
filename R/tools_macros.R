@@ -281,25 +281,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Lequal_Than <-
-		function (COLL, LENGTH) {
-			# this macro expands to check that a collection is lequal than a certain length.
-
-			COLL   <- substitute(COLL)
-			LENGTH <- substitute(LENGTH)
-
-			bquote(if (!(length( .(COLL) ) >= .(LENGTH) )) {
-
-				message <-
-					"The argument matching " %+% ddquote( .(COLL) ) %+%
-					" must have at least " %+%  .(LENGTH) %+% " elements." %+%
-					summate( .(COLL) )
-
-				throw_kiwi_error(sys.call(), message)
-			})
-
-		}
-
 	this $ Be_Longer_Than <-
 		function (LENGTH, COLL) {
 			# this macro expands to check that a collection is longer than a certain length.
@@ -375,55 +356,6 @@ Must <- local({
 				if (FALSE) {
 					stop('')
 				}
-			})
-		}
-
-	this $ Have_Canonical_Arguments <-
-		function () {
-			# check that the argument names in ... don't
-			# clash with the parametre names of a function.
-
-			bquote({
-
-				# check that the names aren't interpreted differently
-				# between sys.call (your interpretation of the arguments) and
-				# match.call (the system's interpretation). This fixed an
-				# odd issue in R"s function call semantics
-
-				# xFix_(function (fn, b) fn(b), fn = xI)
-
-				# is misinterpreded by R; fn is not used as an ellipsis arg, but an arg to xFix.
-				# libs like plyr use .fn to try get around this; Kiwi uses this odd middleware macro.
-				# It'll throw an error for argument lists that are ambigious.
-
-				.sys_call   <- sys.call()
-				.match_call <- match.call()
-
-				if (!all( names(.sys_call) == names(.match_call) | names(.sys_call) == '')) {
-
-					fn_name <- .sys_call[[1]]
-
-					if (length(fn_name) == 1) {
-						fn_name <- paste0(fn_name)
-						suggested <- gsub('_', '', fn_name)
-					} else {
-						fn_name   <- 'xMethod_'
-						suggested <- 'xMethod'
-					}
-
-					invoked <- names(.sys_call)
-					matched <- names(.match_call)
-
-					ambigious <- invoked[which(invoked != matched & invoked != '')]
-
-					message <-
-						"The ellipsis argument explicitly named " %+% dQuote(ambigious) %+% " matches a parametre " %+%
-						"of " %+% dQuote(fn_name)  %+% ". This will be misinterpreted by R. Use " %+%
-						dQuote(suggested) %+% " instead of " %+% dQuote(fn_name) %+% "."
-
-					throw_kiwi_error(.sys_call, message)
-				}
-
 			})
 		}
 

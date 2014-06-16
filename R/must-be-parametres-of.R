@@ -1,8 +1,7 @@
 
 # Must_Be_Parametres_Of
 #
-# strs is known to be a character vector.
-#
+# strs is known to be a character vector, but it may contain empty values.
 #
 
 Must_Be_Parametres_Of <- function (STRS, FN) {
@@ -10,7 +9,9 @@ Must_Be_Parametres_Of <- function (STRS, FN) {
 	STRS <- substitute(STRS)
 	FN   <- substitute(FN)
 
-	bquote(if (any( .(STRS) %!in% names(formals( .(FN) )) )) {
+
+	# -- filter out empty strings, assert the rest are parametres of fn.
+	bquote( if (any( .(STRS)[nchar(.(STRS)) > 0] %!in% names(formals( .(FN) )) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(STRS) ) %+%
@@ -18,5 +19,6 @@ Must_Be_Parametres_Of <- function (STRS, FN) {
 			summate( .(STRS) )
 
 		throw_kiwi_error(sys.call(), message)
-	})
+	} )
+
 }

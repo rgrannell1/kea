@@ -28,6 +28,8 @@ Collate:
     'must-be-collection.R'
     'must-be-positive-index.R'
     'must-all-be-positive-indices.R'
+    'must-have-canonical-arguments.R'
+    'must-be-parametres-of.R'
     'tools_fix.R'
     'tools_makefun.R'
     'xTap---.R'

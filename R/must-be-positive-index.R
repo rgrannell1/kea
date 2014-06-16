@@ -7,7 +7,7 @@
 
 Must_Be_Positive_Index <- function (NUM, COLL) {
 
-	NUM <- substitute(NUM)
+	NUM  <- substitute(NUM)
 	COLL <- substitute(COLL)
 
 	bquote( if (is.infinite( .(NUM) )) {
