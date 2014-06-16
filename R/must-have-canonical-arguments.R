@@ -32,7 +32,7 @@ Must_Have_Canonical_Arguments <- function () {
 			if (length(fn_name) == 1 && is.name(fn_name)) {
 
 				fn_name   <- paste(fn_name)
-				suggested <- gsub('_', '', fn_name)
+				suggested <- gsub('_$', '', fn_name)
 
 			} else {
 

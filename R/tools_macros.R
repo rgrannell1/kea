@@ -168,21 +168,6 @@ Must <- local({
 			})
 		}
 
-	this $ Be_Existing_Ref <-
-		function (SYM) {
-
-			SYM <- substitute(SYM)
-
-			bquote(if ( !exists( .(SYM), envir = parent.frame()) ) {
-
-				message <-
-					"The variable referenced by the symbol " %+% ddquote( .(SYM) ) %+%
-					" does not exist."
-
-				throw_kiwi_error(sys.call(), message)
-			})
-		}
-
 	this $ Be_Flag <-
 		function (BOOL, PRED) {
 			# this macro expands to check if a value is True, False or Na.

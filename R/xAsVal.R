@@ -38,7 +38,7 @@ xAsVal <- MakeFun(function (sym) {
 	# -- string is given to sym.
 	sym <- paste(sym)
 
-	MACRO( Must $ Be_Existing_Ref(sym) )
+	MACRO( Must_Be_Existing_Ref(sym) )
 
 	lockBinding(sym, parent.frame())
 })
