@@ -3,7 +3,7 @@
 #
 # test if a value is a list, an atomic typed vector, or a pairlist.
 #
-#
+# fails for factors.
 #
 #
 
@@ -31,7 +31,6 @@ Must_Be_Collection <- function (COLL) {
 			summate( .(COLL) )
 
 		throw_kiwi_error(sys.call(), message)
-
 
 	} else {
 		TRUE

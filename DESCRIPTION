@@ -26,6 +26,8 @@ Collate:
     'must-be-whole.R'
     'must-be-between.R'
     'must-be-collection.R'
+    'must-be-positive-index.R'
+    'must-all-be-positive-indices.R'
     'tools_fix.R'
     'tools_makefun.R'
     'xTap---.R'
