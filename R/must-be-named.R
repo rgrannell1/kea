@@ -1,9 +1,7 @@
 
 # Must_Be_Named
-#
-#
-#
-#
+
+# TODO this is a very weak macro; a better test could be defined.
 
 Must_Be_Named <- function (COLL) {
 

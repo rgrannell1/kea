@@ -1,4 +1,8 @@
 
+# Must_Be_Collection_Of_Lengths_In_Range
+#
+# colls is known to be a collection of collections.
+
 Must_Be_Collection_Of_Lengths_In_Range <- function (COLLS, LOWER, UPPER) {
 
 	COLLS <- substitute(COLLS)

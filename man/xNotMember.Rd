@@ -42,8 +42,8 @@ xNotMember('a', LETTERS)
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInter}},
-  \code{\link{xInter_}}; \code{\link{xIsMember}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
+  \code{\link{xInterOf_}}; \code{\link{xIsMember}},
   \code{\link{xIsMember_}}; \code{\link{xIsSubset}},
   \code{\link{xIsSubset_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},

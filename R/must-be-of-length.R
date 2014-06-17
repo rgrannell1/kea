@@ -5,13 +5,15 @@ Must_Be_Of_Length <- function (COLL, LENGTHS) {
 	COLL    <- substitute(COLL)
 	LENGTHS <- substitute(LENGTHS)
 
-	bquote(if (length( .(COLL) ) %!in% .(LENGTHS)) {
+	bquote( if ( !any(length( .(COLL) ) == .(LENGTHS)) ) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
-			" must have length" %+% paste( .(LENGTHS, collapse = ' or ') ) %+% "." %+%
+			" must have length in the set {" %+% toString( .(LENGTHS) ) %+% "}." %+%
 			summate( .(COLL) )
 
 		throw_kiwi_error(sys.call(), message)
-	})
+
+	} )
 }
+

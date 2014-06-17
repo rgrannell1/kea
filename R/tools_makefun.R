@@ -17,7 +17,7 @@ write_preconditions <- local({
 
 	param_preconds $ fns <- {
 		Must_Be_Collection(fns)
-		Must $ Be_Collection_Of_Fn_Matchable(fns)
+		Must_Be_Collection_Of_Fn_Matchable(fns)
 	}
 
 	param_preconds $ sym <-

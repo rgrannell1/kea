@@ -47,8 +47,9 @@ Must_Have_Canonical_Arguments <- function () {
 			ambigious <- invoked[which(invoked != matched & invoked != '')]
 
 			message <-
-				"The ellipsis argument explicitly named " %+% dQuote(ambigious) %+% " matches a parametre " %+%
-				"of " %+% dQuote(fn_name)  %+% ". This will be misinterpreted by R. Use " %+%
+				"The ellipsis argument explicitly named " %+% dQuote(ambigious) %+%
+				" matches a parametre " %+% "of " %+% dQuote(fn_name)  %+%
+				". This will be misinterpreted by R. Use " %+%
 				dQuote(suggested) %+% " with a list argument instead of " %+% dQuote(fn_name) %+% "."
 
 			throw_kiwi_error(.sys_call, message)

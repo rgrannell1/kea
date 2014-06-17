@@ -5,7 +5,7 @@ Must_Be_Flag <- function (BOOL, PRED) {
 	BOOL <- substitute(BOOL)
 	PRED <- substitute(PRED)
 
-	bquote(if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
+	bquote( if (!is.logical( .(BOOL) ) || length( .(BOOL) ) != 1) {
 
 		message <-
 			"The predicate function " %+% ddquote( .(PRED) ) %+%
@@ -14,5 +14,5 @@ Must_Be_Flag <- function (BOOL, PRED) {
 
 		throw_kiwi_error(sys.call(), message)
 
-	})
+	} )
 }

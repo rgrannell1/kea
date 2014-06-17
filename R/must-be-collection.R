@@ -4,8 +4,6 @@
 # test if a value is a list, an atomic typed vector, or a pairlist.
 #
 # fails for factors.
-#
-#
 
 Must_Be_Collection <- function (COLL) {
 	# this macro expands to check if a value is a collection.

@@ -744,11 +744,11 @@ x_coll_proto <- local({
 	add_x_method(this, xNot, 'val1')
 	add_x_method(this, x_Not, 'val1')
 
-	# --- xInter --- #
-	add_x_method(this, xInter, 'colls')
-	add_x_method(this, xInter_, '...')
-	add_x_method(this, x_Inter, 'colls')
-	add_x_method(this, x_Inter_, '...')
+	# --- xInterOf --- #
+	add_x_method(this, xInterOf, 'colls')
+	add_x_method(this, xInterOf_, '...')
+	add_x_method(this, x_InterOf, 'colls')
+	add_x_method(this, x_InterOf_, '...')
 
 	# --- xIsSubset --- #
 	add_x_method(this, xIsSubset, 'coll2')

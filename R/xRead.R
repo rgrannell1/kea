@@ -28,9 +28,9 @@
 
 xRead <- MakeFun(function (str) {
 
-	MACRO( Must_Be_File(str) )
-
 	str <- unit_to_value(as_atom(str, "character"))
+
+	MACRO( Must_Be_File(str) )
 
 	text <- try_read(
 		readLines(str, warn = False), str, sys.call())

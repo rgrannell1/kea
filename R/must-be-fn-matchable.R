@@ -5,10 +5,25 @@ Must_Be_Fn_Matchable <- function (VAL) {
 
 	VAL <- substitute(VAL)
 
-	bquote(if (
-		!is.function( .(VAL) ) &&
-		!is.name( .(VAL) ) &&
-		!(is.character( .(VAL) ) && length( .(VAL) ) == 1)) {
+	bquote( if (is.function( .(VAL) ) || is.name( .(VAL) )) {
+		TRUE
+	} else if (is.character( .(VAL) )) {
+
+		if (length(.(VAL)) != 1) {
+
+			message <-
+				"The argument matching " %+% ddquote( .(VAL) ) %+%
+				" must be a function, or a string or symbol naming a function.\n\n" %+%
+				"The actual input was a non-length-one character vector." %+%
+				summate(.(VAL))
+
+			throw_kiwi_error(sys.call(), message)
+
+		} else {
+			TRUE
+		}
+
+	} else {
 
 			message <-
 				"The argument matching " %+% ddquote( .(VAL) ) %+%
