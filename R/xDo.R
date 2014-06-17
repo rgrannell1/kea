@@ -1,4 +1,4 @@
-uih
+
 #' xDo
 #'
 #' Map (a possibly side-effectful) function over a
