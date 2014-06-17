@@ -6,6 +6,14 @@
 # have corresponding expressions that check properties of
 # the coresponding argument.
 
+# MakeFun has evolved into a quasi-type system. The rules are complicated
+# by R's use of vectorisation.
+#
+# flags - single strings, numbers or boolean values - have to be treated
+# like Maybe; when a function takes an atom it usually returns an empty value
+# for an empty atom.
+#
+
 write_preconditions <- local({
 
 	param_preconds <- list()
@@ -93,11 +101,8 @@ write_boilerplate <- function (params) {
 			quote(sym   <- paste(sym))
 		),
 
-		# str will always be a character vector.
-		# it may be a length-one value, or a length-zero value.
-
 		str   = list(
-			quote(str <- as_atom(str, "character"))
+			quote(str  <- as_atom(str, "character"))
 		),
 		str1   = list(
 			quote(str1 <- as_atom(str1, "character"))

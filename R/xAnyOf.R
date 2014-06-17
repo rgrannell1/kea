@@ -40,8 +40,12 @@ xAnyOf <- MakeFun(function (pred, coll) {
 	} else {
 
 		for (elem in coll) {
-			if ( isTRUE(pred(elem)) ) {
-				return(True)
+
+			is_match <- pred(elem)
+			Must_Be_Flag(is_match, pred)
+
+			if ( isTRUE(is_match) ) {
+				return (True)
 			}
 		}
 
