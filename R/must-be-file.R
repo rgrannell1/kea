@@ -1,7 +1,22 @@
 
-kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+# Must_Be_File
+#
+# assume str is length one.
 
-message("Must_Be_Collection_of_Collection (+)")
+Must_Be_File <- function (STR) {
 
-message("Must_Be_Collection_of_Collection (-)")
+	STR <- substitute(STR)
+
+	bquote( if ( !isTRUE(file.exists( .(STR) )) ) {
+
+		message <-
+			"The argument matching " %+% ddquote( .(STR) ) %+%
+			" must be a path to an existing file." %+% "\n\n" %+%
+			"The actual path was " %+% dQuote(.(STR)) %+% ".\n"
+
+		throw_kiwi_error(sys.call(), message)
+
+	} else {
+		TRUE
+	} )
+}

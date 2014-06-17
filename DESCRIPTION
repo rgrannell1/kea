@@ -17,6 +17,7 @@ License: GPL-3
 Roxygen: list(wrap = FALSE)
 Collate:
     'values.R'
+    'tools_forall_next.R'
     'tools_functions.R'
     'tools_summate.R'
     'tools_as_typed_vector.R'
@@ -57,7 +58,6 @@ Collate:
     'xElemsByRows---.R'
     'xExecute---.R'
     'tools_forall.R'
-    'tools_forall_next.R'
     'xLambda.R'
     'xApply.R'
     'xAsLogical.R'
