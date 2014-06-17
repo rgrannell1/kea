@@ -50,7 +50,12 @@ xSelect <- MakeFun(function (pred, coll) {
 	} else {
 
 		ind <- vapply(coll, function (elem) {
-			isTRUE(pred(elem))
+
+			is_match <- pred(elem)
+			Must_Be_Flag(is_match, pred)
+
+			isTRUE(is_match)
+
 		}, logical(1), USE.NAMES = False)
 
 		as.list( coll[ !elem_is_na(ind) & ind ] )
