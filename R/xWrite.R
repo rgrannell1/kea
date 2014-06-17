@@ -28,11 +28,11 @@
 
 xWrite <- MakeFun(function (str1, str2) {
 
-	str  <- unit_to_value(as_atom(str1, "character"))
-	str  <- unit_to_value(as_atom(str2, "character"))
+	str1  <- unit_to_value(as_atom(str1, "character"))
+	str2  <- unit_to_value(as_atom(str2, "character"))
 
 	try_write(
-		writeLines(strs, str, sep = "\n"), str, sys.call())
+		writeLines(str2, str1, sep = "\n"), str1, sys.call())
 
 	invisible (Null)
 })

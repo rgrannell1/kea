@@ -38,7 +38,12 @@
 
 xThread <- MakeFun(function (val, fns) {
 
-	for (ith in seq_along(fns)) val <- fns[[ith]]( val )
+	# -- iteratively pipe the starting value
+	# -- through each function.
+	for (ith in seq_along(fns)) {
+		val <- fns[[ith]]( val )
+	}
+
 	val
 })
 

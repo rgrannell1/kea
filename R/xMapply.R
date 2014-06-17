@@ -41,6 +41,7 @@ xMapply <- MakeFun(function (fn, colls) {
 	} else {
 
 		lapply(colls, function (tuple) {
+			# -- apply each inner tuple.
 			do.call(fn, as.list(tuple))
 		})
 	}

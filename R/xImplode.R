@@ -36,13 +36,9 @@ xImplode <- MakeFun(function (str, strs) {
 	str  <- unit_to_value(as_atom(str, 'character'))
 
 	if (length(strs) == 0) {
-		character()
+		character(0)
 	} else {
-
-		paste(
-			strs[nchar(strs) != 0 &
-			vapply(strs, length, integer(1), USE.NAMES = False) != 0],
-			collapse = str)
+		paste(strs, collapse = str)
 	}
 })
 

@@ -2,7 +2,6 @@
 # Must_Be_Existing_Ref
 #
 # sym is assumed to be a symbol.
-#
 
 Must_Be_Existing_Ref <- function (SYM) {
 

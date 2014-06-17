@@ -38,7 +38,9 @@ xNoneOf <- MakeFun(function (pred, coll) {
 	if (length(coll) == 0) {
 		logical(0)
 	} else {
-		!any(vapply(coll, function (elem) isTRUE(pred(elem)), logical(1), USE.NAMES = False))
+		!any(vapply(coll, function (elem) {
+			isTRUE(pred(elem))
+		}, logical(1), USE.NAMES = False))
 	}
 })
 

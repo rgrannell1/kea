@@ -57,7 +57,7 @@ xOrderOf <- MakeFun(function (nums) {
 
 			max_index <- which.max(nums)
 
-			ordering[ith] <- max_index
+			ordering[ith]   <- max_index
 			nums[max_index] <- -Inf
 		}
 

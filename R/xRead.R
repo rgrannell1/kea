@@ -33,7 +33,8 @@ xRead <- MakeFun(function (str) {
 	MACRO( Must_Be_File(str) )
 
 	text <- try_read(
-		readLines(str, warn = False), str, sys.call())
+		readLines(str, warn = False), str, sys.call()
+	)
 
 	if (length(text) == 0) {
 		character(0)

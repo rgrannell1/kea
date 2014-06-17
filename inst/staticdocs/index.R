@@ -125,8 +125,14 @@ sd_section(
 		"xDelay",
 		"xDo",
 		"xExecute",
+		"xReadChars",
+		"xReadLines",
+		"xReadWords",
 		"xStopwatch",
-		"xVersion"
+		"xVersion",
+		"xWriteChars",
+		"xWriteWords",
+		"xWriteLines"
 	)
 )
 
@@ -244,7 +250,8 @@ sd_section(
 		"xLift",
 		"xFix",
 		"xSpread",
-		"xThread"
+		"xThread",
+		"xVectorise"
 	)
 )
 
