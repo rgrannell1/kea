@@ -13,7 +13,7 @@ Kiwi makes R an effective language for functional programming.
 Kiwi isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
 is considered bad etiquette to update a CRAN package more than once a month.
 
-```js
+```splus
 install.packages("devtools")
 install_github("kiwi", "rgrannell1", ref = "releases")
 ```
@@ -44,7 +44,7 @@ together into a pipeline that takes your input and transforms it in multiple
 steps. You don't need to worry about odd output of one function suddenly killing
 the next, as corner cases are consistent within Kiwi.
 
-```js
+```splus
 # // Data From Hadley Wickham's https://github.com/hadley/data-stride
 
 asRow <- (...) := {
@@ -107,7 +107,7 @@ R was an early language with anonymous, first-class functions. They are a common
 language, and are widely used with functions like `lapply` and `Filter`. Unfortunately R's function's
 definitions are verbose. Arrow-functions are terser than normal function expressions.
 
-```js
+```splus
 # -- generate the pairs [[a, A], [b, B], ...]
 x_(letters) $ xMap(letter := {
 	list(letter, toupper(letter))
@@ -117,7 +117,7 @@ x_(letters) $ xMap(letter := {
 You could also create this collection using collection-comprehensions; syntax sugar for creating
 new collections by filtering, joining & transforming existing collections.
 
-```js
+```splus
 xList[ list(l, toupper(l)), l <- letters ]
 ```
 
@@ -130,7 +130,7 @@ list or arguments- is conversely more flexible, but more verbose. The adapter fu
 in base R are mainly used to get around only the ellipsis form of the function being included. Kiwi's functions
 come in both forms, completely removing this boilerplate.
 
-```js
+```splus
 # -- less verbose
 xJoin_(list(1, 2), list(3, 4))
 
@@ -151,7 +151,7 @@ have addition and multiplication, strings have paste and lists have concatenatio
 are values too it stands to reason that there are similar operations on functions. Function
 composition joins multiple functions by successively piping input from one to the next.
 
-```js
+```splus
 x__(1, 2, 3, 4, 5, 6) $ xMap(sqrt %then% paste)
 ```
 
@@ -164,7 +164,7 @@ all its arguments at once. You can specialise general functions - like isMatch, 
 if a string matches a regexp - for a specific use, like testing if a string matches the pattern
 'face'. Partial application lets you reuse code & avoid throwaway anonymous functions.
 
-```js
+```splus
 # specialise fold in two different ways.
 
 sumOf  <- xFold('+', 0)
@@ -185,7 +185,7 @@ in the best case you do not need to iterate over every input value to find a mat
 can run in sub-linear time, by using a special return statement - Return. This makes your
 functional code much more efficient.
 
-```js
+```splus
 firstOdd <- nums := {
 	xReduce((left : right) := {
 		if (right %% 2 == 1) Return (right)
@@ -202,12 +202,12 @@ Kiwi is a *generic* collection library; its functions abstract over the differen
 vectors and pairlists. This is in contrast with the base language, which neglects lists in favour of
 vectors and data.frames.
 
-```js
+```splus
 sum(1:3)
 sum(list(1, 2, 3)) # fails
 ```
 
-```js
+```splus
 # -- these are identical.
 xRepeat(2, 10)
 xRepeat(list(2), list(10))
@@ -218,7 +218,7 @@ When code fails it should tell you where it failed, what the root cause of the p
 give you enough information to fix the problem. More time is spent debugging than writing code, so
 Kiwi provides good error messages.
 
-```js
+```splus
 xRepeat(-1, 1:10)
 '
 Error:
