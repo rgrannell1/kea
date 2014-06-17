@@ -172,7 +172,6 @@ Collate:
     'xList.R'
     'xOneOf.R'
     'xAt.R'
-    'xRecycle.R'
     'xAtCol.R'
     'xAllOf.R'
     'xAnyOf.R'

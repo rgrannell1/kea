@@ -931,13 +931,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Reduce, 'coll')
 	add_x_method(this, x_Reduce_, '...')
 
-	# --- xRecycle --- #
-
-	add_x_method(this, xRecycle, 'colls')
-	add_x_method(this, xRecycle_, '...')
-	add_x_method(this, x_Recycle, 'colls')
-	add_x_method(this, x_Recycle_, '...')
-
 	# --- xRepeat --- #
 	add_x_method(this, xRepeat, 'coll')
 	add_x_method(this, xRepeat_, '...')

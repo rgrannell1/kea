@@ -335,7 +335,6 @@ sd_section(
 		"xGroupBy",
 		"xJoin",
 		"xOneOf",
-		"xRecycle",
 		"xRepeat",
 		"xReverse",
 		"xShuffle",
