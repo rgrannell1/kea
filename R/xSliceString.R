@@ -37,8 +37,6 @@
 
 xSliceString <- MakeFun(function (str, nums) {
 
-	str <- unit_to_value(as_atom(str, "character"))
-
 	MACRO( Must_All_Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {

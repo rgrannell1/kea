@@ -28,8 +28,6 @@
 
 xToWords <- MakeFun(function (str) {
 
-	str <- as_atom(str, 'character')
-
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)
 	} else {

@@ -41,8 +41,6 @@
 
 xPluck <- MakeFun(function (str, colls) {
 
-	str <- unit_to_value(as_atom(str, "character"))
-
 	if (length(colls) == 0) {
 		list()
 	} else {

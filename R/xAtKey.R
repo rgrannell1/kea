@@ -36,7 +36,7 @@ xAtKey <- MakeFun(function (str, coll) {
 
 	MACRO( Must_Be_Named(coll) )
 
-	str <- unit_to_value(as_atom(str, 'character'))
+	MACRO( Must_Be_Longer_Than(0, str) )
 
 	# -- will select the first key match
 	coll[[str]]

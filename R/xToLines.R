@@ -27,8 +27,6 @@
 
 xToLines <- MakeFun(function (str) {
 
-	str <- as_typed_vector(str, 'character')
-
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)
 	} else {

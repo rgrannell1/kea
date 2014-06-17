@@ -166,7 +166,8 @@ as_typed_vector <- local({
 
 
 
-
+# -- the argument given to 'as_atom' must be given as a variable;
+# -- otherwise the displayed source is screwed up.
 
 as_atom <- local({
 

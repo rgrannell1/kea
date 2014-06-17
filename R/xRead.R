@@ -28,17 +28,21 @@
 
 xRead <- MakeFun(function (str) {
 
-	str <- unit_to_value(as_atom(str, "character"))
-
 	MACRO( Must_Be_File(str) )
 
-	text <- try_read(
-		readLines(str, warn = False), str, sys.call()
-	)
-
-	if (length(text) == 0) {
+	if (length(str) == 0) {
 		character(0)
 	} else {
-		text
+
+		text <- try_read(
+			readLines(str, warn = False), str, sys.call()
+		)
+
+		if (length(text) == 0) {
+			character(0)
+		} else {
+			text
+		}
 	}
+
 })

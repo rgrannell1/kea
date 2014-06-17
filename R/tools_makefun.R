@@ -67,22 +67,22 @@ write_preconditions <- local({
 write_boilerplate <- function (params) {
 
 	param_boilerplate <- list(
-		fn   = list(
+		fn    = list(
 			quote(fn <- match_fn(fn))
 		),
-		pred = list(
+		pred  = list(
 			quote(pred <- match_fn(pred))
 		),
-		fns  = list(
+		fns   = list(
 			quote(lapply(fns, match_fn))
 		),
-		nums = list(
+		nums  = list(
 			quote(nums <- as_typed_vector(nums, 'numeric'))
 		),
-		strs = list(
+		strs  = list(
 			quote(strs <- as_typed_vector(strs, 'character'))
 		),
-		ints = list(
+		ints  = list(
 			quote(ints <- as_typed_vector(ints, 'integer'))
 		),
 		bools = list(
@@ -91,6 +91,19 @@ write_boilerplate <- function (params) {
 		sym   = list(
 			quote(sym   <- substitute(sym)),
 			quote(sym   <- paste(sym))
+		),
+
+		# str will always be a character vector.
+		# it may be a length-one value, or a length-zero value.
+
+		str   = list(
+			quote(str <- as_atom(str, "character"))
+		),
+		str1   = list(
+			quote(str1 <- as_atom(str1, "character"))
+		),
+		str2   = list(
+			quote(str2 <- as_atom(str2, "character"))
 		)
 	)
 
