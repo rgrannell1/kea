@@ -17,8 +17,8 @@ Must_Be_Collection_Of_Lengths_In_Range <- function (COLLS, LOWER, UPPER) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLLS) ) %+%
-			" must be a collection with lengths in the range " %+%
-			.(LOWER) %+% " to " %+% .(UPPER) %+% "." %+%
+			" must be a collection with lengths in the set " %+%
+			"{" %+% .(LOWER) %+% ", ..., " %+% .(UPPER) %+% "}" %+%
 			summate( .(COLLS) )
 
 		throw_kiwi_error(sys.call(), message)

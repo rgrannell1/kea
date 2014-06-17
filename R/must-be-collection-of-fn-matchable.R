@@ -7,9 +7,8 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 
 		all_match <- all( vapply( .(COLL) , function (val) {
 
-			is.function(val) ||
-			(is.character(val) && length(val) == 1) ||
-			is.name(val)
+			is.function(val) || is.name(val) ||
+			(is.character(val) && length(val) == 1)
 
 		}, logical(1)) )
 
