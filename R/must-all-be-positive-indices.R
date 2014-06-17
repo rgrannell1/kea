@@ -2,7 +2,6 @@
 # Must_All_Be_Positive_Indices
 #
 # nums are known to be either whole numbers or infinitely large values.
-#
 
 Must_All_Be_Positive_Indices <- function (NUMS, COLL) {
 

@@ -2,7 +2,6 @@
 # Must_Be_Indices
 #
 # num is known to be either a whole number or infinite value.
-#
 
 Must_All_Be_Indices <- function (NUMS, COLL) {
 
