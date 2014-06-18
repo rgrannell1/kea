@@ -35,6 +35,7 @@ Kiwi versioning follows the semantic version
 
 \section{Corner Cases}{
 
+   Any arguments passed to \bold{xVersion} are dropped.
 }
 \examples{
 

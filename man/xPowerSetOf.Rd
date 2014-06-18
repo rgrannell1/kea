@@ -31,6 +31,7 @@ Enumerate every way of subsetting a collection.
 
 \section{Corner Cases}{
 
+    Returns the empty list if \bold{coll} is length-zero.
 }
 \examples{
 

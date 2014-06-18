@@ -47,7 +47,7 @@ Divide a collection into a fixed number of segments.
 
    The final sublist returned by \bold{xChop} may have less elements
    than the other sublists, depending on whether or not the length of \bold{coll}
-   is evenly divisible by \bold{num}. If \bold{coll} is length-zero,
+   is evenly divisible by \bold{num}. If \bold{coll} or \bold{num} is length-zero,
    the empty list is returned.
 }
 \examples{

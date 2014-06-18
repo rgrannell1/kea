@@ -54,7 +54,7 @@ Cyclic permutations are an important combinatorial object.
 
 \section{Corner Cases}{
 
-   If \bold{coll} is empty the empty list is returned.
+   If \bold{coll} or \bold{num} is empty the empty list is returned.
 }
 \examples{
 

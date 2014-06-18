@@ -45,6 +45,7 @@ function a limited number of times.
 
 \section{Corner Cases}{
 
+   xLimit throws an error if \bold{num} is not length-one.
 }
 \examples{
 

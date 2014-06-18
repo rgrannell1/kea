@@ -18,6 +18,11 @@ A function that always returns true.
 
     ...any -> &lt;logical>
 }
+
+\section{Corner Cases}{
+
+   Arguments given to \bold{xTruth} are dropped.
+}
 \examples{
 
 # 1.

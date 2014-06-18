@@ -20,7 +20,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} or \{num} is empty the empty list is returned.
+#'    If \bold{coll} or \bold{num} is empty the empty list is returned.
 #'
 #' @family selection_functions
 #'

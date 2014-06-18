@@ -24,12 +24,13 @@ Is a predicate true for none elements of a collection?
 }
 \section{Type Signature}{
 
-    (any -> logical) -> |any| -> &lt;boolean>
+    (any -> &lt;logical>) -> |any| -> &lt;boolean>
 }
 
 \section{Corner Cases}{
 
-   If coll is length zero then logical(0) is returned. Na is treated as False.
+   If coll is length zero then logical(0) is returned.
+   Na is treated as False.
 }
 \examples{
 

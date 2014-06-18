@@ -31,7 +31,7 @@ Divide a collection into segments of fixed length.
 
    The final list in the return value will have less than \bold{num}
    elements if \code{length(coll)} is not evenly divisible by \bold{num}.
-   if \bold{coll} is length-zero, the empty list is returned.
+   if \bold{coll} or \bold{num} is length-zero, the empty list is returned.
 }
 \examples{
 

@@ -28,7 +28,8 @@ Get the cartesian product of several collections.
 
 \section{Corner Cases}{
 
-     Returns the empty list if \bold{colls} is length-zero.
+     Returns the empty list if \bold{colls} is length-zero, or any element
+     of \bold{colls} is length-zero.
 }
 \examples{
 

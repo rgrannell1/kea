@@ -24,6 +24,7 @@ Write a string to a file.
 
 \section{Corner Cases}{
 
+   xWrite does not write to a file if \bold{str1} is empty.
 }
 \examples{
 

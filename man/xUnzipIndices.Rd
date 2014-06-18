@@ -28,7 +28,7 @@ Split a collection into a list of index: value pairs
 }
 \section{Type Signature}{
 
-    |any| -> [[ <number>, ...any ]]
+    |any| -> [[ &lt;number>, ...any ]]
 }
 
 \section{Corner Cases}{

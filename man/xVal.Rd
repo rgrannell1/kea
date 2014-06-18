@@ -34,7 +34,7 @@ xVal works like normal R assignment, with the exception
 }
 \section{Corner Cases}{
 
-   Overwrites the value referenced by \code{sym}r if the variable
+   \bold{xVals} overwrites the value referenced by \code{sym} if the variable
    already exists in the parent frame.
 }
 \examples{

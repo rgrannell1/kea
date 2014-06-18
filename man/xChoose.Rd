@@ -31,7 +31,8 @@ Enumerate all ways of choosing several elements from a collection.
 }
 \section{Corner Cases}{
 
-     Returns the empty list if \bold{num} is zero.
+     Returns the empty list if \bold{num} is zero, \bold{num} is empty,
+     or \bold{coll} is empty.
 }
 \examples{
 

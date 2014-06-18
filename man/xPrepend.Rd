@@ -28,6 +28,8 @@ Add a value to the front of a collection.
 
 \section{Corner Cases}{
 
+   Returns a list containing \bold{val} when \bold{coll}
+   is length-zero.
 }
 \examples{
 
