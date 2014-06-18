@@ -109,6 +109,10 @@ write_boilerplate <- function (params) {
 		),
 		str2   = list(
 			quote(str2 <- as_atom(str2, "character"))
+		),
+
+		rexp   = list(
+			quote(rexp <- as_atom(rexp, "character"))
 		)
 	)
 

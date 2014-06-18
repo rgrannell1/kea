@@ -33,9 +33,7 @@
 
 xExplode <- MakeFun(function (rexp, str) {
 
-	rexp <- unit_to_value(as_atom(rexp, "character"))
-
-	if (length(str) == 0) {
+	if (length(str) == 0 || length(rexp) == 0) {
 		character(0)
 	} else if (nchar(str) == 0) {
 		''
