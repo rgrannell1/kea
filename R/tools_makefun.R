@@ -84,6 +84,11 @@ write_boilerplate <- function (params) {
 		fns   = list(
 			quote(lapply(fns, match_fn))
 		),
+
+		num   = list(
+			quote(num <- as_atom(num, 'numeric'))
+		),
+
 		nums  = list(
 			quote(nums <- as_typed_vector(nums, 'numeric'))
 		),
