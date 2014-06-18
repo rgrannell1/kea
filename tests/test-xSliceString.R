@@ -11,10 +11,3 @@ message('xSliceString')
 		list(),
 		xSliceString('', 0) %is% character(0)
 	)
-
-	forall(
-		"selecting along the indices is identity",
-		test_cases$str_word,
-		xSliceString( str, seq_len(nchar(str)) ) %is% str
-	)
-
