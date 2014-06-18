@@ -41,6 +41,7 @@ xGroupBy <- MakeFun(function (fn, coll) {
 	if (length(coll) == 0) {
 		list()
 	} else {
+
 		groups <- list()
 
 		for (ith in seq_along(coll)) {

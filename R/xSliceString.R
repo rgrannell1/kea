@@ -42,7 +42,7 @@ xSliceString <- MakeFun(function (str, nums) {
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)
 	} else if (length(nums) == 0) {
-		str
+		character(0)
 	} else {
 
 		chars <- str_split("", str)

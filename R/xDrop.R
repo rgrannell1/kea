@@ -20,7 +20,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} is empty the empty list is returned.
+#'    If \bold{coll} or \{num} is empty the empty list is returned.
 #'
 #' @family selection_functions
 #'
@@ -39,7 +39,7 @@ xDrop <- MakeFun(function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 0, Inf))
 
-	if (length(coll) == 0 || num >= length(coll)) {
+	if (length(coll) == 0 || num >= length(coll) || length(num) == 0) {
 	 	list()
 	} else {
 		as.list(coll)[(num + 1) : length(coll)]

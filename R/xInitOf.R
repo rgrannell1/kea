@@ -32,7 +32,7 @@
 
 xInitOf <- MakeFun(function (coll) {
 
-	if (length(coll) == 0 || length(coll) == 1) {
+	if (length(coll) < 2) {
 		list()
 	} else {
 		coll <- as.list(coll)

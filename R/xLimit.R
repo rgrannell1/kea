@@ -36,6 +36,7 @@
 #'    A function with the same parametres as \bold{fn}.
 #'
 #' @section Corner Cases:
+#'    xLimit throws an error if \bold{num} is not length-one.
 #'
 #' @family time_functions
 #'
@@ -46,6 +47,8 @@
 #' @export
 
 xLimit <- MakeFun(function (fn, num) {
+
+	MACRO( Must_Be_Longer_Than(0, num) )
 
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 0, Inf))

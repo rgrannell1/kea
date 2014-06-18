@@ -35,7 +35,8 @@
 #'    A variadic function that returns a list.
 #'
 #' @section Corner Cases:
-#'    If no functions are provided the empty list is returned.
+#'    If no functions are provided the returned function
+#'    returns the empty list for any inputs.
 #'
 #' @family function_modifying_functions
 #'
@@ -52,16 +53,12 @@
 
 xJuxtapose <- MakeFun(function (fns) {
 
-	if (length(fns) == 0) {
-		list()
-	} else {
-
-		function (...) {
-			"a function created by xJuxtapose."
-			""
-			lapply(fns, function (fn) fn(...))
-		}
+	function (...) {
+		"a function created by xJuxtapose."
+		""
+		lapply(fns, function (fn) fn(...))
 	}
+
 })
 
 #' @rdname xJuxtapose

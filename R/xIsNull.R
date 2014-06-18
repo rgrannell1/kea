@@ -29,6 +29,5 @@
 #' @export
 
 xIsNull <- MakeFun(function (val) {
-
-	isTRUE(is.null(val))
+	isTRUE(identical(val, NULL))
 })

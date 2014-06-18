@@ -17,6 +17,7 @@
 #'    Null, as this is a purely side-effectful function.
 #'
 #' @section Corner Cases:
+#'    xWrite does not write to a file if \bold{str1} is empty.
 #'
 #' @family text_processing_functions
 #'

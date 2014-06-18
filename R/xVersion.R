@@ -27,6 +27,7 @@
 #'    major release number, minor release number and patch number.
 #'
 #' @section Corner Cases:
+#'    Any arguments passed to \bold{xVersion} are dropped.
 #'
 #' @example
 #'    inst/examples/example-xVersion.R

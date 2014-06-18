@@ -30,7 +30,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xPluck.R
 #'

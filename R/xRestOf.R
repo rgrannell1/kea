@@ -16,7 +16,8 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \bold{coll} is length-zero or length-one.
+#'    Returns the empty list if \bold{coll} is length-zero
+#'    or length-one.
 #'
 #' @family selection_functions
 #'

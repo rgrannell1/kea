@@ -31,6 +31,7 @@
 #'
 #' @section Corner Cases:
 #'
+#'
 #' @family methods
 #'
 #' @name xTap

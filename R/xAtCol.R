@@ -43,7 +43,7 @@
 
 xAtCol <- MakeFun(function (num, colls) {
 
-	if (length(colls) == 0) {
+	if (length(colls) == 0 || length(num) == 0) {
 		list()
 	} else {
 

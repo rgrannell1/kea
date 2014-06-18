@@ -25,7 +25,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xFromWords.R
 #'
@@ -35,7 +34,7 @@
 xFromWords <- MakeFun(function (strs) {
 
 	if (length(strs) == 0) {
-		character()
+		character(0)
 	} else {
 		paste(strs, collapse = ' ')
 	}

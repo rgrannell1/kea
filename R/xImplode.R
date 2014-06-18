@@ -37,7 +37,7 @@
 
 xImplode <- MakeFun(function (str, strs) {
 
-	if (length(strs) == 0 || length(str) == 0) {
+	if (length(str) == 0 || length(strs) == 0) {
 		character(0)
 	} else {
 		paste(strs, collapse = str)

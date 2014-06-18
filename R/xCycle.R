@@ -46,7 +46,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} is empty the empty list is returned.
+#'    If \bold{coll} or \bold{num} is empty the empty list is returned.
 #'
 #' @family combinatoric_functions
 #'
@@ -63,7 +63,7 @@ xCycle <- MakeFun(function (num, coll) {
 
 	MACRO( Must_Be_Whole(num) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0 || length(num) == 0) {
 		list()
 	} else {
 

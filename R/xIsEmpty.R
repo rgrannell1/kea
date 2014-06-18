@@ -29,7 +29,6 @@
 #' @export
 
 xIsEmpty <- MakeFun(function (coll) {
-
 	isTRUE(length(coll) == 0)
 })
 

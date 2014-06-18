@@ -1,10 +1,19 @@
 
-
 * xChop and xChunk now respond usef*ul errors for NaN values.
 
 * Functions that require collections no longer accept factors.
 
 * Added MustBeFlag to xAllOf, ..., xNoneOf.
+
+* Juxtapose corner case.
+
+
+
+
+
+
+
+
 
 Kiwi 0.23.0
 -----------------------------------------------------------------------------

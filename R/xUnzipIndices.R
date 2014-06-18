@@ -4,7 +4,7 @@
 #' Split a collection into a list of index: value pairs
 #'
 #' @section Type Signature:
-#'     |any| -> [[ <number>, ...any ]]
+#'     |any| -> [[ &lt;number>, ...any ]]
 #'
 #' @details
 #'     \bold{xUnzipIndices} reshapes a collection to allow you to pass

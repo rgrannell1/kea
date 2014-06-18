@@ -17,7 +17,8 @@
 #'      there are collections in \bold{colls}.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \bold{colls} is length-zero.
+#'      Returns the empty list if \bold{colls} is length-zero, or any element
+#'      of \bold{colls} is length-zero.
 #'
 #' @family combinatoric_functions
 #'
