@@ -16,12 +16,13 @@
 #' @return
 #'    A true or false value.
 #'
-#' @example
-#'    inst/examples/example-xNotNull.R
-#'
 #' @section Corner Cases:
 #'     xNotNull returns either true or false, to make it
 #'     safe for use with if statements.
+#'
+#' @example
+#'    inst/examples/example-xNotNull.R
+#'
 #'
 #' @family value_testing_functions
 #'

@@ -14,6 +14,9 @@ A kiwi object containing a list of lists.
 \description{
 Convert a matrix or data.frame to a collection of columns.
 }
+\section{Corner Cases}{
+
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByLevels}}, \code{\link{xByLevels}},

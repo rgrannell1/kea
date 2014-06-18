@@ -14,6 +14,9 @@ A kiwi object containing a list.
 \description{
 Enumerate the elements of a matrix across rows.
 }
+\section{Corner Cases}{
+
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},

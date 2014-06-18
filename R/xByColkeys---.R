@@ -15,6 +15,8 @@
 #' @return
 #'      A kiwi containing a character vector.
 #'
+#' @section Corner Cases:
+#'
 #' @family methods
 #'
 #' @name xByColkeys

@@ -25,6 +25,8 @@
 #' @return
 #'    A list.
 #'
+#' @section Corner Cases:
+#'
 #' @template
 #'    Variadic
 #'

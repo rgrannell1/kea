@@ -29,6 +29,10 @@ Convert any function to a unary function.
 
     (...any -> any) -> (any -> any)
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. xUnspread can be used to adapt higher-order

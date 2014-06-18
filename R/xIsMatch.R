@@ -10,8 +10,6 @@
 #'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in
 #'     base R.
 #'
-#'
-#'
 #' @param
 #'    rexp a string. The regular expression to test against a string.
 #'

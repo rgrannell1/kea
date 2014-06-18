@@ -35,6 +35,8 @@
 #' @return
 #'    A function with the same parametres as \bold{fn}.
 #'
+#' @section Corner Cases:
+#'
 #' @family time_functions
 #'
 #' @example

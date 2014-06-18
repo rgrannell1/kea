@@ -32,6 +32,10 @@ Kiwi versioning follows the semantic version
 
     ...any -> &lt;integer>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. xVersion

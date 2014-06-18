@@ -29,7 +29,7 @@ Get the indices of the elements that return true for a predicate.
 
 \section{Corner Cases}{
 
-     returns integer(0) if no match is found.
+     returns integer(0) if no match is found, or \bold{coll} is length-zero.
 }
 \examples{
 

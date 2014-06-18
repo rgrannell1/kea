@@ -20,6 +20,8 @@
 #' @return
 #'     A list of lists.
 #'
+#' @section Corner Cases:
+#'
 #' @family combinatoric_functions
 #'
 #' @family set_functions

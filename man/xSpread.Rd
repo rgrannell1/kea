@@ -26,6 +26,10 @@ as a list to its underyling function.
 
    ([any] -> any) -> (...any -> any)
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1.

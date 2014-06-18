@@ -27,6 +27,12 @@ Concatenate a character vector into a single string using a delimiter.
 
     |character| -> |character| -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character vector when \bold{str} or
+  \bold{strs} is length-zero.
+}
 \examples{
 
 # 1. create a simple csv writer.

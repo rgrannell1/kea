@@ -22,6 +22,8 @@
 #' @param
 #'    ... see above.
 #'
+#' @section Corner Cases:
+#'
 #' @return
 #'    A list or pairlist.
 #'

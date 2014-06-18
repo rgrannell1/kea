@@ -28,7 +28,6 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xDropWhile.R
 #'

@@ -31,6 +31,10 @@ Apply an anonymous function to the contents of an kiwi object.
 
     (any -> any) -> any -> any
 }
+
+\section{Corner Cases}{
+
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},

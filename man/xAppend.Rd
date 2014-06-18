@@ -25,6 +25,10 @@ Add a value to the end of a collection.
 
    any -> |any| -> [any]
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 NULL

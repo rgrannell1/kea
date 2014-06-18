@@ -67,6 +67,8 @@
 #' @return
 #'    Returns a unary function of x.
 #'
+#' @section Corner Cases:
+#'
 #' @family function_modifying_functions
 #'
 #' @family function_combining_functions

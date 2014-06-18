@@ -21,6 +21,8 @@
 #' @return
 #'    A variadic function that returns \bold{val}.
 #'
+#' @section Corner Cases:
+#'
 #' @family function_modifying_functions
 #'
 #' @family basic_functions

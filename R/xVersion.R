@@ -26,6 +26,8 @@
 #'    A three-number vector, containing the
 #'    major release number, minor release number and patch number.
 #'
+#' @section Corner Cases:
+#'
 #' @example
 #'    inst/examples/example-xVersion.R
 #'

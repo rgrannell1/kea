@@ -30,6 +30,10 @@ Create a function that returns a particular value.
 
    any -> (...any -> any)
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Capture returns a function that always return a particular value.

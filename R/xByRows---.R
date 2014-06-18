@@ -19,6 +19,8 @@
 #' @return
 #'      A kiwi object containing a list of lists.
 #'
+#' @section Corner Cases:
+#'
 #' @family methods
 #'
 #' @name xByRows

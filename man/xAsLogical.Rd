@@ -28,6 +28,10 @@ Convert a collection of logicals to a logical vector.
 
     |logical| -> &lt;logical>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Convert a list of logicals to an logical vector.

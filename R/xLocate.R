@@ -20,7 +20,7 @@
 #'    An length-one or length-zero whole number.
 #'
 #' @section Corner Cases:
-#'      returns integer(0) if no match is found.
+#'      returns integer(0) if no match is found, or \bold{coll} is length-zero.
 #'
 #' @template
 #'    Variadic

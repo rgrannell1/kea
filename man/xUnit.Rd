@@ -27,6 +27,10 @@ Return the empty version of a collection.
 
     |any| -> ||
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. HR Functional Programming

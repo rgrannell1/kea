@@ -15,6 +15,8 @@
 #' @return
 #'    A boolean value.
 #'
+#' @section Corner Cases:
+#'
 #' @template
 #'    Variadic
 #'

@@ -32,6 +32,8 @@
 #' @return
 #'    A predicate function with the same parametres as \code{pred}.
 #'
+#' @section Corner Cases:
+#'
 #' @family function_modifying_functions
 #'
 #' @example

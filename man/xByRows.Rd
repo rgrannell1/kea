@@ -21,6 +21,9 @@ Convert a matrix or data.frame to a collection of rows.
 
     Column names are preserved by \bold{xByRows}.
 }
+\section{Corner Cases}{
+
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},

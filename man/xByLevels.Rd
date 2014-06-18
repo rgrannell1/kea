@@ -23,6 +23,13 @@ Convert a factor to a collection of levels.
 
 Convert a factor to a collection of the factor's data.
 }
+\section{Corner Cases}{
+
+}
+
+\section{Corner Cases}{
+
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByRowkeys}};

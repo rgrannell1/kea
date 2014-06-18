@@ -23,6 +23,10 @@ Are two values not equal?
 
 \section{Corner Cases}{
 
+}
+
+\section{Corner Cases}{
+
    \bold{xNot} does not allow for minor numeric inequality (0.999999 != 1),
    and treats -0. and 0. as identical.
 }

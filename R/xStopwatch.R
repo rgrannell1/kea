@@ -13,6 +13,8 @@
 #' @return
 #'    A variadic function that ignores its arguments.
 #'
+#' @section Corner Cases:
+#'
 #' @family time_functions
 #'
 #' @family inpure_functions

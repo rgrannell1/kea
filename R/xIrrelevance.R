@@ -12,6 +12,8 @@
 #' @return
 #'    na
 #'
+#' @section Corner Cases:
+#'
 #' @family basic_functions
 #'
 #' @example

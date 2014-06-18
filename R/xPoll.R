@@ -20,12 +20,12 @@
 #' @return
 #'    A non-negative whole number.
 #'
-#' @template
-#'    Variadic
-#'
 #' @section Corner Cases:
 #'    Returns integer(0) when given an empty collection, and zero
 #'    if no matches are found.
+#'
+#' @template
+#'    Variadic
 #'
 #' @example
 #'    inst/examples/example-xPoll.R

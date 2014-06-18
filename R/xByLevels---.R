@@ -12,6 +12,8 @@
 #' @return
 #'      A kiwi object containing a character vector.
 #'
+#' @section Corner Cases:
+#'
 #' @family methods
 #'
 #' @name xByLevels

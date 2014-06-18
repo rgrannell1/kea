@@ -28,6 +28,10 @@ Enumerate every way of subsetting a collection.
 
     |any| -> [[any]]
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. generate all integer partitions of a number with distinct parts

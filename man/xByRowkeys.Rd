@@ -17,6 +17,9 @@ Convert a matrix or data.frame to a collection of column names.
 \details{
 \bold{xByRowkeys} returns the column names of a data frame or matrix.
 }
+\section{Corner Cases}{
+
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}},

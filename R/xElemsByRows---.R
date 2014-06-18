@@ -6,11 +6,13 @@
 #' @usage
 #'      x_(  ) $ xElemsByRows()
 #'
+#' @param
+#'      tab a matrix. The matrix to enumerate by elements.
+#'
 #' @return
 #'      A kiwi object containing a list.
 #'
-#' @param
-#'      tab a matrix. The matrix to enumerate by elements.
+#' @section Corner Cases:
 #'
 #' @family methods
 #'

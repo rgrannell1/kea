@@ -29,6 +29,8 @@
 #' @return
 #'      A kiwi object.
 #'
+#' @section Corner Cases:
+#'
 #' @family methods
 #'
 #' @name xTap

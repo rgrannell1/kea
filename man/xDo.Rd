@@ -32,6 +32,10 @@ collection and discard the results.
 
     (any -> any) -> |any| -> { }
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 #1. print the files in your current directory.

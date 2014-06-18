@@ -67,6 +67,9 @@ Generate a list using set-builder notation.
    In the above pairs of a, b such that their sum is larger than
    two are returned.
 }
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. select prime numbers

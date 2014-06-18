@@ -21,6 +21,10 @@ continuing with the previous method result.
 
     (any -> any) -> any -> any
 }
+
+\section{Corner Cases}{
+
+}
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xDo}}, \code{\link{xDo_}};

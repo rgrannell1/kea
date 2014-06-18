@@ -23,6 +23,8 @@
 #'     A unary function of \bold{coll}, that applies its arguments
 #'     to its underlying function.
 #'
+#' @section Corner Cases:
+#'
 #' @family function_modifying_functions
 #'
 #' @family parametre_functions

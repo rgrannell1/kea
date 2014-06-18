@@ -19,7 +19,8 @@
 #'    an arbitrary value.
 #'
 #' @section Corner Cases:
-#'    If \bold{str} occurs multiple times in \bold{coll} the first match is returned.
+#'    If \bold{str} occurs multiple times in \bold{coll}
+#'    the first match is returned.
 #'
 #' @template
 #'    Variadic
