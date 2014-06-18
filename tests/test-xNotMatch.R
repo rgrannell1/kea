@@ -9,7 +9,7 @@ message('xNotMatch')
 	forall(
 		"character 0 never matches all strings",
 		test_cases$str_word,
-		xNotMatch(character(0), str) == False
+		xNotMatch(character(0), str)  %is% logical(0)
 	)
 
 	forall(
