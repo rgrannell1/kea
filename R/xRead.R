@@ -39,7 +39,7 @@ xRead <- MakeFun(function (str) {
 			readLines(str, warn = False), str, sys.call()
 		)
 
-		paste0(text)
+		paste0(text, collapse = '<n')
 	}
 
 })
