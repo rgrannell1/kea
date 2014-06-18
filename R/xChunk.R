@@ -45,11 +45,13 @@ xChunk <- MakeFun(function (num, coll) {
 	} else if (is.infinite(num)) {
 		list(as.list(coll))
 	} else {
+
 		lapply(
 			seq(1, to = length(coll), by = num),
 			function (lower) {
 				as.list(coll[ lower:min(length(coll), lower + num - 1) ])
 		})
+
 	}
 })
 

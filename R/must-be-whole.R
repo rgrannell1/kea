@@ -11,7 +11,9 @@ Must_Be_Whole <- function (NUM) {
 
 	NUM <- substitute(NUM)
 
-	bquote( if (is_na( .(NUM) )) {
+	bquote( if (length( .(NUM) ) == 0) {
+		True
+	} else if (is_na( .(NUM) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%

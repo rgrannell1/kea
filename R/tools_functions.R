@@ -131,10 +131,6 @@ str_split <- function (rexp, str) {
 	}
 }
 
-is_whole_number <- function (num) {
-	is.numeric(num) && !is_na(num) && !is.finite(num) && round(num) == num
-}
-
 # -- join_exprs
 # --
 # -- join two expressions into a composite expression.
