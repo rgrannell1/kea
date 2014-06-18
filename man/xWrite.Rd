@@ -19,7 +19,11 @@ Write a string to a file.
 }
 \section{Type Signature}{
 
-    |character| -> {}
+    |character| -> { }
+}
+
+\section{Corner Cases}{
+
 }
 \examples{
 

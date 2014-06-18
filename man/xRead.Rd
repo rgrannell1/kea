@@ -22,7 +22,8 @@ Read the contents of a file as a single string.
 
 \section{Corner Cases}{
 
-  xRead ignores missing terminal newlines.
+   xRead ignores missing terminal newlines. If \bold{str} is
+   is length-zero the empty character-vector is returned.
 }
 \examples{
 

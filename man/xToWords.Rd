@@ -24,6 +24,12 @@ The input string is split at spaces, tabs, and newlines,
 
     &lt;character> -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character-vector when \bold{str}
+   is length-zero.
+}
 \examples{
 
 # 1. Find the longest word in a sentence.
