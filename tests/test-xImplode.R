@@ -1,10 +1,8 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
-
-message('xImplode')
+message('xImplode (+)')
 
 	over(strs) +
 
