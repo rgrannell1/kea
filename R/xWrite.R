@@ -16,6 +16,8 @@
 #' @return
 #'    Null, as this is a purely side-effectful function.
 #'
+#' @section Corner Cases:
+#'
 #' @family text_processing_functions
 #'
 #' @family inpure_functions

@@ -36,6 +36,7 @@ xAtKey <- MakeFun(function (str, coll) {
 
 	MACRO( Must_Be_Named(coll) )
 
+	# -- avoid violating the type signature.
 	MACRO( Must_Be_Longer_Than(0, str) )
 
 	# -- will select the first key match

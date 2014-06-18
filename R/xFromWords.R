@@ -16,6 +16,10 @@
 #' @return
 #'    A length-one character vector.
 #'
+#' @section Corner Cases:
+#'    Returns the empty character-vector when \bold{strs}
+#'    is length-zero.
+#'
 #' @family text_processing_functions
 #'
 #' @template
