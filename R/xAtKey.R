@@ -39,6 +39,7 @@ xAtKey <- MakeFun(function (str, coll) {
 
 	# -- avoid violating the type signature.
 	MACRO( Must_Be_Longer_Than(0, str) )
+	MACRO( Must_Contain_Key(str, coll) )
 
 	# -- will select the first key match
 	coll[[str]]

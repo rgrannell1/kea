@@ -29,6 +29,7 @@ Collate:
     'must-be-whole.R'
     'must-be-named.R'
     'must-be-between.R'
+    'must-contain-key.R'
     'must-be-of-length.R'
     'must-all-be-whole.R'
     'must-be-matchable.R'
