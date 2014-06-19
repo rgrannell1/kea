@@ -15,7 +15,6 @@
 #' @section Corner Cases:
 #'    If a variable isn't assigned, then \code{false} is returned.
 #'
-#'
 #' @example
 #'    inst/examples/example-xIsVal.R
 #'
@@ -26,15 +25,6 @@ xIsVal <- MakeFun(function (sym) {
 
 	parent_frame <- parent.frame()
 
-	sym <- substitute(sym)
-	MACRO( Must $ Be_Matchable(sym) )
-
-	sym <- paste(sym)
-
-	if (nchar(sym) == 0) {
-		False
-	} else {
-		exists(sym, parent_frame) &&
-			bindingIsLocked(sym, parent_frame)
-	}
+	exists(sym, parent_frame) &&
+		bindingIsLocked(sym, parent_frame)
 })

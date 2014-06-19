@@ -7,6 +7,6 @@ message("xIdentity (+)")
 	describe('xIdentity always yields its input') +
 	when(
 		True,
-		xIdentity(val) %equals% val
+		xIdentity(val) %is% val
 	) +
 	run()

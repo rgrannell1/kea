@@ -4,7 +4,7 @@
 #' Write a string to a file.
 #'
 #' @section Type Signature:
-#'     |character| -> {}
+#'     |character| -> { }
 #'
 #' @param
 #'    str1 a length-one character vector. The path to
@@ -15,6 +15,9 @@
 #'
 #' @return
 #'    Null, as this is a purely side-effectful function.
+#'
+#' @section Corner Cases:
+#'    xWrite does not write to a file if \bold{str1} is empty.
 #'
 #' @family text_processing_functions
 #'
@@ -28,11 +31,12 @@
 
 xWrite <- MakeFun(function (str1, str2) {
 
-	str  <- unit_to_value(as_atom(str1, "character"))
-	str  <- unit_to_value(as_atom(str2, "character"))
-
-	try_write(
-		writeLines(strs, str, sep = "\n"), str, sys.call())
+	if (length(str1) == 0) {
+		invisible (Null)
+	} else {
+		try_write(
+			writeLines(str2, str1, sep = "\n"), str1, sys.call())
+	}
 
 	invisible (Null)
 })

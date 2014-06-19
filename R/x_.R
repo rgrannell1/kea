@@ -744,11 +744,11 @@ x_coll_proto <- local({
 	add_x_method(this, xNot, 'val1')
 	add_x_method(this, x_Not, 'val1')
 
-	# --- xInter --- #
-	add_x_method(this, xInter, 'colls')
-	add_x_method(this, xInter_, '...')
-	add_x_method(this, x_Inter, 'colls')
-	add_x_method(this, x_Inter_, '...')
+	# --- xInterOf --- #
+	add_x_method(this, xInterOf, 'colls')
+	add_x_method(this, xInterOf_, '...')
+	add_x_method(this, x_InterOf, 'colls')
+	add_x_method(this, x_InterOf_, '...')
 
 	# --- xIsSubset --- #
 	add_x_method(this, xIsSubset, 'coll2')
@@ -904,12 +904,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Partition, 'coll')
 	add_x_method(this, x_Partition_, '...')
 
-	# --- xReorder --- #
-	add_x_method(this, xReorder, 'colls')
-	add_x_method(this, xReorder_, '...')
-	add_x_method(this, x_Reorder, 'colls')
-	add_x_method(this, x_Reorder_, '...')
-
 	# --- xPowerSetOf --- #
 	add_x_method(this, xPowerSetOf, 'coll')
 	add_x_method(this, xPowerSetOf_, '...')
@@ -936,13 +930,6 @@ x_coll_proto <- local({
 	add_x_method(this, xReduce_, '...')
 	add_x_method(this, x_Reduce, 'coll')
 	add_x_method(this, x_Reduce_, '...')
-
-	# --- xRecycle --- #
-
-	add_x_method(this, xRecycle, 'colls')
-	add_x_method(this, xRecycle_, '...')
-	add_x_method(this, x_Recycle, 'colls')
-	add_x_method(this, x_Recycle_, '...')
 
 	# --- xRepeat --- #
 	add_x_method(this, xRepeat, 'coll')

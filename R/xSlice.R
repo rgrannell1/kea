@@ -27,7 +27,7 @@
 #' @section Corner Cases:
 #'    \bold{xSlice} does not allow subscripting values out of bounds, unlike
 #'    base R. If an index larger than the maximum value in \bold{coll} is given
-#'    an error is thrown.
+#'    an error is thrown. The empty list is returned when \bold{nums} is length zero.
 #'
 #' @template
 #'    Variadic
@@ -42,8 +42,8 @@
 
 xSlice <- MakeFun(function (nums, coll) {
 
-	MACRO( Must $ Be_Whole(nums) )
-	MACRO( Must $ Be_Indices(nums, coll) )
+	MACRO( Must_All_Be_Whole(nums) )
+	MACRO( Must_All_Be_Indices(nums, coll) )
 
 	if (length(nums) == 0) {
 		list()

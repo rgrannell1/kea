@@ -7,7 +7,7 @@ message("xCapture (+)")
 	describe('xCapture always yields the same value.') +
 	when(
 		True,
-		xCapture(val)() %equals% val
+		xCapture(val)() %is% val
 	) +
 	run()
 
@@ -15,6 +15,6 @@ message("xCapture (+)")
 	describe('xCaptures result ignores input.') +
 	when(
 		True,
-		xCapture(val1)(val2) %equals% val1
+		xCapture(val1)(val2) %is% val1
 	) +
 	run()

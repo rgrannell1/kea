@@ -4,6 +4,8 @@
 \alias{xList}
 \title{xList[ ]}
 \format{\preformatted{function (...)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 74 2 83 2 9 9 74 83
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x381d0e0> 
  - attr(*, "class")= chr "xlist_builder"
 }}
 \usage{
@@ -66,6 +68,9 @@ Generate a list using set-builder notation.
 
    In the above pairs of a, b such that their sum is larger than
    two are returned.
+}
+\section{Corner Cases}{
+
 }
 \examples{
 

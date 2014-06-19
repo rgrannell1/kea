@@ -47,7 +47,7 @@ Divide a collection into a fixed number of segments.
 
    The final sublist returned by \bold{xChop} may have less elements
    than the other sublists, depending on whether or not the length of \bold{coll}
-   is evenly divisible by \bold{num}. If \bold{coll} is length-zero,
+   is evenly divisible by \bold{num}. If \bold{coll} or \bold{num} is length-zero,
    the empty list is returned.
 }
 \examples{
@@ -62,8 +62,7 @@ Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},
   \code{\link{xJoin_}}; \code{\link{xOneOf}},
   \code{\link{xOneOf_}}; \code{\link{xPrepend}},
-  \code{\link{xPrepend_}}; \code{\link{xRecycle}},
-  \code{\link{xRecycle_}}; \code{\link{xRepeat}},
+  \code{\link{xPrepend_}}; \code{\link{xRepeat}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xShuffle}},
   \code{\link{xShuffle_}}; \code{\link{xSortBy}},

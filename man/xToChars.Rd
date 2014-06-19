@@ -20,6 +20,12 @@ Split a single string into a vector of characters.
 
     &lt;character> -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character-vector when \bold{str}
+   is length-zero.
+}
 \examples{
 
 # 1. CE: Sum of Digits

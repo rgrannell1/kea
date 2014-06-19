@@ -13,6 +13,8 @@
 #' @return
 #'    A boolean value.
 #'
+#' @section Corner Cases:
+#'
 #' @family parametre_functions
 #'
 #' @example

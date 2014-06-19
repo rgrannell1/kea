@@ -20,6 +20,10 @@ xIrrelevance
 
 A function that always returns na.
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Using irrelevance as an identity

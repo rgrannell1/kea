@@ -18,6 +18,10 @@
 #' @return
 #'    an arbitrary value.
 #'
+#' @section Corner Cases:
+#'    If \bold{str} occurs multiple times in \bold{coll}
+#'    the first match is returned.
+#'
 #' @template
 #'    Variadic
 #'
@@ -31,9 +35,10 @@
 
 xAtKey <- MakeFun(function (str, coll) {
 
-	MACRO( Must $ Be_Named(coll) )
+	MACRO( Must_Be_Named(coll) )
 
-	str <- unit_to_value(as_atom(str, 'character'))
+	# -- avoid violating the type signature.
+	MACRO( Must_Be_Longer_Than(0, str) )
 
 	# -- will select the first key match
 	coll[[str]]

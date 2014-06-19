@@ -19,6 +19,8 @@
 #' @return
 #'      The return value of the previous method.
 #'
+#' @section Corner Cases:
+#'
 #' @family methods
 #'
 #' @family inpure_functions

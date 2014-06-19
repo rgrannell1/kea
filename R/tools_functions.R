@@ -50,6 +50,10 @@ is_na <- function (coll) {
 	}, logical(1))
 }
 
+is_nan <- function (val) {
+	isTRUE(identical(val, NaN))
+}
+
 elem_is_na <- function (coll) {
 
 	if (is.atomic(coll)) {
@@ -88,7 +92,7 @@ is_atomic <- function (coll) {
 	if (identical(coll, NULL)) {
 		False
 	} else {
-		is.atomic(coll)
+		is.atomic(coll) && !is.factor(coll)
 	}
 }
 
@@ -191,7 +195,7 @@ one_of <- function (coll) {
 # @keywords internal
 # @rdname pkg-internal
 
-'%equals%' <- function (a, b) identical(a, b)
+'%is%' <- function (a, b) identical(a, b)
 
 as_formals <- function (params) {
 	structure(

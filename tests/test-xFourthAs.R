@@ -9,7 +9,7 @@ message('xFourthAs (+)')
 	describe('always sets the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 4,
-		xFourthAs(val, coll)[[4]] %equals% val
+		xFourthAs(val, coll)[[4]] %is% val
 	) +
 
 	run()

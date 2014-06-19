@@ -31,7 +31,7 @@ Divide a collection into segments of fixed length.
 
    The final list in the return value will have less than \bold{num}
    elements if \code{length(coll)} is not evenly divisible by \bold{num}.
-   if \bold{coll} is length-zero, the empty list is returned.
+   if \bold{coll} or \bold{num} is length-zero, the empty list is returned.
 }
 \examples{
 
@@ -69,8 +69,7 @@ Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},
   \code{\link{xJoin_}}; \code{\link{xOneOf}},
   \code{\link{xOneOf_}}; \code{\link{xPrepend}},
-  \code{\link{xPrepend_}}; \code{\link{xRecycle}},
-  \code{\link{xRecycle_}}; \code{\link{xRepeat}},
+  \code{\link{xPrepend_}}; \code{\link{xRepeat}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xShuffle}},
   \code{\link{xShuffle_}}; \code{\link{xSortBy}},

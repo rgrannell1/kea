@@ -16,11 +16,14 @@
 #' @return
 #'    A length-one character vector.
 #'
+#' @section Corner Cases:
+#'    Returns the empty character-vector when \bold{strs}
+#'    is length-zero.
+#'
 #' @family text_processing_functions
 #'
 #' @template
 #'    Variadic
-#'
 #'
 #' @example
 #'    inst/examples/example-xFromWords.R
@@ -31,7 +34,7 @@
 xFromWords <- MakeFun(function (strs) {
 
 	if (length(strs) == 0) {
-		character()
+		character(0)
 	} else {
 		paste(strs, collapse = ' ')
 	}

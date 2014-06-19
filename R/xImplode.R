@@ -20,6 +20,10 @@
 #' @return
 #'    A length-one character vector.
 #'
+#' @section Corner Cases:
+#'    Returns the empty character vector when \bold{str} or
+#'   \bold{strs} is length-zero.
+#'
 #' @family text_processing_functions
 #'
 #' @template
@@ -33,16 +37,10 @@
 
 xImplode <- MakeFun(function (str, strs) {
 
-	str  <- unit_to_value(as_atom(str, 'character'))
-
-	if (length(strs) == 0) {
-		character()
+	if (length(str) == 0 || length(strs) == 0) {
+		character(0)
 	} else {
-
-		paste(
-			strs[nchar(strs) != 0 &
-			vapply(strs, length, integer(1), USE.NAMES = False) != 0],
-			collapse = str)
+		paste(strs, collapse = str)
 	}
 })
 

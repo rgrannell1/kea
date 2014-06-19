@@ -26,7 +26,8 @@ Remove the first element from a collection.
 
 \section{Corner Cases}{
 
-   Returns the empty list if \bold{coll} is length-zero.
+   Returns the empty list if \bold{coll} is length-zero
+   or length-one.
 }
 \examples{
 

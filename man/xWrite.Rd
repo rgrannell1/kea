@@ -19,7 +19,12 @@ Write a string to a file.
 }
 \section{Type Signature}{
 
-    |character| -> {}
+    |character| -> { }
+}
+
+\section{Corner Cases}{
+
+   xWrite does not write to a file if \bold{str1} is empty.
 }
 \examples{
 

@@ -37,6 +37,8 @@
 #' @return
 #'    The return value of \bold{fn}.
 #'
+#' @section Corner Cases:
+#'
 #' @family function_application_functions
 #'
 #' @template

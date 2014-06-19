@@ -12,6 +12,9 @@
 #' @return
 #'    true
 #'
+#' @section Corner Cases:
+#'    Arguments given to \bold{xTruth} are dropped.
+#'
 #' @family basic_functions
 #'
 #' @example

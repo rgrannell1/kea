@@ -80,7 +80,7 @@ message("non_variadic functions")
 	forall(
 		"all forms of unary functions are functioning.",
 		list(id = kiwi_unary, coll = compounds$collection),
-		id(coll) %equals% coll
+		id(coll) %is% coll
 	)
 
 	forall(
@@ -106,7 +106,7 @@ message("variadic functions")
 		list(
 			id = kiwi_unary_variadic,
 			coll = compounds$collection),
-		id(coll) %equals% list(coll)
+		id(coll) %is% list(coll)
 	)
 
 	forall(

@@ -17,6 +17,10 @@
 #' @return
 #'    A character vector.
 #'
+#' @section Corner Cases:
+#'    Returns the empty character-vector when \bold{str}
+#'    is length-zero.
+#'
 #' @family text_processing_functions
 #'
 #' @example
@@ -26,8 +30,6 @@
 #' @export
 
 xToLines <- MakeFun(function (str) {
-
-	str <- as_typed_vector(str, 'character')
 
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)

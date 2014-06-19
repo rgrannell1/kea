@@ -9,7 +9,7 @@ message("xProdSetOf")
 	forall(
 		"setprod of any empty collection is empty list",
 		test_cases$two_collections,
-		xProdSetOf(list(coll1, coll2)) %equals% list(),
+		xProdSetOf(list(coll1, coll2)) %is% list(),
 		given =
 			prod(length(coll1), length(coll2)) == 0
 	)

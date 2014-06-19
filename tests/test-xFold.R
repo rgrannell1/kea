@@ -34,7 +34,7 @@ message("xFold")
 	forall(
 		"folding plus is sum",
 		test_cases$sum_over_integers,
-		xFold(fn, 0, coll) %equals% sum(coll),
+		xFold(fn, 0, coll) %is% sum(coll),
 		given =
 			length(coll) > 0
 	)

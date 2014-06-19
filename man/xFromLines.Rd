@@ -24,6 +24,12 @@ Concatentate a character vector with newlines as delimiters.
 
     |character| -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character-vector when \bold{strs}
+   is length-zero.
+}
 \examples{
 
 NULL

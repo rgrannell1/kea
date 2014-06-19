@@ -31,7 +31,7 @@
 xFourthOf <- MakeFun(function (coll) {
 
 
-	MACRO( Must $ Be_Longer_Than(3, coll) )
+	MACRO( Must_Be_Longer_Than(3, coll) )
 
 	coll[[4]]
 })

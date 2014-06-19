@@ -20,7 +20,6 @@
 #'     required in the first case, to avoid a parametre name class between the argument of
 #'     \bold{xMap} to fix (fn) and the function passed to \bold{xFix} (fn).
 #'
-#'
 #' @param
 #'    fn an arbitrary function. The function to have some
 #'    of its arguments fixed.
@@ -55,7 +54,7 @@ xFix <- MakeFun(function (fn, coll) {
 	fn <- match_fn(fn)
 	names_of_coll <- names(coll)
 
-	MACRO( Must $ Be_Parametres_Of(names_of_coll, fn) )
+	MACRO( Must_Be_Parametres_Of(names_of_coll, fn) )
 
 	names(coll) <- local({
 

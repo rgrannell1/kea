@@ -45,15 +45,14 @@ NULL
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInter}},
-  \code{\link{xInter_}}; \code{\link{xIsMember}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
+  \code{\link{xInterOf_}}; \code{\link{xIsMember}},
   \code{\link{xIsMember_}}; \code{\link{xIsSubset}},
   \code{\link{xIsSubset_}}; \code{\link{xNotMember}},
   \code{\link{xNotMember_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}; \code{\link{xUniqueOf}},
+  \code{\link{xProdSetOf_}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf_}}
 }
 

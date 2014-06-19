@@ -78,6 +78,10 @@ Compose a function with the outputs of other functions.
 
     (any -> any -> any) -> |(any -> any)| -> (...any -> any)
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Join multiple predicates into one predicate with '\%or\%'

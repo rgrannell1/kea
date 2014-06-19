@@ -43,9 +43,9 @@
 
 xAddKeys <- MakeFun(function (strs, coll) {
 
-	MACRO( Must $ Be_Equal_Length_To(strs, coll) )
+	MACRO( Must_Be_Equal_Length_To(strs, coll) )
 
-	coll <- as.list(coll)
+	coll        <- as.list(coll)
 	names(coll) <- strs
 	coll
 })

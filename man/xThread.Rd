@@ -30,7 +30,7 @@ Iteratively apply a list of functions to a value.
 
 \section{Corner Cases}{
 
-   Returns the empty list if \bold{coll} is length-zero.
+   If no functions are supplied by \bold{fns}, \bold{val} is returned as is.
 }
 \examples{
 

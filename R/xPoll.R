@@ -20,12 +20,12 @@
 #' @return
 #'    A non-negative whole number.
 #'
-#' @template
-#'    Variadic
-#'
 #' @section Corner Cases:
 #'    Returns integer(0) when given an empty collection, and zero
 #'    if no matches are found.
+#'
+#' @template
+#'    Variadic
 #'
 #' @example
 #'    inst/examples/example-xPoll.R
@@ -47,7 +47,7 @@ xPoll <- MakeFun(function (pred, coll) {
 
 			is_match <- pred( coll[[ith]] )
 
-			MACRO( Must $ Be_Flag(is_match, pred) )
+			MACRO( Must_Be_Flag(is_match, pred) )
 
 			if (isTRUE(is_match)) {
 				count <- count + 1

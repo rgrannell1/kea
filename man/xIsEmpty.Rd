@@ -23,6 +23,10 @@ Is a collection length-zero?
 
     |any| -> &lt;logical>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1.

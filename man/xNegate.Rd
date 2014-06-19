@@ -37,6 +37,10 @@ Return the logical negation of a function.
 
     (any -> &lt;logical>) -> (any -> &lt;logical>)
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Reverse a type checking predicate

@@ -40,7 +40,7 @@ xSplitWith <- local({
 
 			is_match <- pred( coll[[ith]], coll[[ith + 1]] )
 
-			MACRO( Must $ Be_Flag(is_match, pred) )
+			MACRO( Must_Be_Flag(is_match, pred) )
 
 			if (isTRUE(is_match)) {
 

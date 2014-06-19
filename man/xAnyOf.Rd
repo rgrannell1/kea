@@ -29,7 +29,8 @@ Is a predicate true for any element of a collection?
 
 \section{Corner Cases}{
 
-   If coll is length zero then logical(0) is returned. Na values are treated as False.
+   If coll is length zero then logical(0) is returned.
+   Na values are treated as False.
 }
 \examples{
 

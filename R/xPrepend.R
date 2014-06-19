@@ -18,6 +18,10 @@
 #' @return
 #'    A list.
 #'
+#' @section Corner Cases:
+#'    Returns a list containing \bold{val} when \bold{coll}
+#'    is length-zero.
+#'
 #' @template
 #'    Variadic
 #'

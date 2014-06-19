@@ -36,7 +36,7 @@ Select a collection at certain indices.
 
    \bold{xSlice} does not allow subscripting values out of bounds, unlike
    base R. If an index larger than the maximum value in \bold{coll} is given
-   an error is thrown.
+   an error is thrown. The empty list is returned when \bold{nums} is length zero.
 }
 \examples{
 

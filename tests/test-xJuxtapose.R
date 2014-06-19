@@ -9,18 +9,18 @@ message("xJuxtapose")
 	forall(
 		"juxtaposing preserves identities within the list",
 		test_cases$num_positive_integer,
-		xJuxtapose(list(identity))(num) %equals% list(num)
+		xJuxtapose(list(identity))(num) %is% list(num)
 	)
 
 	forall(
 		"juxtaposing can apply multiple functions",
 		test_cases$num_positive_integer,
-		xJuxtapose(list(identity, identity))(num) %equals% list(num, num)
+		xJuxtapose(list(identity, identity))(num) %is% list(num, num)
 	)
 
 	forall(
 		"juxtaposing works with incrementing",
 		test_cases$succ_over_integers,
-		xJuxtapose(list(fn))(coll) %equals% list(coll + 1)
+		xJuxtapose(list(fn))(coll) %is% list(coll + 1)
 )
 

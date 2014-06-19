@@ -43,13 +43,11 @@
 
 xAtCol <- MakeFun(function (num, colls) {
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
-
-	if (length(colls) == 0) {
+	if (length(colls) == 0 || length(num) == 0) {
 		list()
 	} else {
 
-		MACRO( Must $ Be_Collection_Of_Lengths_In_Range(colls, num, Inf) )
+		MACRO( Must_Be_Collection_Of_Lengths_In_Range(colls, num, Inf) )
 
 		lapply(colls, function (coll) {
 			coll[[num]]

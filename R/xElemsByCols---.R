@@ -12,6 +12,8 @@
 #' @return
 #'      A kiwi object containing a list.
 #'
+#' @section Corner Cases:
+#'
 #' @family methods
 #'
 #' @name xElemsByCols

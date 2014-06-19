@@ -5,7 +5,7 @@
 #' collection and discard the results.
 #'
 #' @section Type Signature:
-#'     (any -> any) -> |any| -> {}
+#'     (any -> any) -> |any| -> { }
 #'
 #' @details
 #'     \bold{xDo} is superficially similar to \bold{xMap}, in that
@@ -24,6 +24,8 @@
 #'
 #' @return
 #'    A list.
+#'
+#' @section Corner Cases:
 #'
 #' @template
 #'    Variadic

@@ -23,6 +23,7 @@ colourise <- local({
 			("COLORTERM" %in% set_env_vars) && !is_na(COLORTERM)
 
 		isTRUE(matching_TERM || matching_COLORTERM)
+
 	}
 
 	colouriser <- function (code) {

@@ -30,7 +30,11 @@ collection and discard the results.
 }
 \section{Type Signature}{
 
-    (any -> any) -> |any| -> {}
+    (any -> any) -> |any| -> { }
+}
+
+\section{Corner Cases}{
+
 }
 \examples{
 

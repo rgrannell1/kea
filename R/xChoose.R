@@ -24,7 +24,8 @@
 #'    A list of lists, with each list containing \bold{num} elements.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \bold{num} is zero.
+#'      Returns the empty list if \bold{num} is zero, \bold{num} is empty,
+#'      or \bold{coll} is empty.
 #'
 #' @family combinatoric_functions
 #'
@@ -39,12 +40,10 @@
 
 xChoose <- MakeFun(function (num, coll) {
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
+	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 0, Inf))
 
-	MACRO( Must $ Be_Whole(num) )
-	MACRO( Must $ Be_Between(num, 0, Inf))
-
-	if (num == 0) {
+	if (num == 0 || length(num) == 0) {
 		list()
 	} else if (length(coll) == 0) {
 		list()

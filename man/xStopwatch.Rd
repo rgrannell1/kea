@@ -19,6 +19,10 @@ Create a function that returns true for a preset time after creation.
 
    |number| -> (...any -> &lt;logical>)
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Monte Carlo estimation of Pi

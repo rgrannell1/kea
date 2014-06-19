@@ -1,4 +1,66 @@
 
+Kiwi 0.24.0
+-----------------------------------------------------------------------------
+Date: 2014-6-18
+
+Major internal update, changes corner-cases of most functions, removed two functions.
+
+Enhancements:
+
+* Renamed xInter to xInterOf, for consistancy with xUnionOf.
+
+* Removed xRecycle, as it is now possible to recycle with xRepeat, xMap and xTake easily.
+
+* Removed xReorder, as xSlice and xMap can reorder easily.
+
+* Functions that take a number or string now treat numeric(0) or string(0) in a similar
+manner to how collection functions return the empty collection. Conceptually, these atomic
+inputs are treated like values in a Maybe type.
+
+This is more logical than the previous behaviour of converting empty numbers or strings
+to length-one values, but there are likely bad corner cases introduced in this release that
+will be ironed out in the future.
+
+* xAnyOf, ..., xNoneOf, xSelect, xReject, xPartition, xDropWhile,
+xTakeWhile, xPoll, xSplitWith now throws an error if a non-boolean result is given by
+an input predicate.
+
+Bug Fixes:
+
+* xChop and xChunk now respond useful errors for NaN values.
+
+* Functions that require collections no longer accept factors.
+
+* xJuxtapose no longer has the insane corner-case of returning the empty list
+when supplied no functions; it now returns a function as it originally should have.
+
+* xImplode no longer excludes length-zero or empty strings
+from its input collection.
+
+Documentation:
+
+* Improved documentation of corner-cases.
+
+Package Internals:
+
+* Refactored macros into their own files; this should aid testing significantly.
+
+* num, str...str2, rexp have their type-checking code automatically injected into
+kiwi functions now.
+
+* Added a forall-next test for xImplode
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.23.0
 -----------------------------------------------------------------------------
 Date: 2014-6-14
@@ -18,7 +80,7 @@ underscores.
 
 Bug Fixes:
 
-* arrow functions now correctly displays where its errors were raised from.
+* Arrow functions now correctly displays where its errors were raised from.
 
 * Fixed a typo in arrow function error message.
 

@@ -30,12 +30,7 @@
 
 xAsVar <- MakeFun(function (sym) {
 
-	sym <- substitute(sym)
-	MACRO( Must $ Be_Matchable(sym) )
-
-	sym <- paste(sym)
-
-	MACRO( Must $ Be_Existing_Ref(sym) )
+	MACRO( Must_Be_Existing_Ref(sym) )
 
 	unlockBinding(sym, parent.frame())
 })

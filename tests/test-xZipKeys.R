@@ -9,7 +9,7 @@ message("xZipKeys (+)")
 	describe('xZipKeys of the empty collection is list()') +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xZipKeys(coll) %equals% list()
+		xZipKeys(coll) %is% list()
 	) +
 
 	describe('xZipKeys zips names for pairs') +
@@ -18,7 +18,7 @@ message("xZipKeys (+)")
 		{
 			pairs <- lapply(coll, function (elem) list(elem, elem))
 
-			xZipKeys(pairs) %equals% as.list(structure(coll, names = coll))
+			xZipKeys(pairs) %is% as.list(structure(coll, names = coll))
 		}
 	) +
 

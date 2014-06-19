@@ -30,7 +30,7 @@ Subset a string using normal R vector indexing.
 
 \section{Corner Cases}{
 
-     Returns the empty list if \bold{coll} is length-zero. If any number in
+     Returns the empty list if \bold{coll} or \bold{str} is length-zero. If any number in
      nums is larger than the length of \bold{coll} an error is thrown.
 }
 \examples{

@@ -18,6 +18,10 @@ A function that always returns false.
 
    ..any -> &lt;logical>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Using falsity as an identity

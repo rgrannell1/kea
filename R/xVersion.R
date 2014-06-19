@@ -26,6 +26,9 @@
 #'    A three-number vector, containing the
 #'    major release number, minor release number and patch number.
 #'
+#' @section Corner Cases:
+#'    Any arguments passed to \bold{xVersion} are dropped.
+#'
 #' @example
 #'    inst/examples/example-xVersion.R
 #'
@@ -35,5 +38,5 @@
 #' @export
 
 xVersion <- function (...) {
-	c(0L, 23L, 0L)
+	c(0L, 24L, 0L)
 }

@@ -20,7 +20,8 @@
 #'    A boolean value.
 #'
 #' @section Corner Cases:
-#'    If coll is length zero then logical(0) is returned. Na values are treated as False.
+#'    If coll is length zero then logical(0) is returned.
+#'    Na values are treated as False.
 #'
 #' @family quantifier_functions
 #'
@@ -40,8 +41,13 @@ xAnyOf <- MakeFun(function (pred, coll) {
 	} else {
 
 		for (elem in coll) {
-			if ( isTRUE(pred(elem)) ) {
-				return(True)
+
+			is_match <- pred(elem)
+
+			MACRO(Must_Be_Flag(is_match, pred))
+
+			if ( isTRUE(is_match) ) {
+				return (True)
 			}
 		}
 

@@ -20,6 +20,9 @@
 #' @return
 #'     A list of lists.
 #'
+#' @section Corner Cases:
+#'     Returns the empty list if \bold{coll} is length-zero.
+#'
 #' @family combinatoric_functions
 #'
 #' @family set_functions

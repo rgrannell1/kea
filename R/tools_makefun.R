@@ -6,19 +6,30 @@
 # have corresponding expressions that check properties of
 # the coresponding argument.
 
+# MakeFun has evolved into a quasi-type system. The rules are complicated
+# by R's use of vectorisation.
+#
+# flags - single strings, numbers or boolean values - have to be treated
+# like Maybe; when a function takes an atom it usually returns an empty value
+# for an empty atom.
+#
+
 write_preconditions <- local({
 
 	param_preconds <- list()
 
 	for (param in c('fn', 'fn1', 'fn2', 'pred', 'pred1', 'pred2')) {
 		param_preconds[[param]] <-
-			do.call( Must $ Be_Fn_Matchable, list(as.symbol(param)) )
+			do.call( Must_Be_Fn_Matchable, list(as.symbol(param)) )
 	}
 
 	param_preconds $ fns <- {
-		Must $ Be_Collection(fns)
-		Must $ Be_Collection_Of_Fn_Matchable(fns)
+		Must_Be_Collection(fns)
+		Must_Be_Collection_Of_Fn_Matchable(fns)
 	}
+
+	param_preconds $ sym <-
+		Must_Be_Matchable(substitute(sym))
 
 	for (param in c(
 		'coll', 'coll1', 'coll2',
@@ -27,11 +38,11 @@ write_preconditions <- local({
 		'str', 'str1', 'str2')) {
 
 		param_preconds[[param]] <-
-			do.call( Must $ Be_Collection, list(as.symbol(param)) )
+			do.call( Must_Be_Collection, list(as.symbol(param)) )
 	}
 
 	param_preconds $ colls <-
-		Must $ Be_Collection_Of_Collections(colls)
+		Must_Be_Collection_Of_Collections(colls)
 
 	function (params) {
 
@@ -64,26 +75,49 @@ write_preconditions <- local({
 write_boilerplate <- function (params) {
 
 	param_boilerplate <- list(
-		fn   = list(
+		fn    = list(
 			quote(fn <- match_fn(fn))
 		),
-		pred = list(
+		pred  = list(
 			quote(pred <- match_fn(pred))
 		),
-		fns  = list(
+		fns   = list(
 			quote(lapply(fns, match_fn))
 		),
-		nums = list(
+
+		num   = list(
+			quote(num <- as_atom(num, 'numeric'))
+		),
+
+		nums  = list(
 			quote(nums <- as_typed_vector(nums, 'numeric'))
 		),
-		strs = list(
+		strs  = list(
 			quote(strs <- as_typed_vector(strs, 'character'))
 		),
-		ints = list(
+		ints  = list(
 			quote(ints <- as_typed_vector(ints, 'integer'))
 		),
 		bools = list(
 			quote(bools <- as_typed_vector(bools, 'logical'))
+		),
+		sym   = list(
+			quote(sym   <- substitute(sym)),
+			quote(sym   <- paste(sym))
+		),
+
+		str   = list(
+			quote(str  <- as_atom(str, "character"))
+		),
+		str1   = list(
+			quote(str1 <- as_atom(str1, "character"))
+		),
+		str2   = list(
+			quote(str2 <- as_atom(str2, "character"))
+		),
+
+		rexp   = list(
+			quote(rexp <- as_atom(rexp, "character"))
 		)
 	)
 
@@ -242,7 +276,7 @@ MakeVariadic <- function (fn, fixed) {
 		# --  correctly resolved.
 		.( eval(fix_macro_call) )
 
-		MACRO( Must $ Have_Canonical_Arguments() )
+		MACRO( Must_Have_Canonical_Arguments() )
 
 		.(
 			( as.call(c(

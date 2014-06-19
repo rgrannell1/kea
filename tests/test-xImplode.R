@@ -1,19 +1,15 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message('xImplode (+)')
 
-message('xImplode')
+	over(strs) +
 
-	forall(
-		"collapsing with character() is the same as collapsing with ''",
-		test_cases$str_words,
-		xImplode('', strs) %equals% xImplode(character(0), strs)
-	)
+	describe('collapsing with character 0 is character 0') +
+	when(
+		is.character(strs),
+		xImplode(character(0), strs) %is% character(0)
+	) +
 
-	forall(
-		"collapsing character() and '' acts as identity ",
-		test_cases$str_word_and_words,
-		xImplode(str, strs) %equals% xImplode(str, strs[length(strs) != 0])
-	)
+	run()

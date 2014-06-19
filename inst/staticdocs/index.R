@@ -17,16 +17,12 @@ sd_section(
 		"xFromLines",
 		"xFromWords",
 		"xImplode",
-		"xReadChars",
-		"xReadLines",
-		"xReadWords",
+		"xRead",
 		"xSliceString",
 		"xToChars",
 		"xToLines",
 		"xToWords",
-		"xWriteChars",
-		"xWriteLines",
-		"xWriteWords"
+		"xWrite"
 	)
 )
 
@@ -44,7 +40,6 @@ sd_section(
 	c(
 		"xChoose",
 		"xCycle",
-		"xReorder",
 		"xProdSetOf",
 		"xPowerSetOf"
 	)
@@ -130,14 +125,10 @@ sd_section(
 		"xDelay",
 		"xDo",
 		"xExecute",
-		"xReadChars",
-		"xReadLines",
-		"xReadWords",
+		"xRead",
 		"xStopwatch",
 		"xVersion",
-		"xWriteChars",
-		"xWriteWords",
-		"xWriteLines"
+		"xWrite",
 	)
 )
 
@@ -145,8 +136,8 @@ sd_section(
 	"Methods",
 	paste(
 		"<p>",
-		"These functions involve kiwi methods, or are only available as kiwi methods.",
-		"Most functions that are only available as methods convert second-class citizens of kiwi",
+		"These functions involve arrow methods, or are only available as arrow methods.",
+		"Most functions that are only available as methods convert second-class citizens of arrow",
 		"like data frames and factors to collection representations.",
 		"</p>"
 	),
@@ -191,7 +182,7 @@ sd_section(
 		"a function that combines two values (like the ",
 		"plus operator, the function 'c', or the function rbind), and applies ",
 		"it to a collection of values, ultimately yielding a single value. In general, ",
-		"folds can be in place of tail recursion or loops, and most functions in kiwi ",
+		"folds can be in place of tail recursion or loops, and most functions in arrow ",
 		"can be implemented as a fold.",
 		"</p>"
 	),
@@ -339,7 +330,6 @@ sd_section(
 		"xGroupBy",
 		"xJoin",
 		"xOneOf",
-		"xRecycle",
 		"xRepeat",
 		"xReverse",
 		"xShuffle",
@@ -395,7 +385,7 @@ sd_section(
 	),
 	c(
 		"xDuplicatesOf",
-		"xInter",
+		"xInterOf",
 		"xIsMember",
 		"xIsSubset",
 		"xNotMember",
@@ -484,3 +474,4 @@ sd_section(
 		"xNotTrue"
 	)
 )
+

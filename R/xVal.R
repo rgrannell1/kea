@@ -3,7 +3,6 @@
 #'
 #' Assign a constant value to the calling environment.
 #'
-#'
 #' @details
 #'    xVal works like normal R assignment, with the exception
 #'    that if any attempt to update the assigned variable
@@ -30,7 +29,7 @@
 #'    Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
-#'    Overwrites the value referenced by \code{sym}r if the variable
+#'    \bold{xVals} overwrites the value referenced by \code{sym} if the variable
 #'    already exists in the parent frame.
 #'
 #' @family immutable_value_functions
@@ -44,11 +43,6 @@
 xVal <- MakeFun(function (sym, val) {
 
 	parent_frame <- parent.frame()
-
-	sym <- substitute(sym)
-	MACRO( Must $ Be_Matchable(sym) )
-
-	sym <- paste(sym)
 
 	# -- check if binding is unlocked.
 

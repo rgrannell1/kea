@@ -44,10 +44,10 @@ xUnzipKeys <- MakeFun(function (coll) {
 		list()
 	} else {
 
-		MACRO( Must $ Be_Named(coll) )
+		MACRO( Must_Be_Named(coll) )
 
 		colnames <- names(coll)
-		# wipe the names from the collection.
+		# -- wipe the names from the collection.
 		coll <- unname(coll)
 
 		lapply(seq_along(coll), function (ith) {

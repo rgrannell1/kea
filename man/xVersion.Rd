@@ -32,6 +32,11 @@ Kiwi versioning follows the semantic version
 
     ...any -> &lt;integer>
 }
+
+\section{Corner Cases}{
+
+   Any arguments passed to \bold{xVersion} are dropped.
+}
 \examples{
 
 # 1. xVersion

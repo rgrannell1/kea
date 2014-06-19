@@ -9,14 +9,14 @@ message("xPrepend (+)")
 	describe("joining with empty collection is list(val)") +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xPrepend(val, coll) %equals% list(val)
+		xPrepend(val, coll) %is% list(val)
 	) +
 
 	describe("adds to front of collection") +
 	when(
 		is_collection(coll),
 		length(xPrepend(val, coll)) == length(coll) + 1,
-		xPrepend(val, coll)[[1]] %equals% val
+		xPrepend(val, coll)[[1]] %is% val
 	) +
 
 	run()

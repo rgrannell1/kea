@@ -28,9 +28,7 @@ Return the indices for which a boolean vector is true.
 \section{Corner Cases}{
 
    Returns the empty list if \bold{coll} is length-zero,
-   or no match is found. If the predicate returns a
-   non-logical value an error is thrown. If an na value
-   is returned by the predicate it is treated as a false value.
+   or no match is found. NA values are treated as false.
 }
 \examples{
 

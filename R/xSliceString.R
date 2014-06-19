@@ -21,7 +21,7 @@
 #'      A character vector.
 #'
 #' @section Corner Cases:
-#'      Returns the empty list if \bold{coll} is length-zero. If any number in
+#'      Returns the empty list if \bold{coll} or \bold{str} is length-zero. If any number in
 #'      nums is larger than the length of \bold{coll} an error is thrown.
 #'
 #' @family text_processing_functions
@@ -37,19 +37,17 @@
 
 xSliceString <- MakeFun(function (str, nums) {
 
-	str <- unit_to_value(as_atom(str, "character"))
-
-	MACRO( Must $ Be_Whole(nums) )
+	MACRO( Must_All_Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
 		character(0)
 	} else if (length(nums) == 0) {
-		str
+		character(0)
 	} else {
 
 		chars <- str_split("", str)
 
-		MACRO( Must $ Be_Indices(nums, chars) )
+		MACRO( Must_All_Be_Indices(nums, chars) )
 
 		paste0(chars[nums], collapse = "")
 	}

@@ -22,7 +22,7 @@
 #' @section Corner Cases:
 #'    The final list in the return value will have less than \bold{num}
 #'    elements if \code{length(coll)} is not evenly divisible by \bold{num}.
-#'    if \bold{coll} is length-zero, the empty list is returned.
+#'    if \bold{coll} or \bold{num} is length-zero, the empty list is returned.
 #'
 #' @family reshaping_functions
 #'
@@ -37,21 +37,21 @@
 
 xChunk <- MakeFun(function (num, coll) {
 
+	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 1, Inf))
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
-
-	MACRO( Must $ Be_Between(num, 1, Inf))
-
-	if (length(coll) == 0) {
+	if (length(coll) == 0 || length(num) == 0) {
 		list()
 	} else if (is.infinite(num)) {
 		list(as.list(coll))
 	} else {
+
 		lapply(
 			seq(1, to = length(coll), by = num),
 			function (lower) {
 				as.list(coll[ lower:min(length(coll), lower + num - 1) ])
 		})
+
 	}
 })
 

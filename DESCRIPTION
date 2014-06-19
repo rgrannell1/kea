@@ -6,7 +6,7 @@ Description: **Kiwi** is a functional programming framework that adds partial
     one-hundred higher-order functions and utility functions to the R language.
     Kiwi makes R an elegant functional language with an emphasis on the
     composition of simple functions to create complex, expressive programs.
-Version: 0.23.0
+Version: 0.24.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -17,12 +17,35 @@ License: GPL-3
 Roxygen: list(wrap = FALSE)
 Collate:
     'values.R'
+    'tools_forall_next.R'
     'tools_functions.R'
     'tools_summate.R'
     'tools_as_typed_vector.R'
     'tools_colourise.R'
     'tools_assertion.R'
     'tools_macros.R'
+    'must-be-flag.R'
+    'must-be-file.R'
+    'must-be-whole.R'
+    'must-be-named.R'
+    'must-be-between.R'
+    'must-be-of-length.R'
+    'must-all-be-whole.R'
+    'must-be-matchable.R'
+    'must-be-collection.R'
+    'must-be-longer-than.R'
+    'must-all-be-indices.R'
+    'must-be-fn-matchable.R'
+    'must-be-positive-index.R'
+    'must-be-equal-length-to.R'
+    'must-all-be-positive-indices.R'
+    'must-have-canonical-arguments.R'
+    'must-be-collection-of-collections.R'
+    'must-be-collection-of-fn-matchable.R'
+    'must-be-collection-of-equal-length.R'
+    'must-be-collection-of-lengths-in-range.R'
+    'must-be-parametres-of.R'
+    'must-be-existing-ref.R'
     'tools_fix.R'
     'tools_makefun.R'
     'xTap---.R'
@@ -35,7 +58,6 @@ Collate:
     'xElemsByRows---.R'
     'xExecute---.R'
     'tools_forall.R'
-    'tools_forall_next.R'
     'xLambda.R'
     'xApply.R'
     'xAsLogical.R'
@@ -121,7 +143,7 @@ Collate:
     'xChoose.R'
     'xIsMember.R'
     'xUnionOf.R'
-    'xInter.R'
+    'xInterOf.R'
     'xThread.R'
     'xPluck.R'
     'xJoin.R'
@@ -131,7 +153,6 @@ Collate:
     'xAsVar.R'
     'xAsVal.R'
     'xIterate.R'
-    'xReorder.R'
     'xReverse.R'
     'xMapply.R'
     'xUniqueOf.R'
@@ -151,7 +172,6 @@ Collate:
     'xList.R'
     'xOneOf.R'
     'xAt.R'
-    'xRecycle.R'
     'xAtCol.R'
     'xAllOf.R'
     'xAnyOf.R'

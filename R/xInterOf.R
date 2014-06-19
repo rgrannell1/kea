@@ -1,5 +1,5 @@
 
-#' xInter
+#' xInterOf
 #'
 #' Get the set intersection of several collections.
 #'
@@ -25,12 +25,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xInter.R
+#'    inst/examples/example-xInterOf.R
 #'
-#' @rdname xInter
+#' @rdname xInterOf
 #' @export
 
-xInter <- MakeFun(function (colls) {
+xInterOf <- MakeFun(function (colls) {
 
 	if (length(colls) == 0) {
 		list()
@@ -48,7 +48,7 @@ xInter <- MakeFun(function (colls) {
 	}
 })
 
-#' @rdname xInter
+#' @rdname xInterOf
 #' @export
 
-xInter_ <- MakeVariadic(xInter, 'colls')
+xInterOf_ <- MakeVariadic(xInterOf, 'colls')

@@ -40,7 +40,13 @@ xAllOf <- MakeFun(function (pred, coll) {
 		logical(0)
 	} else {
 		all(vapply(coll, function (elem) {
-			isTRUE(pred(elem))
+
+			is_match <- pred(elem)
+
+			MACRO(Must_Be_Flag(is_match, pred))
+
+			isTRUE(is_match)
+
 		}, logical(1), USE.NAMES = False))
 	}
 })

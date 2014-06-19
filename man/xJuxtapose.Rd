@@ -45,7 +45,8 @@ Create a function that applies an argument to a list of underlying functions.
 
 \section{Corner Cases}{
 
-   If no functions are provided the empty list is returned.
+   If no functions are provided the returned function
+   returns the empty list for any inputs.
 }
 \examples{
 

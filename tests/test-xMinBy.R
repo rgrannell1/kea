@@ -9,7 +9,7 @@ message("xMinBy")
 	forall(
 		"min of one element in one element",
 		test_cases $ collection,
-		xMinBy( xI, coll[1] ) %equals% coll[[1]],
+		xMinBy( xI, coll[1] ) %is% coll[[1]],
 		given =
 			length(coll) > 0
 	)

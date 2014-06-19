@@ -8,7 +8,7 @@
 #'    ([any] -> any) -> (...any -> any)
 #'
 #' @details
-#'    \code{xSpread} takes a unary function and
+#'    \bold{xSpread} takes a unary function and
 #'    returns a function with ellipsis parametres.
 #'    The returned function passes its ellipsis arguments
 #'    as a single list to the underlying function.
@@ -19,6 +19,8 @@
 #'
 #' @return
 #'    A variadic function.
+#'
+#' @section Corner Cases:
 #'
 #' @family function_modifying_functions
 #'

@@ -31,7 +31,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \bold{coll} is length-zero.
+#'    Returns the empty list if \bold{coll} or \bold{num} is length-zero.
 #'    Flattening to infinite doesn't affect the depth of the output list.
 #'    Flattening to one level flattens the list fully.
 #'
@@ -48,12 +48,10 @@
 
 xFlatten <- MakeFun(function (num, coll) {
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
+	MACRO( Must_Be_Between(num, 1, Inf))
+	MACRO( Must_Be_Whole(num) )
 
-	MACRO( Must $ Be_Between(num, 1, Inf))
-	MACRO( Must $ Be_Whole(num) )
-
-	if (length(coll) == 0) {
+	if (length(coll) == 0 || length(num) == 0) {
 		list()
 	} else if (is_atomic(coll)) {
 		# -- it is flat!

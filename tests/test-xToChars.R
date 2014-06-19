@@ -9,7 +9,7 @@ message('xToChars')
 	forall(
 		"chars of the empty string is an empty vector",
 		list(),
-		xToChars('') %equals% character(0)
+		xToChars('') %is% character(0)
 	)
 
 	forall(

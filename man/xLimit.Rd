@@ -42,6 +42,11 @@ function a limited number of times.
 
     function -> &lt;numeric> -> function
 }
+
+\section{Corner Cases}{
+
+   xLimit throws an error if \bold{num} is not length-one.
+}
 \examples{
 
 # 1. Get random words from an API.

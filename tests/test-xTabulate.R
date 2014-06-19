@@ -8,7 +8,7 @@ message("xTabulate (+)")
 	describe('tabulating an empty collection is empty list') +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xTabulate(coll) %equals% list()
+		xTabulate(coll) %is% list()
 	) +
 
 	describe('the length of the table is the number of unique elements') +

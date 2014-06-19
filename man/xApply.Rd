@@ -44,6 +44,10 @@ Invoke a function with a collection of arguments.
 
     function -> |any| -> any
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. call a variadic function with xApply

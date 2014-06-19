@@ -9,15 +9,15 @@ message("xPoll (+)")
 	describe('xPoll counts true occurrences.') +
 	when(
 		is.logical(coll) && length(coll) > 0,
-		xPoll(identity, coll) %equals% length(which(coll)) == 0
+		xPoll(identity, coll) %is% length(which(coll)) == 0
 	) +
 
 	describe('xPoll with the empty collection is integer(0)') +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xPoll(function (x) True,  coll) %equals% integer(0),
-		xPoll(function (x) False, coll) %equals% integer(0),
-		xPoll(function (x) Na,    coll) %equals% integer(0)
+		xPoll(function (x) True,  coll) %is% integer(0),
+		xPoll(function (x) False, coll) %is% integer(0),
+		xPoll(function (x) Na,    coll) %is% integer(0)
 	) +
 
 	describe('xPoll with xFalsity is 0') +

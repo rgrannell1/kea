@@ -54,7 +54,7 @@ Cyclic permutations are an important combinatorial object.
 
 \section{Corner Cases}{
 
-   If \bold{coll} is empty the empty list is returned.
+   If \bold{coll} or \bold{num} is empty the empty list is returned.
 }
 \examples{
 
@@ -80,7 +80,6 @@ all_cyclic_permutations(letters[1:3])
 Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xChoose_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}
+  \code{\link{xProdSetOf_}}
 }
 

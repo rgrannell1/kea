@@ -29,6 +29,10 @@ Convert a collection of raw values to a raw vector.
 
     |raw| -> &lt;raw>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. convert a raw vector to a list

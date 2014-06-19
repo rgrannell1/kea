@@ -38,7 +38,7 @@
 #' @section Corner Cases:
 #'    The final sublist returned by \bold{xChop} may have less elements
 #'    than the other sublists, depending on whether or not the length of \bold{coll}
-#'    is evenly divisible by \bold{num}. If \bold{coll} is length-zero,
+#'    is evenly divisible by \bold{num}. If \bold{coll} or \bold{num} is length-zero,
 #'    the empty list is returned.
 #'
 #' @family reshaping_functions
@@ -54,12 +54,10 @@
 
 xChop <- MakeFun(function (num, coll) {
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
+	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 1, Inf))
 
-	MACRO( Must $ Be_Between(num, 1, Inf))
-	MACRO( Must $ Be_Whole(num) )
-
-	if (length(coll) == 0) {
+	if (length(coll) == 0 || length(num) == 0) {
 		list()
 	} else if (is.infinite(num)) {
 		# -- return a list of length-one lists: NOT as.list

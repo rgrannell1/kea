@@ -51,11 +51,11 @@ xIterate <- MakeFun(function (fn, val) {
 
 	callCC(function (Return) {
 
-		# assign the Return( ) function into an anonymous function.
+		# -- assign the Return( ) function into an anonymous function.
 		clone_env <- new.env(parent = environment(fn))
-		clone_env $ Return <- Return
 
-		environment(fn) <- clone_env
+		clone_env $ Return <- Return
+		environment(fn)    <- clone_env
 
 		repeat val <- fn(val)
 	})

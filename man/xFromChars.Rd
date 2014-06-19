@@ -26,6 +26,12 @@ xFromChars
 
 Concatentate a character vector with no delimiter.
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character-vector when \bold{strs}
+   is length-zero.
+}
 \examples{
 
 # 1. Remove Specific Characters from a string

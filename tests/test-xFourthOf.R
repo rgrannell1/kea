@@ -9,7 +9,7 @@ message('xFourthOf')
 	describe('always returns the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 4,
-		xFourthOf(coll) %equals% coll[[4]]
+		xFourthOf(coll) %is% coll[[4]]
 	) +
 	run()
 

@@ -23,6 +23,12 @@ The input string is split at newline characters.
 
     &lt;character> -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character-vector when \bold{str}
+   is length-zero.
+}
 \examples{
 
 # 1. Lexically sort a list.

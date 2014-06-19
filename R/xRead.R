@@ -14,7 +14,8 @@
 #'    A length-one character vector.
 #'
 #' @section Corner Cases:
-#'   xRead ignores missing terminal newlines.
+#'    xRead ignores missing terminal newlines. If \bold{str} is
+#'    is length-zero the empty character-vector is returned.
 #'
 #' @family text_processing_functions
 #'
@@ -28,16 +29,19 @@
 
 xRead <- MakeFun(function (str) {
 
-	MACRO( Must $ Be_File(str) )
+	MACRO( Must_Be_File(str) )
 
-	str <- unit_to_value(as_atom(str, "character"))
-
-	text <- try_read(
-		readLines(str, warn = False), str, sys.call())
-
-	if (length(text) == 0) {
+	if (length(str) == 0) {
 		character(0)
 	} else {
-		text
+
+		MACRO( Must_Be_File(str) )
+
+		text <- try_read(
+			readLines(str, warn = False), str, sys.call()
+		)
+
+		paste0(text, collapse = '<n')
 	}
+
 })

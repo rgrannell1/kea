@@ -15,6 +15,8 @@
 #' @return
 #'    A boolean value.
 #'
+#' @section Corner Cases:
+#'
 #' @template
 #'    Variadic
 #'
@@ -27,7 +29,6 @@
 #' @export
 
 xIsEmpty <- MakeFun(function (coll) {
-
 	isTRUE(length(coll) == 0)
 })
 

@@ -9,7 +9,7 @@ message('xSecondAs (+)')
 	describe('always sets the correct element') +
 	when(
 		is_collection(coll) && length(coll) >= 2,
-		xSecondAs(val, coll)[[2]] %equals% val
+		xSecondAs(val, coll)[[2]] %is% val
 	) +
 
 	run()

@@ -27,7 +27,12 @@ Convert any function to a unary function.
 }
 \section{Type Signature}{
 
-    (...any -> any) -> (any -> any)
+    (...any -> any) -> (|any| -> any)
+}
+
+\section{Corner Cases}{
+
+    .
 }
 \examples{
 

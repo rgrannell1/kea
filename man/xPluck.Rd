@@ -30,9 +30,7 @@ selecting fields in each element by name.
 
 \section{Corner Cases}{
 
-   Returns the empty list if \code{colls} is length-zero.
-   If str is length-zero then the empty string "" is
-   used to match key-names.
+   Returns the empty list if \bold{colls} or \bold{str} is length-zero.
 }
 \examples{
 

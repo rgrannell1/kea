@@ -19,6 +19,10 @@ Does a function have ellipsis arguments?
 
     any -> &lt;logical>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Test if a function is variadic

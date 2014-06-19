@@ -23,7 +23,7 @@ patients_data <-
 	)
 
 # shuffle the rows of the data.
-patients_data <- xReorder(xShuffle(1:length(patients_data)), patients_data)
+patients_data <- xShuffle(patients_data)
 
 k_nearest <- (dist : point : training) := {
 	# classification.

@@ -10,7 +10,7 @@ message("xNegate")
 	forall(
 		"test that negate (pred) is opposite pred",
 		test_cases$logical_function,
-		!fn() %equals% xNegate(fn)(),
+		!fn() %is% xNegate(fn)(),
 		given =
 			!is_na(fn())
 	)
@@ -18,7 +18,7 @@ message("xNegate")
 	forall(
 		"negated na is na",
 		test_cases$logical_function,
-		fn() %equals% xNegate(fn)(),
+		fn() %is% xNegate(fn)(),
 		given =
 			is_na(fn())
 	)

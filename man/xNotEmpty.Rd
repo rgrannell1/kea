@@ -24,6 +24,10 @@ Is a collection not length-zero?
 
     any -> &lt;logical>
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Conditionally execute code on non-empty collections.

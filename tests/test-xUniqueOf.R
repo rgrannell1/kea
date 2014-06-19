@@ -9,7 +9,7 @@ message('xUniqueOf (+)')
 	describe('unique of empty coll is empty list') +
 	when(
 		is_collection(coll) && length(coll) == 0,
-		xUniqueOf(coll) %equals% list()
+		xUniqueOf(coll) %is% list()
 	) +
 
 	describe('uniques + duplicates == set') +

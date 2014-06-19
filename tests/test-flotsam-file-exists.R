@@ -59,15 +59,12 @@ if (nchar(r_paths $ x_AtKey('tests')) > 0) {
 
 	variadic_exports <-
 		r_paths $ xAtKey('namespace') $ xRead() $ xToLines()
-		xSelect(export := {
-			xIsMatch(
-				# -- match any non-variadic exports.
-				xFromChars_('export[(]', non_variadic_pattern, '[)]'),
-				export)
-		}) $
-		xMap(export := {
+		xSelect(xIsMatch(
+			xFromChars_('export[(]', non_variadic_pattern, '[)]'))
+		) $
+		xMap(export_ := {
 			# -- positionally remove the export tag.
-			x_(export) $ xToChars() $ xDrop(7) $ xInitOf() $ x_FromChars()
+			export $ xToChars() $ xDrop(7) $ xInitOf() $ x_FromChars()
 		})
 
 

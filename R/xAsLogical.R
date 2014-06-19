@@ -20,6 +20,8 @@
 #' @return
 #'    A logical vector.
 #'
+#' @section Corner Cases:
+#'
 #' @template
 #'    Variadic
 #'

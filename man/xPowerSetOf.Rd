@@ -28,6 +28,11 @@ Enumerate every way of subsetting a collection.
 
     |any| -> [[any]]
 }
+
+\section{Corner Cases}{
+
+    Returns the empty list if \bold{coll} is length-zero.
+}
 \examples{
 
 # 1. generate all integer partitions of a number with distinct parts
@@ -61,18 +66,16 @@ xSelect(nums := {
 Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xChoose_}}; \code{\link{xCycle}},
   \code{\link{xCycle_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}
+  \code{\link{xProdSetOf_}}
 
 Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInter}},
-  \code{\link{xInter_}}; \code{\link{xIsMember}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
+  \code{\link{xInterOf_}}; \code{\link{xIsMember}},
   \code{\link{xIsMember_}}; \code{\link{xIsSubset}},
   \code{\link{xIsSubset_}}; \code{\link{xNotMember}},
   \code{\link{xNotMember_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xReorder}},
-  \code{\link{xReorder_}}; \code{\link{xUnionOf}},
+  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
   \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
   \code{\link{xUniqueOf_}}
 }

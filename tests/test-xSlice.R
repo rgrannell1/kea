@@ -9,5 +9,5 @@ message("xSlice")
 	forall(
 		"selecting with integer zero is empty list",
 		test_cases$collection_zero,
-		xSlice(integer(0), coll) %equals% list()
+		xSlice(integer(0), coll) %is% list()
 	)

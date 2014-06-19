@@ -62,7 +62,7 @@ xZip <- MakeFun(function (colls) {
 		list()
 	} else {
 
-		MACRO( Must $ Be_Collection_Of_Equal_Length(colls) )
+		MACRO( Must_Be_Collection_Of_Equal_Length(colls) )
 
 		if (length( colls[[1]] ) == 0) {
 			# -- this might by an incorrect corner case.

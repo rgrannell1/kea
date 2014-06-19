@@ -9,13 +9,13 @@ message("xFlatMap")
 	forall(
 		"the empty collection always yields the empty list.",
 		test_cases$logical_functions_with_collection_zero,
-		xFlatMap(fn, coll) %equals% list()
+		xFlatMap(fn, coll) %is% list()
 	)
 
 	forall(
 		"flatmapping identity over the list preserves its contents.",
 		test_cases$collection,
-		xFlatMap(identity, coll) %equals% as.list(coll)
+		xFlatMap(identity, coll) %is% as.list(coll)
 	)
 
 	forall(

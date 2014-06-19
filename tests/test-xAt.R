@@ -21,10 +21,16 @@ message('xAt (-)')
 
 	over(coll) +
 
-	describe('always returns the correct element') +
+	describe('fails when index is too large') +
 	failsWhen(
 		is_collection(coll) && length(coll) >= 1,
 		xAt(length(coll) + 1, coll)
+	) +
+
+	describe('fails when index is too large') +
+	failsWhen(
+		is_collection(coll) && length(coll) >= 1,
+		xAt(0, coll)
 	) +
 
 	run()

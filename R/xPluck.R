@@ -21,9 +21,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \code{colls} is length-zero.
-#'    If str is length-zero then the empty string "" is
-#'    used to match key-names.
+#'    Returns the empty list if \bold{colls} or \bold{str} is length-zero.
 #'
 #' @family selection_functions
 #'
@@ -31,7 +29,6 @@
 #'
 #' @template
 #'    Variadic
-#'
 #'
 #' @example
 #'    inst/examples/example-xPluck.R
@@ -41,9 +38,7 @@
 
 xPluck <- MakeFun(function (str, colls) {
 
-	str <- unit_to_value(as_atom(str, "character"))
-
-	if (length(colls) == 0) {
+	if (length(colls) == 0 || length(str) == 0) {
 		list()
 	} else {
 		lapply( colls, function (elem) {

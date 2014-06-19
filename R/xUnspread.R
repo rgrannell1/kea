@@ -4,7 +4,7 @@
 #' Convert any function to a unary function.
 #'
 #' @section Type Signature:
-#'     (...any -> any) -> (any -> any)
+#'     (...any -> any) -> (|any| -> any)
 #'
 #' @details
 #'     \bold{xUnspread} takes a function and returns a function that
@@ -22,6 +22,10 @@
 #' @return
 #'     A unary function of \bold{coll}, that applies its arguments
 #'     to its underlying function.
+#'
+#' @section Corner Cases:
+#'     .
+#'
 #'
 #' @family function_modifying_functions
 #'

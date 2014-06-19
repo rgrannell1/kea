@@ -9,7 +9,7 @@ message("xIterate")
 	forall(
 		"Return is the identity function",
 		test_cases$num_positive_integer,
-		xIterate(function (n) Return(n), num) %equals% num
+		xIterate(function (n) Return(n), num) %is% num
 	)
 
 	forall(

@@ -13,6 +13,8 @@
 #' @return
 #'    A variadic function that ignores its arguments.
 #'
+#' @section Corner Cases:
+#'
 #' @family time_functions
 #'
 #' @family inpure_functions
@@ -25,9 +27,10 @@
 
 xStopwatch <- MakeFun(function (num) {
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
 
-	MACRO( Must $ Be_Between(num, 0, Inf))
+
+	MACRO( Must_Be_Longer_Than(0, num) )
+	MACRO( Must_Be_Between(num, 0, Inf))
 
 	genesis <- Sys.time()
 

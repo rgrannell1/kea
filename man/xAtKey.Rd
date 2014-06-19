@@ -25,6 +25,12 @@ Select a value from a collection using a key.
 
     |character| -> |any| -> any
 }
+
+\section{Corner Cases}{
+
+   If \bold{str} occurs multiple times in \bold{coll}
+   the first match is returned.
+}
 \examples{
 
 NULL

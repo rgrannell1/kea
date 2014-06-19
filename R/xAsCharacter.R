@@ -39,7 +39,6 @@
 #' @export
 
 xAsCharacter <- MakeFun(function (strs) {
-
 	as_typed_vector(strs, 'character')
 })
 

@@ -32,6 +32,10 @@ preserving its structure.
 
     (any -> any) -> |any| -> [any]
 }
+
+\section{Corner Cases}{
+
+}
 \examples{
 
 # 1. Recursively convert the elements of a list to strings.

@@ -21,6 +21,8 @@
 #' @return
 #'    A raw vector.
 #'
+#' @section Corner Cases:
+#'
 #' @template
 #'    Variadic
 #'

@@ -20,7 +20,8 @@
 #'    A list.
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} is empty the empty list is returned.
+#'    If \bold{coll} is empty the empty list is returned,
+#'    or if \bold{num} is length-zero.
 #'
 #' @family selection_functions
 #'
@@ -35,12 +36,10 @@
 
 xTake <- MakeFun(function (num, coll) {
 
-	num <- unit_to_value(as_atom(num, 'numeric'))
+	MACRO( Must_Be_Between(num, 0, Inf))
+	MACRO( Must_Be_Whole(num) )
 
-	MACRO( Must $ Be_Between(num, 0, Inf))
-	MACRO( Must $ Be_Whole(num) )
-
-	if (length(coll) == 0 || num == 0) {
+	if (length(coll) == 0 || num == 0 || length(num) == 0) {
 		list()
 	} else if (is.infinite(num)) {
 		as.list(coll)

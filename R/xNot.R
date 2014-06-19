@@ -15,6 +15,8 @@
 #' @return
 #'    A true or false value.
 #'
+#' @section Corner Cases:
+#'
 #' @example
 #'    inst/examples/example-xNot.R
 #'

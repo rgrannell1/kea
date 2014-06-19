@@ -29,7 +29,8 @@ Take several elements from the head of a collection.
 
 \section{Corner Cases}{
 
-   If \bold{coll} is empty the empty list is returned.
+   If \bold{coll} is empty the empty list is returned,
+   or if \bold{num} is length-zero.
 }
 \examples{
 

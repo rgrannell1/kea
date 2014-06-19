@@ -56,9 +56,9 @@ xReduce <- MakeFun(function (fn, coll) {
 
 			if (!is.primitive(fn)) {
 				clone_env <- new.env(parent = environment(fn))
-				clone_env$Return <- Return
 
-				environment(fn) <- clone_env
+				clone_env $ Return <- Return
+				environment(fn)    <- clone_env
 			}
 
 			for (ith in seq_along(coll)) {

@@ -34,10 +34,11 @@
 
 xThirdAs <- MakeFun(function (val, coll) {
 
-	MACRO( Must $ Be_Longer_Than(2, coll) )
+	MACRO( Must_Be_Longer_Than(2, coll) )
 
-	coll <- as.list(coll)
+	coll      <- as.list(coll)
 	coll[[3]] <- val
+
 	coll
 
 })

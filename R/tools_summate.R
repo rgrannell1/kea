@@ -125,7 +125,7 @@ summate <- local({
 						length(which(round(roundable) == roundable))
 					}),
 				`no infinite` =
-					length( which(is.integer(obj)) ),
+					length( which(is.infinite(obj)) ),
 				classes =
 					deparse(class(obj))
 			)

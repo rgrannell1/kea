@@ -24,6 +24,12 @@ Concatentate a character vector with spaces as delimiters.
 
     |character| -> &lt;character>
 }
+
+\section{Corner Cases}{
+
+   Returns the empty character-vector when \bold{strs}
+   is length-zero.
+}
 \examples{
 
 # 1. CE Capitalise the first letter of each word in a sentence.

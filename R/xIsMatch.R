@@ -10,8 +10,6 @@
 #'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in
 #'     base R.
 #'
-#'
-#'
 #' @param
 #'    rexp a string. The regular expression to test against a string.
 #'
@@ -37,12 +35,7 @@
 
 xIsMatch <- MakeFun(function (rexp, str) {
 
-	str  <- as_atom(str, "character")
-	rexp <- unit_to_value(as_atom(rexp, "character"))
-
-	# -- flags like rexp are usually made into the unit.
-
-	if (length(str) == 0) {
+	if (length(str) == 0 || length(rexp) == 0) {
 		logical(0)
 	} else {
 		isTRUE(grepl(rexp, str))

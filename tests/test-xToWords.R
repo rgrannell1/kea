@@ -9,7 +9,7 @@ message('xToWords')
 	forall(
 		"words of the empty string is an empty vector",
 		list(),
-		xToWords('') %equals% character(0)
+		xToWords('') %is% character(0)
 	)
 
 	forall(
@@ -17,7 +17,7 @@ message('xToWords')
 		test_cases$letters_with_spaces,
 		{
 			delim <- paste0(str, collapse = '')
-			xToWords(paste0(coll, collapse = delim)) %equals% coll
+			xToWords(paste0(coll, collapse = delim)) %is% coll
 		},
 		given =
 			length(coll) > 0 && length(str) > 0

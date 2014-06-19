@@ -1,25 +1,21 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xRankOf (+)")
 
-message("xRankOf")
+	over(coll) +
 
-	forall(
-		"rank of empty coll is int zero",
-		test_cases$collection_zero,
-		xRankOf(coll) %equals% integer(0)
-	)
+	describe("rank of empty collection is integer(0)") +
+	when(
+		is_collection(coll) && length(coll) == 0,
+		xRankOf(coll) %is% integer(0)
+	) +
 
-	forall(
-		"rank of a sequence is the sequence",
-		test_cases$num_positive_integer,
-		xRankOf(1:num) %equals% 1:num
-	)
+	describe("the rank of one number is one.") +
+	when(
+		is_numeric(coll) && length(coll) == 1,
+		xRankOf(coll) == 1
+	) +
 
-	forall(
-		"rank of a repeated numbers is sequence of equal length",
-		test_cases$num_positive_integer,
-		xRankOf(rep(num, num)) %equals% 1:num
-	)
+	run()
