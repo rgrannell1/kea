@@ -42,7 +42,8 @@ xAllOf <- MakeFun(function (pred, coll) {
 		all(vapply(coll, function (elem) {
 
 			is_match <- pred(elem)
-			Must_Be_Flag(is_match, pred)
+
+			MACRO(Must_Be_Flag(is_match, pred))
 
 			isTRUE(is_match)
 
