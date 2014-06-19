@@ -3,9 +3,7 @@ Kiwi 0.24.0
 -----------------------------------------------------------------------------
 Date: 2014-6-18
 
-
-Major API-breaks.
-
+Major internal update, changes corner-cases of most functions, removed two functions.
 
 Enhancements:
 
@@ -23,16 +21,9 @@ This is more logical than the previous behaviour of converting empty numbers or 
 to length-one values, but there are likely bad corner cases introduced in this release that
 will be ironed out in the future.
 
-
-
-
 * xAnyOf, ..., xNoneOf, xSelect, xReject, xPartition, xDropWhile,
 xTakeWhile, xPoll, xSplitWith now throws an error if a non-boolean result is given by
 an input predicate.
-
-
-
-
 
 Bug Fixes:
 
@@ -58,18 +49,6 @@ Package Internals:
 kiwi functions now.
 
 * Added a forall-next test for xImplode
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
