@@ -23,10 +23,10 @@ write_preconditions <- local({
 			do.call( Must_Be_Fn_Matchable, list(as.symbol(param)) )
 	}
 
-	param_preconds $ fns <- {
+	param_preconds $ fns <- quote({
 		Must_Be_Collection(fns)
 		Must_Be_Collection_Of_Fn_Matchable(fns)
-	}
+	})
 
 	param_preconds $ sym <-
 		Must_Be_Matchable(substitute(sym))

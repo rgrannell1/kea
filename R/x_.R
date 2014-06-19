@@ -990,23 +990,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Select, 'coll')
 	add_x_method(this, x_Select_, '...')
 
-	# --- xSplitAt--- #
-	add_x_method(this, xSplitAt, 'coll')
-	add_x_method(this, xSplitAt_, '...')
-	add_x_method(this, x_SplitAt, 'coll')
-	add_x_method(this, x_SplitAt_, '...')
-
 	# --- xShuffle --- #
 	add_x_method(this, xShuffle, 'coll')
 	add_x_method(this, xShuffle_, '...')
 	add_x_method(this, x_Shuffle, 'coll')
 	add_x_method(this, x_Shuffle_, '...')
-
-	# --- xSplitWith --- #
-	add_x_method(this, xSplitWith, 'coll')
-	add_x_method(this, xSplitWith_, '...')
-	add_x_method(this, x_SplitWith, 'coll')
-	add_x_method(this, x_SplitWith_, '...')
 
 	# --- xStopwatch --- #
 	add_x_method(this, xStopwatch, 'num')
