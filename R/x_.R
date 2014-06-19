@@ -892,12 +892,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Prepend, 'coll')
 	add_x_method(this, x_Prepend_, '...')
 
-	# --- xPluck --- #
-	add_x_method(this, xPluck, 'colls')
-	add_x_method(this, xPluck_, '...')
-	add_x_method(this, x_Pluck, 'colls')
-	add_x_method(this, x_Pluck_, '...')
-
 	# --- xPartition --- #
 	add_x_method(this, xPartition, 'coll')
 	add_x_method(this, xPartition_, '...')
@@ -1380,12 +1374,6 @@ x_fn_proto <- local({
 	add_x_method(this, xSortBy_, '...')
 	add_x_method(this, x_SortBy, 'fn')
 	add_x_method(this, x_SortBy_, '...')
-
-	# --- xSplitWith --- #
-	add_x_method(this, xSplitWith, 'pred')
-	add_x_method(this, xSplitWith_, 'pred')
-	add_x_method(this, x_SplitWith, 'pred')
-	add_x_method(this, x_SplitWith_, 'pred')
 
 	# -------- T ------- #
 	# --- xTakeWhile --- #

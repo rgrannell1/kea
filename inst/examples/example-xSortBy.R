@@ -35,7 +35,7 @@ k_nearest <- (dist : point : training) := {
 	dist_to_test_point <- xFix_(dist, point)
 
 	distances <-
-		x_(training) $ xPluck('mg per dl (fasting)') $
+		x_(training) $ xMap(xAtKey('mg per dl (fasting)')) $
 		xMap(dist_to_test_point) $ x_AsDouble()
 
 	# rank the distances from closest to furthest.
@@ -43,7 +43,7 @@ k_nearest <- (dist : point : training) := {
 
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-
-		nearest $ xPluck('category') $ xTabulate() $ x_SortBy(xSecondOf)
+		nearest $ xMap(xAtKey('category')) $ xTabulate() $ x_SortBy(xSecondOf)
 
 	# select the name of the most frequent category
 	xFirstOf(xFirstOf(category_frequencies))

@@ -65,7 +65,7 @@ cocaineData <- x__(
 
 # 1. get and sort the state seisure frequencies
 
-cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
+cocaineData $ xMap(xAtKey("state")) $ xTabulate() $ x_SortBy(xSecondOf)
 
 '
 list(

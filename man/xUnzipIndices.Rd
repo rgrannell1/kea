@@ -45,8 +45,7 @@ x_(letters) $ xUnzipIndices() $ xMapply((ith : val) := {
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
-  \code{\link{xAddKeys_}}; \code{\link{xPluck}},
-  \code{\link{xPluck_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xAddKeys_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
 
@@ -62,9 +61,7 @@ Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xShuffle}},
   \code{\link{xShuffle_}}; \code{\link{xSortBy}},
-  \code{\link{xSortBy_}}; \code{\link{xSplitAt}},
-  \code{\link{xSplitAt_}}; \code{\link{xSplitWith}},
-  \code{\link{xSplitWith_}}; \code{\link{xTabulate}},
+  \code{\link{xSortBy_}}; \code{\link{xTabulate}},
   \code{\link{xTabulate_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}; \code{\link{xZip}},

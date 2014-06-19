@@ -1,21 +1,21 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xParamsOf (+)")
 
-message("xParamsOf")
+	over(fn) +
 
-	forall(
-		"nullary functions yield the empty charvector.",
-		list(),
-		xParamsOf(function () {}) %is% character(0)
-	)
+	describe("always returns character") +
+	when(
+		is.function(fn),
+		is.character(xParamsOf(fn))
+	) +
 
-	forall(
-		"formals of normal functions is well behaved.",
-		test_cases$base_function,
-		xParamsOf(fn) %is% names(formals(fn)),
-		given =
-			length(formals(fn)) > 0
-	)
+	describe("works for non-primitive functions") +
+	when(
+		is.function(fn) && !is.primitive(fn),
+		xParamsOf(fn) %is% names(formals(fn))
+	) +
+
+	run()

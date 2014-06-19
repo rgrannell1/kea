@@ -143,7 +143,6 @@ Collate:
     'xUnionOf.R'
     'xInterOf.R'
     'xThread.R'
-    'xPluck.R'
     'xJoin.R'
     'xRepeat.R'
     'xVal.R'

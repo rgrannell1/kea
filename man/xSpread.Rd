@@ -17,7 +17,7 @@ Return a variadic function that passes its arguments
 as a list to its underyling function.
 }
 \details{
-\code{xSpread} takes a unary function and
+\bold{xSpread} takes a unary function and
    returns a function with ellipsis parametres.
    The returned function passes its ellipsis arguments
    as a single list to the underlying function.
