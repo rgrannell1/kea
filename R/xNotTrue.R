@@ -29,6 +29,6 @@
 #' @rdname xNotTrue
 #' @export
 
-xNotTrue <- MakeFun(function (val) {
+xNotTrue <- MakeFun('xNotTrue', function (val) {
 	!isTRUE(val)
 })

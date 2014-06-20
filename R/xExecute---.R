@@ -27,7 +27,7 @@
 #'
 #' @name xExecute
 
-xExecute <- MakeFun(function (fn, val) {
+xExecute <- MakeFun('xExecute', function (fn, val) {
 
 	fn(val)
 	val

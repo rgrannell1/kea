@@ -46,7 +46,7 @@
 #' @rdname xFlatten
 #' @export
 
-xFlatten <- MakeFun(function (num, coll) {
+xFlatten <- MakeFun('xFlatten', function (num, coll) {
 
 	MACRO( Must_Be_Between(num, 1, Inf))
 	MACRO( Must_Be_Whole(num) )

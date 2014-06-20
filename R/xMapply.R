@@ -34,7 +34,7 @@
 #' @rdname xMapply
 #' @export
 
-xMapply <- MakeFun(function (fn, colls) {
+xMapply <- MakeFun('xMapply', function (fn, colls) {
 
 	if (length(colls) == 0) {
 		list()

@@ -38,7 +38,7 @@
 #' @rdname xDeepMap
 #' @export
 
-xDeepMap <- MakeFun(function (fn, coll) {
+xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 
 	recur <- function (xs) {
 		# recurse into a collection. TODO-non-recursive form.

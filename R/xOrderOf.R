@@ -41,7 +41,7 @@
 #' @rdname xOrderOf
 #' @export
 
-xOrderOf <- MakeFun(function (nums) {
+xOrderOf <- MakeFun('xOrderOf', function (nums) {
 
 	if (length(nums) == 0) {
 		integer(0)

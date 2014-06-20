@@ -29,7 +29,8 @@ Select a value from a collection using a key.
 \section{Corner Cases}{
 
    If \bold{str} occurs multiple times in \bold{coll}
-   the first match is returned.
+   the first match is returned. If no key matching \bold{str} is
+   found in \bold{coll} an error is thrown.
 }
 \examples{
 
@@ -46,8 +47,7 @@ Other selection_functions: \code{\link{xAtCol}},
   \code{\link{xInitOf_}}; \code{\link{xLastOf}},
   \code{\link{xLastOf_}}; \code{\link{xMaxBy}},
   \code{\link{xMaxBy_}}; \code{\link{xMinBy}},
-  \code{\link{xMinBy_}}; \code{\link{xPluck}},
-  \code{\link{xPluck_}}; \code{\link{xRestOf}},
+  \code{\link{xMinBy_}}; \code{\link{xRestOf}},
   \code{\link{xRestOf_}}; \code{\link{xSecondOf}},
   \code{\link{xSecondOf_}}; \code{\link{xSlice}},
   \code{\link{xSlice_}}; \code{\link{xTakeWhile}},

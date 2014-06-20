@@ -18,7 +18,7 @@
 #'
 #' @name xByLevels
 
-xByValues <- MakeFun(function (fact) {
+xByValues <- MakeFun('xByValues', function (fact) {
 
 	values <- as.vector(fact)
 

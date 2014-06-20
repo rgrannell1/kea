@@ -26,7 +26,7 @@
 #' @rdname xToChars
 #' @export
 
-xToChars <- MakeFun(function (str) {
+xToChars <- MakeFun('xToChars', function (str) {
 
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)

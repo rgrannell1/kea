@@ -34,7 +34,7 @@
 #' @rdname xNotMember
 #' @export
 
-xNotMember <- MakeFun(function (val, coll) {
+xNotMember <- MakeFun('xNotMember', function (val, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)

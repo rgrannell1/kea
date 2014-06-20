@@ -38,7 +38,7 @@
 #' @rdname xUnzipIndices
 #' @export
 
-xUnzipIndices <- MakeFun(function (coll) {
+xUnzipIndices <- MakeFun('xUnzipIndices', function (coll) {
 
 	if (length(coll) == 0) {
 		list()

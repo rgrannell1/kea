@@ -32,7 +32,7 @@
 #' @rdname xNotSubset
 #' @export
 
-xNotSubset <- MakeFun(function (coll1, coll2) {
+xNotSubset <- MakeFun('xNotSubset', function (coll1, coll2) {
 
 	if (length(coll1) == 0 || length(coll2) == 0) {
 		logical(0)

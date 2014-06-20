@@ -47,7 +47,7 @@
 #' @rdname xIterate
 #' @export
 
-xIterate <- MakeFun(function (fn, val) {
+xIterate <- MakeFun('xIterate', function (fn, val) {
 
 	callCC(function (Return) {
 

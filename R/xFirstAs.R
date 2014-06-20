@@ -32,7 +32,7 @@
 #' @rdname xFirstAs
 #' @export
 
-xFirstAs <- MakeFun(function (val, coll) {
+xFirstAs <- MakeFun('xFirstAs', function (val, coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 

@@ -35,7 +35,7 @@
 #' @rdname xImplode
 #' @export
 
-xImplode <- MakeFun(function (str, strs) {
+xImplode <- MakeFun('xImplode', function (str, strs) {
 
 	if (length(str) == 0 || length(strs) == 0) {
 		character(0)

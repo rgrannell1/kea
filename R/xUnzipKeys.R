@@ -38,7 +38,7 @@
 #' @rdname xUnzipKeys
 #' @export
 
-xUnzipKeys <- MakeFun(function (coll) {
+xUnzipKeys <- MakeFun('xUnzipKeys', function (coll) {
 
 	if (length(coll) == 0) {
 		list()

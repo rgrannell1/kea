@@ -33,7 +33,7 @@
 #' @rdname xCapture
 #' @export
 
-xCapture <- MakeFun(function (val) {
+xCapture <- MakeFun('xCapture', function (val) {
 
 	function (...) {
 		"a function created by xCapture."

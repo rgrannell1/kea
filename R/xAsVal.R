@@ -29,7 +29,7 @@
 #' @rdname xAsVal
 #' @export
 
-xAsVal <- MakeFun(function (sym) {
+xAsVal <- MakeFun('xAsVal', function (sym) {
 
 	MACRO( Must_Be_Existing_Ref(sym) )
 

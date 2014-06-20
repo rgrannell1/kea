@@ -18,7 +18,7 @@
 #'
 #' @name xElemsByRows
 
-xElemsByRows <- MakeFun(function (tab) {
+xElemsByRows <- MakeFun('xElemsByRows', function (tab) {
 
 	if (prod(dim(tab) == 0)) {
 		list()

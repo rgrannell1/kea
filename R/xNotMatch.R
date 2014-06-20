@@ -29,7 +29,7 @@
 #' @rdname xNotMatch
 #' @export
 
-xNotMatch <- MakeFun(function (rexp, str) {
+xNotMatch <- MakeFun('xNotMatch', function (rexp, str) {
 
 	# -- flags like rexp are usually made into the unit.
 

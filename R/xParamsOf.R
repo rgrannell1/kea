@@ -26,7 +26,7 @@
 #' @rdname xParamsOf
 #' @export
 
-xParamsOf <- MakeFun(function (fn) {
+xParamsOf <- MakeFun('xParamsOf', function (fn) {
 
 	formals_fn <- if (is.primitive(fn)) {
 		# -- use the args function to get the primitive arguments.

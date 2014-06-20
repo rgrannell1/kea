@@ -35,7 +35,7 @@
 #' @rdname xChunk
 #' @export
 
-xChunk <- MakeFun(function (num, coll) {
+xChunk <- MakeFun('xChunk', function (num, coll) {
 
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 1, Inf))

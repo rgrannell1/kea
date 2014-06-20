@@ -35,7 +35,7 @@
 #' @rdname xMaxBy
 #' @export
 
-xMaxBy <- MakeFun(function (fn, coll) {
+xMaxBy <- MakeFun('xMaxBy', function (fn, coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 

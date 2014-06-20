@@ -1,4 +1,49 @@
 
+Kiwi 0.25.0
+-----------------------------------------------------------------------------
+Date: 2014-6-20
+
+Removed several functions, made partially applied function throw better error messages.
+
+Enhancements:
+
+* Partially-applied functions give a clearer call when they throw an error, showing
+ the name of the kiwi function that threw the error.
+
+* xAtKey now throws an error if the input collection does not contain the required
+key, rather than returning NULL.
+
+* Removed xPluck, as it was simply a vectorised form of xAtKey, with the same task
+better achieved by xMap(xAtKey()).
+
+* Removed xSplitAt and xSplitWith, as their corner cases are currently unclear
+ and they are largely untested. Decatenation functions will be reintroduced
+ at a later date, though probably in a different form.
+
+Bug Fixes:
+
+* Fixed a bug in xRead; multiple lines are now correctly collapsed with the
+newline character.
+
+* Functions with the parametre 'fns' now checks that 'fns' is a collection.
+
+Package Internals:
+
+* Added a new macro for ensuring a collection's names contains a key.
+
+* Added a forall-next test for xParamsOf.
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.24.0
 -----------------------------------------------------------------------------
 Date: 2014-6-18

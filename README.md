@@ -1,5 +1,5 @@
 
-Kiwi 0.24.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.25.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -65,7 +65,7 @@ cocaineData <- x__(
 
 # 1. get and sort the state seisure frequencies
 
-cocaineData $ xPluck("state") $ xTabulate() $ x_SortBy(xSecondOf)
+cocaineData $ xMap(xAtKey("state")) $ xTabulate() $ x_SortBy(xSecondOf)
 
 '
 list(

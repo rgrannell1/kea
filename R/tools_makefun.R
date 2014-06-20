@@ -23,10 +23,10 @@ write_preconditions <- local({
 			do.call( Must_Be_Fn_Matchable, list(as.symbol(param)) )
 	}
 
-	param_preconds $ fns <- {
+	param_preconds $ fns <- quote({
 		Must_Be_Collection(fns)
 		Must_Be_Collection_Of_Fn_Matchable(fns)
-	}
+	})
 
 	param_preconds $ sym <-
 		Must_Be_Matchable(substitute(sym))
@@ -147,7 +147,7 @@ write_boilerplate <- function (params) {
 
 # TODO split into several, small functions, with MakeFun as a main function.
 
-MakeFun <- function (expr) {
+MakeFun <- function (sym, expr) {
 
 	parent_frame <- parent.frame()
 
@@ -188,7 +188,7 @@ MakeFun <- function (expr) {
 			as.symbol('Fix'),
 
 			# -- the function to return in a fixed form.
-			call('sys.function'),
+			as.symbol(sym),
 
 			c(
 				# -- the parametres to bind over.

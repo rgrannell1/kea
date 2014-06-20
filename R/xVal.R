@@ -40,7 +40,7 @@
 #' @rdname xVal
 #' @export
 
-xVal <- MakeFun(function (sym, val) {
+xVal <- MakeFun('xVal', function (sym, val) {
 
 	parent_frame <- parent.frame()
 

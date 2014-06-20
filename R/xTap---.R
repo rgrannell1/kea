@@ -36,6 +36,6 @@
 #'
 #' @name xTap
 
-xTap <- MakeFun(function (fn, val) {
+xTap <- MakeFun('xTap', function (fn, val) {
 	fn(val)
 })

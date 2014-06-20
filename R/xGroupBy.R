@@ -36,7 +36,7 @@
 #' @rdname xGroupBy
 #' @export
 
-xGroupBy <- MakeFun(function (fn, coll) {
+xGroupBy <- MakeFun('xGroupBy', function (fn, coll) {
 
 	if (length(coll) == 0) {
 		list()

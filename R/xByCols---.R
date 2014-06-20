@@ -18,7 +18,7 @@
 #'
 #' @name xByCols
 
-xByCols <- MakeFun(function (tab) {
+xByCols <- MakeFun('xByCols', function (tab) {
 
 	dims <- dim(tab)
 

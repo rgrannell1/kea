@@ -260,7 +260,6 @@ sd_section(
 	),
 	c(
 		"xAddKeys",
-		"xPluck",
 		"xUnzipIndices",
 		"xUnzipKeys",
 		"xZipKeys"
@@ -364,7 +363,6 @@ sd_section(
 		"xFourthOf",
 		"xInitOf",
 		"xLastOf",
-		"xPluck",
 		"xRestOf",
 		"xSlice",
 		"xSecondOf",

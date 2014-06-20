@@ -42,7 +42,7 @@
 #' @rdname xTabulate
 #' @export
 
-xTabulate <- MakeFun(function (coll) {
+xTabulate <- MakeFun('xTabulate', function (coll) {
 
 	if (length(coll) == 0) {
 		list()

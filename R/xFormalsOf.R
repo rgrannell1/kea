@@ -27,7 +27,7 @@
 #' @rdname xFormalsOf
 #' @export
 
-xFormalsOf <- MakeFun(function (fn) {
+xFormalsOf <- MakeFun('xFormalsOf', function (fn) {
 
 	if (is.primitive(fn)) {
 		as.list( head(as.list(args(fn)), -1) )

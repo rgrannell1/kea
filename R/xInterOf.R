@@ -30,7 +30,7 @@
 #' @rdname xInterOf
 #' @export
 
-xInterOf <- MakeFun(function (colls) {
+xInterOf <- MakeFun('xInterOf', function (colls) {
 
 	if (length(colls) == 0) {
 		list()

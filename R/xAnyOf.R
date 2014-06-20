@@ -34,7 +34,7 @@
 #' @rdname xAnyOf
 #' @export
 
-xAnyOf <- MakeFun(function (pred, coll) {
+xAnyOf <- MakeFun('xAnyOf', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)

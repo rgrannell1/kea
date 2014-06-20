@@ -36,7 +36,7 @@
 #' @rdname xThread
 #' @export
 
-xThread <- MakeFun(function (val, fns) {
+xThread <- MakeFun('xThread', function (val, fns) {
 
 	# -- iteratively pipe the starting value
 	# -- through each function.

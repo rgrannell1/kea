@@ -40,7 +40,7 @@
 #' @rdname xAt
 #' @export
 
-xAt <- MakeFun(function (num, coll) {
+xAt <- MakeFun('xAt', function (num, coll) {
 
 	MACRO( Must_Be_Longer_Than(0, num) )
 

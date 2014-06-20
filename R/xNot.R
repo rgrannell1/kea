@@ -29,7 +29,7 @@
 #' @rdname xNot
 #' @export
 
-xNot <- MakeFun(function (val1, val2) {
+xNot <- MakeFun('xNot', function (val1, val2) {
 
 	# -- NaN == Nan, Na == Na, 0. == -0.
 	!identical(val1, val2)

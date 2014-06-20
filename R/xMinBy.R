@@ -35,7 +35,7 @@
 #' @rdname xMinBy
 #' @export
 
-xMinBy <- MakeFun(function (fn, coll) {
+xMinBy <- MakeFun('xMinBy', function (fn, coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 

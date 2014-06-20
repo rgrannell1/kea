@@ -18,7 +18,7 @@
 #'
 #' @name xByLevels
 
-xByLevels <- MakeFun(function (fact) {
+xByLevels <- MakeFun('xByLevels', function (fact) {
 
 	fact_levels <- levels(fact)
 

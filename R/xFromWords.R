@@ -31,7 +31,7 @@
 #' @rdname xFromWords
 #' @export
 
-xFromWords <- MakeFun(function (strs) {
+xFromWords <- MakeFun('xFromWords', function (strs) {
 
 	if (length(strs) == 0) {
 		character(0)

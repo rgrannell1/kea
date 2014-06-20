@@ -41,7 +41,7 @@
 #' @rdname xAddKeys
 #' @export
 
-xAddKeys <- MakeFun(function (strs, coll) {
+xAddKeys <- MakeFun('xAddKeys', function (strs, coll) {
 
 	MACRO( Must_Be_Equal_Length_To(strs, coll) )
 

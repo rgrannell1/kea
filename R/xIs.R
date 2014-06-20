@@ -29,7 +29,7 @@
 #' @rdname xIs
 #' @export
 
-xIs <- MakeFun(function (val1, val2) {
+xIs <- MakeFun('xIs', function (val1, val2) {
 
 	# -- NaN == Nan, Na == Na, 0. == -0.
 	identical(val1, val2)

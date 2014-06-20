@@ -37,7 +37,7 @@
 #'
 #' @export
 
-xAsDataFrame <- MakeFun(function (colls) {
+xAsDataFrame <- MakeFun('xAsDataFrame', function (colls) {
 
 	MACRO( Must_Be_Collection_Of_Equal_Length(colls) )
 

@@ -83,7 +83,7 @@
 #' @rdname xLift
 #' @export
 
-xLift <- MakeFun(function (fn, fns) {
+xLift <- MakeFun('xLift', function (fn, fns) {
 
 	parent_frame <- parent.frame()
 

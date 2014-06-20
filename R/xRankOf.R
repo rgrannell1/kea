@@ -27,7 +27,7 @@
 #' @rdname xRankOf
 #' @export
 
-xRankOf <- MakeFun(function (nums) {
+xRankOf <- MakeFun('xRankOf', function (nums) {
 
 	if (length(nums) == 0) {
 		integer(0)

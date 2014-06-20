@@ -82,7 +82,7 @@
 #' @rdname xCompose
 #' @export
 
-xCompose <- MakeFun(function (fns) {
+xCompose <- MakeFun('xCompose', function (fns) {
 
 	MACRO( Must_Be_Longer_Than(0, fns) )
 

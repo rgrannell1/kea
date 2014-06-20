@@ -892,12 +892,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Prepend, 'coll')
 	add_x_method(this, x_Prepend_, '...')
 
-	# --- xPluck --- #
-	add_x_method(this, xPluck, 'colls')
-	add_x_method(this, xPluck_, '...')
-	add_x_method(this, x_Pluck, 'colls')
-	add_x_method(this, x_Pluck_, '...')
-
 	# --- xPartition --- #
 	add_x_method(this, xPartition, 'coll')
 	add_x_method(this, xPartition_, '...')
@@ -990,23 +984,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Select, 'coll')
 	add_x_method(this, x_Select_, '...')
 
-	# --- xSplitAt--- #
-	add_x_method(this, xSplitAt, 'coll')
-	add_x_method(this, xSplitAt_, '...')
-	add_x_method(this, x_SplitAt, 'coll')
-	add_x_method(this, x_SplitAt_, '...')
-
 	# --- xShuffle --- #
 	add_x_method(this, xShuffle, 'coll')
 	add_x_method(this, xShuffle_, '...')
 	add_x_method(this, x_Shuffle, 'coll')
 	add_x_method(this, x_Shuffle_, '...')
-
-	# --- xSplitWith --- #
-	add_x_method(this, xSplitWith, 'coll')
-	add_x_method(this, xSplitWith_, '...')
-	add_x_method(this, x_SplitWith, 'coll')
-	add_x_method(this, x_SplitWith_, '...')
 
 	# --- xStopwatch --- #
 	add_x_method(this, xStopwatch, 'num')
@@ -1393,12 +1375,6 @@ x_fn_proto <- local({
 	add_x_method(this, x_SortBy, 'fn')
 	add_x_method(this, x_SortBy_, '...')
 
-	# --- xSplitWith --- #
-	add_x_method(this, xSplitWith, 'pred')
-	add_x_method(this, xSplitWith_, 'pred')
-	add_x_method(this, x_SplitWith, 'pred')
-	add_x_method(this, x_SplitWith_, 'pred')
-
 	# -------- T ------- #
 	# --- xTakeWhile --- #
 	add_x_method(this, xTakeWhile, 'pred')
@@ -1469,7 +1445,7 @@ x_fn_proto <- local({
 #' @rdname x_
 #' @export
 
-x_ <- MakeFun(function (val) {
+x_ <- MakeFun('x_', function (val) {
 	# Collection any -> Kiwi any
 	# type constructor for the method-chaining data type.
 

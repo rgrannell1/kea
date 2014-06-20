@@ -34,7 +34,7 @@
 #' @rdname xDropWhile
 #' @export
 
-xDropWhile <- MakeFun(function (pred, coll) {
+xDropWhile <- MakeFun('xDropWhile', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		list()
