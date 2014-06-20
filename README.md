@@ -103,9 +103,7 @@ largestStateSeizures $ xMap(xAtKey('potency')) $ xTap(unlist %then% mean)
 60.8
 ```
 
-R was an early language with anonymous, first-class functions. They are a common part of the
-language, and are widely used with functions like `lapply` and `Filter`. Unfortunately R's function's
-definitions are verbose. Arrow-functions are terser than normal function expressions.
+Arrow-functions are terser than normal function expressions.
 
 ```splus
 # -- generate the pairs [[a, A], [b, B], ...]
@@ -114,8 +112,7 @@ x_(letters) $ xMap(letter := {
 })
 ```
 
-You could also create this collection using collection-comprehensions; syntax sugar for creating
-new collections by filtering, joining & transforming existing collections.
+The same collection could be made with collection-comprehensions; syntax sugar for creating new collections by filtering, joining & transforming existing collections.
 
 ```splus
 xList[ list(l, toupper(l)), l <- letters ]
@@ -123,7 +120,7 @@ xList[ list(l, toupper(l)), l <- letters ]
 
 There are two approaches to making a function that can take a variable number of arguments. The first is
 to use the ellipsis parametre (...), which gathers up any arguments passed to a function. The second is to
-simply pass one list of arguments to the function. Both approaches have their merits and pitfalls.
+simply pass one list of arguments to the function.
 
 The first approach - using ellipsis - is less verbose, but less flexible. The second approach - using a
 list or arguments- is conversely more flexible, but more verbose. The adapter functions `do.call` and `Reduce`
@@ -159,7 +156,7 @@ Kiwi implements lots of higher-order functions and general collection functions.
 functions like Map, Fold, Select, Iterate, but there are also many functions not commonly found
 in other libraries.
 
-These functions are *partially appliable*; you don't have to give a function
+These functions are *partially applicable*; you don't have to give a function
 all its arguments at once. You can specialise general functions - like isMatch, which tests
 if a string matches a regexp - for a specific use, like testing if a string matches the pattern
 'face'. Partial application lets you reuse code & avoid throwaway anonymous functions.
@@ -214,9 +211,7 @@ xRepeat(list(2), list(10))
 xRepeat(pairlist(2), pairlist(10))
 ```
 
-When code fails it should tell you where it failed, what the root cause of the problem was, and
-give you enough information to fix the problem. More time is spent debugging than writing code, so
-Kiwi provides good error messages.
+Kiwi provides clear error messages.
 
 ```splus
 xRepeat(-1, 1:10)
