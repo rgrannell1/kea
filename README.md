@@ -81,7 +81,7 @@ list(
 stateSeizures <- cocaineData $ xGroupBy(x. $ state)
 
 # 3. get the largest intrastate seizures by price
-largestStateSeizures <- stateSeizures $ xPluck('price') $ xMap(group := {
+largestStateSeizures <- stateSeizures $ xMap(xAtKey('price')) $ xMap(group := {
     xMaxBy(x. $ price, group)
 })
 
@@ -98,7 +98,7 @@ list(
 
 # 4. get the average potency of the largest seizure
 
-largestStateSeizures $ xPluck('potency') $ xTap(unlist %then% mean)
+largestStateSeizures $ xMap(xAtKey('potency')) $ xTap(unlist %then% mean)
 
 60.8
 ```
