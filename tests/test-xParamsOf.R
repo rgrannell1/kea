@@ -15,7 +15,8 @@ message("xParamsOf (+)")
 	describe("works for non-primitive functions") +
 	when(
 		is.function(fn) && !is.primitive(fn),
-		xParamsOf(fn) %is% names(formals(fn))
+		( xParamsOf(fn) %is% names(formals(fn)) ) ||
+		( xParamsOf(fn) %is% Null )
 	) +
 
 	run()
