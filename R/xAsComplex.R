@@ -36,7 +36,7 @@
 #' @rdname xAsComplex
 #' @export
 
-xAsComplex <- MakeFun(function (ims) {
+xAsComplex <- MakeFun('xAsComplex', function (ims) {
 
 	as_typed_vector(ims, 'complex')
 })

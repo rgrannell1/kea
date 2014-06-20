@@ -28,7 +28,7 @@
 #' @rdname xShuffle
 #' @export
 
-xShuffle <- MakeFun(function (coll) {
+xShuffle <- MakeFun('xShuffle', function (coll) {
 
 	if (length(coll) == 0) {
 		list()

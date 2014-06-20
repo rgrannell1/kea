@@ -30,7 +30,7 @@
 #' @rdname xRestOf
 #' @export
 
-xRestOf <- MakeFun(function (coll) {
+xRestOf <- MakeFun('xRestOf', function (coll) {
 
 	if (length(coll) < 2) {
 		list()

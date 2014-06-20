@@ -33,7 +33,7 @@
 #' @rdname xDrop
 #' @export
 
-xDrop <- MakeFun(function (num, coll) {
+xDrop <- MakeFun('xDrop', function (num, coll) {
 
 
 	MACRO( Must_Be_Whole(num) )

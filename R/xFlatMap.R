@@ -52,7 +52,7 @@
 #' @rdname xFlatMap
 #' @export
 
-xFlatMap <- MakeFun(function (fn, coll) {
+xFlatMap <- MakeFun('xFlatMap', function (fn, coll) {
 
 	if (length(coll) == 0) {
 		list()

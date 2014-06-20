@@ -35,7 +35,7 @@
 #' @rdname xPoll
 #' @export
 
-xPoll <- MakeFun(function (pred, coll) {
+xPoll <- MakeFun('xPoll', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		integer(0)

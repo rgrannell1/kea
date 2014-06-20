@@ -29,7 +29,6 @@
 #' @rdname xNotNan
 #' @export
 
-xNotNan <- MakeFun(function (val) {
-
+xNotNan <- MakeFun('xNotNan', function (val) {
 	!isTRUE(identical(val, NaN))
 })

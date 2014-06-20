@@ -34,7 +34,7 @@
 #' @rdname xAllOf
 #' @export
 
-xAllOf <- MakeFun(function (pred, coll) {
+xAllOf <- MakeFun('xAllOf', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)

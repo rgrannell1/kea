@@ -1,4 +1,7 @@
 
+
+Bug in xRead; correct newline delimiter is now used.
+
 Kiwi 0.24.0
 -----------------------------------------------------------------------------
 Date: 2014-6-18

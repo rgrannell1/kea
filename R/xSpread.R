@@ -34,7 +34,7 @@
 #' @rdname xSpread
 #' @export
 
-xSpread <- MakeFun(function (fn) {
+xSpread <- MakeFun('xSpread', function (fn) {
 
 	function (...) {
 		"a function returned by xSpread."

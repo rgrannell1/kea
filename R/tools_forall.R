@@ -105,7 +105,7 @@
 atoms <- local({
 	# functions that generate a single value.
 
-	this <- Object()
+	this <- new.env(parent = emptyenv())
 
 	# --------------------- Boolean --------------------- #
 

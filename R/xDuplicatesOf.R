@@ -30,7 +30,7 @@
 #' @rdname xDuplicatesOf
 #' @export
 
-xDuplicatesOf <- MakeFun(function (coll) {
+xDuplicatesOf <- MakeFun('xDuplicatesOf', function (coll) {
 
 	if (length(coll) == 0) {
 		list()

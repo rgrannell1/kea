@@ -30,7 +30,7 @@
 #' @rdname xUniqueOf
 #' @export
 
-xUniqueOf <- MakeFun(function (coll) {
+xUniqueOf <- MakeFun('xUniqueOf', function (coll) {
 
 	if (length(coll) == 0) {
 		list()

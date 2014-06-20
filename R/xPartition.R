@@ -39,7 +39,7 @@
 #' @rdname xPartition
 #' @export
 
-xPartition <- MakeFun(function (pred, coll) {
+xPartition <- MakeFun('xPartition', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		list()

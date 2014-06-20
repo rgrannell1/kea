@@ -43,7 +43,7 @@
 #' @rdname xReject
 #' @export
 
-xReject <- MakeFun(function (pred, coll) {
+xReject <- MakeFun('xReject', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		list()

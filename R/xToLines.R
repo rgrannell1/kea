@@ -29,7 +29,7 @@
 #' @rdname xToLines
 #' @export
 
-xToLines <- MakeFun(function (str) {
+xToLines <- MakeFun('xToLines', function (str) {
 
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)

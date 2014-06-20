@@ -35,7 +35,7 @@
 #' @rdname xSliceString
 #' @export
 
-xSliceString <- MakeFun(function (str, nums) {
+xSliceString <- MakeFun('xSliceString', function (str, nums) {
 
 	MACRO( Must_All_Be_Whole(nums) )
 

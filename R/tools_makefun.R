@@ -147,7 +147,7 @@ write_boilerplate <- function (params) {
 
 # TODO split into several, small functions, with MakeFun as a main function.
 
-MakeFun <- function (expr) {
+MakeFun <- function (sym, expr) {
 
 	parent_frame <- parent.frame()
 
@@ -188,7 +188,7 @@ MakeFun <- function (expr) {
 			as.symbol('Fix'),
 
 			# -- the function to return in a fixed form.
-			call('sys.function'),
+			as.symbol(sym),
 
 			c(
 				# -- the parametres to bind over.

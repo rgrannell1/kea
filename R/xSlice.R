@@ -40,7 +40,7 @@
 #' @rdname xSlice
 #' @export
 
-xSlice <- MakeFun(function (nums, coll) {
+xSlice <- MakeFun('xSlice', function (nums, coll) {
 
 	MACRO( Must_All_Be_Whole(nums) )
 	MACRO( Must_All_Be_Indices(nums, coll) )

@@ -23,7 +23,7 @@
 #' @rdname xIsVariadic
 #' @export
 
-xIsVariadic <- MakeFun(function (fn) {
+xIsVariadic <- MakeFun('xIsVariadic', function (fn) {
 
 	params <- xParamsOf(fn)
 

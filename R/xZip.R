@@ -56,7 +56,7 @@
 #' @rdname xZip
 #' @export
 
-xZip <- MakeFun(function (colls) {
+xZip <- MakeFun('xZip', function (colls) {
 
 	if (length(colls) == 0) {
 		list()

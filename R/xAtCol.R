@@ -41,7 +41,7 @@
 #' @rdname xAtCol
 #' @export
 
-xAtCol <- MakeFun(function (num, colls) {
+xAtCol <- MakeFun('xAtCol', function (num, colls) {
 
 	if (length(colls) == 0 || length(num) == 0) {
 		list()

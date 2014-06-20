@@ -34,7 +34,7 @@
 #' @rdname xAsRaw
 #' @export
 
-xAsRaw <- MakeFun(function (raws) {
+xAsRaw <- MakeFun('xAsRaw', function (raws) {
 
 	as_typed_vector(raws, 'raw')
 

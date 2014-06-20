@@ -28,7 +28,7 @@
 #' @rdname xIsEmpty
 #' @export
 
-xIsEmpty <- MakeFun(function (coll) {
+xIsEmpty <- MakeFun('xIsEmpty', function (coll) {
 	isTRUE(length(coll) == 0)
 })
 

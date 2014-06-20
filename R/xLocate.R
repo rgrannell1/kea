@@ -31,7 +31,7 @@
 #' @rdname xLocate
 #' @export
 
-xLocate <- MakeFun(function (pred, coll) {
+xLocate <- MakeFun('xLocate', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		integer(0)

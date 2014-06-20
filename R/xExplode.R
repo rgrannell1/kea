@@ -31,7 +31,7 @@
 #' @rdname xExplode
 #' @export
 
-xExplode <- MakeFun(function (rexp, str) {
+xExplode <- MakeFun('xExplode', function (rexp, str) {
 
 	if (length(str) == 0 || length(rexp) == 0) {
 		character(0)

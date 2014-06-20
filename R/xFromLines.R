@@ -32,7 +32,7 @@
 #' @rdname xFromLines
 #' @export
 
-xFromLines <- MakeFun(function (strs) {
+xFromLines <- MakeFun('xFromLines', function (strs) {
 
 	if (length(strs) == 0) {
 		character()

@@ -38,7 +38,7 @@
 #' @rdname xDo
 #' @export
 
-xDo <- MakeFun(function (fn, coll) {
+xDo <- MakeFun('xDo', function (fn, coll) {
 
 	if (length(coll) == 0) {
 		Null

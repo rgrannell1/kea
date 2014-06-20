@@ -36,11 +36,12 @@
 #' @rdname xPowerSetOf
 #' @export
 
-xPowerSetOf <- MakeFun(function (coll) {
+xPowerSetOf <- MakeFun('xPowerSetOf', function (coll) {
 
 	if (length(coll) == 0) {
 		list()
 	} else {
+
 		subsets <- list(list())
 		coll <- lapply(coll, list)
 

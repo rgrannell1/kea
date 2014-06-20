@@ -49,7 +49,7 @@
 #' @rdname xMap
 #' @export
 
-xMap <- MakeFun(function (fn, coll) {
+xMap <- MakeFun('xMap', function (fn, coll) {
 
 	if (length(coll) == 0) {
 		list()

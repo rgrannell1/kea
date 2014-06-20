@@ -46,7 +46,7 @@
 #' @rdname xSortBy
 #' @export
 
-xSortBy <- MakeFun(function (fn, coll) {
+xSortBy <- MakeFun('xSortBy', function (fn, coll) {
 
 	if (length(coll) == 0) {
 		list()

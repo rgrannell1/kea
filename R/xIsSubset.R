@@ -32,7 +32,7 @@
 #' @rdname xIsSubset
 #' @export
 
-xIsSubset <- MakeFun(function (coll1, coll2) {
+xIsSubset <- MakeFun('xIsSubset', function (coll1, coll2) {
 
 	if (length(coll1) == 0 || length(coll2) == 0) {
 		logical(0)

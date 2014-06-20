@@ -1445,7 +1445,7 @@ x_fn_proto <- local({
 #' @rdname x_
 #' @export
 
-x_ <- MakeFun(function (val) {
+x_ <- MakeFun('x_', function (val) {
 	# Collection any -> Kiwi any
 	# type constructor for the method-chaining data type.
 

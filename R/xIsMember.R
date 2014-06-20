@@ -35,7 +35,7 @@
 #' @rdname xIsMember
 #' @export
 
-xIsMember <- MakeFun(function (val, coll) {
+xIsMember <- MakeFun('xIsMember', function (val, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)

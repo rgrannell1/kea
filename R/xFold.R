@@ -45,7 +45,7 @@
 #' @rdname xFold
 #' @export
 
-xFold <- MakeFun(function (fn, val, coll) {
+xFold <- MakeFun('xFold', function (fn, val, coll) {
 
 	if (length(coll) == 0) {
 		val

@@ -21,6 +21,6 @@
 #'
 #' @name xByColkeys
 
-xByColkeys <- MakeFun(function (tab) {
+xByColkeys <- MakeFun('xByColkeys', function (tab) {
 	colnames(tab)
 })

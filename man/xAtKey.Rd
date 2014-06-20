@@ -29,7 +29,8 @@ Select a value from a collection using a key.
 \section{Corner Cases}{
 
    If \bold{str} occurs multiple times in \bold{coll}
-   the first match is returned.
+   the first match is returned. If no key matching \bold{str} is
+   found in \bold{coll} an error is thrown.
 }
 \examples{
 

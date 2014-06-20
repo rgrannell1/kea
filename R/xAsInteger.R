@@ -37,7 +37,7 @@
 #' @rdname xAsInteger
 #' @export
 
-xAsInteger <- MakeFun(function (ints) {
+xAsInteger <- MakeFun('xAsInteger', function (ints) {
 
 	if (length(ints) == 0) {
 		integer(0)

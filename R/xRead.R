@@ -27,7 +27,7 @@
 #' @rdname xRead
 #' @export
 
-xRead <- MakeFun(function (str) {
+xRead <- MakeFun('xRead', function (str) {
 
 	MACRO( Must_Be_File(str) )
 
@@ -41,7 +41,7 @@ xRead <- MakeFun(function (str) {
 			readLines(str, warn = False), str, sys.call()
 		)
 
-		paste0(text, collapse = '<n')
+		paste0(text, collapse = '\n')
 	}
 
 })

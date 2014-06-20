@@ -28,7 +28,7 @@
 #' @rdname xFourthOf
 #' @export
 
-xFourthOf <- MakeFun(function (coll) {
+xFourthOf <- MakeFun('xFourthOf', function (coll) {
 
 
 	MACRO( Must_Be_Longer_Than(3, coll) )

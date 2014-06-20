@@ -20,7 +20,8 @@
 #'
 #' @section Corner Cases:
 #'    If \bold{str} occurs multiple times in \bold{coll}
-#'    the first match is returned.
+#'    the first match is returned. If no key matching \bold{str} is
+#'    found in \bold{coll} an error is thrown.
 #'
 #' @template
 #'    Variadic
@@ -33,7 +34,7 @@
 #' @rdname xAtKey
 #' @export
 
-xAtKey <- MakeFun(function (str, coll) {
+xAtKey <- MakeFun('xAtKey', function (str, coll) {
 
 	MACRO( Must_Be_Named(coll) )
 

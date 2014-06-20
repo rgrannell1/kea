@@ -15,8 +15,10 @@ fix <- local({
 		# MUST be called with fixed arguments!
 		# coll MUST be a list
 
-		fn_formals <- formals(.fixed_function)
-		fn_params  <- names(fn_formals)
+
+		fn_formals      <- formals(.fixed_function)
+		.fixed_function <- substitute(.fixed_function)
+		fn_params       <- names(fn_formals)
 
 		# -- interpret positional / named arguments; may be possible to remove.
 
@@ -29,7 +31,7 @@ fix <- local({
 
 				# -- check if each parametre has a 'positional' matching argument,
 				# -- using the pseudoindices arg1, arg2, arg3.
-				.( as.call(c(fn_symbol, lapply(seq_along(fn_params), function (ith) {
+				.( as.call(c(.fixed_function, lapply(seq_along(fn_params), function (ith) {
 
 					# -- the ith parametre has a matching argument.
 					if (any( coll_names == arg_keys[[ith]] )) {

@@ -45,7 +45,7 @@
 #' @rdname xScan
 #' @export
 
-xScan <- MakeFun(function (fn, val, coll) {
+xScan <- MakeFun('xScan', function (fn, val, coll) {
 
 	scanned <- c( val, vector("list", length(coll)) )
 

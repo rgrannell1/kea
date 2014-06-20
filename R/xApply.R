@@ -50,7 +50,7 @@
 #' @rdname xApply
 #' @export
 
-xApply <- MakeFun(function (fn, coll) {
+xApply <- MakeFun('xApply', function (fn, coll) {
 
 	eval(
 		as.call(c(fn, coll)),

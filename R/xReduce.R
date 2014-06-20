@@ -41,7 +41,7 @@
 #' @rdname xReduce
 #' @export
 
-xReduce <- MakeFun(function (fn, coll) {
+xReduce <- MakeFun('xReduce', function (fn, coll) {
 
 	if (length(coll) == 0) {
 		coll

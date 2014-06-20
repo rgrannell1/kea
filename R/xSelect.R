@@ -43,7 +43,7 @@
 #' @rdname xSelect
 #' @export
 
-xSelect <- MakeFun(function (pred, coll) {
+xSelect <- MakeFun('xSelect', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		list()

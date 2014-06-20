@@ -28,7 +28,7 @@
 #' @rdname xAsVar
 #' @export
 
-xAsVar <- MakeFun(function (sym) {
+xAsVar <- MakeFun('xAsVar', function (sym) {
 
 	MACRO( Must_Be_Existing_Ref(sym) )
 

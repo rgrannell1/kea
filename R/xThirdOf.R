@@ -32,7 +32,7 @@
 #' @rdname xThirdOf
 #' @export
 
-xThirdOf <- MakeFun(function (coll) {
+xThirdOf <- MakeFun('xThirdOf', function (coll) {
 
 	MACRO( Must_Be_Longer_Than(2, coll) )
 

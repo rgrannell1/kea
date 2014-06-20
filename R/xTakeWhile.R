@@ -37,7 +37,7 @@
 #' @rdname xTakeWhile
 #' @export
 
-xTakeWhile <- MakeFun(function (pred, coll) {
+xTakeWhile <- MakeFun('xTakeWhile', function (pred, coll) {
 
 	if (length(coll) == 0) {
 		list()

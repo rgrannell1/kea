@@ -29,7 +29,7 @@
 #' @rdname xNotNa
 #' @export
 
-xNotNa <- MakeFun(function (val) {
+xNotNa <- MakeFun('xNotNa', function (val) {
 
 	if (length(val) != 1) {
 		True
