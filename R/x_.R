@@ -773,6 +773,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_Juxtapose, 'fns')
 
 	# -------- K ------- #
+	add_x_method(this, xKeysOf, 'coll')
+	add_x_method(this, xKeysOf_, '...')
+	add_x_method(this, x_KeysOf, 'coll')
+	add_x_method(this, x_KeysOf_, '...')
+
 	# -------- L ------- #
 	# --- xLastOf --- #
 	add_x_method(this, xLastOf, 'coll')
