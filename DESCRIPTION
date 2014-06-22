@@ -197,5 +197,6 @@ Collate:
     'xRead.R'
     'xWrite.R'
     'xIndicesOf.R'
+    'xKeysOf.R'
     'x_.R'
     'x..R'
