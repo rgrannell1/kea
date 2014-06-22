@@ -5,14 +5,15 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 
 	bquote({
 
-		all_match <- all( vapply( .(COLL) , function (val) {
+		# -- is every element of the collection a function?
+		.all_match <- all( vapply( .(COLL) , function (val) {
 
 			is.function(val) || is.name(val) ||
 			(is.character(val) && length(val) == 1)
 
 		}, logical(1)) )
 
-		if (!all_match) {
+		if (!.all_match) {
 
 			message <-
 				"The argument matching " %+% ddquote( .(COLL) ) %+%
@@ -23,6 +24,7 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 				any(class( .(COLL) ) == "kiwi")
 			}, logical(1)) )
 
+			# -- specifically warn if the collection contained kiwi objects.
 			if (contains_kiwi) {
 
 				message <- message %+%

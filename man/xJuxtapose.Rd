@@ -60,19 +60,17 @@ x_(nums) $ x_Map(xJuxtapose_(max, mean, min))
 \seealso{
 Other function_combining_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift_}}; \code{\link{\%of\%}},
-  \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose_}}
+  \code{\link{xLift_}}; \code{\link{\%then\%}},
+  \code{\link{xCompose}}, \code{\link{xCompose_}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift_}}; \code{\link{\%of\%}},
-  \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose_}}; \code{\link{xCapture}},
-  \code{\link{xK}}; \code{\link{xDelay}};
-  \code{\link{xFix}}, \code{\link{xFix_}};
-  \code{\link{xNegate}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}
+  \code{\link{xLift_}}; \code{\link{\%then\%}},
+  \code{\link{xCompose}}, \code{\link{xCompose_}};
+  \code{\link{xCapture}}, \code{\link{xK}};
+  \code{\link{xDelay}}; \code{\link{xFix}},
+  \code{\link{xFix_}}; \code{\link{xNegate}};
+  \code{\link{xSpread}}; \code{\link{xThread}},
+  \code{\link{xThread_}}; \code{\link{xUnspread}}
 }
 

@@ -112,13 +112,6 @@ xCompose_ <- MakeVariadic(xCompose, 'fns')
 #' @rdname xCompose
 #' @export
 
-'%of%' <- function (fn1, fn2) {
-	xCompose(list(fn1, fn2))
-}
-
-#' @rdname xCompose
-#' @export
-
 '%then%' <- function (fn1, fn2) {
 	xCompose(list(fn2, fn1))
 }
