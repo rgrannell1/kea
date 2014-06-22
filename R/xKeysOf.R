@@ -31,10 +31,11 @@
 
 xKeysOf <- MakeFun('xKeysOf', function (coll) {
 
+
 	if (length(coll) == 0) {
 		character(0)
 	} else {
-		collnames <- names(xKeysOf)
+		collnames <- names(coll)
 
 		# -- names usually returns Null.
 		if (length(collnames) == 0) {
