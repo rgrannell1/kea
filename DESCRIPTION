@@ -196,5 +196,6 @@ Collate:
     'xLastAs.R'
     'xRead.R'
     'xWrite.R'
+    'xIndicesOf.R'
     'x_.R'
     'x..R'

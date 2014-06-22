@@ -27,7 +27,7 @@ write_preconditions <- local({
 	param_preconds $ fns <- join_exprs(
 		Must_Be_Collection(fns),
 		Must_Be_Collection_Of_Fn_Matchable(fns)
-	}
+	)
 
 	# -- sym must always be a matchable name data-type.
 	param_preconds $ sym <-
