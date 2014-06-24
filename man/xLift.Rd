@@ -89,19 +89,17 @@ Compose a function with the outputs of other functions.
 is_recursive <- is.list \%or\% is.pairlist
 }
 \seealso{
-Other function_combining_functions: \code{\link{\%of\%}},
-  \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose_}}; \code{\link{xJuxtapose}},
-  \code{\link{xJuxtapose_}}
+Other function_combining_functions: \code{\link{\%then\%}},
+  \code{\link{xCompose}}, \code{\link{xCompose_}};
+  \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}}
 
-Other function_modifying_functions: \code{\link{\%of\%}},
-  \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose_}}; \code{\link{xCapture}},
-  \code{\link{xK}}; \code{\link{xDelay}};
-  \code{\link{xFix}}, \code{\link{xFix_}};
-  \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
-  \code{\link{xNegate}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}
+Other function_modifying_functions: \code{\link{\%then\%}},
+  \code{\link{xCompose}}, \code{\link{xCompose_}};
+  \code{\link{xCapture}}, \code{\link{xK}};
+  \code{\link{xDelay}}; \code{\link{xFix}},
+  \code{\link{xFix_}}; \code{\link{xJuxtapose}},
+  \code{\link{xJuxtapose_}}; \code{\link{xNegate}};
+  \code{\link{xSpread}}; \code{\link{xThread}},
+  \code{\link{xThread_}}; \code{\link{xUnspread}}
 }
 

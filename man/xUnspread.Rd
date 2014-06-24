@@ -64,14 +64,14 @@ Other function_application_functions: \code{\link{xApply}},
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},
-  \code{\link{xLift_}}; \code{\link{\%of\%}},
-  \code{\link{\%then\%}}, \code{\link{xCompose}},
-  \code{\link{xCompose_}}; \code{\link{xCapture}},
-  \code{\link{xK}}; \code{\link{xDelay}};
-  \code{\link{xFix}}, \code{\link{xFix_}};
-  \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
-  \code{\link{xNegate}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread_}}
+  \code{\link{xLift_}}; \code{\link{\%then\%}},
+  \code{\link{xCompose}}, \code{\link{xCompose_}};
+  \code{\link{xCapture}}, \code{\link{xK}};
+  \code{\link{xDelay}}; \code{\link{xFix}},
+  \code{\link{xFix_}}; \code{\link{xJuxtapose}},
+  \code{\link{xJuxtapose_}}; \code{\link{xNegate}};
+  \code{\link{xSpread}}; \code{\link{xThread}},
+  \code{\link{xThread_}}
 
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFix}}, \code{\link{xFix_}};

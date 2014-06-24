@@ -9,7 +9,7 @@ x_(list.files('.')) $ xDo(print)
 
 #    or even
 
-xDo(print %of% list.files, '.')
+xDo(list.files %then% print, '.')
 
 #2. plot a trig function.
 
@@ -38,6 +38,6 @@ xDo(
 
 n <- 5
 
-xDo(print %of% xK('hello'), 1:n)
+xDo(xK('hello') %then% print, 1:n)
 xDo(num := print('hello'),  1:n)
 

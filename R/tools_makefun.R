@@ -23,17 +23,22 @@ write_preconditions <- local({
 			do.call( Must_Be_Fn_Matchable, list(as.symbol(param)) )
 	}
 
-	param_preconds $ fns <- quote({
-		Must_Be_Collection(fns)
+	# -- fns must be both a collection and a collection of functions.
+	param_preconds $ fns <- join_exprs(
+		Must_Be_Collection(fns),
 		Must_Be_Collection_Of_Fn_Matchable(fns)
-	})
+	)
 
+	# -- sym must always be a matchable name data-type.
 	param_preconds $ sym <-
 		Must_Be_Matchable(substitute(sym))
 
+	# -- these parametres are always collections.
 	for (param in c(
 		'coll', 'coll1', 'coll2',
-		'bools', 'ims', 'raws',
+		'bools',
+		'ims',
+		'raws',
 		'nums', 'num', 'num1', 'num2',
 		'str', 'str1', 'str2')) {
 
@@ -41,8 +46,11 @@ write_preconditions <- local({
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
 	}
 
-	param_preconds $ colls <-
-		Must_Be_Collection_Of_Collections(colls)
+	param_preconds $ colls <- join_exprs(
+			Must_Be_Collection(colls),
+			Must_Be_Collection_Of_Collections(colls)
+		)
+
 
 	function (params) {
 
