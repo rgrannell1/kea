@@ -2,15 +2,22 @@
 forall <- kiwi:::forall
 test_cases <- kiwi:::test_cases
 
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
+
 require(kiwi)
 
 message("xStopwatch")
 
-	forall(
-		"stopwatch of zero is false",
-		list(),
-		xStopwatch(0)() == False
-	)
+	over() +
+
+	describe('stopwatch with no time is false') +
+	when(
+		True,
+		!xStopwatch(0)()
+	) +
+
+	run()
 
 	forall(
 		"stopwatch returns true before its time, then false",
@@ -28,4 +35,9 @@ message("xStopwatch")
 		},
 		max_time = 1
 	)
+
+
+
+
+
 

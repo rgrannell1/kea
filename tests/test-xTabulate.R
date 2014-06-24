@@ -5,6 +5,7 @@ is_collection <- kiwi ::: is_collection
 message("xTabulate (+)")
 
 	over(coll) +
+
 	describe('tabulating an empty collection is empty list') +
 	when(
 		is_collection(coll) && length(coll) == 0,
