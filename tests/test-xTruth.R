@@ -5,7 +5,7 @@ message("xTruth (+)")
 
 	over(val) +
 
-	describe('xTruth always yields false') +
+	describe('xTruth always yields true') +
 	when(
 		True,
 		xTruth(val)
