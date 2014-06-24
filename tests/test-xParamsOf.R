@@ -16,7 +16,7 @@ message("xParamsOf (+)")
 	when(
 		is.function(fn) && !is.primitive(fn),
 		( xParamsOf(fn) %is% names(formals(fn)) ) ||
-		( xParamsOf(fn) %is% Null )
+		( xParamsOf(fn) %is% character(0) )
 	) +
 
 	run()

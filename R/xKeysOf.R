@@ -31,7 +31,6 @@
 
 xKeysOf <- MakeFun('xKeysOf', function (coll) {
 
-
 	if (length(coll) == 0) {
 		character(0)
 	} else {
