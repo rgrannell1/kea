@@ -1,15 +1,31 @@
 
+Kiwi 0.26.0
+-----------------------------------------------------------------------------
+Date: 2014-6-24
+
+Added two new functions, fixed a bug in input validation.
+
+Enhancements:
+
+* Added xIndicesOf, which that returns the indices of a collection.
+
+* Added xKeysOf, which returns the names of a collection.
 
 * Removed '%of%', one of two infix composition operators. Calls to
 %then% are easier to read.
 
 Bug Fixes:
 
-* 'fns' now correctly validates its input; previously it did not check
-if its argument was a collection of functions or function names.
+* the parametre 'fns' ands 'colls' now correctly validates its input;
+previously it did not check if its argument was a collection of functions
+or function names.
 
+* A temporary variable created by the must-be-collection-of-fn-matchable
+macro is now hidden.
 
+Package Internals:
 
+* Added forall-next tests for xIndicesOf.
 
 
 
