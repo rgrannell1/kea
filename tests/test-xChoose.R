@@ -1,14 +1,27 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xChoose (+)")
 
-message("xChoose")
+	over(coll) +
 
-	forall(
-		"combos of empty collection is empty list",
-		test_cases$nonnegative_with_collection_zero,
-		xChoose(num, coll) %is% list()
-	)
+	describe("choosing with empty collection is empty collection") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0,
+		xChoose(0, list()) %is% list(),
+		xChoose(1, list()) %is% list(),
+		xChoose(2, list()) %is% list()
+	) +
 
+	run()
+
+	over(coll) +
+
+	describe("choosing with 1 is as.list") +
+	holdsWhen(
+		is_collection(coll),
+		xChoose(1, coll) %is% as.list(coll)
+	) +
+
+	run()

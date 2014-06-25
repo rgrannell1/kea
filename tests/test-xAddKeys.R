@@ -17,4 +17,3 @@ message("xAddKeys")
 		test_cases$str_words,
 		all(names( xAddKeys(strs, seq_along(strs)) ) == strs)
 	)
-
