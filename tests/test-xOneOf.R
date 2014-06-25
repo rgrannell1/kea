@@ -18,12 +18,6 @@ message("xOneOf (-)")
 
 	over(coll) +
 
-	describe("fails when given a non-collection") +
-	failsWhen(
-		!is_collection(coll),
-		xOneOf(coll)
-	) +
-
 	describe("fails when empty collection") +
 	failsWhen(
 		is_collection(coll) && length(coll) == 0,

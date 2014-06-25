@@ -4,8 +4,6 @@ is_collection <- kiwi ::: is_collection
 
 message('xUnionOf (+)')
 
-message("xUnionOf")
-
 	over(coll) +
 
 	describe('the union of an empty set is an empty set') +
