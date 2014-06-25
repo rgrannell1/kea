@@ -8,7 +8,7 @@ message("xCompose (+)")
 
 	over(val) +
 
-	describe() +
+	describe("compsing of identity is identity") +
 	holdsWhen(
 		True,
 		xCompose_(identity)(val) %is% val
