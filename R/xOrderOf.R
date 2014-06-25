@@ -61,7 +61,7 @@ xOrderOf <- MakeFun('xOrderOf', function (nums) {
 			nums[max_index] <- -Inf
 		}
 
-		ordering
+		rev(ordering)
 	}
 })
 
