@@ -7,13 +7,13 @@ message("xMap (+)")
 	over(coll) +
 
 	describe('the empty collection always yield the empty collection') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xMap(identity, coll) %is% list()
 	) +
 
 	describe('identity preserves contents') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xMap(identity, coll) %is% as.list(coll)
 	) +

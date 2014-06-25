@@ -26,7 +26,7 @@ Get the names of a collection.
 
 \section{Corner Cases}{
 
-    Returns \character(0) when \bold{coll} is length-zero.
+    Returns character(0) when \bold{coll} is length-zero.
 }
 \examples{
 

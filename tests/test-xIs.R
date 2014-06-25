@@ -6,7 +6,7 @@ message("xIs (+)")
 	over(val) +
 
 	describe("a value is always equal to itself.") +
-	when(
+	holdsWhen(
 		True,
 		xIs(val, val)
 	) +
@@ -16,7 +16,7 @@ message("xIs (+)")
 	over(val1, val2) +
 
 	describe("always returns a logical value.") +
-	when(
+	holdsWhen(
 		True,
 		is.logical(xIs(val1, val2)),
 		length(xIs(val1, val2)) == 1

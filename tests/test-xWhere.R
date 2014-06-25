@@ -7,13 +7,13 @@ message("xWhere (+)")
 	over(coll) +
 
 	describe("length one corner cases") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xWhere(coll) %is% integer(0)
 	) +
 
 	describe("length one corner cases") +
-	when(
+	holdsWhen(
 		TRUE,
 		xWhere(TRUE) == 1,
 		xWhere(FALSE) %is% integer(0),
@@ -27,7 +27,7 @@ message("xWhere (-)")
 	over(coll) +
 
 	describe("length one corner cases") +
-	failswhen(
+	failsWhen(
 		!is.logical(coll) && length(coll) > 0,
 		xWhere(coll)
 	) +

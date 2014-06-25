@@ -7,13 +7,13 @@ message("xPoll (+)")
 	over(coll) +
 
 	describe('xPoll counts true occurrences.') +
-	when(
+	holdsWhen(
 		is.logical(coll) && length(coll) > 0,
 		xPoll(identity, coll) %is% length(which(coll)) == 0
 	) +
 
 	describe('xPoll with the empty collection is integer(0)') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xPoll(function (x) True,  coll) %is% integer(0),
 		xPoll(function (x) False, coll) %is% integer(0),
@@ -21,14 +21,14 @@ message("xPoll (+)")
 	) +
 
 	describe('xPoll with xFalsity is 0') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		xPoll(function (x) False, coll) == 0,
 		xPoll(function (x) Na,    coll) == 0
 	) +
 
 	describe('xPoll with xTruth is length') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		xPoll(function (x) True, coll) == length(coll)
 	) +
@@ -40,7 +40,7 @@ message("xPoll (-)")
 	over(coll) +
 
 	describe('xPoll fails for non-collections.') +
-	failswhen(
+	failsWhen(
 		!is_collection(coll),
 		xPoll(function (x) True,  coll),
 		xPoll(function (x) False, coll),

@@ -7,7 +7,7 @@ message('xFourthAs (+)')
 	over(val, coll) +
 
 	describe('always sets the correct element') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) >= 4,
 		xFourthAs(val, coll)[[4]] %is% val
 	) +
@@ -19,7 +19,7 @@ message('xFourthAs (-)')
 	over(val, coll) +
 
 	describe('fails when the collection is too short') +
-	failswhen(
+	failsWhen(
 		is_collection(coll) && length(coll) < 4,
 		xFourthAs(val, coll)
 	) +

@@ -7,7 +7,7 @@ message("xSelect (+)")
 	over(coll) +
 
 	describe("the empty collection always yields the list") +
-	when(
+	holdsWhen(
 		length(coll) == 0 && is_collection(coll),
 		xSelect(function (x) True, coll)  %is% list(),
 		xSelect(function (x) False, coll) %is% list(),
@@ -15,13 +15,13 @@ message("xSelect (+)")
 	) +
 
 	describe("truth function acts as identity") +
-	when(
+	holdsWhen(
 		length(coll) > 0 && is_collection(coll),
 		xSelect(function (x) True, coll) %is% as.list(coll)
 	) +
 
 	describe("false or na function acts as unit") +
-	when(
+	holdsWhen(
 		length(coll) > 0 && is_collection(coll),
 		xSelect(function (x) False, coll) %is% list(),
 		xSelect(function (x) Na,    coll) %is% list()

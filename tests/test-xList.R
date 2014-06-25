@@ -7,19 +7,19 @@ message("xList (+)")
 	over(coll) +
 
 	describe("xList can construct empty lists") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xList[] %is% list()
 	) +
 
 	describe('xList on one list is similar to as.list') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xList[x, x <- coll] %is% as.list(coll)
 	) +
 
 	describe('predicates work with one binding') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xList[x, x <- coll, True]  %is% as.list(coll)
 	) +
@@ -31,7 +31,7 @@ message('xList (-)')
 	over(coll) +
 
 	describe('must have at least one binding') +
-	failswhen(
+	failsWhen(
 		is_collection(coll),
 		xList[x],
 		xList[x, y],
@@ -39,7 +39,7 @@ message('xList (-)')
 	) +
 
 	describe('must not being with binding expression') +
-	failswhen(
+	failsWhen(
 		is_collection(coll),
 		xList[x <- coll, x],
 		xList[x <- coll, y <- coll, x, y]

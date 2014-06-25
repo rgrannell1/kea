@@ -9,7 +9,7 @@ xThirdAs(val, coll)
 xThirdAs_(val, ...)
 }
 \arguments{
-\item{val}{an arbitrary value. The value to use.}
+\item{val}{an arbitrary value. The value to set.}
 
 \item{coll}{a collection. The collection to set the
    third element of.}

@@ -12,7 +12,7 @@ message("xStopwatch")
 	over() +
 
 	describe('stopwatch with no time is false') +
-	when(
+	holdsWhen(
 		True,
 		!xStopwatch(0)()
 	) +

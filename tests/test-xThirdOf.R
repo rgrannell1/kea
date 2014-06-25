@@ -7,7 +7,7 @@ message('xThirdOf')
 	over(coll) +
 
 	describe('always returns the correct element') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) >= 3,
 		xThirdOf(coll) %is% coll[[3]]
 	) +
@@ -18,7 +18,7 @@ message('xThirdOf (-)')
 	over(coll) +
 
 	describe('fails when the collection is too short') +
-	failswhen(
+	failsWhen(
 		is_collection(coll) && length(coll) < 3,
 		xThirdOf(coll)
 	) +

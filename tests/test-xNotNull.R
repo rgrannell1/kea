@@ -7,13 +7,13 @@ message("xIsNull (+)")
 	over(val) +
 
 	describe('xIsNull is true when the value is null.') +
-	when(
+	holdsWhen(
 		identical(val, Null),
 		xIsNull(val)
 	) +
 
 	describe('xIsNull is false when the value isnt') +
-	when(
+	holdsWhen(
 		!identical(val, Null),
 		!xIsNull(val)
 	) +

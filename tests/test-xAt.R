@@ -22,13 +22,13 @@ message('xAt (-)')
 	over(coll) +
 
 	describe('fails when index is too large') +
-	failswhen(
+	failsWhen(
 		is_collection(coll) && length(coll) >= 1,
 		xAt(length(coll) + 1, coll)
 	) +
 
 	describe('fails when index is too large') +
-	failswhen(
+	failsWhen(
 		is_collection(coll) && length(coll) >= 1,
 		xAt(0, coll)
 	) +

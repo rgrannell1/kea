@@ -7,13 +7,13 @@ message("xIsNa (+)")
 	over(val) +
 
 	describe('xIsNa is true when the value is Na.') +
-	when(
+	holdsWhen(
 		is.na(val),
 		xIsNa(val)
 	) +
 
 	describe('xIsNa is false when the value isnt') +
-	when(
+	holdsWhen(
 		!is.na(val),
 		!xIsNa(val)
 	) +

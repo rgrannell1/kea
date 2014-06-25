@@ -6,7 +6,7 @@ message("xIsEmpty (+)")
 
 	over(coll) +
 	describe('xIsEmpty correctly reports lengths.') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		if (length(coll) == 0) xIsEmpty(coll) else !xIsEmpty(coll)
 	) +

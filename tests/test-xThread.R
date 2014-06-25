@@ -7,7 +7,7 @@ message("xThread (+)")
 	over(val) +
 
 	describe('threading with no function is that value') +
-	when(
+	holdsWhen(
 		TRUE,
 		xThread(val, list()) %is% val
 	) +
@@ -20,7 +20,7 @@ message("xThread (+)")
 		"threading a number through linear functions ",
 		"is the product of the number with the function coefficients.", collapse = '\n'
 	)) +
-	when(
+	holdsWhen(
 		is.numeric(nums) && is.finite(nums),
 		{
 

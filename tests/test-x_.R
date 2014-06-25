@@ -7,13 +7,13 @@ message('x_(+)')
 	over(val) +
 
 	describe('the identity of x_(val) is always itself.') +
-	when(
+	holdsWhen(
 		True,
 		x_(val) $ x_Identity() %is% val
 	) +
 
 	describe('x_(x_(val)) flattens.') +
-	when(
+	holdsWhen(
 		True,
 		x_(x_(val)) %is% x_(val)
 	) +

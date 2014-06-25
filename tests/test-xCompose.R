@@ -9,7 +9,7 @@ message("xCompose (+)")
 	over(val) +
 
 	describe() +
-	when(
+	holdsWhen(
 		True,
 		xCompose_(identity)(val) %is% val
 	) +
@@ -21,7 +21,7 @@ message("xCompose (-)")
 	over() +
 
 	describe("fails with no functions") +
-	failswhen(
+	failsWhen(
 		True,
 		xCompose(list())
 	) +

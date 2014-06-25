@@ -7,7 +7,7 @@ message("xUnspread (+)")
 	over(fn) +
 
 	describe('all functions become unary') +
-	when(
+	holdsWhen(
 		is.function(fn),
 		length( formals(xUnspread(fn) )) == 1
 	) +

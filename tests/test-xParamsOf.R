@@ -7,13 +7,13 @@ message("xParamsOf (+)")
 	over(fn) +
 
 	describe("always returns character") +
-	when(
+	holdsWhen(
 		is.function(fn),
 		is.character(xParamsOf(fn))
 	) +
 
 	describe("works for non-primitive functions") +
-	when(
+	holdsWhen(
 		is.function(fn) && !is.primitive(fn),
 		( xParamsOf(fn) %is% names(formals(fn)) ) ||
 		( xParamsOf(fn) %is% character(0) )

@@ -7,13 +7,13 @@ message("xIsNan (+)")
 	over(val) +
 
 	describe('xIsNan is true when the value is NaN.') +
-	when(
+	holdsWhen(
 		identical(val, NaN),
 		xIsNan(val)
 	) +
 
 	describe('xIsNan is NaN when the value isnt') +
-	when(
+	holdsWhen(
 		!identical(val, NaN),
 		!xIsNan(val)
 	) +

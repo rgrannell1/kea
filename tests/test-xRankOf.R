@@ -7,19 +7,19 @@ message("xRankOf (+)")
 	over(nums) +
 
 	describe("rank of empty collection is integer(0)") +
-	when(
+	holdsWhen(
 		is_collection(nums) && length(nums) == 0,
 		xRankOf(nums) %is% integer(0)
 	) +
 
 	describe("the rank of one number is one.") +
-	when(
+	holdsWhen(
 		is.numeric(nums) && length(nums) == 1,
 		xRankOf(nums) == 1
 	) +
 
 	describe("sorting the rank of numbers is seq_along nums") +
-	when(
+	holdsWhen(
 		is.numeric(nums),
 		sort(xRankOf(nums)) %is% seq_along(nums)
 	) +

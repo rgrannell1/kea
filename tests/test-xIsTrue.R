@@ -7,13 +7,13 @@ message("xIsTrue (+)")
 	over(val) +
 
 	describe('xIsTrue is true when the value is false.') +
-	when(
+	holdsWhen(
 		isTRUE(val),
 		xIsTrue(val)
 	) +
 
 	describe('xIsTrue is false when the value isnt') +
-	when(
+	holdsWhen(
 		!isTRUE(val),
 		!xIsTrue(val)
 	) +

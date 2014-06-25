@@ -7,13 +7,13 @@ message("xPrepend (+)")
 	over(val, coll) +
 
 	describe("joining with empty collection is list(val)") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xPrepend(val, coll) %is% list(val)
 	) +
 
 	describe("adds to front of collection") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		length(xPrepend(val, coll)) == length(coll) + 1,
 		xPrepend(val, coll)[[1]] %is% val
@@ -26,7 +26,7 @@ message("xPrepend (-)")
 	over(val, coll) +
 
 	describe("fails if not a collection") +
-	failswhen(
+	failsWhen(
 		!is_collection(coll),
 		xPrepend(val, coll)
 	) +

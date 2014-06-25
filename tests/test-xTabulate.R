@@ -7,19 +7,19 @@ message("xTabulate (+)")
 	over(coll) +
 
 	describe('tabulating an empty collection is empty list') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xTabulate(coll) %is% list()
 	) +
 
 	describe('the length of the table is the number of unique elements') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		length(xTabulate(coll)) == length(unique(coll))
 	) +
 
 	describe('the first values of the table-tuples is the set of coll') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		{
 			seta <- lapply( xTabulate(coll), function (x) x[[1]] )
@@ -30,7 +30,7 @@ message("xTabulate (+)")
 	) +
 
 	describe('the first value of the table-tuples is unique') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		length(unique(lapply( xTabulate(coll), function (x) x[[1]] ) )) == length(unique(coll))
 	) +

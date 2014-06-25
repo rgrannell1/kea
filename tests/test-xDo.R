@@ -7,7 +7,7 @@ message("xDo (+)")
 	over(coll) +
 
 	describe("xDo is always null") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xDo(identity, coll)  %is% NULL
 	) +
@@ -19,7 +19,7 @@ message("xDo (-)")
 	over(coll) +
 
 	describe("coll must always be a collection") +
-	failswhen(
+	failsWhen(
 		!is_collection(coll),
 		xDo(identity, coll)
 	) +
