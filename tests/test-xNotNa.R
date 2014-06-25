@@ -1,19 +1,21 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xIsNa (+)")
 
-message("xNotNa")
+	over(val) +
 
-	forall(
-		"not na of empty collection is False",
-		test_cases$collection_zero,
-		xNotNa(coll)
-	)
+	describe('xIsNa is true when the value is Na.') +
+	when(
+		is.na(val),
+		xIsNa(val)
+	) +
 
-	forall(
-		"not na of na is false",
-		list(),
-		!xNotNa(Na)
-	)
+	describe('xIsNa is false when the value isnt') +
+	when(
+		!is.na(val),
+		!xIsNa(val)
+	) +
+
+	run()
