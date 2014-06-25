@@ -31,7 +31,7 @@ message("xUnit (-)")
 	over(fn, coll) +
 
 	describe("coll must always be a collection") +
-	failsWhen(
+	failswhen(
 		!is_collection(coll),
 		xUnit(coll)
 	) +

@@ -24,7 +24,7 @@ message("xPoll (+)")
 	when(
 		is_collection(coll) && length(coll) > 0,
 		xPoll(function (x) False, coll) == 0,
-		xPoll(function (x) Na, coll)    == 0
+		xPoll(function (x) Na,    coll) == 0
 	) +
 
 	describe('xPoll with xTruth is length') +
@@ -40,7 +40,7 @@ message("xPoll (-)")
 	over(coll) +
 
 	describe('xPoll fails for non-collections.') +
-	failsWhen(
+	failswhen(
 		!is_collection(coll),
 		xPoll(function (x) True,  coll),
 		xPoll(function (x) False, coll),

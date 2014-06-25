@@ -29,19 +29,19 @@ message("Must_Be_Whole (-)")
 	over(num) +
 
 	describe('Be_Whole fails for NA') +
-	failsWhen(
+	failswhen(
 		is.numeric(num) && length(num) == 1 && is.na(num),
 		as_function(Must_Be_Whole)(num)
 	) +
 
 	describe('Be_Whole fails for NaN') +
-	failsWhen(
+	failswhen(
 		is.numeric(num) && length(num) == 1 && is.nan(num),
 		as_function(Must_Be_Whole)(num)
 	) +
 
 	describe('Be_Whole fails for non-rounded numbers') +
-	failsWhen(
+	failswhen(
 		is.numeric(num) && length(num) == 1&& !is.infinite(num) && round(num) != num,
 		as_function(Must_Be_Whole)(num)
 	) +

@@ -19,7 +19,7 @@ message('xSecondAs (-)')
 	over(val, coll) +
 
 	describe('fails when the collection is too short') +
-	failsWhen(
+	failswhen(
 		is_collection(coll) && length(coll) < 2,
 		xSecondAs(val, coll)
 	) +

@@ -31,7 +31,7 @@ message('xList (-)')
 	over(coll) +
 
 	describe('must have at least one binding') +
-	failsWhen(
+	failswhen(
 		is_collection(coll),
 		xList[x],
 		xList[x, y],
@@ -39,7 +39,7 @@ message('xList (-)')
 	) +
 
 	describe('must not being with binding expression') +
-	failsWhen(
+	failswhen(
 		is_collection(coll),
 		xList[x <- coll, x],
 		xList[x <- coll, y <- coll, x, y]

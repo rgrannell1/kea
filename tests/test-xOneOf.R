@@ -19,7 +19,7 @@ message("xOneOf (-)")
 	over(coll) +
 
 	describe("fails when empty collection") +
-	failsWhen(
+	failswhen(
 		is_collection(coll) && length(coll) == 0,
 		xOneOf(coll)
 	) +

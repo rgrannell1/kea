@@ -19,7 +19,7 @@ message("xDo (-)")
 	over(coll) +
 
 	describe("coll must always be a collection") +
-	failsWhen(
+	failswhen(
 		!is_collection(coll),
 		xDo(identity, coll)
 	) +

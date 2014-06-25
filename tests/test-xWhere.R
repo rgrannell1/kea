@@ -27,7 +27,7 @@ message("xWhere (-)")
 	over(coll) +
 
 	describe("length one corner cases") +
-	failsWhen(
+	failswhen(
 		!is.logical(coll) && length(coll) > 0,
 		xWhere(coll)
 	) +

@@ -26,7 +26,7 @@ message("xPrepend (-)")
 	over(val, coll) +
 
 	describe("fails if not a collection") +
-	failsWhen(
+	failswhen(
 		!is_collection(coll),
 		xPrepend(val, coll)
 	) +

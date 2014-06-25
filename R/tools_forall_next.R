@@ -623,7 +623,7 @@ execute_test <- function (test) {
 # when(expr, ...expr)           when a predicate is true of the randomly generated test cases,
 #                               check that several properties are also true.
 #
-# failsWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
+# failswhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
 #                               check that several functions fail.
 #
 #
