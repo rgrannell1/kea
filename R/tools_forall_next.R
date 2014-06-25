@@ -814,7 +814,7 @@ run <- function (time = 2) {
 	responses <- list(
 		'xdescribe'  = join('info'),
 		'xover'      = override('params'),
-		'xholdswhen'      = join('positives'),
+		'xholdswhen' = join('positives'),
 		'xfailsWhen' = join('negatives'),
 		'xrun'       = function () {
 			acc $ time <- new $ time
