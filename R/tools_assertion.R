@@ -301,3 +301,31 @@ try_write <- local({
 	}
 
 })
+
+# Ensure that a regular expression doesn't fail.
+#
+# Intercept a message from R's internal regexp validation,
+# relabel as comming from top-level kiwi function.
+#
+#
+
+check_regexp <- function (rexp, invoking_call) {
+
+	tryCatch(
+		if (length(rexp) > 0) {
+			regexpr(rexp, text = '')
+		},
+		warning = function (warn) {
+			message <- err $ message %+%
+			'\n'
+
+			throw_kiwi_warning(invoking_call, message)
+		},
+		error = function (err) {
+			message <- err $ message %+%
+			'\n'
+
+			throw_kiwi_error(invoking_call, message)
+		}
+	)
+}

@@ -43,6 +43,7 @@
 
 xAddKeys <- MakeFun('xAddKeys', function (strs, coll) {
 
+	MACRO( Must_Not_Contain_Na(strs) )
 	MACRO( Must_Be_Equal_Length_To(strs, coll) )
 
 	coll        <- as.list(coll)

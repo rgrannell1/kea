@@ -39,17 +39,48 @@ write_preconditions <- local({
 		'bools',
 		'ims',
 		'raws',
-		'nums', 'num', 'num1', 'num2',
-		'str', 'str1', 'str2')) {
+		'nums')) {
 
 		param_preconds[[param]] <-
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
 	}
 
+
+	param_preconds $ num <- join_exprs(
+		Must_Be_Collection(num),
+		Must_Be_Non_Nan(num)
+	)
+
+	param_preconds $ rexp <- join_exprs(
+		join_exprs(
+			Must_Be_Collection(rexp),
+			Must_Be_Non_Na(rexp)
+		),
+		quote( check_regexp(rexp, sys.call()) )
+	)
+
 	param_preconds $ colls <- join_exprs(
-			Must_Be_Collection(colls),
-			Must_Be_Collection_Of_Collections(colls)
-		)
+		Must_Be_Collection(colls),
+		Must_Be_Collection_Of_Collections(colls)
+	)
+
+	param_preconds $ str <- join_exprs(
+		Must_Be_Collection(str),
+		Must_Be_Non_Na(str)
+	)
+
+	param_preconds $ str1 <- join_exprs(
+		Must_Be_Collection(str1),
+		Must_Be_Non_Na(str1)
+	)
+
+	param_preconds $ str2 <- join_exprs(
+		Must_Be_Collection(str2),
+		Must_Be_Non_Na(str2)
+	)
+
+	param_preconds $ strs <-
+		Must_Be_Collection(strs)
 
 
 	function (params) {
