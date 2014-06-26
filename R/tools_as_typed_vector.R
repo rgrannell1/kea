@@ -213,12 +213,11 @@ as_atom <- local({
 		} else if (is.atomic(coll)) {
 			# -- fast track; check if the atomic vector is atomic.
 
-			type <- typeof(coll)
-
 			if (mode == 'numeric') {
 				# -- integers, doubles, numerics are all valid numerics.
 
-				if ( !any(type == c('integer', 'double', 'numeric')) ) {
+				# -- needed for NA to be untyped.
+				if (!typecheck $ integer(coll) && !typecheck $ double(coll)) {
 
 					coll_sym <- substitute(coll)
 
@@ -239,7 +238,8 @@ as_atom <- local({
 				}
 
 				coll
-			} else if (!type == mode) {
+
+			} else if (!typecheck [[mode]] (coll)) {
 				# -- check that the expected type
 
 				coll_sym <- substitute(coll)
