@@ -35,13 +35,18 @@ Bug-Fixes:
 * Removed second, redundant type conversion from xAs* family of functions,
 which should increase performance.
 
+* xChoose no longer fails for length-zero numbers.
+
 Package Internals:
 
-* Added must-be-finite macro.
+* Added must-be-finite, must-be-orderable macros.
+
+* Added a forall-next test to xAt, xChoose, xCompose, xJuxtapose,
+xNotNa, xIsNull, xOrderOf, xRankOf, xStopWatch, xThread.
 
 * Renamed 'when' to 'holdsWhen'.
 
-
+* Devectorised is_na.
 
 
 
