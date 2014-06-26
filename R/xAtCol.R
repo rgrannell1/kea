@@ -47,6 +47,7 @@ xAtCol <- MakeFun('xAtCol', function (num, colls) {
 		list()
 	} else {
 
+		# -- this ensures num is an index of colls.
 		MACRO( Must_Be_Collection_Of_Lengths_In_Range(colls, num, Inf) )
 
 		lapply(colls, function (coll) {

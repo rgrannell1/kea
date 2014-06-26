@@ -20,6 +20,8 @@ which should increase performance.
 
 * fns parametre arguments now correctly reassigned after function lookup.
 
+* xCycle now fails when trying to cycle infinitely far.
+
 Package Internals:
 
 * renamed 'when' to 'holdsWhen'.
