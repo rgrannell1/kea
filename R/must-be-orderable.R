@@ -5,8 +5,7 @@ Must_Be_Orderable <- function (NUMS) {
 
 	NUMS <- substitute(NUMS)
 
-	# -- is.na also tests for NaN, is more efficient than two checks.
-	bquote( if ( any(is.na( .(NUMS) )) ) {
+	bquote( if ( any(elem_is_na( .(NUMS) ) | elem_is_nan( .(NUMS) )) ) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUMS) ) %+%
