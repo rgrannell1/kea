@@ -86,13 +86,12 @@ xCompose <- MakeFun('xCompose', function (fns) {
 
 	MACRO( Must_Be_Longer_Than(0, fns) )
 
-	function (...) {
+	function (val) {
 		"a function returned by xCompose."
 		""
 
 		# -- can't use do.call here, since the value has
 		# -- to be passed to several functions.
-		val <- c(...)
 
 		for ( ith in rev(seq_along(fns)) ) {
 

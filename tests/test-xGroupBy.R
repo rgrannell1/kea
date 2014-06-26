@@ -18,7 +18,7 @@ message("xGroupBy")
 	over(coll) +
 
 	describe("grouping an empty collection is list()") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xGroupBy(identity, coll) %is% list()
 	) +

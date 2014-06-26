@@ -25,7 +25,7 @@
 #'    A named list.
 #'
 #' @section Corner Cases:
-#'    Returns the empty list if \bold{coll} is length-zero. Both
+#'    Returns the named empty list if \bold{coll} is length-zero. Both
 #'    duplicated and length-zero names are allowed.
 #'
 #' @family key_functions

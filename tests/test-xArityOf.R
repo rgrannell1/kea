@@ -7,7 +7,7 @@ message("xArityOf (+)")
 	over(fn) +
 
 	describe("xArityOf is always a nonnegative number") +
-	when(
+	holdsWhen(
 		is.function(fn),
 		xArityOf(fn) >= 0
 	) +

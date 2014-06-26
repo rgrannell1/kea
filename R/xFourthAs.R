@@ -7,7 +7,7 @@
 #'     any -> |any| -> [any]
 #'
 #' @param
-#'    val an arbitrary value. The value to use.
+#'    val an arbitrary value. The value to set.
 #'
 #' @param
 #'    coll a collection. The collection to set the

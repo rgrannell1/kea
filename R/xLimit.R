@@ -1,4 +1,5 @@
 
+#' xLimit
 #'
 #' Create a function that can call its underlying
 #' function a limited number of times.

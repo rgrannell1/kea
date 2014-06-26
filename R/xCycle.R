@@ -62,6 +62,7 @@
 xCycle <- MakeFun('xCycle', function (num, coll) {
 
 	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Finite(num) )
 
 	if (length(coll) == 0 || length(num) == 0) {
 		list()

@@ -7,19 +7,19 @@ message("xUnzipIndices (+)")
 	over(coll) +
 
 	describe("the empty collection always yields the list") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
 		xUnzipIndices(coll)  %is% list()
 	) +
 
 	describe("otherwise made of two-tuples") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		all(sapply( xUnzipIndices(coll), length ) == 2)
 	) +
 
 	describe("the first column is made of indices") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		{
 
@@ -30,7 +30,7 @@ message("xUnzipIndices (+)")
 	) +
 
 	describe("the second column is the values") +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		{
 

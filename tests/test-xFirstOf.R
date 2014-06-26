@@ -7,7 +7,7 @@ message('xFirstOf (+)')
 	over(coll) +
 
 	describe('always returns the correct element') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) >= 1,
 		xFirstOf(coll) %is% coll[[1]]
 	) +

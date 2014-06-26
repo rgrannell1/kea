@@ -39,7 +39,7 @@
 #' @export
 
 xAsCharacter <- MakeFun('xAsCharacter', function (strs) {
-	as_typed_vector(strs, 'character')
+	strs
 })
 
 #' @rdname xAsCharacter

@@ -5,7 +5,7 @@ message("forall-next (+)")
 
 	over(a, b) +
 	describe("addition is commutative") +
-	when(
+	holdsWhen(
 		is.numeric(a)  && is.numeric(b) &&
 		length(a) == 1 && length(b) == 1 &&
 		is.finite(a)  && is.finite(b),
@@ -15,7 +15,7 @@ message("forall-next (+)")
 
 	over(a) +
 	describe("multiplication by 1 is identity") +
-	when(
+	holdsWhen(
 		is.numeric(a) && length(a) == 1 &&
 		is.finite(a),
 		a * 1 == a
@@ -47,7 +47,7 @@ message("forall-next (-)")
 		over(a) +
 
 		describe('a is not a') +
-		when(
+		holdsWhen(
 			is.numeric(a) && length(a) == 1 &&
 			!is.nan(a),
 			a != a

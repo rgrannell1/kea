@@ -34,12 +34,7 @@
 #' @export
 
 xAsLogical <- MakeFun('xAsLogical', function (bools) {
-
-	if (length(bools) == 0) {
-		logical(0)
-	} else {
-		as.logical(bools)
-	}
+	bools
 })
 
 #' @rdname xAsLogical

@@ -7,7 +7,7 @@ message("xOneOf (+)")
 	over(coll) +
 
 	describe("oneof always selects an element from the list") +
-	when(
+	holdsWhen(
 		length(coll) > 0 && is_collection(coll),
 		xOneOf(coll) %in% coll
 	) +
@@ -17,12 +17,6 @@ message("xOneOf (+)")
 message("xOneOf (-)")
 
 	over(coll) +
-
-	describe("fails when given a non-collection") +
-	failsWhen(
-		!is_collection(coll),
-		xOneOf(coll)
-	) +
 
 	describe("fails when empty collection") +
 	failsWhen(

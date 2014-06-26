@@ -7,7 +7,7 @@ message("xDo (+)")
 	over(coll) +
 
 	describe("xDo is always null") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xDo(identity, coll)  %is% NULL
 	) +

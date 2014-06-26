@@ -7,19 +7,19 @@ message("xNoneOf (+)")
 	over(coll) +
 
 	describe('xNoneOf with identity is !any.') +
-	when(
+	holdsWhen(
 		is.logical(coll) && length(coll) > 0,
 		xNoneOf(identity, coll) %is% length(which(coll)) == 0
 	) +
 
 	describe('partially applying with true is false') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		xNoneOf(function (x) True, coll) == False
 	) +
 
 	describe('partially applying with false is true') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		xNoneOf(function (x) False, coll) == True,
 		xNoneOf(function (x) Na,    coll) == True

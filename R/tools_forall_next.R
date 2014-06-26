@@ -257,7 +257,7 @@ parameterise <- function (exprgroups, params, envir) {
 
 
 run_test <- function (tester, groups, state, case, info, invoking_call) {
-	# -- there can be several when(pred, exp1, exp2) groups.
+	# -- there can be several holdsWhen(pred, exp1, exp2) groups.
 
 	for (group_ith in seq_along(groups)) {
 
@@ -620,7 +620,7 @@ execute_test <- function (test) {
 # over(...symbols)              give the parametres to be bound to random values
 #                                (singleton field).
 #
-# when(expr, ...expr)           when a predicate is true of the randomly generated test cases,
+# holdsWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
 #                               check that several properties are also true.
 #
 # failsWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
@@ -704,7 +704,7 @@ suchThat <- function (...) {
 #
 #
 
-when <- function (expr1, ...) {
+holdsWhen <- function (expr1, ...) {
 
 	invoking_call <- sys.call()
 
@@ -712,7 +712,7 @@ when <- function (expr1, ...) {
 
 	if (missing(..1)) {
 		message <-
-			'when must specify expectations.'
+			'holdsWhen must specify expectations.'
 
 		throw_kiwi_error(invoking_call, message)
 	}
@@ -721,7 +721,7 @@ when <- function (expr1, ...) {
 		positives =
 			c(list( exprs[[1]] ), exprs$...)
 	)
-	class(out) <- c('xforall', 'xwhen')
+	class(out) <- c('xforall', 'xholdswhen')
 	out
 
 }
@@ -742,7 +742,7 @@ failsWhen <- function (expr1, ...) {
 	exprs <- as.list(match.call(expand.dots = False)[-1])
 	if (missing(..1)) {
 		message <-
-			'when must specify expectations.'
+			'failsWhen must specify expectations.'
 
 		throw_kiwi_error(invoking_call, message)
 	}
@@ -751,7 +751,7 @@ failsWhen <- function (expr1, ...) {
 		negatives =
 			c(list( exprs[[1]] ), exprs$...)
 	)
-	class(out) <- c('xforall', 'xfailswhen')
+	class(out) <- c('xforall', 'xfailsWhen')
 	out
 
 }
@@ -814,8 +814,8 @@ run <- function (time = 2) {
 	responses <- list(
 		'xdescribe'  = join('info'),
 		'xover'      = override('params'),
-		'xwhen'      = join('positives'),
-		'xfailswhen' = join('negatives'),
+		'xholdswhen' = join('positives'),
+		'xfailsWhen' = join('negatives'),
 		'xrun'       = function () {
 			acc $ time <- new $ time
 

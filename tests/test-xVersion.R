@@ -7,7 +7,7 @@ message("xVersion (+)")
 	over(val) +
 
 	describe('xVersion always gives the current version') +
-	when(
+	holdsWhen(
 		True,
 		paste0(xVersion(val), collapse = '.') == packageVersion("kiwi")
 	) +

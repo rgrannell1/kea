@@ -5,7 +5,7 @@ message("xFalsity (+)")
 
 	over(val) +
 	describe('falsity always yields false') +
-	when(
+	holdsWhen(
 		True,
 		xFalsity(val) == False
 	) +

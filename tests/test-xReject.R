@@ -7,7 +7,7 @@ message("xReject (+)")
 	over(coll) +
 
 	describe("the empty collection always yields the list") +
-	when(
+	holdsWhen(
 		length(coll) == 0 && is_collection(coll),
 		xReject(function (x) True, coll)  %is% list(),
 		xReject(function (x) False, coll) %is% list(),
@@ -15,13 +15,13 @@ message("xReject (+)")
 	) +
 
 	describe("truth function acts as identity") +
-	when(
+	holdsWhen(
 		length(coll) > 0 && is_collection(coll),
 		xReject(function (x) True, coll) %is% list()
 	) +
 
 	describe("false or na function acts as unit") +
-	when(
+	holdsWhen(
 		length(coll) > 0 && is_collection(coll),
 		xReject(function (x) False, coll) %is% as.list(coll),
 		xReject(function (x) Na,    coll) %is% as.list(coll)

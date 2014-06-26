@@ -1,7 +1,29 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 require(kiwi)
 
-message("xCompose")
+message("xCompose (+)")
+
+	over(val) +
+
+	describe("compsing of identity is identity") +
+	holdsWhen(
+		True,
+		xCompose_(identity)(val) %is% val
+	) +
+
+	run()
+
+message("xCompose (-)")
+
+	over() +
+
+	describe("fails with no functions") +
+	failsWhen(
+		True,
+		xCompose(list())
+	) +
+
+	run()

@@ -7,19 +7,19 @@ message("xList (+)")
 	over(coll) +
 
 	describe("xList can construct empty lists") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xList[] %is% list()
 	) +
 
 	describe('xList on one list is similar to as.list') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xList[x, x <- coll] %is% as.list(coll)
 	) +
 
 	describe('predicates work with one binding') +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		xList[x, x <- coll, True]  %is% as.list(coll)
 	) +

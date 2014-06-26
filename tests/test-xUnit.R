@@ -7,19 +7,19 @@ message("xUnit (+)")
 	over(coll) +
 
 	describe("xUnit is length-zero") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		length(xUnit(coll)) == 0
 	) +
 
 	describe("xUnit preserves type") +
-	when(
+	holdsWhen(
 		is_collection(coll),
 		typeof(xUnit(coll)) == typeof(coll)
 	) +
 
 	describe("xUnit of pairlist is null") +
-	when(
+	holdsWhen(
 		is.pairlist(coll) || is.null(coll),
 		is.null(xUnit(coll))
 	) +

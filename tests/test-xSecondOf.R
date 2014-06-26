@@ -7,7 +7,7 @@ message('xSecondOf')
 	over(coll) +
 
 	describe('always returns the correct element') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) >= 2,
 		xSecondOf(coll) %is% coll[[2]]
 	) +

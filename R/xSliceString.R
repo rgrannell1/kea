@@ -37,6 +37,7 @@
 
 xSliceString <- MakeFun('xSliceString', function (str, nums) {
 
+	# -- handles Na and NaN
 	MACRO( Must_All_Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {

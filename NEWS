@@ -1,4 +1,60 @@
 
+Kiwi 0.27.0
+-----------------------------------------------------------------------------
+Date: 2014-6-26
+
+Improvements to numeric corner-cases, bug-fixes, and speedups.
+
+Enhancements:
+
+* xCompose no longer collects its arguments: this means that
+xCompose_(identity) is now identical to identity.
+
+* xOrderOf now returns indices that sort in increaing order, for
+consistency with xSortBy.
+
+* xOrderOf now throws an error for NA and NaN input, as they
+are unorderable.
+
+* xRankOf now throws an error for NA and NaN input, as they
+are unorderable.
+
+* xOrderOf is now faster.
+
+
+Bug-Fixes:
+
+* fns parametre arguments now correctly reassigned after function lookup.
+
+* Type conversion of any na to any other na is now allowed.
+
+* xCycle now fails when trying to cycle infinitely far.
+
+* xRepeat now throws a clear error when trying to repeat infinitely.
+
+* Removed second, redundant type conversion from xAs* family of functions,
+which should increase performance.
+
+* xChoose no longer fails for length-zero numbers.
+
+Package Internals:
+
+* Added must-be-finite, must-be-orderable macros.
+
+* Added a forall-next test to xAt, xChoose, xCompose, xJuxtapose,
+xNotNa, xIsNull, xOrderOf, xRankOf, xStopWatch, xThread.
+
+* Renamed 'when' to 'holdsWhen'.
+
+* Devectorised is_na.
+
+
+
+
+
+
+
+
 Kiwi 0.26.0
 -----------------------------------------------------------------------------
 Date: 2014-6-24

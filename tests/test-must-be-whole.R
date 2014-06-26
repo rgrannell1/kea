@@ -17,7 +17,7 @@ message("Must_Be_Whole (+)")
 	over(num) +
 
 	describe('Be_Whole never fails for numbers') +
-	when(
+	holdsWhen(
 		is.numeric(num) && length(num) == 1 && !is.infinite(num) && round(num) == num,
 		as_function(Must_Be_Whole)(num)
 	) #+

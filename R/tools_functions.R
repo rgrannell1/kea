@@ -34,20 +34,16 @@ rsample <- function (coll, ...) {
 	}
 }
 
-# is.na fails for Null and other annoying cases.
+# is.na fails for Null, NaN and other annoying cases.
 
-is_na <- function (coll) {
+is_na <- function (val) {
 
-	vapply(coll, function (elem) {
-
-		isTRUE(
-			identical(elem, NA) ||
-			identical(elem, NA_integer_) ||
-			identical(elem, NA_character_) ||
-			identical(elem, NA_real_) ||
-			identical(elem, NA_complex_))
-
-	}, logical(1))
+	isTRUE(
+		identical(val, NA) ||
+		identical(val, NA_integer_) ||
+		identical(val, NA_character_) ||
+		identical(val, NA_real_) ||
+		identical(val, NA_complex_))
 }
 
 is_nan <- function (val) {
@@ -377,8 +373,8 @@ load_test_dependencies <- function (envir) {
 				kiwi ::: over,
 			describe =
 				kiwi ::: describe,
-			when =
-				kiwi ::: when,
+			holdsWhen =
+				kiwi ::: holdsWhen,
 			run =
 				kiwi ::: run,
 			failsWhen =

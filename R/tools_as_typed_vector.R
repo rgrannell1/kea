@@ -61,19 +61,21 @@ as_typed_vector <- local({
 		numeric =
 			# -- is.numeric checks if integer or double efficiently
 			# -- na check is less efficent; make second.
-			function (x) is.numeric(x)   || is_na(x),
+			# -- is_na checks if ANY type of na.
+			# -- not using vectorisation;
+			function (x) is.numeric(x)   || all(elem_is_na(x)),
 		integer =
-			function (x) is.integer(x)   || is_na(x),
+			function (x) is.integer(x)   || all(elem_is_na(x)),
 		double =
-			function (x) is.double(x)    || is_na(x),
+			function (x) is.double(x)    || all(elem_is_na(x)),
 		character =
-			function (x) is.character(x) || is_na(x),
+			function (x) is.character(x) || all(elem_is_na(x)),
 		logical =
-			function (x) is.logical(x)   || is_na(x),
+			function (x) is.logical(x)   || all(elem_is_na(x)),
 		complex =
-			function (x) is.complex(x)   || is_na(x),
+			function (x) is.complex(x)   || all(elem_is_na(x)),
 		raw =
-			function (x) is.raw(x)       || is_na(x)
+			function (x) is.raw(x)       || all(elem_is_na(x))
 	)
 
 	function (coll, mode) {
@@ -82,16 +84,17 @@ as_typed_vector <- local({
 		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
+
 			vector(mode)
+
 		} else if (is.atomic(coll)) {
 			# -- this branch is faster; check the vector is the correct type.
-
-			type <- typeof(coll)
 
 			if (mode == 'numeric') {
 				# -- integers, doubles, numerics are all valid numerics.
 
-				if ( !any(type == c('integer', 'double')) ) {
+				# -- needed for NA to be untyped.
+				if (!typecheck $ integer(coll) && !typecheck $ double(coll)) {
 
 					coll_sym <- substitute(coll)
 
@@ -102,7 +105,8 @@ as_typed_vector <- local({
 				}
 
 				coll
-			} else if (!type == mode) {
+
+			} else if (!typecheck [[mode]] (coll)) {
 				# -- otherwise the type has to be the mode.
 
 				coll_sym <- substitute(coll)
@@ -175,20 +179,19 @@ as_atom <- local({
 
 	typecheck <- list(
 		numeric =
-			# -- is.numeric checks if integer or double
-			function (x) is.numeric(x) || is_na(x),
+			function (x) is.numeric(x)   || all(elem_is_na(x)),
 		integer =
-			function (x) is.integer(x) || is_na(x),
+			function (x) is.integer(x)   || all(elem_is_na(x)),
 		double =
-			function (x) is.double(x) || is_na(x),
+			function (x) is.double(x)    || all(elem_is_na(x)),
 		character =
-			function (x) is.character(x) || is_na(x),
+			function (x) is.character(x) || all(elem_is_na(x)),
 		logical =
-			function (x) is.logical(x) || is_na(x),
+			function (x) is.logical(x)   || all(elem_is_na(x)),
 		complex =
-			function (x) is.complex(x) || is_na(x),
+			function (x) is.complex(x)   || all(elem_is_na(x)),
 		raw =
-			function (x) is.raw(x) || is_na(x)
+			function (x) is.raw(x)       || all(elem_is_na(x))
 	)
 
 	function (coll, mode) {

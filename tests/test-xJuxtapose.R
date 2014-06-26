@@ -1,26 +1,23 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 require(kiwi)
 
 message("xJuxtapose")
 
-	forall(
-		"juxtaposing preserves identities within the list",
-		test_cases$num_positive_integer,
-		xJuxtapose(list(identity))(num) %is% list(num)
-	)
+	over(num, val) +
 
-	forall(
-		"juxtaposing can apply multiple functions",
-		test_cases$num_positive_integer,
-		xJuxtapose(list(identity, identity))(num) %is% list(num, num)
-	)
+	describe("juxataposing with list(identity) is list(val)") +
+	holdsWhen(
+		True,
+		xJuxtapose_(identity)(val) %is% list(val)
+	) +
 
-	forall(
-		"juxtaposing works with incrementing",
-		test_cases$succ_over_integers,
-		xJuxtapose(list(fn))(coll) %is% list(coll + 1)
-)
+	describe("juxtaposing with many identities is a list of vals") +
+	holdsWhen(
+		is.numeric(num) && is.finite(num) && length(num) == 1 && num > 0 && num < 10000,
+		xJuxtapose(rep(list(identity), num))(val) %is% rep(list(val))
+	) +
 
+	run()

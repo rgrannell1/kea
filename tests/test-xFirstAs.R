@@ -7,7 +7,7 @@ message('xFirstAs (+)')
 	over(val, coll) +
 
 	describe('always sets the correct element') +
-	when(
+	holdsWhen(
 		is_collection(coll) && length(coll) >= 1,
 		xFirstAs(val, coll)[[1]] %is% val
 	) +

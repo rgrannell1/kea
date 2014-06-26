@@ -1,24 +1,37 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
-require(kiwi)
+message("xThread (+)")
 
-message("xThread")
+	over(val) +
 
-	forall(
-		"threading one value is that value",
-		test_cases$num_integer,
-		xThread(num, list()) == num
-	)
+	describe('threading with no function is that value') +
+	holdsWhen(
+		TRUE,
+		xThread(val, list()) %is% val
+	) +
 
-	forall(
-		"threading one value with identities is that value",
-		test_cases$num_integer,
-		xThread(num, list(
-			identity,
-			identity,
-			identity,
-			identity
-		)) == num
-	)
+	run()
+
+	over(nums) +
+
+	describe(paste0(
+		"threading a number through linear functions ",
+		"is the product of the number with the function coefficients.", collapse = '\n'
+	)) +
+	holdsWhen(
+		is.numeric(nums) && is.finite(nums),
+		{
+
+			num = nums[[1]]
+
+			linear_functions = lapply(nums, function (constant) {
+				function (x) constant * x
+			})
+
+			xThread(num, linear_functions) == num * prod(nums)
+		}
+	) +
+
+	run()
