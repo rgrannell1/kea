@@ -13,6 +13,13 @@ xCompose_(identity) is now identical to identity.
 * xOrderOf now returns indices that sort in increaing order, for
 consistency with xSortBy.
 
+Bug-Fixes:
+
+* Removed second, redundant type conversion from xAs* family of functions,
+which should increase performance.
+
+* fns parametre arguments now correctly reassigned after function lookup.
+
 Package Internals:
 
 * renamed 'when' to 'holdsWhen'.

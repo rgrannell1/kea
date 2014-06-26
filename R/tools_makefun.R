@@ -82,41 +82,22 @@ write_preconditions <- local({
 
 write_boilerplate <- function (params) {
 
+	# sorted from least-frequent to most frequent.
 	param_boilerplate <- list(
-		fn    = list(
-			quote(fn <- match_fn(fn))
-		),
-		pred  = list(
-			quote(pred <- match_fn(pred))
-		),
-		fns   = list(
-			quote(lapply(fns, match_fn))
-		),
+		# ---- atomic parametre boilerplate ----
+		#
+		# this is automatically injected for all atomic parametre.
 
-		num   = list(
-			quote(num <- as_atom(num, 'numeric'))
+		ims  = list(
+			quote(ims <- as_typed_vector(ims, 'complex'))
 		),
-
-		nums  = list(
-			quote(nums <- as_typed_vector(nums, 'numeric'))
-		),
-		strs  = list(
-			quote(strs <- as_typed_vector(strs, 'character'))
-		),
-		ints  = list(
+		ints = list(
 			quote(ints <- as_typed_vector(ints, 'integer'))
 		),
-		bools = list(
-			quote(bools <- as_typed_vector(bools, 'logical'))
-		),
-		sym   = list(
-			quote(sym   <- substitute(sym)),
-			quote(sym   <- paste(sym))
+		raws = list(
+			quote(raws <- as_typed_vector(raws, 'raw'))
 		),
 
-		str   = list(
-			quote(str  <- as_atom(str, "character"))
-		),
 		str1   = list(
 			quote(str1 <- as_atom(str1, "character"))
 		),
@@ -124,8 +105,51 @@ write_boilerplate <- function (params) {
 			quote(str2 <- as_atom(str2, "character"))
 		),
 
+		bools = list(
+			quote(bools <- as_typed_vector(bools, 'logical'))
+		),
 		rexp   = list(
 			quote(rexp <- as_atom(rexp, "character"))
+		),
+		sym   = list(
+			# -- both will be injected.
+			quote(sym   <- substitute(sym)),
+			quote(sym   <- paste(sym))
+		),
+		nums  = list(
+			quote(nums <- as_typed_vector(nums, 'numeric'))
+		),
+		strs  = list(
+			quote(strs <- as_typed_vector(strs, 'character'))
+		),
+		str   = list(
+			quote(str  <- as_atom(str, "character"))
+		),
+		num   = list(
+			quote(num <- as_atom(num, 'numeric'))
+		),
+
+		# ---- non-atomic parametre boilerplate ----
+		#
+		# this is automatically injected for all non-atomic parametre.
+
+		coll1 = list(
+
+		),
+		coll2 = list(
+
+		),
+		fns   = list(
+			quote(fns <- lapply(fns, match_fn))
+		),
+		pred  = list(
+			quote(pred <- match_fn(pred))
+		),
+		fn    = list(
+			quote(fn <- match_fn(fn))
+		),
+		coll  = list(
+
 		)
 	)
 

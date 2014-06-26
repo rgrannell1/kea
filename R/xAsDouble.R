@@ -37,12 +37,7 @@
 #' @export
 
 xAsDouble <- MakeFun('xAsDouble', function (nums) {
-
-	if (length(nums) == 0) {
-		double(0)
-	} else {
-		as.double(nums)
-	}
+	nums
 })
 
 #' @rdname xAsDouble
