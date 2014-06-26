@@ -1,5 +1,5 @@
 
-Kiwi 0.27.0
+Kiwi 0.28.0
 -----------------------------------------------------------------------------
 Date: 2014-6-26
 
@@ -10,12 +10,20 @@ Bug-Fixes:
 * Incorrect arguments to 'rexp' parametre now throws a useful
 error when it is not a collection.
 
+* 'num' now checks and fails if its argument is NaN.
+
 * Regular expressions are now validated before use, and throw
 clear errors if invalid.
 
 * Regular expressions throw a clear error if NA is provided.
 
 * Arguments matching 'str', 'str1', and 'str2' may no longer be NA.
+
+Package Internals:
+
+* Added macros must-be-non-na, must-be-non-nan, must-not-contain-na.
+
+* Added function to validate regular expressions.
 
 
 
