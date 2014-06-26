@@ -8,19 +8,19 @@ message("xRankOf (+)")
 
 	describe("rank of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(nums) && length(nums) == 0,
+		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)),
 		xRankOf(nums) %is% integer(0)
 	) +
 
 	describe("the rank of one number is one.") +
 	holdsWhen(
-		is.numeric(nums) && length(nums) == 1,
+		is.numeric(nums) && length(nums) == 1 && !any(is.na(nums)),
 		xRankOf(nums) == 1
 	) +
 
 	describe("sorting the rank of numbers is seq_along nums") +
 	holdsWhen(
-		is.numeric(nums),
+		is.numeric(nums) && !any(is.na(nums)),
 		sort(xRankOf(nums)) %is% seq_along(nums)
 	) +
 
