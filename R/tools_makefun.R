@@ -74,6 +74,10 @@ write_preconditions <- local({
 		Must_Be_Non_Na(str2)
 	)
 
+	param_preconds $ strs <-
+		Must_Be_Collection(strs)
+
+
 	function (params) {
 
 		preconds <- list()
