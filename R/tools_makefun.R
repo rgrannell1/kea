@@ -39,12 +39,17 @@ write_preconditions <- local({
 		'bools',
 		'ims',
 		'raws',
-		'nums', 'num', 'num1', 'num2',
-		'rexp')) {
+		'nums')) {
 
 		param_preconds[[param]] <-
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
 	}
+
+
+	param_preconds $ num <- join_exprs(
+		Must_Be_Collection(num),
+		Must_Be_Non_Nan(num)
+	)
 
 	param_preconds $ rexp <- join_exprs(
 		join_exprs(

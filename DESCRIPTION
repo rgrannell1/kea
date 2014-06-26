@@ -30,6 +30,7 @@ Collate:
     'must-be-named.R'
     'must-be-non-na.R'
     'must-be-finite.R'
+    'must-be-non-nan.R'
     'must-be-between.R'
     'must-contain-key.R'
     'must-be-of-length.R'
