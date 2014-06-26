@@ -40,7 +40,6 @@ write_preconditions <- local({
 		'ims',
 		'raws',
 		'nums', 'num', 'num1', 'num2',
-		'str', 'str1', 'str2',
 		'rexp')) {
 
 		param_preconds[[param]] <-
@@ -59,6 +58,22 @@ write_preconditions <- local({
 		Must_Be_Collection(colls),
 		Must_Be_Collection_Of_Collections(colls)
 	)
+
+	param_preconds $ str <- join_exprs(
+		Must_Be_Collection(str),
+		Must_Be_Non_Na(str)
+	)
+
+	param_preconds $ str1 <- join_exprs(
+		Must_Be_Collection(str1),
+		Must_Be_Non_Na(str1)
+	)
+
+	param_preconds $ str2 <- join_exprs(
+		Must_Be_Collection(str2),
+		Must_Be_Non_Na(str2)
+	)
+
 
 
 	function (params) {

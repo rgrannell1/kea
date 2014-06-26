@@ -1,6 +1,30 @@
 
 Kiwi 0.27.0
 -----------------------------------------------------------------------------
+Date: 2014-6-
+
+
+Bug-Fixes:
+
+* Incorrect arguments to 'rexp' parametre  now throws a useful
+error when it is not a collection.
+
+* Regular expressions are now validated before use, and throw
+clear errors if invalid.
+
+* Regular expressions throw a clear error if NA is provided.
+
+
+
+
+
+
+
+
+
+
+Kiwi 0.27.0
+-----------------------------------------------------------------------------
 Date: 2014-6-26
 
 Improvements to numeric corner-cases, bug-fixes, and speedups.
@@ -20,7 +44,6 @@ are unorderable.
 are unorderable.
 
 * xOrderOf is now faster.
-
 
 Bug-Fixes:
 
