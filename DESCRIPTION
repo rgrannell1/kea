@@ -37,6 +37,7 @@ Collate:
     'must-be-matchable.R'
     'must-be-orderable.R'
     'must-be-collection.R'
+    'must-not-contain-na.R'
     'must-be-longer-than.R'
     'must-all-be-indices.R'
     'must-be-fn-matchable.R'

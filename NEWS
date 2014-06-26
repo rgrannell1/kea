@@ -14,7 +14,7 @@ clear errors if invalid.
 
 * Regular expressions throw a clear error if NA is provided.
 
-
+* Arguments matching 'str', 'str1', and 'str2' may no longer be NA.
 
 
 

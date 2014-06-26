@@ -74,8 +74,6 @@ write_preconditions <- local({
 		Must_Be_Non_Na(str2)
 	)
 
-
-
 	function (params) {
 
 		preconds <- list()
