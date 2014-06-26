@@ -312,7 +312,9 @@ try_write <- local({
 check_regexp <- function (rexp, invoking_call) {
 
 	tryCatch(
-		regexpr(rexp, text = ''),
+		if (length(rexp) > 0) {
+			regexpr(rexp, text = '')
+		},
 		warning = function (warn) {
 			message <- err $ message %+%
 			'\n'
