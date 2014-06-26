@@ -22,9 +22,13 @@ which should increase performance.
 
 * xCycle now fails when trying to cycle infinitely far.
 
+* xRepeat now throws a clear error when trying to repeat infinitely.
+
 Package Internals:
 
-* renamed 'when' to 'holdsWhen'.
+* Added must-be-finite macro.
+
+* Renamed 'when' to 'holdsWhen'.
 
 
 

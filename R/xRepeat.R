@@ -38,6 +38,7 @@ xRepeat <- MakeFun('xRepeat', function (num, coll) {
 
 	MACRO( Must_Be_Between(num, 0, Inf))
 	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Finite(num) )
 
 	if (num == 0 || length(num) == 0) {
 		list()
