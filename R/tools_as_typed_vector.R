@@ -106,7 +106,7 @@ as_typed_vector <- local({
 
 				coll
 
-			} else if (!type == mode) {
+			} else if (!typecheck [[mode]] (coll)) {
 				# -- otherwise the type has to be the mode.
 
 				coll_sym <- substitute(coll)
