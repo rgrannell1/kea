@@ -16,6 +16,8 @@ consistency with xSortBy.
 * xOrderOf now throws an error for NA and NaN input, as they
 are unorderable.
 
+* xOrderOf is now faster.
+
 * xRankOf now throws an error for NA and NaN input, as they
 are unorderable.
 
