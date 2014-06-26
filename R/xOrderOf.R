@@ -47,21 +47,11 @@ xOrderOf <- MakeFun('xOrderOf', function (nums) {
 		integer(0)
 	} else {
 
-		# -- treat broken numbers like the smallest
-		# -- values; might want to throw an error.
+		# -- throw an error for unorderables in nums;
+		# -- NaN, Na.
 
-		nums[elem_is_nan(nums) | elem_is_na(nums)] <- -Inf
-		ordering <- vector('integer', length(nums))
-
-		for (ith in seq_along(nums)) {
-
-			max_index <- which.max(nums)
-
-			ordering[ith]   <- max_index
-			nums[max_index] <- -Inf
-		}
-
-		rev(ordering)
+		MACRO(Must_Be_Orderable(nums))
+		order(nums)
 	}
 })
 

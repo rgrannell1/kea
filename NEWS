@@ -13,6 +13,12 @@ xCompose_(identity) is now identical to identity.
 * xOrderOf now returns indices that sort in increaing order, for
 consistency with xSortBy.
 
+* xOrderOf now throws an error for NA and NaN input, as they
+are unorderable.
+
+* xRankOf now throws an error for NA and NaN input, as they
+are unorderable.
+
 Bug-Fixes:
 
 * Removed second, redundant type conversion from xAs* family of functions,
@@ -23,6 +29,8 @@ which should increase performance.
 * xCycle now fails when trying to cycle infinitely far.
 
 * xRepeat now throws a clear error when trying to repeat infinitely.
+
+* Type conversion of any na to any other na is now allowed.
 
 Package Internals:
 
