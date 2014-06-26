@@ -254,4 +254,4 @@ Ordered by contribution date.
 
 | Author                      | Changes                 |
 | --------------------------- | ----------------------- |
-| Ryan Grannell               | 179,739 ++ / 148,327 -- |
+| Ryan Grannell               | 183,884 ++ / 152,251 -- |
