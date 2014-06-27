@@ -128,7 +128,7 @@ sd_section(
 		"xRead",
 		"xStopwatch",
 		"xVersion",
-		"xWrite",
+		"xWrite"
 	)
 )
 
