@@ -8,7 +8,7 @@
 #'
 #' @details
 #'     \bold{xSortBy} allows a collection to be sorted by a custom
-#'     size operation. A classic example is sorting a collection of collections
+#'     measure of size. A typical use is sorting a collection of collections
 #'     (analogous to a data frame) by a particular column.
 #'
 #'     \code{coll <- list(list('key1', 10), list('key2', 12), list('key3', 0))}
@@ -21,7 +21,7 @@
 #'     by the value in one of their columns.
 #'
 #' @param
-#'    fn a function that returns a number. The size metric of an element.
+#'    fn a function that returns a number. The measure of an elements size.
 #'
 #' @param
 #'    coll a collection. The collection to sort.
