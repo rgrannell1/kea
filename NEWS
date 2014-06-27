@@ -3,7 +3,14 @@ Kiwi 0.29.0
 -----------------------------------------------------------------------------
 Date: 2014-6-
 
+
+* Character vector summation mentions no of na.
+
 Bug-Fixes:
+
+* Summation of incorrect arguments now corrently handles NA values in vectors.
+
+* Infinite values are now included as whole numbers during argument summation.
 
 * Num now checks and fails if its argument is Na.
 
