@@ -16,7 +16,8 @@
 #' @section Corner Cases:
 #'    If nums is empty then \bold{integer(0)} is returned. Tied values are
 #'    ranked in order of appearance; the first occurrence is ranked lower than
-#'    the second occurrence.
+#'    the second occurrence. Na or NaN values cannot be included, as they are
+#'    unorderable.
 #'
 #' @template
 #'    Variadic

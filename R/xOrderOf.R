@@ -30,7 +30,8 @@
 #'    A vector of numbers.
 #'
 #' @section Corner Cases:
-#'    If nums is empty then \bold{integer(0)} is returned.
+#'    If nums is empty then \bold{integer(0)} is returned. Nums cannot contain
+#'    na or nan values, as then are unorderable.
 #'
 #' @template
 #'    Variadic

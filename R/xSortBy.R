@@ -33,7 +33,8 @@
 #'    A list
 #'
 #' @section Corner Cases:
-#'    If \bold{coll} is a empty collection the empty list is returned.
+#'    If \bold{coll} is a empty collection the empty list is returned. Throws an error if
+#'    \bold{fn} returns Na or NaN or a non length-one-numeric value.
 #'
 #' @template
 #'    Variadic
@@ -53,11 +54,15 @@ xSortBy <- MakeFun('xSortBy', function (fn, coll) {
 	} else if (length(coll) == 1) {
 		as.list(coll)
 	} else {
-		iths <- order( vapply(coll, fn, numeric(1)) )
+		# -- for readable error messages
+		fn_applied_to_coll <- vapply(coll, fn, numeric(1))
+
+		MACRO( Must_Not_Contain_Na(fn_applied_to_coll) )
+		MACRO( Must_Not_Contain_Nan(fn_applied_to_coll) )
 
 		# -- TODO test for na values?
 
-		as.list(coll)[iths]
+		as.list(coll)[order(fn_applied_to_coll)]
 	}
 })
 

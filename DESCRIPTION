@@ -42,6 +42,7 @@ Collate:
     'must-be-longer-than.R'
     'must-all-be-indices.R'
     'must-be-fn-matchable.R'
+    'must-not-contain-nan.R'
     'must-be-positive-index.R'
     'must-be-equal-length-to.R'
     'must-all-be-positive-indices.R'

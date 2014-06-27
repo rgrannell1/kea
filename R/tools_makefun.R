@@ -45,7 +45,6 @@ write_preconditions <- local({
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
 	}
 
-
 	param_preconds $ num <- join_exprs(
 		join_exprs(
 			Must_Be_Collection(num),
