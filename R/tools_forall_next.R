@@ -626,7 +626,8 @@ execute_test <- function (test) {
 # failsWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
 #                               check that several functions fail.
 #
-#
+# worksWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
+#                               check that several functions run correctly.
 #
 #
 # run(num)                      execute the unit test object, set the time to execute for.

@@ -14,9 +14,11 @@ Bug-Fixes:
 
 * Num now checks and fails if its argument is Na.
 
+Package Internals:
 
+* Added worksWhen element to grammar.
 
-
+* Added forall-next tests for xTake and xDrop.
 
 
 
