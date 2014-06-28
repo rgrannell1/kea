@@ -1,23 +1,21 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message("xRestOf")
 
-	forall(
-		"xRestOf of an empty collection always yields the empty list.",
-		test_cases$collection,
-		xRestOf(coll) %is% list(),
-		given =
-			length(coll) == 0
-	)
+	over(coll) +
 
-	forall(
-		"xRestOf of a list shortens the list by one (usually)",
-		test_cases$collection,
+	describe("xRestOf of an empty collection yields the empty list") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0,
+		xRestOf(coll) %is% coll
+	) +
+
+	describe("xRestOf of an empty collection yields the empty list") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0,
 		length(xRestOf(coll)) == length(coll) - 1,
-		given =
-			length(coll) > 0
-	)
+	) +
+
+	run()
