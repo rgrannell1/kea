@@ -8,14 +8,14 @@ message("xRestOf")
 
 	describe("xRestOf of an empty collection yields the empty list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
-		xRestOf(coll) %is% coll
+		is_collection(coll) && length(coll) == 0,
+		xRestOf(coll) %is% list()
 	) +
 
 	describe("xRestOf of an empty collection yields the empty list") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
-		length(xRestOf(coll)) == length(coll) - 1,
+		length(xRestOf(coll)) == length(coll) - 1
 	) +
 
 	run()
