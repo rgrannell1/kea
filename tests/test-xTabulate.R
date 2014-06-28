@@ -35,4 +35,10 @@ message("xTabulate (+)")
 		length(unique(lapply( xTabulate(coll), function (x) x[[1]] ) )) == length(unique(coll))
 	) +
 
+	describe('tabulating always runs') +
+	worksWhen(
+		is_collection(coll),
+		xTabulate(coll)
+	) +
+
 	run()
