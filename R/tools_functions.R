@@ -375,6 +375,8 @@ load_test_dependencies <- function (envir) {
 				kiwi ::: describe,
 			holdsWhen =
 				kiwi ::: holdsWhen,
+			worksWhen =
+				kiwi ::: worksWhen,
 			run =
 				kiwi ::: run,
 			failsWhen =
