@@ -28,7 +28,7 @@ message("xFlatMap")
 
 	describe("flatmap of empty collection is always empty") +
 	holdsWhen(
-		is.function(fn) && is_collection(coll),
+		is.function(fn) && is_collection(coll) && length(coll) == 0,
 		xFlatMap(fn, coll) %is% list()
 	) +
 
