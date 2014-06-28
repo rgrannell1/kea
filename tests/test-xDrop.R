@@ -1,24 +1,36 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
+is_collection <- kiwi ::: is_collection
 
 message('xDrop')
 
-	forall(
-		"the empty collection always yields the empty list.",
-		test_cases$nonnegative_with_collection_zero,
-		xDrop(num, coll) %is% list()
-	)
+	over(num, coll) +
 
-	forall(
-		"dropping yields the correct collection.",
-		test_cases$positive_with_collection,
+	describe("dropping from the empty collection is the empty collection") +
+	holdsWhen(
+		is.numeric(num) && !is.na(num) &&
+		(length(num) == 0 || (num > 0 && round(num) == num)) &&
+		is_collection(coll) && length(coll) == 0,
+		xDrop(num, coll) %is% list()
+	) +
+
+	describe("dropping yields the correct collection") +
+	holdsWhen(
+		is.numeric(num) && !is.na(num) &&
+		(length(num) == 0 || (num > 0 && round(num) == num)) &&
+		is_collection(coll) && length(coll) > 0,
 		{
 			ind <- min(length(coll), num)
 			xDrop(num, coll) %is% as.list(tail(coll, -ind))
-		},
-		given =
-			length(coll) > 0
-	)
+		}
+	) +
+
+	describe("take works over all round positive integers") +
+	worksWhen(
+		is.numeric(num) && !is.na(num) &&
+		(length(num) == 0 || (num > 0 && round(num) == num)) &&
+		is_collection(coll),
+		xDrop(num, coll)
+	) +
+
+	run()
