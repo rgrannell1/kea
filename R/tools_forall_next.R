@@ -726,7 +726,39 @@ holdsWhen <- function (expr1, ...) {
 
 }
 
+#
+#
+# This is a hack - should be implemented as a first-class
+# property.
 
+worksWhen <- function (expr1, ...) {
+
+	invoking_call <- sys.call()
+
+	exprs <- as.list(match.call(expand.dots = False)[-1])
+
+	if (missing(..1)) {
+		message <-
+			'worksWhen must specify expectations.'
+
+		throw_kiwi_error(invoking_call, message)
+	}
+
+	# if the expression runs, return tre.
+	exprs$... <- lapply(exprs$..., function (expr) {
+
+		join_exprs(expr, {TRUE})
+
+	})
+
+	out <- list(
+		positives =
+			c(list( exprs[[1]] ), exprs$...)
+	)
+	class(out) <- c('xforall', 'xholdswhen')
+	out
+
+}
 
 
 
