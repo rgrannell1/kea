@@ -14,13 +14,9 @@ message("xChoose (+)")
 		xChoose(2, list()) %is% list()
 	) +
 
-	run()
-
-	over(coll) +
-
 	describe("choosing with 1 is as.list") +
 	holdsWhen(
-		is_collection(coll),
+		is_collection(coll) && length(coll) > 0,
 		xChoose(1, coll) %is% as.list(coll)
 	) +
 

@@ -56,7 +56,7 @@ message('variadic functions can be partially applied (+)')
 
 	describe('unary variadic functions are partially appliable') +
 	holdsWhen(
-		is_collection(coll),
+		is_collection(coll) && length(coll) > 0,
 		xJoin_(coll) %is% as.list(coll),
 		xJoin_(coll) %is% xJoin_()(coll)
 	) +

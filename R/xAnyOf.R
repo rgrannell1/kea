@@ -37,7 +37,7 @@
 xAnyOf <- MakeFun('xAnyOf', function (pred, coll) {
 
 	if (length(coll) == 0) {
-		keep_names(logical(0), coll)
+		logical(0)
 	} else {
 
 		for (elem in coll) {
