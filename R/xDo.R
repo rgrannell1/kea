@@ -41,7 +41,7 @@
 xDo <- MakeFun('xDo', function (fn, coll) {
 
 	if (length(coll) == 0) {
-		Null
+		invisible (Null)
 	} else {
 
 		for (ith in seq_along(coll)) {

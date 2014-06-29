@@ -31,7 +31,7 @@
 xRankOf <- MakeFun('xRankOf', function (nums) {
 
 	if (length(nums) == 0) {
-		integer(0)
+		keep_names(integer(0), nums)
 	} else {
 
 		MACRO(Must_Be_Orderable(nums))

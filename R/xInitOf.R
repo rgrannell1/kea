@@ -33,7 +33,7 @@
 xInitOf <- MakeFun('xInitOf', function (coll) {
 
 	if (length(coll) < 2) {
-		list()
+		keep_names(list(), coll)
 	} else {
 		coll <- as.list(coll)
 		coll[-length(coll)]

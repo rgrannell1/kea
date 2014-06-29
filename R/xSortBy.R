@@ -50,7 +50,7 @@
 xSortBy <- MakeFun('xSortBy', function (fn, coll) {
 
 	if (length(coll) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else if (length(coll) == 1) {
 		as.list(coll)
 	} else {

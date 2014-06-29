@@ -39,6 +39,7 @@
 xGroupBy <- MakeFun('xGroupBy', function (fn, coll) {
 
 	if (length(coll) == 0) {
+		# do not keep names.
 		list()
 	} else {
 

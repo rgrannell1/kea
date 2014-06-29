@@ -33,7 +33,7 @@
 xUniqueOf <- MakeFun('xUniqueOf', function (coll) {
 
 	if (length(coll) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else {
 		as.list(unique(coll))
 	}

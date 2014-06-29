@@ -37,7 +37,7 @@
 xAllOf <- MakeFun('xAllOf', function (pred, coll) {
 
 	if (length(coll) == 0) {
-		logical(0)
+		keep_names(logical(0), coll)
 	} else {
 		all(vapply(coll, function (elem) {
 

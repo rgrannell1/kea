@@ -33,7 +33,7 @@
 xRestOf <- MakeFun('xRestOf', function (coll) {
 
 	if (length(coll) < 2) {
-		list()
+		keep_names(list(), coll)
 	} else {
 		as.list( coll[-1] )
 	}

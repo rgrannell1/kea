@@ -37,7 +37,7 @@
 xMapply <- MakeFun('xMapply', function (fn, colls) {
 
 	if (length(colls) == 0) {
-		list()
+		keep_names(list(), colls)
 	} else {
 
 		lapply(colls, function (tuple) {

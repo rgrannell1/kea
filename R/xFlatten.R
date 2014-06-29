@@ -52,7 +52,7 @@ xFlatten <- MakeFun('xFlatten', function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 
 	if (length(coll) == 0 || length(num) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else if (is_atomic(coll)) {
 		# -- it is flat!
 		as.list(coll)

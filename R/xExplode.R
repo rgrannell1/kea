@@ -33,6 +33,7 @@
 
 xExplode <- MakeFun('xExplode', function (rexp, str) {
 
+	# -- do not preserve names.
 	if (length(str) == 0 || length(rexp) == 0) {
 		character(0)
 	} else if (nchar(str) == 0) {

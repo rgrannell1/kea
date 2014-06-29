@@ -31,10 +31,8 @@
 xShuffle <- MakeFun('xShuffle', function (coll) {
 
 	if (length(coll) == 0) {
-		list()
-	} else if (length(coll) == 1)
-		list( coll[[1]] )
-	else {
+		keep_names(list(), coll)
+	} else {
 		as.list(rsample(coll))
 	}
 })

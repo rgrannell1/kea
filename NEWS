@@ -9,6 +9,8 @@ Enhancements:
 
 Bug-Fixes:
 
+* broken corner case atcol
+
 * Summation of character-vectors now includes the number of NA values in
 the input.
 

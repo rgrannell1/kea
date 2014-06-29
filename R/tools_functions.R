@@ -146,6 +146,13 @@ as_named <- function (coll) {
 	}
 }
 
+keep_names <- function (coll1, coll2) {
+	if ( length(coll1) == 0 && !is.null(names(coll2)) ) {
+		structure(coll1, names = character(0))
+	} else {
+		coll1
+	}
+}
 
 # -- join_exprs
 # --

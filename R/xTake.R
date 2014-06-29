@@ -40,7 +40,7 @@ xTake <- MakeFun('xTake', function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 
 	if (length(coll) == 0 || num == 0 || length(num) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else if (is.infinite(num)) {
 		as.list(coll)
 	} else {

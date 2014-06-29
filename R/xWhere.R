@@ -32,7 +32,7 @@
 xWhere <- MakeFun('xWhere', function (bools) {
 
 	if (length(bools) == 0) {
-		integer(0)
+		keep_names(integer(0), bools)
 	} else {
 		which(bools)
 	}
