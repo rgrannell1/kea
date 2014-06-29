@@ -7,6 +7,35 @@
 #
 #
 
+vectorise <- function (atom, type) {
+
+	types <- list(
+		integer   = integer(1),
+		double    = double(1),
+		numeric   = numeric(1),
+		character = character(1),
+		raw       = raw(1)
+	)
+
+	function (len) {
+		vapply( 1:len, function (ith) {
+			atom()
+		}, types[[type]] )
+	}
+}
+
+pick_one <- function (coll) {
+	function (len) {
+		one_of(coll)
+	}
+}
+
+pick_one_ <- function (...) {
+	pick_one(list(...))
+}
+
+
+
 from_stream <- function (len) {
 	# -- yield a single valid R object.
 
@@ -24,14 +53,10 @@ from_stream <- function (len) {
 	# -- character vectors
 
 	this $ empty_character <-
-		function (len) {
-			character(0)
-		}
+		pick_one_(character(0))
 
 	this $ character <-
-		function (len) {
-			one_of(extended_ascii)
-		}
+		pick_one(extended_ascii)
 
 	this $ word <-
 		function (len) {
@@ -60,49 +85,30 @@ from_stream <- function (len) {
 	# -- logical vectors
 
 	this $ empty_logical <-
-		function (len) {
-			logical(0)
-		}
+		pick_one_(logical(0))
 
-	this $ flag <-
-		function (len) {
-			one_of(c(True, False, Na))
-		}
+	this $ logical <-
+		pick_one_(True, False, Na)
 
 	this $ logicals <-
-		function (len) {
-			rsample(c(True, False, Na), size = len, replace = True)
-		}
+		vectorise(this $ logical, 'logical')
 
 	# -- double
 
 	this $ empty_double <-
-		function (len) {
-			numeric(0)
-		}
+		pick_one_(numeric(0))
+
 	this $ nan <-
-		function (len) {
-			NaN
-		}
+		pick_one_(NaN)
 
 	this $ nans <-
-		function (len) {
-			vapply(1:len, function (ith) {
-				NaN
-			}, numeric(1))
-		}
+		vectorise(this $ nan, 'numeric')
 
 	this $ infinity <-
-		function (len) {
-			one_of(c(-Inf, +Inf))
-		}
+		pick_one_(-Inf, +Inf)
 
 	this $ infinities <-
-		function (len) {
-			vapply(1:len, function (ith) {
-				one_of(c(-Inf, +Inf))
-			}, numeric(1))
-		}
+		vectorise(this $ infinity, 'numeric')
 
 	this $ double <-
 		function (len) {
@@ -110,18 +116,21 @@ from_stream <- function (len) {
 		}
 
 	this $ doubles <-
+		vectorise(this $ double, 'numeric')
+
+	this $ doubles_any <-
 		function (len) {
 			vapply(1:len, function (ith) {
-				rnorm(1, 0, 1000000)
+				num <- rnorm(1, 0, 1000000)
+				one_of(c(-Inf, +Inf, NaN, NA_real_, num))
+
 			}, numeric(1))
 		}
 
 	# -- integer
 
 	this $ empty_integer <-
-		function (len) {
-			integer(0)
-		}
+		pick_one_(integer(0))
 
 	this $ integer <-
 		function (len) {
@@ -129,9 +138,15 @@ from_stream <- function (len) {
 		}
 
 	this $ integers <-
+		vectorise(this $ integer, 'integer')
+
+	this $ integers_any <-
 		function (len) {
 			vapply(1:len, function (ith) {
-				sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
+
+				num <- sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
+				one_of(c(num, NA_integer_))
+
 			}, integer(1))
 		}
 
