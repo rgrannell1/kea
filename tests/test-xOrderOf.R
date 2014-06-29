@@ -8,7 +8,7 @@ message("xOrderOf (+)")
 
 	describe("order of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		is_collection(coll) && !is.na(coll) && length(coll) == 0,
 		xOrderOf(coll) %is% integer(0)
 	) +
 
@@ -18,7 +18,7 @@ message("xOrderOf (+)")
 
 	describe("order of nums is seq along nums") +
 	holdsWhen(
-		is.numeric(nums) && !is.nan(nums),
+		is.numeric(nums) && !is.na(nums) && !is.nan(nums),
 		xOrderOf(sort(nums)) %is% seq_along(nums)
 	) +
 
