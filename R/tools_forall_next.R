@@ -118,6 +118,23 @@ from_stream <- function (len) {
 			paste0(lines, collapse = '\n')
 		}
 
+	this $ characters <-
+		vectorise(this $ character, 'character')
+
+	this $ words <-
+		vectorise(this $ words, 'character')
+
+	this $ lines <-
+		vectorise(this $ lines, 'character')
+
+	this $ paragraphs <-
+		vectorise(this $ paragraphs, 'character')
+
+
+
+
+
+
 	add_names <- function (fn) {
 		function (len) {
 			elems        <- fn(len)
@@ -200,6 +217,9 @@ from_stream <- function (len) {
 	# -- named vector
 	this $ named_doubles_any <-
 		add_names(this $ doubles_any)
+
+	this $ named_integers_any <-
+		add_names(this $ integers_any)
 
 
 	# -- generic collection
