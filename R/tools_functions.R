@@ -134,6 +134,19 @@ str_split <- function (rexp, str) {
 	}
 }
 
+is_named <- function (coll) {
+	!is.null(names(coll))
+}
+
+as_named <- function (coll) {
+	if (length(coll) == 0) {
+		structure(coll, names = character(0))
+	} else {
+		stop('as_named')
+	}
+}
+
+
 # -- join_exprs
 # --
 # -- join two expressions into a composite expression.
@@ -374,21 +387,17 @@ load_test_dependencies <- function (envir) {
 
 	deps <-
 		list(
-			over =
-				kiwi ::: over,
-			describe =
-				kiwi ::: describe,
-			holdsWhen =
-				kiwi ::: holdsWhen,
-			worksWhen =
-				kiwi ::: worksWhen,
-			run =
-				kiwi ::: run,
-			failsWhen =
-				kiwi ::: failsWhen,
+			over          = over,
+			describe      = describe,
+			holdsWhen     = holdsWhen,
+			worksWhen     = worksWhen,
+			run           = run,
+			failsWhen     = failsWhen,
+			`+.xforall`   = `+.xforall`,
 
-			`+.xforall` =
-				kiwi ::: `+.xforall`
+			is_collection = is_collection,
+			as_named      = as_named,
+			is_named      = is_named
 		)
 
 	for (key in names(deps)) {

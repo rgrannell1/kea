@@ -67,7 +67,7 @@ one_gen_ <- function (...) {
 
 
 
-from_stream <- function (len) {
+from_stream <- ( function () {
 	# -- yield a single valid R object.
 
 	#-- finish this alphabet
@@ -78,7 +78,7 @@ from_stream <- function (len) {
 	# -- whitespace
 	whitespace <- c(' ', '	')
 
-	this <- Object()
+	this <- new.env(parent = parent.frame())
 
 	# -- na's
 
@@ -131,19 +131,20 @@ from_stream <- function (len) {
 	this $ paragraphs <-
 		vectorise(this $ paragraph, 'character')
 
-
-
-
-
-
 	add_names <- function (fn) {
 		function (len) {
 			elems        <- fn(len)
-			names(elems) <- vapply(elems, function (elem) {
-				this $ word(sample(1:100, size = 1))
-			}, character(1))
 
-			elems
+			if (length(elems) == 0) {
+				structure(elems, names = character(0))
+			} else {
+
+				names(elems) <- vapply(elems, function (elem) {
+					this $ word(sample(1:100, size = 1))
+				}, character(1))
+
+				elems
+			}
 		}
 	}
 
@@ -216,6 +217,11 @@ from_stream <- function (len) {
 
 
 	# -- named vector
+
+
+
+
+
 	this $ named_doubles_any <-
 		add_names(this $ doubles_any)
 
@@ -225,8 +231,17 @@ from_stream <- function (len) {
 
 	# -- generic collection
 
+	this $ named_empty_character <-
+		add_names(this $ empty_character)
 
+	this $ named_empty_logical <-
+		add_names(this $ empty_logical)
 
+	this $ named_empty_double <-
+		add_names(this $ empty_double)
+
+	this $ named_empty_integer <-
+		add_names(this $ empty_integer)
 
 
 
@@ -248,11 +263,15 @@ from_stream <- function (len) {
 
 	# -- with that out of the way, yield a value.
 
-	implemented <- ls(envir = this)
+	function (len) {
 
-	sampler <- this[[ rsample(implemented, size = 1) ]]
-	sampler(len)
-}
+		implemented <- ls(envir = this)
+
+		sampler <- this[[ rsample(implemented, size = 1) ]]
+		sampler(len)
+	}
+
+})()
 
 
 

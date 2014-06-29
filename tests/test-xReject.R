@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xReject (+)")
 
@@ -8,16 +8,32 @@ message("xReject (+)")
 
 	describe("the empty collection always yields the list") +
 	holdsWhen(
-		length(coll) == 0 && is_collection(coll),
+		length(coll) == 0 && is_collection(coll) && !is_named(coll),
 		xReject(function (x) True, coll)  %is% list(),
 		xReject(function (x) False, coll) %is% list(),
 		xReject(function (x) Na,    coll) %is% list()
 	) +
 
+
+	describe("the empty collection always yields the list (named)") +
+	holdsWhen(
+		length(coll) == 0 && is_collection(coll) && is_named(coll),
+		xReject(function (x) True, coll)  %is% as_named(list()),
+		xReject(function (x) False, coll) %is% as_named(list()),
+		xReject(function (x) Na,    coll) %is% as_named(list())
+	) +
+
+
 	describe("truth function acts as identity") +
 	holdsWhen(
-		length(coll) > 0 && is_collection(coll),
+		length(coll) > 0 && is_collection(coll) && !is_named(coll),
 		xReject(function (x) True, coll) %is% list()
+	) +
+
+	describe("truth function acts as identity") +
+	holdsWhen(
+		length(coll) > 0 && is_collection(coll) && is_named(coll),
+		xReject(function (x) True, coll) %is% as_named(list())
 	) +
 
 	describe("false or na function acts as unit") +
