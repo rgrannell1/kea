@@ -85,14 +85,35 @@ from_stream <- function (len) {
 			NaN
 		}
 
+	this $ nans <-
+		function (len) {
+			vapply(1:len, function (ith) {
+				NaN
+			}, numeric(1))
+		}
+
 	this $ infinity <-
 		function (len) {
 			one_of(c(-Inf, +Inf))
 		}
 
+	this $ infinities <-
+		function (len) {
+			vapply(1:len, function (ith) {
+				one_of(c(-Inf, +Inf))
+			}, numeric(1))
+		}
+
 	this $ double <-
 		function (len) {
 			rnorm(1, 0, 1000000)
+		}
+
+	this $ doubles <-
+		function (len) {
+			vapply(1:len, function (ith) {
+				rnorm(1, 0, 1000000)
+			}, numeric(1))
 		}
 
 	# -- integer
@@ -105,6 +126,13 @@ from_stream <- function (len) {
 	this $ integer <-
 		function (len) {
 			sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
+		}
+
+	this $ integers <-
+		function (len) {
+			vapply(1:len, function (ith) {
+				sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
+			}, integer(1))
 		}
 
 	# -- function
