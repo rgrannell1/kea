@@ -14,6 +14,8 @@ Bug-Fixes:
 
 * Num now checks and fails if its argument is Na.
 
+* is_collection is now false for factors.
+
 Documentation:
 
 * Corrected type signature of xExplode.

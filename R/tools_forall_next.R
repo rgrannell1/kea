@@ -27,6 +27,11 @@ vectorise <- function (atom, type) {
 	}
 }
 
+
+
+
+
+
 pick_one <- function (coll) {
 	function (len) {
 		one_of(coll)
@@ -37,6 +42,11 @@ pick_one_ <- function (...) {
 	pick_one(list(...))
 }
 
+
+
+
+
+
 one_gen  <- function (fns) {
 	function (len) {
 		one_of(fns)(len)
@@ -46,6 +56,12 @@ one_gen  <- function (fns) {
 one_gen_ <- function (...) {
 	one_gen(list(...))
 }
+
+
+
+
+
+
 
 
 
@@ -101,6 +117,17 @@ from_stream <- function (len) {
 
 			paste0(lines, collapse = '\n')
 		}
+
+	add_names <- function (fn) {
+		function (len) {
+			elems        <- fn(len)
+			names(elems) <- vapply(elems, function (elem) {
+				this $ word(sample(1:100, size = 1))
+			}, character(1))
+
+			elems
+		}
+	}
 
 	# -- logical vectors
 
@@ -170,6 +197,9 @@ from_stream <- function (len) {
 
 
 
+	# -- named vector
+	this $ named_doubles_any <-
+		add_names(this $ doubles_any)
 
 
 	# -- generic collection

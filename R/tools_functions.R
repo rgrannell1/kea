@@ -300,9 +300,7 @@ Object <- function () {
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
 
-	# -- the two bad coner cases of is atomic and is null
-	# -- counteract; will be true for any pairlist, list or vector, including NULL.
-	is.atomic(val) || is.list(val)
+	is_generic(val) || is_atomic(val)
 }
 
 # --------------------- testing & message functions --------------------- #
