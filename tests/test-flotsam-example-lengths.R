@@ -40,8 +40,9 @@ comment_or_null <-
 
 
 message(
-	'check that every example ' %+%
-	'has non-blank / NULL lines')
+	xImplode_(
+		'check that every example ',
+		'has non-blank / NULL lines')
 
 # -- this is awful, and should be changed.
 

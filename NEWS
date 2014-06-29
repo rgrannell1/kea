@@ -14,6 +14,10 @@ Bug-Fixes:
 
 * Num now checks and fails if its argument is Na.
 
+Documentation:
+
+* Corrected type signature of xExplode.
+
 Package Internals:
 
 * Added worksWhen element to grammar.

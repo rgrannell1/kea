@@ -30,7 +30,7 @@
 #'    pred a predicate. The predicate function to return a negation of.
 #'
 #' @return
-#'    A predicate function with the same parametres as \code{pred}.
+#'    A predicate function with the same parametres as \bold{pred}.
 #'
 #' @section Corner Cases:
 #'

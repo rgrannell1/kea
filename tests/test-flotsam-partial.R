@@ -2,6 +2,11 @@
 kiwi ::: load_test_dependencies(environment())
 is_collection <- kiwi ::: is_collection
 
+
+
+
+
+
 message('normal functions can be partially applied (+)')
 
 	over(val, coll) +
@@ -40,6 +45,11 @@ message('normal functions can be partially applied (+)')
 
 	run()
 
+
+
+
+
+
 message('variadic functions can be partially applied (+)')
 
 	over(val, coll) +
@@ -61,6 +71,11 @@ message('variadic functions can be partially applied (+)')
 	) +
 
 	run()
+
+
+
+
+
 
 message('normal methods can be partially applied (+)')
 
