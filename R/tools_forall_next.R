@@ -22,7 +22,7 @@ vectorise <- function (atom, type) {
 
 	function (len) {
 		vapply( 1:len, function (ith) {
-			atom()
+			atom(sample(1:100, size = 1))
 		}, example )
 	}
 }
