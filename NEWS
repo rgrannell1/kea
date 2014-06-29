@@ -10,8 +10,6 @@ Bug-Fixes:
 
 * named NA is na.
 
-
-
 * Summation of incorrect arguments now corrently handles NA values in vectors.
 
 * Infinite values are now included as whole numbers during argument summation.
