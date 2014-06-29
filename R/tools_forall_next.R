@@ -13,14 +13,17 @@ vectorise <- function (atom, type) {
 		integer   = integer(1),
 		double    = double(1),
 		numeric   = numeric(1),
+		logical   = logical(1),
 		character = character(1),
 		raw       = raw(1)
 	)
 
+	example <- types[[type]]
+
 	function (len) {
 		vapply( 1:len, function (ith) {
 			atom()
-		}, types[[type]] )
+		}, example )
 	}
 }
 
@@ -33,6 +36,18 @@ pick_one <- function (coll) {
 pick_one_ <- function (...) {
 	pick_one(list(...))
 }
+
+one_gen  <- function (fns) {
+	function (len) {
+		one_of(fns)(len)
+	}
+}
+
+one_gen_ <- function (...) {
+	one_gen(list(...))
+}
+
+
 
 
 
@@ -49,6 +64,11 @@ from_stream <- function (len) {
 	whitespace <- Filter(function (x) length(x) > 0, whitespace)
 
 	this <- Object()
+
+	# -- na's
+
+	this $ na <-
+		pick_one_(NA, NA_integer_, NA_real_, NA_character_, NA_complex_)
 
 	# -- character vectors
 
@@ -119,13 +139,12 @@ from_stream <- function (len) {
 		vectorise(this $ double, 'numeric')
 
 	this $ doubles_any <-
-		function (len) {
-			vapply(1:len, function (ith) {
-				num <- rnorm(1, 0, 1000000)
-				one_of(c(-Inf, +Inf, NaN, NA_real_, num))
+		one_gen_(this $ double, this $ infinity, this $ nan, this $ na)
 
-			}, numeric(1))
-		}
+
+
+
+
 
 	# -- integer
 
@@ -134,21 +153,33 @@ from_stream <- function (len) {
 
 	this $ integer <-
 		function (len) {
-			sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
+			sample.int(2147483647, 1) * rsample(c(-1L, 1L), size = 1)
 		}
 
 	this $ integers <-
 		vectorise(this $ integer, 'integer')
 
 	this $ integers_any <-
-		function (len) {
-			vapply(1:len, function (ith) {
+		one_gen_(this $ integer, this $ na)
 
-				num <- sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
-				one_of(c(num, NA_integer_))
 
-			}, integer(1))
-		}
+
+
+
+	# -- factors
+
+
+
+
+
+	# -- generic collection
+
+
+
+
+
+
+
 
 	# -- function
 
@@ -160,6 +191,10 @@ from_stream <- function (len) {
 				one_of(base)
 			}
 		})
+
+
+
+
 
 	# -- with that out of the way, yield a value.
 
