@@ -12,4 +12,10 @@ message('xImplode (+)')
 		xImplode(character(0), strs) %is% character(0)
 	) +
 
+	describe('xImplode should never crash') +
+	worksWhen(
+		is.character(str) && is.character(strs),
+		xImplode(str, strs)
+	) +
+
 	run()

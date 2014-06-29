@@ -7,7 +7,7 @@
 #
 #
 
-from_stream <- function (...) {
+from_stream <- function (len) {
 	# -- yield a single valid R object.
 
 	#-- finish this alphabet
@@ -24,39 +24,35 @@ from_stream <- function (...) {
 	# -- character vectors
 
 	this $ empty_character <-
-		function () {
+		function (len) {
 			character(0)
 		}
 
 	this $ character <-
-		function (...) {
+		function (len) {
 			one_of(extended_ascii)
 		}
 
 	this $ word <-
-		function (...) {
-			no_chars <- abs( rnorm(1, 1, sd = length(extended_ascii)) )
+		function (len) {
 
 			paste0(
-				rsample(extended_ascii, size = no_chars, replace = True),
+				rsample(extended_ascii, size = len, replace = True),
 				collapse = '')
 		}
 
 	this $ line <-
-		function (...) {
+		function (len) {
 
-			no_words <- abs( rnorm(1, 1, sd = 100) )
-
-			words <- unlist(lapply(seq_len(no_words), this $ word))
+			words <- unlist(lapply(seq_len(len), this $ word))
 
 			paste0(words, collapse = rsample(whitespace, size = 1))
 	}
 
 	this $ paragraph <-
-		function (...) {
-			no_lines <- abs( rnorm(1, 1, sd = 10) )
+		function (len) {
 
-			lines <- unlist(lapply(seq_len(no_lines), this $ line))
+			lines <- unlist(lapply(seq_len(len), this $ line))
 
 			paste0(lines, collapse = '\n')
 		}
@@ -64,65 +60,50 @@ from_stream <- function (...) {
 	# -- logical vectors
 
 	this $ empty_logical <-
-		function () {
+		function (len) {
 			logical(0)
 		}
 
 	this $ flag <-
-		function () {
+		function (len) {
 			one_of(c(True, False, Na))
 		}
 
 	this $ logicals <-
-		function () {
-			no_bools <- abs(rnorm(1, 1, sd = 100))
-
-			rsample(c(True, False, Na), size = no_bools, replace = True)
+		function (len) {
+			rsample(c(True, False, Na), size = len, replace = True)
 		}
-
-	# -- symbols
-#	this $ symbol <-
-#		function () {
-
-#			word <- this $ word()
-
-#			while (nchar(word) == 0) {
-#				word <- this $ word()
-#			}
-
-#			as.symbol(word)
-#		}
 
 	# -- double
 
 	this $ empty_double <-
-		function () {
+		function (len) {
 			numeric(0)
 		}
 	this $ nan <-
-		function () {
+		function (len) {
 			NaN
 		}
 
 	this $ infinity <-
-		function () {
+		function (len) {
 			one_of(c(-Inf, +Inf))
 		}
 
 	this $ double <-
-		function () {
+		function (len) {
 			rnorm(1, 0, 1000000)
 		}
 
 	# -- integer
 
 	this $ empty_integer <-
-		function () {
+		function (len) {
 			integer(0)
 		}
 
 	this $ integer <-
-		function () {
+		function (len) {
 			sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
 		}
 
@@ -132,7 +113,7 @@ from_stream <- function (...) {
 		local({
 			base <- Filter(is.function, lapply(ls('package:base'), get))
 
-			function () {
+			function (len) {
 				one_of(base)
 			}
 		})
@@ -142,7 +123,7 @@ from_stream <- function (...) {
 	implemented <- ls(envir = this)
 
 	sampler <- this[[ rsample(implemented, size = 1) ]]
-	sampler()
+	sampler(len)
 }
 
 
@@ -343,8 +324,8 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 # Generate a random test case for each parametre we decided to
 # test over.
 
-yield_case <- function (params) {
-	lapply(seq_along(params), from_stream)
+yield_case <- function (params, len) {
+	lapply(seq_along(params), function (x) from_stream(len))
 }
 
 
@@ -559,13 +540,14 @@ execute_test <- function (test) {
 
 	# -- test random test cases for a preset amount of time.
 
+	len       <- 1
 	time_left <- xStopwatch(time)
 
 	while (time_left()) {
 
 		# -- generate a random test case.
 
-		case   <- yield_case(params)
+		case   <- yield_case(params, len)
 		states <- Map(
 			function (test, group, state) {
 
@@ -576,6 +558,8 @@ execute_test <- function (test) {
 			group_types,
 			states
 		)
+
+		len <- len + 1
 	}
 
 	test_data <- list(info = info, time = time)
