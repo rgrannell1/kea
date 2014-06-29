@@ -3,7 +3,9 @@ Kiwi 0.29.0
 -----------------------------------------------------------------------------
 Date: 2014-6-
 
+Enhancements:
 
+* xSelect, xPartition & xReject now preserve collection names.
 
 Bug-Fixes:
 

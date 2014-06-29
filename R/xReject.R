@@ -57,7 +57,7 @@ xReject <- MakeFun('xReject', function (pred, coll) {
 
 			isTRUE(is_match)
 
-		}, logical(1), USE.NAMES = False)
+		}, logical(1))
 
 		as.list( coll[elem_is_na(ind) | !ind ] )
 	}
