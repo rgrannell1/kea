@@ -50,12 +50,7 @@
 #' @export
 
 xMap <- MakeFun('xMap', function (fn, coll) {
-
-	if (length(coll) == 0) {
-		list()
-	} else {
-		lapply(coll, fn)
-	}
+	lapply(coll, fn)
 })
 
 #' @rdname xMap
