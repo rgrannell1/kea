@@ -231,7 +231,6 @@ from_stream <- function (len) {
 
 
 
-
 	# -- function
 
 	this $ base <-

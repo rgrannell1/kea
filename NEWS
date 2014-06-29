@@ -8,6 +8,10 @@ Date: 2014-6-
 
 Bug-Fixes:
 
+* named NA is na.
+
+
+
 * Summation of incorrect arguments now corrently handles NA values in vectors.
 
 * Infinite values are now included as whole numbers during argument summation.
@@ -25,6 +29,9 @@ Package Internals:
 * Added worksWhen element to grammar.
 
 * Added forall-next tests for xTake and xDrop.
+
+* is_na and elem_is_na is now true for named NA elements.
+
 
 
 

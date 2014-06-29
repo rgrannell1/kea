@@ -38,6 +38,9 @@ rsample <- function (coll, ...) {
 
 is_na <- function (val) {
 
+	# -- na can be named.
+	val <- unname(val)
+
 	isTRUE(
 		identical(val, NA) ||
 		identical(val, NA_integer_) ||
@@ -47,6 +50,10 @@ is_na <- function (val) {
 }
 
 is_nan <- function (val) {
+
+	# -- NaN can be named.
+	val <- unname(val)
+
 	isTRUE(identical(val, NaN))
 }
 
@@ -66,19 +73,19 @@ elem_is_na <- function (coll) {
 				identical(elem, NA_real_) ||
 				identical(elem, NA_complex_))
 
-		}, logical(1))
+		}, logical(1), USE.NAMES = True)
 	}
 }
 
 elem_is_nan <- function (coll) {
 
 	if (is.atomic(coll)) {
-		is.nan(coll)
+		unname(is.nan(coll))
 	} else if (is.list(coll) || identical(coll, Null)) {
 		# -- runs if any list or pairlist.
 		vapply(coll, function (elem) {
 			isTRUE(identical(elem, NaN))
-		}, logical(1))
+		}, logical(1), USE.NAMES = True)
 	}
 }
 
