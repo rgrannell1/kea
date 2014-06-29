@@ -16,7 +16,7 @@ message("xChunk (+)")
 	describe("xChunk once is identity") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
-		xChunk(1, coll) %is% lapply(coll, list)
+		length(xChunk(1, coll)) == length(coll)
 	) +
 
 	run()

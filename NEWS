@@ -4,9 +4,11 @@ Kiwi 0.29.0
 Date: 2014-6-
 
 
-* Character vector summation mentions no of na.
 
 Bug-Fixes:
+
+* Summation of character-vectors now includes the number of NA values in
+the input.
 
 * named NA is na.
 
