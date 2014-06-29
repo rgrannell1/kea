@@ -76,8 +76,7 @@ from_stream <- function (len) {
 	extended_ascii <- Filter(function (x) length(x) > 0, extended_ascii)
 
 	# -- whitespace
-	whitespace <- strsplit(" 	", '')[[1]]
-	whitespace <- Filter(function (x) length(x) > 0, whitespace)
+	whitespace <- c(' ', '	')
 
 	this <- Object()
 
@@ -105,7 +104,9 @@ from_stream <- function (len) {
 	this $ line <-
 		function (len) {
 
-			words <- unlist(lapply(seq_len(len), this $ word))
+			words <- vapply(seq_len(len), function (ith) {
+				this $ word(sample(1:100, size = 1))
+			}, character(1))
 
 			paste0(words, collapse = rsample(whitespace, size = 1))
 	}
@@ -122,13 +123,13 @@ from_stream <- function (len) {
 		vectorise(this $ character, 'character')
 
 	this $ words <-
-		vectorise(this $ words, 'character')
+		vectorise(this $ word, 'character')
 
 	this $ lines <-
-		vectorise(this $ lines, 'character')
+		vectorise(this $ line, 'character')
 
 	this $ paragraphs <-
-		vectorise(this $ paragraphs, 'character')
+		vectorise(this $ paragraph, 'character')
 
 
 
@@ -453,7 +454,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 # test over.
 
 yield_case <- function (params, len) {
-	lapply(seq_along(params), function (x) from_stream(len))
+	lapply(seq_along(params), function (...) from_stream(len))
 }
 
 
@@ -676,6 +677,7 @@ execute_test <- function (test) {
 		# -- generate a random test case.
 
 		case   <- yield_case(params, len)
+
 		states <- Map(
 			function (test, group, state) {
 
@@ -783,35 +785,6 @@ over <- function (...) {
 	class(out) <- c('xforall', 'xover')
 	out
 }
-
-# -- TODO
-
-suchThat <- function (...) {
-
-	invoking_call <- sys.call()
-
-	args    <- as.list(match.call()[-1])
-	pred    <- args[[ length(args) ]]
-	symbols <- args[1:(length(args)-1)]
-
-	if (missing(..1)) {
-		message <-
-			'suchThat must provide a symbol to select over.'
-
-		throw_kiwi_error(invoking_call, message)
-	}
-
-	out <- list(
-
-
-
-	)
-
-	class(out) <- c('xforall', ' xsuchthat')
-	out
-}
-
-
 
 # -- test positives (+ controls)
 #

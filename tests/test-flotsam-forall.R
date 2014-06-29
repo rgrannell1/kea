@@ -4,6 +4,7 @@ kiwi ::: load_test_dependencies(environment())
 message("forall-next (+)")
 
 	over(a, b) +
+
 	describe("addition is commutative") +
 	holdsWhen(
 		is.numeric(a)  && is.numeric(b) &&
@@ -12,9 +13,11 @@ message("forall-next (+)")
 		is.null(names(a)) && is.null(names(b)),
 		a + b == b + a
 	) +
+
 	run(5)
 
 	over(a) +
+
 	describe("multiplication by 1 is identity") +
 	holdsWhen(
 		is.numeric(a) && length(a) == 1 &&
@@ -22,6 +25,7 @@ message("forall-next (+)")
 		is.null(names(a)),
 		a * 1 == a
 	) +
+
 	run(5)
 
 message("forall-next (-)")

@@ -2,17 +2,21 @@
 
 require(kiwi)
 
-# Code is very similar to that in Hadley Wickham's testthat, but
-# I'd rather not take a dependency for a single function.
+test_path <- system.file('tests', package = 'kiwi')
 
-test_path     <- system.file('tests', package = 'kiwi')
-property_path <- system.file(test_path, 'property-tests')
-
-test_dir <- function (path) {
-
-	test_files <- list.files(path, full.names = True, pattern = 'test-.+[.][rR]')
-
-	lapply(test_files, source)
+if (nchar(test_path) == 0) {
+	if ( Sys.getenv()[['USER']] == 'ryan') {
+		test_path <- '/home/ryan/Code/kiwi.R/tests'
+	}
 }
 
-test_dir(property_path)
+x_( list.files(test_path, full.names = True) ) $
+xDo(path := {
+	source(path)
+	cat('\n')
+}) $
+xExecute(drop := {
+	warnings()
+	xDo(alarm, 1:10)
+})
+
