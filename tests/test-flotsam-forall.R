@@ -10,7 +10,8 @@ message("forall-next (+)")
 		is.numeric(a)  && is.numeric(b) &&
 		length(a) == 1 && length(b) == 1 &&
 		is.finite(a)  && is.finite(b) &&
-		is.null(names(a)) && is.null(names(b)),
+		is.null(names(a)) && is.null(names(b)) &&
+		a < 100000 && b < 100000,
 		a + b == b + a
 	) +
 
