@@ -32,6 +32,18 @@ message("as_typed_vector (atomic)")
 		as_typed_vector(coll, 'raw')        %is% as_named(raw(0))
 	) +
 
+#	describe("na conversion always works") +
+#	holdsWhen(
+#		is_collection(coll) && all(is.na(coll) & !is.nan(coll)) && !is_named(coll),
+#		as_typed_vector(coll, 'numeric')    %is% as.numeric(coll),
+#		as_typed_vector(coll, 'integer')    %is% as.integer(coll),
+#		as_typed_vector(coll, 'double')     %is% as.double(coll),
+#		as_typed_vector(coll, 'character')  %is% as.character(coll),
+#		as_typed_vector(coll, 'logical')    %is% as.logical(coll),
+#		as_typed_vector(coll, 'complex')    %is% as.complex(coll),
+#		as_typed_vector(coll, 'raw')        %is% as.raw(coll)
+#	) +
+
 	run()
 
 message("as_atom (atomic)")

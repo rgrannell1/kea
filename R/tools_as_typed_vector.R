@@ -24,6 +24,7 @@ as_typed_vector <- local({
 			function (x) is.raw(x)       || all(elem_is_na(x))
 	)
 
+
 	function (coll, mode) {
 
 		# -- important! this captures the invoking call.
@@ -51,6 +52,10 @@ as_typed_vector <- local({
 
 					throw_kiwi_error(invoking_call, message)
 				}
+
+#				vapply( coll, function (elem) {#
+
+#				}, vector(mode = mode, 1) )
 
 				coll
 
