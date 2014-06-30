@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 require(kiwi)
 
 message("xJuxtapose")
@@ -16,7 +15,7 @@ message("xJuxtapose")
 
 	describe("juxtaposing with many identities is a list of vals") +
 	holdsWhen(
-		is.numeric(num) && is.finite(num) && length(num) == 1 && num > 0 && num < 10000,
+		is.numeric(num) && is.finite(num) && length(num) == 1 && num > 0 && num < 1000 && round(num) == num,
 		xJuxtapose(rep(list(identity), num))(val) %is% rep(list(val))
 	) +
 
