@@ -8,8 +8,14 @@ message("xOrderOf (+)")
 
 	describe("order of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(coll) && !is.na(coll) && length(coll) == 0,
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
 		xOrderOf(coll) %is% integer(0)
+	) +
+
+	describe("order of empty collection is integer(0)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xOrderOf(coll) %is% as_named(integer(0))
 	) +
 
 	run()

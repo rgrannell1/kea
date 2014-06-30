@@ -32,6 +32,8 @@ Documentation:
 
 Package Internals:
 
+* Building now takes ~12 minutes
+
 * Added worksWhen element to grammar.
 
 * Added forall-next tests for xTake and xDrop.
