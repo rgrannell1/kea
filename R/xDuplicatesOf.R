@@ -33,7 +33,7 @@
 xDuplicatesOf <- MakeFun('xDuplicatesOf', function (coll) {
 
 	if (length(coll) == 0) {
-		keep_names(list(), coll)
+		list()
 	} else {
 		as.list(coll[ duplicated(coll) ])
 	}
