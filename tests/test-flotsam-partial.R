@@ -7,7 +7,7 @@ kiwi ::: load_test_dependencies(environment())
 
 
 
-message('normal functions can be partially applied (+)')
+message('normal functions can be partially applied')
 
 	over(val, coll) +
 
@@ -50,7 +50,7 @@ message('normal functions can be partially applied (+)')
 
 
 
-message('variadic functions can be partially applied (+)')
+message('variadic functions can be partially applied')
 
 	over(val, coll) +
 
@@ -77,7 +77,7 @@ message('variadic functions can be partially applied (+)')
 
 
 
-message('normal methods can be partially applied (+)')
+message('normal methods can be partially applied')
 
 	over(val, coll) +
 

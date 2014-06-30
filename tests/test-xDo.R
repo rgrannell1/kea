@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xDo (+)")
+message("xDo")
 
 	over(coll) +
 
@@ -14,7 +14,7 @@ message("xDo (+)")
 
 	run()
 
-message("xDo (-)")
+message("xDo")
 
 	over(coll) +
 

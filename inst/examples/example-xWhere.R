@@ -1,5 +1,11 @@
 
-# 1. Select the odd letters
+# 1. A very trivial example.
+
+xWhere_(True, False, True)
+
+# c(1, 3)
+
+# 2. Select the odd letters
 
 x_(letters) $ x_Slice(xWhere(1:26 %% 2 == 0))
 

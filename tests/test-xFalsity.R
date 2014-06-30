@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xFalsity (+)")
+message("xFalsity")
 
 	over(val) +
 	describe('falsity always yields false') +

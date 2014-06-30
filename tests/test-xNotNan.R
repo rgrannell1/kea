@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xNotNan (+)")
+message("xNotNan")
 
 	over(val) +
 

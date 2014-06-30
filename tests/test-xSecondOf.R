@@ -13,7 +13,7 @@ message('xSecondOf')
 	) +
 	run()
 
-message('xSecondOf (-)')
+message('xSecondOf')
 
 	over(coll) +
 

@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xWhere (+)")
+message("xWhere")
 
 	over(coll) +
 
@@ -28,7 +28,7 @@ message("xWhere (+)")
 
 	run()
 
-message("xWhere (-)")
+message("xWhere")
 
 	over(coll) +
 

@@ -12,7 +12,7 @@ as_function <- function (macro) {
 	out
 }
 
-message("Must_Be_Whole (+)")
+message("Must_Be_Whole")
 
 	over(num) +
 
@@ -24,7 +24,7 @@ message("Must_Be_Whole (+)")
 
 	#run()
 
-message("Must_Be_Whole (-)")
+message("Must_Be_Whole")
 
 	over(num) +
 

@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xUnit (+)")
+message("xUnit")
 
 	over(coll) +
 
@@ -26,7 +26,7 @@ message("xUnit (+)")
 
 	run()
 
-message("xUnit (-)")
+message("xUnit")
 
 	over(fn, coll) +
 

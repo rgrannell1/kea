@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xReject (+)")
+message("xReject")
 
 	over(coll) +
 
@@ -45,7 +45,7 @@ message("xReject (+)")
 
 	run()
 
-message("xReject (-)")
+message("xReject")
 
 	over(fn, coll) +
 

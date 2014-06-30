@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xIrrelevance (+)")
+message("xIrrelevance")
 
 	over(val) +
 

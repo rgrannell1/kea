@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message('xFirstAs (+)')
+message('xFirstAs')
 
 	over(val, coll) +
 
@@ -14,7 +14,7 @@ message('xFirstAs (+)')
 
 	run()
 
-message('xFirstAs (-)')
+message('xFirstAs')
 
 	over(val, coll) +
 

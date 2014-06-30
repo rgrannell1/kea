@@ -4,7 +4,7 @@ kiwi ::: load_test_dependencies(environment())
 
 require(kiwi)
 
-message("xIsVariadic (+)")
+message("xIsVariadic")
 
 	over(fn) +
 

@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xUnzipIndices (+)")
+message("xUnzipIndices")
 
 	over(coll) +
 

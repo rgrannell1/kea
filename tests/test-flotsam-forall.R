@@ -1,23 +1,17 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("forall-next (+)")
+message("holdsWhen")
 
 	over(a, b) +
 
-	describe("addition is commutative") +
+	describe("ordering partitions numbers") +
 	holdsWhen(
-		is.numeric(a)  && is.numeric(b) &&
+		is.numeric(a)  && is.numeric(b)  &&
 		length(a) == 1 && length(b) == 1 &&
-		is.finite(a)  && is.finite(b) &&
-		is.null(names(a)) && is.null(names(b)) &&
-		abs(a) < 100000 && abs(b) < 100000,
-		a + b == b + a
+		!is.na(a) && !is.na(b),
+		a > b || b >= a
 	) +
-
-	run(5)
-
-	over(a) +
 
 	describe("multiplication by 1 is identity") +
 	holdsWhen(
@@ -29,7 +23,7 @@ message("forall-next (+)")
 
 	run(5)
 
-message("forall-next (-)")
+message("holdsWhen failures")
 
 	assert_throws_error <- function (expr) {
 
@@ -62,5 +56,64 @@ message("forall-next (-)")
 		) +
 
 		run(5)
+
+	})
+
+message("worksWhen")
+
+	over(val) +
+
+	describe('identity should always work') +
+	worksWhen(
+		TRUE,
+		identity(val)
+	) +
+
+	run()
+
+message("worksWhen failures")
+
+	assert_throws_error({
+
+		over(str, val) +
+
+		describe('adding a string always fails') +
+		worksWhen(
+			is.character(str),
+			str + val,
+			val + str
+		) +
+
+		run()
+
+	})
+
+message("failsWhen")
+
+	over(str, val) +
+
+	describe('adding a string always fails') +
+	failsWhen(
+		is.character(str),
+		str + val,
+		val + str
+	) +
+
+	run()
+
+
+message("failsWhen failures")
+
+	assert_throws_error({
+
+		over(val) +
+
+		describe('identity should always work') +
+		failsWhen(
+			TRUE,
+			identity(val)
+		) +
+
+		run()
 
 	})

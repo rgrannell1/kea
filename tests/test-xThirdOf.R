@@ -13,7 +13,7 @@ message('xThirdOf')
 	) +
 	run()
 
-message('xThirdOf (-)')
+message('xThirdOf')
 
 	over(coll) +
 

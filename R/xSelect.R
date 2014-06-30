@@ -55,7 +55,6 @@ xSelect <- MakeFun('xSelect', function (pred, coll) {
 
 	}, logical(1))
 
-
 	as.list( coll[ !elem_is_na(ind) & ind ] )
 })
 

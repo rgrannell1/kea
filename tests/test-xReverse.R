@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xReverse (+)")
+message("xReverse")
 
 	over(coll) +
 

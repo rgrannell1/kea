@@ -1,8 +1,9 @@
 
+
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xAt (+)")
+message("xAt")
 
 	over(coll) +
 
@@ -17,7 +18,7 @@ message("xAt (+)")
 
 	run()
 
-message('xAt (-)')
+message('xAt')
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xCapture (+)")
+message("xCapture")
 
 	over(val) +
 

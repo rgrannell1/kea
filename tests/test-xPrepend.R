@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xPrepend (+)")
+message("xPrepend")
 
 	over(val, coll) +
 
@@ -21,7 +21,7 @@ message("xPrepend (+)")
 
 	run()
 
-message("xPrepend (-)")
+message("xPrepend")
 
 	over(val, coll) +
 

@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message('xFirstOf (+)')
+message('xFirstOf')
 
 	over(coll) +
 
@@ -14,7 +14,7 @@ message('xFirstOf (+)')
 
 	run()
 
-message('xFirstOf (-)')
+message('xFirstOf')
 
 	over(coll) +
 

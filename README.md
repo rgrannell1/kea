@@ -10,8 +10,8 @@ Kiwi brings functional programming to R.
 
 ### Installation
 
-Kiwi isn't (and probably won't be) on CRAN. This is to allow for frequent updates; it
-is considered bad etiquette to update a CRAN package more than once a month.
+Occasional, particularily stable releases of Kiwi will be uploaded to
+CRAN. The best way to get kiwi is through github.
 
 ```splus
 install.packages("devtools")
@@ -248,4 +248,4 @@ Ordered by contribution date.
 
 | Author                      | Changes                 |
 | --------------------------- | ----------------------- |
-| Ryan Grannell               | 183,884 ++ / 152,251 -- |
+| Ryan Grannell               | 185,258 ++ / 153,084 -- |

@@ -15,7 +15,13 @@ Documentation:
 
 Package Internals:
 
-*
+* Improved the efficiency of kiwi tests, allowing for more test-cases
+to be used in a given timespan.
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ message('xFourthOf')
 	) +
 	run()
 
-message('xFourthOf (-)')
+message('xFourthOf')
 
 	over(coll) +
 

@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xSelect (+)")
+message("xSelect")
 
 	over(coll) +
 

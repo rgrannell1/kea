@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message('xFourthAs (+)')
+message('xFourthAs')
 
 	over(val, coll) +
 
@@ -14,7 +14,7 @@ message('xFourthAs (+)')
 
 	run()
 
-message('xFourthAs (-)')
+message('xFourthAs')
 
 	over(val, coll) +
 

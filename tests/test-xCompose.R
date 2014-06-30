@@ -4,7 +4,7 @@ kiwi ::: load_test_dependencies(environment())
 
 require(kiwi)
 
-message("xCompose (+)")
+message("xCompose")
 
 	over(val) +
 
@@ -16,7 +16,7 @@ message("xCompose (+)")
 
 	run()
 
-message("xCompose (-)")
+message("xCompose")
 
 	over() +
 
