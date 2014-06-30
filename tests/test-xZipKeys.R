@@ -4,21 +4,21 @@ kiwi ::: load_test_dependencies(environment())
 
 message("xZipKeys (+)")
 
-	over(coll) +
+	over(colls) +
 
 	describe('xZipKeys of the empty collection is list()') +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
-		xZipKeys(coll) %is% list()
+		is_collection(colls) && length(colls) == 0,
+		xZipKeys(colls) %is% list()
 	) +
 
 	describe('xZipKeys zips names for pairs') +
 	holdsWhen(
-		is_collection(coll) && is.character(coll) && length(coll) > 0,
+		is_collection(colls) && is.character(colls) && length(colls) > 0,
 		{
-			pairs <- lapply(coll, function (elem) list(elem, elem))
+			pairs <- unname(lapply(colls, function (elem) list(elem, elem)))
 
-			xZipKeys(pairs) %is% as.list(structure(coll, names = coll))
+			xZipKeys(pairs) %is% as.list(structure(unname(colls), names = unname(colls)))
 		}
 	) +
 

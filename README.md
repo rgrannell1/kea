@@ -18,12 +18,14 @@ install.packages("devtools")
 install_github("kiwi", "rgrannell1", ref = "releases")
 ```
 
-## What is Kiwi?
-
-Kiwi extends
-
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/kiwi/](htti://rgrannell1.github.io/kiwi/).
+
+## What is Kiwi?
+
+Kiwi is an functional-programming library that makes R easy to debug, easy to write,
+and extremely powerful. Pipelines, partially-applicable functions, arrow functions and
+a rich grammar of functions drawn from other languages makes writing R pleasant.
 
 ### Kiwi is Expressive
 
@@ -94,7 +96,7 @@ largestStateSeizures $ xMap(xAtKey('potency')) $ xTap(unlist %then% mean)
 60.8
 ```
 
-Arrow-functions are terser than normal function expressions.
+Kiwi's arrow-functions are terser than function expressions.
 
 ```splus
 # -- generate the pairs [[a, A], [b, B], ...]
@@ -103,7 +105,7 @@ x_(letters) $ xMap(letter := {
 })
 ```
 
-The same collection could be made with collection-comprehensions; syntax sugar for making new
+The same collection could be made with comprehensions; syntax sugar for making new
 collections by filtering, joining & transforming old collections.
 
 ```splus
@@ -203,7 +205,7 @@ xRepeat(list(2), list(10))
 xRepeat(pairlist(2), pairlist(10))
 ```
 
-Kiwi provides clear error messages.
+Kiwi always provides clear error messages.
 
 ```splus
 xRepeat(-1, 1:10)
