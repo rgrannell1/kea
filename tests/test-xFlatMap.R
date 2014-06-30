@@ -7,8 +7,14 @@ message("xFlatMap")
 
 	describe("flatmap of empty collection is always empty") +
 	holdsWhen(
-		is.function(fn) && is_collection(coll) && length(coll) == 0,
-		xFlatMap(fn, coll) %is% list()
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		xFlatMap(identity, coll) %is% list()
+	) +
+
+	describe("flatmap of empty collection is always empty (named)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xFlatMap(identity, coll) %is% as_named(list())
 	) +
 
 	describe("flatmap with identity is the coll") +
