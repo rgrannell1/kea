@@ -7,9 +7,6 @@
 #' @section Type Signature:
 #'     (any -> any) -> any -> any
 #'
-#' @usage
-#'      x_(  ) $ xExecute(fn)
-#'
 #' @param
 #'      fn a unary function. The function to apply to the data in the kiwi object.
 #'

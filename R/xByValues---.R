@@ -3,9 +3,6 @@
 #'
 #' Convert a factor to a collection of the factor's data.
 #'
-#' @usage
-#'      x_(  ) $ xByLevels()
-#'
 #' @param
 #'     fact a factor. The factor to get the underlying values from.
 #'

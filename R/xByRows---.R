@@ -10,9 +10,6 @@
 #'
 #'     Column names are preserved by \bold{xByRows}.
 #'
-#' @usage
-#'      x_(  ) $ xByRows()
-#'
 #' @param
 #'     tab a matrix or data frame. The object to convert to column-lists.
 #'

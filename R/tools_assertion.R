@@ -316,7 +316,7 @@ check_regexp <- function (rexp, invoking_call) {
 			regexpr(rexp, text = '')
 		},
 		warning = function (warn) {
-			message <- err $ message %+%
+			message <- warn $ message %+%
 			'\n'
 
 			throw_kiwi_warning(invoking_call, message)
