@@ -8,7 +8,14 @@ message("xRankOf (+)")
 
 	describe("rank of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)),
+		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)) && !is_named(nums),
+		xRankOf(nums) %is% integer(0)
+	) +
+
+
+	describe("rank of empty collection is integer(0) (named)") +
+	holdsWhen(
+		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)) && is_named(nums),
 		xRankOf(nums) %is% integer(0)
 	) +
 

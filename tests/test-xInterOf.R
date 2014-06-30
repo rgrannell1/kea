@@ -4,7 +4,6 @@ test_cases <- kiwi:::test_cases
 
 require(kiwi)
 
-
 message("xInterOf")
 
 	forall(
