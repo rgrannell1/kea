@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xTabulate (+)")
 
@@ -33,6 +33,12 @@ message("xTabulate (+)")
 	holdsWhen(
 		is_collection(coll),
 		length(unique(lapply( xTabulate(coll), function (x) x[[1]] ) )) == length(unique(coll))
+	) +
+
+	describe('tabulating always runs') +
+	worksWhen(
+		is_collection(coll),
+		xTabulate(coll)
 	) +
 
 	run()

@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xThread (+)")
 
@@ -10,28 +10,6 @@ message("xThread (+)")
 	holdsWhen(
 		TRUE,
 		xThread(val, list()) %is% val
-	) +
-
-	run()
-
-	over(nums) +
-
-	describe(paste0(
-		"threading a number through linear functions ",
-		"is the product of the number with the function coefficients.", collapse = '\n'
-	)) +
-	holdsWhen(
-		is.numeric(nums) && is.finite(nums),
-		{
-
-			num = nums[[1]]
-
-			linear_functions = lapply(nums, function (constant) {
-				function (x) constant * x
-			})
-
-			xThread(num, linear_functions) == num * prod(nums)
-		}
 	) +
 
 	run()

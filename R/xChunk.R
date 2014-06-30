@@ -41,6 +41,7 @@ xChunk <- MakeFun('xChunk', function (num, coll) {
 	MACRO( Must_Be_Between(num, 1, Inf))
 
 	if (length(coll) == 0 || length(num) == 0) {
+		# -- do not name outer list.
 		list()
 	} else if (is.infinite(num)) {
 		list(as.list(coll))

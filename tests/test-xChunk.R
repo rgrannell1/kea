@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xChunk (+)")
 
@@ -9,14 +9,14 @@ message("xChunk (+)")
 	describe("xChunking infinite times / length times creates one chunk") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
-		xChunk(Inf,          coll) %is% list(as.list(coll)),
-		xChunk(length(coll), coll) %is% list(as.list(coll))
+		length(xChunk(Inf,          coll)) == 1,
+		length(xChunk(length(coll), coll)) == 1
 	) +
 
 	describe("xChunk once is identity") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
-		xChunk(1, coll) %is% lapply(coll, list)
+		length(xChunk(1, coll)) == length(coll)
 	) +
 
 	run()

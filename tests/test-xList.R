@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xList (+)")
 
@@ -15,13 +15,13 @@ message("xList (+)")
 	describe('xList on one list is similar to as.list') +
 	holdsWhen(
 		is_collection(coll),
-		xList[x, x <- coll] %is% as.list(coll)
+		xList[x, x <- coll] %is% as.list(unname(coll))
 	) +
 
 	describe('predicates work with one binding') +
 	holdsWhen(
 		is_collection(coll),
-		xList[x, x <- coll, True]  %is% as.list(coll)
+		xList[x, x <- coll, True]  %is% as.list(unname(coll))
 	) +
 
 	run()

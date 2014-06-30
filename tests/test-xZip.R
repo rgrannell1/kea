@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xZip (+)")
 
@@ -21,7 +21,7 @@ message("xZip (+)")
 	describe('xZip of two collection makes two-tuples') +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
-		xZip_(coll, coll) %is% lapply(coll, function (elem) list(elem, elem))
+		xZip_(coll, coll) %is% unname(lapply(coll, function (elem) list(elem, elem)))
 	) +
 
 	run()

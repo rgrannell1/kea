@@ -1,26 +1,26 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xInitOf")
 
-	forall(
-		"init of an empty collection always yields the empty list.",
-		test_cases$collection,
-		expect =
-			xInitOf(coll) %is% list(),
-		given =
-			length(coll) == 0
-	)
+	over(coll) +
 
-	forall(
-		"init of a list shortens the list by one",
-		test_cases$collection,
-		expect =
-			length(xInitOf(coll)) == length(coll) - 1,
-		given =
-			length(coll) > 0
-	)
+	describe("xInitOf of an empty collection yields the empty list") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		xInitOf(coll) %is% list()
+	) +
 
+	describe("xInitOf of an empty collection yields the empty list (named)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xInitOf(coll) %is% as_named(list())
+	) +
+
+	describe("xInitOf of an empty collection yields the empty list") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0,
+		length(xInitOf(coll)) == length(coll) - 1
+	) +
+
+	run()

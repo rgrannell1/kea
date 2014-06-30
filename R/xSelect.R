@@ -45,22 +45,18 @@
 
 xSelect <- MakeFun('xSelect', function (pred, coll) {
 
-	if (length(coll) == 0) {
-		list()
-	} else {
+	ind <- vapply(coll, function (elem) {
 
-		ind <- vapply(coll, function (elem) {
+		is_match <- pred(elem)
 
-			is_match <- pred(elem)
+		MACRO(Must_Be_Flag(is_match, pred))
 
-			MACRO(Must_Be_Flag(is_match, pred))
+		isTRUE(is_match)
 
-			isTRUE(is_match)
+	}, logical(1))
 
-		}, logical(1), USE.NAMES = False)
 
-		as.list( coll[ !elem_is_na(ind) & ind ] )
-	}
+	as.list( coll[ !elem_is_na(ind) & ind ] )
 })
 
 #' @rdname xSelect

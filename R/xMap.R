@@ -52,7 +52,7 @@
 xMap <- MakeFun('xMap', function (fn, coll) {
 
 	if (length(coll) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else {
 		lapply(coll, fn)
 	}

@@ -1,19 +1,28 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
 
-require(kiwi)
 
-message('xReverse')
+message("xReverse (+)")
 
-	forall(
-		"reversing the empty list is the empty collection",
-		test_cases$collection_zero,
+	over(coll) +
+
+	describe("reversing the empty list is the empty collection") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
 		xReverse(coll) %is% list()
-	)
+	) +
 
-	forall(
-		"reversing a collection is the reversed collection",
-		test_cases$collection,
-		xReverse(coll) %is% as.list(rev(coll))
-	)
+	describe("reversing the empty list is the empty collection (named)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xReverse(coll) %is% as_named(list())
+	) +
+
+	describe("reversing a collection is the reversed collection") +
+	holdsWhen(
+		is_collection(coll),
+		xReverse(coll) %is% as.list(rev(coll)),
+		xReverse(xReverse(coll)) %is% as.list(coll)
+	) +
+
+	run()

@@ -58,6 +58,7 @@ xChop <- MakeFun('xChop', function (num, coll) {
 	MACRO( Must_Be_Between(num, 1, Inf))
 
 	if (length(coll) == 0 || length(num) == 0) {
+		# do not name.
 		list()
 	} else if (is.infinite(num)) {
 		# -- return a list of length-one lists: NOT as.list

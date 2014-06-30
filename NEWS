@@ -1,4 +1,79 @@
 
+Kiwi 0.29.0
+-----------------------------------------------------------------------------
+Date: 2014-6-30
+
+A major breaking update. Overhauls named-collection handling.
+
+Enhancements:
+
+* xAtCol, xCycle, xDrop,
+xDropWhile, xFlatMap, xInitOf, xMap, xMapply, xOrderOf,
+xPartition, xRankOf, xReject, xRestOf, xReverse, xSelect,
+xShuffle, xSlice, xSortBy, xTake, xTakeWhile, xUnzipIndices,
+xWhere now preserve collection names, including for empty
+collections.
+
+* The element types within a list are now summarised by summate.
+
+Bug-Fixes:
+
+* xIsNa (and internal NA checking tools) now return true for named NA values.
+
+* checking if a value is a collection now false for factors.
+
+* The parametre 'num' now checks and fails if its argument is Na.
+
+* Summation of character-vectors now includes the number of NA values in
+the input.
+
+* Summation of incorrect arguments now corrently handles NA values in vectors.
+
+* Infinite values are now included as whole numbers during argument summation.
+
+Documentation:
+
+* Corrected type signature of xExplode.
+
+* Added example for xPrepend.
+
+Package Internals:
+
+* Added forall-next tests for xTake, xDrop, xFlatMap,
+xGroupBy, xInitOf, xNotFalse, xRestOf, xReverse, xTabulate.
+
+* is_na and elem_is_na is now true for named NA elements.
+
+* Generators are now created using function composition,
+for ease of writing. These will be optimised in the next
+release.
+
+* Updated tests to check for named length-zero corner-cases.
+
+* Added a macro must_not_contain_nan.
+
+* Removed unit_to_value.
+
+* Named inputs are now used as test cases.
+
+* as_typed_vector now handles named inputs correctly.
+
+* Added worksWhen element to grammar, which tests if a program
+executes without exception.
+
+* Added internal functions to manipulate names.
+
+* Omitted unneeded ::: calls in load_test_dependencies.
+
+* Removed flotsam-calls test.
+
+
+
+
+
+
+
+
 Kiwi 0.28.0
 -----------------------------------------------------------------------------
 Date: 2014-6-26

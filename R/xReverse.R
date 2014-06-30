@@ -32,7 +32,7 @@
 xReverse <- MakeFun('xReverse', function (coll) {
 
 	if (length(coll) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else {
 		as.list(rev(coll))
 	}

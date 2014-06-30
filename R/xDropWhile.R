@@ -37,7 +37,7 @@
 xDropWhile <- MakeFun('xDropWhile', function (pred, coll) {
 
 	if (length(coll) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else {
 
 		for (ith in seq_along(coll)) {
@@ -51,7 +51,7 @@ xDropWhile <- MakeFun('xDropWhile', function (pred, coll) {
 			}
 		}
 
-		list()
+		keep_names(list(), coll)
 	}
 })
 

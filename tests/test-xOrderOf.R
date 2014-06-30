@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xOrderOf (+)")
 
@@ -8,8 +8,14 @@ message("xOrderOf (+)")
 
 	describe("order of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
 		xOrderOf(coll) %is% integer(0)
+	) +
+
+	describe("order of empty collection is integer(0)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xOrderOf(coll) %is% as_named(integer(0))
 	) +
 
 	run()
@@ -18,7 +24,7 @@ message("xOrderOf (+)")
 
 	describe("order of nums is seq along nums") +
 	holdsWhen(
-		is.numeric(nums) && !is.nan(nums),
+		is.numeric(nums) && !is.na(nums) && !is.nan(nums),
 		xOrderOf(sort(nums)) %is% seq_along(nums)
 	) +
 

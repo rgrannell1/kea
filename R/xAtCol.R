@@ -43,8 +43,10 @@
 
 xAtCol <- MakeFun('xAtCol', function (num, colls) {
 
-	if (length(colls) == 0 || length(num) == 0) {
-		list()
+	if (length(num) == 0) {
+		keep_names(list(), colls)
+	} else 	if (length(colls) == 0) {
+		keep_names(list(), colls)
 	} else {
 
 		# -- this ensures num is an index of colls.

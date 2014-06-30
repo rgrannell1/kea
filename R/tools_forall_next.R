@@ -7,7 +7,67 @@
 #
 #
 
-from_stream <- function (...) {
+vectorise <- function (atom, type) {
+
+	types <- list(
+		integer   = integer(1),
+		double    = double(1),
+		numeric   = numeric(1),
+		logical   = logical(1),
+		character = character(1),
+		raw       = raw(1)
+	)
+
+	example <- types[[type]]
+
+	function (len) {
+		vapply( 1:len, function (ith) {
+			atom(sample(1:100, size = 1))
+		}, example )
+	}
+}
+
+
+
+
+
+
+pick_one <- function (coll) {
+	function (len) {
+		one_of(coll)
+	}
+}
+
+pick_one_ <- function (...) {
+	pick_one(list(...))
+}
+
+
+
+
+
+
+one_gen  <- function (fns) {
+	function (len) {
+		one_of(fns)(len)
+	}
+}
+
+one_gen_ <- function (...) {
+	one_gen(list(...))
+}
+
+
+
+
+
+
+
+
+
+
+
+from_stream <- ( function () {
 	# -- yield a single valid R object.
 
 	#-- finish this alphabet
@@ -16,115 +76,175 @@ from_stream <- function (...) {
 	extended_ascii <- Filter(function (x) length(x) > 0, extended_ascii)
 
 	# -- whitespace
-	whitespace <- strsplit(" 	", '')[[1]]
-	whitespace <- Filter(function (x) length(x) > 0, whitespace)
+	whitespace <- c(' ', '	')
 
-	this <- Object()
+	this <- new.env(parent = parent.frame())
+
+	# -- na's
+
+	this $ na <-
+		pick_one_(NA, NA_integer_, NA_real_, NA_character_, NA_complex_)
 
 	# -- character vectors
 
 	this $ empty_character <-
-		function () {
-			character(0)
-		}
+		pick_one_(character(0))
 
 	this $ character <-
-		function (...) {
-			one_of(extended_ascii)
-		}
+		pick_one(extended_ascii)
 
 	this $ word <-
-		function (...) {
-			no_chars <- abs( rnorm(1, 1, sd = length(extended_ascii)) )
+		function (len) {
 
 			paste0(
-				rsample(extended_ascii, size = no_chars, replace = True),
+				rsample(extended_ascii, size = len, replace = True),
 				collapse = '')
 		}
 
 	this $ line <-
-		function (...) {
+		function (len) {
 
-			no_words <- abs( rnorm(1, 1, sd = 100) )
-
-			words <- unlist(lapply(seq_len(no_words), this $ word))
+			words <- vapply(seq_len(len), function (ith) {
+				this $ word(sample(1:100, size = 1))
+			}, character(1))
 
 			paste0(words, collapse = rsample(whitespace, size = 1))
 	}
 
 	this $ paragraph <-
-		function (...) {
-			no_lines <- abs( rnorm(1, 1, sd = 10) )
+		function (len) {
 
-			lines <- unlist(lapply(seq_len(no_lines), this $ line))
+			lines <- unlist(lapply(seq_len(len), this $ line))
 
 			paste0(lines, collapse = '\n')
 		}
 
+	this $ characters <-
+		vectorise(this $ character, 'character')
+
+	this $ words <-
+		vectorise(this $ word, 'character')
+
+	this $ lines <-
+		vectorise(this $ line, 'character')
+
+	this $ paragraphs <-
+		vectorise(this $ paragraph, 'character')
+
+	add_names <- function (fn) {
+		function (len) {
+			elems        <- fn(len)
+
+			if (length(elems) == 0) {
+				structure(elems, names = character(0))
+			} else {
+
+				names(elems) <- vapply(elems, function (elem) {
+					this $ word(sample(1:100, size = 1))
+				}, character(1))
+
+				elems
+			}
+		}
+	}
+
 	# -- logical vectors
 
 	this $ empty_logical <-
-		function () {
-			logical(0)
-		}
+		pick_one_(logical(0))
 
-	this $ flag <-
-		function () {
-			one_of(c(True, False, Na))
-		}
+	this $ logical <-
+		pick_one_(True, False, Na)
 
 	this $ logicals <-
-		function () {
-			no_bools <- abs(rnorm(1, 1, sd = 100))
-
-			rsample(c(True, False, Na), size = no_bools, replace = True)
-		}
-
-	# -- symbols
-#	this $ symbol <-
-#		function () {
-
-#			word <- this $ word()
-
-#			while (nchar(word) == 0) {
-#				word <- this $ word()
-#			}
-
-#			as.symbol(word)
-#		}
+		vectorise(this $ logical, 'logical')
 
 	# -- double
 
 	this $ empty_double <-
-		function () {
-			numeric(0)
-		}
+		pick_one_(numeric(0))
+
 	this $ nan <-
-		function () {
-			NaN
-		}
+		pick_one_(NaN)
+
+	this $ nans <-
+		vectorise(this $ nan, 'numeric')
 
 	this $ infinity <-
-		function () {
-			one_of(c(-Inf, +Inf))
-		}
+		pick_one_(-Inf, +Inf)
+
+	this $ infinities <-
+		vectorise(this $ infinity, 'numeric')
 
 	this $ double <-
-		function () {
+		function (len) {
 			rnorm(1, 0, 1000000)
 		}
+
+	this $ doubles <-
+		vectorise(this $ double, 'numeric')
+
+	this $ doubles_any <-
+		one_gen_(this $ double, this $ infinity, this $ nan, this $ na)
+
+
+
+
+
 
 	# -- integer
 
 	this $ empty_integer <-
-		function () {
-			integer(0)
-		}
+		pick_one_(integer(0))
 
 	this $ integer <-
-		function () {
-			sample.int(2147483647, 1) * rsample(c(-1, 1), size = 1)
+		function (len) {
+			sample.int(2147483647, 1) * rsample(c(-1L, 1L), size = 1)
 		}
+
+	this $ integers <-
+		vectorise(this $ integer, 'integer')
+
+	this $ integers_any <-
+		one_gen_(this $ integer, this $ na)
+
+
+
+
+
+	# -- factors
+
+
+
+	# -- named vector
+
+
+
+
+
+	this $ named_doubles_any <-
+		add_names(this $ doubles_any)
+
+	this $ named_integers_any <-
+		add_names(this $ integers_any)
+
+
+	# -- generic collection
+
+	this $ named_empty_character <-
+		add_names(this $ empty_character)
+
+	this $ named_empty_logical <-
+		add_names(this $ empty_logical)
+
+	this $ named_empty_double <-
+		add_names(this $ empty_double)
+
+	this $ named_empty_integer <-
+		add_names(this $ empty_integer)
+
+
+
 
 	# -- function
 
@@ -132,18 +252,26 @@ from_stream <- function (...) {
 		local({
 			base <- Filter(is.function, lapply(ls('package:base'), get))
 
-			function () {
+			function (len) {
 				one_of(base)
 			}
 		})
 
+
+
+
+
 	# -- with that out of the way, yield a value.
 
-	implemented <- ls(envir = this)
+	function (len) {
 
-	sampler <- this[[ rsample(implemented, size = 1) ]]
-	sampler()
-}
+		implemented <- ls(envir = this)
+
+		sampler <- this[[ rsample(implemented, size = 1) ]]
+		sampler(len)
+	}
+
+})()
 
 
 
@@ -343,8 +471,8 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 # Generate a random test case for each parametre we decided to
 # test over.
 
-yield_case <- function (params) {
-	lapply(seq_along(params), from_stream)
+yield_case <- function (params, len) {
+	lapply(seq_along(params), function (...) from_stream(len))
 }
 
 
@@ -559,13 +687,15 @@ execute_test <- function (test) {
 
 	# -- test random test cases for a preset amount of time.
 
+	len       <- 1
 	time_left <- xStopwatch(time)
 
 	while (time_left()) {
 
 		# -- generate a random test case.
 
-		case   <- yield_case(params)
+		case   <- yield_case(params, len)
+
 		states <- Map(
 			function (test, group, state) {
 
@@ -576,6 +706,8 @@ execute_test <- function (test) {
 			group_types,
 			states
 		)
+
+		len <- len + rsample(0:1, size = 1, prob = c(0.9, 0.1))
 	}
 
 	test_data <- list(info = info, time = time)
@@ -626,7 +758,8 @@ execute_test <- function (test) {
 # failsWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
 #                               check that several functions fail.
 #
-#
+# worksWhen(expr, ...expr)      when a predicate is true of the randomly generated test cases,
+#                               check that several functions run correctly.
 #
 #
 # run(num)                      execute the unit test object, set the time to execute for.
@@ -671,35 +804,6 @@ over <- function (...) {
 	out
 }
 
-# -- TODO
-
-suchThat <- function (...) {
-
-	invoking_call <- sys.call()
-
-	args    <- as.list(match.call()[-1])
-	pred    <- args[[ length(args) ]]
-	symbols <- args[1:(length(args)-1)]
-
-	if (missing(..1)) {
-		message <-
-			'suchThat must provide a symbol to select over.'
-
-		throw_kiwi_error(invoking_call, message)
-	}
-
-	out <- list(
-
-
-
-	)
-
-	class(out) <- c('xforall', ' xsuchthat')
-	out
-}
-
-
-
 # -- test positives (+ controls)
 #
 #
@@ -726,7 +830,39 @@ holdsWhen <- function (expr1, ...) {
 
 }
 
+#
+#
+# This is a hack - should be implemented as a first-class
+# property.
 
+worksWhen <- function (expr1, ...) {
+
+	invoking_call <- sys.call()
+
+	exprs <- as.list(match.call(expand.dots = False)[-1])
+
+	if (missing(..1)) {
+		message <-
+			'worksWhen must specify expectations.'
+
+		throw_kiwi_error(invoking_call, message)
+	}
+
+	# if the expression runs, return tre.
+	exprs$... <- lapply(exprs$..., function (expr) {
+
+		join_exprs(expr, {TRUE})
+
+	})
+
+	out <- list(
+		positives =
+			c(list( exprs[[1]] ), exprs$...)
+	)
+	class(out) <- c('xforall', 'xholdswhen')
+	out
+
+}
 
 
 
@@ -762,7 +898,7 @@ failsWhen <- function (expr1, ...) {
 # Run specifies that the test object should now be
 # executes. Also specifies how long to run the test for.
 
-run <- function (time = 2) {
+run <- function (time = 5) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out

@@ -16,7 +16,8 @@
 #' @section Corner Cases:
 #'    If nums is empty then \bold{integer(0)} is returned. Tied values are
 #'    ranked in order of appearance; the first occurrence is ranked lower than
-#'    the second occurrence.
+#'    the second occurrence. Na or NaN values cannot be included, as they are
+#'    unorderable.
 #'
 #' @template
 #'    Variadic
@@ -30,7 +31,7 @@
 xRankOf <- MakeFun('xRankOf', function (nums) {
 
 	if (length(nums) == 0) {
-		integer(0)
+		keep_names(integer(0), nums)
 	} else {
 
 		MACRO(Must_Be_Orderable(nums))

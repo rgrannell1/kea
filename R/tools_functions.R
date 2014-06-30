@@ -38,6 +38,9 @@ rsample <- function (coll, ...) {
 
 is_na <- function (val) {
 
+	# -- na can be named.
+	val <- unname(val)
+
 	isTRUE(
 		identical(val, NA) ||
 		identical(val, NA_integer_) ||
@@ -47,6 +50,10 @@ is_na <- function (val) {
 }
 
 is_nan <- function (val) {
+
+	# -- NaN can be named.
+	val <- unname(val)
+
 	isTRUE(identical(val, NaN))
 }
 
@@ -66,19 +73,19 @@ elem_is_na <- function (coll) {
 				identical(elem, NA_real_) ||
 				identical(elem, NA_complex_))
 
-		}, logical(1))
+		}, logical(1), USE.NAMES = True)
 	}
 }
 
 elem_is_nan <- function (coll) {
 
 	if (is.atomic(coll)) {
-		is.nan(coll)
+		unname(is.nan(coll))
 	} else if (is.list(coll) || identical(coll, Null)) {
 		# -- runs if any list or pairlist.
 		vapply(coll, function (elem) {
 			isTRUE(identical(elem, NaN))
-		}, logical(1))
+		}, logical(1), USE.NAMES = True)
 	}
 }
 
@@ -124,6 +131,27 @@ str_split <- function (rexp, str) {
 		} else {
 			out
 		}
+	}
+}
+
+is_named <- function (coll) {
+	!is.null(names(coll))
+}
+
+as_named <- function (coll) {
+	if (length(coll) == 0) {
+		structure(coll, names = character(0))
+	} else {
+		stop('as_named')
+	}
+}
+
+keep_names <- function (coll1, coll2) {
+
+	if ( length(coll1) == 0 && !is.null(names(coll2)) ) {
+		structure(coll1, names = character(0))
+	} else {
+		coll1
 	}
 }
 
@@ -300,9 +328,7 @@ Object <- function () {
 is_collection <- function (val) {
 	# is a value a pairlist, list or typed vector?
 
-	# -- the two bad coner cases of is atomic and is null
-	# -- counteract; will be true for any pairlist, list or vector, including NULL.
-	is.atomic(val) || is.list(val)
+	is_generic(val) || is_atomic(val)
 }
 
 # --------------------- testing & message functions --------------------- #
@@ -369,19 +395,17 @@ load_test_dependencies <- function (envir) {
 
 	deps <-
 		list(
-			over =
-				kiwi ::: over,
-			describe =
-				kiwi ::: describe,
-			holdsWhen =
-				kiwi ::: holdsWhen,
-			run =
-				kiwi ::: run,
-			failsWhen =
-				kiwi ::: failsWhen,
+			over          = over,
+			describe      = describe,
+			holdsWhen     = holdsWhen,
+			worksWhen     = worksWhen,
+			run           = run,
+			failsWhen     = failsWhen,
+			`+.xforall`   = `+.xforall`,
 
-			`+.xforall` =
-				kiwi ::: `+.xforall`
+			is_collection = is_collection,
+			as_named      = as_named,
+			is_named      = is_named
 		)
 
 	for (key in names(deps)) {

@@ -1,31 +1,26 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xFlatMap")
 
-	forall(
-		"the empty collection always yields the empty list.",
-		test_cases$logical_functions_with_collection_zero,
-		xFlatMap(fn, coll) %is% list()
-	)
+	over(fn, coll) +
 
-	forall(
-		"flatmapping identity over the list preserves its contents.",
-		test_cases$collection,
+	describe("flatmap of empty collection is always empty") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		xFlatMap(identity, coll) %is% list()
+	) +
+
+	describe("flatmap of empty collection is always empty (named)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xFlatMap(identity, coll) %is% as_named(list())
+	) +
+
+	describe("flatmap with identity is the coll") +
+	holdsWhen(
+		is_collection(coll),
 		xFlatMap(identity, coll) %is% as.list(coll)
-	)
+	) +
 
-	forall(
-		"flatmapping increment increments the list",
-		test_cases$succ_over_integers,
-		all( unlist(xFlatMap(fn, coll)) == unlist(coll) + 1 )
-	)
-
-	forall(
-		"flatmapping can extend a collection length.",
-		test_cases$integers,
-		length(xFlatMap(function (x) c(x, x), coll)) == 2 * length(coll)
-	)
+	run()

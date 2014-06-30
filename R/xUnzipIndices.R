@@ -41,7 +41,7 @@
 xUnzipIndices <- MakeFun('xUnzipIndices', function (coll) {
 
 	if (length(coll) == 0) {
-		list()
+		keep_names(list(), coll)
 	} else {
 		lapply(seq_along(coll), function (ith) {
 			list(ith, coll[[ith]] )

@@ -1,6 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
-is_collection <- kiwi ::: is_collection
+
 
 message("xRankOf (+)")
 
@@ -8,8 +8,15 @@ message("xRankOf (+)")
 
 	describe("rank of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)),
+		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)) && !is_named(nums),
 		xRankOf(nums) %is% integer(0)
+	) +
+
+
+	describe("rank of empty collection is integer(0) (named)") +
+	holdsWhen(
+		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)) && is_named(nums),
+		xRankOf(nums) %is% as_named(integer(0))
 	) +
 
 	describe("the rank of one number is one.") +
@@ -20,7 +27,7 @@ message("xRankOf (+)")
 
 	describe("sorting the rank of numbers is seq_along nums") +
 	holdsWhen(
-		is.numeric(nums) && !any(is.na(nums)),
+		is.numeric(nums) && !any(is.na(nums)) && length(nums) > 0,
 		sort(xRankOf(nums)) %is% seq_along(nums)
 	) +
 

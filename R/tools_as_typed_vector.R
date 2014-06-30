@@ -1,58 +1,4 @@
 
-#
-# unit_to_value:
-#     Convert a length-zero vector to a non-length-zero value.
-#
-#
-#
-# as_atom:
-#      Convert a length-one vector to an atomic vector.
-#
-#
-#
-# as_typed_vector:
-#     A function to try convert a list of values to a typed vector.
-#     A list of integers should be interconvertable to an integer vector,
-#     if required. This function is used to make sure kiwi functions are
-#     agnostic to the difference between typed and generic vectors.
-
-unit_to_value <- function (coll) {
-	# collection -> collection
-	# convert a length-zero collection.
-
-	if (length(coll) == 0) {
-		# -- marginally more efficient that checking integer or double.
-		if (is.numeric(coll)) {
-			0
-		} else if (is.character(coll)) {
-			""
-		} else if (is.logical(coll)) {
-			False
-		} else if (is.raw(coll)) {
-			as.raw(00)
-		} else if (is.complex(coll)) {
-			0 + 0i
-		} else {
-			stop(
-				"internal kiwi error: cannot convert to non-implemented vector type." %+%
-				"please report this at the kiwi github repo!",
-				call. = False)
-		}
-
-	} else {
-		coll
-	}
-}
-
-
-
-
-
-
-
-
-
-
 as_typed_vector <- local({
 
 	# -- is_na is essential; all na's are treated the same.
@@ -84,9 +30,11 @@ as_typed_vector <- local({
 		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
-
-			vector(mode)
-
+			if ( !is.null(names(coll)) ) {
+				structure(vector(mode), names = character(0))
+			} else {
+				vector(mode)
+			}
 		} else if (is.atomic(coll)) {
 			# -- this branch is faster; check the vector is the correct type.
 
@@ -118,6 +66,7 @@ as_typed_vector <- local({
 			}
 
 			coll
+
 		} else {
 			# -- check that the generic vector is correct mode; the slow path.
 
@@ -157,7 +106,14 @@ as_typed_vector <- local({
 				}
 			}
 
-			as.vector(coll, mode = mode)
+			if ( !is.null(names(coll)) ) {
+				out <- as.vector(coll, mode = mode)
+				names(out) <- names(coll)
+				out
+			} else {
+				as.vector(coll, mode = mode)
+			}
+
 		}
 	}
 })
@@ -200,7 +156,11 @@ as_atom <- local({
 		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
-			vector(mode)
+			if ( !is.null(names(coll)) ) {
+				structure(vector(mode), names = character(0))
+			} else {
+				vector(mode)
+			}
 		} else if (length(coll) != 1) {
 
 			coll_sym <- substitute(coll)
@@ -213,12 +173,11 @@ as_atom <- local({
 		} else if (is.atomic(coll)) {
 			# -- fast track; check if the atomic vector is atomic.
 
-			type <- typeof(coll)
-
 			if (mode == 'numeric') {
 				# -- integers, doubles, numerics are all valid numerics.
 
-				if ( !any(type == c('integer', 'double', 'numeric')) ) {
+				# -- needed for NA to be untyped.
+				if (!typecheck $ integer(coll) && !typecheck $ double(coll)) {
 
 					coll_sym <- substitute(coll)
 
@@ -239,7 +198,8 @@ as_atom <- local({
 				}
 
 				coll
-			} else if (!type == mode) {
+
+			} else if (!typecheck [[mode]] (coll)) {
 				# -- check that the expected type
 
 				coll_sym <- substitute(coll)
@@ -261,6 +221,7 @@ as_atom <- local({
 			}
 
 			coll
+
 		} else {
 			# -- generic vectors; more work needed.
 
@@ -299,7 +260,15 @@ as_atom <- local({
 			}
 
 			# -- convert. This might be replacable with coll[[ 1 ]]
-			as.vector(coll, mode = mode)
+
+			if ( !is.null(names(coll)) ) {
+				out <- as.vector(coll, mode = mode)
+				names(out) <- names(coll)
+				out
+			} else {
+				as.vector(coll, mode = mode)
+			}
+
 		}
 	}
 })

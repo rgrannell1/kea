@@ -22,7 +22,8 @@
 #'
 #' @section Corner Cases:
 #'    Returns the empty character vector when \bold{str} or
-#'   \bold{strs} is length-zero.
+#'   \bold{strs} is length-zero. \bold{xImplode} does not coerce
+#'    its arguments to character.
 #'
 #' @family text_processing_functions
 #'

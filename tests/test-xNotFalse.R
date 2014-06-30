@@ -1,20 +1,27 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 
-message("xNotFalse")
+message("xNotFalse (+)")
 
-	forall(
-		"not false of empty collection is False",
-		test_cases$collection_zero,
-		xNotFalse(coll)
-	)
+	over(val) +
 
-	forall(
-		"not Null of Null is false",
-		list(),
-		!xNotNull(Null)
-	)
+	describe('xNotFalse of false is false.') +
+	holdsWhen(
+		identical(val, FALSE),
+		!xNotFalse(val)
+	) +
+
+	describe('xNotFalse of values is true.') +
+	holdsWhen(
+		!identical(val, FALSE),
+		xNotFalse(val)
+	) +
+
+	describe('xNotFalse is always true or false') +
+	holdsWhen(
+		TRUE,
+		xNotFalse(val) || !xNotFalse(val)
+	) +
+
+	run()

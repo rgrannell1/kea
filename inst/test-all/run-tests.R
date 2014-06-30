@@ -10,7 +10,6 @@ if (nchar(test_path) == 0) {
 	}
 }
 
-
 x_( list.files(test_path, full.names = True) ) $
 xDo(path := {
 	source(path)
@@ -18,4 +17,6 @@ xDo(path := {
 }) $
 xExecute(drop := {
 	warnings()
+	xDo(alarm, 1:10)
 })
+

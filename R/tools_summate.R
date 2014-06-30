@@ -38,6 +38,8 @@ summate <- local({
 					length(obj),
 				`no empty` =
 					length(which(nchar(obj) == 0)),
+				`no na` =
+					length( which(elem_is_na(obj)) ),
 				`all empty` =
 					all(nchar(obj) == 0),
 				`any empty` =
@@ -110,18 +112,18 @@ summate <- local({
 				length =
 					length(obj),
 				`no positive` =
-					length(which(obj[ !(is_na(obj)) ] > 0)),
+					length(which(obj[ !(elem_is_na(obj) | elem_is_nan(obj)) ] > 0)),
 				`no zero` =
-					length(which(obj[ !(is_na(obj)) ] == 0)),
+					length(which(obj[ !(elem_is_na(obj) | elem_is_nan(obj)) ] == 0)),
 				`no negative` =
-					length(which(obj[ !(is_na(obj)) ] < 0)),
+					length(which(obj[ !(elem_is_na(obj) | elem_is_nan(obj)) ] < 0)),
 				`no na` =
-					length( which(is_na(obj)) ),
+					length( which(elem_is_na(obj)) ),
 				`no nan` =
-					length( which(is.nan(obj)) ),
+					length( which(elem_is_nan(obj)) ),
 				`no whole` =
 					local({
-						roundable <- obj[ !(is_na(obj) | is.nan(obj) | is.infinite(obj)) ]
+						roundable <- obj[ !(elem_is_na(obj) | elem_is_nan(obj)) ]
 						length(which(round(roundable) == roundable))
 					}),
 				`no infinite` =
@@ -165,7 +167,19 @@ summate <- local({
 			traits <- list(
 				length =
 					length(obj),
-				`is nested` =
+
+				`elem types` = local({
+
+					types <- vapply(obj, function (x) {
+						typeof(x)
+					}, character(1))
+
+					raw_table <- as.list(table(types))
+					toString( paste0(names(raw_table), ':', unname(raw_table)) )
+
+				}),
+
+				`any nested` =
 					any( vapply(obj, function (x) {
 						isTRUE(is_generic(x))
 					}, logical(1)) ),
@@ -173,6 +187,7 @@ summate <- local({
 					all( vapply(obj, function (x) {
 						isTRUE(is_generic(x))
 					}, logical(1)) ),
+
 				`any kiwi objects` =
 					any( vapply(obj, function (x) any(class(x) == 'kiwi'), logical(1)) ),
 				`all kiwi objects` =
@@ -194,13 +209,13 @@ summate <- local({
 				length =
 					length(obj),
 				`no positive` =
-					length(which(obj[ !(is_na(obj)) ] > 0)),
+					length(which(obj[ !(elem_is_na(obj)) ] > 0)),
 				`no zero` =
-					length(which(obj[ !(is_na(obj)) ] == 0)),
+					length(which(obj[ !(elem_is_na(obj)) ] == 0)),
 				`no negative` =
-					length(which(obj[ !(is_na(obj)) ] < 0)),
+					length(which(obj[ !(elem_is_na(obj)) ] < 0)),
 				`no na` =
-					length( which(is_na(obj)) ),
+					length( which(elem_is_na(obj)) ),
 				classes =
 					deparse(class(obj))
 			)
@@ -221,7 +236,7 @@ summate <- local({
 				length =
 					length(obj),
 				`no na` =
-					length( which(is_na(obj)) ),
+					length( which(elem_is_na(obj)) ),
 				`no true` =
 					length(which(obj)),
 				`no false` =

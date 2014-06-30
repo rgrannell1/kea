@@ -55,7 +55,8 @@
 xFlatMap <- MakeFun('xFlatMap', function (fn, coll) {
 
 	if (length(coll) == 0) {
-		list()
+		# - this might not be needed.
+		keep_names(list(), coll)
 	} else {
 		# -- this might need a more rigourous implementation.
 		as.list( do.call(c, lapply(coll, fn)) )
