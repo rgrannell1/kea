@@ -16,7 +16,7 @@ message("xRankOf (+)")
 	describe("rank of empty collection is integer(0) (named)") +
 	holdsWhen(
 		is_collection(nums) && length(nums) == 0 && !any(is.na(nums)) && is_named(nums),
-		xRankOf(nums) %is% integer(0)
+		xRankOf(nums) %is% as_named(integer(0))
 	) +
 
 	describe("the rank of one number is one.") +
