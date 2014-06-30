@@ -11,7 +11,7 @@ message("forall-next (+)")
 		length(a) == 1 && length(b) == 1 &&
 		is.finite(a)  && is.finite(b) &&
 		is.null(names(a)) && is.null(names(b)) &&
-		a < 100000 && b < 100000,
+		abs(a) < 100000 && abs(b) < 100000,
 		a + b == b + a
 	) +
 
