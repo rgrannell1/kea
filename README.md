@@ -6,7 +6,7 @@ Kiwi 0.29.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https:/
 
 ### Public Release: ~1 August 2014
 
-Kiwi makes R an effective language for functional programming.
+Kiwi brings functional programming to R.
 
 ### Installation
 
@@ -20,24 +20,15 @@ install_github("kiwi", "rgrannell1", ref = "releases")
 
 ## What is Kiwi?
 
-Functional programming has become commonplace in languages like JavaScript
-and Python, but R is sorely lacking such a library. Kiwi is a functional
-library for general-purpose programming in R. It adds all the common higher-order
-functions (Map, Fold, Compose, ...), collection functions, and functions taken from set theory and combinatorics.
-
-Kiwi extends R's semantics - by adding Haskell-style automatic partial application -
-and syntax, with arrow functions, methods, wildcards and list-comprehensions.
+Kiwi extends
 
 For library documentation and tutorials head to
 [http://rgrannell1.github.io/kiwi/](htti://rgrannell1.github.io/kiwi/).
 
-Feel no obligation to read the following sections; Kiwi's documentation is sufficient to
-get you up and running quickly. If you are interested in Kiwi's key features and design decisions, read on.
-
 ### Kiwi is Expressive
 
 It is easier to write a sentence from left to right than from the middle out; writing programs
-as chains of functions is similarily natural.
+as chains of functions is similarily natural. Kiwi adds pipeline-style methods to R.
 
 Kiwi code is *compositional*; to create an kiwi program you chain functions
 together into a pipeline that takes your input and transforms it in multiple
@@ -112,13 +103,14 @@ x_(letters) $ xMap(letter := {
 })
 ```
 
-The same collection could be made with collection-comprehensions; syntax sugar for creating new collections by filtering, joining & transforming existing collections.
+The same collection could be made with collection-comprehensions; syntax sugar for making new
+collections by filtering, joining & transforming old collections.
 
 ```splus
 xList[ list(l, toupper(l)), l <- letters ]
 ```
 
-There are two approaches to making a function that can take a variable number of arguments. The first is
+There are two ways to make a function that can take a variable number of arguments. The first is
 to use the ellipsis parametre (...), which gathers up any arguments passed to a function. The second is to
 simply pass one list of arguments to the function.
 
@@ -176,7 +168,7 @@ Fold is the king of functionals, powerful enough to implement Map, Select and
 the other common functionals. In most languages Fold executes in time linearly-propotional
 to its input collection size.
 
-But sometimes the result of a fold *can* be determined in
+But sometimes the result of a fold *can* be found in
 sub-linear time; folds are often used to check for the existence of a value in a dataset, and
 in the best case you do not need to iterate over every input value to find a match. Kiwi's Fold
 can run in sub-linear time, by using a special return statement - Return. This makes your

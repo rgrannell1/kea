@@ -27,7 +27,7 @@ message("xRankOf (+)")
 
 	describe("sorting the rank of numbers is seq_along nums") +
 	holdsWhen(
-		is.numeric(nums) && !any(is.na(nums)),
+		is.numeric(nums) && !any(is.na(nums)) && length(nums) > 0,
 		sort(xRankOf(nums)) %is% seq_along(nums)
 	) +
 
