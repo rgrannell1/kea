@@ -24,8 +24,8 @@ For library documentation and tutorials head to
 ## What is Kiwi?
 
 Kiwi is an functional-programming library that makes R easy to debug, easy to write,
-and extremely powerful. Pipelines, partially-applicable functions, arrow functions and
-a rich grammar of functions drawn from other languages makes writing R pleasant.
+and extremely powerful. Kiwi's pipelines, partially-applicable functions, arrow functions and
+a rich grammar of functions drawn from other languages make writing R pleasant.
 
 ### Kiwi is Expressive
 
