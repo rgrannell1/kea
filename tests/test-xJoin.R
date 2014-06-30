@@ -6,6 +6,13 @@ message("xJoin (+)")
 
 	over(coll1, coll2) +
 
+	describe('empty coll is unnamed list') +
+	holdsWhen(
+		is_collection(coll1) && length(coll1) == 0,
+		xJoin(list())      %is% list(),
+		xJoin_(coll1) %is% list()
+	) +
+
 	describe('a single collection acts as identity') +
 	holdsWhen(
 		is_collection(coll1) && length(coll1) > 0,
@@ -14,10 +21,8 @@ message("xJoin (+)")
 
 	describe('joining an empty collection with non-empty is the non-empty collection (left)') +
 	holdsWhen(
-		is_collection(coll1) &&
-		is_collection(coll2) && length(coll2) == 0 && !is_named(coll2),
-		xJoin(list(coll1, coll2)) %is% as.list(coll1),
-		xJoin(list(coll2, coll1)) %is% as.list(coll1)
+		is_collection(coll1) && is_collection(coll2),
+		length(xJoin_(coll1, coll2)) == length(coll1) + length(coll2)
 	) +
 
 	run()

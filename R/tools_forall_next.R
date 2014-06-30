@@ -707,7 +707,7 @@ execute_test <- function (test) {
 			states
 		)
 
-		len <- len + 1
+		len <- len + rsample(0:1, size = 1, prob = c(0.9, 0.1))
 	}
 
 	test_data <- list(info = info, time = time)
