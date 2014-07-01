@@ -9,8 +9,8 @@ Enhancements:
 
 Bug-Fixes:
 
-* Removed xMapply.
-
+* Removed xMapply; despite being useful it was a compound of xMap and
+xUnspread, and similar functions like xSelect don't have analogous compositions.
 
 * xAsRaw (and it's internal backend as_typed_vector ) now throws an error for NA
 values, as NA's cannot be converted to raw.
