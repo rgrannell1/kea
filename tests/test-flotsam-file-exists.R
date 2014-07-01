@@ -1,119 +1,93 @@
 
 require(kiwi)
 
-'%+%' <- kiwi ::: '%+%'
-throw_kiwi_error <- kiwi ::: throw_kiwi_error
-
-# -- This series of unit tests checks that files that
-# -- should exist, do exist.
-
-
-
-
-
-r_paths <- x_(list(
-	R =
-		system.file(package = 'kiwi', 'R'),
-	examples =
-		system.file(package = 'kiwi', 'inst/examples'),
-	tests =
-		system.file(package = 'kiwi', 'tests'),
-	man =
-		system.file(package = 'kiwi', 'man'),
-	namespace =
-		system.file(package = 'kiwi', 'NAMESPACE')
-))
-
-# 1. Regular expression patterns.
-
-non_variadic_pattern <- 'x[A-Z][a-zA-Z]+'
-
-# 2. Convert function name to path name.
-
-as_r_path <- function (fnname) {
-	xFromChars_(r_paths $ x_AtKey('R'), '/', fnname, '.R')
+either <- function (...) {
+	x__(...) $ xSelect(x. != '') $ x_FirstOf()
 }
 
-as_example_path <- function (fnname) {
-	xFromChars_(r_paths $ x_AtKey('examples'), '/', fnname, '.R')
+sep <- .Platform $ file.sep
+kiwi_path <- (...) := {
+
+	kiwi <- system.file('', package = 'kiwi')
+
+	gsub(
+		xFromChars_(sep, sep), sep,
+		xImplode(sep, c(kiwi, ...)) )
 }
 
-as_test_path <- function (fnname) {
-	xFromChars_(r_paths $ x_AtKey('tests'), '/', fnname, '.R')
+existing_paths <- (...) := {
+	x__(...) $
+	xSelect(path := {
+		xIsTrue(file.exists(path))
+	}) $
+	x_AsCharacter()
 }
 
 
 
 
 
+kiwi <- system.file('', package = 'kiwi')
+
+path <- list()
+path $ description <- kiwi_path('DESCRIPTION')
+path $ namespace   <- kiwi_path('NAMESPACE')
+path $ examples    <-
+	existing_paths(kiwi_path('inst', 'examples'), kiwi_path('examples'))
+path $ tests       <-
+	existing_paths(kiwi_path('inst', 'tests'), kiwi_path('tests'))
+
+
+
+
+# -- the basename, path pairs of collated files.
+collate_files_ <-
+	x_(xRead(path $ description)) $ xToLines()          $
+	xDropWhile(
+		xNotMatch('Collate'))                           $
+	xMap(
+		xToChars  %then% xDropWhile(x. != "'") %then%
+		xRestOf() %then%
+		xTakeWhile(x. != "'") %then% xFromChars)        $
+	xMap(
+		path := list(base = path, abspath = fp(kiwi, path) ))
+
+# -- arrow functions, and their R path.
+
+namespace_files_ <-
+	x_(xRead(path $ namespace)) $ xToLines()      $
+	xSelect(xIsMatch('x[A-Z].+[^_][)]'))                   $
+	xMap(export := {
+		gsub('export[(]|[)]', '', export)
+	})                                            $
+	xMap(fn_name := {
+		list(
+			fn_name,
+			kiwi_path('R', xFromChars_(fn_name, '.R'))
+		)
+	})
 
 
 
 
 
 
+message('checking that R file has an example file')
 
+	expected_examples_ <-
+		namespace_files_ $
+		xMapply((base : abspath) := {
 
-
-if (nchar(r_paths $ x_AtKey('tests')) > 0) {
-
-	variadic_exports <-
-		r_paths $ xAtKey('namespace') $ xRead() $ xToLines()
-		xSelect(xIsMatch(
-			xFromChars_('export[(]', non_variadic_pattern, '[)]'))
-		) $
-		xMap(export_ := {
-			# -- positionally remove the export tag.
-			export $ xToChars() $ xDrop(7) $ xInitOf() $ x_FromChars()
+			list(
+				base,
+				xImplode_(
+					sep, path $ examples,
+					xFromChars_('example-', base, '.R')) )
 		})
 
+	expected_examples_ $ xDo( xUnspread((base : path) := {
 
-
-
-
-
-	check_for_missing_exports <- (as_path : dir_message : exceptions) := {
-		# -- complain about variadic_exports missing from a file.
-
-		not_found <-
-			variadic_exports $ xReject(export := {
-				# -- remove the functions that do have matching files.
-				xIsTrue( file.exists(as_r_path(export)) )
-			}) $
-			xReject(export := {
-				# -- these functions are sanctioned to be missing their own file.
-				xIsMember_(export, exceptions)
-			})
-
-		if (not_found $ x_NotEmpty()){
-
-			message <- xFromChars_(
-				"the following functions were missing their own ", dir_message, " files:",
-				not_found $ x_Implode(', '))
-
-			throw_kiwi_error(message = message)
+		if (!file.exists(path)) {
+			stop("no example existed for ", base)
 		}
-	}
-
-	message(
-		'check that every exported function ' %+%
-		'Fun has a corresponding xFun.R file')
-
-		check_for_missing_exports(as_r_path, 'kiwi/R',
-			c())
-
-	message(
-		'check that every exported function ' %+%
-		'Fun has a corresponding example-xFun.R file')
-
-		check_for_missing_exports(as_example_path, 'kiwi/inst/examples',
-			c())
-
-	message(
-		'check that every exported function ' %+%
-		'Fun has a corresponding test-xFun.R file')
-
-		check_for_missing_exports(as_test_path, 'kiwi/inst/tests',
-			c())
-
-}
+	}) )

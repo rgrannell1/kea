@@ -14,6 +14,7 @@ message('normal functions can be partially applied')
 	describe('unary functions are partially appliable') +
 	holdsWhen(
 		is_collection(coll),
+
 		xIdentity(val) %is% val,
 		xIdentity(val) %is% xIdentity()(val)
 	) +
@@ -21,6 +22,7 @@ message('normal functions can be partially applied')
 	describe('binary functions are partially appliable') +
 	holdsWhen(
 		is_collection(coll),
+
 		xMap(identity, coll) %is% as.list(coll),
 		xMap(identity, coll) %is% xMap(identity)(coll),
 		xMap(identity, coll) %is% xMap()()(identity)(coll),
@@ -34,6 +36,7 @@ message('normal functions can be partially applied')
 	describe('trinary functions are partially appliable') +
 	holdsWhen(
 		is_collection(coll),
+
 		xFold('+', 0L, seq_along(coll)) %is% sum(seq_along(coll)),
 		xFold('+', 0L, seq_along(coll)) %is% xFold('+')(0L, seq_along(coll)),
 		xFold('+', 0L, seq_along(coll)) %is% xFold('+')(0L)(seq_along(coll)),
