@@ -10,8 +10,8 @@ Kiwi brings functional programming to R.
 
 ### Installation
 
-Occasional, particularily stable releases of Kiwi will be uploaded to
-CRAN. The best way to get kiwi is through github.
+Occasional stable releases of Kiwi will be uploaded to CRAN. For most people,
+the best way to get Kiwi is through github.
 
 ```splus
 install.packages("devtools")
