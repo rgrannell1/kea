@@ -9,9 +9,7 @@ Enhancements:
 
 Bug-Fixes:
 
-* Fixed a serious bug in xMapply; no longer fails or behaves badly for
-named inner collections.
-
+* Removed xMapply.
 
 
 * xAsRaw (and it's internal backend as_typed_vector ) now throws an error for NA

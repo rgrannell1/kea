@@ -209,7 +209,6 @@ sd_section(
 		"xDeepMap",
 		"xFlatMap",
 		"xMap",
-		"xMapply",
 		"xThread",
 		"xUnspread"
 	)

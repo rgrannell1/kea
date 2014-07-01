@@ -35,9 +35,9 @@ kiwi_fns <-
 		list( fn_name, kiwi_env[[fn_name]] )
 	})
 
-inner_calls <- kiwi_fns $ xMapply((fn_name : fn) := {
+inner_calls <- kiwi_fns $ xMap( xUnspread((fn_name : fn) := {
 	list( fn_name, fn, fn_calls(body(fn)) )
-})
+}) )
 
 message(
 	'test that no forbidden functions are ever called')
@@ -54,7 +54,7 @@ message(
 			forbidden_calls(calls) $ x_NotEmpty()
 		}) ) $
 		# -- create the error message for the functions with dangerous calls.
-		xMapply((fn_name : fn : calls) := {
+		xMap( xUnspread((fn_name : fn : calls) := {
 
 			xFromWords_(
 				"the function", fn_name,
@@ -62,7 +62,7 @@ message(
 				forbidden_calls(calls) $ x_Implode(', ')
 			)
 
-		}) $
+		}) ) $
 		# -- collapse into one message.
 		x_FromLines()
 

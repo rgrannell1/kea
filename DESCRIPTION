@@ -158,7 +158,6 @@ Collate:
     'xAsVal.R'
     'xIterate.R'
     'xReverse.R'
-    'xMapply.R'
     'xUniqueOf.R'
     'xDuplicatesOf.R'
     'xNotEmpty.R'

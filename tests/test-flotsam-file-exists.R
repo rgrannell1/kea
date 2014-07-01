@@ -76,14 +76,14 @@ message('checking that R file has an example file')
 
 	expected_examples_ <-
 		namespace_files_ $
-		xMapply((base : abspath) := {
+		xMap( xUnspread((base : abspath) := {
 
 			list(
 				base,
 				xImplode_(
 					sep, path $ examples,
 					xFromChars_('example-', base, '.R')) )
-		})
+		}) )
 
 	expected_examples_ $ xDo( xUnspread((base : path) := {
 
@@ -111,7 +111,7 @@ message('checking that each example is non-empty')
 		)
 
 	example_lengths_ <-
-		expected_examples_ $ xMapply( (base : abspath) := {
+		expected_examples_ $ xMap( xUnspread((base : abspath) := {
 
 			length_summary <-
 				x_(xRead(abspath)) $ xToLines() $
@@ -120,7 +120,7 @@ message('checking that each example is non-empty')
 				x_LenOf()
 
 			list(base, length_summary)
-		})
+		}) )
 
 	empty_examples_ <- example_lengths_ $ xSelect(info := {
 		xSecondOf(info) == 0
@@ -137,8 +137,3 @@ message('checking that each example is non-empty')
 
 		warning(message = message)
 	}
-
-
-
-
-stop(list.files(kiwi(''), recur = TRUE, full = TRUE))

@@ -67,8 +67,8 @@ message('test that every method has an unchaining version.')
 	)
 
 	sink <-
-	xMapply(
-		(method : proto_name) := {
+	xMap(
+		xUnspread((method : proto_name) := {
 
 			invoking_call = 'unit test 1'
 
@@ -140,7 +140,7 @@ message('test that every method has an unchaining version.')
 				}
 			}
 
-		},
+		}),
 		xProdSetOf_(
 			base_methods_names,
 			names(x_proto_methods))
@@ -194,7 +194,7 @@ message('test that every function has methods.')
 
 	sink <-
 	xMapply(
-		(method : proto_name) := {
+		xUnspread((method : proto_name) := {
 
 			invoking_call = 'unit test 2'
 
@@ -222,7 +222,7 @@ message('test that every function has methods.')
 				}
 
 			}
-		},
+		}),
 		xProdSetOf_(
 			base_methods_names,
 			names(x_proto_methods))
