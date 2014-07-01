@@ -16,6 +16,7 @@ message("as_typed_vector (atomic)")
 	describe("typed length-zero conversion always works") +
 	holdsWhen(
 		is_atomic(coll) && length(coll) == 0 && !is_named(coll),
+
 		as_typed_vector(coll, 'numeric')    %is% numeric(0),
 		as_typed_vector(coll, 'integer')    %is% integer(0),
 		as_typed_vector(coll, 'double')     %is% double(0),
@@ -28,6 +29,7 @@ message("as_typed_vector (atomic)")
 	describe("typed length-zero conversion always works (named)") +
 	holdsWhen(
 		is_atomic(coll) && length(coll) == 0 && is_named(coll),
+
 		as_typed_vector(coll, 'numeric')    %is% as_named(numeric(0)),
 		as_typed_vector(coll, 'integer')    %is% as_named(integer(0)),
 		as_typed_vector(coll, 'double')     %is% as_named(double(0)),
@@ -41,7 +43,9 @@ message("as_typed_vector (atomic)")
 
 	describe("na conversion preserves names for non-raw") +
 	holdsWhen(
-		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)) && is_named(coll),
+		is_atomic(coll) && length(coll) == 1
+		&& all(is.na(coll) & !is.nan(coll)) && is_named(coll),
+
 		names(as_typed_vector(coll, 'numeric'))   == names(coll),
 		names(as_typed_vector(coll, 'integer'))   == names(coll),
 		names(as_typed_vector(coll, 'double'))    == names(coll),
@@ -52,8 +56,9 @@ message("as_typed_vector (atomic)")
 
 	describe("na conversion changes type for non-raw") +
 	holdsWhen(
-		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)),
-		typeof(as_typed_vector(coll, 'numeric'))   == 'numeric',
+		is_atomic(coll) && length(coll) == 1 &&
+		all(is.na(coll) & !is.nan(coll)),
+
 		typeof(as_typed_vector(coll, 'integer'))   == 'integer',
 		typeof(as_typed_vector(coll, 'double'))    == 'double',
 		typeof(as_typed_vector(coll, 'character')) == 'character',
@@ -61,9 +66,34 @@ message("as_typed_vector (atomic)")
 		typeof(as_typed_vector(coll, 'complex'))    == 'complex'
 	) +
 
+	describe('na conversion to numeric doesnt change integer') +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)) &&
+		typeof(coll) == 'integer',
+
+		typeof(as_typed_vector(coll, 'numeric')) == 'integer'
+	) +
+
+	describe('na conversion to numeric doesnt change double') +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)) &&
+		typeof(coll) == 'double',
+
+		typeof(as_typed_vector(coll, 'numeric')) == 'double'
+	) +
+
+	describe('na conversion to numeric changes other types') +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)) &&
+		!any(typeof(coll) == c('integer', 'double')),
+
+		typeof(as_typed_vector(coll, 'numeric')) == 'double'
+	) +
+
 	describe("na conversion fails for raw") +
 	failsWhen(
-		is_atomic(coll) && all(is.na(coll) & !is.nan(coll)),
+		is_atomic(coll) && length(coll) == 1 && 	all(is.na(coll) & !is.nan(coll)),
+
 		as_typed_vector(coll, 'raw')
 	) +
 
@@ -73,6 +103,7 @@ message("as_typed_vector (atomic)")
 	holdsWhen(
 		is_atomic(coll) && !is_named(coll) &&
 		typeof(coll) == 'integer',
+
 		as_typed_vector(coll, 'numeric') %is% coll
 	) +
 
@@ -80,13 +111,14 @@ message("as_typed_vector (atomic)")
 	holdsWhen(
 		is_atomic(coll) && !is_named(coll) &&
 		typeof(coll) == 'double',
+
 		as_typed_vector(coll, 'numeric') %is% coll
 	) +
 
 	describe("conversion to own type works for all types") +
 	holdsWhen(
+		is_atomic(coll),
 
-		typeof(coll) == 'integer',
 		as_typed_vector(coll, typeof(coll)) %is% coll
 	) +
 
