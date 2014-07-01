@@ -13,11 +13,10 @@ message("as_typed_vector (atomic)")
 
 	# --------------------- length-zero --------------------- #
 
-	describe("typed length-zero conversion always works") +
+	describe("typed length-zero conversion always works for normal-modes") +
 	holdsWhen(
 		is_atomic(coll) && length(coll) == 0 && !is_named(coll),
 
-		as_typed_vector(coll, 'numeric')    %is% numeric(0),
 		as_typed_vector(coll, 'integer')    %is% integer(0),
 		as_typed_vector(coll, 'double')     %is% double(0),
 		as_typed_vector(coll, 'character')  %is% character(0),
@@ -26,17 +25,44 @@ message("as_typed_vector (atomic)")
 		as_typed_vector(coll, 'raw')        %is% raw(0)
 	) +
 
-	describe("typed length-zero conversion always works (named)") +
+	describe("typed length-zero conversion always works for normal-modes (named)") +
 	holdsWhen(
 		is_atomic(coll) && length(coll) == 0 && is_named(coll),
 
-		as_typed_vector(coll, 'numeric')    %is% as_named(numeric(0)),
 		as_typed_vector(coll, 'integer')    %is% as_named(integer(0)),
 		as_typed_vector(coll, 'double')     %is% as_named(double(0)),
 		as_typed_vector(coll, 'character')  %is% as_named(character(0)),
 		as_typed_vector(coll, 'logical')    %is% as_named(logical(0)),
 		as_typed_vector(coll, 'complex')    %is% as_named(complex(0)),
 		as_typed_vector(coll, 'raw')        %is% as_named(raw(0))
+	) +
+
+	describe("typed length-zero conversion always works for numeric to integer") +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 0 && !is_named(coll) && typeof(coll) == 'integer',
+
+		as_typed_vector(coll, 'numeric') %is% integer(0)
+	) +
+
+	describe("typed length-zero conversion always works for numeric to double") +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 0 && !is_named(coll) && typeof(coll) == 'double',
+
+		as_typed_vector(coll, 'numeric') %is% double(0)
+	) +
+
+	describe("typed length-zero conversion always works for numeric to integer (named)") +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 0 && is_named(coll) && typeof(coll) == 'integer',
+
+		as_typed_vector(coll, 'numeric') %is% as_named(integer(0))
+	) +
+
+	describe("typed length-zero conversion always works for numeric to double (named)") +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 0 && is_named(coll) && typeof(coll) == 'double',
+
+		as_typed_vector(coll, 'numeric') %is% as_named(double(0))
 	) +
 
 	# --------------------- length-one --------------------- #
