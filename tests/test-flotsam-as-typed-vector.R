@@ -4,6 +4,9 @@ kiwi ::: load_test_dependencies(environment())
 as_typed_vector <- kiwi ::: as_typed_vector
 as_atom         <- kiwi ::: as_atom
 
+# as_typed_vector and as_atomic are two of the most complex functions
+# in Kiwi, so they are heavily tested.
+
 message("as_typed_vector (atomic)")
 
 	over(coll) +
@@ -36,15 +39,26 @@ message("as_typed_vector (atomic)")
 
 	# --------------------- length-one --------------------- #
 
-	describe("na conversion always works for non-raw") +
+	describe("na conversion preserves names for non-raw") +
 	holdsWhen(
-		is_atomic(coll) && all(is.na(coll) & !is.nan(coll)),
-		as_typed_vector(coll, 'numeric')    %is% as.numeric(coll),
-		as_typed_vector(coll, 'integer')    %is% as.integer(coll),
-		as_typed_vector(coll, 'double')     %is% as.double(coll),
-		as_typed_vector(coll, 'character')  %is% as.character(coll),
-		as_typed_vector(coll, 'logical')    %is% as.logical(coll),
-		as_typed_vector(coll, 'complex')    %is% as.complex(coll)
+		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)) && is_named(coll),
+		names(as_typed_vector(coll, 'numeric'))   == names(coll),
+		names(as_typed_vector(coll, 'integer'))   == names(coll),
+		names(as_typed_vector(coll, 'double'))    == names(coll),
+		names(as_typed_vector(coll, 'character')) == names(coll),
+		names(as_typed_vector(coll, 'logical'))   == names(coll),
+		names(as_typed_vector(coll, 'complex')    == names(coll))
+	) +
+
+	describe("na conversion changes type for non-raw") +
+	holdsWhen(
+		is_atomic(coll) && length(coll) == 1 && all(is.na(coll) & !is.nan(coll)),
+		typeof(as_typed_vector(coll, 'numeric'))   == 'numeric',
+		typeof(as_typed_vector(coll, 'integer'))   == 'integer',
+		typeof(as_typed_vector(coll, 'double'))    == 'double',
+		typeof(as_typed_vector(coll, 'character')) == 'character',
+		typeof(as_typed_vector(coll, 'logical'))   == 'logical',
+		typeof(as_typed_vector(coll, 'complex'))    == 'complex'
 	) +
 
 	describe("na conversion fails for raw") +
@@ -77,6 +91,16 @@ message("as_typed_vector (atomic)")
 	) +
 
 	run()
+
+
+
+
+
+
+
+
+
+
 
 message("as_atom (atomic)")
 
