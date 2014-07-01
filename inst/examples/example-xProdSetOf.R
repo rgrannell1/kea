@@ -2,10 +2,10 @@
 # 1. xProdSetOf with xMap or xReduce is
 #    often a very nice replacements for loops.
 
-xMapply(
-    (ith : jth) := {
+xMap(
+    xUnspread((ith : jth) := {
         ith^2 + jth^2
-    },
+    }),
     xProdSetOf_(1:4, 1:4)
 )
 

@@ -193,7 +193,7 @@ message('test that every function has methods.')
 	)
 
 	sink <-
-	xMapply(
+	xMap(
 		xUnspread((method : proto_name) := {
 
 			invoking_call = 'unit test 2'
