@@ -92,6 +92,11 @@ message('checking that R file has an example file')
 		}
 	}) )
 
+
+
+
+
+
 message('checking that each example is non-empty')
 
 	comment_or_null <-
@@ -106,12 +111,12 @@ message('checking that each example is non-empty')
 		)
 
 	example_lengths_ <-
-		expected_examples_ $ xMapply((base : abspath) := {
+		expected_examples_ $ xMapply( (base : abspath) := {
 
 			length_summary <-
-				x_(xRead(abspath)) $ xToLines()
+				x_(xRead(abspath)) $ xToLines() $
 				xReject(
-					xIsMatch, comment_or_null) $
+					xIsMatch(comment_or_null)) $
 				x_LenOf()
 
 			list(base, length_summary)
@@ -121,15 +126,14 @@ message('checking that each example is non-empty')
 		xSecondOf(info) == 0
 	})
 
-	if (empty_examples $ x_NotEmpty()) {
+	if (empty_examples_ $ x_NotEmpty()) {
 
 		message <- xFromChars_(
-			'the following ',2
+			'the following ',
 				toString(empty_examples_ $ x_LenOf()),
 
 			' examples were empty;\n',
-				empty_examples_ $ xAtCol(1) $ x_FromLines()
-		)
+				empty_examples_ $ xAtCol(1) $ x_FromLines())
 
 		throw_kiwi_warning(message = message)
 	}

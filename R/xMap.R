@@ -57,8 +57,3 @@ xMap <- MakeFun('xMap', function (fn, coll) {
 		lapply(coll, fn)
 	}
 })
-
-#' @rdname xMap
-#' @export
-
-xMap_ <- MakeVariadic(xMap, 'coll')
