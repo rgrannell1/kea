@@ -9,41 +9,54 @@ as_typed_vector <- local({
 			# -- na check is less efficent; make second.
 			# -- is_na checks if ANY type of na.
 			# -- not using vectorisation;
-			function (x) is.numeric(x)   || all(elem_is_na(x)),
+			function (x) is.numeric(x),
 		integer =
-			function (x) is.integer(x)   || all(elem_is_na(x)),
+			function (x) is.integer(x),
 		double =
-			function (x) is.double(x)    || all(elem_is_na(x)),
+			function (x) is.double(x),
 		character =
-			function (x) is.character(x) || all(elem_is_na(x)),
+			function (x) is.character(x),
 		logical =
-			function (x) is.logical(x)   || all(elem_is_na(x)),
+			function (x) is.logical(x),
 		complex =
-			function (x) is.complex(x)   || all(elem_is_na(x)),
+			function (x) is.complex(x),
 		raw =
-			function (x) is.raw(x)       || all(elem_is_na(x))
+			function (x) is.raw(x)
 	)
-
 
 	function (coll, mode) {
 
-		# -- important! this captures the invoking call.
+		# -- important! this captures the correct invoking call.
 		invoking_call <- sys.call(-1)
 
 		if (length(coll) == 0) {
-			if ( !is.null(names(coll)) ) {
+			# -- length-zero atomic or generic pathway.
+			# -- fast.
+
+			if ( any(typeof(coll) == c('integer', 'double')) && mode == 'numeric' ) {
+				coll
+			} else if ( !is.null(names(coll)) ) {
 				structure(vector(mode), names = character(0))
 			} else {
 				vector(mode)
 			}
+
 		} else if (is.atomic(coll)) {
-			# -- this branch is faster; check the vector is the correct type.
+			# -- length-one or larger.
+			# -- this branch is fast; check the vector is the correct type.
+
+			type      <- typeof(coll)
+
+			# -- every elem must be NA for conversion.
+			all_is_na <- all(elem_is_na(coll))
 
 			if (mode == 'numeric') {
-				# -- integers, doubles, numerics are all valid numerics.
+				# -- double or integer path.
 
-				# -- needed for NA to be untyped.
-				if (!typecheck $ integer(coll) && !typecheck $ double(coll)) {
+				# -- this checks if the collection is integer, double, or
+				# -- all na values. Conversion is always possible for all NA values.
+
+				if (type != 'double' && type != 'integer' && !all_is_na) {
 
 					coll_sym <- substitute(coll)
 
@@ -53,14 +66,18 @@ as_typed_vector <- local({
 					throw_kiwi_error(invoking_call, message)
 				}
 
-#				vapply( coll, function (elem) {#
+			} else if (mode == 'raw' && type != 'raw') {
+				# -- raws don't have NA values.
 
-#				}, vector(mode = mode, 1) )
+				coll_sym <- substitute(coll)
 
-				coll
+				message <- "the collection " %+% dQuote(coll_sym) %+%
+					" must be a collection of values of type " %+% mode %+% "."
 
-			} else if (!typecheck [[mode]] (coll)) {
-				# -- otherwise the type has to be the mode.
+				throw_kiwi_error(invoking_call, message)
+
+			} else if (!typecheck [[mode]] (coll) && !all_is_na) {
+				# -- other types pathway.
 
 				coll_sym <- substitute(coll)
 
@@ -70,7 +87,16 @@ as_typed_vector <- local({
 				throw_kiwi_error(invoking_call, message)
 			}
 
-			coll
+			# -- convert in case vector was all NA values.
+
+			if (all_is_na) {
+
+				class(coll) <- mode
+				coll
+
+			} else {
+				coll
+			}
 
 		} else {
 			# -- check that the generic vector is correct mode; the slow path.
