@@ -5,7 +5,7 @@
 \title{xList[ ]}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 74 2 83 2 9 9 74 83
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x39482e8> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x38121c0> 
  - attr(*, "class")= chr "xlist_builder"
 }}
 \usage{
@@ -45,7 +45,7 @@ Generate a list using set-builder notation.
 
    is loosely translated into normal kiwi code as
 
-   \code{xMapply(x := x^2, 1:10)}
+   \code{xMap(x := x^2, 1:10)}
 
    \bold{2 Variable bindings}
 
@@ -56,7 +56,7 @@ Generate a list using set-builder notation.
 
    The above comprehension loosely translates as
 
-   \code{x_(xSetProd(1:3, 1:3)) $ xMapply((x : y) := c(x, y))}
+   \code{x_(xSetProd(1:3, 1:3)) $ xMap( xUnspread((x : y) := c(x, y)) )}
 
    \bold{3 The predicate expression (optional)}
 
