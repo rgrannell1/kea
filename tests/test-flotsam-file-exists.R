@@ -135,5 +135,10 @@ message('checking that each example is non-empty')
 			' examples were empty;\n',
 				empty_examples_ $ xAtCol(1) $ x_FromLines())
 
-		throw_kiwi_warning(message = message)
+		warning(message = message)
 	}
+
+
+
+
+stop(list.files(kiwi(''), recur = TRUE, full = TRUE))
