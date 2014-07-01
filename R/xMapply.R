@@ -42,7 +42,7 @@ xMapply <- MakeFun('xMapply', function (fn, colls) {
 
 		lapply(colls, function (tuple) {
 			# -- apply each inner tuple.
-			do.call(fn, as.list(tuple))
+			do.call( fn, as.list(unname(tuple)) )
 		})
 	}
 })
