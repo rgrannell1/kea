@@ -51,7 +51,7 @@ message("as_typed_vector (atomic)")
 		names(as_typed_vector(coll, 'double'))    == names(coll),
 		names(as_typed_vector(coll, 'character')) == names(coll),
 		names(as_typed_vector(coll, 'logical'))   == names(coll),
-		names(as_typed_vector(coll, 'complex')    == names(coll))
+		names(as_typed_vector(coll, 'complex'))    == names(coll)
 	) +
 
 	describe("na conversion changes type for non-raw") +
