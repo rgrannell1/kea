@@ -99,13 +99,15 @@ as_typed_vector <- local({
 			}
 
 		} else {
-			# -- check that the generic vector is correct mode; the slow path.
+			# -- generic vectors.
+			# -- check that the generic vector can be converted to a vector of the right mode;
+			# -- very slow.
 
 			is_correct_type <- typecheck[[mode]]
 
 			for (elem in coll) {
 
-				# -- check the element is length-one
+				# -- check the element is length-one.
 				if (length(elem) != 1) {
 
 					coll_sym <- substitute(coll)

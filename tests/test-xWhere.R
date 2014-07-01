@@ -34,7 +34,7 @@ message("xWhere")
 
 	describe("length one corner cases") +
 	failsWhen(
-		!is.logical(coll) && length(coll) > 0,
+		!is.logical(coll) && !all(elem_is_na(coll)) && length(coll) > 0,
 		xWhere(coll)
 	) +
 

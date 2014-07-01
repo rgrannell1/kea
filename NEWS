@@ -9,17 +9,23 @@ Enhancements:
 
 Bug-Fixes:
 
+* xAsRaw (and it's internal backend as_typed_vector ) now throws an error for NA
+values, as NA's cannot be converted to raw.
+
+* as_typed_vector, the backend to the xAs* functions now correctly type-converts
+vectors of only NA values to a target type.
+
+
 Documentation:
 
 * Removed usage sections from methods, as they raised warnings.
 
 Package Internals:
 
-* Improved the efficiency of kiwi tests, allowing for more test-cases
+* Improved the efficiency of kiwi tests, allowing for many more test-cases
 to be used in a given timespan.
 
-
-
+* Added rigousous tests for atomic-vector handling by as_typed_vector.
 
 
 
