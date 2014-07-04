@@ -47,7 +47,7 @@ xSelect <- MakeFun('xSelect', function (pred, coll) {
 
 	ind <- vapply(coll, function (elem) {
 
-		is_match <- pred(elem))
+		is_match <- pred(elem)
 
 		MACRO(Must_Be_Flag(is_match, pred))
 
