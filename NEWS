@@ -1,26 +1,30 @@
 
 Kiwi 0.30.0
 -----------------------------------------------------------------------------
-Date: 2014-6-
+Date: 2014-6-4
+
+Improved xAs* family of functions, removed xMapply.
 
 Enhancements:
-
-* Fixed an undeclared reference in 'check_regexp' try-catch.
-
-Bug-Fixes:
 
 * Removed xMapply; despite being useful it was a compound of xMap and
 xUnspread, and similar functions like xSelect don't have analogous compositions.
 
+Bug-Fixes:
+
+* Fixed an undeclared reference in 'check_regexp' try-catch.
+
 * xAsRaw (and it's internal backend as_typed_vector ) now throws an error for NA
 values, as NA's cannot be converted to raw.
 
-* as_typed_vector, the backend to the xAs* functions now correctly type-converts
+* as_typed_vector (the backend to the xAs* functions) now correctly type-converts
 vectors of only NA values to a target type.
 
 Documentation:
 
 * Removed usage sections from methods, as they raised warnings.
+
+* Added example for xPrepend.
 
 Package Internals:
 
@@ -28,6 +32,14 @@ Package Internals:
 to be used in a given timespan.
 
 * Added rigourous tests for atomic-vector handling by as_typed_vector.
+
+* Removed benchmarks; kiwi will use branches for benchmarks in the future.
+
+
+
+
+
+
 
 
 

@@ -45,6 +45,7 @@ Collate:
     'must-not-contain-nan.R'
     'must-be-positive-index.R'
     'must-be-equal-length-to.R'
+    'try-higher-order-function.R'
     'must-all-be-positive-indices.R'
     'must-have-canonical-arguments.R'
     'must-be-collection-of-collections.R'
