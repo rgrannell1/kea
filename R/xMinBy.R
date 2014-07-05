@@ -42,7 +42,8 @@ xMinBy <- MakeFun('xMinBy', function (fn, coll) {
 	if (length(coll) == 1) {
 		coll[[1]]
 	} else {
-		coll[[ which.min( vapply(coll, fn, numeric(1)) ) ]]
+		coll[[ which.min( MACRO(
+			Try_Higher_Order_Function( vapply(coll, fn, numeric(1)) ) ) ) ]]
 	}
 })
 

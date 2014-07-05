@@ -36,9 +36,9 @@ xLocate <- MakeFun('xLocate', function (pred, coll) {
 	if (length(coll) == 0) {
 		integer(0)
 	} else {
-		which( vapply(coll, function (x) {
+		which( MACRO( Try_Higher_Order_Function( vapply(coll, function (x) {
 			isTRUE(pred(x))
-		}, logical(1), USE.NAMES = False) )
+		}, logical(1), USE.NAMES = False) ) ) )
 	}
 })
 

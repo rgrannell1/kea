@@ -26,6 +26,6 @@
 
 xExecute <- MakeFun('xExecute', function (fn, val) {
 
-	 MACRO( Try_Higher_Order_Function( fn(val) ) )
+	MACRO( Try_Higher_Order_Function( fn(val) ) )
 	val
 })

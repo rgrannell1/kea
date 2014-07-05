@@ -55,7 +55,8 @@ xSortBy <- MakeFun('xSortBy', function (fn, coll) {
 		as.list(coll)
 	} else {
 		# -- for readable error messages
-		fn_applied_to_coll <- vapply(coll, fn, numeric(1))
+		fn_applied_to_coll <-
+			MACRO( Try_Higher_Order_Function( vapply(coll, fn, numeric(1)) ) )
 
 		MACRO( Must_Not_Contain_Na(fn_applied_to_coll) )
 		MACRO( Must_Not_Contain_Nan(fn_applied_to_coll) )

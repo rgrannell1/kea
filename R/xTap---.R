@@ -34,5 +34,5 @@
 #' @name xTap
 
 xTap <- MakeFun('xTap', function (fn, val) {
-	fn(val)
+	MACRO( Try_Higher_Order_Function( fn(val) ) )
 })
