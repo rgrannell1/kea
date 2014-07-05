@@ -1,9 +1,9 @@
 
 Kiwi 0.30.0
 -----------------------------------------------------------------------------
-Date: 2014-6-4
+Date: 2014-6-5
 
-Improved xAs* family of functions, removed xMapply.
+Improved xAs* family of functions, labelling of higher-order-function errors, removed xMapply.
 
 Enhancements:
 

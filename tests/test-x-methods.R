@@ -17,7 +17,7 @@ message('test that every method has an unchaining version.')
 			exports[grepl('^x[A-Z]', exports)] )
 
 	x_proto_methods <- list(
-		xAnyOf =
+		any =
 			ls(kiwi ::: x_any_proto),
 		fn =
 			ls(kiwi ::: x_fn_proto),
