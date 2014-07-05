@@ -42,7 +42,7 @@ xAnyOf <- MakeFun('xAnyOf', function (pred, coll) {
 
 		for (elem in coll) {
 
-			is_match <- pred(elem)
+			is_match <- MACRO( Try_Higher_Order_Function( pred(elem) ) )
 
 			MACRO(Must_Be_Flag(is_match, pred))
 

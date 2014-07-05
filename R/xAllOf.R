@@ -41,7 +41,7 @@ xAllOf <- MakeFun('xAllOf', function (pred, coll) {
 	} else {
 		all(vapply(coll, function (elem) {
 
-			is_match <- pred(elem)
+			is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
 
 			MACRO(Must_Be_Flag(is_match, pred))
 

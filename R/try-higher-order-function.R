@@ -12,7 +12,11 @@ Try_Higher_Order_Function <- function (EXPR) {
 		.(EXPR),
 		error = function (err) {
 
-			print(str(err))
+			message <- err $ message
+
+			throw_kiwi_error(sys.call(1), message)
+
 		}
 	))
+
 }

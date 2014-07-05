@@ -52,9 +52,9 @@
 
 xApply <- MakeFun('xApply', function (fn, coll) {
 
-	eval(
+	 MACRO( Try_Higher_Order_Function( eval(
 		as.call(c(fn, coll)),
-		envir = parent.frame())
+		envir = parent.frame()) ) )
 })
 
 #' @rdname xApply
