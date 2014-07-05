@@ -7,6 +7,9 @@ Improved xAs* family of functions, removed xMapply.
 
 Enhancements:
 
+* Added clear labelling of errors and warnings thrown by
+functions given to higher-order functions.
+
 * Removed xMapply; despite being useful it was a compound of xMap and
 xUnspread, and similar functions like xSelect don't have analogous compositions.
 
