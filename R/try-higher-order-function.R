@@ -11,11 +11,10 @@ Try_Higher_Order_Function <- function (EXPR) {
 	bquote(tryCatch(
 		.(EXPR),
 		error = function (err) {
-
-			message <- err $ message
-
-			throw_kiwi_error(sys.call(1), message)
-
+			throw_kiwi_error(sys.call(1), err $ message)
+		},
+		warning = function (warn) {
+			throw_kiwi_warning(sys.call(1), warn $ message)
 		}
 	))
 
