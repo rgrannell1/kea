@@ -43,7 +43,7 @@ xMaxBy <- MakeFun('xMaxBy', function (fn, coll) {
 		coll[[1]]
 	} else {
 		coll[[ which.max( MACRO( Try_Higher_Order_Function(
-			vapply(coll, fn, numeric(1)) ) ]]
+			vapply(coll, fn, numeric(1)) ) ) ) ]]
 	}
 })
 
