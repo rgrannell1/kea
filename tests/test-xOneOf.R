@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xOneOf (+)")
+message("xOneOf")
 
 	over(coll) +
 
@@ -14,7 +14,7 @@ message("xOneOf (+)")
 
 	run()
 
-message("xOneOf (-)")
+message("xOneOf")
 
 	over(coll) +
 

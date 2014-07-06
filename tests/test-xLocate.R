@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xLocate (+)")
+message("xLocate")
 
 	over(coll) +
 
@@ -29,4 +29,4 @@ message("xLocate (+)")
 
 	run()
 
-message("xLocate (-)")
+message("xLocate")

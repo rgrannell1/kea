@@ -3,9 +3,6 @@
 #'
 #' Convert a factor to a collection of levels.
 #'
-#' @usage
-#'      x_(  ) $ xByLevels()
-#'
 #' @param
 #'     fact a factor. The factor to get the levels of.
 #'

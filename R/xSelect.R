@@ -47,14 +47,13 @@ xSelect <- MakeFun('xSelect', function (pred, coll) {
 
 	ind <- vapply(coll, function (elem) {
 
-		is_match <- pred(elem)
+		is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
 
 		MACRO(Must_Be_Flag(is_match, pred))
 
 		isTRUE(is_match)
 
 	}, logical(1))
-
 
 	as.list( coll[ !elem_is_na(ind) & ind ] )
 })

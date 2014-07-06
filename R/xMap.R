@@ -54,7 +54,7 @@ xMap <- MakeFun('xMap', function (fn, coll) {
 	if (length(coll) == 0) {
 		keep_names(list(), coll)
 	} else {
-		lapply(coll, fn)
+		MACRO( Try_Higher_Order_Function( lapply(coll, fn) ) )
 	}
 })
 

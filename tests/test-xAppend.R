@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xAppend (+)")
+message("xAppend")
 
 	over(val, coll) +
 
@@ -21,7 +21,7 @@ message("xAppend (+)")
 
 	run()
 
-message("xAppend (-)")
+message("xAppend")
 
 	over(val, coll) +
 

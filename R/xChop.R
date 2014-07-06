@@ -66,7 +66,7 @@ xChop <- MakeFun('xChop', function (num, coll) {
 	} else {
 
 		ith <- current <-1
-		average_elems <- ceiling(length(coll) / num)
+		average_elems  <- ceiling(length(coll) / num)
 
 		chopped <- list()
 

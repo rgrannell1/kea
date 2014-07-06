@@ -54,7 +54,8 @@ xScan <- MakeFun('xScan', function (fn, val, coll) {
 	} else {
 
 		for (ith in seq_along(coll)) {
-			scanned[[ith + 1]] <- fn( scanned[[ith]], coll[[ith]] )
+			scanned[[ith + 1]] <-
+				MACRO( Try_Higher_Order_Function( fn( scanned[[ith]], coll[[ith]] ) ) )
 		}
 
 		scanned

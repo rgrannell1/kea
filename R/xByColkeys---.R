@@ -6,9 +6,6 @@
 #' @details
 #'     \bold{xByColkeys} returns the column names of a data frame or matrix.
 #'
-#' @usage
-#'      x_(  ) $ xByColkeys()
-#'
 #' @param
 #'      tab a matrix or data frame. The tabular structure to get the column names of.
 #'

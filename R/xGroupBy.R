@@ -49,7 +49,7 @@ xGroupBy <- MakeFun('xGroupBy', function (fn, coll) {
 			group_found <- False
 
 			elem <- coll[[ith]]
-			map <- fn(elem)
+			map  <- MACRO( Try_Higher_Order_Function( fn(elem) ) )
 
 			for (jth in seq_along(groups)) {
 

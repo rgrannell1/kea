@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xJoin (+)")
+message("xJoin")
 
 	over(coll1, coll2) +
 

@@ -3,9 +3,6 @@
 #'
 #' Enumerate the elements of a matrix across rows.
 #'
-#' @usage
-#'      x_(  ) $ xElemsByRows()
-#'
 #' @param
 #'      tab a matrix. The matrix to enumerate by elements.
 #'

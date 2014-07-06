@@ -96,7 +96,7 @@ xCompose <- MakeFun('xCompose', function (fns) {
 		for ( ith in rev(seq_along(fns)) ) {
 
 			fn <- fns[[ith]]
-			val <- fn(val)
+			val <-  MACRO( Try_Higher_Order_Function( fn(val) ) )
 		}
 
 		val

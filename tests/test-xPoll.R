@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xPoll (+)")
+message("xPoll")
 
 	over(coll) +
 
@@ -35,7 +35,7 @@ message("xPoll (+)")
 
 	run()
 
-message("xPoll (-)")
+message("xPoll")
 
 	over(coll) +
 

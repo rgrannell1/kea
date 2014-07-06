@@ -6,9 +6,6 @@
 #' @details
 #'     \bold{xByRowkeys} returns the column names of a data frame or matrix.
 #'
-#' @usage
-#'      x_(  ) $ xByRowkeys()
-#'
 #' @param
 #'      tab a matrix or data frame. The tabular structure to get the rownames of.
 #'

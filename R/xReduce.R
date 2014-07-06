@@ -62,7 +62,7 @@ xReduce <- MakeFun('xReduce', function (fn, coll) {
 			}
 
 			for (ith in seq_along(coll)) {
-				val <- fn( val, coll[[ith]] )
+				val <- MACRO( Try_Higher_Order_Function( fn( val, coll[[ith]] ) ) )
 			}
 
 			val

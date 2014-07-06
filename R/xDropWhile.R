@@ -42,7 +42,7 @@ xDropWhile <- MakeFun('xDropWhile', function (pred, coll) {
 
 		for (ith in seq_along(coll)) {
 
-			is_match <- pred( coll[[ith]] )
+			is_match <-  MACRO( Try_Higher_Order_Function( pred( coll[[ith]] ) ) )
 
 			MACRO( Must_Be_Flag(is_match, pred) )
 

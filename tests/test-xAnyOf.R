@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xAnyOf (+)")
+message("xAnyOf")
 
 	over(coll) +
 

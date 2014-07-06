@@ -3,9 +3,6 @@
 #'
 #' Convert a matrix or data.frame to a collection of columns.
 #'
-#' @usage
-#'      x_(  ) $ xByCols()
-#'
 #' @param
 #'     tab a matrix or data frame. The object to convert to column-lists.
 #'

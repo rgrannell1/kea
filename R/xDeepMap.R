@@ -47,7 +47,7 @@ xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 			# this recursively converts from pairlist to list.
 			lapply(xs, recur)
 		} else {
-			fn(xs)
+			 MACRO( Try_Higher_Order_Function( fn(xs) ) )
 		}
 	}
 

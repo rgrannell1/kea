@@ -23,9 +23,6 @@
 #'
 #'    \code{x_(1:10) $ x_Tap(nums := all(nums > 0))}
 #'
-#' @usage
-#'      x_(  ) $ xTap(fn)
-#'
 #' @return
 #'      A kiwi object.
 #'
@@ -37,5 +34,5 @@
 #' @name xTap
 
 xTap <- MakeFun('xTap', function (fn, val) {
-	fn(val)
+	MACRO( Try_Higher_Order_Function( fn(val) ) )
 })

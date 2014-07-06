@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message('xLastAs (+)')
+message('xLastAs')
 
 	over(val, coll) +
 
@@ -14,7 +14,7 @@ message('xLastAs (+)')
 
 	run()
 
-message('xLastAs (-)')
+message('xLastAs')
 
 	over(val, coll) +
 

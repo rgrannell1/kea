@@ -21,8 +21,9 @@ vectorise <- function (atom, type) {
 	example <- types[[type]]
 
 	function (len) {
-		vapply( 1:len, function (ith) {
-			atom(sample(1:100, size = 1))
+		vapply(seq_along(len), function (ith) {
+			len <- sample.int(abs( round(rnorm(1, 0, 20)) ) + 1, size = 1)
+			atom(len)
 		}, example )
 	}
 }
@@ -105,7 +106,7 @@ from_stream <- ( function () {
 		function (len) {
 
 			words <- vapply(seq_len(len), function (ith) {
-				this $ word(sample(1:100, size = 1))
+				this $ word(sample.int(abs( round(rnorm(1, 0, 20)) ) + 1, size = 1))
 			}, character(1))
 
 			paste0(words, collapse = rsample(whitespace, size = 1))
@@ -140,7 +141,7 @@ from_stream <- ( function () {
 			} else {
 
 				names(elems) <- vapply(elems, function (elem) {
-					this $ word(sample(1:100, size = 1))
+					this $ word(sample.int(abs( round(rnorm(1, 0, 20)) ) + 1, size = 1))
 				}, character(1))
 
 				elems
@@ -898,7 +899,7 @@ failsWhen <- function (expr1, ...) {
 # Run specifies that the test object should now be
 # executes. Also specifies how long to run the test for.
 
-run <- function (time = 5) {
+run <- function (time = 2) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out

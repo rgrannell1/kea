@@ -56,3 +56,12 @@ power_of_e <- x := {
 
 power_of_e(1)
 # 2.718282
+
+# 4. Partially apply map to create a vectorised function
+#
+# (in this case, '-' is already vectorised)
+
+negate <- xMap(`-`)
+negate(1:3)
+
+# c(-1L, -2L, -3L)

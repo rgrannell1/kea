@@ -59,7 +59,8 @@ xFlatMap <- MakeFun('xFlatMap', function (fn, coll) {
 		keep_names(list(), coll)
 	} else {
 		# -- this might need a more rigourous implementation.
-		as.list( do.call(c, lapply(coll, fn)) )
+		as.list( do.call(c,
+			MACRO( Try_Higher_Order_Function( lapply(coll, fn)) ) ) )
 	}
 })
 

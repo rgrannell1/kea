@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xList (+)")
+message("xList")
 
 	over(coll) +
 
@@ -26,7 +26,7 @@ message("xList (+)")
 
 	run()
 
-message('xList (-)')
+message('xList')
 
 	over(coll) +
 

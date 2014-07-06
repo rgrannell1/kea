@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xChop (+)")
+message("xChop")
 
 	over(coll) +
 

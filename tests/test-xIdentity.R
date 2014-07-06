@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xIdentity (+)")
+message("xIdentity")
 
 	over(val) +
 	describe('xIdentity always yields its input') +

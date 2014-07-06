@@ -2,7 +2,7 @@
 kiwi ::: load_test_dependencies(environment())
 
 
-message("xDropWhile (+)")
+message("xDropWhile")
 
 	over(coll) +
 
