@@ -35,11 +35,12 @@ xStopwatch <- MakeFun('xStopwatch', function (num) {
 	MACRO( Must_Be_Longer_Than(0, num) )
 	MACRO( Must_Be_Between(num, 0, Inf))
 
+	num    <- unname(num)
 	genesis <- Sys.time()
 
 	function (...) {
 		"a function returned by xStopwatch."
 		""
-		isTRUE(difftime(Sys.time(), genesis, units = 'secs') < num)
+		difftime(Sys.time(), genesis, units = 'secs') < num
 	}
 })
