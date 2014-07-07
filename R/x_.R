@@ -1088,6 +1088,11 @@ x_coll_proto <- local({
 	add_x_method(this, x_UnzipIndices_, '...')
 
  	# -------- V ------- #
+	add_x_method(this, xValuesOf, 'coll')
+	add_x_method(this, xValuesOf_, '...')
+	add_x_method(this, x_ValuesOf, 'coll')
+	add_x_method(this, x_ValuesOf_, '...')
+
 	# -------- W ------- #
 	# --- xWhere --- #
 	add_x_method(this, xWhere, 'bools')

@@ -202,5 +202,6 @@ Collate:
     'xWrite.R'
     'xIndicesOf.R'
     'xKeysOf.R'
+    'xValuesOf.R'
     'x_.R'
     'x..R'
