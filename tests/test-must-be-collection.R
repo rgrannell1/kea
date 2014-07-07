@@ -1,4 +1,6 @@
 
+kiwi ::: load_test_dependencies(environment())
+
 to_test       <- function (coll) {}
 body(to_test) <- kiwi ::: Must_Be_Collection(coll)
 

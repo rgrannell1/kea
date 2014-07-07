@@ -1,12 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
-
-
-
-
-
 message('normal functions can be partially applied')
 
 	over(val, coll) +
