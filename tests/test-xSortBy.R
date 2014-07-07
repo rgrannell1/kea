@@ -1,37 +1,32 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xSortBy")
 
-	forall(
-		"sorting an empty collection is list()",
-		test_cases$collection_zero,
+	over(coll) +
+
+	describe("sorting the empty colelction is the empty list.") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && !is_named(coll),
 		xSortBy(xI, coll) %is% list()
-	)
+	) +
 
-	forall(
-		"sorting an empty collection is list()",
-		test_cases$collection_zero,
-		xSortBy(xI, coll) %is% list()
-	)
+	describe("sorting the empty colelction is the empty list. (named)") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		xSortBy(xI, coll) %is% as_named(list())
+	) +
 
-	forall(
-		"sorting an length one is as list(coll)",
-		test_cases$num_positive_integer,
-		xSortBy(xI, num) %is% list(num)
-	)
+	describe("sorting the empty colelction is the empty list.") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 1,
+		xSortBy(xI, coll) %is% as.list(coll)
+	) +
 
-	forall(
-		"sorting a list of integers is same as sort",
-		test_cases$positive_integers,
-		xSortBy(xI, coll) %is% as.list(sort(coll))
-	)
+	describe("sorting the seq along is identity.") +
+	holdsWhen(
+		is_collection(coll),
+		xSortBy(xI, seq_along(coll)) %is% as.list(seq_along(coll))
+	) +
 
-	forall(
-		"sorting an length one is as list(coll)",
-		test_cases$num_positive_integer,
-		xSortBy(xI, rep(num, num)) %is% as.list(rep(num, num))
-	)
+	run()

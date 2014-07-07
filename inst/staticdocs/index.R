@@ -90,7 +90,6 @@ sd_section(
 	),
 	c(
 		"xDropWhile",
-		"xPartition",
 		"xReject",
 		"xSelect",
 		"xTakeWhile"

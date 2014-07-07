@@ -8,7 +8,7 @@ require(kiwi)
 
 message("xStopwatch")
 
-	over() +
+	over(num) +
 
 	describe('stopwatch with no time is false') +
 	holdsWhen(
@@ -16,27 +16,40 @@ message("xStopwatch")
 		!xStopwatch(0)()
 	) +
 
+	describe('creating with any number always works') +
+	worksWhen(
+		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
+		!is.nan(num) && num > 0,
+		xStopwatch(num)
+	) +
+
 	run()
 
-	forall(
-		"stopwatch returns true before its time, then false",
-		test_cases$num_one_to_ten,
+
+
+
+
+	as_ratio <- function (num) {
+		0.2 + (num / num^1.1)
+	}
+
+	over(num) +
+
+	describe('stopwatch returns true before its time, then false') +
+	holdsWhen(
+		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
+		!is.nan(num) && num > 0,
 		{
 
-			num <- num / 100
+			num        <- as_ratio(num)
+			timer      <- xStopwatch(num)
 
-			fn <- xStopwatch(num)
-			start <- fn()
-			Sys.sleep(num + 0.1)
-			end <- fn()
+			startValue <- timer()
+				Sys.sleep(num + 0.1)
+			endValue   <- timer()
 
-			start && !end
-		},
-		max_time = 1
-	)
+			startValue && !endValue
+		}
+	) +
 
-
-
-
-
-
+	run(10)

@@ -150,8 +150,7 @@ message("as_typed_vector (atomic)")
 
 	run()
 
-
-
+message("as_typed_vector (generic)")
 
 
 
@@ -189,3 +188,6 @@ message("as_atom (atomic)")
 	) +
 
 	run()
+
+message("as_atom (generic")
+
