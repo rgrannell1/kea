@@ -896,12 +896,6 @@ x_coll_proto <- local({
 	add_x_method(this, x_Prepend, 'coll')
 	add_x_method(this, x_Prepend_, '...')
 
-	# --- xPartition --- #
-	add_x_method(this, xPartition, 'coll')
-	add_x_method(this, xPartition_, '...')
-	add_x_method(this, x_Partition, 'coll')
-	add_x_method(this, x_Partition_, '...')
-
 	# --- xPowerSetOf --- #
 	add_x_method(this, xPowerSetOf, 'coll')
 	add_x_method(this, xPowerSetOf_, '...')
@@ -1317,11 +1311,6 @@ x_fn_proto <- local({
 
 	# -------- O ------- #
 	# -------- P ------- #
-	# --- xPartition --- #
-	add_x_method(this, xPartition, 'pred')
-	add_x_method(this, xPartition_, 'pred')
-	add_x_method(this, x_Partition, 'pred')
-	add_x_method(this, x_Partition_, 'pred')
 
 	# --- xParamsOf --- #
 	add_x_method(this, xParamsOf, 'fn')

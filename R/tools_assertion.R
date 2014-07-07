@@ -202,13 +202,12 @@ try_read <- local({
 			warning = function (warn) {
 
 				warnmessage <-
-					paste0(warn$message, collapse = '')
+					paste0(warn $ message, collapse = '')
 
 				overview <-
 				"A warning occurred while reading from the path " %+% dQuote(path) %+% ":\n\n"
 
 				inner_call <- stringify_call(warn$call) %+% ':\n\n'
-
 
 				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)

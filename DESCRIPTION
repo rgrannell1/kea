@@ -111,7 +111,6 @@ Collate:
     'xParamsOf.R'
     'xArityOf.R'
     'xFix.R'
-    'xPartition.R'
     'xPoll.R'
     'xReduce.R'
     'xReject.R'
