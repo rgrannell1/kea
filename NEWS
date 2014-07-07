@@ -1,8 +1,9 @@
 
 Kiwi 0.31.0
 -----------------------------------------------------------------------------
-Date: 2014-6-5
+Date: 2014-6-7
 
+Added xValues of, removed xPartition, added tests.
 
 Enhancements:
 
@@ -16,11 +17,13 @@ Bug-Fixes:
 
 * xStopWatch no longer fails for named number inputs.
 
-
-Documentation:
-
 Package Internals:
 
+* Added forall-next for the tests must-all-be-indices, must-be-collection,
+must-be-equal-length-to, must-be-flag, must-be-of-length macros.
+
+* Added forall-next test for xShuffle, xSlice, xSortBy,	xSpread, xStopwatch,
+xValuesOf.
 
 
 
