@@ -3,7 +3,11 @@ Kiwi 0.31.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5
 
+
 Enhancements:
+
+* Added xValuesOf, the complement of xKeyOf and xIndicesOf. xValuesOf removes
+the keys from a collection.
 
 * Removed xPartition; I've never seen it used in the wild, and it can be easily
 re-introduced as xPartition = xJuxtapose_(xSelect, xReject)

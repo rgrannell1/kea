@@ -18,7 +18,7 @@ message("xSpread")
 
 	describe("applying to a spread function is identity") +
 	holdsWhen(
-		is_collection(coll),
+		is_collection(coll) && !is_named(coll),
 		do.call(xSpread(identity), as.list(coll)) %is% as.list(coll)
 	) +
 
