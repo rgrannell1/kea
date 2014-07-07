@@ -1,4 +1,6 @@
 
+kiwi ::: load_test_dependencies(environment())
+
 forall <- kiwi:::forall
 test_cases <- kiwi:::test_cases
 
