@@ -68,13 +68,15 @@ one_gen_ <- function (...) {
 
 
 
+
+
 from_stream <- ( function () {
 	# -- yield a single valid R object.
 
 	#-- finish this alphabet
-	extended_ascii <- strsplit("abcdefghijklmnopqrsruvwxyz0123456789", '')[[1]]
+	ascii <- strsplit( "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", '')[[1]]
 	# -- needed, as strsplit can do weird things.
-	extended_ascii <- Filter(function (x) length(x) > 0, extended_ascii)
+	ascii <- Filter(function (x) length(x) > 0, ascii)
 
 	# -- whitespace
 	whitespace <- c(' ', '	')
