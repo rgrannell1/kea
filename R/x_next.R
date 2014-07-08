@@ -117,7 +117,30 @@ fns_with_params <- function (fns, params) {
 
 
 
-
+# make_method
+#
+# make method generates a method from a kiwi function.
+#
+# make_method solves some problems with first-generation kiwi-methods;
+# each form of the method would have to explicitely added by hand, and
+# methods that should be available in multiple forms couldn't be.
+#
+# the new methods should allow the LHS argument to default to a particular
+# parametre based on a prototye, but by calling the method with a named argument
+# the method should intelligently decide which parametre to bind to the LHS.
+#
+# x_(str1) $ xWrite(str2)
+#
+# or
+#
+# x_(str2) $ xWrite(str1 = str1)
+#
+#
+# The rules of parametre fixing are simple enough.
+#
+# 1, if, for a particular prototype, a parametre
+#
+#
 
 make_method <- function (fn, params) {
 
@@ -131,7 +154,13 @@ make_method <- function (fn, params) {
 
 
 
-
+# make_proto
+#
+# make_proto builds .
+#
+#
+#
+#
 
 make_proto <- function (fns, params) {
 
