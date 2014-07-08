@@ -101,47 +101,70 @@ functions_with_params <- function (params) {
 
 
 
-
+# simple_method
+#
+# Many functions can only exist in one form within
+# one prototype. For these functions the method body can be
+# simplified.
 
 simple_method <- list(
-	chaining_nonvariadic   = function (fn_sym, fn, fixed) {
+	chaining_nonvariadic = function (fn_sym, fn, fixed) {
 		bquote({
 
+			x_(.(
+				as.call( c(fn_sym, lapply(
+					names(formals(fn)), function (param) {
 
-
+						if (as.symbol(param) == fixed) {
+							# -- set this argument to the LHS
+							quote(Self())
+						} else {
+							# -- wait for supplied argument, keep parametre.
+							as.symbol(param)
+						}
+					}
+				)) )
+			))
 
 		})
 	},
-	chaining_variadic      = function (fn_sym, fn, fixed) {
+	chaining_variadic = function (fn_sym, fn, fixed) {
 		bquote({
-
-
-
 
 		})
 	},
 	unchaining_nonvariadic = function (fn_sym, fn, fixed) {
 		bquote({
 
+			.(
+				as.call( c(fn_sym, lapply(
+					names(formals(fn)), function (param) {
 
-
+						if (as.symbol(param) == fixed) {
+							# -- set this argument to the LHS
+							quote(Self())
+						} else {
+							# -- wait for supplied argument, keep parametre.
+							as.symbol(param)
+						}
+					}
+				)) )
+			)
 
 		})
 	},
-	unchaining_variadic    = function (fn_sym, fn, fixed) {
+	unchaining_variadic = function (fn_sym, fn, fixed) {
 		bquote({
-
-
-
 
 		})
 	}
 )
 
 
-
+print( simple_method $ unchaining_nonvariadic(
+	as.symbol('map'), function (fn, coll) {lapply(coll, fn)}, 'coll') )
 
 
 proto_params <- list(
-	function = c('fn', 'pred', '...fns', '...preds')
+	`function` = c('fn', 'pred', '...fns', '...preds')
 )
