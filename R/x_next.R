@@ -93,10 +93,7 @@ as_proto_params <- function (fn_name) {
 fixed_param <- function (fn_name, params) {
 
 	fn_params <- as_proto_params(fn_name)
-
 	fn_params[ which(fn_params %in% params)[[1]] ]
-
-
 }
 
 
@@ -122,6 +119,18 @@ fns_with_params <- function (fns, params) {
 
 
 
+make_method <- function (fn, params) {
+
+
+
+
+}
+
+
+
+
+
+
 
 
 make_proto <- function (fns, params) {
@@ -132,167 +141,11 @@ make_proto <- function (fns, params) {
 			lapply(fns_with_params(fns, params), as_unchaining) )
 
 	for (proto_fn in proto_fns) {
-
-		fn <- kiwi_env[[proto_fn]]
-
-		if (is_variadic(proto_fn)) {
-			if (is_unchaining(proto_fn)) {
-
-				self[[proto_fn]] <- simple_method $ unchaining_variadic(
-					as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
-
-			} else {
-
-				self[[proto_fn]] <- simple_method $ chaining_variadic(
-					as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
-
-			}
-		} else if (is_unchaining(proto_fn)) {
-
-			self[[proto_fn]] <- simple_method $ unchaining_nonvariadic(
-				as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
-
-		} else {
-
-			self[[proto_fn]] <- simple_method $ chaining_nonvariadic(
-				as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
-
-		}
-
-
+		self[[proto_fn]] <- make_method(proto_fn, params)
 	}
 
 	self
 }
-
-
-
-
-
-
-# simple_method
-#
-# Many functions can only exist in one form within
-# one prototype. For these functions the method body can be
-# simplified.
-
-simple_method <- list(
-	chaining_nonvariadic = function (fn_sym, fn, fixed) {
-		bquote({
-
-			x_(.(
-				as.call( c(fn_sym, lapply(
-					names(formals(fn)), function (param) {
-
-						if (as.symbol(param) == fixed) {
-							# -- set this argument to the LHS
-							quote(Self())
-						} else {
-							# -- wait for supplied argument, keep parametre.
-							as.symbol(param)
-						}
-					}
-				)) )
-			))
-
-		})
-	},
-	chaining_variadic = function (fn_sym, fn, fixed) {
-
-		params <- Reduce(
-			function (acc, param) {
-
-				# -- this parametre is to be fixed.
-
-				if (param == fixed) {
-
-					if (fixed == '...') {
-						# -- fixing an ellipsis parametre
-						c( acc, quote(Self()), as.symbol('...') )
-					} else {
-						# -- normal fixing
-						c( acc, quote(Self()) )
-					}
-
-				} else {
-					# -- don't fix this parametre.
-					c(acc, as.symbol(param))
-				}
-			},
-			names(formals(fn)),
-			list()
-		)
-
-		bquote({
-			x_(.( as.call(c(fn_sym, params)) ))
-		})
-	},
-	unchaining_nonvariadic = function (fn_sym, fn, fixed) {
-		bquote({
-
-			.(
-				as.call( c(fn_sym, lapply(
-					names(formals(fn)), function (param) {
-
-						if (as.symbol(param) == fixed) {
-							# -- set this argument to the LHS
-							quote(Self())
-						} else {
-							# -- wait for supplied argument, keep parametre.
-							as.symbol(param)
-						}
-					}
-				)) )
-			)
-
-		})
-	},
-	unchaining_variadic = function (fn_sym, fn, fixed) {
-
-		params <- Reduce(
-			function (acc, param) {
-
-				# -- this parametre is to be fixed.
-
-				if (param == fixed) {
-
-					if (fixed == '...') {
-						# -- fixing an ellipsis parametre
-						c( acc, quote(Self()), as.symbol('...') )
-					} else {
-						# -- normal fixing
-						c( acc, quote(Self()) )
-					}
-
-				} else {
-					# -- don't fix this parametre.
-					c(acc, as.symbol(param))
-				}
-			},
-			names(formals(fn)),
-			list()
-		)
-
-		bquote({
-			.( as.call(c(fn_sym, params)) )
-		})
-	}
-)
-
-
-
-
-
-
-
-bquote({
-
-	.call <- sys.call()
-
-
-})
-
-
 
 
 
