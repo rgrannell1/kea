@@ -14,8 +14,8 @@ message("xMeanOf")
 	describe('the mean of one number is itself') +
 	holdsWhen(
 		is.numeric(nums) && length(nums) == 1 &&
-		!any(is.na(nums) || is.nan(nums),
-		xMeanOf(nums) == nums
+		!any(is.na(nums) || is.nan(nums)),
+		xMeanOf(nums) == unname(nums)
 	) +
 
 	run()
