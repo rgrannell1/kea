@@ -203,5 +203,6 @@ Collate:
     'xIndicesOf.R'
     'xKeysOf.R'
     'xValuesOf.R'
+    'xMeanOf.R'
     'x_.R'
     'x..R'
