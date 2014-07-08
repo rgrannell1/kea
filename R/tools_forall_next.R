@@ -81,7 +81,7 @@ from_stream <- ( function () {
 	# -- whitespace
 	whitespace <- c(' ', '	')
 
-	this <- new.env(parent = parent.frame())
+		this <- new.env(parent = parent.frame())
 
 	# -- na's
 
@@ -94,13 +94,13 @@ from_stream <- ( function () {
 		pick_one_(character(0))
 
 	this $ character <-
-		pick_one(extended_ascii)
+		pick_one(ascii)
 
 	this $ word <-
 		function (len) {
 
 			paste0(
-				rsample(extended_ascii, size = len, replace = True),
+				rsample(ascii, size = len, replace = True),
 				collapse = '')
 		}
 
