@@ -1,6 +1,12 @@
 
 
+Kiwi 0.32.0
+-----------------------------------------------------------------------------
+Date: 2014-6-7
 
+Package Internals:
+
+* Improved string test coverage; all printable ascii characters are tested.
 
 
 
