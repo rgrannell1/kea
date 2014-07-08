@@ -1,8 +1,12 @@
 
-
 Kiwi 0.32.0
 -----------------------------------------------------------------------------
 Date: 2014-6-7
+
+Enhancements:
+
+* Renamed xRankOf to xRank, as function names should be verbs where
+possible and the function does actually rank numbers.
 
 Package Internals:
 
@@ -110,7 +114,7 @@ Enhancements:
 
 * xAtCol, xCycle, xDrop,
 xDropWhile, xFlatMap, xInitOf, xMap, xMapply, xOrderOf,
-xPartition, xRankOf, xReject, xRestOf, xReverse, xSelect,
+xPartition, xRank, xReject, xRestOf, xReverse, xSelect,
 xShuffle, xSlice, xSortBy, xTake, xTakeWhile, xUnzipIndices,
 xWhere now preserve collection names, including for empty
 collections.
@@ -225,7 +229,7 @@ consistency with xSortBy.
 * xOrderOf now throws an error for NA and NaN input, as they
 are unorderable.
 
-* xRankOf now throws an error for NA and NaN input, as they
+* xRank now throws an error for NA and NaN input, as they
 are unorderable.
 
 * xOrderOf is now faster.
@@ -250,7 +254,7 @@ Package Internals:
 * Added must-be-finite, must-be-orderable macros.
 
 * Added a forall-next test to xAt, xChoose, xCompose, xJuxtapose,
-xNotNa, xIsNull, xOrderOf, xRankOf, xStopWatch, xThread.
+xNotNa, xIsNull, xOrderOf, xRank, xStopWatch, xThread.
 
 * Renamed 'when' to 'holdsWhen'.
 

@@ -1,5 +1,5 @@
 
-#' xRankOf
+#' xRank
 #'
 #' Rank a collection of numbers from largest to smallest.
 #'
@@ -23,12 +23,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xRankOf.R
+#'    inst/examples/example-xRank.R
 #'
-#' @rdname xRankOf
+#' @rdname xRank
 #' @export
 
-xRankOf <- MakeFun('xRankOf', function (nums) {
+xRank <- MakeFun('xRank', function (nums) {
 
 	if (length(nums) == 0) {
 		keep_names(integer(0), nums)
@@ -41,7 +41,7 @@ xRankOf <- MakeFun('xRankOf', function (nums) {
 	}
 })
 
-#' @rdname xRankOf
+#' @rdname xRank
 #' @export
 
-xRankOf_ <- MakeVariadic(xRankOf, 'nums')
+xRank_ <- MakeVariadic(xRank, 'nums')

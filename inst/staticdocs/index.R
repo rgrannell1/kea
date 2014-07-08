@@ -273,7 +273,7 @@ sd_section(
 	),
 	c(
 		"xOrderOf",
-		"xRankOf"
+		"xRank"
 	)
 )
 

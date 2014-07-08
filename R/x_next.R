@@ -1,6 +1,4 @@
 
-# Test what form of a function a function name is
-#
 
 kiwi_env <- environment()
 
@@ -8,6 +6,8 @@ kiwi_env <- environment()
 
 
 
+# Test what form of a function a function name is
+#
 
 is_variadic   <- function (fn_name) {
 	grepl('_$', fn_name)
@@ -129,11 +129,28 @@ fns_with_params <- function (fns, params) {
 # parametre based on a prototye, but by calling the method with a named argument
 # the method should intelligently decide which parametre to bind to the LHS.
 #
-# x_(str1) $ xWrite(str2)
+#     x_(str1) $ xWrite(str2)
 #
 # or
 #
-# x_(str2) $ xWrite(str1 = str1)
+#     x_(str2) $ xWrite(str1 = str1)
+#
+# Within a prototype there is preference for binding to some parametres above
+# another (in reality a lot of these won't be found together):
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 # The rules of parametre fixing are simple enough.
@@ -142,13 +159,51 @@ fns_with_params <- function (fns, params) {
 #
 #
 
-make_method <- function (fn, params) {
+
+
+make_method <- local({
+
+	param_preceedence <- function (param1, param2) {
+
+		# -- a partial relation; declaring an exhaustive
+		# -- relation would be a complete pain.
+		#
+		# -- if an odd combination of parametres
+		# -- is used this must be updated.
+
+		match <- Filter(
+			function (pair) {
+				pair[[1]] == param[[1]] && pair[[2]] == param[[2]]
+			},
+			list(
+				c('coll2', 'coll1'),
+
+				c('str2', 'str1')
+			)
+		)
+
+		if (length(match) == 0) {
+			stop('internal error! no match found for ordering of ', param1, ' ', param2)
+		}
+
+	}
+
+	function (fn, params) {
+
+		# -- GT ordering pairs
 
 
 
 
-}
 
+
+
+
+
+
+	}
+
+})
 
 
 
@@ -165,9 +220,11 @@ make_method <- function (fn, params) {
 make_proto <- function (fns, params) {
 
 	self      <- Object()
+
 	proto_fns <- c(
 			fns_with_params(fns, params),
-			lapply(fns_with_params(fns, params), as_unchaining) )
+			lapply(
+				fns_with_params(fns, params), as_unchaining) )
 
 	for (proto_fn in proto_fns) {
 		self[[proto_fn]] <- make_method(proto_fn, params)

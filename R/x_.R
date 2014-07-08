@@ -906,9 +906,9 @@ x_coll_proto <- local({
 
 	# -------- Q ------- #
 	# -------- R ------- #
-	# --- xRankOf --- #
-	add_x_method(this, xRankOf, 'nums')
-	add_x_method(this, xRankOf_, '...')
+	# --- xRank --- #
+	add_x_method(this, xRank, 'nums')
+	add_x_method(this, xRank_, '...')
 	add_x_method(this, x_RankOf, 'nums')
 	add_x_method(this, x_RankOf_, '...')
 
@@ -1603,7 +1603,7 @@ x__ <- function (...) {
 		alias('xParams',    'xParamsOf'),
 		alias('xPowerSet',  'xPowerSetOf'),
 		alias('xProdSet',   'xProdSetOf'),
-		alias('xRank',      'xRankOf'),
+		alias('xRank',      'xRank'),
 		alias('xRest',      'xRestOf'),
 		alias('xSecond',    'xSecondOf'),
 		alias('xThird',     'xThirdOf'),

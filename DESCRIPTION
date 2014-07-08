@@ -162,7 +162,7 @@ Collate:
     'xNotEmpty.R'
     'xNotMember.R'
     'xAsDataFrame.R'
-    'xRankOf.R'
+    'xRank.R'
     'xOrderOf.R'
     'xSlice.R'
     'xTabulate.R'
