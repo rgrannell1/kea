@@ -4,6 +4,11 @@
 
 kiwi_env <- environment()
 
+
+
+
+
+
 is_variadic   <- function (fn_name) {
 	grepl('_$', fn_name)
 }
@@ -93,6 +98,45 @@ functions_with_params <- function (params) {
 		ls(kiwi_env, pattern = 'x[A-Z]')
 	)
 }
+
+
+
+
+
+simple_method <- list(
+	chaining_nonvariadic   = function (fn_sym, fn, fixed) {
+		bquote({
+
+
+
+
+		})
+	},
+	chaining_variadic      = function (fn_sym, fn, fixed) {
+		bquote({
+
+
+
+
+		})
+	},
+	unchaining_nonvariadic = function (fn_sym, fn, fixed) {
+		bquote({
+
+
+
+
+		})
+	},
+	unchaining_variadic    = function (fn_sym, fn, fixed) {
+		bquote({
+
+
+
+
+		})
+	}
+)
 
 
 
