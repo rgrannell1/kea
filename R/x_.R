@@ -830,6 +830,12 @@ x_coll_proto <- local({
 	add_x_method(this, x_Map, 'coll')
 	add_x_method(this, x_Map_, '...')
 
+	# --- xMeanOf --- #
+	add_x_method(this, xMeanOf, 'nums')
+	add_x_method(this, xMeanOf_, '...')
+	add_x_method(this, x_MeanOf, 'nums')
+	add_x_method(this, x_MeanOf_, '...')
+
 	# -------- N ------- #
 	# --- xNoneOf --- #
 	add_x_method(this, xNoneOf, 'coll')

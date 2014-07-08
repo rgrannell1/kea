@@ -58,7 +58,11 @@ one_gen_ <- function (...) {
 	one_gen(list(...))
 }
 
-
+listify <- function (atom) {
+	function (len) {
+		as.list(atom(len))
+	}
+}
 
 
 
@@ -246,6 +250,8 @@ from_stream <- ( function () {
 	this $ named_empty_integer <-
 		add_names(this $ empty_integer)
 
+	this $ named_empty_integerlist <-
+		listify(this $ named_empty_integer)
 
 
 

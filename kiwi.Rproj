@@ -15,4 +15,3 @@ LaTeX: pdfLaTeX
 BuildType: Package
 PackageUseDevtools: Yes
 PackageCheckArgs: --as-cran
-PackageRoxygenize: rd,namespace
