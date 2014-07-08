@@ -49,7 +49,7 @@ as_nonvariadic     <- function (fn_name) {
 }
 
 as_unchaining   <- function (fn_name) {
-	if (!is_unchaining(fn_name)) {
+	if (is_unchaining(fn_name)) {
 		fn_name
 	} else {
 		gsub('^x', 'x_', fn_name)
@@ -86,18 +86,87 @@ as_proto_params <- function (fn_name) {
 	}
 }
 
+
+
+
+
+fixed_param <- function (fn_name, params) {
+
+	fn_params <- as_proto_params(fn_name)
+
+	fn_params[ which(fn_params %in% params)[[1]] ]
+
+
+}
+
+
+
+
+
+
 # select all the kiwi functions with at least
 # one given parametre, or a particular type of ... parametre.
 
-functions_with_params <- function (params) {
+fns_with_params <- function (fns, params) {
 
 	Filter(
 		function (fn_name) {
 			any(as_proto_params(fn_name) %in% params)
 		},
-		ls(kiwi_env, pattern = 'x[A-Z]')
+		fns
 	)
 }
+
+
+
+
+
+
+
+
+make_proto <- function (fns, params) {
+
+	self      <- Object()
+	proto_fns <- c(
+			fns_with_params(fns, params),
+			lapply(fns_with_params(fns, params), as_unchaining) )
+
+	for (proto_fn in proto_fns) {
+
+		fn <- kiwi_env[[proto_fn]]
+
+		if (is_variadic(proto_fn)) {
+			if (is_unchaining(proto_fn)) {
+
+				self[[proto_fn]] <- simple_method $ unchaining_variadic(
+					as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
+
+			} else {
+
+				self[[proto_fn]] <- simple_method $ chaining_variadic(
+					as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
+
+			}
+		} else if (is_unchaining(proto_fn)) {
+
+			self[[proto_fn]] <- simple_method $ unchaining_nonvariadic(
+				as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
+
+		} else {
+
+			self[[proto_fn]] <- simple_method $ chaining_nonvariadic(
+				as.symbol(proto_fn), fn, fixed_param(proto_fn, params))
+
+		}
+
+
+	}
+
+	self
+}
+
+
+
 
 
 
@@ -210,6 +279,61 @@ simple_method <- list(
 	}
 )
 
+
+
+
+
+
+
+bquote({
+
+	.call <- sys.call()
+
+
+})
+
+
+
+
+
+
+
+
 proto_params <- list(
-	`function` = c('fn', 'pred', '...fns', '...preds')
+	table      = c('tab'),
+	factor     = c('fact'),
+
+	any        = c('val', 'val1', 'val2'),
+	`function` = c('fn', 'pred', '...fns', '...preds'),
+	coll       = c(
+		'ims',   '...ims',
+		'ints',  '...ints',
+		'raws',  '...raws',
+		'str1',
+		'str2',
+		'bools', '...bools',
+		'rexp',
+		'nums',  '...nums',
+		'strs',  '...strs',
+		'str',
+		'num',
+		'coll1',  '...coll1',
+		'coll2',  '...coll2',
+		'fns',
+		'preds',
+		'coll',  '...coll',
+		'colls', '...colls'
+	)
 )
+
+
+
+
+
+kiwi_fns <- ls(kiwi_env, pattern = 'x[A-Z]')
+
+kiwi_table_proto    <- make_proto(kiwi_fns, proto_params $ table)
+kiwi_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor)
+kiwi_any_proto      <- make_proto(kiwi_fns, proto_params $ any)
+kiwi_function_proto <- make_proto(kiwi_fns, proto_params $ `function`)
+kiwi_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll)
