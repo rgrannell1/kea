@@ -1,4 +1,149 @@
 
+kiwi_env       <- environment()
+kiwi_functions <- ls(environment(), pattern = 'x[A-Z][a-z]*')
+
+
+
+
+
+
+
+
+
+
+
+makeProto <- function (fn_names, params) {
+
+	unchaining_variadic_method <- function () {
+		bquote({
+
+
+
+
+		})
+	}
+	unchaining_method <- function () {
+		bquote({
+
+
+
+
+		})
+	}
+	chaining_variadic_method <- function () {
+		bquote({
+
+
+
+
+		})
+	}
+	chaining_method <- function () {
+		bquote({
+
+
+
+
+		})
+	}
+
+	makeMethod <- function (fn_name, fn_def, params) {
+
+		# -- unchaining methods aren't actually defined, so
+		# -- normalise the symbol name to an existing function.
+		fn_sym <- as.symbol(gsub('^x_', 'x', fn_name))
+
+		# -- detect the type of method.
+		is_unchaining <- grepl('^x_', fn_name)
+		is_variadic   <- grepl('_$', fn_name)
+
+		fn <- match_fn(fn_sym)
+
+		# -- will be completely overwritten.
+		method <- function () {}
+
+		if (is_unchaining) {
+
+			if (is_variadic) {
+				# x_Method_
+				unchaining_variadic_method()
+			} else {
+				# x_Method
+				unchaining_method()
+			}
+
+		} else if (is_variadic) {
+			# xMethod_
+			chaining_variadic_method()
+		} else {
+			# xMethod
+			chaining_method()
+		}
+
+		# -- essential for avoiding closure problems.
+		environment(method) <- new.env(parent = environment(fn))
+
+		method
+	}
+
+	self <- Object()
+
+	# -- select all functions to be included in the prototype.
+	pairs <- Filter(
+		function (pair) {
+			fn_params <- names(formals(pair $ def))
+			any(fn_params %in% params)
+		},
+		lapply(kiwi_functions, function (fn_name) {
+			list( name = fn_name, def = kiwi_env[[fn_name]] )
+		})
+	)
+
+	for (pair in pairs) {
+
+		fn_name            <- pair $ name
+		fn_unchaining_name <- gsub('^x', 'x_', pair $ name)
+
+		fn_def  <- pair $ def
+
+		self[[fn_name]]            <- makeMethod(fn_name, fn_def, params)
+		self[[fn_unchaining_name]] <- makeMethod(fn_name, fn_def, params)
+	}
+
+	self
+}
+
+kiwi_fn_proto  <-
+	makeProto(kiwi_functions, c('fn', 'pred', '...fn', '...pred'))
+
+kiwi_any_proto <-
+	makeProto(kiwi_functions, c('val'))
+
+kiwi_table_proto <-
+	makeProto(kiwi_functions, c('tab'))
+
+kiwi_factor_proto <-
+	makeProto(kiwi_functions, c('fact'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # -------------------------------- x_( ) -------------------------------- #
 #
@@ -29,9 +174,6 @@
 # chaining variadic methods: xMethod . There are similar, but take variadic arguments.
 # non-chaining methods: xMethods. These exit the monad.
 # non-chaining methods: xMethods_ . These are variadic, and exit the monad into the land of normal types.
-
-
-
 
 
 
