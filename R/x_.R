@@ -1581,8 +1581,39 @@ x__ <- function (...) {
 		alias('xFilter',      'xSelect'),
 		alias('xFilterNot',   'xReject'),
 
+		alias('xMean',      'xMeanOf'),
+		alias('xFilterNot',   'xReject'),
+
 		alias('xGroup',       'xChunk'),
-		alias('xZipWith',     'xMapMany')
+		alias('xZipWith',     'xMapMany'),
+
+		alias('xAll',        'xAllOf'),
+		alias('xAny',        'xAnyOf'),
+		alias('xArity',      'xArityOf'),
+		alias('xDuplicates', 'xDuplicatesOf'),
+		alias('xFirst',      'xFirstOf'),
+		alias('xFormals',    'xFormalsOf'),
+		alias('xFourth',     'xFourthOf'),
+		alias('xIndices',    'xIndicesOf'),
+		alias('xInit',      'xInitOf'),
+		alias('xInter',     'xInterOf'),
+		alias('xKeys',      'xKeysOf'),
+		alias('xLast',      'xLastOf'),
+		alias('xLen',       'xLenOf'),
+		alias('xMean',      'xMeanOf'),
+		alias('xNone',      'xNoneOf'),
+		alias('xOne',       'xOneOf'),
+		alias('xOrder',     'xOrderOf'),
+		alias('xParams',    'xParamsOf'),
+		alias('xPowerSet',  'xPowerSetOf'),
+		alias('xProdSet',   'xProdSetOf'),
+		alias('xRank',      'xRankOf'),
+		alias('xRest',      'xRestOf'),
+		alias('xSecond',    'xSecondOf'),
+		alias('xThird',     'xThirdOf'),
+		alias('xUnion',     'xUnionOf'),
+		alias('xUnique',    'xUniqueOf'),
+		alias('xValues',    'xValuesOf')
 	)
 
 	suggest_similar_method <- local({
