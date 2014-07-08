@@ -129,8 +129,33 @@ simple_method <- list(
 		})
 	},
 	chaining_variadic = function (fn_sym, fn, fixed) {
-		bquote({
 
+		params <- Reduce(
+			function (acc, param) {
+
+				# -- this parametre is to be fixed.
+
+				if (param == fixed) {
+
+					if (fixed == '...') {
+						# -- fixing an ellipsis parametre
+						c( acc, quote(Self()), as.symbol('...') )
+					} else {
+						# -- normal fixing
+						c( acc, quote(Self()) )
+					}
+
+				} else {
+					# -- don't fix this parametre.
+					c(acc, as.symbol(param))
+				}
+			},
+			names(formals(fn)),
+			list()
+		)
+
+		bquote({
+			x_(.( as.call(c(fn_sym, params)) ))
 		})
 	},
 	unchaining_nonvariadic = function (fn_sym, fn, fixed) {
@@ -154,16 +179,36 @@ simple_method <- list(
 		})
 	},
 	unchaining_variadic = function (fn_sym, fn, fixed) {
-		bquote({
 
+		params <- Reduce(
+			function (acc, param) {
+
+				# -- this parametre is to be fixed.
+
+				if (param == fixed) {
+
+					if (fixed == '...') {
+						# -- fixing an ellipsis parametre
+						c( acc, quote(Self()), as.symbol('...') )
+					} else {
+						# -- normal fixing
+						c( acc, quote(Self()) )
+					}
+
+				} else {
+					# -- don't fix this parametre.
+					c(acc, as.symbol(param))
+				}
+			},
+			names(formals(fn)),
+			list()
+		)
+
+		bquote({
+			.( as.call(c(fn_sym, params)) )
 		})
 	}
 )
-
-
-print( simple_method $ unchaining_nonvariadic(
-	as.symbol('map'), function (fn, coll) {lapply(coll, fn)}, 'coll') )
-
 
 proto_params <- list(
 	`function` = c('fn', 'pred', '...fns', '...preds')
