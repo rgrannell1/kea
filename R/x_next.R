@@ -294,12 +294,44 @@ make_method <- local({
 
 		# -- this can only be one argument short of
 		# -- supplying arguments to its underlying function.
-		args <- as.list(match.call())[-1]
 
-		# -- set the LHS to the highest-preference
-		# -- unnamed argument.
+		if (is_unchaining(method_name)) {
 
-		print(args)
+			# -- normalise the method name to a function name.
+			fn_sym <- as.symbol(as_chaining(method_name))
+
+			bquote({
+
+				suppied_args <- as.list(sys.call())[-1]
+				matched_args <- as.list(match.call())[-1]
+
+				# -- set the LHS to the highest-preference
+				# -- unnamed argument.
+
+				do.call(fn, args)
+			})
+
+		} else {
+
+			fn_sym <- as.symbol(method_name)
+
+			# -- chaining methods call x_ on the return value of kiwi function.
+
+			bquote({
+
+				suppied_args <- as.list(sys.call())[-1]
+				matched_args <- as.list(match.call())[-1]
+
+				# -- set the LHS to the highest-preference
+				# -- unnamed argument.
+
+				x_(do.call(fn, args))
+			})
+		}
+
+
+
+
 
 
 	}
@@ -336,8 +368,6 @@ make_method <- local({
 
 			body(method) <- create_static_body(
 				fn, fn_name, fn_params[which_proto_params])
-
-			print(body(method))
 
 		} else {
 			# -- the LHS satisfies multiple parametres, so
