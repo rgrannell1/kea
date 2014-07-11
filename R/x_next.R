@@ -241,12 +241,19 @@ make_method <- local({
 			# -- remove the parametre from the method's formals.
 
 			formals(method) <- formals(fn)[which_other_params]
+
 		} else {
 			# -- the LHS satisfies multiple parametres, so
 			# -- the user may possibly choose which parametre
 			# -- it gets bound to.
+			#
+			# -- in this case, a parametre cannot be removed from
+			# -- the method, and the parametre that the LHS
+			# -- gets bound to is determined at runtime by seeing what
+			# -- parametres are free after the user supplied (possibly named)
+			# -- input.
 
-
+			formals(method) <- formals(fn)
 
 
 		}
@@ -321,7 +328,7 @@ proto_params <- list(
 	factor     = c('fact'),
 
 	any        = c('val', 'val1', 'val2'),
-	`function` = c('fn', 'pred', '...fns', '...preds'),
+	`function` = c('fn', 'pred', '...fns', '...preds', 'val', 'val1', 'val2'),
 	coll       = c(
 		'ims',   '...ims',
 		'ints',  '...ints',
@@ -339,7 +346,8 @@ proto_params <- list(
 		'fns',
 		'preds',
 		'coll',  '...coll',
-		'colls', '...colls'
+		'colls', '...colls',
+		'val', 'val1', 'val2'
 	)
 )
 
