@@ -173,7 +173,7 @@ make_method <- local({
 
 		match <- Filter(
 			function (pair) {
-				pair[[1]] == param[[1]] && pair[[2]] == param[[2]]
+				all(c(param1, param2) %in% pair)
 			},
 			list(
 				c('coll2', 'coll1'),
@@ -209,13 +209,10 @@ make_method <- local({
 
 
 
-# make_proto
+# make_proto :: <character> -> <character> -> Environment function
 #
-# make_proto builds .
-#
-#
-#
-#
+# make_proto takes kiwi's function names, and a list of parametres
+# that flag the function for inclusion in the prototype.
 
 make_proto <- function (fns, params) {
 
@@ -236,7 +233,11 @@ make_proto <- function (fns, params) {
 
 
 
-
+# proto_params
+#
+# A list with an element for each prototype. The parametres are unordered here;
+# if a function has multiple parametres that belong in one prototype a relation
+# determines their preceedence within make_method.
 
 proto_params <- list(
 	table      = c('tab'),
@@ -264,6 +265,7 @@ proto_params <- list(
 		'colls', '...colls'
 	)
 )
+
 
 
 
