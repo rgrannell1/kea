@@ -302,12 +302,12 @@ make_method <- local({
 
 			bquote({
 
-				suppied_args <- as.list(sys.call())[-1]
-				matched_args <- as.list(match.call())[-1]
+				args <- as.list(match.call(expand.dots = False))[-1]
 
 				# -- set the LHS to the highest-preference
 				# -- unnamed argument.
 
+				print(matched_args)
 				do.call(fn, args)
 			})
 
@@ -319,13 +319,14 @@ make_method <- local({
 
 			bquote({
 
-				suppied_args <- as.list(sys.call())[-1]
-				matched_args <- as.list(match.call())[-1]
+				args <- as.list(match.call(expand.dots = False))[-1]
 
 				# -- set the LHS to the highest-preference
 				# -- unnamed argument.
 
-				x_(do.call(fn, args))
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
+
+				x_(do.call(.(fn_sym), args))
 			})
 		}
 
