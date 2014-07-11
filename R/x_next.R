@@ -456,7 +456,295 @@ proto_params <- list(
 
 kiwi_fns <- ls(kiwi_env, pattern = 'x[A-Z]')
 
-kiwi_table_proto    <- make_proto(kiwi_fns, proto_params $ table)
-kiwi_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor)
-kiwi_function_proto <- make_proto(kiwi_fns, proto_params $ `function`)
-kiwi_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll)
+x_table_proto    <- make_proto(kiwi_fns, proto_params $ table)
+x_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor)
+x_function_proto <- make_proto(kiwi_fns, proto_params $ `function`)
+x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll)
+
+
+
+
+
+
+# -------------------------------- Type Constructor -------------------------------- #
+
+#' x_
+#'
+#' Generate an kiwi object with methods available to it.
+#'
+#' @param
+#'    val an arbitrary value. The value to wrap in an
+#'    kiwi object.
+#'    The methods available depend on the input
+#'    type; functions and collections have the most methods available.
+#'
+#' @param
+#'    ... see above.
+#'
+#' @return
+#'    An object of class "kiwi". Internally the object is represented as a
+#'    list with a single field \bold{x}, but this field cannot be accessed directly.
+#'    Instead, the method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used to
+#'    return the data stored in an kiwi object.
+#'
+#'    The methods available to an kiwi object depend on the type of the data it
+#'    contains. All kiwi objects inherit a handful of methods regardless of their
+#'    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
+#'    anonymous function to be executed on an kiwi object.
+#'
+#'    The two primary groups of methods are collection methods and function methods.
+#'
+#'    Matrices, data frames, and factors have methods for converting them to collections,
+#'    while normal Kiwi functions are also available as methods for collections
+#'    and functions.
+#'
+#' @section Corner Cases:
+#'    The methods that can be used by \bold{$ x_( )} object varies depending
+#'    on the type of val.
+#'
+#' @family methods
+#'
+#' @example
+#'    inst/examples/example-x_.R
+#'
+#' @rdname x_
+#' @export
+
+x_ <- MakeFun('x_', function (val) {
+	# Collection any -> Kiwi any
+	# type constructor for the method-chaining data type.
+
+
+
+	# -- a useful corner case; there are no methods
+	# -- specifically for kiwi objects with kiwi
+	# -- objects in them. Makes defining methods easier.
+	if (any(class(val) == 'kiwi')) {
+		val
+	} else {
+		# -- cannot just be a val with a class label,
+		# -- as if val is null then x_ will fail.
+		structure(list(x = val), class = 'kiwi')
+	}
+})
+
+#' @rdname x_
+#' @export
+
+x__ <- function (...) {
+	x_(list(...))
+}
+
+
+
+
+
+
+
+get_proto_ref <- local({
+
+	x_table_members    <- ls(x_table_proto)
+	x_factor_members   <- ls(x_factor_proto)
+	x_function_members <- ls(x_function_proto)
+	x_coll_members     <- ls(x_coll_proto)
+
+	function (val) {
+		# get the reference to the appropriate methods.
+
+		# -- keep this code fairly efficient.
+
+		proto_ref <-
+		if (is.function( val )) {
+			list(x_function_proto, x_function_members)
+		} else if (is.matrix( val ) || is.data.frame( val )) {
+			list(x_table_proto, x_table_members)
+		} else if (is.factor( val )){
+			list(x_factor_proto, x_factor_members)
+		} else if (is_atomic( val ) || is_generic( val )) {
+			list(x_coll_proto, x_coll_members)
+		} else {
+			stop('one moment')
+		}
+	}
+
+})
+
+
+
+
+
+
+#' @export
+
+`$.kiwi` <- local({
+
+	# some methods are known by their more common
+	# but worse names (like filter, filterNot).
+	# Meet the user half way and suggest the "proper" name.
+
+	alias <- function (incorrect, correct) {
+
+		forms <- function (fn_name) {
+
+			list(
+				fn_name,
+				paste0(fn_name, '...'),
+				gsub('^x', 'x_', fn_name),
+				paste0(
+					gsub('^x', 'x_', fn_name),
+					 '...')
+			)
+		}
+
+		structure(
+			forms(correct),
+			names = forms(incorrect))
+	}
+
+	autosuggested <- c(
+		alias('x', 'x_'),
+		alias('xAsNumeric',   'xAsDouble'),
+
+		alias('xAsChars',     'xToChars'),
+		alias('xAsWords',     'xToWords'),
+		alias('xAsLines',     'xToLines'),
+
+		alias('xToChars',     'xFromChars'),
+		alias('xToWords',     'xFromWords'),
+		alias('xToLines',     'xFromLines'),
+
+		alias('xByColkeys',   'xByColrows'),
+		alias('xByRowkeys',   'xByRowrows'),
+		alias('xAddNames',    'xAddKeys'),
+
+		alias('xC',           'xJoin'),
+		alias('xConcat',      'xJoin'),
+		alias('xConcatenate', 'xJoin'),
+
+		alias('xFilter',      'xSelect'),
+		alias('xFilterNot',   'xReject'),
+
+		alias('xMean',      'xMeanOf'),
+		alias('xFilterNot',   'xReject'),
+
+		alias('xGroup',       'xChunk'),
+		alias('xZipWith',     'xMapMany'),
+
+		alias('xAll',        'xAllOf'),
+		alias('xAny',        'xAnyOf'),
+		alias('xArity',      'xArityOf'),
+		alias('xDuplicates', 'xDuplicatesOf'),
+		alias('xFirst',      'xFirstOf'),
+		alias('xFormals',    'xFormalsOf'),
+		alias('xFourth',     'xFourthOf'),
+		alias('xIndices',    'xIndicesOf'),
+		alias('xInit',      'xInitOf'),
+		alias('xInter',     'xInterOf'),
+		alias('xKeys',      'xKeysOf'),
+		alias('xLast',      'xLastOf'),
+		alias('xLen',       'xLenOf'),
+		alias('xMean',      'xMeanOf'),
+		alias('xNone',      'xNoneOf'),
+		alias('xOne',       'xOneOf'),
+		alias('xOrder',     'xOrderOf'),
+		alias('xParams',    'xParamsOf'),
+		alias('xPowerSet',  'xPowerSetOf'),
+		alias('xProdSet',   'xProdSetOf'),
+		alias('xRank',      'xRank'),
+		alias('xRest',      'xRestOf'),
+		alias('xSecond',    'xSecondOf'),
+		alias('xThird',     'xThirdOf'),
+		alias('xUnion',     'xUnionOf'),
+		alias('xUnique',    'xUniqueOf'),
+		alias('xValues',    'xValuesOf')
+	)
+
+	suggest_similar_method <- local({
+		# -- the spell-checker for Kiwi's methods.
+
+		message <- function (name, contents_are, similar) {
+
+			if (length(similar) == 0) {
+				"Could not find the method " %+% dQuote(name) %+%
+				" in the methods available for " %+% contents_are %+% "."
+			} else {
+				"Could not find the method " %+% dQuote(name) %+%
+				" in the methods available for " %+% contents_are %+%
+				":\n" %+%
+				colourise$green("did you mean " %+% rsample(similar, size = 1) %+% "?")
+			}
+		}
+
+		function (val, method_name, contents_are, invoking_call) {
+			# given an incorrect method name throw an error
+			# suggesting a similar
+
+			proto       <- get_proto_ref(val)
+			method_name <- method_name
+
+			candidate_methods <- setdiff(proto[[2]], 'private')
+
+			# -- get the edit distance to each method in the prototype.
+			distances <- adist(method_name, candidate_methods)
+
+			similar <- if ( any(method_name == names(autosuggested)) ) {
+				autosuggested[[method_name]]
+			} else if (min(distances) < nchar(method_name) / 2) {
+
+				candidate_methods[which.min(distances)]
+
+			} else {
+				character(0)
+			}
+
+			throw_kiwi_error(
+				message = message(method_name, contents_are, similar))
+		}
+	})
+
+	function (obj, method) {
+		# Kiwi a -> symbol -> function
+		# return an kiwi method associated with the type a.
+
+		method_name <- paste0(substitute(method))
+
+		proto <- get_proto_ref( obj[['x']] )
+
+		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
+			# -- the invoked method wasn't found, so we should give a suggestion.
+
+			invoking_call <- paste0('$', method_name)
+
+			contents_are <- proto[[1]][['private']][['contents_are']]
+
+			suggest_similar_method(
+				obj[['x']], method_name, contents_are, invoking_call)
+
+		}
+
+		fn <- proto[[1]][[method_name]]
+		environment(fn)[['Self']] <- function () obj[['x']]
+
+		fn
+	}
+})
+
+# -------------------------------- Print Method -------------------------------- #
+
+
+#' @export
+
+print.kiwi <- function (x, ...) {
+
+	proto        <- get_proto_ref( x[['x']] )
+	contents_are <- proto[[1]][['private']] [['contents_are']]
+
+	header <- colourise$blue(
+		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
+
+	cat(
+		header  %+% '\n\n' %+%
+		'$x_()' %+% '\n')
+
+	print(x $ x_Identity(), ...)
+}
