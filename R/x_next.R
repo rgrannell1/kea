@@ -105,6 +105,14 @@ as_proto_params <- function (method_name) {
 
 
 
+has_variadic_param <- function (params) {
+	any(grepl('^[.]{3}', params))
+}
+
+
+
+
+
 fixed_param <- function (fn_name, params) {
 
 	fn_params <- as_proto_params(fn_name)
@@ -129,9 +137,9 @@ fns_with_params <- function (fns, params) {
 	)
 }
 
-
-
 # make_method :: <character> -> <character> -> function
+#
+#
 #
 # make method generates a method from a kiwi function.
 #
@@ -149,6 +157,7 @@ fns_with_params <- function (fns, params) {
 #
 #     x_(str2) $ xWrite(str1 = str1)
 #
+#
 # Within a prototype there is preference for binding to some parametres above
 # another (in reality a lot of these won't be found together):
 #
@@ -157,15 +166,34 @@ fns_with_params <- function (fns, params) {
 #
 #
 #
-# The rules of parametre fixing are simple enough.
+# The rules of parametre fixing are complex.
 #
-# 1, if, for a particular prototype, a parametres
+# 1, Unary-nonvariadic functions NEVER return a method with parametres.
+#
+# 2, Unary variadic functions are
+#
+#
+# 3, The parametres val, val0, val1 are always available.
 #
 # 2, param{n + 1} > param{n}
 #
 #
 #
 #
+
+# -- function prototype
+#    x_(fn) $ xFold(val, fn, coll)
+#    x_(fn) $ xAnyOf(coll)
+#
+# -- collection prototype
+#
+#
+# -- any prototype
+#
+#   x_(val)  $ xIsTrue()
+#
+#   x_(val0) $ xIs(val1)
+#   x_(val1) $ xIs(val0)
 
 
 
@@ -202,7 +230,19 @@ make_method <- local({
 		fn        <- lookup_fn(fn_name)
 		fn_params <- as_proto_params(fn_name)
 
-		print(fn_params)
+		if (length(fn_params) == 1 && !has_variadic_param(fn_params)) {
+			# -- x_(val) $ xUnary()
+			#
+			# -- the simplest case; these functions always fix their only
+			# -- parametre.
+
+
+		}
+
+
+
+		# -- determine the parametres to return.
+
 
 
 	}
