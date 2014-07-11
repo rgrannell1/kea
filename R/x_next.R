@@ -659,7 +659,17 @@ suggest_similar_method <- local({
 		}
 	}
 
+	change_to_prefix <- function (method_name, candidates) {
 
+		with_prefix    <- gsub('As', 'To', method_name)
+		without_prefix <- gsub('To', 'As', method_name)
+
+		if (any(candidates == with_prefix)) {
+			with_prefix
+		} else if (any(candidates == without_prefix)) {
+			without_prefix
+		}
+	}
 
 
 
@@ -677,7 +687,9 @@ suggest_similar_method <- local({
 			close =
 				close_method(method_name, candidates),
 			change_of_suffix =
-				change_of_suffix(method_name, candidates)
+				change_of_suffix(method_name, candidates),
+			change_to_prefix =
+				change_to_prefix
 		)
 
 		similar <- matches[[ which(nchar(matches) > 0)[1] ]]
