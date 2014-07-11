@@ -222,9 +222,9 @@ make_method <- local({
 
 	}
 
-	# create_unambigious_body :: function x <string> x <string> -> Expression
+	# create_static_body :: function x <string> x <string> -> Expression
 	#
-	# create_unambigious_body creates the body for methods in which the
+	# create_static_body creates the body for methods in which the
 	# LHS only satifies one parametre; that parametre is removed from the function,
 	# and in the body Self( ) is used as the argument passed to the underlying function
 	# the method is calling to.
@@ -232,7 +232,7 @@ make_method <- local({
 	# For variadic functions which fix '...', Self() is given as ..1, and ... is kept
 	# as a parametre for additional arguments.
 
-	create_unambigious_body <- function (fn, method_name, fixed) {
+	create_static_body <- function (fn, method_name, fixed) {
 
 		# -- accumulate a parametres list.
 		# -- done with Reduce as more work is needed for variadic formals.
@@ -277,9 +277,38 @@ make_method <- local({
 				x_( .(( as.call(c(fn_sym, arglist)) )) )
 			})
 		}
-
 	}
 
+	# create_dynamic_body
+	#
+	# (Sorry for using a buzzword)
+	#
+	# This creates the function body that accomponies methods in which the
+	# LHS matches multiple parametres, and the arguments supplied by the user
+	# might alter which parametre the LHS is bound to.
+	#
+	#
+
+
+	create_dynamic_body <- function (fn, method_name, fixed) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
 
 	function (fn_name, params) {
 
@@ -311,7 +340,7 @@ make_method <- local({
 				formals(fn)
 			}
 
-			body(method) <- create_unambigious_body(
+			body(method) <- create_static_body(
 				fn, fn_name, fn_params[which_proto_params])
 
 			print(body(method))
