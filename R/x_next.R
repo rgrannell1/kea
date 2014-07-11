@@ -6,12 +6,17 @@ kiwi_env <- environment()
 
 
 
-# Test what form of a function a function name is
+# is_variadic :: <string> -> <string>
 #
+# Check if a variable is of the form xMethod_ | x_Method_
 
 is_variadic   <- function (fn_name) {
 	grepl('_$', fn_name)
 }
+
+# is_unchaining :: <string> -> <string>
+#
+# Check if a variable is of the form x_Method | x_Method_
 
 is_unchaining <- function (fn_name) {
 	grepl('^x_', fn_name)
@@ -99,8 +104,8 @@ as_proto_params <- function (method_name) {
 
 	if (is_variadic(fn_name)) {
 
-		variadic_fn <- lookup_fn(fn_name)
-		fn          <- kiwi_env[[ as_nonvariadic(fn_name) ]]
+		variadic_fn     <- lookup_fn(fn_name)
+		fn              <- kiwi_env[[ as_nonvariadic(fn_name) ]]
 
 		variadic_params <- names(formals(variadic_fn))
 		params          <- names(formals(fn))
@@ -120,7 +125,9 @@ as_proto_params <- function (method_name) {
 
 
 
-
+# has_variadic_param :: <string> -> <logical>
+#
+# check if a set of parametres contins variadic parametres.
 
 has_variadic_param <- function (params) {
 	any(grepl('^[.]{3}', params))
@@ -128,7 +135,9 @@ has_variadic_param <- function (params) {
 
 
 
-
+# fixed_param :: <string> -> <string> -> <string>
+#
+#
 
 fixed_param <- function (fn_name, params) {
 
@@ -319,7 +328,12 @@ make_method <- local({
 
 			bquote({
 
-				args <- as.list(match.call(expand.dots = False))[-1]
+				argnames <- names(as.list(match.call(expand.dots = False))[-1])
+				args <- lapply(
+					argnames, function (param) {
+					print( eval(as.symbol(param)) )
+				})
+				names(args) <- argnames
 
 				# -- ensure every argument is supplied (including LHS).
 				if (length(args) != length(.( names(formals(fn)) )) - 1) {
@@ -345,7 +359,12 @@ make_method <- local({
 
 			bquote({
 
-				args <- as.list(match.call(expand.dots = False))[-1]
+				argnames <- names(as.list(match.call(expand.dots = False))[-1])
+				args <- lapply(
+					argnames, function (param) {
+					print( eval(as.symbol(param)) )
+				})
+				names(args) <- argnames
 
 				# -- ensure every argument is supplied (including LHS).
 				if (length(args) != length(.( names(formals(fn)) )) - 1) {
@@ -728,7 +747,7 @@ get_proto_ref <- local({
 			# -- get the edit distance to each method in the prototype.
 			distances <- adist(method_name, candidate_methods)
 
-			similar <- if ( any(method_name == names(autosuggested)) ) {
+			similar   <- if ( any(method_name == names(autosuggested)) ) {
 				autosuggested[[method_name]]
 			} else if (min(distances) < nchar(method_name) / 2) {
 
@@ -772,7 +791,6 @@ get_proto_ref <- local({
 
 # -------------------------------- Print Method -------------------------------- #
 
-
 #' @export
 
 print.kiwi <- function (x, ...) {
@@ -780,7 +798,7 @@ print.kiwi <- function (x, ...) {
 	proto        <- get_proto_ref( x[['x']] )
 	contents_are <- proto[[1]][['private']] [['contents_are']]
 
-	header <- colourise$blue(
+	header <- colourise $ blue(
 		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
 
 	cat(
