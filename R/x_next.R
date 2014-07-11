@@ -222,9 +222,69 @@ make_method <- local({
 
 	}
 
+	# create_unambigious_body :: function x <string> x <string> -> Expression
+	#
+	# create_unambigious_body creates the body for methods in which the
+	# LHS only satifies one parametre; that parametre is removed from the function,
+	# and in the body Self( ) is used as the argument passed to the underlying function
+	# the method is calling to.
+	#
+	# For variadic functions which fix '...', Self() is given as ..1, and ... is kept
+	# as a parametre for additional arguments.
+
+	create_unambigious_body <- function (fn, method_name, fixed) {
+
+		# -- accumulate a parametres list.
+		# -- done with Reduce as more work is needed for variadic formals.
+		arglist <- Reduce(
+			function (acc, param) {
+
+				if (param == fixed) {
+					# -- this parametre is to be fixed.
+
+					if (fixed == '...') {
+						# -- fixing an ellipsis parametre
+						c( acc, quote(Self()), as.symbol('...') )
+					} else {
+						# -- normal fixing
+						c( acc, quote(Self()) )
+					}
+
+				} else {
+					# -- don't fix this parametre.
+					c(acc, as.symbol(param))
+				}
+			},
+			names(formals(fn)),
+			list()
+		)
+
+		if (is_unchaining(method_name)) {
+
+			# -- normalise the method name to a function name.
+			fn_sym <- as.symbol(as_chaining(method_name))
+
+			bquote({
+				.(( as.call(c(fn_sym, arglist)) ))
+			})
+
+		} else {
+
+			fn_sym <- as.symbol(method_name)
+
+			# -- chaining methods call x_ on the return value of kiwi function.
+			bquote({
+				x_( .(( as.call(c(fn_sym, arglist)) )) )
+			})
+		}
+
+	}
+
+
 	function (fn_name, params) {
 
 		fn                 <- lookup_fn(fn_name)
+		fn_sym             <- as.symbol(fn_name)
 		fn_params          <- names(formals(fn))
 		fn_proto_params    <- as_proto_params(fn_name)
 
@@ -240,7 +300,21 @@ make_method <- local({
 			# -- so that parametre cannot be set by the user.
 			# -- remove the parametre from the method's formals.
 
-			formals(method) <- formals(fn)[which_other_params]
+			param_is_variadic <-
+				has_variadic_param(fn_proto_params[which_other_params])
+
+			formals(method) <- if (!param_is_variadic) {
+				formals(fn)[which_other_params]
+			} else {
+				# -- variadic parametres can take multiple arguments;
+				# -- set the LHS to ...1, and keep ... around to take more args.
+				formals(fn)
+			}
+
+			body(method) <- create_unambigious_body(
+				fn, fn_name, fn_params[which_proto_params])
+
+			print(body(method))
 
 		} else {
 			# -- the LHS satisfies multiple parametres, so
@@ -254,11 +328,7 @@ make_method <- local({
 			# -- input.
 
 			formals(method) <- formals(fn)
-
-
 		}
-
-
 
 		if (fn_name == 'xAllOf' && 'coll' %in% params) {
 
@@ -266,7 +336,6 @@ make_method <- local({
 
 			print(params)
 		}
-
 
 		body(method) <- bquote({
 
@@ -279,7 +348,7 @@ make_method <- local({
 
 			print(args)
 
-
+			x_( .(as.call(list(fn_sym))) )
 
 		})
 
@@ -360,6 +429,5 @@ kiwi_fns <- ls(kiwi_env, pattern = 'x[A-Z]')
 
 kiwi_table_proto    <- make_proto(kiwi_fns, proto_params $ table)
 kiwi_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor)
-kiwi_any_proto      <- make_proto(kiwi_fns, proto_params $ any)
 kiwi_function_proto <- make_proto(kiwi_fns, proto_params $ `function`)
 kiwi_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll)
