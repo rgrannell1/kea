@@ -671,6 +671,19 @@ suggest_similar_method <- local({
 		}
 	}
 
+	change_to_keys <- function (method_name, candidates) {
+
+		swapped <- gsub('Names', 'Keys', method_name)
+
+		if (any(candidates == swapped)) {
+			swapped
+		}
+	}
+
+	change_common_name <- function (method_name, candidates) {
+
+	}
+
 
 
 
@@ -689,7 +702,7 @@ suggest_similar_method <- local({
 			change_of_suffix =
 				change_of_suffix(method_name, candidates),
 			change_to_prefix =
-				change_to_prefix
+				change_to_prefix(method_name, candidates)
 		)
 
 		similar <- matches[[ which(nchar(matches) > 0)[1] ]]
@@ -769,36 +782,8 @@ suggest_similar_method <- local({
 		alias('xMean',        'xMeanOf'),
 		alias('xFilterNot',   'xReject'),
 
-		alias('xGroup',       'xChunk'),
-		alias('xZipWith',     'xMapMany'),
+		alias('xGroup',       'xChunk')
 
-		alias('xAll',        'xAllOf'),
-		alias('xAny',        'xAnyOf'),
-		alias('xArity',      'xArityOf'),
-		alias('xDuplicates', 'xDuplicatesOf'),
-		alias('xFirst',      'xFirstOf'),
-		alias('xFormals',    'xFormalsOf'),
-		alias('xFourth',     'xFourthOf'),
-		alias('xIndices',    'xIndicesOf'),
-		alias('xInit',      'xInitOf'),
-		alias('xInter',     'xInterOf'),
-		alias('xKeys',      'xKeysOf'),
-		alias('xLast',      'xLastOf'),
-		alias('xLen',       'xLenOf'),
-		alias('xMean',      'xMeanOf'),
-		alias('xNone',      'xNoneOf'),
-		alias('xOne',       'xOneOf'),
-		alias('xOrder',     'xOrderOf'),
-		alias('xParams',    'xParamsOf'),
-		alias('xPowerSet',  'xPowerSetOf'),
-		alias('xProdSet',   'xProdSetOf'),
-		alias('xRank',      'xRank'),
-		alias('xRest',      'xRestOf'),
-		alias('xSecond',    'xSecondOf'),
-		alias('xThird',     'xThirdOf'),
-		alias('xUnion',     'xUnionOf'),
-		alias('xUnique',    'xUniqueOf'),
-		alias('xValues',    'xValuesOf')
 	)
 
 	function (obj, method) {
