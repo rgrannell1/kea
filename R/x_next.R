@@ -355,14 +355,20 @@ make_method <- local({
 		fn_params          <- names(formals(fn))
 		fn_proto_params    <- as_proto_params(fn_name)
 
-		which_proto_params <- which(fn_proto_params %in% params)
+		which_proto_params <- which(fn_proto_params %in%  params)
 		which_other_params <- which(fn_proto_params %!in% params)
 
 		method <- function () {}
 
 		formals(method) <- formals(fn)
 
-		if (length(which_proto_params) == 1) {
+		if (length(fn_params) == 1 && fn_params == '...') {
+
+			formals(method) <- formals(fn)
+			body(method) <- create_static_body(
+				fn, fn_name, '...')
+
+		} else if (length(which_proto_params) == 1) {
 			# -- the LHS only satifies one parametre.
 			# -- so that parametre cannot be set by the user.
 			# -- remove the parametre from the method's formals.
@@ -470,8 +476,9 @@ proto_params <- list(
 
 
 
-kiwi_fns <- ls(kiwi_env, pattern = 'x[A-Z]')
+kiwi_fns         <- ls(kiwi_env, pattern = 'x[A-Z]')
 
+x_any_proto      <- make_proto(kiwi_fns, proto_params $ any)
 x_table_proto    <- make_proto(kiwi_fns, proto_params $ table)
 x_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor)
 x_function_proto <- make_proto(kiwi_fns, proto_params $ `function`)

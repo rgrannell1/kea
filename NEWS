@@ -3,12 +3,21 @@ Kiwi 0.32.0
 -----------------------------------------------------------------------------
 Date: 2014-6-7
 
-Enhancements:
+The implementation of methods has been overhauled.
+
+ENHANCEMENTS:
+
+
+* Methods .
+
+
+* Methods can no longer be automatically partially applied, though this ability
+may be re-instated in a future release.
 
 * Renamed xRankOf to xRank, as function names should be verbs where
 possible and the function does actually rank numbers.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Improved string test coverage; all printable ascii characters are tested.
 
@@ -25,7 +34,7 @@ Date: 2014-6-7
 
 Added xValues of, removed xPartition, added tests.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xValuesOf, the complement of xKeyOf and xIndicesOf. xValuesOf removes
 the keys from a collection.
@@ -33,11 +42,11 @@ the keys from a collection.
 * Removed xPartition; I've never seen it used in the wild, and it can be easily
 re-introduced as xPartition = xJuxtapose_(xSelect, xReject)
 
-Bug-Fixes:
+BUG FIXES:
 
 * xStopWatch no longer fails for named number inputs.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added forall-next for the tests must-all-be-indices, must-be-collection,
 must-be-equal-length-to, must-be-flag, must-be-of-length macros.
@@ -61,7 +70,7 @@ Date: 2014-6-5
 
 Improved xAs* family of functions, labelling of higher-order-function errors, removed xMapply.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added clear labelling of errors and warnings thrown by
 functions given to higher-order functions.
@@ -69,7 +78,7 @@ functions given to higher-order functions.
 * Removed xMapply; despite being useful it was a compound of xMap and
 xUnspread, and similar functions like xSelect don't have analogous compositions.
 
-Bug-Fixes:
+BUG FIXES:
 
 * Fixed an undeclared reference in 'check_regexp' try-catch.
 
@@ -79,13 +88,13 @@ values, as NA's cannot be converted to raw.
 * as_typed_vector (the backend to the xAs* functions) now correctly type-converts
 vectors of only NA values to a target type.
 
-Documentation:
+DOCUMENTATION:
 
 * Removed usage sections from methods, as they raised warnings.
 
 * Added example for xPrepend.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Improved the efficiency of kiwi tests, allowing for many more test-cases
 to be used in a given timespan.
@@ -110,7 +119,7 @@ Date: 2014-6-30
 
 A major breaking update. Overhauls named-collection handling.
 
-Enhancements:
+ENHANCEMENTS:
 
 * xAtCol, xCycle, xDrop,
 xDropWhile, xFlatMap, xInitOf, xMap, xMapply, xOrderOf,
@@ -121,7 +130,7 @@ collections.
 
 * The element types within a list are now summarised by summate.
 
-Bug-Fixes:
+BUG FIXES:
 
 * xIsNa (and internal NA checking tools) now return true for named NA values.
 
@@ -136,13 +145,13 @@ the input.
 
 * Infinite values are now included as whole numbers during argument summation.
 
-Documentation:
+DOCUMENTATION:
 
 * Corrected type signature of xExplode.
 
 * Added example for xPrepend.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added forall-next tests for xTake, xDrop, xFlatMap,
 xGroupBy, xInitOf, xNotFalse, xRestOf, xReverse, xTabulate.
@@ -185,7 +194,7 @@ Date: 2014-6-26
 
 Improved handling of string corner-cases.
 
-Bug-Fixes:
+BUG FIXES:
 
 * Incorrect arguments to 'rexp' parametre now throws a useful
 error when it is not a collection.
@@ -199,7 +208,7 @@ clear errors if invalid.
 
 * Arguments matching 'str', 'str1', and 'str2' may no longer be NA.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added macros must-be-non-na, must-be-non-nan, must-not-contain-na.
 
@@ -216,9 +225,9 @@ Kiwi 0.27.0
 -----------------------------------------------------------------------------
 Date: 2014-6-26
 
-Improvements to numeric corner-cases, bug-fixes, and speedups.
+Improvements to numeric corner-cases, BUG FIXES, and speedups.
 
-Enhancements:
+ENHANCEMENTS:
 
 * xCompose no longer collects its arguments: this means that
 xCompose_(identity) is now identical to identity.
@@ -234,7 +243,7 @@ are unorderable.
 
 * xOrderOf is now faster.
 
-Bug-Fixes:
+BUG FIXES:
 
 * fns parametre arguments now correctly reassigned after function lookup.
 
@@ -249,7 +258,7 @@ which should increase performance.
 
 * xChoose no longer fails for length-zero numbers.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added must-be-finite, must-be-orderable macros.
 
@@ -273,7 +282,7 @@ Date: 2014-6-24
 
 Added two new functions, fixed a bug in input validation.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xIndicesOf, which that returns the indices of a collection.
 
@@ -291,7 +300,7 @@ or function names.
 * A temporary variable created by the must-be-collection-of-fn-matchable
 macro is now hidden.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added forall-next tests for xIndicesOf.
 
@@ -310,7 +319,7 @@ Date: 2014-6-20
 
 Removed several functions, made partially applied function throw better error messages.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Partially-applied functions give a clearer call when they throw an error, showing
  the name of the kiwi function that threw the error.
@@ -332,7 +341,7 @@ newline character.
 
 * Functions with the parametre 'fns' now checks that 'fns' is a collection.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added a new macro for ensuring a collection's names contains a key.
 
@@ -355,7 +364,7 @@ Date: 2014-6-18
 
 Major internal update, changes corner-cases of most functions, removed two functions.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Renamed xInter to xInterOf, for consistancy with xUnionOf.
 
@@ -387,11 +396,11 @@ when supplied no functions; it now returns a function as it originally should ha
 * xImplode no longer excludes length-zero or empty strings
 from its input collection.
 
-Documentation:
+DOCUMENTATION:
 
 * Improved documentation of corner-cases.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Refactored macros into their own files; this should aid testing significantly.
 
@@ -415,9 +424,9 @@ Kiwi 0.23.0
 -----------------------------------------------------------------------------
 Date: 2014-6-14
 
-Improves arrow function, with speed improvements, bug-fixes, new features.
+Improves arrow function, with speed improvements, BUG FIXES, new features.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Arrow functions now support underscore parametres; any parametre with an underscore
 suffix is automatically made into a kiwi object, and the underscores are removed from the parametre.
@@ -439,11 +448,11 @@ Bug Fixes:
 * Removed unneeded call to `sys.call` in xCompose, which should speed up generated
 functions significantly.
 
-Documentation:
+DOCUMENTATION:
 
 * Added an example to xChunk.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added join_exprs, which joins two expressions into a single expression.
 
@@ -464,7 +473,7 @@ Date: 2014-6-12
 
 Improved performance of some functions significantly.
 
-Enhancements:
+ENHANCEMENTS:
 
 * To simplify code injection, factors now have the corresponding
 parametre 'fact' and matrices/data-frames the parametre 'tab'.
@@ -480,16 +489,16 @@ and the wildcard operators x. $ and x. @.
 
 * Method lookup is now slightly quicker.
 
-Bug-Fixes:
+BUG FIXES:
 
 * xIsVariadic of nullary functions is now logical(0), to be consistant
 with other logical functions.
 
-Documentation:
+DOCUMENTATION:
 
 * Fixed a type of xToWords.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Simplified automatic precondition writing.
 
@@ -522,18 +531,18 @@ Date: 2014-6-11
 
 An internal update, that adds automatic addition of argument-writing code.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Variadic functions are now more efficient.
 
-Bug-Fixes:
+BUG FIXES:
 
 * x_ now adds a newline before printing.
 
 * Fixed a name collision in partially applied functions that affected
 functions with a 'fn' parametre.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * The Fix macro now injects argument-checking macros into a function
 based on the parametre name, making it an ad-hoc type system.
@@ -569,13 +578,13 @@ Removed specialised reading/writing functions, adds xRead and xWrite.
 
 Date: 2014-6-11
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xRead, which reads a file as a single string.
 
 * Added xWrite, which writes a single string to a file.
 
-Documentation:
+DOCUMENTATION:
 
 * Updated xAddKey examples to exploit partial application.
 
@@ -599,7 +608,7 @@ A minor update. Adds xLastAs, fixes a bug in xFirstAs...xFourthAs.
 
 Date: 2014-6-10
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xLastAs, which sets the last value of a collection.
 
@@ -608,9 +617,9 @@ Bug Fixes:
 * xFirstAs ... xFourthAs could not be correctly partially-applied. This is fixed, and
 a future version of Kiwi will guard against these errors.
 
-Documentation:
+DOCUMENTATION:
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Updated the xVal test to work correctly with Rscript testing commands;
 tests now run correctly from the command line.
@@ -637,7 +646,7 @@ Date: 2014-6-9
 Adds further support for automatic partial application, adds mutator
 functions & removed some vectorised functions.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added automatic partial application to the variadic forms of functions.
 
@@ -660,13 +669,13 @@ This may be addressed by not ussing strsplit internally in a future version.
 * xFromChars, xFromWords, xFromLines no longer call xImplode internally, so error-messages
 should be identified as coming from them, not xImplode.
 
-Documentation:
+DOCUMENTATION:
 
 * xByRowKeys documentation now correctly builds.
 
 * Removed embarassing use of the word 'automatical' from README.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Testing tools can now be run from the command line, with colourised output. Some
 tests currently break when run in this mode.
@@ -694,18 +703,18 @@ Date: 2014-6-7
 Adds automatic partial application to every function in Kiwi. No tests are
 currently breaking, but this feature likely interferes with error reporting.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Kiwi functions are now partially-appliable; not all arguments need to be
 provided at once. This is an important milestone. Errors are no longer thrown
 for missing inputs for this reason.
 
-Bug-Fixes:
+BUG FIXES:
 
 * Fixed a bug that crashed error handing due to improper conversion of a
 function to a string during error message creation.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added fix, a variant of xFix required for efficient partial application of
 internal functions.
@@ -742,7 +751,7 @@ Date: 2014-6-7
 A very minor update. Renamed library from it's working name (Arrow) to
 a final name (Kiwi), refactored internals.
 
-Documentation:
+DOCUMENTATION:
 
 * Removed non-ascii characters from documentation (lambda, epsilon).
 
@@ -779,18 +788,18 @@ Date: 2014-6-5
 
 This release adds some rigourous tests to kiwi, and fixes several bugs.
 
-Bug-Fixes:
+BUG FIXES:
 
 * xChop called with Inf now returns a list of length-one lists, instead of
 converting its input to a list.
 
 * xNoneOf now detects whether not-any result was true, instead of not-any.
 
-Documentation:
+DOCUMENTATION:
 
 * Fixed a broken roxygen tag in xElemsByCols.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added forall-next tests for xAllOf, xAnyOf, xArityOf, xCapture, xChop,
 xFalsity, xFirstOf, xIdentity, xIrrelevance, xIsEmpty, xIsFalse, xIsTrue,
@@ -814,7 +823,7 @@ Date: 2014-6-5
 
 This version removes xVectorise and xGraft, and cleans up the method code.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xUnit_, a variadic form of xUnit.
 
@@ -828,11 +837,11 @@ vectorise will become redundant.
 * Removed xGraft, which allowed custom methods to be added to the kiwi
 call chain. It was untested, unusued, and barely more useful than xTap.
 
-Documentation:
+DOCUMENTATION:
 
 * Added missing parametre documentation for x__ (its ... argument).
 
-Bug-Fixes:
+BUG FIXES:
 
 * xExecute & xTap now performs function lookup on its input function/string argument.
 For example, xTap('mean') will now call xTap with the mean function.
@@ -840,7 +849,7 @@ For example, xTap('mean') will now call xTap with the mean function.
 * Fixed potential error in xByRows, xByCols for empty matrices/data.frames. Now returns
 the empty list for that case.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Moved all functions only available as methods into their own files,
 instead of having direct definitions in x_.R. This aids code uniformity & testing.
@@ -878,7 +887,7 @@ Date: 2014-6-2
 
 A mostly internal update, removes two quantifier functions and adds x__.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added x__, the variadic form of x_.
 
@@ -886,11 +895,11 @@ Enhancements:
 for most cases, and for the remaining cases (polyadic functions) using xProdSetOf
 and a quantifier is identical, and favours composition.
 
-Documentation:
+DOCUMENTATION:
 
 * Added examples to xAddKeys, xByLevels, xChoose, xElemNot, xIsMember, xNotTrue,
 
-Bug-Fixes:
+BUG FIXES:
 
 * xOneOf now throws an error for an empty collection, as it is impossible to
 return any elements in this case.
@@ -898,7 +907,7 @@ return any elements in this case.
 * Factors passed to x_ now get assigned the correct set of methods; previously
 they were given collection methods, as factors are technically collections.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Seperated the next forall tool into modules, fixed several bugs. The tool is now
 effective for simple test cases, but more work is required for negative tests.
@@ -927,7 +936,7 @@ function calls.
 A major but mostly internal update; upgraded testing tools and removed dangerous
 function calls.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added 'all empty' and 'any empty' property tests to value summation for lists,
 and dimension reporting for data frames.
@@ -940,7 +949,7 @@ re-implemented in the future.
 * Removed the x_ method from Kiwi, since x_Identity does the same thing
 in a more obvious way.
 
-Bug-Fixes:
+BUG FIXES:
 
 * Fixed missing spaces in error messages produced by incorrectly typed vectors.
 
@@ -949,14 +958,14 @@ correcting issues for non length-one vectors.
 
 * Removed use of sample, potetentially fixing bugs with numeric vectors.
 
-Documentation:
+DOCUMENTATION:
 
 * Added example for xElemIs, xLocate, xReadChars, xReadLines, xReadwords,
 xRestOf, xParamsOf.
 
 * Removed redundant @method tags from documentation.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added a rigourous test for example length, file existence, function calls
 to dangerous functions, and for missing 'missing' functions, and removed an
@@ -1004,7 +1013,7 @@ Date: 2014-5-19
 
 Removes several data frame and matrix methods, and adds many examples.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Removed xColUnit, xRowUnit, xFullUnit. Although theoretically useful
 they were largely untested and unused. May be added in future if genuinely needed.
@@ -1013,14 +1022,14 @@ they were largely untested and unused. May be added in future if genuinely neede
 only their conversion to other types. There are effective ways to transpose lists
 in Kiwi already.
 
-Bug-Fixes:
+BUG FIXES:
 
 * Added xCapture alias xK to the methods avaiable to all values. More rigourous
 tests will be added in future to avoid missing methods.
 
 * xByColkeys & xByRowkeys for matrices now return character vectors.
 
-Documentation:
+DOCUMENTATION:
 
 * Fixed type signature of xPluck, xRepeat.
 
@@ -1036,7 +1045,7 @@ xShuffle, xSlice, xThread, xToChars, xUniqueOf,
 
 * Html-escaped docs for xToChars, xToLines, xToWords.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added tests for xIsSubset, xNotSubset.
 
@@ -1065,7 +1074,7 @@ Date: 2014-5-16
 Removes the xElemIs*, xElemNot* and xReject* family of functions,
 replacing them with the more generix xElemIs and xElemNot.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xElemIs and xElemNot. These functions test each element of a
 collection for equality to a value.
@@ -1080,11 +1089,11 @@ is that kiwi emphasises compositionality, and each case these functions solve
 can easily be done with other functions. This reduces the number of tests and
 documentation to be maintained significantly.
 
-Bug-Fixes:
+BUG FIXES:
 
 * xByColkeys and xByRowkeys now return character vectors.
 
-Documentation:
+DOCUMENTATION:
 
 * Added large example to xFix.
 
@@ -1110,7 +1119,7 @@ Documentation:
 
 * Extended xUnit's example.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Removed unevaluated check for kiwi objects in one case
 of as_typed_vector's if condition.
@@ -1133,7 +1142,7 @@ Date: 2014-5-12
 
 This release adds xIsNot, improves documentation.
 
-Enhancements:
+ENHANCEMENTS:
 
 * added xIsNot, a complement to xIs.
 
@@ -1142,11 +1151,11 @@ if an kiwi object is supplied (accidentally) this is stated.
 
 * Implemented basic object summarisation for data frames (upon error).
 
-Bug-Fixes:
+BUG FIXES:
 
 * xAtCol now attempts to container type-convert its numeric input "num".
 
-Documentation:
+DOCUMENTATION:
 
 * Added details and corner cases to xAtCol.
 
@@ -1156,10 +1165,12 @@ Documentation:
 
 * Clarified a corner case in xAllOf, xAnyOf, xNoneOf.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * added fromStream, part of the testing tool in development.
+
 * throw_kiwi_error can now be called without a call argument.
+
 * forall will now correctly report errors; previously the argument order was backwards.
 
 
@@ -1179,14 +1190,14 @@ Date: 2014-5-11
 
 This release drastically improves the appearance of error messages.
 
-Enhancements:
+ENHANCEMENTS:
 
 * improved the appearance of error messages; they now take up less space.
 
 * for error-causing lists, two new properties are displayed in the error:
 'is nested' and 'all nested'.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * renamed propeties of summate to use whitespace instead of underscores.
 
@@ -1215,7 +1226,7 @@ Date: 2014-5-10
 
 A mostly internal release, renamed Any, xNone, to xAllOf, xAnyOf, xNoneOf.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Renamed xAll, xAny, xNone, to xAllOf, xAnyOf, xNoneOf. This complies better
 with Kiwi's naming conventions.
@@ -1223,7 +1234,7 @@ with Kiwi's naming conventions.
 * Functions that require collections, functions, or collections of functions
 will now inform the user if they were (accidentally) given an kiwi object.
 
-Documentation:
+DOCUMENTATION:
 
 * Added more accurate desciption to the xAs* family of container converters.
 
@@ -1232,7 +1243,7 @@ render correctly in most cases.
 
 * Minor updates to the readme.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Deprecated and removed assert, moving over to the more flexible
 functions throw_kiwi_error and throw_kiwi_warning.
@@ -1257,7 +1268,7 @@ Date: 2014-5-7
 
 Added xNotSubset, renamed xNot and removed xAsClosure.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xNotSubset, to complement the function xIsSubset.
 
@@ -1266,7 +1277,7 @@ Enhancements:
 * Removed xAsClosure; the function had very minimal likely use-cases,
 and did not work for every primitive function.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Removed a lot of dead code (mostly error message code).
 
@@ -1294,7 +1305,7 @@ Date: 2014-5-4
 A feature-rich version; adds three new functions for testing equality
 and match/mismatch against a regular expression.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xIs; a function for testing if values are identical.
 
@@ -1302,16 +1313,16 @@ Enhancements:
 
 * Added xNotMatch; tests if a string doesn't match a regular expression.
 
-Bug-Fixes:
+BUG FIXES:
 
 * renamed xAddKeys... to xAddKeys_, to keep in step with other variadic
 methods.
 
-Documentation:
+DOCUMENTATION:
 
 * Added example for xIs.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Added tests for xIs, xIsMatch, xNotMatch.
 
@@ -1332,18 +1343,18 @@ Date: 2014-5-4
 This version adds xNone and a logo, and fixes an important bug in error-reporting
 functions (no irony whatsoever).
 
-Enhancements:
+ENHANCEMENTS:
 
 * Added xNone; the antonym of xAllOf. It completes the set of functions
 xAllOf (does every element match a predicate?), xAnyOf (does any element match a predicate?)
 and now xNone (does no value match a predicate?).
 
-Bug-Fixes:
+BUG FIXES:
 
 * Fixed an issue in reporting of missing arguments (and possibly other exceptions). The
 name of the argument for which an error is thrown is now displayed properly.
 
-Documentation:
+DOCUMENTATION:
 
 * Added a prototype logo for Kiwi!
 
@@ -1353,7 +1364,7 @@ Documentation:
 
 * Added example for xLastOf.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * Fixed broken link tags in header of staticdocs head file.
 
@@ -1378,12 +1389,12 @@ Date: 2014-5-3
 
 A bug-fix release.
 
-Enhancements:
+ENHANCEMENTS:
 
 * Very slightly improved xProdSetOf's efficiency by changing an inner Map
 to lapply.
 
-Bug-Fixes:
+BUG FIXES:
 
 * Fixed a bug in as_method, in which variadic methods were not being generated
 due to the use of an outdated regular expression to test whether the input function
@@ -1395,12 +1406,12 @@ the user-facing function they were thrown from.
 * Fixed corner-case for xOneOf; if given a length one vector it extracts the value
 from its collection (if it is a list).
 
-Documentation:
+DOCUMENTATION:
 
 * Added most missing type signatures to function docs.
 * Added several missing titles to function docs.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * as_atom and as_typed_vector now use the parent call
 (sys.call(-1)) in error reports.
@@ -1423,7 +1434,7 @@ Date: 2014-5-2
 
 A minor release, mostly housekeeping and repaying technical debt.
 
-Bug-Fixes:
+BUG FIXES:
 
 * the xAsComplex, xAsInteger... family of functions now support conversion
 of lists that contain NA values of any mode, at the cost of some performance.
@@ -1431,11 +1442,11 @@ of lists that contain NA values of any mode, at the cost of some performance.
 * xLambda now checks that ':' is used as a parametre delimiter;
 previously several infix functions could be used.
 
-Documentation:
+DOCUMENTATION:
 
 * type signatures added to several more function's documentation.
 
-Package Internals:
+PACKAGE INTERNALS:
 
 * internal function `MakeVariadic` used to generate variadic forms of
 functions, which should help avoid bugs in their definitions.
