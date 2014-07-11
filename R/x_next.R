@@ -329,9 +329,8 @@ make_method <- local({
 			bquote({
 
 				argnames <- names(as.list(match.call(expand.dots = False))[-1])
-				args <- lapply(
-					argnames, function (param) {
-					print( eval(as.symbol(param)) )
+				args <- lapply(argnames, function (param) {
+					eval(as.symbol(param))
 				})
 				names(args) <- argnames
 
@@ -360,9 +359,8 @@ make_method <- local({
 			bquote({
 
 				argnames <- names(as.list(match.call(expand.dots = False))[-1])
-				args <- lapply(
-					argnames, function (param) {
-					print( eval(as.symbol(param)) )
+				args <- lapply(argnames, function (param) {
+					eval(as.symbol(param))
 				})
 				names(args) <- argnames
 
