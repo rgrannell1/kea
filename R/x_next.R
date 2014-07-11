@@ -166,34 +166,33 @@ fns_with_params <- function (fns, params) {
 #
 #
 #
-# The rules of parametre fixing are complex.
+#                        THE RULES
 #
-# 1, Unary-nonvariadic functions NEVER return a method with parametres.
+# 1, every method is available in the method chain.
 #
-# 2, Unary variadic functions are
+# 2, every method has the same parametres as the function.
 #
+# 3, if too many arguments are given, an error is thrown saying the
+#    LHS couldn't be bound to any parametre.
 #
-# 3, The parametres val, val0, val1 are always available.
+# 4, if too few arguments are given, an error is thrown before
+#    kiwi's partial application kicks in. This prevents ambiguities with
+#    rebinding Self() after the user fixes another parametre.
 #
-# 2, param{n + 1} > param{n}
+# 5, The LHS will preferentially bind to one of the methods parameters;
+#    for example collections will bind to 'coll' more preferably than
+#    to the parametre 'fn'.
 #
+#    In this way, a call to a method without using names should never be
+#    ambigious.
 #
+# 6, By calling a method with named arguments you can choose a parametre
+#    to supply an argument to, as is normal for functions. In this case
+#    the LHS is bound to it's second favourite parametre.
 #
+# 7, If the LHS is bound to a parametre for which it couldn't possibly
+#    be correct (a collection to 'fn') an error is thrown.
 #
-
-# -- function prototype
-#    x_(fn) $ xFold(val, fn, coll)
-#    x_(fn) $ xAnyOf(coll)
-#
-# -- collection prototype
-#
-#
-# -- any prototype
-#
-#   x_(val)  $ xIsTrue()
-#
-#   x_(val0) $ xIs(val1)
-#   x_(val1) $ xIs(val0)
 
 
 
@@ -225,26 +224,30 @@ make_method <- local({
 
 	function (fn_name, params) {
 
-		# -- GT ordering pairs
+		fn              <- lookup_fn(fn_name)
+		fn_params       <- names(formals(fn))
+		fn_proto_params <- as_proto_params(fn_name)
 
-		fn        <- lookup_fn(fn_name)
-		fn_params <- as_proto_params(fn_name)
+		method <- function () {}
 
-		if (length(fn_params) == 1 && !has_variadic_param(fn_params)) {
-			# -- x_(val) $ xUnary()
-			#
-			# -- the simplest case; these functions always fix their only
-			# -- parametre.
+		# -- this may be complexified in a future version.
+		formals(method) <- formals(fn)
 
+		body(method) <- bquote({
 
-		}
+			# -- this can only be one argument short of
+			# -- supplying arguments to its underlying function.
+			args <- as.list(match.call())[-1]
 
-
-
-		# -- determine the parametres to return.
-
+			# -- check if the remaining argument is in the prototype.
 
 
+
+
+		})
+
+		environment(method) <- new.env(parent = environment(fn))
+		method
 	}
 
 })
