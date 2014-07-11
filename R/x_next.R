@@ -307,7 +307,16 @@ make_method <- local({
 				# -- set the LHS to the highest-preference
 				# -- unnamed argument.
 
-				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
+				if (length(args) != length(.( names(formals(fn)) )) - 1) {
+
+					message = "Too few arguments were supplied to the method " %+% .(paste(fn_sym)) %+%
+						", as methods\ncannot currently be partially applied.\n"
+					throw_kiwi_error(sys.call(), message)
+
+				}
+
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <-
+					quote(Self())
 
 				do.call(.(fn_sym), args)
 			})
@@ -325,7 +334,16 @@ make_method <- local({
 				# -- set the LHS to the highest-preference
 				# -- unnamed argument.
 
-				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
+				if (length(args) != length(.( names(formals(fn)) )) - 1) {
+
+					message = "Too few arguments were supplied to the method " %+% .(paste(fn_sym)) %+%
+						", as methods\ncannot currently be partially applied.\n"
+					throw_kiwi_error(sys.call(), message)
+
+				}
+
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <-
+					quote(Self())
 
 				x_(do.call(.(fn_sym), args))
 			})
