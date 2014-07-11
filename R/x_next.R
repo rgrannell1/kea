@@ -21,8 +21,10 @@ is_unchaining <- function (fn_name) {
 
 
 
-# Convert a function name to another form
+
+# as_variadic :: <string> -> <string>
 #
+# Convert a method to the form xMethod_ | x_Method_
 
 as_variadic     <- function (fn_name) {
 	if (is_variadic(fn_name)) {
@@ -32,6 +34,10 @@ as_variadic     <- function (fn_name) {
 	}
 }
 
+# as_chaining :: <string> -> <string>
+#
+# Convert a method to the form x_Method | x_Method_
+
 as_chaining   <- function (fn_name) {
 	if (!is_unchaining(fn_name)) {
 		fn_name
@@ -40,6 +46,10 @@ as_chaining   <- function (fn_name) {
 	}
 }
 
+# as_nonvariadic :: <string> -> <string>
+#
+# Convert a method to the form xMethod | x_Method
+
 as_nonvariadic     <- function (fn_name) {
 	if (!is_variadic(fn_name)) {
 		fn_name
@@ -47,6 +57,10 @@ as_nonvariadic     <- function (fn_name) {
 		gsub('_$', '', fn_name)
 	}
 }
+
+# as_unchaining :: <string> -> <string>
+#
+# Convert a method to the form xMethod | xMethod_
 
 as_unchaining   <- function (fn_name) {
 	if (is_unchaining(fn_name)) {
@@ -57,16 +71,19 @@ as_unchaining   <- function (fn_name) {
 }
 
 
+
+
+
 # lookup_fn :: <character> -> function
 #
-#
+# take a method name and find its coresponding function.
 
-lookup_fn <- function (fn_name) {
+lookup_fn <- function (method_name) {
 
-	if (is_unchaining(fn_name)) {
-		kiwi_env[[ as_chaining(fn_name) ]]
+	if (is_unchaining(method_name)) {
+		kiwi_env[[ as_chaining(method_name) ]]
 	} else {
-		kiwi_env[[fn_name]]
+		kiwi_env[[method_name]]
 	}
 }
 
