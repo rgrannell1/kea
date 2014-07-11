@@ -640,6 +640,30 @@ suggest_similar_method <- local({
 		}
 	}
 
+	# change_of_suffix :: <character> -> <character> -> <character>
+	#
+	# Transforms the suffix of a method and checks if it equals
+	# after changing the suffix.
+	#
+	# xMethod -> xMethodOf | xMethodOf -> xMethod
+
+	change_of_suffix <- function (method_name, candidates) {
+
+		with_suffix    <- gsub('_$', 'Of_', method_name)
+		without_suffix <- gsub('Of_$',  '', method_name)
+
+		if (any(candidates == with_suffix)) {
+			with_suffix
+		} else if (any(candidates == without_suffix)) {
+			without_suffix
+		}
+	}
+
+
+
+
+
+
 	function (val, method_name, content_type, invoking_call) {
 
 		# -- get the edit distance to each
@@ -650,7 +674,10 @@ suggest_similar_method <- local({
 
 		# -- try to find a similar method.
 		matches    <- list(
-			close = close_method(method_name, candidates)
+			close =
+				close_method(method_name, candidates),
+			change_of_suffix =
+				change_of_suffix(method_name, candidates)
 		)
 
 		similar <- matches[[ which(nchar(matches) > 0)[1] ]]
