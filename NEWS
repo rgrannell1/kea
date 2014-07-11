@@ -8,11 +8,16 @@ The implementation of methods has been overhauled.
 ENHANCEMENTS:
 
 
-* Methods .
+* Methods are now available in more forms; when a method is called on a value that
+could be used as an input to multiple parametres the LHS of the method call can be
+set as any of the parametres. This is less arbitrary than the previous system in which
+one parametre was chosen (by hand) to be fixed as the left-hand side of a method call.
 
 
 * Methods can no longer be automatically partially applied, though this ability
-may be re-instated in a future release.
+may be re-instated in a future release. This isn't a great loss, as partial application
+of methods was confusing, verbose and an unintential side-effect of having partially-applicable
+functions.
 
 * Renamed xRankOf to xRank, as function names should be verbs where
 possible and the function does actually rank numbers.
