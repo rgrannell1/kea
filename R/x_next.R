@@ -76,11 +76,13 @@ lookup_fn <- function (fn_name) {
 # function has one, so that the ... parametre is
 # attached to the correct prototype.
 
-as_proto_params <- function (fn_name) {
+as_proto_params <- function (method_name) {
+
+	fn_name <- as_chaining(method_name)
 
 	if (is_variadic(fn_name)) {
 
-		variadic_fn <- kiwi_env[[fn_name]]
+		variadic_fn <- lookup_fn(fn_name)
 		fn          <- kiwi_env[[ as_nonvariadic(fn_name) ]]
 
 		variadic_params <- names(formals(variadic_fn))
