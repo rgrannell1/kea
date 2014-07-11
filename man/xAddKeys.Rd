@@ -76,14 +76,14 @@ Other key_functions: \code{\link{xIndicesOf}},
   \code{\link{xIndicesOf_}}; \code{\link{xKeysOf}},
   \code{\link{xKeysOf_}}; \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
-  \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
-  \code{\link{xZipKeys_}}
+  \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}};
+  \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}
 
 Other key_functions: \code{\link{xIndicesOf}},
   \code{\link{xIndicesOf_}}; \code{\link{xKeysOf}},
   \code{\link{xKeysOf_}}; \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
-  \code{\link{xUnzipKeys_}}; \code{\link{xZipKeys}},
-  \code{\link{xZipKeys_}}
+  \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}};
+  \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}
 }
 

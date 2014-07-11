@@ -58,8 +58,7 @@ xSelect(xUnspread(
 x_UniqueOf()
 }
 \seealso{
-Other filtering_functions: \code{\link{xPartition}},
-  \code{\link{xPartition_}}; \code{\link{xReject}},
+Other filtering_functions: \code{\link{xReject}},
   \code{\link{xReject_}}
 }
 

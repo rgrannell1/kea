@@ -62,7 +62,7 @@ Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xIndicesOf_}}; \code{\link{xKeysOf}},
   \code{\link{xKeysOf_}}; \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
-  \code{\link{xUnzipKeys_}}
+  \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}}
 
 Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChop}},

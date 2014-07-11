@@ -58,6 +58,12 @@ one_gen_ <- function (...) {
 	one_gen(list(...))
 }
 
+listify <- function (atom) {
+	function (len) {
+		as.list(atom(len))
+	}
+}
+
 
 
 
@@ -72,14 +78,14 @@ from_stream <- ( function () {
 	# -- yield a single valid R object.
 
 	#-- finish this alphabet
-	extended_ascii <- strsplit("abcdefghijklmnopqrsruvwxyz0123456789", '')[[1]]
+	ascii <- strsplit( "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", '')[[1]]
 	# -- needed, as strsplit can do weird things.
-	extended_ascii <- Filter(function (x) length(x) > 0, extended_ascii)
+	ascii <- Filter(function (x) length(x) > 0, ascii)
 
 	# -- whitespace
 	whitespace <- c(' ', '	')
 
-	this <- new.env(parent = parent.frame())
+		this <- new.env(parent = parent.frame())
 
 	# -- na's
 
@@ -92,13 +98,13 @@ from_stream <- ( function () {
 		pick_one_(character(0))
 
 	this $ character <-
-		pick_one(extended_ascii)
+		pick_one(ascii)
 
 	this $ word <-
 		function (len) {
 
 			paste0(
-				rsample(extended_ascii, size = len, replace = True),
+				rsample(ascii, size = len, replace = True),
 				collapse = '')
 		}
 
@@ -244,6 +250,8 @@ from_stream <- ( function () {
 	this $ named_empty_integer <-
 		add_names(this $ empty_integer)
 
+	this $ named_empty_integerlist <-
+		listify(this $ named_empty_integer)
 
 
 

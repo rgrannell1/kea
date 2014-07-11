@@ -87,7 +87,7 @@ k_nearest <- (dist : point : training) := {
 		xMap(dist_to_test_point) $ x_AsDouble()
 
 	# rank the distances from closest to furthest.
-	nearest <- x_(training) $ xSlice(xWhere(xRankOf(distances) <= k))
+	nearest <- x_(training) $ xSlice(xWhere(xRank(distances) <= k))
 
 	# get the frequencies of the categories among the closest.
 	category_frequencies <-

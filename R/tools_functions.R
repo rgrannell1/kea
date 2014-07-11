@@ -404,7 +404,9 @@ load_test_dependencies <- function (envir) {
 			`+.xforall`   = `+.xforall`,
 
 			is_collection = is_collection,
+
 			is_atomic     = is_atomic,
+			is_generic    = is_generic,
 			as_named      = as_named,
 			is_named      = is_named
 		)

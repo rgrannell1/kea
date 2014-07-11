@@ -91,8 +91,7 @@ elems_smaller_than(10, c(1, 8, 10, 11, 100))
 # c(1, 8, 10)
 }
 \seealso{
-Other filtering_functions: \code{\link{xPartition}},
-  \code{\link{xPartition_}}; \code{\link{xSelect}},
+Other filtering_functions: \code{\link{xSelect}},
   \code{\link{xSelect_}}
 }
 

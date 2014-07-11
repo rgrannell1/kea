@@ -24,7 +24,7 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-.R
+#'    inst/examples/example-xValuesOf.R
 #'
 #' @rdname xValuesOf
 #' @export
