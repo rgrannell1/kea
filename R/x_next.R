@@ -33,7 +33,7 @@ as_variadic     <- function (fn_name) {
 }
 
 as_chaining   <- function (fn_name) {
-	if (is_unchaining(fn_name)) {
+	if (!is_unchaining(fn_name)) {
 		fn_name
 	} else {
 		gsub('^x_', 'x', fn_name)
@@ -57,8 +57,21 @@ as_unchaining   <- function (fn_name) {
 }
 
 
+# lookup_fn :: <character> -> function
+#
+#
 
+lookup_fn <- function (fn_name) {
 
+	if (is_unchaining(fn_name)) {
+		kiwi_env[[ as_chaining(fn_name) ]]
+	} else {
+		kiwi_env[[fn_name]]
+	}
+}
+
+# as_proto_params :: <character> -> <character>
+#
 # annotate the ... parametre of a function, if the
 # function has one, so that the ... parametre is
 # attached to the correct prototype.
@@ -71,9 +84,9 @@ as_proto_params <- function (fn_name) {
 		fn          <- kiwi_env[[ as_nonvariadic(fn_name) ]]
 
 		variadic_params <- names(formals(variadic_fn))
-		params <- names(formals(fn))
+		params          <- names(formals(fn))
 
-		spread_param <- params[!(params %in% variadic_params)]
+		spread_param    <- params[!(params %in% variadic_params)]
 
 		variadic_params[variadic_params == '...'] <- paste0('...', spread_param)
 		variadic_params
@@ -116,8 +129,7 @@ fns_with_params <- function (fns, params) {
 
 
 
-
-# make_method
+# make_method :: <character> -> <character> -> function
 #
 # make method generates a method from a kiwi function.
 #
@@ -143,19 +155,13 @@ fns_with_params <- function (fns, params) {
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
 # The rules of parametre fixing are simple enough.
 #
-# 1, if, for a particular prototype, a parametre
+# 1, if, for a particular prototype, a parametres
+#
+# 2, param{n + 1} > param{n}
+#
+#
 #
 #
 
@@ -177,7 +183,6 @@ make_method <- local({
 			},
 			list(
 				c('coll2', 'coll1'),
-
 				c('str2', 'str1')
 			)
 		)
@@ -188,17 +193,14 @@ make_method <- local({
 
 	}
 
-	function (fn, params) {
+	function (fn_name, params) {
 
 		# -- GT ordering pairs
 
+		fn        <- lookup_fn(fn_name)
+		fn_params <- as_proto_params(fn_name)
 
-
-
-
-
-
-
+		print(fn_params)
 
 
 	}
