@@ -224,30 +224,6 @@ fns_with_params <- function (fns, params) {
 
 make_method <- local({
 
-	param_preceedence <- function (param1, param2) {
-
-		# -- a partial relation; declaring an exhaustive
-		# -- relation would be a complete pain.
-		#
-		# -- if an odd combination of parametres
-		# -- is used this must be updated.
-
-		match <- Filter(
-			function (pair) {
-				all(c(param1, param2) %in% pair)
-			},
-			list(
-				c('coll2', 'coll1'),
-				c('str2', 'str1')
-			)
-		)
-
-		if (length(match) == 0) {
-			stop('internal error! no match found for ordering of ', param1, ' ', param2)
-		}
-
-	}
-
 	# create_static_body :: function x <string> x <string> -> Expression
 	#
 	# create_static_body creates the body for methods in which the
@@ -631,6 +607,76 @@ get_proto_ref <- local({
 
 
 
+
+
+
+
+# suggest :: <character> ->
+#
+# suggest takes a mispelled method name, and
+# returns the name of the most similar method.
+# It uses a combination of nearest-string
+# search, and manual hacks.
+#
+
+suggest_similar_method <- local({
+
+	# close_method :: <character> -> <character> -> <character>
+	#
+	# Get the string distance to other candidate methods, and return
+	# sufficiently close methods.
+
+	close_method <- function (method_name, candidates) {
+
+		dists <- adist(method_name, candidates)
+
+		meets_threshold <-
+			min(dists) < ceiling(nchar(method_name) / log(nchar(method_name)) )
+
+		if (meets_threshold) {
+			candidates[which.min(dists)]
+		} else {
+			character(0)
+		}
+	}
+
+	function (val, method_name, content_type, invoking_call) {
+
+		# -- get the edit distance to each
+		# -- to each method in the prototype.
+		proto <- get_proto_ref(val)
+
+		candidates <- setdiff(proto[[2]], 'private')
+
+		# -- try to find a similar method.
+		matches    <- list(
+			close = close_method(method_name, candidates)
+		)
+
+		similar <- matches[[ which(nchar(matches) > 0)[1] ]]
+
+		# -- build up the message.
+
+		message <- if (length(similar) == 0) {
+			"Could not find the method " %+% dQuote(method_name) %+%
+			" in the methods available for " %+% content_type %+% "."
+		} else {
+			"Could not find the method " %+% dQuote(method_name) %+%
+			" in the methods available for " %+% content_type %+%
+			":\n" %+%
+			colourise $ green(
+				"did you mean " %+% rsample(similar, size = 1) %+% "?")
+		}
+
+		throw_kiwi_error(invoking_call, message)
+	}
+})
+
+
+
+
+
+
 #' @export
 
 `$.kiwi` <- local({
@@ -681,7 +727,7 @@ get_proto_ref <- local({
 		alias('xFilter',      'xSelect'),
 		alias('xFilterNot',   'xReject'),
 
-		alias('xMean',      'xMeanOf'),
+		alias('xMean',        'xMeanOf'),
 		alias('xFilterNot',   'xReject'),
 
 		alias('xGroup',       'xChunk'),
@@ -716,49 +762,6 @@ get_proto_ref <- local({
 		alias('xValues',    'xValuesOf')
 	)
 
-	suggest_similar_method <- local({
-		# -- the spell-checker for Kiwi's methods.
-
-		message <- function (name, contents_are, similar) {
-
-			if (length(similar) == 0) {
-				"Could not find the method " %+% dQuote(name) %+%
-				" in the methods available for " %+% contents_are %+% "."
-			} else {
-				"Could not find the method " %+% dQuote(name) %+%
-				" in the methods available for " %+% contents_are %+%
-				":\n" %+%
-				colourise$green("did you mean " %+% rsample(similar, size = 1) %+% "?")
-			}
-		}
-
-		function (val, method_name, contents_are, invoking_call) {
-			# given an incorrect method name throw an error
-			# suggesting a similar
-
-			proto       <- get_proto_ref(val)
-			method_name <- method_name
-
-			candidate_methods <- setdiff(proto[[2]], 'private')
-
-			# -- get the edit distance to each method in the prototype.
-			distances <- adist(method_name, candidate_methods)
-
-			similar   <- if ( any(method_name == names(autosuggested)) ) {
-				autosuggested[[method_name]]
-			} else if (min(distances) < nchar(method_name) / 2) {
-
-				candidate_methods[which.min(distances)]
-
-			} else {
-				character(0)
-			}
-
-			throw_kiwi_error(
-				message = message(method_name, contents_are, similar))
-		}
-	})
-
 	function (obj, method) {
 		# Kiwi a -> symbol -> function
 		# return an kiwi method associated with the type a.
@@ -780,7 +783,9 @@ get_proto_ref <- local({
 		}
 
 		fn <- proto[[1]][[method_name]]
-		environment(fn)[['Self']] <- function () obj[['x']]
+		environment(fn)[['Self']] <- function () {
+			obj[['x']]
+		}
 
 		fn
 	}
@@ -793,7 +798,9 @@ get_proto_ref <- local({
 print.kiwi <- function (x, ...) {
 
 	proto        <- get_proto_ref( x[['x']] )
-	contents_are <- proto[[1]][['private']] [['contents_are']]
+	contents_are <- proto[[1]][['p
+
+	rivate']] [['contents_are']]
 
 	header <- colourise $ blue(
 		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
