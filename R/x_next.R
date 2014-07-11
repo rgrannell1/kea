@@ -224,14 +224,42 @@ make_method <- local({
 
 	function (fn_name, params) {
 
-		fn              <- lookup_fn(fn_name)
-		fn_params       <- names(formals(fn))
-		fn_proto_params <- as_proto_params(fn_name)
+		fn                 <- lookup_fn(fn_name)
+		fn_params          <- names(formals(fn))
+		fn_proto_params    <- as_proto_params(fn_name)
+
+		which_proto_params <- which(fn_proto_params %in% params)
+		which_other_params <- which(fn_proto_params %!in% params)
 
 		method <- function () {}
 
-		# -- this may be complexified in a future version.
 		formals(method) <- formals(fn)
+
+		if (length(which_proto_params) == 1) {
+			# -- the LHS only satifies one parametre.
+			# -- so that parametre cannot be set by the user.
+			# -- remove the parametre from the method's formals.
+
+			formals(method) <- formals(fn)[which_other_params]
+		} else {
+			# -- the LHS satisfies multiple parametres, so
+			# -- the user may possibly choose which parametre
+			# -- it gets bound to.
+
+
+
+
+		}
+
+
+
+		if (fn_name == 'xAllOf' && 'coll' %in% params) {
+
+			print(fn_proto_params)
+
+			print(params)
+		}
+
 
 		body(method) <- bquote({
 
@@ -239,8 +267,10 @@ make_method <- local({
 			# -- supplying arguments to its underlying function.
 			args <- as.list(match.call())[-1]
 
-			# -- check if the remaining argument is in the prototype.
+			# -- set the LHS to the highest-preference
+			# -- unnamed argument.
 
+			print(args)
 
 
 
