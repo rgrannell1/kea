@@ -292,20 +292,14 @@ make_method <- local({
 
 	create_dynamic_body <- function (fn, method_name, fixed) {
 
+		# -- this can only be one argument short of
+		# -- supplying arguments to its underlying function.
+		args <- as.list(match.call())[-1]
 
+		# -- set the LHS to the highest-preference
+		# -- unnamed argument.
 
-
-
-
-
-
-
-
-
-
-
-
-
+		print(args)
 
 
 	}
@@ -357,29 +351,9 @@ make_method <- local({
 			# -- input.
 
 			formals(method) <- formals(fn)
+			body(method)    <- create_dynamic_body(fn, fn_name)
+
 		}
-
-		if (fn_name == 'xAllOf' && 'coll' %in% params) {
-
-			print(fn_proto_params)
-
-			print(params)
-		}
-
-		body(method) <- bquote({
-
-			# -- this can only be one argument short of
-			# -- supplying arguments to its underlying function.
-			args <- as.list(match.call())[-1]
-
-			# -- set the LHS to the highest-preference
-			# -- unnamed argument.
-
-			print(args)
-
-			x_( .(as.call(list(fn_sym))) )
-
-		})
 
 		environment(method) <- new.env(parent = environment(fn))
 		method
