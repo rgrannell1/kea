@@ -307,8 +307,9 @@ make_method <- local({
 				# -- set the LHS to the highest-preference
 				# -- unnamed argument.
 
-				print(matched_args)
-				do.call(fn, args)
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
+
+				do.call(.(fn_sym), args)
 			})
 
 		} else {
@@ -329,12 +330,6 @@ make_method <- local({
 				x_(do.call(.(fn_sym), args))
 			})
 		}
-
-
-
-
-
-
 	}
 
 	function (fn_name, params) {
