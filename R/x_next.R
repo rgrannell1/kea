@@ -418,7 +418,7 @@ make_method <- local({
 # make_proto takes kiwi's function names, and a list of parametres
 # that flag the function for inclusion in the prototype.
 
-make_proto <- function (fns, params) {
+make_proto <- function (fns, params, description) {
 
 	self      <- Object()
 
@@ -431,6 +431,7 @@ make_proto <- function (fns, params) {
 		self[[proto_fn]] <- make_method(proto_fn, params)
 	}
 
+	self $ private <- list(contents_are = description)
 	self
 }
 
@@ -478,11 +479,11 @@ proto_params <- list(
 
 kiwi_fns         <- ls(kiwi_env, pattern = 'x[A-Z]')
 
-x_any_proto      <- make_proto(kiwi_fns, proto_params $ any)
-x_table_proto    <- make_proto(kiwi_fns, proto_params $ table)
-x_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor)
-x_function_proto <- make_proto(kiwi_fns, proto_params $ `function`)
-x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll)
+x_any_proto      <- make_proto(kiwi_fns, proto_params $ any,        'arbitrary values')
+x_table_proto    <- make_proto(kiwi_fns, proto_params $ table,      'data-frames or matrices')
+x_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor,     'factors')
+x_function_proto <- make_proto(kiwi_fns, proto_params $ `function`, 'functions')
+x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll,       'collections')
 
 
 
