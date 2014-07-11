@@ -308,7 +308,7 @@ ENHANCEMENTS:
 * Removed '%of%', one of two infix composition operators. Calls to
 %then% are easier to read.
 
-Bug Fixes:
+BUG FIXES:
 
 * the parametre 'fns' ands 'colls' now correctly validates its input;
 previously it did not check if its argument was a collection of functions
@@ -351,7 +351,7 @@ better achieved by xMap(xAtKey()).
  and they are largely untested. Decatenation functions will be reintroduced
  at a later date, though probably in a different form.
 
-Bug Fixes:
+BUG FIXES:
 
 * Fixed a bug in xRead; multiple lines are now correctly collapsed with the
 newline character.
@@ -401,7 +401,7 @@ will be ironed out in the future.
 xTakeWhile, xPoll, xSplitWith now throws an error if a non-boolean result is given by
 an input predicate.
 
-Bug Fixes:
+BUG FIXES:
 
 * xChop and xChunk now respond useful errors for NaN values.
 
@@ -454,7 +454,7 @@ and there are no tests validating it works when directly called.
 * Improved the performance of arrow functions, particularily for unary functions with no
 underscores.
 
-Bug Fixes:
+BUG FIXES:
 
 * Arrow functions now correctly displays where its errors were raised from.
 
@@ -629,7 +629,7 @@ ENHANCEMENTS:
 
 * Added xLastAs, which sets the last value of a collection.
 
-Bug Fixes:
+BUG FIXES:
 
 * xFirstAs ... xFourthAs could not be correctly partially-applied. This is fixed, and
 a future version of Kiwi will guard against these errors.

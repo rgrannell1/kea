@@ -315,7 +315,6 @@ make_method <- local({
 	#
 	#
 
-
 	create_dynamic_body <- function (fn, method_name, fixed) {
 
 		# -- this can only be one argument short of
