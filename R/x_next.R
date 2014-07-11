@@ -737,7 +737,7 @@ get_proto_ref <- local({
 		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
 			# -- the invoked method wasn't found, so we should give a suggestion.
 
-			invoking_call <- paste0('$', method_name)
+			invoking_call <- paste0(' $ ', method_name)
 
 			contents_are <- proto[[1]][['private']][['contents_are']]
 
