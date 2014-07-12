@@ -659,6 +659,12 @@ suggest_similar_method <- local({
 		}
 	}
 
+	# change_to_prefix :: <character> -> <character> -> <character>
+	#
+	# Chage the prefix
+	#
+	# xAsMethod -> xToMethod | xToMethod -> xAsMethod
+
 	change_to_prefix <- function (method_name, candidates) {
 
 		with_prefix    <- gsub('As', 'To', method_name)
@@ -670,6 +676,11 @@ suggest_similar_method <- local({
 			without_prefix
 		}
 	}
+
+	# change_to_keys :: <character> -> <character> -> <character>
+	#
+	# Change occurrences of the substring 'Names' to 'Keys', as
+	# kiwi only uses Keys.
 
 	change_to_keys <- function (method_name, candidates) {
 
@@ -805,9 +816,7 @@ suggest_similar_method <- local({
 print.kiwi <- function (x, ...) {
 
 	proto        <- get_proto_ref( x[['x']] )
-	contents_are <- proto[[1]][['p
-
-	rivate']] [['contents_are']]
+	contents_are <- proto[[1]][['private']] [['contents_are']]
 
 	header <- colourise $ blue(
 		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
