@@ -680,9 +680,39 @@ suggest_similar_method <- local({
 		}
 	}
 
+	# change_common_name :: <character> -> <character> -> <character>
+	#
+	# Change_common_name checks if a method has a name commonly used in another language.
+
 	change_common_name <- function (method_name, candidates) {
 
+		alias <- function (from, to) {
+
+			out <- list()
+
+			for (incorrect in from) {
+				out <- list(out,
+					list(as_chaining(method_name),    as_chaining(to)),
+					list(as_unchaining(method_name),  as_unchaining(to)),
+					list(as_variadic(method_name),    as_variadic(to)),
+					list(as_nonvariadic(method_name), as_nonvariadic(to))
+				)
+			}
+
+			out
+		}
+
+		match <- Filter(
+			function (pair) {
+				pair[[1]] == method_name
+			},
+			c(
+				alias(c('xFilterNot', 'xRemove'), 'xReject'))
+		)
+
+		match[[2]]
 	}
+
 
 
 
@@ -702,7 +732,9 @@ suggest_similar_method <- local({
 			change_of_suffix =
 				change_of_suffix(method_name, candidates),
 			change_to_prefix =
-				change_to_prefix(method_name, candidates)
+				change_to_prefix(method_name, candidates),
+			change_common_name =
+				change_common_name(method_name, candidates)
 		)
 
 		similar <- matches[[ which(nchar(matches) > 0)[1] ]]
@@ -736,55 +768,6 @@ suggest_similar_method <- local({
 	# some methods are known by their more common
 	# but worse names (like filter, filterNot).
 	# Meet the user half way and suggest the "proper" name.
-
-	alias <- function (incorrect, correct) {
-
-		forms <- function (fn_name) {
-
-			list(
-				fn_name,
-				paste0(fn_name, '...'),
-				gsub('^x', 'x_', fn_name),
-				paste0(
-					gsub('^x', 'x_', fn_name),
-					 '...')
-			)
-		}
-
-		structure(
-			forms(correct),
-			names = forms(incorrect))
-	}
-
-	autosuggested <- c(
-		alias('x', 'x_'),
-		alias('xAsNumeric',   'xAsDouble'),
-
-		alias('xAsChars',     'xToChars'),
-		alias('xAsWords',     'xToWords'),
-		alias('xAsLines',     'xToLines'),
-
-		alias('xToChars',     'xFromChars'),
-		alias('xToWords',     'xFromWords'),
-		alias('xToLines',     'xFromLines'),
-
-		alias('xByColkeys',   'xByColrows'),
-		alias('xByRowkeys',   'xByRowrows'),
-		alias('xAddNames',    'xAddKeys'),
-
-		alias('xC',           'xJoin'),
-		alias('xConcat',      'xJoin'),
-		alias('xConcatenate', 'xJoin'),
-
-		alias('xFilter',      'xSelect'),
-		alias('xFilterNot',   'xReject'),
-
-		alias('xMean',        'xMeanOf'),
-		alias('xFilterNot',   'xReject'),
-
-		alias('xGroup',       'xChunk')
-
-	)
 
 	function (obj, method) {
 		# Kiwi a -> symbol -> function
