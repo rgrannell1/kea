@@ -10,7 +10,7 @@ kiwi_env <- environment()
 #
 # Check if a variable is of the form xMethod_ | x_Method_
 
-is_variadic   <- function (fn_name) {
+is_variadic <- function (fn_name) {
 	grepl('_$', fn_name)
 }
 
@@ -31,7 +31,7 @@ is_unchaining <- function (fn_name) {
 #
 # Convert a method to the form xMethod_ | x_Method_
 
-as_variadic     <- function (fn_name) {
+as_variadic <- function (fn_name) {
 	if (is_variadic(fn_name)) {
 		fn_name
 	} else {
@@ -43,7 +43,7 @@ as_variadic     <- function (fn_name) {
 #
 # Convert a method to the form x_Method | x_Method_
 
-as_chaining   <- function (fn_name) {
+as_chaining <- function (fn_name) {
 	if (!is_unchaining(fn_name)) {
 		fn_name
 	} else {
@@ -55,7 +55,7 @@ as_chaining   <- function (fn_name) {
 #
 # Convert a method to the form xMethod | x_Method
 
-as_nonvariadic     <- function (fn_name) {
+as_nonvariadic <- function (fn_name) {
 	if (!is_variadic(fn_name)) {
 		fn_name
 	} else {
@@ -67,7 +67,7 @@ as_nonvariadic     <- function (fn_name) {
 #
 # Convert a method to the form xMethod | xMethod_
 
-as_unchaining   <- function (fn_name) {
+as_unchaining <- function (fn_name) {
 	if (is_unchaining(fn_name)) {
 		fn_name
 	} else {
@@ -195,9 +195,7 @@ fns_with_params <- function (fns, params) {
 #                        THE RULES
 #
 # 1, every method is available in the method chain.
-#
-# 2, every method has the same parametres as the function.
-#
+##
 # 3, if too many arguments are given, an error is thrown saying the
 #    LHS couldn't be bound to any parametre.
 #
@@ -413,6 +411,7 @@ make_method <- local({
 		}
 
 		environment(method) <- new.env(parent = environment(fn))
+
 		method
 	}
 
