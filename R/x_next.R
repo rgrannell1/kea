@@ -338,7 +338,7 @@ make_method <- local({
 
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
 				args     <- lapply(argnames, function (param) {
-					eval(as.symbol(param))
+				eval(as.symbol(param))
 				})
 				names(args) <- argnames
 
