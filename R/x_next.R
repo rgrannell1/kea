@@ -92,6 +92,11 @@ lookup_fn <- function (method_name) {
 	}
 }
 
+
+
+
+
+
 # as_proto_params :: <character> -> <character>
 #
 # annotate the ... parametre of a function, if the
@@ -165,13 +170,11 @@ fns_with_params <- function (fns, params) {
 
 # make_method :: <character> -> <character> -> function
 #
-#
-#
 # make method generates a method from a kiwi function.
 #
 # make_method solves some problems with first-generation kiwi-methods;
 # each form of the method would have to explicitely added by hand, and
-# methods that should be available in multiple forms couldn't be.
+# methods that should be available in multiple forms werent.
 #
 # the new methods should allow the LHS argument to default to a particular
 # parametre based on a prototye, but by calling the method with a named argument
@@ -357,7 +360,7 @@ make_method <- local({
 				# -- reorder the arguments so that with their names removed they
 				# -- positionally match in the same way they would by name.
 
-				unnamed_args <- lapply( .( names(formals(fn)) ), function (param) {
+				unnamed_args <-	 lapply( .( names(formals(fn)) ), function (param) {
 					args[[param]]
 				})
 
@@ -397,7 +400,6 @@ make_method <- local({
 			# -- so that parametre cannot be set by the user.
 			# -- remove the parametre from the method's formals.
 
-
 			# -- is the sole parametre being fixed as self() variadic?
 			param_is_variadic <- has_variadic_param(fn_proto_params[which_proto_params])
 			formals(method)   <- if (param_is_variadic) {
@@ -408,8 +410,7 @@ make_method <- local({
 				formals(fn)[which_other_params]
 			}
 
-			body(method) <- create_static_body(
-				fn, fn_name, fn_params[which_proto_params])
+			body(method) <- create_static_body(fn, fn_name, fn_params[which_proto_params])
 
 		} else {
 			# -- the LHS satisfies multiple parametres, so
@@ -627,9 +628,9 @@ get_proto_ref <- local({
 
 
 
-# suggest :: <character> ->
+# suggest_similar_method :: <character> ->
 #
-# suggest takes a mispelled method name, and
+# suggest_similar_method takes a mispelled method name, and
 # returns the name of the most similar method.
 # It uses a combination of nearest-string
 # search, and manual hacks.
