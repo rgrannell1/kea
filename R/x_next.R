@@ -299,8 +299,8 @@ make_method <- local({
 
 			bquote({
 
-				argnames <- names(as.list(match.call(expand.dots = False))[-1])
-				args <- lapply(argnames, function (param) {
+				argnames <- names(as.list(match.call(expand.dots = True))[-1])
+				args     <- lapply(argnames, function (param) {
 					eval(as.symbol(param))
 				})
 				names(args) <- argnames
@@ -315,10 +315,17 @@ make_method <- local({
 				}
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
-				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <-
-					quote(Self())
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
 
-				do.call(.(fn_sym), args)
+				# -- reorder the arguments so that with their names removed they
+				# -- positionally match in the same way they would by name.
+
+				unnamed_args <- lapply( .( names(formals(fn)) ), function (param) {
+					args[[param]]
+				})
+
+				# -- unname
+				do.call(.(fn_sym), unnamed_args)
 			})
 
 		} else {
@@ -329,8 +336,8 @@ make_method <- local({
 
 			bquote({
 
-				argnames <- names(as.list(match.call(expand.dots = False))[-1])
-				args <- lapply(argnames, function (param) {
+				argnames <- names(as.list(match.call(expand.dots = True))[-1])
+				args     <- lapply(argnames, function (param) {
 					eval(as.symbol(param))
 				})
 				names(args) <- argnames
@@ -345,10 +352,17 @@ make_method <- local({
 				}
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
-				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <-
-					quote(Self())
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
 
-				x_(do.call(.(fn_sym), args))
+				# -- reorder the arguments so that with their names removed they
+				# -- positionally match in the same way they would by name.
+
+				unnamed_args <- lapply( .( names(formals(fn)) ), function (param) {
+					args[[param]]
+				})
+
+				# -- unname
+				x_(do.call(.(fn_sym), unnamed_args))
 			})
 		}
 	}
@@ -385,18 +399,14 @@ make_method <- local({
 
 
 			# -- is the sole parametre being fixed as self() variadic?
-			param_is_variadic <-
-				has_variadic_param(fn_proto_params[which_proto_params])
-
-			formals(method) <- if (param_is_variadic) {
+			param_is_variadic <- has_variadic_param(fn_proto_params[which_proto_params])
+			formals(method)   <- if (param_is_variadic) {
 				# -- variadic parametres can take multiple arguments;
 				# -- set the LHS to ...1, and keep ... around to take more args.
 				formals(fn)
 			} else {
 				formals(fn)[which_other_params]
 			}
-
-
 
 			body(method) <- create_static_body(
 				fn, fn_name, fn_params[which_proto_params])

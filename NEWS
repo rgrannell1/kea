@@ -14,6 +14,8 @@ BUG-FIXES:
 * Some variadic methods, such as xGroupBy_, did not have an ellipsis parametre; these methods
 would not run.
 
+* Some kiwi methods are no longer called with named arguments.
+
 PACKAGE INTERNALS:
 
 * added forall-next tests for xNotMatch, xNotTrue, xProdSetOf, xSliceString.
