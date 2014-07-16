@@ -286,8 +286,6 @@ make_method <- local({
 	# This creates the function body that accomponies methods in which the
 	# LHS matches multiple parametres, and the arguments supplied by the user
 	# might alter which parametre the LHS is bound to.
-	#
-	#
 
 	create_dynamic_body <- function (fn, method_name, fixed) {
 
@@ -360,9 +358,13 @@ make_method <- local({
 		fn                 <- lookup_fn(fn_name)
 		fn_sym             <- as.symbol(fn_name)
 		fn_params          <- names(formals(fn))
+
+		# -- expand variadic parametre (...) to its replacement ...coll, ...fns.
 		fn_proto_params    <- as_proto_params(fn_name)
 
+		# -- which parametres (including the typed variadic parametre) are in this prototype?
 		which_proto_params <- which(fn_proto_params %in%  params)
+		# -- which aren't?
 		which_other_params <- which(fn_proto_params %!in% params)
 
 		method <- function () {}
@@ -370,26 +372,31 @@ make_method <- local({
 		formals(method) <- formals(fn)
 
 		if (length(fn_params) == 1 && fn_params == '...') {
+			# -- the function just has a single variadic parametre.
 
 			formals(method) <- formals(fn)
-			body(method) <- create_static_body(
-				fn, fn_name, '...')
+			body(method)    <- create_static_body(fn, fn_name, '...')
 
 		} else if (length(which_proto_params) == 1) {
-			# -- the LHS only satifies one parametre.
+			# -- the LHS only satifies one parametre; only
+			# -- one param is in the prototype.
 			# -- so that parametre cannot be set by the user.
 			# -- remove the parametre from the method's formals.
 
-			param_is_variadic <-
-				has_variadic_param(fn_proto_params[which_other_params])
 
-			formals(method) <- if (!param_is_variadic) {
-				formals(fn)[which_other_params]
-			} else {
+			# -- is the sole parametre being fixed as self() variadic?
+			param_is_variadic <-
+				has_variadic_param(fn_proto_params[which_proto_params])
+
+			formals(method) <- if (param_is_variadic) {
 				# -- variadic parametres can take multiple arguments;
 				# -- set the LHS to ...1, and keep ... around to take more args.
 				formals(fn)
+			} else {
+				formals(fn)[which_other_params]
 			}
+
+
 
 			body(method) <- create_static_body(
 				fn, fn_name, fn_params[which_proto_params])

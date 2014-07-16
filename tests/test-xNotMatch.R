@@ -6,27 +6,21 @@ require(kiwi)
 
 message('xNotMatch')
 
-	forall(
-		"character 0 never matches all strings",
-		test_cases$str_word,
-		xNotMatch(character(0), str)  %is% logical(0)
-	)
+	over(str, coll) +
 
-	forall(
-		"'' never matches all strings",
-		test_cases$str_word,
-		xNotMatch('', str) == False
-	)
+	describe('character zero is logical zero') +
+	holdsWhen(
+		is.character(str) &&
+		is_collection(coll) && length(coll) == 0 &&
+		!is.na(str),
+		xNotMatch(coll, str) %is% logical(0),
+		xNotMatch(str, coll) %is% logical(0)
+	) +
 
-	forall(
-		"str never matches all strings",
-		test_cases$str_word,
-		xNotMatch(str, str) == False
-	)
+	describe("'' matches everything") +
+	holdsWhen(
+		is.character(str) && length(str) == 1,
+		!xNotMatch('', str)
+	) +
 
-	forall(
-		"str never matches empty string",
-		test_cases$str_word,
-		xNotMatch(str, character(0)) %is% logical(0)
-	)
-
+	run()

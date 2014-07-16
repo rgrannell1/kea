@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message("xPoll")
 
 	over(coll) +
@@ -31,20 +30,6 @@ message("xPoll")
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
 		xPoll(function (x) True, coll) == length(coll)
-	) +
-
-	run()
-
-message("xPoll")
-
-	over(coll) +
-
-	describe('xPoll fails for non-collections.') +
-	failsWhen(
-		!is_collection(coll),
-		xPoll(function (x) True,  coll),
-		xPoll(function (x) False, coll),
-		xPoll(function (x) Na,    coll)
 	) +
 
 	run()
