@@ -3,18 +3,19 @@ Kiwi 0.33.0
 -----------------------------------------------------------------------------
 Date: 2014-6-
 
-
+Fixed several bugs introduced .
 
 ENHANCEMENTS:
 
-* Improved method name suggestion.
+* Improved method-name suggestion.
 
 BUG-FIXES:
 
 * Some variadic methods, such as xGroupBy_, did not have an ellipsis parametre; these methods
 would not run.
 
-* Some kiwi methods are no longer called with named arguments.
+* Some kiwi methods are no longer called with named arguments, so no unneeded names are added
+to outputs.
 
 PACKAGE INTERNALS:
 
