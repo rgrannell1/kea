@@ -20,15 +20,3 @@ message("xPrepend")
 	) +
 
 	run()
-
-message("xPrepend")
-
-	over(val, coll) +
-
-	describe("fails if not a collection") +
-	failsWhen(
-		!is_collection(coll),
-		xPrepend(val, coll)
-	) +
-
-	run()

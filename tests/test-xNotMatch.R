@@ -1,32 +1,4 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xNotMatch')
-
-	forall(
-		"character 0 never matches all strings",
-		test_cases$str_word,
-		xNotMatch(character(0), str)  %is% logical(0)
-	)
-
-	forall(
-		"'' never matches all strings",
-		test_cases$str_word,
-		xNotMatch('', str) == False
-	)
-
-	forall(
-		"str never matches all strings",
-		test_cases$str_word,
-		xNotMatch(str, str) == False
-	)
-
-	forall(
-		"str never matches empty string",
-		test_cases$str_word,
-		xNotMatch(str, character(0)) %is% logical(0)
-	)
-

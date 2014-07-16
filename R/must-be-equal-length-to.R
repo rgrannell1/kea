@@ -1,9 +1,5 @@
 
 # Must_Be_Equal_Length_To
-#
-#
-#
-#
 
 Must_Be_Equal_Length_To <- function (COLL1, COLL2) {
 

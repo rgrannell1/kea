@@ -10,7 +10,7 @@ kiwi_env <- environment()
 #
 # Check if a variable is of the form xMethod_ | x_Method_
 
-is_variadic   <- function (fn_name) {
+is_variadic <- function (fn_name) {
 	grepl('_$', fn_name)
 }
 
@@ -31,7 +31,7 @@ is_unchaining <- function (fn_name) {
 #
 # Convert a method to the form xMethod_ | x_Method_
 
-as_variadic     <- function (fn_name) {
+as_variadic <- function (fn_name) {
 	if (is_variadic(fn_name)) {
 		fn_name
 	} else {
@@ -43,7 +43,7 @@ as_variadic     <- function (fn_name) {
 #
 # Convert a method to the form x_Method | x_Method_
 
-as_chaining   <- function (fn_name) {
+as_chaining <- function (fn_name) {
 	if (!is_unchaining(fn_name)) {
 		fn_name
 	} else {
@@ -55,7 +55,7 @@ as_chaining   <- function (fn_name) {
 #
 # Convert a method to the form xMethod | x_Method
 
-as_nonvariadic     <- function (fn_name) {
+as_nonvariadic <- function (fn_name) {
 	if (!is_variadic(fn_name)) {
 		fn_name
 	} else {
@@ -67,7 +67,7 @@ as_nonvariadic     <- function (fn_name) {
 #
 # Convert a method to the form xMethod | xMethod_
 
-as_unchaining   <- function (fn_name) {
+as_unchaining <- function (fn_name) {
 	if (is_unchaining(fn_name)) {
 		fn_name
 	} else {
@@ -195,9 +195,7 @@ fns_with_params <- function (fns, params) {
 #                        THE RULES
 #
 # 1, every method is available in the method chain.
-#
-# 2, every method has the same parametres as the function.
-#
+##
 # 3, if too many arguments are given, an error is thrown saying the
 #    LHS couldn't be bound to any parametre.
 #
@@ -223,30 +221,6 @@ fns_with_params <- function (fns, params) {
 
 
 make_method <- local({
-
-	param_preceedence <- function (param1, param2) {
-
-		# -- a partial relation; declaring an exhaustive
-		# -- relation would be a complete pain.
-		#
-		# -- if an odd combination of parametres
-		# -- is used this must be updated.
-
-		match <- Filter(
-			function (pair) {
-				all(c(param1, param2) %in% pair)
-			},
-			list(
-				c('coll2', 'coll1'),
-				c('str2', 'str1')
-			)
-		)
-
-		if (length(match) == 0) {
-			stop('internal error! no match found for ordering of ', param1, ' ', param2)
-		}
-
-	}
 
 	# create_static_body :: function x <string> x <string> -> Expression
 	#
@@ -312,8 +286,6 @@ make_method <- local({
 	# This creates the function body that accomponies methods in which the
 	# LHS matches multiple parametres, and the arguments supplied by the user
 	# might alter which parametre the LHS is bound to.
-	#
-	#
 
 	create_dynamic_body <- function (fn, method_name, fixed) {
 
@@ -327,8 +299,8 @@ make_method <- local({
 
 			bquote({
 
-				argnames <- names(as.list(match.call(expand.dots = False))[-1])
-				args <- lapply(argnames, function (param) {
+				argnames <- names(as.list(match.call(expand.dots = True))[-1])
+				args     <- lapply(argnames, function (param) {
 					eval(as.symbol(param))
 				})
 				names(args) <- argnames
@@ -343,10 +315,17 @@ make_method <- local({
 				}
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
-				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <-
-					quote(Self())
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
 
-				do.call(.(fn_sym), args)
+				# -- reorder the arguments so that with their names removed they
+				# -- positionally match in the same way they would by name.
+
+				unnamed_args <- lapply( .( names(formals(fn)) ), function (param) {
+					args[[param]]
+				})
+
+				# -- unname
+				do.call(.(fn_sym), unnamed_args)
 			})
 
 		} else {
@@ -357,9 +336,9 @@ make_method <- local({
 
 			bquote({
 
-				argnames <- names(as.list(match.call(expand.dots = False))[-1])
-				args <- lapply(argnames, function (param) {
-					eval(as.symbol(param))
+				argnames <- names(as.list(match.call(expand.dots = True))[-1])
+				args     <- lapply(argnames, function (param) {
+				eval(as.symbol(param))
 				})
 				names(args) <- argnames
 
@@ -373,10 +352,17 @@ make_method <- local({
 				}
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
-				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <-
-					quote(Self())
+				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
 
-				x_(do.call(.(fn_sym), args))
+				# -- reorder the arguments so that with their names removed they
+				# -- positionally match in the same way they would by name.
+
+				unnamed_args <- lapply( .( names(formals(fn)) ), function (param) {
+					args[[param]]
+				})
+
+				# -- unname
+				x_(do.call(.(fn_sym), unnamed_args))
 			})
 		}
 	}
@@ -386,9 +372,13 @@ make_method <- local({
 		fn                 <- lookup_fn(fn_name)
 		fn_sym             <- as.symbol(fn_name)
 		fn_params          <- names(formals(fn))
+
+		# -- expand variadic parametre (...) to its replacement ...coll, ...fns.
 		fn_proto_params    <- as_proto_params(fn_name)
 
+		# -- which parametres (including the typed variadic parametre) are in this prototype?
 		which_proto_params <- which(fn_proto_params %in%  params)
+		# -- which aren't?
 		which_other_params <- which(fn_proto_params %!in% params)
 
 		method <- function () {}
@@ -396,25 +386,26 @@ make_method <- local({
 		formals(method) <- formals(fn)
 
 		if (length(fn_params) == 1 && fn_params == '...') {
+			# -- the function just has a single variadic parametre.
 
 			formals(method) <- formals(fn)
-			body(method) <- create_static_body(
-				fn, fn_name, '...')
+			body(method)    <- create_static_body(fn, fn_name, '...')
 
 		} else if (length(which_proto_params) == 1) {
-			# -- the LHS only satifies one parametre.
+			# -- the LHS only satifies one parametre; only
+			# -- one param is in the prototype.
 			# -- so that parametre cannot be set by the user.
 			# -- remove the parametre from the method's formals.
 
-			param_is_variadic <-
-				has_variadic_param(fn_proto_params[which_other_params])
 
-			formals(method) <- if (!param_is_variadic) {
-				formals(fn)[which_other_params]
-			} else {
+			# -- is the sole parametre being fixed as self() variadic?
+			param_is_variadic <- has_variadic_param(fn_proto_params[which_proto_params])
+			formals(method)   <- if (param_is_variadic) {
 				# -- variadic parametres can take multiple arguments;
 				# -- set the LHS to ...1, and keep ... around to take more args.
 				formals(fn)
+			} else {
+				formals(fn)[which_other_params]
 			}
 
 			body(method) <- create_static_body(
@@ -437,6 +428,7 @@ make_method <- local({
 		}
 
 		environment(method) <- new.env(parent = environment(fn))
+
 		method
 	}
 
@@ -631,6 +623,171 @@ get_proto_ref <- local({
 
 
 
+
+
+
+
+# suggest :: <character> ->
+#
+# suggest takes a mispelled method name, and
+# returns the name of the most similar method.
+# It uses a combination of nearest-string
+# search, and manual hacks.
+#
+
+suggest_similar_method <- local({
+
+	# close_method :: <character> -> <character> -> <character>
+	#
+	# Get the string distance to other candidate methods, and return
+	# sufficiently close methods.
+
+	close_method <- function (method_name, candidates) {
+
+		dists <- adist(method_name, candidates)
+
+		meets_threshold <-
+			min(dists) < ceiling(nchar(method_name) / log(nchar(method_name)) )
+
+		if (meets_threshold) {
+			candidates[which.min(dists)]
+		} else {
+			character(0)
+		}
+	}
+
+	# change_of_suffix :: <character> -> <character> -> <character>
+	#
+	# Transforms the suffix of a method and checks if it equals
+	# after changing the suffix.
+	#
+	# xMethod -> xMethodOf | xMethodOf -> xMethod
+
+	change_of_suffix <- function (method_name, candidates) {
+
+		with_suffix    <- gsub('_$', 'Of_', method_name)
+		without_suffix <- gsub('Of_$',  '', method_name)
+
+		if (any(candidates == with_suffix)) {
+			with_suffix
+		} else if (any(candidates == without_suffix)) {
+			without_suffix
+		}
+	}
+
+	# change_to_prefix :: <character> -> <character> -> <character>
+	#
+	# Chage the prefix
+	#
+	# xAsMethod -> xToMethod | xToMethod -> xAsMethod
+
+	change_to_prefix <- function (method_name, candidates) {
+
+		with_prefix    <- gsub('As', 'To', method_name)
+		without_prefix <- gsub('To', 'As', method_name)
+
+		if (any(candidates == with_prefix)) {
+			with_prefix
+		} else if (any(candidates == without_prefix)) {
+			without_prefix
+		}
+	}
+
+	# change_to_keys :: <character> -> <character> -> <character>
+	#
+	# Change occurrences of the substring 'Names' to 'Keys', as
+	# kiwi only uses Keys.
+
+	change_to_keys <- function (method_name, candidates) {
+
+		swapped <- gsub('Names', 'Keys', method_name)
+
+		if (any(candidates == swapped)) {
+			swapped
+		}
+	}
+
+	# change_common_name :: <character> -> <character> -> <character>
+	#
+	# Change_common_name checks if a method has a name commonly used in another language.
+
+	change_common_name <- function (method_name, candidates) {
+
+		alias <- function (from, to) {
+
+			out <- list()
+
+			for (incorrect in from) {
+				out <- list(out,
+					list(as_chaining(method_name),    as_chaining(to)),
+					list(as_unchaining(method_name),  as_unchaining(to)),
+					list(as_variadic(method_name),    as_variadic(to)),
+					list(as_nonvariadic(method_name), as_nonvariadic(to))
+				)
+			}
+
+			out
+		}
+
+		match <- Filter(
+			function (pair) {
+				pair[[1]] == method_name
+			},
+			c(
+				alias(c('xFilterNot', 'xRemove'), 'xReject'))
+		)
+
+		match[[2]]
+	}
+
+
+
+
+
+	function (val, method_name, content_type, invoking_call) {
+
+		# -- get the edit distance to each
+		# -- to each method in the prototype.
+		proto <- get_proto_ref(val)
+
+		candidates <- setdiff(proto[[2]], 'private')
+
+		# -- try to find a similar method.
+		matches    <- list(
+			close =
+				close_method(method_name, candidates),
+			change_of_suffix =
+				change_of_suffix(method_name, candidates),
+			change_to_prefix =
+				change_to_prefix(method_name, candidates),
+			change_common_name =
+				change_common_name(method_name, candidates)
+		)
+
+		similar <- matches[[ which(nchar(matches) > 0)[1] ]]
+
+		# -- build up the message.
+
+		message <- if (length(similar) == 0) {
+			"Could not find the method " %+% dQuote(method_name) %+%
+			" in the methods available for " %+% content_type %+% "."
+		} else {
+			"Could not find the method " %+% dQuote(method_name) %+%
+			" in the methods available for " %+% content_type %+%
+			":\n" %+%
+			colourise $ green(
+				"did you mean " %+% rsample(similar, size = 1) %+% "?")
+		}
+
+		throw_kiwi_error(invoking_call, message)
+	}
+})
+
+
+
+
+
+
 #' @export
 
 `$.kiwi` <- local({
@@ -638,126 +795,6 @@ get_proto_ref <- local({
 	# some methods are known by their more common
 	# but worse names (like filter, filterNot).
 	# Meet the user half way and suggest the "proper" name.
-
-	alias <- function (incorrect, correct) {
-
-		forms <- function (fn_name) {
-
-			list(
-				fn_name,
-				paste0(fn_name, '...'),
-				gsub('^x', 'x_', fn_name),
-				paste0(
-					gsub('^x', 'x_', fn_name),
-					 '...')
-			)
-		}
-
-		structure(
-			forms(correct),
-			names = forms(incorrect))
-	}
-
-	autosuggested <- c(
-		alias('x', 'x_'),
-		alias('xAsNumeric',   'xAsDouble'),
-
-		alias('xAsChars',     'xToChars'),
-		alias('xAsWords',     'xToWords'),
-		alias('xAsLines',     'xToLines'),
-
-		alias('xToChars',     'xFromChars'),
-		alias('xToWords',     'xFromWords'),
-		alias('xToLines',     'xFromLines'),
-
-		alias('xByColkeys',   'xByColrows'),
-		alias('xByRowkeys',   'xByRowrows'),
-		alias('xAddNames',    'xAddKeys'),
-
-		alias('xC',           'xJoin'),
-		alias('xConcat',      'xJoin'),
-		alias('xConcatenate', 'xJoin'),
-
-		alias('xFilter',      'xSelect'),
-		alias('xFilterNot',   'xReject'),
-
-		alias('xMean',      'xMeanOf'),
-		alias('xFilterNot',   'xReject'),
-
-		alias('xGroup',       'xChunk'),
-		alias('xZipWith',     'xMapMany'),
-
-		alias('xAll',        'xAllOf'),
-		alias('xAny',        'xAnyOf'),
-		alias('xArity',      'xArityOf'),
-		alias('xDuplicates', 'xDuplicatesOf'),
-		alias('xFirst',      'xFirstOf'),
-		alias('xFormals',    'xFormalsOf'),
-		alias('xFourth',     'xFourthOf'),
-		alias('xIndices',    'xIndicesOf'),
-		alias('xInit',      'xInitOf'),
-		alias('xInter',     'xInterOf'),
-		alias('xKeys',      'xKeysOf'),
-		alias('xLast',      'xLastOf'),
-		alias('xLen',       'xLenOf'),
-		alias('xMean',      'xMeanOf'),
-		alias('xNone',      'xNoneOf'),
-		alias('xOne',       'xOneOf'),
-		alias('xOrder',     'xOrderOf'),
-		alias('xParams',    'xParamsOf'),
-		alias('xPowerSet',  'xPowerSetOf'),
-		alias('xProdSet',   'xProdSetOf'),
-		alias('xRank',      'xRank'),
-		alias('xRest',      'xRestOf'),
-		alias('xSecond',    'xSecondOf'),
-		alias('xThird',     'xThirdOf'),
-		alias('xUnion',     'xUnionOf'),
-		alias('xUnique',    'xUniqueOf'),
-		alias('xValues',    'xValuesOf')
-	)
-
-	suggest_similar_method <- local({
-		# -- the spell-checker for Kiwi's methods.
-
-		message <- function (name, contents_are, similar) {
-
-			if (length(similar) == 0) {
-				"Could not find the method " %+% dQuote(name) %+%
-				" in the methods available for " %+% contents_are %+% "."
-			} else {
-				"Could not find the method " %+% dQuote(name) %+%
-				" in the methods available for " %+% contents_are %+%
-				":\n" %+%
-				colourise$green("did you mean " %+% rsample(similar, size = 1) %+% "?")
-			}
-		}
-
-		function (val, method_name, contents_are, invoking_call) {
-			# given an incorrect method name throw an error
-			# suggesting a similar
-
-			proto       <- get_proto_ref(val)
-			method_name <- method_name
-
-			candidate_methods <- setdiff(proto[[2]], 'private')
-
-			# -- get the edit distance to each method in the prototype.
-			distances <- adist(method_name, candidate_methods)
-
-			similar   <- if ( any(method_name == names(autosuggested)) ) {
-				autosuggested[[method_name]]
-			} else if (min(distances) < nchar(method_name) / 2) {
-
-				candidate_methods[which.min(distances)]
-
-			} else {
-				character(0)
-			}
-
-			throw_kiwi_error(
-				message = message(method_name, contents_are, similar))
-		}
-	})
 
 	function (obj, method) {
 		# Kiwi a -> symbol -> function
@@ -780,7 +817,9 @@ get_proto_ref <- local({
 		}
 
 		fn <- proto[[1]][[method_name]]
-		environment(fn)[['Self']] <- function () obj[['x']]
+		environment(fn)[['Self']] <- function () {
+			obj[['x']]
+		}
 
 		fn
 	}
