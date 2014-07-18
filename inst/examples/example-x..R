@@ -23,8 +23,8 @@ rain_data <-
 	xMap( xAddKeys(c('month', 'rain (ml)')) ) $
 	x_Map(row := {
 
-		xSecondAs(
-			as.numeric(xSecondOf(row)), row)
+		row[[2]] <- as.numeric(xSecondOf(row))
+		row
 	})
 
 # 1. Select the rain data column.
