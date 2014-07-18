@@ -1,20 +1,20 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
 
-require(kiwi)
+message("xDuplicatesOf")
 
-message('xDuplicatesOf')
+	over(coll) +
 
-	forall(
-		"duplicate of empty coll is empty list",
-		test_cases$collection_zero,
+	describe("duplications of empty list is empty list") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0,
 		xDuplicatesOf(coll) %is% list()
-	)
+	) +
 
-	forall(
-		"union and duplicate contain all elements ",
-		test_cases$integers,
+	describe("set = duplicates and unique") +
+	holdsWhen(
+		is_collection(coll),
 		length(coll) == length(unique(coll)) + length(xDuplicatesOf(coll))
-	)
+	) +
 
+	run()

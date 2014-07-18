@@ -1,4 +1,22 @@
 
+Kiwi 0.35.0
+-----------------------------------------------------------------------------
+Date: 2014-6-16
+
+ENHANCEMENTS:
+
+* Removed xAtCol, in line with removing xPluck; partial application makes
+writing xMap(xAt(num)) possible instead.
+
+BUG-FIXES:
+
+* Removed a call to print() accidentally left in xDrop after debugging.
+
+
+
+
+
+
 Kiwi 0.34.0
 -----------------------------------------------------------------------------
 Date: 2014-6-16

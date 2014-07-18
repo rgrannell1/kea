@@ -6,14 +6,12 @@ require(kiwi)
 
 message("xDeepMap")
 
-	forall(
-		"deepmap of an empty collection is list()",
-		test_cases$collection_zero,
-		xDeepMap('+', coll) %is% list()
-	)
+	over(coll) +
 
-	forall(
-		"for flat collections mapping and deepmapping are the same",
-		test_cases$num_positive_integer,
-		xDeepMap(function (x) x + 1, 1:num) %is% xMap(function (x) x + 1, 1:num)
-	)
+	describe('deepmapping over empty list is empty list') +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0,
+		xDeepMap(identity, coll) %is% list()
+	) +
+
+	run()

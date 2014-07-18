@@ -395,20 +395,31 @@ load_test_dependencies <- function (envir) {
 
 	deps <-
 		list(
-			over          = over,
-			describe      = describe,
-			holdsWhen     = holdsWhen,
-			worksWhen     = worksWhen,
-			run           = run,
-			failsWhen     = failsWhen,
-			`+.xforall`   = `+.xforall`,
+			over            = over,
+			describe        = describe,
+			holdsWhen       = holdsWhen,
+			worksWhen       = worksWhen,
+			run             = run,
+			failsWhen       = failsWhen,
+			`+.xforall`     = `+.xforall`,
 
-			is_collection = is_collection,
+			is_collection   = is_collection,
 
-			is_atomic     = is_atomic,
-			is_generic    = is_generic,
-			as_named      = as_named,
-			is_named      = is_named
+			is_atomic       = is_atomic,
+			is_generic      = is_generic,
+			as_named        = as_named,
+			is_named        = is_named,
+			is_alphanumeric = function (str) {
+				chars <- strsplit(str, '')[[1]]
+
+				length(setdiff(chars, c(
+					"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+					"m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y",
+					"z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+					"M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y",
+					"Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+				)) == 0
+			}
 		)
 
 	for (key in names(deps)) {
