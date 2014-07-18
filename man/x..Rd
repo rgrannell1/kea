@@ -28,7 +28,7 @@
 \title{x.}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 50 2 9 9 41 50
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x303a608> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x412e150> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
@@ -138,8 +138,8 @@ rain_data <-
 	xMap( xAddKeys(c('month', 'rain (ml)')) ) $
 	x_Map(row := {
 
-		xSecondAs(
-			as.numeric(xSecondOf(row)), row)
+		row[[2]] <- as.numeric(xSecondOf(row))
+		row
 	})
 
 # 1. Select the rain data column.
