@@ -87,7 +87,7 @@ if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 			'the following ',
 			toString(empty_examples $ x_LenOf()),
 			' examples were empty;\n',
-			empty_examples $ xAtCol(2) $ x_FromLines()
+			empty_examples $ xMap(xAt(2)) $ x_FromLines()
 		)
 
 		throw_kiwi_warning(message = message)

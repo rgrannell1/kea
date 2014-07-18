@@ -351,7 +351,6 @@ sd_section(
 	),
 	c(
 		"xAt",
-		"xAtCol",
 		"xAtKey",
 		"xDropWhile",
 		"xDrop",

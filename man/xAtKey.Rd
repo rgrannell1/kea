@@ -37,8 +37,7 @@ Select a value from a collection using a key.
 NULL
 }
 \seealso{
-Other selection_functions: \code{\link{xAtCol}},
-  \code{\link{xAtCol_}}; \code{\link{xAt}},
+Other selection_functions: \code{\link{xAt}},
   \code{\link{xAt_}}; \code{\link{xDropWhile}},
   \code{\link{xDropWhile_}}; \code{\link{xDrop}},
   \code{\link{xDrop_}}; \code{\link{xFirstOf}},

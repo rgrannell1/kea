@@ -174,7 +174,6 @@ Collate:
     'xList.R'
     'xOneOf.R'
     'xAt.R'
-    'xAtCol.R'
     'xAllOf.R'
     'xAnyOf.R'
     'xWhere.R'
