@@ -1,33 +1,42 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xFlatten")
 
-	forall(
-		"flattening an empty collection returns the empty list",
-		test_cases$positive_with_recursive_zero,
-		xFlatten(num, coll) %is% list(),
-		given =
-			num > 0
-	)
+	over(num, coll) +
 
-	forall(
-		"flattening to 1 is unlist",
-		test_cases$positive_with_collection,
-		xFlatten(num, coll) %is% as.list(unlist(coll))
-	)
+	describe("flattening empty collection is empty list") +
+	holdsWhen(
+		is.numeric(num) && length(num) == 1 &&
+		!is.na(num) && round(num) == num && num > 0 &&
+		is_collection(coll) && length(coll) == 0,
 
-	forall(
-		"flattening a vector is as.list",
-		test_cases$letters_and_index,
-		xFlatten(num, as.character(coll)) %is% as.list(coll)
-	)
+		xFlatten(num, coll) %is% list()
+	) +
 
-	forall(
-		"flattening to Inf is the identity",
-		test_cases$positive_with_recursive_zero,
+	describe("flattening to one is unlist") +
+	holdsWhen(
+		is_collection(coll),
+
+		xFlatten(1, coll) %is% as.list(unlist(coll))
+	) +
+
+	describe("flattening atomic is as.list") +
+	holdsWhen(
+		is.numeric(num) && length(num) == 1 &&
+		!is.na(num) && round(num) == num && num > 0 &&
+		is_atomic(coll),
+
+		xFlatten(num, coll) %is% as.list(coll)
+	) +
+
+	describe("flattening to infinity is as list") +
+	holdsWhen(
+		is.numeric(num) && length(num) == 1 &&
+		!is.na(num) && round(num) == num && num > 0 &&
+		is_atomic(coll),
+
 		xFlatten(Inf, coll) %is% as.list(coll)
-	)
+	) +
+
+	run()
