@@ -49,7 +49,7 @@ xMinBy <- MakeFun('xMinBy', function (fn, coll) {
 
 		MACRO(Must_Be_Orderable(`fn(coll)`))
 
-		coll[[ which.min(indices) ]]
+		coll[[ which.min(`fn(coll)`) ]]
 	}
 })
 

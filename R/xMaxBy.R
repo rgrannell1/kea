@@ -49,7 +49,7 @@ xMaxBy <- MakeFun('xMaxBy', function (fn, coll) {
 
 		MACRO(Must_Be_Orderable(`fn(coll)`))
 
-		coll[[ which.max(indices) ]]
+		coll[[ which.max(`fn(coll)`) ]]
 	}
 })
 
