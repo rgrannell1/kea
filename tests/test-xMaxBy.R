@@ -1,23 +1,41 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xMaxBy")
 
-	forall(
-		"max of one element in one element",
-		test_cases $ collection,
-		xMaxBy( xI, coll[1] ) %is% coll[[1]],
-		given =
-			length(coll) > 0
-	)
+	over(coll) +
 
-	forall(
-		"maxby of numbers is the largest number",
-		test_cases $ integers,
-		xMaxBy( xI, coll ) == max(unlist(coll)),
-		given =
-			length(coll) > 0
-	)
+	describe("min of no elements fails") +
+	failsWhen(
+		is_collection(coll) && length(coll) == 0,
+
+		xMaxBy(identity, coll)
+	) +
+
+	describe("minby of one element is that element") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 1,
+
+		xMaxBy(identity, coll) %is% coll[[1]]
+	) +
+
+	describe("minby of numbers is the smallest number") +
+	holdsWhen(
+		is.numeric(coll) && length(coll) > 0,
+
+		xMaxBy(identity, coll) %is% min(coll)
+	) +
+
+	run()
+
+	over(num, coll) +
+
+	describe("minby a constant function is coll_1") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0 &&
+		is.numeric(num) && length(num) == 1 &&
+		!is.na(num),
+		xMaxBy(xCapture(num), coll) %is% coll[[1]]
+	) +
+
+	run()

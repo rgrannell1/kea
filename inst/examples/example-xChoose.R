@@ -15,7 +15,7 @@ pairs $ xPoll( xUnspread((card1 : card2) := {
 	rank1 <- xSecondOf(card1)
 	rank2 <- xSecondOf(card2)
 
-	xIsMember(rank1, royals) || xIsMember(rank2, royals)
+	xIsIn(rank1, royals) || xIsIn(rank2, royals)
 }) )
 
 # 546 different ways

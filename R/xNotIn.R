@@ -1,5 +1,5 @@
 
-#' xNotMember
+#' xNotIn
 #'
 #' Check if a collection doesn't contain a value.
 #'
@@ -29,12 +29,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xNotMember.R
+#'    inst/examples/example-xNotIn.R
 #'
-#' @rdname xNotMember
+#' @rdname xNotIn
 #' @export
 
-xNotMember <- MakeFun('xNotMember', function (val, coll) {
+xNotIn <- MakeFun('xNotIn', function (val, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)
@@ -50,7 +50,7 @@ xNotMember <- MakeFun('xNotMember', function (val, coll) {
 	}
 })
 
-#' @rdname xNotMember
+#' @rdname xNotIn
 #' @export
 
-xNotMember_ <- MakeVariadic(xNotMember, 'coll')
+xNotIn_ <- MakeVariadic(xNotIn, 'coll')

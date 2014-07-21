@@ -1,21 +1,20 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xPowerSetOf")
 
-	forall(
-		"power set of empty set is list()",
-		test_cases$collection_zero,
-		xPowerSetOf(coll) %is% list()
-	)
+	over(coll) +
 
-	forall(
-		"power set has correct length",
-		test_cases$num_positive_integer,
-		length(xPowerSetOf(1:num)) == 2^num,
-		given =
-			num < 10
-	)
+	describe("powerset of empty set is list()") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0,
+		xPowerSetOf(coll) %is% list()
+	) +
+
+	describe("powerset has length 2^n") +
+	holdsWhen(
+		is_collection(coll) && length(coll) <= 12 && length(coll) > 0,
+		length(xPowerSetOf(coll)) == 2^length(coll)
+	) +
+
+	run()

@@ -50,8 +50,7 @@ x_(GDP) $ x_MaxBy(xSecondOf)
 # list("Netherlands", 7.70067e+11)
 }
 \seealso{
-Other selection_functions: \code{\link{xAtCol}},
-  \code{\link{xAtCol_}}; \code{\link{xAtKey}},
+Other selection_functions: \code{\link{xAtKey}},
   \code{\link{xAtKey_}}; \code{\link{xAt}},
   \code{\link{xAt_}}; \code{\link{xDropWhile}},
   \code{\link{xDropWhile_}}; \code{\link{xDrop}},

@@ -1,39 +1,32 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xReduce")
 
-	forall(
-		"reducing the empty collection is the empty collection",
-		test_cases$collection_zero,
-		xReduce(stop, coll) %is% coll
-	)
+	over(coll) +
 
-	forall(
-		"reducing one value is that value",
-		test_cases$num_positive_integer,
-		xReduce(stop, num) %is% num
-	)
+	describe("reducing the empty collection fails.") +
+	failsWhen(
+		is_collection(coll) && length(coll) == 0,
+		xReduce('+', coll)
+	) +
 
-	forall(
-		"Return( ) terminates immediately",
-		test_cases$num_positive_integer,
-		xReduce(
-			function (acc, new) {
+	describe("reducing a length-one collection is the first value.") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 1,
+		xReduce(identity, coll) %is% coll[[1]]
+	) +
 
-				if (acc == 1) Return (acc) else c(acc, new)
+	describe("Return( ) can terminate the computation") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0,
+		xReduce(function (...) Return(..1), coll) %is% coll[[1]]
+	) +
 
-			},
-			seq_len(num)) == 1
-	)
+	describe("Reduce right is last value in collection") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0,
+		xReduce(function (...) ..2, coll) %is% coll[[ length(coll) ]]
+	) +
 
-	forall(
-		"reducing plus is sum",
-		test_cases$sum_over_integers,
-		xReduce(fn, coll) %is% sum(coll),
-		given =
-			length(coll) > 0
-	)
+	run()

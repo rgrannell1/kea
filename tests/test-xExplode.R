@@ -1,19 +1,22 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xExplode')
 
-	forall(
-		"splitting a character(0) is character(0)",
-		test_cases$str_word,
-		xExplode(str, character(0)) %is% character(0)
-	)
+	over(str) +
 
-	forall(
-		"splitting an empty string is the empty string",
-		test_cases$str_word,
-		xExplode(str, '') == ''
-	)
+	describe('splitting empty collection is empty collection') +
+	holdsWhen(
+		is.character(str) && length(str) == 1 &&
+		!is.na(str) && is_alphanumeric(str),
+		xExplode(str, character(0)) %is% character(0)
+	) +
+
+	describe("exploding the empty string is empty string") +
+	holdsWhen(
+		is.character(str) && length(str) == 1 &&
+		!is.na(str) && is_alphanumeric(str),
+		xExplode(str, '') %is% ''
+	) +
+
+	run()

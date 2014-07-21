@@ -54,8 +54,7 @@ xAt(2, df)
 xFifthOf <- xAt(5)
 }
 \seealso{
-Other selection_functions: \code{\link{xAtCol}},
-  \code{\link{xAtCol_}}; \code{\link{xAtKey}},
+Other selection_functions: \code{\link{xAtKey}},
   \code{\link{xAtKey_}}; \code{\link{xDropWhile}},
   \code{\link{xDropWhile_}}; \code{\link{xDrop}},
   \code{\link{xDrop_}}; \code{\link{xFirstOf}},

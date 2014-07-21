@@ -1,26 +1,21 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xToChars')
 
-	forall(
-		"chars of the empty string is an empty vector",
-		list(),
+	over(str) +
+
+	describe("works of empty string is empty vector") +
+	holdsWhen(
+		True,
 		xToChars('') %is% character(0)
-	)
+	) +
 
-	forall(
-		"chars of a single letter is identity",
-		test_cases$letter,
-		xToChars(str) == str
-	)
+	describe("length == nchar") +
+	holdsWhen(
+		is.character(str) && length(str) == 1 && !is.na(str),
 
-	forall(
-		"length of chars is nchars of a string",
-		test_cases$str_word,
 		length(xToChars(str)) == nchar(str)
-	)
+	) +
 
+	run()

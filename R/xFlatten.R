@@ -33,7 +33,8 @@
 #' @section Corner Cases:
 #'    Returns the empty list if \bold{coll} or \bold{num} is length-zero.
 #'    Flattening to infinite doesn't affect the depth of the output list.
-#'    Flattening to one level flattens the list fully.
+#'    Flattening to one level flattens the list fully. Flattening removes all
+#'   list-names.
 #'
 #' @family reshaping_functions
 #'
@@ -55,13 +56,13 @@ xFlatten <- MakeFun('xFlatten', function (num, coll) {
 		list()
 	} else if (is_atomic(coll)) {
 		# -- it is flat!
-		as.list(coll)
+		unname(as.list(coll))
 	} else if (num == +Inf) {
 		# -- preserve the structure.
-		as.list(coll)
+		unname(as.list(coll))
 	} else if (num == 1) {
 		# -- unlist entirely.
-		as.list(unlist(coll))
+		unname(as.list(unlist(coll)))
 	} else {
 
 		# -- todo write this non-recursively!
@@ -69,9 +70,9 @@ xFlatten <- MakeFun('xFlatten', function (num, coll) {
 			if (!is_recursive(xs)) {
 				xs
 			} else if (depth == num - 1) {
-				as.list(unlist(xs))
+				unname(as.list(unlist(xs)))
 			} else {
-				lapply(xs, function (x) recur(depth + 1, x))
+				unname( lapply(xs, function (x) recur(depth + 1, x)) )
 			}
 		}
 		as.list(recur(0, coll))

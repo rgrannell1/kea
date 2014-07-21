@@ -1,16 +1,26 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xLastOf')
 
-	forall(
-		"first always returns the last element of a collection",
-		test_cases$collection,
-		xLastOf(coll) %is% coll[[ length(coll) ]],
-		given =
-			length(coll) > 0
-	)
+	over(coll) +
 
+	describe('always returns the correct element') +
+	holdsWhen(
+		is_collection(coll) && length(coll) >= 1,
+		xLastOf(coll) %is% coll[[ length(coll) ]]
+	) +
+
+	run()
+
+message('xLastOf')
+
+	over(coll) +
+
+	describe('fails when the collection is too short') +
+	failsWhen(
+		is_collection(coll) && length(coll) == 0,
+		xLastOf(coll)
+	) +
+
+	run()

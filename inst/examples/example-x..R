@@ -42,7 +42,7 @@ xMap(x. $ `rain (ml)`, rain_data)
 # the largest value.
 
 
-# you could also use x_(rain_data) $ xAtCol(2) $ x_MaxBy(xI)
+# you could also use x_(rain_data) $ xMap(xAt(2)) $ x_MaxBy(xI)
 
 max_rainfall <- x_(rain_data) $ xMap(x. $ `rain (ml)`) $ x_MaxBy(xI)
 

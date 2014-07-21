@@ -43,9 +43,9 @@
 
 xReduce <- MakeFun('xReduce', function (fn, coll) {
 
-	if (length(coll) == 0) {
-		coll
-	} else if (length(coll) == 1) {
+	MACRO( Must_Be_Longer_Than(0, coll) )
+
+	if (length(coll) == 1) {
 		coll[[1]]
 	} else {
 

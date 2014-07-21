@@ -133,7 +133,7 @@ message('checking that each example is non-empty')
 				toString(empty_examples_ $ x_LenOf()),
 
 			' examples were empty;\n',
-				empty_examples_ $ xAtCol(1) $ x_FromLines())
+				empty_examples_ $ xMap(xAt(1)) $ x_FromLines())
 
 		warning(message = message)
 	}

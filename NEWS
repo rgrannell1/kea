@@ -1,4 +1,43 @@
 
+Kiwi 0.35.0
+-----------------------------------------------------------------------------
+Date: 2014-6-21
+
+Removed xAtCol, fixed several bugs.
+
+ENHANCEMENTS:
+
+* Renamed xIsMember to xIsIn and xNotMemer to xNotIn, for brevity.
+
+* Removed xAtCol, in line with removing xPluck; partial application makes
+writing xMap(xAt(num)) possible instead.
+
+* Flatten now removes the names of it's input collection to prevent multiple
+keys being added to the same flat list.
+
+BUG-FIXES:
+
+* Fixed a terrible, long-standing corner-case in xReduce; xReduce of the
+empty list now fails rather than return that collection.
+
+* xMaxBy, xMinBy, now fail cleanly when their input function creates Na or NaN values.
+
+* Removed a call to print() accidentally left in xDrop after debugging.
+
+PACKAGE INTERNALS:
+
+* Added forall-next tests for xAddKeys, xApply, xDeepMap, xDuplicatesOf,
+xExplode, xFix, xFlatten, xIsIn, xIsNa, xIsNull, xIsSubset, xIterate, xLastOf,
+xMinBy, xMaxBy, xNegate, xNotIn, xNotNull, xNotSubset, xPowerSetOf, xReduce,
+xRepeat, xToChars, xToLines, xToWords.
+
+
+
+
+
+
+
+
 Kiwi 0.34.0
 -----------------------------------------------------------------------------
 Date: 2014-6-16
@@ -1104,7 +1143,7 @@ xAddKeys, xAllOf, xAsCharacter, xAsComplex,
 xAsDouble, xAsInteger, xAsLogical, xCapture, xChunk, xDeepMap,
 xDelay, xElemsByCols, xElemsByRows, xExecute, xFix, xFormalsOf,
 xFromChars, xIsFalse, xIsMatch, xLift, xLocate, xMinBy, xNoneOf,
-xNotEmpty, xNotFalse, xNotMember, xNotNan, xNotNull, xPartition,
+xNotEmpty, xNotFalse, xNotMembers, xNotNan, xNotNull, xPartition,
 xShuffle, xSlice, xThread, xToChars, xUniqueOf,
 
 * Added details to xByRows.

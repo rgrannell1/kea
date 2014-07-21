@@ -57,7 +57,7 @@ x_(letters) $ xChunk(3) $ xSelect(row := {
 	# -- because the last might have less than three elements.
 	xLenOf(row) == 3
 }) $
-xAtCol(2)
+xMap(xAt(2))
 
 # list("b", "e", "h", "k", "n", "q", "t", "w")
 }

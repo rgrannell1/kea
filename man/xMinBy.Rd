@@ -47,8 +47,7 @@ x_(-10:10) $ xMinBy(x := {
 # x = 10 gives the smallest output for f(x) = -x^5 - 4x - 12x
 }
 \seealso{
-Other selection_functions: \code{\link{xAtCol}},
-  \code{\link{xAtCol_}}; \code{\link{xAtKey}},
+Other selection_functions: \code{\link{xAtKey}},
   \code{\link{xAtKey_}}; \code{\link{xAt}},
   \code{\link{xAt_}}; \code{\link{xDropWhile}},
   \code{\link{xDropWhile_}}; \code{\link{xDrop}},

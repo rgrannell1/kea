@@ -37,8 +37,7 @@ is false or na until the end of the collection.
 NULL
 }
 \seealso{
-Other selection_functions: \code{\link{xAtCol}},
-  \code{\link{xAtCol_}}; \code{\link{xAtKey}},
+Other selection_functions: \code{\link{xAtKey}},
   \code{\link{xAtKey_}}; \code{\link{xAt}},
   \code{\link{xAt_}}; \code{\link{xDrop}},
   \code{\link{xDrop_}}; \code{\link{xFirstOf}},

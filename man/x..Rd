@@ -28,7 +28,7 @@
 \title{x.}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 50 2 9 9 41 50
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x412e150> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x39fa880> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
@@ -157,7 +157,7 @@ xMap(x. $ `rain (ml)`, rain_data)
 # the largest value.
 
 
-# you could also use x_(rain_data) $ xAtCol(2) $ x_MaxBy(xI)
+# you could also use x_(rain_data) $ xMap(xAt(2)) $ x_MaxBy(xI)
 
 max_rainfall <- x_(rain_data) $ xMap(x. $ `rain (ml)`) $ x_MaxBy(xI)
 

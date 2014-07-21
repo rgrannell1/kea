@@ -45,7 +45,7 @@ is_pangram <- line := {
 	x_(line) $
 	xToChars() $ xMap(tolower) $ xUniqueOf() $
 	xSelect(
-		xFix_(xIsMember, coll = letters)
+		xFix_(xIsIn, coll = letters)
 	) $
 	x_LenOf() == 26
 }
@@ -61,10 +61,10 @@ is_pangram('not pangramic thank you mam.')
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsMember}},
-  \code{\link{xIsMember_}}; \code{\link{xIsSubset}},
-  \code{\link{xIsSubset_}}; \code{\link{xNotMember}},
-  \code{\link{xNotMember_}}; \code{\link{xNotSubset}},
+  \code{\link{xInterOf_}}; \code{\link{xIsIn}},
+  \code{\link{xIsIn_}}; \code{\link{xIsSubset}},
+  \code{\link{xIsSubset_}}; \code{\link{xNotIn}},
+  \code{\link{xNotIn_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
   \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
