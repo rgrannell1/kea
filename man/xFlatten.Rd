@@ -42,7 +42,8 @@ Unnest a nested list to a given depth.
 
    Returns the empty list if \bold{coll} or \bold{num} is length-zero.
    Flattening to infinite doesn't affect the depth of the output list.
-   Flattening to one level flattens the list fully.
+   Flattening to one level flattens the list fully. Flattening removes all
+  list-names.
 }
 \examples{
 

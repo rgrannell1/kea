@@ -1,5 +1,5 @@
 
-#' xIsMember
+#' xIsIn
 #'
 #' Check if a collection contains a value.
 #'
@@ -30,12 +30,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xIsMember.R
+#'    inst/examples/example-xIsIn.R
 #'
-#' @rdname xIsMember
+#' @rdname xIsIn
 #' @export
 
-xIsMember <- MakeFun('xIsMember', function (val, coll) {
+xIsIn <- MakeFun('xIsIn', function (val, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)
@@ -51,7 +51,7 @@ xIsMember <- MakeFun('xIsMember', function (val, coll) {
 	}
 })
 
-#' @rdname xIsMember
+#' @rdname xIsIn
 #' @export
 
-xIsMember_ <- MakeVariadic(xIsMember, 'coll')
+xIsIn_ <- MakeVariadic(xIsIn, 'coll')

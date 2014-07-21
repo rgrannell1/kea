@@ -381,9 +381,9 @@ sd_section(
 	c(
 		"xDuplicatesOf",
 		"xInterOf",
-		"xIsMember",
+		"xIsIn",
 		"xIsSubset",
-		"xNotMember",
+		"xNotIn",
 		"xNotSubset",
 		"xUnionOf",
 		"xUniqueOf"
