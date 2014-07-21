@@ -1,4 +1,31 @@
 
+Kiwi 0.36.0
+-----------------------------------------------------------------------------
+Date: 2014-6-22
+
+ENHANCEMENTS:
+
+* Higher-order-functions noew check that their input functions can
+accept the required number of arguments.
+
+BUG-FIXES:
+
+DOCUMENTATION:
+
+* Removed unneeded uses of xFix( ) from examples, replacing it with
+actual partial application.
+
+PACKAGE-INTERNALS:
+
+* Added Must_Have_Arity macro.
+
+
+
+
+
+
+
+
 Kiwi 0.35.0
 -----------------------------------------------------------------------------
 Date: 2014-6-21
