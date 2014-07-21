@@ -14,7 +14,7 @@ message("xReduce")
 	describe("reducing a length-one collection is the first value.") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 1,
-		xReduce(identity, coll) %is% coll[[1]]
+		xReduce(function (...) {}, coll) %is% coll[[1]]
 	) +
 
 	describe("Return( ) can terminate the computation") +
