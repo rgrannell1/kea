@@ -37,7 +37,7 @@ xFold(
 
 sum_odds <- nums := {
 
-    x_(nums)$
+    x_(nums) $
     xSelect(
         x := {x %% 2 == 1}
     )$

@@ -47,6 +47,8 @@
 
 xScan <- MakeFun('xScan', function (fn, val, coll) {
 
+	MACRO( Must_Have_Arity(fn, 2) )
+
 	scanned <- c( val, vector("list", length(coll)) )
 
 	if (length(coll) == 0) {

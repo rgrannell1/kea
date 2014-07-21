@@ -54,6 +54,8 @@
 
 xFlatMap <- MakeFun('xFlatMap', function (fn, coll) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	if (length(coll) == 0) {
 		# - this might not be needed.
 		keep_names(list(), coll)

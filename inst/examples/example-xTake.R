@@ -2,7 +2,7 @@
 # 1. Create a selector to take a fixed number of values.
 
 nine <- 1:9
-sevenOf <- xFix(xTake, 7)
+sevenOf <- xTake(7)
 
 sevenOf(nine)
 

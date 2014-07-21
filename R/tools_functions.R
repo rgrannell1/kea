@@ -227,6 +227,37 @@ as_formals <- function (params) {
 		names = params)
 }
 
+#
+#
+#
+#
+#
+
+params_of <- function (fn) {
+
+	if (is.primitive(fn)) {
+		# -- use the args function to get the primitive arguments.
+		names(as.list( head(as.list(args(fn)), -1) ))
+	} else {
+		names(as.list( formals(fn) ))
+	}
+
+}
+
+#
+#
+#
+#
+#
+
+pluralise <- function (str, num) {
+	if (num == 0 || num > 1) {
+		paste0(str, 's')
+	} else if (num == 1) {
+		str
+	}
+}
+
 # @section call_with_params:
 #
 # Construct a call to a function 'fnname' with the parametres of

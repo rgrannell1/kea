@@ -26,6 +26,8 @@
 
 xExecute <- MakeFun('xExecute', function (fn, val) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	MACRO( Try_Higher_Order_Function( fn(val) ) )
 	val
 })

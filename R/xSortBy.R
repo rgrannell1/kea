@@ -49,6 +49,8 @@
 
 xSortBy <- MakeFun('xSortBy', function (fn, coll) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	if (length(coll) == 0) {
 		keep_names(list(), coll)
 	} else if (length(coll) == 1) {
