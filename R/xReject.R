@@ -45,6 +45,8 @@
 
 xReject <- MakeFun('xReject', function (pred, coll) {
 
+	MACRO( Must_Have_Arity(pred, 1) )
+
 	ind <- vapply(coll, function (elem) {
 
 		is_match <- MACRO( Try_Higher_Order_Function( pred(elem) ) )

@@ -51,6 +51,8 @@
 
 xMap <- MakeFun('xMap', function (fn, coll) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	if (length(coll) == 0) {
 		keep_names(list(), coll)
 	} else {

@@ -49,6 +49,8 @@
 
 xIterate <- MakeFun('xIterate', function (fn, val) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	callCC(function (Return) {
 
 		# -- assign the Return( ) function into an anonymous function.

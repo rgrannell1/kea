@@ -38,6 +38,8 @@
 
 xGroupBy <- MakeFun('xGroupBy', function (fn, coll) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	if (length(coll) == 0) {
 		# do not keep names.
 		list()

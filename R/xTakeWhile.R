@@ -39,6 +39,8 @@
 
 xTakeWhile <- MakeFun('xTakeWhile', function (pred, coll) {
 
+	MACRO( Must_Have_Arity(pred, 1) )
+
 	if (length(coll) == 0) {
 		keep_names(list(), coll)
 	} else {

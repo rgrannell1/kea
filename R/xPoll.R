@@ -37,6 +37,8 @@
 
 xPoll <- MakeFun('xPoll', function (pred, coll) {
 
+	MACRO( Must_Have_Arity(pred, 1) )
+
 	if (length(coll) == 0) {
 		integer(0)
 	} else {

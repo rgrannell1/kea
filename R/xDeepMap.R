@@ -40,6 +40,8 @@
 
 xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	recur <- function (xs) {
 		# recurse into a collection. TODO-non-recursive form.
 

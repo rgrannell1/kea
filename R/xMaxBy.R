@@ -37,6 +37,8 @@
 
 xMaxBy <- MakeFun('xMaxBy', function (fn, coll) {
 
+	MACRO( Must_Have_Arity(fn, 1) )
+
 	MACRO( Must_Be_Longer_Than(0, coll) )
 
 	if (length(coll) == 1) {
