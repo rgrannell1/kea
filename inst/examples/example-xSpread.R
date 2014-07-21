@@ -4,10 +4,10 @@
 # a function that takes many arguments.
 #
 
-summate <- xSpread(nums := xFold("+", 0, nums) )
+summate <- xSpread(xFold("+", 0) )
 
 summate(1, 2, 3, 4, 5, 6)
 
-# 2.
+# 21.
 #
 

@@ -18,11 +18,7 @@
 # input collection.
 
 repeat_elements <- (n : coll) := {
-
-	xFlatMap(
-		xFix_(xRepeat, num = n),
-		coll)
-
+	xFlatMap(xRepeat(n), coll)
 }
 
 # Here we mapped a partially-applied version of the xRepeat function
