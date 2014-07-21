@@ -42,8 +42,14 @@ xMaxBy <- MakeFun('xMaxBy', function (fn, coll) {
 	if (length(coll) == 1) {
 		coll[[1]]
 	} else {
-		coll[[ which.max( MACRO( Try_Higher_Order_Function(
-			vapply(coll, fn, numeric(1)) ) ) ) ]]
+
+		`fn(coll)` <- MACRO(Try_Higher_Order_Function(
+			vapply(coll, fn, numeric(1))
+		))
+
+		MACRO(Must_Be_Orderable(`fn(coll)`))
+
+		coll[[ which.max(indices) ]]
 	}
 })
 

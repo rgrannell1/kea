@@ -27,15 +27,17 @@ Kiwi is an functional-programming library that makes R easy to debug, easy to wr
 and extremely powerful. Kiwi's pipelines, partially-applicable functions, arrow functions and
 a rich grammar of functions drawn from other languages make writing R pleasant.
 
+
+
 ### Kiwi is Expressive
 
 It is easier to write a sentence from left to right than from the middle out; writing programs
 as chains of functions is similarily natural. Kiwi adds pipeline-style methods to R.
 
-Kiwi code is *compositional*; to create an kiwi program you chain functions
-together into a pipeline that takes your input and transforms it in multiple
-steps. You don't need to worry about odd output of one function suddenly killing
-the next, as corner cases are consistent within Kiwi.
+Kiwi code is *compositional*; you create a  kiwi program from chains of functions
+that takes an input and modifies it in steps. You don't need to worry about output of one function
+suddenly killing the next, as corner cases are consistent within Kiwi and errors are usually easy
+to debug.
 
 ```splus
 # // Data From Hadley Wickham's https://github.com/hadley/data-stride

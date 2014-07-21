@@ -13,6 +13,9 @@ BUG-FIXES:
 * Fixed a terrible, long-standing corner-case in xReduce; xReduce of the
 empty list now fails rather than return that collection.
 
+* xMaxBy, xMinBy, now fail cleanly when their input function creates Na or NaN values.
+
+
 * Removed a call to print() accidentally left in xDrop after debugging.
 
 PACKAGE INTERNALS:
