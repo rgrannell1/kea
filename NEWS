@@ -1,7 +1,9 @@
 
 Kiwi 0.35.0
 -----------------------------------------------------------------------------
-Date: 2014-6-16
+Date: 2014-6-21
+
+Removed xAtCol, fixed several bugs.
 
 ENHANCEMENTS:
 
@@ -24,7 +26,13 @@ empty list now fails rather than return that collection.
 
 PACKAGE INTERNALS:
 
-* .
+* Added forall-next tests for xAddKeys, xApply, xDeepMap, xDuplicatesOf,
+xExplode, xFix, xFlatten, xIsIn, xIsNa, xIsNull, xIsSubset, xIterate, xLastOf,
+xMinBy, xMaxBy, xNegate, xNotIn, xNotNull, xNotSubset, xPowerSetOf, xReduce,
+xRepeat, xToChars, xToLines, xToWords.
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-message("xMinBy")
+message("xMaxBy")
 
 	over(coll) +
 
@@ -9,7 +9,7 @@ message("xMinBy")
 	failsWhen(
 		is_collection(coll) && length(coll) == 0,
 
-		xMinBy(identity, coll)
+		xMaxBy(identity, coll)
 	) +
 
 	describe("minby of one element is that element") +
