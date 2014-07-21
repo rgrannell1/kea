@@ -6,7 +6,7 @@ Kiwi 0.34.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https:/
 
 ### Public Release: ~1 August 2014
 
-Kiwi brings functional programming to R.
+Kiwi brings expressibe functional programming to R.
 
 ### Installation
 

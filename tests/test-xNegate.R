@@ -1,25 +1,14 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-is_na <- kiwi:::is_na
+kiwi ::: load_test_dependencies(environment())
 
-require(kiwi)
+message('xNegate')
 
-message("xNegate")
+	over(bool, val) +
 
-	forall(
-		"test that negate (pred) is opposite pred",
-		test_cases$logical_function,
-		!fn() %is% xNegate(fn)(),
-		given =
-			!is_na(fn())
-	)
+	describe("negate negates") +
+	holdsWhen(
+		is.logical(bool) && length(bool) == 1,
+		xNegate(function (x) bool)(val) %is% !(function(x) bool)(val)
+	) +
 
-	forall(
-		"negated na is na",
-		test_cases$logical_function,
-		fn() %is% xNegate(fn)(),
-		given =
-			is_na(fn())
-	)
-
+	run()

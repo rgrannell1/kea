@@ -18,7 +18,7 @@ message("xFlatten")
 	holdsWhen(
 		is_collection(coll),
 
-		xFlatten(1, coll) %is% as.list(unlist(coll))
+		xFlatten(1, coll) %is% as.list(unlist(unname(coll)))
 	) +
 
 	describe("flattening atomic is as.list") +
@@ -27,7 +27,7 @@ message("xFlatten")
 		!is.na(num) && round(num) == num && num > 0 &&
 		is_atomic(coll),
 
-		xFlatten(num, coll) %is% as.list(coll)
+		xFlatten(num, coll) %is% unname(as.list(coll))
 	) +
 
 	describe("flattening to infinity is as list") +
@@ -36,7 +36,7 @@ message("xFlatten")
 		!is.na(num) && round(num) == num && num > 0 &&
 		is_atomic(coll),
 
-		xFlatten(Inf, coll) %is% as.list(coll)
+		xFlatten(Inf, coll) %is% unname(as.list(coll))
 	) +
 
 	run()

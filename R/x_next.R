@@ -802,8 +802,7 @@ suggest_similar_method <- local({
 		# return an kiwi method associated with the type a.
 
 		method_name <- paste0(substitute(method))
-
-		proto <- get_proto_ref( obj[['x']] )
+		proto       <- get_proto_ref( obj[['x']] )
 
 		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
 			# -- the invoked method wasn't found, so we should give a suggestion.

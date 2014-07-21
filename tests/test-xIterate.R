@@ -1,25 +1,14 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xIterate")
 
-	forall(
-		"Return is the identity function",
-		test_cases$num_positive_integer,
-		xIterate(function (n) Return(n), num) %is% num
-	)
+	over(val) +
 
-	forall(
-		"incrementing to a value works",
-		test_cases$num_positive_integer,
-		xIterate(
-			function (n) {
-				if (n == num) Return(n) else n + 1
-			},
-			0) == num,
-		given =
-			length(num) > 0
-	)
+	describe("returning a val is val") +
+	holdsWhen(
+		True,
+		xIterate(function (val) Return(val), val) %is% val
+	) +
+
+	run()
