@@ -1,7 +1,23 @@
 
+Kiwi 0.37.0
+-----------------------------------------------------------------------------
+Date: 2014-6-22
+
+ENHANCEMENTS:
+
+
+
+
+
+
+
+
+
 Kiwi 0.36.0
 -----------------------------------------------------------------------------
 Date: 2014-6-22
+
+Adds an arity-checking macro for HOF's that require functions with a certain arity.
 
 ENHANCEMENTS:
 
