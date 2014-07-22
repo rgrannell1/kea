@@ -199,5 +199,6 @@ Collate:
     'xKeysOf.R'
     'xValuesOf.R'
     'xMeanOf.R'
+    'xIndicesTo.R'
     'x_next.R'
     'x..R'
