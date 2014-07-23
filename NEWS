@@ -3,10 +3,14 @@ Kiwi 0.37.0
 -----------------------------------------------------------------------------
 Date: 2014-6-22
 
+
 ENHANCEMENTS:
 
+* Functions that require numbers in a range now show the failing number if this
+property isn't met.
 
-
+* Functions that require positive indices now show the failing number if this
+property isn't met.
 
 
 

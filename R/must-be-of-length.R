@@ -9,7 +9,8 @@ Must_Be_Of_Length <- function (COLL, LENGTHS) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
-			" must have length in the set {" %+% toString( .(LENGTHS) ) %+% "}." %+%
+			" must have length in the set {" %+% toString( .(LENGTHS) ) %+% "}.\n" %+%
+			"The actual length was " %+% length(.(COLL)) %+% "." %+%
 			summate( .(COLL) )
 
 		throw_kiwi_error(sys.call(), message)

@@ -14,8 +14,8 @@ Must_Be_Between <- function (NUM, LOWER, UPPER) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
-			" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}." %+%
-			summate( .(NUM) )
+			" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}.\n" %+%
+			"The actual number was " %+% .(NUM) %+% ".\n"
 
 		throw_kiwi_error(sys.call(), message)
 

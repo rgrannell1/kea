@@ -14,7 +14,8 @@ Must_Be_Longer_Than <- function (LENGTH, COLL) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
-			" must have more than " %+%  .(LENGTH) %+% " elements." %+%
+			" must have more than " %+%  .(LENGTH) %+% " elements.\n" %+%
+			"The actual length was " %+% length(.(COLL)) %+% "." %+%
 			summate( .(COLL) )
 
 		throw_kiwi_error(sys.call(), message)

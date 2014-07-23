@@ -10,7 +10,7 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 	NUM  <- substitute(NUM)
 	COLL <- substitute(COLL)
 
-	bquote( if (is.infinite( .(NUM) )) {
+	bquote( if (is.infinite( .(NUM) ) || .(NUM) < 1) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
@@ -18,16 +18,6 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 			ddquote( .(COLL) ) %+% ".\n\n" %+%
 			"The actual argument was " %+% paste( .(NUM) ) %+%
 			"\n"
-
-		throw_kiwi_error(sys.call(), message)
-
-	} else if (.(NUM) < 1) {
-
-		message <-
-			"The argument matching " %+% ddquote( .(NUM) ) %+%
-			" must be a positive index of the collection matching " %+%
-			ddquote( .(COLL) ) %+% "." %+%
-			summate( .(NUM) )
 
 		throw_kiwi_error(sys.call(), message)
 
