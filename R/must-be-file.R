@@ -11,7 +11,7 @@ Must_Be_File <- function (STR) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(STR) ) %+%
-			" must be a path to an existing file." %+% "\n\n" %+%
+			" must be a path to an existing file." %+% "\n" %+%
 			"The actual path was " %+% dQuote(.(STR)) %+% ".\n"
 
 		throw_kiwi_error(sys.call(), message)
