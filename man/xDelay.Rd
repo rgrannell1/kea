@@ -19,7 +19,7 @@ Delay the evalution of a function after invokation
 for a set amount of time.
 }
 \details{
-\bold{xDelay} is primarily meant for use with side-effectful functions;
+\bold{xDelay} is primarily meant for use with side-effectual functions;
    likely examples including functions that call web API's and functions that
    that display graphics.
 

@@ -1,7 +1,7 @@
 
 #' xDo
 #'
-#' Map (a possibly side-effectful) function over a
+#' Map (a possibly side-effectual) function over a
 #' collection and discard the results.
 #'
 #' @section Type Signature:
@@ -11,10 +11,10 @@
 #'     \bold{xDo} is superficially similar to \bold{xMap}, in that
 #'     it applies a function to each element of a collection. However
 #'     \bold{xDo} does not accumulate a result, so it is more memory-efficient
-#'     and faster at executing side-effectful functions than \bold{xMap}.
+#'     and faster at executing side-effectual functions than \bold{xMap}.
 #'
 #' @param
-#'    fn a unary function, usually side-effectful.
+#'    fn a unary function, usually side-effectual.
 #'
 #' @param
 #'    coll a collection
