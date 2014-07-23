@@ -15,7 +15,7 @@
 #' @details
 #'    \bold{xTap} applies non-kiwi functions to be applied to kiwi objects.
 #'    These functions can be named or unnamed. This allows base functions
-#'    or external libraries to interoperate with kiwi's chaining methods.
+#'    or external libraries to inter-operate with kiwi's chaining methods.
 #'
 #'    \code{x_(letters) $ xShuffle() $ x_Tap(sort)}
 #'

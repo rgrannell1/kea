@@ -36,7 +36,7 @@
 #'    \code{is_positive_and_whole <- x := '&&'(is_positive(x), is_whole(x))}
 #'
 #'    \bold{sextuple} and \bold{is_positive_and_whole} share a common structure. They both
-#'    have take one value, and call a binary function (plus, and) with the ouput of two other functions.
+#'    have take one value, and call a binary function (plus, and) with the output of two other functions.
 #'
 #'    \bold{xLift} factors out this pattern, for binary functions and higher arity functions.
 #'
@@ -50,7 +50,7 @@
 #'   \code{list(1, 2, 3)}
 #'
 #' @param
-#'    fn1 a function. The left function to compose with locical and or logical or.
+#'    fn1 a function. The left function to compose with logical and or logical or.
 #'
 #' @param
 #'    fn2 a function. The right function to compose with locical and or logical or.

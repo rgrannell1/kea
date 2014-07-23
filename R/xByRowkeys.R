@@ -7,7 +7,7 @@
 #'     \bold{xByRowkeys} returns the column names of a data frame or matrix.
 #'
 #' @param
-#'      tab a matrix or data frame. The tabular structure to get the rownames of.
+#'      tab a matrix or data frame. The tabular structure to get the row names of.
 #'
 #' @return
 #'      A kiwi containing a character vector.

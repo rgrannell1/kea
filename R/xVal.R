@@ -16,7 +16,7 @@
 #'    not an infix function like normal assignment.
 #'
 #'    Kiwi's value functions are built on top of base R's \bold{lockBinding}
-#'    mechanism, which is seft-described as being 'experimental'.
+#'    mechanism, which is self-described as being 'experimental'.
 #'
 #' @param
 #'    sym a symbol or string. The variable name

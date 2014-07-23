@@ -7,7 +7,7 @@
 #'     function -> |any| -> any
 #'
 #' @details
-#'    \bold{xApply} is an adaptor function that allows any function
+#'    \bold{xApply} is an adapter function that allows any function
 #'    to be called with a collection of arguments. A typical use case
 #'    is to allow a function with ellipsis (...) arguments to be called with
 #'    a variable number of arguments.

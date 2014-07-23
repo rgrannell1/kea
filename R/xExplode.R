@@ -18,7 +18,7 @@
 #'
 #' @section Corner Cases:
 #'    Returns the empty string if \bold{str} is length-zero.
-#'    If no rexp match is found the original string is returned.
+#'    If no regexp match is found the original string is returned.
 #'    Every element of the returned character vector has one
 #'    or more characters - no zero-character elements are ever
 #'    generated.

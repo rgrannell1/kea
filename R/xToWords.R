@@ -13,7 +13,7 @@
 #'
 #' @param
 #'    str a length-one character vector. The string to split into
-#'    whitespace-seperated words.
+#'    whitespace-separated words.
 #'
 #' @return
 #'    A character vector, with one or more elements.

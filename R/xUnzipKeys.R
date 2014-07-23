@@ -11,7 +11,7 @@
 #'     takes a named collection and converts it into a list of
 #'     key, value list pairs. This is primarily intended for allowing functions that
 #'     cannot read collection names - like map and select - to be able to operate
-#'     on both a value and its key simultaneouslty.
+#'     on both a value and its key simultaneously.
 #'
 #' @param
 #'    coll a named collection. The collection to split into index, element pairs.

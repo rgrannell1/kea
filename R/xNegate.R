@@ -22,7 +22,7 @@
 #'    \code{False}
 #'
 #'    In general, if a function \bold{fn} returns true \bold{xNegate(fn)} returns false
-#'    for the same value. Similarily, if \bold{fn} returns false then \bold{xNegate(fn)}
+#'    for the same value. Similarly, if \bold{fn} returns false then \bold{xNegate(fn)}
 #'    returns true for that value. Finally (R uses three-value logic) if \bold{fn} returns
 #'    na for a value so does its negation.
 #'
