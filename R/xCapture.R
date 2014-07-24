@@ -7,7 +7,7 @@
 #'    any -> (...any -> any)
 #'
 #' @details
-#'     \bold{xCapture} is the contant combinator - a function
+#'     \bold{xCapture} is the constant combinator - a function
 #'     that takes an arguments and returns a function that
 #'     always returns that value.
 #'

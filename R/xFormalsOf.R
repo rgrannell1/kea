@@ -16,7 +16,7 @@
 #' @section Corner Cases:
 #'    If \bold{fn} is a primitive function a heuristic is used to obtain
 #'    its formals. If a parametre has no default, the value of the
-#'    corresponding element in the retun value will be the empty symbol,
+#'    corresponding element in the return value will be the empty symbol,
 #'    which is identical to \code{quote(expr=)}.
 #'
 #' @family parametre_functions

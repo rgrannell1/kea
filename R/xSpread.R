@@ -2,7 +2,7 @@
 #' xSpread
 #'
 #' Return a variadic function that passes its arguments
-#' as a list to its underyling function.
+#' as a list to its underlying function.
 #'
 #' @section Type Signature:
 #'    ([any] -> any) -> (...any -> any)

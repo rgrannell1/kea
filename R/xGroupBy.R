@@ -7,7 +7,7 @@
 #'     (any -> any) -> |any| -> [[any]]
 #'
 #' @details
-#'     xGroupBy allows the grouping of a heterogenous dataset into groups of elements
+#'     xGroupBy allows the grouping of a heterogeneous dataset into groups of elements
 #'     similar in some way.
 #'
 #' @param

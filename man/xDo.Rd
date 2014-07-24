@@ -9,7 +9,7 @@ xDo(fn, coll)
 xDo_(fn, ...)
 }
 \arguments{
-\item{fn}{a unary function, usually side-effectful.}
+\item{fn}{a unary function, usually side-effectual.}
 
 \item{coll}{a collection}
 
@@ -19,14 +19,14 @@ xDo_(fn, ...)
 A list.
 }
 \description{
-Map (a possibly side-effectful) function over a
+Map (a possibly side-effectual) function over a
 collection and discard the results.
 }
 \details{
 \bold{xDo} is superficially similar to \bold{xMap}, in that
     it applies a function to each element of a collection. However
     \bold{xDo} does not accumulate a result, so it is more memory-efficient
-    and faster at executing side-effectful functions than \bold{xMap}.
+    and faster at executing side-effectual functions than \bold{xMap}.
 }
 \section{Type Signature}{
 
@@ -71,7 +71,7 @@ xDo(
 #   Print "Hello World" n times
 
 # xDo is Kiwi's construct for mapping over a collection
-# and discarding the result, for use with side-effectful
+# and discarding the result, for use with side-effectual
 # functions. An anonymous function or print composed with
 # a constant function can be used to print the actual message.
 

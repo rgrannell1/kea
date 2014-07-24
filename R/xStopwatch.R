@@ -7,8 +7,8 @@
 #'    |number| -> (...any -> &lt;logical>)
 #'
 #' @details
-#'   \bold{xStopwatch} lets a program gauge the passage of time. For example,
-#'    you might wish to stop a program after a set amount of time, or retry a url
+#'   \bold{xStopwatch} lets a program measure the passage of time. For example,
+#'    you might wish to stop a program after a set amount of time, or retry a URL
 #'   until you loose patience.
 #'
 #' @param

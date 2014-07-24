@@ -427,7 +427,7 @@ sd_section(
 	"Time Functions",
 	paste(
 		"<p>",
-		"These side-effectful functions work with time, or",
+		"These side-effectual functions work with time, or",
 		"alter the temporal properties of functions. These are useful for",
 		"interacting with rate-limited API's, or allowing programs to",
 		"observer their own run-times.",

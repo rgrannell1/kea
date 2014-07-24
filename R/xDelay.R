@@ -1,19 +1,19 @@
 
 #' xDelay
 #'
-#' Delay the evalution of a function after invokation
+#' Delay the evaluation of a function after invocation
 #' for a set amount of time.
 #'
 #' @section Type Signature:
 #'     function -> |number| -> function
 #'
 #' @details
-#'    \bold{xDelay} is primarily meant for use with side-effectful functions;
+#'    \bold{xDelay} is primarily meant for use with side-effectual functions;
 #'    likely examples including functions that call web API's and functions that
 #'    that display graphics.
 #'
 #'    \bold{xDelay} throttles the rate at which a function can be repeatedly
-#'    excecuted. This can be useful in preventing API rate limits from being
+#'    executed. This can be useful in preventing API rate limits from being
 #'    exceeded or to emulate a refresh rate.
 #'
 #' @param

@@ -9,7 +9,7 @@
 #' @details
 #'
 #'     \bold{xIterate} repeatedly calls a function on an initial value until
-#'     it is explicitely halted using \bold{Return( )}. It is similar
+#'     it is explicitly halted using \bold{Return( )}. It is similar
 #'     for a while loop, with the added benefits of an explicit return value
 #'     and easier debugging.
 #'

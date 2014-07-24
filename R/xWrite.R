@@ -14,7 +14,7 @@
 #'    str2 a length-one character vector. The text to write.
 #'
 #' @return
-#'    Null, as this is a purely side-effectful function.
+#'    Null, as this is a purely side-effectual function.
 #'
 #' @section Corner Cases:
 #'    xWrite does not write to a file if \bold{str1} is empty.

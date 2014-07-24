@@ -14,7 +14,7 @@ xExecute(fn, val)
 The return value of the previous method.
 }
 \description{
-Execute a (possibly side-effectful) function before
+Execute a (possibly side-effectual) function before
 continuing with the previous method result.
 }
 \section{Type Signature}{

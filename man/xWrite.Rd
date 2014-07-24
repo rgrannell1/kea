@@ -12,7 +12,7 @@ xWrite(str1, str2)
 \item{str2}{a length-one character vector. The text to write.}
 }
 \value{
-Null, as this is a purely side-effectful function.
+Null, as this is a purely side-effectual function.
 }
 \description{
 Write a string to a file.
