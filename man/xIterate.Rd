@@ -66,7 +66,7 @@ xIterate(
     1
 )
 
-# 2. CE - Sum the first 1,000 primes
+# 2. CodeEval- Sum the first 1,000 primes
 #    This is trivial to do with a fold, but interesting
 #    to do with iterate and take,
 
@@ -129,7 +129,7 @@ x_Tap(
 prime_sum <-
 x_(1:upper_bound) $ xSelect(is_prime) $ xTake(1000) $ xReduce('+')
 
-# 3. CE Compute modulo without the builtin operator
+# 3. CodeEvalCompute modulo without the builtin operator
 #    This is trivial to do with xIterate.
 
 modulo <- (num : modulus) := {
@@ -150,7 +150,7 @@ modulo(1121, 10)
 
 # 1
 
-# 4. CE find a palindromic number by
+# 4. CodeEvalfind a palindromic number by
 #    taking a number, adding its reversed digits, and
 # repeating.
 

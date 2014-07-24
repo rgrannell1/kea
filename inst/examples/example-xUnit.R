@@ -1,5 +1,5 @@
 
-# 1. HR Functional Programming
+# 1. HackerRank Functional Programming
 #    Reverse a list without using reverse
 
 # Kiwi has a function for reversing a list, but it is trivial to reverse a list with

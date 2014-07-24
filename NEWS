@@ -12,7 +12,11 @@ property isn't met.
 * Functions that require positive indices now show the failing number if this
 property isn't met.
 
+DOCUMENTATION:
 
+* Fixed typos in examples.
+
+* Improved xChoose, xStopWatch example.
 
 
 

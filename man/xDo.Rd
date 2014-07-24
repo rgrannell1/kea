@@ -67,7 +67,7 @@ xDo(
     (1:1000) / 100
 )
 
-#3. HR Functional Programming
+#3. HackerRank Functional Programming
 #   Print "Hello World" n times
 
 # xDo is Kiwi's construct for mapping over a collection

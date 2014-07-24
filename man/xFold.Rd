@@ -171,7 +171,7 @@ xFold(
 # terminated after 16 checks, not 26.
 # 16
 
-# 3. HR Functional Programming #4
+# 3. HackerRank Functional Programming #4
 #    Return the sum of the odd elements of a list
 
 # There are two parts to this problem; selecting the odd numbers from a list
@@ -216,7 +216,7 @@ sum_odds(c(1, 2, 3, 4, 5, 6))
 
 9
 
-# 4. HR Functional Programming
+# 4. HackerRank Functional Programming
 #    Remove the odd indices from a collection
 
 # As is normal for functional programming, fold is the solution to all problems.
@@ -248,7 +248,7 @@ remove_odds(letters)
 
 # c("b", "d", "f", "h", "j", "l", "n", "p", "r", "t", "v", "x", "z")
 
-# 5. HR Functional Programming
+# 5. HackerRank Functional Programming
 # Area under curves and solids of rotation
 
 # Time to flex my atrophied Calculus muscles_

@@ -75,7 +75,7 @@ xReject(
 
 # list(1, 1.1, 0.8, 1.1)
 
-# 3. HR Functional Programming #3
+# 3. HackerRank Functional Programming #3
 # Remove values larger than a certain number
 
 # This is a job for xReject (close cousin of xSelect); it removes the values of

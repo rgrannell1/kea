@@ -37,7 +37,7 @@ x__(1, 2, 3, 4, 5) $ x_MinBy(xI)
 
 # 1
 
-# 2. CE is a string a pangram?
+# 2. CodeEvalis a string a pangram?
 #    does a string contain each letter.
 
 is_pangram <- line := {
