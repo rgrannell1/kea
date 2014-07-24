@@ -6,17 +6,37 @@ Date: 2014-6-22
 
 ENHANCEMENTS:
 
+* Add xIndicesTo, which is a Kiwi analogue for seq_len.
+
 * Functions that require numbers in a range now show the failing number if this
 property isn't met.
 
 * Functions that require positive indices now show the failing number if this
 property isn't met.
 
+* Functions that require collections of equal length now show the lengths if this
+property isn't met.
+
+* Functions that require collections of a set length now show the length if this
+property isn't met.
+
+
+
+
 DOCUMENTATION:
 
-* Fixed typos in examples.
+* Fixed typos in the documentation and examples.
 
 * Improved xChoose, xStopWatch example.
+
+* Added examples for xAtKey, xDrop, xIndicesTo.
+
+PACKAGE-INTERNALS:
+
+* Removed non-standard top levels scripts from package.
+
+
+
 
 
 
