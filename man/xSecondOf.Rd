@@ -33,7 +33,7 @@ Return the second element in a collection.
 }
 \examples{
 
-# 1. CE Return the penultimate string in a sentence.
+# 1. CodeEvalReturn the penultimate string in a sentence.
 #    Not the most efficient solution, but it's usually
 #    sufficient. As always, using a right fold would be more
 #    efficient but less expressive. Every problem can be solved

@@ -28,11 +28,7 @@ x_(logical(0)) $ xIterate(trials := {
 		Return(trials)
 	}
 
-	random_point <- make_point()
-	c(trials, in_unit_circle(random_point))
+	c( trials, in_unit_circle(make_point()) )
 
 }) $
-xMap(trial := {
-	if (trial) 1 else 0
-}) $
-x_Tap(unlist %then% mean) * 4
+xMap(trial := if (trial) 1 else 0) $ x_MeanOf() * 4

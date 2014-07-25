@@ -1,5 +1,5 @@
 
-# 1. CE Given a number and a collection of numbers,
+# 1. CodeEvalGiven a number and a collection of numbers,
 # find all unique pairs in the collection that sum to that number.
 
 coll <- c(3,-3, 1, 2, 9, -12, 3, 8, 4, 5, 1)

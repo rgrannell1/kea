@@ -1,5 +1,5 @@
 
-# 1. is a string a palendrome?
+# 1. is a string a palindrome?
 
 palindromic <- "Marge let a moody baby doom a telegram."
 

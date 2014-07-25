@@ -54,7 +54,7 @@ k_nearest(
 
 # 'diabetic'
 
-# 2. CE Get the N longest lines
+# 2. CodeEvalGet the N longest lines
 #    text from Wikipedia
 
 paragraph <-
@@ -73,7 +73,7 @@ x_(paragraph) $ xToLines() $ xSortBy(nchar) $ x_Take(3)
 #     " [13] Both glutathione biosynthesis enzymes are essential in plants; knock-outs of GCL and GS are lethal to embryo and seedling."
 # )
 
-# 3. CE How many ways do numbers drawn from an
+# 3. CodeEvalHow many ways do numbers drawn from an
 #    array sum to zero?
 
 nums <- c(-2, 2, -4, 2, -2, -6)

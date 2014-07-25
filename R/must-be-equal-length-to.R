@@ -11,6 +11,7 @@ Must_Be_Equal_Length_To <- function (COLL1, COLL2) {
 		message <-
 			"The argument matching " %+% ddquote( .(COLL1) ) %+%
 			" must be equal in length to the argument matching " %+% ddquote( .(COLL2) ) %+% "." %+%
+			"The actual lengths were " %+% toString(c(length( .(COLL1) ), length( .(COLL2) )))
 			summate( .(COLL1) )
 
 		throw_kiwi_error(sys.call(), message)

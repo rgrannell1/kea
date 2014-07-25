@@ -8,7 +8,7 @@
 #'
 #' @param
 #'      colls a collection of collections. The collections to
-#'      use to take the cartesian product.
+#'      use to take the Cartesian product.
 #' @param
 #'    ... see above.
 #'

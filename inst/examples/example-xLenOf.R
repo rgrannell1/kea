@@ -1,7 +1,5 @@
 
 # 1. find the length of a list
-#    xLenOf is a very basic function and shouldn't need
-#    much explaination.
 
 xLenOf(letters)
 

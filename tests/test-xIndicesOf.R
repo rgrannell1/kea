@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message("xIndicesOf")
 
 	over(coll) +
@@ -17,6 +16,5 @@ message("xIndicesOf")
 		length(coll) > 0 && is_collection(coll),
 		max(xIndicesOf(coll)) == length(coll)
 	) +
-
 
 	run()

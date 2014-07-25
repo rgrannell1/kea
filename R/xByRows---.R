@@ -5,7 +5,7 @@
 #'
 #' @details
 #'     \bold{xByRows} is the most common way in which data-frames
-#'     are reformatted for use by kiwi. Internally dataframes are
+#'     are reformatted for use by kiwi. Internally data frames are
 #'     represented as lists of lists, and kiwi prefers this explicit representation.
 #'
 #'     Column names are preserved by \bold{xByRows}.

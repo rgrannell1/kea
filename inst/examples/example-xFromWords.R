@@ -1,5 +1,5 @@
 
-# 1. CE Capitalise the first letter of each word in a sentence.
+# 1. CodeEvalCapitalise the first letter of each word in a sentence.
 #    The text is from Wikipedia.
 
 text <-

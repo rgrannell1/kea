@@ -2,7 +2,7 @@
 # 1.
 #
 # Find the input that gives the smallest output for
-# a given polymonial
+# a given polynomial
 
 x_(-10:10) $ xMinBy(x := {
 	-x^5 - 4*x + 12*x

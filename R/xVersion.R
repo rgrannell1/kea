@@ -17,7 +17,7 @@
 #'  PATCH version when you make backwards-compatible bug fixes."
 #'
 #'  For pre 1.0.0 versions Kiwi's minor version is bumped anytime a backwards-
-#'  incompatable change is made, or new functionality is added.
+#'  incomparable change is made, or new functionality is added.
 #'
 #' @param
 #'    ... arguments to be dropped.
@@ -38,5 +38,5 @@
 #' @export
 
 xVersion <- function (...) {
-	c(0L, 36L, 0L)
+	c(0L, 37L, 0L)
 }
