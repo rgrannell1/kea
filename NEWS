@@ -6,11 +6,13 @@ Date: 2014-6-25
 
 BUG-FIXES:
 
-* xSpread now tests if it's input function is unary.
+* xSpread now tests if its input function is unary.
 
 DOCUMENTATION:
 
-* Fixed duplicated parametre in xByLevels.
+* Added corner-case documentation to several functions.
+
+* Fixed build warnings surrounding documentation.
 
 
 
