@@ -34,8 +34,7 @@ Read the contents of a file as a single string.
 
 # 1. Read the first line of kiwi's description.
 
-x_(system.file(package = 'kiwi', 'DESCRIPTION')) $
-xRead() $ xToLines() $ x_Take(1)
+x_(system.file(package = 'kiwi', 'DESCRIPTION')) $ xRead() $ xToLines() $ x_Take(1)
 
 # list("Package: kiwi")
 }

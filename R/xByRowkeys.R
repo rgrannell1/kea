@@ -13,6 +13,7 @@
 #'      A kiwi containing a character vector.
 #'
 #' @section Corner Cases:
+#'     Returns character(0) when \bold{tab} is length-zero or has no keys.
 #'
 #' @family methods
 #'

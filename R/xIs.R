@@ -16,6 +16,7 @@
 #'    A true or false value.
 #'
 #' @section Corner Cases:
+#'    Shares its corner-cases with the base function \link{identical}.
 #'
 #' @example
 #'    inst/examples/example-xIs.R

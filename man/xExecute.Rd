@@ -24,6 +24,7 @@ continuing with the previous method result.
 
 \section{Corner Cases}{
 
+    None.
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
@@ -32,10 +33,10 @@ Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByCols}}; \code{\link{xByLevels}},
-  \code{\link{xByLevels}}, \code{\link{xByValues}};
+  \code{\link{xByCols}}; \code{\link{xByLevels}};
   \code{\link{xByRowkeys}}; \code{\link{xByRows}};
-  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
-  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByValues}}; \code{\link{xElemsByCols}};
+  \code{\link{xElemsByRows}}; \code{\link{xTap}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

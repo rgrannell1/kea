@@ -16,20 +16,21 @@ Convert a matrix or data.frame to a collection of rows.
 }
 \details{
 \bold{xByRows} is the most common way in which data-frames
-    are reformatted for use by kiwi. Internally dataframes are
+    are reformatted for use by kiwi. Internally data frames are
     represented as lists of lists, and kiwi prefers this explicit representation.
 
     Column names are preserved by \bold{xByRows}.
 }
 \section{Corner Cases}{
 
+    Returns the empty list if \bold{tab} has no rows or have zero x zero dimensions.
 }
 \seealso{
 Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByCols}}; \code{\link{xByLevels}},
-  \code{\link{xByLevels}}, \code{\link{xByValues}};
-  \code{\link{xByRowkeys}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByCols}}; \code{\link{xByLevels}};
+  \code{\link{xByRowkeys}}; \code{\link{xByValues}};
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

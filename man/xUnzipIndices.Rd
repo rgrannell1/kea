@@ -46,10 +46,11 @@ x_(letters) $ xUnzipIndices() $ xMap( xUnspread((ith : val) := {
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xAddKeys_}}; \code{\link{xIndicesOf}},
-  \code{\link{xIndicesOf_}}; \code{\link{xKeysOf}},
-  \code{\link{xKeysOf_}}; \code{\link{xUnzipKeys}},
-  \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}};
-  \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}
+  \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
+  \code{\link{xKeysOf}}, \code{\link{xKeysOf_}};
+  \code{\link{xUnzipKeys}}, \code{\link{xUnzipKeys_}};
+  \code{\link{xValuesOf}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys_}}
 
 Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChop}},

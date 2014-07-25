@@ -22,6 +22,7 @@
 #'
 #' @section Corner Cases:
 #'
+#'
 #' @family function_modifying_functions
 #'
 #' @family parametre_functions
@@ -35,6 +36,8 @@
 #' @export
 
 xSpread <- MakeFun('xSpread', function (fn) {
+
+	MACRO( Must_Have_Arity(fn, 1) )
 
 	function (...) {
 		"a function returned by xSpread."

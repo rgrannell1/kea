@@ -68,7 +68,7 @@
 #'    Returns a unary function of x.
 #'
 #' @section Corner Cases:
-#'
+#'    Calls \bold{fn} with no arguments when \bold{fns} is empty.
 #'
 #' @family function_modifying_functions
 #'

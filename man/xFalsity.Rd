@@ -21,6 +21,7 @@ A function that always returns false.
 
 \section{Corner Cases}{
 
+   None.
 }
 \examples{
 

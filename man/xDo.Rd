@@ -35,6 +35,7 @@ collection and discard the results.
 
 \section{Corner Cases}{
 
+   Does not call \bold{fn} when given an empty list.
 }
 \examples{
 

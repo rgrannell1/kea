@@ -40,9 +40,9 @@ Select a collection at certain indices.
 }
 \examples{
 
-# 1. Subsetting a ocllection
+# 1. Subsetting a collection
 #
-# Slice is the replacement for '[[' in Kiwi. It behaves similarily.
+# Slice is the replacement for '[[' in Kiwi. It behaves similarly.
 
 nums <- 1:10
 

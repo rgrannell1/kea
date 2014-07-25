@@ -66,8 +66,7 @@ Transpose a collection of collections.
 
 csv <- "Monaco,48.9,Japan,44.6,Italy,44.3,Germany,43.7,Jersey,43.4"
 
-x_(csv) $ xExplode(',') $ xChunk(2) $ xZip() $
-x_AddKeys(c('country', 'age'))
+x_(csv) $ xExplode(',') $ xChunk(2) $ xZip() $ x_AddKeys(c('country', 'age'))
 
 # list(
 #     country =

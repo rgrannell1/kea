@@ -24,6 +24,7 @@ Return an argument without modification.
 
 \section{Corner Cases}{
 
+   None.
 }
 \examples{
 

@@ -51,7 +51,6 @@ x. <- structure(
 	class = 'xlambda_builder'
 )
 
-#' @usage x. %% ...
 #'
 
 #' @export
@@ -64,7 +63,6 @@ x. <- structure(
     }
 }
 
-#' @usage x. %/% ...
 #'
 
 #' @export
@@ -78,7 +76,6 @@ x. <- structure(
 }
 
 
-#' @usage x. [[...]]
 #'
 
 #' @export
@@ -91,7 +88,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. [...]
 #'
 
 #' @export
@@ -104,7 +100,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. $ ...
 #'
 
 #' @export
@@ -121,7 +116,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. @@ ...
 #'
 
 #' @export
@@ -138,7 +132,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. ^ ...
 #'
 
 #' @export
@@ -151,7 +144,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. : ...
 #'
 
 #' @export
@@ -164,7 +156,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. * ...
 #'
 
 #' @export
@@ -177,7 +168,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. / ...
 #'
 
 #' @export
@@ -190,8 +180,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. - ...
-#' @usage -x.
 #'
 
 #' @export
@@ -210,8 +198,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. + ...
-#' @usage +x.
 #'
 
 #' @export
@@ -230,7 +216,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. > ...
 #'
 
 #' @export
@@ -243,7 +228,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. >= ...
 #'
 
 #' @export
@@ -256,7 +240,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. < ...
 #'
 
 #' @export
@@ -269,7 +252,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. <= ...
 #'
 
 #' @export
@@ -282,7 +264,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. == ...
 #'
 
 #' @export
@@ -295,7 +276,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. != ...
 #'
 
 #' @export
@@ -308,7 +288,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. & ...
 #'
 
 #' @export
@@ -321,7 +300,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. && ...
 #'
 
 #' @export
@@ -334,7 +312,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. | ...
 #'
 
 #' @export
@@ -347,7 +324,6 @@ x. <- structure(
 	}
 }
 
-#' @usage x. || ...
 #'
 
 #' @export
@@ -360,7 +336,6 @@ x. <- structure(
 	}
 }
 
-#' @usage !x.
 #'
 
 #' @export

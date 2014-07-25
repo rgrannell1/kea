@@ -31,7 +31,7 @@ Reverse the order of elements in a collection.
 \examples{
 
 # 1.
-# select the third last letter in the english alphabet.
+# select the third last letter in the English alphabet.
 
 x_(letters) $ xReverse() $ xThirdOf()
 

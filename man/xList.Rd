@@ -4,8 +4,8 @@
 \alias{xList}
 \title{xList[ ]}
 \format{\preformatted{function (...)  
- - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 74 2 83 2 9 9 74 83
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x2d90b20> 
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 75 2 84 2 9 9 75 84
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x43c8500> 
  - attr(*, "class")= chr "xlist_builder"
 }}
 \usage{
@@ -71,6 +71,7 @@ Generate a list using set-builder notation.
 }
 \section{Corner Cases}{
 
+    Returns the empty list when no arguments are given.
 }
 \examples{
 

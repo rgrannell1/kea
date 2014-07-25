@@ -24,7 +24,7 @@ Split a named collection into a list of name: value list pairs.
     takes a named collection and converts it into a list of
     key, value list pairs. This is primarily intended for allowing functions that
     cannot read collection names - like map and select - to be able to operate
-    on both a value and its key simultaneouslty.
+    on both a value and its key simultaneously.
 }
 \section{Type Signature}{
 
@@ -63,8 +63,9 @@ x_(irish_birds) $ xUnzipKeys() $ x_Map(xUnspread((key : val) := {
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xAddKeys_}}; \code{\link{xIndicesOf}},
-  \code{\link{xIndicesOf_}}; \code{\link{xKeysOf}},
-  \code{\link{xKeysOf_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
+  \code{\link{xKeysOf}}, \code{\link{xKeysOf_}};
+  \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xValuesOf}};
   \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}
 

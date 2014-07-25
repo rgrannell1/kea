@@ -17,7 +17,7 @@ Convert a constant value back into a normal R value.
 }
 \details{
 \bold{xAsVar} takes a variable in the calling
-    environmnet, and unlocks it, converting it back
+    environment, and unlocks it, converting it back
     to a normal R variable.
 }
 \section{Corner Cases}{

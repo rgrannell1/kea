@@ -19,13 +19,14 @@ Convert a matrix or data.frame to a collection of column names.
 }
 \section{Corner Cases}{
 
+    Returns character(0) when \bold{tab} is length-zero or has no keys.
 }
 \seealso{
 Other methods: \code{\link{xByCols}};
-  \code{\link{xByLevels}}, \code{\link{xByLevels}},
-  \code{\link{xByValues}}; \code{\link{xByRowkeys}};
-  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByLevels}}; \code{\link{xByRowkeys}};
+  \code{\link{xByRows}}; \code{\link{xByValues}};
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

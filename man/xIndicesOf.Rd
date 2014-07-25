@@ -38,8 +38,9 @@ xIndicesOf(letters)
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
-  \code{\link{xAddKeys_}}; \code{\link{xKeysOf}},
-  \code{\link{xKeysOf_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xAddKeys_}}; \code{\link{xIndicesTo}};
+  \code{\link{xKeysOf}}, \code{\link{xKeysOf_}};
+  \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}};
   \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}

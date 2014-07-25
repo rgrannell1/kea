@@ -35,7 +35,7 @@ Divide a collection into a fixed number of segments.
 
     \bold{xChop} can be used for dividing a task for parallel execution.
     For example, a very large collection could be chopped into
-    four subcollections by using \bold{xChop(4, coll)}, before applying a
+    four sub-collections by using \bold{xChop(4, coll)}, before applying a
     function to each sublist using \bold{mclapply( )}.
 }
 \section{Type Signature}{

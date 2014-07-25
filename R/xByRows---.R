@@ -17,6 +17,7 @@
 #'      A kiwi object containing a list of lists.
 #'
 #' @section Corner Cases:
+#'     Returns the empty list if \bold{tab} has no rows or have zero x zero dimensions.
 #'
 #' @family methods
 #'

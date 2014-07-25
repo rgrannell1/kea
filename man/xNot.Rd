@@ -23,6 +23,7 @@ Are two values not equal?
 
 \section{Corner Cases}{
 
+   Shares its corner-cases with the base function \link{identical}.
 }
 
 \section{Corner Cases}{

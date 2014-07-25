@@ -30,7 +30,11 @@ Select a random value from a collection.
 }
 \examples{
 
-NULL
+# 1. A simple example.
+
+xOneOf(1:10)
+
+# 3, but the result will vary.
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAppend}},

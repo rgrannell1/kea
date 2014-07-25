@@ -19,7 +19,7 @@ A variadic function that returns \bold{val}.
 Create a function that returns a particular value.
 }
 \details{
-\bold{xCapture} is the contant combinator - a function
+\bold{xCapture} is the constant combinator - a function
     that takes an arguments and returns a function that
     always returns that value.
 
@@ -33,6 +33,7 @@ Create a function that returns a particular value.
 
 \section{Corner Cases}{
 
+   None.
 }
 \examples{
 

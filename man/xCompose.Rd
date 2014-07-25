@@ -74,10 +74,6 @@ Kiwi's function composition is largely done with the infix
 
 \section{Corner Cases}{
 
-}
-
-\section{Corner Cases}{
-
    \bold{xCompose} throws an error if no functions are passed to it, as it has
    no sensible definition in this case.
 }

@@ -28,57 +28,57 @@
 \title{x.}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 50 2 9 9 41 50
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x39fa880> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x42cd8e8> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
 x.
 
-x. \%\% ...
+\\method{\\\%\\\%}{xlambda_builder}(...)
 
-x. \%/\% ...
+\\method{\\\%/\\\%}{xlambda_builder}(...)
 
-x. [[...]]
+\\method{[[}{xlambda_builder}(...)
 
-x. [...]
+\\method{[}{xlambda_builder}(...)
 
-x. $ ...
+\\method{$}{xlambda_builder}(...)
 
-x. @ ...
+"@.xlambda_builder"(...)
 
-x. ^ ...
+\\method{^}{xlambda_builder}(...)
 
-x. : ...
+":.xlambda_builder"(...)
 
-x. * ...
+\\method{*}{xlambda_builder}(...)
 
-x. / ...
+\\method{/}{xlambda_builder}(...)
 
-x. - ...
+\\method{-}{xlambda_builder}(...)
 
-x. + ...
+\\method{+}{xlambda_builder}(...)
 
-x. > ...
+\\method{>}{xlambda_builder}(...)
 
-x. >= ...
+\\method{>=}{xlambda_builder}(...)
 
-x. < ...
+\\method{<}{xlambda_builder}(...)
 
-x. <= ...
+\\method{<=}{xlambda_builder}(...)
 
-x. == ...
+\\method{==}{xlambda_builder}(...)
 
-x. != ...
+\\method{!=}{xlambda_builder}(...)
 
-x. & ...
+\\method{&}{xlambda_builder}(...)
 
-x. && ...
+"&&.xlambda_builder"(...)
 
-x. | ...
+\\method{|}{xlambda_builder}(...)
 
-x. || ...
+"||.xlambda_builder"(...)
 
-!x.
+\\method{!}{xlambda_builder}(...)
 }
 \arguments{
 \item{...}{the argument passed to x.. The right hand side of the operator.}
@@ -88,6 +88,52 @@ an arbitrary value.
 }
 \description{
 Partially apply an infix function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 \details{
 One of the most common uses of anonymous functions is

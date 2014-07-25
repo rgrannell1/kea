@@ -23,6 +23,7 @@ A function that always returns na.
 
 \section{Corner Cases}{
 
+   None.
 }
 \examples{
 

@@ -26,6 +26,7 @@ Is a collection length-zero?
 
 \section{Corner Cases}{
 
+   Returns false for non-empty collections.
 }
 \examples{
 

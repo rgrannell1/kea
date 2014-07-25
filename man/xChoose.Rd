@@ -39,21 +39,12 @@ Enumerate all ways of choosing several elements from a collection.
 # 1. How many ways can you get one or more royals from a random hand of two cards?
 #    Determine by exhaustive search.
 
-cards <-x_(xProdSetOf_(
-	c('spades', 'hearts', 'diamonds', 'clubs'),
-	c('ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King') ))
+cards <-x__(
+	'ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King') $ xRepeat(4)
 
-pairs <- cards $ xChoose(2)
+is_royal <- xIsIn(coll = c('Jack', 'Queen', 'King'))
 
-royals <- c('Jack', 'Queen', 'King')
-
-pairs $ xPoll( xUnspread((card1 : card2) := {
-
-	rank1 <- xSecondOf(card1)
-	rank2 <- xSecondOf(card2)
-
-	xIsIn(rank1, royals) || xIsIn(rank2, royals)
-}) )
+cards $ xChoose(2) $ xPoll(xAnyOf(is_royal))
 
 # 546 different ways
 }

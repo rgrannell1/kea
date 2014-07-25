@@ -29,7 +29,11 @@ Test if a string doesn't match a regular expression.
 }
 \examples{
 
-NULL
+# 1. Test if a string doesn't match a regular expression
+
+xNotMatch('Over 90+[!]$', 'Over 9000!')
+
+# False
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}};

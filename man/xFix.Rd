@@ -97,6 +97,12 @@ five()
 x_(c('H. ergaster', 'H. habilis', 'H. sapiens', 'C. elegans')) $
 x_Select(xFix(xIsMatch, 'H[.] '))
 
+# but much more appropriately
+
+x_(c('H. ergaster', 'H. habilis', 'H. sapiens', 'C. elegans')) $
+x_Select(xIsMatch('H[.] '))
+
+
 # list('H. ergaster', 'H. habilis', 'H. sapiens')
 
 # Only use partial application like this if improves readability or

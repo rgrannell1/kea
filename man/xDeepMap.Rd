@@ -35,6 +35,7 @@ preserving its structure.
 
 \section{Corner Cases}{
 
+   xDeepMap preseves collection names.
 }
 \examples{
 

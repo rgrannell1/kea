@@ -10,7 +10,7 @@ xProdSetOf_(...)
 }
 \arguments{
 \item{colls}{a collection of collections. The collections to
-use to take the cartesian product.}
+use to take the Cartesian product.}
 
 \item{...}{see above.}
 }

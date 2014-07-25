@@ -22,6 +22,8 @@ Does a function have ellipsis arguments?
 
 \section{Corner Cases}{
 
+   Returns true when a function has a mix of variadic
+   and non-variadic parametres.
 }
 \examples{
 

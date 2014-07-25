@@ -24,10 +24,6 @@ Is an value false?
 
 \section{Corner Cases}{
 
-}
-
-\section{Corner Cases}{
-
     xIsFalse returns either true or false, to make it
     safe for use with if statements. If val is length zero
     False is returned.

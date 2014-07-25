@@ -30,6 +30,7 @@ Return the empty version of a collection.
 
 \section{Corner Cases}{
 
+     The unit of a pairlist is null.
 }
 \examples{
 

@@ -22,7 +22,7 @@ Is an value true?
     length-one true or false value; conditional statements throw an error
     if they are given a length zero logical vector.
 
-    The below example will throw an error; forall of an empty list is
+    The below example will throw an error; xAnyOf of an empty list is
     logical zero, which if cannot handle:
 
     \code{mybool <- xAnyOf(xI, list())}

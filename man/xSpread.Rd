@@ -14,7 +14,7 @@ A variadic function.
 }
 \description{
 Return a variadic function that passes its arguments
-as a list to its underyling function.
+as a list to its underlying function.
 }
 \details{
 \bold{xSpread} takes a unary function and
@@ -37,11 +37,11 @@ as a list to its underyling function.
 # a function that takes many arguments.
 #
 
-summate <- xSpread(nums := xFold("+", 0, nums) )
+summate <- xSpread(xFold("+", 0) )
 
 summate(1, 2, 3, 4, 5, 6)
 
-# 2.
+# 21.
 #
 
 }

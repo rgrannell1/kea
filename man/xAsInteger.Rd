@@ -34,7 +34,7 @@ Convert a collection of integers to a integer vector.
 
    Double vectors are not coerced to integer vectors:
    doubles can be decimal or infinite numbers, which
-   would be lost upon coersion.
+   would be lost upon coercion.
 }
 \examples{
 

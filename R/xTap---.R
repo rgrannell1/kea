@@ -27,7 +27,7 @@
 #'      A kiwi object.
 #'
 #' @section Corner Cases:
-#'
+#'     None.
 #'
 #' @family methods
 #'

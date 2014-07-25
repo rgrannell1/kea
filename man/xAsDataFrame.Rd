@@ -30,8 +30,7 @@ data.frames are not a beloved part of kiwi,
 \section{Corner Cases}{
 
    \bold{xAsDataFrame} tried hard to avoid the crazy corner
-   cases of \bold{data.frame}, but data frames are kludgy and
-   there's only so much they can be made workable.
+   cases of \bold{data.frame}, but data frames are kludgey.
 
    Character vectors are not converted into factors,
    unlike the base functions.
@@ -40,7 +39,7 @@ data.frames are not a beloved part of kiwi,
   collections inside colls are identical.
   If the rownames are different, an error is thrown.
 
-  If row names or column names are ommitted they default to
+  If row names or column names are omitted they default to
   indices.
 }
 

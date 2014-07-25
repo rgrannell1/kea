@@ -28,10 +28,16 @@ Add a value to the end of a collection.
 
 \section{Corner Cases}{
 
+   Returns a list containing \bold{val} when \bold{coll}
+   is length-zero.
 }
 \examples{
 
-# 1.
+# 1. A trivial example.
+
+x__('hi', 'hello', 'bonjour') $ xAppend('hola')
+
+# list('hi', 'hello', 'bonjour', 'hola')
 }
 \seealso{
 Other reshaping_functions: \code{\link{xChop}},

@@ -60,6 +60,7 @@
 #'
 #'
 #' @section Corner Cases:
+#'     Returns the empty list when no arguments are given.
 #'
 #' @template
 #'    Variadic

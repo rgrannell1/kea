@@ -32,6 +32,7 @@ Convert a collection of raw values to a raw vector.
 
 \section{Corner Cases}{
 
+   Numbers are not coerced to raw.
 }
 \examples{
 

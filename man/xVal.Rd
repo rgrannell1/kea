@@ -30,7 +30,7 @@ xVal works like normal R assignment, with the exception
    not an infix function like normal assignment.
 
    Kiwi's value functions are built on top of base R's \bold{lockBinding}
-   mechanism, which is seft-described as being 'experimental'.
+   mechanism, which is self-described as being 'experimental'.
 }
 \section{Corner Cases}{
 

@@ -30,12 +30,17 @@ Get the names of a collection.
 }
 \examples{
 
-NULL
+# 1. A simple example.
+
+xKeysOf(list('fruit' = 'bannana', 'colour' = 'yellow'))
+
+# c("fruit", "colour")
 }
 \seealso{
 Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xAddKeys_}}; \code{\link{xIndicesOf}},
-  \code{\link{xIndicesOf_}}; \code{\link{xUnzipIndices}},
+  \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
+  \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}};
   \code{\link{xZipKeys}}, \code{\link{xZipKeys_}}

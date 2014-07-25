@@ -16,13 +16,14 @@ Convert a matrix or data.frame to a collection of columns.
 }
 \section{Corner Cases}{
 
+    Returns the empty list if \bold{tab} has no columns or have zero x zero dimensions.
 }
 \seealso{
 Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByLevels}}, \code{\link{xByLevels}},
-  \code{\link{xByValues}}; \code{\link{xByRowkeys}};
-  \code{\link{xByRows}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xTap}}; \code{\link{x_}}, \code{\link{x__}}
+  \code{\link{xByLevels}}; \code{\link{xByRowkeys}};
+  \code{\link{xByRows}}; \code{\link{xByValues}};
+  \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
+  \code{\link{xExecute}}; \code{\link{xTap}};
+  \code{\link{x_}}, \code{\link{x__}}
 }
 

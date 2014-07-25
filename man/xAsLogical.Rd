@@ -31,6 +31,7 @@ Convert a collection of logicals to a logical vector.
 
 \section{Corner Cases}{
 
+   Numbers are not coerced to logical.
 }
 \examples{
 

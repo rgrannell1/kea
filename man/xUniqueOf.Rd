@@ -45,7 +45,7 @@ is_pangram <- line := {
 	x_(line) $
 	xToChars() $ xMap(tolower) $ xUniqueOf() $
 	xSelect(
-		xFix_(xIsIn, coll = letters)
+		xIsIn(coll = letters)
 	) $
 	x_LenOf() == 26
 }

@@ -13,7 +13,7 @@
 #'    Returns \bold{val}.
 #'
 #' @section Corner Cases:
-#'
+#'    None.
 #'
 #' @family basic_functions
 #'

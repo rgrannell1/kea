@@ -26,7 +26,7 @@ Kiwi versioning follows the semantic version
  PATCH version when you make backwards-compatible bug fixes."
 
  For pre 1.0.0 versions Kiwi's minor version is bumped anytime a backwards-
- incompatable change is made, or new functionality is added.
+ incomparable change is made, or new functionality is added.
 }
 \section{Type Signature}{
 
