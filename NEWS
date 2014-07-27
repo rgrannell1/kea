@@ -3,10 +3,15 @@ Kiwi 0.38.0
 -----------------------------------------------------------------------------
 Date: 2014-6-25
 
+ENHANCEMENTS:
+
+* xRead now reads files in UTF-8 encoding.
 
 BUG-FIXES:
 
 * xSpread now tests if its input function is unary.
+
+* xSliceString now has string as first param.
 
 DOCUMENTATION:
 
