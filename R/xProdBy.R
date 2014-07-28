@@ -1,5 +1,4 @@
 
-
 #' xProdBy
 #'
 #' Get the product of a collection according to a measure function.
@@ -26,8 +25,6 @@
 #'
 #' @template
 #'    Variadic
-#'
-#' @family selection_functions
 #'
 #' @example
 #'    inst/examples/example-xProdBy.R

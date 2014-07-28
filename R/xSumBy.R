@@ -26,8 +26,6 @@
 #' @template
 #'    Variadic
 #'
-#' @family selection_functions
-#'
 #' @example
 #'    inst/examples/example-xSumBy.R
 #'

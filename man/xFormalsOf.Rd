@@ -19,7 +19,7 @@ xFormalsOf
 
     function -> |any|
 
-Get the parametres and defaults of a function or primitive function.
+Get a named list of parametres and their defaults from a function or primitive function.
 }
 
 \section{Corner Cases}{

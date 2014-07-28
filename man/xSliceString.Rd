@@ -4,16 +4,16 @@
 \alias{xSliceString_}
 \title{xSliceString}
 \usage{
-xSliceString(str, nums)
+xSliceString(nums, str)
 
-xSliceString_(str, ...)
+xSliceString_(..., str)
 }
 \arguments{
-\item{str}{a string. The string to subset.}
-
 \item{nums}{a collection of whole numbers. The indices to select
    characters with. Negative, positive and zero indices are allowed,
    but normal R index semantics dictate how they can intermix.}
+
+\item{str}{a string. The string to subset.}
 
 \item{...}{see above.}
 }
@@ -25,7 +25,7 @@ Subset a string using normal R vector indexing.
 }
 \section{Type Signature}{
 
-    |character| -> |numeric| -> &lt;character>
+    |numeric| -> |character| -> &lt;character>
 }
 
 \section{Corner Cases}{
