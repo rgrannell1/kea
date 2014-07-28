@@ -8,33 +8,24 @@ message("xWhere")
 	describe("length one corner cases") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+
 		xWhere(coll) %is% integer(0)
 	) +
 
 	describe("length one corner cases") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 0 && is_named(coll),
+
 		xWhere(coll) %is% as_named(integer(0))
 	) +
 
 	describe("length one corner cases") +
 	holdsWhen(
 		TRUE,
+
 		xWhere(TRUE) == 1,
 		xWhere(FALSE) %is% integer(0),
-		xWhere(NA) %is% integer(0)
-	) +
-
-	run()
-
-message("xWhere")
-
-	over(coll) +
-
-	describe("length one corner cases") +
-	failsWhen(
-		!is.logical(coll) && !all(elem_is_na(coll)) && length(coll) > 0,
-		xWhere(coll)
+		xWhere(NA)    %is% integer(0)
 	) +
 
 	run()

@@ -1,4 +1,48 @@
 
+Kiwi 0.39.0
+-----------------------------------------------------------------------------
+Date: 2014-6-28
+
+Improved recursive kiwi functions, fixed important bugs.
+
+ENHANCEMENTS:
+
+* xDeepMap no longer uses recursion, and as such does not suffer from
+stack overflows any more.
+
+* xFlatten uses less recursion than previously, and is more unlikely to
+cause a stack overflow.
+
+BUG-FIXES:
+
+* x_ now works on values of any type again: after its recent refactoring
+it failed for strange values like symbols.
+
+* fixed misnamed variable that would cause failures if a warning
+was thrown while writing to a file.
+
+* xFlatten no longer coerces inputs to a set type upon flattening;
+xFlatten(1, list('a', 1, 2)) is now c('a', 1, 2), not c('a', 1, 2).
+Closes #2.
+
+PACKAGE-INTERNALS:
+
+* Added several recursive test-case generators.
+
+* Blacklisted use of 'unlist' due to type coercion: use of '%in%' will likely follow.
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.38.0
 -----------------------------------------------------------------------------
 Date: 2014-6-25

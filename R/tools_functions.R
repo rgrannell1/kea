@@ -436,6 +436,19 @@ load_test_dependencies <- function (envir) {
 
 			is_collection   = is_collection,
 
+			`%is_in%`       = function (elem, coll) {
+
+				for (coll_elem in coll) {
+
+					if (identical(elem, coll_elem)) {
+						return(True)
+					}
+
+				}
+
+				return(False)
+			},
+
 			is_atomic       = is_atomic,
 			is_generic      = is_generic,
 			as_named        = as_named,

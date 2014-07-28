@@ -1,12 +1,8 @@
 Package: kiwi
 Type: Package
 Title: Kiwi
-Description: **Kiwi** is a functional programming framework that adds partial
-    application, jQuery-like method calling, function composition, and nearly
-    one-hundred higher-order functions and utility functions to the R language.
-    Kiwi makes R an elegant functional language with an emphasis on the
-    composition of simple functions to create complex, expressive programs.
-Version: 0.38.0
+Description: **Kiwi**.
+Version: 0.39.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03

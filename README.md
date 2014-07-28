@@ -1,5 +1,5 @@
 
-Kiwi 0.37.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.39.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -29,7 +29,7 @@ For library documentation and tutorials head to
 
 ## Examples
 
-```
+```r
 # 1. Create a simple csv parser.
 
 from_csv <- xExplode('[ 	]*,[ 	]*')
@@ -65,8 +65,7 @@ http://semver.org/
 
 ## Authors
 
-Ordered by contribution date.
-
 | Author                      | Changes                 |
 | --------------------------- | ----------------------- |
-| Ryan Grannell               | 185,258 ++ / 153,084 -- |
+| Ryan Grannell               | 191,792 ++ / 160,881 -- |
+

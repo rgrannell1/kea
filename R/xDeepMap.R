@@ -7,11 +7,6 @@
 #' @section Type Signature:
 #'     (any -> any) -> |any| -> [any]
 #'
-#' @details
-#'     \bold{xDeepMap} is currently recursive, and as such will cause a
-#'     stack overflow for large inputs. Future versions of Kiwi may include
-#'     a more stable algorithm for \bold{xDeepMap}.
-#'
 #' @param
 #'    fn a unary function. A function to recursively apply
 #'    into a collection.
@@ -43,18 +38,18 @@ xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	recur <- function (xs) {
-		# recurse into a collection. TODO-non-recursive form.
+	if (!is_recursive(coll)) {
+		keep_names(list(), coll)
+	} else {
 
-		if (is_generic(xs)) {
-			# this recursively converts from pairlist to list.
-			lapply(xs, recur)
-		} else {
-			 MACRO( Try_Higher_Order_Function( fn(xs) ) )
-		}
+		rapply(coll, function (elem) {
+
+			 MACRO( Try_Higher_Order_Function( fn(elem) ) )
+
+		}, how = 'list')
+
 	}
 
-	recur(as.list(coll))
 })
 
 #' @rdname xDeepMap

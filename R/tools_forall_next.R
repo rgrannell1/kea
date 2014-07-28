@@ -225,18 +225,11 @@ from_stream <- ( function () {
 
 	# -- named vector
 
-
-
-
-
 	this $ named_doubles_any <-
 		add_names(this $ doubles_any)
 
 	this $ named_integers_any <-
 		add_names(this $ integers_any)
-
-
-	# -- generic collection
 
 	this $ named_empty_character <-
 		add_names(this $ empty_character)
@@ -250,10 +243,58 @@ from_stream <- ( function () {
 	this $ named_empty_integer <-
 		add_names(this $ empty_integer)
 
-	this $ named_empty_integerlist <-
-		listify(this $ named_empty_integer)
+	#  -- typed generic lists
 
+	this $ na_list <-
+		listify(this $ na)
 
+	this $ character_list <-
+		listify(this $ character)
+
+	this $ word_list <-
+		listify(this $ word)
+
+	this $ line_list <-
+		listify(this $ line)
+
+	this $ paragraph_list <-
+		listify(this $ paragraph)
+
+	this $ logical_list <-
+		listify(this $ logical)
+
+	this $ logicals_list <-
+		listify(this $ logicals)
+
+	this $ nan_list <-
+		listify(this $ nan)
+
+	this $ nans_list <-
+		listify(this $ nans)
+
+	this $ infinity_list <-
+		listify(this $ infinity)
+
+	this $ infinities_list <-
+		listify(this $ infinities)
+
+	this $ double_list <-
+		listify(this $ double)
+
+	this $ doubles_list <-
+		listify(this $ doubles)
+
+	this $ doubles_any_list <-
+		listify(this $ doubles_any)
+
+	this $ integer_list <-
+		listify(this $ integer)
+
+	this $ integers_list <-
+		listify(this $ integers)
+
+	this $ integers_any_list <-
+		listify(this $ integers_any)
 
 	# -- function
 
@@ -907,7 +948,7 @@ failsWhen <- function (expr1, ...) {
 # Run specifies that the test object should now be
 # executes. Also specifies how long to run the test for.
 
-run <- function (time = 0.3) {
+run <- function (time = 1) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out
