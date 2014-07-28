@@ -21,6 +21,7 @@
 #'    A logical vector.
 #'
 #' @section Corner Cases:
+#'    Numbers are not coerced to logical.
 #'
 #' @template
 #'    Variadic

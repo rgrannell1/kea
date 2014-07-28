@@ -1,4 +1,49 @@
 
+Kiwi 0.38.0
+-----------------------------------------------------------------------------
+Date: 2014-6-25
+
+Added two new arithmetic functions, updated documentation.
+
+ENHANCEMENTS:
+
+* Added xSumBy, xProdBy, which compute the sum or product of a list
+by a measure function.
+
+* xRead now reads files in UTF-8 encoding.
+
+* Removed special treatment of parametres of the form val_ in lambda functions;
+this added too much complication and helped create functions with odd type signatures.
+x_(val) is almost as short.
+
+BUG-FIXES:
+
+* xSpread now tests if its input function is unary.
+
+* xSliceString now has it's numbers as its first parametre, in line with xAt and xSlice.
+
+DOCUMENTATION:
+
+* Added corner-case documentation to several functions.
+
+* Fixed build warnings surrounding documentation.
+
+PACKAGE-INTERNALS:
+
+* To be kinder to CRAN, tests now run for .3 seconds instead of 2 seconds.
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.37.0
 -----------------------------------------------------------------------------
 Date: 2014-6-25

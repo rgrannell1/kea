@@ -25,7 +25,7 @@ kmers <- (k : string) := {
 	xMap(
 		ith := {
 			# subset the string.
-			xSliceString(string, (1:k) + ith)
+			xSliceString((1:k) + ith, string)
 		},
 		0:(nchar(string) - k)
 	)
@@ -42,6 +42,7 @@ contigs <- list(
 	'A',
 	'AGGTGTGAGAGAT'
 )
+
 
 # get all unique 3-mers.
 x_(contigs) $ xReject(contig := nchar(contig) < 3) $ # -- remove the contigs that are too short.

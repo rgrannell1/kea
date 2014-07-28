@@ -22,8 +22,7 @@
 #'
 #' @section Corner Cases:
 #'    \bold{xAsDataFrame} tried hard to avoid the crazy corner
-#'    cases of \bold{data.frame}, but data frames are kludgey and
-#'    there's only so much they can be made workable.
+#'    cases of \bold{data.frame}, but data frames are kludgey.
 #'
 #'    Character vectors are not converted into factors,
 #'    unlike the base functions.

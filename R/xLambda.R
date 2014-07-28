@@ -156,63 +156,14 @@ xLambda <- local({
 
 			throw_kiwi_error(invoking_call, message)
 		}
+		# -- this is just a normal R function; map one-to-one onto
+		# -- R code.
 
-		is_underscored <- grepl('_$', params)
+		lambda <- function () {}
 
-		if (!any(is_underscored)) {
-			# -- this is just a normal R function; map one-to-one onto
-			# -- R code.
-
-			lambda <- function () {}
-
-			formals(lambda)     <- as_formals(params)
-			body(lambda)        <- exprbody
-			environment(lambda) <- env
-
-		} else {
-			# -- some parametres are underscored, so the matching argument
-			# -- must be converted to an arrow object first.
-
-			final_params <- params
-
-			# -- throws a runtime error if a parametre ends up duplicated.
-			final_params[is_underscored] <-
-				substr(params[is_underscored], 1, nchar(params[is_underscored]) - 1)
-
-			which_duplicated <- which(duplicated(final_params))
-
-			if (length(which_duplicated) > 0) {
-				# -- duplicated upon truncation.
-
-				message <-
-					"parametres must not be duplicated when the final underscore is removed: " %+%
-					toString(final_params[which_duplicated])
-
-				invoking_call <- call(
-					'%:=%',
-					sys.call(1)[-1][[1]],
-					sys.call(1)[-1][[2]])
-
-				throw_kiwi_error(invoking_call, message)
-
-			}
-
-			# construct assignments of the form 'a_ <- x_(a)'.
-			kiwi_assignments <- lapply(which(is_underscored), function (ith) {
-
-				param       <- params[[ith]]
-				final_param <- final_params[[ith]]
-
-				bquote( .(as.symbol(param)) <- x_( .(as.symbol(final_param)) ) )
-			})
-
-			lambda <- do.call('function', list(
-				as.pairlist(as_formals(final_params)),
-				join_exprs(kiwi_assignments, exprbody)
-			))
-
-			environment(lambda) <- env
-		}
+		formals(lambda)     <- as_formals(params)
+		body(lambda)        <- exprbody
+		environment(lambda) <- env
 
 		lambda
 

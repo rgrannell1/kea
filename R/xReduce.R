@@ -44,7 +44,6 @@
 xReduce <- MakeFun('xReduce', function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 2) )
-
 	MACRO( Must_Be_Longer_Than(0, coll) )
 
 	if (length(coll) == 1) {
@@ -57,7 +56,7 @@ xReduce <- MakeFun('xReduce', function (fn, coll) {
 		callCC(function (Return) {
 
 			if (!is.primitive(fn)) {
-				clone_env <- new.env(parent = environment(fn))
+				clone_env         <- new.env(parent = environment(fn))
 
 				clone_env $ Return <- Return
 				environment(fn)    <- clone_env

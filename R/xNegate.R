@@ -33,6 +33,7 @@
 #'    A predicate function with the same parametres as \bold{pred}.
 #'
 #' @section Corner Cases:
+#'    Returns NA for predicates that return NA. Does not test if the output value is logical.
 #'
 #' @family function_modifying_functions
 #'

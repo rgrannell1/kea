@@ -26,6 +26,7 @@
 #'    A list.
 #'
 #' @section Corner Cases:
+#'    Does not call \bold{fn} when given an empty list.
 #'
 #' @template
 #'    Variadic

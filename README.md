@@ -33,7 +33,7 @@ For library documentation and tutorials head to
 # 1. Create a simple csv parser.
 
 from_csv <- xExplode('[ 	]*,[ 	]*')
-from_csv("field1, field2, field3")
+from_csv("field1", "field2", "field3")
 
 # c("field1, field2, field3")
 ```

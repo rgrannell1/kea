@@ -22,6 +22,7 @@
 #'    A raw vector.
 #'
 #' @section Corner Cases:
+#'    Numbers are not coerced to raw.
 #'
 #' @template
 #'    Variadic

@@ -17,6 +17,7 @@
 #'      The return value of the previous method.
 #'
 #' @section Corner Cases:
+#'     None.
 #'
 #' @family methods
 #'

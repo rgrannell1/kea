@@ -23,6 +23,7 @@
 #'    ... see above.
 #'
 #' @section Corner Cases:
+#'    xDeepMap preseves collection names.
 #'
 #' @return
 #'    A list or pairlist.

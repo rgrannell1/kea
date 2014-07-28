@@ -13,7 +13,7 @@
 #'
 #' @family methods
 #'
-#' @name xByLevels
+#' @name xByValues
 
 xByValues <- MakeFun('xByValues', function (fact) {
 

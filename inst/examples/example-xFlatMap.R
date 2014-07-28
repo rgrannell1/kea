@@ -43,11 +43,13 @@ repeat_elements(2, c(1, 2, 3))
 #
 #    There are more efficient ways to find the numbers,
 #    but a brute force search is fun, if really slow.
+#
+#    For CRAN's sake, I will only find the first three factorions.
 
 digit_factorial_sum_of <-
 	paste %then% xToChars %then% as.integer %then% factorial %then% sum
 
-x_(1:50000) $
+x_(1:5000) $
 xFlatMap(num := {
 
 	digit_factorial_sum <- digit_factorial_sum_of(num)

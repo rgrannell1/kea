@@ -51,26 +51,24 @@ x. <- structure(
 	class = 'xlambda_builder'
 )
 
-#' @usage x. %% ...
 #'
 
 #' @export
 #' @rdname x.
 
-`%%.xlambda_builder` <- function (...) {
+"%%.xlambda_builder" <- function (...) {
     function (val) {
         "a function created by x. %%"
         val %% ..2
     }
 }
 
-#' @usage x. %/% ...
 #'
 
 #' @export
 #' @rdname x.
 
-`%/%.xlambda_builder` <- function (...) {
+"%/%.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. %/%"
 		val %/% ..2
@@ -78,39 +76,36 @@ x. <- structure(
 }
 
 
-#' @usage x. [[...]]
 #'
 
 #' @export
 #' @rdname x.
 
-`[[.xlambda_builder` <- function (...) {
+"[[.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. [["
 		val[[..2]]
 	}
 }
 
-#' @usage x. [...]
 #'
 
 #' @export
 #' @rdname x.
 
-`[.xlambda_builder` <- function (...) {
+"[.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. ["
 		val[..2]
 	}
 }
 
-#' @usage x. $ ...
 #'
 
 #' @export
 #' @rdname x.
 
-`$.xlambda_builder` <- function (...) {
+"$.xlambda_builder" <- function (...) {
 
 	..2 <- substitute(..2)
 
@@ -121,13 +116,12 @@ x. <- structure(
 	}
 }
 
-#' @usage x. @@ ...
 #'
 
 #' @export
 #' @rdname x.
 
-`@.xlambda_builder` <- function (...) {
+"@.xlambda_builder" <- function (...) {
 
 	..2 <- substitute(..2)
 
@@ -138,66 +132,60 @@ x. <- structure(
 	}
 }
 
-#' @usage x. ^ ...
 #'
 
 #' @export
 #' @rdname x.
 
-`^.xlambda_builder` <- '**.xlambda_builder' <- function (...) {
+"^.xlambda_builder" <- '**.xlambda_builder' <- function (...) {
 	function (val) {
 		"a function created by x. ^"
 		val ^ ..2
 	}
 }
 
-#' @usage x. : ...
 #'
 
 #' @export
 #' @rdname x.
 
-`:.xlambda_builder` <- function (...) {
+":.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. :"
 		val : ..2
 	}
 }
 
-#' @usage x. * ...
 #'
 
 #' @export
 #' @rdname x.
 
-`*.xlambda_builder` <- function (...) {
+"*.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. *"
 		val * ..2
 	}
 }
 
-#' @usage x. / ...
 #'
 
 #' @export
 #' @rdname x.
 
-`/.xlambda_builder` <- function (...) {
+"/.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. /"
 		val / ..2
 	}
 }
 
-#' @usage x. - ...
-#' @usage -x.
 #'
 
 #' @export
 #' @rdname x.
 
-`-.xlambda_builder` <- function (...) {
+"-.xlambda_builder" <- function (...) {
 
 	if (missing(..2)) {
 		"a function created by -x."
@@ -210,14 +198,12 @@ x. <- structure(
 	}
 }
 
-#' @usage x. + ...
-#' @usage +x.
 #'
 
 #' @export
 #' @rdname x.
 
-`+.xlambda_builder` <- function (...) {
+"+.xlambda_builder" <- function (...) {
 
 	if (missing(..2)) {
 		"a function created by +x."
@@ -230,143 +216,132 @@ x. <- structure(
 	}
 }
 
-#' @usage x. > ...
 #'
 
 #' @export
 #' @rdname x.
 
-`>.xlambda_builder` <- function (...) {
+">.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. >"
 		val > ..2
 	}
 }
 
-#' @usage x. >= ...
 #'
 
 #' @export
 #' @rdname x.
 
-`>=.xlambda_builder` <- function (...) {
+">=.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. >="
 		val >= ..2
 	}
 }
 
-#' @usage x. < ...
 #'
 
 #' @export
 #' @rdname x.
 
-`<.xlambda_builder` <- function (...) {
+"<.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. <"
 		val < ..2
 	}
 }
 
-#' @usage x. <= ...
 #'
 
 #' @export
 #' @rdname x.
 
-`<=.xlambda_builder` <- function (...) {
+"<=.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. <="
 		val <= ..2
 	}
 }
 
-#' @usage x. == ...
 #'
 
 #' @export
 #' @rdname x.
 
-`==.xlambda_builder` <- function (...) {
+"==.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. =="
 		val == ..2
 	}
 }
 
-#' @usage x. != ...
 #'
 
 #' @export
 #' @rdname x.
 
-`!=.xlambda_builder` <- function (...) {
+"!=.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. !="
 		val != ..2
 	}
 }
 
-#' @usage x. & ...
 #'
 
 #' @export
 #' @rdname x.
 
-`&.xlambda_builder` <- function (...) {
+"&.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. &"
 		val & ..2
 	}
 }
 
-#' @usage x. && ...
 #'
 
 #' @export
 #' @rdname x.
 
-`&&.xlambda_builder` <- function (...) {
+"&&.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. &&"
 		val && ..2
 	}
 }
 
-#' @usage x. | ...
 #'
 
 #' @export
 #' @rdname x.
 
-`|.xlambda_builder` <- function (...) {
+"|.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. |"
 		val | ..2
 	}
 }
 
-#' @usage x. || ...
 #'
 
 #' @export
 #' @rdname x.
 
-`||.xlambda_builder` <- function (...) {
+"||.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by x. ||"
 		val || ..2
 	}
 }
 
-#' @usage !x.
 #'
 
 #' @export
 #' @rdname x.
 
-`!.xlambda_builder` <- function (...) {
+"!.xlambda_builder" <- function (...) {
 	function (val) {
 		"a function created by !x."
 		!val

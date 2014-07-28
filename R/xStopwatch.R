@@ -19,6 +19,7 @@
 #'    A variadic function that ignores its arguments.
 #'
 #' @section Corner Cases:
+#'    If num is infinite the created timer function will never return false.
 #'
 #' @family time_functions
 #'
