@@ -7,6 +7,10 @@ ENHANCEMENTS:
 
 * xRead now reads files in UTF-8 encoding.
 
+* Removed special treatment of parametres of the form val_ in lambda functions;
+this added too much complication and helped create functions with odd type signatures.
+x_(val) is almost as short.
+
 BUG-FIXES:
 
 * xSpread now tests if its input function is unary.

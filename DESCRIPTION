@@ -200,5 +200,7 @@ Collate:
     'xValuesOf.R'
     'xMeanOf.R'
     'xIndicesTo.R'
+    'xSumBy.R'
+    'xProdBy.R'
     'x_next.R'
     'x..R'
