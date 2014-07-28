@@ -62,7 +62,7 @@ xFlatten <- MakeFun('xFlatten', function (num, coll) {
 		unname(as.list(coll))
 	} else if (num == 1) {
 		# -- unlist entirely.
-		unname(as.list(unlist(coll)))
+		unname(rapply(coll, identity, how = 'list'))
 	} else {
 
 		# -- todo write this non-recursively!
@@ -70,7 +70,7 @@ xFlatten <- MakeFun('xFlatten', function (num, coll) {
 			if (!is_recursive(xs)) {
 				xs
 			} else if (depth == num - 1) {
-				unname(as.list(unlist(xs)))
+				unname(rapply(xs, identity, how = 'list'))
 			} else {
 				unname( lapply(xs, function (x) recur(depth + 1, x)) )
 			}

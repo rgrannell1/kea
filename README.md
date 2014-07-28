@@ -29,7 +29,7 @@ For library documentation and tutorials head to
 
 ## Examples
 
-```
+```r
 # 1. Create a simple csv parser.
 
 from_csv <- xExplode('[ 	]*,[ 	]*')
