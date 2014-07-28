@@ -589,7 +589,10 @@ x__ <- function (...) {
 
 
 
-
+# NOTE: Cannot make more specific;
+#
+# making coll more specific screws up the predictability of length-zero corner cases,
+# requires extremely expensive type-checking to be fully generic.
 
 get_proto_ref <- local({
 
@@ -597,13 +600,13 @@ get_proto_ref <- local({
 	x_factor_members   <- ls(x_factor_proto)
 	x_function_members <- ls(x_function_proto)
 	x_coll_members     <- ls(x_coll_proto)
+	x_any_members      <- ls(x_any_proto)
 
 	function (val) {
 		# get the reference to the appropriate methods.
 
 		# -- keep this code fairly efficient.
 
-		proto_ref <-
 		if (is.function( val )) {
 			list(x_function_proto, x_function_members)
 		} else if (is.matrix( val ) || is.data.frame( val )) {
@@ -613,7 +616,7 @@ get_proto_ref <- local({
 		} else if (is_atomic( val ) || is_generic( val )) {
 			list(x_coll_proto, x_coll_members)
 		} else {
-			stop('one moment')
+			list(x_any_proto, x_any_members)
 		}
 	}
 

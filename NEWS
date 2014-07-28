@@ -1,4 +1,26 @@
 
+Kiwi 0.39.0
+-----------------------------------------------------------------------------
+Date: 2014-6-
+
+BUG-FIXES:
+
+* x_ now works on values of any type again: after its recent refactoring
+it failed for strange values like symbols.
+
+* fixed misnamed variable that would cause failures if a warning
+was thrown while writing to a file.
+
+
+
+
+
+
+
+
+
+
+
 Kiwi 0.38.0
 -----------------------------------------------------------------------------
 Date: 2014-6-25

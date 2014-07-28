@@ -253,7 +253,7 @@ try_write <- local({
 				# -- path is lexically scoped to here
 
 
-				errmessage <-
+				warnmessage <-
 					paste0(warn$message, collapse = '')
 
 				# -- this must be changed when the error style is changed.
