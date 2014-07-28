@@ -43,7 +43,7 @@ xRead <- MakeFun('xRead', function (str) {
 		MACRO( Must_Be_File(str) )
 
 		text <- try_read(
-			readLines(str, warn = False), str, sys.call(), encoding = 'UTF-8')
+			readLines(str, warn = False, encoding = 'UTF-8'), str, sys.call())
 
 		paste0(text, collapse = '\n')
 	}
