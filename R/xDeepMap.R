@@ -43,18 +43,12 @@ xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	recur <- function (xs) {
-		# recurse into a collection. TODO-non-recursive form.
+	rapply(coll, function (elem) {
 
-		if (is_generic(xs)) {
-			# this recursively converts from pairlist to list.
-			lapply(xs, recur)
-		} else {
-			 MACRO( Try_Higher_Order_Function( fn(xs) ) )
-		}
-	}
+		 MACRO( Try_Higher_Order_Function( fn(xs) ) )
 
-	recur(as.list(coll))
+	}, how = 'list')
+
 })
 
 #' @rdname xDeepMap
