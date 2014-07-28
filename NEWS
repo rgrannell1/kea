@@ -11,8 +11,9 @@ it failed for strange values like symbols.
 * fixed misnamed variable that would cause failures if a warning
 was thrown while writing to a file.
 
-
-
+* xFlatten no longer coerces inputs to a set type upon flattening;
+xFlatten(1, list('a', 1, 2)) is now c('a', 1, 2), not c('a', 1, 2).
+Closes #2.
 
 
 
