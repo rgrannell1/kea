@@ -14,7 +14,7 @@ over(coll) +
 
 	describe("sum of constant one is length") +
 	holdsWhen(
-		is_collection(coll),
+		is_collection(coll) && length(coll) > 0,
 
 		xSumBy(xK(1), coll) == length(coll)
 	) +
