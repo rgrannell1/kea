@@ -7,11 +7,6 @@
 #' @section Type Signature:
 #'     (any -> any) -> |any| -> [any]
 #'
-#' @details
-#'     \bold{xDeepMap} is currently recursive, and as such will cause a
-#'     stack overflow for large inputs. Future versions of Kiwi may include
-#'     a more stable algorithm for \bold{xDeepMap}.
-#'
 #' @param
 #'    fn a unary function. A function to recursively apply
 #'    into a collection.
