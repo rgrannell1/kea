@@ -45,7 +45,7 @@ xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 
 	rapply(coll, function (elem) {
 
-		 MACRO( Try_Higher_Order_Function( fn(xs) ) )
+		 MACRO( Try_Higher_Order_Function( fn(elem) ) )
 
 	}, how = 'list')
 
