@@ -40,24 +40,4 @@ xSumBy(xIdentity, 1:10)
 
 # 55
 }
-\seealso{
-Other selection_functions: \code{\link{xAtKey}},
-  \code{\link{xAtKey_}}; \code{\link{xAt}},
-  \code{\link{xAt_}}; \code{\link{xDropWhile}},
-  \code{\link{xDropWhile_}}; \code{\link{xDrop}},
-  \code{\link{xDrop_}}; \code{\link{xFirstOf}},
-  \code{\link{xFirstOf_}}; \code{\link{xFourthOf}},
-  \code{\link{xFourthOf_}}; \code{\link{xInitOf}},
-  \code{\link{xInitOf_}}; \code{\link{xLastOf}},
-  \code{\link{xLastOf_}}; \code{\link{xMaxBy}},
-  \code{\link{xMaxBy_}}; \code{\link{xMinBy}},
-  \code{\link{xMinBy_}}; \code{\link{xProdBy}},
-  \code{\link{xProdBy_}}; \code{\link{xRestOf}},
-  \code{\link{xRestOf_}}; \code{\link{xSecondOf}},
-  \code{\link{xSecondOf_}}; \code{\link{xSlice}},
-  \code{\link{xSlice_}}; \code{\link{xTakeWhile}},
-  \code{\link{xTakeWhile_}}; \code{\link{xTake}},
-  \code{\link{xTake_}}; \code{\link{xThirdOf}},
-  \code{\link{xThirdOf_}}
-}
 
