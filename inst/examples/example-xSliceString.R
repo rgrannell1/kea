@@ -43,6 +43,7 @@ contigs <- list(
 	'AGGTGTGAGAGAT'
 )
 
+
 # get all unique 3-mers.
 x_(contigs) $ xReject(contig := nchar(contig) < 3) $ # -- remove the contigs that are too short.
 xMap(contig := {
