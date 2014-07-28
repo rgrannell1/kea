@@ -3,6 +3,14 @@ Kiwi 0.39.0
 -----------------------------------------------------------------------------
 Date: 2014-6-
 
+ENHANCEMENTS:
+
+* xDeepMap no longer uses recursion, and as such does not suffer from
+stack overflows any more.
+
+* xFlatten uses less recursion than previously, and is more unlikely to
+cause a stack overflow.
+
 BUG-FIXES:
 
 * x_ now works on values of any type again: after its recent refactoring

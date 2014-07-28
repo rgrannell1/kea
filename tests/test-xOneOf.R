@@ -8,7 +8,7 @@ message("xOneOf")
 	describe("oneof always selects an element from the list") +
 	holdsWhen(
 		length(coll) > 0 && is_collection(coll),
-		xOneOf(coll) %in% coll
+		xOneOf(coll) %is_in% coll
 	) +
 
 	run()
