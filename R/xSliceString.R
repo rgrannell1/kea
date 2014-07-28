@@ -4,7 +4,7 @@
 #' Subset a string using normal R vector indexing.
 #'
 #' @section Type Signature:
-#'     |character| -> |numeric| -> &lt;character>
+#'     |numeric| -> |character| -> &lt;character>
 #'
 #' @param
 #'    str a string. The string to subset.
@@ -35,7 +35,7 @@
 #' @rdname xSliceString
 #' @export
 
-xSliceString <- MakeFun('xSliceString', function (str, nums) {
+xSliceString <- MakeFun('xSliceString', function (nums, str) {
 
 	# -- handles Na and NaN
 	MACRO( Must_All_Be_Whole(nums) )

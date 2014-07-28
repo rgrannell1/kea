@@ -18,6 +18,7 @@
 #'    A boolean value.
 #'
 #' @section Corner Cases:
+#'    Returns true for non-empty collections.
 #'
 #' @template
 #'    Variadic

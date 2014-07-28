@@ -33,7 +33,7 @@ xValuesOf <- MakeFun('xValuesOf', function (coll) {
 	as.list(unname(coll))
 })
 
-#' xValuesOf
+#' @rdname xValuesOf
 #' @export
 
 xValuesOf_ <- MakeVariadic(xValuesOf, 'coll')

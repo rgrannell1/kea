@@ -19,6 +19,7 @@
 #'	  is a vector, and the empty list if \bold{coll} is a list.
 #'
 #' @section Corner Cases:
+#'      The unit of a pairlist is null.
 #'
 #' @example
 #'    inst/examples/example-xUnit.R

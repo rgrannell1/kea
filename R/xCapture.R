@@ -22,6 +22,7 @@
 #'    A variadic function that returns \bold{val}.
 #'
 #' @section Corner Cases:
+#'    None.
 #'
 #' @family function_modifying_functions
 #'

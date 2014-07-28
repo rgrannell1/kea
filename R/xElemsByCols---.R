@@ -10,6 +10,7 @@
 #'      A kiwi object containing a list.
 #'
 #' @section Corner Cases:
+#'      Returns the empty list if either dimension of \bold{tab} is empty.
 #'
 #' @family methods
 #'

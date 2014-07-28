@@ -52,4 +52,4 @@ message("xStopwatch")
 		}
 	) +
 
-	run(10)
+	run(5)

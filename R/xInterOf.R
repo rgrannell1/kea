@@ -3,6 +3,10 @@
 #'
 #' Get the set intersection of several collections.
 #'
+#' @details
+#'     The intersection of two sets is the set of elements present in
+#'     both inputs.
+#'
 #' @section Type Signature:
 #'     |any| -> [any]
 #'

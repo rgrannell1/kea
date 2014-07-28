@@ -38,6 +38,7 @@
 #'    The return value of \bold{fn}.
 #'
 #' @section Corner Cases:
+#'     Fails when too many arguments are given to \bold{fn}.
 #'
 #' @family function_application_functions
 #'
