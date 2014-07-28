@@ -12,8 +12,14 @@ if (nchar(test_path) == 0) {
 
 x_( list.files(test_path, full.names = True) ) $
 xDo(path := {
-	source(path)
+
+	Rprof('/home/ryan/kiwi-line-prof.R', append = True, line.profiling = True,)
+
+	source(path, True)
 	cat('\n')
+
+	Rprof(NULL)
+
 }) $
 xExecute(drop := {
 	warnings()
