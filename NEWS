@@ -31,7 +31,7 @@ PACKAGE-INTERNALS:
 
 * Blacklisted use of 'unlist' due to type coercion: use of '%in%' will likely follow.
 
-
+* Added recursive test-case generators.
 
 
 

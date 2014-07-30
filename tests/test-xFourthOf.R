@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message('xFourthOf')
 
 	over(coll) +
@@ -20,6 +19,7 @@ message('xFourthOf')
 	describe('fails when the collection is too short') +
 	failsWhen(
 		is_collection(coll) && length(coll) < 4,
+
 		xFourthOf(coll)
 	) +
 

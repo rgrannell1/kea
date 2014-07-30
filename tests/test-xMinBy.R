@@ -21,7 +21,7 @@ message("xMinBy")
 
 	describe("minby of numbers is the smallest number") +
 	holdsWhen(
-		is.numeric(coll) && length(coll) > 0,
+		is_numeric(coll) && length(coll) > 0,
 
 		xMinBy(identity, coll) %is% min(coll)
 	) +
@@ -33,7 +33,7 @@ message("xMinBy")
 	describe("minby a constant function is coll_1") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0 &&
-		is.numeric(num) && length(num) == 1 &&
+		is_numeric(num) && length(num) == 1 &&
 		!is.na(num),
 		xMinBy(xCapture(num), coll) %is% coll[[1]]
 	) +

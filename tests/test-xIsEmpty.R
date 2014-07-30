@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message("xIsEmpty")
 
 	over(coll) +
@@ -9,6 +8,7 @@ message("xIsEmpty")
 	describe('xIsEmpty correctly reports lengths.') +
 	holdsWhen(
 		is_collection(coll),
+
 		if (length(coll) == 0) xIsEmpty(coll) else !xIsEmpty(coll)
 	) +
 

@@ -2,7 +2,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message("xAt")
 
 	over(coll) +
@@ -25,7 +24,8 @@ message('xAt')
 	describe('fails when index is too large') +
 	failsWhen(
 		is_collection(coll) && length(coll) >= 1,
-		xAt(length(coll) + 1, coll)
+		xAt(length(coll)       + 1, coll),
+		xAt(list(length(coll)) + 1, coll)
 	) +
 
 	describe('fails when index is too small') +

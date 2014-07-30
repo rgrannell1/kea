@@ -20,13 +20,15 @@ message("xRank")
 
 	describe("the rank of one number is one.") +
 	holdsWhen(
-		is.numeric(nums) && length(nums) == 1 && !any(is.na(nums)),
+		is_numeric(nums) && length(nums) == 1 && !any(is.na(nums)),
+
 		xRank(nums) == 1
 	) +
 
 	describe("sorting the rank of numbers is seq_along nums") +
 	holdsWhen(
-		is.numeric(nums) && !any(is.na(nums)) && length(nums) > 0,
+		is_numeric(nums) && !any(is.na(nums)) && length(nums) > 0,
+
 		sort(xRank(nums)) %is% seq_along(nums)
 	) +
 

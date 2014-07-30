@@ -109,6 +109,18 @@ is_generic <- function (coll) {
 	}
 }
 
+# -- checks identity, doesn't do odd things for nan.
+
+'%is_in%' <- function (elem, coll) {
+
+	for (ith in seq_along(coll)) {
+		if (identical( elem, coll[[ith]] )) {
+			return(True)
+		}
+	}
+	return(False)
+}
+
 # -- more useful than is.recursive
 
 is_recursive <- function (val) {

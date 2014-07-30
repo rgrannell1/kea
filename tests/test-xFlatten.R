@@ -7,7 +7,7 @@ message("xFlatten")
 
 	describe("flattening empty collection is empty list") +
 	holdsWhen(
-		is.numeric(num) && length(num) == 1 &&
+		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(num) == num && num > 0 &&
 		is_collection(coll) && length(coll) == 0,
 
@@ -23,7 +23,7 @@ message("xFlatten")
 
 	describe("flattening atomic is as.list") +
 	holdsWhen(
-		is.numeric(num) && length(num) == 1 &&
+		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(num) == num && num > 0 &&
 		is_atomic(coll),
 
@@ -32,7 +32,7 @@ message("xFlatten")
 
 	describe("flattening to infinity is as list") +
 	holdsWhen(
-		is.numeric(num) && length(num) == 1 &&
+		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(num) == num && num > 0 &&
 		is_atomic(coll),
 
