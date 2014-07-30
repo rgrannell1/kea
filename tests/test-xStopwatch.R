@@ -1,7 +1,4 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
 kiwi ::: load_test_dependencies(environment())
 
 require(kiwi)
@@ -24,10 +21,6 @@ message("xStopwatch")
 	) +
 
 	run()
-
-
-
-
 
 	as_ratio <- function (num) {
 		0.2 + (num / num^1.1)
