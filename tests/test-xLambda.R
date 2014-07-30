@@ -9,7 +9,6 @@ test_cases <- kiwi:::test_cases
 
 require(kiwi)
 
-
 kiwi_unary <- function () {
 
 	kiwi:::one_of(
