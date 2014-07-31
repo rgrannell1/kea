@@ -19,15 +19,6 @@ message("xMinBy")
 		xMinBy(identity, coll) %is% coll[[1]]
 	) +
 
-	describe("minby of numbers is the smallest number") +
-	holdsWhen(
-		is_numeric(coll) && length(coll) > 0,
-
-		xMinBy(identity, coll) %is% min(coll)
-	) +
-
-	run()
-
 	over(num, coll) +
 
 	describe("minby a constant function is coll_1") +

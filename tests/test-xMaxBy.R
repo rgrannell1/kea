@@ -19,15 +19,6 @@ message("xMaxBy")
 		xMaxBy(identity, coll) %is% coll[[1]]
 	) +
 
-	describe("maxby of numbers is the smallest number") +
-	holdsWhen(
-		is.numeric(coll) && length(coll) > 0,
-
-		xMaxBy(identity, coll) %is% max(coll)
-	) +
-
-	run()
-
 	over(num, coll) +
 
 	describe("maxby a constant function is coll_1") +
