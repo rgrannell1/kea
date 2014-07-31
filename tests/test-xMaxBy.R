@@ -5,32 +5,32 @@ message("xMaxBy")
 
 	over(coll) +
 
-	describe("min of no elements fails") +
+	describe("max of no elements fails") +
 	failsWhen(
 		is_collection(coll) && length(coll) == 0,
 
 		xMaxBy(identity, coll)
 	) +
 
-	describe("minby of one element is that element") +
+	describe("maxby of one element is that element") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 1,
 
 		xMaxBy(identity, coll) %is% coll[[1]]
 	) +
 
-	describe("minby of numbers is the smallest number") +
+	describe("maxby of numbers is the smallest number") +
 	holdsWhen(
 		is.numeric(coll) && length(coll) > 0,
 
-		xMaxBy(identity, coll) %is% min(coll)
+		xMaxBy(identity, coll) %is% max(coll)
 	) +
 
 	run()
 
 	over(num, coll) +
 
-	describe("minby a constant function is coll_1") +
+	describe("maxby a constant function is coll_1") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0 &&
 		is.numeric(num) && length(num) == 1 &&
