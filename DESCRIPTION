@@ -12,6 +12,7 @@ ByteCompile: yes
 License: GPL-3
 Roxygen: list(wrap = FALSE)
 Collate:
+    'zzz.R'
     'values.R'
     'tools_forall_next.R'
     'tools_functions.R'
