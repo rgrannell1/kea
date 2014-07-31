@@ -71,7 +71,7 @@ xFix <- MakeFun('xFix', function (fn, coll) {
 
 		do.call("function", list(
 			as.pairlist( xFormalsOf(fn)[
-				!(xParamsOf(fn) %is_in% names(coll)) ] ),
+				!(xParamsOf(fn) %in% names(coll)) ] ),
 			bquote({
 				"a function returned by xFix."
 				""
@@ -84,7 +84,7 @@ xFix <- MakeFun('xFix', function (fn, coll) {
 							# -- with the parametres of 'fn'
 							xParamsOf(fn),
 							function (param) {
-								if (param %is_in% names(coll)) {
+								if (param %in% names(coll)) {
 									# -- if the parametre is fixed used the supplied argument.
 									coll[[param]]
 								} else {

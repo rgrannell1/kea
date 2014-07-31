@@ -812,6 +812,11 @@ test_cases <- local({
 
 
 
+
+
+
+
+
 # -------------------------------- forall -------------------------------- #
 #
 # forall tests if an expression holds true over a range of random test-cases.
@@ -859,7 +864,7 @@ forall <- local({
 			as_formals(names(cases))
 
 		body(expect) <- expect_expr
-		body(given) <- given_expr
+		body(given)  <- given_expr
 
 		# ----- check that the expectation is true for a range of cases
 
