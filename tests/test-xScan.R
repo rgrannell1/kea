@@ -1,19 +1,15 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xScan")
 
-	forall(
-		"scan with the empty list is list of val.",
-		test_cases$num_integer,
-		xScan("+", 0, list()) %is% list(0)
-	)
+    over(val, coll) +
 
-	forall(
-		"scan with the empty list is list of val.",
-		test_cases$num_positive_integer,
-		all.equal( xScan("+", 0, 1:num), as.list(cumsum(0:num)) )
-	)
+	describe("scan with empty coll is list of val") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0,
+
+		xScan(list, val, coll) %is% list(val)
+	) +
+
+	run()

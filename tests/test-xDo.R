@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message("xDo")
 
 	over(coll) +
@@ -9,6 +8,7 @@ message("xDo")
 	describe("xDo is always null") +
 	holdsWhen(
 		is_collection(coll),
+
 		xDo(identity, coll)  %is% NULL
 	) +
 
@@ -21,6 +21,7 @@ message("xDo")
 	describe("coll must always be a collection") +
 	failsWhen(
 		!is_collection(coll),
+
 		xDo(identity, coll)
 	) +
 

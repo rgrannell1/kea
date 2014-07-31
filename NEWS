@@ -3,7 +3,7 @@ Kiwi 0.39.0
 -----------------------------------------------------------------------------
 Date: 2014-6-28
 
-Improved recursive kiwi functions, fixed important bugs.
+Improved recursive kiwi functions and fixed serious bugs.
 
 ENHANCEMENTS:
 
@@ -12,6 +12,8 @@ stack overflows any more.
 
 * xFlatten uses less recursion than previously, and is more unlikely to
 cause a stack overflow.
+
+* xSliceString now preserves it's input names.
 
 BUG-FIXES:
 
@@ -27,9 +29,18 @@ Closes #2.
 
 PACKAGE-INTERNALS:
 
+* Removed most old forall tests, with the exception of xLambda tests.
+
 * Added several recursive test-case generators.
 
 * Blacklisted use of 'unlist' due to type coercion: use of '%in%' will likely follow.
+
+* Added recursive test-case generators.
+
+* Added tool for testing the generic type of a collection, for testing.
+
+* Added xCycle, xDelay, xFold, xForall, xFromChars, xFromLines, xFromWords,
+xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
 
 
 

@@ -1,19 +1,22 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xFormalsOf')
 
-	forall(
-		"nullary functions yield the empty list.",
-		list(),
-		xFormalsOf(function () {}) %is% list()
-	)
+	over(fn) +
 
-	forall(
-		"formals of normal functions is well behaved.",
-		test_cases$base_function,
+	describe("nullary yields empty list") +
+	holdsWhen(
+		True,
+
+		xFormalsOf(function () {}) %is% list()
+	) +
+
+	describe("nullary yields empty list") +
+	holdsWhen(
+		is.function(fn) && !is.primitive(fn),
+
 		xFormalsOf(fn) %is% as.list(formals(fn))
-	)
+	) +
+
+	run()

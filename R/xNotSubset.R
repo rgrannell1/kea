@@ -39,7 +39,7 @@ xNotSubset <- MakeFun('xNotSubset', function (coll1, coll2) {
 	} else {
 
 		for (elem in coll1) {
-			if (isTRUE(elem %in% coll2)) {
+			if (elem %is_in% coll2) {
 				return(False)
 			}
 		}

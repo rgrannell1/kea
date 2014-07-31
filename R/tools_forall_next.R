@@ -296,6 +296,60 @@ from_stream <- ( function () {
 	this $ integers_any_list <-
 		listify(this $ integers_any)
 
+	#  -- named typed generic lists
+
+	this $ named_na_list <-
+		add_names(listify(this $ na))
+
+	this $ named_character_list <-
+		add_names(listify(this $ character))
+
+	this $ named_word_list <-
+		add_names(listify(this $ word))
+
+	this $ named_line_list <-
+		add_names(listify(this $ line))
+
+	this $ named_paragraph_list <-
+		add_names(listify(this $ paragraph))
+
+	this $ named_logical_list <-
+		add_names(listify(this $ logical))
+
+	this $ named_logicals_list <-
+		add_names(listify(this $ logicals))
+
+	this $ named_nan_list <-
+		add_names(listify(this $ nan))
+
+	this $ named_nans_list <-
+		add_names(listify(this $ nans))
+
+	this $ named_infinity_list <-
+		add_names(listify(this $ infinity))
+
+	this $ named_infinities_list <-
+		add_names(listify(this $ infinities))
+
+	this $ named_double_list <-
+		add_names(listify(this $ double))
+
+	this $ named_doubles_list <-
+		add_names(listify(this $ doubles))
+
+	this $ named_doubles_any_list <-
+		add_names(listify(this $ doubles_any))
+
+	this $ named_integer_list <-
+		add_names(listify(this $ integer))
+
+	this $ named_integers_list <-
+		add_names(listify(this $ integers))
+
+	this $ named_integers_any_list <-
+		add_names(listify(this $ integers_any))
+
+
 	# -- function
 
 	this $ base <-

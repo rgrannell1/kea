@@ -32,6 +32,6 @@ xIsVariadic <- MakeFun('xIsVariadic', function (fn) {
 	if (length(params) == 0) {
 		logical(0)
 	} else {
-		"..." %in% xParamsOf(fn)
+		"..." %is_in% xParamsOf(fn)
 	}
 })

@@ -7,7 +7,7 @@ message('xSliceString')
 
 	describe('selecting at zero is character(0)') +
 	holdsWhen(
-		is.character(str) && length(str) == 1 &&
+		is_character(str) && length(str) == 1 &&
 		!is.na(str) &&
 		is_collection(nums) && length(nums) == 0,
 
@@ -17,9 +17,11 @@ message('xSliceString')
 
 	describe('slicing with indices is identity') +
 	holdsWhen(
-		is.character(str) && length(str) == 1 && !is.na(str),
-
-		xSliceString( seq_len(nchar(str)), str) == str
+		is_character(str) && length(str) == 1 && !is.na(str),
+		{
+			indices <- seq_len(nchar( unlist(str) ))
+			xSliceString(indices, str) %is% unlist(str)
+		}
 	) +
 
 	run()

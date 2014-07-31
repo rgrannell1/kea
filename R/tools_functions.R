@@ -109,6 +109,18 @@ is_generic <- function (coll) {
 	}
 }
 
+# -- checks identity, doesn't do odd things for nan.
+
+'%is_in%' <- function (elem, coll) {
+
+	for (ith in seq_along(coll)) {
+		if (identical( elem, coll[[ith]] )) {
+			return(True)
+		}
+	}
+	return(False)
+}
+
 # -- more useful than is.recursive
 
 is_recursive <- function (val) {
@@ -436,18 +448,8 @@ load_test_dependencies <- function (envir) {
 
 			is_collection   = is_collection,
 
-			`%is_in%`       = function (elem, coll) {
-
-				for (coll_elem in coll) {
-
-					if (identical(elem, coll_elem)) {
-						return(True)
-					}
-
-				}
-
-				return(False)
-			},
+			# temporary
+			`%is_in%`       = '%in%',
 
 			is_atomic       = is_atomic,
 			is_generic      = is_generic,

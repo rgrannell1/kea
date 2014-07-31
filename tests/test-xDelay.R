@@ -1,18 +1,30 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
 
 require(kiwi)
 
 message("xDelay")
 
-	forall(
-		"wait forces stopwatch to return false if held too long.",
-		test_cases$num_one_to_ten,
+	as_ratio <- function (num) {
+		0.2 + (num / num^1.1)
+	}
+
+	over(num) +
+
+	describe('stopwatch returns true before its time, then false') +
+	holdsWhen(
+		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
+		!is.nan(num) && num > 0,
 		{
 
-			num <- num / 100
+			num <- as_ratio(num)
 			!xDelay( xStopwatch(num), num + 0.1 )()
 		},
-		max_time = 1
-	)
+		{
+
+			num <- as_ratio(num)
+			xDelay( xStopwatch(num), num - 0.1 )()
+		}
+	) +
+
+	run()

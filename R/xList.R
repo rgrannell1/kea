@@ -121,7 +121,7 @@ print.xlist_builder <- function (x, ...) {
 			}, logical(1)) )
 
 		# -- you must start with a yield expression.
-		if (1 %in% binding_indices) {
+		if (any(binding_indices == 1)) {
 
 			message <-
 				"a collection-comprehension must not begin with a " %+%

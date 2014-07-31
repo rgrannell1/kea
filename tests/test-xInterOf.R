@@ -1,16 +1,16 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message("xInterOf")
 
-	forall(
-		"the intersection with an empty collection is an empty list",
-		test_cases$two_collection_zeros,
-		xInterOf(list(coll1, coll2)) %is% list(),
-		given =
-			length(coll1) == 0 || length(coll2) == 0
-	)
+	over(coll1, coll2) +
 
+	describe("interof two empty collection is empty") +
+	holdsWhen(
+		is_collection(coll1) && is_collection(coll2) &&
+		length(coll1) == 0 && length(coll2) == 0,
+
+		xInterOf(list(coll1, coll2)) %is% list()
+	) +
+
+	run()

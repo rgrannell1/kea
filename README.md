@@ -41,7 +41,7 @@ from_csv("field1", "field2", "field3")
 ```r
 # 2. How many ways can you get one or more royals from a random hand of two cards?
 
-cards <-x__(
+cards <- x__(
 	'ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King') $ xRepeat(4)
 
 is_royal <- xIsIn(coll = c('Jack', 'Queen', 'King'))

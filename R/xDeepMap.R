@@ -39,7 +39,7 @@ xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
 	MACRO( Must_Have_Arity(fn, 1) )
 
 	if (!is_recursive(coll)) {
-		keep_names(list(), coll)
+		as.list(coll)
 	} else {
 
 		rapply(coll, function (elem) {

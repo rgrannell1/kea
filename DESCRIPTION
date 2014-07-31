@@ -70,6 +70,7 @@ Collate:
     'xAsRaw.R'
     'xAsCharacter.R'
     'xAsComplex.R'
+    'tools_is_atom.R'
     'xUnspread.R'
     'xSpread.R'
     'xLift.R'

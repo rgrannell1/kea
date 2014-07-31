@@ -1,31 +1,25 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xIsMatch')
 
-	forall(
-		"character 0 matches all strings",
-		test_cases$str_word,
-		xIsMatch(character(0), str) %is% logical(0)
-	)
+	over(coll, str) +
 
-	forall(
-		"'' matches all strings",
-		test_cases$str_word,
-		xIsMatch('', str) == True
-	)
+	describe("character 0 matches all strings") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 &&
+		is_character(str) && length(str) == 1 && !is.na(str),
 
-	forall(
-		"str matches all strings",
-		test_cases$str_word,
-		xIsMatch(str, str) == True
-	)
+		xIsMatch(coll, str) %is% logical(0)
+	) +
 
-	forall(
-		"str never matches empty string",
-		test_cases$str_word,
-		xIsMatch(str, character(0)) %is% logical(0)
-	)
+	describe("all strings match the empty string") +
+	holdsWhen(
+		is_collection(coll) && length(coll) == 0 &&
+		is_character(str) && length(str) == 1 && !is.na(str),
+
+		xIsMatch('', str),
+		xIsMatch('.+', str)
+	) +
+
+	run()

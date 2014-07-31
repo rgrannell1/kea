@@ -1,22 +1,22 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
-
-require(kiwi)
+kiwi ::: load_test_dependencies(environment())
 
 message('xFromChars')
 
-	forall(
-		"xFromChars of character(0) is character(0)",
-		list(),
-		xFromChars(character(0)) %is% character(0)
-	)
+	over(strs) +
 
-	forall(
-		"xFromChars of letters is pasted letters",
-		test_cases$letters,
-		xFromChars(coll) %is% paste0(coll, collapse = ''),
-		given =
-			length(coll) > 0
-	)
+	describe("xFromChars of character(0) is character(0)") +
+	holdsWhen(
+		is_collection(strs) && length(strs) == 0,
 
+		xFromChars(strs) %is% character(0)
+	) +
+
+	describe("xFromChars is length-one") +
+	holdsWhen(
+		is_character(strs) && !anyNA(strs) && length(strs) > 0,
+
+		length(xFromChars(strs)) == 1
+	) +
+
+	run()

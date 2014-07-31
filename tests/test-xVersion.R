@@ -8,7 +8,14 @@ message("xVersion")
 	describe('xVersion always gives the current version') +
 	holdsWhen(
 		True,
+
 		paste0(xVersion(val), collapse = '.') == packageVersion("kiwi")
+	) +
+
+	describe('xVersion always is an integer') +
+	holdsWhen(
+		True,
+		is.integer(xVersion(val))
 	) +
 
 	run()

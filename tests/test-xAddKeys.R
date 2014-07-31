@@ -1,48 +1,27 @@
 
-forall <- kiwi:::forall
-test_cases <- kiwi:::test_cases
+kiwi ::: load_test_dependencies(environment())
 
 require(kiwi)
 
 message("xAddKeys")
 
-	forall(
-		"unit is named list()",
-		test_cases$str_words,
-		xAddKeys(character(0), list()) %is% structure(list(), names = character(0))
-	)
+	over(coll0, coll1) +
 
-	forall(
-		"same length names are correctly added",
-		test_cases$str_words,
-		all(names( xAddKeys(strs, seq_along(strs)) ) == strs)
-	)
-
-
-kiwi ::: load_test_dependencies(environment())
-
-message("xAddKeys")
-
-	over(coll1, coll2) +
-
-	describe("addkeys with empty collections is named empty list") +
+	describe("two empty collections is named empty") +
 	holdsWhen(
-		is_collection(coll1) && length(coll1) == 0 &&
-		is_collection(coll2) && length(coll2) == 0,
+		is_collection(coll0) && is_collection(coll1) &&
+		length(coll0) == 0 && length(coll1) == 0,
 
-		xAddKeys(coll1, coll2) %is% as_named(list())
+		xAddKeys(coll0, coll1) %is% as_named(list())
 	) +
-
-	run()
 
 	over(strs) +
 
-	describe("names and values are correct") +
+	describe("names of collection is strs") +
 	holdsWhen(
-		is.character(strs) && !anyNA(strs),
+		is_character(strs) && length(strs) > 0 && !anyNA(strs),
 
-		all(names(xAddKeys(strs, strs)) == strs),
-		all(unname( unlist(xAddKeys(strs, strs)) ) == strs)
+		all(names( xAddKeys(strs, seq_along(strs)) ) == unlist(strs))
 	) +
 
 	run()

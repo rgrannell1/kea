@@ -1,7 +1,6 @@
 
 kiwi ::: load_test_dependencies(environment())
 
-
 message("xGroupBy")
 
 	over(val, coll) +
@@ -9,18 +8,21 @@ message("xGroupBy")
 	describe("grouping an empty collection is list()") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
+
 		xGroupBy(identity, coll) %is% list()
 	) +
 
 	describe("grouping one value gives a group with that key, that val under identity") +
 	holdsWhen(
 		True,
+
 		xGroupBy(identity, list(val)) %is% list( list(val, list(val)) )
 	) +
 
 	describe("a unique set groups as itself, with itself as keys under identity") +
 	holdsWhen(
 		is_collection(coll),
+
 		{
 
 			set <- as.list(unique(coll))
