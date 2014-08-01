@@ -2,7 +2,7 @@ Package: kiwi
 Type: Package
 Title: Kiwi
 Description: **Kiwi**.
-Version: 0.39.0
+Version: 0.40.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -12,6 +12,7 @@ ByteCompile: yes
 License: GPL-3
 Roxygen: list(wrap = FALSE)
 Collate:
+    'zzz.R'
     'values.R'
     'tools_forall_next.R'
     'tools_functions.R'

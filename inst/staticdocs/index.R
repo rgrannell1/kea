@@ -132,12 +132,10 @@ sd_section(
 )
 
 sd_section(
-	"Methods",
+	"Miscellaneous",
 	paste(
 		"<p>",
-		"These functions involve arrow methods, or are only available as arrow methods.",
-		"Most functions that are only available as methods convert second-class citizens of arrow",
-		"like data frames and factors to collection representations.",
+		"These functions do not fall neatly into any other category.",
 		"</p>"
 	),
 	c(
@@ -149,6 +147,12 @@ sd_section(
 		"xElemsByCols",
 		"xExecute",
 		"xElemsByRows",
+		"xLenOf",
+		"xLocate",
+		"xMeanOf",
+		"xProdBy",
+		"xSumBy",
+		"xWhere",
 		"xTap",
 		"x_"
 	)
@@ -164,8 +168,10 @@ sd_section(
 		"</p>"
 	),
 	c(
+		"xK",
 		"xCapture",
 		"xFalsity",
+		"xI",
 		"xIdentity",
 		"xIrrelevance",
 		"xTruth",
@@ -243,6 +249,7 @@ sd_section(
 		"xJuxtapose",
 		"xLift",
 		"xFix",
+		"xNegate",
 		"xSpread",
 		"xThread"
 	)
@@ -258,6 +265,9 @@ sd_section(
 	),
 	c(
 		"xAddKeys",
+		"xIndicesOf",
+		"xIndicesTo",
+		"xKeysOf",
 		"xUnzipIndices",
 		"xUnzipKeys",
 		"xZipKeys"
@@ -291,7 +301,8 @@ sd_section(
 		"xFormalsOf",
 		"xParamsOf",
 		"xFix",
-		"xUnspread", "xSpread"
+		"xUnspread",
+		"xSpread"
 	)
 )
 
@@ -321,18 +332,18 @@ sd_section(
 		"</p>"
 	),
 	c(
+		"xAppend",
 		"xChop",
 		"xChunk",
 		"xFlatten",
 		"xGroupBy",
 		"xJoin",
 		"xOneOf",
+		"xPrepend",
 		"xRepeat",
 		"xReverse",
 		"xShuffle",
 		"xSortBy",
-		"xSplitAt",
-		"xSplitWith",
 		"xTabulate",
 		"xUnzipKeys",
 		"xZipKeys",
@@ -359,13 +370,15 @@ sd_section(
 		"xFirstOf",
 		"xFourthOf",
 		"xInitOf",
+		"xKeysOf",
 		"xLastOf",
 		"xRestOf",
 		"xSlice",
 		"xSecondOf",
 		"xTake",
 		"xTakeWhile",
-		"xThirdOf"
+		"xThirdOf",
+		"xValuesOf"
 	)
 )
 
