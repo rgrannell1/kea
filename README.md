@@ -24,7 +24,8 @@ if (!require(devtools)) {
 devtools::install_github("rgrannell1/kiwi", ref = 'releases')
 ```
 
-Go [here](htti://rgrannell1.github.io/kiwi/) for library documentation and tutorials.
+Go [here](https://rgrannell1.github.io/kiwi/) for library documentation and tutorials.
+
 Go [here](https://github.com/rgrannell1/kiwi-snippets) for Sublime Text 3 snippets.
 
 ## Examples
