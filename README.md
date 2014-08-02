@@ -80,32 +80,32 @@ xDo(list.files %then% print, '.')
 
 kmers <- (k : string) := {
 
-xMap(
-ith := {
-# subset the string.
-xSliceString((1:k) + ith, string)
-},
-0:(nchar(string) - k)
-)
-
+	xMap(
+		ith := {
+			# subset the string.
+			xSliceString((1:k) + ith, string)
+		},
+		0:(nchar(string) - k)
+	)
+	
 }
 
 # the DNA sequences to find kmers of.
 
 contigs <- list(
-'AT',
-'AATTCCGG',
-'GGTCGTCGGTGAGTGC',
-'TTATTATTA',
-'A',
-'AGGTGTGAGAGAT'
+	'AT',
+	'AATTCCGG',
+	'GGTCGTCGGTGAGTGC',
+	'TTATTATTA',
+	'A',
+	'AGGTGTGAGAGAT'
 )
 
 
 # get all unique 3-mers.
 x_(contigs) $ xReject(contig := nchar(contig) < 3) $ # -- remove the contigs that are too short.
 xMap(contig := {
-kmers(3, contig)
+	kmers(3, contig)
 }) $
 xJoin() $ x_UniqueOf() # -- join all the kmers into one flat list, and get the unique ones.
 
