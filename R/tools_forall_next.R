@@ -709,11 +709,11 @@ state_sucess <- function (states, info) {
 
 
 
-positive_test <- function (prop, case) {
+holdswhen_test <- function (prop, case) {
 	do.call(prop, case)
 }
 
-negative_test <- function (prop, case) {
+failswhen_test <- function (prop, case) {
 	# -- return false if the test doesn't throw an error. Otherwise
 	# -- return true.
 	tryDefault(
@@ -788,8 +788,8 @@ execute_test <- function (test) {
 
 	# -- testers take a property, and a test case, and return a boolean value.
 	testers <- list(
-		positive_test,
-		negative_test
+		holdswhen_test,
+		failswhen_test
 	)
 
 	# -- test random test cases for a preset amount of time.

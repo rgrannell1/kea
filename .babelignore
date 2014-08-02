@@ -12,4 +12,6 @@ man-roxygen
 .Rhistory
 .Rbuildignore
 
+.Rd
+
 NAMESPACE
