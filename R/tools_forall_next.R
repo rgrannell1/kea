@@ -357,7 +357,6 @@ from_stream <- ( function () {
 	this $ named_integers_any_list <-
 		add_names(listify(this $ integers_any))
 
-
 	# -- function
 
 	this $ base <-
@@ -369,18 +368,13 @@ from_stream <- ( function () {
 			}
 		})
 
-
-	#-- really generic list generator.
-
-	this $ list <- rlistify(this)
-
 	# -- with that out of the way, yield a value.
 
 	function (len) {
 
 		implemented <- names(this)
+		sampler     <- this[[ rsample(implemented, size = 1) ]]
 
-		sampler <- this[[ rsample(implemented, size = 1) ]]
 		sampler(len)
 	}
 
