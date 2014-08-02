@@ -6,75 +6,113 @@ require(kiwi)
 
 message('Kiwi Wildcard Lambda\'s')
 
-	forall(
-		"test that binary %% works",
-		test_cases$num_integer,
-		(x. %% num)(num) == 0,
-		given =
-			num != 0
-	)
+	over(num0, num1) +
 
-	forall(
-		"test that binary %/% works",
-		test_cases$num_integer,
-		(x. %/% num)(num) == 1,
-		given =
-			num != 0
-	)
+	describe("binary %%") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1) &&
+		num0 != 0,
 
-	forall(
-	    "test that binary ^ works",
-	    test_cases$num_integer,
-	    (x. ^ num)(num) == num ^ num
-	)
+		(x. %% num1)(num0) %is% (num0 %% num1)
+	) +
 
-	forall(
-	    "test that binary ** works",
-	    test_cases$num_integer,
-	    (x. ** num)(num) == num ** num
-	)
+	describe("binary %/%") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1) &&
+		num0 != 0,
 
-	forall(
-		"test that binary * works",
-		test_cases$num_integer,
-		(x. * num)(num) == num^2
-	)
+		(x. %/% num1)(num0) %is% (num0 %/% num1)
+	) +
 
-	forall(
-		"test that binary / works",
-		test_cases$num_integer,
-		(x. / num)(num) == 1,
-		given =
-			num != 0
-	)
+	describe("binary ^") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1) &&
+		num0 != 0,
 
-	forall(
-		"test that binary + works",
-		test_cases$num_integer,
-		(x. + num)(num) == 2*num
-	)
+		(x. ^ num1)(num0) %is% (num0 ^ num1)
+	) +
 
-	forall(
-		"test that binary - works",
-		test_cases$num_integer,
-		(x. - num)(num) == 0
-	)
+	describe("binary **") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1) &&
+		num0 != 0,
 
+		(x. ** num1)(num0) %is% (num0 ** num1)
+	) +
 
-	forall(
-		"test that unary + works",
-		test_cases$num_integer,
-		(+x.)(num) == num
-	)
+	describe("binary *") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1) &&
+		num0 != 0,
 
-	forall(
-		"test that unary - works",
-		test_cases$num_integer,
-		(-x.)(num) == -num
-	)
+		(x. * num1)(num0) %is% (num0 * num1)
+	) +
 
-	forall(
-		"test that unary - works",
-		test_cases$logical,
-		(!x.)(coll) %is% !coll
-	)
+	describe("binary /") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1) &&
+		num0 != 0,
+
+		(x. / num1)(num0) %is% (num0 / num1)
+	) +
+
+	describe("binary +") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1),
+
+		(x. + num1)(num0) %is% (num0 + num1)
+	) +
+
+	describe("binary -") +
+	holdsWhen(
+		is.numeric(num0) && length(num0) == 1 &&
+		is.numeric(num1) && length(num1) == 1 &&
+		!anyNA(num0) && !anyNA(num1),
+
+		(x. - num1)(num0) %is% (num0 - num1)
+	) +
+
+	run()
+
+	over(num) +
+
+	describe("unary -") +
+	holdsWhen(
+		is.numeric(num) && !anyNA(num),
+
+		(-x.)(num) %is% -num
+	) +
+
+	describe("unary +") +
+	holdsWhen(
+		is.numeric(num) && !anyNA(num),
+
+		(+x.)(num) %is% +num
+	) +
+
+	run()
+
+	over(bool) +
+
+	describe("unary !") +
+	holdsWhen(
+		is.logical(bool) && length(bool) == 1,
+
+		(!x.)(bool) %is% !bool
+	) +
+
+	run()
