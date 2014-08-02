@@ -64,8 +64,16 @@ listify <- function (atom) {
 	}
 }
 
+rlistify <- function (atoms) {
+	function (len) {
 
+		lapply(seq_along(atoms), function (.) {
+			atom <- one_of(atoms)
+			atom(max(len - 1, 0))
 
+		})
+	}
+}
 
 
 
@@ -85,7 +93,7 @@ from_stream <- ( function () {
 	# -- whitespace
 	whitespace <- c(' ', '	')
 
-		this <- new.env(parent = parent.frame())
+	this <- list()
 
 	# -- na's
 
@@ -362,14 +370,15 @@ from_stream <- ( function () {
 		})
 
 
+	#-- really generic list generator.
 
-
+	this $ list <- rlistify(this)
 
 	# -- with that out of the way, yield a value.
 
 	function (len) {
 
-		implemented <- ls(envir = this)
+		implemented <- names(this)
 
 		sampler <- this[[ rsample(implemented, size = 1) ]]
 		sampler(len)
