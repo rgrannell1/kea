@@ -6,7 +6,6 @@
 #' @section Type Signature:
 #'     |any| -> |any| -> &lt;logical>
 #'
-#'
 #' @param
 #'    coll1 a collection. Then unbroken subsequence to test for.
 #'
@@ -57,7 +56,6 @@ xIsInfixOf <- MakeFun('xIsInfixOf', function (coll1, coll2) {
 			if (all_true) {
 				return (True)
 			}
-
 		}
 
 		False
