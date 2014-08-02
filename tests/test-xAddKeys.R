@@ -15,6 +15,8 @@ message("xAddKeys")
 		xAddKeys(coll0, coll1) %is% as_named(list())
 	) +
 
+	run()
+
 	over(strs) +
 
 	describe("names of collection is strs") +

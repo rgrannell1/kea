@@ -8,13 +8,22 @@ message('xUniqueOf')
 	describe('unique of empty coll is empty list') +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 0,
+
 		xUniqueOf(coll) %is% list()
 	) +
 
 	describe('uniques + duplicates == set') +
 	holdsWhen(
 		is_collection(coll),
+
 		length(coll) == length(xUniqueOf(coll)) + length( which(duplicated(coll)) )
+	) +
+
+	describe('unique repeats')+
+	holdsWhen(
+		is_collection(coll),
+
+		xUniqueOf(xUniqueOf(coll)) %is% xUniqueOf(coll)
 	) +
 
 	run()

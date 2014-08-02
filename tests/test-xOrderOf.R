@@ -25,9 +25,9 @@ message("xOrderOf")
 
 	describe("order of nums is seq along nums") +
 	holdsWhen(
-		is_numeric(nums) && !is.na(nums) && !is.nan(nums),
+		is_numeric(nums) && !is.na(unlist(nums)) && !is.nan(unlist(nums)),
 
-		xOrderOf(sort(nums)) %is% seq_along(nums)
+		xOrderOf(as.list( sort(unlist(nums)) )) %is% seq_along(nums)
 	) +
 
 	run()

@@ -284,3 +284,12 @@ Fix <- function (FN, SYM1, SYM2, SYM3, PRE1, PRE2, PRE3, FINAL) {
 	}
 
 }
+
+
+
+
+
+
+
+
+

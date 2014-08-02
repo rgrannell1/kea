@@ -14,7 +14,7 @@ message("xMeanOf")
 	describe('the mean of one number is itself') +
 	holdsWhen(
 		is_numeric(nums) && length(nums) == 1 &&
-		!any(is.na(nums) || is.nan(nums)),
+		!any(is.na(unlist(nums)) || is.nan(unlist(nums))),
 		xMeanOf(nums) == unname(nums)
 	) +
 
@@ -24,7 +24,7 @@ message("xMeanOf")
 
 	describe('fails for na or nan values') +
 	failsWhen(
-		is_numeric(nums) && any(is.na(nums) || is.nan(nums)),
+		is_numeric(nums) && any(is.na(unlist(nums)) || is.nan(unlist(nums))),
 		xMeanOf(nums)
 	) +
 

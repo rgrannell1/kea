@@ -13,14 +13,18 @@ message("xRepeat")
 
 	describe("repeating an empty coll is length-zero") +
 	holdsWhen(
-		is.number(num) && round(num) == num && length(num) == 1 &&
+		is_numeric(num) && length(num) == 1 && !is.na(unlist(num)) &&
+		round(unlist(num)) == num && is.finite(unlist(num)) &&
+		num > 0 && num < 1000 &&
 		is_collection(coll) && length(coll) == 0,
 		length(xRepeat(num, coll)) == 0
 	) +
 
 	describe("repeating num times is length(coll) x num") +
 	holdsWhen(
-		is.number(num) && round(num) == num && length(num) == 1 &&
+		is_numeric(num) && length(num) == 1 && !is.na(unlist(num)) &&
+		round(unlist(num)) == num && is.finite(unlist(num)) &&
+		num > 0 && num < 1000 &&
 		is_collection(coll),
 		length(xRepeat(num, coll)) == length(coll) * num
 	) +

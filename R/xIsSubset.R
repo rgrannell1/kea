@@ -38,10 +38,19 @@ xIsSubset <- MakeFun('xIsSubset', function (coll1, coll2) {
 		logical(0)
 	} else {
 
-		for (elem in coll1) {
+		for (elem1 in coll1) {
 			# -- 'in' is needed here.
-			if (isTRUE(elem %!in% coll2)) {
-				return(False)
+
+			has_match <- False
+
+			for (elem2 in coll2)  {
+				if (identical(elem1, elem2)) {
+					has_match <- True
+				}
+			}
+
+			if (!has_match) {
+				return (False)
 			}
 		}
 		True

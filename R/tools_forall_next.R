@@ -500,7 +500,19 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 		group_pred  <- group[[1]]
 		group_props <- group[2:length(group)]
 
-		is_match <- tryDefault(do.call(group_pred, case), False)
+		# -- warn for errors or warning, as these are often symptoms
+		# -- of an improperly written test.
+		is_match <- tryCatch(
+			do.call(group_pred, case),
+			warning = function (warn) {
+				warning(warn)
+				False
+			},
+			error   = function (err)  {
+				warning(err)
+				False
+			}
+		)
 
 		state $ case_examined <- state $ case_examined + 1
 

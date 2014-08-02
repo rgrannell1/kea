@@ -7,14 +7,16 @@ message("xNotNa")
 
 	describe('xNotNa is true when the value is Na.') +
 	holdsWhen(
-		is.na(val) && !is.nan(val) && length(val) == 1,
-		!xNotNa(val)
+		is_atomic(val) && !is.na(val) && !is.nan(unlist(val)) && length(val) == 1,
+
+		xNotNa(val)
 	) +
 
 	describe('xNotNa is false when the value isnt') +
 	holdsWhen(
-		!is.na(val) && !is.nan(val) && length(val) == 1,
-		xNotNa(val)
+		is_atomic(val) && is.na(val) && !is.nan(unlist(val)) && length(val) == 1,
+
+		!xNotNa(val)
 	) +
 
 	run()

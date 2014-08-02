@@ -3,7 +3,7 @@ kiwi ::: load_test_dependencies(environment())
 
 message('xToWords')
 
-	over(strs) +
+	over(str) +
 
 	describe("works of empty string is empty vector") +
 	holdsWhen(

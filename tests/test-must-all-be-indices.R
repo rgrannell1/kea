@@ -37,7 +37,7 @@ message("Must_All_Be_Indices")
 
 	describe('always fails for infinites') +
 	failsWhen(
-		any(is.infinite(nums)) && is_collection(coll),
+		is_collection(coll) && is_collection(nums) && any(is.infinite( unlist(nums) )),
 		to_test(nums, coll)
 	) +
 

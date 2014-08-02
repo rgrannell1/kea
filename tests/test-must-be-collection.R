@@ -18,7 +18,7 @@ message('Must_Be_Collection')
 
 	over(coll) +
 
-	describe('always fails for infinites') +
+	describe('always fails for non-collections') +
 	failsWhen(
 		!is_collection(coll),
 		to_test(coll)

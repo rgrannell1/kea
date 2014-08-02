@@ -13,14 +13,14 @@ message("xTakeWhile")
 
 	describe("non true predicates return empty list") +
 	holdsWhen(
-		is_collection(coll) && !is.named(coll),
+		is_collection(coll) && !is_named(coll),
 		xTakeWhile(function (x) False, coll) %is% list(),
 		xTakeWhile(function (x) Na,    coll) %is% list()
 	) +
 
 	describe("non true predicates return empty list") +
 	holdsWhen(
-		is_collection(coll) && is.named(coll),
+		is_collection(coll) && is_named(coll),
 		xTakeWhile(function (x) False, coll) %is% as_named(list()),
 		xTakeWhile(function (x) Na,    coll) %is% as_named(list())
 	) +

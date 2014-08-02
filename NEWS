@@ -10,6 +10,15 @@ ENHANCEMENTS:
 * Added xIsPrefixOf, xIsSuffixOf, and xIsInfixOf, which test for subsequence matches
 in a list.
 
+* xIsSubset and xNotSubset now used identical to check each element, which does not have
+odd corner cases like the previous method used.
+
+* Made xIsVariadic more efficient.
+
+BUG-FIXES:
+
+* Fixed small, previously undetected errors in the precondition part of unit tests.
+
 PACKAGE-INTERNALS:
 
 * Removed the old forall testing tool.
