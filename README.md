@@ -1,5 +1,5 @@
 
-Kiwi 0.40.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kiwi 0.41.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -24,8 +24,9 @@ if (!require(devtools)) {
 devtools::install_github("rgrannell1/kiwi", ref = 'releases')
 ```
 
-For library documentation and tutorials head to
-[http://rgrannell1.github.io/kiwi/](htti://rgrannell1.github.io/kiwi/).
+Go [here](https://rgrannell1.github.io/kiwi/) for library documentation and tutorials.
+
+Go [here](https://github.com/rgrannell1/kiwi-snippets) for Sublime Text 3 snippets.
 
 ## Examples
 
