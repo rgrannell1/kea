@@ -1,7 +1,20 @@
 
 Kiwi 0.41.0
 ------------------------------------------------------------------------------
-Date: 2014-7
+Date: 2014-7-2
+
+Added subsequence predicates.
+
+ENHANCEMENTS:
+
+* Added xIsPrefixOf, xIsSuffixOf, and xIsInfixOf, which test for subsequence matches
+in a list.
+
+PACKAGE-INTERNALS:
+
+* Removed the old forall testing tool.
+
+
 
 
 
