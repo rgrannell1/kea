@@ -10,18 +10,18 @@ Must_Be_Collection <- function (COLL) {
 
 	COLL <- substitute(COLL)
 
-	bquote( if (any(class( .(COLL) ) == 'kiwi')) {
+	bquote( if (any(class( .(COLL) ) == 'kea')) {
 
 		print(class( .(COLL) ))
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
 			" must be a list, a pairlist or a typed vector." %+%
-			"The argument was of class " %+% dQuote("kiwi") %+%
+			"The argument was of class " %+% dQuote("kea") %+%
 			". Did you use the incorrect form of a method? (xMethod vs xMethod_)" %+%
 			summate( .(COLL) )
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} else if (!is_atomic( .(COLL) ) && !is_generic( .(COLL) )) {
 
@@ -30,7 +30,7 @@ Must_Be_Collection <- function (COLL) {
 			" must be a list, a pairlist or a typed vector." %+%
 			summate( .(COLL) )
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} else {
 		TRUE

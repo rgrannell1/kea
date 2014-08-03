@@ -34,7 +34,7 @@ Return the last element in a collection.
 
 # 1. extract a filename from a full path-name
 
-my_path <- '/home/ryan/Code/kiwi.R/xMap.R'
+my_path <- '/home/ryan/Code/kea.R/xMap.R'
 
 x_(my_path) $ xExplode('/') $ x_LastOf()
 

@@ -1,6 +1,6 @@
 
 
-kiwi_env <- environment()
+kea_env <- environment()
 
 
 
@@ -86,9 +86,9 @@ as_unchaining <- function (fn_name) {
 lookup_fn <- function (method_name) {
 
 	if (is_unchaining(method_name)) {
-		kiwi_env[[ as_chaining(method_name) ]]
+		kea_env[[ as_chaining(method_name) ]]
 	} else {
-		kiwi_env[[method_name]]
+		kea_env[[method_name]]
 	}
 }
 
@@ -110,7 +110,7 @@ as_proto_params <- function (method_name) {
 	if (is_variadic(fn_name)) {
 
 		variadic_fn     <- lookup_fn(fn_name)
-		fn              <- kiwi_env[[ as_nonvariadic(fn_name) ]]
+		fn              <- kea_env[[ as_nonvariadic(fn_name) ]]
 
 		variadic_params <- names(formals(variadic_fn))
 		params          <- names(formals(fn))
@@ -122,7 +122,7 @@ as_proto_params <- function (method_name) {
 
 	} else {
 
-		fn <- kiwi_env[[fn_name]]
+		fn <- kea_env[[fn_name]]
 		names(formals(fn))
 
 	}
@@ -155,7 +155,7 @@ fixed_param <- function (fn_name, params) {
 
 
 
-# select all the kiwi functions with at least
+# select all the kea functions with at least
 # one given parametre, or a particular type of ... parametre.
 
 fns_with_params <- function (fns, params) {
@@ -170,9 +170,9 @@ fns_with_params <- function (fns, params) {
 
 # make_method :: <character> -> <character> -> function
 #
-# make method generates a method from a kiwi function.
+# make method generates a method from a kea function.
 #
-# make_method solves some problems with first-generation kiwi-methods;
+# make_method solves some problems with first-generation kea-methods;
 # each form of the method would have to explicitely added by hand, and
 # methods that should be available in multiple forms werent.
 #
@@ -203,7 +203,7 @@ fns_with_params <- function (fns, params) {
 #    LHS couldn't be bound to any parametre.
 #
 # 4, if too few arguments are given, an error is thrown before
-#    kiwi's partial application kicks in. This prevents ambiguities with
+#    kea's partial application kicks in. This prevents ambiguities with
 #    rebinding Self() after the user fixes another parametre.
 #
 # 5, The LHS will preferentially bind to one of the methods parameters;
@@ -275,7 +275,7 @@ make_method <- local({
 
 			fn_sym <- as.symbol(method_name)
 
-			# -- chaining methods call x_ on the return value of kiwi function.
+			# -- chaining methods call x_ on the return value of kea function.
 			bquote({
 				x_( .(( as.call(c(fn_sym, arglist)) )) )
 			})
@@ -314,7 +314,7 @@ make_method <- local({
 					message = "Too few arguments were supplied to the method " %+% .(paste(fn_sym)) %+%
 						", as methods\ncannot currently be partially applied.\n"
 
-					throw_kiwi_error(sys.call(), message)
+					throw_kea_error(sys.call(), message)
 				}
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
@@ -335,7 +335,7 @@ make_method <- local({
 
 			fn_sym <- as.symbol(method_name)
 
-			# -- chaining methods call x_ on the return value of kiwi function.
+			# -- chaining methods call x_ on the return value of kea function.
 
 			bquote({
 
@@ -351,7 +351,7 @@ make_method <- local({
 					message = "Too few arguments were supplied to the method " %+% .(paste(fn_sym)) %+%
 						", as methods\ncannot currently be partially applied.\n"
 
-					throw_kiwi_error(sys.call(), message)
+					throw_kea_error(sys.call(), message)
 				}
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
@@ -441,7 +441,7 @@ make_method <- local({
 
 # make_proto :: <character> -> <character> -> Environment function
 #
-# make_proto takes kiwi's function names, and a list of parametres
+# make_proto takes kea's function names, and a list of parametres
 # that flag the function for inclusion in the prototype.
 
 make_proto <- function (fns, params, description) {
@@ -503,13 +503,13 @@ proto_params <- list(
 
 
 
-kiwi_fns         <- ls(kiwi_env, pattern = 'x[A-Z]')
+kea_fns         <- ls(kea_env, pattern = 'x[A-Z]')
 
-x_any_proto      <- make_proto(kiwi_fns, proto_params $ any,        'arbitrary values')
-x_table_proto    <- make_proto(kiwi_fns, proto_params $ table,      'data-frames or matrices')
-x_factor_proto   <- make_proto(kiwi_fns, proto_params $ factor,     'factors')
-x_function_proto <- make_proto(kiwi_fns, proto_params $ `function`, 'functions')
-x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll,       'collections')
+x_any_proto      <- make_proto(kea_fns, proto_params $ any,        'arbitrary values')
+x_table_proto    <- make_proto(kea_fns, proto_params $ table,      'data-frames or matrices')
+x_factor_proto   <- make_proto(kea_fns, proto_params $ factor,     'factors')
+x_function_proto <- make_proto(kea_fns, proto_params $ `function`, 'functions')
+x_coll_proto     <- make_proto(kea_fns, proto_params $ coll,       'collections')
 
 
 
@@ -520,11 +520,11 @@ x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll,       'collections
 
 #' x_
 #'
-#' Generate an kiwi object with methods available to it.
+#' Generate an kea object with methods available to it.
 #'
 #' @param
 #'    val an arbitrary value. The value to wrap in an
-#'    kiwi object.
+#'    kea object.
 #'    The methods available depend on the input
 #'    type; functions and collections have the most methods available.
 #'
@@ -532,20 +532,20 @@ x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll,       'collections
 #'    ... see above.
 #'
 #' @return
-#'    An object of class "kiwi". Internally the object is represented as a
+#'    An object of class "kea". Internally the object is represented as a
 #'    list with a single field \bold{x}, but this field cannot be accessed directly.
 #'    Instead, the method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used to
-#'    return the data stored in an kiwi object.
+#'    return the data stored in an kea object.
 #'
-#'    The methods available to an kiwi object depend on the type of the data it
-#'    contains. All kiwi objects inherit a handful of methods regardless of their
+#'    The methods available to an kea object depend on the type of the data it
+#'    contains. All kea objects inherit a handful of methods regardless of their
 #'    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
-#'    anonymous function to be executed on an kiwi object.
+#'    anonymous function to be executed on an kea object.
 #'
 #'    The two primary groups of methods are collection methods and function methods.
 #'
 #'    Matrices, data frames, and factors have methods for converting them to collections,
-#'    while normal Kiwi functions are also available as methods for collections
+#'    while normal Kea functions are also available as methods for collections
 #'    and functions.
 #'
 #' @section Corner Cases:
@@ -561,20 +561,20 @@ x_coll_proto     <- make_proto(kiwi_fns, proto_params $ coll,       'collections
 #' @export
 
 x_ <- MakeFun('x_', function (val) {
-	# Collection any -> Kiwi any
+	# Collection any -> Kea any
 	# type constructor for the method-chaining data type.
 
 
 
 	# -- a useful corner case; there are no methods
-	# -- specifically for kiwi objects with kiwi
+	# -- specifically for kea objects with kea
 	# -- objects in them. Makes defining methods easier.
-	if (any(class(val) == 'kiwi')) {
+	if (any(class(val) == 'kea')) {
 		val
 	} else {
 		# -- cannot just be a val with a class label,
 		# -- as if val is null then x_ will fail.
-		structure(list(x = val), class = 'kiwi')
+		structure(list(x = val), class = 'kea')
 	}
 })
 
@@ -700,7 +700,7 @@ suggest_similar_method <- local({
 	# change_to_keys :: <character> -> <character> -> <character>
 	#
 	# Change occurrences of the substring 'Names' to 'Keys', as
-	# kiwi only uses Keys.
+	# kea only uses Keys.
 
 	change_to_keys <- function (method_name, candidates) {
 
@@ -783,7 +783,7 @@ suggest_similar_method <- local({
 				"did you mean " %+% rsample(similar, size = 1) %+% "?")
 		}
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 	}
 })
 
@@ -794,15 +794,15 @@ suggest_similar_method <- local({
 
 #' @export
 
-`$.kiwi` <- local({
+`$.kea` <- local({
 
 	# some methods are known by their more common
 	# but worse names (like filter, filterNot).
 	# Meet the user half way and suggest the "proper" name.
 
 	function (obj, method) {
-		# Kiwi a -> symbol -> function
-		# return an kiwi method associated with the type a.
+		# Kea a -> symbol -> function
+		# return an kea method associated with the type a.
 
 		method_name <- paste0(substitute(method))
 		proto       <- get_proto_ref( obj[['x']] )
@@ -832,13 +832,13 @@ suggest_similar_method <- local({
 
 #' @export
 
-print.kiwi <- function (x, ...) {
+print.kea <- function (x, ...) {
 
 	proto        <- get_proto_ref( x[['x']] )
 	contents_are <- proto[[1]][['private']] [['contents_are']]
 
 	header <- colourise $ blue(
-		'\n[ an kiwi object with methods for ' %+% contents_are %+% ' ]')
+		'\n[ an kea object with methods for ' %+% contents_are %+% ' ]')
 
 	cat(
 		header  %+% '\n\n' %+%

@@ -9,7 +9,7 @@ xByColkeys(tab)
 \item{tab}{a matrix or data frame. The tabular structure to get the column names of.}
 }
 \value{
-A kiwi containing a character vector.
+A kea containing a character vector.
 }
 \description{
 Convert a matrix or data.frame to a collection of column names.

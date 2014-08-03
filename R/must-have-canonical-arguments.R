@@ -11,7 +11,7 @@
 # xFix_(function (fn, b) fn(b), fn = xI)
 #
 # is misinterpreded by R; fn is not used as an ellipsis arg, but an arg to xFix.
-# libraries like plyr use .fn to try get around this; Kiwi uses this odd middleware macro.
+# libraries like plyr use .fn to try get around this; Kea uses this odd middleware macro.
 # It'll throw an error for argument lists that are ambigious.
 #
 
@@ -52,7 +52,7 @@ Must_Have_Canonical_Arguments <- function () {
 				". This will be misinterpreted by R. Use " %+%
 				dQuote(suggested) %+% " with a list argument instead of " %+% dQuote(fn_name) %+% "."
 
-			throw_kiwi_error(.sys_call, message)
+			throw_kea_error(.sys_call, message)
 		}
 
 	})

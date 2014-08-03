@@ -8,7 +8,7 @@
 	}
 
 	messages <- c(
-		"Please submit bug reports and feature requests to: https://github.com/rgrannell1/kiwi/issues."
+		"Please submit bug reports and feature requests to: https://github.com/rgrannell1/kea/issues."
 	)
 
 	message <- sample(messages, 1)

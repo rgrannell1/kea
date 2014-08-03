@@ -1,5 +1,5 @@
 
-Kiwi 0.41.0
+Kea 0.41.0
 ------------------------------------------------------------------------------
 Date: 2014-7-2
 
@@ -32,7 +32,7 @@ PACKAGE-INTERNALS:
 
 
 
-Kiwi 0.40.0
+Kea 0.40.0
 ------------------------------------------------------------------------------
 Date: 2014-7-1
 
@@ -49,11 +49,11 @@ The initial public release!
 
 
 
-Kiwi 0.39.0
+Kea 0.39.0
 -----------------------------------------------------------------------------
 Date: 2014-6-28
 
-Improved recursive kiwi functions and fixed serious bugs.
+Improved recursive kea functions and fixed serious bugs.
 
 ENHANCEMENTS:
 
@@ -104,7 +104,7 @@ xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
 
 
 
-Kiwi 0.38.0
+Kea 0.38.0
 -----------------------------------------------------------------------------
 Date: 2014-6-25
 
@@ -149,7 +149,7 @@ PACKAGE-INTERNALS:
 
 
 
-Kiwi 0.37.0
+Kea 0.37.0
 -----------------------------------------------------------------------------
 Date: 2014-6-25
 
@@ -157,7 +157,7 @@ Added xIndicesTo, improved error messages, and spell-checked docs.
 
 ENHANCEMENTS:
 
-* Add xIndicesTo, which is a Kiwi analogue for seq_len.
+* Add xIndicesTo, which is a Kea analogue for seq_len.
 
 * Functions that require numbers in a range now show the failing number if this
 property isn't met.
@@ -190,7 +190,7 @@ PACKAGE-INTERNALS:
 
 
 
-Kiwi 0.36.0
+Kea 0.36.0
 -----------------------------------------------------------------------------
 Date: 2014-6-22
 
@@ -220,7 +220,7 @@ PACKAGE-INTERNALS:
 
 
 
-Kiwi 0.35.0
+Kea 0.35.0
 -----------------------------------------------------------------------------
 Date: 2014-6-21
 
@@ -259,7 +259,7 @@ xRepeat, xToChars, xToLines, xToWords.
 
 
 
-Kiwi 0.34.0
+Kea 0.34.0
 -----------------------------------------------------------------------------
 Date: 2014-6-16
 
@@ -267,8 +267,8 @@ Removed positional setters.
 
 ENHANCEMENTS:
 
-* Removed positional setters from Kiwi; they were a poor attemmpt at making
-mutation on par with selecting in kiwi, but were not generalisable or very
+* Removed positional setters from Kea; they were a poor attemmpt at making
+mutation on par with selecting in kea, but were not generalisable or very
 useful.
 
 
@@ -278,7 +278,7 @@ useful.
 
 
 
-Kiwi 0.33.0
+Kea 0.33.0
 -----------------------------------------------------------------------------
 Date: 2014-6-16
 
@@ -294,7 +294,7 @@ BUG-FIXES:
 * Some variadic methods, such as xGroupBy_, did not have an ellipsis
 parametre; these methods would not run.
 
-* Some kiwi methods are no longer called with named arguments, so no
+* Some kea methods are no longer called with named arguments, so no
 unneeded names are added to outputs.
 
 PACKAGE INTERNALS:
@@ -308,7 +308,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.32.0
+Kea 0.32.0
 -----------------------------------------------------------------------------
 Date: 2014-6-11
 
@@ -354,7 +354,7 @@ which is no longer relevant.
 
 
 
-Kiwi 0.31.0
+Kea 0.31.0
 -----------------------------------------------------------------------------
 Date: 2014-6-7
 
@@ -390,7 +390,7 @@ xValuesOf.
 
 
 
-Kiwi 0.30.0
+Kea 0.30.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5
 
@@ -422,12 +422,12 @@ DOCUMENTATION:
 
 PACKAGE INTERNALS:
 
-* Improved the efficiency of kiwi tests, allowing for many more test-cases
+* Improved the efficiency of kea tests, allowing for many more test-cases
 to be used in a given timespan.
 
 * Added rigourous tests for atomic-vector handling by as_typed_vector.
 
-* Removed benchmarks; kiwi will use branches for benchmarks in the future.
+* Removed benchmarks; kea will use branches for benchmarks in the future.
 
 
 
@@ -439,7 +439,7 @@ to be used in a given timespan.
 
 
 
-Kiwi 0.29.0
+Kea 0.29.0
 -----------------------------------------------------------------------------
 Date: 2014-6-30
 
@@ -514,7 +514,7 @@ executes without exception.
 
 
 
-Kiwi 0.28.0
+Kea 0.28.0
 -----------------------------------------------------------------------------
 Date: 2014-6-26
 
@@ -547,7 +547,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.27.0
+Kea 0.27.0
 -----------------------------------------------------------------------------
 Date: 2014-6-26
 
@@ -602,7 +602,7 @@ xNotNa, xIsNull, xOrderOf, xRank, xStopWatch, xThread.
 
 
 
-Kiwi 0.26.0
+Kea 0.26.0
 -----------------------------------------------------------------------------
 Date: 2014-6-24
 
@@ -639,7 +639,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.25.0
+Kea 0.25.0
 -----------------------------------------------------------------------------
 Date: 2014-6-20
 
@@ -648,7 +648,7 @@ Removed several functions, made partially applied function throw better error me
 ENHANCEMENTS:
 
 * Partially-applied functions give a clearer call when they throw an error, showing
- the name of the kiwi function that threw the error.
+ the name of the kea function that threw the error.
 
 * xAtKey now throws an error if the input collection does not contain the required
 key, rather than returning NULL.
@@ -684,7 +684,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.24.0
+Kea 0.24.0
 -----------------------------------------------------------------------------
 Date: 2014-6-18
 
@@ -731,7 +731,7 @@ PACKAGE INTERNALS:
 * Refactored macros into their own files; this should aid testing significantly.
 
 * num, str...str2, rexp have their type-checking code automatically injected into
-kiwi functions now.
+kea functions now.
 
 * Added a forall-next test for xImplode
 
@@ -746,7 +746,7 @@ kiwi functions now.
 
 
 
-Kiwi 0.23.0
+Kea 0.23.0
 -----------------------------------------------------------------------------
 Date: 2014-6-14
 
@@ -755,9 +755,9 @@ Improves arrow function, with speed improvements, BUG FIXES, new features.
 ENHANCEMENTS:
 
 * Arrow functions now support underscore parametres; any parametre with an underscore
-suffix is automatically made into a kiwi object, and the underscores are removed from the parametre.
+suffix is automatically made into a kea object, and the underscores are removed from the parametre.
 
-* xLambda is no longer directly exported, as kiwi is not a metaprogramming library
+* xLambda is no longer directly exported, as kea is not a metaprogramming library
 and there are no tests validating it works when directly called.
 
 * Improved the performance of arrow functions, particularily for unary functions with no
@@ -793,7 +793,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.22.0
+Kea 0.22.0
 -----------------------------------------------------------------------------
 Date: 2014-6-12
 
@@ -851,7 +851,7 @@ parametres are matched out-of-order.
 
 
 
-Kiwi 0.21.0
+Kea 0.21.0
 -----------------------------------------------------------------------------
 Date: 2014-6-11
 
@@ -896,7 +896,7 @@ xTakeWhile, xUnionOf, xWhere.
 
 
 
-Kiwi 0.20.0
+Kea 0.20.0
 -----------------------------------------------------------------------------
 Date: 2014-6-10
 
@@ -926,7 +926,7 @@ DOCUMENTATION:
 
 
 
-Kiwi 0.19.0
+Kea 0.19.0
 -----------------------------------------------------------------------------
 Date: 2014-6-10
 
@@ -941,7 +941,7 @@ ENHANCEMENTS:
 BUG FIXES:
 
 * xFirstAs ... xFourthAs could not be correctly partially-applied. This is fixed, and
-a future version of Kiwi will guard against these errors.
+a future version of Kea will guard against these errors.
 
 DOCUMENTATION:
 
@@ -965,7 +965,7 @@ tests now run correctly from the command line.
 
 
 
-Kiwi 0.18.0
+Kea 0.18.0
 -----------------------------------------------------------------------------
 Date: 2014-6-9
 
@@ -1022,16 +1022,16 @@ xThirdAs, xFourthAs, xUniqueOf.
 
 
 
-Kiwi 0.17.0
+Kea 0.17.0
 -----------------------------------------------------------------------------
 Date: 2014-6-7
 
-Adds automatic partial application to every function in Kiwi. No tests are
+Adds automatic partial application to every function in Kea. No tests are
 currently breaking, but this feature likely interferes with error reporting.
 
 ENHANCEMENTS:
 
-* Kiwi functions are now partially-appliable; not all arguments need to be
+* Kea functions are now partially-appliable; not all arguments need to be
 provided at once. This is an important milestone. Errors are no longer thrown
 for missing inputs for this reason.
 
@@ -1070,12 +1070,12 @@ Currenty untested.
 
 
 
-Kiwi 0.16.0
+Kea 0.16.0
 -----------------------------------------------------------------------------
 Date: 2014-6-7
 
 A very minor update. Renamed library from it's working name (Arrow) to
-a final name (Kiwi), refactored internals.
+a final name (Kea), refactored internals.
 
 DOCUMENTATION:
 
@@ -1108,11 +1108,11 @@ Package Internals
 
 
 
-Kiwi 0.15.0
+Kea 0.15.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5
 
-This release adds some rigourous tests to kiwi, and fixes several bugs.
+This release adds some rigourous tests to kea, and fixes several bugs.
 
 BUG FIXES:
 
@@ -1143,7 +1143,7 @@ xTruth, xVersion, xZip and xZipKeys.
 
 
 
-Kiwi 0.14.0
+Kea 0.14.0
 -----------------------------------------------------------------------------
 Date: 2014-6-5
 
@@ -1156,11 +1156,11 @@ ENHANCEMENTS:
 * The method $ xExecute now passes its left-hand side self argument to its
 anonymous function (the lambda was previous zero-argument).
 
-* Removed xVectorise/xVectorize; future versions of Kiwi will include
+* Removed xVectorise/xVectorize; future versions of Kea will include
 automatic partial application (or at the very least pre-currying), so
 vectorise will become redundant.
 
-* Removed xGraft, which allowed custom methods to be added to the kiwi
+* Removed xGraft, which allowed custom methods to be added to the kea
 call chain. It was untested, unusued, and barely more useful than xTap.
 
 DOCUMENTATION:
@@ -1194,7 +1194,7 @@ function.
 
 * renamed make_formals to as_formals, removed the 'as_parametres' alias for as_formals
 
-* removed join-env, is_fn_matchable; neither was ever called by kiwi.
+* removed join-env, is_fn_matchable; neither was ever called by kea.
 
 
 
@@ -1207,7 +1207,7 @@ function.
 
 
 
-Kiwi 0.13.0
+Kea 0.13.0
 -----------------------------------------------------------------------------
 Date: 2014-6-2
 
@@ -1252,7 +1252,7 @@ effective for simple test cases, but more work is required for negative tests.
 
 
 
-Kiwi 0.12.0
+Kea 0.12.0
 -----------------------------------------------------------------------------
 Date: 2014-5-28
 
@@ -1267,12 +1267,12 @@ ENHANCEMENTS:
 * Added 'all empty' and 'any empty' property tests to value summation for lists,
 and dimension reporting for data frames.
 
-* Added property tests for inner kiwi objects in summated lists.
+* Added property tests for inner kea objects in summated lists.
 
 * Removed special handling of NA's from xElemIs and xElemNot, but this may be
 re-implemented in the future.
 
-* Removed the x_ method from Kiwi, since x_Identity does the same thing
+* Removed the x_ method from Kea, since x_Identity does the same thing
 in a more obvious way.
 
 BUG FIXES:
@@ -1297,7 +1297,7 @@ PACKAGE INTERNALS:
 to dangerous functions, and for missing 'missing' functions, and removed an
 older similar test suite.
 
-* Implemented a new testing tool for Kiwi, which should give more complete
+* Implemented a new testing tool for Kea, which should give more complete
 test coverage and both positive and negative controls. The syntax is also
 improved. xSelect currently uses this tool exclusively, and its use will be
 expanded in future versions.
@@ -1320,7 +1320,7 @@ fix their null corner case.
 * Added a minor fix to ith_suffix corner case which now supports infinite
 values, in the unlikely case they will arise.
 
-* throw_kiwi_warning now actually throws a warning, not an error. The function
+* throw_kea_warning now actually throws a warning, not an error. The function
 was not used, so no bug fixes are required.
 
 
@@ -1333,7 +1333,7 @@ was not used, so no bug fixes are required.
 
 
 
-Kiwi 0.11.0
+Kea 0.11.0
 -----------------------------------------------------------------------------
 Date: 2014-5-19
 
@@ -1344,9 +1344,9 @@ ENHANCEMENTS:
 * Removed xColUnit, xRowUnit, xFullUnit. Although theoretically useful
 they were largely untested and unused. May be added in future if genuinely needed.
 
-* Removed xTranspose. Kiwi as a policy does not support matrices and data frames,
+* Removed xTranspose. Kea as a policy does not support matrices and data frames,
 only their conversion to other types. There are effective ways to transpose lists
-in Kiwi already.
+in Kea already.
 
 BUG FIXES:
 
@@ -1377,10 +1377,10 @@ PACKAGE INTERNALS:
 
 * Added tests for xNegate.
 
-* Added .babelignore, to allow easier random access of useful kiwi files.
+* Added .babelignore, to allow easier random access of useful kea files.
 
 * Added rsample, which corrects a bad length-one corner case in sample. Will
-remove direct use of sample from kiwi in future. Bugs caused by sample may
+remove direct use of sample from kea in future. Bugs caused by sample may
 come to light in the next release.
 
 
@@ -1393,7 +1393,7 @@ come to light in the next release.
 
 
 
-Kiwi 0.10.0
+Kea 0.10.0
 ------------------------------------------------------------------------------
 Date: 2014-5-16
 
@@ -1406,12 +1406,12 @@ ENHANCEMENTS:
 collection for equality to a value.
 
 * Renamed xIsNot to xNot, for consistency with the other predicate names
-in Kiwi.
+in Kea.
 
 * Removed xElemIsFalse, xElemIsNa, xElemIsTrue, xElemNotFalse, xElemNotNa,
 xElemNotTrue, xElemIsNull, xElemIsNan, xElemNotNan, xElemNotNull,
 xRejectNa, xRejectNan, xRejectNull, xRejectEmpty. The rational for this
-is that kiwi emphasises compositionality, and each case these functions solve
+is that kea emphasises compositionality, and each case these functions solve
 can easily be done with other functions. This reduces the number of tests and
 documentation to be maintained significantly.
 
@@ -1447,7 +1447,7 @@ DOCUMENTATION:
 
 PACKAGE INTERNALS:
 
-* Removed unevaluated check for kiwi objects in one case
+* Removed unevaluated check for kea objects in one case
 of as_typed_vector's if condition.
 
 * Added test to xUnionOf.
@@ -1462,7 +1462,7 @@ of as_typed_vector's if condition.
 
 
 
-Kiwi 0.9.0
+Kea 0.9.0
 ------------------------------------------------------------------------------
 Date: 2014-5-12
 
@@ -1473,7 +1473,7 @@ ENHANCEMENTS:
 * added xIsNot, a complement to xIs.
 
 * Improved error messages provided when converting vector types;
-if an kiwi object is supplied (accidentally) this is stated.
+if an kea object is supplied (accidentally) this is stated.
 
 * Implemented basic object summarisation for data frames (upon error).
 
@@ -1495,7 +1495,7 @@ PACKAGE INTERNALS:
 
 * added fromStream, part of the testing tool in development.
 
-* throw_kiwi_error can now be called without a call argument.
+* throw_kea_error can now be called without a call argument.
 
 * forall will now correctly report errors; previously the argument order was backwards.
 
@@ -1510,7 +1510,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.8.0
+Kea 0.8.0
 ------------------------------------------------------------------------------
 Date: 2014-5-11
 
@@ -1546,7 +1546,7 @@ in favour of in-place definitions.
 
 
 
-Kiwi 0.7.0
+Kea 0.7.0
 ------------------------------------------------------------------------------
 Date: 2014-5-10
 
@@ -1555,10 +1555,10 @@ A mostly internal release, renamed Any, xNone, to xAllOf, xAnyOf, xNoneOf.
 ENHANCEMENTS:
 
 * Renamed xAll, xAny, xNone, to xAllOf, xAnyOf, xNoneOf. This complies better
-with Kiwi's naming conventions.
+with Kea's naming conventions.
 
 * Functions that require collections, functions, or collections of functions
-will now inform the user if they were (accidentally) given an kiwi object.
+will now inform the user if they were (accidentally) given an kea object.
 
 DOCUMENTATION:
 
@@ -1572,7 +1572,7 @@ render correctly in most cases.
 PACKAGE INTERNALS:
 
 * Deprecated and removed assert, moving over to the more flexible
-functions throw_kiwi_error and throw_kiwi_warning.
+functions throw_kea_error and throw_kea_warning.
 
 * Added extensive tests for xUnzipIndices.
 
@@ -1588,7 +1588,7 @@ functions throw_kiwi_error and throw_kiwi_warning.
 
 
 
-Kiwi 0.6.0
+Kea 0.6.0
 ------------------------------------------------------------------------------
 Date: 2014-5-7
 
@@ -1624,7 +1624,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.5.0
+Kea 0.5.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
@@ -1662,7 +1662,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.4.0
+Kea 0.4.0
 ------------------------------------------------------------------------------
 Date: 2014-5-4
 
@@ -1682,7 +1682,7 @@ name of the argument for which an error is thrown is now displayed properly.
 
 DOCUMENTATION:
 
-* Added a prototype logo for Kiwi!
+* Added a prototype logo for Kea!
 
 * Added details section to xMap, explaining the basic concept of map.
 
@@ -1709,7 +1709,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.3.0
+Kea 0.3.0
 ------------------------------------------------------------------------------
 Date: 2014-5-3
 
@@ -1754,7 +1754,7 @@ PACKAGE INTERNALS:
 
 
 
-Kiwi 0.2.0
+Kea 0.2.0
 ------------------------------------------------------------------------------
 Date: 2014-5-2
 
@@ -1791,9 +1791,9 @@ definitions and macros. This removed a lot of unneeded code.
 
 
 
-Kiwi 0.1.0
+Kea 0.1.0
 -------------------------------------------------------------------------------
 Date: 2014-4-30
 
-The initial release of Kiwi. A highly experimental release, and ideally not
+The initial release of Kea. A highly experimental release, and ideally not
 the version the public will see.

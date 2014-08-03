@@ -20,23 +20,23 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 				" must be a collection of functions, or symbols or strings" %+%
 				" that can be looked up as functions."
 
-			contains_kiwi <- any( vapply( .(COLL), function (elem) {
-				any(class( .(COLL) ) == "kiwi")
+			contains_kea <- any( vapply( .(COLL), function (elem) {
+				any(class( .(COLL) ) == "kea")
 			}, logical(1)) )
 
-			# -- specifically warn if the collection contained kiwi objects.
-			if (contains_kiwi) {
+			# -- specifically warn if the collection contained kea objects.
+			if (contains_kea) {
 
 				message <- message %+%
-					"The collection supplied contained kiwi objects. " %+%
-					"Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
+					"The collection supplied contained kea objects. " %+%
+					"Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 					summate( .(COLL) )
 
 			} else {
 				message <- message %+% summate( .(COLL) )
 			}
 
-			throw_kiwi_error(sys.call(), message)
+			throw_kea_error(sys.call(), message)
 		}
 
 	})

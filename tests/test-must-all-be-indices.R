@@ -1,8 +1,8 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 to_test       <- function (nums, coll) {}
-body(to_test) <- kiwi ::: Must_All_Be_Indices(nums, coll)
+body(to_test) <- kea ::: Must_All_Be_Indices(nums, coll)
 
 message("Must_All_Be_Indices")
 

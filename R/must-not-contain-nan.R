@@ -10,7 +10,7 @@ Must_Not_Contain_Nan <- function (COLL) {
 			" must not contain NA values." %+%
 			summate(.(COLL))
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} else {
 		TRUE

@@ -1,15 +1,15 @@
 
-require(kiwi)
+require(kea)
 
-'%+%' <- kiwi ::: '%+%'
-throw_kiwi_error <- kiwi ::: throw_kiwi_error
-is_na <- kiwi:::is_na
+'%+%' <- kea ::: '%+%'
+throw_kea_error <- kea ::: throw_kea_error
+is_na <- kea:::is_na
 
 # -- This series of unit tests checks that files that
 # -- should exist, do exist.
 
-kiwi_function_regexp <- 'x[A-Z].+[a-z]$'
-kiwi_env <- as.environment('package:kiwi')
+kea_function_regexp <- 'x[A-Z].+[a-z]$'
+kea_env <- as.environment('package:kea')
 
 fn_calls <- body := {
 	# -- get every function call in the body.
@@ -26,16 +26,16 @@ fn_calls <- body := {
 # -- a matching roxygen tag.
 
 
-# -- select the name and every function in kiwi.
+# -- select the name and every function in kea.
 
-kiwi_fns <-
-	x_(ls('package:kiwi')) $
-	xSelect(xIsMatch(kiwi_function_regexp)) $
+kea_fns <-
+	x_(ls('package:kea')) $
+	xSelect(xIsMatch(kea_function_regexp)) $
 	xMap(fn_name := {
-		list( fn_name, kiwi_env[[fn_name]] )
+		list( fn_name, kea_env[[fn_name]] )
 	})
 
-inner_calls <- kiwi_fns $ xMap( xUnspread((fn_name : fn) := {
+inner_calls <- kea_fns $ xMap( xUnspread((fn_name : fn) := {
 	list( fn_name, fn, fn_calls(body(fn)) )
 }) )
 
@@ -67,7 +67,7 @@ message(
 		x_FromLines()
 
 	if (isTRUE(nchar(error_message) > 0)) {
-		throw_kiwi_error(message = error_message)
+		throw_kea_error(message = error_message)
 	}
 
 

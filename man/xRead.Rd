@@ -32,11 +32,11 @@ Read the contents of a file as a single string.
 }
 \examples{
 
-# 1. Read the first line of kiwi's description.
+# 1. Read the first line of kea's description.
 
-x_(system.file(package = 'kiwi', 'DESCRIPTION')) $ xRead() $ xToLines() $ x_Take(1)
+x_(system.file(package = 'kea', 'DESCRIPTION')) $ xRead() $ xToLines() $ x_Take(1)
 
-# list("Package: kiwi")
+# list("Package: kea")
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};

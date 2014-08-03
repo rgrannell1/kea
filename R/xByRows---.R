@@ -5,8 +5,8 @@
 #'
 #' @details
 #'     \bold{xByRows} is the most common way in which data-frames
-#'     are reformatted for use by kiwi. Internally data frames are
-#'     represented as lists of lists, and kiwi prefers this explicit representation.
+#'     are reformatted for use by kea. Internally data frames are
+#'     represented as lists of lists, and kea prefers this explicit representation.
 #'
 #'     Column names are preserved by \bold{xByRows}.
 #'
@@ -14,7 +14,7 @@
 #'     tab a matrix or data frame. The object to convert to column-lists.
 #'
 #' @return
-#'      A kiwi object containing a list of lists.
+#'      A kea object containing a list of lists.
 #'
 #' @section Corner Cases:
 #'     Returns the empty list if \bold{tab} has no rows or have zero x zero dimensions.

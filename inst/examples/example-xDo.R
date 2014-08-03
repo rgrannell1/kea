@@ -31,7 +31,7 @@ xDo(
 #3. HackerRank Functional Programming
 #   Print "Hello World" n times
 
-# xDo is Kiwi's construct for mapping over a collection
+# xDo is Kea's construct for mapping over a collection
 # and discarding the result, for use with side-effectual
 # functions. An anonymous function or print composed with
 # a constant function can be used to print the actual message.

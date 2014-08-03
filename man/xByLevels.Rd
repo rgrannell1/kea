@@ -9,7 +9,7 @@ xByLevels(fact)
 \item{fact}{a factor. The factor to get the levels of.}
 }
 \value{
-A kiwi object containing a character vector.
+A kea object containing a character vector.
 }
 \description{
 Convert a factor to a collection of levels.

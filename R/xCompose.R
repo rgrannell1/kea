@@ -8,7 +8,7 @@
 #'
 #' @details
 #'
-#'    Kiwi's function composition is largely done with the infix
+#'    Kea's function composition is largely done with the infix
 #'    operators \%of\% and \%then\%.
 #'
 #'    \bold{\%then\%} is the classic function composition operator;

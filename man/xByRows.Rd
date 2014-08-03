@@ -9,15 +9,15 @@ xByRows(tab)
 \item{tab}{a matrix or data frame. The object to convert to column-lists.}
 }
 \value{
-A kiwi object containing a list of lists.
+A kea object containing a list of lists.
 }
 \description{
 Convert a matrix or data.frame to a collection of rows.
 }
 \details{
 \bold{xByRows} is the most common way in which data-frames
-    are reformatted for use by kiwi. Internally data frames are
-    represented as lists of lists, and kiwi prefers this explicit representation.
+    are reformatted for use by kea. Internally data frames are
+    represented as lists of lists, and kea prefers this explicit representation.
 
     Column names are preserved by \bold{xByRows}.
 }

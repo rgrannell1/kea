@@ -6,9 +6,9 @@
 xExecute(fn, val)
 }
 \arguments{
-\item{fn}{a unary function. The function to apply to the data in the kiwi object.}
+\item{fn}{a unary function. The function to apply to the data in the kea object.}
 
-\item{val}{an arbitrary value. The contents of the kiwi object.}
+\item{val}{an arbitrary value. The contents of the kea object.}
 }
 \value{
 The return value of the previous method.

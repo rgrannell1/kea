@@ -17,7 +17,7 @@ Must_Be_Between <- function (NUM, LOWER, UPPER) {
 			" must be in the range {" %+% .(LOWER) %+% "..." %+% .(UPPER) %+% "}.\n" %+%
 			"The actual number was " %+% .(NUM) %+% ".\n"
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} else {
 		TRUE

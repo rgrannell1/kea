@@ -1,5 +1,5 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("Must_Be_Collection_of_Collection")
 

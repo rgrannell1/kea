@@ -14,7 +14,7 @@ Must_Be_Named <- function (COLL) {
 				" must be named." %+%
 				summate( .(COLL) )
 
-			throw_kiwi_error(sys.call(), message)
+			throw_kea_error(sys.call(), message)
 		}
 	)
 }

@@ -1,13 +1,13 @@
 
-# 1. Construct an kiwi object.
+# 1. Construct an kea object.
 
 x_(letters)
 
-# 2. Get data back out of an kiwi object
+# 2. Get data back out of an kea object
 
 x_(letters) $ x_Identity()
 
-# 3. Call methods off an kiwi object.
+# 3. Call methods off an kea object.
 
 csv_string <- "swiss, swiss, german, irish, french, german"
 

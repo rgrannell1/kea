@@ -7,7 +7,7 @@
 #'     fact a factor. The factor to get the underlying values from.
 #'
 #' @return
-#'      A kiwi object containing a list.
+#'      A kea object containing a list.
 #'
 #' @section Corner Cases:
 #'

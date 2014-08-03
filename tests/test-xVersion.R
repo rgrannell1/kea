@@ -1,5 +1,5 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("xVersion")
 
@@ -9,7 +9,7 @@ message("xVersion")
 	holdsWhen(
 		True,
 
-		paste0(xVersion(val), collapse = '.') == packageVersion("kiwi")
+		paste0(xVersion(val), collapse = '.') == packageVersion("kea")
 	) +
 
 	describe('xVersion always is an integer') +

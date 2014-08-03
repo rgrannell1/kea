@@ -10,7 +10,7 @@
 #'      tab a matrix or data frame. The tabular structure to get the row names of.
 #'
 #' @return
-#'      A kiwi containing a character vector.
+#'      A kea containing a character vector.
 #'
 #' @section Corner Cases:
 #'     Returns character(0) when \bold{tab} is length-zero or has no keys.

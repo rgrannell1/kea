@@ -1,32 +1,32 @@
 
-Kiwi 0.41.0 [![Build Status](https://travis-ci.org/rgrannell1/kiwi.png)](https://travis-ci.org/rgrannell1/kiwi)
+Kea 0.41.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
-Kiwi is a functional programming library built to do three things:
+Kea is a functional programming library built to do three things:
 
 * maximise developer happiness.
 * be quick to write and debug.
 * make writing large programs easy.
 
-For more information, see Kiwi's [release notice](rgrannell1.github.io).
+For more information, see Kea's [release notice](rgrannell1.github.io).
 
 ### Installation
 
-For most people, the best way to get Kiwi is through github.
+For most people, the best way to get Kea is through github.
 
 ```splus
 if (!require(devtools)) {
     install.packages("devtools"); library(devtools)
 }
 
-devtools::install_github("rgrannell1/kiwi", ref = 'releases')
+devtools::install_github("rgrannell1/kea", ref = 'releases')
 ```
 
-Go [here](https://rgrannell1.github.io/kiwi/) for library documentation and tutorials.
+Go [here](https://rgrannell1.github.io/kea/) for library documentation and tutorials.
 
-Go [here](https://github.com/rgrannell1/kiwi-snippets) for Sublime Text 3 snippets.
+Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippets.
 
 ## Examples
 
@@ -87,7 +87,7 @@ kmers <- (k : string) := {
 		},
 		0:(nchar(string) - k)
 	)
-	
+
 }
 
 # the DNA sequences to find kmers of.
@@ -121,9 +121,9 @@ xJoin() $ x_UniqueOf() # -- join all the kmers into one flat list, and get the u
 
 ## Licensing
 
-**Kiwi** is released under the terms of the GNU General Public License version 3.
+**Kea** is released under the terms of the GNU General Public License version 3.
 
-<img src="https://raw.githubusercontent.com/rgrannell1/kiwi/develop/gpl3.png" height = "120"> </img>
+<img src="https://raw.githubusercontent.com/rgrannell1/kea/develop/gpl3.png" height = "120"> </img>
 
 ## Versioning
 

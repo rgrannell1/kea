@@ -14,7 +14,7 @@ Must_Be_Equal_Length_To <- function (COLL1, COLL2) {
 			"The actual lengths were " %+% toString(c(length( .(COLL1) ), length( .(COLL2) )))
 			summate( .(COLL1) )
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 	})
 }
 

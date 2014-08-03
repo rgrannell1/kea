@@ -19,7 +19,7 @@ Must_Be_Finite <- function (NUM) {
 		"The actual argument was " %+% paste(.(NUM)) %+% "." %+%
 		'\n'
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} else {
 		True

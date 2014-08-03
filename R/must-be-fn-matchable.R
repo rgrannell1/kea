@@ -17,7 +17,7 @@ Must_Be_Fn_Matchable <- function (VAL) {
 				"The actual input was a non-length-one character vector." %+%
 				summate(.(VAL))
 
-			throw_kiwi_error(sys.call(), message)
+			throw_kea_error(sys.call(), message)
 
 		} else {
 			TRUE
@@ -29,15 +29,15 @@ Must_Be_Fn_Matchable <- function (VAL) {
 				"The argument matching " %+% ddquote( .(VAL) ) %+%
 				" must be a function, or a string or symbol naming a function."
 
-			if (any(class( .(VAL) ) == 'kiwi')) {
+			if (any(class( .(VAL) ) == 'kea')) {
 				message <- message %+%
-					"The argument was of class " %+% dQuote("kiwi") %+%
-					". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
+					"The argument was of class " %+% dQuote("kea") %+%
+					". Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 					summate( .(VAL) )
 			} else {
 				message <- message %+% summate( .(VAL) )
 			}
 
-			throw_kiwi_error(sys.call(), message)
+			throw_kea_error(sys.call(), message)
 	})
 }

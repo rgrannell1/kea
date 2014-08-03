@@ -1,8 +1,8 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 to_test       <- function (coll, lengths) {}
-body(to_test) <- kiwi ::: Must_Be_Of_Length(coll, lengths)
+body(to_test) <- kea ::: Must_Be_Of_Length(coll, lengths)
 
 message('Must_Be_Of_Length')
 

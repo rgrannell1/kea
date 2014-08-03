@@ -3,9 +3,9 @@
 \name{xList}
 \alias{xList}
 \title{xList[ ]}
-\format{\preformatted{function (...)  
+\format{\preformatted{function (...)
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 75 2 84 2 9 9 75 84
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x369d7a0> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x369d7a0>
  - attr(*, "class")= chr "xlist_builder"
 }}
 \usage{
@@ -26,7 +26,7 @@ Generate a list using set-builder notation.
 
    \code{S = {output expression, variable e set, predicate expression}}
 
-   Kiwi's syntax is similar
+   Kea's syntax is similar
 
    \code{S <- xList[ 2*x, x <- 1:10 x^2 > 3 ]}
 
@@ -43,7 +43,7 @@ Generate a list using set-builder notation.
 
    \code{xList[2*x, x <- 1:10]}
 
-   is loosely translated into normal kiwi code as
+   is loosely translated into normal kea code as
 
    \code{xMap(x := x^2, 1:10)}
 

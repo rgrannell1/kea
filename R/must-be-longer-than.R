@@ -18,7 +18,7 @@ Must_Be_Longer_Than <- function (LENGTH, COLL) {
 			"The actual length was " %+% length(.(COLL)) %+% "." %+%
 			summate( .(COLL) )
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 	} )
 
 }

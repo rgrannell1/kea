@@ -1,18 +1,18 @@
 
-require(kiwi)
+require(kea)
 
 either <- function (...) {
 	x__(...) $ xSelect(x. != '') $ x_FirstOf()
 }
 
 sep <- .Platform $ file.sep
-kiwi_path <- (...) := {
+kea_path <- (...) := {
 
-	kiwi <- system.file('', package = 'kiwi')
+	kea <- system.file('', package = 'kea')
 
 	gsub(
 		xFromChars_(sep, sep), sep,
-		xImplode(sep, c(kiwi, ...)) )
+		xImplode(sep, c(kea, ...)) )
 }
 
 existing_paths <- (...) := {
@@ -27,15 +27,15 @@ existing_paths <- (...) := {
 
 
 
-kiwi <- system.file('', package = 'kiwi')
+kea <- system.file('', package = 'kea')
 
 path <- list()
-path $ description <- kiwi_path('DESCRIPTION')
-path $ namespace   <- kiwi_path('NAMESPACE')
+path $ description <- kea_path('DESCRIPTION')
+path $ namespace   <- kea_path('NAMESPACE')
 path $ examples    <-
-	existing_paths(kiwi_path('inst', 'examples'), kiwi_path('examples'))
+	existing_paths(kea_path('inst', 'examples'), kea_path('examples'))
 path $ tests       <-
-	existing_paths(kiwi_path('inst', 'tests'), kiwi_path('tests'))
+	existing_paths(kea_path('inst', 'tests'), kea_path('tests'))
 
 
 
@@ -50,7 +50,7 @@ collate_files_ <-
 		xRestOf() %then%
 		xTakeWhile(x. != "'") %then% xFromChars) $
 	xMap(
-		path := list(base = path, abspath = kiwi_path(path) ))
+		path := list(base = path, abspath = kea_path(path) ))
 
 # -- arrow functions, and their R path.
 
@@ -63,7 +63,7 @@ namespace_files_ <-
 	xMap(fn_name := {
 		list(
 			fn_name,
-			kiwi_path('R', xFromChars_(fn_name, '.R'))
+			kea_path('R', xFromChars_(fn_name, '.R'))
 		)
 	})
 

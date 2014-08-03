@@ -1,16 +1,16 @@
 
 # Package Internals
 #
-# Documentation for the internals of Kiwi.
+# Documentation for the internals of Kea.
 # Every sufficiently large utility library will contain its own utility library.
-# These functions are required to reduce repetition of code when implementing kiwi
+# These functions are required to reduce repetition of code when implementing kea
 # functions.
 #
 # @keywords internal
 # @rdname pkg-internal
 
 # --------------------- shorthand logical functions --------------------- #
-# these are exported by kiwi seperately.
+# these are exported by kea seperately.
 
 Truth <- function (...) {
 	True

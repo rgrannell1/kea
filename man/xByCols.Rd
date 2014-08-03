@@ -9,7 +9,7 @@ xByCols(tab)
 \item{tab}{a matrix or data frame. The object to convert to column-lists.}
 }
 \value{
-A kiwi object containing a list of lists.
+A kea object containing a list of lists.
 }
 \description{
 Convert a matrix or data.frame to a collection of columns.

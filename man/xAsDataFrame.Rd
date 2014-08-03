@@ -21,9 +21,9 @@ Returns a data.frame.
 Convert a collection of collections to a data.frame
 }
 \details{
-data.frames are not a beloved part of kiwi,
+data.frames are not a beloved part of kea,
    but they are ubiquitous in the base language.
-   Kiwi uses collections of collections instead of
+   Kea uses collections of collections instead of
    data.frames, but data.frames are more common in the
    base language and importantly in libraries like ggplot2.
 }

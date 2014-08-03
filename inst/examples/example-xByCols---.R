@@ -1,6 +1,6 @@
 
 # 1. xByCols is the canonical way to work with
-#    data frames in Kiwi.
+#    data frames in Kea.
 
 toxicity <- x_(data.frame(
 	"toxicant" =

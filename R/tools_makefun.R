@@ -303,7 +303,7 @@ MakeVariadic <- function (fn, fixed) {
 	# -- will replace formals & body, env will be same.
 	out <- fn
 
-	# -- will break if defaults are ever added to kiwi.
+	# -- will break if defaults are ever added to kea.
 
 	params <- names(formals(fn))
 

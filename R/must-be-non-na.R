@@ -11,7 +11,7 @@ Must_Be_Non_Na <- function (VAL) {
 			" must not be NA.\n\n" %+%
 			"The actual argument was NA of type " %+% dQuote(typeof(.(VAL))) %+% ".\n"
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} else {
 		TRUE
