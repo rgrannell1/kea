@@ -318,7 +318,7 @@ MakeVariadic <- function (fn, fixed) {
 
 	fix_macro_call <- bquote(
 
-		.(as.call( c(
+		.(as.call( list(
 			as.symbol('Fix'),
 			varfn_sym,
 			lapply(params, function (param) {

@@ -1,14 +1,68 @@
 
+# -------------------------------- fix -------------------------------- #
 #
+# fix is an more efficient implementation of xFix, which sets an argument
+# of a function permenantly. This will be used by Fix and MakeFun to create
+# partially applicable functions.
+
+fix <- local({
+
+	fn_symbol <- as.symbol('.fixed_function')
+
+	function (.fixed_function, coll) {
+
+		fn_params       <- names(fn_formals)
+		fn_formals      <- formals(.fixed_function)
+		.fixed_function <- substitute(.fixed_function)
+
+		do.call('function', list(
+			# -- select each unused parametre.
+			as.pairlist(fn_formals[ paste0(seq_along(fn_formals)) %!in% names(coll) ]),
+			bquote({
+				.(paste0('a partially applied form of ', .fixed_function))
+
+
+			})
+		))
+
+	}
+
+})
+
+# -------------------------------- Fix -------------------------------- #
 #
-#
+# Kea functions are partially applicable,
 #
 #
 #
 
 Fix <- function (FN, SYMS, PRES, FINAL) {
-	"hi"
+
+	print(substitute(FN))
+
+	arity  <- length(SYMS)
+	params <- paste(SYMS)
+
+	bquote({
+
+		.fixed_args <- list()
+
+		for (ith in seq_along( .(params) )) {
+
+			if (!do.call( missing, list(.(params)[[ith]] )) ) {
+				.fixed_args[[ paste(ith) ]] <- eval(as.symbol( .(params)[[ith]] ))
+			}
+
+		}
+
+		if ( length(.fixed_args) < length(.(params)) ) {
+			return (fix( .(substitute(FN)), .fixed_args ))
+		}
+
+	})
+
 }
+
 
 
 
