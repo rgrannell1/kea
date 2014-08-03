@@ -9,6 +9,11 @@ as_atom         <- kea ::: as_atom
 
 message("as_typed_vector (atomic)")
 
+
+
+
+
+
 	over(coll) +
 
 	# --------------------- length-zero --------------------- #
@@ -150,6 +155,11 @@ message("as_typed_vector (atomic)")
 
 	run()
 
+
+
+
+
+
 message("as_typed_vector (generic)")
 
 
@@ -160,6 +170,11 @@ message("as_typed_vector (generic)")
 
 
 message("as_atom (atomic)")
+
+
+
+
+
 
 	over(coll) +
 
@@ -188,6 +203,11 @@ message("as_atom (atomic)")
 	) +
 
 	run()
+
+
+
+
+
 
 message("as_atom (generic")
 
