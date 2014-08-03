@@ -26,9 +26,9 @@
 \alias{|.xlambda_builder}
 \alias{||.xlambda_builder}
 \title{x.}
-\format{\preformatted{function (...)
+\format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 50 2 9 9 41 50
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x37450e8>
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4515478> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
