@@ -10,7 +10,7 @@ Kea is a functional programming library built to do three things:
 * be quick to write and debug.
 * make writing large programs easy.
 
-For more information, see Kea's [release notice](rgrannell1.github.io).
+For more information, see Kea's [release notice](http://rgrannell1.github.io/blog/2014/08/01/introducing-kiwi/).
 
 ### Installation
 
