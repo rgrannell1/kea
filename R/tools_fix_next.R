@@ -1,12 +1,20 @@
 
-Fix2 <- function (FN, SYMS, PRES, FINAL) {
+#
+#
+#
+#
+#
+#
 
+Fix <- function (FN, SYMS, PRES, FINAL) {
+	"hi"
 }
 
 
 
 
-
+# -------------------------------- write_type_checks -------------------------------- #
+#
 # Kea does type-checking on its input arguments; this
 # module creates that code.
 
@@ -24,7 +32,6 @@ write_type_checks <- ( function () {
 		Must_Be_Collection(fns),
 		Must_Be_Collection_Of_Fn_Matchable(fns)
 	)
-
 
 	# -- sym must always be a matchable name data-type.
 	self $ sym <-
@@ -89,6 +96,8 @@ write_type_checks <- ( function () {
 
 
 
+# -------------------------------- write_type_conversions -------------------------------- #
+#
 # Kea alters some parametres after checking it's type; this module
 # writes that code.
 
@@ -135,8 +144,8 @@ write_type_conversions <- ( function () {
 
 
 
-
-
+# -------------------------------- MakeFun -------------------------------- #
+#
 # MakeFun takes a function name like xMap, and
 # a function definition. It returns a partially-applicable
 # function with type-checks automatically written into it.
@@ -183,13 +192,15 @@ MakeFun <- function (sym, expr, typed = True) {
 			lapply(params, as.symbol),
 			type_checks,
 			type_conversions
-		))
-	))
+		)) )
+	)
 
-	print(call_Fix_macro)
+	decorated <- function () {}
 
+	formals(decorated)     <- formals(underlying)
+	body(decorated)        <- join_exprs(eval(call_Fix_macro), body(underlying))
+	environment(decorated) <- parent.frame()
 
-	stop(sym)
-
-
+	print(decorated)
+	decorated
 }
