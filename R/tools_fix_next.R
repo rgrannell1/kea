@@ -11,8 +11,8 @@ fix <- local({
 
 	function (.fixed_function, coll) {
 
-		fn_params       <- names(fn_formals)
 		fn_formals      <- formals(.fixed_function)
+		fn_params       <- names(fn_formals)
 		.fixed_function <- substitute(.fixed_function)
 
 		do.call('function', list(
@@ -21,6 +21,16 @@ fix <- local({
 			bquote({
 				.(paste0('a partially applied form of ', .fixed_function))
 
+				.( as.call(c(.fixed_function, lapply(seq_along(fn_params), function (ith) {
+
+					# -- the ith parametre has a matching argument.
+					if (any( names(coll) == paste0(ith) )) {
+						coll[[ paste0(ith) ]]
+					} else {
+						as.symbol( fn_params[[ith]] )
+					}
+
+				}) )) )
 
 			})
 		))
@@ -38,8 +48,6 @@ fix <- local({
 
 Fix <- function (FN, SYMS, PRES, FINAL) {
 
-	print(substitute(FN))
-
 	arity  <- length(SYMS)
 	params <- paste(SYMS)
 
@@ -49,8 +57,16 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 		for (ith in seq_along( .(params) )) {
 
-			if (!do.call( missing, list(.(params)[[ith]] )) ) {
-				.fixed_args[[ paste(ith) ]] <- eval(as.symbol( .(params)[[ith]] ))
+			param <- .(params)[[ith]]
+
+			if (param == 'SPREAD_PARAMETRE') {
+				param <- as.symbol('...')
+			} else {
+				param <- as.symbol(param)
+			}
+
+			if (!do.call( missing, list(param)) ) {
+				.fixed_args[[ paste(ith) ]] <- eval(param)
 			}
 
 		}
@@ -58,6 +74,8 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		if ( length(.fixed_args) < length(.(params)) ) {
 			return (fix( .(substitute(FN)), .fixed_args ))
 		}
+
+		.(substitute(FINAL))
 
 	})
 
@@ -255,6 +273,5 @@ MakeFun <- function (sym, expr, typed = True) {
 	body(decorated)        <- join_exprs(eval(call_Fix_macro), body(underlying))
 	environment(decorated) <- parent.frame()
 
-	print(decorated)
 	decorated
 }
