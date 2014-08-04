@@ -60,16 +60,23 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			param <- .(params)[[ith]]
 
 			if (param == 'SPREAD_PARAMETRE') {
-				param <- as.symbol('...')
+				# -- work around for variadic parametres.
+
+				if (!missing(...)) {
+					.fixed_args[[ paste(ith) ]] <- list(...)
+				}
+
 			} else {
+				# -- standard parametre.
+
 				param <- as.symbol(param)
+
+				print(match.call())
+
+				if (!do.call( missing, list(param)) ) {
+					.fixed_args[[ paste(ith) ]] <- substitute(param)
+				}
 			}
-
-			if (!do.call( missing, list(param)) ) {
-
-				.fixed_args[[ paste(ith) ]] <- eval(param)
-			}
-
 		}
 
 		if ( length(.fixed_args) < length(.(params)) ) {
@@ -77,6 +84,8 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		}
 
 		.(substitute(FINAL))
+
+
 
 	})
 
@@ -178,24 +187,24 @@ write_type_conversions <- ( function () {
 
 	self <- list()
 
-	self $ ims   <- quote(ims   <- as_typed_vector(ims,   'complex'))
-	self $ ints  <- quote(ints  <- as_typed_vector(ints,  'integer'))
-	self $ raws  <- quote(raws  <- as_typed_vector(raws,  'raw'))
-	self $ str1  <- quote(str1  <- as_typed_vector(str1,  'character'))
-	self $ str2  <- quote(str2  <- as_typed_vector(str2,  'character'))
-	self $ bools <- quote(bools <- as_typed_vector(bools, 'logical'))
-	self $ rexp  <- quote(rexp  <- as_typed_vector(rexp,  'character'))
-	self $ sym   <- quote(sym   <- list(
+	self $ ims   <- list( quote(ims   <- as_typed_vector(ims,   'complex')) )
+	self $ ints  <- list( quote(ints  <- as_typed_vector(ints,  'integer')) )
+	self $ raws  <- list( quote(raws  <- as_typed_vector(raws,  'raw')) )
+	self $ str1  <- list( quote(str1  <- as_typed_vector(str1,  'character')) )
+	self $ str2  <- list( quote(str2  <- as_typed_vector(str2,  'character')) )
+	self $ bools <- list( quote(bools <- as_typed_vector(bools, 'logical')) )
+	self $ rexp  <- list( quote(rexp  <- as_typed_vector(rexp,  'character')) )
+	self $ sym   <- list(
 		quote(sym <- substitute(sym)),
 		quote(sym <- paste(sym))
-	))
-	self $ nums  <- quote(nums <- as_typed_vector(nums, 'numeric'))
-	self $ strs  <- quote(strs <- as_typed_vector(strs, 'character'))
-	self $ str   <- quote(str  <- as_typed_vector(str,  'character'))
-	self $ num   <- quote(num  <- as_typed_vector(num,  'numeric'))
-	self $ fns   <- quote(fns  <- lapply(fns, match_fn))
-	self $ pred  <- quote(pred <- match_fn(pred))
-	self $ fn    <- quote(fn   <- match_fn(fn))
+	)
+	self $ nums  <- list( quote(nums <- as_typed_vector(nums, 'numeric')) )
+	self $ strs  <- list( quote(strs <- as_typed_vector(strs, 'character')) )
+	self $ str   <- list( quote(str  <- as_typed_vector(str,  'character')) )
+	self $ num   <- list( quote(num  <- as_typed_vector(num,  'numeric')) )
+	self $ fns   <- list( quote(fns  <- lapply(fns, match_fn)) )
+	self $ pred  <- list( quote(pred <- match_fn(pred)) )
+	self $ fn    <- list( quote(fn   <- match_fn(fn)) )
 
 	function (params) {
 
