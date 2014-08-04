@@ -183,7 +183,7 @@ write_type_conversions <- ( function () {
 	self $ str1  <- quote(str1  <- as_typed_vector(str1,  'character'))
 	self $ str2  <- quote(str2  <- as_typed_vector(str2,  'character'))
 	self $ bools <- quote(bools <- as_typed_vector(bools, 'logical'))
-	self $ rexp  <- quote(rexp  <- as_typed_vector(rexp,  'logical'))
+	self $ rexp  <- quote(rexp  <- as_typed_vector(rexp,  'character'))
 	self $ sym   <- quote(sym   <- list(
 		quote(sym <- substitute(sym)),
 		quote(sym <- paste(sym))
@@ -193,7 +193,7 @@ write_type_conversions <- ( function () {
 	self $ str   <- quote(str  <- as_typed_vector(str, 'character'))
 	self $ num   <- quote(num  <- as_typed_vector(num, 'numeric'))
 	self $ fns   <- quote(fns  <- lapply(fns, match_fn))
-	self $ pred  <- quote(pred <- match_pred(pred))
+	self $ pred  <- quote(pred <- match_fn(pred))
 	self $ fn    <- quote(fn   <- match_fn(fn))
 
 	function (params) {
