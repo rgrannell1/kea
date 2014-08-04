@@ -66,6 +66,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			}
 
 			if (!do.call( missing, list(param)) ) {
+
 				.fixed_args[[ paste(ith) ]] <- eval(param)
 			}
 
@@ -190,8 +191,8 @@ write_type_conversions <- ( function () {
 	))
 	self $ nums  <- quote(nums <- as_typed_vector(nums, 'numeric'))
 	self $ strs  <- quote(strs <- as_typed_vector(strs, 'character'))
-	self $ str   <- quote(str  <- as_typed_vector(str, 'character'))
-	self $ num   <- quote(num  <- as_typed_vector(num, 'numeric'))
+	self $ str   <- quote(str  <- as_typed_vector(str,  'character'))
+	self $ num   <- quote(num  <- as_typed_vector(num,  'numeric'))
 	self $ fns   <- quote(fns  <- lapply(fns, match_fn))
 	self $ pred  <- quote(pred <- match_fn(pred))
 	self $ fn    <- quote(fn   <- match_fn(fn))
@@ -274,4 +275,97 @@ MakeFun <- function (sym, expr, typed = True) {
 	environment(decorated) <- parent.frame()
 
 	decorated
+}
+
+# -------------------------------- MakeVariadic -------------------------------- #
+#
+# MakeVariadic is not a general function; it takes a Kea function, and makes one
+# of its arguments variadic.
+
+MakeVariadic <- function (fn, fixed) {
+
+	env <- new.env(parent = environment(fn))
+
+	fn_sym    <- as.symbol(substitute(fn))
+	varfn_sym <- as.symbol(paste0(fn_sym, '_'))
+
+	if ( grepl('_', paste0(fn_sym)) ) {
+		stop("MakeVariadic: _ in method name ", paste0(fn_sym))
+	}
+
+	# -- will replace formals & body, env will be same.
+
+	varfn <- fn
+
+	# -- will break if defaults are ever added to kea.
+
+	params <- names(formals(fn))
+
+	if (fixed %!in% params) {
+		stop("MakeVariadic: tried to fix param that doesn't exist ", paste0(fn_sym))
+	}
+
+	params[params == fixed] <- '...'
+
+	# -- create a formal list from the new parametres with no defaults.
+	formals(varfn) <- as_formals(params)
+
+	call_Fix_macro <- bquote(
+
+		.(as.call( list(
+			as.symbol('Fix'),
+			# -- the Kea function to partially apply.
+			as.symbol(fn_sym),
+
+			# -- the parametre to the Kea function.
+			lapply(params, function (param) {
+				# -- needed to go through a song-and-dance to
+				# -- get ... injected into the macro; this is done
+				# -- by handling of SPREAD_PARAMETRE in Fix.
+
+				if (param == '...') {
+					quote(SPREAD_PARAMETRE)
+				} else {
+					as.symbol(param)
+				}
+
+			}),
+			list(),
+			list()
+		)) )
+	)
+
+	body(varfn) <- bmacro( bquote({
+
+		# -- check that the argument list supplied can be
+		# --  correctly resolved.
+		.( eval(call_Fix_macro) )
+
+		MACRO( Must_Have_Canonical_Arguments() )
+
+		.(
+			( as.call(c(
+				# -- call the non-variadic form
+				fn_sym,
+					# -- for each parametre in the (always a closure)
+					lapply(
+						params,
+						function (param) {
+
+							if (param == '...') {
+								# -- if the param is ... return `list(...)
+								as.call(list(
+									as.symbol('list'),
+									as.symbol('...') ))
+							} else {
+								# -- return the param as a symbol
+								as.symbol(param)
+							}
+
+						}) )) ) )
+	}) )
+
+	environment(varfn) <- env
+	varfn
+
 }
