@@ -1,16 +1,16 @@
 
 # Package Internals
 #
-# Documentation for the internals of Kiwi.
+# Documentation for the internals of Kea.
 # Every sufficiently large utility library will contain its own utility library.
-# These functions are required to reduce repetition of code when implementing kiwi
+# These functions are required to reduce repetition of code when implementing kea
 # functions.
 #
 # @keywords internal
 # @rdname pkg-internal
 
 # --------------------- shorthand logical functions --------------------- #
-# these are exported by kiwi seperately.
+# these are exported by kea seperately.
 
 Truth <- function (...) {
 	True
@@ -176,6 +176,12 @@ join_exprs <- local({
 	brace <- as.symbol('{')
 
 	function (expr1, expr2) {
+
+		if (is.null(expr2)) {
+			return(expr1)
+		} else if (is.null(expr1)) {
+			return(expr2)
+		}
 
 		list_expr1 <- as.list(expr1)
 		list_expr2 <- as.list(expr2)

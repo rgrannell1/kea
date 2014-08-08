@@ -1,4 +1,4 @@
 
-require(kiwi)
+require(kea)
 
 message("xAsDataFrame")

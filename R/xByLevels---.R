@@ -7,7 +7,7 @@
 #'     fact a factor. The factor to get the levels of.
 #'
 #' @return
-#'     A kiwi object containing a character vector.
+#'     A kea object containing a character vector.
 #'
 #' @section Corner Cases:
 #'     Returns character(0) for empty factors.

@@ -12,7 +12,7 @@ Must_Be_Flag <- function (BOOL, PRED) {
 			" produced a non-{True, False, Na} value." %+%
 			summate( .(BOOL) )
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 
 	} )
 }

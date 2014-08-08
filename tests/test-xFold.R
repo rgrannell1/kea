@@ -1,4 +1,4 @@
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("xFold")
 

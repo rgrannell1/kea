@@ -1,8 +1,8 @@
 
-require(kiwi)
+require(kea)
 
-'%+%' <- kiwi ::: '%+%'
-throw_kiwi_warning <- kiwi ::: throw_kiwi_warning
+'%+%' <- kea ::: '%+%'
+throw_kea_warning <- kea ::: throw_kea_warning
 
 
 # -- This unit test checks if the examples are empty.
@@ -46,8 +46,8 @@ message(
 
 # -- this is awful, and should be changed.
 
-example_path      <- system.file(package = 'kiwi', 'examples')
-inst_example_path <- system.file(package = 'kiwi', 'inst/examples')
+example_path      <- system.file(package = 'kea', 'examples')
+inst_example_path <- system.file(package = 'kea', 'inst/examples')
 
 if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 
@@ -90,6 +90,6 @@ if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 			empty_examples $ xMap(xAt(2)) $ x_FromLines()
 		)
 
-		throw_kiwi_warning(message = message)
+		throw_kea_warning(message = message)
 	}
 }

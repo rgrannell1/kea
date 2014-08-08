@@ -10,31 +10,31 @@ x__(...)
 }
 \arguments{
 \item{val}{an arbitrary value. The value to wrap in an
-   kiwi object.
+   kea object.
    The methods available depend on the input
    type; functions and collections have the most methods available.}
 
 \item{...}{see above.}
 }
 \value{
-An object of class "kiwi". Internally the object is represented as a
+An object of class "kea". Internally the object is represented as a
    list with a single field \bold{x}, but this field cannot be accessed directly.
    Instead, the method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used to
-   return the data stored in an kiwi object.
+   return the data stored in an kea object.
 
-   The methods available to an kiwi object depend on the type of the data it
-   contains. All kiwi objects inherit a handful of methods regardless of their
+   The methods available to an kea object depend on the type of the data it
+   contains. All kea objects inherit a handful of methods regardless of their
    type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
-   anonymous function to be executed on an kiwi object.
+   anonymous function to be executed on an kea object.
 
    The two primary groups of methods are collection methods and function methods.
 
    Matrices, data frames, and factors have methods for converting them to collections,
-   while normal Kiwi functions are also available as methods for collections
+   while normal Kea functions are also available as methods for collections
    and functions.
 }
 \description{
-Generate an kiwi object with methods available to it.
+Generate an kea object with methods available to it.
 }
 \section{Corner Cases}{
 
@@ -43,15 +43,15 @@ Generate an kiwi object with methods available to it.
 }
 \examples{
 
-# 1. Construct an kiwi object.
+# 1. Construct an kea object.
 
 x_(letters)
 
-# 2. Get data back out of an kiwi object
+# 2. Get data back out of an kea object
 
 x_(letters) $ x_Identity()
 
-# 3. Call methods off an kiwi object.
+# 3. Call methods off an kea object.
 
 csv_string <- "swiss, swiss, german, irish, french, german"
 

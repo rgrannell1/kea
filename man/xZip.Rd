@@ -61,7 +61,7 @@ Transpose a collection of collections.
 #
 # seperate a csv of country,median age pairs
 # into a list of countries and ages.
-# this is a nicer format for Kiwi to work with
+# this is a nicer format for Kea to work with
 # than a string or data.frame.
 
 csv <- "Monaco,48.9,Japan,44.6,Italy,44.3,Germany,43.7,Jersey,43.4"

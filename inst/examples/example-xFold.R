@@ -33,7 +33,7 @@ xFold(
 # xFold takes a binary function (in this case 'plus'), and successively merges values (from
 # left to right) in a collection until a single result is returned.
 
-# Kiwi chaining methods work nicely for multi-part processing of data.
+# Kea chaining methods work nicely for multi-part processing of data.
 
 sum_odds <- nums := {
 
@@ -74,7 +74,7 @@ sum_odds(c(1, 2, 3, 4, 5, 6))
 #    Remove the odd indices from a collection
 
 # As is normal for functional programming, fold is the solution to all problems.
-# Most functions in Kiwi could actually be expressed by partially applying fold,
+# Most functions in Kea could actually be expressed by partially applying fold,
 # but that would be inefficient.
 
 #

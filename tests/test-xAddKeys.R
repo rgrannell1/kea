@@ -1,7 +1,7 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
-require(kiwi)
+require(kea)
 
 message("xAddKeys")
 
@@ -14,6 +14,8 @@ message("xAddKeys")
 
 		xAddKeys(coll0, coll1) %is% as_named(list())
 	) +
+
+	run()
 
 	over(strs) +
 

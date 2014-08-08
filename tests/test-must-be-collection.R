@@ -1,8 +1,8 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 to_test       <- function (coll) {}
-body(to_test) <- kiwi ::: Must_Be_Collection(coll)
+body(to_test) <- kea ::: Must_Be_Collection(coll)
 
 message('Must_Be_Collection')
 
@@ -18,7 +18,7 @@ message('Must_Be_Collection')
 
 	over(coll) +
 
-	describe('always fails for infinites') +
+	describe('always fails for non-collections') +
 	failsWhen(
 		!is_collection(coll),
 		to_test(coll)

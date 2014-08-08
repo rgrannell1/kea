@@ -418,7 +418,7 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'either positives or negatives must be set.'
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 
 	} else if (is.null(test $ positives)) {
 		test $ positives <- list()
@@ -432,7 +432,7 @@ validate_test <- function (invoking_call, test) {
 			message <-
 				'the property ' %+% key %+% ' is missing from the test object.'
 
-			throw_kiwi_error(invoking_call, message)
+			throw_kea_error(invoking_call, message)
 		}
 	}
 
@@ -440,14 +440,14 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'time must be a positive number'
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 	}
 
 	if (length(test $ info) != length(test $ positives) + length(test $ negatives)) {
 		message <-
 			'there must be a one and only one description for each positive or negative test.'
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 	}
 
 	test $ info <- dQuote(test $ info)
@@ -500,7 +500,19 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 		group_pred  <- group[[1]]
 		group_props <- group[2:length(group)]
 
-		is_match <- tryDefault(do.call(group_pred, case), False)
+		# -- warn for errors or warning, as these are often symptoms
+		# -- of an improperly written test.
+		is_match <- tryCatch(
+			do.call(group_pred, case),
+			warning = function (warn) {
+				warning(warn)
+				False
+			},
+			error   = function (err)  {
+				warning(err)
+				False
+			}
+		)
 
 		state $ case_examined <- state $ case_examined + 1
 
@@ -709,11 +721,11 @@ state_sucess <- function (states, info) {
 
 
 
-positive_test <- function (prop, case) {
+holdswhen_test <- function (prop, case) {
 	do.call(prop, case)
 }
 
-negative_test <- function (prop, case) {
+failswhen_test <- function (prop, case) {
 	# -- return false if the test doesn't throw an error. Otherwise
 	# -- return true.
 	tryDefault(
@@ -788,8 +800,8 @@ execute_test <- function (test) {
 
 	# -- testers take a property, and a test case, and return a boolean value.
 	testers <- list(
-		positive_test,
-		negative_test
+		holdswhen_test,
+		failswhen_test
 	)
 
 	# -- test random test cases for a preset amount of time.
@@ -925,7 +937,7 @@ holdsWhen <- function (expr1, ...) {
 		message <-
 			'holdsWhen must specify expectations.'
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 	}
 
 	out <- list(
@@ -952,7 +964,7 @@ worksWhen <- function (expr1, ...) {
 		message <-
 			'worksWhen must specify expectations.'
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 	}
 
 	# if the expression runs, return tre.
@@ -987,7 +999,7 @@ failsWhen <- function (expr1, ...) {
 		message <-
 			'failsWhen must specify expectations.'
 
-		throw_kiwi_error(invoking_call, message)
+		throw_kea_error(invoking_call, message)
 	}
 
 	out <- list(

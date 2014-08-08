@@ -1,7 +1,7 @@
 
 # 1. Subsetting a collection
 #
-# Slice is the replacement for '[[' in Kiwi. It behaves similarly.
+# Slice is the replacement for '[[' in Kea. It behaves similarly.
 
 nums <- 1:10
 

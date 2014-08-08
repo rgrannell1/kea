@@ -9,7 +9,7 @@ xElemsByCols(tab)
 \item{tab}{a matrix. The matrix to enumerate by elements.}
 }
 \value{
-A kiwi object containing a list.
+A kea object containing a list.
 }
 \description{
 Enumerate the elements of a matrix down columns.

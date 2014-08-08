@@ -8,10 +8,10 @@
 #'     (any -> any) -> any -> any
 #'
 #' @param
-#'      fn a unary function. The function to apply to the data in the kiwi object.
+#'      fn a unary function. The function to apply to the data in the kea object.
 #'
 #' @param
-#'    val an arbitrary value. The contents of the kiwi object.
+#'    val an arbitrary value. The contents of the kea object.
 #'
 #' @return
 #'      The return value of the previous method.

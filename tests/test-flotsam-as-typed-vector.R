@@ -1,13 +1,18 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
-as_typed_vector <- kiwi ::: as_typed_vector
-as_atom         <- kiwi ::: as_atom
+as_typed_vector <- kea ::: as_typed_vector
+as_atom         <- kea ::: as_atom
 
 # as_typed_vector and as_atomic are two of the most complex functions
-# in Kiwi, so they are heavily tested.
+# in Kea, so they are heavily tested.
 
 message("as_typed_vector (atomic)")
+
+
+
+
+
 
 	over(coll) +
 
@@ -150,6 +155,11 @@ message("as_typed_vector (atomic)")
 
 	run()
 
+
+
+
+
+
 message("as_typed_vector (generic)")
 
 
@@ -160,6 +170,11 @@ message("as_typed_vector (generic)")
 
 
 message("as_atom (atomic)")
+
+
+
+
+
 
 	over(coll) +
 
@@ -188,6 +203,11 @@ message("as_atom (atomic)")
 	) +
 
 	run()
+
+
+
+
+
 
 message("as_atom (generic")
 

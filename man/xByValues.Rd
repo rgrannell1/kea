@@ -9,7 +9,7 @@ xByValues(fact)
 \item{fact}{a factor. The factor to get the underlying values from.}
 }
 \value{
-A kiwi object containing a list.
+A kea object containing a list.
 }
 \description{
 Convert a factor to a collection of the factor's data.

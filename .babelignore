@@ -5,8 +5,8 @@
 .Rproj.user
 .git
 
-man
-man-roxygen
+man/
+man-roxygen/
 
 .travis.yml
 .Rhistory

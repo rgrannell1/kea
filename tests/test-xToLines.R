@@ -1,9 +1,9 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message('xToLines')
 
-	over(strs) +
+	over(str) +
 
 	describe("works of empty string is empty vector") +
 	holdsWhen(

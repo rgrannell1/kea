@@ -1,5 +1,5 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("xNotSubset")
 
@@ -21,10 +21,10 @@ message("xNotSubset")
 
 	describe("elements of a subset are always a subset.") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		is_collection(coll1) && length(coll1) > 0,
 		{
-			subset <- sample(as.list(coll), size = sample.int(length(coll), 1))
-			!xNotSubset(subset, coll)
+			subset <- sample(as.list(coll1), size = sample.int(length(coll1), 1))
+			!xNotSubset(subset, coll1)
 		}
 	) +
 

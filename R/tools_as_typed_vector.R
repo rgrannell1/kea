@@ -63,7 +63,7 @@ as_typed_vector <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					throw_kiwi_error(invoking_call, message)
+					throw_kea_error(invoking_call, message)
 				}
 
 			} else if (mode == 'raw' && type != 'raw') {
@@ -74,7 +74,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_kiwi_error(invoking_call, message)
+				throw_kea_error(invoking_call, message)
 
 			} else if (!typecheck [[mode]] (coll) && !all_is_na) {
 				# -- other types pathway.
@@ -84,7 +84,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_kiwi_error(invoking_call, message)
+				throw_kea_error(invoking_call, message)
 			}
 
 			# -- convert in case vector was all NA values.
@@ -112,7 +112,7 @@ as_typed_vector <- local({
 
 					coll_sym <- substitute(coll)
 
-					throw_kiwi_error(
+					throw_kea_error(
 						invoking_call, "the collection " %+% dQuote(coll) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
@@ -126,16 +126,16 @@ as_typed_vector <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					if (any(class(coll) == 'kiwi')) {
+					if (any(class(coll) == 'kea')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("kiwi") %+%
-							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kea") %+%
+							". Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 							summate(coll)
 					} else {
 						message <- message %+% summate(coll)
 					}
 
-					throw_kiwi_error(invoking_call, message)
+					throw_kea_error(invoking_call, message)
 				}
 			}
 
@@ -198,7 +198,7 @@ as_atom <- local({
 
 			coll_sym <- substitute(coll)
 
-			throw_kiwi_error(
+			throw_kea_error(
 				invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 				" must be a length-one value." %+% summate(coll)
 			)
@@ -217,16 +217,16 @@ as_atom <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					if (any(class(coll) == 'kiwi')) {
+					if (any(class(coll) == 'kea')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("kiwi") %+%
-							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kea") %+%
+							". Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 							summate(coll)
 					} else {
 						message <- message %+% summate(coll)
 					}
 
-					throw_kiwi_error(
+					throw_kea_error(
 						invoking_call, message)
 				}
 
@@ -240,16 +240,16 @@ as_atom <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				if (any(class(coll) == 'kiwi')) {
+				if (any(class(coll) == 'kea')) {
 					message <- message %+%
-						"The argument was of class " %+% dQuote("kiwi") %+%
-						". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
+						"The argument was of class " %+% dQuote("kea") %+%
+						". Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 						summate(coll)
 				} else {
 					message <- message %+% summate(coll)
 				}
 
-				throw_kiwi_error(
+				throw_kea_error(
 					invoking_call, message)
 			}
 
@@ -266,7 +266,7 @@ as_atom <- local({
 
 					coll_sym <- substitute(coll)
 
-					throw_kiwi_error(
+					throw_kea_error(
 						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
@@ -278,16 +278,16 @@ as_atom <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					if (any(class(coll) == 'kiwi')) {
+					if (any(class(coll) == 'kea')) {
 						message <- message %+%
-							"The argument was of class " %+% dQuote("kiwi") %+%
-							". Did you use the wrong form of kiwi method (xMethod vs xMethod_)?" %+%
+							"The argument was of class " %+% dQuote("kea") %+%
+							". Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 							summate(coll)
 					} else {
 						message <- message %+% summate(coll)
 					}
 
-					throw_kiwi_error(
+					throw_kea_error(
 						invoking_call, message)
 				}
 			}

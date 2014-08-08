@@ -31,8 +31,6 @@
 
 xNotMatch <- MakeFun('xNotMatch', function (rexp, str) {
 
-	# -- flags like rexp are usually made into the unit.
-
 	if (length(rexp) == 0 || length(str) == 0) {
 		logical(0)
 	} else {

@@ -6,20 +6,20 @@
 xTap(fn, val)
 }
 \arguments{
-\item{fn}{a unary function. The function to apply to the data in the kiwi object.}
+\item{fn}{a unary function. The function to apply to the data in the kea object.}
 
-\item{val}{an arbitrary value. The contents of the kiwi object.}
+\item{val}{an arbitrary value. The contents of the kea object.}
 }
 \value{
-A kiwi object.
+A kea object.
 }
 \description{
-Apply an anonymous function to the contents of an kiwi object.
+Apply an anonymous function to the contents of an kea object.
 }
 \details{
-\bold{xTap} applies non-kiwi functions to be applied to kiwi objects.
+\bold{xTap} applies non-kea functions to be applied to kea objects.
    These functions can be named or unnamed. This allows base functions
-   or external libraries to inter-operate with kiwi's chaining methods.
+   or external libraries to inter-operate with kea's chaining methods.
 
    \code{x_(letters) $ xShuffle() $ x_Tap(sort)}
 

@@ -7,7 +7,7 @@
 #'     tab a matrix or data frame. The object to convert to column-lists.
 #'
 #' @return
-#'      A kiwi object containing a list of lists.
+#'      A kea object containing a list of lists.
 #'
 #' @section Corner Cases:
 #'     Returns the empty list if \bold{tab} has no columns or have zero x zero dimensions.

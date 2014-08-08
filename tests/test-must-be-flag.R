@@ -1,8 +1,8 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 to_test       <- function (bool) {}
-body(to_test) <- kiwi ::: Must_Be_Flag(bool, predSymbol)
+body(to_test) <- kea ::: Must_Be_Flag(bool, predSymbol)
 
 message('Must_Be_Flag')
 

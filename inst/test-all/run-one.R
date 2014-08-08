@@ -1,14 +1,14 @@
 #!/usr/bin/Rscript --vanilla --slave
 
-require(kiwi)
+require(kea)
 
 fn_name <- commandArgs(trailingOnly = TRUE)
 
-test_path <- system.file('tests', package = 'kiwi')
+test_path <- system.file('tests', package = 'kea')
 
 if (nchar(test_path) == 0) {
 	if ( Sys.getenv()[['USER']] == 'ryan') {
-		test_path <- '/home/ryan/Code/kiwi.R/tests'
+		test_path <- '/home/ryan/Code/kea.R/tests'
 	}
 }
 

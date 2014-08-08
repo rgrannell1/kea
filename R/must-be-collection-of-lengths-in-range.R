@@ -21,6 +21,6 @@ Must_Be_Collection_Of_Lengths_In_Range <- function (COLLS, LOWER, UPPER) {
 			"{" %+% .(LOWER) %+% ", ..., " %+% .(UPPER) %+% "}" %+%
 			summate( .(COLLS) )
 
-		throw_kiwi_error(sys.call(), message)
+		throw_kea_error(sys.call(), message)
 	})
 }

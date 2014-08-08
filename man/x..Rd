@@ -28,7 +28,7 @@
 \title{x.}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 50 2 9 9 41 50
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x45cfb50> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4998018> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
@@ -144,7 +144,7 @@ One of the most common uses of anonymous functions is
 
     \code{xReject(function (x) x == ' ', str)}
 
-    Kiwi has a general short-hand syntax for creating anonymous functions
+    Kea has a general short-hand syntax for creating anonymous functions
     already, which works for arbitrary functions.
 
     \code{xReject(x := x == ' ', str)}

@@ -1,8 +1,8 @@
-Package: kiwi
+Package: kea
 Type: Package
-Title: Kiwi
-Description: **Kiwi**.
-Version: 0.41.0
+Title: Kea
+Description: **Kea**.
+Version: 0.42.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -51,8 +51,7 @@ Collate:
     'must-be-collection-of-lengths-in-range.R'
     'must-be-parametres-of.R'
     'must-be-existing-ref.R'
-    'tools_fix.R'
-    'tools_makefun.R'
+    'tools_fix_next.R'
     'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'

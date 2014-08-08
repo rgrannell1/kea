@@ -1,5 +1,5 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("holdsWhen")
 
@@ -28,11 +28,13 @@ message("holdsWhen failures")
 	assert_throws_error <- function (expr) {
 
 		tryDefault <- function (expr, val) {
+
 			tryCatch(
 				expr,
 				warning = function (warn) val,
 				error   = function (err)  val
 			)
+
 		}
 
 		res <- tryDefault(expr, TRUE)

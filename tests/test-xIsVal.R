@@ -1,5 +1,5 @@
 
-require(kiwi)
+require(kea)
 
 message("xIsVal")
 

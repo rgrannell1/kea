@@ -2,7 +2,7 @@
 # 1. HackerRank Functional Programming
 #    Reverse a list without using reverse
 
-# Kiwi has a function for reversing a list, but it is trivial to reverse a list with
+# Kea has a function for reversing a list, but it is trivial to reverse a list with
 # xFold. The function xFold needs to be given a value to return if the input collection
 # is length-zero; xUnit returns the empty version of a collection.
 

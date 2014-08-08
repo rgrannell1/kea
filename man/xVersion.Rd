@@ -13,10 +13,10 @@ A three-number vector, containing the
    major release number, minor release number and patch number.
 }
 \description{
-Get the current version number of Kiwi.
+Get the current version number of Kea.
 }
 \details{
-Kiwi versioning follows the semantic version
+Kea versioning follows the semantic version
     standard (2.0.0), which is summarised by the author as
 
  "Given a version number MAJOR.MINOR.PATCH, increment the:
@@ -25,7 +25,7 @@ Kiwi versioning follows the semantic version
  MINOR version when you add functionality in a backwards-compatible manner, and
  PATCH version when you make backwards-compatible bug fixes."
 
- For pre 1.0.0 versions Kiwi's minor version is bumped anytime a backwards-
+ For pre 1.0.0 versions Kea's minor version is bumped anytime a backwards-
  incomparable change is made, or new functionality is added.
 }
 \section{Type Signature}{

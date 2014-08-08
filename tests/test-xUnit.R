@@ -1,5 +1,5 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("xUnit")
 
@@ -23,16 +23,11 @@ message("xUnit")
 		is.null(xUnit(coll))
 	) +
 
-	run()
+	describe("xUnit . xUnit is xUnit") +
+	holdsWhen(
+		is_collection(coll),
 
-message("xUnit")
-
-	over(fn, coll) +
-
-	describe("coll must always be a collection") +
-	failsWhen(
-		!is_collection(coll),
-		xUnit(coll)
+		xUnit(xUnit(coll)) %is% xUnit(coll)
 	) +
 
 	run()

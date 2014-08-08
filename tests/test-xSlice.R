@@ -1,9 +1,9 @@
 
-kiwi ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
 message("xSlice")
 
-	over(coll) +
+	over(coll, nums) +
 
 	describe("slicing with no indices is the empty list") +
 	holdsWhen(
