@@ -60,8 +60,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		args   <- as.list(match.call(expand.dots = False))[-1]
 		params <- names(args)
 
-		# -- filter out arguments that were positionally matched,
-		# -- but empty.
+		# -- filter out arguments that were positionally matched, but empty.
 		is_missing <- rep(FALSE, length(params))
 
 		for (ith in seq_along(params)) {

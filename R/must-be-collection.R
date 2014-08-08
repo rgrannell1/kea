@@ -12,8 +12,6 @@ Must_Be_Collection <- function (COLL) {
 
 	bquote( if (any(class( .(COLL) ) == 'kea')) {
 
-		print(class( .(COLL) ))
-
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
 			" must be a list, a pairlist or a typed vector." %+%

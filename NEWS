@@ -1,4 +1,40 @@
 
+Kea 0.42.0
+------------------------------------------------------------------------------
+Date: 2014-7-8
+
+Minor bug-fixes.
+
+ENHANCEMENTS:
+
+* Renamed Kiwi to Kea, due to its double meaning.
+
+BUG-FIXES:
+
+* Higher-order functions no longer return an error message if the supplied function
+fails, closing #11.
+
+* Re-implemented xIsSubset, xNotSubset to avoid using '%in%', which likely fixes some corner cases
+like NA %in% list(NA) == False.
+
+PACKAGE-INTERNALS:
+
+* Removed old implementations of partial application, replacing it with a much
+shorter implementation that will be easier to add to lambda functions. This currently
+has worse error checking than the old implementation; arguments aren't checked until
+every argument is collected for a function.
+
+* Added a new test for xUniqueOf.
+
+
+
+
+
+
+
+
+
+
 Kea 0.41.0
 ------------------------------------------------------------------------------
 Date: 2014-7-2

@@ -51,8 +51,6 @@ Collate:
     'must-be-collection-of-lengths-in-range.R'
     'must-be-parametres-of.R'
     'must-be-existing-ref.R'
-    'tools_fix.R'
-    'tools_makefun.R'
     'tools_fix_next.R'
     'xTap---.R'
     'xByCols---.R'
