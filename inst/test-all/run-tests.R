@@ -2,30 +2,6 @@
 
 require(kea)
 
-
-
-
-
-
-
-
-
-
-
-
-
-cat(kea ::: colourise $ black('colourise '))
-cat(kea ::: colourise $ blue('adds '))
-cat(kea ::: colourise $ green('colours '))
-cat(kea ::: colourise $ red('to '))
-cat(kea ::: colourise $ red('strings\n\n\n\n'))
-
-
-
-
-
-
-
 test_path <- system.file('tests', package = 'kea')
 
 if (nchar(test_path) == 0) {

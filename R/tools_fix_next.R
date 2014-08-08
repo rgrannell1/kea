@@ -69,12 +69,21 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			} else {
 				# -- standard parametre.
 
-				param <- as.symbol(param)
+				param_sym <- as.symbol(param)
 
-				print(match.call())
+				if (!do.call( missing, list(param_sym)) ) {
 
-				if (!do.call( missing, list(param)) ) {
-					.fixed_args[[ paste(ith) ]] <- substitute(param)
+					# VERY VERY VERY SUSPECT CODE.
+
+					if (param == 'sym') {
+
+						.arg <- substitute(param_sym)
+						.fixed_args[[ paste(ith) ]] <- .arg
+					} else {
+
+						.arg <- eval(param_sym)
+						.fixed_args[[ paste(ith) ]] <- .arg
+					}
 				}
 			}
 		}
@@ -84,7 +93,6 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		}
 
 		.(substitute(FINAL))
-
 
 
 	})
