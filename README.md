@@ -14,8 +14,8 @@ For more information, see Kea's [release notice](http://rgrannell1.github.io/blo
 
 ### Installation
 
-For most people, the best way to get Kea is through github. You must install from the
-releases branch, as the developer branch will often be broken.
+For most people, the best way to get Kea is through github. You must install from the releases branch, as
+the developer branch will often be unstable or broken and stable releases are frequent.
 
 ```splus
 if (!require(devtools)) {
