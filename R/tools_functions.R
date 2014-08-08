@@ -177,6 +177,12 @@ join_exprs <- local({
 
 	function (expr1, expr2) {
 
+		if (is.null(expr2)) {
+			return(expr1)
+		} else if (is.null(expr1)) {
+			return(expr2)
+		}
+
 		list_expr1 <- as.list(expr1)
 		list_expr2 <- as.list(expr2)
 

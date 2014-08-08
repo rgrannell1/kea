@@ -17,17 +17,17 @@ fix <- local({
 
 		do.call('function', list(
 			# -- select each unused parametre.
-			as.pairlist(fn_formals[ paste0(seq_along(fn_formals)) %!in% names(coll) ]),
+			as.pairlist(fn_formals[ fn_params %!in% names(coll) ]),
 			bquote({
 				.(paste0('a partially applied form of ', .fixed_function))
 
-				.( as.call(c(.fixed_function, lapply(seq_along(fn_params), function (ith) {
+				.( as.call(c(.fixed_function, lapply(fn_params, function (param) {
 
 					# -- the ith parametre has a matching argument.
-					if (any( names(coll) == paste0(ith) )) {
-						coll[[ paste0(ith) ]]
+					if (any( names(coll) == param )) {
+						coll[[param]]
 					} else {
-						as.symbol( fn_params[[ith]] )
+						as.symbol(param)
 					}
 
 				}) )) )
@@ -51,49 +51,49 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	arity  <- length(SYMS)
 	params <- paste(SYMS)
 
+	preconditions <- Reduce(join_exprs, PRES)
+
 	bquote({
 
-		.fixed_args <- list()
+		frame  <- environment()
 
-		for (ith in seq_along( .(params) )) {
+		args   <- as.list(match.call(expand.dots = False))[-1]
+		params <- names(args)
 
-			param <- .(params)[[ith]]
+		# -- filter out arguments that were positionally matched,
+		# -- but empty.
+		is_missing <- rep(FALSE, length(params))
 
-			if (param == 'SPREAD_PARAMETRE') {
-				# -- work around for variadic parametres.
+		for (ith in seq_along(params)) {
+			is_missing[[ith]] <- do.call( missing, list(as.symbol( params[[ith]] )) )
+		}
 
-				if (!missing(...)) {
-					.fixed_args[[ paste(ith) ]] <- list(...)
-				}
+		params        <- params[which(!is_missing)]
+		names(params) <- params
 
+		args <- lapply(params, function (param) {
+
+			if (param == 'sym') {
+				substitute(param)
+			} else if (param == '...') {
+				list(...)
 			} else {
-				# -- standard parametre.
-
-				param_sym <- as.symbol(param)
-
-				if (!do.call( missing, list(param_sym)) ) {
-
-					# VERY VERY VERY SUSPECT CODE.
-
-					if (param == 'sym') {
-
-						.arg <- substitute(param_sym)
-						.fixed_args[[ paste(ith) ]] <- .arg
-					} else {
-
-						.arg <- eval(param_sym)
-						.fixed_args[[ paste(ith) ]] <- .arg
-					}
-				}
+				eval(as.symbol(param), frame)
 			}
+		})
+
+		if (length(args) == 0) {
+
+			return (.(substitute(FN)))
+
+		} else if ( length(args) != .(arity) ) {
+
+			return (fix(.(substitute(FN)), args))
+
 		}
 
-		if ( length(.fixed_args) < length(.(params)) ) {
-			return (fix( .(substitute(FN)), .fixed_args ))
-		}
-
+		.(preconditions)
 		.(substitute(FINAL))
-
 
 	})
 
