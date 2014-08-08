@@ -138,37 +138,6 @@ xLambda <- local({
 		}
 	}
 
-	construct_function <- function (params, exprbody, env) {
-		# -- create a function from parametres, body and an environment.
-		# -- underscored parametres write code into the function body.
-
-		which_duplicated <- which(duplicated(params))
-
-		if (length(which_duplicated) > 0) {
-
-			message <-
-				"parametres must not be duplicated: " %+% toString(params[which_duplicated])
-
-			invoking_call <- call(
-				'%:=%',
-				sys.call(1)[-1][[1]],
-				sys.call(1)[-1][[2]])
-
-			throw_kea_error(invoking_call, message)
-		}
-		# -- this is just a normal R function; map one-to-one onto
-		# -- R code.
-
-		lambda <- function () {}
-
-		formals(lambda)     <- as_formals(params)
-		body(lambda)        <- exprbody
-		environment(lambda) <- env
-
-		lambda
-
-	}
-
 	brace <- as.symbol('{')
 
 	function (sym, val) {
@@ -183,21 +152,19 @@ xLambda <- local({
 			# -- make lambda a default-free unary function.
 
 			param_block <- paste(param_block)
+			# -- fast track.
 
-			if (!grepl('_$', param_block)) {
-				# -- fast track.
+			lambda <- do.call('function', list(
+				as.pairlist(as_formals(param_block)),
+				val
+			))
 
-				lambda <- do.call('function', list(
-					as.pairlist(as_formals(param_block)),
-					val
-				))
-				environment(lambda) <- parent.frame()
+			lambda <- MakeFun(character(0), lambda, False)
 
-				lambda
+			environment(lambda) <- parent.frame()
 
-			} else {
-				construct_function(paste(param_block), val, parent.frame())
-			}
+			lambda
+
 		} else {
 
 			if (get_tree $ delim(param_block) != '(') {
@@ -215,10 +182,33 @@ xLambda <- local({
 				throw_kea_error(invoking_call, message)
 			}
 
-			params <- collect_params( param_block[[2]], list(params = character(0)) )
+			params <- paste(collect_params( param_block[[2]], list(params = character(0)) ))
+			which_duplicated <- which(duplicated(params))
 
-			construct_function(paste(params), val, parent.frame())
+			if (length(which_duplicated) > 0) {
 
+				message <-
+					"parametres must not be duplicated: " %+% toString(params[which_duplicated])
+
+				invoking_call <- call(
+					'%:=%',
+					sys.call(1)[-1][[1]],
+					sys.call(1)[-1][[2]])
+
+				throw_kea_error(invoking_call, message)
+			}
+			# -- this is just a normal R function; map one-to-one onto
+			# -- R code.
+
+			lambda <- function () {}
+
+			formals(lambda)     <- as_formals(params)
+			body(lambda)        <- val
+			lambda              <- MakeFun(character(0), lambda, False)
+
+			environment(lambda) <- parent.frame()
+
+			lambda
 		}
 	}
 })
