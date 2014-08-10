@@ -32,6 +32,7 @@
 #' @example
 #'    inst/examples/example-xAsRaw.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsRaw
 #' @export
 

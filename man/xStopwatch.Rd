@@ -29,6 +29,13 @@ Create a function that returns true for a preset time after creation.
 
    If num is infinite the created timer function will never return false.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Monte Carlo estimation of Pi

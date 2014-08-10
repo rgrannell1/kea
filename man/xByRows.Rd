@@ -25,6 +25,13 @@ Convert a matrix or data.frame to a collection of rows.
 
     Returns the empty list if \bold{tab} has no rows or have zero x zero dimensions.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}};

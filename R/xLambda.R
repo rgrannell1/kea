@@ -161,7 +161,7 @@ xLambda <- local({
 
 			lambda <- MakeFun(character(0), lambda, False)
 
-			environment(lambda) <- parent.frame()
+			environment(lambda) <- new.env(parent = parent.frame())
 
 			lambda
 
@@ -206,7 +206,7 @@ xLambda <- local({
 			body(lambda)        <- val
 			lambda              <- MakeFun(character(0), lambda, False)
 
-			environment(lambda) <- parent.frame()
+			environment(lambda) <- new.env(parent = parent.frame())
 
 			lambda
 		}

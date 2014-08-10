@@ -35,6 +35,13 @@ Convert a collection of complex values to a complex vector.
     not a collection of complex numbers. All length-zero collections
     can be converted to complex.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Convert a list of complex values to a complex vector.

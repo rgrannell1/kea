@@ -33,6 +33,7 @@
 #' @example
 #'    inst/examples/example-xAsDouble.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsDouble
 #' @export
 

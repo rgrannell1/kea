@@ -14,6 +14,7 @@
 #'
 #' @family methods
 #'
+#' @template S-Uncertain
 #' @name xElemsByRows
 
 xElemsByRows <- MakeFun('xElemsByRows', function (tab) {

@@ -17,6 +17,13 @@ Convert a factor to a collection of the factor's data.
 \section{Corner Cases}{
 
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \seealso{
 Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}};

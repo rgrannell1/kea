@@ -24,6 +24,7 @@
 #' @example
 #'    inst/examples/example-xFormalsOf.R
 #'
+#' @template S-Uncertain
 #' @rdname xFormalsOf
 #' @export
 

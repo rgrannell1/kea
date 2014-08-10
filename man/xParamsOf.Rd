@@ -26,6 +26,13 @@ Get the parametre names of a function or primitive function.
 	 its parametre names, which may not work for all functions. If a function
   has no parametres the empty character vector is returned.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Get the parametre names of a function.

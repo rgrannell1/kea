@@ -17,6 +17,7 @@
 #'
 #' @family methods
 #'
+#' @template S-Uncertain
 #' @name xByRowkeys
 
 xByRowkeys <- MakeFun('xByRowkeys', function (tab) {

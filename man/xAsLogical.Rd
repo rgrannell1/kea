@@ -33,6 +33,13 @@ Convert a collection of logicals to a logical vector.
 
    Numbers are not coerced to logical.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Convert a list of logicals to an logical vector.

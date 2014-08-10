@@ -14,6 +14,7 @@
 #'
 #' @family methods
 #'
+#' @template S-Uncertain
 #' @name xElemsByCols
 
 xElemsByCols <- MakeFun('xElemsByCols', function (tab) {

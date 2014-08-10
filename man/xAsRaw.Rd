@@ -34,6 +34,13 @@ Convert a collection of raw values to a raw vector.
 
    Numbers are not coerced to raw.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. convert a raw list to a vector.

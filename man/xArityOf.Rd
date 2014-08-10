@@ -30,6 +30,13 @@ Return the number of arguments a function can accept.
    If \bold{fn} has an ellipsis (...) parametre then \code{+Inf} is returned, as the
    function can accept an infinite number of arguments.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. xArityOf works on primitive functions.

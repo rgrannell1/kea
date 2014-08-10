@@ -37,6 +37,13 @@ Convert a collection of characters to a character vector.
     not a collection of characters. All length-zero collections
     can be converted to character.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Convert a list of character values to a character vector.

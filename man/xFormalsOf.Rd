@@ -29,6 +29,13 @@ Get a named list of parametres and their defaults from a function or primitive f
    corresponding element in the return value will be the empty symbol,
    which is identical to \code{quote(expr=)}.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Get the formals of a base function.

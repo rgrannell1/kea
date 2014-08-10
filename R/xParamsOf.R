@@ -23,6 +23,7 @@
 #' @example
 #'    inst/examples/example-xParamsOf.R
 #'
+#' @template S-Uncertain
 #' @rdname xParamsOf
 #' @export
 
