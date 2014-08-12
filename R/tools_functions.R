@@ -295,19 +295,6 @@ call_with_params <- function (fnname, fn) {
 			as.symbol))
 }
 
-# inject_expr
-#
-# insert an expression into the first line of an expression body.
-#
-
-inject_expr <- function (expr1, expr2) {
-
-	expr2[3:(length(expr2) + 1)] <- expr2[2:length(expr2)]
-	expr2[[2]] <- expr1
-
-	expr2
-}
-
 # @section +:
 #
 # Concatenate two strings.
