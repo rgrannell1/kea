@@ -4,10 +4,15 @@ Kea 0.43.0
 Date: 2014-7-11
 
 
-
-Documentation:
+DOCUMENTATION:
 
 * Added stability section to documentation of more unstable functions.
+
+PACKAGE-INTERNALS:
+
+* Added input validation to heavily-used utility functions pluralise
+
+* Removed inject_expr, an unused function.
 
 
 

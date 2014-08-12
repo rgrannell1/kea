@@ -269,6 +269,19 @@ params_of <- function (fn) {
 #
 
 pluralise <- function (str, num) {
+
+	if (is.na(num)) {
+		stop('internal error: pluralise was given an NA value ', num)
+	}
+
+	if (round(num) != num) {
+		stop('internal error: pluralise was given a non-round number ', num)
+	}
+
+	if (length(str) != 1) {
+		stop('internal error: pluralise was given a length ', length(str), ' string ', str)
+	}
+
 	if (num == 0 || num > 1) {
 		paste0(str, 's')
 	} else if (num == 1) {
