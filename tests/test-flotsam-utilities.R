@@ -5,7 +5,7 @@ kea ::: load_test_dependencies(environment())
 
 
 
-message("Logical Values")
+message("Values")
 
 	over(val) +
 
@@ -21,6 +21,29 @@ message("Logical Values")
 
 	 run()
 
+
+
+
+
+message("summate")
+
+	summate <- kea ::: summate
+
+	over(val) +
+
+	describe("summate should never fail.") +
+	worksWhen(
+		True,
+		summate(val)
+	) +
+
+	describe("summate is always length-one") +
+	holdsWhen(
+		True,
+		length(summate(val)) == 1
+	) +
+
+	run()
 
 
 
@@ -69,3 +92,30 @@ message("pluralise")
 	) +
 
 	run()
+
+
+
+
+
+message("is_na")
+
+	over(val) +
+
+	describe("na values are na.") +
+	holdsWhen(
+
+		is_na(NA),
+		is_na(NA_integer_),
+		is_na(NA_complex_),
+		is_na(NA_real_),
+		is_na(NA_character_)
+	) +
+
+	describe("is false for non-length ones") +
+	holdsWhen(
+		length(val) != 1,
+		!is_na(val)
+	) +
+
+	run()
+
