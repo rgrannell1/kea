@@ -14,7 +14,7 @@ message("Values")
 		TRUE,
 
 		True  == TRUE,
-		False == False,
+		False == FALSE,
 		is.na(Na),
 		is.null(Null)
 	) +
@@ -125,3 +125,7 @@ message("is_na")
 
 	run()
 
+
+
+
+	message("elem_is_na")
