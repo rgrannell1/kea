@@ -117,5 +117,11 @@ message("is_na")
 		!is_na(val)
 	) +
 
+	describe("is_na whenever na") +
+	holdsWhen(
+		is_atomic(val) && is.na(val) && !is.nan(val),
+		is_na(val)
+	) +
+
 	run()
 
