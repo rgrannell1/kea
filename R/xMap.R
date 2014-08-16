@@ -58,6 +58,7 @@ xMap <- MakeFun('xMap', function (fn, coll) {
 	} else {
 		MACRO( Try_Higher_Order_Function( lapply(coll, fn) ) )
 	}
+
 })
 
 #' @rdname xMap

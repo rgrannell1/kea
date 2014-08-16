@@ -389,7 +389,7 @@ ddparse <- function (val, collapse = "") {
 }
 
 ddquote <- function (sym) {
-	paste0(dQuote(substitute(sym)), collapse = '')
+	paste0(dQuote( deparse(substitute(sym)) ), collapse = '')
 }
 
 wrap <- function (...) {
