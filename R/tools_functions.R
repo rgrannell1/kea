@@ -389,7 +389,10 @@ ddparse <- function (val, collapse = "") {
 }
 
 ddquote <- function (sym) {
-	paste0(dQuote( deparse(substitute(sym)) ), collapse = '')
+	# -- wrap a symbol or string in quotation marks.
+	# -- deparse the substituted symbol, to make sure that the output is length-one
+
+	dQuote( ddparse(substitute(sym)) )
 }
 
 wrap <- function (...) {
