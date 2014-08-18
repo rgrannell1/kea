@@ -201,5 +201,6 @@ Collate:
     'xIsPrefixOf.R'
     'xIsInfixOf.R'
     'xIsSuffixOf.R'
+    'xRiffle.R'
     'x_next.R'
     'x..R'

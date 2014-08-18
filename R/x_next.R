@@ -810,7 +810,8 @@ suggest_similar_method <- local({
 		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
 			# -- the invoked method wasn't found, so we should give a suggestion.
 
-			invoking_call <- paste0(' $ ', method_name)
+			# -- required for proper call formatting in output.
+			invoking_call <- call('$', sys.call()[[2]], sys.call()[[3]] )
 
 			contents_are <- proto[[1]][['private']][['contents_are']]
 
