@@ -70,6 +70,17 @@ message(" %+% ")
 
 message("ddquote")
 
+	ddquote <- kea ::: ddquote
+
+	over(val) +
+
+	describe("ddquote never crashes.") +
+	worksWhen(
+		True,
+		ddquote(val)
+	) +
+
+	run()
 
 
 
