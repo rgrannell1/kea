@@ -35,6 +35,13 @@ Convert a collection of doubles or integers to a double vector.
    Integer vectors are coerced to double vectors freely, since the
    difference is predominantly internal.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Convert a list of double values to a double vector.

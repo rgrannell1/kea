@@ -14,6 +14,7 @@
 #'
 #' @family methods
 #'
+#' @template S-Uncertain
 #' @name xByLevels
 
 xByLevels <- MakeFun('xByLevels', function (fact) {

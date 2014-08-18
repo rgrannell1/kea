@@ -2,7 +2,7 @@ Package: kea
 Type: Package
 Title: Kea
 Description: **Kea**.
-Version: 0.42.0
+Version: 0.43.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -201,5 +201,6 @@ Collate:
     'xIsPrefixOf.R'
     'xIsInfixOf.R'
     'xIsSuffixOf.R'
+    'xRiffle.R'
     'x_next.R'
     'x..R'

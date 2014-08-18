@@ -34,6 +34,7 @@
 #'   If row names or column names are omitted they default to
 #'   indices.
 #'
+#' @template S-Uncertain
 #' @export
 
 xAsDataFrame <- MakeFun('xAsDataFrame', function (colls) {

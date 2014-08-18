@@ -22,6 +22,7 @@
 #' @example
 #'    inst/examples/example-xIsVariadic.R
 #'
+#' @template S-Uncertain
 #' @rdname xIsVariadic
 #' @export
 

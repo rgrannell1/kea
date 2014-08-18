@@ -33,6 +33,7 @@
 #' @example
 #'    inst/examples/example-xAsComplex.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsComplex
 #' @export
 

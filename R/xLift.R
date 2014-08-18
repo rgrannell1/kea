@@ -80,6 +80,7 @@
 #' @example
 #'    inst/examples/example-xLift.R
 #'
+#' @template S-Uncertain
 #' @rdname xLift
 #' @export
 

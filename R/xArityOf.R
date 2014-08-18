@@ -27,6 +27,7 @@
 #' @example
 #'    inst/examples/example-xArityOf.R
 #'
+#' @template S-Uncertain
 #' @rdname xArityOf
 #' @export
 

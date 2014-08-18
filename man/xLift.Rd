@@ -83,6 +83,13 @@ Compose a function with the outputs of other functions.
 
    Calls \bold{fn} with no arguments when \bold{fns} is empty.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Join multiple predicates into one predicate with '\%or\%'

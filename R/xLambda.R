@@ -184,20 +184,16 @@ xLambda <- local({
 
 			param_block <- paste(param_block)
 
-			if (!grepl('_$', param_block)) {
-				# -- fast track.
+			# -- fast track.
 
-				lambda <- do.call('function', list(
-					as.pairlist(as_formals(param_block)),
-					val
-				))
-				environment(lambda) <- parent.frame()
+			lambda <- do.call('function', list(
+				as.pairlist(as_formals(param_block)),
+				val
+			))
+			environment(lambda) <- parent.frame()
 
-				lambda
+			lambda
 
-			} else {
-				construct_function(paste(param_block), val, parent.frame())
-			}
 		} else {
 
 			if (get_tree $ delim(param_block) != '(') {

@@ -34,8 +34,15 @@ xVal works like normal R assignment, with the exception
 }
 \section{Corner Cases}{
 
-   \bold{xVals} overwrites the value referenced by \code{sym} if the variable
+   \bold{xVal} overwrites the value referenced by \code{sym} if the variable
    already exists in the parent frame.
+}
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
 }
 \examples{
 

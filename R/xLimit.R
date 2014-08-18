@@ -44,6 +44,7 @@
 #' @example
 #'    inst/examples/example-xLimit.R
 #'
+#' @template S-Uncertain
 #' @rdname xLimit
 #' @export
 

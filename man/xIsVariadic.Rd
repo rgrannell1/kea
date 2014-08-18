@@ -25,6 +25,13 @@ Does a function have ellipsis arguments?
    Returns true when a function has a mix of variadic
    and non-variadic parametres.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Test if a function is variadic

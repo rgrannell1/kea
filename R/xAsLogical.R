@@ -31,6 +31,7 @@
 #' @example
 #'    inst/examples/example-xAsLogical.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsLogical
 #' @export
 

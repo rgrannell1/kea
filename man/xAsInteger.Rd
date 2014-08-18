@@ -36,6 +36,13 @@ Convert a collection of integers to a integer vector.
    doubles can be decimal or infinite numbers, which
    would be lost upon coercion.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Convert a list of integers to an integer vector.

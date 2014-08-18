@@ -167,6 +167,27 @@ keep_names <- function (coll1, coll2) {
 	}
 }
 
+
+
+# -- vapply, with better error messages.
+
+v_map <- function (coll, fn, type, names) {
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
 # -- join_exprs
 # --
 # -- join two expressions into a composite expression.
@@ -269,6 +290,19 @@ params_of <- function (fn) {
 #
 
 pluralise <- function (str, num) {
+
+	if (is.na(num)) {
+		stop('internal error: pluralise was given an NA value ', num)
+	}
+
+	if (round(num) != num) {
+		stop('internal error: pluralise was given a non-round number ', num)
+	}
+
+	if (length(str) != 1) {
+		stop('internal error: pluralise was given a length ', length(str), ' string ', str)
+	}
+
 	if (num == 0 || num > 1) {
 		paste0(str, 's')
 	} else if (num == 1) {
@@ -293,19 +327,6 @@ call_with_params <- function (fnname, fn) {
 		lapply(
 			c(fnname, names(xFormalsOf(fn)) ),
 			as.symbol))
-}
-
-# inject_expr
-#
-# insert an expression into the first line of an expression body.
-#
-
-inject_expr <- function (expr1, expr2) {
-
-	expr2[3:(length(expr2) + 1)] <- expr2[2:length(expr2)]
-	expr2[[2]] <- expr1
-
-	expr2
 }
 
 # @section +:
@@ -389,7 +410,10 @@ ddparse <- function (val, collapse = "") {
 }
 
 ddquote <- function (sym) {
-	paste0(dQuote(substitute(sym)), collapse = '')
+	# -- wrap a symbol or string in quotation marks.
+	# -- deparse the substituted symbol, to make sure that the output is length-one
+
+	dQuote( ddparse(substitute(sym)) )
 }
 
 wrap <- function (...) {

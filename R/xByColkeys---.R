@@ -17,6 +17,7 @@
 #'
 #' @family methods
 #'
+#' @template S-Uncertain
 #' @name xByColkeys
 
 xByColkeys <- MakeFun('xByColkeys', function (tab) {

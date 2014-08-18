@@ -29,7 +29,7 @@
 #'    Null; this function is used for side-effects.
 #'
 #' @section Corner Cases:
-#'    \bold{xVals} overwrites the value referenced by \code{sym} if the variable
+#'    \bold{xVal} overwrites the value referenced by \code{sym} if the variable
 #'    already exists in the parent frame.
 #'
 #' @family immutable_value_functions
@@ -37,6 +37,7 @@
 #' @example
 #'    inst/examples/example-xVal.R
 #'
+#' @template S-Uncertain
 #' @rdname xVal
 #' @export
 

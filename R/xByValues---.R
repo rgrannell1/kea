@@ -13,6 +13,7 @@
 #'
 #' @family methods
 #'
+#' @template S-Uncertain
 #' @name xByValues
 
 xByValues <- MakeFun('xByValues', function (fact) {

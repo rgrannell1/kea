@@ -82,15 +82,16 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		})
 
 		if (length(args) == 0) {
-
+			# -- return thr function, unchanged.
 			return (.(substitute(FN)))
 
 		} else if ( length(args) != .(arity) ) {
-
+			# -- return the function with some arguments fixed.
 			return (fix(.(substitute(FN)), args))
 
 		}
 
+		# -- TODO: check each precondition upon recieving argument.
 		.(preconditions)
 		.(substitute(FINAL))
 
@@ -275,7 +276,7 @@ MakeFun <- function (sym, expr, typed = True) {
 		.(as.call( list(
 			as.symbol('Fix'),
 			# -- the Kea function to partially apply.
-			as.symbol(fn_sym),
+			if (length(fn_sym) > 0) as.symbol(fn_sym) else quote(sys.function()),
 
 			# -- the parametre to the Kea function.
 			lapply(params, as.symbol),

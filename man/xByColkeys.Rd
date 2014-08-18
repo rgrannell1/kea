@@ -21,6 +21,13 @@ Convert a matrix or data.frame to a collection of column names.
 
     Returns character(0) when \bold{tab} is length-zero or has no keys.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \seealso{
 Other methods: \code{\link{xByCols}};
   \code{\link{xByLevels}}; \code{\link{xByRowkeys}};

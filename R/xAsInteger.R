@@ -34,6 +34,7 @@
 #' @example
 #'    inst/examples/example-xAsInteger.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsInteger
 #' @export
 

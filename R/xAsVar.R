@@ -25,6 +25,7 @@
 #' @example
 #'     inst/examples/example-xAsVar.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsVar
 #' @export
 

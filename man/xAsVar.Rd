@@ -26,6 +26,13 @@ Convert a constant value back into a normal R value.
     variable that doesn't exist (in the parent frame).
     Non-locked variables are also allowed.
 }
+
+\section{Stability 1 - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. xAsVar can be used to unlock values back to

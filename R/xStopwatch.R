@@ -28,6 +28,7 @@
 #' @example
 #'    inst/examples/example-xStopwatch.R
 #'
+#' @template S-Uncertain
 #' @rdname xStopwatch
 #' @export
 

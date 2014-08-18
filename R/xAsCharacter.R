@@ -35,6 +35,7 @@
 #' @example
 #'    inst/examples/example-xAsCharacter.R
 #'
+#' @template S-Uncertain
 #' @rdname xAsCharacter
 #' @export
 
