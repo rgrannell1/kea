@@ -67,7 +67,7 @@ message(
 		x_FromLines()
 
 	if (isTRUE(nchar(error_message) > 0)) {
-		warn(message = error_message)
+		warning(message = error_message)
 	}
 
 
