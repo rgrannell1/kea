@@ -3,6 +3,21 @@ Kea 0.43.0
 ------------------------------------------------------------------------------
 Date: 2014-7-11
 
+Added xRiffle, fixes a minor bug.
+
+ENHANCEMENTS:
+
+* Added xRiffle, a function for interspersing values between elements of a collection.
+
+* Lambda function construction is now marginally faster.
+
+BUG-FIXES:
+
+* The failing call is given when an incorrect method name is given (closes #15)
+
+* Temporarily reverted behaviour of xFlatten; xFlatten now flattens lists
+correctly, but may perform type coercion on its input. This is a known issue (#13),
+and will be resolved in a future release.
 
 DOCUMENTATION:
 
@@ -10,7 +25,12 @@ DOCUMENTATION:
 
 PACKAGE-INTERNALS:
 
+* Improved the definition of ddquote, which should improve symbol
+capturing in error messages.
+
 * Added input validation to heavily-used utility functions pluralise
+
+* Added tests for commonly used utility functions.
 
 * Removed inject_expr, an unused function.
 
