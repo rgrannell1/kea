@@ -42,9 +42,9 @@ xRiffle <- MakeFun('xRiffle', function (val, coll) {
 		list( coll[[1]] )
 	} else {
 
-		out <- lapply(seq_len((2 * length(coll)) - 1), as.null)
+		out      <- lapply(seq_len((2 * length(coll)) - 1), as.null)
 		out[[1]] <- coll[[1]]
-		jth <- 2
+		jth      <- 2
 
 		for (ith in 2:length(coll)) {
 			out[[jth]]     <- val

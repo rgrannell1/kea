@@ -1,4 +1,23 @@
 
+Kea 0.44.0
+------------------------------------------------------------------------------
+Date: 2014-8-23
+
+Added xSwap.
+
+ENHANCEMENTS:
+
+* Added xSwap, a function that substitutes values in a list with another.
+
+
+
+
+
+
+
+
+
+
 Kea 0.43.0
 ------------------------------------------------------------------------------
 Date: 2014-7-11
@@ -33,6 +52,1852 @@ capturing in error messages.
 * Added tests for commonly used utility functions.
 
 * Removed inject_expr, an unused function.
+
+
+
+
+
+
+
+
+
+
+Kea 0.42.0
+------------------------------------------------------------------------------
+Date: 2014-7-8
+
+Minor bug-fixes.
+
+ENHANCEMENTS:
+
+* Renamed Kiwi to Kea, due to its double meaning.
+
+BUG-FIXES:
+
+* Higher-order functions no longer return an error message if the supplied function
+fails, closing #11.
+
+* Re-implemented xIsSubset, xNotSubset to avoid using '%in%', which likely fixes some corner cases
+like NA %in% list(NA) == False.
+
+PACKAGE-INTERNALS:
+
+* Removed old implementations of partial application, replacing it with a much
+shorter implementation that will be easier to add to lambda functions. This currently
+has worse error checking than the old implementation; arguments aren't checked until
+every argument is collected for a function.
+
+* Added a new test for xUniqueOf.
+
+
+
+
+
+
+
+
+
+
+Kea 0.41.0
+------------------------------------------------------------------------------
+Date: 2014-7-2
+
+Added subsequence predicates.
+
+ENHANCEMENTS:
+
+* Added xIsPrefixOf, xIsSuffixOf, and xIsInfixOf, which test for subsequence matches
+in a list.
+
+* xIsSubset and xNotSubset now used identical to check each element, which does not have
+odd corner cases like the previous method used.
+
+* Made xIsVariadic more efficient.
+
+BUG-FIXES:
+
+* Fixed small, previously undetected errors in the precondition part of unit tests.
+
+PACKAGE-INTERNALS:
+
+* Removed the old forall testing tool.
+
+
+
+
+
+
+
+
+
+
+Kea 0.40.0
+------------------------------------------------------------------------------
+Date: 2014-7-1
+
+The initial public release!
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.39.0
+-----------------------------------------------------------------------------
+Date: 2014-6-28
+
+Improved recursive kea functions and fixed serious bugs.
+
+ENHANCEMENTS:
+
+* xDeepMap no longer uses recursion, and as such does not suffer from
+stack overflows any more.
+
+* xFlatten uses less recursion than previously, and is more unlikely to
+cause a stack overflow.
+
+* xSliceString now preserves it's input names.
+
+BUG-FIXES:
+
+* x_ now works on values of any type again: after its recent refactoring
+it failed for strange values like symbols.
+
+* fixed misnamed variable that would cause failures if a warning
+was thrown while writing to a file.
+
+* xFlatten no longer coerces inputs to a set type upon flattening;
+xFlatten(1, list('a', 1, 2)) is now c('a', 1, 2), not c('a', 1, 2).
+Closes #2.
+
+PACKAGE-INTERNALS:
+
+* Removed most old forall tests, with the exception of xLambda tests.
+
+* Added several recursive test-case generators.
+
+* Blacklisted use of 'unlist' due to type coercion: use of '%in%' will likely follow.
+
+* Added recursive test-case generators.
+
+* Added tool for testing the generic type of a collection, for testing.
+
+* Added xCycle, xDelay, xFold, xForall, xFromChars, xFromLines, xFromWords,
+xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.38.0
+-----------------------------------------------------------------------------
+Date: 2014-6-25
+
+Added two new arithmetic functions, updated documentation.
+
+ENHANCEMENTS:
+
+* Added xSumBy, xProdBy, which compute the sum or product of a list
+by a measure function.
+
+* xRead now reads files in UTF-8 encoding.
+
+* Removed special treatment of parametres of the form val_ in lambda functions;
+this added too much complication and helped create functions with odd type signatures.
+x_(val) is almost as short.
+
+BUG-FIXES:
+
+* xSpread now tests if its input function is unary.
+
+* xSliceString now has it's numbers as its first parametre, in line with xAt and xSlice.
+
+DOCUMENTATION:
+
+* Added corner-case documentation to several functions.
+
+* Fixed build warnings surrounding documentation.
+
+PACKAGE-INTERNALS:
+
+* To be kinder to CRAN, tests now run for .3 seconds instead of 2 seconds.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.37.0
+-----------------------------------------------------------------------------
+Date: 2014-6-25
+
+Added xIndicesTo, improved error messages, and spell-checked docs.
+
+ENHANCEMENTS:
+
+* Add xIndicesTo, which is a Kea analogue for seq_len.
+
+* Functions that require numbers in a range now show the failing number if this
+property isn't met.
+
+* Functions that require positive indices now show the failing number if this
+property isn't met.
+
+* Functions that require collections of equal length now show the lengths if this
+property isn't met.
+
+* Functions that require collections of a set length now show the length if this
+property isn't met.
+
+
+DOCUMENTATION:
+
+* Fixed typos in the documentation and examples.
+
+* Improved xChoose, xStopWatch example.
+
+* Added examples for xAtKey, xDrop, xIndicesTo.
+
+PACKAGE-INTERNALS:
+
+* Removed non-standard top levels scripts from package.
+
+
+
+
+
+
+
+Kea 0.36.0
+-----------------------------------------------------------------------------
+Date: 2014-6-22
+
+Adds an arity-checking macro for HOF's that require functions with a certain arity.
+
+ENHANCEMENTS:
+
+* Higher-order-functions now check that their input functions can
+accept the required number of arguments.
+
+BUG-FIXES:
+
+DOCUMENTATION:
+
+* Removed unneeded uses of xFix( ) from examples, replacing it with
+actual partial application.
+
+PACKAGE-INTERNALS:
+
+* Added Must_Have_Arity macro.
+
+* Added params_of, and pluralise functions.
+
+
+
+
+
+
+
+Kea 0.35.0
+-----------------------------------------------------------------------------
+Date: 2014-6-21
+
+Removed xAtCol, fixed several bugs.
+
+ENHANCEMENTS:
+
+* Renamed xIsMember to xIsIn and xNotMemer to xNotIn, for brevity.
+
+* Removed xAtCol, in line with removing xPluck; partial application makes
+writing xMap(xAt(num)) possible instead.
+
+* Flatten now removes the names of it's input collection to prevent multiple
+keys being added to the same flat list.
+
+BUG-FIXES:
+
+* Fixed a terrible, long-standing corner-case in xReduce; xReduce of the
+empty list now fails rather than return that collection.
+
+* xMaxBy, xMinBy, now fail cleanly when their input function creates Na or NaN values.
+
+* Removed a call to print() accidentally left in xDrop after debugging.
+
+PACKAGE INTERNALS:
+
+* Added forall-next tests for xAddKeys, xApply, xDeepMap, xDuplicatesOf,
+xExplode, xFix, xFlatten, xIsIn, xIsNa, xIsNull, xIsSubset, xIterate, xLastOf,
+xMinBy, xMaxBy, xNegate, xNotIn, xNotNull, xNotSubset, xPowerSetOf, xReduce,
+xRepeat, xToChars, xToLines, xToWords.
+
+
+
+
+
+
+
+
+Kea 0.34.0
+-----------------------------------------------------------------------------
+Date: 2014-6-16
+
+Removed positional setters.
+
+ENHANCEMENTS:
+
+* Removed positional setters from Kea; they were a poor attemmpt at making
+mutation on par with selecting in kea, but were not generalisable or very
+useful.
+
+
+
+
+
+
+
+
+Kea 0.33.0
+-----------------------------------------------------------------------------
+Date: 2014-6-16
+
+Fixed several bugs introduced when overhauling methods.
+
+ENHANCEMENTS:
+
+* Improved method-name suggestion; certain easy-predictable spelling
+mistakes are now handled manually.
+
+BUG-FIXES:
+
+* Some variadic methods, such as xGroupBy_, did not have an ellipsis
+parametre; these methods would not run.
+
+* Some kea methods are no longer called with named arguments, so no
+unneeded names are added to outputs.
+
+PACKAGE INTERNALS:
+
+* added forall-next tests for xNotMatch, xNotTrue, xProdSetOf, xSliceString.
+
+
+
+
+
+
+
+
+Kea 0.32.0
+-----------------------------------------------------------------------------
+Date: 2014-6-11
+
+A major release; overhauled methods, added xMeanOf.
+
+ENHANCEMENTS:
+
+* Methods are now available in more forms; when a method is called on a value that
+could be used as an input to multiple parametres the LHS of the method call can be
+set as any of the parametres. This is less arbitrary than the previous system in which
+one parametre was chosen (by hand) to be fixed as the left-hand side of a method call.
+
+* Methods can no longer be automatically partially applied, though this ability
+may be re-instated in a future release. This isn't a great loss, as partial application
+of methods was confusing, verbose and an unintential side-effect of having partially-applicable
+functions.
+
+* Added xMeanOf, which wraps R's mean function.
+
+* Renamed xRankOf to xRank, as function names should be verbs where
+possible and the function does actually rank numbers.
+
+DOCUMENTATION:
+
+* Removed the use of xFix from several examples in which it was not needed.
+
+PACKAGE INTERNALS:
+
+* Replaced the hand-written, likely buggy addition of methods by hand with
+automatically generated methods.
+
+* Removed a set of tests that tried to verify the correctness of method implementation,
+which is no longer relevant.
+
+* Removed a test for partial application of methods, as that is no longer permitted.
+
+* Improved string test coverage; all printable ascii characters are tested.
+
+
+
+
+
+
+
+
+Kea 0.31.0
+-----------------------------------------------------------------------------
+Date: 2014-6-7
+
+Added xValues of, removed xPartition, added tests.
+
+ENHANCEMENTS:
+
+* Added xValuesOf, the complement of xKeyOf and xIndicesOf. xValuesOf removes
+the keys from a collection.
+
+* Removed xPartition; I've never seen it used in the wild, and it can be easily
+re-introduced as xPartition = xJuxtapose_(xSelect, xReject)
+
+BUG FIXES:
+
+* xStopWatch no longer fails for named number inputs.
+
+PACKAGE INTERNALS:
+
+* Added forall-next for the tests must-all-be-indices, must-be-collection,
+must-be-equal-length-to, must-be-flag, must-be-of-length macros.
+
+* Added forall-next test for xShuffle, xSlice, xSortBy,	xSpread, xStopwatch,
+xValuesOf.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.30.0
+-----------------------------------------------------------------------------
+Date: 2014-6-5
+
+Improved xAs* family of functions, labelling of higher-order-function errors, removed xMapply.
+
+ENHANCEMENTS:
+
+* Added clear labelling of errors and warnings thrown by
+functions given to higher-order functions.
+
+* Removed xMapply; despite being useful it was a compound of xMap and
+xUnspread, and similar functions like xSelect don't have analogous compositions.
+
+BUG FIXES:
+
+* Fixed an undeclared reference in 'check_regexp' try-catch.
+
+* xAsRaw (and it's internal backend as_typed_vector ) now throws an error for NA
+values, as NA's cannot be converted to raw.
+
+* as_typed_vector (the backend to the xAs* functions) now correctly type-converts
+vectors of only NA values to a target type.
+
+DOCUMENTATION:
+
+* Removed usage sections from methods, as they raised warnings.
+
+* Added example for xPrepend.
+
+PACKAGE INTERNALS:
+
+* Improved the efficiency of kea tests, allowing for many more test-cases
+to be used in a given timespan.
+
+* Added rigourous tests for atomic-vector handling by as_typed_vector.
+
+* Removed benchmarks; kea will use branches for benchmarks in the future.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.29.0
+-----------------------------------------------------------------------------
+Date: 2014-6-30
+
+A major breaking update. Overhauls named-collection handling.
+
+ENHANCEMENTS:
+
+* xAtCol, xCycle, xDrop,
+xDropWhile, xFlatMap, xInitOf, xMap, xMapply, xOrderOf,
+xPartition, xRank, xReject, xRestOf, xReverse, xSelect,
+xShuffle, xSlice, xSortBy, xTake, xTakeWhile, xUnzipIndices,
+xWhere now preserve collection names, including for empty
+collections.
+
+* The element types within a list are now summarised by summate.
+
+BUG FIXES:
+
+* xIsNa (and internal NA checking tools) now return true for named NA values.
+
+* checking if a value is a collection now false for factors.
+
+* The parametre 'num' now checks and fails if its argument is Na.
+
+* Summation of character-vectors now includes the number of NA values in
+the input.
+
+* Summation of incorrect arguments now corrently handles NA values in vectors.
+
+* Infinite values are now included as whole numbers during argument summation.
+
+DOCUMENTATION:
+
+* Corrected type signature of xExplode.
+
+* Added example for xPrepend.
+
+PACKAGE INTERNALS:
+
+* Added forall-next tests for xTake, xDrop, xFlatMap,
+xGroupBy, xInitOf, xNotFalse, xRestOf, xReverse, xTabulate.
+
+* is_na and elem_is_na is now true for named NA elements.
+
+* Generators are now created using function composition,
+for ease of writing. These will be optimised in the next
+release.
+
+* Updated tests to check for named length-zero corner-cases.
+
+* Added a macro must_not_contain_nan.
+
+* Removed unit_to_value.
+
+* Named inputs are now used as test cases.
+
+* as_typed_vector now handles named inputs correctly.
+
+* Added worksWhen element to grammar, which tests if a program
+executes without exception.
+
+* Added internal functions to manipulate names.
+
+* Omitted unneeded ::: calls in load_test_dependencies.
+
+* Removed flotsam-calls test.
+
+
+
+
+
+
+
+
+Kea 0.28.0
+-----------------------------------------------------------------------------
+Date: 2014-6-26
+
+Improved handling of string corner-cases.
+
+BUG FIXES:
+
+* Incorrect arguments to 'rexp' parametre now throws a useful
+error when it is not a collection.
+
+* 'num' now checks and fails if its argument is NaN.
+
+* Regular expressions are now validated before use, and throw
+clear errors if invalid.
+
+* Regular expressions throw a clear error if NA is provided.
+
+* Arguments matching 'str', 'str1', and 'str2' may no longer be NA.
+
+PACKAGE INTERNALS:
+
+* Added macros must-be-non-na, must-be-non-nan, must-not-contain-na.
+
+* Added function to validate regular expressions.
+
+
+
+
+
+
+
+
+Kea 0.27.0
+-----------------------------------------------------------------------------
+Date: 2014-6-26
+
+Improvements to numeric corner-cases, BUG FIXES, and speedups.
+
+ENHANCEMENTS:
+
+* xCompose no longer collects its arguments: this means that
+xCompose_(identity) is now identical to identity.
+
+* xOrderOf now returns indices that sort in increaing order, for
+consistency with xSortBy.
+
+* xOrderOf now throws an error for NA and NaN input, as they
+are unorderable.
+
+* xRank now throws an error for NA and NaN input, as they
+are unorderable.
+
+* xOrderOf is now faster.
+
+BUG FIXES:
+
+* fns parametre arguments now correctly reassigned after function lookup.
+
+* Type conversion of any na to any other na is now allowed.
+
+* xCycle now fails when trying to cycle infinitely far.
+
+* xRepeat now throws a clear error when trying to repeat infinitely.
+
+* Removed second, redundant type conversion from xAs* family of functions,
+which should increase performance.
+
+* xChoose no longer fails for length-zero numbers.
+
+PACKAGE INTERNALS:
+
+* Added must-be-finite, must-be-orderable macros.
+
+* Added a forall-next test to xAt, xChoose, xCompose, xJuxtapose,
+xNotNa, xIsNull, xOrderOf, xRank, xStopWatch, xThread.
+
+* Renamed 'when' to 'holdsWhen'.
+
+* Devectorised is_na.
+
+
+
+
+
+
+
+
+Kea 0.26.0
+-----------------------------------------------------------------------------
+Date: 2014-6-24
+
+Added two new functions, fixed a bug in input validation.
+
+ENHANCEMENTS:
+
+* Added xIndicesOf, which that returns the indices of a collection.
+
+* Added xKeysOf, which returns the names of a collection.
+
+* Removed '%of%', one of two infix composition operators. Calls to
+%then% are easier to read.
+
+BUG FIXES:
+
+* the parametre 'fns' ands 'colls' now correctly validates its input;
+previously it did not check if its argument was a collection of functions
+or function names.
+
+* A temporary variable created by the must-be-collection-of-fn-matchable
+macro is now hidden.
+
+PACKAGE INTERNALS:
+
+* Added forall-next tests for xIndicesOf.
+
+
+
+
+
+
+
+
+
+
+Kea 0.25.0
+-----------------------------------------------------------------------------
+Date: 2014-6-20
+
+Removed several functions, made partially applied function throw better error messages.
+
+ENHANCEMENTS:
+
+* Partially-applied functions give a clearer call when they throw an error, showing
+ the name of the kea function that threw the error.
+
+* xAtKey now throws an error if the input collection does not contain the required
+key, rather than returning NULL.
+
+* Removed xPluck, as it was simply a vectorised form of xAtKey, with the same task
+better achieved by xMap(xAtKey()).
+
+* Removed xSplitAt and xSplitWith, as their corner cases are currently unclear
+ and they are largely untested. Decatenation functions will be reintroduced
+ at a later date, though probably in a different form.
+
+BUG FIXES:
+
+* Fixed a bug in xRead; multiple lines are now correctly collapsed with the
+newline character.
+
+* Functions with the parametre 'fns' now checks that 'fns' is a collection.
+
+PACKAGE INTERNALS:
+
+* Added a new macro for ensuring a collection's names contains a key.
+
+* Added a forall-next test for xParamsOf.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.24.0
+-----------------------------------------------------------------------------
+Date: 2014-6-18
+
+Major internal update, changes corner-cases of most functions, removed two functions.
+
+ENHANCEMENTS:
+
+* Renamed xInter to xInterOf, for consistancy with xUnionOf.
+
+* Removed xRecycle, as it is now possible to recycle with xRepeat, xMap and xTake easily.
+
+* Removed xReorder, as xSlice and xMap can reorder easily.
+
+* Functions that take a number or string now treat numeric(0) or string(0) in a similar
+manner to how collection functions return the empty collection. Conceptually, these atomic
+inputs are treated like values in a Maybe type.
+
+This is more logical than the previous behaviour of converting empty numbers or strings
+to length-one values, but there are likely bad corner cases introduced in this release that
+will be ironed out in the future.
+
+* xAnyOf, ..., xNoneOf, xSelect, xReject, xPartition, xDropWhile,
+xTakeWhile, xPoll, xSplitWith now throws an error if a non-boolean result is given by
+an input predicate.
+
+BUG FIXES:
+
+* xChop and xChunk now respond useful errors for NaN values.
+
+* Functions that require collections no longer accept factors.
+
+* xJuxtapose no longer has the insane corner-case of returning the empty list
+when supplied no functions; it now returns a function as it originally should have.
+
+* xImplode no longer excludes length-zero or empty strings
+from its input collection.
+
+DOCUMENTATION:
+
+* Improved documentation of corner-cases.
+
+PACKAGE INTERNALS:
+
+* Refactored macros into their own files; this should aid testing significantly.
+
+* num, str...str2, rexp have their type-checking code automatically injected into
+kea functions now.
+
+* Added a forall-next test for xImplode
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.23.0
+-----------------------------------------------------------------------------
+Date: 2014-6-14
+
+Improves arrow function, with speed improvements, BUG FIXES, new features.
+
+ENHANCEMENTS:
+
+* Arrow functions now support underscore parametres; any parametre with an underscore
+suffix is automatically made into a kea object, and the underscores are removed from the parametre.
+
+* xLambda is no longer directly exported, as kea is not a metaprogramming library
+and there are no tests validating it works when directly called.
+
+* Improved the performance of arrow functions, particularily for unary functions with no
+underscores.
+
+BUG FIXES:
+
+* Arrow functions now correctly displays where its errors were raised from.
+
+* Fixed a typo in arrow function error message.
+
+* Errors are now thrown for duplicated parametres before the function is invoked.
+
+* Removed unneeded call to `sys.call` in xCompose, which should speed up generated
+functions significantly.
+
+DOCUMENTATION:
+
+* Added an example to xChunk.
+
+PACKAGE INTERNALS:
+
+* Added join_exprs, which joins two expressions into a single expression.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.22.0
+-----------------------------------------------------------------------------
+Date: 2014-6-12
+
+Improved performance of some functions significantly.
+
+ENHANCEMENTS:
+
+* To simplify code injection, factors now have the corresponding
+parametre 'fact' and matrices/data-frames the parametre 'tab'.
+
+* Removed filtering of no-character strings from xToWords, xToLines, xToChars,
+to keep in line with xImplode's recent change. Leading whitespaces ARE
+still removed, though this may be modified in the future.
+
+* Speedup of xArityOf, xAsVar, xAsVal, xIsVal, xVal, xShuffle, xUnspread,
+and the wildcard operators x. $ and x. @.
+
+* Minor speedup of functions that call 'unit_to_value' or 'as_typed_vector'.
+
+* Method lookup is now slightly quicker.
+
+BUG FIXES:
+
+* xIsVariadic of nullary functions is now logical(0), to be consistant
+with other logical functions.
+
+DOCUMENTATION:
+
+* Fixed a type of xToWords.
+
+PACKAGE INTERNALS:
+
+* Simplified automatic precondition writing.
+
+* The parametres nums, strs, ints, and bools now automatically inject
+their boilerplate into their respective functions.
+
+* Removed explicit use of strsplit, replacing it with str_split.
+
+* Removed use of toString, for efficiencies sake now using paste.
+
+* Added a forall-next test, testing if partial application works when
+parametres are matched out-of-order.
+
+* Added a forall-next test for xIsVariadic, xJoin.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.21.0
+-----------------------------------------------------------------------------
+Date: 2014-6-11
+
+An internal update, that adds automatic addition of argument-writing code.
+
+ENHANCEMENTS:
+
+* Variadic functions are now more efficient.
+
+BUG FIXES:
+
+* x_ now adds a newline before printing.
+
+* Fixed a name collision in partially applied functions that affected
+functions with a 'fn' parametre.
+
+PACKAGE INTERNALS:
+
+* The Fix macro now injects argument-checking macros into a function
+based on the parametre name, making it an ad-hoc type system.
+
+* Removed most explicit calls to macro's from function definitions;
+they are now automatically injected.
+
+* Removed explicit function matching from functions with fn, pred or
+fns parametres.
+
+* Added forall-next test for partially-applied methods, xDropWhile,
+xTakeWhile, xUnionOf, xWhere.
+
+* Removed test for macros, since they are no longer written by hand.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.20.0
+-----------------------------------------------------------------------------
+Date: 2014-6-10
+
+Removed specialised reading/writing functions, adds xRead and xWrite.
+
+Date: 2014-6-11
+
+ENHANCEMENTS:
+
+* Added xRead, which reads a file as a single string.
+
+* Added xWrite, which writes a single string to a file.
+
+DOCUMENTATION:
+
+* Updated xAddKey examples to exploit partial application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.19.0
+-----------------------------------------------------------------------------
+Date: 2014-6-10
+
+A minor update. Adds xLastAs, fixes a bug in xFirstAs...xFourthAs.
+
+Date: 2014-6-10
+
+ENHANCEMENTS:
+
+* Added xLastAs, which sets the last value of a collection.
+
+BUG FIXES:
+
+* xFirstAs ... xFourthAs could not be correctly partially-applied. This is fixed, and
+a future version of Kea will guard against these errors.
+
+DOCUMENTATION:
+
+PACKAGE INTERNALS:
+
+* Updated the xVal test to work correctly with Rscript testing commands;
+tests now run correctly from the command line.
+
+* Added Rscript to run a single unit test.
+
+* Added a forall-next test for xGroupBy, xLastAs.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.18.0
+-----------------------------------------------------------------------------
+Date: 2014-6-9
+
+Adds further support for automatic partial application, adds mutator
+functions & removed some vectorised functions.
+
+ENHANCEMENTS:
+
+* Added automatic partial application to the variadic forms of functions.
+
+* Added xAppend, xPrepend for inserting elements into a collection.
+
+* Added xFirstAs, xSecondAs, xThirdAs, and xFourthAs. These functions set their
+respective position in a collection to a value.
+
+* xCycle no longer operates on collections of collections, instead on flat collections.
+Partial application reduces the need for collection-of-collection functions, and simple
+type signatures are more composable than complex ones.
+
+* Removed xElemIs, xElemNot; partial application means that 'xMap(xIs(val))' works
+perfectly well, eliminating the benefit of these functions.
+
+* xExplode no longer removes length-zero elements produced on exploding; although
+strsplit can introduce such elements spuriously, removing them can cause difficulties.
+This may be addressed by not ussing strsplit internally in a future version.
+
+* xFromChars, xFromWords, xFromLines no longer call xImplode internally, so error-messages
+should be identified as coming from them, not xImplode.
+
+DOCUMENTATION:
+
+* xByRowKeys documentation now correctly builds.
+
+* Removed embarassing use of the word 'automatical' from README.
+
+PACKAGE INTERNALS:
+
+* Testing tools can now be run from the command line, with colourised output. Some
+tests currently break when run in this mode.
+
+* MakeVariadic now inserts the 'Fix' macro into its generated functions.
+
+* Wrote forall-next tests for xCycle, xAppend, xPrepend, xFirstAs, xSecondAs,
+xThirdAs, xFourthAs, xUniqueOf.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.17.0
+-----------------------------------------------------------------------------
+Date: 2014-6-7
+
+Adds automatic partial application to every function in Kea. No tests are
+currently breaking, but this feature likely interferes with error reporting.
+
+ENHANCEMENTS:
+
+* Kea functions are now partially-appliable; not all arguments need to be
+provided at once. This is an important milestone. Errors are no longer thrown
+for missing inputs for this reason.
+
+BUG FIXES:
+
+* Fixed a bug that crashed error handing due to improper conversion of a
+function to a string during error message creation.
+
+PACKAGE INTERNALS:
+
+* Added fix, a variant of xFix required for efficient partial application of
+internal functions.
+
+* Added Fix, a macro added to functions that need to be partially applied.
+
+* Fixed an incorrect definition of test_negative; now correctly applies case
+to property.
+
+* Removed test for the missing macro, since this is no longer needed.
+
+* Added unit tests for xFirstOf, xFourthOf, xIsNan, xIsTrue, xList, xLocate,
+xNotNan, xOneOf, xPoll, xReject, xSecondOf, xThirdOf, xUnit, xUnspread,
+xUnzipIndices, and xUnzipKeys.
+
+* Added inject_expr, which inserts a line into the head of an expression body.
+Currenty untested.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.16.0
+-----------------------------------------------------------------------------
+Date: 2014-6-7
+
+A very minor update. Renamed library from it's working name (Arrow) to
+a final name (Kea), refactored internals.
+
+DOCUMENTATION:
+
+* Removed non-ascii characters from documentation (lambda, epsilon).
+
+* Renamed method-only function's title from $ xMethod to xMethod.
+
+* Rewrote readme.
+
+Package Internals
+
+* Refactored forall-next to remove code duplication.
+
+* forall-next now works correctly for negative tests.
+
+* added additional tests for forall-next itself.
+
+* added negative test to xAt.
+
+* added tests to xChunk, xDo, xMap, xSelect.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.15.0
+-----------------------------------------------------------------------------
+Date: 2014-6-5
+
+This release adds some rigourous tests to kea, and fixes several bugs.
+
+BUG FIXES:
+
+* xChop called with Inf now returns a list of length-one lists, instead of
+converting its input to a list.
+
+* xNoneOf now detects whether not-any result was true, instead of not-any.
+
+DOCUMENTATION:
+
+* Fixed a broken roxygen tag in xElemsByCols.
+
+PACKAGE INTERNALS:
+
+* Added forall-next tests for xAllOf, xAnyOf, xArityOf, xCapture, xChop,
+xFalsity, xFirstOf, xIdentity, xIrrelevance, xIsEmpty, xIsFalse, xIsTrue,
+xNoneOf, xNotEmpty, xPoll, xReject, xSecondOf, xTabulate, xThirdOf,
+xTruth, xVersion, xZip and xZipKeys.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.14.0
+-----------------------------------------------------------------------------
+Date: 2014-6-5
+
+This version removes xVectorise and xGraft, and cleans up the method code.
+
+ENHANCEMENTS:
+
+* Added xUnit_, a variadic form of xUnit.
+
+* The method $ xExecute now passes its left-hand side self argument to its
+anonymous function (the lambda was previous zero-argument).
+
+* Removed xVectorise/xVectorize; future versions of Kea will include
+automatic partial application (or at the very least pre-currying), so
+vectorise will become redundant.
+
+* Removed xGraft, which allowed custom methods to be added to the kea
+call chain. It was untested, unusued, and barely more useful than xTap.
+
+DOCUMENTATION:
+
+* Added missing parametre documentation for x__ (its ... argument).
+
+BUG FIXES:
+
+* xExecute & xTap now performs function lookup on its input function/string argument.
+For example, xTap('mean') will now call xTap with the mean function.
+
+* Fixed potential error in xByRows, xByCols for empty matrices/data.frames. Now returns
+the empty list for that case.
+
+PACKAGE INTERNALS:
+
+* Moved all functions only available as methods into their own files,
+instead of having direct definitions in x_.R. This aids code uniformity & testing.
+
+* forall-next can now take multiple descriptions, and has improved error reporting for
+positive failures.
+
+* changed describe from an overriding field to a joining field in the forall-next tools.
+
+* factored prototype inheritance into a function.
+
+* Removed errant in-prototype definitions of xThread; now uses the method-adding
+function.
+
+* added forall-next tests for x_
+
+* renamed make_formals to as_formals, removed the 'as_parametres' alias for as_formals
+
+* removed join-env, is_fn_matchable; neither was ever called by kea.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.13.0
+-----------------------------------------------------------------------------
+Date: 2014-6-2
+
+A mostly internal update, removes two quantifier functions and adds x__.
+
+ENHANCEMENTS:
+
+* Added x__, the variadic form of x_.
+
+* Removed xExists and xForall; the addition of xAnyOf and xAnyOf is equivalent
+for most cases, and for the remaining cases (polyadic functions) using xProdSetOf
+and a quantifier is identical, and favours composition.
+
+DOCUMENTATION:
+
+* Added examples to xAddKeys, xByLevels, xChoose, xElemNot, xIsMember, xNotTrue,
+
+BUG FIXES:
+
+* xOneOf now throws an error for an empty collection, as it is impossible to
+return any elements in this case.
+
+* Factors passed to x_ now get assigned the correct set of methods; previously
+they were given collection methods, as factors are technically collections.
+
+PACKAGE INTERNALS:
+
+* Seperated the next forall tool into modules, fixed several bugs. The tool is now
+effective for simple test cases, but more work is required for negative tests.
+
+* Added new-style tests to xIs, xNot, xOneOf.
+
+* Simplified the '+.xforall' method with higher-order functions.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.12.0
+-----------------------------------------------------------------------------
+Date: 2014-5-28
+
+A major but mostly internal update; upgraded testing tools and removed dangerous
+function calls.
+
+A major but mostly internal update; upgraded testing tools and removed dangerous
+function calls.
+
+ENHANCEMENTS:
+
+* Added 'all empty' and 'any empty' property tests to value summation for lists,
+and dimension reporting for data frames.
+
+* Added property tests for inner kea objects in summated lists.
+
+* Removed special handling of NA's from xElemIs and xElemNot, but this may be
+re-implemented in the future.
+
+* Removed the x_ method from Kea, since x_Identity does the same thing
+in a more obvious way.
+
+BUG FIXES:
+
+* Fixed missing spaces in error messages produced by incorrectly typed vectors.
+
+* Simplified behaviour of xIsNan, xNotNa, xNotNan, xIsNan, potentially
+correcting issues for non length-one vectors.
+
+* Removed use of sample, potetentially fixing bugs with numeric vectors.
+
+DOCUMENTATION:
+
+* Added example for xElemIs, xLocate, xReadChars, xReadLines, xReadwords,
+xRestOf, xParamsOf.
+
+* Removed redundant @method tags from documentation.
+
+PACKAGE INTERNALS:
+
+* Added a rigourous test for example length, file existence, function calls
+to dangerous functions, and for missing 'missing' functions, and removed an
+older similar test suite.
+
+* Implemented a new testing tool for Kea, which should give more complete
+test coverage and both positive and negative controls. The syntax is also
+improved. xSelect currently uses this tool exclusively, and its use will be
+expanded in future versions.
+
+* Added a simple test for the new forall tool, though more are needed.
+
+* Removed direct use of is.na; the function can fail for null values, and
+testing functions should never fail. Further testing functions will be wrapped
+or removed at a later date.
+
+* Removed direct use of sample, as the function has a bizzare corner case
+for length-one number vectors.
+
+* Added elem_is_na and elem_is_nan, to replace the use of is.na and
+is.nan for vectors.
+
+* Removed direct use of is.atomic and is.list, replacing them with functions that
+fix their null corner case.
+
+* Added a minor fix to ith_suffix corner case which now supports infinite
+values, in the unlikely case they will arise.
+
+* throw_kea_warning now actually throws a warning, not an error. The function
+was not used, so no bug fixes are required.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.11.0
+-----------------------------------------------------------------------------
+Date: 2014-5-19
+
+Removes several data frame and matrix methods, and adds many examples.
+
+ENHANCEMENTS:
+
+* Removed xColUnit, xRowUnit, xFullUnit. Although theoretically useful
+they were largely untested and unused. May be added in future if genuinely needed.
+
+* Removed xTranspose. Kea as a policy does not support matrices and data frames,
+only their conversion to other types. There are effective ways to transpose lists
+in Kea already.
+
+BUG FIXES:
+
+* Added xCapture alias xK to the methods avaiable to all values. More rigourous
+tests will be added in future to avoid missing methods.
+
+* xByColkeys & xByRowkeys for matrices now return character vectors.
+
+DOCUMENTATION:
+
+* Fixed type signature of xPluck, xRepeat.
+
+* Added example to (or improved example for):
+xAddKeys, xAllOf, xAsCharacter, xAsComplex,
+xAsDouble, xAsInteger, xAsLogical, xCapture, xChunk, xDeepMap,
+xDelay, xElemsByCols, xElemsByRows, xExecute, xFix, xFormalsOf,
+xFromChars, xIsFalse, xIsMatch, xLift, xLocate, xMinBy, xNoneOf,
+xNotEmpty, xNotFalse, xNotMembers, xNotNan, xNotNull, xPartition,
+xShuffle, xSlice, xThread, xToChars, xUniqueOf,
+
+* Added details to xByRows.
+
+* Html-escaped docs for xToChars, xToLines, xToWords.
+
+PACKAGE INTERNALS:
+
+* Added tests for xIsSubset, xNotSubset.
+
+* Added tests for xNegate.
+
+* Added .babelignore, to allow easier random access of useful kea files.
+
+* Added rsample, which corrects a bad length-one corner case in sample. Will
+remove direct use of sample from kea in future. Bugs caused by sample may
+come to light in the next release.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.10.0
+------------------------------------------------------------------------------
+Date: 2014-5-16
+
+Removes the xElemIs*, xElemNot* and xReject* family of functions,
+replacing them with the more generix xElemIs and xElemNot.
+
+ENHANCEMENTS:
+
+* Added xElemIs and xElemNot. These functions test each element of a
+collection for equality to a value.
+
+* Renamed xIsNot to xNot, for consistency with the other predicate names
+in Kea.
+
+* Removed xElemIsFalse, xElemIsNa, xElemIsTrue, xElemNotFalse, xElemNotNa,
+xElemNotTrue, xElemIsNull, xElemIsNan, xElemNotNan, xElemNotNull,
+xRejectNa, xRejectNan, xRejectNull, xRejectEmpty. The rational for this
+is that kea emphasises compositionality, and each case these functions solve
+can easily be done with other functions. This reduces the number of tests and
+documentation to be maintained significantly.
+
+BUG FIXES:
+
+* xByColkeys and xByRowkeys now return character vectors.
+
+DOCUMENTATION:
+
+* Added large example to xFix.
+
+* Clarified/corrected return values of xWrite* family of functions.
+
+* Corrected type signatures of xMinBy and xMayBy.
+
+* Corrected return value of xByColkeys.
+
+* Clarified xFromChars' description.
+
+* Added minor details to xIsMatch.
+
+* Added example to xByCols and xByRows.
+
+* Added example to xNotNa.
+
+* Added example to xNotNan.
+
+* Removed non-parsing example from xUnzipIndices.
+
+* Added example to xUnzipIndices.
+
+* Extended xUnit's example.
+
+PACKAGE INTERNALS:
+
+* Removed unevaluated check for kea objects in one case
+of as_typed_vector's if condition.
+
+* Added test to xUnionOf.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.9.0
+------------------------------------------------------------------------------
+Date: 2014-5-12
+
+This release adds xIsNot, improves documentation.
+
+ENHANCEMENTS:
+
+* added xIsNot, a complement to xIs.
+
+* Improved error messages provided when converting vector types;
+if an kea object is supplied (accidentally) this is stated.
+
+* Implemented basic object summarisation for data frames (upon error).
+
+BUG FIXES:
+
+* xAtCol now attempts to container type-convert its numeric input "num".
+
+DOCUMENTATION:
+
+* Added details and corner cases to xAtCol.
+
+* Added details to xUnzipIndices.
+
+* Added corner cases section to xAsComplex, xAsCharacter.
+
+* Clarified a corner case in xAllOf, xAnyOf, xNoneOf.
+
+PACKAGE INTERNALS:
+
+* added fromStream, part of the testing tool in development.
+
+* throw_kea_error can now be called without a call argument.
+
+* forall will now correctly report errors; previously the argument order was backwards.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.8.0
+------------------------------------------------------------------------------
+Date: 2014-5-11
+
+This release drastically improves the appearance of error messages.
+
+ENHANCEMENTS:
+
+* improved the appearance of error messages; they now take up less space.
+
+* for error-causing lists, two new properties are displayed in the error:
+'is nested' and 'all nested'.
+
+PACKAGE INTERNALS:
+
+* renamed propeties of summate to use whitespace instead of underscores.
+
+* as_typed_vector and as_atom are now more documented, and slightly more efficient.
+
+* refactored back end to remove older error-message containing like exclaim and lament,
+in favour of in-place definitions.
+
+* removed maybe_atomic & newline
+
+* used as_parameters in MakeVariadic, to avoid code duplication.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.7.0
+------------------------------------------------------------------------------
+Date: 2014-5-10
+
+A mostly internal release, renamed Any, xNone, to xAllOf, xAnyOf, xNoneOf.
+
+ENHANCEMENTS:
+
+* Renamed xAll, xAny, xNone, to xAllOf, xAnyOf, xNoneOf. This complies better
+with Kea's naming conventions.
+
+* Functions that require collections, functions, or collections of functions
+will now inform the user if they were (accidentally) given an kea object.
+
+DOCUMENTATION:
+
+* Added more accurate desciption to the xAs* family of container converters.
+
+* Escaped most special characters in type signatures; html documentation will now
+render correctly in most cases.
+
+* Minor updates to the readme.
+
+PACKAGE INTERNALS:
+
+* Deprecated and removed assert, moving over to the more flexible
+functions throw_kea_error and throw_kea_warning.
+
+* Added extensive tests for xUnzipIndices.
+
+* Added test to ensure xJoin always returns a list.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.6.0
+------------------------------------------------------------------------------
+Date: 2014-5-7
+
+Added xNotSubset, renamed xNot and removed xAsClosure.
+
+ENHANCEMENTS:
+
+* Added xNotSubset, to complement the function xIsSubset.
+
+* Renamed xNot to xNegate, to allow for a complement to be added to xIs.
+
+* Removed xAsClosure; the function had very minimal likely use-cases,
+and did not work for every primitive function.
+
+PACKAGE INTERNALS:
+
+* Removed a lot of dead code (mostly error message code).
+
+* Added tests to xElemIs_ functions.
+
+* Made stringify_call more robust.
+
+* Commented xList code extensively.
+
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.5.0
+------------------------------------------------------------------------------
+Date: 2014-5-4
+
+A feature-rich version; adds three new functions for testing equality
+and match/mismatch against a regular expression.
+
+ENHANCEMENTS:
+
+* Added xIs; a function for testing if values are identical.
+
+* Added xIsMatch; tests if a string matches a regular expression.
+
+* Added xNotMatch; tests if a string doesn't match a regular expression.
+
+BUG FIXES:
+
+* renamed xAddKeys... to xAddKeys_, to keep in step with other variadic
+methods.
+
+DOCUMENTATION:
+
+* Added example for xIs.
+
+PACKAGE INTERNALS:
+
+* Added tests for xIs, xIsMatch, xNotMatch.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.4.0
+------------------------------------------------------------------------------
+Date: 2014-5-4
+
+This version adds xNone and a logo, and fixes an important bug in error-reporting
+functions (no irony whatsoever).
+
+ENHANCEMENTS:
+
+* Added xNone; the antonym of xAllOf. It completes the set of functions
+xAllOf (does every element match a predicate?), xAnyOf (does any element match a predicate?)
+and now xNone (does no value match a predicate?).
+
+BUG FIXES:
+
+* Fixed an issue in reporting of missing arguments (and possibly other exceptions). The
+name of the argument for which an error is thrown is now displayed properly.
+
+DOCUMENTATION:
+
+* Added a prototype logo for Kea!
+
+* Added details section to xMap, explaining the basic concept of map.
+
+* Added details section to xVersion, explaining the semantic versioning standard.
+
+* Added example for xLastOf.
+
+PACKAGE INTERNALS:
+
+* Fixed broken link tags in header of staticdocs head file.
+
+* Added contact page (though jQuery) to staticdocs site.
+
+* dQuote now lazily captures its argument.
+
+* added tests for xNone.
+
+
+
+
+
+
+
+
+
+
+Kea 0.3.0
+------------------------------------------------------------------------------
+Date: 2014-5-3
+
+A bug-fix release.
+
+ENHANCEMENTS:
+
+* Very slightly improved xProdSetOf's efficiency by changing an inner Map
+to lapply.
+
+BUG FIXES:
+
+* Fixed a bug in as_method, in which variadic methods were not being generated
+due to the use of an outdated regular expression to test whether the input function
+was variadic.
+
+* Type-errors in functions that take collections (xExplode for example) now report
+the user-facing function they were thrown from.
+
+* Fixed corner-case for xOneOf; if given a length one vector it extracts the value
+from its collection (if it is a list).
+
+DOCUMENTATION:
+
+* Added most missing type signatures to function docs.
+* Added several missing titles to function docs.
+
+PACKAGE INTERNALS:
+
+* as_atom and as_typed_vector now use the parent call
+(sys.call(-1)) in error reports.
+
+* Added test to check that every function has a type signature and title.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.2.0
+------------------------------------------------------------------------------
+Date: 2014-5-2
+
+A minor release, mostly housekeeping and repaying technical debt.
+
+BUG FIXES:
+
+* the xAsComplex, xAsInteger... family of functions now support conversion
+of lists that contain NA values of any mode, at the cost of some performance.
+
+* xLambda now checks that ':' is used as a parametre delimiter;
+previously several infix functions could be used.
+
+DOCUMENTATION:
+
+* type signatures added to several more function's documentation.
+
+PACKAGE INTERNALS:
+
+* internal function `MakeVariadic` used to generate variadic forms of
+functions, which should help avoid bugs in their definitions.
+
+* eliminated most error-message functions, in favour of in-place
+definitions and macros. This removed a lot of unneeded code.
+
+* internal function `unit_to_value` now supports complex values.
+
+
+
+
+
+
+
+
+
+
+Kea 0.1.0
+-------------------------------------------------------------------------------
+Date: 2014-4-30
+
+The initial release of Kea. A highly experimental release, and ideally not
+the version the public will see.
+
+
 
 
 
