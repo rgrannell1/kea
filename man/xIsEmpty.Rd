@@ -70,6 +70,7 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xUniqueOf_}}
 
 Other value_testing_functions: \code{\link{xIsFalse}};
+  \code{\link{xIsInfixOf}}, \code{\link{xIsInfixOf_}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
   \code{\link{xIsNull}}; \code{\link{xIsPrefixOf}},
   \code{\link{xIsPrefixOf_}}; \code{\link{xIsSuffixOf}},

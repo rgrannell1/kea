@@ -1,12 +1,35 @@
 
 Kea 0.45.0
 ------------------------------------------------------------------------------
-Date: 2014-8-
+Date: 2014-8-25
+
+Improved examples and function family labelling.
 
 DOCUMENTATION:
 
-* Improved function family labelling; it should be easier to find
-related functions now.
+* Corrected example for xProdBy (now actually uses xProdBy).
+
+* Labelled xFlatten as buggy, as issue (#13 is still unclosed.
+
+* Removed outdated text about methods from x_ documentation.
+
+* Added more thorough examples for x_.
+
+* Added variadic form examples for xAllOf, xAnyOf, xIdentity.
+
+* Added new examples for xIs, xIsMatch, xIsPrefixOf, xIsSuffixOf, xNotNull.
+
+* Made xLenOf, xMaxBy, xMinBy, xMeanOf, xPoll, xOrderOf, xRank, xProdBy, xSumBy, math functions.
+
+* Made example for xRead, xToWords, xUnspread more idiomatic.
+
+* Improved function family labelling of other functions.
+
+
+
+
+
+
 
 
 

@@ -49,6 +49,7 @@ x__(0, 1, 1, 0, 1, 1, 0 ,1 , 0) $ x_Poll(xIs(0))
 \seealso{
 Other value_testing_functions: \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsFalse}};
+  \code{\link{xIsInfixOf}}, \code{\link{xIsInfixOf_}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
   \code{\link{xIsNull}}; \code{\link{xIsPrefixOf}},
   \code{\link{xIsPrefixOf_}}; \code{\link{xIsSuffixOf}},

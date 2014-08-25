@@ -42,6 +42,7 @@ xIsPrefixOf(1:3, 1:4)
 \seealso{
 Other value_testing_functions: \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsFalse}};
+  \code{\link{xIsInfixOf}}, \code{\link{xIsInfixOf_}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
   \code{\link{xIsNull}}; \code{\link{xIsSuffixOf}},
   \code{\link{xIsSuffixOf_}}; \code{\link{xIsTrue}};
