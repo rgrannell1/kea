@@ -3,11 +3,12 @@ Kea 0.45.0
 ------------------------------------------------------------------------------
 Date: 2014-8-25
 
-Improved examples and function family labeling, fixed a bug.
+Improved examples and function family labeling, fixed an error message bug.
 
 BUG-FIXES:
 
-* The correct error message is now produced when a function is given an collection of improper length elements (closes #17).
+* The correct error message is now produced when a function is given an collection of
+improper length elements (closes #17).
 
 DOCUMENTATION:
 
