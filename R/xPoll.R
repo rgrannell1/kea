@@ -31,6 +31,7 @@
 #'    inst/examples/example-xPoll.R
 #'
 #' @family quantifier_functions
+#' @family math_functions
 #'
 #' @rdname xPoll
 #' @export

@@ -39,4 +39,11 @@ x_(xRepeat(1, 100)) $ xFlatMap(runif) $ x_MeanOf()
 
 # 0.5496172
 }
+\seealso{
+Other math_functions: \code{\link{xLenOf}},
+  \code{\link{xLenOf_}}; \code{\link{xPoll}},
+  \code{\link{xPoll_}}; \code{\link{xProdBy}},
+  \code{\link{xProdBy_}}; \code{\link{xSumBy}},
+  \code{\link{xSumBy_}}
+}
 

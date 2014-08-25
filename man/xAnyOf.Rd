@@ -38,6 +38,10 @@ Is a predicate true for any element of a collection?
 
 xAnyOf(xI, c(True, True, False, True))
 
+# better
+#
+xAnyOf_(xI, True, True, False, True)
+
 # True
 
 # 2. Does a function name with more that 25 characters exist

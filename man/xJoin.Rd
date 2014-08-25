@@ -20,6 +20,9 @@ A list.
 \description{
 Concatenate several collections into one collection.
 }
+\details{
+The variadic function \bold{xJoin_}
+}
 \section{Type Signature}{
 
    ||any|| -> [any]

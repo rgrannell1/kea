@@ -6,7 +6,6 @@
 #' @section Type Signature:
 #'     |any| -> |any| -> &lt;logical>
 #'
-#'
 #' @param
 #'    coll1 a collection. The prefix to test for.
 #'
@@ -28,6 +27,8 @@
 #'
 #' @example
 #'    inst/examples/example-xIsPrefixOf.R
+#'
+#' @family value_testing_functions
 #'
 #' @rdname xIsPrefixOf
 #' @export

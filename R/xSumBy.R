@@ -29,6 +29,8 @@
 #' @example
 #'    inst/examples/example-xSumBy.R
 #'
+#' @family math_functions
+#'
 #' @rdname xSumBy
 #' @export
 

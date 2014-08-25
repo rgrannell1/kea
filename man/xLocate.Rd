@@ -49,4 +49,15 @@ x_(-10:10) $ xLocate(solves_equation)
 
 # the 11th and 17th elements of -10, -9, ..., 10 solve the equation. (x = 0, x = 6)
 }
+\seealso{
+Other key_functions: \code{\link{xAddKeys}},
+  \code{\link{xAddKeys_}}; \code{\link{xIndicesOf}},
+  \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
+  \code{\link{xKeysOf}}, \code{\link{xKeysOf_}};
+  \code{\link{xUnzipIndices}},
+  \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
+  \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}},
+  \code{\link{xValuesOf_}}; \code{\link{xZipKeys}},
+  \code{\link{xZipKeys_}}
+}
 

@@ -43,6 +43,8 @@ xIsNan(val)
 Other value_testing_functions: \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsFalse}};
   \code{\link{xIsNa}}; \code{\link{xIsNull}};
+  \code{\link{xIsPrefixOf}}, \code{\link{xIsPrefixOf_}};
+  \code{\link{xIsSuffixOf}}, \code{\link{xIsSuffixOf_}};
   \code{\link{xIsTrue}}; \code{\link{xIs}};
   \code{\link{xNotEmpty}}, \code{\link{xNotEmpty_}};
   \code{\link{xNotFalse}}; \code{\link{xNotNan}};

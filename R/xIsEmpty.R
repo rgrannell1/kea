@@ -25,6 +25,7 @@
 #'    inst/examples/example-xIsEmpty.R
 #'
 #' @family value_testing_functions
+#' @family set_functions
 #'
 #' @rdname xIsEmpty
 #' @export

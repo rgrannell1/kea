@@ -6,6 +6,16 @@
 #' @section Type Signature:
 #'    ||any|| -> [any]
 #'
+#' @details
+#'     The variadic function \bold{xJoin_}
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
 #' @param
 #'    colls a collection of collections. The collections
 #'    to concatenate to each other.

@@ -1,4 +1,4 @@
-#
+
 #' xNotNull
 #'
 #' Is an value not null?
@@ -22,7 +22,6 @@
 #'
 #' @example
 #'    inst/examples/example-xNotNull.R
-#'
 #'
 #' @family value_testing_functions
 #'
