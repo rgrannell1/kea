@@ -3,13 +3,13 @@ Kea 0.45.0
 ------------------------------------------------------------------------------
 Date: 2014-8-25
 
-Improved examples and function family labelling.
+Improved examples and function family labeling.
 
 DOCUMENTATION:
 
 * Corrected example for xProdBy (now actually uses xProdBy).
 
-* Labelled xFlatten as buggy, as issue (#13 is still unclosed.
+* Labeled xFlatten as buggy, as issue (#13 is still unclosed.
 
 * Removed outdated text about methods from x_ documentation.
 
@@ -23,7 +23,7 @@ DOCUMENTATION:
 
 * Made example for xRead, xToWords, xUnspread more idiomatic.
 
-* Improved function family labelling of other functions.
+* Improved function family labeling of other functions.
 
 
 

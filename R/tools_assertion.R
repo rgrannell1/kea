@@ -161,11 +161,19 @@ throw_kea_error <- function (invoking_call, message) {
 	# -- stringify the call, get the function name.
 	# -- get the function foo, and the stringified call foo(baz, bar, ...)
 
+	if (length(message) != 1) {
+
+		message <- 'internal error in kea; a non-length one error message was produced.' %+%
+			' Please report this at https://github.com/rgrannell1/kea/issues'
+
+		stop(message)
+	}
+
 	if (!missing(invoking_call)) {
 		components <- get_call_components(invoking_call)
 
-		callname <- components$invoking
-		calltext <- components$calltext
+		callname <- components $ invoking
+		calltext <- components $ calltext
 
 		# -- just in case
 		callname <- paste0(callname, collapse = '')
