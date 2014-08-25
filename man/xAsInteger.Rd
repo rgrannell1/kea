@@ -55,7 +55,8 @@ xAsInteger(list(1L, 2L, 3L))
 Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsCharacter_}}; \code{\link{xAsComplex}},
   \code{\link{xAsComplex_}}; \code{\link{xAsDouble}},
-  \code{\link{xAsDouble_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsDouble_}}; \code{\link{xAsList}},
+  \code{\link{xAsList_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
 }
