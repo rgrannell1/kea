@@ -29,7 +29,9 @@ continuing with the previous method result.
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xRead}}; \code{\link{xStopwatch}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xRead}}; \code{\link{xShuffle}},
+  \code{\link{xShuffle_}}; \code{\link{xStopwatch}};
   \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other methods: \code{\link{xByColkeys}};

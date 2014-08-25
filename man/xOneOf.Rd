@@ -37,6 +37,13 @@ xOneOf(1:10)
 # 3, but the result will vary.
 }
 \seealso{
+Other inpure_functions: \code{\link{xDelay}};
+  \code{\link{xDo}}, \code{\link{xDo_}};
+  \code{\link{xExecute}}; \code{\link{xRead}};
+  \code{\link{xShuffle}}, \code{\link{xShuffle_}};
+  \code{\link{xStopwatch}}; \code{\link{xVersion}};
+  \code{\link{xWrite}}
+
 Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xChunk}},

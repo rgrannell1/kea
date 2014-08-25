@@ -31,7 +31,7 @@ Return the number of arguments a function can accept.
    function can accept an infinite number of arguments.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

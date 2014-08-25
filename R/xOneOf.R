@@ -25,6 +25,7 @@
 #'    inst/examples/example-xOneOf.R
 #'
 #' @family reshaping_functions
+##' @family inpure_functions
 #'
 #' @rdname xOneOf
 #' @export

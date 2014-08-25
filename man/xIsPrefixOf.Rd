@@ -33,7 +33,11 @@ Is a collection a prefix of another?
 }
 \examples{
 
-NULL
+# 1. A toy example.
+
+xIsPrefixOf(1:3, 1:4)
+
+# true
 }
 \seealso{
 Other value_testing_functions: \code{\link{xIsEmpty}},

@@ -24,6 +24,8 @@
 #' @example
 #'    inst/examples/example-xUnit.R
 #'
+#' @family basic_functions
+#'
 #' @rdname xUnit
 #' @export
 

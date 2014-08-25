@@ -18,6 +18,7 @@
 #'      Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @family reshaping_functions
+#' @family inpure_functions
 #'
 #' @template
 #'    Variadic

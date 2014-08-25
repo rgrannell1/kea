@@ -36,6 +36,8 @@
 #' @template
 #'    Variadic
 #'
+#' @family math_functions
+#'
 #' @example
 #'    inst/examples/example-xOrderOf.R
 #'

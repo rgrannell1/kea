@@ -39,6 +39,12 @@ x_(NaN) $ xIs(NaN)
 xIs(NaN, NaN)
 
 # true
+
+# 2. count occurences of a value in a list.
+
+x__(0, 1, 1, 0, 1, 1, 0 ,1 , 0) $ x_Poll(xIs(0))
+
+# 4
 }
 \seealso{
 Other value_testing_functions: \code{\link{xIsEmpty}},

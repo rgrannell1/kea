@@ -41,6 +41,8 @@
 #' @template
 #'    Variadic
 #'
+#' @template S-Buggy
+#'
 #' @example
 #'    inst/examples/example-xFlatten.R
 #'

@@ -34,14 +34,16 @@ Read the contents of a file as a single string.
 
 # 1. Read the first line of kea's description.
 
-x_(system.file(package = 'kea', 'DESCRIPTION')) $ xRead() $ xToLines() $ x_Take(1)
+x_(system.file(package = 'kea', 'DESCRIPTION')) $ xRead() $ xToLines() $ x_At(1)
 
-# list("Package: kea")
+#  "Package: kea"
 }
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xStopwatch}};
+  \code{\link{xExecute}}; \code{\link{xOneOf}},
+  \code{\link{xOneOf_}}; \code{\link{xShuffle}},
+  \code{\link{xShuffle_}}; \code{\link{xStopwatch}};
   \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other text_processing_functions: \code{\link{xExplode}};

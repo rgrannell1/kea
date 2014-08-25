@@ -18,7 +18,7 @@ Convert a factor to a collection of the factor's data.
 
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

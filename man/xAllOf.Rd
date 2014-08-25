@@ -37,6 +37,7 @@ Is a predicate true for all elements of a collection?
 # 1. Test if all the elements of a vector are true.
 
 xAllOf(xI, c(True, False, True))
+xAllOf_(xI, True, False, True)
 
 # False
 }

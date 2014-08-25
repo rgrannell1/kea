@@ -84,7 +84,7 @@ Compose a function with the outputs of other functions.
    Calls \bold{fn} with no arguments when \bold{fns} is empty.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

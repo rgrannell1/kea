@@ -34,6 +34,12 @@ Is an value not null?
 xNotNull(Null)
 
 # False
+
+# 2. filter out null values.
+
+x__(1, 2, NULL, 3) $ xSelect(xNotNull)
+
+# list(1, 2, 3)
 }
 \seealso{
 Other value_testing_functions: \code{\link{xIsEmpty}},

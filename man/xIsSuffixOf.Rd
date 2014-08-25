@@ -33,7 +33,11 @@ Is a collection a suffix of another?
 }
 \examples{
 
-NULL
+# 1. A toy example.
+
+xIsSuffixOf(2:4, 1:4)
+
+# true
 }
 \seealso{
 Other value_testing_functions: \code{\link{xIsEmpty}},

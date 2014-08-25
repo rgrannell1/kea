@@ -31,4 +31,15 @@ Rank a collection of numbers from largest to smallest.
 
 NULL
 }
+\seealso{
+Other math_functions: \code{\link{xLenOf}},
+  \code{\link{xLenOf_}}; \code{\link{xMaxBy}},
+  \code{\link{xMaxBy_}}; \code{\link{xMeanOf}},
+  \code{\link{xMeanOf_}}; \code{\link{xMinBy}},
+  \code{\link{xMinBy_}}; \code{\link{xOrderOf}},
+  \code{\link{xOrderOf_}}; \code{\link{xPoll}},
+  \code{\link{xPoll_}}; \code{\link{xProdBy}},
+  \code{\link{xProdBy_}}; \code{\link{xSumBy}},
+  \code{\link{xSumBy_}}
+}
 

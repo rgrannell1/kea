@@ -37,7 +37,7 @@ Convert a collection of integers to a integer vector.
    would be lost upon coercion.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

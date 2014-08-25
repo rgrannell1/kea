@@ -26,7 +26,7 @@ Convert a matrix or data.frame to a collection of rows.
     Returns the empty list if \bold{tab} has no rows or have zero x zero dimensions.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

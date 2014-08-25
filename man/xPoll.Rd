@@ -53,9 +53,13 @@ lenof(c(1,2,3,4))
 }
 \seealso{
 Other math_functions: \code{\link{xLenOf}},
-  \code{\link{xLenOf_}}; \code{\link{xMeanOf}},
-  \code{\link{xMeanOf_}}; \code{\link{xProdBy}},
-  \code{\link{xProdBy_}}; \code{\link{xSumBy}},
+  \code{\link{xLenOf_}}; \code{\link{xMaxBy}},
+  \code{\link{xMaxBy_}}; \code{\link{xMeanOf}},
+  \code{\link{xMeanOf_}}; \code{\link{xMinBy}},
+  \code{\link{xMinBy_}}; \code{\link{xOrderOf}},
+  \code{\link{xOrderOf_}}; \code{\link{xProdBy}},
+  \code{\link{xProdBy_}}; \code{\link{xRank}},
+  \code{\link{xRank_}}; \code{\link{xSumBy}},
   \code{\link{xSumBy_}}
 
 Other quantifier_functions: \code{\link{xAllOf}},

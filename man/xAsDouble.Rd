@@ -36,7 +36,7 @@ Convert a collection of doubles or integers to a double vector.
    difference is predominantly internal.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

@@ -43,7 +43,7 @@ data.frames are not a beloved part of kea,
   indices.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

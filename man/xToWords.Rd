@@ -53,6 +53,10 @@ x_Reduce(
 		ifelse(nchar(best) < nchar(new), new, best)
 	}
 )
+
+# or even better
+
+x_(lorem_ipsum) $ xToWords() $ x_MaxBy(nchar)
 }
 \seealso{
 Other text_processing_functions: \code{\link{xExplode}};

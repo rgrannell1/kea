@@ -19,7 +19,7 @@ Convert a factor to a collection of levels.
     Returns character(0) for empty factors.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

@@ -31,16 +31,22 @@ Return an argument without modification.
 # 1. Identity can be useful with higher-order functions.
 
 xAllOf(xI, c(True, True, False))
+xAllOf_(xI, True, True, False)
 
 # False
 
-xMaxBy(xI, c(1, 2, 3, 4, 5, 6))
+xMaxBy_(xI, 1, 2, 3, 4, 5, 6)
+
+# 6
+
+xSumBy_(xIdentity, 1, 2, 3)
 
 # 6
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},
   \code{\link{xK}}; \code{\link{xFalsity}};
-  \code{\link{xIrrelevance}}; \code{\link{xTruth}}
+  \code{\link{xIrrelevance}}; \code{\link{xTruth}};
+  \code{\link{xUnit}}, \code{\link{xUnit_}}
 }
 

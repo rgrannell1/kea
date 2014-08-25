@@ -37,7 +37,7 @@ Insert an element in between each element of a list.
    Returns the empty list if \bold{coll} is length-zero.
 }
 
-\section{Stability 1 - \bold{Experimental}}{
+\section{Stability - \bold{Experimental}}{
 
 
 This feature is newly introduced or experimental, may contain bugs, and may be removed
