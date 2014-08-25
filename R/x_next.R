@@ -115,7 +115,7 @@ as_proto_params <- function (method_name) {
 		variadic_params <- names(formals(variadic_fn))
 		params          <- names(formals(fn))
 
-		spread_param    <- params[!(params %in% variadic_params)]
+		spread_param    <- params[!(params %is_in% variadic_params)]
 
 		variadic_params[variadic_params == '...'] <- paste0('...', spread_param)
 		variadic_params
@@ -147,7 +147,7 @@ has_variadic_param <- function (params) {
 fixed_param <- function (fn_name, params) {
 
 	fn_params <- as_proto_params(fn_name)
-	fn_params[ which(fn_params %in% params)[[1]] ]
+	fn_params[ which(fn_params %is_in% params)[[1]] ]
 }
 
 
@@ -162,7 +162,7 @@ fns_with_params <- function (fns, params) {
 
 	Filter(
 		function (fn_name) {
-			any(as_proto_params(fn_name) %in% params)
+			any(as_proto_params(fn_name) %is_in% params)
 		},
 		fns
 	)
@@ -380,9 +380,9 @@ make_method <- local({
 		fn_proto_params    <- as_proto_params(fn_name)
 
 		# -- which parametres (including the typed variadic parametre) are in this prototype?
-		which_proto_params <- which(fn_proto_params %in%  params)
+		which_proto_params <- which(fn_proto_params %is_in%  params)
 		# -- which aren't?
-		which_other_params <- which(fn_proto_params %!in% params)
+		which_other_params <- which(fn_proto_params %not_in% params)
 
 		method <- function () {}
 

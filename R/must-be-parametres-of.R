@@ -11,7 +11,7 @@ Must_Be_Parametres_Of <- function (STRS, FN) {
 
 
 	# -- filter out empty strings, assert the rest are parametres of fn.
-	bquote( if (any( .(STRS)[nchar(.(STRS)) > 0] %!in% names(formals( .(FN) )) )) {
+	bquote( if (any( .(STRS)[nchar(.(STRS)) > 0] %not_in% names(formals( .(FN) )) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(STRS) ) %+%

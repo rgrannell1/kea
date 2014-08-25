@@ -111,14 +111,24 @@ is_generic <- function (coll) {
 
 # -- checks identity, doesn't do odd things for nan.
 
-'%is_in%' <- function (elem, coll) {
+'%is_in%' <- function (coll1, coll2) {
 
-	for (ith in seq_along(coll)) {
-		if (identical( elem, coll[[ith]] )) {
-			return(True)
-		}
+	if (length(coll1) == 0) {
+		logical(0)
+	} else if (length(coll2) == 0) {
+		# -- the base function does this; should the replacement?
+		False
+	} else {
+
+		vapply(coll1, function (elem1) {
+
+			any( vapply(coll2, function (elem2) {
+				identical(elem1, elem2)
+			}, logical(1)) )
+
+		}, logical(1), USE.NAMES = False)
+
 	}
-	return(False)
 }
 
 # -- more useful than is.recursive
@@ -347,8 +357,24 @@ call_with_params <- function (fnname, fn) {
 # @keywords internal
 # @rdname pkg-internal
 
-'%!in%' <- function (x, y) {
-	!(x %in% y)
+'%not_in%' <- function (coll1, coll2) {
+
+	if (length(coll1) == 0) {
+		logical(0)
+	} else if (length(coll2) == 0) {
+		# -- the base function does this; should the replacement?
+		True
+	} else {
+
+		vapply(coll1, function (elem1) {
+
+			!any( vapply(coll2, function (elem2) {
+				identical(elem1, elem2)
+			}, logical(1)) )
+
+		}, logical(1), USE.NAMES = False)
+
+	}
 }
 
 # to dedottify my code.

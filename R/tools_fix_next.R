@@ -17,7 +17,7 @@ fix <- local({
 
 		do.call('function', list(
 			# -- select each unused parametre.
-			as.pairlist(fn_formals[ fn_params %!in% names(coll) ]),
+			as.pairlist(fn_formals[ fn_params %not_in% names(coll) ]),
 			bquote({
 				.(paste0('a partially applied form of ', .fixed_function))
 
@@ -318,7 +318,7 @@ MakeVariadic <- function (fn, fixed) {
 
 	params <- names(formals(fn))
 
-	if (fixed %!in% params) {
+	if (fixed %not_in% params) {
 		stop("MakeVariadic: tried to fix param that doesn't exist ", paste0(fn_sym))
 	}
 
