@@ -113,7 +113,7 @@ as_typed_vector <- local({
 					coll_sym <- substitute(coll)
 
 					throw_kea_error(
-						invoking_call, "the collection " %+% dQuote(coll) %+%
+						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
 				}

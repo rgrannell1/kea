@@ -40,9 +40,11 @@ NULL
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xIsIn}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xIsEmpty}},
+  \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubset}},
-  \code{\link{xIsSubset_}}; \code{\link{xNotIn}},
+  \code{\link{xIsSubset_}}; \code{\link{xNotEmpty}},
+  \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},

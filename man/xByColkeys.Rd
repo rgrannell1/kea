@@ -22,7 +22,7 @@ Convert a matrix or data.frame to a collection of column names.
     Returns character(0) when \bold{tab} is length-zero or has no keys.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

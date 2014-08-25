@@ -544,10 +544,6 @@ x_coll_proto     <- make_proto(kea_fns, proto_params $ coll,       'collections'
 #'
 #'    The two primary groups of methods are collection methods and function methods.
 #'
-#'    Matrices, data frames, and factors have methods for converting them to collections,
-#'    while normal Kea functions are also available as methods for collections
-#'    and functions.
-#'
 #' @section Corner Cases:
 #'    The methods that can be used by \bold{$ x_( )} object varies depending
 #'    on the type of val.

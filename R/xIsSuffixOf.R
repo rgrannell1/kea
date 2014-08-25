@@ -29,6 +29,8 @@
 #' @example
 #'    inst/examples/example-xIsSuffixOf.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xIsSuffixOf
 #' @export
 

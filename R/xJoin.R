@@ -6,6 +6,11 @@
 #' @section Type Signature:
 #'    ||any|| -> [any]
 #'
+#' @details
+#'     xJoin is useful for flatting a collection by one
+#'    level; it can take a list of lists, and return
+#'    a list of each item joined end to end.
+#'
 #' @param
 #'    colls a collection of collections. The collections
 #'    to concatenate to each other.

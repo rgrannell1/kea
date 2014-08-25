@@ -29,7 +29,7 @@ Replace each occurence of a certain value in a collection with another value.
    differences (0.999999 != 1) and treats -0 as equal to 0.
 }
 
-\section{Stability 1 - \bold{Experimental}}{
+\section{Stability - \bold{Experimental}}{
 
 
 This feature is newly introduced or experimental, may contain bugs, and may be removed

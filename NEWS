@@ -1,4 +1,45 @@
 
+Kea 0.45.0
+------------------------------------------------------------------------------
+Date: 2014-8-25
+
+Improved examples and function family labeling, fixed an error message bug.
+
+BUG-FIXES:
+
+* The correct error message is now produced when a function is given an collection of
+improper length elements (closes #17).
+
+DOCUMENTATION:
+
+* Corrected example for xProdBy (now actually uses xProdBy).
+
+* Labeled xFlatten as buggy, as issue (#13 is still unclosed.
+
+* Removed outdated text about methods from x_ documentation.
+
+* Added more thorough examples for x_.
+
+* Added variadic form examples for xAllOf, xAnyOf, xIdentity.
+
+* Added new examples for xIs, xIsMatch, xIsPrefixOf, xIsSuffixOf, xNotNull.
+
+* Made xLenOf, xMaxBy, xMinBy, xMeanOf, xPoll, xOrderOf, xRank, xProdBy, xSumBy, math functions.
+
+* Made example for xRead, xToWords, xUnspread more idiomatic.
+
+* Improved function family labeling of other functions.
+
+PACKAGE-INTERNALS:
+
+* throw_kea_error now checks that its input message has the correct length.
+
+
+
+
+
+
+
 Kea 0.44.0
 ------------------------------------------------------------------------------
 Date: 2014-8-23

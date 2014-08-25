@@ -30,7 +30,7 @@ Get a named list of parametres and their defaults from a function or primitive f
    which is identical to \code{quote(expr=)}.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

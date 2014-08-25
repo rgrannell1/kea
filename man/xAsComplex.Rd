@@ -36,7 +36,7 @@ Convert a collection of complex values to a complex vector.
     can be converted to complex.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

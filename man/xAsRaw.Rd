@@ -35,7 +35,7 @@ Convert a collection of raw values to a raw vector.
    Numbers are not coerced to raw.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

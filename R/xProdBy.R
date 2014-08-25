@@ -29,6 +29,8 @@
 #' @example
 #'    inst/examples/example-xProdBy.R
 #'
+#' @family math_functions
+#'
 #' @rdname xProdBy
 #' @export
 

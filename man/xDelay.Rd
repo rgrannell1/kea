@@ -74,7 +74,9 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 
 Other inpure_functions: \code{\link{xDo}},
   \code{\link{xDo_}}; \code{\link{xExecute}};
-  \code{\link{xRead}}; \code{\link{xStopwatch}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xRead}}; \code{\link{xShuffle}},
+  \code{\link{xShuffle_}}; \code{\link{xStopwatch}};
   \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other time_functions: \code{\link{xLimit}};

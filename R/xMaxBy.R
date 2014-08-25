@@ -28,6 +28,7 @@
 #'    Variadic
 #'
 #' @family selection_functions
+#' @family math_functions
 #'
 #' @example
 #'    inst/examples/example-xMaxBy.R

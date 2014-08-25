@@ -27,7 +27,7 @@ Get the parametre names of a function or primitive function.
   has no parametres the empty character vector is returned.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

@@ -25,6 +25,8 @@
 #' @example
 #'    inst/examples/example-xLenOf.R
 #'
+#' @family math_functions
+#'
 #' @rdname xLenOf
 #' @export
 

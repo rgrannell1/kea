@@ -28,6 +28,8 @@
 #' @example
 #'    inst/examples/example-xIsInfixOf.R
 #'
+#' @family value_testing_functions
+#'
 #' @rdname xIsInfixOf
 #' @export
 

@@ -38,6 +38,13 @@ x_(runif(100)) $ xShuffle() $ xTake(30) $ x_MeanOf()
 # ~ 0.5
 }
 \seealso{
+Other inpure_functions: \code{\link{xDelay}};
+  \code{\link{xDo}}, \code{\link{xDo_}};
+  \code{\link{xExecute}}; \code{\link{xOneOf}},
+  \code{\link{xOneOf_}}; \code{\link{xRead}};
+  \code{\link{xStopwatch}}; \code{\link{xVersion}};
+  \code{\link{xWrite}}
+
 Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChop}},
   \code{\link{xChop_}}; \code{\link{xChunk}},

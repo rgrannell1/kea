@@ -19,7 +19,7 @@ Enumerate the elements of a matrix down columns.
      Returns the empty list if either dimension of \bold{tab} is empty.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

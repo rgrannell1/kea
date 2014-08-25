@@ -28,6 +28,8 @@
 #' @example
 #'    inst/examples/example-xLocate.R
 #'
+#' @family key_functions
+#'
 #' @rdname xLocate
 #' @export
 

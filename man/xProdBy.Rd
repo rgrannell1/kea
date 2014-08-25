@@ -36,8 +36,19 @@ Get the product of a collection according to a measure function.
 
 # 1. compounding the numbers themselves.
 
-xSumBy(xIdentity, 1:10)
+xProdBy(xIdentity, 1:10)
 
 # 3628800
+}
+\seealso{
+Other math_functions: \code{\link{xLenOf}},
+  \code{\link{xLenOf_}}; \code{\link{xMaxBy}},
+  \code{\link{xMaxBy_}}; \code{\link{xMeanOf}},
+  \code{\link{xMeanOf_}}; \code{\link{xMinBy}},
+  \code{\link{xMinBy_}}; \code{\link{xOrderOf}},
+  \code{\link{xOrderOf_}}; \code{\link{xPoll}},
+  \code{\link{xPoll_}}; \code{\link{xRank}},
+  \code{\link{xRank_}}; \code{\link{xSumBy}},
+  \code{\link{xSumBy_}}
 }
 

@@ -38,7 +38,7 @@ Convert a collection of characters to a character vector.
     can be converted to character.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

@@ -1,5 +1,5 @@
 
-Kea 0.44.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
+Kea 0.45.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -136,5 +136,5 @@ http://semver.org/
 
 | Author                      | Changes                 |
 | --------------------------- | ----------------------- |
-| Ryan Grannell               | 191,792 ++ / 160,881 -- |
+| Ryan Grannell               | 197,809 ++ / 164,679 -- |
 

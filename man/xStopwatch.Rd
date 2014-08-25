@@ -30,7 +30,7 @@ Create a function that returns true for a preset time after creation.
    If num is infinite the created timer function will never return false.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.
@@ -75,7 +75,9 @@ xMap(trial := if (trial) 1 else 0) $ x_MeanOf() * 4
 \seealso{
 Other inpure_functions: \code{\link{xDelay}};
   \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xRead}};
+  \code{\link{xExecute}}; \code{\link{xOneOf}},
+  \code{\link{xOneOf_}}; \code{\link{xRead}};
+  \code{\link{xShuffle}}, \code{\link{xShuffle_}};
   \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other time_functions: \code{\link{xDelay}};

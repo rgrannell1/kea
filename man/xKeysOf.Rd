@@ -40,6 +40,7 @@ xKeysOf(list('fruit' = 'bannana', 'colour' = 'yellow'))
 Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xAddKeys_}}; \code{\link{xIndicesOf}},
   \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
+  \code{\link{xLocate}}, \code{\link{xLocate_}};
   \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}},

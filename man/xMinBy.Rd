@@ -47,6 +47,16 @@ x_(-10:10) $ xMinBy(x := {
 # x = 10 gives the smallest output for f(x) = -x^5 - 4x - 12x
 }
 \seealso{
+Other math_functions: \code{\link{xLenOf}},
+  \code{\link{xLenOf_}}; \code{\link{xMaxBy}},
+  \code{\link{xMaxBy_}}; \code{\link{xMeanOf}},
+  \code{\link{xMeanOf_}}; \code{\link{xOrderOf}},
+  \code{\link{xOrderOf_}}; \code{\link{xPoll}},
+  \code{\link{xPoll_}}; \code{\link{xProdBy}},
+  \code{\link{xProdBy_}}; \code{\link{xRank}},
+  \code{\link{xRank_}}; \code{\link{xSumBy}},
+  \code{\link{xSumBy_}}
+
 Other selection_functions: \code{\link{xAtKey}},
   \code{\link{xAtKey_}}; \code{\link{xAt}},
   \code{\link{xAt_}}; \code{\link{xDropWhile}},

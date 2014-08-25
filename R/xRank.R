@@ -25,6 +25,8 @@
 #' @example
 #'    inst/examples/example-xRank.R
 #'
+#' @family math_functions
+#'
 #' @rdname xRank
 #' @export
 

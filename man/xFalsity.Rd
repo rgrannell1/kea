@@ -30,11 +30,13 @@ A function that always returns false.
 
 xReject(xFalsity, 1:10)
 
+# 1:10
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},
   \code{\link{xK}}; \code{\link{xIrrelevance}};
   \code{\link{xI}}, \code{\link{xIdentity}};
-  \code{\link{xTruth}}
+  \code{\link{xTruth}}; \code{\link{xUnit}},
+  \code{\link{xUnit_}}
 }
 

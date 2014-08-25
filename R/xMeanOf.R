@@ -27,6 +27,8 @@
 #' @example
 #'    inst/examples/example-xMeanOf.R
 #'
+#' @family math_functions
+#'
 #' @rdname xMeanOf
 #' @export
 

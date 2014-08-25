@@ -38,7 +38,7 @@ xVal works like normal R assignment, with the exception
    already exists in the parent frame.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

@@ -3,7 +3,6 @@
 #'
 #' Is a collection not length-zero?
 #'
-#'
 #' @section Type Signature:
 #'     any -> &lt;logical>
 #'
@@ -27,6 +26,7 @@
 #'    inst/examples/example-xNotEmpty.R
 #'
 #' @family value_testing_functions
+#' @family set_functions
 #'
 #' @rdname xNotEmpty
 #' @export

@@ -37,8 +37,10 @@ NULL
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsIn}},
-  \code{\link{xIsIn_}}; \code{\link{xNotIn}},
+  \code{\link{xInterOf_}}; \code{\link{xIsEmpty}},
+  \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
+  \code{\link{xIsIn_}}; \code{\link{xNotEmpty}},
+  \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubset}},
   \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},

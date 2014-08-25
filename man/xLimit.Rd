@@ -47,7 +47,7 @@ function a limited number of times.
    xLimit throws an error if \bold{num} is not length-one.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

@@ -27,7 +27,7 @@ Convert a constant value back into a normal R value.
     Non-locked variables are also allowed.
 }
 
-\section{Stability 1 - \bold{Uncertain}}{
+\section{Stability - \bold{Uncertain}}{
 
 
 This feature may be removed or altered significantly in future versions.

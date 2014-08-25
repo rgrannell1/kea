@@ -75,6 +75,7 @@ age_by_country <-
 Other key_functions: \code{\link{xIndicesOf}},
   \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
   \code{\link{xKeysOf}}, \code{\link{xKeysOf_}};
+  \code{\link{xLocate}}, \code{\link{xLocate_}};
   \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}},
@@ -84,6 +85,7 @@ Other key_functions: \code{\link{xIndicesOf}},
 Other key_functions: \code{\link{xIndicesOf}},
   \code{\link{xIndicesOf_}}; \code{\link{xIndicesTo}};
   \code{\link{xKeysOf}}, \code{\link{xKeysOf_}};
+  \code{\link{xLocate}}, \code{\link{xLocate_}};
   \code{\link{xUnzipIndices}},
   \code{\link{xUnzipIndices_}}; \code{\link{xUnzipKeys}},
   \code{\link{xUnzipKeys_}}; \code{\link{xValuesOf}},

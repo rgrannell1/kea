@@ -39,5 +39,21 @@ Get the sum of a collection according to a measure function.
 xSumBy(xIdentity, 1:10)
 
 # 55
+
+# 2. get the total characters in a character vector
+
+xSumBy_(nchar, 'this', 'is', 'a', 'sentence.')
+16
+}
+\seealso{
+Other math_functions: \code{\link{xLenOf}},
+  \code{\link{xLenOf_}}; \code{\link{xMaxBy}},
+  \code{\link{xMaxBy_}}; \code{\link{xMeanOf}},
+  \code{\link{xMeanOf_}}; \code{\link{xMinBy}},
+  \code{\link{xMinBy_}}; \code{\link{xOrderOf}},
+  \code{\link{xOrderOf_}}; \code{\link{xPoll}},
+  \code{\link{xPoll_}}; \code{\link{xProdBy}},
+  \code{\link{xProdBy_}}; \code{\link{xRank}},
+  \code{\link{xRank_}}
 }
 

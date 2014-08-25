@@ -54,10 +54,26 @@ safeFirstOf(character(0))
 # Na - xFirstOf usually fails for empty collections.
 }
 \seealso{
+Other set_functions: \code{\link{xDuplicatesOf}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
+  \code{\link{xInterOf_}}; \code{\link{xIsEmpty}},
+  \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
+  \code{\link{xIsIn_}}; \code{\link{xIsSubset}},
+  \code{\link{xIsSubset_}}; \code{\link{xNotIn}},
+  \code{\link{xNotIn_}}; \code{\link{xNotSubset}},
+  \code{\link{xNotSubset_}}; \code{\link{xPowerSetOf}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
+  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
+  \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
+  \code{\link{xUniqueOf_}}
+
 Other value_testing_functions: \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsFalse}};
+  \code{\link{xIsInfixOf}}, \code{\link{xIsInfixOf_}};
   \code{\link{xIsNan}}; \code{\link{xIsNa}};
-  \code{\link{xIsNull}}; \code{\link{xIsTrue}};
+  \code{\link{xIsNull}}; \code{\link{xIsPrefixOf}},
+  \code{\link{xIsPrefixOf_}}; \code{\link{xIsSuffixOf}},
+  \code{\link{xIsSuffixOf_}}; \code{\link{xIsTrue}};
   \code{\link{xIs}}; \code{\link{xNotFalse}};
   \code{\link{xNotNan}}; \code{\link{xNotNa}};
   \code{\link{xNotNull}}; \code{\link{xNotTrue}};

@@ -1,8 +1,6 @@
 
 kea ::: load_test_dependencies(environment())
 
-require(kea)
-
 message("xJuxtapose")
 
 	over(num, val) +

@@ -1,5 +1,5 @@
 
-#' @section Stability 1 - \bold{Experimental}:
+#' @section Stability - \bold{Experimental}:
 #'
 #' This feature is newly introduced or experimental, may contain bugs, and may be removed
 #' or altered in future versions if it is not sufficiently useful. Breaking changes
