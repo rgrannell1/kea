@@ -1,4 +1,24 @@
 
+Kea 0.46.0
+------------------------------------------------------------------------------
+Date: 2014-8-25
+
+Added xAsList.
+
+ENHANCEMENTS:
+
+* Added xAsList, an analogue of the base functions list/as.list.
+
+PACKAGE-INTERNALS:
+
+* Removed direct use of the function '%in%' due to its strange corner cases, closing #5.
+
+
+
+
+
+
+
 Kea 0.45.0
 ------------------------------------------------------------------------------
 Date: 2014-8-25

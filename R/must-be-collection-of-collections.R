@@ -7,7 +7,7 @@ Must_Be_Collection_Of_Collections <- function (COLLS) {
 
 		all_elems_are_collection <- all( vapply( .(COLLS) , function (coll) {
 
-			'kea' %!in% class(coll) &&
+			'kea' %not_in% class(coll) &&
 			(is_atomic(coll) || is_generic(coll))
 
 		}, logical(1)) )

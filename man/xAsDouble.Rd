@@ -57,7 +57,8 @@ xAsDouble(list(1, 2, 3, 4L, 5L))
 Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsCharacter_}}; \code{\link{xAsComplex}},
   \code{\link{xAsComplex_}}; \code{\link{xAsInteger}},
-  \code{\link{xAsInteger_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsInteger_}}; \code{\link{xAsList}},
+  \code{\link{xAsList_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
 }

@@ -147,7 +147,7 @@ print.xlist_builder <- function (x, ...) {
 
 		# -- is the last expression a non-binding expression?
 		is_predicated <-
-			length(exprs) %!in% binding_indices && length(exprs) > 1
+			length(exprs) %not_in% binding_indices && length(exprs) > 1
 
 		# -- the selection predicate defaults to true.
 		self$predicate <-
@@ -160,11 +160,15 @@ print.xlist_builder <- function (x, ...) {
 		# -- are there any expressions that aren't the yield expression, binding
 		# -- expression or predicate?
 		unmatched <- if (is_predicated) {
+
 			expr_indices <- seq_along(exprs)
-			expr_indices[ expr_indices %!in% c(1, binding_indices, length(exprs)) ]
+			expr_indices[ expr_indices %not_in% as.integer( c(1, binding_indices, length(exprs)) ) ]
+
 		} else {
+
 			expr_indices <- seq_along(exprs)
-			expr_indices[expr_indices %!in% c(1, binding_indices)]
+			expr_indices[expr_indices %not_in% as.integer(c(1, binding_indices)) ]
+
 		}
 
 		# -- some abnormal expressions
