@@ -276,7 +276,7 @@ MakeFun <- function (sym, expr, typed = True) {
 		.(as.call( list(
 			as.symbol('Fix'),
 			# -- the Kea function to partially apply.
-			if (length(fn_sym) > 0) as.symbol(fn_sym) else quote(sys.function()),
+			as.symbol(fn_sym),
 
 			# -- the parametre to the Kea function.
 			lapply(params, as.symbol),
