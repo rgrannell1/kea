@@ -17,6 +17,16 @@ The return value of the previous method.
 Execute a (possibly side-effectual) function before
 continuing with the previous method result.
 }
+\details{
+\bold{xExecute} is mainly intended to be used as a method; it allows
+    a side-effectful function to be run between method calls, keeping the
+    previous result.
+
+    \code{x_(1:10) $ xExecute(function () print('doing something')) $ x_SumBy(xI)}
+
+    The above call wraps 1...10 in a kea object, prints 'doing something', and proceeds
+    to sum the numbers 1...10.
+}
 \section{Type Signature}{
 
     (any -> any) -> any -> any

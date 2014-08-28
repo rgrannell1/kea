@@ -24,8 +24,7 @@
 #'     to its underlying function.
 #'
 #' @section Corner Cases:
-#'     .
-#'
+#'     None.
 #'
 #' @family function_modifying_functions
 #'

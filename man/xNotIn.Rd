@@ -29,8 +29,9 @@ Check if a collection doesn't contain a value.
 
 \section{Corner Cases}{
 
-   Various types of \code{Na} are not-distinguished between.
-   Type conversion is not carried out.
+   The equality check used by \bold{xIsIn} has the same corner cases as \bold{xIs};
+   equal integers and doubles are treated as different numbers, -0 is equal to +0.
+   Returns \bold{logical(0)} when \bold{coll} is empty.
 }
 \examples{
 

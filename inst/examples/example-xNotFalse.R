@@ -1,5 +1,5 @@
 
-# 1. A more obvious example.
+# 1. An obvious example.
 
 xNotFalse(True)
 
