@@ -1,4 +1,40 @@
 
+Kea 0.47.0
+------------------------------------------------------------------------------
+Date: 2014-8-25
+
+First use of C++ code in kea.
+
+ENHANCEMENTS:
+
+* Rewrote xTake using Rcpp. This may cause unforseen issues, but also doubles the speed of the
+function for n ~ 100,000.
+
+BUG-FIXES:
+
+* Fixed an issue in which functions with num, str, str1, str2, or rexp parametres
+would parse inputs longer than one element, leading to more obscure failures downstream. Closes #22.
+
+* Fixed an issue in which an arcane C stack usage error was given instead of a valid
+error message for some collection function, closing #17.
+
+* Fixed an incorrect error that was thrown by functions that can parse length-zero or length-one values
+that claimed it could only parse length-one valuse.
+
+DOCUMENTATION:
+
+* Added details section to xExecute.
+
+* Clarified and rewrote corner-cases for xIsIn, xNotIn
+
+* Added example for xFromLines, xIsPrefixOf.
+
+PACKAGE-INTERNALS:
+
+*
+
+
+
 Kea 0.46.0
 ------------------------------------------------------------------------------
 Date: 2014-8-25
