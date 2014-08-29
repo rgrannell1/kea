@@ -39,13 +39,16 @@ xTake <- MakeFun('xTake', function (num, coll) {
 	MACRO( Must_Be_Between(num, 0, Inf))
 	MACRO( Must_Be_Whole(num) )
 
-	if (length(coll) == 0 || num == 0 || length(num) == 0) {
-		keep_names(list(), coll)
-	} else if (is.infinite(num)) {
-		as.list(coll)
-	} else {
-		as.list(coll)[seq_len( min(num, length(coll)) )]
-	}
+#	if (length(coll) == 0 || num == 0 || length(num) == 0) {
+#		keep_names(list(), coll)
+#	} else if (is.infinite(num)) {
+#		as.list(coll)
+#	} else {
+#		as.list(coll)[seq_len( min(num, length(coll)) )]
+#	}
+
+	cTake(num, coll)
+
 })
 
 #' @rdname xTake

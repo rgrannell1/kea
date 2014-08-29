@@ -11,10 +11,13 @@ Maintainer: Ryan Grannell <r.grannell2@gmail.com>
 ByteCompile: yes
 License: GPL-3
 Roxygen: list(wrap = FALSE)
+LinkingTo: Rcpp
+Imports: Rcpp
 Collate:
     'zzz.R'
     'values.R'
     'tools_forall_next.R'
+    'tools_benchmarks.R'
     'tools_functions.R'
     'tools_summate.R'
     'tools_as_typed_vector.R'
@@ -52,6 +55,7 @@ Collate:
     'must-be-parametres-of.R'
     'must-be-existing-ref.R'
     'tools_fix_next.R'
+    'RcppExports.R'
     'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'

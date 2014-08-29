@@ -12,7 +12,7 @@ stringify_call <- function (call) {
 	# format the call nicely for printing, fixing the representation of ':='.
 
 	if (length(call) == 0) {
-		"erroneous call not included"
+		"[erroneous call not included]"
 	} else {
 
 		call <- as.call(lapply(call, function (term) {

@@ -13,3 +13,4 @@ man-roxygen/
 .Rbuildignore
 
 NAMESPACE
+.bench-cases.rds

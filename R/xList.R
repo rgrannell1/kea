@@ -142,7 +142,7 @@ print.xlist_builder <- function (x, ...) {
 		bindings <- exprs[binding_indices]
 
 		# -- the first expression is always the yield expression.
-		self$yield <-
+		self $ yield <-
 			exprs[[1]]
 
 		# -- is the last expression a non-binding expression?
@@ -150,7 +150,7 @@ print.xlist_builder <- function (x, ...) {
 			length(exprs) %not_in% binding_indices && length(exprs) > 1
 
 		# -- the selection predicate defaults to true.
-		self$predicate <-
+		self $ predicate <-
 			if (is_predicated) {
 				exprs[[ length(exprs) ]]
 			} else {
@@ -186,15 +186,15 @@ print.xlist_builder <- function (x, ...) {
 
 		# -- check that all expressions are matched.
 
-		self$variables <-
+		self $ variables <-
 			vapply(bindings, function (expr) {
 				paste0( expr[[2]] )
 			}, character(1))
 
 		# -- some variable was matched multiple times (x <- 1:10, x <- letters)
-		if ( any(duplicated(self$variables)) ) {
+		if ( any(duplicated(self $ variables)) ) {
 
-			duplicated_var <- self$variables[duplicated(self$variables)]
+			duplicated_var <- self $ variables[duplicated(self $ variables)]
 
 			message <-
 				"The variables " %+% paste0(duplicated_var, collapse = ', ') %+%
@@ -204,7 +204,7 @@ print.xlist_builder <- function (x, ...) {
 		}
 
 		# -- no variables were bound (x <- 1:10)
-		if (length(self$variables) == 0) {
+		if (length(self $ variables) == 0) {
 
 			message <-
 				"a non-empty collection-comprehension must have " %+%
@@ -214,7 +214,7 @@ print.xlist_builder <- function (x, ...) {
 		}
 
 		# -- evaluate coll in the expression x <- coll
-		self$values <-
+		self $ values <-
 			lapply(bindings, function (expr) {
 				eval(expr[[3]], envir = parent_frame)
 			})
@@ -238,11 +238,11 @@ print.xlist_builder <- function (x, ...) {
 			fn
 		}
 
-		self$yield <- parametreise(
-			components$yield, components$variables)
+		self $ yield <- parametreise(
+			components $ yield, components $ variables)
 
-		self$predicate <- parametreise(
-			components$predicate, components$variables)
+		self $ predicate <- parametreise(
+			components $ predicate, components $ variables)
 
 		self
 	})
@@ -250,8 +250,8 @@ print.xlist_builder <- function (x, ...) {
 	xMap(
 		xUnspread(parametreised $ yield),
 		xSelect(
-			xUnspread(parametreised$predicate),
-			xProdSetOf(components$values)
+			xUnspread(parametreised $ predicate),
+			xProdSetOf(components $ values)
 		)
 	)
 }

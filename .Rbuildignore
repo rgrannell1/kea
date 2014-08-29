@@ -28,3 +28,4 @@ inst/vignettes/kea.Rnw
 .git
 .travis.yml
 .babelignore
+.bench-cases.rds

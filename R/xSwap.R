@@ -15,6 +15,9 @@
 #' @param
 #'     coll a collection. The collection to replace elements in.
 #'
+#' @param
+#'     ... see above.
+#'
 #' @template
 #'    Variadic
 #'

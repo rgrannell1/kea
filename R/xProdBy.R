@@ -47,7 +47,7 @@ xProdBy <- MakeFun('xProdBy', function (fn, coll) {
 
 		MACRO(Must_Be_Orderable(`fn(coll)`))
 
-	prod(`fn(coll)`)
+		prod(`fn(coll)`)
 	}
 })
 
