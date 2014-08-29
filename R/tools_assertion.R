@@ -12,7 +12,7 @@ stringify_call <- function (call) {
 	# format the call nicely for printing, fixing the representation of ':='.
 
 	if (length(call) == 0) {
-		"erroneous call not included"
+		"[erroneous call not included]"
 	} else {
 
 		call <- as.call(lapply(call, function (term) {
@@ -170,28 +170,33 @@ throw_kea_error <- function (invoking_call, message) {
 	}
 
 	if (!missing(invoking_call)) {
+
+		# -- this returns an list with empty string slots for
+		# -- non calls.
 		components <- get_call_components(invoking_call)
 
 		callname <- components $ invoking
 		calltext <- components $ calltext
 
-		# -- just in case
+		# -- just in case, collapse and wrap the components.
 		callname <- paste0(callname, collapse = '')
 		calltext <- wrap(calltext, indent = 0)
 
-		# -- these few lines dicate how an kea error message will be formatted
+		# -- these few lines dicate how all kea error messages will be formatted.
 
 		final_message <-
-		"\n" %+% message %+%
-		"\nThrown from " %+% callname %+% "\n" %+%
-		"In the call " %+% calltext
+			"\n" %+% message %+%
+			"\nThrown from " %+% callname %+% "\n" %+%
+			"In the call " %+% calltext
+
 	} else {
+		# -- no invoking call given; just give the message as a backup.
 		final_message <- "\n" %+% message
 	}
 
 	# -- tput as red (if possible) and report the error.
 
-	stop(colourise$red(final_message), call. = False)
+	stop(colourise $ red(final_message), call. = False)
 
 }
 

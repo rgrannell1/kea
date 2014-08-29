@@ -14,6 +14,8 @@ xSwap_(val1, val2, ...)
 \item{val2}{an arbitrary value. The replacement value.}
 
 \item{coll}{a collection. The collection to replace elements in.}
+
+\item{...}{see above.}
 }
 \description{
 Replace each occurence of a certain value in a collection with another value.

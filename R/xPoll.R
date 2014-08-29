@@ -59,6 +59,9 @@ xPoll <- MakeFun('xPoll', function (pred, coll) {
 
 		count
 	}
+
+	#cPoll(pred, coll)
+
 })
 
 #' @rdname xPoll

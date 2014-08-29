@@ -32,7 +32,7 @@ Convert any function to a unary function.
 
 \section{Corner Cases}{
 
-    .
+    None.
 }
 \examples{
 

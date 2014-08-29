@@ -200,7 +200,7 @@ as_atom <- local({
 
 			throw_kea_error(
 				invoking_call, "the collection " %+% dQuote(coll_sym) %+%
-				" must be a length-one value." %+% summate(coll)
+				" must be a length-zero or length-one value." %+% summate(coll)
 			)
 
 		} else if (is.atomic(coll)) {
