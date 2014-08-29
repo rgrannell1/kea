@@ -2,14 +2,14 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-List cTake (NumericVector num, List coll) {
+List cDrop (NumericVector num, List coll) {
 
 	int num_len    = num.size();
 	int coll_len   = coll.size();
 
 	bool has_names = coll.attr("names") != R_NilValue;
 
-	if (coll_len == 0 || num_len == 0 || num[0] == 0) {
+	if (coll_len == 0 || num_len == 0 || num[0] >= coll_len) {
 
 		List out(0);
 
@@ -21,20 +21,18 @@ List cTake (NumericVector num, List coll) {
 
 	} else {
 
-		int upper = num[0] > coll_len ? coll_len: num[0];
-
 		if (has_names) {
 
 			CharacterVector coll_names = coll.attr("names");
 
-			List out          = head(coll, upper);
-			out.attr("names") = head(coll_names, upper);
+			List out          = tail(coll,       coll_len - num[0]);
+			out.attr("names") = tail(coll_names, coll_len - num[0]);
 
 			return out;
 
 		} else {
 
-			return head(coll, upper);
+			return tail(coll, coll_len - num[0]);
 
 		}
 	}

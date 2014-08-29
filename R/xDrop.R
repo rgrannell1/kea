@@ -38,11 +38,15 @@ xDrop <- MakeFun('xDrop', function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 0, Inf))
 
-	if (length(coll) == 0 || num >= length(coll) || length(num) == 0) {
-	 	keep_names(list(), coll)
-	} else {
-		as.list(coll)[(num + 1) : length(coll)]
-	}
+#	if (length(coll) == 0 || num >= length(coll) || length(num) == 0) {
+#	 	keep_names(list(), coll)
+#	} else {
+#		as.list(coll)[(num + 1) : length(coll)]
+#	}
+#
+
+	cDrop(num, coll)
+
 })
 
 #' @rdname xDrop
