@@ -5,6 +5,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cPoll <- function(pred, coll) {
+    .Call('kea_cPoll', PACKAGE = 'kea', pred, coll)
+}
+
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
 }
