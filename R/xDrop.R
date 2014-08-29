@@ -27,6 +27,9 @@
 #' @template
 #'    Variadic
 #'
+#' @template
+#'    C++
+#'
 #' @example
 #'    inst/examples/example-xDrop.R
 #'

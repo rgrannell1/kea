@@ -41,7 +41,6 @@ Get the set union of several collections.
 \examples{
 
 NULL
-
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},

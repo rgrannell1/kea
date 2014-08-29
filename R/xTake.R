@@ -28,6 +28,9 @@
 #' @template
 #'    Variadic
 #'
+#' @template
+#'    C++
+#'
 #' @example
 #'    inst/examples/example-xTake.R
 #'
