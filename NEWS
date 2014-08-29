@@ -7,7 +7,7 @@ First use of C++ code in kea.
 
 ENHANCEMENTS:
 
-* Rewrote xTake using Rcpp. This may cause unforseen issues, but also doubles the speed of the
+* Rewrote xTake and xDrop using Rcpp. This may cause unforseen issues, but also doubles the speed of the
 function for n ~ 100,000.
 
 BUG-FIXES:
@@ -31,7 +31,12 @@ DOCUMENTATION:
 
 PACKAGE-INTERNALS:
 
-*
+* Started using C++ to improve speed.
+
+
+
+
+
 
 
 
