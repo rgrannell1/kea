@@ -17,4 +17,10 @@ message('x_(+)')
 		x_(x_(val)) %is% x_(val)
 	) +
 
+	describe('x_ returns a kea object') +
+	holdsWhen(
+		True,
+		'kea' %is_in% class(x_(val))
+	) +
+
 	run()

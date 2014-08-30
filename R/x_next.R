@@ -336,7 +336,15 @@ make_method <- local({
 					clone_env        <- new.env(parent = environment())
 					clone_env $ self <- Self()
 
-					arg <- substitute(val1, parent.frame(1))
+					# the part about using
+					# a list as an environment is
+					# taken from Hadley Wickham's substitute_q.
+
+					param <- as.symbol(param)
+					arg <- eval(
+						substitute(substitute(param, parent.frame()),
+						list(param = param)) )
+
 					eval(arg, envir = clone_env)
 
 				})
@@ -381,7 +389,15 @@ make_method <- local({
 					clone_env        <- new.env(parent = environment())
 					clone_env $ self <- Self()
 
-					arg <- substitute(val1, parent.frame(1))
+					# the part about using
+					# a list as an environment is
+					# taken from Hadley Wickham's substitute_q.
+
+					param <- as.symbol(param)
+					arg <- eval(
+						substitute(substitute(param, parent.frame()),
+						list(param = param)) )
+
 					eval(arg, envir = clone_env)
 
 				})
