@@ -96,7 +96,6 @@ lookup_fn <- function (method_name) {
 
 
 
-
 # as_proto_params :: <character> -> <character>
 #
 # annotate the ... parametre of a function, if the
@@ -246,8 +245,11 @@ make_method <- local({
 					# -- this parametre is to be fixed.
 
 					if (fixed == '...') {
-						# -- fixing an ellipsis parametre
-						c( acc, quote(Self()), as.symbol('...') )
+						# -- fixing an ellipsis parametre, which
+						# -- leaves the ellipsis parametre open for more arguments.
+						# -- the function sub_self binds any occurence of 'self' in the supplied argument
+						# -- to the value of Self()
+						c( acc, quote(Self()), bquote(sub_self( .(as.symbol('...')) )) )
 					} else {
 						# -- normal fixing
 						c( acc, quote(Self()) )
@@ -255,7 +257,9 @@ make_method <- local({
 
 				} else {
 					# -- don't fix this parametre.
-					c(acc, as.symbol(param))
+					# -- the function sub_self binds any occurence of 'self' in the supplied argument
+					# -- to the value of Self()
+					c( acc, bquote(sub_self( .(as.symbol(param)) )) )
 				}
 			},
 			names(formals(fn)),
@@ -268,6 +272,17 @@ make_method <- local({
 			fn_sym <- as.symbol(as_chaining(method_name))
 
 			bquote({
+
+				# -- the value of Self( ) is set when calling the method with $,
+				# -- so this function must be supplied in the method body to close over 'Self( )'.
+				sub_self <- function (val) {
+
+					clone_env <- new.env(parent = parent.frame(2))
+					clone_env $ self <- Self()
+
+					eval(substitute(val), envir = clone_env)
+				}
+
 				.(( as.call(c(fn_sym, arglist)) ))
 			})
 
@@ -277,6 +292,17 @@ make_method <- local({
 
 			# -- chaining methods call x_ on the return value of kea function.
 			bquote({
+
+				# -- the value of Self( ) is set when calling the method with $,
+				# -- so this function must be supplied in the method body to close over 'Self( )'.
+				sub_self <- function (val) {
+
+					clone_env <- new.env(parent = parent.frame(1))
+					clone_env $ self <- Self()
+
+					eval(substitute(val), envir = clone_env)
+				}
+
 				x_( .(( as.call(c(fn_sym, arglist)) )) )
 			})
 		}
@@ -304,7 +330,15 @@ make_method <- local({
 
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
 				args     <- lapply(argnames, function (param) {
-					eval(as.symbol(param))
+
+					# to allow for self references the parametre must be
+					# 'looked-up' in a special environment with self defined.
+					clone_env        <- new.env(parent = environment())
+					clone_env $ self <- Self()
+
+					arg <- substitute(val1, parent.frame(2))
+					eval(arg, envir = clone_env)
+
 				})
 				names(args) <- argnames
 
@@ -341,7 +375,15 @@ make_method <- local({
 
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
 				args     <- lapply(argnames, function (param) {
-				eval(as.symbol(param))
+
+					# to allow for self references the parametre must be
+					# 'looked-up' in a special environment with self defined.
+					clone_env        <- new.env(parent = environment())
+					clone_env $ self <- Self()
+
+					arg <- substitute(val1, parent.frame(2))
+					eval(arg, envir = clone_env)
+
 				})
 				names(args) <- argnames
 
