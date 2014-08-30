@@ -342,7 +342,7 @@ make_method <- local({
 
 					param <- as.symbol(param)
 					arg <- eval(
-						substitute(substitute(param, parent.frame()),
+						substitute(substitute(param, clone_env),
 						list(param = param)) )
 
 					eval(arg, envir = clone_env)
@@ -395,7 +395,7 @@ make_method <- local({
 
 					param <- as.symbol(param)
 					arg <- eval(
-						substitute(substitute(param, parent.frame()),
+						substitute(substitute(param, clone_env),
 						list(param = param)) )
 
 					eval(arg, envir = clone_env)
