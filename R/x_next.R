@@ -277,7 +277,7 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env <- new.env(parent = parent.frame(2))
+					clone_env <- new.env(parent = parent.frame(1))
 					clone_env $ self <- Self()
 
 					eval(substitute(val), envir = clone_env)
@@ -336,7 +336,7 @@ make_method <- local({
 					clone_env        <- new.env(parent = environment())
 					clone_env $ self <- Self()
 
-					arg <- substitute(val1, parent.frame(2))
+					arg <- substitute(val1, parent.frame(1))
 					eval(arg, envir = clone_env)
 
 				})
@@ -381,7 +381,7 @@ make_method <- local({
 					clone_env        <- new.env(parent = environment())
 					clone_env $ self <- Self()
 
-					arg <- substitute(val1, parent.frame(2))
+					arg <- substitute(val1, parent.frame(1))
 					eval(arg, envir = clone_env)
 
 				})
