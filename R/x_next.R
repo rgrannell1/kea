@@ -273,18 +273,17 @@ make_method <- local({
 
 			bquote({
 
+				parent_frame     <- parent.frame()
+				clone_env        <- new.env(parent = parent_frame)
+				clone_env $ self <- Self()
+
 				# -- the value of Self( ) is set when calling the method with $,
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env        <- new.env(parent = parent.frame())
-					clone_env $ self <- Self()
-
 					eval(substitute_q(
 						substitute_q(
-							eval(call('substitute', substitute(val), clone_env)), parent.frame()),
-
-					list(self = Self()) ))
+							eval(call('substitute', substitute(val), clone_env)), parent_frame), clone_env))
 
 				}
 
@@ -298,18 +297,17 @@ make_method <- local({
 			# -- chaining methods call x_ on the return value of kea function.
 			bquote({
 
+				parent_frame     <- parent.frame()
+				clone_env        <- new.env(parent = parent_frame)
+				clone_env $ self <- Self()
+
 				# -- the value of Self( ) is set when calling the method with $,
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env        <- new.env(parent = parent.frame())
-					clone_env $ self <- Self()
-
 					eval(substitute_q(
 						substitute_q(
-							eval(call('substitute', substitute(val), clone_env)), parent.frame()),
-
-					list(self = Self()) ))
+							eval(call('substitute', substitute(val), clone_env)), parent_frame), clone_env))
 
 				}
 
