@@ -1,4 +1,28 @@
 
+Kea 0.48.0
+------------------------------------------------------------------------------
+Date: 2014-8-31
+
+ENHANCEMENTS:
+
+* Added ability to self-reference the LHS in a method call. For example,
+x_(letters) $ xJoin_(c(self, self)) concatenates the lower-case letters three times.
+
+PACKAGE-INTERNALS:
+
+* Modified method code to allow for self reference.
+
+* Added tests for methods.
+
+* Added a stripped down version of Hadley Wickham's substitute_q for metaprogramming.
+
+
+
+
+
+
+
+
 Kea 0.47.0
 ------------------------------------------------------------------------------
 Date: 2014-8-25
