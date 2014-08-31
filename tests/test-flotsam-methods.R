@@ -49,8 +49,7 @@ message("methods")
 		x_(coll) $ xJoin_(c(self, self)),
 
 		x_(xI) $ xMap(list(self)),
-		x_(xI) $ xMap(list(self, self, list(self)))
+		x_(xI) $ xMap( list(self, self, list(self)) )
 	) +
 
 	run()
-

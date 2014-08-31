@@ -268,9 +268,6 @@ make_method <- local({
 
 		if (is_unchaining(method_name)) {
 
-			print('unchain stat')
-			print(sys.call())
-
 			# -- normalise the method name to a function name.
 			fn_sym <- as.symbol(as_chaining(method_name))
 
@@ -280,20 +277,21 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env        <- new.env(parent = parent.frame(1))
+					clone_env        <- new.env(parent = parent.frame())
 					clone_env $ self <- Self()
 
-					eval(substitute(val), envir = clone_env)
+					eval(substitute_q(
+						substitute_q(
+							eval(call('substitute', substitute(val), clone_env)), parent.frame()),
+
+					list(self = Self()) ))
+
 				}
 
 				.(( as.call(c(fn_sym, arglist)) ))
 			})
 
 		} else {
-
-			print('chain stat')
-			print(sys.call())
-
 
 			fn_sym <- as.symbol(method_name)
 
@@ -304,10 +302,15 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env        <- new.env(parent = parent.frame(1))
+					clone_env        <- new.env(parent = parent.frame())
 					clone_env $ self <- Self()
 
-					eval(substitute(val), envir = clone_env)
+					eval(substitute_q(
+						substitute_q(
+							eval(call('substitute', substitute(val), clone_env)), parent.frame()),
+
+					list(self = Self()) ))
+
 				}
 
 				x_( .(( as.call(c(fn_sym, arglist)) )) )
@@ -338,7 +341,6 @@ make_method <- local({
 				# to allow for self references the parametre must be
 				# 'looked-up' in a special environment with self defined.
 
-				print('-------------------------- start!')
 				invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
 
 				clone_env        <- new.env(parent = parent.frame())
@@ -348,30 +350,15 @@ make_method <- local({
 
 				args <- lapply(argnames, as.null)
 
-				print('unchain dyn')
-				print(sys.call())
-
-
 				for (ith in seq_along(argnames)) {
 
 					param <- as.symbol( argnames[[ith]] )
-
-					print(
-
-						eval(eval(
-							call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
-						), clone_env)
-
-					)
-
 
 					args[[ith]] <- eval(eval(
 						call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
 					), clone_env)
 
 				}
-
-				print('-------------------------- end!')
 
 				names(args) <- argnames
 
@@ -409,8 +396,6 @@ make_method <- local({
 				# to allow for self references the parametre must be
 				# 'looked-up' in a special environment with self defined.
 
-				print('chain dyn')
-
 				invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
 
 				clone_env        <- new.env(parent = environment())
@@ -426,14 +411,6 @@ make_method <- local({
 
 					clone_env <- new.env(parent = parent.frame())
 					clone_env $ self <- Self()
-
-
-					print(
-						eval(eval(
-							call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
-						), clone_env)
-					)
-
 
 					args[[ith]] <- eval(eval(
 							call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
