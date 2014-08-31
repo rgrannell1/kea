@@ -343,7 +343,7 @@ make_method <- local({
 
 				invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
 
-				clone_env        <- new.env(parent = environment())
+				clone_env        <- new.env(parent = parent.frame())
 				clone_env $ self <- Self()
 
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
@@ -352,10 +352,12 @@ make_method <- local({
 
 				for (ith in seq_along(argnames)) {
 
-					param <- argnames[[ith]]
-					args[[ith]] <- eval(substitute_q(
-						substitute( x, list(x = as.symbol(param)) ),
-						list(self = Self()) ))
+					param <- as.symbol( argnames[[ith]] )
+
+					args[[ith]] <- eval(eval(
+						call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
+					), clone_env)
+
 				}
 
 				names(args) <- argnames
@@ -407,11 +409,23 @@ make_method <- local({
 
 				for (ith in seq_along(argnames)) {
 
-					param <- argnames[[ith]]
+					param <- as.symbol( argnames[[ith]] )
 
-					args[[ith]] <- eval(substitute_q(
-						substitute( x, list(x = as.symbol(param)) ),
-						list(self = Self()) ))
+					clone_env <- new.env(parent = parent.frame())
+					clone_env $ self <- Self()
+
+
+					print(
+						eval(eval(
+							call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
+						), clone_env)
+					)
+
+
+					args[[ith]] <- eval(eval(
+							call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
+						), clone_env)
+
 				}
 
 				names(args) <- argnames
