@@ -25,6 +25,10 @@ message("methods")
 
 	) +
 
+	run()
+
+	over(val) +
+
 	describe("self reflection works") +
 	holdsWhen(
 		True,
@@ -33,12 +37,16 @@ message("methods")
 		x_(val) $ x_Is(self)
 	) +
 
+	run()
+
+	over(coll) +
+
 	describe("self reflection works") +
 	worksWhen(
-		is_collection(val),
+		is_collection(coll),
 
-		x_(val) $ xJoin_(self),
-		x_(val) $ xJoin_(c(self, self)),
+		x_(coll) $ xJoin_(self),
+		x_(coll) $ xJoin_(c(self, self)),
 
 		x_(xI) $ xMap(list(self)),
 		x_(xI) $ xMap(list(self, self, list(self)))

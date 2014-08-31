@@ -338,9 +338,7 @@ make_method <- local({
 				# to allow for self references the parametre must be
 				# 'looked-up' in a special environment with self defined.
 
-				print('unchain dyn')
-				print(sys.call())
-
+				print('-------------------------- start!')
 				invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
 
 				clone_env        <- new.env(parent = parent.frame())
@@ -350,15 +348,30 @@ make_method <- local({
 
 				args <- lapply(argnames, as.null)
 
+				print('unchain dyn')
+				print(sys.call())
+
+
 				for (ith in seq_along(argnames)) {
 
 					param <- as.symbol( argnames[[ith]] )
+
+					print(
+
+						eval(eval(
+							call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
+						), clone_env)
+
+					)
+
 
 					args[[ith]] <- eval(eval(
 						call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
 					), clone_env)
 
 				}
+
+				print('-------------------------- end!')
 
 				names(args) <- argnames
 
