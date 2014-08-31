@@ -281,9 +281,16 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					eval(substitute_q(
-						substitute_q(
-							eval(call('substitute', substitute(val), clone_env)), parent_frame), clone_env))
+					# this arcane expression;
+					#
+					# 1,    substitutes val          -> the parametre name given as val.
+					# 2,    substitue this parametre ->
+
+					eval(substitute_q(substitute(val), clone_env))
+
+#					eval(substitute_q(
+#						substitute_q(
+#							substitute(val), parent_frame), clone_env))
 
 				}
 
@@ -305,9 +312,16 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					eval(substitute_q(
-						substitute_q(
-							eval(call('substitute', substitute(val), clone_env)), parent_frame), clone_env))
+					# this arcane expression;
+					#
+					# 1,    substitutes val          -> its matching symbol
+					# 2,    substitue this parametre ->
+
+					eval(substitute_q(substitute(val), clone_env))
+
+#					eval(substitute_q(
+#						substitute_q(
+#							substitute(val), parent_frame), clone_env))
 
 				}
 
