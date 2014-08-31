@@ -268,6 +268,9 @@ make_method <- local({
 
 		if (is_unchaining(method_name)) {
 
+			print('unchain stat')
+			print(sys.call())
+
 			# -- normalise the method name to a function name.
 			fn_sym <- as.symbol(as_chaining(method_name))
 
@@ -287,6 +290,10 @@ make_method <- local({
 			})
 
 		} else {
+
+			print('chain stat')
+			print(sys.call())
+
 
 			fn_sym <- as.symbol(method_name)
 
@@ -330,17 +337,27 @@ make_method <- local({
 
 				# to allow for self references the parametre must be
 				# 'looked-up' in a special environment with self defined.
+
+				print('unchain dyn')
+				print(sys.call())
+
+				invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
+
 				clone_env        <- new.env(parent = environment())
 				clone_env $ self <- Self()
 
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
-				args     <- lapply(argnames, function (param) {
 
+				args <- lapply(argnames, as.null)
 
-					call <- match.call(definition = sys.function(-2), call = sys.call(-2) )
-					eval(call [[param]], clone_env)
+				for (ith in seq_along(argnames)) {
 
-				})
+					param <- argnames[[ith]]
+					args[[ith]] <- eval(substitute_q(
+						substitute( x, list(x = as.symbol(param)) ),
+						list(self = Self()) ))
+				}
+
 				names(args) <- argnames
 
 				# -- ensure every argument is supplied (including LHS).
@@ -376,17 +393,27 @@ make_method <- local({
 
 				# to allow for self references the parametre must be
 				# 'looked-up' in a special environment with self defined.
-				clone_env        <- new.env(parent = parent.frame(2))
+
+				print('chain dyn')
+
+				invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
+
+				clone_env        <- new.env(parent = environment())
 				clone_env $ self <- Self()
 
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
-				args     <- lapply(argnames, function (param) {
 
+				args <- lapply(argnames, as.null)
 
-					call <- match.call(definition = sys.function(-2), call = sys.call(-2) )
-					eval(call [[param]], clone_env)
+				for (ith in seq_along(argnames)) {
 
-				})
+					param <- argnames[[ith]]
+
+					args[[ith]] <- eval(substitute_q(
+						substitute( x, list(x = as.symbol(param)) ),
+						list(self = Self()) ))
+				}
+
 				names(args) <- argnames
 
 				# -- ensure every argument is supplied (including LHS).
@@ -397,7 +424,6 @@ make_method <- local({
 
 					throw_kea_error(sys.call(), message)
 				}
-
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
 				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())

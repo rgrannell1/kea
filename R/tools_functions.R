@@ -236,6 +236,16 @@ join_exprs <- local({
 	}
 })
 
+# substitute_q
+#
+# Hadley Wickham's substitute_q, which substitutes x once.
+
+substitute_q <- function(x, env) {
+	call <- substitute(substitute(x, env), list(x = x))
+	eval(call)
+}
+
+
 
 
 
