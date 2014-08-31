@@ -277,7 +277,7 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env <- new.env(parent = parent.frame(1))
+					clone_env        <- new.env(parent = parent.frame(1))
 					clone_env $ self <- Self()
 
 					eval(substitute(val), envir = clone_env)
@@ -297,7 +297,7 @@ make_method <- local({
 				# -- so this function must be supplied in the method body to close over 'Self( )'.
 				sub_self <- function (val) {
 
-					clone_env <- new.env(parent = parent.frame(1))
+					clone_env        <- new.env(parent = parent.frame(1))
 					clone_env $ self <- Self()
 
 					eval(substitute(val), envir = clone_env)
@@ -328,24 +328,17 @@ make_method <- local({
 
 			bquote({
 
+				# to allow for self references the parametre must be
+				# 'looked-up' in a special environment with self defined.
+				clone_env        <- new.env(parent = environment())
+				clone_env $ self <- Self()
+
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
 				args     <- lapply(argnames, function (param) {
 
-					# to allow for self references the parametre must be
-					# 'looked-up' in a special environment with self defined.
-					clone_env        <- new.env(parent = environment())
-					clone_env $ self <- Self()
 
-					# the part about using
-					# a list as an environment is
-					# taken from Hadley Wickham's substitute_q.
-
-					param <- as.symbol(param)
-					arg <- eval(
-						substitute(substitute(param, clone_env),
-						list(param = param)) )
-
-					eval(arg, envir = clone_env)
+					call <- match.call(definition = sys.function(-2), call = sys.call(-2) )
+					eval(call [[param]], clone_env)
 
 				})
 				names(args) <- argnames
@@ -381,24 +374,17 @@ make_method <- local({
 
 			bquote({
 
+				# to allow for self references the parametre must be
+				# 'looked-up' in a special environment with self defined.
+				clone_env        <- new.env(parent = parent.frame(2))
+				clone_env $ self <- Self()
+
 				argnames <- names(as.list(match.call(expand.dots = True))[-1])
 				args     <- lapply(argnames, function (param) {
 
-					# to allow for self references the parametre must be
-					# 'looked-up' in a special environment with self defined.
-					clone_env        <- new.env(parent = environment())
-					clone_env $ self <- Self()
 
-					# the part about using
-					# a list as an environment is
-					# taken from Hadley Wickham's substitute_q.
-
-					param <- as.symbol(param)
-					arg <- eval(
-						substitute(substitute(param, clone_env),
-						list(param = param)) )
-
-					eval(arg, envir = clone_env)
+					call <- match.call(definition = sys.function(-2), call = sys.call(-2) )
+					eval(call [[param]], clone_env)
 
 				})
 				names(args) <- argnames
@@ -411,6 +397,7 @@ make_method <- local({
 
 					throw_kea_error(sys.call(), message)
 				}
+
 
 				# -- set the missing argument to the LHS (Self() returns the LHS)
 				args[[ setdiff(.( names(formals(fn)) ), names(args)) ]] <- quote(Self())
