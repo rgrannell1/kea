@@ -450,7 +450,7 @@ make_method <- function (fn_name, params) {
 
 	method
 
-})
+}
 
 
 
