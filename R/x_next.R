@@ -237,12 +237,10 @@ make_method <- local({
 	create_static_body <- function (fn, method_name, fixed) {
 
 		# -- accumulate a parametres list.
-		# -- done with Reduce as more work is needed for variadic formals.
 		arglist <- Reduce(
 			function (acc, param) {
 
 				if (param == fixed) {
-					# -- this parametre is to be fixed.
 
 					if (fixed == '...') {
 						# -- fixing an ellipsis parametre, which
