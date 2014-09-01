@@ -48,8 +48,11 @@ Other value_testing_functions: \code{\link{xIsEmpty}},
   \code{\link{xIsPrefixOf_}}; \code{\link{xIsTrue}};
   \code{\link{xIs}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotFalse}};
+  \code{\link{xNotInfixOf}}, \code{\link{xNotInfixOf_}};
   \code{\link{xNotNan}}; \code{\link{xNotNa}};
-  \code{\link{xNotNull}}; \code{\link{xNotTrue}};
+  \code{\link{xNotNull}}; \code{\link{xNotPrefixOf}},
+  \code{\link{xNotPrefixOf_}}; \code{\link{xNotSuffixOf}},
+  \code{\link{xNotSuffixOf_}}; \code{\link{xNotTrue}};
   \code{\link{xNot}}
 }
 

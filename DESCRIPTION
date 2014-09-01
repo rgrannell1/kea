@@ -209,5 +209,8 @@ Collate:
     'xSwap.R'
     'xAsList.R'
     'xAmend.R'
+    'xNotPrefixOf.R'
+    'xNotInfixOf.R'
+    'xNotSuffixOf.R'
     'x_next.R'
     'x..R'
