@@ -266,54 +266,40 @@ make_method <- local({
 			list()
 		)
 
-		if (is_unchaining(method_name)) {
-
-			# -- normalise the method name to a function name.
-			fn_sym <- as.symbol(as_chaining(method_name))
-
-			bquote({
-
-				parent_frame     <- parent.frame()
-				clone_env        <- new.env(parent = parent_frame)
-				clone_env $ self <- Self()
-
-				# -- the value of Self( ) is set when calling the method with $,
-				# -- so this function must be supplied in the method body to close over 'Self( )'.
-				sub_self <- function (val) {
-
-					eval(substitute_q(
-						substitute_q(
-							substitute(val), parent_frame), clone_env))
-
-				}
-
-				.(( as.call(c(fn_sym, arglist)) ))
-			})
-
+		fn_sym <- if (is_unchaining(method_name)) {
+			as.symbol(as_chaining(method_name))
 		} else {
-
-			fn_sym <- as.symbol(method_name)
-
-			# -- chaining methods call x_ on the return value of kea function.
-			bquote({
-
-				parent_frame     <- parent.frame()
-				clone_env        <- new.env(parent = parent_frame)
-				clone_env $ self <- Self()
-
-				# -- the value of Self( ) is set when calling the method with $,
-				# -- so this function must be supplied in the method body to close over 'Self( )'.
-				sub_self <- function (val) {
-
-					eval(substitute_q(
-						substitute_q(
-							substitute(val), parent_frame), clone_env))
-
-				}
-
-				x_( .(( as.call(c(fn_sym, arglist)) )) )
-			})
+			as.symbol(method_name)
 		}
+
+		# -- normalise the method name to a function name.
+
+		bquote({
+
+			parent_frame     <- parent.frame()
+			clone_env        <- new.env(parent = parent_frame)
+			clone_env $ self <- Self()
+
+			# -- the value of Self( ) is set when calling the method with $,
+			# -- so this function must be supplied in the method body to close over 'Self( )'.
+			sub_self <- function (val) {
+
+				eval(substitute_q(
+					substitute_q(
+						substitute(val), parent_frame), clone_env))
+
+			}
+
+			.({
+
+				method_call <- as.call(c(fn_sym, arglist))
+
+				if (is_unchaining(method_name)) method_call else call('x_', method_call)
+
+			})
+
+		})
+
 	}
 
 	# create_dynamic_body
