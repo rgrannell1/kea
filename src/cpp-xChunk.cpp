@@ -16,7 +16,25 @@ List cChunk (NumericVector num, List coll) {
 		return List::create();
 	} else if (num_mag == INFINITY) {
 
-		//return list
+		List chunk(coll_len);
+
+		if (has_names) {
+
+			for (int ith = 0; ith < coll_len; ith++) {
+				chunk[ith] = coll[ith];
+			}
+
+			chunk.attr("names") = coll_names;
+
+		} else {
+
+			for (int ith = 0; ith < coll_len; ith++) {
+				chunk[ith] = coll[ith];
+			}
+
+		}
+
+		return List::create(chunk);
 
 	} else {
 
