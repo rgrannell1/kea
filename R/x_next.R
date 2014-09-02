@@ -270,7 +270,7 @@ create_dynamic_body <- function (fn, method_name) {
 	# -- supplying arguments to its underlying function.
 
 
-	fn_sym <- if (is_unchaining) {
+	fn_sym <- if (is_unchaining(method_name)) {
 		as.symbol(as_chaining(method_name))
 	} else {
 		as.symbol(method_name)
@@ -325,7 +325,7 @@ create_dynamic_body <- function (fn, method_name) {
 		do.call(.(fn_sym), unnamed_args)
 
 	})
-
+}
 
 
 
