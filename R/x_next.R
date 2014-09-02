@@ -322,7 +322,15 @@ create_dynamic_body <- function (fn, method_name) {
 		})
 
 		# -- unname
-		do.call(.(fn_sym), unnamed_args)
+		.(
+
+			if (is_unchaining(method_name)) {
+				call('do.call', fn_sym, quote(unnamed_args))
+			} else {
+				call( 'x_', call('do.call', fn_sym, quote(unnamed_args)) )
+			}
+
+		)
 
 	})
 }
