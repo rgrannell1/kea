@@ -29,6 +29,9 @@
 #' @template
 #'    Variadic
 #'
+#' @template
+#'    C++
+#'
 #' @example
 #'    inst/examples/example-xChunk.R
 #'

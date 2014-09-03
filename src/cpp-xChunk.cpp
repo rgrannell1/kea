@@ -16,13 +16,17 @@ List cChunk (NumericVector num, List coll) {
 	}
 
 	bool has_names             = coll.attr("names") != R_NilValue;
-	CharacterVector coll_names = coll.attr("names") != R_NilValue ? coll.attr("names"): CharacterVector::create();
+	/* needed to avoid a type-error when unnamed. */
+	CharacterVector coll_names = coll.attr("names") != R_NilValue ?
+		coll.attr("names"):
+		CharacterVector::create();
 
 	if (coll_len == 0 || num_len == 0) {
 		return List::create();
 	} else {
 
 		int lower   = 0;
+		/* ceiling */
 		int out_len = (coll_len / num_mag) + (coll_len % num_mag != 0);
 
 		List out(out_len);

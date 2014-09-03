@@ -33,6 +33,12 @@ Divide a collection into segments of fixed length.
    elements if \code{length(coll)} is not evenly divisible by \bold{num}.
    if \bold{coll} or \bold{num} is length-zero, the empty list is returned.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. Chunk a flat name,value .csv into pairs of names, values
