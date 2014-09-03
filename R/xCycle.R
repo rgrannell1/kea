@@ -64,15 +64,8 @@ xCycle <- MakeFun('xCycle', function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Finite(num) )
 
-	if (length(coll) == 0 || length(num) == 0) {
-		keep_names(list(), coll)
-	} else {
+	cCycle(num, coll)
 
-		# -- this horrid line (thank 1-indexing) cylically permutes the indices.
-		indices <- ((seq_along( coll)  - 1 + num) %% length( coll) ) + 1
-
-		as.list(coll[indices])
-	}
 })
 
 #' @rdname xCycle

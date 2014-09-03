@@ -5,6 +5,10 @@ cChunk <- function(num, coll) {
     .Call('kea_cChunk', PACKAGE = 'kea', num, coll)
 }
 
+cCycle <- function(num, coll) {
+    .Call('kea_cCycle', PACKAGE = 'kea', num, coll)
+}
+
 cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }

@@ -21,6 +21,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cCycle
+List cCycle(NumericVector num, List coll);
+RcppExport SEXP kea_cCycle(SEXP numSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericVector >::type num(numSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cCycle(num, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cDrop
 List cDrop(NumericVector num, List coll);
 RcppExport SEXP kea_cDrop(SEXP numSEXP, SEXP collSEXP) {
