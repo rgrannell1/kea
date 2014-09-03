@@ -26,7 +26,6 @@ List cChunk (NumericVector num, List coll) {
 	} else {
 
 		int lower   = 0;
-		/* ceiling */
 		int out_len = (coll_len / num_mag) + (coll_len % num_mag != 0);
 
 		List out(out_len);
@@ -55,7 +54,7 @@ List cChunk (NumericVector num, List coll) {
 			}
 
 			chunk.attr("names") = chunk_names;
-			out[ith] = chunk;
+			out[ith]            = chunk;
 
 			lower += num_mag;
 
