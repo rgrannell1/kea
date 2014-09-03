@@ -79,14 +79,15 @@ x_(dgcr8) $ xToChars() $ xTabulate() $ x_MaxBy(xSecondOf)
 # Glutamic Acid is the most common residue in dgcr8
 }
 \seealso{
-Other text_processing_functions: \code{\link{xExplode}};
-  \code{\link{xFromChars}}, \code{\link{xFromChars_}};
-  \code{\link{xFromLines}}, \code{\link{xFromLines_}};
-  \code{\link{xFromWords}}, \code{\link{xFromWords_}};
-  \code{\link{xImplode}}, \code{\link{xImplode_}};
-  \code{\link{xIsMatch}}; \code{\link{xNotMatch}};
-  \code{\link{xRead}}; \code{\link{xSliceString}},
-  \code{\link{xSliceString_}}; \code{\link{xToLines}};
-  \code{\link{xToWords}}; \code{\link{xWrite}}
+Other text_processing_functions: \code{\link{xAmend}};
+  \code{\link{xExplode}}; \code{\link{xFromChars}},
+  \code{\link{xFromChars_}}; \code{\link{xFromLines}},
+  \code{\link{xFromLines_}}; \code{\link{xFromWords}},
+  \code{\link{xFromWords_}}; \code{\link{xImplode}},
+  \code{\link{xImplode_}}; \code{\link{xIsMatch}};
+  \code{\link{xNotMatch}}; \code{\link{xRead}};
+  \code{\link{xSliceString}}, \code{\link{xSliceString_}};
+  \code{\link{xToLines}}; \code{\link{xToWords}};
+  \code{\link{xWrite}}
 }
 

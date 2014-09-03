@@ -32,6 +32,12 @@ Take several elements from the head of a collection.
    If \bold{coll} is empty the empty list is returned,
    or if \bold{num} is length-zero.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. Create a selector to take a fixed number of values.

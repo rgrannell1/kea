@@ -29,6 +29,9 @@
 #' @template
 #'    Variadic
 #'
+#' @template
+#'    C++
+#'
 #' @example
 #'    inst/examples/example-xChunk.R
 #'
@@ -40,20 +43,7 @@ xChunk <- MakeFun('xChunk', function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 1, Inf))
 
-	if (length(coll) == 0 || length(num) == 0) {
-		# -- do not name outer list.
-		list()
-	} else if (is.infinite(num)) {
-		list(as.list(coll))
-	} else {
-
-		lapply(
-			seq(1, to = length(coll), by = num),
-			function (lower) {
-				as.list(coll[ lower:min(length(coll), lower + num - 1) ])
-		})
-
-	}
+	cChunk(num, coll)
 })
 
 #' @rdname xChunk
