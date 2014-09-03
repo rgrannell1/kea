@@ -4,38 +4,22 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cChunk (NumericVector num, List coll) {
 
-	int num_len    = num.size();
-	int coll_len   = coll.size();
+	int num_len  = num.size();
+	int coll_len = coll.size();
 
-	int num_mag    = num[0];
+	int num_mag;
+
+	if (num[0] == INFINITY) {
+		num_mag = coll_len + 1;
+	} else {
+		num_mag = num[0];
+	}
 
 	bool has_names             = coll.attr("names") != R_NilValue;
-	CharacterVector coll_names = coll.attr("names");
+	CharacterVector coll_names = coll.attr("names") != R_NilValue ? coll.attr("names"): CharacterVector::create();
 
 	if (coll_len == 0 || num_len == 0) {
 		return List::create();
-	} else if (num_mag == INFINITY) {
-
-		List chunk(coll_len);
-
-		if (has_names) {
-
-			for (int ith = 0; ith < coll_len; ith++) {
-				chunk[ith] = coll[ith];
-			}
-
-			chunk.attr("names") = coll_names;
-
-		} else {
-
-			for (int ith = 0; ith < coll_len; ith++) {
-				chunk[ith] = coll[ith];
-			}
-
-		}
-
-		return List::create(chunk);
-
 	} else {
 
 		int lower   = 0;
