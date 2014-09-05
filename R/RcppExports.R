@@ -5,16 +5,12 @@ cChunk <- function(num, coll) {
     .Call('kea_cChunk', PACKAGE = 'kea', num, coll)
 }
 
-cCycle <- function(num, coll) {
-    .Call('kea_cCycle', PACKAGE = 'kea', num, coll)
-}
-
 cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
-cPoll <- function(pred, coll) {
-    .Call('kea_cPoll', PACKAGE = 'kea', pred, coll)
+cPowerSetOf <- function(coll) {
+    .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
 
 cTake <- function(num, coll) {
