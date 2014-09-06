@@ -19,7 +19,7 @@ July        2.9
 
 rain_data <-
 	x_(raw_rain_data) $ xToLines() $
-	xMap(xToWords %then% as.list)  $
+	xMap(xToWords %then% xAsList)  $
 	xMap( xAddKeys(c('month', 'rain (ml)')) ) $
 	x_Map(row := {
 

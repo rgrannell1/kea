@@ -31,8 +31,7 @@ ICEbox              07:02:26    ripley
 # parse the table, and add rownames.
 cran_data <-
 	x_(raw_cran_data) $ xToLines() $
-	xMap(xExplode("[ ]+")) $
-	xMap(as.list) $
+	xMap(xExplode("[ ]+") %then% xAsList) $
 	xMap( xAddKeys(c("package", "time", "maintainer")) )
 
 x_(cran_data) $ x_GroupBy(x. $ maintainer)
