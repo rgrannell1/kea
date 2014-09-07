@@ -39,27 +39,6 @@ xZipKeys <- MakeFun('xZipKeys', function (colls) {
 
 	MACRO( Must_Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
 
-#	if (length(colls) == 0) {
-#		list()
-#	} else {#
-
-#		keys <- vapply(
-#			colls,
-#			function (coll) {#
-
-#				key <- as_typed_vector(coll[[1]], "character")#
-
-#				MACRO( Must_Be_Of_Length(key, 1) )#
-
-#				key
-#			},
-#			character(1), USE.NAMES = False)#
-
-#		structure(
-#			lapply(colls, function (elem) elem[[2]]),
-#			names = keys)
-#	}
-
 	cZipKeys(colls)
 })
 
