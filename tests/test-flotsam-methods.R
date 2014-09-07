@@ -5,14 +5,11 @@ message("methods")
 
 	over(val) +
 
-	describe("calling a nullary method works") +
+	describe("universal methods are available to all data types") +
 	holdsWhen(
 		True,
-
-		x_(val) $ x_I() %is% val
+		x_(val) $ x_() %is% val
 	) +
-
-	run()
 
 	over(val) +
 

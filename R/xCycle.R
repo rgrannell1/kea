@@ -68,6 +68,7 @@ xCycle <- MakeFun('xCycle', function (num, coll) {
 		keep_names(list(), coll)
 	} else {
 		# -- this horrid line (thank 1-indexing) cylically permutes the indices.
+
 		indices <- ((seq_along( coll) - 1 + num) %% length( coll) ) + 1
 		as.list(coll[indices])
 	}

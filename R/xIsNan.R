@@ -7,8 +7,7 @@
 #'     any -> &lt;logical>
 #'
 #' @param
-#'    val an arbitrary value. The value to test for being
-#'    nan.
+#'    val an arbitrary value. The value to test for being nan.
 #'
 #' @param
 #'    ... see above.

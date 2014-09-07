@@ -38,8 +38,9 @@ xFromChars <- MakeFun('xFromChars', function (strs) {
 	if (length(strs) == 0) {
 		character(0)
 	} else {
-		paste(strs, collapse = '')
+		paste0(strs, collapse = '')
 	}
+
 })
 
 #' @rdname xFromChars

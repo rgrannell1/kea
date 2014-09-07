@@ -9,6 +9,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cFromChars <- function(strs) {
+    .Call('kea_cFromChars', PACKAGE = 'kea', strs)
+}
+
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
