@@ -17,3 +17,7 @@ cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
 }
 
+cZipKeys <- function(colls) {
+    .Call('kea_cZipKeys', PACKAGE = 'kea', colls)
+}
+
