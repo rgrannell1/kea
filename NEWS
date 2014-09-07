@@ -5,6 +5,11 @@ Date: 2014-9-3
 
 ENHANCEMENTS:
 
+BUG-FIXES:
+
+* Fixed a dumb bug in which factors and data frames didn't have access to
+supposedly universal methods like xIdentity.
+
 PACKAGE-INTERNALS:
 
 

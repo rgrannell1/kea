@@ -37,21 +37,6 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// cFromChars
-CharacterVector cFromChars(CharacterVector strs);
-RcppExport SEXP kea_cFromChars(SEXP strsSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< CharacterVector >::type strs(strsSEXP );
-        CharacterVector __result = cFromChars(strs);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
 // cPowerSetOf
 List cPowerSetOf(List coll);
 RcppExport SEXP kea_cPowerSetOf(SEXP collSEXP) {
