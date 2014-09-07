@@ -8,7 +8,7 @@ message("methods")
 	describe("universal methods are available to all data types") +
 	holdsWhen(
 		True,
-		x_(val) $ x_() %is% val
+		x_(val) $ x_I() %is% val
 	) +
 
 	over(val) +
