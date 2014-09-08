@@ -39,21 +39,7 @@
 #' @export
 
 xUnzipKeys <- MakeFun('xUnzipKeys', function (coll) {
-
-	if (length(coll) == 0) {
-		list()
-	} else {
-
-		MACRO( Must_Be_Named(coll) )
-
-		colnames <- names(coll)
-		# -- wipe the names from the collection.
-		coll <- unname(coll)
-
-		lapply(seq_along(coll), function (ith) {
-			list(colnames[[ith]], coll[[ith]] )
-		})
-	}
+	cUnzipKeys(coll)
 })
 
 #' @rdname xUnzipKeys

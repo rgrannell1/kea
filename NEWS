@@ -7,7 +7,7 @@ ENHANCEMENTS:
 
 * Rewrote xUnzipIndices in C++, yielding a x7 times speedup for 100,000 elements.
 
-
+* Rewrote xUnzipKeys in C++, yielding a x10 times speedup for 100,000 elements.
 
 
 
