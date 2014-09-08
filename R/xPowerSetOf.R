@@ -46,6 +46,7 @@ xPowerSetOf <- MakeFun('xPowerSetOf', function (coll) {
 		coll <- lapply(coll, list)
 
 		for (elem in coll) {
+
 			elem_subsets <- vector('list', length(subsets))
 
 			# -- append the element to each set in the partial
@@ -54,11 +55,16 @@ xPowerSetOf <- MakeFun('xPowerSetOf', function (coll) {
 			for (ith in seq_along(subsets)) {
 				elem_subsets[[ith]] <- c(subsets[[ith]], elem)
 			}
+
 			subsets <- c(subsets, elem_subsets)
+
 		}
 
 		subsets
 	}
+
+	# cPowerSetOf(coll)
+
 })
 
 #' @rdname xPowerSetOf

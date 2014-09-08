@@ -37,16 +37,31 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// cPoll
-NumericVector cPoll(Function pred, List coll);
-RcppExport SEXP kea_cPoll(SEXP predSEXP, SEXP collSEXP) {
+// cPowerSetOf
+List cPowerSetOf(List coll);
+RcppExport SEXP kea_cPowerSetOf(SEXP collSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< Function >::type pred(predSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
-        NumericVector __result = cPoll(pred, coll);
+        List __result = cPowerSetOf(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cRiffle
+List cRiffle(SEXP val, List coll);
+RcppExport SEXP kea_cRiffle(SEXP valSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cRiffle(val, coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -63,6 +78,21 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericVector >::type num(numSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cTake(num, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cZipKeys
+List cZipKeys(List colls);
+RcppExport SEXP kea_cZipKeys(SEXP collsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type colls(collsSEXP );
+        List __result = cZipKeys(colls);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

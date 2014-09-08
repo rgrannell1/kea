@@ -9,11 +9,19 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
-cPoll <- function(pred, coll) {
-    .Call('kea_cPoll', PACKAGE = 'kea', pred, coll)
+cPowerSetOf <- function(coll) {
+    .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
+}
+
+cRiffle <- function(val, coll) {
+    .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
 }
 
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
+}
+
+cZipKeys <- function(colls) {
+    .Call('kea_cZipKeys', PACKAGE = 'kea', colls)
 }
 

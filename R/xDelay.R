@@ -29,6 +29,7 @@
 #' @section Corner Cases:
 #'    If \bold{num} is zero then \bold{fn} is returned untouched.
 #'
+#' @template S-Uncertain
 #' @family function_modifying_functions
 #'
 #' @family time_functions
