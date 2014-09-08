@@ -3,14 +3,19 @@ Kea 0.50.0
 ------------------------------------------------------------------------------
 Date: 2014-9-8
 
+Improved performance of xRiffle and xZipKeys.
+
 ENHANCEMENTS:
+
+* Rewrote xRiffle in C++, making it x1000 times more efficient for
+a ten-thousand element collection.
+
+* Rewrote xZipKeys in C++, modestly improving its performance.
 
 BUG-FIXES:
 
 * Fixed a dumb bug in which factors and data frames didn't have access to
 supposedly universal methods like xIdentity.
-
-PACKAGE-INTERNALS:
 
 
 
@@ -22,6 +27,8 @@ PACKAGE-INTERNALS:
 Kea 0.49.0
 ------------------------------------------------------------------------------
 Date: 2014-9-3
+
+Added xAmend and negative prefix functions.
 
 ENHANCEMENTS:
 
