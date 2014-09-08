@@ -84,6 +84,36 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cUnzipIndices
+List cUnzipIndices(List coll);
+RcppExport SEXP kea_cUnzipIndices(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cUnzipIndices(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cUnzipKeys
+List cUnzipKeys(List coll);
+RcppExport SEXP kea_cUnzipKeys(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cUnzipKeys(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cZipKeys
 List cZipKeys(List colls);
 RcppExport SEXP kea_cZipKeys(SEXP collsSEXP) {

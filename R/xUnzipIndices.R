@@ -39,14 +39,7 @@
 #' @export
 
 xUnzipIndices <- MakeFun('xUnzipIndices', function (coll) {
-
-	if (length(coll) == 0) {
-		keep_names(list(), coll)
-	} else {
-		lapply(seq_along(coll), function (ith) {
-			list(ith, coll[[ith]] )
-		})
-	}
+	cUnzipIndices(coll)
 })
 
 #' @rdname xUnzipIndices

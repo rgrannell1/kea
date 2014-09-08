@@ -21,6 +21,14 @@ cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
 }
 
+cUnzipIndices <- function(coll) {
+    .Call('kea_cUnzipIndices', PACKAGE = 'kea', coll)
+}
+
+cUnzipKeys <- function(coll) {
+    .Call('kea_cUnzipKeys', PACKAGE = 'kea', coll)
+}
+
 cZipKeys <- function(colls) {
     .Call('kea_cZipKeys', PACKAGE = 'kea', colls)
 }

@@ -50,7 +50,7 @@ xSliceString <- MakeFun('xSliceString', function (nums, str) {
 
 		MACRO( Must_All_Be_Indices(nums, chars) )
 
-		out <-        paste0(chars[nums], collapse = "")
+		out        <- paste0(chars[nums], collapse = "")
 		names(out) <- names(str)
 		out
 	}

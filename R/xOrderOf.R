@@ -46,7 +46,6 @@
 
 xOrderOf <- MakeFun('xOrderOf', function (nums) {
 
-
 	if (length(nums) == 0) {
 		keep_names(integer(0), nums)
 	} else {
