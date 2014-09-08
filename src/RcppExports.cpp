@@ -52,6 +52,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cRiffle
+List cRiffle(SEXP val, List coll);
+RcppExport SEXP kea_cRiffle(SEXP valSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cRiffle(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cTake
 List cTake(NumericVector num, List coll);
 RcppExport SEXP kea_cTake(SEXP numSEXP, SEXP collSEXP) {

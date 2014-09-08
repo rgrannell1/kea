@@ -34,28 +34,7 @@
 #' @export
 
 xRiffle <- MakeFun('xRiffle', function (val, coll) {
-
-	# -- drop names as making a list with new elements.
-	if (length(coll) == 0) {
-		list()
-	} else if (length(coll) == 1) {
-		list( coll[[1]] )
-	} else {
-
-		out      <- lapply(seq_len((2 * length(coll)) - 1), as.null)
-		out[[1]] <- coll[[1]]
-		jth      <- 2
-
-		for (ith in 2:length(coll)) {
-			out[[jth]]     <- val
-			out[[jth + 1]] <- coll[[ith]]
-
-			jth <- jth + 2
-		}
-
-		out
-	}
-
+	cRiffle(val, coll)
 })
 
 #' @rdname xRiffle
