@@ -27,7 +27,6 @@ List cUnzipIndices (List coll) {
 
 				List row = List::create(ith, coll[ith]);
 				out[ith] = row;
-
 			}
 
 			CharacterVector coll_names = coll.attr("names");
@@ -39,7 +38,6 @@ List cUnzipIndices (List coll) {
 
 				List row = List::create(ith + 1, coll[ith]);
 				out[ith] = row;
-
 			}
 		}
 

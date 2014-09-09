@@ -51,7 +51,6 @@ xIsIn <- MakeFun('xIsIn', function (val, coll) {
 		False
 	}
 
-
 })
 
 #' @rdname xIsIn

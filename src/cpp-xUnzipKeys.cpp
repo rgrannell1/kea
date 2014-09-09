@@ -4,7 +4,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cUnzipKeys (List coll) {
 
-	int coll_len               = coll.size();
+	int coll_len = coll.size();
 
 	if (coll_len == 0) {
 		return List::create();
