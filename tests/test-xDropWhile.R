@@ -27,4 +27,11 @@ message("xDropWhile")
 		xDropWhile(function (x) Na,    coll) %is% as.list(coll)
 	) +
 
+	describe("dropwhile preserves names") +
+	holdsWhen(
+		is_collection(coll) && length(coll) > 0,
+
+		names(xDropWhile(function (x) False, coll)) %is% names(coll)
+	) +
+
 	run()

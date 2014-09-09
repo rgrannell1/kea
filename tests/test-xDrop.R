@@ -35,6 +35,15 @@ message('xDrop')
 		}
 	) +
 
+	describe("drop preserves the names of its remaining elements") +
+	holdsWhen(
+		is_numeric(num) && !is.na(num) &&
+		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num && num >= 0)) &&
+		is_collection(coll) && length(coll) > 0,
+
+		as.list( names(xDrop(num, coll)) ) %is% xDrop(num, names(coll))
+	) +
+
 	describe("take works over all round positive integers") +
 	worksWhen(
 		is_numeric(num) && !is.na(num) &&

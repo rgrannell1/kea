@@ -22,14 +22,22 @@ message("xRank")
 	holdsWhen(
 		is_numeric(nums) && length(nums) == 1 && !any(is.na(nums)),
 
-		xRank(nums) == 1
+		unname(xRank(nums) == 1)
 	) +
 
 	describe("sorting the rank of numbers is seq_along nums") +
 	holdsWhen(
 		is_numeric(nums) && !any(is.na(nums)) && length(nums) > 0,
 
-		sort(xRank(nums)) %is% seq_along(nums)
+		unname( sort(xRank(nums)) ) %is% seq_along(nums)
+	) +
+
+	describe("ranking keeps names, though unordered") +
+	holdsWhen(
+		is_numeric(nums) && !any(is.na(nums)) && length(nums) > 0 && is_named(nums),
+
+		names(xRank(nums)) %is% sort(names(nums))
 	) +
 
 	run()
+2

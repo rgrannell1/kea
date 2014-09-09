@@ -39,7 +39,13 @@ xRank <- MakeFun('xRank', function (nums) {
 		MACRO(Must_Be_Orderable(nums))
 
 		# -- this should be double-checked
-		as.integer(rank(nums, ties.method = 'first'))
+		ranked        <- rank(nums, ties.method = 'first')
+
+		rank_names    <- names(ranked)
+		ranked        <- as.integer(ranked)
+		names(ranked) <- rank_names
+
+		ranked
 	}
 })
 

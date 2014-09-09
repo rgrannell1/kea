@@ -23,4 +23,12 @@ message("xMap")
 		xMap(identity, coll) %is% as.list(coll)
 	) +
 
+	describe('names are preserved') +
+	holdsWhen(
+		is_collection(coll) && length(coll),
+
+		names(xMap(identity, coll)) %is% names(coll),
+		xMap(identity, names(coll)) %is% as.list(names(coll))
+	) +
+
 	run()
