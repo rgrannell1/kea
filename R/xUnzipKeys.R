@@ -30,6 +30,9 @@
 #' @family key_functions
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

@@ -5,18 +5,13 @@ using namespace Rcpp;
 List cUnzipKeys (List coll) {
 
 	int coll_len               = coll.size();
-	CharacterVector coll_names = coll.attr("names");
 
 	if (coll_len == 0) {
-
-		List out(0);
-		out.attr("names") = CharacterVector::create();
-
-		return out;
-
+		return List::create();
 	} else {
 
 		List out(coll_len);
+		CharacterVector coll_names = coll.attr("names");
 
 		for (int ith = 0; ith < coll_len; ith++) {
 

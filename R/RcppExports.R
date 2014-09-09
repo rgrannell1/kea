@@ -9,6 +9,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cIsIn <- function(val, coll) {
+    .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
+}
+
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
