@@ -38,5 +38,4 @@ List cTake (NumericVector num, List coll) {
 
 		}
 	}
-
 }

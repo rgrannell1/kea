@@ -1,4 +1,31 @@
 
+Kea 0.51.0
+------------------------------------------------------------------------------
+Date: 2014-9-10
+
+Improved performance of xUnzipIndices and xUnzipKeys.
+
+ENHANCEMENTS:
+
+* Rewrote xUnzipIndices in C++, yielding a x7 times speedup for 100,000 elements.
+
+* Rewrote xUnzipKeys in C++, yielding a x10 times speedup for 100,000 elements.
+
+BUG-FIXES:
+
+* xRank now preserves its input names.
+
+PACKAGE-INTERNALS:
+
+* Added tests to functions that should preserve input names, closing #35.
+
+
+
+
+
+
+
+
 Kea 0.50.0
 ------------------------------------------------------------------------------
 Date: 2014-9-8

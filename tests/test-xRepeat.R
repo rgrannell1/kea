@@ -17,6 +17,7 @@ message("xRepeat")
 		round(unlist(num)) == num && is.finite(unlist(num)) &&
 		num > 0 && num < 1000 &&
 		is_collection(coll) && length(coll) == 0,
+
 		length(xRepeat(num, coll)) == 0
 	) +
 
@@ -26,7 +27,18 @@ message("xRepeat")
 		round(unlist(num)) == num && is.finite(unlist(num)) &&
 		num > 0 && num < 1000 &&
 		is_collection(coll),
+
 		length(xRepeat(num, coll)) == length(coll) * num
+	) +
+
+	describe("repeating num times preserves & repeats names") +
+	holdsWhen(
+		is_numeric(num) && length(num) == 1 && !is.na(unlist(num)) &&
+		round(unlist(num)) == num && is.finite(unlist(num)) &&
+		num > 0 && num < 1000 &&
+		is_collection(coll),
+
+		names(xRepeat(num, coll)) %is% rep(names(coll), num)
 	) +
 
 	run()

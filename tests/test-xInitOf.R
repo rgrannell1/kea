@@ -26,4 +26,11 @@ message("xInitOf")
 		length(xInitOf(coll)) == length(coll) - 1
 	) +
 
+	describe("xInitOf preserves names") +
+	holdsWhen(
+		is_collection(coll),
+
+		names(xInitOf(coll)) %is% head(names(coll), -1)
+	) +
+
 	run()

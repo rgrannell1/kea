@@ -153,6 +153,13 @@ message("as_typed_vector (atomic)")
 		as_typed_vector(coll, typeof(coll)) %is% coll
 	) +
 
+	describe("names are always conserved") +
+	holdsWhen(
+		is_atomic(coll),
+
+		names( as_typed_vector(coll, typeof(coll)) ) %is% names(coll)
+	) +
+
 	run()
 
 
@@ -181,6 +188,7 @@ message("as_atom (atomic)")
 	describe("atom length-zero conversion always works") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+
 		as_atom(coll, 'numeric')   %is% numeric(0),
 		as_atom(coll, 'integer')   %is% integer(0),
 		as_atom(coll, 'double')    %is% double(0),
@@ -193,6 +201,7 @@ message("as_atom (atomic)")
 	describe("atom length-zero conversion always works (named)") +
 	holdsWhen(
 		is_collection(coll) && length(coll) == 0 && is_named(coll),
+
 		as_atom(coll, 'numeric')   %is% as_named(numeric(0)),
 		as_atom(coll, 'integer')   %is% as_named(integer(0)),
 		as_atom(coll, 'double')    %is% as_named(double(0)),

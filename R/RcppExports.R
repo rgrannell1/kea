@@ -9,6 +9,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cIsIn <- function(val, coll) {
+    .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
+}
+
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
@@ -19,6 +23,14 @@ cRiffle <- function(val, coll) {
 
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
+}
+
+cUnzipIndices <- function(coll) {
+    .Call('kea_cUnzipIndices', PACKAGE = 'kea', coll)
+}
+
+cUnzipKeys <- function(coll) {
+    .Call('kea_cUnzipKeys', PACKAGE = 'kea', coll)
 }
 
 cZipKeys <- function(colls) {

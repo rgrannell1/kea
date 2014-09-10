@@ -7,7 +7,7 @@ message("xSlice")
 
 	describe("slicing with no indices is the empty list") +
 	holdsWhen(
-		is_collection(nums) == 0 && length(nums) == 0 &&
+		is_collection(nums) && length(nums) == 0 &&
 		is_collection(coll) && !is_named(coll),
 
 		xSlice(nums, coll) %is% list()
@@ -15,7 +15,7 @@ message("xSlice")
 
 	describe("slicing with no indices is the empty list (named)") +
 	holdsWhen(
-		is_collection(nums) == 0 && length(nums) == 0 &&
+		is_collection(nums) && length(nums) == 0 &&
 		is_collection(coll) && is_named(coll),
 
 		xSlice(nums, coll) %is% as_named(list())
@@ -26,6 +26,13 @@ message("xSlice")
 		is_collection(coll),
 
 		xSlice(seq_along(coll), coll) %is% as.list(coll)
+	) +
+
+	describe("slicing preserve slice names") +
+	holdsWhen(
+		is_collection(coll),
+
+		names(xSlice(seq_along(coll), coll)) %is% names(coll)
 	) +
 
 	run()

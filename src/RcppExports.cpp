@@ -37,6 +37,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cIsIn
+LogicalVector cIsIn(SEXP val, List coll);
+RcppExport SEXP kea_cIsIn(SEXP valSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        LogicalVector __result = cIsIn(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cPowerSetOf
 List cPowerSetOf(List coll);
 RcppExport SEXP kea_cPowerSetOf(SEXP collSEXP) {
@@ -78,6 +94,36 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericVector >::type num(numSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cTake(num, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cUnzipIndices
+List cUnzipIndices(List coll);
+RcppExport SEXP kea_cUnzipIndices(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cUnzipIndices(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cUnzipKeys
+List cUnzipKeys(List coll);
+RcppExport SEXP kea_cUnzipKeys(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cUnzipKeys(coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
