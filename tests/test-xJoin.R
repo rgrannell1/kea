@@ -27,11 +27,4 @@ message("xJoin")
 		length(xJoin_(coll1, coll2)) == length(coll1) + length(coll2)
 	) +
 
-	describe('joining preserves the names of its inputs') +
-	holdsWhen(
-		is_collection(coll1) && is_collection(coll2),
-
-		names(xJoin_(coll1, coll2)), c(names(coll1), names(coll2))
-	) +
-
 	run()
