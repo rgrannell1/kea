@@ -31,7 +31,7 @@ message("xJoin")
 	holdsWhen(
 		is_collection(coll1) && is_collection(coll2),
 
-		names(xJoin_(coll1, coll2)) %is% c(names(coll1), names(coll2))
+		names(xJoin_(coll1, coll2)), c(names(coll1), names(coll2))
 	) +
 
 	run()

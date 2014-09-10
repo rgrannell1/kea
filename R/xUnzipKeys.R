@@ -42,6 +42,11 @@
 #' @export
 
 xUnzipKeys <- MakeFun('xUnzipKeys', function (coll) {
+
+	if (length(coll) > 0) {
+		MACRO( Must_Be_Named(coll) )
+	}
+
 	cUnzipKeys(coll)
 })
 

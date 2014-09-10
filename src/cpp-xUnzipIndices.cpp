@@ -25,7 +25,7 @@ List cUnzipIndices (List coll) {
 
 			for (int ith = 0; ith < coll_len; ith++) {
 
-				List row = List::create(ith, coll[ith]);
+				List row = List::create(ith + 1, coll[ith]);
 				out[ith] = row;
 			}
 

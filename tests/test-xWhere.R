@@ -28,4 +28,11 @@ message("xWhere")
 		xWhere(NA)    %is% integer(0)
 	) +
 
+	describe("names are preserved for true elements.") +
+	holdsWhen(
+		is_logical(coll),
+
+		names(xWhere(coll)) %is% names(Filter(function (x) identical(x, True), coll))
+	) +
+
 	run()

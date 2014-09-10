@@ -23,26 +23,37 @@ message("xUnzipIndices")
 		all(sapply( xUnzipIndices(coll), length ) == 2)
 	) +
 
-	describe("the first column is made of indices") +
+	describe("first elem is index") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		is_collection(coll),
+
 		{
+			unzipped <- xUnzipIndices(coll)
 
-			firsts <- lapply(xUnzipIndices(coll), '[[', 1)
-
-			firsts %is% as.list(seq_along(coll))
+			all( vapply(seq_along(coll), function (ith) {
+				unzipped[[ith]][[1]] ==  ith
+			}, integer(1)) )
 		}
 	) +
 
-	describe("the second column is the values") +
+	describe("second elem is value") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		is_collection(coll),
+
 		{
+			unzipped <- xUnzipIndices(coll)
 
-			seconds <- lapply(xUnzipIndices(coll), '[[', 2)
-
-			seconds %is% as.list(unname(coll))
+			all( vapply(seq_along(coll), function (ith) {
+				identical( unzipped[[ith]][[2]], coll[[ith]] )
+			}, integer(1)) )
 		}
+	) +
+
+	describe("names are preserved") +
+	holdsWhen(
+		is_collection(coll),
+
+		names(xUnzipIndices(coll)) %is% names(coll)
 	) +
 
 	run()

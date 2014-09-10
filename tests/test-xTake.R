@@ -44,4 +44,13 @@ message('xTake')
 		xTake(num, coll)
 	) +
 
+	describe("take preserves names") +
+	holdsWhen(
+		is_numeric(num) && !is.na(unlist(num)) &&
+		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
+		is_collection(coll),
+
+		names(xTake(num, coll)) %is% names(coll[ seq_len(min( unlist(num), length(coll) )) ])
+	) +
+
 	run()

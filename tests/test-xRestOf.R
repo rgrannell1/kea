@@ -23,4 +23,11 @@ message("xRestOf")
 		length(xRestOf(coll)) == length(coll) - 1
 	) +
 
+	describe("xRestOf preserves names") +
+	holdsWhen(
+		is_collection(coll),
+
+		names(xRestOf(coll)) %is% tail(names(coll), -1)
+	) +
+
 	run()
