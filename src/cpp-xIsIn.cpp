@@ -12,7 +12,7 @@ LogicalVector cIsIn (SEXP val, List coll) {
 
 		Function identical("identical");
 
-		for (int ith = 0; ith < coll_len; ith++) {
+		for (int ith = 0; ith < coll_len; ++ith) {
 
 			SEXP elem = coll[ith];
 

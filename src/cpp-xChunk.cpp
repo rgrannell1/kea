@@ -30,7 +30,7 @@ List cChunk (NumericVector num, List coll) {
 
 		List out(out_len);
 
-		for (int ith = 0; ith < out_len; ith++) {
+		for (int ith = 0; ith < out_len; ++ith) {
 
 			int upper;
 
@@ -43,7 +43,7 @@ List cChunk (NumericVector num, List coll) {
 			List chunk(upper);
 			CharacterVector chunk_names(upper);
 
-			for (int jth = 0; jth < upper; jth++) {
+			for (int jth = 0; jth < upper; ++jth) {
 
 				int index  = lower + jth;
 				chunk[jth] = coll[index];

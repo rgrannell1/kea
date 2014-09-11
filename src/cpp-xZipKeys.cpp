@@ -13,7 +13,7 @@ List cZipKeys (List colls) {
 		List out (colls_size);
 		CharacterVector keys(colls_size);
 
-		for (int ith = 0; ith < colls_size; ith++) {
+		for (int ith = 0; ith < colls_size; ++ith) {
 
 			List coll  = colls[ith];
 			String key = coll[0];

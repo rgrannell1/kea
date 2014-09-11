@@ -13,7 +13,7 @@ List cUnzipKeys (List coll) {
 		List out(coll_len);
 		CharacterVector coll_names = coll.attr("names");
 
-		for (int ith = 0; ith < coll_len; ith++) {
+		for (int ith = 0; ith < coll_len; ++ith) {
 
 			String key = coll_names[ith];
 			List row   = List::create(key, coll[ith]);

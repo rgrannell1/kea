@@ -23,7 +23,7 @@ List cUnzipIndices (List coll) {
 
 		if (has_names) {
 
-			for (int ith = 0; ith < coll_len; ith++) {
+			for (int ith = 0; ith < coll_len; ++ith) {
 
 				List row = List::create(ith + 1, coll[ith]);
 				out[ith] = row;
@@ -34,7 +34,7 @@ List cUnzipIndices (List coll) {
 
 		} else {
 
-			for (int ith = 0; ith < coll_len; ith++) {
+			for (int ith = 0; ith < coll_len; ++ith) {
 
 				List row = List::create(ith + 1, coll[ith]);
 				out[ith] = row;

@@ -8,14 +8,14 @@ List concat (List coll0, List coll1) {
 
 	int ith = 0;
 
-	for (int jth = 0; jth < coll0.size(); jth++) {
+	for (int jth = 0; jth < coll0.size(); ++jth) {
 		out[ith] = coll0[jth];
-		ith++;
+		++ith;
 	}
 
-	for (int jth = 0; jth < coll1.size(); jth++) {
+	for (int jth = 0; jth < coll1.size(); ++jth) {
 		out[ith] = coll1[jth];
-		ith++;
+		++ith;
 	}
 
 	return out;
@@ -37,12 +37,12 @@ List cPowerSetOf (List coll) {
 		List subsets (1);
 		subsets[0] = List::create();
 
-		for (int ith = 0; ith < coll_len; ith++) {
+		for (int ith = 0; ith < coll_len; ++ith) {
 
 			int subsets_len = subsets.size();
 			List elem_subsets (subsets_len);
 
-			for (int jth = 0; jth < subsets_len; jth++) {
+			for (int jth = 0; jth < subsets_len; ++jth) {
 				elem_subsets[jth] = concat(List::create(coll[ith]), subsets[jth]);
 			}
 

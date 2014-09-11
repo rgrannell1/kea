@@ -17,7 +17,7 @@ List cRiffle (SEXP val, List coll) {
 		out[0]  = coll[0];
 		int jth = 1;
 
-		for (int ith = 1; ith < coll_len; ith++) {
+		for (int ith = 1; ith < coll_len; ++ith) {
 
 			out[jth]     = val;
 			out[jth + 1] = coll[ith];
