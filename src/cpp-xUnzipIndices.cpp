@@ -4,8 +4,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cUnzipIndices (List coll) {
 
-	int coll_len   = coll.size();
-	bool has_names = coll.attr("names") != R_NilValue;
+	const int coll_len   = coll.size();
+	const bool has_names = coll.attr("names") != R_NilValue;
 
 	if (coll_len == 0) {
 

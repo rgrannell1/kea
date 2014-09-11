@@ -4,7 +4,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cZipKeys (List colls) {
 
-	int colls_size = colls.size();
+	const int colls_size = colls.size();
 
 	if (colls_size == 0) {
 		return List::create();
