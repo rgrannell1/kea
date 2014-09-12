@@ -1,5 +1,5 @@
 #include <Rcpp.h>
-#include "tools-functions.h"
+#include "functions.h"
 using namespace Rcpp;
 
 
