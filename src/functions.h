@@ -6,3 +6,4 @@ extern std::string delimit (const std::string str, const List strs);
 extern std::string deparseInt (const int num);
 extern List deparseInts (const List nums);
 extern std::string dquote (const std::string str);
+List concat (List coll0, List coll1);

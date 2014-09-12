@@ -85,3 +85,30 @@ List deparseInts (const List nums) {
 std::string dquote (const std::string str) {
 	return "“" + str + "”";
 }
+
+
+
+/*
+	concat
+
+	join two lists.
+*/
+
+List concat (List coll0, List coll1) {
+
+	List out (coll0.size() + coll1.size());
+
+	int ith = 0;
+
+	for (int jth = 0; jth < coll0.size(); ++jth) {
+		out[ith] = coll0[jth];
+		++ith;
+	}
+
+	for (int jth = 0; jth < coll1.size(); ++jth) {
+		out[ith] = coll1[jth];
+		++ith;
+	}
+
+	return out;
+}

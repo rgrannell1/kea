@@ -1,25 +1,7 @@
 #include <Rcpp.h>
 #import <math.h>
+#include "functions.h"
 using namespace Rcpp;
-
-List concat (List coll0, List coll1) {
-
-	List out (coll0.size() + coll1.size());
-
-	int ith = 0;
-
-	for (int jth = 0; jth < coll0.size(); ++jth) {
-		out[ith] = coll0[jth];
-		++ith;
-	}
-
-	for (int jth = 0; jth < coll1.size(); ++jth) {
-		out[ith] = coll1[jth];
-		++ith;
-	}
-
-	return out;
-}
 
 
 
