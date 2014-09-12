@@ -47,13 +47,13 @@ xGroupBy <- MakeFun('xGroupBy', function (fn, coll) {
 
 		groups <- list()
 
-		for (ith in seq_along(coll)) {
+		for ( ith in seq_along(length(coll)) ) {
 			group_found <- False
 
 			elem <- coll[[ith]]
 			map  <- MACRO( Try_Higher_Order_Function( fn(elem) ) )
 
-			for (jth in seq_along(groups)) {
+			for ( jth in seq_along(length(groups)) ) {
 
 				# -- does the groupee fn(elem) belong in the jth group?
 				if ( identical(map, groups[[jth]][[1]] ) ) {

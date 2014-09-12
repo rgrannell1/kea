@@ -48,13 +48,13 @@ xAsDataFrame <- MakeFun('xAsDataFrame', function (colls) {
 		colls_colnames <- if ( !is.null(names(colls)) ) {
 			names(colls)
 		} else {
-			seq_along(colls)
+			seq_len(length(colls))
 		}
 
 		colls_rownames <- if (!is.null( names( colls[[1]] ) )) {
 			names( colls[[1]] )
 		} else {
-			seq_along( colls[[1]] )
+			seq_len(length( colls[[1]] ))
 		}
 
 		# use I() to allow a list column, no string coercion.

@@ -266,7 +266,7 @@ one_of <- function (coll) {
 	# coll [any] -> any
 	# select a single value from a collection.
 
-	ith <- rsample(seq_along(coll), size = 1)
+	ith <- rsample(seq_len(length(coll)), size = 1)
 	coll[[ith]]
 }
 

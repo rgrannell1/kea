@@ -63,7 +63,7 @@ xFold <- MakeFun('xFold', function (fn, val, coll) {
 				environment(fn) <- clone_env
 			}
 
-			for (ith in seq_along(coll)) {
+			for ( ith in seq_len(length(coll)) ) {
 				val <- MACRO( Try_Higher_Order_Function( fn( val, coll[[ith]] ) ) )
 			}
 

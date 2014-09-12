@@ -91,7 +91,7 @@ xCompose <- MakeFun('xCompose', function (fns) {
 		# -- can't use do.call here, since the value has
 		# -- to be passed to several functions.
 
-		for ( ith in rev(seq_along(fns)) ) {
+		for (ith in rev( seq_len(length(fns)) )) {
 
 			fn <- fns[[ith]]
 			val <-  MACRO( Try_Higher_Order_Function( fn(val) ) )

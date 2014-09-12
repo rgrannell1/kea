@@ -63,7 +63,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		# -- filter out arguments that were positionally matched, but empty.
 		is_missing <- rep(FALSE, length(params))
 
-		for (ith in seq_along(params)) {
+		for ( ith in seq_len(length(params)) ) {
 			is_missing[[ith]] <- do.call( missing, list(as.symbol( params[[ith]] )) )
 		}
 
@@ -218,7 +218,7 @@ write_type_conversions <- ( function () {
 
 		final <- list(as.symbol('{'))
 
-		for (ith in seq_along(params)) {
+		for ( ith in seq_len(length(params)) ) {
 			final <- c(final, self[[ params[ith] ]])
 		}
 
