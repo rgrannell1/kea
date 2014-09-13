@@ -57,28 +57,7 @@
 #' @export
 
 xZip <- MakeFun('xZip', function (colls) {
-
-	if (length(colls) == 0) {
-		list()
-	} else {
-
-		MACRO( Must_Be_Collection_Of_Equal_Length(colls) )
-
-		if (length( colls[[1]] ) == 0) {
-			# -- this might by an incorrect corner case.
-			list()
-		} else {
-
-			lapply(
-				seq_along( colls[[1]] ),
-				function (ith_elem) {
-
-					lapply( colls, function (coll) {
-						coll[[ith_elem]]
-					})
-			})
-		}
-	}
+	cZip(colls)
 })
 
 #' @rdname xZip
