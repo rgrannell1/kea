@@ -10,13 +10,11 @@ message("xFold")
 		xFold(function (...) ..2, val, coll) %is% val
 	) +
 
-
 	describe("Return( ) can terminate the computation") +
 	holdsWhen(
 		is_collection(coll) && length(coll) > 0,
-		xFold(function (...) Return(..2), val, coll) %is% coll[[ length(coll) ]]
+		xFold(function (...) Return(..2), val, coll) %is% coll[[ 1 ]]
 	) +
-
 
 	describe("Return( ) can terminate the computation") +
 	holdsWhen(

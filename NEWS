@@ -12,7 +12,7 @@ from in its pre-C++ implementation.
 
 BUG-FIXES:
 
-* Potentially fixed a bug in forall-next in which only length one and length
+* Fixed a serious bug in forall-next in which only length one and length
 zero test cases were produced.
 
 PACKAGE-INTERNALS:
