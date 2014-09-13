@@ -5,8 +5,12 @@ Date: 2014-9-13
 
 ENHANCEMENTS:
 
+* Added xCharsOf, a kea wrapper for nchar.
+
 * Rewrote xImplode in C++, yielding a modest 50% speedup when collapsing 260,000
 letters with a comma.
+
+* Rewrote xFromLines, xFromChars, xFromWords in C++, yielding similar performance gains to xImplode.
 
 
 
