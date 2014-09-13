@@ -47,7 +47,7 @@ xDo <- MakeFun('xDo', function (fn, coll) {
 		invisible (Null)
 	} else {
 
-		for ( ith in seq_len(lengt(coll)) ) {
+		for ( ith in seq_len(length(coll)) ) {
 			 MACRO( Try_Higher_Order_Function( fn( coll[[ith]] ) ) )
 		}
 
