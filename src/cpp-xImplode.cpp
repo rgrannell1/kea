@@ -17,11 +17,15 @@ CharacterVector cImplode (const CharacterVector str, const CharacterVector strs)
 	} else {
 
 		std::ostringstream os;
+		std::string delimiter = Rcpp::as<std::string>(str[0]);
 
 		for (int ith = 0; ith < strs_size; ++ith) {
 
 			os << strs[ith];
-			os << str;
+
+			if (ith != strs_size - 1) {
+				os << delimiter;
+			}
 		}
 
 		return os.str();
