@@ -25,7 +25,8 @@ void Must_Be_Of_Length (const std::string COLL, const List coll, const List leng
 		" must have length in the set {" + delimit(", ", deparseInts(lengths)) + "}.\n" + \
 		"The actual length was " + deparseInt(coll_size) + ".";
 
-		stop(message);
+		Function error_callback("error_callback");
+		error_callback(message);
 	}
 
 }

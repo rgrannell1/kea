@@ -24,6 +24,7 @@ Collate:
     'tools_colourise.R'
     'tools_assertion.R'
     'tools_macros.R'
+    'tools-cpp.R'
     'must-be-flag.R'
     'must-be-file.R'
     'must-be-whole.R'
