@@ -20,13 +20,4 @@ message("xNotPrefixOf")
 		!xNotPrefixOf(coll1, coll1)
 	) +
 
-	describe("continuous subsequences are always members.") +
-	holdsWhen(
-		is_collection(coll1) && length(coll1) > 0,
-
-		!xNotPrefixOf(
-			head(coll1, max(c(1, sample.int(length(coll1), 1)) )),
-			coll1)
-	) +
-
 	run()

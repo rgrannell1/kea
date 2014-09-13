@@ -36,7 +36,7 @@ message("xRank")
 	holdsWhen(
 		is_numeric(nums) && !any(is.na(nums)) && length(nums) > 0 && is_named(nums),
 
-		names(xRank(nums)) %is% sort(names(nums))
+		sort( names(xRank(nums)) ) %is% sort(names(nums))
 	) +
 
 	run()
