@@ -17,18 +17,4 @@ message("xNotSuffixOf")
 		!xNotSuffixOf(coll1, coll1)
 	) +
 
-	describe("continuous subsequences are always members.") +
-	holdsWhen(
-		is_collection(coll1) && length(coll1) > 0,
-		{
-			ith <- sample.int(length(coll1), 1)
-
-			if (length(coll1) == 1 && ith == 1) {
-				ith <- -1
-			}
-
-			!xNotSuffixOf(head(coll1, -ith), coll1)
-		}
-	) +
-
 	run()

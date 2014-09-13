@@ -20,7 +20,8 @@ message('xCycle')
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num)) &&
 		!is.infinite(num) &&
 		is_collection(coll),
-		xCycle(num, names(xCycle(num, coll)) ) %is% as.list(names(coll))
+
+		xCycle(-num, names(xCycle(num, coll)) ) %is% as.list(names(coll))
 
 	) +
 

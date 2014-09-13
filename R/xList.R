@@ -161,12 +161,12 @@ print.xlist_builder <- function (x, ...) {
 		# -- expression or predicate?
 		unmatched <- if (is_predicated) {
 
-			expr_indices <- seq_along(exprs)
+			expr_indices <- seq_len(length(exprs))
 			expr_indices[ expr_indices %not_in% as.integer( c(1, binding_indices, length(exprs)) ) ]
 
 		} else {
 
-			expr_indices <- seq_along(exprs)
+			expr_indices <- seq_len(length(exprs))
 			expr_indices[expr_indices %not_in% as.integer(c(1, binding_indices)) ]
 
 		}

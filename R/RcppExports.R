@@ -33,6 +33,10 @@ cUnzipKeys <- function(coll) {
     .Call('kea_cUnzipKeys', PACKAGE = 'kea', coll)
 }
 
+cZip <- function(colls) {
+    .Call('kea_cZip', PACKAGE = 'kea', colls)
+}
+
 cZipKeys <- function(colls) {
     .Call('kea_cZipKeys', PACKAGE = 'kea', colls)
 }

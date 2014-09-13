@@ -4,8 +4,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cChunk (NumericVector num, List coll) {
 
-	int num_len  = num.size();
-	int coll_len = coll.size();
+	const int num_len  = num.size();
+	const int coll_len = coll.size();
 
 	int num_mag;
 
@@ -15,7 +15,7 @@ List cChunk (NumericVector num, List coll) {
 		num_mag = num[0];
 	}
 
-	bool has_names             = coll.attr("names") != R_NilValue;
+	const bool has_names             = coll.attr("names") != R_NilValue;
 	/* needed to avoid a type-error when unnamed. */
 	CharacterVector coll_names = coll.attr("names") != R_NilValue ?
 		coll.attr("names"):
@@ -30,7 +30,7 @@ List cChunk (NumericVector num, List coll) {
 
 		List out(out_len);
 
-		for (int ith = 0; ith < out_len; ith++) {
+		for (int ith = 0; ith < out_len; ++ith) {
 
 			int upper;
 
@@ -43,7 +43,7 @@ List cChunk (NumericVector num, List coll) {
 			List chunk(upper);
 			CharacterVector chunk_names(upper);
 
-			for (int jth = 0; jth < upper; jth++) {
+			for (int jth = 0; jth < upper; ++jth) {
 
 				int index  = lower + jth;
 				chunk[jth] = coll[index];

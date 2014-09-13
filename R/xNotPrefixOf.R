@@ -44,7 +44,7 @@ xNotPrefixOf <- MakeFun('xNotPrefixOf', function (coll1, coll2) {
 			return(True)
 		}
 
-		for (ith in seq_along(coll1)) {
+		for ( ith in seq_len(length(coll1)) ) {
 
 			if (!identical( coll1[[ith]], coll2[[ith]] )) {
 				return(True)

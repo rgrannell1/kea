@@ -34,7 +34,7 @@ xIndicesOf <- MakeFun('xIndicesOf', function (coll) {
 	if (length(coll) == 0) {
 		integer(0)
 	} else {
-		seq_along(coll)
+		seq_len(length(coll))
 	}
 })
 

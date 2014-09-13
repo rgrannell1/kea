@@ -21,7 +21,7 @@ vectorise <- function (atom, type) {
 	example <- types[[type]]
 
 	function (len) {
-		vapply(seq_along(len), function (ith) {
+		vapply(seq_len(len), function (ith) {
 			len <- sample.int(abs( round(rnorm(1, 0, 20)) ) + 1, size = 1)
 			atom(len)
 		}, example )
@@ -67,7 +67,7 @@ listify <- function (atom) {
 rlistify <- function (atoms) {
 	function (len) {
 
-		lapply(seq_along(atoms), function (.) {
+		lapply(seq_len(length(atoms)), function (.) {
 			atom <- one_of(atoms)
 			atom(max(len - 1, 0))
 
@@ -494,7 +494,7 @@ parameterise <- function (exprgroups, params, envir) {
 run_test <- function (tester, groups, state, case, info, invoking_call) {
 	# -- there can be several holdsWhen(pred, exp1, exp2) groups.
 
-	for (group_ith in seq_along(groups)) {
+	for ( group_ith in seq_len(length(groups)) ) {
 
 		group       <- groups[[group_ith]]
 		group_pred  <- group[[1]]
@@ -522,7 +522,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 
 		state $ tests_run <- state $ tests_run + 1
 
-		for (prop_ith in seq_along(group_props)) {
+		for ( prop_ith in seq_len(length(group_props)) ) {
 
 			prop     <- group_props[[prop_ith]]
 			has_prop <- tester(prop, case)
@@ -591,7 +591,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 # test over.
 
 yield_case <- function (params, len) {
-	lapply(seq_along(params), function (...) from_stream(len))
+	lapply(seq_len(length(params)), function (...) from_stream(len))
 }
 
 

@@ -45,7 +45,7 @@ xIsSuffixOf <- MakeFun('xIsSuffixOf', function (coll1, coll2) {
 			return (False)
 		}
 
-		for (ith in seq_along(coll1)) {
+		for ( ith in seq_len(length(coll1)) ) {
 
 			if (!identical(
 				coll1[[ length(coll1) - ith + 1 ]],

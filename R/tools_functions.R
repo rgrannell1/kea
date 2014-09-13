@@ -177,27 +177,6 @@ keep_names <- function (coll1, coll2) {
 	}
 }
 
-
-
-# -- vapply, with better error messages.
-
-v_map <- function (coll, fn, type, names) {
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
 # -- join_exprs
 # --
 # -- join two expressions into a composite expression.
@@ -266,7 +245,7 @@ one_of <- function (coll) {
 	# coll [any] -> any
 	# select a single value from a collection.
 
-	ith <- rsample(seq_along(coll), size = 1)
+	ith <- rsample(seq_len(length(coll)), size = 1)
 	coll[[ith]]
 }
 

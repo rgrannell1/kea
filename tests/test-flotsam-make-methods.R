@@ -23,14 +23,6 @@ message("is_variadic")
 		is_variadic(str)
 	) +
 
-	describe('variadic methods always end in _') +
-	holdsWhen(
-		is.character(str) && length(str) == 1 && nchar(str) > 0,
-
-		!is_variadic(as_nonvariadic(str))
-	) +
-
-
 	describe('as_variadic') +
 	holdsWhen(
 		is.character(str) && length(str) == 1 && nchar(str) > 0,

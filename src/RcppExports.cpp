@@ -130,14 +130,29 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cZip
+List cZip(const List colls);
+RcppExport SEXP kea_cZip(SEXP collsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type colls(collsSEXP );
+        List __result = cZip(colls);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cZipKeys
-List cZipKeys(List colls);
+List cZipKeys(const List colls);
 RcppExport SEXP kea_cZipKeys(SEXP collsSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< List >::type colls(collsSEXP );
+        Rcpp::traits::input_parameter< const List >::type colls(collsSEXP );
         List __result = cZipKeys(colls);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }

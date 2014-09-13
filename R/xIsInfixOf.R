@@ -49,7 +49,7 @@ xIsInfixOf <- MakeFun('xIsInfixOf', function (coll1, coll2) {
 			all_true    <- True
 			subsequence <- coll2[ith:(ith + length(coll1) - 1)]
 
-			for (jth in seq_along(coll1)) {
+			for ( jth in seq_len(length(coll1)) ) {
 				if (!identical( coll1[[jth]], subsequence[[jth]] )) {
 					all_true <- False
 				}
