@@ -4,6 +4,14 @@ using namespace Rcpp;
 
 
 
+
+/*
+	typed_map
+*/
+
+
+
+
 /*
 	delimit
 

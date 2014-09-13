@@ -26,7 +26,7 @@ void Must_Be_Of_Length (const std::string COLL, const List coll, const List leng
 		"The actual length was " + deparseInt(coll_size) + ".";
 
 		Function error_callback("error_callback");
-		error_callback(message);
+		error_callback(message, 1);
 	}
 
 }

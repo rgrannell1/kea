@@ -1,4 +1,30 @@
 
+Kea 0.52.0
+------------------------------------------------------------------------------
+Date: 2014-9-13
+
+ENHANCEMENTS:
+
+* Added error reporting to xZipKeys; error handling should be indistinguisable
+from in its pre-C++ implementation.
+
+BUG-FIXES:
+
+* Potentially fixed a bug in forall-next in which only length one and length
+zero test cases were produced.
+
+PACKAGE-INTERNALS:
+
+* Implemented an error checking function in C++, which will likely be
+followed by many more.
+
+
+
+
+
+
+
+
 Kea 0.51.0
 ------------------------------------------------------------------------------
 Date: 2014-9-10

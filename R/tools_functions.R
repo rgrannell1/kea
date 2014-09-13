@@ -177,27 +177,6 @@ keep_names <- function (coll1, coll2) {
 	}
 }
 
-
-
-# -- vapply, with better error messages.
-
-v_map <- function (coll, fn, type, names) {
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
 # -- join_exprs
 # --
 # -- join two expressions into a composite expression.
