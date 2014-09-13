@@ -130,7 +130,7 @@ message("is_na")
 
 	describe("is_na whenever na") +
 	holdsWhen(
-		is_atomic(val) && is.na(val) && !is.nan(val),
+		is_atomic(val) && length(val) == 1 && is.na(val) && !is.nan(val),
 		is_na(val)
 	) +
 
