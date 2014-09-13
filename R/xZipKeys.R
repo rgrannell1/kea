@@ -41,7 +41,7 @@ xZipKeys <- MakeFun('xZipKeys', function (colls) {
 
 	# -- check the key lengths too!!! TODO.
 
-	cZipKeys(colls)
+	cZipKeys( colls, function () {sys.call(-1)} )
 })
 
 #' @rdname xZipKeys

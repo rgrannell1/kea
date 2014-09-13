@@ -37,21 +37,6 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// cIndicesOf
-IntegerVector cIndicesOf(const List coll);
-RcppExport SEXP kea_cIndicesOf(SEXP collSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
-        IntegerVector __result = cIndicesOf(coll);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
 // cIsIn
 LogicalVector cIsIn(SEXP val, List coll);
 RcppExport SEXP kea_cIsIn(SEXP valSEXP, SEXP collSEXP) {
