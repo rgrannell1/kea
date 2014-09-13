@@ -8,6 +8,8 @@ ENHANCEMENTS:
 * Added error reporting to xZipKeys; error handling should be indistinguisable
 from in its pre-C++ implementation.
 
+* Rewrote xZip in C++, yielding a x7 times speedup for a 1000 x 1000 list.
+
 BUG-FIXES:
 
 * Potentially fixed a bug in forall-next in which only length one and length
