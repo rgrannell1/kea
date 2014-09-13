@@ -22,6 +22,14 @@ List cZip (const List colls) {
 
 			List out(elem_size);
 
+			const bool has_names = colls.attr("names") != R_NilValue;
+
+			CharacterVector colls_names(colls_size);
+
+			if (has_names) {
+				colls_names = colls.attr("names");
+			}
+
 			for (int ith = 0; ith < elem_size; ++ith) {
 
 				List row(colls_size);
@@ -30,6 +38,10 @@ List cZip (const List colls) {
 
 					List coll = colls[jth];
 					row[jth] = coll[ith];
+				}
+
+				if (has_names) {
+					row.attr("names") = colls_names;
 				}
 
 				out[ith] = row;
