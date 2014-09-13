@@ -213,5 +213,6 @@ Collate:
     'xNotPrefixOf.R'
     'xNotInfixOf.R'
     'xNotSuffixOf.R'
+    'xCharsOf.R'
     'x_next.R'
     'x..R'
