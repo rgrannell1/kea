@@ -35,6 +35,12 @@ Split a collection into a list of index: value pairs
 
      Returns \code{list()} if \code{coll} is length-zero.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. enumerate the letters with their indices.

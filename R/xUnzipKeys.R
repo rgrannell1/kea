@@ -29,7 +29,7 @@
 #'
 #' @family key_functions
 #'
-#' @templat
+#' @template
 #'    C++
 #'
 #' @template

@@ -55,6 +55,12 @@ Transpose a collection of collections.
    The empty list is returned if the shortest collection
    has length-zero, or no collections are included.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. Working with csv data.

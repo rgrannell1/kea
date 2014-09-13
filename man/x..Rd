@@ -28,7 +28,7 @@
 \title{x.}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 50 2 9 9 41 50
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x45fbb48> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x35f30d8> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
@@ -180,7 +180,7 @@ July        2.9
 
 rain_data <-
 	x_(raw_rain_data) $ xToLines() $
-	xMap(xToWords \%then\% as.list)  $
+	xMap(xToWords \%then\% xAsList)  $
 	xMap( xAddKeys(c('month', 'rain (ml)')) ) $
 	x_Map(row := {
 

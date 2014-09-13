@@ -32,6 +32,12 @@ Convert a collection of name, value pairs into a named collection.
 
    Returns the empty list if \bold{coll} is length-zero.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. turn a csv of country names and median ages into

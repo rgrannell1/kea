@@ -36,6 +36,13 @@ for a set amount of time.
 
    If \bold{num} is zero then \bold{fn} is returned untouched.
 }
+
+\section{Stability - \bold{Uncertain}}{
+
+
+This feature may be removed or altered significantly in future versions.
+If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
+}
 \examples{
 
 # 1. Get random words from an API, slowly.

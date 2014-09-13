@@ -35,6 +35,12 @@ Split a named collection into a list of name: value list pairs.
 
      Returns \code{list()} if \code{coll} is length-zero.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. xUnzipkeys can be useful for
