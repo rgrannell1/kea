@@ -40,11 +40,7 @@ xImplode <- MakeFun('xImplode', function (str, strs) {
 
 	MACRO( Must_Not_Contain_Na(strs) )
 
-	if (length(str) == 0 || length(strs) == 0) {
-		character(0)
-	} else {
-		paste(strs, collapse = str)
-	}
+	cImplode(str, strs)
 })
 
 #' @rdname xImplode

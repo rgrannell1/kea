@@ -37,6 +37,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cImplode
+CharacterVector cImplode(const CharacterVector str, const CharacterVector strs);
+RcppExport SEXP kea_cImplode(SEXP strSEXP, SEXP strsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const CharacterVector >::type str(strSEXP );
+        Rcpp::traits::input_parameter< const CharacterVector >::type strs(strsSEXP );
+        CharacterVector __result = cImplode(str, strs);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cIsIn
 LogicalVector cIsIn(SEXP val, List coll);
 RcppExport SEXP kea_cIsIn(SEXP valSEXP, SEXP collSEXP) {

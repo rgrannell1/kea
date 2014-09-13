@@ -35,12 +35,7 @@ xFromChars <- MakeFun('xFromChars', function (strs) {
 
 	MACRO( Must_Not_Contain_Na(strs) )
 
-	if (length(strs) == 0) {
-		character(0)
-	} else {
-		paste0(strs, collapse = '')
-	}
-
+	cImplode('', strs)
 })
 
 #' @rdname xFromChars

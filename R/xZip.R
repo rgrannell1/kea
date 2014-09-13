@@ -48,6 +48,9 @@
 #' @family reshaping_functions
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example
