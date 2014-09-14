@@ -11,7 +11,7 @@
 #'     an element.
 #'
 #' @param
-#'    coll a non-empty collection. The collection to find the
+#'    coll a collection. The collection to find the
 #'    product of.
 #'
 #' @param

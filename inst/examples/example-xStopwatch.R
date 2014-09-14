@@ -31,4 +31,4 @@ x_(logical(0)) $ xIterate(trials := {
 	c( trials, in_unit_circle(make_point()) )
 
 }) $
-xMap(trial := if (trial) 1 else 0) $ x_MeanOf() * 4
+xMap(trial := if (trial) 1 else 0) $ x_MeanBy(xI) * 4

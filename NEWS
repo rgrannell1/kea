@@ -1,7 +1,9 @@
 
 Kea 0.53.0
 ------------------------------------------------------------------------------
-Date: 2014-9-13
+Date: 2014-9-14
+
+Added xCharsOf, replaced xMeanOf and xMeanBy.
 
 ENHANCEMENTS:
 
@@ -10,7 +12,19 @@ ENHANCEMENTS:
 * Rewrote xImplode in C++, yielding a modest 50% speedup when collapsing 260,000
 letters with a comma.
 
+* Replaced xMeanOf with xMeanBy, which also takes a function argument. This is
+for consistency with xSumBy and xProdBy.
+
 * Rewrote xFromLines, xFromChars, xFromWords in C++, yielding similar performance gains to xImplode.
+
+DOCUMENTATION:
+
+* Greatly improved the documentation for x_.
+
+* Removed a lie in xProdBy and xSumBy; both functions now acknowledge they accept length-zero
+inputs.
+
+* Attributed people who answered stackoverflow questions relevant to kea.
 
 
 
@@ -22,6 +36,8 @@ letters with a comma.
 Kea 0.52.0
 ------------------------------------------------------------------------------
 Date: 2014-9-13
+
+Improved performance of xZipKeys and xZip.
 
 ENHANCEMENTS:
 
