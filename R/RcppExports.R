@@ -17,10 +17,6 @@ cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
 }
 
-cMap <- function(fn, coll) {
-    .Call('kea_cMap', PACKAGE = 'kea', fn, coll)
-}
-
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
