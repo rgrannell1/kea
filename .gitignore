@@ -10,3 +10,4 @@ signitures
 .SyncIgnore
 .SyncPart
 .SyncTemp
+.o
