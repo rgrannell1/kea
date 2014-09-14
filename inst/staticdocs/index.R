@@ -149,7 +149,7 @@ sd_section(
 		"xElemsByRows",
 		"xLenOf",
 		"xLocate",
-		"xMeanOf",
+		"xMeanBy",
 		"xProdBy",
 		"xSumBy",
 		"xWhere",
