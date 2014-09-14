@@ -10,15 +10,13 @@ LogicalVector cIsIn (SEXP val, List coll) {
 		return LogicalVector::create();
 	} else {
 
-		Function identical("identical");
-
 		for (int ith = 0; ith < coll_len; ++ith) {
 
-			SEXP elem = coll[ith];
+			SEXP elem   = coll[ith];
+			bool result = R_compute_identical(val, elem, 0);
 
-			//use R_compute_identical instead!!!
-			Shield<SEXP> result(identical(val, elem));
-			if (LOGICAL(result)[0]) {
+			if (result) {
+				// required due to RcppCore/Rcpp issue #177.
 				return LogicalVector::create(true);
 			}
 		}

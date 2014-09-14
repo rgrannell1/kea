@@ -25,6 +25,10 @@ cRiffle <- function(val, coll) {
     .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
 }
 
+cTabulate <- function(coll) {
+    .Call('kea_cTabulate', PACKAGE = 'kea', coll)
+}
+
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
 }

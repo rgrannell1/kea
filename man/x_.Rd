@@ -9,28 +9,67 @@ x_(val)
 x__(...)
 }
 \arguments{
-\item{val}{an arbitrary value. The value to wrap in an
-   kea object.
-   The methods available depend on the input
-   type; functions and collections have the most methods available.}
+\item{val}{an arbitrary value. The value to wrap in a kea object.}
 
 \item{...}{see above.}
 }
 \value{
-An object of class "kea". Internally the object is represented as a
-   list with a single field \bold{x}, but this field cannot be accessed directly.
-   Instead, the method \bold{$ x_( )} or \bold{$ x_Identity( )} can be used to
-   return the data stored in an kea object.
-
-   The methods available to an kea object depend on the type of the data it
-   contains. All kea objects inherit a handful of methods regardless of their
-   type; these include \bold{xIdentity} and \bold{xTap} - a method that allows
-   anonymous function to be executed on an kea object.
-
-   The two primary groups of methods are collection methods and function methods.
+An object of class 'kea' which wraps the value supplied to x_. Internally, a 'kea' object is represented
+    as a list with a single field - \bold{x} - but this field should never be accessed directly.
 }
 \description{
-Generate an kea object with methods available to it.
+Make methods available to a value.
+}
+\details{
+Kea allows functions to be used in both nested form - \bold{xLenOf(xRepeat(3, 'a'))} - and using method-chaining
+    \bold{x_('a') $ xRepeat(3) $ x_LenOf()}. These two syntaxes are equivalent, but method-chaining syntax is better when
+    you need to apply many function to an initial value: balancing parentheses is easier and you read the function calls from
+    left to right instead of from the inside out.
+
+    To make methods available to values you need to wrap them in a kea object using \bold{x_}. This tags the value as being of class
+    'kea', which gives it access to any appropriate (see below) methods. For example,
+
+    \code{letters_ <- x_(letters)}
+
+    attaches the class 'kea' to the character vector a, b, ... ,z and saves the tagged value to the variable 'letters_'. I use
+    the convention of always adding an underscore suffix to kea variables, but this convention is not mandatory.
+
+    Any value can be supplied to \bold{x_}.
+
+    \bold{1. Calling Methods}
+
+     The methods available to a kea object depend on the the class and properties of the value given to \bold{x_}. Kea objects containing
+    arbitrary values can use methods which have parametres named 'val', 'val1', or 'val2'. For example, \bold{xIdentity} and \bold{xIsTrue} both
+    have parametres named 'val', and as such they can be used on functions,
+    lists, vectors and any other value you might want to use.
+
+    \bold{x_(sqrt) $ xIdentity()}
+    \bold{x_(1:10) $ xIsTrue()}
+
+    Most methods are more selective than this. For example, you can't treat a function as a file path, so the method isn't even available
+    to functions.
+
+    \code{x_(sqrt) $ xRead()}
+
+    Which parametre is the kea object given to? That depends on the particular method being called; if there is only one parametre that
+    a value can be used for is used as that parametre. For example, these following two calls are unambigious and identical.
+
+    \code{x_(sqrt) $ xMap(1:10)}
+    \code{x_(1:10) $ xMap(sqrt)}
+
+    Here the function 'sqrt' is matched with the parametre 'fn', and the collection 1:10 is matched with the parametre 'coll'.
+
+    For some functions it makes sense to use the left-hand-side kea object as multiple parametres. For example, \bold{xIsIn} an arbitrary value and
+    a collection as arguments, so both the following examples make sense.
+
+    \code{x_(1:3) $ xIsIn(1L)}
+    \code{x_(1L) $ xIsIn(coll = 1:3)}
+
+    In this case you need to explicitely name \bold{1:3} as 'coll', or it is bound to the parametre 'val' instead.
+
+    \bold{2. Spell-Checking}
+
+    If you mistype a method name kea will attempt to suggest a similar method name, if one exists.
 }
 \section{Corner Cases}{
 

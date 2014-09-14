@@ -100,6 +100,21 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cTabulate
+List cTabulate(List coll);
+RcppExport SEXP kea_cTabulate(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cTabulate(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cTake
 List cTake(NumericVector num, List coll);
 RcppExport SEXP kea_cTake(SEXP numSEXP, SEXP collSEXP) {
