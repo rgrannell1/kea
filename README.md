@@ -138,3 +138,5 @@ http://semver.org/
 | --------------------------- | ----------------------- |
 | Ryan Grannell               | 201,558 ++ / 165,959 -- |
 
+Thanks to hadley, BrogieG, Jan van der Laan, Kevin Ushey, Martin Morgan, Hong Ooi, Ferdinand.kraft,
+and Steve Weston for answering my esoteric StackOverflow questions related to Kea.
