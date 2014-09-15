@@ -1,6 +1,10 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
+//TOO SLOW at the moment.
+
 // [[Rcpp::export]]
 List cJoin (const List colls) {
 
@@ -26,8 +30,8 @@ List cJoin (const List colls) {
 
 		for (int ith = 0; ith < colls_size; ++ith) {
 
-			List coll     = colls[ith];
-			int coll_size = coll.size();
+			List coll      = colls[ith];
+			int coll_size  = coll.size();
 
 			bool has_names = coll.attr("names") != R_NilValue;
 
@@ -47,7 +51,6 @@ List cJoin (const List colls) {
 		}
 
 		out.attr("names") = out_names;
-
 		return out;
 	}
 

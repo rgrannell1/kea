@@ -45,6 +45,7 @@ xJoin <- MakeFun('xJoin', function (colls) {
 		colls <- lapply(colls, as.list)
 		as.list(do.call(c, colls))
 	}
+
 })
 
 #' @rdname xJoin
