@@ -3,6 +3,24 @@ Kea 0.53.0
 ------------------------------------------------------------------------------
 Date: 2014-9-14
 
+ENHANCEMENTS:
+
+* Rewrote xIsIn and xNotIn in C++, yielding a x60 speedup when searching for 0 in 1:100000.
+
+
+
+
+
+
+
+
+
+
+
+Kea 0.53.0
+------------------------------------------------------------------------------
+Date: 2014-9-14
+
 Added xCharsOf, replaced xMeanOf and xMeanBy.
 
 ENHANCEMENTS:

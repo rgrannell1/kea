@@ -36,19 +36,7 @@
 #' @export
 
 xNotIn <- MakeFun('xNotIn', function (val, coll) {
-
-	if (length(coll) == 0) {
-		logical(0)
-	} else {
-
-		for (elem in coll) {
-			if ( isTRUE(identical(elem, val)) ) {
-				return(False)
-			}
-		}
-
-		True
-	}
+	cNotIn(val, coll)
 })
 
 #' @rdname xNotIn

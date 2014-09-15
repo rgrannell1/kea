@@ -2,7 +2,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-LogicalVector cIsIn (SEXP val, List coll) {
+LogicalVector cNotIn (SEXP val, List coll) {
 
 	int coll_len = coll.size();
 
@@ -16,10 +16,10 @@ LogicalVector cIsIn (SEXP val, List coll) {
 
 			if (result) {
 				// required due to RcppCore/Rcpp issue #177.
-				return LogicalVector::create(true);
+				return LogicalVector::create(false);
 			}
 		}
 
-		return LogicalVector::create(false);
+		return LogicalVector::create(true);
 	}
 }

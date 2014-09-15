@@ -37,22 +37,7 @@
 #' @export
 
 xIsIn <- MakeFun('xIsIn', function (val, coll) {
-
-	if (length(coll) == 0) {
-		logical(0)
-	} else {
-
-		for (elem in coll) {
-			if ( isTRUE(identical(elem, val)) ) {
-				return(True)
-			}
-		}
-
-		False
-	}
-
-#	cIsIn(val, coll)
-
+	cIsIn(val, coll)
 })
 
 #' @rdname xIsIn
