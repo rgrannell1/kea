@@ -17,6 +17,10 @@ cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
 }
 
+cJoin <- function(colls) {
+    .Call('kea_cJoin', PACKAGE = 'kea', colls)
+}
+
 cNotIn <- function(val, coll) {
     .Call('kea_cNotIn', PACKAGE = 'kea', val, coll)
 }

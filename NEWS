@@ -7,7 +7,7 @@ ENHANCEMENTS:
 
 * Rewrote xIsIn and xNotIn in C++, yielding a x60 speedup when searching for 0 in 1:100000.
 
-
+* Rewrote xSwap in C++, yielding an x30 speedup when replacing every value in a length 100,000 vector.
 
 
 

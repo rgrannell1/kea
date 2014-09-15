@@ -69,6 +69,21 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cJoin
+List cJoin(const List colls);
+RcppExport SEXP kea_cJoin(SEXP collsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type colls(collsSEXP );
+        List __result = cJoin(colls);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cNotIn
 LogicalVector cNotIn(SEXP val, List coll);
 RcppExport SEXP kea_cNotIn(SEXP valSEXP, SEXP collSEXP) {
