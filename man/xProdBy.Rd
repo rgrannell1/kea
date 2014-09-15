@@ -12,7 +12,7 @@ xProdBy_(fn, ...)
 \item{fn}{a unary function. The function to measure the size of
     an element.}
 
-\item{coll}{a non-empty collection. The collection to find the
+\item{coll}{a collection. The collection to find the
    product of.}
 
 \item{...}{see above.}

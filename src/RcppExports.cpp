@@ -53,21 +53,6 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// cIndicesTo
-IntegerVector cIndicesTo(const IntegerVector num);
-RcppExport SEXP kea_cIndicesTo(SEXP numSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const IntegerVector >::type num(numSEXP );
-        IntegerVector __result = cIndicesTo(num);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
 // cIsIn
 LogicalVector cIsIn(SEXP val, List coll);
 RcppExport SEXP kea_cIsIn(SEXP valSEXP, SEXP collSEXP) {
