@@ -30,6 +30,7 @@ xIndicesTo <- MakeFun('xIndicesTo', function (num) {
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Finite(num) )
 
+	# do not rewrite in C++
 	if (num == 0 || length(num) == 0) {
 		integer(0)
 	} else {

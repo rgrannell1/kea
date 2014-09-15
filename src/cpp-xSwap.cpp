@@ -23,7 +23,6 @@ List cSwap (const SEXP val1, const SEXP val2, List coll) {
 		}
 
 		return out;
-
 	}
 
 }

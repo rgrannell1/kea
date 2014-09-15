@@ -13,6 +13,10 @@ cImplode <- function(str, strs) {
     .Call('kea_cImplode', PACKAGE = 'kea', str, strs)
 }
 
+cIndicesTo <- function(num) {
+    .Call('kea_cIndicesTo', PACKAGE = 'kea', num)
+}
+
 cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
 }
@@ -31,10 +35,6 @@ cPowerSetOf <- function(coll) {
 
 cRiffle <- function(val, coll) {
     .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
-}
-
-cShuffle <- function(coll) {
-    .Call('kea_cShuffle', PACKAGE = 'kea', coll)
 }
 
 cSwap <- function(val1, val2, coll) {

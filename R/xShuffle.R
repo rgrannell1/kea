@@ -31,6 +31,8 @@
 
 xShuffle <- MakeFun('xShuffle', function (coll) {
 
+	# don't rewrite in C++, it is ~10 times slower.
+
 	if (length(coll) == 0) {
 		keep_names(list(), coll)
 	} else {
