@@ -69,6 +69,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cNotIn
+LogicalVector cNotIn(SEXP val, List coll);
+RcppExport SEXP kea_cNotIn(SEXP valSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        LogicalVector __result = cNotIn(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cPowerSetOf
 List cPowerSetOf(List coll);
 RcppExport SEXP kea_cPowerSetOf(SEXP collSEXP) {
@@ -94,6 +110,23 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cRiffle(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cSwap
+List cSwap(const SEXP val1, const SEXP val2, List coll);
+RcppExport SEXP kea_cSwap(SEXP val1SEXP, SEXP val2SEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const SEXP >::type val1(val1SEXP );
+        Rcpp::traits::input_parameter< const SEXP >::type val2(val2SEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cSwap(val1, val2, coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
