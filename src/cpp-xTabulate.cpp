@@ -11,7 +11,7 @@ std::vector<int> indices_to (int num) {
 
 	std::vector<int> out;
 
-	for (int ith = 0; ith < num; ith++) {
+	for (unsigned int ith = 0; ith < num; ++ith) {
 		out.push_back(ith);
 	}
 
@@ -46,31 +46,34 @@ List cTabulate (List coll) {
 		unique_indices.push_back(unique_index);
 		just_binned.push_back   (unique_index);
 
-		std::vector<int> tmp;
 
-		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
+		for (unsigned int ith = 1; ith < unbinned_indices.size(); ++ith) {
 
 			int candidate_index = unbinned_indices[ith];
 			bool is_match       = R_compute_identical(coll[unique_index], coll[candidate_index], flags);
 
 			if (is_match) {
 				just_binned.push_back(candidate_index);
-				copies++;
+				++copies;
 			}
 
 		}
 
 		unique_counts.push_back(copies);
 
-		for (int ith = 0; ith < unbinned_indices.size(); ith++) {
+		// filter the recently binned indices out of the unbinned indices.
+		std::vector<int> tmp;
+
+		for (unsigned int ith = 0; ith < unbinned_indices.size(); ++ith) {
 
 			bool still_unbinned = true;
 
-			for (int jth = 0; jth < just_binned.size(); jth++) {
+			for (unsigned int jth = 0; jth < just_binned.size(); ++jth) {
 				if (unbinned_indices[ith] == just_binned[jth]) {
 
 					still_unbinned = false;
 					break;
+
 				}
 			}
 
@@ -84,7 +87,7 @@ List cTabulate (List coll) {
 
 	List out(unique_indices.size());
 
-	for (int ith = 0; ith < unique_indices.size(); ith++) {
+	for (unsigned int ith = 0; ith < unique_indices.size(); ++ith) {
 
 		int unique_index = unique_indices[ith];
 		int copies       = unique_counts[ith];

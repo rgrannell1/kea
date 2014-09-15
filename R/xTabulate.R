@@ -43,41 +43,7 @@
 #' @export
 
 xTabulate <- MakeFun('xTabulate', function (coll) {
-
-	if (length(coll) == 0) {
-		list()
-	} else {
-
-		unique_elements <- unique(coll)
-
-		indices <- vapply(coll, function (elem) {
-
-			# -- for each element of a collection coll
-			# -- check which element of the set coll' elem is.
-			for (ith in seq_along(unique_elements)) {
-
-				if (identical( elem, unique_elements[[ith]] )) {
-					return(ith)
-				}
-			}
-
-		}, numeric(1), USE.NAMES = False)
-
-		# -- tabulate these indices as a list for efficiency.
-		index_frequencies <- as.list(table(indices))
-
-		# -- reparse the named indices from string to integer.
-		lapply(names(index_frequencies), function (ith) {
-
-			# -- reparse the index from string. Dumb, but efficient.
-			ith <- as.integer(ith)
-
-			# -- return the element, and its frequency.
-			list(
-				unique_elements[[ith]],
-				as.numeric( index_frequencies[[ith]] ))
-		})
-	}
+	cTabulate(coll)
 })
 
 #' @rdname xTabulate
