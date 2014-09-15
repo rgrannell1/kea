@@ -38,5 +38,5 @@
 #' @export
 
 xVersion <- function (...) {
-	c(0L, 53L, 0L)
+	c(0L, 54L, 0L)
 }

@@ -36,6 +36,7 @@ xUnit <- MakeFun('xUnit', function (coll) {
 	} else {
 		unname(coll[0])
 	}
+
 })
 
 #' @rdname xUnit

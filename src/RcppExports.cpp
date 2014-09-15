@@ -5,22 +5,6 @@
 
 using namespace Rcpp;
 
-// cAppend
-List cAppend(const SEXP val, const List coll);
-RcppExport SEXP kea_cAppend(SEXP valSEXP, SEXP collSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const SEXP >::type val(valSEXP );
-        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
-        List __result = cAppend(val, coll);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
 // cChunk
 List cChunk(NumericVector num, List coll);
 RcppExport SEXP kea_cChunk(SEXP numSEXP, SEXP collSEXP) {
@@ -141,6 +125,21 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cRiffle(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cShuffle
+List cShuffle(const List coll);
+RcppExport SEXP kea_cShuffle(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
+        List __result = cShuffle(coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

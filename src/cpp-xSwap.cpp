@@ -11,16 +11,18 @@ List cSwap (const SEXP val1, const SEXP val2, List coll) {
 		return coll;
 	} else {
 
+		List out = clone(coll);
+
 		for (int ith = 0; ith < coll_size; ++ith) {
 
 			bool is_match = R_compute_identical(coll[ith], val1, flags);
 
 			if (is_match) {
-				coll[ith] = val2;
+				out[ith] = val2;
 			}
 		}
 
-		return coll;
+		return out;
 
 	}
 
