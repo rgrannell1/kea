@@ -5,6 +5,22 @@ using namespace Rcpp;
 
 
 
+
+
+std::vector<int> indices_to (int num) {
+
+	std::vector<int> out;
+
+	for (int ith = 0; ith < num; ith++) {
+		out.push_back(ith);
+	}
+
+	return out;
+}
+
+
+
+
 // [[Rcpp::export]]
 List cTabulate (List coll) {
 
@@ -13,67 +29,69 @@ List cTabulate (List coll) {
 
 	if (coll_size == 0) {
 		return List::create();
-	} else {
-
-		std::vector<int> groups;
-		std::vector<int> not_found;
-
-		for (int ith = 0; ith < coll_size; ith++) {
-			not_found.push_back(ith);
-		}
-
-		while (not_found.size() > 0) {
-
-			int count       = 1;
-
-			int first_index = not_found[0];
-
-			std::vector<int> to_remove;
-
-			for (int jth = 1; jth < not_found.size(); ++jth) {
-
-				int second_index = not_found[jth];
-
-				if (std::find(not_found.begin(), not_found.end(), second_index) != not_found.end()) {
-
-					bool is_match = R_compute_identical(coll[first_index], coll[second_index], flags);
-
-					if (is_match) {
-						to_remove.push_back(jth);
-						++count;
-					}
-				}
-
-			}
-
-			for (int jth = 1; jth < to_remove.size(); ++jth) {
-				not_found.erase(not_found.begin() + to_remove[jth]);
-			}
-
-			not_found.erase(not_found.begin());
-
-			groups.push_back(first_index);
-			groups.push_back(count);
-		}
-
-		//int groups_size = groups.size();
-
-		//int out_ith = 0;
-		//List out(groups_size / 2);
-
-		//for (int ith = 0; ith < groups_size; ith += 2) {
-
-		//	int elem_ith   = groups[ith];
-		//	int elem_count = groups[ith + 1];
-
-		//	List outgroup  = List::create(coll[elem_ith], elem_count);
-
-		//	out[out_ith]   = outgroup;
-		//	++out_ith;
-		//}
-
-		//return out;
-
 	}
 
+	std::vector<int> unique_indices;
+	std::vector<int> unique_counts;
+
+	std::vector<int> unbinned_indices = indices_to(coll_size);
+
+	while (unbinned_indices.size() > 0) {
+
+		std::vector<int> just_binned;
+
+		int copies = 1;
+		int unique_index    = unbinned_indices[0];
+
+		unique_indices.push_back(unique_index);
+		just_binned.push_back   (unique_index);
+
+		std::vector<int> tmp;
+
+		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
+
+			int candidate_index = unbinned_indices[ith];
+			bool is_match       = R_compute_identical(coll[unique_index], coll[candidate_index], flags);
+
+			if (is_match) {
+				just_binned.push_back(candidate_index);
+				copies++;
+			}
+
+		}
+
+		unique_counts.push_back(copies);
+
+		for (int ith = 0; ith < unbinned_indices.size(); ith++) {
+
+			bool still_unbinned = true;
+
+			for (int jth = 0; jth < just_binned.size(); jth++) {
+				if (unbinned_indices[ith] == just_binned[jth]) {
+
+					still_unbinned = false;
+					break;
+				}
+			}
+
+			if (still_unbinned) {
+				tmp.push_back(unbinned_indices[ith]);
+			}
+		}
+
+		unbinned_indices = tmp;
+	}
+
+	List out(unique_indices.size());
+
+	for (int ith = 0; ith < unique_indices.size(); ith++) {
+
+		int unique_index = unique_indices[ith];
+		int copies       = unique_counts[ith];
+
+		List pair        = List::create(coll[unique_index], copies);
+		out[ith]         = pair;
+	}
+
+	return out;
 }
