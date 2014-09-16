@@ -11,7 +11,7 @@ std::vector<int> indices_to (int num) {
 
 	std::vector<int> out;
 
-	for (unsigned int ith = 0; ith < num; ++ith) {
+	for (int ith = 0; ith < num; ++ith) {
 		out.push_back(ith);
 	}
 
@@ -47,7 +47,7 @@ List cTabulate (List coll) {
 		just_binned.push_back   (unique_index);
 
 
-		for (unsigned int ith = 1; ith < unbinned_indices.size(); ++ith) {
+		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
 
 			int candidate_index = unbinned_indices[ith];
 			bool is_match       = R_compute_identical(coll[unique_index], coll[candidate_index], flags);
@@ -64,11 +64,11 @@ List cTabulate (List coll) {
 		// filter the recently binned indices out of the unbinned indices.
 		std::vector<int> tmp;
 
-		for (unsigned int ith = 0; ith < unbinned_indices.size(); ++ith) {
+		for (int ith = 0; ith < unbinned_indices.size(); ++ith) {
 
 			bool still_unbinned = true;
 
-			for (unsigned int jth = 0; jth < just_binned.size(); ++jth) {
+			for (int jth = 0; jth < just_binned.size(); ++jth) {
 				if (unbinned_indices[ith] == just_binned[jth]) {
 
 					still_unbinned = false;
@@ -87,7 +87,7 @@ List cTabulate (List coll) {
 
 	List out(unique_indices.size());
 
-	for (unsigned int ith = 0; ith < unique_indices.size(); ++ith) {
+	for (int ith = 0; ith < unique_indices.size(); ++ith) {
 
 		int unique_index = unique_indices[ith];
 		int copies       = unique_counts[ith];
