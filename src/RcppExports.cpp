@@ -37,6 +37,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cGroupBy
+List cGroupBy(Function fn, List coll);
+RcppExport SEXP kea_cGroupBy(SEXP fnSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< Function >::type fn(fnSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cGroupBy(fn, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cImplode
 CharacterVector cImplode(const CharacterVector str, const CharacterVector strs);
 RcppExport SEXP kea_cImplode(SEXP strSEXP, SEXP strsSEXP) {

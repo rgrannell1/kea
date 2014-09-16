@@ -27,11 +27,11 @@ List cTabulate (List coll) {
 
 		std::vector<int> just_binned;
 
-		int copies = 1;
+		int copies       = 1;
 		int unique_index = unbinned_indices[0];
 
-		unique_indices.push_back(unique_index);
 		just_binned.push_back(unique_index);
+		unique_indices.push_back(unique_index);
 
 		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
 

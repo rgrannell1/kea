@@ -9,6 +9,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cGroupBy <- function(fn, coll) {
+    .Call('kea_cGroupBy', PACKAGE = 'kea', fn, coll)
+}
+
 cImplode <- function(str, strs) {
     .Call('kea_cImplode', PACKAGE = 'kea', str, strs)
 }
