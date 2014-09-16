@@ -523,7 +523,7 @@ load_test_dependencies <- function (envir) {
 
 
 
-replace_symbol <- function (sym, val, expr, where = parent.frame()) {
+replace_symbol <- function (sym, val, expr) {
 
 	replace <- function (expr) {
 
@@ -543,5 +543,5 @@ replace_symbol <- function (sym, val, expr, where = parent.frame()) {
 
 	}
 
-	replace(substitute(expr))
+	replace(expr)
 }

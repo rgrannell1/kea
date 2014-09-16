@@ -194,7 +194,7 @@ create_static_body <- function (fn, method_name, fixed) {
 					# -- leaves the ellipsis parametre open for more arguments.
 					# -- the function sub_self binds any occurence of 'self' in the supplied argument
 					# -- to the value of Self()
-					c( acc, quote(Self()), bquote(sub_self( alist( .(as.symbol('...')) ) )) )
+					c( acc, quote(Self()), bquote(sub_self_( .(as.symbol('...') ) , True)) )
 				} else {
 					# -- normal fixing
 					c( acc, quote(Self()) )
@@ -228,11 +228,13 @@ create_static_body <- function (fn, method_name, fixed) {
 		# -- the value of Self( ) is set when calling the method with $,
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
 		sub_self <- function (val) {
+			eval(replace_symbol('self', Self(), substitute(val)), parent_frame)
+		}
 
-			eval(substitute_q(
-				substitute_q(
-					substitute(val), parent_frame), clone_env))
+		sub_self_ <- function (...) {
 
+			val <- substitute(...)
+			eval(replace_symbol('self', Self(), val), parent_frame)
 		}
 
 		.({
