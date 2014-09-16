@@ -827,10 +827,54 @@ suggest_similar_method <- local({
 
 		candidates <- setdiff(proto[[2]], 'private')
 
+		# -- check if the function does exist, just not in this
+		# -- prototype.
+
+		all_prototypes <- list(
+			x_table_proto,
+			x_factor_proto,
+			x_function_proto,
+			x_coll_proto,
+			x_any_proto
+		)
+
+		if (method_name != 'private') {
+
+			with_method <- Reduce(
+				function (acc, proto) {
+
+					members <- ls(proto)
+
+					if (any(method_name == members)) {
+						c(acc, proto $ private $ contents_are)
+					} else {
+						acc
+					}
+
+				},
+				all_prototypes,
+				c()
+			)
+
+			if (length(with_method) > 0) {
+
+				message <-
+					"Could not find the method " %+% dQuote(method_name) %+%
+					" in the methods available for " %+% content_type %+% ", but it was " %+%
+					"available for " %+% toString(with_method) %+% '.'
+
+				throw_kea_error(invoking_call, message)
+
+			}
+
+		}
+
+
 		# -- try to find a similar method.
 		matches    <- list(
 			close =
 				close_method(method_name, candidates),
+
 			change_of_suffix =
 				change_of_suffix(method_name, candidates),
 			change_to_prefix =
