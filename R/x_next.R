@@ -496,11 +496,11 @@ make_proto <- function (fns, params, description) {
 # determines their preceedence within make_method.
 
 proto_params <- list(
-	table      = c('tab',  'val', 'val1', 'val2'),
-	factor     = c('fact', 'val', 'val1', 'val2'),
+	table      = c('tab',  'val', 'val1', 'val2',  '...coll', '...coll1', '...coll2'),
+	factor     = c('fact', 'val', 'val1', 'val2',  '...coll', '...coll1', '...coll2'),
 
-	any        = c('val', 'val1', 'val2'),
-	`function` = c('fn', 'pred', '...fns', '...preds', 'val', 'val1', 'val2'),
+	any        = c('val', 'val1', 'val2',  '...coll', '...coll1', '...coll2'),
+	`function` = c('fn', 'pred', '...fns', '...preds', 'val', 'val1', 'val2', '...coll', '...coll1', '...coll2'),
 	coll       = c(
 		'ims',   '...ims',
 		'ints',  '...ints',
