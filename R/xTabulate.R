@@ -17,7 +17,11 @@
 #'     \code{list(list("y", 3), list("n", 2))}
 #'
 #'     The result of the tabulation is unsorted for efficiency;
-#'     if sorting is required \bold{xSortBy} can be used.
+#'     if sorting is required \bold{xSortBy} can be used. The performance of
+#'     \bold{xTabulate} heavily depends on the number of unique groups in the output;
+#'     the worst case is O(n^2), when there are no duplicates in the input collection. The
+#'     best case performance is when there are only duplicates in the input collection.
+#'
 #'
 #' @param
 #'    coll a collection. The values to find the frequency of.
@@ -43,41 +47,7 @@
 #' @export
 
 xTabulate <- MakeFun('xTabulate', function (coll) {
-
-	if (length(coll) == 0) {
-		list()
-	} else {
-
-		unique_elements <- unique(coll)
-
-		indices <- vapply(coll, function (elem) {
-
-			# -- for each element of a collection coll
-			# -- check which element of the set coll' elem is.
-			for (ith in seq_along(unique_elements)) {
-
-				if (identical( elem, unique_elements[[ith]] )) {
-					return(ith)
-				}
-			}
-
-		}, numeric(1), USE.NAMES = False)
-
-		# -- tabulate these indices as a list for efficiency.
-		index_frequencies <- as.list(table(indices))
-
-		# -- reparse the named indices from string to integer.
-		lapply(names(index_frequencies), function (ith) {
-
-			# -- reparse the index from string. Dumb, but efficient.
-			ith <- as.integer(ith)
-
-			# -- return the element, and its frequency.
-			list(
-				unique_elements[[ith]],
-				as.numeric( index_frequencies[[ith]] ))
-		})
-	}
+	cTabulate(coll)
 })
 
 #' @rdname xTabulate

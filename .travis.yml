@@ -21,3 +21,5 @@ notifications:
   email:
     on_success: change
     on_failure: change
+
+after_failure: "cat /home/travis/build/rgrannell1/kea/kea.Rcheck/00install.out"

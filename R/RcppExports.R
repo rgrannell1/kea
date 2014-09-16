@@ -17,6 +17,10 @@ cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
 }
 
+cNotIn <- function(val, coll) {
+    .Call('kea_cNotIn', PACKAGE = 'kea', val, coll)
+}
+
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
@@ -25,16 +29,16 @@ cRiffle <- function(val, coll) {
     .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
 }
 
+cSwap <- function(val1, val2, coll) {
+    .Call('kea_cSwap', PACKAGE = 'kea', val1, val2, coll)
+}
+
 cTabulate <- function(coll) {
     .Call('kea_cTabulate', PACKAGE = 'kea', coll)
 }
 
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
-}
-
-cUniqueOf <- function(coll) {
-    .Call('kea_cUniqueOf', PACKAGE = 'kea', coll)
 }
 
 cUnzipIndices <- function(coll) {

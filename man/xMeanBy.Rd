@@ -4,30 +4,33 @@
 \alias{xMeanBy_}
 \title{xMeanBy}
 \usage{
-xMeanBy(nums)
+xMeanBy(fn, coll)
 
-xMeanBy_(...)
+xMeanBy_(fn, ...)
 }
 \arguments{
-\item{nums}{a vector of numbers. The numbers to compute the mean of.}
+\item{fn}{a unary function. The function to measure the size of
+    an element.}
+
+\item{coll}{a collection. The collection to find the mean of.}
 
 \item{...}{see above.}
 }
 \value{
-A single double vector.
+A length-one double vector.
 }
 \description{
-Return the mean of a collection of numbers.
+Return the mean of a collection of numbers according to a measure function.
 }
 \section{Type Signature}{
 
-    |numeric| -> &lt;double>
+    (any -> &lt;numeric>) -> |any| -> &lt;double>
 }
 
 \section{Corner Cases}{
 
    If \bold{nums} is empty then \bold{double(0)} is returned. The mean
-   of vectors containing infinite values is infinite. If \bold{nums}
+   of vectors containing infinite values is infinite. The output of \bold{fn}
    cannot contain NA or NaN values, as these values do not have a defined
    magnitude.
 }

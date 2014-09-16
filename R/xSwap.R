@@ -35,15 +35,7 @@
 #' @export
 
 xSwap <- MakeFun('xSwap', function (val1, val2, coll) {
-
-	if (length(coll) == 0) {
-		keep_names(list(), coll)
-	} else {
-		lapply(coll, function (elem) {
-			if (identical(elem, val1)) val2 else elem
-		})
-	}
-
+	cSwap(val1, val2, coll)
 })
 
 #' @rdname xSwap

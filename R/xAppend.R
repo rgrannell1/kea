@@ -40,6 +40,7 @@ xAppend <- MakeFun('xAppend', function (val, coll) {
 	} else {
 		as.list( c(coll, list(val)) )
 	}
+
 })
 
 #' @rdname xAppend
