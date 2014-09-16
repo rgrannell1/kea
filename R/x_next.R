@@ -221,18 +221,16 @@ create_static_body <- function (fn, method_name, fixed) {
 
 	bquote({
 
-		parent_frame     <- parent.frame()
-		clone_env        <- new.env(parent = parent_frame)
-		clone_env $ self <- Self()
-
 		# -- the value of Self( ) is set when calling the method with $,
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
+
 		sub_self <- function (val) {
 			eval(replace_symbol('self', Self(), val), environment())
 		}
 
 		sub_self_ <- function (...) {
 
+			# substitute(...) grabs unevaluated variables names, which is useless.
 			val <- match.call(expand.dots = False) $ ...
 
 			eval(replace_symbol('self', Self(), val), environment())
