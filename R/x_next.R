@@ -225,7 +225,7 @@ create_static_body <- function (fn, method_name, fixed) {
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
 
 		sub_self <- function (val) {
-			eval(replace_symbol('self', Self(), val), environment())
+			eval( replace_symbol('self', Self(), val, parent.frame()) )
 		}
 
 		sub_self_ <- function (...) {
@@ -233,7 +233,7 @@ create_static_body <- function (fn, method_name, fixed) {
 			# substitute(...) grabs unevaluated variables names, which is useless.
 			val <- match.call(expand.dots = False) $ ...
 
-			eval(replace_symbol('self', Self(), val), environment())
+			eval(replace_symbol('self', Self(), val))
 		}
 
 		.({
