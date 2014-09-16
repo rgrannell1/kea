@@ -50,6 +50,7 @@ List cTabulate (List coll) {
 		// filter the recently binned indices out of the unbinned indices.
 		std::vector<int> tmp;
 
+		// is this really optimally efficient?
 		for (int ith = 0; ith < unbinned_indices.size(); ++ith) {
 
 			bool still_unbinned = true;
