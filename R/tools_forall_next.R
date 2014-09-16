@@ -514,13 +514,13 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 			}
 		)
 
-		state $ case_examined <- state $ case_examined + 1
+		state $ cases_examined[[group_ith]] <- state $ cases_examined[[group_ith]] + 1
 
 		if (!isTRUE(is_match)) {
 			next
 		}
 
-		state $ tests_run <- state $ tests_run + 1
+		state $ tests_run[[group_ith]] <- state $ tests_run[[group_ith]] + 1
 
 		for ( prop_ith in seq_len(length(group_props)) ) {
 
@@ -775,10 +775,10 @@ execute_test <- function (test) {
 	# -- the state that is modified after running several tests.
 	# -- failed_indices needed to identify failing expression & associated description.
 
-	initial_state <- function () {
+	initial_state <- function (num) {
 		list(
-			cases_examined = 0,
-			tests_run      = 0,
+			cases_examined = rep(0, num),
+			tests_run      = rep(0, num),
 			fails_for      = list(),
 			failed_after   = Inf,
 			failed_indices = list()
@@ -794,8 +794,8 @@ execute_test <- function (test) {
 	)
 
 	states <- list(
-		positive = initial_state(),
-		negative = initial_state()
+		positive = initial_state(length(positives)),
+		negative = initial_state(length(negatives))
 	)
 
 	# -- testers take a property, and a test case, and return a boolean value.
