@@ -697,6 +697,15 @@ state_sucess <- function (states, info) {
 	positive_run <- states [[1]] $ tests_run
 	negative_run <- states [[2]] $ tests_run
 
+	if (length(negative_run) == 0) {
+		negative_run <- rep(0, length(positive_run))
+	} else 	if (length(positive_run) == 0) {
+		positive_run <- rep(0, length(negative_run))
+	}
+
+
+
+
 	# -- info is vectorised (many descriptions), create newline for each.
 
 	run_summary <-
