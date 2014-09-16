@@ -60,4 +60,19 @@ message("methods")
 		identical( x_(val1) $ x_FirstOf_(val2, val3), val1 )
 	) +
 
+	over(val) +
+
+	describe("variable closure works") +
+	worksWhen(
+		True,
+		{
+
+			f <- function (x) {
+				x_(x) $ x_Tap(y := x)
+			}
+
+			f(val)
+		}
+	) +
+
 	run()
