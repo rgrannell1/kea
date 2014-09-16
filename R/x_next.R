@@ -204,7 +204,7 @@ create_static_body <- function (fn, method_name, fixed) {
 				# -- don't fix this parametre.
 				# -- the function sub_self binds any occurence of 'self' in the supplied argument
 				# -- to the value of Self()
-				c( acc, bquote(sub_self( .(as.symbol(param)) )) )
+				c( acc, bquote(sub_self( substitute(.(as.symbol(param))) )) )
 			}
 		},
 		names(formals(fn)),
@@ -228,13 +228,14 @@ create_static_body <- function (fn, method_name, fixed) {
 		# -- the value of Self( ) is set when calling the method with $,
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
 		sub_self <- function (val) {
-			eval(replace_symbol('self', Self(), substitute(val)), parent_frame)
+			eval(replace_symbol('self', Self(), val), environment())
 		}
 
 		sub_self_ <- function (...) {
 
-			val <- substitute(...)
-			eval(replace_symbol('self', Self(), val), parent_frame)
+			val <- match.call(expand.dots = False) $ ...
+
+			eval(replace_symbol('self', Self(), val), environment())
 		}
 
 		.({
