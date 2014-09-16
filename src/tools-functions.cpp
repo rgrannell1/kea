@@ -120,3 +120,18 @@ List concat (List coll0, List coll1) {
 
 	return out;
 }
+
+
+
+
+
+std::vector<int> indices_to (int num) {
+
+	std::vector<int> out;
+
+	for (int ith = 0; ith < num; ++ith) {
+		out.push_back(ith);
+	}
+
+	return out;
+}

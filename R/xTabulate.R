@@ -17,7 +17,11 @@
 #'     \code{list(list("y", 3), list("n", 2))}
 #'
 #'     The result of the tabulation is unsorted for efficiency;
-#'     if sorting is required \bold{xSortBy} can be used.
+#'     if sorting is required \bold{xSortBy} can be used. The performance of
+#'     \bold{xTabulate} heavily depends on the number of unique groups in the output;
+#'     the worst case is O(n^2), when there are no duplicates in the input collection. The
+#'     best case performance is when there are only duplicates in the input collection.
+#'
 #'
 #' @param
 #'    coll a collection. The values to find the frequency of.

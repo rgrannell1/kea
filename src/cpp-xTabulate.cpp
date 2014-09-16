@@ -1,22 +1,9 @@
 #include <Rcpp.h>
+#include "functions.h"
 using namespace Rcpp;
 
 // Worst case should be O(n^2), when there are n distinct elements.
 
-
-
-
-
-std::vector<int> indices_to (int num) {
-
-	std::vector<int> out;
-
-	for (int ith = 0; ith < num; ++ith) {
-		out.push_back(ith);
-	}
-
-	return out;
-}
 
 
 
@@ -41,11 +28,10 @@ List cTabulate (List coll) {
 		std::vector<int> just_binned;
 
 		int copies = 1;
-		int unique_index    = unbinned_indices[0];
+		int unique_index = unbinned_indices[0];
 
 		unique_indices.push_back(unique_index);
-		just_binned.push_back   (unique_index);
-
+		just_binned.push_back(unique_index);
 
 		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
 
