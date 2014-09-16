@@ -194,7 +194,7 @@ create_static_body <- function (fn, method_name, fixed) {
 					# -- leaves the ellipsis parametre open for more arguments.
 					# -- the function sub_self binds any occurence of 'self' in the supplied argument
 					# -- to the value of Self()
-					c( acc, quote(Self()), bquote(sub_self( .(as.symbol('...')) )) )
+					c( acc, quote(Self()), bquote(sub_self( alist( .(as.symbol('...')) ) )) )
 				} else {
 					# -- normal fixing
 					c( acc, quote(Self()) )

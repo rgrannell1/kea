@@ -50,3 +50,14 @@ message("methods")
 	) +
 
 	run()
+
+	over(val1, val2, val3) +
+
+	describe("variadic functions work") +
+	holdsWhen(
+		True,
+
+		identical( x_(val1) $ x_FirstOf_(val2, val3), val1 )
+	) +
+
+	run()
