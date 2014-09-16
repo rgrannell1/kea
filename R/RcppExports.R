@@ -45,10 +45,6 @@ cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
 }
 
-cUniqueOf <- function(coll) {
-    .Call('kea_cUniqueOf', PACKAGE = 'kea', coll)
-}
-
 cUnzipIndices <- function(coll) {
     .Call('kea_cUnzipIndices', PACKAGE = 'kea', coll)
 }
