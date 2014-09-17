@@ -224,16 +224,27 @@ create_static_body <- function (fn, method_name, fixed) {
 		# -- the value of Self( ) is set when calling the method with $,
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
 
+		# parent.frame for function arguments to have proper lexical bindings;
+		# for some reason this environment isn't inheriting the expected values from it's parent
+		# env (a downstream bug in create_static_body?)
+		env <- new.env(parent = parent.frame())
+
 		sub_self <- function (val) {
-			eval( replace_symbol('self', Self(), val, parent.frame()) )
+
+			expr <- replace_symbol('self', Self(), val)
+
+			out <- eval(expr, env)
+			out
 		}
 
 		sub_self_ <- function (...) {
 
 			# substitute(...) grabs unevaluated variables names, which is useless.
-			val <- match.call(expand.dots = False) $ ...
+			val  <- match.call(expand.dots = False) $ ...
+			expr <- replace_symbol('self', Self(), val)
 
-			eval(replace_symbol('self', Self(), val))
+			out <- eval(expr, env)
+			out
 		}
 
 		.({
