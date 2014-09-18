@@ -23,8 +23,7 @@ List cGroupBy (Function fn, List coll) {
 
 			bool group_found = false;
 
-			// NOT GOOD!
-			SEXP map = fn(coll[ith]);
+			Shield<SEXP> map( fn(coll[ith]) );
 
 			int group_maps_size = group_maps.size();
 
