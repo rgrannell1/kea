@@ -21,6 +21,10 @@ cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
 }
 
+cIsPrefixOf <- function(coll1, coll2) {
+    .Call('kea_cIsPrefixOf', PACKAGE = 'kea', coll1, coll2)
+}
+
 cIsSubsetOf <- function(coll1, coll2) {
     .Call('kea_cIsSubsetOf', PACKAGE = 'kea', coll1, coll2)
 }
