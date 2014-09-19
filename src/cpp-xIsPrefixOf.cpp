@@ -25,7 +25,7 @@ LogicalVector cIsPrefixOf (const List coll1, const List coll2) {
 
 			bool is_match = R_compute_identical(coll1[ith], coll2[ith], flags);
 
-			if (is_match) {
+			if (!is_match) {
 				return LogicalVector::create(false);
 			}
 
