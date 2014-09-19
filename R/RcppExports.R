@@ -21,8 +21,16 @@ cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
 }
 
+cIsSubsetOf <- function(coll1, coll2) {
+    .Call('kea_cIsSubsetOf', PACKAGE = 'kea', coll1, coll2)
+}
+
 cNotIn <- function(val, coll) {
     .Call('kea_cNotIn', PACKAGE = 'kea', val, coll)
+}
+
+cNotSubsetOf <- function(coll1, coll2) {
+    .Call('kea_cNotSubsetOf', PACKAGE = 'kea', coll1, coll2)
 }
 
 cPowerSetOf <- function(coll) {

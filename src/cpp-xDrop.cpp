@@ -1,6 +1,10 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
+
+
 // [[Rcpp::export]]
 List cDrop (NumericVector num, List coll) {
 

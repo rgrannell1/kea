@@ -33,28 +33,7 @@
 #' @export
 
 xNotSubset <- MakeFun('xNotSubset', function (coll1, coll2) {
-
-	if (length(coll1) == 0 || length(coll2) == 0) {
-		logical(0)
-	} else {
-
-		for (elem1 in coll1) {
-			# -- 'in' is needed here.
-
-			has_match <- False
-
-			for (elem2 in coll2)  {
-				if (identical(elem1, elem2)) {
-					has_match <- True
-				}
-			}
-
-			if (!has_match) {
-				return (True)
-			}
-		}
-		False
-	}
+	cNotSubsetOf(coll1, coll2)
 })
 
 #' @rdname xNotSubset
