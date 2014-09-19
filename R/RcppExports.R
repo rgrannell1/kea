@@ -37,8 +37,16 @@ cNotIn <- function(val, coll) {
     .Call('kea_cNotIn', PACKAGE = 'kea', val, coll)
 }
 
+cNotPrefixOf <- function(coll1, coll2) {
+    .Call('kea_cNotPrefixOf', PACKAGE = 'kea', coll1, coll2)
+}
+
 cNotSubsetOf <- function(coll1, coll2) {
     .Call('kea_cNotSubsetOf', PACKAGE = 'kea', coll1, coll2)
+}
+
+cNotSuffixOf <- function(coll1, coll2) {
+    .Call('kea_cNotSuffixOf', PACKAGE = 'kea', coll1, coll2)
 }
 
 cPowerSetOf <- function(coll) {

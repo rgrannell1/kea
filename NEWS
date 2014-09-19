@@ -8,6 +8,7 @@ ENHANCEMENTS:
 * Rewrote xIsSubsetOf and xNotSubsetOf in C++. yielding a x60 speedup when
 checking if 1...1000 with itself.
 
+* Reqrote xIsSuffixOf, xIsPrefixOf, yielding an x30 speedup for 10,000 elements.
 
 
 

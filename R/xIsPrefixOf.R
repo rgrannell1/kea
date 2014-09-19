@@ -23,6 +23,9 @@
 #'    If either collection is length-zero, \bold{logical(0)} is returned.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

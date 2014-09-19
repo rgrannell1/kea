@@ -34,30 +34,7 @@
 #' @export
 
 xNotSuffixOf <- MakeFun('xNotSuffixOf', function (coll1, coll2) {
-
-	if (length(coll1) == 0 || length(coll2) == 0) {
-		logical(0)
-	} else {
-
-		# -- cannot be a prefix.
-		if (length(coll1) > length(coll2)) {
-			return (True)
-		}
-
-		for ( ith in seq_len(length(coll1)) ) {
-
-			if (!identical(
-				coll1[[ length(coll1) - ith + 1 ]],
-				coll2[[ length(coll2) - ith + 1 ]] )) {
-
-				return (True)
-			}
-
-		}
-
-		return (False)
-	}
-
+	cNotSuffixOf(coll1, coll2)
 })
 
 #' @rdname xNotSuffixOf
