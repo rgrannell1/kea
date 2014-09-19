@@ -29,6 +29,10 @@ cIsSubsetOf <- function(coll1, coll2) {
     .Call('kea_cIsSubsetOf', PACKAGE = 'kea', coll1, coll2)
 }
 
+cIsSuffixOf <- function(coll1, coll2) {
+    .Call('kea_cIsSuffixOf', PACKAGE = 'kea', coll1, coll2)
+}
+
 cNotIn <- function(val, coll) {
     .Call('kea_cNotIn', PACKAGE = 'kea', val, coll)
 }
