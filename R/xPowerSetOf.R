@@ -37,32 +37,6 @@
 #' @export
 
 xPowerSetOf <- MakeFun('xPowerSetOf', function (coll) {
-
-#	if (length(coll) == 0) {
-#		list()
-#	} else {
-#
-#		subsets <- list(list())
-#		coll <- lapply(coll, list)
-#
-#		for (elem in coll) {
-#
-#			elem_subsets <- vector('list', length(subsets))
-#
-#			# -- append the element to each set in the partial
-#			# -- powerset, until all elements are added. Tree-like branching.
-#
-#			for (ith in seq_along(subsets)) {
-#				elem_subsets[[ith]] <- c(subsets[[ith]], elem)
-#			}
-#
-#			subsets <- c(subsets, elem_subsets)
-#
-#		}
-#
-#		subsets
-#	}
-
 	cPowerSetOf(coll)
 })
 
