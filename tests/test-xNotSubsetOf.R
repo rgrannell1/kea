@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotSubset")
+message("xNotSubsetOf")
 
 	over(coll1, coll2) +
 
@@ -9,14 +9,14 @@ message("xNotSubset")
 	holdsWhen(
 		is_collection(coll1) && is_collection(coll2) &&
 		length(coll1) == 0,
-		xNotSubset(coll1, coll2) %is% logical(0)
+		xNotSubsetOf(coll1, coll2) %is% logical(0)
 	) +
 
 	describe("subsetting an empty collection") +
 	holdsWhen(
 		is_collection(coll1) && is_collection(coll2) &&
 		length(coll2) == 0,
-		xNotSubset(coll1, coll2) %is% logical(0)
+		xNotSubsetOf(coll1, coll2) %is% logical(0)
 	) +
 
 	describe("elements of a subset are always a subset.") +
@@ -24,7 +24,7 @@ message("xNotSubset")
 		is_collection(coll1) && length(coll1) > 0,
 		{
 			subset <- sample(as.list(coll1), size = sample.int(length(coll1), 1))
-			!xNotSubset(subset, coll1)
+			!xNotSubsetOf(subset, coll1)
 		}
 	) +
 

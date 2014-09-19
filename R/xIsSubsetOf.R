@@ -1,5 +1,5 @@
 
-#' xIsSubset
+#' xIsSubsetOf
 #'
 #' Test if a collection is a subset of a second collection.
 #'
@@ -25,18 +25,18 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xIsSubset.R
+#'    inst/examples/example-xIsSubsetOf.R
 #'
 #' @family set_functions
 #'
-#' @rdname xIsSubset
+#' @rdname xIsSubsetOf
 #' @export
 
-xIsSubset <- MakeFun('xIsSubset', function (coll1, coll2) {
+xIsSubsetOf <- MakeFun('xIsSubsetOf', function (coll1, coll2) {
 	cIsSubsetOf(coll1, coll2)
 })
 
-#' @rdname xIsSubset
+#' @rdname xIsSubsetOf
 #' @export
 
-xIsSubset_ <- MakeVariadic(xIsSubset, 'coll2')
+xIsSubsetOf_ <- MakeVariadic(xIsSubsetOf, 'coll2')

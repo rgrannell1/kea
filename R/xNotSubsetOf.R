@@ -1,5 +1,5 @@
 
-#' xNotSubset
+#' xNotSubsetOf
 #'
 #' Test if a collection is not a subset of a second collection.
 #'
@@ -25,18 +25,18 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xNotSubset.R
+#'    inst/examples/example-xNotSubsetOf.R
 #'
 #' @family set_functions
 #'
-#' @rdname xNotSubset
+#' @rdname xNotSubsetOf
 #' @export
 
-xNotSubset <- MakeFun('xNotSubset', function (coll1, coll2) {
+xNotSubsetOf <- MakeFun('xNotSubsetOf', function (coll1, coll2) {
 	cNotSubsetOf(coll1, coll2)
 })
 
-#' @rdname xNotSubset
+#' @rdname xNotSubsetOf
 #' @export
 
-xNotSubset_ <- MakeVariadic(xNotSubset, 'coll2')
+xNotSubsetOf_ <- MakeVariadic(xNotSubsetOf, 'coll2')
