@@ -19,6 +19,9 @@
 #'     ... see above.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

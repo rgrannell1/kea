@@ -26,6 +26,9 @@
 #'    If \bold{coll} is a empty collection the empty list is returned.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @family reshaping_functions

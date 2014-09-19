@@ -22,6 +22,9 @@
 #'    Returns logical(0) if \bold{coll1} or \bold{coll2} is length-zero.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

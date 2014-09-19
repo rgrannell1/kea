@@ -22,6 +22,9 @@
 #'    Returns the empty list if \bold{coll} is length-zero.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

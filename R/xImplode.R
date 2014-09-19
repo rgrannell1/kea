@@ -28,6 +28,9 @@
 #' @family text_processing_functions
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example
