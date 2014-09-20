@@ -24,29 +24,30 @@ message("methods")
 
 	run()
 
-	over(val) +
+	over(val1, val2, val3) +
 
-	describe("self reflection works") +
+	describe("variadic functions work") +
 	holdsWhen(
 		True,
 
-		x_(val) $ xIs(self) $ x_I(),
-		x_(val) $ x_Is(self)
+		identical( x_(val1) $ x_FirstOf_(val2, val3), val1 )
 	) +
 
 	run()
 
-	over(coll) +
+	over(val) +
 
-	describe("self reflection works") +
+	describe("lexical closure works") +
 	worksWhen(
-		is_collection(coll),
+		True,
+		{
 
-		x_(coll) $ xJoin_(self),
-		x_(coll) $ xJoin_(c(self, self)),
+			f <- function (x) {
+				x_(x) $ x_Tap(function (y) x)
+			}
 
-		x_(xI) $ xMap(list(self)),
-		x_(xI) $ xMap( list(self, self, list(self)) )
+			f(val)
+		}
 	) +
 
 	run()

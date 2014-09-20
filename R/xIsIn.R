@@ -28,6 +28,9 @@
 #' @family set_functions
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

@@ -34,27 +34,7 @@
 #' @export
 
 xNotPrefixOf <- MakeFun('xNotPrefixOf', function (coll1, coll2) {
-
-	if (length(coll1) == 0 || length(coll2) == 0) {
-		logical(0)
-	} else {
-
-		# -- cannot be a prefix.
-		if (length(coll1) > length(coll2)) {
-			return(True)
-		}
-
-		for ( ith in seq_len(length(coll1)) ) {
-
-			if (!identical( coll1[[ith]], coll2[[ith]] )) {
-				return(True)
-			}
-
-		}
-
-		return(False)
-	}
-
+	cNotPrefixOf(coll1, coll2)
 })
 
 #' @rdname xNotPrefixOf

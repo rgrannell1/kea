@@ -5,6 +5,7 @@ using namespace Rcpp;
 LogicalVector cIsIn (SEXP val, List coll) {
 
 	int coll_len = coll.size();
+	const int flags = 1 + 2 + 4 + 8 + 0;
 
 	if (coll_len == 0) {
 		return LogicalVector::create();
@@ -12,7 +13,7 @@ LogicalVector cIsIn (SEXP val, List coll) {
 
 		for (int ith = 0; ith < coll_len; ++ith) {
 
-			bool result = R_compute_identical(val, coll[ith], 0);
+			bool result = R_compute_identical(val, coll[ith], flags);
 
 			if (result) {
 				// required due to RcppCore/Rcpp issue #177.

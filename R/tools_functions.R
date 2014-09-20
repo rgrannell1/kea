@@ -517,3 +517,31 @@ load_test_dependencies <- function (envir) {
 		assign(key, deps[[key]], envir = envir)
 	}
 }
+
+
+
+
+
+
+replace_symbol <- function (sym, val, expr) {
+
+	replace <- function (expr) {
+
+		if (is.pairlist(expr)) {
+			as.pairlist(lapply(expr, replace))
+		} else if (length(expr) == 0) {
+			expr
+		} else if (length(expr) == 1) {
+			if (expr == as.name(sym)) {
+				val
+			} else {
+				expr
+			}
+		} else {
+			as.call(lapply(expr, replace))
+		}
+
+	}
+
+	replace(expr)
+}

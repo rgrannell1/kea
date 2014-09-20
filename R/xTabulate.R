@@ -36,6 +36,9 @@
 #'    If \bold{coll} is length-zero the empty list is returned.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example

@@ -37,6 +37,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cGroupBy
+List cGroupBy(Function fn, List coll);
+RcppExport SEXP kea_cGroupBy(SEXP fnSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< Function >::type fn(fnSEXP );
+        Rcpp::traits::input_parameter< List >::type coll(collSEXP );
+        List __result = cGroupBy(fn, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cImplode
 CharacterVector cImplode(const CharacterVector str, const CharacterVector strs);
 RcppExport SEXP kea_cImplode(SEXP strSEXP, SEXP strsSEXP) {
@@ -69,6 +85,54 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cIsPrefixOf
+LogicalVector cIsPrefixOf(const List coll1, const List coll2);
+RcppExport SEXP kea_cIsPrefixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        LogicalVector __result = cIsPrefixOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cIsSubsetOf
+LogicalVector cIsSubsetOf(List coll1, List coll2);
+RcppExport SEXP kea_cIsSubsetOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< List >::type coll2(coll2SEXP );
+        LogicalVector __result = cIsSubsetOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cIsSuffixOf
+LogicalVector cIsSuffixOf(const List coll1, const List coll2);
+RcppExport SEXP kea_cIsSuffixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        LogicalVector __result = cIsSuffixOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cNotIn
 LogicalVector cNotIn(SEXP val, List coll);
 RcppExport SEXP kea_cNotIn(SEXP valSEXP, SEXP collSEXP) {
@@ -79,6 +143,54 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         LogicalVector __result = cNotIn(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cNotPrefixOf
+LogicalVector cNotPrefixOf(const List coll1, const List coll2);
+RcppExport SEXP kea_cNotPrefixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        LogicalVector __result = cNotPrefixOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cNotSubsetOf
+LogicalVector cNotSubsetOf(List coll1, List coll2);
+RcppExport SEXP kea_cNotSubsetOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< List >::type coll2(coll2SEXP );
+        LogicalVector __result = cNotSubsetOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cNotSuffixOf
+LogicalVector cNotSuffixOf(const List coll1, const List coll2);
+RcppExport SEXP kea_cNotSuffixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        LogicalVector __result = cNotSuffixOf(coll1, coll2);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -158,6 +270,21 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericVector >::type num(numSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cTake(num, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cUniqueOf
+List cUniqueOf(const List coll);
+RcppExport SEXP kea_cUniqueOf(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
+        List __result = cUniqueOf(coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

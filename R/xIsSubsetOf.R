@@ -1,5 +1,5 @@
 
-#' xIsSubset
+#' xIsSubsetOf
 #'
 #' Test if a collection is a subset of a second collection.
 #'
@@ -22,42 +22,24 @@
 #'    Returns logical(0) if \bold{coll1} or \bold{coll2} is length-zero.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xIsSubset.R
+#'    inst/examples/example-xIsSubsetOf.R
 #'
 #' @family set_functions
 #'
-#' @rdname xIsSubset
+#' @rdname xIsSubsetOf
 #' @export
 
-xIsSubset <- MakeFun('xIsSubset', function (coll1, coll2) {
-
-	if (length(coll1) == 0 || length(coll2) == 0) {
-		logical(0)
-	} else {
-
-		for (elem1 in coll1) {
-			# -- 'in' is needed here.
-
-			has_match <- False
-
-			for (elem2 in coll2)  {
-				if (identical(elem1, elem2)) {
-					has_match <- True
-				}
-			}
-
-			if (!has_match) {
-				return (False)
-			}
-		}
-		True
-	}
+xIsSubsetOf <- MakeFun('xIsSubsetOf', function (coll1, coll2) {
+	cIsSubsetOf(coll1, coll2)
 })
 
-#' @rdname xIsSubset
+#' @rdname xIsSubsetOf
 #' @export
 
-xIsSubset_ <- MakeVariadic(xIsSubset, 'coll2')
+xIsSubsetOf_ <- MakeVariadic(xIsSubsetOf, 'coll2')

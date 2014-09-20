@@ -24,6 +24,9 @@
 #'    If either collection is length-zero, \bold{logical(0)} is returned.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @example
@@ -35,30 +38,7 @@
 #' @export
 
 xIsSuffixOf <- MakeFun('xIsSuffixOf', function (coll1, coll2) {
-
-	if (length(coll1) == 0 || length(coll2) == 0) {
-		logical(0)
-	} else {
-
-		# -- cannot be a prefix.
-		if (length(coll1) > length(coll2)) {
-			return (False)
-		}
-
-		for ( ith in seq_len(length(coll1)) ) {
-
-			if (!identical(
-				coll1[[ length(coll1) - ith + 1 ]],
-				coll2[[ length(coll2) - ith + 1 ]] )) {
-
-				return (False)
-			}
-
-		}
-
-		return (True)
-	}
-
+	cIsSuffixOf(coll1, coll2)
 })
 
 #' @rdname xIsSuffixOf

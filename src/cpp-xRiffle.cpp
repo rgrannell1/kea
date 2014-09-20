@@ -1,6 +1,11 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
+
+
+
 // [[Rcpp::export]]
 List cRiffle (SEXP val, List coll) {
 

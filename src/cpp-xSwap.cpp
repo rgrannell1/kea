@@ -1,6 +1,11 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
+
+
+
 // [[Rcpp::export]]
 List cSwap (const SEXP val1, const SEXP val2, List coll) {
 

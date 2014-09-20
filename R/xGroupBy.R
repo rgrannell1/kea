@@ -26,6 +26,9 @@
 #'    If \bold{coll} is a empty collection the empty list is returned.
 #'
 #' @template
+#'    C++
+#'
+#' @template
 #'    Variadic
 #'
 #' @family reshaping_functions
@@ -40,38 +43,7 @@ xGroupBy <- MakeFun('xGroupBy', function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	if (length(coll) == 0) {
-		# do not keep names.
-		list()
-	} else {
-
-		groups <- list()
-
-		for ( ith in seq_len(length(coll)) ) {
-			group_found <- False
-
-			elem <- coll[[ith]]
-			map  <- MACRO( Try_Higher_Order_Function( fn(elem) ) )
-
-			for ( jth in seq_len(length(groups)) ) {
-
-				# -- does the groupee fn(elem) belong in the jth group?
-				if ( identical(map, groups[[jth]][[1]] ) ) {
-
-					# -- append the element to the group.
-					groups[[jth]][[2]] <- c(groups[[jth]][[2]], list(elem))
-
-					group_found <- True
-				}
-			}
-
-			# --- the groupee didn't belong in any group. Construct a new one.
-			if (!group_found) {
-				groups <- c(groups, list( list(map, list(elem)) ))
-			}
-		}
-		groups
-	}
+	cGroupBy(fn, coll)
 })
 
 #' @rdname xGroupBy

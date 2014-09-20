@@ -8,6 +8,7 @@ message('xFix')
 	describe("partially applying with no arguments is the original function") +
 	holdsWhen(
 		True,
+
 		xFix(identity, list())(val) %is% identity(val)
 	) +
 

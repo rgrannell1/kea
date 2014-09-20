@@ -192,9 +192,7 @@ create_static_body <- function (fn, method_name, fixed) {
 				if (fixed == '...') {
 					# -- fixing an ellipsis parametre, which
 					# -- leaves the ellipsis parametre open for more arguments.
-					# -- the function sub_self binds any occurence of 'self' in the supplied argument
-					# -- to the value of Self()
-					c( acc, quote(Self()), bquote(sub_self( .(as.symbol('...')) )) )
+					c(acc, quote(Self()), as.symbol('...'))
 				} else {
 					# -- normal fixing
 					c( acc, quote(Self()) )
@@ -202,9 +200,7 @@ create_static_body <- function (fn, method_name, fixed) {
 
 			} else {
 				# -- don't fix this parametre.
-				# -- the function sub_self binds any occurence of 'self' in the supplied argument
-				# -- to the value of Self()
-				c( acc, bquote(sub_self( .(as.symbol(param)) )) )
+				c(acc, as.symbol(param))
 			}
 		},
 		names(formals(fn)),
@@ -221,19 +217,8 @@ create_static_body <- function (fn, method_name, fixed) {
 
 	bquote({
 
-		parent_frame     <- parent.frame()
-		clone_env        <- new.env(parent = parent_frame)
-		clone_env $ self <- Self()
-
 		# -- the value of Self( ) is set when calling the method with $,
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
-		sub_self <- function (val) {
-
-			eval(substitute_q(
-				substitute_q(
-					substitute(val), parent_frame), clone_env))
-
-		}
 
 		.({
 
@@ -278,27 +263,14 @@ create_dynamic_body <- function (fn, method_name) {
 
 	bquote({
 
-		# to allow for self references the parametre must be
-		# 'looked-up' in a special environment with self defined.
-
-		invoking_call    <- match.call(definition = sys.function(), call = sys.call() )
-
 		clone_env        <- new.env(parent = parent.frame())
 		clone_env $ self <- Self()
 
 		argnames <- names(as.list(match.call(expand.dots = True))[-1])
 
-		args <- lapply(argnames, as.null)
-
-		for (ith in seq_along(argnames)) {
-
-			param <- as.symbol( argnames[[ith]] )
-
-			args[[ith]] <- eval(eval(
-				call( 'substitute', eval(call('substitute', param)), clone_env ), clone_env
-			), clone_env)
-
-		}
+		args <- lapply(argnames, function (param) {
+			eval(as.symbol(param))
+		})
 
 		names(args) <- argnames
 
@@ -496,11 +468,11 @@ make_proto <- function (fns, params, description) {
 # determines their preceedence within make_method.
 
 proto_params <- list(
-	table      = c('tab',  'val', 'val1', 'val2'),
-	factor     = c('fact', 'val', 'val1', 'val2'),
+	table      = c('tab',  'val', 'val1', 'val2',  '...coll', '...coll1', '...coll2'),
+	factor     = c('fact', 'val', 'val1', 'val2',  '...coll', '...coll1', '...coll2'),
 
-	any        = c('val', 'val1', 'val2'),
-	`function` = c('fn', 'pred', '...fns', '...preds', 'val', 'val1', 'val2'),
+	any        = c('val', 'val1', 'val2',  '...coll', '...coll1', '...coll2'),
+	`function` = c('fn', 'pred', '...fns', '...preds', 'val', 'val1', 'val2', '...coll', '...coll1', '...coll2'),
 	coll       = c(
 		'ims',   '...ims',
 		'ints',  '...ints',
@@ -818,10 +790,54 @@ suggest_similar_method <- local({
 
 		candidates <- setdiff(proto[[2]], 'private')
 
+		# -- check if the function does exist, just not in this
+		# -- prototype.
+
+		all_prototypes <- list(
+			x_table_proto,
+			x_factor_proto,
+			x_function_proto,
+			x_coll_proto,
+			x_any_proto
+		)
+
+		if (method_name != 'private') {
+
+			with_method <- Reduce(
+				function (acc, proto) {
+
+					members <- ls(proto)
+
+					if (any(method_name == members)) {
+						c(acc, proto $ private $ contents_are)
+					} else {
+						acc
+					}
+
+				},
+				all_prototypes,
+				c()
+			)
+
+			if (length(with_method) > 0) {
+
+				message <-
+					"Could not find the method " %+% dQuote(method_name) %+%
+					" in the methods available for " %+% content_type %+% ", but it was " %+%
+					"available for " %+% toString(with_method) %+% '.'
+
+				throw_kea_error(invoking_call, message)
+
+			}
+
+		}
+
+
 		# -- try to find a similar method.
 		matches    <- list(
 			close =
 				close_method(method_name, candidates),
+
 			change_of_suffix =
 				change_of_suffix(method_name, candidates),
 			change_to_prefix =

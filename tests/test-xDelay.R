@@ -1,8 +1,6 @@
 
 kea ::: load_test_dependencies(environment())
 
-require(kea)
-
 message("xDelay")
 
 	as_ratio <- function (num) {

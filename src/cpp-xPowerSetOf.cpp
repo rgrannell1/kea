@@ -16,21 +16,19 @@ List cPowerSetOf (List coll) {
 		return List::create();
 	} else {
 
-		List subsets (1);
-		subsets[0] = List::create();
+		std::vector<List> subsets;
+		subsets.push_back(List::create());
 
 		for (int ith = 0; ith < coll_len; ++ith) {
 
 			int subsets_len = subsets.size();
-			List elem_subsets (subsets_len);
 
 			for (int jth = 0; jth < subsets_len; ++jth) {
-				elem_subsets[jth] = concat(List::create(coll[ith]), subsets[jth]);
+				subsets.push_back( concat(List::create(coll[ith]), subsets[jth]) );
 			}
 
-			subsets = concat(subsets, elem_subsets);
 		}
 
-		return subsets;
+		return wrap(subsets);
 	}
 }
