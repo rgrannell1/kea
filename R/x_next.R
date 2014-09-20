@@ -192,9 +192,7 @@ create_static_body <- function (fn, method_name, fixed) {
 				if (fixed == '...') {
 					# -- fixing an ellipsis parametre, which
 					# -- leaves the ellipsis parametre open for more arguments.
-					# -- the function sub_self binds any occurence of 'self' in the supplied argument
-					# -- to the value of Self()
-					c( acc, quote(Self()), bquote(sub_self_( .(as.symbol('...') ) , True)) )
+					c(acc, quote(Self()), as.symbol('...'))
 				} else {
 					# -- normal fixing
 					c( acc, quote(Self()) )
@@ -202,9 +200,7 @@ create_static_body <- function (fn, method_name, fixed) {
 
 			} else {
 				# -- don't fix this parametre.
-				# -- the function sub_self binds any occurence of 'self' in the supplied argument
-				# -- to the value of Self()
-				c( acc, bquote(sub_self( substitute(.(as.symbol(param))) )) )
+				c(acc, as.symbol(param))
 			}
 		},
 		names(formals(fn)),
@@ -223,29 +219,6 @@ create_static_body <- function (fn, method_name, fixed) {
 
 		# -- the value of Self( ) is set when calling the method with $,
 		# -- so this function must be supplied in the method body to close over 'Self( )'.
-
-		# parent.frame for function arguments to have proper lexical bindings;
-		# for some reason this environment isn't inheriting the expected values from it's parent
-		# env (a downstream bug in create_static_body?)
-		env <- new.env(parent = parent.frame())
-
-		sub_self <- function (val) {
-
-			expr <- replace_symbol('self', Self(), val)
-
-			out <- eval(expr, env)
-			out
-		}
-
-		sub_self_ <- function (...) {
-
-			# substitute(...) grabs unevaluated variables names, which is useless.
-			val  <- match.call(expand.dots = False) $ ...
-			expr <- replace_symbol('self', Self(), val)
-
-			out <- eval(expr, env)
-			out
-		}
 
 		.({
 

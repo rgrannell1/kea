@@ -32,6 +32,8 @@
 
 xUniqueOf <- MakeFun('xUniqueOf', function (coll) {
 
+	# C++ is too slow at the moment.
+
 	if (length(coll) == 0) {
 		list()
 	} else {
