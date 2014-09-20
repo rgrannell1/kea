@@ -3,13 +3,33 @@ Kea 0.55.0
 ------------------------------------------------------------------------------
 Date: 2014-9-16
 
+Removed self-references, improved performance.
+
 ENHANCEMENTS:
+
+* Removed the self-reference system added in v0.48.0. Unfortunately this system
+was too buggy and too slow, but a similar feature may be added in a more rigourous way
+in the future.
+
+* Renamed xIsSubset, xNotSubset to xIsSubsetOf, xNotSubsetOf, for consistency with the rest of kea.
 
 * Rewrote xIsSubsetOf and xNotSubsetOf in C++. yielding a x60 speedup when
 checking if 1...1000 with itself.
 
-* Reqrote xIsSuffixOf, xIsPrefixOf, yielding an x30 speedup for 10,000 elements.
+* Rewrote xIsSuffixOf, xIsPrefixOf, xNotSuffixOf, xNotPrefixOf, yielding an x30 speedup for 10,000 elements.
 
+* Rewrote xGroupBy in C++, yielding a similar speedup to that of xTabulate.
+
+* Rewrote xPowerSetOf in C++.
+
+BUG-FIXES:
+
+* Certain collection methods like xFirstOf_ weren't availble to arbitrary values. Closes #40.
+
+
+PACKAGE-INTERNALS:
+
+* forall now counts the number of times each property is run, closing #41.
 
 
 

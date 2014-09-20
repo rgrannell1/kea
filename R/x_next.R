@@ -571,15 +571,6 @@ x_coll_proto     <- make_proto(kea_fns, proto_params $ coll,       'collections'
 #'
 #'     If you mistype a method name kea will attempt to suggest a similar method name, if one exists.
 #'
-#'     \bold{3. Self-References}
-#'     Kea v0.48.0 added an experimental feature which allows methods to use the left-hand side kea object as a non-fixed argument.
-#'     For example, it allows statements like
-#'
-#'     \code{x_(1:3) $ xJoin_(list(self, self)}
-#'
-#'    . The keyword self is replaced by the value 1:3, and the argument to \bold{xJoin} is then evaluated. This feature still has bugs,
-#'    and will be improved over time.
-#'
 #' @param
 #' 	val an arbitrary value. The value to wrap in a kea object.
 #'
