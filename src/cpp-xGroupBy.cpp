@@ -35,7 +35,7 @@ List cGroupBy (Function fn, List coll) {
 
 					std::vector<int> group_indices = group_members[jth];
 					group_indices.push_back(ith);
-					group_members[jth] = group_indices;
+					group_members[jth]             = group_indices;
 
 					group_found = true;
 				}
