@@ -33,6 +33,12 @@ Check if a collection doesn't contain a value.
    equal integers and doubles are treated as different numbers, -0 is equal to +0.
    Returns \bold{logical(0)} when \bold{coll} is empty.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. A toy example with the letters

@@ -30,6 +30,12 @@ Test if a collection is not a subset of a second collection.
 
    Returns logical(0) if \bold{coll1} or \bold{coll2} is length-zero.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 NULL

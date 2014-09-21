@@ -10,7 +10,7 @@ message("xIntersect")
 		is_collection(coll1) && is_collection(coll2) &&
 		length(coll1) == 0 && length(coll2) == 0,
 
-		xIntersect(list(coll1, coll2)) %is% list()
+		xIntersect(coll1, coll2) %is% list()
 	) +
 
 	run()

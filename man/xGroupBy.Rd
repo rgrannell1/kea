@@ -34,6 +34,12 @@ xGroupBy allows the grouping of a heterogeneous dataset into groups of elements
 
    If \bold{coll} is a empty collection the empty list is returned.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1.

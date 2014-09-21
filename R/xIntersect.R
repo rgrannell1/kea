@@ -1,18 +1,19 @@
 
 #' xIntersect
 #'
-#' Get the set intersection of several collections.
+#' Get the set intersection of two collections.
 #'
 #' @details
-#'     The intersection of two sets is the set of elements present in
-#'     both inputs.
+#'     The intersection of two sets is the collection of elements shared by both.
 #'
 #' @section Type Signature:
 #'     |any| -> [any]
 #'
 #' @param
-#'    colls a collection of collections. The collections to
-#'    take the intersection of.
+#'    coll1 a collection. The first collection to get the intersection of.
+#'
+#' @param
+#'    coll1 a collection. The second collection to get the intersection of.
 #'
 #' @param
 #'    ... see above.
@@ -34,25 +35,11 @@
 #' @rdname xIntersect
 #' @export
 
-xIntersect <- MakeFun('xIntersect', function (colls) {
-
-	if (length(colls) == 0) {
-		list()
-	} else if (length(colls) == 1) {
-		colls[[1]]
-	} else {
-
-		overlap <- colls[[1]]
-
-		for (ith in 2:length(colls)) {
-			overlap <- intersect( overlap, colls[[ith]] )
-		}
-
-		as.list(overlap)
-	}
+xIntersect <- MakeFun('xIntersect', function (coll1, coll2) {
+	cIntersect(coll1, coll2)
 })
 
 #' @rdname xIntersect
 #' @export
 
-xIntersect_ <- MakeVariadic(xIntersect, 'colls')
+xIntersect_ <- MakeVariadic(xIntersect, 'coll2')

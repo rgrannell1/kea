@@ -33,6 +33,12 @@ Enumerate every way of subsetting a collection.
 
     Returns the empty list if \bold{coll} is length-zero.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. generate all integer partitions of a number with distinct parts

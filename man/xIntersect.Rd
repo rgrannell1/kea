@@ -4,25 +4,25 @@
 \alias{xIntersect_}
 \title{xIntersect}
 \usage{
-xIntersect(colls)
+xIntersect(coll1, coll2)
 
-xIntersect_(...)
+xIntersect_(coll1, ...)
 }
 \arguments{
-\item{colls}{a collection of collections. The collections to
-   take the intersection of.}
+\item{coll1}{a collection. The first collection to get the intersection of.}
 
 \item{...}{see above.}
+
+\item{coll1}{a collection. The second collection to get the intersection of.}
 }
 \value{
 A list.
 }
 \description{
-Get the set intersection of several collections.
+Get the set intersection of two collections.
 }
 \details{
-The intersection of two sets is the set of elements present in
-    both inputs.
+The intersection of two sets is the collection of elements shared by both.
 }
 \section{Type Signature}{
 
