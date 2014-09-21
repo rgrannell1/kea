@@ -17,8 +17,8 @@ cImplode <- function(str, strs) {
     .Call('kea_cImplode', PACKAGE = 'kea', str, strs)
 }
 
-cIntersect <- function(colls) {
-    .Call('kea_cIntersect', PACKAGE = 'kea', colls)
+cIntersect <- function(coll1, coll2) {
+    .Call('kea_cIntersect', PACKAGE = 'kea', coll1, coll2)
 }
 
 cIsIn <- function(val, coll) {

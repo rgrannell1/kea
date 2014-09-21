@@ -70,14 +70,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // cIntersect
-List cIntersect(const List colls);
-RcppExport SEXP kea_cIntersect(SEXP collsSEXP) {
+List cIntersect(const List coll1, const List coll2);
+RcppExport SEXP kea_cIntersect(SEXP coll1SEXP, SEXP coll2SEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const List >::type colls(collsSEXP );
-        List __result = cIntersect(colls);
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        List __result = cIntersect(coll1, coll2);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
