@@ -74,7 +74,8 @@ Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xCycle_}}; \code{\link{xProdSetOf}},
   \code{\link{xProdSetOf_}}
 
-Other set_functions: \code{\link{xDuplicatesOf}},
+Other set_functions: \code{\link{xDistinctOf}},
+  \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
   \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
@@ -84,7 +85,6 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xProdSetOf}},
   \code{\link{xProdSetOf_}}; \code{\link{xUnite}},
-  \code{\link{xUnite_}}; \code{\link{xDistinctOf}},
-  \code{\link{xDistinctOf_}}
+  \code{\link{xUnite_}}
 }
 

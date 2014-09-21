@@ -9,7 +9,7 @@ xDistinctOf(coll)
 xDistinctOf_(...)
 }
 \arguments{
-\item{coll}{a collection. The collection to return unique
+\item{coll}{a collection. The collection to return distinct
    elements from.}
 
 \item{...}{see above.}
@@ -18,7 +18,7 @@ xDistinctOf_(...)
 A list.
 }
 \description{
-Return the unique elements in a collection.
+Return the distinct elements in a collection.
 }
 \section{Type Signature}{
 

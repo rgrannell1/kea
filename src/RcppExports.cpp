@@ -21,6 +21,21 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cUniqueOf
+List cUniqueOf(const List coll);
+RcppExport SEXP kea_cUniqueOf(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
+        List __result = cUniqueOf(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cDrop
 List cDrop(NumericVector num, List coll);
 RcppExport SEXP kea_cDrop(SEXP numSEXP, SEXP collSEXP) {
@@ -318,21 +333,6 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericVector >::type num(numSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cTake(num, coll);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
-// cUniqueOf
-List cUniqueOf(const List coll);
-RcppExport SEXP kea_cUniqueOf(SEXP collSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
-        List __result = cUniqueOf(coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

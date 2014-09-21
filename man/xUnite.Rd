@@ -4,15 +4,16 @@
 \alias{xUnite_}
 \title{xUnite
 ``
-Get the set union of several collections.}
+Get the set union of two collections.}
 \usage{
-xUnite(colls)
+xUnite(coll1, coll2)
 
-xUnite_(...)
+xUnite_(coll1, ...)
 }
 \arguments{
-\item{colls}{a collection of collections. The collections
-   to take the union of.}
+\item{coll1}{a collection. The first collection to get elements from.}
+
+\item{coll2}{a collection. The second collection to get elements from.}
 
 \item{...}{see above.}
 }
@@ -22,12 +23,11 @@ A list.
 \description{
 xUnite
 ``
-Get the set union of several collections.
+Get the set union of two collections.
 }
 \details{
 \code{xUnite} returns a list of the unique
-   elements in the combination of each collection
-   in \code{colls}.
+   elements in both \bold{coll1} and \bold{coll2}.
 }
 \section{Type Signature}{
 
@@ -36,14 +36,15 @@ Get the set union of several collections.
 
 \section{Corner Cases}{
 
-   Returns the empty list if \code{colls} is length-zero.
+   Returns the empty list if \code{coll1} or \bold{coll2} is length-zero.
 }
 \examples{
 
 NULL
 }
 \seealso{
-Other set_functions: \code{\link{xDuplicatesOf}},
+Other set_functions: \code{\link{xDistinctOf}},
+  \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
   \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
@@ -53,7 +54,6 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xDistinctOf}},
-  \code{\link{xDistinctOf_}}
+  \code{\link{xProdSetOf_}}
 }
 

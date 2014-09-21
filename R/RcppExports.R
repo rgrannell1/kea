@@ -5,6 +5,10 @@ cChunk <- function(num, coll) {
     .Call('kea_cChunk', PACKAGE = 'kea', num, coll)
 }
 
+cUniqueOf <- function(coll) {
+    .Call('kea_cUniqueOf', PACKAGE = 'kea', coll)
+}
+
 cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
@@ -79,10 +83,6 @@ cTabulate <- function(coll) {
 
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
-}
-
-cUniqueOf <- function(coll) {
-    .Call('kea_cUniqueOf', PACKAGE = 'kea', coll)
 }
 
 cUnzipIndices <- function(coll) {
