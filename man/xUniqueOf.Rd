@@ -60,8 +60,8 @@ is_pangram('not pangramic thank you mam.')
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsEmpty}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
+  \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},

@@ -69,6 +69,21 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cIntersect
+List cIntersect(const List colls);
+RcppExport SEXP kea_cIntersect(SEXP collsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type colls(collsSEXP );
+        List __result = cIntersect(colls);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cIsIn
 LogicalVector cIsIn(SEXP val, List coll);
 RcppExport SEXP kea_cIsIn(SEXP valSEXP, SEXP collSEXP) {
@@ -79,6 +94,22 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         LogicalVector __result = cIsIn(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cIsInfixOf
+LogicalVector cIsInfixOf(const List coll1, const List coll2);
+RcppExport SEXP kea_cIsInfixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        LogicalVector __result = cIsInfixOf(coll1, coll2);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -191,6 +222,22 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
         Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
         LogicalVector __result = cNotSuffixOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cPoll
+IntegerVector cPoll(const Function pred, const List coll);
+RcppExport SEXP kea_cPoll(SEXP predSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const Function >::type pred(predSEXP );
+        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
+        IntegerVector __result = cPoll(pred, coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

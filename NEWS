@@ -523,7 +523,7 @@ PACKAGE-INTERNALS:
 * Added tool for testing the generic type of a collection, for testing.
 
 * Added xCycle, xDelay, xFold, xForall, xFromChars, xFromLines, xFromWords,
-xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
+xIntersect, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
 
 
 
@@ -1125,7 +1125,7 @@ Major internal update, changes corner-cases of most functions, removed two funct
 
 ENHANCEMENTS:
 
-* Renamed xInter to xInterOf, for consistancy with xUnionOf.
+* Renamed xInter to xIntersect, for consistancy with xUnionOf.
 
 * Removed xRecycle, as it is now possible to recycle with xRepeat, xMap and xTake easily.
 
@@ -2369,7 +2369,7 @@ PACKAGE-INTERNALS:
 * Added tool for testing the generic type of a collection, for testing.
 
 * Added xCycle, xDelay, xFold, xForall, xFromChars, xFromLines, xFromWords,
-xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
+xIntersect, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
 
 
 
@@ -2971,7 +2971,7 @@ Major internal update, changes corner-cases of most functions, removed two funct
 
 ENHANCEMENTS:
 
-* Renamed xInter to xInterOf, for consistancy with xUnionOf.
+* Renamed xInter to xIntersect, for consistancy with xUnionOf.
 
 * Removed xRecycle, as it is now possible to recycle with xRepeat, xMap and xTake easily.
 

@@ -149,7 +149,7 @@ Collate:
     'xChoose.R'
     'xIsIn.R'
     'xUnionOf.R'
-    'xInterOf.R'
+    'xIntersect.R'
     'xThread.R'
     'xJoin.R'
     'xRepeat.R'

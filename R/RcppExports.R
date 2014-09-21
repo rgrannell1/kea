@@ -17,8 +17,16 @@ cImplode <- function(str, strs) {
     .Call('kea_cImplode', PACKAGE = 'kea', str, strs)
 }
 
+cIntersect <- function(colls) {
+    .Call('kea_cIntersect', PACKAGE = 'kea', colls)
+}
+
 cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
+}
+
+cIsInfixOf <- function(coll1, coll2) {
+    .Call('kea_cIsInfixOf', PACKAGE = 'kea', coll1, coll2)
 }
 
 cIsPrefixOf <- function(coll1, coll2) {
@@ -47,6 +55,10 @@ cNotSubsetOf <- function(coll1, coll2) {
 
 cNotSuffixOf <- function(coll1, coll2) {
     .Call('kea_cNotSuffixOf', PACKAGE = 'kea', coll1, coll2)
+}
+
+cPoll <- function(pred, coll) {
+    .Call('kea_cPoll', PACKAGE = 'kea', pred, coll)
 }
 
 cPowerSetOf <- function(coll) {

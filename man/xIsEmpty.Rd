@@ -57,8 +57,8 @@ xReject_(xIsEmpty, 'a', 'b', integer(0), 'c')
 }
 \seealso{
 Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsIn}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
+  \code{\link{xIntersect_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},

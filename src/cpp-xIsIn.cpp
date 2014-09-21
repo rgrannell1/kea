@@ -1,6 +1,10 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
+
+
 // [[Rcpp::export]]
 LogicalVector cIsIn (SEXP val, List coll) {
 
