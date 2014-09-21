@@ -56,18 +56,18 @@ xReject_(xIsEmpty, 'a', 'b', integer(0), 'c')
 # list('a', 'b', 'c')
 }
 \seealso{
-Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsIn}},
+Other set_functions: \code{\link{xDistinctOf}},
+  \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
+  \code{\link{xIntersect_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
-  \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
-  \code{\link{xUniqueOf_}}
+  \code{\link{xProdSetOf_}}; \code{\link{xUnite}},
+  \code{\link{xUnite_}}
 
 Other value_testing_functions: \code{\link{xIsFalse}};
   \code{\link{xIsInfixOf}}, \code{\link{xIsInfixOf_}};

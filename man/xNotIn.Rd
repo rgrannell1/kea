@@ -33,6 +33,12 @@ Check if a collection doesn't contain a value.
    equal integers and doubles are treated as different numbers, -0 is equal to +0.
    Returns \bold{logical(0)} when \bold{coll} is empty.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. A toy example with the letters
@@ -42,17 +48,17 @@ xNotIn('a', LETTERS)
 # False
 }
 \seealso{
-Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsEmpty}},
+Other set_functions: \code{\link{xDistinctOf}},
+  \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
+  \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
-  \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
-  \code{\link{xUniqueOf_}}
+  \code{\link{xProdSetOf_}}; \code{\link{xUnite}},
+  \code{\link{xUnite_}}
 }
 

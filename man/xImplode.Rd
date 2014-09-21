@@ -34,6 +34,12 @@ Concatenate a character vector into a single string using a delimiter.
   \bold{strs} is length-zero. \bold{xImplode} does not coerce
    its arguments to character.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. create a simple csv writer.

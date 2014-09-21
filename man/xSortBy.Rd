@@ -131,7 +131,7 @@ xSelect(
 		(unlist \%then\% sum)(xs) == 0
 	}
 ) $
-x_UniqueOf()
+x_DistinctOf()
 
 # list(
 #     list(2, 2, -2, -2), list(2, -2, 2, -2),

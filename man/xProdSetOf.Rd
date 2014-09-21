@@ -66,17 +66,17 @@ Other combinatoric_functions: \code{\link{xChoose}},
   \code{\link{xCycle_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}
 
-Other set_functions: \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xInterOf}},
-  \code{\link{xInterOf_}}; \code{\link{xIsEmpty}},
+Other set_functions: \code{\link{xDistinctOf}},
+  \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
+  \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xUnionOf}},
-  \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
-  \code{\link{xUniqueOf_}}
+  \code{\link{xPowerSetOf_}}; \code{\link{xUnite}},
+  \code{\link{xUnite_}}
 }
 

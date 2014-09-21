@@ -1,7 +1,41 @@
 
+Kea 0.56.0
+------------------------------------------------------------------------------
+Date: 2014-9-21
+
+Improved the set functions.
+
+ENHANCEMENTS:
+
+* Renamed xInterOf to xIntersect, as the latter is a verb.
+
+* Renamed xUniqueOf to xDistinctOf, for mathematical correctness.
+
+* Renamed xUnionOf to xUnite, as the latter is a verb.
+
+* xIntersect now takes two arguments, like the other set functions.
+
+* xUnite now takes two arguments, like the other set functions.
+
+* Rewrote xIntersect in C++, fixing an important issue (see below).
+
+BUG-FIXES:
+
+* xIntersect now works for finding the intersection of arbitrary non-vector
+sets, closing #44
+
+* xGroupBy now labels errors thrown by its input functions.
+
+
+
+
+
+
+
+
 Kea 0.55.0
 ------------------------------------------------------------------------------
-Date: 2014-9-16
+Date: 2014-9-20
 
 Removed self-references, improved performance.
 
@@ -26,10 +60,12 @@ BUG-FIXES:
 
 * Certain collection methods like xFirstOf_ weren't availble to arbitrary values. Closes #40.
 
-
 PACKAGE-INTERNALS:
 
 * forall now counts the number of times each property is run, closing #41.
+
+
+
 
 
 
@@ -57,6 +93,9 @@ DOCUMENTATION:
 PACKAGE-INTERNALS:
 
 * Added a failure hook to travis yaml.
+
+
+
 
 
 

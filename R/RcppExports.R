@@ -5,6 +5,10 @@ cChunk <- function(num, coll) {
     .Call('kea_cChunk', PACKAGE = 'kea', num, coll)
 }
 
+cUniqueOf <- function(coll) {
+    .Call('kea_cUniqueOf', PACKAGE = 'kea', coll)
+}
+
 cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
@@ -17,8 +21,16 @@ cImplode <- function(str, strs) {
     .Call('kea_cImplode', PACKAGE = 'kea', str, strs)
 }
 
+cIntersect <- function(coll1, coll2) {
+    .Call('kea_cIntersect', PACKAGE = 'kea', coll1, coll2)
+}
+
 cIsIn <- function(val, coll) {
     .Call('kea_cIsIn', PACKAGE = 'kea', val, coll)
+}
+
+cIsInfixOf <- function(coll1, coll2) {
+    .Call('kea_cIsInfixOf', PACKAGE = 'kea', coll1, coll2)
 }
 
 cIsPrefixOf <- function(coll1, coll2) {
@@ -49,6 +61,10 @@ cNotSuffixOf <- function(coll1, coll2) {
     .Call('kea_cNotSuffixOf', PACKAGE = 'kea', coll1, coll2)
 }
 
+cPoll <- function(pred, coll) {
+    .Call('kea_cPoll', PACKAGE = 'kea', pred, coll)
+}
+
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
@@ -67,10 +83,6 @@ cTabulate <- function(coll) {
 
 cTake <- function(num, coll) {
     .Call('kea_cTake', PACKAGE = 'kea', num, coll)
-}
-
-cUniqueOf <- function(coll) {
-    .Call('kea_cUniqueOf', PACKAGE = 'kea', coll)
 }
 
 cUnzipIndices <- function(coll) {

@@ -31,6 +31,12 @@ Is a collection a suffix of another?
    If the first collection is longer than the second, False is returned.
    If either collection is length-zero, \bold{logical(0)} is returned.
 }
+
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
 \examples{
 
 # 1. A toy example.

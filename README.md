@@ -1,5 +1,5 @@
 
-Kea 0.55.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
+Kea 0.56.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -108,7 +108,7 @@ x_(contigs) $ xReject(contig := nchar(contig) < 3) $ # -- remove the contigs tha
 xMap(contig := {
 	kmers(3, contig)
 }) $
-xJoin() $ x_UniqueOf() # -- join all the kmers into one flat list, and get the unique ones.
+xJoin() $ x_DistinctOf() # -- join all the kmers into one flat list, and get the unique ones.
 
 
 

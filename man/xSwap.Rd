@@ -25,6 +25,12 @@ Replace each occurence of a certain value in a collection with another value.
     any -> any -> [any] -> [any]
 }
 
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
+
 \section{Corner Cases}{
 
    The equality test that \bold{xSwap} distinguishes between numbers with very small

@@ -37,6 +37,12 @@ Insert an element in between each element of a list.
    Returns the empty list if \bold{coll} is length-zero.
 }
 
+\section{Rcpp}{
+
+
+    This function is written using C++, and should be quite performant.
+}
+
 \section{Stability - \bold{Experimental}}{
 
 
