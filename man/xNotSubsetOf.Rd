@@ -50,8 +50,8 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xPowerSetOf}},
   \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xUnionOf}},
-  \code{\link{xUnionOf_}}; \code{\link{xUniqueOf}},
-  \code{\link{xUniqueOf_}}
+  \code{\link{xProdSetOf_}}; \code{\link{xUnite}},
+  \code{\link{xUnite_}}; \code{\link{xDistinctOf}},
+  \code{\link{xDistinctOf_}}
 }
 

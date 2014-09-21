@@ -11,4 +11,4 @@ xSelect(xUnspread(
 		num1 + num2 == expected_sum
 	}
 )) $
-x_UniqueOf()
+x_DistinctOf()

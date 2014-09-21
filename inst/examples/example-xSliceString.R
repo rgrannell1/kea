@@ -49,7 +49,7 @@ x_(contigs) $ xReject(contig := nchar(contig) < 3) $ # -- remove the contigs tha
 xMap(contig := {
 	kmers(3, contig)
 }) $
-xJoin() $ x_UniqueOf() # -- join all the kmers into one flat list, and get the unique ones.
+xJoin() $ x_DistinctOf() # -- join all the kmers into one flat list, and get the unique ones.
 
 
 

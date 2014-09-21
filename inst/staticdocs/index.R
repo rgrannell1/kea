@@ -398,8 +398,8 @@ sd_section(
 		"xIsSubsetOf",
 		"xNotIn",
 		"xNotSubsetOf",
-		"xUnionOf",
-		"xUniqueOf"
+		"xUnite",
+		"xDistinctOf"
 	)
 )
 
