@@ -1,7 +1,32 @@
 
+Kea 0.56.0
+------------------------------------------------------------------------------
+Date: 2014-9-21
+
+Improved the set function xIntersect.
+
+ENHANCEMENTS:
+
+* Renamed xInterOf to xIntersect, as the latter is a verb.
+
+* Rewrote xIntersect in C++, fixing an important issue (see below).
+
+BUG-FIXES:
+
+* xIntersect now works for finding the intersection of arbitrary non-vector
+sets, closing #44
+
+* xGroupBy now labels errors thrown by its input functions.
+
+
+
+
+
+
+
 Kea 0.55.0
 ------------------------------------------------------------------------------
-Date: 2014-9-16
+Date: 2014-9-20
 
 Removed self-references, improved performance.
 
@@ -25,7 +50,6 @@ checking if 1...1000 with itself.
 BUG-FIXES:
 
 * Certain collection methods like xFirstOf_ weren't availble to arbitrary values. Closes #40.
-
 
 PACKAGE-INTERNALS:
 
@@ -523,7 +547,7 @@ PACKAGE-INTERNALS:
 * Added tool for testing the generic type of a collection, for testing.
 
 * Added xCycle, xDelay, xFold, xForall, xFromChars, xFromLines, xFromWords,
-xIntersect, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
+xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
 
 
 
@@ -1125,7 +1149,7 @@ Major internal update, changes corner-cases of most functions, removed two funct
 
 ENHANCEMENTS:
 
-* Renamed xInter to xIntersect, for consistancy with xUnionOf.
+* Renamed xInter to xInterOf, for consistancy with xUnionOf.
 
 * Removed xRecycle, as it is now possible to recycle with xRepeat, xMap and xTake easily.
 
@@ -2369,7 +2393,7 @@ PACKAGE-INTERNALS:
 * Added tool for testing the generic type of a collection, for testing.
 
 * Added xCycle, xDelay, xFold, xForall, xFromChars, xFromLines, xFromWords,
-xIntersect, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
+xInterOf, xIsMatch, xKeysOf, xLimitOf, xNotMatch, xScan, and xUnspread.
 
 
 
@@ -2971,7 +2995,7 @@ Major internal update, changes corner-cases of most functions, removed two funct
 
 ENHANCEMENTS:
 
-* Renamed xInter to xIntersect, for consistancy with xUnionOf.
+* Renamed xInter to xInterOf, for consistancy with xUnionOf.
 
 * Removed xRecycle, as it is now possible to recycle with xRepeat, xMap and xTake easily.
 
