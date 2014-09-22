@@ -819,7 +819,7 @@ suggest_similar_method <- local({
 
 			changed_variadicity <- change_variadicity(method_name, candidates)
 
-			if (length(change_variadicity) > 0) {
+			if (length(changed_variadicity) > 0) {
 
 				message <-
 					"Could not find the method " %+% dQuote(method_name) %+%
@@ -859,7 +859,6 @@ suggest_similar_method <- local({
 					"available for " %+% toString(with_method) %+% '.'
 
 				throw_kea_error(invoking_call, message)
-
 			}
 
 		}

@@ -38,6 +38,8 @@
 
 xPoll <- MakeFun('xPoll', function (pred, coll) {
 
+	# C++ is currently much slower!
+
 	MACRO( Must_Have_Arity(pred, 1) )
 
 	if (length(coll) == 0) {

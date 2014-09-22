@@ -6,7 +6,28 @@ using namespace Rcpp;
 
 
 
-void Must_Be_Flag (const std::string PRED, const bool flag) {
+void Must_Be_Flag (const std::string PRED, const SEXP flag) {
 
+	if (TYPEOF(flag) != LGLSXP) {
 
+		const std::string message =
+			"The predicate function " + dquote(PRED) + \
+			" produced a non-{True, False, Na} value.\n";
+
+		Function error_callback("error_callback");
+		error_callback(message, 1);
+	}
+
+	const LogicalVector logical_flag = as<LogicalVector>(flag);
+
+	if (logical_flag.size() != 1) {
+
+		const std::string message =
+			"The predicate function " + dquote(PRED) + \
+			" produced a non-{True, False, Na} value.\n";
+
+		Function error_callback("error_callback");
+		error_callback(message, 1);
+
+	}
 }
