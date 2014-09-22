@@ -778,9 +778,21 @@ suggest_similar_method <- local({
 		match[[2]]
 	}
 
+	# change_variadicity :: <character> -> <character> -> <character>
+	#
+	#
 
+	change_variadicity <- function (method_name, candidates) {
 
+		forms <- c(as_nonvariadic(method_name), as_variadic(method_name))
 
+		if (any(forms[1] == candidates)) {
+			forms[1]
+		} else if (any(forms[2] == candidates)) {
+			forms[2]
+		}
+
+	}
 
 	function (val, method_name, content_type, invoking_call) {
 
@@ -803,6 +815,26 @@ suggest_similar_method <- local({
 
 		if (method_name != 'private') {
 
+			# -- check variadic forms.
+
+			changed_variadicity <- change_variadicity(method_name, candidates)
+
+			if (length(change_variadicity) > 0) {
+
+				message <-
+					"Could not find the method " %+% dQuote(method_name) %+%
+					" in the methods available for " %+% content_type %+% ". Did you mean " %+%
+					dQuote(changed_variadicity) %+% "?"
+				throw_kea_error(invoking_call, message)
+
+			}
+
+
+
+
+
+			# -- check other prototypes.
+
 			with_method <- Reduce(
 				function (acc, proto) {
 
@@ -823,7 +855,7 @@ suggest_similar_method <- local({
 
 				message <-
 					"Could not find the method " %+% dQuote(method_name) %+%
-					" in the methods available for " %+% content_type %+% ", but it was " %+%
+					" in the methods available for " %+% content_type %+% ", but it is " %+%
 					"available for " %+% toString(with_method) %+% '.'
 
 				throw_kea_error(invoking_call, message)
