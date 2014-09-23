@@ -41,13 +41,13 @@ xFromLines_('line one.', 'line two', 'line three')
 }
 \seealso{
 Other text_processing_functions: \code{\link{xAmend}};
+  \code{\link{xCarve}}, \code{\link{xCarve_}};
   \code{\link{xCharsOf}}; \code{\link{xExplode}};
   \code{\link{xFromChars}}, \code{\link{xFromChars_}};
   \code{\link{xFromWords}}, \code{\link{xFromWords_}};
   \code{\link{xImplode}}, \code{\link{xImplode_}};
   \code{\link{xIsMatch}}; \code{\link{xNotMatch}};
-  \code{\link{xRead}}; \code{\link{xCarve}},
-  \code{\link{xCarve_}}; \code{\link{xToChars}};
+  \code{\link{xRead}}; \code{\link{xToChars}};
   \code{\link{xToLines}}; \code{\link{xToWords}};
   \code{\link{xWrite}}
 }
