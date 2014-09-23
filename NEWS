@@ -1,15 +1,37 @@
 
 Kea 0.57.0
 ------------------------------------------------------------------------------
-Date: 2014-9-
+Date: 2014-9-23
+
+Improved xIsInfix, xNotInfix performance.
 
 ENHANCEMENTS:
 
 * Rewrote xIsInfixOf in C++, yielding a x30 times speedup when
 testing if 1...10,000 is a subsequence of itself.
 
+* The functions %or%, %and% now short-circuit.
+
+* Method suggestion now suggests using a variadic method when appropriate,
+closing #48.
+
 * Renamed xSliceString to xCarve; no other functions use the
 string suffix, and I don't want to attach it to every string function.
+
+* Removed the variadic form of xCarve, since only the
+last argument may be variadic. Closes #49.
+
+PACKAGE-INTERNALS:
+
+* MakeVariadic now fails if an attempt is made to fix anything but the
+last parametre.
+
+* Implemented Must_Be_Flag in C++.
+
+* Rewrote xPoll and xScan in C++, but they are currently slower than equivalent
+R so they aren't exported.
+
+* Added tests for xLift, xLambda.
 
 
 

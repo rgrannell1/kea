@@ -26,9 +26,6 @@
 #'
 #' @family text_processing_functions
 #'
-#' @template
-#'    Variadic
-#'
 #' @example
 #'    inst/examples/example-xCarve.R
 #'
@@ -55,8 +52,3 @@ xCarve <- MakeFun('xCarve', function (nums, str) {
 		out
 	}
 })
-
-#' @rdname xCarve
-#' @export
-
-xCarve_ <- MakeVariadic(xCarve, 'nums')

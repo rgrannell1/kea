@@ -42,14 +42,13 @@ x_('the letter e is overrated') $ xToChars() $ xReject(x. == 'e') $ x_FromChars(
 }
 \seealso{
 Other text_processing_functions: \code{\link{xAmend}};
-  \code{\link{xCarve}}, \code{\link{xCarve_}};
-  \code{\link{xCharsOf}}; \code{\link{xExplode}};
-  \code{\link{xFromLines}}, \code{\link{xFromLines_}};
-  \code{\link{xFromWords}}, \code{\link{xFromWords_}};
-  \code{\link{xImplode}}, \code{\link{xImplode_}};
-  \code{\link{xIsMatch}}; \code{\link{xNotMatch}};
-  \code{\link{xRead}}; \code{\link{xToChars}};
-  \code{\link{xToLines}}; \code{\link{xToWords}};
-  \code{\link{xWrite}}
+  \code{\link{xCarve}}; \code{\link{xCharsOf}};
+  \code{\link{xExplode}}; \code{\link{xFromLines}},
+  \code{\link{xFromLines_}}; \code{\link{xFromWords}},
+  \code{\link{xFromWords_}}; \code{\link{xImplode}},
+  \code{\link{xImplode_}}; \code{\link{xIsMatch}};
+  \code{\link{xNotMatch}}; \code{\link{xRead}};
+  \code{\link{xToChars}}; \code{\link{xToLines}};
+  \code{\link{xToWords}}; \code{\link{xWrite}}
 }
 
