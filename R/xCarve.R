@@ -1,5 +1,5 @@
 
-#' xSliceString
+#' xCarve
 #'
 #' Subset a string using normal R vector indexing.
 #'
@@ -30,12 +30,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xSliceString.R
+#'    inst/examples/example-xCarve.R
 #'
-#' @rdname xSliceString
+#' @rdname xCarve
 #' @export
 
-xSliceString <- MakeFun('xSliceString', function (nums, str) {
+xCarve <- MakeFun('xCarve', function (nums, str) {
 
 	# -- handles Na and NaN
 	MACRO( Must_All_Be_Whole(nums) )
@@ -56,7 +56,7 @@ xSliceString <- MakeFun('xSliceString', function (nums, str) {
 	}
 })
 
-#' @rdname xSliceString
+#' @rdname xCarve
 #' @export
 
-xSliceString_ <- MakeVariadic(xSliceString, 'nums')
+xCarve_ <- MakeVariadic(xCarve, 'nums')

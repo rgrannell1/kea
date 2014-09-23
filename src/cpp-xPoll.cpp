@@ -23,6 +23,10 @@ IntegerVector cPoll (const Function pred, const List coll) {
 			Shield<SEXP> is_match( pred(coll[ith]) );
 
 			Must_Be_Flag("pred", is_match);
+
+			if (is_match) {
+				++count;
+			}
 		}
 
 		return IntegerVector::create(count);

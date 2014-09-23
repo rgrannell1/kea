@@ -58,8 +58,8 @@ Other text_processing_functions: \code{\link{xAmend}};
   \code{\link{xFromLines}}, \code{\link{xFromLines_}};
   \code{\link{xFromWords}}, \code{\link{xFromWords_}};
   \code{\link{xIsMatch}}; \code{\link{xNotMatch}};
-  \code{\link{xRead}}; \code{\link{xSliceString}},
-  \code{\link{xSliceString_}}; \code{\link{xToChars}};
+  \code{\link{xRead}}; \code{\link{xCarve}},
+  \code{\link{xCarve_}}; \code{\link{xToChars}};
   \code{\link{xToLines}}; \code{\link{xToWords}};
   \code{\link{xWrite}}
 }

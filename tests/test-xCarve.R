@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xSliceString')
+message('xCarve')
 
 	over(str, nums) +
 
@@ -11,8 +11,8 @@ message('xSliceString')
 		!is.na(str) &&
 		is_collection(nums) && length(nums) == 0,
 
-		xSliceString(0, str) %is% character(0),
-		xSliceString(nums, str) %is% character(0)
+		xCarve(0, str) %is% character(0),
+		xCarve(nums, str) %is% character(0)
 	) +
 
 	describe('slicing with indices is identity') +
@@ -20,7 +20,7 @@ message('xSliceString')
 		is_character(str) && length(str) == 1 && !is.na(str),
 		{
 			indices <- seq_len(nchar( unlist(str) ))
-			xSliceString(indices, str) %is% unlist(str)
+			xCarve(indices, str) %is% unlist(str)
 		}
 	) +
 
