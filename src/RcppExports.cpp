@@ -291,6 +291,21 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cProdSetOf
+List cProdSetOf(const List colls);
+RcppExport SEXP kea_cProdSetOf(SEXP collsSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type colls(collsSEXP );
+        List __result = cProdSetOf(colls);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cRiffle
 List cRiffle(SEXP val, List coll);
 RcppExport SEXP kea_cRiffle(SEXP valSEXP, SEXP collSEXP) {

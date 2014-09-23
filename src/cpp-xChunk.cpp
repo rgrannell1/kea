@@ -1,6 +1,11 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
+
+
+
 // [[Rcpp::export]]
 List cChunk (NumericVector num, List coll) {
 
