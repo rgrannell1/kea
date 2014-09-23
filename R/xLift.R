@@ -105,11 +105,16 @@ xLift_ <- MakeVariadic(xLift, 'fns')
 #' @export
 
 '%or%' <- function (fn1, fn2) {
-	xLift('||', list(fn1, fn2))
+	function (...) {
+		fn1(...) || fn2(...)
+	}
 }
 
 #' @rdname xLift
 #' @export
+
 '%and%' <- function (fn1, fn2) {
-	xLift('&&', list(fn1, fn2))
+	function (...) {
+		fn1(...) && fn2(...)
+	}
 }

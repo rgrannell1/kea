@@ -49,11 +49,13 @@ xScan <- MakeFun('xScan', function (fn, val, coll) {
 
 	MACRO( Must_Have_Arity(fn, 2) )
 
-	scanned <- c( val, vector("list", length(coll)) )
+	# don't rewrite in C++; too slow.
 
 	if (length(coll) == 0) {
 		list(val)
 	} else {
+
+		scanned <- c( val, vector("list", length(coll)) )
 
 		for (ith in seq_along(coll)) {
 			scanned[[ith + 1]] <-

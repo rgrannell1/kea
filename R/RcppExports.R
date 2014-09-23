@@ -49,6 +49,10 @@ cNotIn <- function(val, coll) {
     .Call('kea_cNotIn', PACKAGE = 'kea', val, coll)
 }
 
+cNotInfixOf <- function(coll1, coll2) {
+    .Call('kea_cNotInfixOf', PACKAGE = 'kea', coll1, coll2)
+}
+
 cNotPrefixOf <- function(coll1, coll2) {
     .Call('kea_cNotPrefixOf', PACKAGE = 'kea', coll1, coll2)
 }
@@ -71,6 +75,10 @@ cPowerSetOf <- function(coll) {
 
 cRiffle <- function(val, coll) {
     .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
+}
+
+cScan <- function(fn, val, coll) {
+    .Call('kea_cScan', PACKAGE = 'kea', fn, val, coll)
 }
 
 cSwap <- function(val1, val2, coll) {

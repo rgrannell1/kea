@@ -196,6 +196,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cNotInfixOf
+LogicalVector cNotInfixOf(const List coll1, const List coll2);
+RcppExport SEXP kea_cNotInfixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List >::type coll2(coll2SEXP );
+        LogicalVector __result = cNotInfixOf(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cNotPrefixOf
 LogicalVector cNotPrefixOf(const List coll1, const List coll2);
 RcppExport SEXP kea_cNotPrefixOf(SEXP coll1SEXP, SEXP coll2SEXP) {
@@ -285,6 +301,23 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< SEXP >::type val(valSEXP );
         Rcpp::traits::input_parameter< List >::type coll(collSEXP );
         List __result = cRiffle(val, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// cScan
+List cScan(const Function fn, const SEXP val, const List coll);
+RcppExport SEXP kea_cScan(SEXP fnSEXP, SEXP valSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const Function >::type fn(fnSEXP );
+        Rcpp::traits::input_parameter< const SEXP >::type val(valSEXP );
+        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
+        List __result = cScan(fn, val, coll);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
