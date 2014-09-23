@@ -318,6 +318,10 @@ MakeVariadic <- function (fn, fixed) {
 
 	params <- names(formals(fn))
 
+	if (fixed != params[length(params)]) {
+		stop("MakeVariadic: last param isn't fixed in ", fn_sym)
+	}
+
 	if (fixed %not_in% params) {
 		stop("MakeVariadic: tried to fix param that doesn't exist ", paste0(fn_sym))
 	}

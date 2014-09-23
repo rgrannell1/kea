@@ -18,7 +18,7 @@ sd_section(
 		"xFromWords",
 		"xImplode",
 		"xRead",
-		"xSliceString",
+		"xCarve",
 		"xToChars",
 		"xToLines",
 		"xToWords",

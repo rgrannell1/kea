@@ -20,14 +20,15 @@ IntegerVector cPoll (const Function pred, const List coll) {
 
 		for (int ith = 0; ith < coll_size; ++ith) {
 
-			bool is_match( pred(coll[ith]) );
+			Shield<SEXP> is_match( pred(coll[ith]) );
+
+			Must_Be_Flag("pred", is_match);
 
 			if (is_match) {
-				count++;
+				++count;
 			}
-
 		}
 
-		return count;
+		return IntegerVector::create(count);
 	}
 }

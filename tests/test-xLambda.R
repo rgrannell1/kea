@@ -50,4 +50,23 @@ message("xLambda")
 		}
 	) +
 
+	describe("both the body (for the moment) and environment are identical.") +
+	holdsWhen(
+		True,
+		{
+
+			f <- x := val
+			g <- function (x) val
+
+			identical(environment(f), environment(g))
+		},
+		{
+
+			f <- x := val
+			g <- function (x) val
+
+			identical(body(f), body(g))
+		}
+	) +
+
 	run()

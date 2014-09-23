@@ -77,14 +77,14 @@ xDo(list.files %then% print, '.')
 # lot of random overlapping subsequences of the genome. In a non-molecular
 # biology context this is just a run of the mill string algorithm.
 #
-# xSliceString makes it easy to select a subsequence from a string
+# xCarve makes it easy to select a subsequence from a string
 
 kmers <- (k : string) := {
 
 	xMap(
 		ith := {
 			# subset the string.
-			xSliceString((1:k) + ith, string)
+			xCarve((1:k) + ith, string)
 		},
 		0:(nchar(string) - k)
 	)

@@ -21,25 +21,29 @@ LogicalVector cIsInfixOf (const List coll1, const List coll2) {
 			return LogicalVector::create(false);
 		}
 
-		for (int ith = 1; ith < coll2_size - coll1_size; ++ith) {
+		for (int lower = 0; lower < (coll2_size - coll1_size) + 1; ++lower) {
 
-			bool all_match = true;
-			List subsequence;
+			bool subseq_match = true;
 
-			for (int jth = 0; jth < coll1_size; ++jth) {
+			for (int ith = 0; ith < coll1_size; ++ith) {
 
-				bool is_match = R_compute_identical(coll1[jth], subsequence[jth], flags);
+				bool is_match = R_compute_identical(coll1[ith], coll2[ith + lower], flags);
 
-				if (is_match) {
-					all_match = false;
+				if (!is_match) {
+
+					subseq_match = false;
+					break;
+
 				}
 			}
 
-			if (all_match) {
+			if (subseq_match) {
 				return LogicalVector::create(true);
 			}
+
 		}
 
 		return LogicalVector::create(false);
+
 	}
 }
