@@ -73,6 +73,10 @@ cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
 }
 
+cProdSetOf <- function(colls) {
+    .Call('kea_cProdSetOf', PACKAGE = 'kea', colls)
+}
+
 cRiffle <- function(val, coll) {
     .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
 }

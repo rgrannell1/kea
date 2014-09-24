@@ -297,7 +297,6 @@ sd_section(
 	),
 	c(
 		"xArityOf",
-		"xIsVariadic",
 		"xFormalsOf",
 		"xParamsOf",
 		"xFix",
