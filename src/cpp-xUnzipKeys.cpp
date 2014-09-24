@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cUnzipKeys (List coll) {
+List cUnzipKeys (const List& coll) {
 
 	const int coll_len = coll.size();
 

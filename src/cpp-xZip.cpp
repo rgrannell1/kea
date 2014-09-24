@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cZip (const List colls) {
+List cZip (const List& colls) {
 
 	const int colls_size = colls.size();
 

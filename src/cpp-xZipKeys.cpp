@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cZipKeys (const List colls) {
+List cZipKeys (const List& colls) {
 
 	const int colls_size = colls.size();
 

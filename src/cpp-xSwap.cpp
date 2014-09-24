@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cSwap (const SEXP val1, const SEXP val2, List coll) {
+List cSwap (const SEXP val1, const SEXP val2, const List& coll) {
 
 	const int coll_size  = coll.size();
 	const int flags      = 1 + 2 + 4 + 8 + 0;

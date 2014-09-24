@@ -6,7 +6,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-LogicalVector cIsPrefixOf (const List coll1, const List coll2) {
+LogicalVector cIsPrefixOf (const List& coll1, const List& coll2) {
 
 	const int coll1_size = coll1.size();
 	const int coll2_size = coll2.size();

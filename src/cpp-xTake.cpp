@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cTake (NumericVector num, List coll) {
+List cTake (const NumericVector& num, const List& coll) {
 
 	const int num_len    = num.size();
 	const int coll_len   = coll.size();

@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cGroupBy (Function fn, List coll) {
+List cGroupBy (const Function fn, const List& coll) {
 
 	int coll_size   = coll.size();
 	const int flags = 1 + 2 + 4 + 8 + 0;

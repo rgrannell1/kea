@@ -6,7 +6,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-LogicalVector cIsIn (SEXP val, List coll) {
+LogicalVector cIsIn (SEXP val, const List& coll) {
 
 	int coll_len = coll.size();
 	const int flags = 1 + 2 + 4 + 8 + 0;

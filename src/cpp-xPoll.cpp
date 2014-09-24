@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-IntegerVector cPoll (const Function pred, const List coll) {
+IntegerVector cPoll (const Function& pred, const List& coll) {
 
 	const int coll_size = coll.size();
 

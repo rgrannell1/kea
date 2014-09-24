@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cUnzipIndices (List coll) {
+List cUnzipIndices (const List& coll) {
 
 	const int coll_len   = coll.size();
 	const bool has_names = coll.attr("names") != R_NilValue;
