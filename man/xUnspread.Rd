@@ -83,7 +83,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
 
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFix}}, \code{\link{xFix_}};
-  \code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-  \code{\link{xParamsOf}}; \code{\link{xSpread}}
+  \code{\link{xFormalsOf}}; \code{\link{xParamsOf}};
+  \code{\link{xSpread}}
 }
 

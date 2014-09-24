@@ -47,7 +47,7 @@ xFormalsOf(Reduce)
 \seealso{
 Other parametre_functions: \code{\link{xArityOf}};
   \code{\link{xFix}}, \code{\link{xFix_}};
-  \code{\link{xIsVariadic}}; \code{\link{xParamsOf}};
-  \code{\link{xSpread}}; \code{\link{xUnspread}}
+  \code{\link{xParamsOf}}; \code{\link{xSpread}};
+  \code{\link{xUnspread}}
 }
 

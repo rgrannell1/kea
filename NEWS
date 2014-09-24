@@ -1,9 +1,37 @@
 
+Kea 0.58.0
+------------------------------------------------------------------------------
+Date: 2014-9-23
+
+Removed xIsVariadic.
+
+ENHANCEMENTS:
+
+* Removed xIsVariadic; it was never used, and it had an unclear corner case.
+
+NOTE:
+
+* v0.57.0 was accidentically labelled as v0.56.0, so this version was released quickly.
+
+PACKAGE-INTERNALS:
+
+* Implemented xProdSetOf in C++, closing #32. Currently too slow to use.
+
+
+
+
+
+
 Kea 0.57.0
 ------------------------------------------------------------------------------
 Date: 2014-9-23
 
 Improved xIsInfix, xNotInfix performance.
+
+NOTE:
+
+* Do not use this version, as the version numbers are broken. Instead, use
+v0.58.0 or v0.56.0.
 
 ENHANCEMENTS:
 

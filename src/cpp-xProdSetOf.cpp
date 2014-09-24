@@ -51,10 +51,8 @@ List cProdSetOf (const List colls) {
 		// add the current ordered tuple to the output.
 		for (int ith = 0; ith < colls_size; ++ith) {
 
-			int inner_index = tuple_index[ith];
 			List coll       = colls[ith];
-
-			out_tuple[ith]  = coll[inner_index];
+			out_tuple[ith]  = coll[tuple_index[ith]];
 
 		}
 
@@ -76,6 +74,7 @@ List cProdSetOf (const List colls) {
 			} else {
 				break;
 			}
+
 		}
 
 	}

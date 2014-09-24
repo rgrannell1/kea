@@ -120,8 +120,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xThread_}}; \code{\link{xUnspread}}
 
 Other parametre_functions: \code{\link{xArityOf}};
-  \code{\link{xFormalsOf}}; \code{\link{xIsVariadic}};
-  \code{\link{xParamsOf}}; \code{\link{xSpread}};
-  \code{\link{xUnspread}}
+  \code{\link{xFormalsOf}}; \code{\link{xParamsOf}};
+  \code{\link{xSpread}}; \code{\link{xUnspread}}
 }
 
