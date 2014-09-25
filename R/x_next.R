@@ -954,5 +954,5 @@ print.kea <- function (x, ...) {
 		header  %+% '\n\n' %+%
 		'$x_()' %+% '\n')
 
-	print(x $ x_Identity(), ...)
+	print(x [['x']], ...)
 }
