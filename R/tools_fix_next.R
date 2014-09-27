@@ -5,39 +5,40 @@
 # of a function permenantly. This will be used by Fix and MakeFun to create
 # partially applicable functions.
 
-fix <- local({
+fix <- function (fixed_function, coll) {
 
-	fn_symbol <- as.symbol('.fixed_function')
+	fn_formals  <- formals(fixed_function)
+	fn_params   <- names(fn_formals)
 
-	function (.fixed_function, coll) {
+	fixed_env   <- environment(fixed_function)
+	fn_sym      <- substitute(.fixed_function)
 
-		fn_formals      <- formals(.fixed_function)
-		fn_params       <- names(fn_formals)
-		.fixed_function <- substitute(.fixed_function)
+	lower_arity <- do.call('function', list(
+		# -- select each unused parametre.
 
-		do.call('function', list(
-			# -- select each unused parametre.
-			as.pairlist(fn_formals[ fn_params %not_in% names(coll) ]),
-			bquote({
-				.(paste0('a partially applied form of ', .fixed_function))
+		as.pairlist(fn_formals[ fn_params %not_in% names(coll) ]),
+		bquote({
+			.(paste0('a partially applied form of ', fn_sym))
 
-				.( as.call(c(.fixed_function, lapply(fn_params, function (param) {
+			.( as.call(c(fn_sym, lapply(fn_params, function (param) {
 
-					# -- the ith parametre has a matching argument.
-					if (any( names(coll) == param )) {
-						coll[[param]]
-					} else {
-						as.symbol(param)
-					}
+				# -- the ith parametre has a matching argument.
 
-				}) )) )
+				if (any( names(coll) == param )) {
+					coll[[param]]
+				} else {
+					as.symbol(param)
+				}
 
-			})
-		))
+			}) )) )
 
-	}
+		})
+	))
 
-})
+	# copy the environment from the parent.
+	environment(lower_arity) <- new.env(parent = fixed_env)
+	lower_arity
+}
 
 # -------------------------------- Fix -------------------------------- #
 #
@@ -242,7 +243,6 @@ write_type_conversions <- ( function () {
 
 MakeFun <- function (sym, expr, typed = True) {
 
-	fn_sym       <- sym
 	parent_frame <- parent.frame()
 
 	unquote      <- function (inner) {
@@ -259,9 +259,9 @@ MakeFun <- function (sym, expr, typed = True) {
 	}
 
 	# -- get info about the supplied function.
-	expr        <- substitute(expr)
-	underlying  <- eval(unquote(expr), parent_frame)
-	params      <- names(formals(underlying))
+	expr       <- substitute(expr)
+	underlying <- eval(unquote(expr), parent_frame)
+	params     <- names(formals(underlying))
 
 	# -- dynamically write the type-checking code
 
@@ -276,7 +276,7 @@ MakeFun <- function (sym, expr, typed = True) {
 		.(as.call( list(
 			as.symbol('Fix'),
 			# -- the Kea function to partially apply.
-			as.symbol(fn_sym),
+			quote(fn_sym),
 
 			# -- the parametre to the Kea function.
 			lapply(params, as.symbol),
@@ -287,9 +287,12 @@ MakeFun <- function (sym, expr, typed = True) {
 
 	decorated <- function () {}
 
-	formals(decorated)     <- formals(underlying)
-	body(decorated)        <- join_exprs(eval(call_Fix_macro), body(underlying))
-	environment(decorated) <- parent.frame()
+	formals(decorated) <- formals(underlying)
+	body(decorated)    <- join_exprs(eval(call_Fix_macro), body(underlying))
+
+	# allow the function to refer to its original self, pre-partial application!
+	environment(decorated)          <- new.env(parent = parent.frame())
+	environment(decorated) $ fn_sym <- decorated
 
 	decorated
 }
