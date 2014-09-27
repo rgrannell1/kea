@@ -29,7 +29,7 @@
 #' @rdname xNotMatch
 #' @export
 
-xNotMatch <- MakeFun('xNotMatch', function (rexp, str) {
+xNotMatch <- MakeFun(function (rexp, str) {
 
 	if (length(rexp) == 0 || length(str) == 0) {
 		logical(0)

@@ -39,7 +39,7 @@
 #' @rdname xImplode
 #' @export
 
-xImplode <- MakeFun('xImplode', function (str, strs) {
+xImplode <- MakeFun(function (str, strs) {
 
 	MACRO( Must_Not_Contain_Na(strs) )
 

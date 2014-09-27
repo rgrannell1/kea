@@ -30,7 +30,7 @@
 #' @rdname xRank
 #' @export
 
-xRank <- MakeFun('xRank', function (nums) {
+xRank <- MakeFun(function (nums) {
 
 	if (length(nums) == 0) {
 		keep_names(integer(0), nums)

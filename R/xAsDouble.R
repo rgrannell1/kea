@@ -37,7 +37,7 @@
 #' @rdname xAsDouble
 #' @export
 
-xAsDouble <- MakeFun('xAsDouble', function (nums) {
+xAsDouble <- MakeFun(function (nums) {
 	nums
 })
 

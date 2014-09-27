@@ -24,7 +24,7 @@
 #'
 #' @export
 
-xIdentity <- MakeFun('xIdentity', function (val) {
+xIdentity <- MakeFun(function (val) {
 	val
 })
 

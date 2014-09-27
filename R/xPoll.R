@@ -36,7 +36,7 @@
 #' @rdname xPoll
 #' @export
 
-xPoll <- MakeFun('xPoll', function (pred, coll) {
+xPoll <- MakeFun(function (pred, coll) {
 
 	# C++ is currently much slower!
 

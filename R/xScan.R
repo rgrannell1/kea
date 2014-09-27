@@ -45,7 +45,7 @@
 #' @rdname xScan
 #' @export
 
-xScan <- MakeFun('xScan', function (fn, val, coll) {
+xScan <- MakeFun(function (fn, val, coll) {
 
 	MACRO( Must_Have_Arity(fn, 2) )
 

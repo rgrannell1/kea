@@ -33,7 +33,7 @@
 #' @rdname xNotInfixOf
 #' @export
 
-xNotInfixOf <- MakeFun('xNotInfixOf', function (coll1, coll2) {
+xNotInfixOf <- MakeFun(function (coll1, coll2) {
 
 	if (length(coll1) == 0 || length(coll2) == 0) {
 		logical(0)

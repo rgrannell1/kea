@@ -30,7 +30,7 @@
 #' @rdname xOneOf
 #' @export
 
-xOneOf <- MakeFun('xOneOf', function (coll) {
+xOneOf <- MakeFun(function (coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 

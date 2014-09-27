@@ -38,7 +38,7 @@
 #' @rdname xUnspread
 #' @export
 
-xUnspread <- MakeFun('xUnspread', function (fn) {
+xUnspread <- MakeFun(function (fn) {
 
 	function (coll) {
 		"a function returned by xUnspread."

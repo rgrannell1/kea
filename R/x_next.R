@@ -594,7 +594,7 @@ x_coll_proto     <- make_proto(kea_fns, proto_params $ coll,       'collections'
 #' @export
 
 
-x_ <- MakeFun('x_', function (val) {
+x_ <- MakeFun(function (val) {
 	# Collection any -> Kea any
 	# type constructor for the method-chaining data type.
 

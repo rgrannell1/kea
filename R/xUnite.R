@@ -36,7 +36,7 @@
 #' @rdname xUnite
 #' @export
 
-xUnite <- MakeFun('xUnite', function (coll1, coll2) {
+xUnite <- MakeFun(function (coll1, coll2) {
 
 	if (length(coll1) == 0 || length(coll2) == 0) {
 		list()

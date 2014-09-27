@@ -34,7 +34,7 @@
 #' @rdname xNoneOf
 #' @export
 
-xNoneOf <- MakeFun('xNoneOf', function (pred, coll) {
+xNoneOf <- MakeFun(function (pred, coll) {
 
 	if (length(coll) == 0) {
 		logical(0)

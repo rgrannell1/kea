@@ -33,7 +33,7 @@
 #' @rdname xNotSuffixOf
 #' @export
 
-xNotSuffixOf <- MakeFun('xNotSuffixOf', function (coll1, coll2) {
+xNotSuffixOf <- MakeFun(function (coll1, coll2) {
 	cNotSuffixOf(coll1, coll2)
 })
 

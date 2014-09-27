@@ -32,7 +32,7 @@
 #' @rdname xFromLines
 #' @export
 
-xFromLines <- MakeFun('xFromLines', function (strs) {
+xFromLines <- MakeFun(function (strs) {
 
 	MACRO( Must_Not_Contain_Na(strs) )
 

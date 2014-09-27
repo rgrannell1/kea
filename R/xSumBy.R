@@ -33,7 +33,7 @@
 #' @rdname xSumBy
 #' @export
 
-xSumBy <- MakeFun('xSumBy', function (fn, coll) {
+xSumBy <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

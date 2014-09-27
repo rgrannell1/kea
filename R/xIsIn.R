@@ -39,7 +39,7 @@
 #' @rdname xIsIn
 #' @export
 
-xIsIn <- MakeFun('xIsIn', function (val, coll) {
+xIsIn <- MakeFun(function (val, coll) {
 	cIsIn(val, coll)
 })
 

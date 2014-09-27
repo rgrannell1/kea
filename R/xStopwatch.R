@@ -32,7 +32,7 @@
 #' @rdname xStopwatch
 #' @export
 
-xStopwatch <- MakeFun('xStopwatch', function (num) {
+xStopwatch <- MakeFun(function (num) {
 
 	MACRO( Must_Be_Longer_Than(0, num) )
 	MACRO( Must_Be_Between(num, 0, Inf))

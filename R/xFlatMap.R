@@ -52,7 +52,7 @@
 #' @rdname xFlatMap
 #' @export
 
-xFlatMap <- MakeFun('xFlatMap', function (fn, coll) {
+xFlatMap <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

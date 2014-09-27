@@ -31,7 +31,7 @@
 #' @rdname xArityOf
 #' @export
 
-xArityOf <- MakeFun('xArityOf', function (fn) {
+xArityOf <- MakeFun(function (fn) {
 
 	fn_params <- if (is.primitive(fn)) {
 		# -- use the args function to get the primitive arguments.

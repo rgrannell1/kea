@@ -29,7 +29,7 @@
 #' @rdname xIndicesOf
 #' @export
 
-xIndicesOf <- MakeFun('xIndicesOf', function (coll) {
+xIndicesOf <- MakeFun(function (coll) {
 
 	if (length(coll) == 0) {
 		integer(0)

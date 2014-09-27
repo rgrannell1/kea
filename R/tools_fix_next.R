@@ -11,7 +11,7 @@ fix <- function (fixed_function, coll) {
 	fn_params   <- names(fn_formals)
 
 	fixed_env   <- environment(fixed_function)
-	fn_sym      <- substitute(.fixed_function)
+	fn_sym      <- substitute(fixed_function)
 
 	lower_arity <- do.call('function', list(
 		# -- select each unused parametre.
@@ -241,7 +241,7 @@ write_type_conversions <- ( function () {
 # a function definition. It returns a partially-applicable
 # function with type-checks automatically written into it.
 
-MakeFun <- function (sym, expr, typed = True) {
+MakeFun <- function (expr, typed = True) {
 
 	parent_frame <- parent.frame()
 

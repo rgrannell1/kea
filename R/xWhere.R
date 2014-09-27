@@ -29,7 +29,7 @@
 #' @rdname xWhere
 #' @export
 
-xWhere <- MakeFun('xWhere', function (bools) {
+xWhere <- MakeFun(function (bools) {
 
 	if (length(bools) == 0) {
 		keep_names(integer(0), bools)

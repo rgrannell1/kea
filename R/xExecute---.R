@@ -36,7 +36,7 @@
 #'
 #' @name xExecute
 
-xExecute <- MakeFun('xExecute', function (fn, val) {
+xExecute <- MakeFun(function (fn, val) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

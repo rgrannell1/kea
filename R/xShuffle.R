@@ -29,7 +29,7 @@
 #' @rdname xShuffle
 #' @export
 
-xShuffle <- MakeFun('xShuffle', function (coll) {
+xShuffle <- MakeFun(function (coll) {
 
 	# don't rewrite in C++, it is ~10 times slower.
 

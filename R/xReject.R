@@ -43,7 +43,7 @@
 #' @rdname xReject
 #' @export
 
-xReject <- MakeFun('xReject', function (pred, coll) {
+xReject <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 

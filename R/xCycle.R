@@ -59,7 +59,7 @@
 #' @rdname xCycle
 #' @export
 
-xCycle <- MakeFun('xCycle', function (num, coll) {
+xCycle <- MakeFun(function (num, coll) {
 
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Finite(num) )

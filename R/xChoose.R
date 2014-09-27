@@ -38,7 +38,7 @@
 #' @rdname xChoose
 #' @export
 
-xChoose <- MakeFun('xChoose', function (num, coll) {
+xChoose <- MakeFun(function (num, coll) {
 
 	if (length(num) == 0 || num == 0) {
 		list()

@@ -17,7 +17,7 @@
 #' @template S-Uncertain
 #' @name xByLevels
 
-xByLevels <- MakeFun('xByLevels', function (fact) {
+xByLevels <- MakeFun(function (fact) {
 
 	fact_levels <- levels(fact)
 

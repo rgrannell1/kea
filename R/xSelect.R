@@ -43,7 +43,7 @@
 #' @rdname xSelect
 #' @export
 
-xSelect <- MakeFun('xSelect', function (pred, coll) {
+xSelect <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 

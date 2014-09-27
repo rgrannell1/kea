@@ -29,7 +29,7 @@
 #' @rdname xUnit
 #' @export
 
-xUnit <- MakeFun('xUnit', function (coll) {
+xUnit <- MakeFun(function (coll) {
 
 	if (is.pairlist(coll)) {
 		Null

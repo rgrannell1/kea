@@ -36,7 +36,7 @@
 #' @rdname xRiffle
 #' @export
 
-xRiffle <- MakeFun('xRiffle', function (val, coll) {
+xRiffle <- MakeFun(function (val, coll) {
 	cRiffle(val, coll)
 })
 

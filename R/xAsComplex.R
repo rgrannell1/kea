@@ -37,7 +37,7 @@
 #' @rdname xAsComplex
 #' @export
 
-xAsComplex <- MakeFun('xAsComplex', function (ims) {
+xAsComplex <- MakeFun(function (ims) {
 	ims
 })
 

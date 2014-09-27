@@ -39,7 +39,7 @@
 #' @rdname xDo
 #' @export
 
-xDo <- MakeFun('xDo', function (fn, coll) {
+xDo <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

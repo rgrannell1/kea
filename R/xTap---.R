@@ -33,7 +33,7 @@
 #'
 #' @name xTap
 
-xTap <- MakeFun('xTap', function (fn, val) {
+xTap <- MakeFun(function (fn, val) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

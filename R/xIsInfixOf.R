@@ -33,7 +33,7 @@
 #' @rdname xIsInfixOf
 #' @export
 
-xIsInfixOf <- MakeFun('xIsInfixOf', function (coll1, coll2) {
+xIsInfixOf <- MakeFun(function (coll1, coll2) {
 	cIsInfixOf(coll1, coll2)
 })
 

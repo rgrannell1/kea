@@ -47,7 +47,7 @@
 #' @rdname xSortBy
 #' @export
 
-xSortBy <- MakeFun('xSortBy', function (fn, coll) {
+xSortBy <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

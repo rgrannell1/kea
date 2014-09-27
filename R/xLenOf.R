@@ -30,7 +30,7 @@
 #' @rdname xLenOf
 #' @export
 
-xLenOf <- MakeFun('xLenOf', function (coll) {
+xLenOf <- MakeFun(function (coll) {
 	length(coll)
 })
 

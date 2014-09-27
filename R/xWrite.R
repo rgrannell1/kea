@@ -29,7 +29,7 @@
 #' @rdname xWrite
 #' @export
 
-xWrite <- MakeFun('xWrite', function (str1, str2) {
+xWrite <- MakeFun(function (str1, str2) {
 
 	if (length(str1) == 0) {
 		invisible (Null)

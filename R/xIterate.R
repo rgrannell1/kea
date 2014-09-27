@@ -47,7 +47,7 @@
 #' @rdname xIterate
 #' @export
 
-xIterate <- MakeFun('xIterate', function (fn, val) {
+xIterate <- MakeFun(function (fn, val) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

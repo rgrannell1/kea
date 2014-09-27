@@ -31,7 +31,7 @@
 #' @rdname xFromChars
 #' @export
 
-xFromChars <- MakeFun('xFromChars', function (strs) {
+xFromChars <- MakeFun(function (strs) {
 
 	MACRO( Must_Not_Contain_Na(strs) )
 

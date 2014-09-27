@@ -31,7 +31,7 @@
 #' @rdname xExplode
 #' @export
 
-xExplode <- MakeFun('xExplode', function (rexp, str) {
+xExplode <- MakeFun(function (rexp, str) {
 
 	# -- do not preserve names.
 	if (length(str) == 0 || length(rexp) == 0) {

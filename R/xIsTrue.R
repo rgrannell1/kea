@@ -46,6 +46,6 @@
 #' @rdname xIsTrue
 #' @export
 
-xIsTrue <- MakeFun('xIsTrue', function (val) {
+xIsTrue <- MakeFun(function (val) {
 	isTRUE(val)
 })

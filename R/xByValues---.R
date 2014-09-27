@@ -16,7 +16,7 @@
 #' @template S-Uncertain
 #' @name xByValues
 
-xByValues <- MakeFun('xByValues', function (fact) {
+xByValues <- MakeFun(function (fact) {
 
 	values <- as.vector(fact)
 
