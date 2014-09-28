@@ -241,9 +241,9 @@ write_type_conversions <- ( function () {
 # a function definition. It returns a partially-applicable
 # function with type-checks automatically written into it.
 
-MakeFun <- function (expr, typed = True) {
+MakeFun <- function (expr, typed = True, env = parent.frame()) {
 
-	parent_frame <- parent.frame()
+	env <- parent.frame()
 
 	unquote      <- function (inner) {
 
@@ -252,7 +252,7 @@ MakeFun <- function (expr, typed = True) {
 		} else if (length(inner) <= 1L) {
 			inner
 		} else if (inner[[1L]] == as.name("MACRO")) {
-			eval(inner[[2L]], parent_frame)
+			eval(inner[[2L]], env)
 		} else {
 			as.call(lapply(inner, unquote))
 		}
@@ -260,7 +260,7 @@ MakeFun <- function (expr, typed = True) {
 
 	# -- get info about the supplied function.
 	expr       <- substitute(expr)
-	underlying <- eval(unquote(expr), parent_frame)
+	underlying <- eval(unquote(expr), env)
 	params     <- names(formals(underlying))
 
 	# -- dynamically write the type-checking code

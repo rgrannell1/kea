@@ -34,35 +34,7 @@
 #' @export
 
 xNotInfixOf <- MakeFun(function (coll1, coll2) {
-
-	if (length(coll1) == 0 || length(coll2) == 0) {
-		logical(0)
-	} else {
-
-		# -- cannot be an infix.
-		if (length(coll1) > length(coll2)) {
-			return(True)
-		}
-
-		for ( ith in 1:(length(coll2) - length(coll1)) ) {
-
-			all_true    <- True
-			subsequence <- coll2[ith:(ith + length(coll1) - 1)]
-
-			for ( jth in seq_len(length(coll1)) ) {
-				if (!identical( coll1[[jth]], subsequence[[jth]] )) {
-					all_true <- False
-				}
-			}
-
-			if (all_true) {
-				return (False)
-			}
-		}
-
-		True
-	}
-
+	cNotInfixOf(coll1, coll2)
 })
 
 #' @rdname xNotInfixOf
