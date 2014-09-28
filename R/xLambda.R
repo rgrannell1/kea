@@ -165,7 +165,7 @@ xLambda <- local({
 		body(lambda)        <- exprbody
 		environment(lambda) <- env
 
-		MakeFun(lambda, typed = False, parent.frame())
+		MakeFun(lambda, typed = False, parent.frame(2))
 
 	}
 
