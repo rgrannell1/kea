@@ -772,7 +772,9 @@ suggest_similar_method <- local({
 				pair[[1]] == method_name
 			},
 			c(
-				alias(c('xFilterNot', 'xRemove'), 'xReject'))
+				alias(c('xFilterNot', 'xRemove'), 'xReject'),
+				alias(c('xUnique', 'xUniqueOf'),  'xDistinctOf')
+			)
 		)
 
 		match[[2]]

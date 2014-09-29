@@ -13,6 +13,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cFlatMap <- function(fn, coll) {
+    .Call('kea_cFlatMap', PACKAGE = 'kea', fn, coll)
+}
+
 cGroupBy <- function(fn, coll) {
     .Call('kea_cGroupBy', PACKAGE = 'kea', fn, coll)
 }

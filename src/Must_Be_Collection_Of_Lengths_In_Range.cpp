@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 void Must_Be_Collection_Of_Lengths_In_Range (
 	const std::string COLLS, const std::string LOWER, const std::string UPPER,
-	const List& colls, const int lower, const int upper) {
+	const std::vector<List>& colls, const int lower, const int upper) {
 
 	bool all_correct_length = true;
 	const int colls_size    = colls.size();

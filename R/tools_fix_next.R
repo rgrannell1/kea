@@ -291,6 +291,7 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 	body(decorated)    <- join_exprs(eval(call_Fix_macro), body(underlying))
 
 	# allow the function to refer to its original self, pre-partial application!
+	#
 	environment(decorated)          <- new.env(parent = env)
 	environment(decorated) $ fn_sym <- decorated
 
