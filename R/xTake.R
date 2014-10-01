@@ -37,7 +37,7 @@
 #' @rdname xTake
 #' @export
 
-xTake <- MakeFun('xTake', function (num, coll) {
+xTake <- MakeFun(function (num, coll) {
 
 	MACRO( Must_Be_Between(num, 0, Inf))
 	MACRO( Must_Be_Whole(num) )

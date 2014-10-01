@@ -24,6 +24,6 @@
 #' @rdname xCharsOf
 #' @export
 
-xCharsOf <- MakeFun('xCharsOf', function (str) {
+xCharsOf <- MakeFun(function (str) {
 	nchar(str)
 })

@@ -51,7 +51,7 @@
 #' @rdname xApply
 #' @export
 
-xApply <- MakeFun('xApply', function (fn, coll) {
+xApply <- MakeFun(function (fn, coll) {
 
 	 MACRO( Try_Higher_Order_Function( eval(
 		as.call(c(fn, coll)),

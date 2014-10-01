@@ -7,7 +7,7 @@ using namespace Rcpp;
 // tooo slow at the moment.
 
 // [[Rcpp::export]]
-List cScan (const Function fn, const SEXP val, const List coll) {
+List cScan (const Function& fn, const SEXP val, const List& coll) {
 
 	const int coll_size = coll.size();
 

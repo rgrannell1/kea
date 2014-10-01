@@ -34,7 +34,7 @@
 #' @rdname xAllOf
 #' @export
 
-xAllOf <- MakeFun('xAllOf', function (pred, coll) {
+xAllOf <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 

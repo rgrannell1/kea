@@ -38,9 +38,7 @@
 #' @rdname xZipKeys
 #' @export
 
-xZipKeys <- MakeFun('xZipKeys', function (colls) {
-
-	MACRO( Must_Be_Collection_Of_Lengths_In_Range(colls, 2, 2) )
+xZipKeys <- MakeFun(function (colls) {
 
 	# -- check the key lengths too!!! TODO.
 

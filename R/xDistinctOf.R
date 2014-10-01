@@ -30,7 +30,7 @@
 #' @rdname xDistinctOf
 #' @export
 
-xDistinctOf <- MakeFun('xDistinctOf', function (coll) {
+xDistinctOf <- MakeFun(function (coll) {
 
 	# C++ is too slow at the moment.
 
@@ -39,6 +39,8 @@ xDistinctOf <- MakeFun('xDistinctOf', function (coll) {
 	} else {
 		as.list(unique(coll))
 	}
+
+	#cDistinctOf(coll)
 })
 
 #' @rdname xDistinctOf

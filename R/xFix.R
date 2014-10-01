@@ -49,7 +49,7 @@
 #' @rdname xFix
 #' @export
 
-xFix <- MakeFun('xFix', function (fn, coll) {
+xFix <- MakeFun(function (fn, coll) {
 
 	fn <- match_fn(fn)
 	names_of_coll <- names(coll)

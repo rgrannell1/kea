@@ -42,7 +42,7 @@
 #' @rdname xDelay
 #' @export
 
-xDelay <- MakeFun('xDelay', function (fn, num) {
+xDelay <- MakeFun(function (fn, num) {
 
 	MACRO( Must_Be_Longer_Than(0, num) )
 	MACRO( Must_Be_Between(num, 0, Inf))

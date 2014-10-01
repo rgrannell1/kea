@@ -45,7 +45,7 @@
 #' @rdname xFold
 #' @export
 
-xFold <- MakeFun('xFold', function (fn, val, coll) {
+xFold <- MakeFun(function (fn, val, coll) {
 
 	MACRO( Must_Have_Arity(fn, 2) )
 

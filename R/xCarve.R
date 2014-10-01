@@ -32,7 +32,7 @@
 #' @rdname xCarve
 #' @export
 
-xCarve <- MakeFun('xCarve', function (nums, str) {
+xCarve <- MakeFun(function (nums, str) {
 
 	# -- handles Na and NaN
 	MACRO( Must_All_Be_Whole(nums) )

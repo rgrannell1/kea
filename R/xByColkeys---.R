@@ -20,6 +20,6 @@
 #' @template S-Uncertain
 #' @name xByColkeys
 
-xByColkeys <- MakeFun('xByColkeys', function (tab) {
+xByColkeys <- MakeFun(function (tab) {
 	colnames(tab)
 })

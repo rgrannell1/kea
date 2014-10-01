@@ -34,7 +34,7 @@
 #' @rdname xDeepMap
 #' @export
 
-xDeepMap <- MakeFun('xDeepMap', function (fn, coll) {
+xDeepMap <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

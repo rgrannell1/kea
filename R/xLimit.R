@@ -48,7 +48,7 @@
 #' @rdname xLimit
 #' @export
 
-xLimit <- MakeFun('xLimit', function (fn, num) {
+xLimit <- MakeFun(function (fn, num) {
 
 	MACRO( Must_Be_Longer_Than(0, num) )
 

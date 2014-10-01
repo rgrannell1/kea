@@ -33,7 +33,7 @@
 #' @rdname xLocate
 #' @export
 
-xLocate <- MakeFun('xLocate', function (pred, coll) {
+xLocate <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 

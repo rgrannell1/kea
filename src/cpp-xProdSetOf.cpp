@@ -11,7 +11,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cProdSetOf (const List colls) {
+List cProdSetOf (const List& colls) {
 
 	int out_size         = 1;
 	const int colls_size = colls.size();
@@ -39,7 +39,6 @@ List cProdSetOf (const List colls) {
 
 	int out_ith = 0;
 	List out(out_size);
-
 
 
 

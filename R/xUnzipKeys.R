@@ -41,7 +41,7 @@
 #' @rdname xUnzipKeys
 #' @export
 
-xUnzipKeys <- MakeFun('xUnzipKeys', function (coll) {
+xUnzipKeys <- MakeFun(function (coll) {
 
 	if (length(coll) > 0) {
 		MACRO( Must_Be_Named(coll) )

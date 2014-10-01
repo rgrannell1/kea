@@ -31,7 +31,7 @@
 #' @rdname xNotEmpty
 #' @export
 
-xNotEmpty <- MakeFun('xNotEmpty', function (coll) {
+xNotEmpty <- MakeFun(function (coll) {
 	isTRUE(length(coll) != 0)
 })
 

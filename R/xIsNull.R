@@ -28,6 +28,6 @@
 #' @rdname xIsNull
 #' @export
 
-xIsNull <- MakeFun('xIsNull', function (val) {
+xIsNull <- MakeFun(function (val) {
 	isTRUE(identical(val, NULL))
 })

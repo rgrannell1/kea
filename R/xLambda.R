@@ -165,8 +165,8 @@ xLambda <- local({
 		body(lambda)        <- exprbody
 		environment(lambda) <- env
 
+		#MakeFun(lambda, typed = False, parent.frame(2))
 		lambda
-
 	}
 
 	brace <- as.symbol('{')
@@ -192,6 +192,7 @@ xLambda <- local({
 			))
 			environment(lambda) <- parent.frame()
 
+			#MakeFun(lambda, typed = False, parent.frame())
 			lambda
 
 		} else {

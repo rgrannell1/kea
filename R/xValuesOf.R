@@ -29,7 +29,7 @@
 #' @rdname xValuesOf
 #' @export
 
-xValuesOf <- MakeFun('xValuesOf', function (coll) {
+xValuesOf <- MakeFun(function (coll) {
 	as.list(unname(coll))
 })
 

@@ -27,10 +27,12 @@ void Must_Be_Collection_Of_Equal_Length (const std::string COLLS, const List col
 
 	if (!all_equal) {
 
-		const std::string message = "The argument matching " + dquote(COLLS) +
-		" must be a collection of collections with equal lengths.";
+		std::stringstream msg;
+		msg << "The argument matching"
+			<< dquote(COLLS)
+			<< " must be a collection of collections with equal lengths.";
 
 		Function error_callback("error_callback");
-		error_callback(message, 1);
+		error_callback(msg.str(), 1);
 	}
 }

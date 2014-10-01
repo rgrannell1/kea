@@ -33,7 +33,7 @@
 #' @rdname xIsMatch
 #' @export
 
-xIsMatch <- MakeFun('xIsMatch', function (rexp, str) {
+xIsMatch <- MakeFun(function (rexp, str) {
 
 	if (length(str) == 0 || length(rexp) == 0) {
 		logical(0)

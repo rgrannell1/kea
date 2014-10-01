@@ -594,7 +594,7 @@ x_coll_proto     <- make_proto(kea_fns, proto_params $ coll,       'collections'
 #' @export
 
 
-x_ <- MakeFun('x_', function (val) {
+x_ <- MakeFun(function (val) {
 	# Collection any -> Kea any
 	# type constructor for the method-chaining data type.
 
@@ -772,7 +772,9 @@ suggest_similar_method <- local({
 				pair[[1]] == method_name
 			},
 			c(
-				alias(c('xFilterNot', 'xRemove'), 'xReject'))
+				alias(c('xFilterNot', 'xRemove'), 'xReject'),
+				alias(c('xUnique', 'xUniqueOf'),  'xDistinctOf')
+			)
 		)
 
 		match[[2]]
@@ -954,5 +956,23 @@ print.kea <- function (x, ...) {
 		header  %+% '\n\n' %+%
 		'$x_()' %+% '\n')
 
-	print(x $ x_Identity(), ...)
+	print(x [['x']], ...)
+}
+
+#' @export
+
+str.kea <- function (object, ...) {
+
+	proto        <- get_proto_ref( object[['x']] )
+	contents_are <- proto[[1]][['private']] [['contents_are']]
+
+	header <- colourise $ blue(
+		'\n[ an kea object with methods for ' %+% contents_are %+% ' ]')
+
+	cat(
+		header  %+% '\n\n' %+%
+		'$x_()' %+% '\n')
+
+	str(object[['x']], ...)
+
 }

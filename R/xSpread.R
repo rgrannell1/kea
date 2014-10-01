@@ -35,7 +35,7 @@
 #' @rdname xSpread
 #' @export
 
-xSpread <- MakeFun('xSpread', function (fn) {
+xSpread <- MakeFun(function (fn) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

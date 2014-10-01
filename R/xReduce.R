@@ -41,7 +41,7 @@
 #' @rdname xReduce
 #' @export
 
-xReduce <- MakeFun('xReduce', function (fn, coll) {
+xReduce <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 2) )
 	MACRO( Must_Be_Longer_Than(0, coll) )

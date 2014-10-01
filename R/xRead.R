@@ -32,7 +32,7 @@
 #' @rdname xRead
 #' @export
 
-xRead <- MakeFun('xRead', function (str) {
+xRead <- MakeFun(function (str) {
 
 	MACRO( Must_Be_File(str) )
 

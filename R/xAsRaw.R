@@ -36,7 +36,7 @@
 #' @rdname xAsRaw
 #' @export
 
-xAsRaw <- MakeFun('xAsRaw', function (raws) {
+xAsRaw <- MakeFun(function (raws) {
 	raws
 })
 

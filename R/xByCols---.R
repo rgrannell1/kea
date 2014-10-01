@@ -17,7 +17,7 @@
 #' @template S-Uncertain
 #' @name xByCols
 
-xByCols <- MakeFun('xByCols', function (tab) {
+xByCols <- MakeFun(function (tab) {
 
 	dims <- dim(tab)
 

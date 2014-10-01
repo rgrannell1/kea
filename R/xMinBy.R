@@ -36,7 +36,7 @@
 #' @rdname xMinBy
 #' @export
 
-xMinBy <- MakeFun('xMinBy', function (fn, coll) {
+xMinBy <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

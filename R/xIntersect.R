@@ -35,7 +35,7 @@
 #' @rdname xIntersect
 #' @export
 
-xIntersect <- MakeFun('xIntersect', function (coll1, coll2) {
+xIntersect <- MakeFun(function (coll1, coll2) {
 	cIntersect(coll1, coll2)
 })
 

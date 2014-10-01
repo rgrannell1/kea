@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cRiffle (SEXP val, List coll) {
+List cRiffle (SEXP val, const List& coll) {
 
 	const int coll_len = coll.size();
 

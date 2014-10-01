@@ -34,7 +34,7 @@
 #' @rdname xDropWhile
 #' @export
 
-xDropWhile <- MakeFun('xDropWhile', function (pred, coll) {
+xDropWhile <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 

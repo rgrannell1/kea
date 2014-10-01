@@ -6,7 +6,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cDrop (NumericVector num, List coll) {
+List cDrop (const NumericVector num, const List& coll) {
 
 	const int num_len    = num.size();
 	const int coll_len   = coll.size();

@@ -17,7 +17,7 @@
 #' @template S-Uncertain
 #' @name xElemsByRows
 
-xElemsByRows <- MakeFun('xElemsByRows', function (tab) {
+xElemsByRows <- MakeFun(function (tab) {
 
 	if (prod(dim(tab) == 0)) {
 		list()

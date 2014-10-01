@@ -21,7 +21,7 @@
 #' @rdname xIsVal
 #' @export
 
-xIsVal <- MakeFun('xIsVal', function (sym) {
+xIsVal <- MakeFun(function (sym) {
 
 	parent_frame <- parent.frame()
 

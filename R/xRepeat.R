@@ -34,7 +34,7 @@
 #' @rdname xRepeat
 #' @export
 
-xRepeat <- MakeFun('xRepeat', function (num, coll) {
+xRepeat <- MakeFun(function (num, coll) {
 
 	MACRO( Must_Be_Between(num, 0, Inf))
 	MACRO( Must_Be_Whole(num) )

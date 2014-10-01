@@ -37,7 +37,7 @@
 #' @rdname xTakeWhile
 #' @export
 
-xTakeWhile <- MakeFun('xTakeWhile', function (pred, coll) {
+xTakeWhile <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 

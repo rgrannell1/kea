@@ -37,7 +37,7 @@
 #' @rdname xJoin
 #' @export
 
-xJoin <- MakeFun('xJoin', function (colls) {
+xJoin <- MakeFun(function (colls) {
 
 	if (length(colls) == 0) {
 		list()

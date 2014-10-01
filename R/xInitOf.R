@@ -30,7 +30,7 @@
 #' @rdname xInitOf
 #' @export
 
-xInitOf <- MakeFun('xInitOf', function (coll) {
+xInitOf <- MakeFun(function (coll) {
 
 	if (length(coll) < 2) {
 		keep_names(list(), coll)

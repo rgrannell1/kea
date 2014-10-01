@@ -1,4 +1,26 @@
 
+Kea 0.59.0
+------------------------------------------------------------------------------
+Date: 2014-10-1
+
+ENHANCEMENTS:
+
+* Implemented a method 'str' for kea functions.
+
+* Improved memory efficiency of C++ kea functions.
+
+PACKAGE-INTERNALS:
+
+* sym parametre is no longer required for MakeFun, which will make it easy to
+implement partially applicable lambdas.
+
+
+
+
+
+
+
+
 Kea 0.58.0
 ------------------------------------------------------------------------------
 Date: 2014-9-24

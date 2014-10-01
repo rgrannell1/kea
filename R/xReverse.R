@@ -29,7 +29,7 @@
 #' @rdname xReverse
 #' @export
 
-xReverse <- MakeFun('xReverse', function (coll) {
+xReverse <- MakeFun(function (coll) {
 
 	if (length(coll) == 0) {
 		keep_names(list(), coll)

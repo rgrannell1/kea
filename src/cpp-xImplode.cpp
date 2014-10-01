@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-CharacterVector cImplode (const CharacterVector str, const CharacterVector strs) {
+CharacterVector cImplode (const CharacterVector str, const CharacterVector& strs) {
 
 	const int str_size  = str.	size();
 	const int strs_size = strs.size();

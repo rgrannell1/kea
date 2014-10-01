@@ -36,7 +36,7 @@
 #' @rdname xDrop
 #' @export
 
-xDrop <- MakeFun('xDrop', function (num, coll) {
+xDrop <- MakeFun(function (num, coll) {
 
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 0, Inf))

@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cChunk (NumericVector num, List coll) {
+List cChunk (NumericVector num, const List& coll) {
 
 	const int num_len  = num.size();
 	const int coll_len = coll.size();

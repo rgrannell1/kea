@@ -49,7 +49,7 @@
 #' @rdname xMap
 #' @export
 
-xMap <- MakeFun('xMap', function (fn, coll) {
+xMap <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 

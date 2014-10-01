@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cPowerSetOf (List coll) {
+List cPowerSetOf (const List& coll) {
 
 	int coll_len = coll.size();
 

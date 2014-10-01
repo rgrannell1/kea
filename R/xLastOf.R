@@ -31,7 +31,7 @@
 #' @rdname xLastOf
 #' @export
 
-xLastOf <- MakeFun('xLastOf', function (coll) {
+xLastOf <- MakeFun(function (coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 

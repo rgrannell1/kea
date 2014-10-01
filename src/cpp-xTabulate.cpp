@@ -9,7 +9,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cTabulate (List coll) {
+List cTabulate (const List& coll) {
 
 	const int coll_size = coll.size();
 	const int flags     = 1 + 2 + 4 + 8 + 0;

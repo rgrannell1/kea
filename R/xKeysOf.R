@@ -29,7 +29,7 @@
 #' @rdname xKeysOf
 #' @export
 
-xKeysOf <- MakeFun('xKeysOf', function (coll) {
+xKeysOf <- MakeFun(function (coll) {
 
 	if (length(coll) == 0) {
 		character(0)

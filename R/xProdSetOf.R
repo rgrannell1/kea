@@ -39,7 +39,7 @@ xProdSetOf <- local({
 		as.numeric(arrayInd(num, .dim = mods))
 	}
 
-	MakeFun('xProdSetOf', function (colls) {
+	MakeFun(function (colls) {
 
 		coll_lengths <- vapply(colls, length, integer(1))
 

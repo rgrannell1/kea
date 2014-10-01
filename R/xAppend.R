@@ -33,7 +33,7 @@
 #' @rdname xAppend
 #' @export
 
-xAppend <- MakeFun('xAppend', function (val, coll) {
+xAppend <- MakeFun(function (val, coll) {
 
 	if (length(coll) == 0) {
 		list(val)

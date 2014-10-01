@@ -30,7 +30,7 @@
 #' @rdname xToWords
 #' @export
 
-xToWords <- MakeFun('xToWords', function (str) {
+xToWords <- MakeFun(function (str) {
 
 	if (nchar(str) == 0 || length(str) == 0) {
 		character(0)

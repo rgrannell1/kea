@@ -34,7 +34,7 @@
 #' @rdname xAtKey
 #' @export
 
-xAtKey <- MakeFun('xAtKey', function (str, coll) {
+xAtKey <- MakeFun(function (str, coll) {
 
 	MACRO( Must_Be_Named(coll) )
 

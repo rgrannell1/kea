@@ -36,7 +36,7 @@
 #' @rdname xMeanBy
 #' @export
 
-xMeanBy <- MakeFun('xMeanBy', function (fn, coll) {
+xMeanBy <- MakeFun(function (fn, coll) {
 
 	if (length(coll) == 0) {
 		double(0)
