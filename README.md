@@ -30,8 +30,9 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippet
 ### Usage
 
 #### Partial Application
+---------------------------------------
 
-`Kea` functions are partially applicable; they don't require all their arguments be supplied at once. This greatly aids code reuse.
+`Kea` functions are partially applicable; they don't require all their arguments be supplied at once.
 
 ```r
 xIsMatch('[0-9]+')
@@ -44,14 +45,14 @@ xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
 # list(True, False)
 ```
 
-
-
-
-
 #### Methods
+---------------------------------------
 
+Every function has a corresponding method.
 
-
+```
+x_(1:10) $ xMap(sqrt) $ xReduce('+')
+```
 
 
 
