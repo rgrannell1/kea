@@ -958,3 +958,21 @@ print.kea <- function (x, ...) {
 
 	print(x [['x']], ...)
 }
+
+#' @export
+
+str.kea <- function (object, ...) {
+
+	proto        <- get_proto_ref( x[['x']] )
+	contents_are <- proto[[1]][['private']] [['contents_are']]
+
+	header <- colourise $ blue(
+		'\n[ an kea object with methods for ' %+% contents_are %+% ' ]')
+
+	cat(
+		header  %+% '\n\n' %+%
+		'$x_()' %+% '\n')
+
+	str(x [['x']], ...)
+
+}
