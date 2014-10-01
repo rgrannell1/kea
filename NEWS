@@ -3,13 +3,15 @@ Kea 0.59.0
 ------------------------------------------------------------------------------
 Date: 2014-9-
 
+ENHANCEMENTS:
 
+* Implemented a method 'str' for kea functions.
 
+* Improved memory efficiency of C++ kea functions.
 
+PACKAGE-INTERNALS:
 
-
-
-
+* First parametre is no longer required for .
 
 
 
