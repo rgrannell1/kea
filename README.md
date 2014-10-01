@@ -29,7 +29,7 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippet
 
 ### Usage
 
-#### Partial Application
+#### - Partial Application
 
 Kea functions are partially applicable; they don't require all their arguments be supplied at once.
 
@@ -44,7 +44,7 @@ xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
 # list(True, False)
 ```
 
-#### Methods
+#### - Methods
 
 Every function has a corresponding method. To call a method you first pass data
 to the kea object constructor (`x_`) and then call methods using the `$` operator.
@@ -54,7 +54,7 @@ x_(1:10) $ xMap(sqrt) $ x_Reduce('+')
 # 22.46828
 ```
 
-#### Arrow Functions
+#### - Arrow Functions
 
 Arrow functions are a shorthand notation for creating functions:
 
@@ -74,7 +74,7 @@ function (a, b) {
 }
 ```
 
-#### Wildcard Operators
+#### - Wildcard Operators
 
 Wildcard operators fix the right operand of an operator, leaving a function that takes the
 left operand.
