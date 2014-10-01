@@ -40,7 +40,7 @@ xDistinctOf <- MakeFun(function (coll) {
 		as.list(unique(coll))
 	}
 
-	cDistinctOf(coll)
+	#cDistinctOf(coll)
 })
 
 #' @rdname xDistinctOf

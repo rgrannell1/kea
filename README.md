@@ -74,6 +74,15 @@ function (a, b) {
 }
 ```
 
+#### Wildcard Operators
+
+Wildcard operators fix the right operand of an operator, leaving a function that takes the
+left operand.
+
+```r
+xMap(x. + 1, 0:3)
+# 1:4
+```
 
 
 

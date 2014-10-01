@@ -963,7 +963,7 @@ print.kea <- function (x, ...) {
 
 str.kea <- function (object, ...) {
 
-	proto        <- get_proto_ref( x[['x']] )
+	proto        <- get_proto_ref( object[['x']] )
 	contents_are <- proto[[1]][['private']] [['contents_are']]
 
 	header <- colourise $ blue(
@@ -973,6 +973,6 @@ str.kea <- function (object, ...) {
 		header  %+% '\n\n' %+%
 		'$x_()' %+% '\n')
 
-	str(x [['x']], ...)
+	str(object[['x']], ...)
 
 }
