@@ -46,8 +46,8 @@ xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
 
 #### Methods
 
-Every function has a corresponding method; data is first wrapped with `x_` and
-then passed to methods with `$`.
+Every function has a corresponding method. To call a method you first pass data
+to the kea object constructor — `x_` — and then call methods using the `$` operator.
 
 ```r
 x_(1:10) $ xMap(sqrt) $ x_Reduce('+')
