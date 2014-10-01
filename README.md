@@ -30,7 +30,6 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippet
 ### Usage
 
 #### Partial Application
----------------------------------------
 
 `Kea` functions are partially applicable; they don't require all their arguments be supplied at once.
 
@@ -46,7 +45,6 @@ xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
 ```
 
 #### Methods
----------------------------------------
 
 Every function has a corresponding method.
 
