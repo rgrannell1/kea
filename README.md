@@ -49,7 +49,8 @@ xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
 Every function has a corresponding method.
 
 ```
-x_(1:10) $ xMap(sqrt) $ xReduce('+')
+x_(1:10) $ xMap(sqrt) $ x_Reduce('+')
+# 22.46828
 ```
 
 
