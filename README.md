@@ -31,6 +31,8 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippet
 
 #### Partial Application
 
+`Kea` functions are partially applicable; they don't require all their arguments be supplied at once. This greatly aids code reuse.
+
 ```r
 # -- xIsMatch has two parametres; a regexp and a test string.
 
@@ -42,7 +44,6 @@ xIsMatch('[0-9]+', '123')
 xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
 # list(True, False)
 ```
-
 
 
 
