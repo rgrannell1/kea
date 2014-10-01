@@ -39,6 +39,8 @@ xDistinctOf <- MakeFun(function (coll) {
 	} else {
 		as.list(unique(coll))
 	}
+
+	cDistinctOf(coll)
 })
 
 #' @rdname xDistinctOf

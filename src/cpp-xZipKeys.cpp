@@ -11,8 +11,7 @@ List cZipKeys (const List& colls) {
 
 	const int colls_size = colls.size();
 
-	Must_Be_Collection_Of_Lengths_In_Range("colls", "2", "2", colls, 2, 2);
-
+	// Must_Be_Collection_Of_Lengths_In_Range("colls", "2", "2", &colls, 2, 2);
 
 	if (colls_size == 0) {
 		return List::create();

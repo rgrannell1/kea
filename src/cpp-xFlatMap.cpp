@@ -4,7 +4,7 @@ using namespace Rcpp;
 
 
 
-
+/*
 // [[Rcpp::export]]
 List cFlatMap (const Function fn, const List& coll) {
 
@@ -45,3 +45,4 @@ List cFlatMap (const Function fn, const List& coll) {
 		return out;
 	}
 }
+*/
