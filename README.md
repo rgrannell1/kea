@@ -29,15 +29,24 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippet
 
 ### Usage
 
-#### Functions
-
-Kea has roughly one hundred functions for list-processing and value-testing
-
-  Kea's functions are prefixed with the letter 'x' to make them easy to find
+#### Partial Application
 
 ```r
-xScan('*', 0, 1:10)
+# -- xIsMatch has two parametres; a regexp and a test string.
+
+xIsMatch('[0-9]+', '123')
+# True
+
+# -- xIsMatch is given a regular expression, then mapped over some strings.
+
+xMap(xIsMatch('[0-9]+'), c('123', 'abc'))
+# list(True, False)
 ```
+
+
+
+
+
 
 #### Methods
 
