@@ -113,3 +113,7 @@ cZipKeys <- function(colls) {
     .Call('kea_cZipKeys', PACKAGE = 'kea', colls)
 }
 
+vector_map <- function(coll, fn, type) {
+    .Call('kea_vector_map', PACKAGE = 'kea', coll, fn, type)
+}
+

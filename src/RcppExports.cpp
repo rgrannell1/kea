@@ -447,3 +447,20 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// vector_map
+SEXP vector_map(SEXP coll, const Function fn, const std::string type);
+RcppExport SEXP kea_vector_map(SEXP collSEXP, SEXP fnSEXP, SEXP typeSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< SEXP >::type coll(collSEXP );
+        Rcpp::traits::input_parameter< const Function >::type fn(fnSEXP );
+        Rcpp::traits::input_parameter< const std::string >::type type(typeSEXP );
+        SEXP __result = vector_map(coll, fn, type);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}

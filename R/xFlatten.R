@@ -54,39 +54,11 @@ xFlatten <- MakeFun(function (num, coll) {
 	MACRO( Must_Be_Between(num, 1, Inf))
 	MACRO( Must_Be_Whole(num) )
 
-	if (length(coll) == 0 || length(num) == 0) {
-
-		list()
-
-	} else if (is_atomic(coll)) {
-
-		# -- it is flat!
-		unname(as.list(coll))
-
-	} else if (num == +Inf) {
-
-		# -- preserve the structure.
-		unname(as.list(coll))
-
-	} else if (num == 1) {
-
-		# -- unlist entirely.
-		unname(rapply(coll, identity, how = 'list'))
-
-	} else {
-
-		recur <- function (depth, xs) {
-			if (!is_recursive(xs)) {
-				xs
-			} else if (depth == num - 1) {
-				unname(as.list(unlist(coll)))
-			} else {
-				unname( lapply(xs, function (x) recur(depth + 1, x)) )
-			}
-		}
-		as.list(recur(0, coll))
-
+	for (ith in seq_len(num)) {
+		coll <- do.call('c', coll)
 	}
+
+	coll
 })
 
 #' @rdname xFlatten

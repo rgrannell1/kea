@@ -156,17 +156,15 @@ xLambda <- local({
 
 			throw_kea_error(invoking_call, message)
 		}
-		# -- this is just a normal R function; map one-to-one onto
-		# -- R code.
 
-		lambda <- function () {}
+		lambda              <- function () {}
 
 		formals(lambda)     <- as_formals(params)
 		body(lambda)        <- exprbody
 		environment(lambda) <- env
 
-		#MakeFun(lambda, typed = False, parent.frame(2))
-		lambda
+		MakeFun(lambda, typed = False, env)
+		#lambda
 	}
 
 	brace <- as.symbol('{')
@@ -176,24 +174,21 @@ xLambda <- local({
 		# -- construct a function from a symbol and
 		# -- a function body.
 
-		param_block <- substitute(sym)
-		val         <- substitute(val)
+		param_block  <- substitute(sym)
+		val          <- substitute(val)
+
+		parent_frame <- parent.frame()
 
 		if (is.name(param_block)) {
 			# -- make lambda a default-free unary function.
-
-			param_block <- paste(param_block)
-
 			# -- fast track.
 
-			lambda <- do.call('function', list(
-				as.pairlist(as_formals(param_block)),
-				val
-			))
-			environment(lambda) <- parent.frame()
+			param_block         <- paste(param_block)
+			lambda              <- do.call('function', list(as.pairlist(as_formals(param_block)), val))
+			environment(lambda) <- parent_frame
 
-			#MakeFun(lambda, typed = False, parent.frame())
-			lambda
+			MakeFun(lambda, typed = False, parent_frame)
+			#lambda
 
 		} else {
 
@@ -214,7 +209,7 @@ xLambda <- local({
 
 			params <- collect_params( param_block[[2]], list(params = character(0)) )
 
-			construct_function(paste(params), val, parent.frame())
+			construct_function(paste(params), val, parent_frame)
 
 		}
 	}
