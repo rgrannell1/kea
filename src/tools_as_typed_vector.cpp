@@ -14,11 +14,10 @@ using namespace Rcpp;
 
 
 template<int TYPE>
-Vector<TYPE> vector_map_template (const List coll, const Function fn, const std::string type) {
+Vector<TYPE> vector_map_template (const std::string COLL, const List coll, const Function fn, const std::string type) {
 
 	const int coll_size = coll.size();
 	Vector<TYPE> out(coll_size);
-
 
 
 
@@ -37,14 +36,15 @@ Vector<TYPE> vector_map_template (const List coll, const Function fn, const std:
 
 	for (int ith = 0; ith < coll_size; ++ith) {
 
-		SEXP elem      = fn(coll[ith]);
+		Shield<SEXP> elem( fn(coll[ith]) );
+
 		int  elem_type = TYPEOF(elem);
 
 		if (int_type[type] != elem_type) {
 
 			std::stringstream msg;
 			msg << "the collection ";
-			msg << dquote("coll");
+			msg << dquote(COLL);
 			msg << " must be a collection of type ";
 			msg << type;
 			msg << ".\n";
@@ -64,31 +64,31 @@ Vector<TYPE> vector_map_template (const List coll, const Function fn, const std:
 
 
 // [[Rcpp::export]]
-SEXP vector_map (SEXP coll, const Function fn, const std::string type) {
+SEXP vector_map (const std::string COLL, SEXP coll, const Function fn, const std::string type) {
 
 	if (type == "integer") {
 
-		return vector_map_template<INTSXP>(coll, fn, type);
+		return vector_map_template<INTSXP>(COLL, coll, fn, type);
 
 	} else if (type == "double") {
 
-		return vector_map_template<REALSXP>(coll, fn, type);
+		return vector_map_template<REALSXP>(COLL, coll, fn, type);
 
 	} else if (type == "logical") {
 
-		return vector_map_template<LGLSXP>(coll, fn, type);
+		return vector_map_template<LGLSXP>(COLL, coll, fn, type);
 
 	} else if (type == "complex") {
 
-		return vector_map_template<CPLXSXP>(coll, fn, type);
+		return vector_map_template<CPLXSXP>(COLL, coll, fn, type);
 
 	} else if (type == "raw") {
 
-		return vector_map_template<RAWSXP>(coll, fn, type);
+		return vector_map_template<RAWSXP>(COLL, coll, fn, type);
 
 	} else if (type == "character") {
 
-		return vector_map_template<STRSXP>(coll, fn, type);
+		return vector_map_template<STRSXP>(COLL, coll, fn, type);
 
 	} else {
 
