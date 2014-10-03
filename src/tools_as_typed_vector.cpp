@@ -1,4 +1,5 @@
 #include <Rcpp.h>
+#include "functions.h"
 using namespace Rcpp;
 
 
@@ -40,9 +41,18 @@ Vector<TYPE> vector_map_template (const List coll, const Function fn, const std:
 		int  elem_type = TYPEOF(elem);
 
 		if (int_type[type] != elem_type) {
-			stop("bad type");
-		}
 
+			std::stringstream msg;
+			msg << "the collection ";
+			msg << dquote("coll");
+			msg << " must be a collection of type ";
+			msg << type;
+			msg << ".\n";
+
+			Function error_callback("error_callback");
+			error_callback(msg.str(), 1);
+
+		}
 	}
 
 	return out;
@@ -55,8 +65,6 @@ Vector<TYPE> vector_map_template (const List coll, const Function fn, const std:
 
 // [[Rcpp::export]]
 SEXP vector_map (SEXP coll, const Function fn, const std::string type) {
-
-	const int coll_type = TYPEOF(coll);
 
 	if (type == "integer") {
 
