@@ -4,15 +4,44 @@ using namespace Rcpp;
 
 
 
+
+
+
+
+
+
+
+
 template<int TYPE>
 Vector<TYPE> vector_map_template (const List coll, const Function fn, const std::string type) {
 
 	const int coll_size = coll.size();
 	Vector<TYPE> out(coll_size);
 
+
+
+
+	std::map<std::string, int> int_type;
+
+	int_type["integer"]   = INTSXP;
+	int_type["double"]    = REALSXP;
+	int_type["logical"]   = LGLSXP;
+	int_type["complex"]   = CPLXSXP;
+	int_type["raw"]       = RAWSXP;
+	int_type["character"] = STRSXP;
+
+
+
+
+
 	for (int ith = 0; ith < coll_size; ++ith) {
 
-		SEXP elem = fn(coll[ith]);
+		SEXP elem      = fn(coll[ith]);
+		int  elem_type = TYPEOF(elem);
+
+		if (int_type[type] != elem_type) {
+			stop("bad type");
+		}
 
 	}
 
@@ -20,85 +49,14 @@ Vector<TYPE> vector_map_template (const List coll, const Function fn, const std:
 
 }
 
+
+
+
+
 // [[Rcpp::export]]
 SEXP vector_map (SEXP coll, const Function fn, const std::string type) {
 
 	const int coll_type = TYPEOF(coll);
-
-	if (coll_type != VECSXP) {
-		// atomic vectors.
-
-		bool all_is_na = true;
-
-		if (coll_type == INTSXP) {
-
-			IntegerVector vect = as<IntegerVector>(coll);
-
-			/*
-			for (int ith = 0; ith < vect.size(); ++ith) {
-
-				IntegerVector elem = vect[ith];
-
-				if ( is_na(elem) ) {
-					all_is_na = false;
-					break;
-				}
-
-			}
-			*/
-
-		} else if (coll_type == REALSXP) {
-
-			DoubleVector vect = as<DoubleVector>(coll);
-
-		} else if (coll_type == LGLSXP) {
-
-			LogicalVector vect = as<LogicalVector>(coll);
-
-		} else if (coll_type == CPLXSXP) {
-
-			ComplexVector vect = as<ComplexVector>(coll);
-
-		} else if (coll_type == RAWSXP) {
-
-			RawVector vect = as<RawVector>(coll);
-
-		} else if (coll_type == STRSXP) {
-
-			CharacterVector vect = as<CharacterVector>(coll);
-
-		}
-
-
-			/*
-		for (int ith = 0; ith < coll.size(); ++ith) {
-
-			if ( !is_true(is_na(coll[ith];)) ) {
-				all_is_na = false;
-				break;
-			}
-
-		}
-
-
-
-		if (all_is_na) {
-			//
-
-
-		} else {
-			return coll;
-		}*/
-
-	} else {
-		// generic vectors.
-
-
-	}
-
-
-
-
 
 	if (type == "integer") {
 
@@ -129,8 +87,5 @@ SEXP vector_map (SEXP coll, const Function fn, const std::string type) {
 		stop("internal error: unimplemented vector type in as_typed_vector");
 
 	}
-
-
-
 
 }
