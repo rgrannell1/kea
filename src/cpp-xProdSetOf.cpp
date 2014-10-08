@@ -40,9 +40,6 @@ List cProdSetOf (const List& colls) {
 	int out_ith = 0;
 	List out(out_size);
 
-
-
-
 	while (out_size > out_ith) {
 
 		List out_tuple(colls_size);

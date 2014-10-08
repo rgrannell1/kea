@@ -26,10 +26,7 @@ LogicalVector cNotInfixOf (const List& coll1, const List& coll2) {
 			bool subseq_match = true;
 
 			for (int ith = 0; ith < coll1_size; ++ith) {
-
-				bool is_match = R_compute_identical(coll1[ith], coll2[ith + lower], flags);
-
-				if (!is_match) {
+				if (!(bool) R_compute_identical(coll1[ith], coll2[ith + lower], flags)) {
 
 					subseq_match = false;
 					break;

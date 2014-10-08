@@ -36,9 +36,8 @@ List cTabulate (const List& coll) {
 		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
 
 			int candidate_index = unbinned_indices[ith];
-			bool is_match       = R_compute_identical(coll[unique_index], coll[candidate_index], flags);
 
-			if (is_match) {
+			if ((bool) R_compute_identical(coll[unique_index], coll[candidate_index], flags)) {
 				just_binned.push_back(candidate_index);
 				++copies;
 			}
