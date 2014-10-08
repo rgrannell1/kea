@@ -33,8 +33,6 @@ List cZipKeys (const List& colls) {
 
  		}
 
-		out.attr("names") = keys;
-
-		return out;
+		return out.attr("names") = keys;
 	}
 }

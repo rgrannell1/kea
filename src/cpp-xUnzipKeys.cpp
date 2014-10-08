@@ -19,10 +19,7 @@ List cUnzipKeys (const List& coll) {
 		CharacterVector coll_names = coll.attr("names");
 
 		for (int ith = 0; ith < coll_len; ++ith) {
-
-			String key = coll_names[ith];
-			List row   = List::create(key, coll[ith]);
-			out[ith]   = row;
+			out[ith] = List::create( (String)coll_names[ith], coll[ith] );
 		}
 
 		return out;
