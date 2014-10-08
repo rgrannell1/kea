@@ -34,11 +34,7 @@ std::string delimit (const std::string str, const List strs) {
 		for (int ith = 0; ith < strs_size; ++ith) {
 
 			std::string elem = strs[ith];
-			os << elem;
-
-			if (ith != strs_size - 1) {
-				os << str;
-			}
+			ith != strs_size - 1 ? os << str + elem: os << elem;
 
 		}
 

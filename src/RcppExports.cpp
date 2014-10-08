@@ -447,3 +447,63 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// testfun0
+List testfun0(const List& coll);
+RcppExport SEXP kea_testfun0(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List& >::type coll(collSEXP );
+        List __result = testfun0(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// testfun1
+List testfun1(const List& coll);
+RcppExport SEXP kea_testfun1(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List& >::type coll(collSEXP );
+        List __result = testfun1(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// testfun2
+List testfun2(const List& coll);
+RcppExport SEXP kea_testfun2(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List& >::type coll(collSEXP );
+        List __result = testfun2(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// testfun3
+List testfun3(const List& coll);
+RcppExport SEXP kea_testfun3(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List& >::type coll(collSEXP );
+        List __result = testfun3(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}

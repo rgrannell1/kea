@@ -243,14 +243,6 @@ write_type_conversions <- ( function () {
 
 MakeFun <- function (expr, typed = True, env = parent.frame()) {
 
-	if (missing(env)) {
-		env <- parent.frame()
-	} else {
-		print('loading MakeFun')
-		print(env)
-		print(as.list(env))
-	}
-
 	unquote <- function (inner) {
 
 		if (is.pairlist(inner)) {

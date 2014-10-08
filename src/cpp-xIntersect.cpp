@@ -42,10 +42,7 @@ List cIntersect (const List& coll1, const List& coll2) {
 		List out(shared_indices_size);
 
 		for (int ith = 0; ith < shared_indices_size; ++ith) {
-
-			int shared_index = shared_indices[ith];
-			out[ith]           = coll1[shared_index];
-
+			out[ith]         = coll1[ (shared_indices[ith]) ];
 		}
 
 		return out;

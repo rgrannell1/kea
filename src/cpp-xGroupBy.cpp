@@ -62,10 +62,7 @@ List cGroupBy (const Function fn, const List& coll) {
 			List elements(group_indices_size);
 
 			for (int jth = 0; jth < group_indices_size; ++jth) {
-
-				int index     = group_indices[jth];
-				elements[jth] = coll[index];
-
+				elements[jth] = coll[ (group_indices[jth]) ];
 			}
 
 			List group = List::create(group_maps[ith], elements);

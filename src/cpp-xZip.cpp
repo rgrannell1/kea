@@ -18,8 +18,7 @@ List cZip (const List& colls) {
 
 		Must_Be_Collection_Of_Equal_Length("colls", colls);
 
-		const List &first   = colls[0];
-		const int elem_size = first.size();
+		const int elem_size = ((List)colls[0]).size();
 
 		if (elem_size == 0) {
 			return List::create();
@@ -39,14 +38,12 @@ List cZip (const List& colls) {
 
 				List row(colls_size);
 
-				for (int jth = 0; jth < colls_size; ++jth) {
-
-					List coll = colls[jth];
-					row[jth] = coll[ith];
-				}
-
 				if (has_names) {
 					row.attr("names") = colls_names;
+				}
+
+				for (int jth = 0; jth < colls_size; ++jth) {
+					row[jth]  = ((List)colls[jth])[ith];
 				}
 
 				out[ith] = row;

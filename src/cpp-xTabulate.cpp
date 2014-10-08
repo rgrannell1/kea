@@ -75,12 +75,7 @@ List cTabulate (const List& coll) {
 	List out(unique_indices.size());
 
 	for (int ith = 0; ith < unique_indices.size(); ++ith) {
-
-		int unique_index = unique_indices[ith];
-		int copies       = unique_counts[ith];
-
-		List pair        = List::create(coll[unique_index], copies);
-		out[ith]         = pair;
+		out[ith] = List::create( coll[unique_indices[ith]], unique_counts[ith] );
 	}
 
 	return out;
