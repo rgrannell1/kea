@@ -27,5 +27,5 @@
 # english.stackexchange.
 
 xIrrelevance <- function (...) {
-	Na
+	NA
 }

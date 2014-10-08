@@ -24,5 +24,5 @@
 #' @export
 
 xFalsity <- function (...) {
-	False
+	FALSE
 }

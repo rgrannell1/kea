@@ -24,5 +24,5 @@
 #' @export
 
 xTruth <- function (...) {
-	True
+	TRUE
 }
