@@ -26,7 +26,7 @@ List cTake (const NumericVector& num, const List& coll) {
 
 	} else {
 
-		int upper = num[0] > coll_len ? coll_len: num[0];
+		const int upper = num[0] > coll_len ? coll_len: num[0];
 
 		if (has_names) {
 
