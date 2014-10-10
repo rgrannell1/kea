@@ -1,4 +1,20 @@
 
+Kea 0.60.0
+------------------------------------------------------------------------------
+Date: 2014-10-9
+
+Added xRelate.
+
+ENHANCEMENTS:
+
+* Added xRelate, which is similar to xMap but returns the pre-image and image.
+
+* Made small improvements to C++ kea functions in memory efficiency and speed.
+
+
+
+
+
 Kea 0.59.0
 ------------------------------------------------------------------------------
 Date: 2014-10-1

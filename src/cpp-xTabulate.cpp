@@ -21,40 +21,50 @@ List cTabulate (const List& coll) {
 	std::vector<int> unique_indices;
 	std::vector<int> unique_counts;
 
-	std::vector<int> unbinned_indices = indices_to(coll_size);
+	std::vector<int> unbinned_indices;
+
+	for (int ith = 0; ith < coll_size; ++ith) {
+		unbinned_indices.push_back(ith);
+	}
 
 	while (unbinned_indices.size() > 0) {
 
 		std::vector<int> just_binned;
 
-		int copies       = 1;
+		int frequency    = 1;
 		int unique_index = unbinned_indices[0];
 
-		just_binned.push_back(unique_index);
+		just_binned   .push_back(unique_index);
 		unique_indices.push_back(unique_index);
 
-		for (int ith = 1; ith < unbinned_indices.size(); ++ith) {
+		int unbinned_indices_size = unbinned_indices.size();
+
+		for (int ith = 1; ith < unbinned_indices_size; ++ith) {
+			// find which unbinned indices point to the same value as the current unique value.
 
 			int candidate_index = unbinned_indices[ith];
 
 			if ((bool) R_compute_identical(coll[unique_index], coll[candidate_index], flags)) {
 				just_binned.push_back(candidate_index);
-				++copies;
+				++frequency;
 			}
 
 		}
 
-		unique_counts.push_back(copies);
+		unique_counts.push_back(frequency);
 
 		// filter the recently binned indices out of the unbinned indices.
 		std::vector<int> tmp;
 
-		// is this really optimally efficient?
-		for (int ith = 0; ith < unbinned_indices.size(); ++ith) {
+		// is this really optimally efficient? a binary tree might be more successful.
+		int unique_indices_size = unbinned_indices.size();
+
+		for (int ith = 0; ith < unique_indices_size; ++ith) {
 
 			bool still_unbinned = true;
+			int just_binned_size = just_binned.size();
 
-			for (int jth = 0; jth < just_binned.size(); ++jth) {
+			for (int jth = 0; jth < just_binned_size; ++jth) {
 				if (unbinned_indices[ith] == just_binned[jth]) {
 
 					still_unbinned = false;
@@ -71,9 +81,10 @@ List cTabulate (const List& coll) {
 		unbinned_indices = tmp;
 	}
 
-	List out(unique_indices.size());
+	const int unique_indices_size = unique_indices.size();
+	List out(unique_indices_size);
 
-	for (int ith = 0; ith < unique_indices.size(); ++ith) {
+	for (int ith = 0; ith < unique_indices_size; ++ith) {
 		out[ith] = List::create( coll[unique_indices[ith]], unique_counts[ith] );
 	}
 
