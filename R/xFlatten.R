@@ -54,11 +54,13 @@ xFlatten <- MakeFun(function (num, coll) {
 	MACRO( Must_Be_Between(num, 1, Inf))
 	MACRO( Must_Be_Whole(num) )
 
-	for (ith in seq_len(num)) {
-		coll <- do.call('c', coll)
+	# -- this makes the C++ implementation much easier.
+	if (is_atomic(coll)) {
+		unname(as.list(coll))
+	} else {
+		cFlatten(num, coll)
 	}
 
-	coll
 })
 
 #' @rdname xFlatten

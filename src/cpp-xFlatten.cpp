@@ -21,7 +21,7 @@ List cFlatten (const NumericVector& num, const List& coll) {
 		return List::create();
 	} else {
 
-
+		// unlist the contents.
 		// standard iterative tree-traversal.
 
 		std::vector<SEXP> out;
@@ -30,6 +30,7 @@ List cFlatten (const NumericVector& num, const List& coll) {
 		nodes.push(coll);
 
 		while (nodes.size() > 0) {
+			// recursive-nodes still unexplored.
 
 			Shield<SEXP> node( nodes.top() );
 			nodes.pop();
@@ -44,10 +45,13 @@ List cFlatten (const NumericVector& num, const List& coll) {
 				}
 
 			} else {
+				// the node is non-recursive.
 				out.push_back(node);
 			}
 
 		}
+
+		std::reverse(out.begin(), out.end());
 
 		return wrap(out);
 
