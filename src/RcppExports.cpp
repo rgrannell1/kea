@@ -5,6 +5,21 @@
 
 using namespace Rcpp;
 
+// cGather
+List cGather(const List coll);
+RcppExport SEXP kea_cGather(SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List >::type coll(collSEXP );
+        List __result = cGather(coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cChunk
 List cChunk(NumericVector num, const List& coll);
 RcppExport SEXP kea_cChunk(SEXP numSEXP, SEXP collSEXP) {

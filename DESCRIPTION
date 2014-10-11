@@ -214,5 +214,6 @@ Collate:
     'xNotSuffixOf.R'
     'xCharsOf.R'
     'xRelate.R'
+    'xGather.R'
     'x_next.R'
     'x..R'
