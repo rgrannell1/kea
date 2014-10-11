@@ -19,11 +19,4 @@ message("xGather")
 		all( vapply(xGather(coll), is.list, logical(1)) )
 	) +
 
-	describe("concatenating gathered results is identity") +
-	holdsWhen(
-		is_collection(coll),
-
-		do.call(c, xGather(coll)) %is% as.list(coll)
-	) +
-
 	run()
