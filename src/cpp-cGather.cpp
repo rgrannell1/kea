@@ -35,16 +35,45 @@ List cGather (const List coll) {
 
 	List out(lower_bounds_size);
 
-	for (int ith = 0; ith < lower_bounds_size; ++ith) {
+	const bool has_names = coll.attr("names") != R_NilValue;
+	int name_counter     = 0;
 
-		int interval = upper_bounds[ith] - lower_bounds[ith] + 1;
-		List group(interval);
+	if (has_names) {
 
-		for (int jth = 0; jth < interval; ++jth) {
-			group[jth] = coll[lower_bounds[ith]];
+		CharacterVector coll_names = coll.attr("names");
+
+		for (int ith = 0; ith < lower_bounds_size; ++ith) {
+
+			int interval = upper_bounds[ith] - lower_bounds[ith] + 1;
+
+			List group(interval);
+			CharacterVector group_names(interval);
+
+			for (int jth = 0; jth < interval; ++jth) {
+
+				group[jth]       = coll[lower_bounds[ith]];
+				group_names[jth] = coll_names[name_counter];
+				++name_counter;
+
+			}
+
+			group.attr("names") = group_names;
+			out[ith]            = group;
 		}
 
-		out[ith] = group;
+	} else {
+
+		for (int ith = 0; ith < lower_bounds_size; ++ith) {
+
+			int interval = upper_bounds[ith] - lower_bounds[ith] + 1;
+			List group(interval);
+
+			for (int jth = 0; jth < interval; ++jth) {
+				group[jth] = coll[lower_bounds[ith]];
+			}
+
+			out[ith] = group;
+		}
 
 	}
 
