@@ -67,6 +67,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cFlatten
+List cFlatten(const NumericVector& num, const List& coll);
+RcppExport SEXP kea_cFlatten(SEXP numSEXP, SEXP collSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const NumericVector& >::type num(numSEXP );
+        Rcpp::traits::input_parameter< const List& >::type coll(collSEXP );
+        List __result = cFlatten(num, coll);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cGroupBy
 List cGroupBy(const Function fn, const List& coll);
 RcppExport SEXP kea_cGroupBy(SEXP fnSEXP, SEXP collSEXP) {

@@ -9,6 +9,8 @@ ENHANCEMENTS:
 
 * Added xRelate, which is similar to xMap but returns the pre-image and image.
 
+* Added xGather, a function that groups adjecent equal elements into sublists.
+
 * Made small improvements to C++ kea functions in memory efficiency and speed.
 
 

@@ -37,6 +37,10 @@ List cGather (const List coll) {
 
 	const bool has_names = coll.attr("names") != R_NilValue;
 
+
+
+
+
 	if (has_names) {
 
 		int name_counter           = 0;

@@ -17,6 +17,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cFlatten <- function(num, coll) {
+    .Call('kea_cFlatten', PACKAGE = 'kea', num, coll)
+}
+
 cGroupBy <- function(fn, coll) {
     .Call('kea_cGroupBy', PACKAGE = 'kea', fn, coll)
 }

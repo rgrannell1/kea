@@ -95,7 +95,7 @@ xMap (x := x, list(1, 2, 3))
 xMap_(x := x, 1, 2, 3)
 ```
 
-
+#### - Function Composition
 
 
 ## Licensing
