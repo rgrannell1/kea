@@ -23,7 +23,7 @@ message("xGather")
 	holdsWhen(
 		is_collection(coll),
 
-		as.list( do.call(c, xGather(coll)) ) %is% coll
+		do.call(c, xGather(coll)) %is% as.list(coll)
 	) +
 
 	run()
