@@ -36,10 +36,10 @@ List cGather (const List coll) {
 	List out(lower_bounds_size);
 
 	const bool has_names = coll.attr("names") != R_NilValue;
-	int name_counter     = 0;
 
 	if (has_names) {
 
+		int name_counter           = 0;
 		CharacterVector coll_names = coll.attr("names");
 
 		for (int ith = 0; ith < lower_bounds_size; ++ith) {
