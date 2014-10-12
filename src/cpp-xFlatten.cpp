@@ -20,16 +20,21 @@ List cFlatten (const NumericVector& num, const List& coll) {
 		// standard iterative tree-traversal.
 
 		std::vector<SEXP> out;
-		std::stack<SEXP> nodes;
 
-		int depth = 0;
-		nodes.push(coll);
+		std::stack<SEXP> nodes;
+		std::stack<int> depths;
+
+		nodes .push(coll);
+		depths.push(1);
 
 		while (nodes.size() > 0) {
 			// recursive-nodes still unexplored.
 
 			Shield<SEXP> node( nodes.top() );
-			nodes.pop();
+			int depth = depths.top();
+
+			nodes .pop();
+			depths.pop();
 
 			if (TYPEOF(node) == VECSXP || TYPEOF(node) == LISTSXP) {
 				// the node is recursive.
@@ -37,7 +42,10 @@ List cFlatten (const NumericVector& num, const List& coll) {
 				List elem = as<List>(node);
 
 				for (int ith = 0; ith < elem.size(); ++ith) {
-					nodes.push(elem[ith]);
+
+					nodes .push(elem[ith]);
+					depths.push(depth + 1);
+
 				}
 
 			} else {
