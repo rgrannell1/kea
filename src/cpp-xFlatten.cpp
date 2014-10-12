@@ -6,11 +6,6 @@ using namespace Rcpp;
 
 
 
-
-
-
-
-
 // [[Rcpp::export]]
 List cFlatten (const NumericVector& num, const List& coll) {
 
@@ -27,6 +22,7 @@ List cFlatten (const NumericVector& num, const List& coll) {
 		std::vector<SEXP> out;
 		std::stack<SEXP> nodes;
 
+		int depth = 0;
 		nodes.push(coll);
 
 		while (nodes.size() > 0) {
@@ -52,7 +48,6 @@ List cFlatten (const NumericVector& num, const List& coll) {
 		}
 
 		std::reverse(out.begin(), out.end());
-
 		return wrap(out);
 
 	}
