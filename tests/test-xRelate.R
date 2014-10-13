@@ -3,7 +3,7 @@ kea ::: load_test_dependencies(environment())
 
 message("xRelate")
 
-	over(coll) +
+    over(coll) +
 
 	describe('the empty collection always yield the empty collection') +
 	holdsWhen(
@@ -27,8 +27,7 @@ message("xRelate")
 	holdsWhen(
 		is_collection(coll) && length(coll),
 
-		names(xRelate(identity, coll)) %is% names(coll),
-		xRelate(identity, names(coll)) %is% as.list(names(coll))
+		names(xRelate(identity, coll)) %is% names(coll)
 	) +
 
 	run()
