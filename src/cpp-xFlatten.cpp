@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 
 // [[Rcpp::export]]
-List cFlatten (const NumericVector& num, const List& coll) {
+List cFlatten (const NumericVector& num, const List coll) {
 
 	const int coll_size = coll.size();
 	const int num_size  = num.size();
