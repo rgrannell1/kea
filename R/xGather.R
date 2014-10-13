@@ -26,6 +26,9 @@
 #' @example
 #'    inst/examples/example-xGather.R
 #'
+#' @template
+#'     S-Experimental
+#'
 #' @rdname xGather
 #' @export
 

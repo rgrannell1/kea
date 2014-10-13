@@ -121,19 +121,3 @@ cZipKeys <- function(colls) {
     .Call('kea_cZipKeys', PACKAGE = 'kea', colls)
 }
 
-testfun0 <- function(coll) {
-    .Call('kea_testfun0', PACKAGE = 'kea', coll)
-}
-
-testfun1 <- function(coll) {
-    .Call('kea_testfun1', PACKAGE = 'kea', coll)
-}
-
-testfun2 <- function(coll) {
-    .Call('kea_testfun2', PACKAGE = 'kea', coll)
-}
-
-testfun3 <- function(coll) {
-    .Call('kea_testfun3', PACKAGE = 'kea', coll)
-}
-

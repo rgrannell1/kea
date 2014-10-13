@@ -29,6 +29,9 @@
 #' @example
 #'    inst/examples/example-xRelate.R
 #'
+#' @template
+#'     S-Experimental
+#'
 #' @rdname xRelate
 #' @export
 

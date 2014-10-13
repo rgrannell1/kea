@@ -30,9 +30,6 @@
 #' @example
 #'    inst/examples/example-xRiffle.R
 #'
-#' @template
-#'    S-Experimental
-#'
 #' @rdname xRiffle
 #' @export
 
