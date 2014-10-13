@@ -19,6 +19,10 @@ ENHANCEMENTS:
 
 * Made small improvements to C++ kea functions in memory efficiency and speed.
 
+BUG-FIXES:
+
+* The str method for kea objects is now actually exported.
+
 DOCUMENTATION:
 
 * Removed experimental flags from xRiffle and xSwap, as they are likely to be kept.
