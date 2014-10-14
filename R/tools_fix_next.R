@@ -58,7 +58,14 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 	bquote({
 
-		# get environment where the function is created (?).
+		number_args <- nargs()
+
+		if (number_args == 0) {
+			# -- fast track for when given no arguments and NO POSITIONAL EMPTY ARGUMENTS.
+			return ( .(substitute(FN)) )
+		}
+
+		# should use environment or sys.frame?
 		frame  <- environment()
 
 		args   <- as.list(match.call(expand.dots = False))[-1]

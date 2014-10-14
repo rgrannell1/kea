@@ -163,8 +163,8 @@ xLambda <- local({
 		body(lambda)        <- exprbody
 		environment(lambda) <- env
 
-		#MakeFun(lambda, typed = False, env)
-		lambda
+		##MakeFun(lambda, typed = False, env)
+		lmbda
 	}
 
 	brace <- as.symbol('{')
