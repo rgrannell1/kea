@@ -52,12 +52,11 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	params <- paste(SYMS)
 
 	preconditions <- Reduce(join_exprs, PRES)
-	missing_check <- Reduce( join_exprs, lapply(seq_along(params), function (ith) {
-		# -- check if each argument is missing.
+	missing_check <- as.call(c( c, lapply(seq_len(length(params)), function (ith) {
+		bquote(missing( .( as.symbol(params[[ith]]) ) ))
+	}) ))
 
-		bquote( is_missing[[ .(ith) ]] <- missing( .(params[[ith]]) ) )
 
-	}), init = bquote(is_missing <- .(logical(length(params))) ))
 
 
 	# make this code as efficient as possible!
@@ -68,6 +67,13 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			return ( .(substitute(FN)) )
 		}
 
+
+
+
+
+
+
+
 		# should use environment or sys.frame?
 		frame  <- environment()
 
@@ -77,7 +83,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		# -- filter out arguments that were positionally matched, but empty.
 		# -- ~80% as slow as the previous for-loop approach.
 
-		.(missing_check)
+		is_missing <- .(missing_check)
 
 		params        <- params[which(!is_missing)]
 		names(params) <- params
