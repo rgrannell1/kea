@@ -41,4 +41,13 @@ message("xSelect")
 		xSelect(function (x) Na,    coll) %is% as_named(list())
 	) +
 
+
+
+
+
+	describe("one-off equalities") +
+	holdsFor(
+		xSelect(function (x) x %% 2 == 0, 1:10) %is% list(2L, 4L, 6L, 8L, 10L)
+	) +
+
 	run()

@@ -10,7 +10,6 @@ fix <- function (fixed_function, coll) {
 	fn_formals  <- formals(fixed_function)
 	fn_params   <- names(fn_formals)
 
-	fixed_env   <- environment(fixed_function)
 	fn_sym      <- substitute(fixed_function)
 
 	lower_arity <- do.call('function', list(
@@ -36,7 +35,7 @@ fix <- function (fixed_function, coll) {
 	))
 
 	# copy the environment from the parent.
-	environment(lower_arity) <- new.env(parent = fixed_env)
+	environment(lower_arity) <- new.env(parent = environment(fixed_function))
 	lower_arity
 }
 
@@ -54,8 +53,12 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 	preconditions <- Reduce(join_exprs, PRES)
 
+	# make this code as efficient as possible!
+	#
+
 	bquote({
 
+		# get environment where the function is created (?).
 		frame  <- environment()
 
 		args   <- as.list(match.call(expand.dots = False))[-1]
