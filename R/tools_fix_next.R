@@ -87,8 +87,8 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 
 
-		# -- another fast track.
 		if ( length(params) != .(length(params)) ) {
+			# -- the fix macro must be called.
 
 			names(params) <- params
 
@@ -112,16 +112,16 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			} else if ( length(args) != .(arity) ) {
 				# -- return the function with some arguments fixed.
 				return (fix(.(substitute(FN)), args))
-
 			}
 
-			# -- TODO: check each precondition upon recieving argument.
-
-			# -- now run the actual function.
 		}
+		# -- fast-track non-partial application.
 
+		# -- TODO: check each precondition upon recieving argument.
 		.(preconditions)
 		.(substitute(FINAL))
+
+		# -- now run the actual function.
 
 	})
 

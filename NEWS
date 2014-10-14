@@ -5,10 +5,11 @@ Date: 2014-10-14
 
 ENHANCEMENTS:
 
+* Functions have half the overhead when called with all their arguments. This
+should be a very significant improvement in Kea's overall performance.
+
 * Functions are now much more performant (~3x base) for partially applying a
 function with zero arguments.
-
-
 
 
 

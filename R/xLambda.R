@@ -164,7 +164,7 @@ xLambda <- local({
 		environment(lambda) <- env
 
 		##MakeFun(lambda, typed = False, env)
-		lmbda
+		lambda
 	}
 
 	brace <- as.symbol('{')
