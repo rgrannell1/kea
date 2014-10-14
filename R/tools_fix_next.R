@@ -57,7 +57,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 		bquote( is_missing[[ .(ith) ]] <- missing( .(params[[ith]]) ) )
 
-	}), init = bquote(is_missing <- .(rep(FALSE, length(params))) ))
+	}), init = bquote(is_missing <- .(logical(length(params))) ))
 
 
 	# make this code as efficient as possible!
