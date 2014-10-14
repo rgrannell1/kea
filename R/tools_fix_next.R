@@ -243,9 +243,7 @@ write_type_conversions <- ( function () {
 
 MakeFun <- function (expr, typed = True, env = parent.frame()) {
 
-	env <- parent.frame()
-
-	unquote      <- function (inner) {
+	unquote <- function (inner) {
 
 		if (is.pairlist(inner)) {
 			as.pairlist(lapply(inner, unquote))
@@ -292,6 +290,7 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 
 	# allow the function to refer to its original self, pre-partial application!
 	#
+
 	environment(decorated)          <- new.env(parent = env)
 	environment(decorated) $ fn_sym <- decorated
 

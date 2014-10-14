@@ -36,16 +36,6 @@ Replace each occurence of a certain value in a collection with another value.
    The equality test that \bold{xSwap} distinguishes between numbers with very small
    differences (0.999999 != 1) and treats -0 as equal to 0.
 }
-
-\section{Stability - \bold{Experimental}}{
-
-
-This feature is newly introduced or experimental, may contain bugs, and may be removed
-or altered in future versions if it is not sufficiently useful. Breaking changes
-are likely in the near future.
-
-If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
-}
 \examples{
 
 # 1. Replace NaN and NA values with 0.

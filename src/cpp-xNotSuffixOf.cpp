@@ -22,13 +22,9 @@ LogicalVector cNotSuffixOf (const List& coll1, const List& coll2) {
 		}
 
 		for (int ith = 0; ith < coll1_size; ++ith) {
-
-			bool is_match = R_compute_identical(coll1[coll1_size - ith - 1], coll2[coll2_size - ith - 1], flags);
-
-			if (!is_match) {
+			if (!(bool) R_compute_identical(coll1[coll1_size - ith - 1], coll2[coll2_size - ith - 1], flags)) {
 				return LogicalVector::create(true);
 			}
-
 		}
 
 		return LogicalVector::create(false);

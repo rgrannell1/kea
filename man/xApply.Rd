@@ -94,7 +94,8 @@ xApply_(rbind, list(1, 2), list(3, 4), list(5, 6))
 Other function_application_functions: \code{\link{xDeepMap}},
   \code{\link{xDeepMap_}}; \code{\link{xFlatMap}},
   \code{\link{xFlatMap_}}; \code{\link{xMap}},
-  \code{\link{xMap_}}; \code{\link{xSpread}};
+  \code{\link{xMap_}}; \code{\link{xRelate}},
+  \code{\link{xRelate_}}; \code{\link{xSpread}};
   \code{\link{xThread}}, \code{\link{xThread_}};
   \code{\link{xUnspread}}
 }

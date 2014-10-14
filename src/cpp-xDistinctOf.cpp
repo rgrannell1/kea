@@ -23,14 +23,10 @@ List cDistinctOf (const List& coll) {
 		int unique_size  = unique.size();
 
 		for (int jth = 0; jth < unique_size; ++jth) {
-
-			bool is_match = R_compute_identical(coll[ith], unique[jth], flags);
-
-			if (is_match) {
+			if ((bool)R_compute_identical(coll[ith], unique[jth], flags)) {
 				match_found = true;
 				break;
 			}
-
 		}
 
 		if (!match_found) {

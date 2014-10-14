@@ -31,9 +31,6 @@
 #'    The equality test that \bold{xSwap} distinguishes between numbers with very small
 #'    differences (0.999999 != 1) and treats -0 as equal to 0.
 #'
-#' @template
-#'    S-Experimental
-#'
 #' @rdname xSwap
 #' @export
 

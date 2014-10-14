@@ -29,20 +29,15 @@ List cUnzipIndices (const List& coll) {
 		if (has_names) {
 
 			for (int ith = 0; ith < coll_len; ++ith) {
-
-				List row = List::create(ith + 1, coll[ith]);
-				out[ith] = row;
+				out[ith] = List::create( ith + 1, coll[ith] );
 			}
 
-			CharacterVector coll_names = coll.attr("names");
-			out.attr("names")          = coll_names;
+			out.attr("names") = (CharacterVector)coll.attr("names");
 
 		} else {
 
 			for (int ith = 0; ith < coll_len; ++ith) {
-
-				List row = List::create(ith + 1, coll[ith]);
-				out[ith] = row;
+				out[ith] = List::create(ith + 1, coll[ith]);
 			}
 		}
 

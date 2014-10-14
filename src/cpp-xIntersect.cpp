@@ -24,10 +24,7 @@ List cIntersect (const List& coll1, const List& coll2) {
 			bool has_match = false;
 
 			for (int jth = 0; jth < coll2_size; ++jth) {
-
-				bool is_match = R_compute_identical(coll1[ith], coll2[jth], flags);
-
-				if (is_match) {
+				if ((bool)R_compute_identical(coll1[ith], coll2[jth], flags)) {
 					has_match = true;
 					break;
 				}
@@ -42,10 +39,7 @@ List cIntersect (const List& coll1, const List& coll2) {
 		List out(shared_indices_size);
 
 		for (int ith = 0; ith < shared_indices_size; ++ith) {
-
-			int shared_index = shared_indices[ith];
-			out[ith]           = coll1[shared_index];
-
+			out[ith] = coll1[ (shared_indices[ith]) ];
 		}
 
 		return out;

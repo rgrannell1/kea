@@ -12,10 +12,7 @@ LogicalVector cNotIn (SEXP val, const List& coll) {
 	} else {
 
 		for (int ith = 0; ith < coll_len; ++ith) {
-
-			bool result = R_compute_identical(val, coll[ith], flags);
-
-			if (result) {
+			if ((bool)R_compute_identical(val, coll[ith], flags)) {
 				// required due to RcppCore/Rcpp issue #177.
 				return LogicalVector::create(false);
 			}

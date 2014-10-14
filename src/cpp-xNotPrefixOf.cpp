@@ -22,13 +22,9 @@ LogicalVector cNotPrefixOf (const List& coll1, const List& coll2) {
 		}
 
 		for (int ith = 0; ith < coll1_size; ++ith) {
-
-			bool is_match = R_compute_identical(coll1[ith], coll2[ith], flags);
-
-			if (!is_match) {
+			if (!(bool) R_compute_identical(coll1[ith], coll2[ith], flags)) {
 				return LogicalVector::create(true);
 			}
-
 		}
 
 		return LogicalVector::create(false);

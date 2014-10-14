@@ -28,7 +28,7 @@ void Must_Be_Collection_Of_Equal_Length (const std::string COLLS, const List col
 	if (!all_equal) {
 
 		std::stringstream msg;
-		msg << "The argument matching"
+		msg << "The argument matching "
 			<< dquote(COLLS)
 			<< " must be a collection of collections with equal lengths.";
 

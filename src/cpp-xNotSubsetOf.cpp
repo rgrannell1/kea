@@ -22,10 +22,7 @@ LogicalVector cNotSubsetOf (const List& coll1, const List& coll2) {
 			bool has_match = false;
 
 			for (int jth = 0; jth < coll2_size; ++jth) {
-
-				bool result = R_compute_identical(coll1[ith], coll2[jth], flags);
-
-				if (result) {
+				if ((bool) R_compute_identical(coll1[ith], coll2[jth], flags)) {
 					has_match = true;
 				}
 			}

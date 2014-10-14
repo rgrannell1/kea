@@ -1,5 +1,5 @@
 
-Kea 0.59.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
+Kea 0.60.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
@@ -87,15 +87,15 @@ xMap(x. + 1, 0:3)
 #### - Variadic Functions
 
 Most collection functions in Kea have forms that take a collection of items, or an indeterminate
-number of items through the ellipses parametre. The latter form is denoted with an underscore suffix and
-is more succint but less flexible than its alternative.
+number of items through the ellipses parametre ( ... ). The latter form is denoted with an underscore suffix and
+is more succinct but less flexible than its alternative.
 
 ```r
 xMap (x := x, list(1, 2, 3))
 xMap_(x := x, 1, 2, 3)
 ```
 
-
+#### - Function Composition
 
 
 ## Licensing

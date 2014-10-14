@@ -28,10 +28,7 @@ List cGroupBy (const Function fn, const List& coll) {
 			int group_maps_size = group_maps.size();
 
 			for (int jth = 0; jth < group_maps_size; ++jth) {
-
-				bool is_match = R_compute_identical(map, group_maps[jth], flags);
-
-				if (is_match) {
+				if ((bool) R_compute_identical(map, group_maps[jth], flags)) {
 
 					std::vector<int> group_indices = group_members[jth];
 					group_indices.push_back(ith);
@@ -62,10 +59,7 @@ List cGroupBy (const Function fn, const List& coll) {
 			List elements(group_indices_size);
 
 			for (int jth = 0; jth < group_indices_size; ++jth) {
-
-				int index     = group_indices[jth];
-				elements[jth] = coll[index];
-
+				elements[jth] = coll[ (group_indices[jth]) ];
 			}
 
 			List group = List::create(group_maps[ith], elements);
