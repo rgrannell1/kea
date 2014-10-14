@@ -52,16 +52,19 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	params <- paste(SYMS)
 
 	preconditions <- Reduce(join_exprs, PRES)
+	missing_check <- Reduce( join_exprs, lapply(seq_along(params), function (ith) {
+		# -- check if each argument is missing.
+
+		bquote( is_missing[[ .(ith) ]] <- missing( .(params[[ith]]) ) )
+
+	}), init = bquote(is_missing <- .(rep(FALSE, length(params))) ))
+
 
 	# make this code as efficient as possible!
-	#
-
 	bquote({
 
-		number_args <- nargs()
-
-		if (number_args == 0) {
-			# -- fast track for when given no arguments and NO POSITIONAL EMPTY ARGUMENTS.
+		if (nargs() == 0L) {
+			# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
 			return ( .(substitute(FN)) )
 		}
 
@@ -72,11 +75,9 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		params <- names(args)
 
 		# -- filter out arguments that were positionally matched, but empty.
-		is_missing <- rep(FALSE, length(params))
+		# -- ~80% as slow as the previous for-loop approach.
 
-		for ( ith in seq_len(length(params)) ) {
-			is_missing[[ith]] <- do.call( missing, list(as.symbol( params[[ith]] )) )
-		}
+		.(missing_check)
 
 		params        <- params[which(!is_missing)]
 		names(params) <- params
@@ -93,7 +94,9 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		})
 
 		if (length(args) == 0) {
-			# -- return thr function, unchanged.
+			# -- return the function, unchanged.
+			# -- will work for missing arguments (unlike fast track) since args filters out missing values.
+
 			return (.(substitute(FN)))
 
 		} else if ( length(args) != .(arity) ) {
@@ -106,6 +109,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		.(preconditions)
 		.(substitute(FINAL))
 
+		# -- now run the actual function.
 	})
 
 }

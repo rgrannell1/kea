@@ -1,7 +1,12 @@
 
 Kea 0.61.0
 ------------------------------------------------------------------------------
-Date: 2014-10-
+Date: 2014-10-14
+
+ENHANCEMENTS:
+
+* Functions are now much more performant (~3x base) for partially applying a
+function with zero arguments.
 
 
 
