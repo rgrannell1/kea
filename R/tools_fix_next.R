@@ -53,7 +53,14 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 	preconditions <- Reduce(join_exprs, PRES)
 	missing_check <- as.call(c( c, lapply(seq_len(length(params)), function (ith) {
-		bquote(missing( .( as.symbol(params[[ith]]) ) ))
+		param <- params[[ith]]
+
+		if (param == 'SPREAD_PARAMETRE') {
+			bquote(missing( .( as.symbol('...') ) ))
+		} else {
+			bquote(missing( .( as.symbol(params[[ith]]) ) ))
+		}
+
 	}) ))
 
 
@@ -81,11 +88,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		# -- ~80% as slow as the previous for-loop approach.
 
 		is_missing <- .(missing_check)
-
-		params        <- params[which(!is_missing)]
-
-
-
+		params     <- params[which(!is_missing)]
 
 		if ( length(params) != .(length(params)) ) {
 			# -- the fix macro must be called.
