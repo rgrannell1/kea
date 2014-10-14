@@ -71,9 +71,6 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 
 
-
-
-
 		# should use environment or sys.frame?
 		frame  <- environment()
 
@@ -86,36 +83,46 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		is_missing <- .(missing_check)
 
 		params        <- params[which(!is_missing)]
-		names(params) <- params
 
-		args <- lapply(params, function (param) {
 
-			if (param == 'sym') {
-				substitute(param)
-			} else if (param == '...') {
-				list(...)
-			} else {
-				eval(as.symbol(param), frame)
+
+
+		# -- another fast track.
+		if ( length(params) != .(length(params)) ) {
+
+			names(params) <- params
+
+			args <- lapply(params, function (param) {
+
+				if (param == 'sym') {
+					substitute(param)
+				} else if (param == '...') {
+					list(...)
+				} else {
+					eval(as.symbol(param), frame)
+				}
+			})
+
+			if (length(args) == 0) {
+				# -- return the function, unchanged.
+				# -- will work for missing arguments (unlike fast track) since args filters out missing values.
+
+				return (.(substitute(FN)))
+
+			} else if ( length(args) != .(arity) ) {
+				# -- return the function with some arguments fixed.
+				return (fix(.(substitute(FN)), args))
+
 			}
-		})
 
-		if (length(args) == 0) {
-			# -- return the function, unchanged.
-			# -- will work for missing arguments (unlike fast track) since args filters out missing values.
+			# -- TODO: check each precondition upon recieving argument.
 
-			return (.(substitute(FN)))
-
-		} else if ( length(args) != .(arity) ) {
-			# -- return the function with some arguments fixed.
-			return (fix(.(substitute(FN)), args))
-
+			# -- now run the actual function.
 		}
 
-		# -- TODO: check each precondition upon recieving argument.
 		.(preconditions)
 		.(substitute(FINAL))
 
-		# -- now run the actual function.
 	})
 
 }
