@@ -151,10 +151,9 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 		bquote({
 
-			if (nargs() == 0L) {
+			if (nargs() == 0L)
 				# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
 				return ( .(substitute(FN)) )
-			}
 
 			# -- filter out arguments that were positionally matched, but empty.
 			# -- ~80% as slow as the previous for-loop approach.
