@@ -101,30 +101,27 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 			bquote( missing(.( as.symbol(params) )) )
 
-		} else {
+		} else if (is_variadic) {
 			# -- vapply and lapply are no better right now.
 
-			if (is_variadic) {
+			as.call(c( c, lapply(named_indices, function (ith) {
 
-				as.call(c( c, lapply(named_indices, function (ith) {
+				param <- params[[ith]]
 
-					param <- params[[ith]]
+				if (param == 'SPREAD_PARAMETRE') {
+					bquote(missing( .( as.symbol('...') ) ))
+				} else {
+					bquote(missing( .( as.symbol(param) ) ))
+				}
 
-					if (param == 'SPREAD_PARAMETRE') {
-						bquote(missing( .( as.symbol('...') ) ))
-					} else {
-						bquote(missing( .( as.symbol(param) ) ))
-					}
+			}) ))
 
-				}) ))
+		} else {
 
-			} else {
+			as.call(c( c, lapply(named_indices, function (ith) {
+				bquote(missing( .(as.symbol( params[[ith]] )) ))
+			}) ))
 
-				as.call(c( c, lapply(named_indices, function (ith) {
-					bquote(missing( .(as.symbol( params[[ith]] )) ))
-				}) ))
-
-			}
 		}
 
 		# -- THE EXCLUSION OF BRACES IS VERY DELIBERATE.
