@@ -119,8 +119,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 				# -- get the arguments.
 				# -- expand.dots not needed (not dot arguments).
-				args   <- as.list(match.call())[-1]
-				params <- names(args)
+				params <- names(match.call()[-1])
 
 				frame         <- environment()
 				names(params) <- params
