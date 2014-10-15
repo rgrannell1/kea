@@ -52,7 +52,11 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	params <- paste(SYMS)
 
 	preconditions <- Reduce(join_exprs, PRES)
-	missing_check <- as.call(c( c, lapply(seq_len(length(params)), function (ith) {
+
+	named_indices        <- seq_len(length(params))
+	names(named_indices) <- params
+
+	missing_check <- as.call(c( c, lapply(named_indices, function (ith) {
 		param <- params[[ith]]
 
 		if (param == 'SPREAD_PARAMETRE') {
@@ -62,9 +66,6 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		}
 
 	}) ))
-
-
-
 
 	# make this code as efficient as possible!
 	bquote({
@@ -81,21 +82,21 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		# should use environment or sys.frame?
 		frame  <- environment()
 
-		args   <- as.list(match.call(expand.dots = False))[-1]
-		params <- names(args)
+		args        <- as.list(match.call(expand.dots = False))[-1]
+		used_params <- names(args)
 
 		# -- filter out arguments that were positionally matched, but empty.
 		# -- ~80% as slow as the previous for-loop approach.
 
-		is_missing <- .(missing_check)
-		params     <- params[which(!is_missing)]
+		is_missing   <- .(missing_check)
+		used_params <- names(is_missing)[!is_missing]
 
-		if ( length(params) != .(length(params)) ) {
+		if ( length(used_params) != .(length(used_params)) ) {
 			# -- the fix macro must be called.
 
-			names(params) <- params
+			names(used_params) <- used_params
 
-			args <- lapply(params, function (param) {
+			args <- lapply(used_params, function (param) {
 
 				if (param == 'sym') {
 					substitute(param)
