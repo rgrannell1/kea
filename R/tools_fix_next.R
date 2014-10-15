@@ -39,6 +39,16 @@ fix <- function (fixed_function, coll) {
 	lower_arity
 }
 
+
+
+
+
+
+
+
+
+
+
 # -------------------------------- Fix -------------------------------- #
 #
 # Kea functions are partially applicable,
@@ -287,6 +297,12 @@ write_type_checks <- ( function () {
 	}
 
 } )()
+
+
+
+
+
+
 
 
 
