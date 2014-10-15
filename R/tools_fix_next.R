@@ -116,7 +116,8 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			if (all(is_missing)) {
 				# -- the fix macro must be called.
 
-				# -- get the arguments
+				# -- get the arguments.
+				# -- expand.dots not needed (not dot arguments).
 				args   <- as.list(match.call())[-1]
 				params <- names(args)
 
@@ -128,8 +129,9 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 					if (param == 'sym') {
 						substitute(param)
 					} else {
-						eval(as.symbol(param), frame)
+						frame[[ as.symbol(param) ]]
 					}
+
 				})
 
 				if (length(args) == 0) {
