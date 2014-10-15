@@ -485,10 +485,17 @@ load_test_dependencies <- function (envir) {
 		list(
 			over            = over,
 			describe        = describe,
+
 			holdsWhen       = holdsWhen,
 			worksWhen       = worksWhen,
-			run             = run,
 			failsWhen       = failsWhen,
+
+			holdsFor        = holdsFor,
+			worksFor        = worksFor,
+			failsFor        = failsFor,
+
+			run             = run,
+
 			`+.xforall`     = `+.xforall`,
 
 			is_collection   = is_collection,
