@@ -71,9 +71,10 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 		bquote({
 
-			if (missing( .(as.symbol(params)) )) {
+			# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
+			if (missing( .(as.symbol(params)) ))
 				return ( .(substitute(FN)) )
-			}
+
 
 		})
 
@@ -124,15 +125,16 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				frame         <- environment()
 				names(params) <- params
 
-				args <- lapply(params, function (param) {
+				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+				# each use of braces is a function call, and this is a very tight inner-loop.
+				args          <- lapply(params, function (param)
 
-					if (param == 'sym') {
+					if (param == 'sym')
 						substitute(param)
-					} else {
+					 else
 						frame[[ as.symbol(param) ]]
-					}
 
-				})
+				)
 
 				if (length(args) == 0) {
 					# -- return the function, unchanged.
@@ -142,7 +144,9 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 				} else if ( length(args) != .(arity) ) {
 					# -- return the function with some arguments fixed.
+
 					return (fix(.(substitute(FN)), args))
+
 				}
 
 			}
