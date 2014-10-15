@@ -136,18 +136,17 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 				)
 
-				if (length(args) == 0) {
+				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+				if (length(args) == 0)
 					# -- return the function, unchanged.
 					# -- will work for missing arguments (unlike fast track) since args filters out missing values.
 
 					return (.(substitute(FN)))
 
-				} else if ( length(args) != .(arity) ) {
+				else if ( length(args) != .(arity) )
 					# -- return the function with some arguments fixed.
 
 					return (fix(.(substitute(FN)), args))
-
-				}
 
 			}
 			# -- else fast-track non-partial application.
