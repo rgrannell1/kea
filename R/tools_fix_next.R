@@ -125,7 +125,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
 				# each use of braces is a function call, and this is a very tight inner-loop.
-				args          <- lapply(params, function (param)
+				args   <- lapply(params, function (param)
 
 					if (param == 'sym')
 						substitute(param)
@@ -153,13 +153,88 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 	} else if (is_variadic) {
 
+		# DEDUPLICATE
+		# DEDUPLICATE
+		# DEDUPLICATE
+		# DEDUPLICATE
+		# DEDUPLICATE
+		# DEDUPLICATE
+
+		missing_check <- if (length(params) == 1) {
+			# -- ever so slightly faster (no function call to c)
+
+			bquote(missing( .( as.symbol(params) ) ))
+
+		} else {
+			# -- vapply and lapply are no better right now.
+
+			as.call(c( c, lapply(named_indices, function (ith) {
+
+				param <- params[[ith]]
+
+				if (param == 'SPREAD_PARAMETRE') {
+					bquote(missing( .( as.symbol('...') ) ))
+				} else {
+					bquote(missing( .( as.symbol(param) ) ))
+				}
+
+			}) ))
+
+		}
 
 
-		#stop("work on me!")
 
 
 
+		bquote({
 
+			if (nargs() == 0L) {
+				# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
+				return ( .(substitute(FN)) )
+			}
+
+			# -- filter out arguments that were positionally matched, but empty.
+			# -- ~80% as slow as the previous for-loop approach.
+
+			is_missing <- .(missing_check)
+
+			if (any(is_missing)) {
+				# -- the fix macro must be called.
+
+				# -- get the arguments.
+				# -- expand.dots not needed (not dot arguments).
+				params <- names(is_missing[!is_missing])
+				frame  <- environment()
+
+				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+				# each use of braces is a function call, and this is a very tight inner-loop.
+				args   <- lapply(params, function (param)
+
+					if (param == 'sym')
+						substitute(param)
+					 else if (param == '...')
+					 	list(...)
+					 else
+						frame[[param]]
+
+				)
+
+				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+				if (length(args) == 0)
+					# -- return the function, unchanged.
+					# -- will work for missing arguments (unlike fast track) since args filters out missing values.
+
+					return (.(substitute(FN)))
+
+				else if ( length(args) != .(arity) )
+					# -- return the function with some arguments fixed.
+
+					names(args) <- params
+					return (fix(.(substitute(FN)), args))
+
+			}
+			# -- else fast-track non-partial application.
+		})
 	}
 
 
