@@ -49,87 +49,116 @@ fix <- function (fixed_function, coll) {
 Fix <- function (FN, SYMS, PRES, FINAL) {
 
 	arity  <- length(SYMS)
+	# -- IMPORTANT: params can never be dots (...) for fix macro.
 	params <- paste(SYMS)
+
+	if ('...' %in% params) {
+		stop("... in params ", params)
+	}
+
 
 	preconditions <- Reduce(join_exprs, PRES)
 
 	named_indices        <- seq_len(length(params))
 	names(named_indices) <- params
 
-	missing_check <- if (length(params) == 1) {
-		# -- ever so slightly faster (no function call to c)
 
-		if (params == 'SPREAD_PARAMETRE') {
-			bquote(missing( .( as.symbol('...') ) ))
-		} else {
-			bquote(missing( .( as.symbol(params) ) ))
-		}
 
-	} else {
-		# -- vapply and lapply are no better right now.
 
-		as.call(c( c, lapply(named_indices, function (ith) {
-			param <- params[[ith]]
 
-			if (param == 'SPREAD_PARAMETRE') {
-				bquote(missing( .( as.symbol('...') ) ))
-			} else {
-				bquote(missing( .( as.symbol(param) ) ))
+	fix_expr <- if (arity == 1) {
+		# -- unary non-variadic functions.
+
+		bquote({
+
+			if (missing( .(as.symbol(params)) )) {
+				return ( .(substitute(FN)) )
 			}
 
-		}) ))
+		})
+
+	} else {
+		# -- the much more complicated, slower general case.
+		# -- efficiency subcases should be found where possible.
+
+		missing_check <- if (length(params) == 1) {
+			# -- ever so slightly faster (no function call to c)
+
+			bquote(missing( .( as.symbol(params) ) ))
+
+		} else {
+			# -- vapply and lapply are no better right now.
+
+			as.call(c( c, lapply(named_indices, function (ith) {
+
+				bquote(missing( .(as.symbol( params[[ith]] )) ))
+
+			}) ))
+
+		}
+
+
+
+
+
+		bquote({
+
+			if (nargs() == 0L) {
+				# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
+				return ( .(substitute(FN)) )
+			}
+
+			# -- filter out arguments that were positionally matched, but empty.
+			# -- ~80% as slow as the previous for-loop approach.
+
+			is_missing <- .(missing_check)
+
+			if (all(is_missing)) {
+				# -- the fix macro must be called.
+
+				# -- get the arguments
+				args   <- as.list(match.call())[-1]
+				params <- names(args)
+
+				frame         <- environment()
+				names(params) <- params
+
+				args <- lapply(params, function (param) {
+
+					if (param == 'sym') {
+						substitute(param)
+					} else {
+						eval(as.symbol(param), frame)
+					}
+				})
+
+				if (length(args) == 0) {
+					# -- return the function, unchanged.
+					# -- will work for missing arguments (unlike fast track) since args filters out missing values.
+
+					return (.(substitute(FN)))
+
+				} else if ( length(args) != .(arity) ) {
+					# -- return the function with some arguments fixed.
+					return (fix(.(substitute(FN)), args))
+				}
+
+			}
+			# -- else fast-track non-partial application.
+		})
 
 	}
 
 
-	# make this code as efficient as possible!
-	fix_expr <- bquote({
 
-		if (nargs() == 0L) {
-			# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
-			return ( .(substitute(FN)) )
-		}
 
-		# -- filter out arguments that were positionally matched, but empty.
-		# -- ~80% as slow as the previous for-loop approach.
 
-		is_missing <- .(missing_check)
 
-		if (all(is_missing)) {
-			# -- the fix macro must be called.
 
-			# -- get the arguments
-			args   <- as.list(match.call(expand.dots = False))[-1]
-			params <- names(args)
 
-			frame         <- environment()
-			names(params) <- params
 
-			args <- lapply(params, function (param) {
 
-				if (param == 'sym') {
-					substitute(param)
-				} else if (param == '...') {
-					list(...)
-				} else {
-					eval(as.symbol(param), frame)
-				}
-			})
 
-			if (length(args) == 0) {
-				# -- return the function, unchanged.
-				# -- will work for missing arguments (unlike fast track) since args filters out missing values.
-
-				return (.(substitute(FN)))
-
-			} else if ( length(args) != .(arity) ) {
-				# -- return the function with some arguments fixed.
-				return (fix(.(substitute(FN)), args))
-			}
-
-		}
-		# -- else fast-track non-partial application.
-	})
 
 	# -- TODO: check each precondition upon recieving argument.
 	Reduce(join_exprs, c(fix_expr, preconditions, substitute(FINAL)))
