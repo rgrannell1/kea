@@ -82,21 +82,21 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		# should use environment or sys.frame?
 		frame  <- environment()
 
-		args        <- as.list(match.call(expand.dots = False))[-1]
-		used_params <- names(args)
+		args   <- as.list(match.call(expand.dots = False))[-1]
+		params <- names(args)
 
 		# -- filter out arguments that were positionally matched, but empty.
 		# -- ~80% as slow as the previous for-loop approach.
 
-		is_missing   <- .(missing_check)
-		used_params <- names(is_missing)[!is_missing]
+		is_missing <- .(missing_check)
+		params     <- names(is_missing)[!is_missing]
 
-		if ( length(used_params) != .(length(used_params)) ) {
+		if ( length(params) != .(length(params)) ) {
 			# -- the fix macro must be called.
 
-			names(used_params) <- used_params
+			names(params) <- params
 
-			args <- lapply(used_params, function (param) {
+			args <- lapply(params, function (param) {
 
 				if (param == 'sym') {
 					substitute(param)
