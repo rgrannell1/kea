@@ -123,9 +123,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			} else {
 
 				as.call(c( c, lapply(named_indices, function (ith) {
-
 					bquote(missing( .(as.symbol( params[[ith]] )) ))
-
 				}) ))
 
 			}
@@ -134,10 +132,9 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
 		# each use of braces is a function call, and this is a very tight inner-loop.
 
-		lookup <- if (is_variadic) {
+		lookup_expr <- if (is_variadic) {
 
-			quote( if (param == 'sym')
-				substitute(param)
+			quote( if (param == 'sym') substitute(param)
 			 else if (param == '...')
 			 	list(...)
 			 else
@@ -176,7 +173,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				# -- expand.dots not needed (not dot arguments).
 				params <- names(is_missing[!is_missing])
 				frame  <- environment()
-				args   <- lapply(params, function (param) .(lookup))
+				args   <- lapply(params, function (param) .(lookup_expr))
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
 				if (length(args) == 0)
