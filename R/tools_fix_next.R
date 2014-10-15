@@ -77,7 +77,14 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	} else if (arity == 1 && is_variadic) {
 		# -- unary variadic functions.
 
-		list()
+		bquote({
+
+			# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
+			if (missing( .(as.symbol('...')) ))
+				return ( .(substitute(FN)) )
+
+
+		})
 
 	} else if (!is_variadic) {
 		# -- the much more complicated, slower general case.
@@ -538,9 +545,9 @@ MakeVariadic <- function (fn, fixed) {
 
 			# -- this issue only arises for non-unary variadic functions.
 			if (length(params) == 1 && params == '...') {
-				quote( MACRO( Must_Have_Canonical_Arguments() ) )
-			} else {
 				NULL
+			} else {
+				quote( MACRO( Must_Have_Canonical_Arguments() ) )
 			}
 
 		)
