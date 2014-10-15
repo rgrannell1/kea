@@ -68,7 +68,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	}) ))
 
 	# make this code as efficient as possible!
-	bquote({
+	fix_expr <- bquote({
 
 		if (nargs() == 0L) {
 			# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
@@ -119,15 +119,11 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			}
 
 		}
-		# -- fast-track non-partial application.
-
-		# -- TODO: check each precondition upon recieving argument.
-		.(preconditions)
-		.(substitute(FINAL))
-
-		# -- now run the actual function.
-
+		# -- else fast-track non-partial application.
 	})
+
+	# -- TODO: check each precondition upon recieving argument.
+	Reduce(join_exprs, c(fix_expr, preconditions, substitute(FINAL)))
 
 }
 
@@ -263,6 +259,13 @@ write_type_conversions <- ( function () {
 	}
 
 } )()
+
+
+
+
+
+
+
 
 
 
