@@ -10,7 +10,6 @@ fix <- function (fixed_function, coll) {
 	fn_formals  <- formals(fixed_function)
 	fn_params   <- names(fn_formals)
 
-	fixed_env   <- environment(fixed_function)
 	fn_sym      <- substitute(fixed_function)
 
 	lower_arity <- do.call('function', list(
@@ -36,9 +35,19 @@ fix <- function (fixed_function, coll) {
 	))
 
 	# copy the environment from the parent.
-	environment(lower_arity) <- new.env(parent = fixed_env)
+	environment(lower_arity) <- new.env(parent = environment(fixed_function))
 	lower_arity
 }
+
+
+
+
+
+
+
+
+
+
 
 # -------------------------------- Fix -------------------------------- #
 #
@@ -52,51 +61,150 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	arity  <- length(SYMS)
 	params <- paste(SYMS)
 
+	is_variadic   <- any('SPREAD_PARAMETRE' == params)
 	preconditions <- Reduce(join_exprs, PRES)
 
-	bquote({
+	named_indices        <- seq_len(length(params))
+	names(named_indices) <- params
 
-		frame  <- environment()
 
-		args   <- as.list(match.call(expand.dots = False))[-1]
-		params <- names(args)
 
-		# -- filter out arguments that were positionally matched, but empty.
-		is_missing <- rep(FALSE, length(params))
 
-		for ( ith in seq_len(length(params)) ) {
-			is_missing[[ith]] <- do.call( missing, list(as.symbol( params[[ith]] )) )
+
+	# -- THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
+	fix_expr <- if (arity == 1 && !is_variadic) {
+		# -- unary non-variadic functions.
+
+		bquote(
+
+			if (missing( .(as.symbol(params)) ))
+				return ( .(substitute(FN)) )
+
+		)
+
+	} else if (arity == 1 && is_variadic) {
+		# -- unary variadic functions.
+
+		bquote(
+
+			if (missing( .(as.symbol('...')) ))
+				return ( .(substitute(FN)) )
+
+		)
+
+	} else  {
+		# -- the much more complicated, slower general case.
+		# -- efficiency subcases should be found where possible.
+
+		missing_check <- if (length(params) == 1) {
+			# -- ever so slightly faster (no function call to c)
+
+			bquote( missing(.( as.symbol(params) )) )
+
+		} else {
+			# -- vapply and lapply are no better right now.
+
+			if (is_variadic) {
+
+				as.call(c( c, lapply(named_indices, function (ith) {
+
+					param <- params[[ith]]
+
+					if (param == 'SPREAD_PARAMETRE') {
+						bquote(missing( .( as.symbol('...') ) ))
+					} else {
+						bquote(missing( .( as.symbol(param) ) ))
+					}
+
+				}) ))
+
+			} else {
+
+				as.call(c( c, lapply(named_indices, function (ith) {
+					bquote(missing( .(as.symbol( params[[ith]] )) ))
+				}) ))
+
+			}
 		}
 
-		params        <- params[which(!is_missing)]
-		names(params) <- params
+		# -- THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+		# each use of braces is a function call, and this is a very tight inner-loop.
 
-		args <- lapply(params, function (param) {
+		lookup_expr <- if (is_variadic) {
 
-			if (param == 'sym') {
+			quote( if (param == 'sym') substitute(param)
+			 else if (param == '...')
+			 	list(...)
+			 else
+				frame[[param]] )
+
+		} else {
+
+			quote( if (param == 'sym')
 				substitute(param)
-			} else if (param == '...') {
-				list(...)
-			} else {
-				eval(as.symbol(param), frame)
+			 else
+				frame[[param]] )
+
+		}
+
+
+
+
+
+
+		bquote({
+
+			if (nargs() == 0L) {
+				# -- fast track for a call with no arguments and NO POSITIONAL EMPTY ARGUMENTS.
+				return ( .(substitute(FN)) )
 			}
+
+			# -- filter out arguments that were positionally matched, but empty.
+			# -- ~80% as slow as the previous for-loop approach.
+
+			is_missing <- .(missing_check)
+
+			if (any(is_missing)) {
+				# -- the fix macro must be called.
+
+				# -- get the arguments.
+				# -- expand.dots not needed (not dot arguments).
+				params <- names(is_missing[!is_missing])
+				frame  <- environment()
+				args   <- lapply(params, function (param) .(lookup_expr))
+
+				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+				if (length(args) == 0)
+					# -- return the function, unchanged.
+					# -- will work for missing arguments (unlike fast track) since args filters out missing values.
+
+					return (.(substitute(FN)))
+
+				else if ( length(args) != .(arity) )
+					# -- return the function with some arguments fixed.
+
+					names(args) <- params
+					return (fix(.(substitute(FN)), args))
+
+			}
+			# -- else fast-track non-partial application.
 		})
 
-		if (length(args) == 0) {
-			# -- return thr function, unchanged.
-			return (.(substitute(FN)))
+	}
 
-		} else if ( length(args) != .(arity) ) {
-			# -- return the function with some arguments fixed.
-			return (fix(.(substitute(FN)), args))
 
-		}
 
-		# -- TODO: check each precondition upon recieving argument.
-		.(preconditions)
-		.(substitute(FINAL))
 
-	})
+
+
+
+
+
+
+
+
+	# -- TODO: check each precondition upon recieving argument.
+	Reduce(join_exprs, c(fix_expr, preconditions, substitute(FINAL)))
 
 }
 
@@ -129,8 +237,7 @@ write_type_checks <- ( function () {
 		Must_Be_Matchable(substitute(sym))
 
 	# -- these parametres are always collections.
-	for (param in c(
-		'coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums')) {
+	for (param in c('coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums')) {
 
 		self[[param]] <-
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
@@ -187,6 +294,12 @@ write_type_checks <- ( function () {
 
 
 
+
+
+
+
+
+
 # -------------------------------- write_type_conversions -------------------------------- #
 #
 # Kea alters some parametres after checking it's type; this module
@@ -232,6 +345,13 @@ write_type_conversions <- ( function () {
 	}
 
 } )()
+
+
+
+
+
+
+
 
 
 
@@ -296,6 +416,15 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 
 	decorated
 }
+
+
+
+
+
+
+
+
+
 
 # -------------------------------- MakeVariadic -------------------------------- #
 #
@@ -365,7 +494,16 @@ MakeVariadic <- function (fn, fixed) {
 		# --  correctly resolved.
 		.( eval(call_Fix_macro) )
 
-		MACRO( Must_Have_Canonical_Arguments() )
+		.(
+
+			# -- this issue only arises for non-unary variadic functions.
+			if (length(params) == 1 && params == '...') {
+				NULL
+			} else {
+				quote( MACRO( Must_Have_Canonical_Arguments() ) )
+			}
+
+		)
 
 		.(
 			( as.call(c(

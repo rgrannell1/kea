@@ -1,4 +1,28 @@
 
+Kea 0.61.0
+------------------------------------------------------------------------------
+Date: 2014-10-15
+
+Vastly improved the efficiency of partial application.
+
+ENHANCEMENTS:
+
+* Functions are now much more performant (~3x slower than base, and about x37 faster than v0.60.0)
+when partially applying a function with zero arguments.
+
+* Calling a unary function with all its arguments is more performant: ~x3 slower than base, x49
+faster than v0.60.
+
+* The general mechanism for partial application is about x10 faster than v0.60.0.
+
+PACKAGE-INTERNALS:
+
+* Added functions for working with one-off test cases.
+
+
+
+
+
 Kea 0.60.0
 ------------------------------------------------------------------------------
 Date: 2014-10-13
