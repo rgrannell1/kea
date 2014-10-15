@@ -49,13 +49,9 @@ fix <- function (fixed_function, coll) {
 Fix <- function (FN, SYMS, PRES, FINAL) {
 
 	arity  <- length(SYMS)
-	# -- IMPORTANT: params can never be dots (...) for fix macro.
 	params <- paste(SYMS)
 
-	if ('...' %in% params) {
-		stop("... in params ", params)
-	}
-
+	is_variadic <- 'SPREAD_PARAMETRE' %in% params
 
 	preconditions <- Reduce(join_exprs, PRES)
 
@@ -66,7 +62,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 
 
-	fix_expr <- if (arity == 1) {
+	fix_expr <- if (arity == 1 && !is_variadic) {
 		# -- unary non-variadic functions.
 
 		bquote({
@@ -78,7 +74,12 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 		})
 
-	} else {
+	} else if (arity == 1 && is_variadic) {
+		# -- unary variadic functions.
+
+		list()
+
+	} else if (!is_variadic) {
 		# -- the much more complicated, slower general case.
 		# -- efficiency subcases should be found where possible.
 
@@ -119,10 +120,8 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 				# -- get the arguments.
 				# -- expand.dots not needed (not dot arguments).
-				params        <- names(is_missing[!is_missing])
-
-				frame         <- environment()
-				names(params) <- params
+				params <- names(is_missing[!is_missing])
+				frame  <- environment()
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
 				# each use of braces is a function call, and this is a very tight inner-loop.
@@ -136,7 +135,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				)
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
-				if (length(args) == 0L)
+				if (length(args) == 0)
 					# -- return the function, unchanged.
 					# -- will work for missing arguments (unlike fast track) since args filters out missing values.
 
@@ -145,11 +144,21 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				else if ( length(args) != .(arity) )
 					# -- return the function with some arguments fixed.
 
+					names(args) <- params
 					return (fix(.(substitute(FN)), args))
 
 			}
 			# -- else fast-track non-partial application.
 		})
+
+	} else if (is_variadic) {
+
+
+
+		#stop("work on me!")
+
+
+
 
 	}
 
@@ -373,6 +382,15 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 	decorated
 }
 
+
+
+
+
+
+
+
+
+
 # -------------------------------- MakeVariadic -------------------------------- #
 #
 # MakeVariadic is not a general function; it takes a Kea function, and makes one
@@ -441,7 +459,16 @@ MakeVariadic <- function (fn, fixed) {
 		# --  correctly resolved.
 		.( eval(call_Fix_macro) )
 
-		MACRO( Must_Have_Canonical_Arguments() )
+		.(
+
+			# -- this issue only arises for non-unary variadic functions.
+			if (length(params) == 1 && params == '...') {
+				quote( MACRO( Must_Have_Canonical_Arguments() ) )
+			} else {
+				NULL
+			}
+
+		)
 
 		.(
 			( as.call(c(
