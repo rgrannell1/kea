@@ -114,7 +114,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 			is_missing <- .(missing_check)
 
-			if (all(is_missing)) {
+			if (any(is_missing)) {
 				# -- the fix macro must be called.
 
 				# -- get the arguments.
@@ -132,7 +132,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 					if (param == 'sym')
 						substitute(param)
 					 else
-						frame[[ as.symbol(param) ]]
+						frame[[param]]
 
 				)
 
