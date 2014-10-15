@@ -75,24 +75,24 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	fix_expr <- if (arity == 1 && !is_variadic) {
 		# -- unary non-variadic functions.
 
-		bquote({
+		# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
+		bquote(
 
-			# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
 			if (missing( .(as.symbol(params)) ))
 				return ( .(substitute(FN)) )
 
-		})
+		)
 
 	} else if (arity == 1 && is_variadic) {
 		# -- unary variadic functions.
 
-		bquote({
+		# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
+		bquote(
 
-			# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
 			if (missing( .(as.symbol('...')) ))
 				return ( .(substitute(FN)) )
 
-		})
+		)
 
 	} else  {
 		# -- the much more complicated, slower general case.
@@ -101,7 +101,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		missing_check <- if (length(params) == 1) {
 			# -- ever so slightly faster (no function call to c)
 
-			bquote(missing( .( as.symbol(params) ) ))
+			bquote( missing(.( as.symbol(params) )) )
 
 		} else {
 			# -- vapply and lapply are no better right now.
@@ -239,8 +239,7 @@ write_type_checks <- ( function () {
 		Must_Be_Matchable(substitute(sym))
 
 	# -- these parametres are always collections.
-	for (param in c(
-		'coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums')) {
+	for (param in c('coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums')) {
 
 		self[[param]] <-
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
