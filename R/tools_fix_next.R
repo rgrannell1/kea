@@ -61,8 +61,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	arity  <- length(SYMS)
 	params <- paste(SYMS)
 
-	is_variadic <- 'SPREAD_PARAMETRE' %in% params
-
+	is_variadic   <- any('SPREAD_PARAMETRE' == params)
 	preconditions <- Reduce(join_exprs, PRES)
 
 	named_indices        <- seq_len(length(params))
@@ -72,10 +71,10 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 
 
+	# -- THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
 	fix_expr <- if (arity == 1 && !is_variadic) {
 		# -- unary non-variadic functions.
 
-		# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
 		bquote(
 
 			if (missing( .(as.symbol(params)) ))
@@ -86,7 +85,6 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	} else if (arity == 1 && is_variadic) {
 		# -- unary variadic functions.
 
-		# THE EXCLUSION OF BRACES IS DELIBERATE (efficiency).
 		bquote(
 
 			if (missing( .(as.symbol('...')) ))
@@ -129,7 +127,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 			}
 		}
 
-		# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
+		# -- THE EXCLUSION OF BRACES IS VERY DELIBERATE.
 		# each use of braces is a function call, and this is a very tight inner-loop.
 
 		lookup_expr <- if (is_variadic) {
