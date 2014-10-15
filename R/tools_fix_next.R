@@ -56,16 +56,31 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 	named_indices        <- seq_len(length(params))
 	names(named_indices) <- params
 
-	missing_check <- as.call(c( c, lapply(named_indices, function (ith) {
-		param <- params[[ith]]
+	missing_check <- if (length(params) == 1) {
+		# -- ever so slightly faster (no function call to c)
 
-		if (param == 'SPREAD_PARAMETRE') {
+		if (params == 'SPREAD_PARAMETRE') {
 			bquote(missing( .( as.symbol('...') ) ))
 		} else {
-			bquote(missing( .( as.symbol(params[[ith]]) ) ))
+			bquote(missing( .( as.symbol(params) ) ))
 		}
 
-	}) ))
+	} else {
+		# -- vapply and lapply are no better right now.
+
+		as.call(c( c, lapply(named_indices, function (ith) {
+			param <- params[[ith]]
+
+			if (param == 'SPREAD_PARAMETRE') {
+				bquote(missing( .( as.symbol('...') ) ))
+			} else {
+				bquote(missing( .( as.symbol(param) ) ))
+			}
+
+		}) ))
+
+	}
+
 
 	# make this code as efficient as possible!
 	fix_expr <- bquote({
