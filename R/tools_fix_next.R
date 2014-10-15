@@ -119,7 +119,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 				# -- get the arguments.
 				# -- expand.dots not needed (not dot arguments).
-				params <- names(is_missing[!is_missing])
+				params        <- names(is_missing[!is_missing])
 
 				frame         <- environment()
 				names(params) <- params
@@ -136,7 +136,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				)
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
-				if (length(args) == 0)
+				if (length(args) == 0L)
 					# -- return the function, unchanged.
 					# -- will work for missing arguments (unlike fast track) since args filters out missing values.
 
