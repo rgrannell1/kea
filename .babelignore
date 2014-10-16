@@ -2,8 +2,8 @@
 # this file lists the directories to ignore.
 # .git and .hg are ignored by default.
 
-.Rproj.user
-.git
+.Rproj.user/
+.git/
 
 man/
 man-roxygen/
@@ -16,3 +16,4 @@ NAMESPACE
 .bench-cases.rds
 
 .Rd
+.o
