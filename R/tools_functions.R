@@ -101,13 +101,13 @@ elem_is_nan <- function (coll) {
 # -- corrects the null corner case of is.atomic
 
 is_atomic <- function (coll) {
-	is.null(coll) || is.atomic(coll) && !is.factor(coll)
+	{is.atomic(coll) && !inherits(coll, 'factor')} || is.null(coll)
 }
 
 # -- corrects the null corner case of is.list
 
 is_generic <- function (coll) {
-	is.null(coll) || is.list(coll)
+	is.list(coll) || is.null(coll)
 }
 
 
