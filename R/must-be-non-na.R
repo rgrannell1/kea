@@ -1,5 +1,4 @@
 
-
 Must_Be_Non_Na <- function (VAL) {
 
 	VAL <- substitute(VAL)

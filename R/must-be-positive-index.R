@@ -10,7 +10,7 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 	NUM  <- substitute(NUM)
 	COLL <- substitute(COLL)
 
-	bquote( if (is.infinite( .(NUM) ) || .(NUM) < 1) {
+	bquote( if (.(NUM) < 1 || is.infinite( .(NUM) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
