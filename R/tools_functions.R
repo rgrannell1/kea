@@ -89,25 +89,35 @@ elem_is_nan <- function (coll) {
 	}
 }
 
+
+
+
+
+
+
+
+
+
 # -- corrects the null corner case of is.atomic
 
 is_atomic <- function (coll) {
-	if (identical(coll, NULL)) {
-		False
-	} else {
-		is.atomic(coll) && !is.factor(coll)
-	}
+	is.null(coll) || is.atomic(coll) && !is.factor(coll)
 }
 
 # -- corrects the null corner case of is.list
 
 is_generic <- function (coll) {
-	if (identical(coll, NULL)) {
-		True
-	} else {
-		is.list(coll)
-	}
+	is.null(coll) || is.list(coll)
 }
+
+
+
+
+
+
+
+
+
 
 # -- checks identity, doesn't do odd things for nan.
 
