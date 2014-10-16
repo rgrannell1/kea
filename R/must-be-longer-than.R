@@ -10,7 +10,7 @@ Must_Be_Longer_Than <- function (LENGTH, COLL) {
 	COLL   <- substitute(COLL)
 	LENGTH <- substitute(LENGTH)
 
-	bquote( if (!(length( .(COLL) ) > .(LENGTH) )) {
+	bquote( if (length( .(COLL) ) <= .(LENGTH) )  {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
