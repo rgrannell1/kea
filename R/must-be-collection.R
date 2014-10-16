@@ -30,8 +30,6 @@ Must_Be_Collection <- function (COLL) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
 	} )
 
 }

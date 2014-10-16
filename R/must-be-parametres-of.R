@@ -9,7 +9,6 @@ Must_Be_Parametres_Of <- function (STRS, FN) {
 	STRS <- substitute(STRS)
 	FN   <- substitute(FN)
 
-
 	# -- filter out empty strings, assert the rest are parametres of fn.
 	bquote( if (any( .(STRS)[nchar(.(STRS)) > 0] %not_in% names(formals( .(FN) )) )) {
 

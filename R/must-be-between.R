@@ -19,7 +19,5 @@ Must_Be_Between <- function (NUM, LOWER, UPPER) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
 	})
 }

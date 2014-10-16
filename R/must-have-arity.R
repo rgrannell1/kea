@@ -27,8 +27,6 @@ Must_Have_Arity <- function (FN, NUM) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
-	})
+	} )
 
 }

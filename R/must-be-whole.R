@@ -32,7 +32,5 @@ Must_Be_Whole <- function (NUM) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		True
-	})
+	} )
 }

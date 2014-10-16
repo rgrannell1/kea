@@ -21,7 +21,5 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
-	})
+	} )
 }
