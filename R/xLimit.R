@@ -66,7 +66,7 @@ xLimit <- MakeFun(function (fn, num) {
 				.count <<- .count + 1
 				.( call_with_params('fn', fn) )
 			} else {
-				Null
+				NULL
 			}
 	}) ))
 })

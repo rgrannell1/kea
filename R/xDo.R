@@ -44,14 +44,14 @@ xDo <- MakeFun(function (fn, coll) {
 	MACRO( Must_Have_Arity(fn, 1) )
 
 	if (length(coll) == 0) {
-		invisible (Null)
+		invisible (NULL)
 	} else {
 
 		for ( ith in seq_len(length(coll)) ) {
 			 MACRO( Try_Higher_Order_Function( fn( coll[[ith]] ) ) )
 		}
 
-		invisible (Null)
+		invisible (NULL)
 	}
 })
 

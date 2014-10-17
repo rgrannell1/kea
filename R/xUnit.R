@@ -32,7 +32,7 @@
 xUnit <- MakeFun(function (coll) {
 
 	if (is.pairlist(coll)) {
-		Null
+		NULL
 	} else {
 		unname(coll[0])
 	}

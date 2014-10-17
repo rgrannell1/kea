@@ -50,5 +50,5 @@ xVal <- MakeFun(function (sym, val) {
 	assign(sym, val, envir = parent_frame)
 	lockBinding(sym, parent_frame)
 
-	invisible(Null)
+	invisible(NULL)
 })

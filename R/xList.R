@@ -154,7 +154,7 @@ print.xlist_builder <- function (x, ...) {
 			if (is_predicated) {
 				exprs[[ length(exprs) ]]
 			} else {
-				True
+				TRUE
 			}
 
 		# -- are there any expressions that aren't the yield expression, binding
