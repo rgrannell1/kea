@@ -21,12 +21,12 @@ rsample <- function (coll, ...) {
 is_na <- function (val) {
 	# -- is.na fails for Null, NaN and other annoying cases.
 	# -- na can be named.
-	is_atomic(val) && unname(is.na(val) && !is.nan(val))
+	is_atomic(val) && length(val) == 1 && unname(is.na(val) && !is.nan(val))
 }
 
 is_nan <- function (val) {
 	# -- NaN can be named.
-	is_atomic(val) && identical(unname(val), NaN)
+	is_atomic(val) && length(val) == 1 && is.nan(val)
 }
 
 
