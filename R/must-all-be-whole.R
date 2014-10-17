@@ -26,8 +26,6 @@ Must_All_Be_Whole <- function (NUMS) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
-	} )
+	})
 
 }

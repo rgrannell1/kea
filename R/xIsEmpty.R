@@ -31,7 +31,7 @@
 #' @export
 
 xIsEmpty <- MakeFun(function (coll) {
-	isTRUE(length(coll) == 0)
+	length(coll) == 0
 })
 
 #' @rdname xIsEmpty

@@ -5,39 +5,41 @@ Must_Be_Fn_Matchable <- function (VAL) {
 
 	VAL <- substitute(VAL)
 
-	bquote( if (is.function( .(VAL) ) || is.name( .(VAL) )) {
-		TRUE
-	} else if (is.character( .(VAL) )) {
+	bquote(
+		if (is.character( .(VAL) )) {
 
-		if (length(.(VAL)) != 1) {
+			if (length(.(VAL)) != 1) {
 
-			message <-
-				"The argument matching " %+% ddquote( .(VAL) ) %+%
-				" must be a function, or a string or symbol naming a function.\n\n" %+%
-				"The actual input was a non-length-one character vector." %+%
-				summate(.(VAL))
+				message <-
+					"The argument matching " %+% ddquote( .(VAL) ) %+%
+					" must be a function, or a string or symbol naming a function.\n\n" %+%
+					"The actual input was a non-length-one character vector." %+%
+					summate(.(VAL))
 
-			throw_kea_error(sys.call(), message)
+				throw_kea_error(sys.call(), message)
 
-		} else {
-			TRUE
-		}
+			}
 
-	} else {
+		} else if (!is.function(.(VAL)) && !is.name(.(VAL))) {
 
 			message <-
 				"The argument matching " %+% ddquote( .(VAL) ) %+%
 				" must be a function, or a string or symbol naming a function."
 
 			if (any(class( .(VAL) ) == 'kea')) {
+
 				message <- message %+%
 					"The argument was of class " %+% dQuote("kea") %+%
 					". Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 					summate( .(VAL) )
+
 			} else {
 				message <- message %+% summate( .(VAL) )
 			}
 
 			throw_kea_error(sys.call(), message)
-	})
+
+		}
+	)
+
 }

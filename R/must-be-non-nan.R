@@ -11,7 +11,5 @@ Must_Be_Non_Nan <- function (NUM) {
 			"The actual argument was " %+% paste(.(NUM)) %+% ".\n"
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		True
 	} )
 }

@@ -28,8 +28,6 @@ Must_All_Be_Indices <- function (NUMS, COLL) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
 	})
 
 }

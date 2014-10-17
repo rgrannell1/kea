@@ -630,28 +630,28 @@ x__ <- function (...) {
 
 get_proto_ref <- local({
 
-	x_table_members    <- ls(x_table_proto)
-	x_factor_members   <- ls(x_factor_proto)
-	x_function_members <- ls(x_function_proto)
-	x_coll_members     <- ls(x_coll_proto)
-	x_any_members      <- ls(x_any_proto)
+	x_table_pair    <- list(x_table_proto,    ls(x_table_proto))
+	x_factor_pair   <- list(x_factor_proto,   ls(x_factor_proto))
+	x_function_pair <- list(x_function_proto, ls(x_function_proto))
+	x_coll_pair     <- list(x_coll_proto,     ls(x_coll_proto))
+	x_any_pair      <- list(x_any_proto,      ls(x_any_proto))
 
 	function (val) {
 		# get the reference to the appropriate methods.
 
-		# -- keep this code fairly efficient.
+		# no braces for efficiency (runs in ~5microseconds).
+		# more optimisation is desirable.
+		if (is.function( val ))
+			x_function_pair
+		else if (is.matrix( val ) || is.data.frame( val ))
+			x_table_pair
+		else if (is.factor( val ))
+			x_factor_pair
+		else if (is_atomic( val ) || is_generic( val ))
+			x_coll_pair
+		else
+			x_any_pair
 
-		if (is.function( val )) {
-			list(x_function_proto, x_function_members)
-		} else if (is.matrix( val ) || is.data.frame( val )) {
-			list(x_table_proto, x_table_members)
-		} else if (is.factor( val )){
-			list(x_factor_proto, x_factor_members)
-		} else if (is_atomic( val ) || is_generic( val )) {
-			list(x_coll_proto, x_coll_members)
-		} else {
-			list(x_any_proto, x_any_members)
-		}
 	}
 
 })
@@ -912,8 +912,6 @@ suggest_similar_method <- local({
 	# Meet the user half way and suggest the "proper" name.
 
 	function (obj, method) {
-		# Kea a -> symbol -> function
-		# return an kea method associated with the type a.
 
 		method_name <- paste0(substitute(method))
 		proto       <- get_proto_ref( obj[['x']] )
@@ -940,6 +938,10 @@ suggest_similar_method <- local({
 	}
 })
 
+
+
+
+
 # -------------------------------- Print Method -------------------------------- #
 
 #' @export
@@ -958,6 +960,11 @@ print.kea <- function (x, ...) {
 
 	print(x [['x']], ...)
 }
+
+
+
+
+
 
 #' @export
 

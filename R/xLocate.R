@@ -42,7 +42,7 @@ xLocate <- MakeFun(function (pred, coll) {
 	} else {
 		which( MACRO( Try_Higher_Order_Function( vapply(coll, function (x) {
 			isTRUE(pred(x))
-		}, logical(1), USE.NAMES = False) ) ) )
+		}, logical(1), USE.NAMES = FALSE) ) ) )
 	}
 })
 

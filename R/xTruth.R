@@ -23,6 +23,4 @@
 #' @rdname xTruth
 #' @export
 
-xTruth <- function (...) {
-	TRUE
-}
+xTruth <- function (...) TRUE

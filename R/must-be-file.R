@@ -16,7 +16,5 @@ Must_Be_File <- function (STR) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
 	} )
 }

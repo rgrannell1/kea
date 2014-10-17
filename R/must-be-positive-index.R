@@ -10,7 +10,7 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 	NUM  <- substitute(NUM)
 	COLL <- substitute(COLL)
 
-	bquote( if (is.infinite( .(NUM) ) || .(NUM) < 1) {
+	bquote( if (.(NUM) < 1 || is.infinite( .(NUM) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
@@ -21,7 +21,5 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
-	})
+	} )
 }

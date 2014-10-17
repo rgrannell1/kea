@@ -122,7 +122,7 @@ remove_odds(letters)
 
 integrate <- (f : x_bounds) := {
 
-    xVal(epsilon, 0.001)
+    epsilon  <- 0.001
     x_values <- seq(from = x_bounds[1], to = x_bounds[2], by = epsilon)
 
     xFold(

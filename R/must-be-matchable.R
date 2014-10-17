@@ -34,10 +34,6 @@ Must_Be_Matchable <- function (SYM) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-
-		TRUE
-
 	} )
 
 }

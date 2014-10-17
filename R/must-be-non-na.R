@@ -1,5 +1,4 @@
 
-
 Must_Be_Non_Na <- function (VAL) {
 
 	VAL <- substitute(VAL)
@@ -13,7 +12,5 @@ Must_Be_Non_Na <- function (VAL) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
 	} )
 }

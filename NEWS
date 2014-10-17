@@ -1,4 +1,38 @@
 
+Kea 0.62.0
+------------------------------------------------------------------------------
+Date: 2014-10-17
+
+Removed list comprehensions and immutable values.
+
+ENHANCEMENTS:
+
+* Removed the immutable value functions xVal, xAsVal, xAsVar, and xIsVal, as they
+had too much overhead to use.
+
+* Removed xAsList, as it wasn't performant or more expressive than regular
+Kea code.
+
+* Made type-checking marginally more performant.
+
+BUG-FIXES:
+
+* Fixed a potential issue in functions that check for NA values in vectors; NaN is no
+longer considered NA by some vector functions.
+
+PACKAGE-INTERNALS:
+
+* Removed unneeded expressions in type-checking macros.
+
+* Made is_na and is_nan much more efficient.
+
+
+
+
+
+
+
+
 Kea 0.61.0
 ------------------------------------------------------------------------------
 Date: 2014-10-15
@@ -18,6 +52,8 @@ faster than v0.60.
 PACKAGE-INTERNALS:
 
 * Added functions for working with one-off test cases.
+
+
 
 
 

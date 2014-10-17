@@ -11,9 +11,7 @@ Must_Be_Whole <- function (NUM) {
 
 	NUM <- substitute(NUM)
 
-	bquote( if (length( .(NUM) ) == 0) {
-		True
-	} else if (is_na( .(NUM) )) {
+	bquote( if (length( .(NUM) ) != 0 && is_na( .(NUM) )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
@@ -32,7 +30,5 @@ Must_Be_Whole <- function (NUM) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		True
-	})
+	} )
 }

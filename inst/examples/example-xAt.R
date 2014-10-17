@@ -1,7 +1,7 @@
 
 # 1. Select a row of a data-frame list structure.
 
-df <- xList[c(a, a^2), a <- 1:3]
+df <- xMap(x := c(x, x^2), 1:3)
 
 x_(df) $ x_At(2)
 xAt(2, df)

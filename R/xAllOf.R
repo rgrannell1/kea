@@ -49,7 +49,7 @@ xAllOf <- MakeFun(function (pred, coll) {
 
 			isTRUE(is_match)
 
-		}, logical(1), USE.NAMES = False))
+		}, logical(1), USE.NAMES = FALSE))
 	}
 })
 

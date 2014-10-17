@@ -21,7 +21,5 @@ Must_Be_Finite <- function (NUM) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		True
 	})
 }

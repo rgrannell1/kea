@@ -12,7 +12,5 @@ Must_Not_Contain_Na <- function (COLL) {
 
 		throw_kea_error(sys.call(), message)
 
-	} else {
-		TRUE
-	})
+	} )
 }

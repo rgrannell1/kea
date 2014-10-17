@@ -23,6 +23,4 @@
 #' @rdname xFalsity
 #' @export
 
-xFalsity <- function (...) {
-	FALSE
-}
+xFalsity <- function (...) FALSE
