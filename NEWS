@@ -15,6 +15,11 @@ Kea code.
 
 * Made type-checking marginally more performant.
 
+BUG-FIXES:
+
+* Fixed a potential issue in functions that check for NA values in vectors; NaN is no
+longer considered NA by some vector functions.
+
 PACKAGE-INTERNALS:
 
 * Removed unneeded expressions in type-checking macros.

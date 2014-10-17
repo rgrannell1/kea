@@ -33,41 +33,26 @@ is_nan <- function (val) {
 
 
 
-
-
-
-
-
 elem_is_na <- function (coll) {
 
-	if (is.atomic(coll)) {
-		is.na(coll)
-	} else if (is.list(coll) || identical(coll, NULL)) {
-		# -- runs if any list or pairlist.
-
+	if (is_atomic(coll))
+		is.na(coll) & !is.nan(coll)
+	else
 		vapply(coll, function (elem) {
-
-			isTRUE(
-				identical(elem, NA) ||
-				identical(elem, NA_integer_) ||
-				identical(elem, NA_character_) ||
-				identical(elem, NA_real_) ||
-				identical(elem, NA_complex_))
-
+			is_atomic(elem) && length(elem) == 1 && unname(is.na(elem) && !is.nan(elem))
 		}, logical(1), USE.NAMES = True)
-	}
+
 }
 
 elem_is_nan <- function (coll) {
 
-	if (is.atomic(coll)) {
-		unname(is.nan(coll))
-	} else if (is.list(coll) || identical(coll, Null)) {
-		# -- runs if any list or pairlist.
+	if (is_atomic(coll))
+		is.nan(coll)
+	else
 		vapply(coll, function (elem) {
-			isTRUE(identical(elem, NaN))
+			is_atomic(elem) && length(elem) == 1 && is.nan(elem)
 		}, logical(1), USE.NAMES = True)
-	}
+
 }
 
 
