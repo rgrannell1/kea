@@ -46,22 +46,6 @@ sd_section(
 )
 
 sd_section(
-	"Collection Comprehensions",
-	paste(
-		"<p>",
-		"Collection comprehensions provide syntactic sugar for defining ",
-		"collections by providing the contraints",
-		"that each element must satisfy to be a member of the collection.",
-		"These are a translation of set-builder",
-		"notation, which defines a set in terms of membership constraints.",
-		"</p>"
-	),
-	c(
-		"xList"
-	)
-)
-
-sd_section(
 	"Container Conversion Functions",
 	paste(
 		"<p>",
