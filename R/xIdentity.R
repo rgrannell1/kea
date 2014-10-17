@@ -24,9 +24,7 @@
 #'
 #' @export
 
-xIdentity <- MakeFun(function (val) {
-	val
-})
+xIdentity <- MakeFun(function (val) val)
 
 #' @rdname xIdentity
 #' @export
