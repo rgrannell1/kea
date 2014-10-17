@@ -15,6 +15,13 @@ Kea code.
 
 * Made type-checking marginally more performant.
 
+PACKAGE-INTERNALS:
+
+* Removed unneeded expressions in type-checking macros.
+
+* Made is_na and is_nan much more efficient.
+
+
 
 
 
