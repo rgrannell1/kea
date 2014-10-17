@@ -1,5 +1,0 @@
-
-require(kea)
-
-message("xAsVar")
-
