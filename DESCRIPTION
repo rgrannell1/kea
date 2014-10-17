@@ -169,7 +169,6 @@ Collate:
     'xTruth.R'
     'xFalsity.R'
     'xIrrelevance.R'
-    'xList.R'
     'xOneOf.R'
     'xAt.R'
     'xAllOf.R'
