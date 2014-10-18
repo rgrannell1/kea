@@ -5,7 +5,7 @@ Must_Be_Of_Length <- function (COLL, LENGTHS) {
 	COLL    <- substitute(COLL)
 	LENGTHS <- substitute(LENGTHS)
 
-	bquote( if ( !any(length( .(COLL) ) == .(LENGTHS)) ) {
+	bquote( if ( any(length( .(COLL) ) != .(LENGTHS)) ) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%

@@ -9,10 +9,6 @@ Must_Be_Finite <- function (NUM) {
 
 	NUM <- substitute(NUM)
 
-
-
-
-
 	bquote( if (length(.(NUM)) != 0 && is.infinite( .(NUM) )) {
 
 		message <- "The argument matching " %+% ddquote( .(NUM) ) %+%
