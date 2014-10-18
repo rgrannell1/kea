@@ -1,4 +1,29 @@
 
+Kea 0.63.0
+------------------------------------------------------------------------------
+Date: 2014-10-
+
+BUG-FIXES:
+
+* Added missing partial application and type-checking to xAmend, and audited the rest
+of the code base for the same issue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kea 0.62.0
 ------------------------------------------------------------------------------
 Date: 2014-10-17
