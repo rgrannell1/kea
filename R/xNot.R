@@ -4,7 +4,7 @@
 #' Are two values not equal?
 #'
 #' @section Type Signature:
-#'     any -> any -> &lt;logical>
+#'     any -> any -> <logical>
 #'
 #' @param
 #'    val1 an arbitrary value. The first value to test.

@@ -4,7 +4,7 @@
 #' Is a predicate true for all elements of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> logical) -> |any| -> &lt;boolean>
+#'     (any -> logical) -> |any| -> <boolean>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of

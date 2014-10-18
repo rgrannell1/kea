@@ -21,7 +21,7 @@ Is a collection length-zero?
 }
 \section{Type Signature}{
 
-    |any| -> &lt;logical>
+    |any| -> <logical>
 }
 
 \section{Corner Cases}{

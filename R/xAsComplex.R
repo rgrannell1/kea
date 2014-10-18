@@ -4,7 +4,7 @@
 #' Convert a collection of complex values to a complex vector.
 #'
 #' @section Type Signature:
-#'     |complex| -> &lt;complex>
+#'     |complex| -> <complex>
 #'
 #' @details
 #'    \bold{xAsComplex} converts a list, pairlist or vector of

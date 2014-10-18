@@ -26,7 +26,7 @@ Convert a collection of complex values to a complex vector.
 }
 \section{Type Signature}{
 
-    |complex| -> &lt;complex>
+    |complex| -> <complex>
 }
 
 \section{Corner Cases}{

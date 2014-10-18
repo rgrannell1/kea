@@ -4,7 +4,7 @@
 #' Is an value not nan?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value.The value to test for

@@ -4,7 +4,7 @@
 #' Check if a collection contains a value.
 #'
 #' @section Type Signature:
-#'     any -> |any| -> &lt;logical>
+#'     any -> |any| -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for membership

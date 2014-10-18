@@ -4,7 +4,7 @@
 #' Test if a collection is not a subset of a second collection.
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #' @param
 #'    coll1 a collection. The set to test for non-membership in a superset.

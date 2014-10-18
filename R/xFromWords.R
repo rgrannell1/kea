@@ -4,7 +4,7 @@
 #' Concatentate a character vector with spaces as delimiters.
 #'
 #' @section Type Signature:
-#'     |character| -> &lt;character>
+#'     |character| -> <character>
 #'
 #' @param
 #'    strs a collection of strings. The

@@ -25,7 +25,7 @@ true when mapped over a collection.
 }
 \section{Type Signature}{
 
-    (any -> &lt;logical>) -> |any| -> &lt;integer>
+    (any -> <logical>) -> |any| -> <integer>
 }
 
 \section{Corner Cases}{

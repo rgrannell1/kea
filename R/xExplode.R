@@ -4,7 +4,7 @@
 #' Split a string into a character vector using a regular expression.
 #'
 #' @section Type Signature:
-#'     |character| -> |character| -> &lt;character>
+#'     |character| -> |character| -> <character>
 #'
 #' @param
 #'    rexp a regular expression. The pattern at which to

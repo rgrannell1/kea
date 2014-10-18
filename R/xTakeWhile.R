@@ -5,7 +5,7 @@
 #' until a predicate returns false.
 #'
 #' @section Type Signature:
-#'    (any -> &lt;logical>) -> |any| -> |any|
+#'    (any -> <logical>) -> |any| -> |any|
 #'
 #' @param
 #'    pred a predicate. The function to test each element of

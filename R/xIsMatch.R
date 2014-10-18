@@ -4,7 +4,7 @@
 #' Test if a string matches a regular expression.
 #'
 #' @section Type Signature:
-#'     |character| -> |character| -> &lt;logical>
+#'     |character| -> |character| -> <logical>
 #'
 #' @details
 #'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in

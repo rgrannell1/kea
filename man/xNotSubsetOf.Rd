@@ -23,7 +23,7 @@ Test if a collection is not a subset of a second collection.
 }
 \section{Type Signature}{
 
-    |any| -> |any| -> &lt;logical>
+    |any| -> |any| -> <logical>
 }
 
 \section{Corner Cases}{

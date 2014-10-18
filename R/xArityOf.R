@@ -4,7 +4,7 @@
 #' Return the number of arguments a function can accept.
 #'
 #' @section Type Signature:
-#'     function -> &lt;numeric>
+#'     function -> <numeric>
 #'
 #' @details
 #'    \bold{xArityOf} returns the arity of a function - the number of

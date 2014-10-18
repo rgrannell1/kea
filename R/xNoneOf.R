@@ -4,7 +4,7 @@
 #' Is a predicate true for none elements of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> &lt;logical>) -> |any| -> &lt;boolean>
+#'     (any -> <logical>) -> |any| -> <boolean>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of

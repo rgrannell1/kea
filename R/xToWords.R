@@ -4,7 +4,7 @@
 #' Split a string at whitespaces.
 #'
 #' @section Type Signature:
-#'     &lt;character> -> &lt;character>
+#'     <character> -> <character>
 #'
 #' @details
 #'    The input string is split at spaces, tabs, and newlines,

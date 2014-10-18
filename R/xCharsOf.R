@@ -4,7 +4,7 @@
 #' Get the number of characters in a string.
 #'
 #' @section Type Signature:
-#'     |character| -> &lt;character>
+#'     |character| -> <character>
 #'
 #' @param
 #'     str a length-one character vector. The string to

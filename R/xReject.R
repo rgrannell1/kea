@@ -4,7 +4,7 @@
 #' Remove all elements from a collection matching a predicate.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;logical>) -> |any| -> [any]
+#'     (any -> <logical>) -> |any| -> [any]
 #'
 #' @details
 #'    \bold{xReject} applies a predicate function

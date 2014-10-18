@@ -27,7 +27,7 @@ Convert a collection of raw values to a raw vector.
 }
 \section{Type Signature}{
 
-    |raw| -> &lt;raw>
+    |raw| -> <raw>
 }
 
 \section{Corner Cases}{

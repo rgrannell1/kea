@@ -24,7 +24,7 @@ Is a predicate true for all elements of a collection?
 }
 \section{Type Signature}{
 
-    (any -> logical) -> |any| -> &lt;boolean>
+    (any -> logical) -> |any| -> <boolean>
 }
 
 \section{Corner Cases}{

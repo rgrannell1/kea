@@ -19,7 +19,7 @@ Split a string into a character vector using a regular expression.
 }
 \section{Type Signature}{
 
-    |character| -> |character| -> &lt;character>
+    |character| -> |character| -> <character>
 }
 
 \section{Corner Cases}{

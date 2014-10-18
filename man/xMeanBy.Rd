@@ -24,7 +24,7 @@ Return the mean of a collection of numbers according to a measure function.
 }
 \section{Type Signature}{
 
-    (any -> &lt;numeric>) -> |any| -> &lt;double>
+    (any -> <numeric>) -> |any| -> <double>
 }
 
 \section{Corner Cases}{

@@ -4,7 +4,7 @@
 #' Is a collection not an unbroken subsequence of another?
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #' @param
 #'    coll1 a collection. Then unbroken subsequence to test for absense of.

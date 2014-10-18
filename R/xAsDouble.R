@@ -4,7 +4,7 @@
 #' Convert a collection of doubles or integers to a double vector.
 #'
 #' @section Type Signature:
-#'     |number| -> &lt;numeric>
+#'     |number| -> <numeric>
 #'
 #' @details
 #'    \bold{xAsDouble} converts a list, pairlist or vector of

@@ -4,7 +4,7 @@
 #' Convert a collection of integers to a integer vector.
 #'
 #' @section Type Signature:
-#'     |integer| -> &lt;integer>
+#'     |integer| -> <integer>
 #'
 #' @details
 #'    \bold{xAsInteger} converts a list, pairlist or vector of

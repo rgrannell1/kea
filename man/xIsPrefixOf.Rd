@@ -23,7 +23,7 @@ Is a collection a prefix of another?
 }
 \section{Type Signature}{
 
-    |any| -> |any| -> &lt;logical>
+    |any| -> |any| -> <logical>
 }
 
 \section{Corner Cases}{

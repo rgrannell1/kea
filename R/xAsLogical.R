@@ -4,7 +4,7 @@
 #' Convert a collection of logicals to a logical vector.
 #'
 #' @section Type Signature:
-#'     |logical| -> &lt;logical>
+#'     |logical| -> <logical>
 #'
 #' @details
 #'    \bold{xAsLogical} converts a list, pairlist or vector of

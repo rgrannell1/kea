@@ -2,7 +2,7 @@
 #' xFromChars
 #'
 #' @section Type Signature:
-#'     |character| -> &lt;character>
+#'     |character| -> <character>
 #'
 #' Concatentate a character vector with no delimiter.
 #'

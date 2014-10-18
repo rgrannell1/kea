@@ -4,7 +4,7 @@
 #' A function that always returns true.
 #'
 #' @section Type Signature:
-#'     ...any -> &lt;logical>
+#'     ...any -> <logical>
 #'
 #' @param
 #'    ... arguments to be dropped.

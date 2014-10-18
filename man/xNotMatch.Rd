@@ -20,7 +20,7 @@ Test if a string doesn't match a regular expression.
 }
 \section{Type Signature}{
 
-    |character| -> |character| -> &lt;logical>
+    |character| -> |character| -> <logical>
 }
 
 \section{Corner Cases}{

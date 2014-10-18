@@ -35,7 +35,7 @@ Return the logical negation of a function.
 }
 \section{Type Signature}{
 
-    (any -> &lt;logical>) -> (any -> &lt;logical>)
+    (any -> <logical>) -> (any -> <logical>)
 }
 
 \section{Corner Cases}{

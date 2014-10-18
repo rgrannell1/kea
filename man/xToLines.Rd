@@ -21,7 +21,7 @@ The input string is split at newline characters.
 }
 \section{Type Signature}{
 
-    &lt;character> -> &lt;character>
+    <character> -> <character>
 }
 
 \section{Corner Cases}{

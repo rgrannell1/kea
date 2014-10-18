@@ -4,7 +4,7 @@
 #' Is a collection a suffix of another?
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #' @param
 #'    coll1 a collection. The suffix to test for absense of.

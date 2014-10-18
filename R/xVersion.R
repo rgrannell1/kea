@@ -4,7 +4,7 @@
 #' Get the current version number of Kea.
 #'
 #' @section Type Signature:
-#'     ...any -> &lt;integer>
+#'     ...any -> <integer>
 #'
 #' @details
 #'     Kea versioning follows the semantic version
@@ -38,5 +38,5 @@
 #' @export
 
 xVersion <- function (...) {
-	c(0L, 62L, 0L)
+	c(0L, 63L, 0L)
 }

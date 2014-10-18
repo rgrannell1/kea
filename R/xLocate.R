@@ -4,7 +4,7 @@
 #' Get the indices of the elements that return true for a predicate.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;logical>) -> |any| -> &lt;integer>
+#'     (any -> <logical>) -> |any| -> <integer>
 #'
 #' @param
 #'    pred a predicate function. The function to test each element

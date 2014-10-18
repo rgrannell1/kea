@@ -27,7 +27,7 @@ Convert a collection of integers to a integer vector.
 }
 \section{Type Signature}{
 
-    |integer| -> &lt;integer>
+    |integer| -> <integer>
 }
 
 \section{Corner Cases}{

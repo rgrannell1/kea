@@ -4,7 +4,7 @@
 #' Convert a collection of characters to a character vector.
 #'
 #' @section Type Signature:
-#'     |character| -> &lt;character>
+#'     |character| -> <character>
 #'
 #' @details
 #'    \bold{xAsCharacter} converts a list, pairlist or vector of
