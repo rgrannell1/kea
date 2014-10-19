@@ -34,11 +34,12 @@
 #' @rdname xNoneOf
 #' @export
 
-xNoneOf <- MakeFun(function (pred, coll) {
+xNoneOf <- MakeFun(function (pred, coll)
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		logical(0)
-	} else {
+	else
+
 		!any(vapply(coll, function (elem) {
 
 			is_match <- MACRO( Try_Higher_Order_Function( pred(elem) ) )
@@ -48,8 +49,8 @@ xNoneOf <- MakeFun(function (pred, coll) {
 			isTRUE(is_match)
 
 		}, logical(1), USE.NAMES = False))
-	}
-})
+
+)
 
 #' @rdname xNoneOf
 #' @export

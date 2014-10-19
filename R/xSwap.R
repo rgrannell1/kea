@@ -34,9 +34,9 @@
 #' @rdname xSwap
 #' @export
 
-xSwap <- MakeFun(function (val1, val2, coll) {
+xSwap <- MakeFun(function (val1, val2, coll)
 	cSwap(val1, val2, coll)
-})
+)
 
 #' @rdname xSwap
 #' @export

@@ -29,9 +29,9 @@
 #' @rdname xAsList
 #' @export
 
-xAsList <- MakeFun(function (coll) {
+xAsList <- MakeFun(function (coll)
 	as.list(coll)
-})
+)
 
 #' @rdname  xAsList
 #' @export

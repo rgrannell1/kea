@@ -46,9 +46,9 @@ xReduce <- MakeFun(function (fn, coll) {
 	MACRO( Must_Have_Arity(fn, 2) )
 	MACRO( Must_Be_Longer_Than(0, coll) )
 
-	if (length(coll) == 1) {
+	if (length(coll) == 1)
 		coll[[1]]
-	} else {
+	else {
 
 		val <- coll[[1]]
 		coll <- coll[-1]

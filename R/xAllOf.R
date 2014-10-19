@@ -35,12 +35,11 @@
 #' @export
 
 xAllOf <- MakeFun(function (pred, coll) {
-
 	MACRO( Must_Have_Arity(pred, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		logical(0)
-	} else {
+	else
 		all(vapply(coll, function (elem) {
 
 			is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
@@ -50,7 +49,8 @@ xAllOf <- MakeFun(function (pred, coll) {
 			isTRUE(is_match)
 
 		}, logical(1), USE.NAMES = FALSE))
-	}
+
+
 })
 
 #' @rdname xAllOf

@@ -17,11 +17,11 @@
 #' @template S-Uncertain
 #' @name xElemsByRows
 
-xElemsByRows <- MakeFun(function (tab) {
+xElemsByRows <- MakeFun(function (tab)
 
-	if (prod(dim(tab) == 0)) {
+	if (prod(dim(tab) == 0))
 		list()
-	} else {
+	else
 		as.list(t(tab))
-	}
-})
+
+)

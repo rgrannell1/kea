@@ -31,9 +31,9 @@
 
 xToLines <- MakeFun(function (str) {
 
-	if (length(str) == 0 || nchar(str) == 0) {
+	if (length(str) == 0 || nchar(str) == 0)
 		character(0)
-	} else {
+	else
 		str_split("\n+", str)
-	}
+
 })

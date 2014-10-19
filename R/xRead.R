@@ -36,9 +36,9 @@ xRead <- MakeFun(function (str) {
 
 	MACRO( Must_Be_File(str) )
 
-	if (length(str) == 0) {
+	if (length(str) == 0)
 		character(0)
-	} else {
+	else {
 
 		MACRO( Must_Be_File(str) )
 

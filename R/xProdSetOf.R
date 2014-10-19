@@ -43,9 +43,9 @@ xProdSetOf <- local({
 
 		coll_lengths <- vapply(colls, length, integer(1))
 
-		if (length(colls) == 0 || min(coll_lengths) == 0) {
+		if (length(colls) == 0 || min(coll_lengths) == 0)
 			list()
-		} else {
+		else {
 
 			tuples <- vector(mode = "list", prod(coll_lengths))
 

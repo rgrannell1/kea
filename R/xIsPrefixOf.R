@@ -36,9 +36,9 @@
 #' @rdname xIsPrefixOf
 #' @export
 
-xIsPrefixOf <- MakeFun(function (coll1, coll2) {
+xIsPrefixOf <- MakeFun(function (coll1, coll2)
 	cIsPrefixOf(coll1, coll2)
-})
+)
 
 #' @rdname xIsPrefixOf
 #' @export

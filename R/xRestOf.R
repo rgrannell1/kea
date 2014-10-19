@@ -30,14 +30,14 @@
 #' @rdname xRestOf
 #' @export
 
-xRestOf <- MakeFun(function (coll) {
+xRestOf <- MakeFun(function (coll)
 
-	if (length(coll) < 2) {
+	if (length(coll) < 2)
 		keep_names(list(), coll)
-	} else {
+	else
 		as.list( coll[-1] )
-	}
-})
+
+)
 
 #' @rdname xRestOf
 #' @export

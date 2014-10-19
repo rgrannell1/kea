@@ -35,9 +35,9 @@
 #' @rdname xNotSubsetOf
 #' @export
 
-xNotSubsetOf <- MakeFun(function (coll1, coll2) {
+xNotSubsetOf <- MakeFun(function (coll1, coll2)
 	cNotSubsetOf(coll1, coll2)
-})
+)
 
 #' @rdname xNotSubsetOf
 #' @export

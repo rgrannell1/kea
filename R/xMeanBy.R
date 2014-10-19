@@ -38,9 +38,9 @@
 
 xMeanBy <- MakeFun(function (fn, coll) {
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		double(0)
-	} else {
+	else {
 
 		`fn(coll)` <- MACRO(Try_Higher_Order_Function(
 			vapply(coll, fn, numeric(1))

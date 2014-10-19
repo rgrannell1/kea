@@ -44,7 +44,7 @@
 #' @rdname xNegate
 #' @export
 
-xNegate <- MakeFun(function (pred) {
+xNegate <- MakeFun(function (pred)
 
 	do.call("function", list(
 		as.pairlist(xFormalsOf(pred)),
@@ -55,4 +55,4 @@ xNegate <- MakeFun(function (pred) {
 		})
 	))
 
-})
+)

@@ -34,11 +34,10 @@ xDistinctOf <- MakeFun(function (coll) {
 
 	# C++ is too slow at the moment.
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		list()
-	} else {
+	else
 		as.list(unique(coll))
-	}
 
 	#cDistinctOf(coll)
 })

@@ -31,11 +31,10 @@
 
 xUnit <- MakeFun(function (coll) {
 
-	if (is.pairlist(coll)) {
+	if (is.pairlist(coll))
 		NULL
-	} else {
+	else
 		unname(coll[0])
-	}
 
 })
 

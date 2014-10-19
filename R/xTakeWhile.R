@@ -41,9 +41,9 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		keep_names(list(), coll)
-	} else {
+	else {
 
 		for (ith in seq_along(coll)) {
 

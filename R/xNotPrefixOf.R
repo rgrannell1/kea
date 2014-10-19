@@ -33,9 +33,9 @@
 #' @rdname xNotPrefixOf
 #' @export
 
-xNotPrefixOf <- MakeFun(function (coll1, coll2) {
+xNotPrefixOf <- MakeFun(function (coll1, coll2)
 	cNotPrefixOf(coll1, coll2)
-})
+)
 
 #' @rdname xNotPrefixOf
 #' @export

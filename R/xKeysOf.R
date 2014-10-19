@@ -31,9 +31,9 @@
 
 xKeysOf <- MakeFun(function (coll) {
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		character(0)
-	} else {
+	else {
 		collnames <- names(coll)
 
 		# -- names usually returns Null.

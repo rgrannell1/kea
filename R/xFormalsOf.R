@@ -28,11 +28,11 @@
 #' @rdname xFormalsOf
 #' @export
 
-xFormalsOf <- MakeFun(function (fn) {
+xFormalsOf <- MakeFun(function (fn)
 
-	if (is.primitive(fn)) {
+	if (is.primitive(fn))
 		as.list( head(as.list(args(fn)), -1) )
-	} else {
+	else
 		as.list( formals(fn) )
-	}
-})
+
+)

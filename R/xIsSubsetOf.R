@@ -35,9 +35,9 @@
 #' @rdname xIsSubsetOf
 #' @export
 
-xIsSubsetOf <- MakeFun(function (coll1, coll2) {
+xIsSubsetOf <- MakeFun(function (coll1, coll2)
 	cIsSubsetOf(coll1, coll2)
-})
+)
 
 #' @rdname xIsSubsetOf
 #' @export

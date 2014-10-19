@@ -32,9 +32,9 @@
 #' @rdname xGather
 #' @export
 
-xGather <- function (coll) {
+xGather <- MakeFun(function (coll)
 	cGather(coll)
-}
+)
 
 #' @rdname xGather
 #' @export

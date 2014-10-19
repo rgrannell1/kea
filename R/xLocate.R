@@ -37,13 +37,21 @@ xLocate <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		integer(0)
-	} else {
-		which( MACRO( Try_Higher_Order_Function( vapply(coll, function (x) {
-			isTRUE(pred(x))
+	else
+
+		which( MACRO( Try_Higher_Order_Function( vapply(coll, function (elem) {
+
+			is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
+
+			MACRO(Must_Be_Flag(is_match, pred))
+
+			isTRUE(is_match)
+
 		}, logical(1), USE.NAMES = FALSE) ) ) )
-	}
+
+
 })
 
 #' @rdname xLocate

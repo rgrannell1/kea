@@ -49,9 +49,9 @@
 #' @rdname xTabulate
 #' @export
 
-xTabulate <- MakeFun(function (coll) {
+xTabulate <- MakeFun(function (coll)
 	cTabulate(coll)
-})
+)
 
 #' @rdname xTabulate
 #' @export

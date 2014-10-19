@@ -34,13 +34,12 @@ xOneOf <- MakeFun(function (coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 
-	if (length(coll) == 1) {
+	if (length(coll) == 1)
 		coll[[1]]
-	} else {
+	else
 		# -- select a single index in a memory efficient way.
-		ind <- sample.int(length(coll), 1)
-		coll[[ind]]
-	}
+		coll[[ sample.int(length(coll), 1) ]]
+
 })
 
 #' @rdname xOneOf

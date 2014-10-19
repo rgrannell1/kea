@@ -40,12 +40,12 @@ xRepeat <- MakeFun(function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Finite(num) )
 
-	if (num == 0 || length(num) == 0) {
+	if (num == 0 || length(num) == 0)
 		list()
-	} else {
+	else
 		# -- rep faster than lapply
 		rep(as.list(coll), num)
-	}
+
 })
 
 #' @rdname xRepeat

@@ -5,7 +5,11 @@ Date: 2014-10-
 
 BUG-FIXES:
 
-* Added missing partial application and type-checking to xAmend, and audited the rest
+* xLocate now throws an error when its predicate returns a non-logical value.
+
+BUG-FIXES:
+
+* Added missing partial application and type-checking to xAmend and xGather, and audited the rest
 of the code base for the same issue.
 
 

@@ -19,6 +19,7 @@ message('xAmend')
 	describe("replacing each character with none is empty") +
 	holdsWhen(
 		is_character(str) && length(str) == 1 && !is.na(str),
+
 		xAmend('.', '', str) == ''
 	) +
 

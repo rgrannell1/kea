@@ -40,9 +40,8 @@ xThread <- MakeFun(function (val, fns) {
 
 	# -- iteratively pipe the starting value
 	# -- through each function.
-	for (ith in seq_along(fns)) {
+	for (ith in seq_along(fns))
 		val <- MACRO( Try_Higher_Order_Function( fns[[ith]]( val ) ) )
-	}
 
 	val
 })

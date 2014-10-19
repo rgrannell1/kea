@@ -49,9 +49,9 @@ xFold <- MakeFun(function (fn, val, coll) {
 
 	MACRO( Must_Have_Arity(fn, 2) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		val
-	} else {
+	else
 
 		callCC(function (Return) {
 
@@ -69,7 +69,8 @@ xFold <- MakeFun(function (fn, val, coll) {
 
 			val
 		})
-	}
+
+
 })
 
 

@@ -42,9 +42,9 @@ xMaxBy <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Be_Longer_Than(0, coll) )
 
-	if (length(coll) == 1) {
+	if (length(coll) == 1)
 		coll[[1]]
-	} else {
+	else {
 
 		`fn(coll)` <- MACRO(Try_Higher_Order_Function(
 			vapply(coll, fn, numeric(1))

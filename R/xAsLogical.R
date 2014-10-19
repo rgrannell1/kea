@@ -35,9 +35,9 @@
 #' @rdname xAsLogical
 #' @export
 
-xAsLogical <- MakeFun(function (bools) {
+xAsLogical <- MakeFun(function (bools)
 	bools
-})
+)
 
 #' @rdname xAsLogical
 #' @export

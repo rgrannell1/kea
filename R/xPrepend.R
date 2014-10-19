@@ -33,14 +33,14 @@
 #' @rdname xPrepend
 #' @export
 
-xPrepend <- MakeFun(function (val, coll) {
+xPrepend <- MakeFun(function (val, coll)
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		list(val)
-	} else {
+	else
 		as.list( c(list(val), coll) )
-	}
-})
+
+)
 
 #' @rdname xPrepend
 #' @export

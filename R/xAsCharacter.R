@@ -39,9 +39,9 @@
 #' @rdname xAsCharacter
 #' @export
 
-xAsCharacter <- MakeFun(function (strs) {
+xAsCharacter <- MakeFun(function (strs)
 	strs
-})
+)
 
 #' @rdname xAsCharacter
 #' @export

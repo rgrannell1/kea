@@ -38,9 +38,9 @@
 #' @rdname xNotIn
 #' @export
 
-xNotIn <- MakeFun(function (val, coll) {
+xNotIn <- MakeFun(function (val, coll)
 	cNotIn(val, coll)
-})
+)
 
 #' @rdname xNotIn
 #' @export
