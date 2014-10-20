@@ -33,6 +33,8 @@
 
 xAmend <- MakeFun(function (rexp, str1, str2) {
 
+	# -- potential bad corner case; xAmend preserves names.
+
 	if (length(rexp) == 0 || length(str1) == 0 || length(str2) == 0)
 		character(0)
 	else

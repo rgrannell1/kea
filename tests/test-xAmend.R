@@ -20,7 +20,14 @@ message('xAmend')
 	holdsWhen(
 		is_character(str) && length(str) == 1 && !is.na(str),
 
-		xAmend('.', '', str) == ''
+		unname(xAmend('.', '', str)) == ''
+	) +
+
+	describe("at least for now, xAmend keeps the input name") +
+	holdsWhen(
+		is_character(str) && length(str) == 1 && !is.na(str),
+
+		identical(names(xAmend('.', str, str)), names(str))
 	) +
 
 	run()

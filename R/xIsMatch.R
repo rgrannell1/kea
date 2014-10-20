@@ -40,5 +40,4 @@ xIsMatch <- MakeFun(function (rexp, str)
 	else
 		isTRUE(grepl(rexp, str))
 
-
 )
