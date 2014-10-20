@@ -136,7 +136,6 @@ Collate:
     'xZip.R'
     'xUnzipKeys.R'
     'xFlatten.R'
-    'xDelay.R'
     'xStopwatch.R'
     'xProdSetOf.R'
     'xCycle.R'
