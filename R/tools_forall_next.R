@@ -516,7 +516,7 @@ run_test <- function (tester, groups, state, case, info, invoking_call) {
 
 		state $ cases_examined[[group_ith]] <- state $ cases_examined[[group_ith]] + 1
 
-		if (!isTRUE(is_match)) {
+		if (!identical(is_match, TRUE)) {
 			next
 		}
 

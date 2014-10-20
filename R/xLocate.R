@@ -47,7 +47,7 @@ xLocate <- MakeFun(function (pred, coll) {
 
 			MACRO(Must_Be_Flag(is_match, pred))
 
-			isTRUE(is_match)
+			identical(is_match, TRUE)
 
 		}, logical(1), USE.NAMES = FALSE) ) ) )
 

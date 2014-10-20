@@ -139,4 +139,15 @@ message("is_na")
 
 
 
-	message("elem_is_na")
+message("is_true")
+
+	over(val) +
+
+	describe("") +
+	holdsFor(
+		is_true(TRUE),
+		!is_true(FALSE),
+		!is_true(NA)
+	) +
+
+	run()

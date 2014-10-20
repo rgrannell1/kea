@@ -53,7 +53,7 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 
 				MACRO( Must_Be_Flag(is_match, pred) )
 
-				if (!isTRUE(is_match)) {
+				if (!identical(is_match, TRUE)) {
 					return ( as.list(head(coll, ith - 1)) )
 				}
 			}
