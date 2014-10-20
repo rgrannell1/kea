@@ -47,15 +47,27 @@ xSelect <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 
-	ind <- vapply(coll, function (elem) {
+#	ind <- vapply(coll, function (elem) {
+#
+#		is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
+#
+#		MACRO(Must_Be_Flag(is_match, pred))
+#
+#		is_match
+#
+#	}, logical(1))
 
-		is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
+	ind <- MACRO( Try_Higher_Order_Function(
+		vapply(coll, function (elem) {
 
-		MACRO(Must_Be_Flag(is_match, pred))
+			is_match <- pred(elem)
 
-		is_match
+			MACRO(Must_Be_Flag(is_match, pred))
 
-	}, logical(1))
+			is_match
+
+		}, logical(1))
+	) )
 
 	as.list( coll[ !elem_is_na(ind) & ind ] )
 })

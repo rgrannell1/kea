@@ -366,7 +366,7 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 		} else if (length(inner) <= 1L) {
 			inner
 		} else if (inner[[1L]] == as.name("MACRO")) {
-			eval(inner[[2L]], env)
+			eval( unquote( inner[[2L]] ), env)
 		} else {
 			as.call(lapply(inner, unquote))
 		}
