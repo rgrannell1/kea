@@ -135,19 +135,3 @@ message("is_na")
 	) +
 
 	run()
-
-
-
-
-message("is_true")
-
-	over(val) +
-
-	describe("") +
-	holdsFor(
-		is_true(TRUE),
-		!is_true(FALSE),
-		!is_true(NA)
-	) +
-
-	run()
