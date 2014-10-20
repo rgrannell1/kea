@@ -44,23 +44,26 @@ xPoll <- MakeFun(function (pred, coll) {
 
 	if (length(coll) == 0)
 		integer(0)
-	else {
+	else
 
-		count <- 0
+		MACRO( Try_Higher_Order_Function({
 
-		for (ith in seq_along(coll)) {
+			count <- 0
 
-			is_match <- MACRO( Try_Higher_Order_Function( pred( coll[[ith]] ) ) )
+			for (ith in seq_along(coll)) {
 
-			MACRO( Must_Be_Flag(is_match, pred) )
+				is_match <- pred( coll[[ith]] )
 
-			if (is_match) {
-				count <- count + 1
+				MACRO( Must_Be_Flag(is_match, pred) )
+
+				if (is_match) {
+					count <- count + 1
+				}
 			}
-		}
 
-		count
-	}
+			count
+
+		}) )
 
 	#cPoll(pred, coll)
 

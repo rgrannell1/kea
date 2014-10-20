@@ -8,7 +8,7 @@ ENHANCEMENTS:
 * Removed xDelay, as it is a side-effectful function with a side-effect not
 required by any other function in kea.
 
-* Made xSelect, xReject take roughly 80% the time per-iteration as in v0.62.0,
+* Made xSelect, xReject take roughly 36% the time per-iteration as in v0.62.0,
 with similar gains for xAllOf, xAnyOf, xDropWhile, xLocate, xNoneOf, xPoll, and xTakeWhile.
 
 BUG-FIXES:

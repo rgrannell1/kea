@@ -40,15 +40,17 @@ xNoneOf <- MakeFun(function (pred, coll)
 		logical(0)
 	else
 
-		!any(vapply(coll, function (elem) {
+		MACRO( Try_Higher_Order_Function(
+			!any(vapply(coll, function (elem) {
 
-			is_match <- MACRO( Try_Higher_Order_Function( pred(elem) ) )
+				is_match <- pred(elem)
 
-			MACRO(Must_Be_Flag(is_match, pred))
+				MACRO(Must_Be_Flag(is_match, pred))
 
-			is_match
+				is_match
 
-		}, logical(1), USE.NAMES = False))
+			}, logical(1), USE.NAMES = False))
+		))
 
 )
 

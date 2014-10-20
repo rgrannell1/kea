@@ -45,16 +45,20 @@ xTakeWhile <- MakeFun(function (pred, coll) {
 		keep_names(list(), coll)
 	else {
 
-		for (ith in seq_along(coll)) {
+		MACRO( Try_Higher_Order_Function(
 
-			is_match <- MACRO( Try_Higher_Order_Function( pred( coll[[ith]] ) ) )
+			for (ith in seq_along(coll)) {
 
-			MACRO( Must_Be_Flag(is_match, pred) )
+				is_match <- pred( coll[[ith]] )
 
-			if (!is_match) {
-				return ( as.list(head(coll, ith - 1)) )
+				MACRO( Must_Be_Flag(is_match, pred) )
+
+				if (!is_match) {
+					return ( as.list(head(coll, ith - 1)) )
+				}
 			}
-		}
+
+		) )
 
 		as.list(coll)
 	}
