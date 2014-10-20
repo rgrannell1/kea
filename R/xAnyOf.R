@@ -50,7 +50,7 @@ xAnyOf <- MakeFun(function (pred, coll) {
 
 				MACRO(Must_Be_Flag(is_match, pred))
 
-				if (is_match) {
+				if (isTRUE(is_match)) {
 					return (TRUE)
 				}
 			}

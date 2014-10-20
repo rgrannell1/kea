@@ -47,7 +47,7 @@ xNoneOf <- MakeFun(function (pred, coll)
 
 				MACRO(Must_Be_Flag(is_match, pred))
 
-				is_match
+				isTRUE(is_match)
 
 			}, logical(1), USE.NAMES = False))
 		))
