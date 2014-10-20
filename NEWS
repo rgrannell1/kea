@@ -1,7 +1,7 @@
 
 Kea 0.63.0
 ------------------------------------------------------------------------------
-Date: 2014-10-
+Date: 2014-10-20
 
 ENHANCEMENTS:
 
@@ -11,16 +11,24 @@ required by any other function in kea.
 * Made xSelect, xReject take roughly 36% the time per-iteration as in v0.62.0,
 with similar gains for xAllOf, xAnyOf, xDropWhile, xLocate, xNoneOf, xPoll, and xTakeWhile.
 
+* Made type-checking marginally faster (on the order of a few percent).
+
+DOCUMENTATION:
+
+* Replaced html special characters with ascii, so type signatures should be more readable
+when R documentation is opened from the command line.
+
 BUG-FIXES:
 
 * xLocate now throws an error when its predicate returns a non-logical value.
 
-BUG-FIXES:
-
 * Added missing partial application and type-checking to xAmend and xGather, and audited the rest
 of the code base for the same issue.
 
+PACKAGE-INTERNALS:
 
+* Removed unneeded braces from code; while stylistically unpleasant this saves about 200ns per function
+call, which helps offset the expense of partial application.
 
 
 
