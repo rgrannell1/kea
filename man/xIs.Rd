@@ -18,7 +18,7 @@ Are two values equal?
 }
 \section{Type Signature}{
 
-    any -> any -> &lt;logical>
+    any -> any -> <logical>
 }
 
 \section{Corner Cases}{

@@ -30,7 +30,7 @@ Kea versioning follows the semantic version
 }
 \section{Type Signature}{
 
-    ...any -> &lt;integer>
+    ...any -> <integer>
 }
 
 \section{Corner Cases}{

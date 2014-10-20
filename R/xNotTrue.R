@@ -4,7 +4,7 @@
 #' Is an value not true?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for
@@ -29,6 +29,6 @@
 #' @rdname xNotTrue
 #' @export
 
-xNotTrue <- MakeFun(function (val) {
+xNotTrue <- MakeFun(function (val)
 	!isTRUE(val)
-})
+)

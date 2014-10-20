@@ -55,11 +55,10 @@ xFlatten <- MakeFun(function (num, coll) {
 	MACRO( Must_Be_Whole(num) )
 
 	# -- this makes the C++ implementation much easier.
-	if (is_atomic(coll)) {
+	if (is_atomic(coll))
 		unname(as.list(coll))
-	} else {
+	else
 		cFlatten(num, coll)
-	}
 
 })
 

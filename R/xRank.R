@@ -32,9 +32,9 @@
 
 xRank <- MakeFun(function (nums) {
 
-	if (length(nums) == 0) {
+	if (length(nums) == 0)
 		keep_names(integer(0), nums)
-	} else {
+	else {
 
 		MACRO(Must_Be_Orderable(nums))
 

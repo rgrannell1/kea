@@ -4,7 +4,7 @@
 #' Is a collection not a prefix of another?
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #' @param
 #'    coll1 a collection. The prefix to test for absense of.
@@ -33,9 +33,9 @@
 #' @rdname xNotPrefixOf
 #' @export
 
-xNotPrefixOf <- MakeFun(function (coll1, coll2) {
+xNotPrefixOf <- MakeFun(function (coll1, coll2)
 	cNotPrefixOf(coll1, coll2)
-})
+)
 
 #' @rdname xNotPrefixOf
 #' @export

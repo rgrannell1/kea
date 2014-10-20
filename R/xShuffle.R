@@ -29,16 +29,16 @@
 #' @rdname xShuffle
 #' @export
 
-xShuffle <- MakeFun(function (coll) {
+xShuffle <- MakeFun(function (coll)
 
 	# don't rewrite in C++, it is ~10 times slower.
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		keep_names(list(), coll)
-	} else {
+	else
 		as.list(rsample(coll))
-	}
-})
+
+)
 
 #' @rdname xShuffle
 #' @export

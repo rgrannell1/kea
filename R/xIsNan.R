@@ -4,7 +4,7 @@
 #' Is an value nan?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for being nan.
@@ -28,6 +28,6 @@
 #' @rdname xIsNan
 #' @export
 
-xIsNan <- MakeFun(function (val) {
+xIsNan <- MakeFun(function (val)
 	isTRUE(identical(val, NaN))
-})
+)

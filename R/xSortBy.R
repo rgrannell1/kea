@@ -4,7 +4,7 @@
 #' Sort a collection by the output of a function applied to each element.
 #'
 #' @section Type Signature:
-#'    (any -> &lt;number>) -> |any| -> |any|
+#'    (any -> <number>) -> |any| -> |any|
 #'
 #' @details
 #'     \bold{xSortBy} allows a collection to be sorted by a custom
@@ -51,11 +51,11 @@ xSortBy <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		keep_names(list(), coll)
-	} else if (length(coll) == 1) {
+	else if (length(coll) == 1)
 		as.list(coll)
-	} else {
+	else {
 		# -- for readable error messages
 		fn_applied_to_coll <-
 			MACRO( Try_Higher_Order_Function( vapply(coll, fn, numeric(1)) ) )

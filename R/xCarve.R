@@ -4,7 +4,7 @@
 #' Subset a string using normal R vector indexing.
 #'
 #' @section Type Signature:
-#'     |numeric| -> |character| -> &lt;character>
+#'     |numeric| -> |character| -> <character>
 #'
 #' @param
 #'    str a string. The string to subset.

@@ -4,7 +4,7 @@
 #' Is a collection length-zero?
 #'
 #' @section Type Signature:
-#'     |any| -> &lt;logical>
+#'     |any| -> <logical>
 #'
 #' @param
 #'    coll a collection. The collection to test for being length zero.
@@ -30,9 +30,9 @@
 #' @rdname xIsEmpty
 #' @export
 
-xIsEmpty <- MakeFun(function (coll) {
+xIsEmpty <- MakeFun(function (coll)
 	length(coll) == 0
-})
+)
 
 #' @rdname xIsEmpty
 #' @export

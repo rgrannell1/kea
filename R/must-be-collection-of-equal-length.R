@@ -5,13 +5,9 @@ Must_Be_Collection_Of_Equal_Length <- function (COLLS) {
 
 	bquote({
 
-		all_equal <-
-			length( .(COLLS) ) == 0 ||
-			all(vapply( .(COLLS), function (coll) {
-				length(coll) == length( .(COLLS)[[1]] )
-			}, logical(1)))
+		# all(c()) is TRUE.
 
-		if (!all_equal) {
+		if ( !all(vapply( .(COLLS), length, integer(1)) == length(  .(COLLS)[[1]] )) ) {
 
 			message <-
 				"The argument matching " %+% ddquote( .(COLLS) ) %+%

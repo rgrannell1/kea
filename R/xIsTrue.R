@@ -4,7 +4,7 @@
 #' Is an value true?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @details
 #'     \bold{xIsTrue} is primarily meant for use with conditional
@@ -46,6 +46,6 @@
 #' @rdname xIsTrue
 #' @export
 
-xIsTrue <- MakeFun(function (val) {
+xIsTrue <- MakeFun(function (val)
 	isTRUE(val)
-})
+)

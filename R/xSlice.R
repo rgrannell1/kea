@@ -46,11 +46,11 @@ xSlice <- MakeFun(function (nums, coll) {
 	MACRO( Must_All_Be_Whole(nums) )
 	MACRO( Must_All_Be_Indices(nums, coll) )
 
-	if (length(nums) == 0) {
+	if (length(nums) == 0)
 		keep_names(list(), coll)
-	} else {
+	else
 		as.list(coll[nums])
-	}
+
 })
 
 #' @rdname xSlice

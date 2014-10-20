@@ -39,7 +39,7 @@ function a limited number of times.
 }
 \section{Type Signature}{
 
-    function -> &lt;numeric> -> function
+    function -> <numeric> -> function
 }
 
 \section{Corner Cases}{

@@ -135,8 +135,3 @@ message("is_na")
 	) +
 
 	run()
-
-
-
-
-	message("elem_is_na")

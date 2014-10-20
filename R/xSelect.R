@@ -4,7 +4,7 @@
 #' Include all elements from a collection matching a predicate.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;logical>) -> |any| -> [any]
+#'     (any -> <logical>) -> |any| -> [any]
 #'
 #' @details
 #'    \bold{xSelect} applies a predicate function
@@ -47,15 +47,17 @@ xSelect <- MakeFun(function (pred, coll) {
 
 	MACRO( Must_Have_Arity(pred, 1) )
 
-	ind <- vapply(coll, function (elem) {
+	ind <- MACRO( Try_Higher_Order_Function(
+		vapply(coll, function (elem) {
 
-		is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
+			is_match <- pred(elem)
 
-		MACRO(Must_Be_Flag(is_match, pred))
+			MACRO(Must_Be_Flag(is_match, pred))
 
-		isTRUE(is_match)
+			is_match
 
-	}, logical(1))
+		}, logical(1))
+	) )
 
 	as.list( coll[ !elem_is_na(ind) & ind ] )
 })

@@ -51,9 +51,9 @@ xScan <- MakeFun(function (fn, val, coll) {
 
 	# don't rewrite in C++; too slow.
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		list(val)
-	} else {
+	else {
 
 		scanned <- c( val, vector("list", length(coll)) )
 

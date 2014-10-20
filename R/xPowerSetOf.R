@@ -39,9 +39,9 @@
 #' @rdname xPowerSetOf
 #' @export
 
-xPowerSetOf <- MakeFun(function (coll) {
+xPowerSetOf <- MakeFun(function (coll)
 	cPowerSetOf(coll)
-})
+)
 
 #' @rdname xPowerSetOf
 #' @export

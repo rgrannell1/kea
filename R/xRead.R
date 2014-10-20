@@ -4,7 +4,7 @@
 #' Read the contents of a file as a single string.
 #'
 #' @section Type Signature:
-#'     |character| -> &lt;character>
+#'     |character| -> <character>
 #'
 #' @details
 #'    \bold{xRead} is a wrapper for the fairly robust \bold{readLines} base
@@ -36,9 +36,9 @@ xRead <- MakeFun(function (str) {
 
 	MACRO( Must_Be_File(str) )
 
-	if (length(str) == 0) {
+	if (length(str) == 0)
 		character(0)
-	} else {
+	else {
 
 		MACRO( Must_Be_File(str) )
 

@@ -26,7 +26,7 @@ Convert a collection of logicals to a logical vector.
 }
 \section{Type Signature}{
 
-    |logical| -> &lt;logical>
+    |logical| -> <logical>
 }
 
 \section{Corner Cases}{

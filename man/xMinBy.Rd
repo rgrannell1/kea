@@ -25,7 +25,7 @@ Get the smallest value in a collection according to a measure function.
 }
 \section{Type Signature}{
 
-    (any -> &lt;number>) -> |any| -> any
+    (any -> <number>) -> |any| -> any
 }
 
 \section{Corner Cases}{

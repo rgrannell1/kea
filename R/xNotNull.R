@@ -4,7 +4,7 @@
 #' Is an value not null?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for
@@ -28,6 +28,6 @@
 #' @rdname xNotNull
 #' @export
 
-xNotNull <- MakeFun(function (val) {
+xNotNull <- MakeFun(function (val)
 	!isTRUE(identical(val, NULL))
-})
+)

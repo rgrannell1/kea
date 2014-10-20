@@ -4,7 +4,7 @@
 #' Get the parametre names of a function or primitive function.
 #'
 #' @section Type Signature:
-#'     function -> &lt;character>
+#'     function -> <character>
 #'
 #' @param
 #'   fn an arbitrary function or primitive function. The function to
@@ -29,16 +29,15 @@
 
 xParamsOf <- MakeFun(function (fn) {
 
-	formals_fn <- if (is.primitive(fn)) {
+	formals_fn <- if (is.primitive(fn))
 		# -- use the args function to get the primitive arguments.
 		as.list( head(as.list(args(fn)), -1) )
-	} else {
+	else
 		as.list( formals(fn) )
-	}
 
-	if (length(formals_fn) == 0) {
+	if (length(formals_fn) == 0)
 		character(0)
-	} else {
+	else
 		names(formals_fn)
-	}
+
 })

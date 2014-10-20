@@ -4,7 +4,7 @@
 #' Is an value null?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for
@@ -28,6 +28,6 @@
 #' @rdname xIsNull
 #' @export
 
-xIsNull <- MakeFun(function (val) {
+xIsNull <- MakeFun(function (val)
 	isTRUE(identical(val, NULL))
-})
+)

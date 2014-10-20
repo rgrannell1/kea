@@ -18,7 +18,7 @@ Split a single string into a vector of characters.
 }
 \section{Type Signature}{
 
-    &lt;character> -> &lt;character>
+    <character> -> <character>
 }
 
 \section{Corner Cases}{

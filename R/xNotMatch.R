@@ -4,7 +4,7 @@
 #' Test if a string doesn't match a regular expression.
 #'
 #' @section Type Signature:
-#'     |character| -> |character| -> &lt;logical>
+#'     |character| -> |character| -> <logical>
 #'
 #' @param
 #'    rexp a string. The regular expression to test against a string.
@@ -29,11 +29,11 @@
 #' @rdname xNotMatch
 #' @export
 
-xNotMatch <- MakeFun(function (rexp, str) {
+xNotMatch <- MakeFun(function (rexp, str)
 
-	if (length(rexp) == 0 || length(str) == 0) {
+	if (length(rexp) == 0 || length(str) == 0)
 		logical(0)
-	} else {
+	else
 		isTRUE(!grepl(rexp, str))
-	}
-})
+
+)

@@ -4,7 +4,7 @@
 #' Get the product of a collection according to a measure function.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;number>) -> |any| -> &lt;number>
+#'     (any -> <number>) -> |any| -> <number>
 #'
 #' @param
 #'     fn a unary function. The function to measure the size of
@@ -38,9 +38,9 @@ xProdBy <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		numeric(0)
-	} else {
+	else {
 		`fn(coll)` <- MACRO(Try_Higher_Order_Function(
 			vapply(coll, fn, numeric(1))
 		))

@@ -4,7 +4,7 @@
 #' Is a predicate true for none elements of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> &lt;logical>) -> |any| -> &lt;boolean>
+#'     (any -> <logical>) -> |any| -> <boolean>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of
@@ -34,22 +34,25 @@
 #' @rdname xNoneOf
 #' @export
 
-xNoneOf <- MakeFun(function (pred, coll) {
+xNoneOf <- MakeFun(function (pred, coll)
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		logical(0)
-	} else {
-		!any(vapply(coll, function (elem) {
+	else
 
-			is_match <- MACRO( Try_Higher_Order_Function( pred(elem) ) )
+		MACRO( Try_Higher_Order_Function(
+			!any(vapply(coll, function (elem) {
 
-			MACRO(Must_Be_Flag(is_match, pred))
+				is_match <- pred(elem)
 
-			isTRUE(is_match)
+				MACRO(Must_Be_Flag(is_match, pred))
 
-		}, logical(1), USE.NAMES = False))
-	}
-})
+				identical(is_match, TRUE)
+
+			}, logical(1), USE.NAMES = False))
+		))
+
+)
 
 #' @rdname xNoneOf
 #' @export

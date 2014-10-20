@@ -4,7 +4,7 @@
 #' Is an value na?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for being na.
@@ -28,8 +28,8 @@
 #' @rdname xIsNa
 #' @export
 
-xIsNa <- MakeFun(function (val) {
+xIsNa <- MakeFun(function (val)
 
 	# -- is_na is vectorised.
 	isTRUE(length(val) == 1 && is_na(val))
-})
+)

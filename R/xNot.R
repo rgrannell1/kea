@@ -4,7 +4,7 @@
 #' Are two values not equal?
 #'
 #' @section Type Signature:
-#'     any -> any -> &lt;logical>
+#'     any -> any -> <logical>
 #'
 #' @param
 #'    val1 an arbitrary value. The first value to test.
@@ -30,8 +30,6 @@
 #' @rdname xNot
 #' @export
 
-xNot <- MakeFun(function (val1, val2) {
-
-	# -- NaN == Nan, Na == Na, 0. == -0.
+xNot <- MakeFun(function (val1, val2)
 	!identical(val1, val2)
-})
+)

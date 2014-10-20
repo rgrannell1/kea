@@ -4,7 +4,7 @@
 #' Get the length of a collection.
 #'
 #' @section Type Signature:
-#'     |any| -> &lt;number>
+#'     |any| -> <number>
 #'
 #' @param
 #'    coll a collection. The collection to test the
@@ -30,9 +30,9 @@
 #' @rdname xLenOf
 #' @export
 
-xLenOf <- MakeFun(function (coll) {
+xLenOf <- MakeFun(function (coll)
 	length(coll)
-})
+)
 
 #' @rdname xLenOf
 #' @export

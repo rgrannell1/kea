@@ -4,7 +4,7 @@
 #' Split a string at whitespaces.
 #'
 #' @section Type Signature:
-#'     &lt;character> -> &lt;character>
+#'     <character> -> <character>
 #'
 #' @details
 #'    The input string is split at spaces, tabs, and newlines,
@@ -32,9 +32,9 @@
 
 xToWords <- MakeFun(function (str) {
 
-	if (nchar(str) == 0 || length(str) == 0) {
+	if (nchar(str) == 0 || length(str) == 0)
 		character(0)
-	} else {
+	else
 		str_split('[ \n\t]+', str)
-	}
+
 })

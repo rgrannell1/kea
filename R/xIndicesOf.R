@@ -29,14 +29,14 @@
 #' @rdname xIndicesOf
 #' @export
 
-xIndicesOf <- MakeFun(function (coll) {
+xIndicesOf <- MakeFun(function (coll)
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		integer(0)
-	} else {
+	else
 		seq_len(length(coll))
-	}
-})
+
+)
 
 #' @rdname xIndicesOf
 #' @export

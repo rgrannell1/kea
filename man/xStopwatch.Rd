@@ -22,7 +22,7 @@ Create a function that returns true for a preset time after creation.
 }
 \section{Type Signature}{
 
-   |number| -> (...any -> &lt;logical>)
+   |number| -> (...any -> <logical>)
 }
 
 \section{Corner Cases}{

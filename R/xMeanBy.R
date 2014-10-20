@@ -4,7 +4,7 @@
 #' Return the mean of a collection of numbers according to a measure function.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;numeric>) -> |any| -> &lt;double>
+#'     (any -> <numeric>) -> |any| -> <double>
 #'
 #' @param
 #'     fn a unary function. The function to measure the size of
@@ -38,9 +38,9 @@
 
 xMeanBy <- MakeFun(function (fn, coll) {
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		double(0)
-	} else {
+	else {
 
 		`fn(coll)` <- MACRO(Try_Higher_Order_Function(
 			vapply(coll, fn, numeric(1))

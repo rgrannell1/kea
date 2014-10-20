@@ -18,7 +18,7 @@ Is an value na?
 }
 \section{Type Signature}{
 
-    any -> &lt;logical>
+    any -> <logical>
 }
 
 \section{Corner Cases}{

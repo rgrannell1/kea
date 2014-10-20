@@ -36,7 +36,7 @@ Is an value true?
 }
 \section{Type Signature}{
 
-    any -> &lt;logical>
+    any -> <logical>
 }
 
 \section{Corner Cases}{

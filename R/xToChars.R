@@ -4,7 +4,7 @@
 #' Split a single string into a vector of characters.
 #'
 #' @section Type Signature:
-#'     &lt;character> -> &lt;character>
+#'     <character> -> <character>
 #'
 #' @param
 #'    str a length-one character vector. The string to split into
@@ -28,9 +28,9 @@
 
 xToChars <- MakeFun(function (str) {
 
-	if (length(str) == 0 || nchar(str) == 0) {
+	if (length(str) == 0 || nchar(str) == 0)
 		character(0)
-	} else {
+	else
 		str_split("", str)
-	}
+
 })

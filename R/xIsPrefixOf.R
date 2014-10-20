@@ -4,7 +4,7 @@
 #' Is a collection a prefix of another?
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #' @param
 #'    coll1 a collection. The prefix to test for.
@@ -36,9 +36,9 @@
 #' @rdname xIsPrefixOf
 #' @export
 
-xIsPrefixOf <- MakeFun(function (coll1, coll2) {
+xIsPrefixOf <- MakeFun(function (coll1, coll2)
 	cIsPrefixOf(coll1, coll2)
-})
+)
 
 #' @rdname xIsPrefixOf
 #' @export

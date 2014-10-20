@@ -17,7 +17,7 @@ Get the parametre names of a function or primitive function.
 }
 \section{Type Signature}{
 
-    function -> &lt;character>
+    function -> <character>
 }
 
 \section{Corner Cases}{

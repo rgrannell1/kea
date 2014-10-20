@@ -35,11 +35,10 @@
 
 xAppend <- MakeFun(function (val, coll) {
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		list(val)
-	} else {
+	else
 		as.list( c(coll, list(val)) )
-	}
 
 })
 

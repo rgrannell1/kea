@@ -4,7 +4,7 @@
 #' Return a permutation of indices that reorders a collection of numbers.
 #'
 #' @section Type Signature:
-#'     |numeric| -> &lt;integer>
+#'     |numeric| -> <integer>
 #'
 #' @details
 #'    \bold{xOrderOf} returns the indices for a collection that are required to
@@ -46,9 +46,9 @@
 
 xOrderOf <- MakeFun(function (nums) {
 
-	if (length(nums) == 0) {
+	if (length(nums) == 0)
 		keep_names(integer(0), nums)
-	} else {
+	else {
 
 		# -- throw an error for unorderables in nums;
 		# -- NaN, Na.

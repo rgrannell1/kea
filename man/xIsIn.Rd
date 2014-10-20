@@ -25,7 +25,7 @@ Check if a collection contains a value.
 }
 \section{Type Signature}{
 
-    any -> |any| -> &lt;logical>
+    any -> |any| -> <logical>
 }
 
 \section{Corner Cases}{

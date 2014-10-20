@@ -21,7 +21,7 @@ Read the contents of a file as a single string.
 }
 \section{Type Signature}{
 
-    |character| -> &lt;character>
+    |character| -> <character>
 }
 
 \section{Corner Cases}{

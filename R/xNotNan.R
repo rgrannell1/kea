@@ -4,7 +4,7 @@
 #' Is an value not nan?
 #'
 #' @section Type Signature:
-#'     any -> &lt;logical>
+#'     any -> <logical>
 #'
 #' @param
 #'    val an arbitrary value.The value to test for
@@ -29,6 +29,6 @@
 #' @rdname xNotNan
 #' @export
 
-xNotNan <- MakeFun(function (val) {
+xNotNan <- MakeFun(function (val)
 	!isTRUE(identical(val, NaN))
-})
+)

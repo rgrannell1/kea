@@ -4,7 +4,7 @@
 #' Return the logical negation of a function.
 #'
 #' @section Type Signature:
-#'     (any -> &lt;logical>) -> (any -> &lt;logical>)
+#'     (any -> <logical>) -> (any -> <logical>)
 #'
 #' @details
 #'
@@ -44,7 +44,7 @@
 #' @rdname xNegate
 #' @export
 
-xNegate <- MakeFun(function (pred) {
+xNegate <- MakeFun(function (pred)
 
 	do.call("function", list(
 		as.pairlist(xFormalsOf(pred)),
@@ -55,4 +55,4 @@ xNegate <- MakeFun(function (pred) {
 		})
 	))
 
-})
+)

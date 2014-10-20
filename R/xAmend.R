@@ -31,11 +31,13 @@
 #' @rdname xAmend
 #' @export
 
-xAmend <- function (rexp, str1, str2) {
+xAmend <- MakeFun(function (rexp, str1, str2) {
 
-	if (length(rexp) == 0 || length(str1) == 0 || length(str2) == 0) {
+	# -- potential bad corner case; xAmend preserves names.
+
+	if (length(rexp) == 0 || length(str1) == 0 || length(str2) == 0)
 		character(0)
-	} else {
+	else
 		gsub(rexp, str1, str2)
-	}
-}
+
+})

@@ -22,7 +22,7 @@ The input string is split at spaces, tabs, and newlines,
 }
 \section{Type Signature}{
 
-    &lt;character> -> &lt;character>
+    <character> -> <character>
 }
 
 \section{Corner Cases}{

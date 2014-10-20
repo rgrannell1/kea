@@ -51,7 +51,7 @@
 #' @rdname xJuxtapose
 #' @export
 
-xJuxtapose <- MakeFun(function (fns) {
+xJuxtapose <- MakeFun(function (fns)
 
 	function (...) {
 		"a function created by xJuxtapose."
@@ -59,7 +59,7 @@ xJuxtapose <- MakeFun(function (fns) {
 		lapply(fns, function (fn) fn(...))
 	}
 
-})
+)
 
 #' @rdname xJuxtapose
 #' @export

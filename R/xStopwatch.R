@@ -4,7 +4,7 @@
 #' Create a function that returns true for a preset time after creation.
 #'
 #' @section Type Signature:
-#'    |number| -> (...any -> &lt;logical>)
+#'    |number| -> (...any -> <logical>)
 #'
 #' @details
 #'   \bold{xStopwatch} lets a program measure the passage of time. For example,
@@ -37,7 +37,7 @@ xStopwatch <- MakeFun(function (num) {
 	MACRO( Must_Be_Longer_Than(0, num) )
 	MACRO( Must_Be_Between(num, 0, Inf))
 
-	num    <- unname(num)
+	num     <- unname(num)
 	genesis <- Sys.time()
 
 	function (...) {

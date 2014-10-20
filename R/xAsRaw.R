@@ -4,7 +4,7 @@
 #' Convert a collection of raw values to a raw vector.
 #'
 #' @section Type Signature:
-#'     |raw| -> &lt;raw>
+#'     |raw| -> <raw>
 #'
 #' @details
 #'    \bold{xAsRaw} converts a list, pairlist or vector of
@@ -36,9 +36,9 @@
 #' @rdname xAsRaw
 #' @export
 
-xAsRaw <- MakeFun(function (raws) {
+xAsRaw <- MakeFun(function (raws)
 	raws
-})
+)
 
 #' @rdname xAsRaw
 #' @export

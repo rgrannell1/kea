@@ -4,7 +4,7 @@
 #' Check if a collection contains a value.
 #'
 #' @section Type Signature:
-#'     any -> |any| -> &lt;logical>
+#'     any -> |any| -> <logical>
 #'
 #' @param
 #'    val an arbitrary value. The value to test for membership
@@ -39,9 +39,9 @@
 #' @rdname xIsIn
 #' @export
 
-xIsIn <- MakeFun(function (val, coll) {
+xIsIn <- MakeFun(function (val, coll)
 	cIsIn(val, coll)
-})
+)
 
 #' @rdname xIsIn
 #' @export

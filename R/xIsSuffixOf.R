@@ -4,7 +4,7 @@
 #' Is a collection a suffix of another?
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #'
 #' @param
@@ -37,9 +37,9 @@
 #' @rdname xIsSuffixOf
 #' @export
 
-xIsSuffixOf <- MakeFun(function (coll1, coll2) {
+xIsSuffixOf <- MakeFun(function (coll1, coll2)
 	cIsSuffixOf(coll1, coll2)
-})
+)
 
 #' @rdname xIsSuffixOf
 #' @export

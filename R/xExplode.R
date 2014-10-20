@@ -4,7 +4,7 @@
 #' Split a string into a character vector using a regular expression.
 #'
 #' @section Type Signature:
-#'     |character| -> |character| -> &lt;character>
+#'     |character| -> |character| -> <character>
 #'
 #' @param
 #'    rexp a regular expression. The pattern at which to
@@ -31,14 +31,14 @@
 #' @rdname xExplode
 #' @export
 
-xExplode <- MakeFun(function (rexp, str) {
+xExplode <- MakeFun(function (rexp, str)
 
 	# -- do not preserve names.
-	if (length(str) == 0 || length(rexp) == 0) {
+	if (length(str) == 0 || length(rexp) == 0)
 		character(0)
-	} else if (nchar(str) == 0) {
+	else if (nchar(str) == 0)
 		''
-	} else {
+	else
 		str_split(rexp, str)
-	}
-})
+
+)

@@ -4,7 +4,7 @@
 #' Test if a collection is a subset of a second collection.
 #'
 #' @section Type Signature:
-#'     |any| -> |any| -> &lt;logical>
+#'     |any| -> |any| -> <logical>
 #'
 #' @param
 #'    coll1 a collection. The set to test for membership in a superset.
@@ -35,9 +35,9 @@
 #' @rdname xIsSubsetOf
 #' @export
 
-xIsSubsetOf <- MakeFun(function (coll1, coll2) {
+xIsSubsetOf <- MakeFun(function (coll1, coll2)
 	cIsSubsetOf(coll1, coll2)
-})
+)
 
 #' @rdname xIsSubsetOf
 #' @export

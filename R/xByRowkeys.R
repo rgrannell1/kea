@@ -20,6 +20,6 @@
 #' @template S-Uncertain
 #' @name xByRowkeys
 
-xByRowkeys <- MakeFun(function (tab) {
+xByRowkeys <- MakeFun(function (tab)
 	rownames(tab)
-})
+)

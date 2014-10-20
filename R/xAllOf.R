@@ -4,7 +4,7 @@
 #' Is a predicate true for all elements of a collection?
 #'
 #' @section Type Signature:
-#'     (any -> logical) -> |any| -> &lt;boolean>
+#'     (any -> logical) -> |any| -> <boolean>
 #'
 #' @param
 #'    pred a predicate. The function used to test each element of
@@ -35,22 +35,26 @@
 #' @export
 
 xAllOf <- MakeFun(function (pred, coll) {
-
 	MACRO( Must_Have_Arity(pred, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		logical(0)
-	} else {
-		all(vapply(coll, function (elem) {
+	else
 
-			is_match <- MACRO( Try_Higher_Order_Function(pred(elem)) )
+		MACRO( Try_Higher_Order_Function(
 
-			MACRO(Must_Be_Flag(is_match, pred))
+			all(vapply(coll, function (elem) {
 
-			isTRUE(is_match)
+				is_match <- pred(elem)
 
-		}, logical(1), USE.NAMES = FALSE))
-	}
+				MACRO(Must_Be_Flag(is_match, pred))
+
+				identical(is_match, TRUE)
+
+			}, logical(1), USE.NAMES = FALSE))
+
+		) )
+
 })
 
 #' @rdname xAllOf

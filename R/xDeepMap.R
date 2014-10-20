@@ -38,17 +38,16 @@ xDeepMap <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	if (!is_recursive(coll)) {
-		as.list(coll)
-	} else {
+	# completely broken and awful.
 
+	if (!is_recursive(coll))
+		as.list(coll)
+	else
 		rapply(coll, function (elem) {
 
 			 MACRO( Try_Higher_Order_Function( fn(elem) ) )
 
 		}, how = 'list')
-
-	}
 
 })
 

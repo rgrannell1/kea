@@ -24,7 +24,7 @@ Get the sum of a collection according to a measure function.
 }
 \section{Type Signature}{
 
-    (any -> &lt;number>) -> |any| -> &lt;number>
+    (any -> <number>) -> |any| -> <number>
 }
 
 \section{Corner Cases}{

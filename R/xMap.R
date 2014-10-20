@@ -53,11 +53,10 @@ xMap <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	if (length(coll) == 0) {
+	if (length(coll) == 0)
 		keep_names(list(), coll)
-	} else {
+	else
 		MACRO( Try_Higher_Order_Function( lapply(coll, fn) ) )
-	}
 
 })
 

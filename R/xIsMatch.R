@@ -4,7 +4,7 @@
 #' Test if a string matches a regular expression.
 #'
 #' @section Type Signature:
-#'     |character| -> |character| -> &lt;logical>
+#'     |character| -> |character| -> <logical>
 #'
 #' @details
 #'     \bold{xIsMatch} is roughly equivalent to \bold{grep} in
@@ -33,11 +33,11 @@
 #' @rdname xIsMatch
 #' @export
 
-xIsMatch <- MakeFun(function (rexp, str) {
+xIsMatch <- MakeFun(function (rexp, str)
 
-	if (length(str) == 0 || length(rexp) == 0) {
+	if (length(str) == 0 || length(rexp) == 0)
 		logical(0)
-	} else {
+	else
 		isTRUE(grepl(rexp, str))
-	}
-})
+
+)

@@ -24,7 +24,7 @@ Test if a string matches a regular expression.
 }
 \section{Type Signature}{
 
-    |character| -> |character| -> &lt;logical>
+    |character| -> |character| -> <logical>
 }
 
 \section{Corner Cases}{

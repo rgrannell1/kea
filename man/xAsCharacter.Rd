@@ -28,7 +28,7 @@ Convert a collection of characters to a character vector.
 }
 \section{Type Signature}{
 
-    |character| -> &lt;character>
+    |character| -> <character>
 }
 
 \section{Corner Cases}{

@@ -19,7 +19,7 @@ Is an value not na?
 }
 \section{Type Signature}{
 
-    any -> &lt;logical>
+    any -> <logical>
 }
 
 \section{Corner Cases}{

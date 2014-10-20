@@ -22,7 +22,7 @@ Get the length of a collection.
 }
 \section{Type Signature}{
 
-    |any| -> &lt;number>
+    |any| -> <number>
 }
 
 \section{Corner Cases}{
