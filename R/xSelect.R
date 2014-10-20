@@ -53,7 +53,7 @@ xSelect <- MakeFun(function (pred, coll) {
 
 		MACRO(Must_Be_Flag(is_match, pred))
 
-		isTRUE(is_match)
+		is_match
 
 	}, logical(1))
 

@@ -3,6 +3,14 @@ Kea 0.63.0
 ------------------------------------------------------------------------------
 Date: 2014-10-
 
+ENHANCEMENTS:
+
+* Removed xDelay, as it is a side-effectful function with a side-effect not
+required by any other function in kea.
+
+* Made xSelect, xReject take roughly 80% the time per-iteration as in v0.62.0,
+with similar gains for xAllOf, xAnyOf, xDropWhile, xLocate, xNoneOf, xPoll, and xTakeWhile.
+
 BUG-FIXES:
 
 * xLocate now throws an error when its predicate returns a non-logical value.
