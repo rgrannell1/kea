@@ -19,7 +19,7 @@ List cFlatten (const NumericVector& num, const List coll) {
 		// unlist the contents.
 		// standard iterative tree-traversal.
 
-		std::vector<SEXP> out;
+		std::vector<SEXP> elements;
 
 		std::stack<SEXP> nodes;
 		std::stack<int> depths;
@@ -36,7 +36,9 @@ List cFlatten (const NumericVector& num, const List coll) {
 			nodes .pop();
 			depths.pop();
 
-			if (TYPEOF(node) == VECSXP || TYPEOF(node) == LISTSXP) {
+			int node_type = TYPEOF(node);
+
+			if (node_type == VECSXP || node_type == LISTSXP) {
 				// the node is recursive.
 
 				List elem = as<List>(node);
@@ -49,14 +51,15 @@ List cFlatten (const NumericVector& num, const List coll) {
 				}
 
 			} else {
-				// the node is non-recursive.
-				out.push_back(node);
+				// the node is non-recursive, so push it to the element list.
+
+				elements.push_back(node);
 			}
 
 		}
 
-		std::reverse(out.begin(), out.end());
-		return wrap(out);
+		std::reverse(elements.begin(), elements.end());
+		return wrap(elements);
 
 	}
 }

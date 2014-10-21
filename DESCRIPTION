@@ -210,5 +210,6 @@ Collate:
     'xCharsOf.R'
     'xRelate.R'
     'xGather.R'
+    'tools-lenses.R'
     'x_next.R'
     'x..R'
