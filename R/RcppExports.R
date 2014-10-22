@@ -85,6 +85,10 @@ cProdSetOf <- function(colls) {
     .Call('kea_cProdSetOf', PACKAGE = 'kea', colls)
 }
 
+cRecycle <- function(num, coll) {
+    .Call('kea_cRecycle', PACKAGE = 'kea', num, coll)
+}
+
 cRiffle <- function(val, coll) {
     .Call('kea_cRiffle', PACKAGE = 'kea', val, coll)
 }
