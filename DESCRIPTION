@@ -211,6 +211,6 @@ Collate:
     'xRelate.R'
     'xGather.R'
     'xRecycle.R'
-    'x_next.R'
     'tools-lenses.R'
+    'x_next.R'
     'x..R'
