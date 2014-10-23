@@ -1,4 +1,28 @@
 
+Kea 0.64.0
+------------------------------------------------------------------------------
+Date: 2014-10-
+
+ENHANCEMENTS:
+
+* Added xRecycle, which recycles elements in a collection up to a fixed length.
+
+DOCUMENTATION:
+
+* Fixed mislabelled parameter in xIntersect.
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kea 0.63.0
 ------------------------------------------------------------------------------
 Date: 2014-10-20
