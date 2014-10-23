@@ -73,14 +73,13 @@ x_(logical(0)) $ xIterate(trials := {
 xMap(trial := if (trial) 1 else 0) $ x_MeanBy(xI) * 4
 }
 \seealso{
-Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRead}};
-  \code{\link{xShuffle}}, \code{\link{xShuffle_}};
-  \code{\link{xVersion}}; \code{\link{xWrite}}
+Other inpure_functions: \code{\link{xDo}},
+  \code{\link{xDo_}}; \code{\link{xExecute}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xRead}}; \code{\link{xShuffle}},
+  \code{\link{xShuffle_}}; \code{\link{xVersion}};
+  \code{\link{xWrite}}
 
-Other time_functions: \code{\link{xDelay}};
-  \code{\link{xLimit}}
+Other time_functions: \code{\link{xLimit}}
 }
 

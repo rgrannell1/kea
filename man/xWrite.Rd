@@ -31,12 +31,12 @@ Write a string to a file.
 NULL
 }
 \seealso{
-Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRead}};
-  \code{\link{xShuffle}}, \code{\link{xShuffle_}};
-  \code{\link{xStopwatch}}; \code{\link{xVersion}}
+Other inpure_functions: \code{\link{xDo}},
+  \code{\link{xDo_}}; \code{\link{xExecute}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xRead}}; \code{\link{xShuffle}},
+  \code{\link{xShuffle_}}; \code{\link{xStopwatch}};
+  \code{\link{xVersion}}
 
 Other text_processing_functions: \code{\link{xAmend}};
   \code{\link{xCarve}}; \code{\link{xCharsOf}};

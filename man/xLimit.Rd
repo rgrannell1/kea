@@ -74,7 +74,6 @@ If you find this feature useful, please leave an issue at https://github.com/rgr
 # of three calls was exceeded.
 }
 \seealso{
-Other time_functions: \code{\link{xDelay}};
-  \code{\link{xStopwatch}}
+Other time_functions: \code{\link{xStopwatch}}
 }
 

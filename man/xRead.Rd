@@ -39,12 +39,12 @@ x_(system.file(package = 'kea', 'DESCRIPTION')) $ xRead() $ xToLines() $ x_At(1)
 #  "Package: kea"
 }
 \seealso{
-Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xShuffle}},
-  \code{\link{xShuffle_}}; \code{\link{xStopwatch}};
-  \code{\link{xVersion}}; \code{\link{xWrite}}
+Other inpure_functions: \code{\link{xDo}},
+  \code{\link{xDo_}}; \code{\link{xExecute}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xShuffle}}, \code{\link{xShuffle_}};
+  \code{\link{xStopwatch}}; \code{\link{xVersion}};
+  \code{\link{xWrite}}
 
 Other text_processing_functions: \code{\link{xAmend}};
   \code{\link{xCarve}}; \code{\link{xCharsOf}};
