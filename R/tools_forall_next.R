@@ -418,7 +418,7 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'either positives or negatives must be set.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 
 	} else if (is.null(test $ positives)) {
 		test $ positives <- list()
@@ -432,7 +432,7 @@ validate_test <- function (invoking_call, test) {
 			message <-
 				'the property ' %+% key %+% ' is missing from the test object.'
 
-			throw_kea_error(invoking_call, message)
+			throw_exception $ error(invoking_call, message)
 		}
 	}
 
@@ -440,14 +440,14 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'time must be a positive number'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	if (length(test $ info) != length(test $ positives) + length(test $ negatives)) {
 		message <-
 			'there must be a one and only one description for each positive or negative test.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	test $ info <- dQuote(test $ info)
@@ -946,7 +946,7 @@ holdsWhen <- function (expr1, ...) {
 		message <-
 			'holdsWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	out <- list(
@@ -973,7 +973,7 @@ worksWhen <- function (expr1, ...) {
 		message <-
 			'worksWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	# if the expression runs, return tre.
@@ -1008,7 +1008,7 @@ failsWhen <- function (expr1, ...) {
 		message <-
 			'failsWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	out <- list(
@@ -1037,7 +1037,7 @@ holdsFor <- function (...) {
 		message <-
 			'holdsWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	out <- list(
@@ -1065,7 +1065,7 @@ worksFor <- function (...) {
 		message <-
 			'worksWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	# if the expression runs, return tre.
@@ -1100,7 +1100,7 @@ failsFor <- function (...) {
 		message <-
 			'failsWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	out <- list(

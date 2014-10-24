@@ -16,7 +16,7 @@ Must_Be_Fn_Matchable <- function (VAL) {
 					"The actual input was a non-length-one character vector." %+%
 					summate(.(VAL))
 
-				throw_kea_error(sys.call(), message)
+				throw_exception $ error(sys.call(), message)
 
 			}
 
@@ -37,7 +37,7 @@ Must_Be_Fn_Matchable <- function (VAL) {
 				message <- message %+% summate( .(VAL) )
 			}
 
-			throw_kea_error(sys.call(), message)
+			throw_exception $ error(sys.call(), message)
 
 		}
 	)

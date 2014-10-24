@@ -10,7 +10,7 @@ Must_Not_Contain_Na <- function (COLL) {
 			" must not contain NA values." %+%
 			summate(.(COLL))
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ error(sys.call(), message)
 
 	} )
 }

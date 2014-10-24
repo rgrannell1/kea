@@ -28,7 +28,7 @@ Must_Be_Collection_Of_Collections <- function (COLLS) {
 				message <- message %+% summate( .(COLLS) )
 			}
 
-			throw_kea_error(sys.call(), message)
+			throw_exception $ error(sys.call(), message)
 		}
 
 	})

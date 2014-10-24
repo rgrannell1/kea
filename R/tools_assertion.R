@@ -1,59 +1,4 @@
 
-
-# A more or less straight implementation of Python's
-# exceptions.
-#
-
-new_error_type <- function (...) {
-
-	function (message, call) {
-
-		classes <- c(...)
-
-		structure(
-			class = c(classes, 'condition', 'error'),
-			list(message = paste0(classes[length(classes)], ': ', message), call = call)
-		)
-	}
-
-}
-
-
-
-
-
-
-arithmetic_error <- new_error_type('arithmetic_error')
-
-lookup_error     <- new_error_type('lookup_error')
-index_error      <- new_error_type('lookup_error', 'index_error')
-key_error        <- new_error_type('lookup_error', 'key_error')
-
-io_error         <- new_error_type('lookup_error', 'io_error')
-
-# -- variable lookup fails.
-name_error       <- new_error_type('lookup_error', 'name_error')
-
-# -- throw an error for custom syntax.
-syntax_error     <- new_error_type('syntax_error')
-
-type_error       <- new_error_type('type_error')
-value_error      <- new_error_type('value_error')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #
 # this could do with a dose of code review and commenting; it is core code.
 
@@ -191,13 +136,93 @@ throw_kea_condition <- function (exception) {
 
 
 
-throw_kea_warning <- throw_kea_condition(function (message) {
-	warning(colourise $ yellow(message), call. = FALSE)
-})
+# A more or less straight implementation of Python's
+# exceptions.
+#
 
-throw_kea_error <- throw_kea_condition(function (message) {
-	stop(colourise $ red(message), call. = FALSE)
-})
+new_error_type <- function (...) {
+
+	function (message) {
+
+		classes <- c(...)
+
+		structure(
+			class = c(classes, 'condition', 'error'),
+			list(message = paste0(classes[length(classes)], ': ', message))
+		)
+	}
+
+}
+
+
+
+
+# -- Python-Style error types. Should allow easier distinguishing between
+# -- types of error.
+
+arithmetic_error <- new_error_type('arithmetic_error')
+
+lookup_error     <- new_error_type('lookup_error')
+index_error      <- new_error_type('lookup_error', 'index_error')
+key_error        <- new_error_type('lookup_error', 'key_error')
+
+io_error         <- new_error_type('lookup_error', 'io_error')
+
+# -- variable lookup fails.
+name_error       <- new_error_type('lookup_error', 'name_error')
+
+# -- throw an error for custom syntax.
+syntax_error     <- new_error_type('syntax_error')
+
+type_error       <- new_error_type('type_error')
+value_error      <- new_error_type('value_error')
+
+
+
+
+
+throw_exception <- list(
+	warning = throw_kea_condition(function (message) {
+		warning(colourise $ yellow(message), call. = FALSE)
+	}),
+	error   = throw_kea_condition(function (message) {
+		stop(colourise $ red(message), call. = FALSE)
+	}),
+
+	arithmetic_error = throw_kea_condition(function (message) {
+		stop( arithmetic_error(colourise $ red(message)) )
+	}),
+
+	lookup_error = throw_kea_condition(function (message) {
+		stop( lookup_error(colourise $ red(message)) )
+	}),
+	index_error = throw_kea_condition(function (message) {
+		stop( index_error(colourise $ red(message)) )
+	}),
+	key_error = throw_kea_condition(function (message) {
+		stop( key_error(colourise $ red(message)) )
+	}),
+
+	io_error = throw_kea_condition(function (message) {
+		stop( io_error(colourise $ red(message)) )
+	}),
+
+	name_error = throw_kea_condition(function (message) {
+		stop( name_error(colourise $ red(message)) )
+	}),
+
+	syntax_error = throw_kea_condition(function (message) {
+		stop( syntax_error(colourise $ red(message)) )
+	}),
+
+	type_error = throw_kea_condition(function (message) {
+		stop( type_error(colourise $ red(message)) )
+	}),
+	value_error = throw_kea_condition(function (message) {
+		stop( value_error(colourise $ red(message)) )
+	})
+
+)
 
 
 
@@ -233,7 +258,7 @@ try_read <- local({
 				warnmessage <- strsplit(warnmessage, '\n')[[1]]
 				warnmessage <- paste0('    ', warnmessage, collapse = '\n')
 
-				throw_kea_warning(
+				throw_exception $ warning(
 					overview %+% inner_call %+% warnmessage, invoking_call)
 
 			},
@@ -254,7 +279,7 @@ try_read <- local({
 				errmessage <- strsplit(errmessage, '\n')[[1]]
 				errmessage <- paste0('    ', errmessage, collapse = '\n')
 
-				throw_kea_error(
+				throw_exception $ error(
 					overview %+% inner_call %+% errmessage, invoking_call)
 			}
 		)
@@ -344,10 +369,10 @@ check_regexp <- function (rexp, invoking_call) {
 			regexpr(rexp, text = '')
 		},
 		warning = function (war) {
-			throw_kea_warning(invoking_call, war $ message %+% '\n')
+			throw_exception $ warning(invoking_call, war $ message %+% '\n')
 		},
 		error = function (err) {
-			throw_kea_error(invoking_call,   err $ message %+% '\n')
+			throw_exception $ error(invoking_call,   err $ message %+% '\n')
 		}
 	)
 

@@ -280,7 +280,7 @@ create_dynamic_body <- function (fn, method_name) {
 			message = "Too few arguments were supplied to the method " %+% .(paste(fn_sym)) %+%
 				", as methods\ncannot currently be partially applied.\n"
 
-			throw_kea_error(sys.call(), message)
+			throw_exception $ error(sys.call(), message)
 		}
 
 		# -- set the missing argument to the LHS (Self() returns the LHS)
@@ -827,7 +827,7 @@ suggest_similar_method <- local({
 					"Could not find the method " %+% dQuote(method_name) %+%
 					" in the methods available for " %+% content_type %+% ". Did you mean " %+%
 					dQuote(changed_variadicity) %+% "?"
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 
 			}
 
@@ -860,7 +860,7 @@ suggest_similar_method <- local({
 					" in the methods available for " %+% content_type %+% ", but it is " %+%
 					"available for " %+% toString(with_method) %+% '.'
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 			}
 
 		}
@@ -894,7 +894,7 @@ suggest_similar_method <- local({
 				"did you mean " %+% rsample(similar, size = 1) %+% "?")
 		}
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 })
 

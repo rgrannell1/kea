@@ -19,7 +19,7 @@ Must_Be_Positive_Index <- function (NUM, COLL) {
 			"The actual argument was " %+% paste( .(NUM) ) %+%
 			"\n"
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ error(sys.call(), message)
 
 	} )
 }

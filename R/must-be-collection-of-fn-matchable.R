@@ -36,7 +36,7 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 				message <- message %+% summate( .(COLL) )
 			}
 
-			throw_kea_error(sys.call(), message)
+			throw_exception $ error(sys.call(), message)
 		}
 
 	})

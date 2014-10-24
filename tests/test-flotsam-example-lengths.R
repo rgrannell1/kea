@@ -2,7 +2,7 @@
 require(kea)
 
 '%+%' <- kea ::: '%+%'
-throw_kea_warning <- kea ::: throw_kea_warning
+throw_exception $ warning <- kea ::: throw_exception $ warning
 
 
 # -- This unit test checks if the examples are empty.
@@ -90,6 +90,6 @@ if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 			empty_examples $ xMap(xAt(2)) $ x_FromLines()
 		)
 
-		throw_kea_warning(message = message)
+		throw_exception $ warning(message = message)
 	}
 }

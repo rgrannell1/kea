@@ -113,7 +113,7 @@ xLambda <- local({
 					invoking_call[-1][[1]],
 					invoking_call[-1][[2]])
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 			}
 
 			if (get_tree $ delim(tree) != ":") {
@@ -126,7 +126,7 @@ xLambda <- local({
 					invoking_call[-1][[1]],
 					invoking_call[-1][[2]])
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 			}
 
 			new_state <- list(
@@ -154,7 +154,7 @@ xLambda <- local({
 				sys.call(1)[-1][[1]],
 				sys.call(1)[-1][[2]])
 
-			throw_kea_error(invoking_call, message)
+			throw_exception $ error(invoking_call, message)
 		}
 
 		lambda              <- function () {}
@@ -204,7 +204,7 @@ xLambda <- local({
 					sys.call()[-1][[1]],
 					sys.call()[-1][[2]])
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 			}
 
 			params <- collect_params( param_block[[2]], list(params = character(0)) )

@@ -19,7 +19,7 @@ Must_Be_Collection <- function (COLL) {
 			". Did you use the incorrect form of a method? (xMethod vs xMethod_)" %+%
 			summate( .(COLL) )
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ error(sys.call(), message)
 
 	} else if (!is_atomic( .(COLL) ) && !is_generic( .(COLL) )) {
 
@@ -28,7 +28,7 @@ Must_Be_Collection <- function (COLL) {
 			" must be a list, a pairlist or a typed vector." %+%
 			summate( .(COLL) )
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ type_error(sys.call(), message)
 
 	} )
 

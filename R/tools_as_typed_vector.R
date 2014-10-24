@@ -63,7 +63,7 @@ as_typed_vector <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					throw_kea_error(invoking_call, message)
+					throw_exception $ error(invoking_call, message)
 				}
 
 			} else if (mode == 'raw' && type != 'raw') {
@@ -74,7 +74,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 
 			} else if (!typecheck [[mode]] (coll) && !all_is_na) {
 				# -- other types pathway.
@@ -84,7 +84,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 			}
 
 			# -- convert in case vector was all NA values.
@@ -112,7 +112,7 @@ as_typed_vector <- local({
 
 					coll_sym <- substitute(coll)
 
-					throw_kea_error(
+					throw_exception $ error(
 						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
@@ -135,7 +135,7 @@ as_typed_vector <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_kea_error(invoking_call, message)
+					throw_exception $ error(invoking_call, message)
 				}
 			}
 
@@ -203,7 +203,7 @@ as_atom <- local({
 
 			coll_sym <- substitute(coll)
 
-			throw_kea_error(
+			throw_exception $ error(
 				invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 				" must be a length-zero or length-one value." %+% summate(coll)
 			)
@@ -231,7 +231,7 @@ as_atom <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_kea_error(
+					throw_exception $ error(
 						invoking_call, message)
 				}
 
@@ -254,7 +254,7 @@ as_atom <- local({
 					message <- message %+% summate(coll)
 				}
 
-				throw_kea_error(
+				throw_exception $ error(
 					invoking_call, message)
 			}
 
@@ -271,7 +271,7 @@ as_atom <- local({
 
 					coll_sym <- substitute(coll)
 
-					throw_kea_error(
+					throw_exception $ error(
 						invoking_call, "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of length-one elements." %+%
 						summate(coll ))
@@ -292,7 +292,7 @@ as_atom <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_kea_error(
+					throw_exception $ error(
 						invoking_call, message)
 				}
 			}

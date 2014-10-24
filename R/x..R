@@ -44,7 +44,7 @@ x. <- structure(
 			"lambda builder objects cannot be invoked as a " %+%
 			"function."
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ error(sys.call(), message)
 	},
 	class = 'xlambda_builder'
 )
