@@ -156,21 +156,6 @@ get_call_components <- function (invoking_call) {
 
 # -------------------------------------------------------------------------
 #
-# DEPRECATE ME
-#
-# Error colourisers
-#
-# This takes your message, and throws either an error or warning.
-
-write_error <- function (..., call. = True) {
-	# -- take a string, colourise it and throw an error
-	message <- c(...)
-
-	stop(colourise$red(message), call. = call.)
-}
-
-# -------------------------------------------------------------------------
-#
 # Top Level Interface
 #
 # This takes your message, and throws either an error or warning.
