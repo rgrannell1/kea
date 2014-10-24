@@ -141,19 +141,13 @@ get_call_components <- function (invoking_call) {
 		}
 
 		list(
-			invoking =
-				fn_text,
-			calltext =
-				stringify_call(invoking_call))
+			invoking = fn_text,
+			calltext = stringify_call(invoking_call))
 
 	} else {
 		# -- internal error; something bad was passed in.
 
-		list(
-			invoking =
-				"",
-			calltext =
-				"")
+		list(invoking = "", calltext = "")
 
 	}
 }
@@ -200,6 +194,7 @@ throw_kea_warning <- function (invoking_call, message) {
 		"\n" %+% message %+%
 		"\nThrown from " %+% callname %+% "\n" %+%
 		"In the call " %+% calltext
+
 	} else {
 		final_message <- "\n" %+% message
 	}
@@ -213,18 +208,19 @@ throw_kea_warning <- function (invoking_call, message) {
 throw_kea_error <- function (invoking_call, message) {
 	# the top level interface to throwing an kea error.
 
+
+	if (length(message) != 1) {
+		stop('internal error in kea; a non-length one error message was produced.' %+%
+			' Please report this at https://github.com/rgrannell1/kea/issues')
+	}
+
 	# -- stringify the call, get the function name.
 	# -- get the function foo, and the stringified call foo(baz, bar, ...)
 
-	if (length(message) != 1) {
-
-		message <- 'internal error in kea; a non-length one error message was produced.' %+%
-			' Please report this at https://github.com/rgrannell1/kea/issues'
-
-		stop(message)
-	}
-
-	if (!missing(invoking_call)) {
+	if (missing(invoking_call)) {
+		# -- no invoking call given; just give the message as a backup.
+		final_message <- "\n" %+% message
+	} else {
 
 		# -- this returns an list with empty string slots for
 		# -- non calls.
@@ -244,9 +240,6 @@ throw_kea_error <- function (invoking_call, message) {
 			"\nThrown from " %+% callname %+% "\n" %+%
 			"In the call " %+% calltext
 
-	} else {
-		# -- no invoking call given; just give the message as a backup.
-		final_message <- "\n" %+% message
 	}
 
 	# -- tput as red (if possible) and report the error.
