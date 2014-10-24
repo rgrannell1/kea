@@ -68,12 +68,12 @@ expand_call <- function (call) {
 	# -- expand calls to := to their evaluated functions.
 	# -- refactor `:=`(a, {a + a}) to function (a) {a + a}
 
+	is_lambda <- function (term) {
+		is.call(term) && term[[1]] == as.symbol(':=')
+	}
+
 	as.call( lapply(call, function (term) {
-
-		is_lambda <- is.call(term) && term[[1]] == as.symbol(':=')
-
-		if (is_lambda) eval(term) else term
-
+		if (is_lambda(term)) eval(term) else term
 	}) )
 
 }
@@ -88,11 +88,12 @@ stringify_call <- function (call) {
 
 		calltext <- ddparse(expand_call(call))
 
-		if (nchar(calltext) > 50) {
-			paste0(substring(calltext, 1, 50), ' [truncated]', collapse = '')
-		} else {
+		if (nchar(calltext) <= 50) {
 			calltext
+		} else {
+			paste0(substring(calltext, 1, 50), ' [truncated]', collapse = '')
 		}
+
 	}
 }
 
@@ -160,85 +161,49 @@ get_call_components <- function (invoking_call) {
 #
 # This takes your message, and throws either an error or warning.
 
-throw_kea_warning <- function (invoking_call, message) {
-	# the top level interface to throwing an kea error.
+throw_kea_condition <- function (exception) {
 
-	# -- stringify the call, get the function name.
-	if (!missing(invoking_call)) {
+	function (invoking_call, message) {
 
-		call_components <- get_call_components(invoking_call)
+		if (length(message) != 1) {
+			stop('internal error in kea; a non-length one error message was produced.' %+%
+				' Please report this at https://github.com/rgrannell1/kea/issues')
+		}
 
-		# -- the function foo, and the stringified call foo(baz, bar, ...)
-		callname <- call_components $ invoking
-		calltext <- call_components $ calltext
+		# -- stringify the call, get the function name.
+		final_message <- if (!missing(invoking_call)) {
 
-		# -- just in case
-		callname <- paste0(callname, collapse = '')
-		calltext <- wrap(calltext, indent = 4)
+			call_components <- get_call_components(invoking_call)
 
-		# -- these few lines dicate how an kea error message will be formatted
-
-		final_message <-
-		"\n" %+% message %+%
-		"\nThrown from " %+% callname %+% "\n" %+%
-		"In the call " %+% calltext
-
-	} else {
-		final_message <- "\n" %+% message
-	}
-
-	# -- tput as red (if possible) and report the error.
-
-	warning(colourise$yellow(final_message), call. = False)
-
-}
-
-
-
-
-
-throw_kea_error <- function (invoking_call, message) {
-	# the top level interface to throwing an kea error.
-
-
-	if (length(message) != 1) {
-		stop('internal error in kea; a non-length one error message was produced.' %+%
-			' Please report this at https://github.com/rgrannell1/kea/issues')
-	}
-
-	# -- stringify the call, get the function name.
-	# -- get the function foo, and the stringified call foo(baz, bar, ...)
-
-	if (missing(invoking_call)) {
-		# -- no invoking call given; just give the message as a backup.
-		final_message <- "\n" %+% message
-	} else {
-
-		# -- this returns an list with empty string slots for
-		# -- non calls.
-		components <- get_call_components(invoking_call)
-
-		callname <- components $ invoking
-		calltext <- components $ calltext
-
-		# -- just in case, collapse and wrap the components.
-		callname <- paste0(callname, collapse = '')
-		calltext <- wrap(calltext, indent = 0)
-
-		# -- these few lines dicate how all kea error messages will be formatted.
-
-		final_message <-
 			"\n" %+% message %+%
-			"\nThrown from " %+% callname %+% "\n" %+%
-			"In the call " %+% calltext
+			"\nThrown from " %+% call_components $ invoking %+% "\n" %+%
+			"In the call "   %+% call_components $ calltext
 
+		} else {
+			"\n" %+% message
+		}
+
+		exception(gsub('\n', '\n ', final_message))
 	}
-
-	# -- tput as red (if possible) and report the error.
-
-	stop(colourise $ red(final_message), call. = False)
-
 }
+
+
+
+
+
+throw_kea_warning <- throw_kea_condition(function (message) {
+	warning(colourise $ yellow(message), call. = FALSE)
+})
+
+throw_kea_error <- throw_kea_condition(function (message) {
+	stop(colourise $ red(message), call. = FALSE)
+})
+
+
+
+
+
+
 
 # -------------------------------------------------------------------------
 #
