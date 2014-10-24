@@ -15,7 +15,7 @@ Must_Be_Named <- function (COLL) {
 				" must be named." %+%
 				summate( .(COLL) )
 
-			throw_exception $ error(sys.call(), message)
+			throw_exception $ value_error(sys.call(), message)
 		}
 	)
 }

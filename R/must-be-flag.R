@@ -12,7 +12,7 @@ Must_Be_Flag <- function (BOOL, PRED) {
 			" produced a non-{True, False, Na} value." %+%
 			summate( .(BOOL) )
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} )
 }

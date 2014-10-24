@@ -17,7 +17,7 @@ Must_All_Be_Indices <- function (NUMS, COLL) {
 			"The actual argument contained infinite values." %+%
 			summate( .(NUMS) )
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} else if ( any( abs( .(NUMS) ) > length( .(COLL) )) ) {
 
@@ -26,7 +26,7 @@ Must_All_Be_Indices <- function (NUMS, COLL) {
 			"must be positive of negative indices of the collection matching " %+% ddquote( .(COLL) ) %+% "." %+%
 			summate( .(NUMS) )
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	})
 

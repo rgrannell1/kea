@@ -18,7 +18,7 @@ Must_Be_Longer_Than <- function (LENGTH, COLL) {
 			"The actual length was " %+% length(.(COLL)) %+% "." %+%
 			summate( .(COLL) )
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 	} )
 
 }

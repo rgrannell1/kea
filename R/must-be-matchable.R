@@ -12,7 +12,7 @@ Must_Be_Matchable <- function (SYM) {
 				" must be a symbol or a string that can be used as a variable name." %+%
 				summate( .(SYM) )
 
-			throw_exception $ error(sys.call(), message)
+			throw_exception $ type_error(sys.call(), message)
 
 		} else if (nchar( .(SYM) ) == 0) {
 			message <-
@@ -20,7 +20,7 @@ Must_Be_Matchable <- function (SYM) {
 				" must be a symbol or a string that can be used as a variable name.\n\n" %+%
 				"The actual argument was the empty string.\n"
 
-			throw_exception $ error(sys.call(), message)
+			throw_exception $ type_error(sys.call(), message)
 		}
 
 		TRUE
@@ -32,7 +32,7 @@ Must_Be_Matchable <- function (SYM) {
 			" must be a symbol or a string that can be used as a variable name." %+%
 			summate( .(SYM) )
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ type_error(sys.call(), message)
 
 	} )
 

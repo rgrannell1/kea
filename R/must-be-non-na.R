@@ -10,7 +10,7 @@ Must_Be_Non_Na <- function (VAL) {
 			" must not be NA.\n\n" %+%
 			"The actual argument was NA of type " %+% dQuote(typeof(.(VAL))) %+% ".\n"
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} )
 }

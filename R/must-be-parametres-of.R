@@ -17,7 +17,7 @@ Must_Be_Parametres_Of <- function (STRS, FN) {
 			" must be parametres of the function matching " %+% ddquote( .(FN) ) %+% "." %+%
 			summate( .(STRS) )
 
-		throw_exception $ error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 	} )
 
 }

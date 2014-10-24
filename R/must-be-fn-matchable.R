@@ -37,7 +37,7 @@ Must_Be_Fn_Matchable <- function (VAL) {
 				message <- message %+% summate( .(VAL) )
 			}
 
-			throw_exception $ error(sys.call(), message)
+			throw_exception $ type_error(sys.call(), message)
 
 		}
 	)

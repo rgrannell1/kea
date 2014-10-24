@@ -14,7 +14,7 @@ Must_Be_Collection_Of_Equal_Length <- function (COLLS) {
 				" must be a collection of collections with equal lengths." %+%
 				summate( .(COLLS) )
 
-			throw_exception $ error(sys.call(), message)
+			throw_exception $ value_error(sys.call(), message)
 		}
 	})
 
