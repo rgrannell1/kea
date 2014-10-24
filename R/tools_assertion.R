@@ -165,11 +165,12 @@ throw_kea_warning <- function (invoking_call, message) {
 
 	# -- stringify the call, get the function name.
 	if (!missing(invoking_call)) {
-		components <- get_call_components(invoking_call)
+
+		call_components <- get_call_components(invoking_call)
 
 		# -- the function foo, and the stringified call foo(baz, bar, ...)
-		callname <- components$invoking
-		calltext <- components$calltext
+		callname <- call_components $ invoking
+		calltext <- call_components $ calltext
 
 		# -- just in case
 		callname <- paste0(callname, collapse = '')
@@ -191,6 +192,10 @@ throw_kea_warning <- function (invoking_call, message) {
 	warning(colourise$yellow(final_message), call. = False)
 
 }
+
+
+
+
 
 throw_kea_error <- function (invoking_call, message) {
 	# the top level interface to throwing an kea error.
@@ -373,17 +378,12 @@ check_regexp <- function (rexp, invoking_call) {
 		if (length(rexp) > 0) {
 			regexpr(rexp, text = '')
 		},
-		warning = function (warn) {
-			message <- warn $ message %+%
-			'\n'
-
-			throw_kea_warning(invoking_call, message)
+		warning = function (war) {
+			throw_kea_warning(invoking_call, war $ message %+% '\n')
 		},
 		error = function (err) {
-			message <- err $ message %+%
-			'\n'
-
-			throw_kea_error(invoking_call, message)
+			throw_kea_error(invoking_call,   err $ message %+% '\n')
 		}
 	)
+
 }
