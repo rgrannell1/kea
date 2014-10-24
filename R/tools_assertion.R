@@ -1,4 +1,59 @@
 
+
+# A more or less straight implementation of Python's
+# exceptions.
+#
+
+new_error_type <- function (...) {
+
+	function (message, call) {
+
+		classes <- c(...)
+
+		structure(
+			class = c(classes, 'condition', 'error'),
+			list(message = paste0(classes[length(classes)], ': ', message), call = call)
+		)
+	}
+
+}
+
+
+
+
+
+
+arithmetic_error <- new_error_type('arithmetic_error')
+
+lookup_error     <- new_error_type('lookup_error')
+index_error      <- new_error_type('lookup_error', 'index_error')
+key_error        <- new_error_type('lookup_error', 'key_error')
+
+io_error         <- new_error_type('lookup_error', 'io_error')
+
+# -- variable lookup fails.
+name_error       <- new_error_type('lookup_error', 'name_error')
+
+# -- throw an error for custom syntax.
+syntax_error     <- new_error_type('syntax_error')
+
+type_error       <- new_error_type('type_error')
+value_error      <- new_error_type('value_error')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
 # this could do with a dose of code review and commenting; it is core code.
 

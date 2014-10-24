@@ -108,7 +108,6 @@ setDuplicate <- function (lens) {
 	list(
 		get = lens $ get,
 		set = (coll : val) := {
-
 			lens $ set( coll, xRepeat( xLenOf(lens $ get(coll)), val ))
 
 		}
@@ -134,4 +133,3 @@ setRecycle <- function (lens) {
 
 
 # ..( 1:10 ) $ r_select(x := x %% 2 == 0) $ r_set $ r_duplicate(1)
-
