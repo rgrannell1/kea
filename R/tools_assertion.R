@@ -62,6 +62,22 @@ value_error      <- new_error_type('value_error')
 #
 # These functions reformat the call data passed to a string.
 
+
+
+expand_call <- function (call) {
+	# -- expand calls to := to their evaluated functions.
+	# -- refactor `:=`(a, {a + a}) to function (a) {a + a}
+
+	as.call( lapply(call, function (term) {
+
+		is_lambda <- is.call(term) && term[[1]] == as.symbol(':=')
+
+		if (is_lambda) eval(term) else term
+
+	}) )
+
+}
+
 stringify_call <- function (call) {
 	# call -> string
 	# format the call nicely for printing, fixing the representation of ':='.
@@ -70,18 +86,7 @@ stringify_call <- function (call) {
 		"[erroneous call not included]"
 	} else {
 
-		call <- as.call(lapply(call, function (term) {
-
-			# -- refactor `:=`(a, {a + a}) to function (a) {a + a}
-			if(is.call(term) && term[[1]] == as.symbol(':=')) {
-				eval(term)
-			} else {
-				term
-			}
-
-		}) )
-
-		calltext <- ddparse(call)
+		calltext <- ddparse(expand_call(call))
 
 		if (nchar(calltext) > 50) {
 			paste0(substring(calltext, 1, 50), ' [truncated]', collapse = '')
@@ -99,7 +104,8 @@ get_call_components <- function (invoking_call) {
 
 		fn <- invoking_call[[1]]
 
-		fn_text <- if (is.name(fn)) {
+		calltext <- paste0(invoking_call, "()", collapse = '')
+		fntext   <- if (is.name(fn)) {
 			paste(fn)
 		} else {
 			# -- calling position may be a function literal occasionally.
@@ -114,11 +120,7 @@ get_call_components <- function (invoking_call) {
 			}
 		}
 
-		list(
-			invoking_call =
-				fn_text,
-			calltext =
-				paste0(invoking_call, "()", collapse = ''))
+		list(invoking_call = fntext, calltext = calltext)
 
 	} else if (any(class(invoking_call) == "call")) {
 		# -- the general case
