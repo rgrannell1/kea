@@ -412,7 +412,10 @@ MakeFun <- function (expr, typed = TRUE, env) {
 	#
 
 	environment(decorated)             <- new.env(parent = env)
-	parent.env(environment(decorated)) <- parent.frame(2)
+
+	# doesnt quite work.
+	# parent.env(environment(decorated)) <- parent.frame(2)
+
 	environment(decorated) $ fn_sym    <- decorated
 
 	decorated
