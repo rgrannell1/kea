@@ -185,8 +185,9 @@ throw_exception <- list(
 	warning = throw_kea_condition(function (message) {
 		warning(colourise $ yellow(message), call. = FALSE)
 	}),
-	error   = throw_kea_condition(function (message) {
-		stop(colourise $ red(message), call. = FALSE)
+	error = throw_kea_condition(function (message) {
+		stop(   # hammer time!
+			colourise $ red(message), call. = FALSE)
 	}),
 
 	arithmetic_error = throw_kea_condition(function (message) {

@@ -104,9 +104,11 @@ one_of <- function (coll) {
 '%is%' <- function (a, b) identical(a, b)
 
 as_formals <- function (params) {
-	structure(
+
+	as.pairlist(structure(
 		rep(list(quote(expr=)), length(params)),
-		names = params)
+		names = params))
+
 }
 
 #
