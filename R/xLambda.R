@@ -141,7 +141,8 @@ xLambda <- function (sym, val) {
 		lambda              <- do.call('function', list(as_formals(paste(param_expr)), body_expr))
 		environment(lambda) <- parent.frame()
 
-		MakeFun(lambda)
+		#MakeFun(lambda)
+		lambda
 
 	} else if (is.call(param_expr)) {
 		# -- need to crawl through the expression and pull out symbols.
@@ -166,7 +167,8 @@ xLambda <- function (sym, val) {
 		body(lambda)        <- body_expr
 		environment(lambda) <- parent.frame()
 
-		MakeFun(lambda)
+		#MakeFun(lambda)
+		lambda
 
 	} else {
 
