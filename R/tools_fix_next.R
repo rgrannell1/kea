@@ -357,7 +357,11 @@ write_type_conversions <- ( function () {
 # a function definition. It returns a partially-applicable
 # function with type-checks automatically written into it.
 
-MakeFun <- function (expr, typed = True, env = parent.frame()) {
+MakeFun <- function (expr, typed = TRUE, env) {
+
+	if (missing(env)) {
+		env <- parent.frame()
+	}
 
 	unquote <- function (inner) {
 
@@ -399,7 +403,7 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 		)) )
 	)
 
-	decorated <- function () {}
+	decorated <- function ( ) { }
 
 	formals(decorated) <- formals(underlying)
 	body(decorated)    <- join_exprs(eval(call_Fix_macro), body(underlying))
@@ -407,8 +411,9 @@ MakeFun <- function (expr, typed = True, env = parent.frame()) {
 	# allow the function to refer to its original self, pre-partial application!
 	#
 
-	environment(decorated)          <- new.env(parent = env)
-	environment(decorated) $ fn_sym <- decorated
+	environment(decorated)             <- new.env(parent = env)
+	parent.env(environment(decorated)) <- parent.frame(2)
+	environment(decorated) $ fn_sym    <- decorated
 
 	decorated
 }

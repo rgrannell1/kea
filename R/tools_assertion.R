@@ -302,7 +302,7 @@ try_write <- local({
 
 				# -- this must be changed when the error style is changed.
 				overview <-
-				"A warning occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
+					"A warning occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(warn $ call) %+% ':\n\n'
 
@@ -325,7 +325,7 @@ try_write <- local({
 
 				# -- this must be changed when the error style is changed.
 				overview <-
-				"An error occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
+					"An error occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
 				inner_call <- stringify_call(err $ call) %+% ':\n\n'
 
