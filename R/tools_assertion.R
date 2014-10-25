@@ -298,13 +298,13 @@ try_write <- local({
 
 
 				warnmessage <-
-					paste0(warn$message, collapse = '')
+					paste0(warn $ message, collapse = '')
 
 				# -- this must be changed when the error style is changed.
 				overview <-
 				"A warning occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
-				inner_call <- stringify_call(warn$call) %+% ':\n\n'
+				inner_call <- stringify_call(warn $ call) %+% ':\n\n'
 
 				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)
@@ -313,7 +313,7 @@ try_write <- local({
 				warnmessage <- paste0('    ', warnmessage, collapse = '\n')
 
 				warning(
-					colourise$yellow(overview %+% inner_call %+% warnmessage),
+					colourise $ yellow(overview %+% inner_call %+% warnmessage),
 					call. = False)
 
 			},
@@ -321,13 +321,13 @@ try_write <- local({
 				# -- path is lexically scoped to here
 
 				errmessage <-
-					paste0(err$message, collapse = '')
+					paste0(err $ message, collapse = '')
 
 				# -- this must be changed when the error style is changed.
 				overview <-
 				"An error occurred while writing to the path " %+% dQuote(path) %+% "\n\n"
 
-				inner_call <- stringify_call(err$call) %+% ':\n\n'
+				inner_call <- stringify_call(err $ call) %+% ':\n\n'
 
 				# -- add padding to the front of the message.
 				inner_call <- paste0('    ', inner_call)
@@ -336,7 +336,7 @@ try_write <- local({
 				errmessage <- paste0('    ', errmessage, collapse = '\n')
 
 				warning(
-					colourise$red(overview %+% inner_call %+% errmessage),
+					colourise $ red(overview %+% inner_call %+% errmessage),
 					call. = False)
 
 			}

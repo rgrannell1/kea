@@ -61,7 +61,7 @@ relist <- function (expr) {
 	} else {
 
 		message <- 'invalid parametre'
-		throw_exception $ syntax_error(invoking_call, message)
+		throw_exception $ syntax_error(lambda_call(), message)
 
 	}
 }
@@ -86,7 +86,7 @@ validate <- function (coll) {
 		}
 
 		if (length(message) > 0) {
-			throw_exception(invoking_call, message)
+			throw_exception(lambda_call(), message)
 		}
 
 		validate( coll[[2]] )
@@ -154,10 +154,10 @@ xLambda <- function (sym, val) {
 
 		}
 
-		sexp <- relist( param_expr[[2]] )
+		sexp                <- relist( param_expr[[2]] )
 		validate(sexp)
 
-		parametres <- extract(sexp)
+		parametres          <- extract(sexp)
 
 		lambda              <- function () {}
 
