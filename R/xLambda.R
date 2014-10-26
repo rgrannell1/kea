@@ -156,6 +156,18 @@ xLambda <- function (sym, val) {
 
 		}
 
+		if (length(param_expr) == 2) {
+			# -- unary function in braces.
+			# -- this path should be factored out in the future.
+
+			lambda              <- do.call('function', list(as_formals(paste( param_expr[[2]] )), body_expr))
+			environment(lambda) <- parent.frame()
+
+			#MakeFun(lambda)
+			return(lambda)
+
+		}
+
 		sexp                <- relist( param_expr[[2]] )
 		validate(sexp)
 
