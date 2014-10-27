@@ -1185,6 +1185,12 @@ worksFor <- function (info, ...) {
 
 	invoking_call <- sys.call()
 
+	if (!is.character(info)) {
+
+		throw_exception $ type_error(invoking_call, "description missing or invalid.")
+
+	}
+
 	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
 
 		tryCatch(
@@ -1219,6 +1225,12 @@ worksFor <- function (info, ...) {
 failsFor <- function (info, ...) {
 
 	invoking_call <- sys.call()
+
+	if (!is.character(info)) {
+
+		throw_exception $ type_error(invoking_call, "description missing or invalid.")
+
+	}
 
 	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
 
