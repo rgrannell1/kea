@@ -22,11 +22,25 @@ y_ <- MakeFun(function (val) {
 
 `$.y_` <- function (outer, inner) {
 
-	print(sys.call())
+	inner_name <- paste0(substitute(inner))
+	proto       <- get_proto_ref( obj[['x']] )
 
-	if (is.character(inner)) {
-		inner <- functionLens(match.fun(inner))
+	if ( !any(proto[[2]] == inner_name) || inner_name == "private" ) {
+		# -- the invoked inner wasn't found, so we should give a suggestion.
+
+		# -- required for proper call formatting in output.
+		invoking_call <- call('$', sys.call()[[2]], sys.call()[[3]] )
+
+		contents_are <- proto[[1]][['private']][['contents_are']]
+
+		suggest_similar_inner(
+			obj[['x']], inner_name, contents_are, invoking_call)
+
 	}
+
+	fn <- proto[[1]][[inner_name]]
+
+	print(fn)
 
 	lcompose(outer, inner)
 

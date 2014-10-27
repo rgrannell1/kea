@@ -156,7 +156,7 @@ xLambda <- function (sym, val) {
 
 		}
 
-		if (length(param_expr) == 2) {
+		if (length( param_expr[[2]] ) == 2) {
 			# -- unary function in braces.
 			# -- this path should be factored out in the future.
 

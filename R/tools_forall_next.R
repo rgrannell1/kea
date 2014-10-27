@@ -1113,6 +1113,12 @@ holdsFor <- function (info, ...) {
 
 	invoking_call <- sys.call()
 
+	if (!is.character(info)) {
+
+		throw_exception $ type_error(invoking_call, "description missing or invalid.")
+
+	}
+
 	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
 
 		passed <- tryCatch(
@@ -1142,6 +1148,18 @@ holdsFor <- function (info, ...) {
 
 		}
 
+		if (length(passed) != 1) {
+
+			message <-
+				info %+% '\n' %+%
+				colourise $ red('Failed! ') %+%
+				'the property ' %+% ddparse(assertion) %+%
+				' returned a non-length one value.'
+
+			throw_exception $ value_error(invoking_call, message)
+
+		}
+
 		if (!isTRUE(passed)) {
 
 			message <-
@@ -1150,7 +1168,7 @@ holdsFor <- function (info, ...) {
 				'the property ' %+% ddparse(assertion) %+%
 				' was false.'
 
-			throw_exception $ type_error(invoking_call, message)
+			throw_exception $ value_error(invoking_call, message)
 
 		}
 
