@@ -112,7 +112,7 @@ releases <- repo := {
 	xSortBy(tag := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
 	})             $
-	x_Take(10)
+	x_Take(3)
 }
 
 
@@ -306,26 +306,21 @@ plot_timings <- timings := {
 			geom_point(
 				aes(
 					x = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
-					y = median, color = expr, guide = file), alpha = 0.8) +
+					y = median, color = expr), alpha = 0.8) +
 
 			geom_errorbar(
 				aes(
 					x     = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
 					ymin  = lower,
 					ymax  = upper,
-					color = expr,
-					guide = file
+					color = expr
 				), width = 0.4, alpha = 0.4) +
 
 			xlab("")   +
 			ylab("Hz") +
 			ggtitle("Kea performance between releases.") +
 
-			scale_y_log10( breaks = 10 ^ (1:6), labels = comma(10 ^ (1:6)), limits = c(10^1, 10^6) )
-
-		print(wide_df)
-
-
+			scale_y_log10( breaks = 10 ^ (0:7), labels = comma(10 ^ (0:7)), limits = c(10^0, 10^7) )
 
 		fname      <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
 		fpath      <- xFromChars_('~/Desktop/benchmark/bench-', fname)
