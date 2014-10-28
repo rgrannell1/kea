@@ -5,7 +5,7 @@ require(kea,            quietly = TRUE, warn.conflicts = FALSE)
 require(microbenchmark, quietly = TRUE, warn.conflicts = FALSE)
 require(ggplot2,        quietly = TRUE, warn.conflicts = FALSE)
 require(scales,         quietly = TRUE, warn.conflicts = FALSE)
-require(ggthemes,       quietly = TRUE, warn.conflicts = FALSE)
+require(reshape2,       quietly = TRUE, warn.conflicts = FALSE)
 
 
 
@@ -23,7 +23,7 @@ config <- list(
 	repo_url    = "https://github.com/rgrannell1/kea",
 
 	benchmarks  = kea("inst/benchmarks"),
-	seconds     = 1
+	seconds     = 0.5
 )
 
 
@@ -32,6 +32,19 @@ config <- list(
 
 
 is_current_version <- xIs(xVersion())
+
+on.exit({
+
+	if ( !is_current_version(xVersion()) ) {
+
+		message('-- reinstalling latest version of ', config $ reponame)
+		install_github(config $ reponame, config $ username, ref = 'releases')
+
+	}
+
+})
+
+
 repo_path <- '/tmp/git2r-'
 #repo_path <- tempfile(pattern = "git2r-")
 #dir.create(repo_path)
@@ -53,7 +66,10 @@ releases <- repo := {
 	xSelect(tag := {
 		xIsMatch('^v[0-9]+[.][0-9]+[.][0-9]+$', tag @ name)
 	})             $
-	x_Take(3)
+	xSortBy(tag := {
+		as.numeric(xAmend('v|[.]', '', tag @ name))
+	})             $
+	x_Take(2)
 }
 
 # avoid naming conflicts later.
@@ -78,10 +94,9 @@ try_load <- (reponame : username : ref : callback) := {
 	tryCatch(
 		eval({
 
-			install_github(reponame, username, ref = ref, quiet = True)
+			#install_github(reponame, username, ref = ref, quiet = True)
 
 			# not generic!
-
 			package_number <- as.numeric(gsub('[v]|[.]', '', ref))
 
 			if (package_number < 160) {
@@ -172,7 +187,6 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 				error = function (err) {
 
 					message('-- failure!')
-					message(err)
 
 					list(
 						file   = benchmark_file,
@@ -188,7 +202,6 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 				warning = function (warn) {
 
 					message('-- warning!')
-					message(err)
 
 					list(
 						file   = benchmark_file,
@@ -228,19 +241,36 @@ timings <-
 
 
 
+
+
+if ( !is_current_version(xVersion()) ) {
+
+	message('-- reinstalling latest version of ', config $ reponame)
+	install_github(config $ reponame, config $ username, ref = 'releases')
+
+}
+
+
+
+
+
 timings_as_dataframe <- timings := {
 
-	columns <- xZip(timings)
+	x_(timings) $ xGroupBy(x. $ file) $ xMap(xSecondOf %then% xZip) $ xMap(columns := {
 
-	data.frame(
-		file   = x_( columns[[1]] ) $ xMap(xExplode('/bench-') %then% xLastOf) $ x_AsCharacter(),
-		expr   = xAsCharacter( columns[[2]] ),
-		ref    = xAsCharacter( columns[[3]] ),
+		data.frame(
+			file   = x_( columns[[1]] ) $ xMap(xExplode('/bench-') %then% xLastOf) $ x_AsCharacter(),
+			expr   = xAsCharacter( columns[[2]] ),
+			ref    = xAsCharacter( columns[[3]] ),
 
-		lower  = xAsDouble(    columns[[4]] ),
-		median = xAsDouble(    columns[[5]] ),
-		upper  = xAsDouble(    columns[[6]] )
-	)
+			lower  = xAsDouble(    columns[[4]] ),
+			median = xAsDouble(    columns[[5]] ),
+			upper  = xAsDouble(    columns[[6]] ),
+
+			stringsAsFactors = False
+		)
+
+	})
 
 }
 
@@ -250,32 +280,44 @@ timings_as_dataframe <- timings := {
 
 plot_timings <- timings := {
 
-	wide_df <- timings_as_dataframe(timings)
+	wide_dfs <- timings_as_dataframe(timings)
 
-	gg <-
-		ggplot(as.data.frame(wide_df), aes(group = file)) +
+	x_(wide_dfs) $ x_Do(wide_df := {
 
-		geom_point(
-			aes(x = ref, y = median, color = expr, guide = file)) +
-		geom_errorbar(
-			aes(x = ref, ymin = lower, ymax = upper, color = expr, guide = file), width = 0.4) +
+		gg <-
+			ggplot(wide_df) +
 
-		facet_grid(. ~ file) +
+			geom_point(
+				aes(
+					x = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
+					y = median, color = expr, guide = file), alpha = 0.6) +
 
-		xlab("")   +
-		ylab("Hz") +
-		ggtitle("Kea performance between releases.")
+			geom_errorbar(
+				aes(
+					x     = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
+					ymin  = lower,
+					ymax  = upper,
+					color = expr,
+					guide = file
+				), width = 0.4, alpha = 0.2) +
 
-		scale_y_log10( breaks = 10 ^ (1:6), labels = comma(10 ^ (1:6)) )
+			xlab("")   +
+			ylab("Hz") +
+			ggtitle("Kea performance between releases.") +
+
+			scale_y_log10( breaks = 10 ^ (1:6), labels = comma(10 ^ (1:6)) )
 
 
 
+		fname <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
+		fpath <- xFromChars_('~/Desktop/bench-', fname)
+		width <- 100 * xLenOf(releases(repo)) + 200
 
+		png(fpath, res = 150, width = width, height = 1000)
+			plot(gg)
+		dev.off()
 
-
-	png('~/Desktop/test.png', res = 150, width = 2000, height = 1000)
-		plot(gg)
-	dev.off()
+	})
 
 }
 
@@ -284,14 +326,3 @@ plot_timings <- timings := {
 
 
 plot_timings(timings)
-
-on.exit({
-
-	if ( !is_current_version(xVersion()) ) {
-
-		message('-- reinstalling latest version of ', config $ reponame)
-
-		install_github(config $ reponame, config $ username, ref = 'releases')
-	}
-
-})
