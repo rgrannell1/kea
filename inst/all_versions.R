@@ -39,6 +39,7 @@ config <- list(
 	repo_url    = "https://github.com/rgrannell1/kea",
 
 	benchmarks  = get_path("inst/benchmarks"),
+	total_time  = NA, # todo; evenly divide maxtime between expressions.
 	seconds     = 0.5
 )
 
@@ -112,7 +113,7 @@ releases <- repo := {
 
 
 
-
+# load the current benchmarks as filename, file content pairs.
 
 benchmarks <-
 	x_(list.files(config $ benchmarks, full.names = True)) $
@@ -121,8 +122,10 @@ benchmarks <-
 
 
 
+# load a particular version of the repository
+# an execute a callback after loading that package in a seperate environment.
 
-try_load <- (reponame : username : ref : callback) := {
+try_load <- (ref : callback) := {
 
 	test_env <- new.env(parent = environment())
 
@@ -155,14 +158,14 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 	lapply(seq_along(benchmarks), function (ith) {
 
-		benchmark <- benchmarks[[ith]]
+		benchmark        <- benchmarks[[ith]]
 
 		benchmark_file   <- benchmark[[1]]
 		benchmarks_exprs <- benchmark[[2]]
 
 		lapply(seq_along(benchmarks_exprs), function (jth) {
 
-			test_env   <- new.env(parent = environment())
+			test_env <- new.env(parent = environment())
 
 			expr     <- benchmarks_exprs[[jth]]
 			deparsed <- paste0(deparse(expr), collapse = '\n')
@@ -176,7 +179,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 					while (time_remaining()) {
 
 						# cargo-cult programming.
-						gc(verbose = False)
+						gc(verbose = FALSE)
 
 						group_times <- microbenchmark(
 							.(expr), unit = 'hz', times = 60, control = list(warmup = 10)) $ time
@@ -234,25 +237,34 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 }
 
 
-
+# load a version of package and benchmark that code.
 
 run_benchmarks <- (repo_path : benchmarks: ref) := {
-	try_load(config $ reponame, config $ username, ref, function () {
+	try_load(ref, function () {
 		try_benchmark(benchmarks, ref, config $ seconds)
 	})
 }
 
-timings <-
+# benchmark every version of a repository.
+
+benchmark_each_version <- (repo : benchmarks : repo_path) := {
+
 	x_(releases(repo)) $
 	xFlatMap(tag := {
 		run_benchmarks(repo_path, benchmarks, tag)
 	})                 $
 	x_Join()
 
+}
+
+timings <- benchmark_each_version(repo, benchmarks, repo_path)
 reinstall_current_kea()
 
 
 
+
+
+# convert each set of timing data to a data frame for plotting.
 
 timings_as_dataframe <- timings := {
 
