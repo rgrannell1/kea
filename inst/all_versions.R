@@ -22,6 +22,8 @@ if (!require(kea)) {
 
 stopwatch <- xStopwatch
 
+# get file paths relative to the repositories location.
+
 get_path <- (...) := {
 	xImplode(.Platform $ file.sep, xJoin_(getwd(), ...))
 }
@@ -44,7 +46,8 @@ config <- list(
 
 
 
-
+# if the latest version of kea isn't installed, go to
+# github and reinstall it.
 
 reinstall_current_kea <-local({
 
@@ -64,18 +67,20 @@ on.exit(reinstall_current_kea())
 
 
 
-
+# create a temporary folder to work within.
 
 setup_path <- function () {
-	tempfile(pattern = "git2r-")
+	tempfile(pattern = "r-benchmark-")
 }
+
+# download the git repository if it isn't already downloaded.
 
 setup_repo <- function (repo_path) {
 
 	if (length(list.files(repo_path)) == 0) {
-		repository(repo_path)
-	} else {
 		clone(config $ repo_url, repo_path)
+	} else {
+		repository(repo_path)
 	}
 
 }
@@ -88,7 +93,8 @@ repo      <- setup_repo(repo_path)
 
 
 
-
+# list every tag matching the form v[x].[y].[z], sorted
+# properly.
 
 releases <- repo := {
 
