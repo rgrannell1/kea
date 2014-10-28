@@ -1,17 +1,31 @@
 
 require(git2r,          quietly = TRUE, warn.conflicts = FALSE)
 require(devtools,       quietly = TRUE, warn.conflicts = FALSE)
-require(kea,            quietly = TRUE, warn.conflicts = FALSE)
 require(microbenchmark, quietly = TRUE, warn.conflicts = FALSE)
 require(ggplot2,        quietly = TRUE, warn.conflicts = FALSE)
 require(scales,         quietly = TRUE, warn.conflicts = FALSE)
 require(reshape2,       quietly = TRUE, warn.conflicts = FALSE)
 
+# -- I questionably use kea to profile kea, so the library is
+# -- loaded and unloaded and removed frequently below.
 
+if (!require(kea)) {
 
-kea <- (...) := {
+	suppressMessages({
+
+		install_github('kea', 'rgrannell1', ref = 'releases')
+		require(kea, quietly = TRUE, warn.conflicts = FALSE)
+
+	})
+
+}
+
+stopwatch <- xStopwatch
+
+get_path <- (...) := {
 	xImplode(.Platform $ file.sep, xJoin_(getwd(), ...))
 }
+
 
 
 
@@ -22,7 +36,7 @@ config <- list(
 	reponame    = 'kea',
 	repo_url    = "https://github.com/rgrannell1/kea",
 
-	benchmarks  = kea("inst/benchmarks"),
+	benchmarks  = get_path("inst/benchmarks"),
 	seconds     = 0.5
 )
 
@@ -31,30 +45,38 @@ config <- list(
 
 
 
-is_current_version <- xIs(xVersion())
+is_latest_kea_version <- xIs(xVersion())
 
 on.exit({
 
-	if ( !is_current_version(xVersion()) ) {
+	if ( !is_latest_kea_version(xVersion()) ) {
 
-		message('-- reinstalling latest version of ', config $ reponame)
-		install_github(config $ reponame, config $ username, ref = 'releases')
+		install_github('kea', 'rgrannell1', ref = 'releases')
+		require(kea, quietly = TRUE, warn.conflicts = FALSE)
 
 	}
 
 })
 
+setup_path <- function () {
+	tempfile(pattern = "git2r-")
+}
 
-repo_path <- '/tmp/git2r-'
-#repo_path <- tempfile(pattern = "git2r-")
-#dir.create(repo_path)
+setup_repo <- function (repo_path) {
+
+	if (length(list.files(repo_path)) == 0) {
+		repository(repo_path)
+	} else {
+		clone(config $ repo_url, repo_path)
+	}
+
+}
 
 
 
 
-#repo  <- clone(config $ repo_url, repo_path)
-repo  <- repository(repo_path)
-
+repo_path <- setup_path()
+repo      <- setup_repo(repo_path)
 
 
 
@@ -62,18 +84,17 @@ repo  <- repository(repo_path)
 
 releases <- repo := {
 
+	is_release <- '^v[0-9]+[.][0-9]+[.][0-9]+$'
+
 	x_(tags(repo)) $
 	xSelect(tag := {
-		xIsMatch('^v[0-9]+[.][0-9]+[.][0-9]+$', tag @ name)
+		xIsMatch(is_release, tag @ name)
 	})             $
 	xSortBy(tag := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
 	})             $
-	x_Take(2)
+	x_Take(Inf)
 }
-
-# avoid naming conflicts later.
-stopwatch <- xStopwatch
 
 
 
@@ -94,37 +115,17 @@ try_load <- (reponame : username : ref : callback) := {
 	tryCatch(
 		eval({
 
-			#install_github(reponame, username, ref = ref, quiet = True)
-
-			# not generic!
-			package_number <- as.numeric(gsub('[v]|[.]', '', ref))
-
-			if (package_number < 160) {
-
-				require(arrow, quietly = TRUE, warn.conflicts = FALSE)
-
-			} else if (package_number < 420) {
-
-				require(kiwi,  quietly = TRUE, warn.conflicts = FALSE)
-
-			} else {
-
-				require(kea,   quietly = TRUE, warn.conflicts = FALSE)
-
-			}
-
-			message( "--- successfully installed version ", packageVersion(reponame))
+			checkout(ref, force = True)
+			suppressMessages(install.packages(repo_path, repos = Null, type = "source"))
 
 			callback( )
 
 		}, test_env),
 		error = err := {
-			message('--- failure while loading ', ref)
-			message(err)
+			message('\n--- failure while loading ', ref @ name)
 		},
 		warning = warn := {
-			message('--- warning while loading ', ref)
-			message(warn)
+			message('\n--- warning while loading ', ref @ name)
 		}
 	)
 
@@ -136,7 +137,7 @@ try_load <- (reponame : username : ref : callback) := {
 
 try_benchmark <- (benchmarks : ref : seconds) := {
 
-	message( "--- starting benchmarks " )
+	message( "\n--- benchmarking ", ref @ name, '\n' )
 
 	lapply(seq_along(benchmarks), function (ith) {
 
@@ -162,7 +163,6 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 						# cargo-cult programming.
 						gc(verbose = False)
-						Sys.sleep(1)
 
 						group_times <- microbenchmark(
 							.(expr), unit = 'hz', times = 60, control = list(warmup = 10)) $ time
@@ -175,7 +175,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 					list(
 						file   = benchmark_file,
 						expr   = deparsed,
-						ref    = ref,
+						ref    = ref @ name,
 
 						lower  = range[['1st Qu.']],
 						median = range[['Median']],
@@ -186,12 +186,10 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 				error = function (err) {
 
-					message('-- failure!')
-
 					list(
 						file   = benchmark_file,
 						expr   = deparsed,
-						ref    = ref,
+						ref    = ref @ name,
 
 						lower  = 0,
 						median = 0,
@@ -201,12 +199,10 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 				},
 				warning = function (warn) {
 
-					message('-- warning!')
-
 					list(
 						file   = benchmark_file,
 						expr   = deparsed,
-						ref    = ref,
+						ref    = ref @ name,
 
 						lower  = 0,
 						median = 0,
@@ -235,7 +231,7 @@ run_benchmarks <- (repo_path : benchmarks: ref) := {
 timings <-
 	x_(releases(repo)) $
 	xFlatMap(tag := {
-		run_benchmarks(repo_path, benchmarks, tag @ name)
+		run_benchmarks(repo_path, benchmarks, tag)
 	})                 $
 	x_Join()
 
@@ -245,7 +241,7 @@ timings <-
 
 if ( !is_current_version(xVersion()) ) {
 
-	message('-- reinstalling latest version of ', config $ reponame)
+	message('\n-- reinstalling latest version of ', config $ reponame, '.\n')
 	install_github(config $ reponame, config $ username, ref = 'releases')
 
 }
@@ -284,7 +280,7 @@ plot_timings <- timings := {
 
 	x_(wide_dfs) $ x_Do(wide_df := {
 
-		gg <-
+		file_plot <-
 			ggplot(wide_df) +
 
 			geom_point(
@@ -309,12 +305,16 @@ plot_timings <- timings := {
 
 
 
+
+
 		fname <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
-		fpath <- xFromChars_('~/Desktop/bench-', fname)
-		width <- 100 * xLenOf(releases(repo)) + 200
+		fpath <- xFromChars_('~/Desktop/benchmark/bench-', fname)
+		width <- 100 * xLenOf(releases(repo)) + 500
+
+		message('-- saving benchmark plot to ', fpath, '.\n')
 
 		png(fpath, res = 150, width = width, height = 1000)
-			plot(gg)
+			plot(file_plot)
 		dev.off()
 
 	})
