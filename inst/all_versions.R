@@ -70,8 +70,12 @@ on.exit(reinstall_current_kea())
 
 # create a temporary folder to work within.
 
-setup_path <- function () {
-	tempfile(pattern = "r-benchmark-")
+setup_path <- function (debug) {
+	if (debug) {
+		'/tmp/r-benchmark'
+	} else {
+		tempfile(pattern = "r-benchmark-")
+	}
 }
 
 # download the git repository if it isn't already downloaded.
@@ -89,7 +93,7 @@ setup_repo <- function (repo_path) {
 
 
 
-repo_path <- setup_path()
+repo_path <- setup_path(True)
 repo      <- setup_repo(repo_path)
 
 
@@ -108,7 +112,7 @@ releases <- repo := {
 	xSortBy(tag := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
 	})             $
-	x_Take(Inf)
+	x_Take(10)
 }
 
 
@@ -167,8 +171,8 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 			test_env <- new.env(parent = environment())
 
-			expr     <- benchmarks_exprs[[jth]]
-			deparsed <- paste0(deparse(expr), collapse = '\n')
+			expr          <- benchmarks_exprs[[jth]]
+			deparsed_expr <- paste0(deparse(expr), collapse = '\n')
 
 			expr_times <- tryCatch(
 				eval(bquote({
@@ -191,7 +195,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 					list(
 						file   = benchmark_file,
-						expr   = deparsed,
+						expr   = deparsed_expr,
 						ref    = ref @ name,
 
 						lower  = range[['1st Qu.']],
@@ -205,7 +209,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 					list(
 						file   = benchmark_file,
-						expr   = deparsed,
+						expr   = deparsed_expr,
 						ref    = ref @ name,
 
 						lower  = 0,
@@ -218,7 +222,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 					list(
 						file   = benchmark_file,
-						expr   = deparsed,
+						expr   = deparsed_expr,
 						ref    = ref @ name,
 
 						lower  = 0,
@@ -302,7 +306,7 @@ plot_timings <- timings := {
 			geom_point(
 				aes(
 					x = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
-					y = median, color = expr, guide = file), alpha = 0.6) +
+					y = median, color = expr, guide = file), alpha = 0.8) +
 
 			geom_errorbar(
 				aes(
@@ -311,25 +315,26 @@ plot_timings <- timings := {
 					ymax  = upper,
 					color = expr,
 					guide = file
-				), width = 0.4, alpha = 0.2) +
+				), width = 0.4, alpha = 0.4) +
 
 			xlab("")   +
 			ylab("Hz") +
 			ggtitle("Kea performance between releases.") +
 
-			scale_y_log10( breaks = 10 ^ (1:6), labels = comma(10 ^ (1:6)) )
+			scale_y_log10( breaks = 10 ^ (1:6), labels = comma(10 ^ (1:6)), limits = c(10^1, 10^6) )
+
+		print(wide_df)
 
 
 
+		fname      <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
+		fpath      <- xFromChars_('~/Desktop/benchmark/bench-', fname)
 
-
-		fname <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
-		fpath <- xFromChars_('~/Desktop/benchmark/bench-', fname)
-		width <- 100 * xLenOf(releases(repo)) + 500
+		plot_width <- 100 * xLenOf(releases(repo)) + 500
 
 		message('-- saving benchmark plot to ', fpath, '.\n')
 
-		png(fpath, res = 150, width = width, height = 1000)
+		png(fpath, res = 150, width = plot_width, height = 1000)
 			plot(file_plot)
 		dev.off()
 
