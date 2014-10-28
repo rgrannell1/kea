@@ -112,7 +112,7 @@ releases <- repo := {
 	xSortBy(tag := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
 	})             $
-	x_Take(3)
+	x_Take(Inf)
 }
 
 
@@ -300,6 +300,8 @@ plot_timings <- timings := {
 
 	x_(wide_dfs) $ x_Do(wide_df := {
 
+		fname      <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
+
 		file_plot <-
 			ggplot(wide_df) +
 
@@ -318,11 +320,12 @@ plot_timings <- timings := {
 
 			xlab("")   +
 			ylab("Hz") +
-			ggtitle("Kea performance between releases.") +
+			ggtitle(paste(fname, "performance between releases.")) +
+
+			guides(fill = guide_legend(title = "Expression")) +
 
 			scale_y_log10( breaks = 10 ^ (0:7), labels = comma(10 ^ (0:7)), limits = c(10^0, 10^7) )
 
-		fname      <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
 		fpath      <- xFromChars_('~/Desktop/benchmark/bench-', fname)
 
 		plot_width <- 100 * xLenOf(releases(repo)) + 500
