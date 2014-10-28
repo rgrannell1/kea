@@ -45,18 +45,26 @@ config <- list(
 
 
 
-is_latest_kea_version <- xIs(xVersion())
 
-on.exit({
+reinstall_current_kea <-local({
 
-	if ( !is_latest_kea_version(xVersion()) ) {
+	is_latest_kea_version <- xIs(xVersion())
 
-		install_github('kea', 'rgrannell1', ref = 'releases')
-		require(kea, quietly = TRUE, warn.conflicts = FALSE)
+	function () {
+		if ( !is_latest_kea_version(xVersion()) ) {
 
+			install_github('kea', 'rgrannell1', ref = 'releases')
+			require(kea, quietly = TRUE, warn.conflicts = FALSE)
+
+		}
 	}
-
 })
+
+on.exit(reinstall_current_kea())
+
+
+
+
 
 setup_path <- function () {
 	tempfile(pattern = "git2r-")
@@ -235,17 +243,7 @@ timings <-
 	})                 $
 	x_Join()
 
-
-
-
-
-if ( !is_current_version(xVersion()) ) {
-
-	message('\n-- reinstalling latest version of ', config $ reponame, '.\n')
-	install_github(config $ reponame, config $ username, ref = 'releases')
-
-}
-
+reinstall_current_kea()
 
 
 
