@@ -40,7 +40,7 @@ config <- list(
 
 	benchmarks  = get_path("inst/benchmarks"),
 	total_time  = NA, # todo; evenly divide maxtime between expressions.
-	seconds     = 0.5
+	seconds     = 0.1
 )
 
 
@@ -112,7 +112,9 @@ releases <- repo := {
 	xSortBy(tag := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
 	})             $
-	x_Take(Inf)
+	xReverse()     $
+	xTake(20)      $
+	x_Reverse()
 }
 
 
@@ -139,6 +141,25 @@ try_load <- (ref : callback) := {
 			checkout(ref, force = True)
 			suppressMessages(install.packages(repo_path, repos = Null, type = "source"))
 
+			package_number <- as.numeric(gsub('[v]|[.]', '', ref @ name))
+
+			if (package_number < 160) {
+
+				require(arrow, quietly = TRUE, warn.conflicts = FALSE)
+				message('loaded ', packageVersion('arrow'))
+
+			} else if (package_number < 420) {
+
+				require(kiwi, quietly = TRUE, warn.conflicts = FALSE)
+				message('loaded ', packageVersion('kiwi'))
+
+			} else {
+
+				require(kea, quietly = TRUE, warn.conflicts = FALSE)
+				message('loaded ', packageVersion('kea'))
+
+			}
+
 			callback( )
 
 		}, test_env),
@@ -156,6 +177,14 @@ try_load <- (ref : callback) := {
 
 
 
+timing_result <- function (file, expr, ref, lower = 0, median = 0, upper = 0) {
+	list(file = file, expr = expr, ref = ref, lower = lower, median = median, upper = upper)
+}
+
+
+
+
+
 try_benchmark <- (benchmarks : ref : seconds) := {
 
 	message( "\n--- benchmarking ", ref @ name, '\n' )
@@ -166,6 +195,8 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 		benchmark_file   <- benchmark[[1]]
 		benchmarks_exprs <- benchmark[[2]]
+
+		message('------ benchmarking ', benchmark_file)
 
 		lapply(seq_along(benchmarks_exprs), function (jth) {
 
@@ -191,45 +222,20 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 						expr_times <- c(expr_times, group_times)
 					}
 
-					range <- summary(1 / as.numeric(expr_times) * 10^9)
+					quartiles <- summary(1 / as.numeric(expr_times) * 10^9)
 
-					list(
-						file   = benchmark_file,
-						expr   = deparsed_expr,
-						ref    = ref @ name,
-
-						lower  = range[['1st Qu.']],
-						median = range[['Median']],
-						upper  = range[['3rd Qu.']]
+					timing_result(
+						benchmark_file, deparsed_expr, ref @ name,
+						quartiles[['1st Qu.']], quartiles[['Median']], quartiles[['3rd Qu.']]
 					)
 
 				}), envir = test_env),
 
 				error = function (err) {
-
-					list(
-						file   = benchmark_file,
-						expr   = deparsed_expr,
-						ref    = ref @ name,
-
-						lower  = 0,
-						median = 0,
-						upper  = 0
-					)
-
+					timing_result(benchmark_file, deparsed_expr, ref @ name)
 				},
 				warning = function (warn) {
-
-					list(
-						file   = benchmark_file,
-						expr   = deparsed_expr,
-						ref    = ref @ name,
-
-						lower  = 0,
-						median = 0,
-						upper  = 0
-					)
-
+					timing_result(benchmark_file, deparsed_expr, ref @ name)
 				}
 			)
 
@@ -305,18 +311,17 @@ plot_timings <- timings := {
 		file_plot <-
 			ggplot(wide_df) +
 
-			geom_point(
-				aes(
-					x = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
-					y = median, color = expr), alpha = 0.8) +
-
-			geom_errorbar(
+			geom_pointrange(
+				position = position_jitter(width = 0.4, height = 0),
 				aes(
 					x     = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
+
 					ymin  = lower,
+					y     = median,
 					ymax  = upper,
+
 					color = expr
-				), width = 0.4, alpha = 0.4) +
+				), width = 0.4, alpha = 0.8) +
 
 			xlab("")   +
 			ylab("Hz") +
