@@ -142,10 +142,9 @@ throw_kea_condition <- function (exception) {
 
 new_error_type <- function (...) {
 
+	classes <- c(...)
+
 	function (message) {
-
-		classes <- c(...)
-
 		structure(
 			class = c(classes, 'condition', 'error'),
 			list(message = paste0(classes[length(classes)], ': ', message))
