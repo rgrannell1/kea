@@ -11,9 +11,9 @@ xIntersect_(coll1, ...)
 \arguments{
 \item{coll1}{a collection. The first collection to get the intersection of.}
 
-\item{...}{see above.}
+\item{coll2}{a collection. The second collection to get the intersection of.}
 
-\item{coll1}{a collection. The second collection to get the intersection of.}
+\item{...}{see above.}
 }
 \value{
 A list.
