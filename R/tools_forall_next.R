@@ -1234,12 +1234,12 @@ failsFor <- function (info, ...) {
 
 	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
 
-		fails <- tryDefault(
+		fails <- tryCatch(
 			{
 				eval(assertion)
 				FALSE
 			},
-			TRUE
+			error = function (err) {TRUE}
 		)
 
 		if (!fails) {
