@@ -188,7 +188,7 @@ raise_error   <- function (condition, colour) {
 
 raise_warning <- function (condition, colour) {
 	throw_kea_condition(function (message) {
-		stop( condition(colourise [[colour]](message) ))
+		warning( condition(colourise [[colour]](message) ))
 	})
 }
 
