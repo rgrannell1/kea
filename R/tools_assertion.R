@@ -207,7 +207,7 @@ raise_warning <- function (condition, colour) {
 
 
 throw_exception <- list(
-	warnin          = raise_warning(warning,        'yellow'),
+	warning          = raise_warning(warning,        'yellow'),
 	error            = raise_error(stop,             'red'),
 
 	arithmetic_error = raise_error(arithmetic_error, 'red'),
