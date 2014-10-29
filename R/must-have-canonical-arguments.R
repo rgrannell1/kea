@@ -52,7 +52,7 @@ Must_Have_Canonical_Arguments <- function () {
 				". This will be misinterpreted by R. Use " %+%
 				dQuote(suggested) %+% " with a list argument instead of " %+% dQuote(fn_name) %+% "."
 
-			throw_kea_error(.sys_call, message)
+			throw_exception $ key_error(.sys_call, message)
 		}
 
 	})

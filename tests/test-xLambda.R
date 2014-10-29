@@ -70,3 +70,11 @@ message("xLambda")
 	) +
 
 	run()
+
+	holdsFor(
+		"formals are as expected",
+
+		names( formals((a : b) := {a + b}) ) %is% c('a', 'b'),
+		names(formals(x := x))   == 'x',
+		names(formals((x) := x)) == 'x'
+	)

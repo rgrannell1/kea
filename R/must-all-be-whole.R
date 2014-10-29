@@ -16,7 +16,7 @@ Must_All_Be_Whole <- function (NUMS) {
 			" it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}" %+%
 			summate( .(NUMS) )
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} else if (isTRUE(round( .(NUMS) ) != .(NUMS))) {
 
@@ -24,7 +24,7 @@ Must_All_Be_Whole <- function (NUMS) {
 			"The argument matching " %+% ddquote( .(NUMS) ) %+% " must be a collection of round numbers.\n\n" %+%
 			summate(.(NUMS))
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	})
 

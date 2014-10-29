@@ -13,7 +13,7 @@
 #'    coll1 a collection. The first collection to get the intersection of.
 #'
 #' @param
-#'    coll1 a collection. The second collection to get the intersection of.
+#'    coll2 a collection. The second collection to get the intersection of.
 #'
 #' @param
 #'    ... see above.

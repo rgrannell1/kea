@@ -280,7 +280,7 @@ create_dynamic_body <- function (fn, method_name) {
 			message = "Too few arguments were supplied to the method " %+% .(paste(fn_sym)) %+%
 				", as methods\ncannot currently be partially applied.\n"
 
-			throw_kea_error(sys.call(), message)
+			throw_exception $ error(sys.call(), message)
 		}
 
 		# -- set the missing argument to the LHS (Self() returns the LHS)
@@ -594,7 +594,7 @@ x_coll_proto     <- make_proto(kea_fns, proto_params $ coll,       'collections'
 #' @export
 
 
-x_ <- MakeFun(function (val) {
+x_ <- MakeFun(function (val)
 	# Collection any -> Kea any
 	# type constructor for the method-chaining data type.
 
@@ -610,7 +610,7 @@ x_ <- MakeFun(function (val) {
 		# -- as if val is null then x_ will fail.
 		structure(list(x = val), class = 'kea')
 	}
-})
+)
 
 #' @rdname x_
 #' @export
@@ -827,7 +827,7 @@ suggest_similar_method <- local({
 					"Could not find the method " %+% dQuote(method_name) %+%
 					" in the methods available for " %+% content_type %+% ". Did you mean " %+%
 					dQuote(changed_variadicity) %+% "?"
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 
 			}
 
@@ -860,7 +860,7 @@ suggest_similar_method <- local({
 					" in the methods available for " %+% content_type %+% ", but it is " %+%
 					"available for " %+% toString(with_method) %+% '.'
 
-				throw_kea_error(invoking_call, message)
+				throw_exception $ error(invoking_call, message)
 			}
 
 		}
@@ -894,7 +894,7 @@ suggest_similar_method <- local({
 				"did you mean " %+% rsample(similar, size = 1) %+% "?")
 		}
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 })
 
@@ -905,38 +905,31 @@ suggest_similar_method <- local({
 
 #' @export
 
-`$.kea` <- local({
+`$.kea` <- function (obj, method) {
 
-	# some methods are known by their more common
-	# but worse names (like filter, filterNot).
-	# Meet the user half way and suggest the "proper" name.
+	method_name <- paste0(substitute(method))
+	proto       <- get_proto_ref( obj[['x']] )
 
-	function (obj, method) {
+	if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
+		# -- the invoked method wasn't found, so we should give a suggestion.
 
-		method_name <- paste0(substitute(method))
-		proto       <- get_proto_ref( obj[['x']] )
+		# -- required for proper call formatting in output.
+		invoking_call <- call('$', sys.call()[[2]], sys.call()[[3]] )
 
-		if ( !any(proto[[2]] == method_name) || method_name == "private" ) {
-			# -- the invoked method wasn't found, so we should give a suggestion.
+		contents_are <- proto[[1]][['private']][['contents_are']]
 
-			# -- required for proper call formatting in output.
-			invoking_call <- call('$', sys.call()[[2]], sys.call()[[3]] )
+		suggest_similar_method(
+			obj[['x']], method_name, contents_are, invoking_call)
 
-			contents_are <- proto[[1]][['private']][['contents_are']]
-
-			suggest_similar_method(
-				obj[['x']], method_name, contents_are, invoking_call)
-
-		}
-
-		fn <- proto[[1]][[method_name]]
-		environment(fn)[['Self']] <- function () {
-			obj[['x']]
-		}
-
-		fn
 	}
-})
+
+	fn <- proto[[1]][[method_name]]
+	environment(fn)[['Self']] <- function () {
+		obj[['x']]
+	}
+
+	fn
+}
 
 
 

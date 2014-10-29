@@ -12,7 +12,7 @@ Must_Be_Orderable <- function (NUMS) {
 			" must be a collection of orderable elements, but contained NA or NaN values." %+%
 			summate(.(NUMS))
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} )
 }

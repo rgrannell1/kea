@@ -10,7 +10,7 @@ Must_Contain_Key <- function (STR, COLL) {
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
 			" did not contain the key matching " %+% ddquote(.( STR )) %+% "."
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ key_error(sys.call(), message)
 	})
 
 }

@@ -17,7 +17,7 @@ Must_Be_Whole <- function (NUM) {
 			"The argument matching " %+% ddquote( .(NUM) ) %+%
 			" must not be NA or NaN; it must be an element of the set {-Inf, ..., -1, 0, +1, ..., +Inf}"
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} else if (round( .(NUM) ) != .( NUM )) {
 
@@ -28,7 +28,7 @@ Must_Be_Whole <- function (NUM) {
 			paste(.(NUM)) %+%
 			"\n"
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} )
 }

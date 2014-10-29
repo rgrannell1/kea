@@ -25,7 +25,7 @@ Must_Have_Arity <- function (FN, NUM) {
 			"\nThe actual function accepts " %+% arity %+%
 			pluralise(" argument", arity) %+% "."
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	} )
 

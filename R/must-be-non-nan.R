@@ -9,7 +9,8 @@ Must_Be_Non_Nan <- function (NUM) {
 			"The argument matching " %+% ddquote(.(NUM)) %+%
 			" must not be NaN.\n" %+%
 			"The actual argument was " %+% paste(.(NUM)) %+% ".\n"
-		throw_kea_error(sys.call(), message)
+
+		throw_exception $ value_error(sys.call(), message)
 
 	} )
 }

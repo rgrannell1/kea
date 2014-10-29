@@ -38,12 +38,11 @@ x_(runif(100)) $ xShuffle() $ xTake(30) $ x_MeanBy(xI)
 # ~ 0.5
 }
 \seealso{
-Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xDo}}, \code{\link{xDo_}};
-  \code{\link{xExecute}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRead}};
-  \code{\link{xStopwatch}}; \code{\link{xVersion}};
-  \code{\link{xWrite}}
+Other inpure_functions: \code{\link{xDo}},
+  \code{\link{xDo_}}; \code{\link{xExecute}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xRead}}; \code{\link{xStopwatch}};
+  \code{\link{xVersion}}; \code{\link{xWrite}}
 
 Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChop}},
@@ -54,7 +53,8 @@ Other reshaping_functions: \code{\link{xAppend}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},
   \code{\link{xJoin_}}; \code{\link{xOneOf}},
   \code{\link{xOneOf_}}; \code{\link{xPrepend}},
-  \code{\link{xPrepend_}}; \code{\link{xRepeat}},
+  \code{\link{xPrepend_}}; \code{\link{xRecycle}},
+  \code{\link{xRecycle_}}; \code{\link{xRepeat}},
   \code{\link{xRepeat_}}; \code{\link{xReverse}},
   \code{\link{xReverse_}}; \code{\link{xSortBy}},
   \code{\link{xSortBy_}}; \code{\link{xTabulate}},

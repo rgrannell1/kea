@@ -418,7 +418,7 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'either positives or negatives must be set.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 
 	} else if (is.null(test $ positives)) {
 		test $ positives <- list()
@@ -432,7 +432,7 @@ validate_test <- function (invoking_call, test) {
 			message <-
 				'the property ' %+% key %+% ' is missing from the test object.'
 
-			throw_kea_error(invoking_call, message)
+			throw_exception $ error(invoking_call, message)
 		}
 	}
 
@@ -440,14 +440,14 @@ validate_test <- function (invoking_call, test) {
 		message <-
 			'time must be a positive number'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	if (length(test $ info) != length(test $ positives) + length(test $ negatives)) {
 		message <-
 			'there must be a one and only one description for each positive or negative test.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	test $ info <- dQuote(test $ info)
@@ -946,7 +946,7 @@ holdsWhen <- function (expr1, ...) {
 		message <-
 			'holdsWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	out <- list(
@@ -973,7 +973,7 @@ worksWhen <- function (expr1, ...) {
 		message <-
 			'worksWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	# if the expression runs, return tre.
@@ -1008,7 +1008,7 @@ failsWhen <- function (expr1, ...) {
 		message <-
 			'failsWhen must specify expectations.'
 
-		throw_kea_error(invoking_call, message)
+		throw_exception $ error(invoking_call, message)
 	}
 
 	out <- list(
@@ -1020,97 +1020,6 @@ failsWhen <- function (expr1, ...) {
 
 }
 
-
-
-
-
-# one-of test cases (returns true)
-#
-
-holdsFor <- function (...) {
-
-	invoking_call <- sys.call()
-
-	exprs <- as.list(match.call(expand.dots = False)[-1])
-
-	if (missing(..1)) {
-		message <-
-			'holdsWhen must specify expectations.'
-
-		throw_kea_error(invoking_call, message)
-	}
-
-	out <- list(
-		positives =
-			c(list( TRUE ), exprs$...)
-	)
-	class(out) <- c('xforall', 'xholdswhen')
-	out
-
-}
-
-
-
-
-# one-of test cases (doesn't fail)
-#
-
-worksFor <- function (...) {
-
-	invoking_call <- sys.call()
-
-	exprs <- as.list(match.call(expand.dots = False)[-1])
-
-	if (missing(..1)) {
-		message <-
-			'worksWhen must specify expectations.'
-
-		throw_kea_error(invoking_call, message)
-	}
-
-	# if the expression runs, return tre.
-	exprs $ ... <- lapply(exprs $ ..., function (expr) {
-
-		join_exprs(expr, {TRUE})
-
-	})
-
-	out <- list(
-		positives =
-			c(list(TRUE), exprs$...)
-	)
-	class(out) <- c('xforall', 'xholdswhen')
-	out
-
-}
-
-
-
-
-
-# one-off test case (throws error)
-#
-
-failsFor <- function (...) {
-
-	invoking_call <- sys.call()
-
-	exprs <- as.list(match.call(expand.dots = False)[-1])
-	if (missing(..1)) {
-		message <-
-			'failsWhen must specify expectations.'
-
-		throw_kea_error(invoking_call, message)
-	}
-
-	out <- list(
-		negatives =
-			c(list(TRUE), exprs$...)
-	)
-	class(out) <- c('xforall', 'xfailsWhen')
-	out
-
-}
 
 
 
@@ -1190,4 +1099,162 @@ run <- function (time = 1) {
 	}
 
 	invisible(Null)
+}
+
+
+
+
+
+
+# One-Off testing functions.
+#
+
+holdsFor <- function (info, ...) {
+
+	invoking_call <- sys.call()
+
+	if (!is.character(info)) {
+
+		throw_exception $ type_error(invoking_call, "description missing or invalid.")
+
+	}
+
+	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
+
+		passed <- tryCatch(
+			eval(assertion),
+			error = function (err) {
+
+				message <-
+					info %+% '\n' %+%
+					colourise $ red('Failed! ') %+%
+					'the property ' %+% ddparse(assertion) %+%
+					' threw an error.'
+
+				throw_exception $ error(invoking_call, message)
+
+			}
+		)
+
+		if (!is.logical(passed)) {
+
+			message <-
+				info %+% '\n' %+%
+				colourise $ red('Failed! ') %+%
+				'the property ' %+% ddparse(assertion) %+%
+				' returned a non-logical value.'
+
+			throw_exception $ type_error(invoking_call, message)
+
+		}
+
+		if (length(passed) != 1) {
+
+			message <-
+				info %+% '\n' %+%
+				colourise $ red('Failed! ') %+%
+				'the property ' %+% ddparse(assertion) %+%
+				' returned a non-length one value.'
+
+			throw_exception $ value_error(invoking_call, message)
+
+		}
+
+		if (!isTRUE(passed)) {
+
+			message <-
+				info %+% '\n' %+%
+				colourise $ red('Failed! ') %+%
+				'the property ' %+% ddparse(assertion) %+%
+				' was false.'
+
+			throw_exception $ value_error(invoking_call, message)
+
+		}
+
+	})
+
+	invisible(NULL)
+}
+
+
+
+
+
+worksFor <- function (info, ...) {
+
+	invoking_call <- sys.call()
+
+	if (!is.character(info)) {
+
+		throw_exception $ type_error(invoking_call, "description missing or invalid.")
+
+	}
+
+	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
+
+		tryCatch(
+			eval(assertion),
+			error = function (err) {
+
+				message <-
+					info %+% '\n' %+%
+					colourise $ red('Failed! ') %+%
+					'the property ' %+% ddparse(assertion) %+%
+					' threw an error.'
+
+				throw_exception $ error(invoking_call, message)
+
+			}
+		)
+
+	})
+
+	invisible(NULL)
+}
+
+
+
+
+
+
+
+
+
+
+failsFor <- function (info, ...) {
+
+	invoking_call <- sys.call()
+
+	if (!is.character(info)) {
+
+		throw_exception $ type_error(invoking_call, "description missing or invalid.")
+
+	}
+
+	lapply(match.call(expand.dots = FALSE) $ ..., function (assertion) {
+
+		fails <- tryDefault(
+			{
+				eval(assertion)
+				FALSE
+			},
+			TRUE
+		)
+
+		if (!fails) {
+
+			message <-
+				info %+% '\n' %+%
+				colourise $ red('Failed! ') %+%
+				'the property ' %+% ddparse(assertion) %+%
+				' did not throw an error.'
+
+			throw_exception $ error(invoking_call, message)
+
+		}
+
+	})
+
+	invisible(NULL)
 }

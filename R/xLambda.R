@@ -52,168 +52,143 @@
 #'
 #' @rdname xLambda
 
-xLambda <- local({
+relist <- function (expr) {
 
-	# -- grab different parts of the abstract syntax tree.
+	if (is.name(expr)) {
+		expr
+	} else if (is.call(expr)) {
+		lapply(expr, relist)
+	} else {
 
-	get_tree <- list(
-		delim =
-			function (tree, symbol = True) {
+		message <- 'invalid parametre'
+		throw_exception $ syntax_error(lambda_call(), message)
 
-				if (symbol) {
-					tree[[1]]
-				} else {
-					paste( tree[[1]] )
-				}
+	}
+}
 
-			},
-		rest =
-			function (tree, symbol = True) {
+validate <- function (coll) {
 
-				if (symbol) {
-					tree[[2]]
-				} else {
-					paste( tree[[2]] )
-				}
+	if (is.list(coll)) {
 
-			},
-		param =
-			function (tree, symbol = True) {
 
-				if (symbol) {
-					tree[[3]]
-				} else {
-					paste( tree[[3]] )
-				}
+		message <- if (length(coll) != 3) {
 
-			}
-	)
+			"invalid syntax."
 
-	# -- try parse the bracket-enclosed formals
+		} else if (paste( coll[[1]]) != ':') {
 
-	collect_params <- function (tree, state, invoking_call = sys.call(1)) {
-		# -- recur into the formals parse tree, accumulating
-		# -- parametre names and validating the tree.
+			"parametres must be seperated by ':' delimiters."
 
-		if (is.name(tree)) {
+		} else if (!is.symbol( coll[[3]] )) {
 
-			c(paste(tree), state $ params)
-
-		} else if (is.call(tree)) {
-
-			if ( !is.name(get_tree $ param(tree)) ) {
-				# -- the parametre isn't a symbol
-
-				message <-
-					"function parametres must be symbols." %+%
-					summate(get_tree $ param(tree))
-
-				invoking_call <- call(
-					'%:=%',
-					invoking_call[-1][[1]],
-					invoking_call[-1][[2]])
-
-				throw_kea_error(invoking_call, message)
-			}
-
-			if (get_tree $ delim(tree) != ":") {
-
-				message <-
-					"parametres must be delimited by ':'"
-
-				invoking_call <- call(
-					'%:=%',
-					invoking_call[-1][[1]],
-					invoking_call[-1][[2]])
-
-				throw_kea_error(invoking_call, message)
-			}
-
-			new_state <- list(
-				params =
-					c(paste(get_tree $ param(tree, True)), state $ params) )
-
-			collect_params(get_tree $ rest(tree), new_state)
+			"invalid parametre."
 
 		}
+
+		if (length(message) > 0) {
+			throw_exception(lambda_call(), message)
+		}
+
+		validate( coll[[2]] )
+
 	}
 
-	construct_function <- function (params, exprbody, env) {
-		# -- create a function from parametres, body and an environment.
-		# -- underscored parametres write code into the function body.
+}
 
-		which_duplicated <- which(duplicated(params))
+extract <- function (coll, params = character(0)) {
 
-		if (length(which_duplicated) > 0) {
+	if (is.list( coll[[2]] )) {
+		extract( coll[[2]], c(paste( coll[[3]] ), params) )
+	} else {
+		parametres <- c(paste( coll[[2]] ), paste( coll[[3]] ), params)
 
-			message <-
-				"parametres must not be duplicated: " %+% toString(params[which_duplicated])
+		if (length( which(duplicated(parametres)) ) != 0) {
 
-			invoking_call <- call(
-				'%:=%',
-				sys.call(1)[-1][[1]],
-				sys.call(1)[-1][[2]])
+			duplicates <- vapply(which(duplicated(parametres)), ith_suffix, character(1))
 
-			throw_kea_error(invoking_call, message)
+			message    <-
+				"duplicated parametres at " %+% toString(duplicates) %+%
+				pluralise(" position", length(duplicates)) %+% "."
+
+			throw_exception $ syntax_error(lambda_call(), message)
+
 		}
+
+		parametres
+	}
+
+}
+
+lambda_call <- function () {
+
+	sys_call      <- sys.call(1)[-1]
+	invoking_call <- call( '%:=%', sys_call[[1]], sys_call[[2]] )
+
+}
+
+
+
+
+
+xLambda <- function (sym, val) {
+
+	param_expr <- substitute(sym)
+	body_expr  <- substitute(val)
+
+	if (is.name(param_expr)) {
+		# -- creating a unary function (more efficient).
+
+		lambda              <- do.call('function', list(as_formals(paste(param_expr)), body_expr))
+		environment(lambda) <- parent.frame()
+
+		#MakeFun(lambda)
+		lambda
+
+	} else if (is.call(param_expr)) {
+		# -- need to crawl through the expression and pull out symbols.
+
+		if ( param_expr[[1]] != '(') {
+
+			message <- "the formals for non-unary functions " %+%
+				"must be enclosed in parentheses."
+
+			throw_exception $ syntax_error(lambda_call(), message)
+
+		}
+
+		if (length( param_expr[[2]] ) == 1) {
+			# -- unary function in braces.
+			# -- this path should be factored out in the future.
+
+			lambda              <- do.call('function', list(as_formals(paste( param_expr[[2]] )), body_expr))
+			environment(lambda) <- parent.frame()
+
+			#MakeFun(lambda)
+			return (lambda)
+
+		}
+
+		sexp                <- relist( param_expr[[2]] )
+		validate(sexp)
+
+		parametres          <- extract(sexp)
 
 		lambda              <- function () {}
 
-		formals(lambda)     <- as_formals(params)
-		body(lambda)        <- exprbody
-		environment(lambda) <- env
+		formals(lambda)     <- as_formals(parametres)
+		body(lambda)        <- body_expr
+		environment(lambda) <- parent.frame()
 
-		##MakeFun(lambda, typed = False, env)
+		#MakeFun(lambda)
 		lambda
+
+	} else {
+
+		message <- "invalid syntax."
+		throw_exception $ syntax_error(lambda_call(), message)
+
 	}
-
-	brace <- as.symbol('{')
-
-	function (sym, val) {
-		# symbol -> any -> function
-		# -- construct a function from a symbol and
-		# -- a function body.
-
-		param_block  <- substitute(sym)
-		val          <- substitute(val)
-
-		parent_frame <- parent.frame()
-
-		if (is.name(param_block)) {
-			# -- make lambda a default-free unary function.
-			# -- fast track.
-
-			param_block         <- paste(param_block)
-			lambda              <- do.call('function', list(as.pairlist(as_formals(param_block)), val))
-			environment(lambda) <- parent_frame
-
-			#MakeFun(lambda, typed = False, parent_frame)
-			lambda
-
-		} else {
-
-			if (get_tree $ delim(param_block) != '(') {
-				# -- check the formals are bracket-enclosed
-
-				message <-
-					"the formals for non-unary functions" %+%
-					" must be enclosed in parentheses."
-
-				invoking_call <- call(
-					'%:=%',
-					sys.call()[-1][[1]],
-					sys.call()[-1][[2]])
-
-				throw_kea_error(invoking_call, message)
-			}
-
-			params <- collect_params( param_block[[2]], list(params = character(0)) )
-
-			construct_function(paste(params), val, parent_frame)
-
-		}
-	}
-})
+}
 
 #' @rdname xLambda
 #' @export

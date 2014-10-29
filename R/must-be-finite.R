@@ -17,7 +17,7 @@ Must_Be_Finite <- function (NUM) {
 		"The actual argument was " %+% paste(.(NUM)) %+% "." %+%
 		'\n'
 
-		throw_kea_error(sys.call(), message)
+		throw_exception $ value_error(sys.call(), message)
 
 	})
 }

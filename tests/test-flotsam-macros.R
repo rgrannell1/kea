@@ -2,7 +2,7 @@
 require(kea)
 
 '%+%' <- kea ::: '%+%'
-throw_kea_error <- kea ::: throw_kea_error
+throw_exception <- kea ::: throw_exception
 is_na <- kea:::is_na
 
 # -- This series of unit tests checks that files that

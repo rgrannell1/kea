@@ -83,11 +83,10 @@ xDo(num := print('hello'),  1:n)
 
 }
 \seealso{
-Other inpure_functions: \code{\link{xDelay}};
-  \code{\link{xExecute}}; \code{\link{xOneOf}},
-  \code{\link{xOneOf_}}; \code{\link{xRead}};
-  \code{\link{xShuffle}}, \code{\link{xShuffle_}};
-  \code{\link{xStopwatch}}; \code{\link{xVersion}};
-  \code{\link{xWrite}}
+Other inpure_functions: \code{\link{xExecute}};
+  \code{\link{xOneOf}}, \code{\link{xOneOf_}};
+  \code{\link{xRead}}; \code{\link{xShuffle}},
+  \code{\link{xShuffle_}}; \code{\link{xStopwatch}};
+  \code{\link{xVersion}}; \code{\link{xWrite}}
 }
 
