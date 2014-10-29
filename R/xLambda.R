@@ -160,6 +160,14 @@ xLambda <- function (sym, val) {
 			# -- unary function in braces.
 			# -- this path should be factored out in the future.
 
+			if (!is.name( parametres_expr[[2]] )) {
+
+				message <- "invalid parametre."
+
+				throw_exception $ syntax_error(lambda_call(), message)
+
+			}
+
 			lambda              <- do.call('function', list(as_formals(paste( param_expr[[2]] )), body_expr))
 			environment(lambda) <- parent.frame()
 
