@@ -156,7 +156,7 @@ xLambda <- function (sym, val) {
 
 		}
 
-		if (length( param_expr[[2]] ) == 2) {
+		if (length( param_expr[[2]] ) == 1) {
 			# -- unary function in braces.
 			# -- this path should be factored out in the future.
 
@@ -164,7 +164,7 @@ xLambda <- function (sym, val) {
 			environment(lambda) <- parent.frame()
 
 			#MakeFun(lambda)
-			return(lambda)
+			return (lambda)
 
 		}
 
