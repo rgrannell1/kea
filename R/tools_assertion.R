@@ -136,9 +136,8 @@ throw_kea_condition <- function (exception) {
 
 
 
-# A more or less straight implementation of Python's
-# exceptions.
-#
+# -- Create a new subclass of error, and a matching function
+# -- to raise that exception.
 
 new_error_type <- function (...) {
 
@@ -161,10 +160,12 @@ new_error_type <- function (...) {
 
 arithmetic_error <- new_error_type('arithmetic_error')
 
+# -- reference errors.
 lookup_error     <- new_error_type('lookup_error')
 index_error      <- new_error_type('lookup_error', 'index_error')
 key_error        <- new_error_type('lookup_error', 'key_error')
 
+# -- read / write errors.
 io_error         <- new_error_type('lookup_error', 'io_error')
 
 # -- variable lookup fails.
@@ -173,62 +174,43 @@ name_error       <- new_error_type('lookup_error', 'name_error')
 # -- throw an error for custom syntax.
 syntax_error     <- new_error_type('syntax_error')
 
+# -- none specific error types.
 type_error       <- new_error_type('type_error')
 value_error      <- new_error_type('value_error')
+
+
+
+raise_error   <- function (condition, colour) {
+	function (message) {
+		stop( condition(colourise [[colour]](message) ))
+	}
+}
+
+raise_warning <- function (condition, colour) {
+	throw_kea_condition(function (message) {
+		stop( condition(colourise [[colour]](message) ))
+	})
+}
 
 
 
 
 
 throw_exception <- list(
-	warning = throw_kea_condition(function (message) {
-		warning(colourise $ yellow(message), call. = FALSE)
-	}),
-	error = throw_kea_condition(function (message) {
-		stop(   # hammer time!
-			colourise $ red(message), call. = FALSE)
-	}),
+	warning          = raise_warning(identity,       'yellow'),
+	error            = raise_error(identity,         'red'),
 
-	arithmetic_error = throw_kea_condition(function (message) {
-		stop( arithmetic_error(colourise $ red(message)) )
-	}),
+	arithmetic_error = raise_error(arithmetic_error, 'red'),
 
-	lookup_error = throw_kea_condition(function (message) {
-		stop( lookup_error(colourise $ red(message)) )
-	}),
-	index_error = throw_kea_condition(function (message) {
-		stop( index_error(colourise $ red(message)) )
-	}),
-	key_error = throw_kea_condition(function (message) {
-		stop( key_error(colourise $ red(message)) )
-	}),
-
-	io_error = throw_kea_condition(function (message) {
-		stop( io_error(colourise $ red(message)) )
-	}),
-
-	name_error = throw_kea_condition(function (message) {
-		stop( name_error(colourise $ red(message)) )
-	}),
-
-	syntax_error = throw_kea_condition(function (message) {
-		stop( syntax_error(colourise $ red(message)) )
-	}),
-
-	type_error = throw_kea_condition(function (message) {
-		stop( type_error(colourise $ red(message)) )
-	}),
-	value_error = throw_kea_condition(function (message) {
-		stop( value_error(colourise $ red(message)) )
-	})
-
+	lookup_error     = raise_error(lookup_error,     'red'),
+	index_error      = raise_error(index_error,      'red'),
+	key_error        = raise_error(key_error,        'red'),
+	io_error         = raise_error(io_error,         'red'),
+	name_error       = raise_error(name_error,       'red'),
+	syntax_error     = raise_error(syntax_error,     'red'),
+	type_error       = raise_error(type_error,       'red'),
+	value_error      = raise_error(value_error,      'red')
 )
-
-
-
-
-
-
 
 # -------------------------------------------------------------------------
 #
