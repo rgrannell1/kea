@@ -100,11 +100,15 @@ get_call_components <- function (invoking_call) {
 	}
 }
 
+
+
+
+
+
 # -------------------------------------------------------------------------
 #
-# Top Level Interface
+# The interface to
 #
-# This takes your message, and throws either an error or warning.
 
 throw_kea_condition <- function (exception) {
 
@@ -129,34 +133,36 @@ throw_kea_condition <- function (exception) {
 		}
 
 		exception(gsub('\n', '\n ', final_message))
+
 	}
 }
 
 
 
 
-
+# -------------------------------------------------------------------------
+#
 # -- Create a new subclass of error, and a matching function
 # -- to raise that exception.
+#
+#
 
 new_error_type <- function (...) {
 
 	classes <- c(...)
 
 	function (message) {
+
 		structure(
 			class = c(classes, 'condition', 'error'),
 			list(message = paste0(classes[length(classes)], ': ', message))
 		)
+
 	}
 
 }
 
-
-
-
-# -- Python-Style error types. Should allow easier distinguishing between
-# -- types of error.
+# -- new subclasses of error.
 
 arithmetic_error <- new_error_type('arithmetic_error')
 
@@ -180,13 +186,17 @@ value_error      <- new_error_type('value_error')
 
 
 
-raise_error   <- function (condition, colour) {
-	function (message) {
+
+
+raise_error <- function (condition, colour) {
+
+	throw_kea_condition(function (message) {
 		stop( condition(colourise [[colour]](message) ))
-	}
+	})
 }
 
 raise_warning <- function (condition, colour) {
+
 	throw_kea_condition(function (message) {
 		warning( condition(colourise [[colour]](message) ))
 	})
@@ -197,8 +207,8 @@ raise_warning <- function (condition, colour) {
 
 
 throw_exception <- list(
-	warning          = raise_warning(identity,       'yellow'),
-	error            = raise_error(identity,         'red'),
+	warnin          = raise_warning(warning,        'yellow'),
+	error            = raise_error(stop,             'red'),
 
 	arithmetic_error = raise_error(arithmetic_error, 'red'),
 
@@ -211,6 +221,15 @@ throw_exception <- list(
 	type_error       = raise_error(type_error,       'red'),
 	value_error      = raise_error(value_error,      'red')
 )
+
+
+
+
+
+
+
+
+
 
 # -------------------------------------------------------------------------
 #
