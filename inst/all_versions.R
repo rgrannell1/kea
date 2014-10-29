@@ -40,7 +40,7 @@ config <- list(
 
 	benchmarks  = get_path("inst/benchmarks"),
 	total_time  = NA, # todo; evenly divide maxtime between expressions.
-	seconds     = 0.1
+	seconds     = 0.5
 )
 
 
@@ -113,7 +113,7 @@ releases <- repo := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
 	})             $
 	xReverse()     $
-	xTake(20)      $
+	xTake(Inf)     $
 	x_Reverse()
 }
 
@@ -306,16 +306,15 @@ plot_timings <- timings := {
 
 	x_(wide_dfs) $ x_Do(wide_df := {
 
-		fname      <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
-
+		fname     <- xAmend('[.][R]$|[.][r]$', '', xFirstOf(wide_df $ file))
+		refs      <-
 		file_plot <-
 			ggplot(wide_df) +
 
 			geom_pointrange(
-				position = position_jitter(width = 0.4, height = 0),
+				position = position_jitter(width = 0.1, height = 0),
 				aes(
 					x     = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
-
 					ymin  = lower,
 					y     = median,
 					ymax  = upper,
