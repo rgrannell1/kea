@@ -2,7 +2,7 @@
 require(kea)
 
 '%+%' <- kea ::: '%+%'
-throw_exception $ warning <- kea ::: throw_exception $ warning
+throw_exception <- kea ::: throw_exception
 
 
 # -- This unit test checks if the examples are empty.
