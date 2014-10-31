@@ -1,21 +1,18 @@
 
-Kea 0.64.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
+Kea 0.65.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
 Kea is a functional programming library built to do three things:
 
-* maximise developer happiness.
-* be quick to write and debug.
-* make writing large programs easy.
-
-For more information, see Kea's [release notice](http://rgrannell1.github.io/blog/2014/08/01/introducing-kiwi/).
+* maximise developer happiness
+* be quick to write, debug, and run
+* make writing large programs easy
 
 ### Installation
 
-For most people, the best way to get Kea is through github. You must install from the releases branch, as
-the developer branch will often be unstable or broken and stable releases are frequent.
+The best way to get Kea is through github. You must install from the releases branch. Kea is currently in rapid development, so breaking changes are frequently made.
 
 ```splus
 if (!require(devtools)) {
@@ -25,7 +22,7 @@ if (!require(devtools)) {
 devtools::install_github("rgrannell1/kea", ref = 'releases')
 ```
 
-Go [here](https://github.com/rgrannell1/kea-snippets) for Sublime Text 3 snippets.
+Go [here](https://github.com/rgrannell1/kea-snippets) for accompanying Sublime Text 3 snippets.
 
 ### Usage
 
@@ -76,8 +73,7 @@ function (a, b) {
 
 #### - Wildcard Operators
 
-Wildcard operators fix the right operand of an operator, leaving a function that takes the
-left operand.
+Wildcard operators fix the right operand of an operator, leaving a function that takes the left operand.
 
 ```r
 xMap(x. + 1, 0:3)
@@ -86,9 +82,7 @@ xMap(x. + 1, 0:3)
 
 #### - Variadic Functions
 
-Most collection functions in Kea have forms that take a collection of items, or an indeterminate
-number of items through the ellipses parametre ( ... ). The latter form is denoted with an underscore suffix and
-is more succinct but less flexible than its alternative.
+Most collection functions in Kea have forms that take a collection of items, or an indeterminate number of items through the ellipses parametre ( ... ). The latter form is denoted with an underscore suffix and is more succinct, but less flexible than its alternative.
 
 ```r
 xMap (x := x, list(1, 2, 3))
@@ -97,6 +91,21 @@ xMap_(x := x, 1, 2, 3)
 
 #### - Function Composition
 
+Function composition joins multiple functions end-to-end into a new function, that applies both transformations to an input in order.
+
+```r
+birds <- list(list('kea', 'New Zealand'), list('grouse', 'Ireland'))
+xMap(xFirstOf %then% xCharsOf, birds)
+
+list(3, 6)
+```
+
+Special operators are also available for combining predicate functions.
+
+```r
+xSelect_(is.integer %or% is.double, 'a', 1, 2L, '3', 4)
+list(1, 2, 4)
+```
 
 ## Licensing
 
