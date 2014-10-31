@@ -41,8 +41,8 @@ config <- list(
 	graph_path = "~/Desktop/benchmark",
 
 	benchmarks = get_path("inst/benchmarks"),
-	total_time = 5 * 60,
-	limit      = 10
+	total_time = 35 * 60,
+	limit      = Inf
 )
 
 
@@ -140,6 +140,11 @@ number_of_benchmarks <-
 
 
 
+run_time       <- config $ total_time / (number_of_releases * number_of_benchmarks)
+
+message("-- running for ", run_time, " seconds \n.")
+
+
 
 justTry <- function (expr) {
 	tryCatch(eval(expr), error = function (err) {}, warning = function (warn) {})
@@ -149,7 +154,7 @@ justTry <- function (expr) {
 
 
 
-# load a particular version of the repository
+# load a particular versionf of the repository
 # an execute a callback after loading that package in a seperate environment.
 
 try_load <- (ref : callback) := {
@@ -202,7 +207,7 @@ try_load <- (ref : callback) := {
 		},
 		warning = warn := {
 			message('\n--- warning while loading ', ref @ name)
-			message(war $ message)
+			message(warn $ message)
 		}
 	)
 
@@ -240,7 +245,6 @@ try_benchmark <- (benchmarks : ref : total_time) := {
 				eval(bquote({
 
 					expr_times     <- list()
-					run_time       <- total_time / (number_of_releases * number_of_benchmarks)
 					time_remaining <- stopwatch(run_time)
 
 					while (time_remaining()) {
