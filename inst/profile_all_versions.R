@@ -230,13 +230,27 @@ try_benchmark <- (benchmarks : ref : total_time) := {
 		benchmark        <- benchmarks[[ith]]
 
 		benchmark_file   <- benchmark[[1]]
-		benchmarks_exprs <- benchmark[[2]]
+		benchmarks_exprs <- as.list( benchmark[[2]] )
+
+		setup_expr <- if (length(benchmarks_exprs) > 0) {
+
+			out              <- eval( benchmarks_exprs[[1]] )
+			benchmarks_exprs <- xRestOf(benchmarks_exprs)
+			out
+
+		} else {
+			list()
+		}
 
 		message('------ benchmarking ', benchmark_file)
 
 		lapply(seq_along(benchmarks_exprs), function (jth) {
 
 			test_env <- new.env(parent = environment())
+
+			for (variable in names(setup_expr)) {
+				test_env[[ variable ]] <- setup_expr[[variable]]
+			}
 
 			expr          <- benchmarks_exprs[[jth]]
 			deparsed_expr <- paste0(deparse(expr), collapse = '\n')
@@ -375,12 +389,18 @@ plot_timings <- timings := {
 		fpath      <- xImplode_(.Platform $ file.sep, dpath, xFromChars_(fname, '.png'))
 		plot_width <- 100 * xLenOf(releases(repo)) + 500
 
+
+
+
+
+
 		message('-- saving benchmark plot to ', fpath, '.\n')
 
 		png(fpath, res = 150, width = plot_width, height = 1000)
 			plot(file_plot)
 		dev.off()
 
+		warnings()
 	})
 
 }

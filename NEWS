@@ -1,6 +1,21 @@
 
 Kea 0.64.0
 ------------------------------------------------------------------------------
+Date: 2014-11-
+
+ENHANCEMENTS:
+
+* Improved efficiency of xDo by an order of magnitude.
+
+
+
+
+
+
+
+
+Kea 0.64.0
+------------------------------------------------------------------------------
 Date: 2014-10-29
 
 Added xRecycle and typed exceptions.
