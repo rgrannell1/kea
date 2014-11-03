@@ -13,7 +13,7 @@
 # People like references. Ditch the lens metaphor, and just call lenses
 # 'functional references'.
 
-y_(coll) $ .firstOf() $ .secondOf() $ x_Map(sqrt)
+#y_(coll) $ .firstOf() $ .secondOf() $ x_Map(sqrt)
 
 
 #y_ <- function (val) {
