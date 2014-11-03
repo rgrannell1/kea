@@ -160,7 +160,7 @@ xLambda <- function (sym, val) {
 			# -- unary function in braces.
 			# -- this path should be factored out in the future.
 
-			if (!is.name( parametres_expr[[2]] )) {
+			if (!is.name( parame_expr[[2]] )) {
 
 				message <- "invalid parametre."
 
