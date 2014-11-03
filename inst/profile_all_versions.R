@@ -34,13 +34,15 @@ get_path <- (...) := {
 
 
 config <- list(
-	username    = 'rgrannell1',
-	reponame    = 'kea',
-	repo_url    = "https://github.com/rgrannell1/kea",
+	username   = 'rgrannell1',
+	reponame   = 'kea',
 
-	benchmarks  = get_path("inst/benchmarks"),
-	total_time  = NA, # todo; evenly divide maxtime between expressions.
-	seconds     = 0.5
+	repo_url   = "https://github.com/rgrannell1/kea",
+	graph_path = "~/Desktop/benchmark",
+
+	benchmarks = get_path("inst/benchmarks"),
+	total_time = 35 * 60,
+	limit      = Inf
 )
 
 
@@ -105,15 +107,15 @@ releases <- repo := {
 
 	is_release <- '^v[0-9]+[.][0-9]+[.][0-9]+$'
 
-	x_(tags(repo)) $
+	x_(tags(repo))        $
 	xSelect(tag := {
 		xIsMatch(is_release, tag @ name)
-	})             $
+	})                    $
 	xSortBy(tag := {
 		as.numeric(xAmend('v|[.]', '', tag @ name))
-	})             $
-	xReverse()     $
-	xTake(Inf)     $
+	})                    $
+	xReverse()            $
+	xTake(config $ limit) $
 	x_Reverse()
 }
 
@@ -126,9 +128,33 @@ benchmarks <-
 	x_Map(
 		xJuxtapose_(xI, parse))
 
+number_of_releases <-
+	xLenOf(releases(repo))
+
+number_of_benchmarks <-
+	x_(benchmarks)                              $
+	xMap(
+		xSecondOf %then% as.list %then% xLenOf) $
+	x_Reduce(`+`)
 
 
-# load a particular version of the repository
+
+
+run_time       <- config $ total_time / (number_of_releases * number_of_benchmarks)
+
+message("-- running for ", run_time, " seconds \n.")
+
+
+
+justTry <- function (expr) {
+	tryCatch(eval(expr), error = function (err) {}, warning = function (warn) {})
+}
+
+
+
+
+
+# load a particular versionf of the repository
 # an execute a callback after loading that package in a seperate environment.
 
 try_load <- (ref : callback) := {
@@ -145,15 +171,27 @@ try_load <- (ref : callback) := {
 
 			if (package_number < 160) {
 
+				justTry(detach('package:arrow', unload = TRUE))
+				justTry(detach('package:kiwi',  unload = TRUE))
+				justTry(detach('package:kea',   unload = TRUE))
+
 				require(arrow, quietly = TRUE, warn.conflicts = FALSE)
 				message('loaded ', packageVersion('arrow'))
 
 			} else if (package_number < 420) {
 
+				justTry(detach('package:arrow', unload = TRUE))
+				justTry(detach('package:kiwi',  unload = TRUE))
+				justTry(detach('package:kea',   unload = TRUE))
+
 				require(kiwi, quietly = TRUE, warn.conflicts = FALSE)
 				message('loaded ', packageVersion('kiwi'))
 
 			} else {
+
+				justTry(detach('package:arrow', unload = TRUE))
+				justTry(detach('package:kiwi',  unload = TRUE))
+				justTry(detach('package:kea',   unload = TRUE))
 
 				require(kea, quietly = TRUE, warn.conflicts = FALSE)
 				message('loaded ', packageVersion('kea'))
@@ -165,9 +203,11 @@ try_load <- (ref : callback) := {
 		}, test_env),
 		error = err := {
 			message('\n--- failure while loading ', ref @ name)
+			message(err $ message)
 		},
 		warning = warn := {
 			message('\n--- warning while loading ', ref @ name)
+			message(warn $ message)
 		}
 	)
 
@@ -181,11 +221,7 @@ timing_result <- function (file, expr, ref, lower = 0, median = 0, upper = 0) {
 	list(file = file, expr = expr, ref = ref, lower = lower, median = median, upper = upper)
 }
 
-
-
-
-
-try_benchmark <- (benchmarks : ref : seconds) := {
+try_benchmark <- (benchmarks : ref : total_time) := {
 
 	message( "\n--- benchmarking ", ref @ name, '\n' )
 
@@ -194,13 +230,27 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 		benchmark        <- benchmarks[[ith]]
 
 		benchmark_file   <- benchmark[[1]]
-		benchmarks_exprs <- benchmark[[2]]
+		benchmarks_exprs <- as.list( benchmark[[2]] )
+
+		setup_expr <- if (length(benchmarks_exprs) > 0) {
+
+			out              <- eval( benchmarks_exprs[[1]] )
+			benchmarks_exprs <- xRestOf(benchmarks_exprs)
+			out
+
+		} else {
+			list()
+		}
 
 		message('------ benchmarking ', benchmark_file)
 
 		lapply(seq_along(benchmarks_exprs), function (jth) {
 
 			test_env <- new.env(parent = environment())
+
+			for (variable in names(setup_expr)) {
+				test_env[[ variable ]] <- setup_expr[[variable]]
+			}
 
 			expr          <- benchmarks_exprs[[jth]]
 			deparsed_expr <- paste0(deparse(expr), collapse = '\n')
@@ -209,7 +259,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 				eval(bquote({
 
 					expr_times     <- list()
-					time_remaining <- stopwatch(seconds)
+					time_remaining <- stopwatch(run_time)
 
 					while (time_remaining()) {
 
@@ -217,7 +267,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 						gc(verbose = FALSE)
 
 						group_times <- microbenchmark(
-							.(expr), unit = 'hz', times = 60, control = list(warmup = 10)) $ time
+							.(expr), unit = 'hz', times = 30, control = list(warmup = 10)) $ time
 
 						expr_times <- c(expr_times, group_times)
 					}
@@ -251,7 +301,7 @@ try_benchmark <- (benchmarks : ref : seconds) := {
 
 run_benchmarks <- (repo_path : benchmarks: ref) := {
 	try_load(ref, function () {
-		try_benchmark(benchmarks, ref, config $ seconds)
+		try_benchmark(benchmarks, ref, config $ total_time)
 	})
 }
 
@@ -299,6 +349,13 @@ timings_as_dataframe <- timings := {
 
 
 
+dpath <- xImplode_(.Platform $ file.sep, config $ graph_path, paste( as.numeric(Sys.time()) ))
+dir.create(dpath)
+
+
+
+
+
 
 plot_timings <- timings := {
 
@@ -312,7 +369,7 @@ plot_timings <- timings := {
 			ggplot(wide_df) +
 
 			geom_pointrange(
-				position = position_jitter(width = 0.1, height = 0),
+				position  = position_jitter(width = 0.1, height = 0),
 				aes(
 					x     = reorder(ref, order( as.numeric(gsub('[v]|[.]', '', ref)) )),
 					ymin  = lower,
@@ -320,19 +377,22 @@ plot_timings <- timings := {
 					ymax  = upper,
 
 					color = expr
-				), width = 0.4, alpha = 0.8) +
+				), width  = 0.4, alpha = 0.8) +
 
 			xlab("")   +
 			ylab("Hz") +
 			ggtitle(paste(fname, "performance between releases.")) +
 
-			guides(fill = guide_legend(title = "Expression")) +
+			scale_y_log10( breaks = 10 ^ (0:7), labels = comma(10 ^ (0:7)), limits = c(10^0, 10^7))
+			guides(fill = guide_legend(title = "Expression"))
 
-			scale_y_log10( breaks = 10 ^ (0:7), labels = comma(10 ^ (0:7)), limits = c(10^0, 10^7) )
-
-		fpath      <- xFromChars_('~/Desktop/benchmark/bench-', fname)
-
+		fpath      <- xImplode_(.Platform $ file.sep, dpath, xFromChars_(fname, '.png'))
 		plot_width <- 100 * xLenOf(releases(repo)) + 500
+
+
+
+
+
 
 		message('-- saving benchmark plot to ', fpath, '.\n')
 
@@ -340,6 +400,7 @@ plot_timings <- timings := {
 			plot(file_plot)
 		dev.off()
 
+		warnings()
 	})
 
 }

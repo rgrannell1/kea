@@ -71,10 +71,25 @@ message("xLambda")
 
 	run()
 
+
+
+
+
 	holdsFor(
 		"formals are as expected",
 
 		names( formals((a : b) := {a + b}) ) %is% c('a', 'b'),
 		names(formals(x := x))   == 'x',
 		names(formals((x) := x)) == 'x'
+	)
+
+	failsFor(
+		"invalid parametres fail",
+
+		('x') := x,
+		('x' : y) := x,
+		('x' : 'y') := x,
+
+		(1) := x,
+		('x' : 1) := x
 	)

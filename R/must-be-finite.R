@@ -13,7 +13,7 @@ Must_Be_Finite <- function (NUM) {
 
 		message <- "The argument matching " %+% ddquote( .(NUM) ) %+%
 		" must not be infinite.\n\n" %+%
-
+k
 		"The actual argument was " %+% paste(.(NUM)) %+% "." %+%
 		'\n'
 
