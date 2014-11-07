@@ -114,8 +114,6 @@ x. <- structure(
 	}
 }
 
-#'
-
 #' @export
 #' @rdname x.
 

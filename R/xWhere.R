@@ -31,11 +31,11 @@
 
 xWhere <- MakeFun(function (bools) {
 
-	if (length(bools) == 0) {
+	if (length(bools) == 0)
 		keep_names(integer(0), bools)
-	} else {
+	else
 		which(bools)
-	}
+
 })
 
 #' @rdname xWhere

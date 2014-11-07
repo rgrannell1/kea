@@ -119,14 +119,13 @@ as_formals <- function (params) {
 
 params_of <- function (fn) {
 
-	if (is.primitive(fn)) {
-		# -- use the args function to get the primitive arguments.
+	if (is.primitive(fn))
 		names(as.list( head(as.list(args(fn)), -1) ))
-	} else {
+	else
 		names(as.list( formals(fn) ))
-	}
 
 }
+
 
 #
 #

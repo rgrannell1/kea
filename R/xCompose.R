@@ -91,11 +91,15 @@ xCompose <- MakeFun(function (fns) {
 		# -- can't use do.call here, since the value has
 		# -- to be passed to several functions.
 
-		for (ith in rev( seq_len(length(fns)) )) {
+		MACRO( Try_Higher_Order_Function(
 
-			fn <- fns[[ith]]
-			val <-  MACRO( Try_Higher_Order_Function( fn(val) ) )
-		}
+			for (ith in rev( seq_len(length(fns)) )) {
+
+				fn  <- fns[[ith]]
+				val <- fn(val)
+			}
+
+		) )
 
 		val
 	}

@@ -103,7 +103,7 @@ repo      <- setup_repo(repo_path)
 # list every tag matching the form v[x].[y].[z], sorted
 # properly.
 
-releases <- repo := {
+releases <- (repo : use_head) := {
 
 	is_release <- '^v[0-9]+[.][0-9]+[.][0-9]+$'
 
@@ -116,6 +116,7 @@ releases <- repo := {
 	})                    $
 	xReverse()            $
 	xTake(config $ limit) $
+	xAppend(head(repo))   $
 	x_Reverse()
 }
 
@@ -129,7 +130,7 @@ benchmarks <-
 		xJuxtapose_(xI, parse))
 
 number_of_releases <-
-	xLenOf(releases(repo))
+	xLenOf(releases(repo, True))
 
 number_of_benchmarks <-
 	x_(benchmarks)                              $
@@ -159,7 +160,13 @@ justTry <- function (expr) {
 
 try_load <- (ref : callback) := {
 
+	refname <- tryCatch(
+		ref @ name,
+		error = function (err) {"HEAD"}
+	)
+
 	test_env <- new.env(parent = environment())
+	test_env $ refname <- refname
 
 	tryCatch(
 		eval({
@@ -167,7 +174,7 @@ try_load <- (ref : callback) := {
 			checkout(ref, force = True)
 			suppressMessages(install.packages(repo_path, repos = Null, type = "source"))
 
-			package_number <- as.numeric(gsub('[v]|[.]', '', ref @ name))
+			package_number <- as.numeric(gsub('[v]|[.]', '', refname))
 
 			if (package_number < 160) {
 
@@ -202,11 +209,11 @@ try_load <- (ref : callback) := {
 
 		}, test_env),
 		error = err := {
-			message('\n--- failure while loading ', ref @ name)
+			message('\n--- failure while loading ', refname)
 			message(err $ message)
 		},
 		warning = warn := {
-			message('\n--- warning while loading ', ref @ name)
+			message('\n--- warning while loading ', refname)
 			message(warn $ message)
 		}
 	)
@@ -223,7 +230,12 @@ timing_result <- function (file, expr, ref, lower = 0, median = 0, upper = 0) {
 
 try_benchmark <- (benchmarks : ref : total_time) := {
 
-	message( "\n--- benchmarking ", ref @ name, '\n' )
+	refname <- tryCatch(
+		ref @ name,
+		error = function (err) {"HEAD"}
+	)
+
+	message( "\n--- benchmarking ", refname, '\n' )
 
 	lapply(seq_along(benchmarks), function (ith) {
 
@@ -247,6 +259,10 @@ try_benchmark <- (benchmarks : ref : total_time) := {
 		lapply(seq_along(benchmarks_exprs), function (jth) {
 
 			test_env <- new.env(parent = environment())
+			test_env $ refname <- tryCatch(
+				ref @ name,
+				error = function (err) {"HEAD"}
+			)
 
 			for (variable in names(setup_expr)) {
 				test_env[[ variable ]] <- setup_expr[[variable]]
@@ -275,17 +291,17 @@ try_benchmark <- (benchmarks : ref : total_time) := {
 					quartiles <- summary(1 / as.numeric(expr_times) * 10^9)
 
 					timing_result(
-						benchmark_file, deparsed_expr, ref @ name,
+						benchmark_file, deparsed_expr, refname,
 						quartiles[['1st Qu.']], quartiles[['Median']], quartiles[['3rd Qu.']]
 					)
 
 				}), envir = test_env),
 
 				error = function (err) {
-					timing_result(benchmark_file, deparsed_expr, ref @ name)
+					timing_result(benchmark_file, deparsed_expr, refname)
 				},
 				warning = function (warn) {
-					timing_result(benchmark_file, deparsed_expr, ref @ name)
+					timing_result(benchmark_file, deparsed_expr, refname)
 				}
 			)
 
@@ -299,7 +315,7 @@ try_benchmark <- (benchmarks : ref : total_time) := {
 
 # load a version of package and benchmark that code.
 
-run_benchmarks <- (repo_path : benchmarks: ref) := {
+run_benchmarks <- (repo_path : benchmarks : ref) := {
 	try_load(ref, function () {
 		try_benchmark(benchmarks, ref, config $ total_time)
 	})
@@ -309,7 +325,7 @@ run_benchmarks <- (repo_path : benchmarks: ref) := {
 
 benchmark_each_version <- (repo : benchmarks : repo_path) := {
 
-	x_(releases(repo)) $
+	x_(releases(repo, True)) $
 	xFlatMap(tag := {
 		run_benchmarks(repo_path, benchmarks, tag)
 	})                 $
@@ -387,7 +403,7 @@ plot_timings <- timings := {
 			guides(fill = guide_legend(title = "Expression"))
 
 		fpath      <- xImplode_(.Platform $ file.sep, dpath, xFromChars_(fname, '.png'))
-		plot_width <- 100 * xLenOf(releases(repo)) + 500
+		plot_width <- 80 * xLenOf(releases(repo, True)) + 500
 
 
 

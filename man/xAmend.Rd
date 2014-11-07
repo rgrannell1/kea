@@ -19,8 +19,9 @@ a character vector.
 \description{
 Replace regular expression matches in a string with another string.
 }
-\section{|character| -> |character| -> |character| -> <character>}{
+\section{Type Signature}{
 
+    |character| -> |character| -> |character| -> <character>
 }
 
 \section{Corner Cases}{

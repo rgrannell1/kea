@@ -70,7 +70,6 @@ validate <- function (coll) {
 
 	if (is.list(coll)) {
 
-
 		message <- if (length(coll) != 3) {
 
 			"invalid syntax."
@@ -86,7 +85,7 @@ validate <- function (coll) {
 		}
 
 		if (length(message) > 0) {
-			throw_exception(lambda_call(), message)
+			throw_exception $ syntax_error(lambda_call(), message)
 		}
 
 		validate( coll[[2]] )

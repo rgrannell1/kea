@@ -11,3 +11,7 @@ xAt(2, df)
 # 2. Create a new positional selector
 
 xFifthOf <- xAt(5)
+
+# 3. Use xAt to get the values from a xGroupBy
+
+x__('lamp', 'screen', 'cable', 'mouse') $ xGroupBy(xCharsOf) $ x_Map(xAt(2))

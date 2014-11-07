@@ -38,11 +38,11 @@
 
 xUnite <- MakeFun(function (coll1, coll2) {
 
-	if (length(coll1) == 0 || length(coll2) == 0) {
+	if (length(coll1) == 0 || length(coll2) == 0)
 		list()
-	} else {
+	else
 		unique(c(list(), coll1, coll2))
-	}
+
 })
 
 #' @rdname xUnite
