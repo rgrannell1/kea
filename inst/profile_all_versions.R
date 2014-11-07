@@ -299,7 +299,7 @@ try_benchmark <- (benchmarks : ref : total_time) := {
 
 # load a version of package and benchmark that code.
 
-run_benchmarks <- (repo_path : benchmarks: ref) := {
+run_benchmarks <- (repo_path : benchmarks : ref) := {
 	try_load(ref, function () {
 		try_benchmark(benchmarks, ref, config $ total_time)
 	})
@@ -387,7 +387,7 @@ plot_timings <- timings := {
 			guides(fill = guide_legend(title = "Expression"))
 
 		fpath      <- xImplode_(.Platform $ file.sep, dpath, xFromChars_(fname, '.png'))
-		plot_width <- 100 * xLenOf(releases(repo)) + 500
+		plot_width <- 80 * xLenOf(releases(repo)) + 500
 
 
 

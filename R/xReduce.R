@@ -62,9 +62,9 @@ xReduce <- MakeFun(function (fn, coll) {
 				environment(fn)    <- clone_env
 			}
 
-			for (ith in seq_along(coll)) {
+			for (ith in seq_along(coll))
 				val <- MACRO( Try_Higher_Order_Function( fn( val, coll[[ith]] ) ) )
-			}
+
 
 			val
 		})

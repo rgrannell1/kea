@@ -2,7 +2,7 @@ Package: kea
 Type: Package
 Title: Kea
 Description: Kea is a complete functional programming library for R.
-Version: 0.65.0
+Version: 0.66.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
