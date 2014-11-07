@@ -23,4 +23,4 @@
 #' @rdname xFalsity
 #' @export
 
-xFalsity <- function (...) FALSE
+xFalsity <- MakeFun(function (...) FALSE)

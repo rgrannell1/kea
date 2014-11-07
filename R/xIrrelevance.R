@@ -26,4 +26,4 @@
 # function name suggested by 'bib' from
 # english.stackexchange.
 
-xIrrelevance <- function (...) NA
+xIrrelevance <- MakeFun(function (...) NA)

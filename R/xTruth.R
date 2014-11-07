@@ -23,4 +23,4 @@
 #' @rdname xTruth
 #' @export
 
-xTruth <- function (...) TRUE
+xTruth <- MakeFun(function (...) TRUE)
