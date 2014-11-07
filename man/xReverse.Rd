@@ -36,7 +36,7 @@ Reverse the order of elements in a collection.
 x_(letters) $ xReverse() $ xThirdOf()
 
 # the above is more semantic than
-# x_(letters) $ xAt(length(letters) - 3)
+# x_(letters) $ xAt(xLenOf(letters) - 3)
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAppend}},

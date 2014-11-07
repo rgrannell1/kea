@@ -41,8 +41,8 @@ config <- list(
 	graph_path = "~/Desktop/benchmark",
 
 	benchmarks = get_path("inst/benchmarks"),
-	total_time = .35 * 60,
-	limit      = 2
+	total_time = 35 * 60,
+	limit      = Inf
 )
 
 

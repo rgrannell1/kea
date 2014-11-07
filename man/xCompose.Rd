@@ -94,7 +94,6 @@ h <- f \%then\% g
 
 h(2)
 # 12
-
 }
 \seealso{
 Other function_combining_functions: \code{\link{\%and\%}},

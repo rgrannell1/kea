@@ -15,6 +15,8 @@ BUG-FIXES:
 * Fixed a regression in error handling; error messages no longer include an
 unformatted call.
 
+* Fixed an incorrectly called exception in lambda functions.
+
 EXAMPLES:
 
 * Updated xReverse example to use xLenOf.

@@ -3,7 +3,7 @@
 #'
 #' Replace regular expression matches in a string with another string.
 #'
-#' @section
+#' @section Type Signature:
 #'     |character| -> |character| -> |character| -> <character>
 #'
 #' @param
