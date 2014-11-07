@@ -17,7 +17,6 @@ Collate:
     'zzz.R'
     'values.R'
     'tools_forall_next.R'
-    'tools_benchmarks.R'
     'tools_functions.R'
     'tools-replace.R'
     'tools_summate.R'

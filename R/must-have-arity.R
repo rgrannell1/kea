@@ -9,7 +9,7 @@
 
 Must_Have_Arity <- function (FN, NUM) {
 
-	FN <- substitute(FN)
+	FN  <- substitute(FN)
 	NUM <- substitute(NUM)
 
 	bquote( if (

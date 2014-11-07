@@ -59,6 +59,7 @@ xIterate <- MakeFun(function (fn, val) {
 		clone_env $ Return <- Return
 		environment(fn)    <- clone_env
 
-		repeat val <- MACRO( Try_Higher_Order_Function( fn(val) ) )
+		MACRO( Try_Higher_Order_Function( repeat val <- fn(val) ) )
+
 	})
 })

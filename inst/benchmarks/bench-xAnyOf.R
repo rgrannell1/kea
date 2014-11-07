@@ -4,6 +4,6 @@ list(
 	ten_thousand = rep(FALSE, 10000)
 )
 
-xAnyOf(truth, one_hundred)
-xAnyOf(truth, one_thousand)
-xAnyOf(truth, ten_thousand)
+xAnyOf(identity, one_hundred)
+xAnyOf(identity, one_thousand)
+xAnyOf(identity, ten_thousand)

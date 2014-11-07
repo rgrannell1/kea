@@ -1,14 +1,38 @@
 
 Kea 0.66.0
 ------------------------------------------------------------------------------
-Date: 2014-11-
+Date: 2014-11-7
+
+Improved the performance of higher-order functions.
 
 ENHANCEMENTS:
+
+* Improved the performance of xCompose, xFold, xIterate, xReduce, xScan,
+xThread by ~x3. These makes kea much faster on the whole.
 
 BUG-FIXES:
 
 * Fixed a regression in error handling; error messages no longer include an
 unformatted call.
+
+EXAMPLES:
+
+* Updated xReverse example to use xLenOf.
+
+PACKAGE-INTERNALS:
+
+* Fixed xAnyOf and xAllOf benchmarks.
+
+* Removed unused benchmark code.
+
+
+
+
+
+
+
+
+
 
 
 
