@@ -30,5 +30,5 @@
 #' @export
 
 xNotFalse <- MakeFun(function (val)
-	!isTRUE(identical(val, FALSE))
+	!identical(val, FALSE)
 )

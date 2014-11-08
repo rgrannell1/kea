@@ -1,4 +1,45 @@
 
+Kea 0.67.0
+------------------------------------------------------------------------------
+Date: 2014-11-8
+
+Improved the performance of several functions.
+
+ENHANCEMENTS:
+
+* Make xScan marginally faster.
+
+* Made xTruth, xFalsity, and xIrrelevance for consistency. This reduces performance,
+but consistency is worth more than speed.
+
+* Removed unneeded truth checks from xIsFalse, xIsMatch, xIsNa, xIsNan, xIsNull,
+xNotFalse, xNotMatch, xNotNa, xNotNan, xNotNull, xNotTrue.
+
+BUG-FIXES:
+
+* Fixed a regression causing untyped errors and warning thrown by kea to be labelled
+with a call.
+
+PACKAGE-INTERNALS:
+
+* Added a fallback method for downloading kea to circumvent a dependency issue
+in lib2git, closing #66.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Kea 0.66.0
 ------------------------------------------------------------------------------
 Date: 2014-11-7

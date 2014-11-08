@@ -1028,7 +1028,7 @@ failsWhen <- function (expr1, ...) {
 # Run specifies that the test object should now be
 # executes. Also specifies how long to run the test for.
 
-run <- function (time = 1) {
+run <- function (time = 2) {
 	out <- list(time = time)
 	class(out) <- c('xforall', 'xrun')
 	out

@@ -55,7 +55,9 @@ xScan <- MakeFun(function (fn, val, coll) {
 		list(val)
 	else {
 
-		scanned <- c( val, vector("list", length(coll)) )
+		# faster than doing an inline c(val, ...)
+		scanned      <- vector("list", length(coll) + 1)
+		scanned[[1]] <- val
 
 		MACRO( Try_Higher_Order_Function(
 
