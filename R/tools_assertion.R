@@ -147,6 +147,21 @@ throw_kea_condition <- function (exception) {
 #
 #
 
+std_error <- function (message) {
+	structure(
+		class = c('condition', 'error'),
+		list(message = message)
+	)
+}
+
+std_warning <- function (message) {
+	structure(
+		class = c('condition', 'warning'),
+		list(message = message)
+	)
+}
+
+
 new_error_type <- function (...) {
 
 	classes <- c(...)
@@ -191,14 +206,14 @@ value_error      <- new_error_type('value_error')
 raise_error <- function (condition, colour) {
 
 	throw_kea_condition(function (message) {
-		stop( condition(colourise [[colour]](message) ), call. = FALSE)
+		stop( condition(colourise [[colour]](message) ))
 	})
 }
 
 raise_warning <- function (condition, colour) {
 
 	throw_kea_condition(function (message) {
-		warning( condition(colourise [[colour]](message) ), call. = FALSE)
+		warning( condition(colourise [[colour]](message) ))
 	})
 }
 
@@ -207,8 +222,8 @@ raise_warning <- function (condition, colour) {
 
 
 throw_exception <- list(
-	warning          = raise_warning(identity,        'yellow'),
-	error            = raise_error(identity,          'red'),
+	warning          = raise_warning(std_warning,    'yellow'),
+	error            = raise_error(std_error,        'red'),
 
 	arithmetic_error = raise_error(arithmetic_error, 'red'),
 

@@ -15,6 +15,11 @@ but consistency is worth more than speed.
 * Removed unneeded truth checks from xIsFalse, xIsMatch, xIsNa, xIsNan, xIsNull,
 xNotFalse, xNotMatch, xNotNa, xNotNan, xNotNull, xNotTrue.
 
+BUG-FIXES:
+
+* Fixed a regression causing untyped errors and warning thrown by kea to be labelled
+with a call.
+
 PACKAGE-INTERNALS:
 
 * Added a fallback method for downloading kea to circumvent a dependency issue
