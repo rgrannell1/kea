@@ -1,7 +1,7 @@
 
-Kea 0.66.0
+Kea 0.67.0
 ------------------------------------------------------------------------------
-Date: 2014-11-7
+Date: 2014-11-8
 
 ENHANCEMENTS:
 
@@ -10,8 +10,13 @@ ENHANCEMENTS:
 * Made xTruth, xFalsity, and xIrrelevance for consistency. This reduces performance,
 but consistency is worth more than speed.
 
+* Removed unneeded truth checks from xIsFalse, xIsMatch, xIsNa, xIsNan, xIsNull,
+xNotFalse, xNotMatch, xNotNa, xNotNan, xNotNull, xNotTrue.
 
+PACKAGE-INTERNALS:
 
+* Added a fallback method for downloading kea to circumvent a dependency issue
+in lib2git, closing #66.
 
 
 
