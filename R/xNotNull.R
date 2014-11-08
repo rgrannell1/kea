@@ -29,5 +29,5 @@
 #' @export
 
 xNotNull <- MakeFun(function (val)
-	!isTRUE(identical(val, NULL))
+	!identical(val, NULL)
 )

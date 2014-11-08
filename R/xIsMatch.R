@@ -38,6 +38,6 @@ xIsMatch <- MakeFun(function (rexp, str)
 	if (length(str) == 0 || length(rexp) == 0)
 		logical(0)
 	else
-		isTRUE(grepl(rexp, str))
+		identical(grepl(rexp, str), TRUE)
 
 )

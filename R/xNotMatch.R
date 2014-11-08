@@ -34,6 +34,6 @@ xNotMatch <- MakeFun(function (rexp, str)
 	if (length(rexp) == 0 || length(str) == 0)
 		logical(0)
 	else
-		isTRUE(!grepl(rexp, str))
+		identical(!grepl(rexp, str), TRUE)
 
 )

@@ -30,10 +30,5 @@
 #' @export
 
 xNotNa <- MakeFun(function (val)
-
-	if (length(val) != 1)
-		TRUE
-	else
-		!isTRUE(is_na(val))
-
+	!is_na(val)
 )
