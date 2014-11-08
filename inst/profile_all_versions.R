@@ -90,7 +90,7 @@ setup_repo <- function (repo_path) {
 
 			message("-- falling back to shell cloning.")
 
-			system(paste0("cd ", repo_path, "&& git clone ", config $ repo_url, ".git"))
+			system(paste0("git clone ", config $ repo_url, ".git ", repo_path))
 			repository(repo_path)
 
 		}
