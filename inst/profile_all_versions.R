@@ -85,7 +85,22 @@ setup_path <- function (debug) {
 setup_repo <- function (repo_path) {
 
 	if (length(list.files(repo_path)) == 0) {
-		clone(config $ repo_url, repo_path)
+
+		fallback <- function (cond) {
+
+			message("-- falling back to shell cloning.")
+
+			system(paste0("cd ", repo_path, "&& git clone ", config $ repo_url, ".git"))
+			repository(repo_path)
+
+		}
+
+		tryCatch(
+			clone(config $ repo_url, repo_path),
+			error = fallback
+		)
+
+
 	} else {
 		repository(repo_path)
 	}
