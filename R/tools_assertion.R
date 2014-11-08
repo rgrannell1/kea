@@ -191,14 +191,14 @@ value_error      <- new_error_type('value_error')
 raise_error <- function (condition, colour) {
 
 	throw_kea_condition(function (message) {
-		stop( condition(colourise [[colour]](message) ), .call = FALSE)
+		stop( condition(colourise [[colour]](message) ), call. = FALSE)
 	})
 }
 
 raise_warning <- function (condition, colour) {
 
 	throw_kea_condition(function (message) {
-		warning( condition(colourise [[colour]](message) ), .call = FALSE)
+		warning( condition(colourise [[colour]](message) ), call. = FALSE)
 	})
 }
 
@@ -207,8 +207,8 @@ raise_warning <- function (condition, colour) {
 
 
 throw_exception <- list(
-	warning          = raise_warning(warning,        'yellow'),
-	error            = raise_error(stop,             'red'),
+	warning          = raise_warning(identity,        'yellow'),
+	error            = raise_error(identity,          'red'),
 
 	arithmetic_error = raise_error(arithmetic_error, 'red'),
 

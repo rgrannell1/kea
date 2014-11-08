@@ -3,6 +3,8 @@ Kea 0.67.0
 ------------------------------------------------------------------------------
 Date: 2014-11-8
 
+Improved the performance of several functions.
+
 ENHANCEMENTS:
 
 * Make xScan marginally faster.
@@ -17,6 +19,16 @@ PACKAGE-INTERNALS:
 
 * Added a fallback method for downloading kea to circumvent a dependency issue
 in lib2git, closing #66.
+
+
+
+
+
+
+
+
+
+
 
 
 
