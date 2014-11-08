@@ -70,7 +70,6 @@ xReduce <- MakeFun(function (fn, coll) {
 
 			) )
 
-
 			val
 		})
 
