@@ -1,6 +1,7 @@
 
 Kea 0.67.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rgrannell1/kea?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
