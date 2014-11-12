@@ -7,7 +7,7 @@ message("xDeepMap")
 
 	describe('deepmapping over empty list is empty list') +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xDeepMap(identity, coll) %is% keep_names(list(), coll)
 	) +

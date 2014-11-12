@@ -8,6 +8,7 @@ message("xChunk")
 	describe("xChunking infinite times / length times creates one chunk") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
+
 		length(xChunk(Inf,          coll)) == 1,
 		length(xChunk(length(coll), coll)) == 1
 	) +
@@ -15,6 +16,7 @@ message("xChunk")
 	describe("xChunk once is identity") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
+
 		length(xChunk(1, coll)) == length(coll)
 	) +
 

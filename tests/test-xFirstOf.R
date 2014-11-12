@@ -7,7 +7,7 @@ message('xFirstOf')
 
 	describe('always returns the correct element') +
 	holdsWhen(
-		suchThat $ is_collection(coll) && length(coll) >= 1,
+		suchThat $ is_empty_collection(coll),
 
 		xFirstOf(coll) %is% coll[[1]]
 	) +
@@ -20,7 +20,7 @@ message('xFirstOf')
 
 	describe('fails when the collection is too short') +
 	failsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xFirstOf(coll)
 	) +

@@ -7,7 +7,7 @@ message("xDuplicatesOf")
 
 	describe("duplications of empty list is empty list") +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xDuplicatesOf(coll) %is% list()
 	) +

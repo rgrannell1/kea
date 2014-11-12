@@ -8,6 +8,7 @@ message("xAsList")
 	describe("as list is always a list") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
+
 		is.list(xAsList(coll)),
 		length(xAsList(coll)) == length(coll)
 	) +
@@ -15,6 +16,7 @@ message("xAsList")
 	describe("names are kept") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
+
 		names(xAsList(coll)) %is% names(coll)
 	) +
 

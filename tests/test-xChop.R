@@ -8,8 +8,8 @@ message("xChop")
 	describe("xChopping infinite times / length times is as.list") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
-		length(xChop(Inf,          coll)) == length(coll),
 
+		length(xChop(Inf,          coll)) == length(coll),
 		length(xChop(length(coll), coll)) == length(coll)
 	) +
 

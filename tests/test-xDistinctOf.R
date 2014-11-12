@@ -7,7 +7,7 @@ message('xDistinctOf')
 
 	describe('unique of empty coll is empty list') +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xDistinctOf(coll) %is% list()
 	) +

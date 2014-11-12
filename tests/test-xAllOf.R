@@ -14,12 +14,14 @@ message("xAllOf")
 	describe('partially applying with true is false') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
+
 		xAllOf(function (x) True, coll) == True
 	) +
 
 	describe('partially applying with false is true') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
+
 		xAllOf(function (x) False, coll) == False,
 		xAllOf(function (x) Na,    coll) == False
 	) +
