@@ -1,6 +1,6 @@
 
 
-kea ::: load_test_dependencies()
+kea ::: load_test_dependencies(environment())
 
 message("xLambda")
 

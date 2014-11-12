@@ -1,5 +1,5 @@
 
-kea ::: load_test_dependencies()
+kea ::: load_test_dependencies(environment())
 
 to_test       <- function (nums, coll) {}
 body(to_test) <- kea ::: Must_All_Be_Indices(nums, coll)

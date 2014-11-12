@@ -1,5 +1,5 @@
 
-kea ::: load_test_dependencies()
+kea ::: load_test_dependencies(environment())
 
 to_test       <- function (coll, lengths) {}
 body(to_test) <- kea ::: Must_Be_Of_Length(coll, lengths)
