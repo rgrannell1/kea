@@ -9,6 +9,7 @@ message("xLambda")
 	describe("all forms of unary lambda work.") +
 	holdsWhen(
 		True,
+
 		{
 			fn0 <- x := {
 				x
@@ -33,6 +34,7 @@ message("xLambda")
 	describe("all forms of binary lambdas work.") +
 	holdsWhen(
 		True,
+
 		{
 			fn0 <- (x : y) := {
 				list(x, y)
@@ -53,6 +55,7 @@ message("xLambda")
 	describe("both the body (for the moment) and environment are identical.") +
 	holdsWhen(
 		True,
+
 		{
 
 			f <- x := val

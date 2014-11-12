@@ -18,6 +18,7 @@ message("xLimit")
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 &&
 		!is.na(unlist(num)) && round(unlist(num)) == num && num > 0 && is.finite(unlist(num)) && num < 1000000,
+
 		{
 
 			res <- True

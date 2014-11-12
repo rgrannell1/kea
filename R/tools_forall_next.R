@@ -67,9 +67,26 @@ suchThat <- ( function () {
 
 	this $ is_function          <- is.function
 	this $ is_primitive         <- is.primitive
+	this $ is_pairlist          <- or_(is.pairlist, is.null)
 
 	this $ is_closure           <- and_(this $ is_function, not(this $ is_primitive))
 	this $ not_closure          <- not(this $ is_closure)
+
+	this $ is_true              <- isTRUE
+	this $ not_true             <- not(this $ is_true)
+
+	this $ is_false             <- function (x) identical(x, FALSE)
+	this $ not_false            <- not(this $ is_false)
+
+	this $ is_null              <- function (x) identical(x, NULL)
+	this $ not_null             <- not(this $ is_null)
+
+	this $ is_nan               <- is_nan
+	this $ not_nan              <- not(is_nan)
+
+	this $ is_na                <- is_na
+	this $ not_na               <- not(is_na)
+
 
 	this
 

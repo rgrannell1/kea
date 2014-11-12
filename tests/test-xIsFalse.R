@@ -7,14 +7,14 @@ message("xIsFalse")
 
 	describe('xIsFalse is true when the value is false.') +
 	holdsWhen(
-		identical(val, False),
+		suchThat $ is_false(val),
 
 		xIsFalse(val)
 	) +
 
 	describe('xIsFalse is false when the value isnt') +
 	holdsWhen(
-		!identical(val, False),
+		suchThat $ not_false(val),
 
 		!xIsFalse(val)
 	) +

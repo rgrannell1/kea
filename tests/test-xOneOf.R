@@ -8,6 +8,7 @@ message("xOneOf")
 	describe("oneof always selects an element from the list") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
+
 		xOneOf(coll) %is_in% coll
 	) +
 
@@ -19,7 +20,8 @@ message("xOneOf")
 
 	describe("fails when empty collection") +
 	failsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
+
 		xOneOf(coll)
 	) +
 

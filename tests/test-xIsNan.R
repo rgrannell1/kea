@@ -7,13 +7,15 @@ message("xIsNan")
 
 	describe('xIsNan is true when the value is NaN.') +
 	holdsWhen(
-		identical(val, NaN),
+		suchThat $ is_nan(val),
+
 		xIsNan(val)
 	) +
 
 	describe('xIsNan is NaN when the value isnt') +
 	holdsWhen(
-		!identical(val, NaN),
+		suchThat $ not_nan(val),
+
 		!xIsNan(val)
 	) +
 

@@ -7,14 +7,14 @@ message("xDropWhile")
 
 	describe("true predicates returns the collection") +
 	holdsWhen(
-		suchThat $ is_collection(coll) && !is_named(coll),
+		suchThat $ not_named_collection(coll),
 
 		xDropWhile(function (x) True,  coll) %is% list()
 	) +
 
 	describe("true predicates returns the collection (named)") +
 	holdsWhen(
-		suchThat $ is_collection(coll) && is_named(coll),
+		suchThat $ is_named_collection(coll),
 
 		xDropWhile(function (x) True,  coll) %is% as_named(list())
 	) +

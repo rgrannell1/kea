@@ -8,6 +8,7 @@ message("xIterate")
 	describe("returning a val is val") +
 	holdsWhen(
 		True,
+
 		xIterate(function (val) Return(val), val) %is% val
 	) +
 

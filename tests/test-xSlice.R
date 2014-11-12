@@ -7,16 +7,16 @@ message("xSlice")
 
 	describe("slicing with no indices is the empty list") +
 	holdsWhen(
-		is_collection(nums) && length(nums) == 0 &&
-		suchThat $ is_collection(coll) && !is_named(coll),
+		suchThat $ is_empty_collection(nums) &&
+		suchThat $ not_named_collection(coll),
 
 		xSlice(nums, coll) %is% list()
 	) +
 
 	describe("slicing with no indices is the empty list (named)") +
 	holdsWhen(
-		is_collection(nums) && length(nums) == 0 &&
-		suchThat $ is_collection(coll) && is_named(coll),
+		suchThat $ is_empty_collection(nums) &&
+		suchThat $ is_named_collection(coll),
 
 		xSlice(nums, coll) %is% as_named(list())
 	) +

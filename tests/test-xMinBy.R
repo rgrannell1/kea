@@ -26,6 +26,7 @@ message("xMinBy")
 		suchThat $ not_empty_collection(coll) &&
 		is.numeric(num) && length(num) == 1 &&
 		!is.na(num),
+
 		xMinBy(xCapture(num), coll) %is% coll[[1]]
 	) +
 

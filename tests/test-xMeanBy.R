@@ -7,7 +7,7 @@ message("xMeanBy")
 
 	describe('the mean of empty vector is double(0)') +
 	holdsWhen(
-		is_collection(nums) && length(nums) == 0,
+		suchThat $ is_empty_collection(nums),
 
 		xMeanBy(identity, nums) %is% double(0)
 	) +

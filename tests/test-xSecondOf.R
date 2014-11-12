@@ -8,6 +8,7 @@ message('xSecondOf')
 	describe('always returns the correct element') +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 2,
+
 		xSecondOf(coll) %is% coll[[2]]
 	) +
 	run()
@@ -19,6 +20,7 @@ message('xSecondOf')
 	describe('fails when the collection is too short') +
 	failsWhen(
 		suchThat $ is_collection(coll) && length(coll) < 2,
+
 		xSecondOf(coll)
 	) +
 

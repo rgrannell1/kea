@@ -21,7 +21,7 @@ message("xIsSubsetOf")
 
 	describe("elements of a subset are always a subset.") +
 	holdsWhen(
-		is_collection(coll1) && length(coll1) > 0,
+		suchThat $ not_empty_collection(coll1),
 
 		{
 			subset <- sample(as.list(coll1), size = sample.int(length(coll1), 1))

@@ -21,7 +21,7 @@ message("xWhere")
 
 	describe("length one corner cases") +
 	holdsWhen(
-		TRUE,
+		True,
 
 		xWhere(TRUE) == 1,
 		xWhere(FALSE) %is% integer(0),

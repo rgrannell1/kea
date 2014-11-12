@@ -8,24 +8,28 @@ message("xSortBy")
 	describe("sorting the empty colelction is the empty list.") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
+
 		xSortBy(xI, coll) %is% list()
 	) +
 
 	describe("sorting the empty colelction is the empty list. (named)") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
+
 		xSortBy(xI, coll) %is% as_named(list())
 	) +
 
 	describe("sorting the empty colelction is the empty list.") +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) == 1,
+
 		xSortBy(xI, coll) %is% as.list(coll)
 	) +
 
 	describe("sorting the seq along is identity.") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
+
 		xSortBy(xI, seq_along(coll)) %is% as.list(seq_along(coll))
 	) +
 

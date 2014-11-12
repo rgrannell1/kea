@@ -7,7 +7,8 @@ message("xThread")
 
 	describe('threading with no function is that value') +
 	holdsWhen(
-		TRUE,
+		True,
+
 		xThread(val, list()) %is% val
 	) +
 

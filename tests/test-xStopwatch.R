@@ -10,6 +10,7 @@ message("xStopwatch")
 	describe('stopwatch with no time is false') +
 	holdsWhen(
 		True,
+
 		!xStopwatch(0)()
 	) +
 
@@ -17,6 +18,7 @@ message("xStopwatch")
 	worksWhen(
 		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
 		!is.nan(num) && num > 0,
+
 		xStopwatch(num)
 	) +
 
@@ -32,6 +34,7 @@ message("xStopwatch")
 	holdsWhen(
 		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
 		!is.nan(num) && num > 0,
+
 		{
 
 			num        <- as_ratio(num)

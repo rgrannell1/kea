@@ -21,7 +21,7 @@ message("xUnit")
 
 	describe("xUnit of pairlist is null") +
 	holdsWhen(
-		is.pairlist(coll) || is.null(coll),
+		suchThat $ is_pairlist(coll),
 
 		is.null(xUnit(coll))
 	) +

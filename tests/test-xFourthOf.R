@@ -8,6 +8,7 @@ message('xFourthOf')
 	describe('always returns the correct element') +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 4,
+
 		xFourthOf(coll) %is% coll[[4]]
 	) +
 	run()

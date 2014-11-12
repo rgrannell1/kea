@@ -7,13 +7,15 @@ message("xIsNull")
 
 	describe('xIsNull is true when the value is null.') +
 	holdsWhen(
-		identical(val, Null),
+		suchThat $ is_null(val),
+
 		xIsNull(val)
 	) +
 
 	describe('xIsNull is false when the value isnt') +
 	holdsWhen(
-		!identical(val, Null),
+		suchThat $ not_null(val),
+
 		!xIsNull(val)
 	) +
 

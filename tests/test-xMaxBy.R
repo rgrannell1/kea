@@ -26,6 +26,7 @@ message("xMaxBy")
 		suchThat $ not_empty_collection(coll) &&
 		is.numeric(num) && length(num) == 1 &&
 		!is.na(num),
+
 		xMaxBy(xCapture(num), coll) %is% coll[[1]]
 	) +
 

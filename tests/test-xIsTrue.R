@@ -7,13 +7,15 @@ message("xIsTrue")
 
 	describe('xIsTrue is true when the value is false.') +
 	holdsWhen(
-		isTRUE(val),
+		suchThat $ is_true(val),
+
 		xIsTrue(val)
 	) +
 
 	describe('xIsTrue is false when the value isnt') +
 	holdsWhen(
-		!isTRUE(val),
+		suchThat $ is_false(val),
+
 		!xIsTrue(val)
 	) +
 

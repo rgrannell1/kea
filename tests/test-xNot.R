@@ -8,6 +8,7 @@ message("xNot")
 	describe("a value is always equal to itself.") +
 	holdsWhen(
 		True,
+
 		!xNot(val, val)
 	) +
 
@@ -18,6 +19,7 @@ message("xNot")
 	describe("always returns a logical value.") +
 	holdsWhen(
 		True,
+
 		is.logical(xNot(val1, val2)),
 		length(xNot(val1, val2)) == 1
 	) +
@@ -25,6 +27,7 @@ message("xNot")
 	describe("xNot always runs") +
 	worksWhen(
 		True,
+
 		xNot(val1, val2)
 	) +
 
