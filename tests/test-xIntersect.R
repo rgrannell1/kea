@@ -7,8 +7,7 @@ message("xIntersect")
 
 	describe("interof two empty collection is empty") +
 	holdsWhen(
-		suchThat $ is_collection(coll1) && suchThat $ is_collection(coll2) &&
-		length(coll1) == 0 && length(coll2) == 0,
+		suchThat $ is_empty_collection(coll1) && suchThat $ is_empty_collection(coll2),
 
 		xIntersect(coll1, coll2) %is% list()
 	) +
