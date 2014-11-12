@@ -1,5 +1,5 @@
 
-kea ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies()
 
 message("xGroupBy")
 
@@ -7,7 +7,7 @@ message("xGroupBy")
 
 	describe("grouping an empty collection is list()") +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xGroupBy(identity, coll) %is% list()
 	) +

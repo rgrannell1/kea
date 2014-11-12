@@ -1,5 +1,5 @@
 
-kea ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies()
 
 as_typed_vector <- kea ::: as_typed_vector
 as_atom         <- kea ::: as_atom

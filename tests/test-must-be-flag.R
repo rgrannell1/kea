@@ -1,5 +1,5 @@
 
-kea ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies()
 
 to_test       <- function (bool) {}
 body(to_test) <- kea ::: Must_Be_Flag(bool, predSymbol)
