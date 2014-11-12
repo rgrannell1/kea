@@ -7,21 +7,21 @@ message("xShuffle")
 
 	describe("shuffling the empty collection returns the empty list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xShuffle(coll) %is% list()
 	) +
 
 	describe("shuffling the empty collection returns the empty list (named)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xShuffle(coll) %is% as_named(list())
 	) +
 
 	describe("length is preserved") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		length(xShuffle(coll)) %is% length(coll)
 	) +

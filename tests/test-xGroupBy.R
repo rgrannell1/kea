@@ -7,7 +7,7 @@ message("xGroupBy")
 
 	describe("grouping an empty collection is list()") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll)
 
 		xGroupBy(identity, coll) %is% list()
 	) +
@@ -21,7 +21,7 @@ message("xGroupBy")
 
 	describe("a unique set groups as itself, with itself as keys under identity") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		{
 

@@ -6,25 +6,29 @@ message("xFold")
 
 	describe("fold right is last value in collection") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
+
 		xFold(function (...) ..2, val, coll) %is% val
 	) +
 
 	describe("Return( ) can terminate the computation") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
+
 		xFold(function (...) Return(..2), val, coll) %is% coll[[ 1 ]]
 	) +
 
 	describe("Return( ) can terminate the computation") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
+
 		xFold(function (...) Return(..1), val, coll) %is% val
 	) +
 
 	describe("fold right is last value in collection") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
+
 		xFold(function (...) ..2, val, coll) %is% coll[[ length(coll) ]]
 	) +
 

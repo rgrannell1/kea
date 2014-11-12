@@ -10,7 +10,7 @@ message('Must_Be_Collection')
 
 	describe('always passes for collections') +
 	worksWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		to_test(coll)
 	) +
 
@@ -20,7 +20,7 @@ message('Must_Be_Collection')
 
 	describe('always fails for non-collections') +
 	failsWhen(
-		!is_collection(coll),
+		suchThat $ not_collection(coll),
 		to_test(coll)
 	) +
 

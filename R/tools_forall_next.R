@@ -1,4 +1,85 @@
 
+# -------------------------------- predicate composition -------------------------------- #
+#
+# Much of the work in writing tests is selecting test cases. These predicates should be composed
+# to reduce repetition.
+
+not <- function (pred) {
+	function (x) {
+		!pred(x)
+	}
+}
+
+
+
+and <- function (preds) {
+	function (x) {
+
+		all( vapply(preds, function (pred) {
+			pred(x)
+		}, logical(1)) )
+
+	}
+}
+
+and_ <- function (...) {
+	and(list(...))
+}
+
+
+
+or <- function (preds) {
+	function (x) {
+
+		any( vapply(preds, function (pred) {
+			pred(x)
+		}, logical(1)) )
+
+	}
+}
+
+or_ <- function (...) {
+	or(list(...))
+}
+
+
+
+
+
+suchThat <- ( function () {
+
+	this <- list( )
+
+	this $ is_collection        <- is_collection
+	this $ is_empty_collection  <- and_(is_collection, function (x) length(x) == 0)
+
+	this $ not_collection       <- not(this $ is_collection)
+	this $ not_empty_collection <- not(this $ is_empty_collection)
+
+	this $ is_named_collection  <- and_(this $ is_collection, this $ is_named)
+	this $ not_named_collection <- and_(this $ is_collection, this $ not_named)
+
+	this $ is_named             <- is_named
+	this $ not_named            <- not(this $ is_named)
+
+	this $ is_logical           <- is_logical
+	this $ is_character         <- is_character
+
+	this $ is_function          <- is.function
+	this $ is_primitive         <- is.primitive
+
+	this $ is_closure           <- and_(this $ is_function, not(this $ is_primitive))
+	this $ not_closure          <- not(this $ is_closure)
+
+	this
+
+} )()
+
+
+
+
+
+
 # -------------------------------- from_stream -------------------------------- #
 #
 # from_stream emits random values.

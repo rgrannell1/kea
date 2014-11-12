@@ -7,14 +7,14 @@ message("xGather")
 
 	describe("xGather always runs") +
 	worksWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		xGather(coll)
 	) +
 
 	describe("xGather returns a list of lists") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		all( vapply(xGather(coll), is.list, logical(1)) )
 	) +

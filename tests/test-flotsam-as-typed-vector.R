@@ -187,7 +187,7 @@ message("as_atom (atomic)")
 
 	describe("atom length-zero conversion always works") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		as_atom(coll, 'numeric')   %is% numeric(0),
 		as_atom(coll, 'integer')   %is% integer(0),
@@ -200,7 +200,7 @@ message("as_atom (atomic)")
 
 	describe("atom length-zero conversion always works (named)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		as_atom(coll, 'numeric')   %is% as_named(numeric(0)),
 		as_atom(coll, 'integer')   %is% as_named(integer(0)),

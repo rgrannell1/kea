@@ -13,13 +13,13 @@ message("xAnyOf")
 
 	describe('partially applying with true is false') +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 		xAnyOf(function (x) True, coll) == True
 	) +
 
 	describe('partially applying with false is true') +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 		xAnyOf(function (x) False, coll) == False,
 		xAnyOf(function (x) Na,    coll) == False
 	) +

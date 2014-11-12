@@ -7,7 +7,7 @@ message("xChop")
 
 	describe("xChopping infinite times / length times is as.list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 		length(xChop(Inf,          coll)) == length(coll),
 
 		length(xChop(length(coll), coll)) == length(coll)
@@ -15,7 +15,7 @@ message("xChop")
 
 	describe("xChop once is almost identity") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		xChop(1, coll) %is% list(as.list(coll))
 	) +
@@ -24,7 +24,7 @@ message("xChop")
 	holdsWhen(
 		is.numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 1 && round(unlist(num)) == num & num >= 0) &&
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		length(xChop(num, coll)) == min(length(coll), num)
 	) +

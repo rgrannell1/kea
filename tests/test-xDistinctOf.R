@@ -7,21 +7,21 @@ message('xDistinctOf')
 
 	describe('unique of empty coll is empty list') +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll)
 
 		xDistinctOf(coll) %is% list()
 	) +
 
 	describe('uniques + duplicates == set') +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		length(coll) == length(xDistinctOf(coll)) + length( which(duplicated(coll)) )
 	) +
 
 	describe('unique repeats')+
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		xDistinctOf(xDistinctOf(coll)) %is% xDistinctOf(coll)
 	) +

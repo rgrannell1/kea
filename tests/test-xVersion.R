@@ -15,6 +15,7 @@ message("xVersion")
 	describe('xVersion always is an integer') +
 	holdsWhen(
 		True,
+
 		is.integer(xVersion(val))
 	) +
 

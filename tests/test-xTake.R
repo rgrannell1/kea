@@ -9,7 +9,7 @@ message('xTake')
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xTake(num, coll) %is% list()
 	) +
@@ -18,7 +18,7 @@ message('xTake')
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xTake(num, coll) %is% as_named(list())
 	) +
@@ -27,7 +27,7 @@ message('xTake')
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		{
 			ind <- min(length(coll), unlist(num))
@@ -39,7 +39,7 @@ message('xTake')
 	worksWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		xTake(num, coll)
 	) +
@@ -48,7 +48,7 @@ message('xTake')
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		names(xTake(num, coll)) %is% names(coll[ seq_len(min( unlist(num), length(coll) )) ])
 	) +

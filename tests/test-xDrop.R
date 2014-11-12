@@ -9,7 +9,7 @@ message('xDrop')
 	holdsWhen(
 		is_numeric(num) && !is.na(num) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xDrop(num, coll) %is% list()
 	) +
@@ -18,7 +18,7 @@ message('xDrop')
 	holdsWhen(
 		is_numeric(num) && !is.na(num) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xDrop(num, coll) %is% as_named(list())
 	) +
@@ -27,7 +27,7 @@ message('xDrop')
 	holdsWhen(
 		is_numeric(num) && !is.na(num) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num && num >= 0)) &&
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		{
 			ind <- min(length(coll), unlist(num))
@@ -39,7 +39,7 @@ message('xDrop')
 	holdsWhen(
 		is_numeric(num) && !is.na(num) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num && num >= 0)) &&
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		as.list( names(xDrop(num, coll)) ) %is% xDrop(num, names(coll))
 	) +
@@ -48,7 +48,7 @@ message('xDrop')
 	worksWhen(
 		is_numeric(num) && !is.na(num) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num && num >= 0)) &&
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		xDrop(num, coll)
 	) +

@@ -7,25 +7,28 @@ message("xUnzipIndices")
 
 	describe("the empty collection always yields the list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
+
 		xUnzipIndices(coll)  %is% list()
 	) +
 
 	describe("the empty collection always yields the list (named)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
+
 		xUnzipIndices(coll)  %is% as_named(list())
 	) +
 
 	describe("otherwise made of two-tuples") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
+
 		all(sapply( xUnzipIndices(coll), length ) == 2)
 	) +
 
 	describe("first elem is index") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		{
 			unzipped <- xUnzipIndices(coll)
@@ -38,7 +41,7 @@ message("xUnzipIndices")
 
 	describe("second elem is value") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		{
 			unzipped <- xUnzipIndices(coll)
@@ -51,7 +54,7 @@ message("xUnzipIndices")
 
 	describe("names are preserved") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		names(xUnzipIndices(coll)) %is% names(coll)
 	) +

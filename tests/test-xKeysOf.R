@@ -7,21 +7,21 @@ message("xKeysOf")
 
 	describe("keys of always returns character") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		is.character(xKeysOf(coll))
 	) +
 
 	describe("keys of is character 0 for no names") +
 	holdsWhen(
-		is_collection(coll) && !is_named(coll),
+		suchThat $ is_collection(coll) && !is_named(coll),
 
 		xKeysOf(coll) %is% character(0)
 	) +
 
 	describe("keys of is names") +
 	holdsWhen(
-		is_collection(coll) && is_named(coll),
+		suchThat $ is_collection(coll) && is_named(coll),
 
 		xKeysOf(coll) %is% names(coll)
 	) +

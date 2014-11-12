@@ -10,19 +10,19 @@ message("Must_All_Be_Indices")
 
 	describe('positive indices are always indices of coll') +
 	worksWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		to_test(seq_along(coll), coll)
 	) +
 
 	describe('negative indices are always indices of coll') +
 	worksWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		to_test(-seq_along(coll), coll)
 	) +
 
 	describe('works for sampled indices') +
 	worksWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		{
 			indices <- c(seq_along(coll), -seq_along(coll), 0)
 			indices <- sample(indices, size = sample.int(length(indices), 1))
@@ -37,7 +37,7 @@ message("Must_All_Be_Indices")
 
 	describe('always fails for infinites') +
 	failsWhen(
-		is_collection(coll) && is_collection(nums) && any(is.infinite( unlist(nums) )),
+		suchThat $ is_collection(coll) && is_collection(nums) && any(is.infinite( unlist(nums) )),
 		to_test(nums, coll)
 	) +
 

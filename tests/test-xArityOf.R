@@ -7,7 +7,8 @@ message("xArityOf")
 
 	describe("xArityOf is always a nonnegative number") +
 	holdsWhen(
-		is.function(fn),
+		suchThat $ is_function(fn),
+
 		xArityOf(fn) >= 0
 	) +
 

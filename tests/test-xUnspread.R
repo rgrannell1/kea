@@ -7,7 +7,8 @@ message("xUnspread")
 
 	describe('all functions become unary') +
 	holdsWhen(
-		is.function(fn),
+		suchThat $ is_function(fn),
+
 		length( formals(xUnspread(fn) )) == 1
 	) +
 

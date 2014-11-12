@@ -5,7 +5,7 @@ over(colls) +
 
 describe("product of an empty collection is an empty collection") +
 holdsWhen(
-	is_collection(colls) && length(colls) == 0,
+	suchThat $ is_empty_collection(colls),
 	xProdSetOf(colls) %is% list()
 ) +
 

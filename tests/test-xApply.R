@@ -8,7 +8,7 @@ message('xApply')
 	# unname since apply uses names as argument names.
 	describe("apply to list yields list") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		xApply(list, unname(coll)) %is% as.list(unname(coll))
 	) +
 

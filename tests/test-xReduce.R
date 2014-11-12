@@ -7,25 +7,25 @@ message("xReduce")
 
 	describe("reducing the empty collection fails.") +
 	failsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll)
 		xReduce('+', coll)
 	) +
 
 	describe("reducing a length-one collection is the first value.") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 1,
+		suchThat $ is_collection(coll) && length(coll) == 1,
 		xReduce(function (...) {}, coll) %is% coll[[1]]
 	) +
 
 	describe("Return( ) can terminate the computation") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 		xReduce(function (...) Return(..1), coll) %is% coll[[1]]
 	) +
 
 	describe("Reduce right is last value in collection") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 		xReduce(function (...) ..2, coll) %is% coll[[ length(coll) ]]
 	) +
 

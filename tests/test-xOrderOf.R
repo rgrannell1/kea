@@ -7,14 +7,14 @@ message("xOrderOf")
 
 	describe("order of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xOrderOf(coll) %is% integer(0)
 	) +
 
 	describe("order of empty collection is integer(0)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xOrderOf(coll) %is% as_named(integer(0))
 	) +

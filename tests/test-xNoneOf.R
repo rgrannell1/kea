@@ -14,14 +14,14 @@ message("xNoneOf")
 
 	describe('partially applying with true is false') +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		xNoneOf(function (x) True, coll) == False
 	) +
 
 	describe('partially applying with false is true') +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		xNoneOf(function (x) False, coll) == True,
 		xNoneOf(function (x) Na,    coll) == True

@@ -7,7 +7,7 @@ message("xUnspread")
 
 	describe('all functions become unary') +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		do.call( xSpread(identity), as.list(coll) ) %is% as.list(coll)
 	) +

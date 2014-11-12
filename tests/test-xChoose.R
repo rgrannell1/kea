@@ -7,7 +7,7 @@ message("xChoose")
 
 	describe("choosing with empty collection is empty collection") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll)
 		xChoose(0, list()) %is% list(),
 		xChoose(1, list()) %is% list(),
 		xChoose(2, list()) %is% list()
@@ -15,7 +15,7 @@ message("xChoose")
 
 	describe("choosing with 1 is as.list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 		xChoose(1, coll) %is% as.list(coll)
 	) +
 

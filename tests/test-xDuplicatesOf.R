@@ -7,14 +7,14 @@ message("xDuplicatesOf")
 
 	describe("duplications of empty list is empty list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll)
 
 		xDuplicatesOf(coll) %is% list()
 	) +
 
 	describe("set = duplicates and unique") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 
 		length(coll) == length(unique(coll)) + length(xDuplicatesOf(coll))
 	) +

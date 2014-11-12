@@ -7,7 +7,7 @@ message('xLastOf')
 
 	describe('always returns the correct element') +
 	holdsWhen(
-		is_collection(coll) && length(coll) >= 1,
+		suchThat $ is_collection(coll) && length(coll) >= 1,
 		xLastOf(coll) %is% coll[[ length(coll) ]]
 	) +
 
@@ -19,7 +19,7 @@ message('xLastOf')
 
 	describe('fails when the collection is too short') +
 	failsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll)
 		xLastOf(coll)
 	) +
 
