@@ -7,7 +7,7 @@ message("xIsIn")
 
 	describe("empty set is logical-zero") +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xIsIn(val, coll) %is% logical(0)
 	) +

@@ -7,7 +7,7 @@ message('xUnite')
 
 	describe('the union of an empty set is an empty set') +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xUnite(coll, coll) %is% list()
 	) +

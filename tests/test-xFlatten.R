@@ -9,7 +9,7 @@ message("xFlatten")
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(unlist(num)) == num && num > 0 &&
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xFlatten(num, coll) %is% list()
 	) +

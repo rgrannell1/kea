@@ -7,7 +7,7 @@ message("xMinBy")
 
 	describe("min of no elements fails") +
 	failsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xMinBy(identity, coll)
 	) +

@@ -7,7 +7,7 @@ message("xUnzipKeys")
 
 	describe("the empty collection always yields the list") +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xUnzipKeys(coll)  %is% list()
 	) +

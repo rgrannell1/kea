@@ -14,7 +14,7 @@ message("xPoll")
 
 	describe('xPoll with the empty collection is integer(0)') +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xPoll(function (x) True,  coll) %is% integer(0),
 		xPoll(function (x) False, coll) %is% integer(0),

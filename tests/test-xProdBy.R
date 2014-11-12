@@ -7,7 +7,7 @@ over(coll) +
 
 	describe("prod of empty coll is numeric(0)") +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xProdBy(xI, coll) %is% numeric(0)
 	) +

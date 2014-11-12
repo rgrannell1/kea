@@ -7,7 +7,7 @@ message("xZip")
 
 	describe('xZip of the empty collection is list()') +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xZip(coll) %is% list()
 	) +

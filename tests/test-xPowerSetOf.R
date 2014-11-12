@@ -7,7 +7,7 @@ message("xPowerSetOf")
 
 	describe("powerset of empty set is list()") +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xPowerSetOf(coll) %is% list()
 	) +

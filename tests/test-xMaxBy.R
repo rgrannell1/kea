@@ -7,7 +7,7 @@ message("xMaxBy")
 
 	describe("max of no elements fails") +
 	failsWhen(
-		suchThat $ is_empty_collection(coll)
+		suchThat $ is_empty_collection(coll),
 
 		xMaxBy(identity, coll)
 	) +
