@@ -7,7 +7,7 @@ message("xJoin")
 
 	describe('empty coll is unnamed list') +
 	holdsWhen(
-		is_collection(coll1) && length(coll1) == 0,
+		suchThat $ is_empty_collection(coll1),
 
 		xJoin(list()) %is% list(),
 		xJoin_(coll1) %is% list()
