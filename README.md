@@ -11,6 +11,8 @@ Kea is a functional programming library built to do three things:
 * be quick to write, debug, and run
 * make writing large programs easy
 
+In practice, Kea is a collection of higher-order functions and standard collection algorithms that abstracts over the difference between atomic vectors, lists and pairlists. In many ways Kea resembles the STL for C++, or Underscore for JavaScript. 
+
 ### Installation
 
 The best way to get Kea is through github. You must install from the releases branch. Kea is currently in rapid development, so breaking changes are frequently made.
@@ -25,7 +27,7 @@ devtools::install_github("rgrannell1/kea", ref = 'releases')
 
 Go [here](https://github.com/rgrannell1/kea-snippets) for accompanying Sublime Text 3 snippets.
 
-### Usage
+### Syntax
 
 #### - Partial Application
 
