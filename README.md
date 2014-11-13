@@ -11,7 +11,7 @@ Kea is a functional programming library built to do three things:
 * be quick to write, debug, and run
 * make writing large programs easy
 
-In practice, Kea is a collection of higher-order functions and standard collection algorithms that abstracts over the difference between atomic vectors, lists and pairlists. In many ways Kea resembles the STL for C++, or Underscore for JavaScript. 
+In practice, Kea is a collection of higher-order functions and standard collection algorithms that abstracts over the difference between atomic vectors, lists and pairlists. In this way Kea resembles the STL for C++ or Underscore for JavaScript. 
 
 ### Installation
 
