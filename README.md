@@ -15,7 +15,7 @@ In practice, Kea is a collection of higher-order functions and standard collecti
 
 ### Installation
 
-The best way to get Kea is through github. You must install from the releases branch. Kea is currently in rapid development, so breaking changes are frequently made.
+The best way to get Kea is through github. You must install from the releases branch; Kea is in rapid development and breaking changes are frequently made.
 
 ```splus
 if (!require(devtools)) {
