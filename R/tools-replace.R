@@ -148,7 +148,7 @@ keep_names <- function (coll1, coll2) {
 
 	if ( length(coll1) == 0 && !is.null(names(coll2)) ) {
 
-		names(coll1) <- character(0))
+		names(coll1) <- character(0)
 		coll1
 
 	} else {
