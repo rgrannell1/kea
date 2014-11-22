@@ -51,10 +51,11 @@ suchThat <- ( function () {
 	this <- list( )
 
 	this $ is_collection        <- is_collection
-	this $ is_empty_collection  <- and_(is_collection, function (x) length(x) == 0)
+	this $ is_empty             <- function (x) length(x) == 0
+	this $ is_empty_collection  <- and_(this $ is_collection, this $ is_empty)
 
 	this $ not_collection       <- not(this $ is_collection)
-	this $ not_empty_collection <- not(this $ is_empty_collection)
+	this $ not_empty_collection <- and_(is_collection, not(this $ is_empty))
 
 	this $ is_named_collection  <- and_(this $ is_collection, this $ is_named)
 	this $ not_named_collection <- and_(this $ is_collection, this $ not_named)
