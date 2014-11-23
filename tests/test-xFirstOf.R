@@ -7,7 +7,7 @@ message('xFirstOf')
 
 	describe('always returns the correct element') +
 	holdsWhen(
-		suchThat $ is_empty_collection(coll),
+		suchThat $ not_empty_collection(coll),
 
 		xFirstOf(coll) %is% coll[[1]]
 	) +
