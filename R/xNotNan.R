@@ -30,5 +30,5 @@
 #' @export
 
 xNotNan <- MakeFun(function (val)
-	!identical(val, NaN)
+	!is_nan(val)
 )
