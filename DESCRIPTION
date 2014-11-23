@@ -81,7 +81,6 @@ Collate:
     'xToChars.R'
     'xImplode.R'
     'xCompose.R'
-    'xChop.R'
     'xCapture.R'
     'xDrop.R'
     'xDropWhile.R'
