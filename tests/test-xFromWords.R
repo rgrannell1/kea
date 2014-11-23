@@ -14,7 +14,7 @@ message('xFromWords')
 
 	describe("xFromWords is length-one") +
 	holdsWhen(
-		suchThat $ not_empty_collection(strs),
+		and_(suchThat $ not_empty_character, suchThat $ without_na)(strs),
 
 		length(xFromWords(strs)) == 1
 	) +

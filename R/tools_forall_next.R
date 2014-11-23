@@ -5,6 +5,11 @@
 # to reduce repetition.
 
 not <- function (pred) {
+
+	if (!is.function(pred)) {
+		stop("not a function.")
+	}
+
 	function (x) {
 		!pred(x)
 	}
@@ -13,6 +18,11 @@ not <- function (pred) {
 
 
 and <- function (preds) {
+
+	if (!all( vapply(preds, is.function, logical(1)) )) {
+		stop("not all functions.")
+	}
+
 	function (x) {
 
 		all( vapply(preds, function (pred) {
@@ -29,6 +39,11 @@ and_ <- function (...) {
 
 
 or <- function (preds) {
+
+	if (!all( vapply(preds, is.function, logical(1)) )) {
+		stop("not all functions.")
+	}
+
 	function (x) {
 
 		any( vapply(preds, function (pred) {
@@ -57,11 +72,11 @@ suchThat <- ( function () {
 	this $ not_collection       <- not(this $ is_collection)
 	this $ not_empty_collection <- and_(is_collection, not(this $ is_empty))
 
-	this $ is_named_collection  <- and_(this $ is_collection, this $ is_named)
-	this $ not_named_collection <- and_(this $ is_collection, this $ not_named)
-
 	this $ is_named             <- is_named
 	this $ not_named            <- not(this $ is_named)
+	
+	this $ is_named_collection  <- and_(this $ is_collection, this $ is_named)
+	this $ not_named_collection <- and_(this $ is_collection, this $ not_named)
 
 	this $ is_logical           <- is_logical
 	this $ is_character         <- is_character
@@ -87,6 +102,21 @@ suchThat <- ( function () {
 
 	this $ is_na                <- is_na
 	this $ not_na               <- not(is_na)
+
+	this $ contains_na          <- function (x) any(elem_is_na(x))
+	this $ without_na           <- not(this $ contains_na)
+
+	this $ contains_nan         <- function (x) any(elem_is_nan(x))
+	this $ without_nan          <- not(this $ contains_nan)
+
+
+
+	# -- over composing? probably still better to do this here; these assertions are needed.
+
+	this $ not_empty_character  <- and_(this $ is_character, not(this $ is_empty))
+
+
+
 
 
 	this
