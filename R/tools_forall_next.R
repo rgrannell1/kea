@@ -74,7 +74,7 @@ suchThat <- ( function () {
 
 	this $ is_named             <- is_named
 	this $ not_named            <- not(this $ is_named)
-	
+
 	this $ is_named_collection  <- and_(this $ is_collection, this $ is_named)
 	this $ not_named_collection <- and_(this $ is_collection, this $ not_named)
 
@@ -110,6 +110,11 @@ suchThat <- ( function () {
 	this $ without_nan          <- not(this $ contains_nan)
 
 
+	# -- parametrised generators
+
+	this $ has_length           <- function (len) function (x) length(x) == len
+
+	this $ is_singleton         <- this $ has_length(1)
 
 	# -- over composing? probably still better to do this here; these assertions are needed.
 

@@ -7,7 +7,7 @@ message('xAmend')
 
 	describe("character 0 matches all strings") +
 	holdsWhen(
-		suchThat $ is_collection(coll) && length(coll) == 0 &&
+		suchThat $ is_empty_collection(coll) &&
 		is_character(str) && length(str) == 1 && !is.na(str),
 
 		xAmend(coll, coll, coll) %is% character(0),

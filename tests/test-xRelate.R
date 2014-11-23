@@ -28,7 +28,7 @@ message("xRelate")
 
 	describe('names are preserved') +
 	holdsWhen(
-		suchThat $ is_collection(coll) && length(coll),
+		suchThat $ not_empty_collection(coll),
 
 		names(xRelate(identity, coll)) %is% names(coll)
 	) +
