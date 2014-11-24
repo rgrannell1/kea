@@ -11,7 +11,14 @@ have a well-defined use case.
 * Slightly improved the performance of xCompose for large numbers of input functions.
 
 
+BUG-FIXES:
 
+* NaN and Na testing functions now never return named arguments.
+
+PACKAGE-INTERNALS:
+
+* Internal NA and NaN checking functions now explicitely remove names from their
+output, making them safe for use with isTRUE.
 
 
 

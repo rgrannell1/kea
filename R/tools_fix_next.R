@@ -129,7 +129,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		lookup_expr <- if (is_variadic) {
 
 			quote( if (param == 'sym') substitute(param)
-			 else if (param == '...')
+			 else if (param == '...' || param == 'SPREAD_PARAMETRE')
 			 	list(...)
 			 else
 				frame[[param]] )
@@ -471,7 +471,7 @@ MakeVariadic <- function (fn, fixed) {
 		.(as.call( list(
 			as.symbol('Fix'),
 			# -- the Kea function to partially apply.
-			as.symbol(fn_sym),
+			as.symbol(varfn_sym),
 
 			# -- the parametre to the Kea function.
 			lapply(params, function (param) {

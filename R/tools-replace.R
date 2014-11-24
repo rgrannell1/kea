@@ -20,12 +20,14 @@ rsample <- function (coll, ...) {
 
 is_na <- function (val) {
 	# -- is.na fails for Null, NaN and other annoying cases.
-	# -- na can be named.
+	# -- na can be named. Remove named from output; that can bite hard with isTRUE.
+
 	unname( is_atomic(val) && length(val) == 1 && unname(is.na(val) && !is.nan(val)) )
 }
 
 is_nan <- function (val) {
-	# -- NaN can be named.
+	# -- NaN can be named. Remove named from output; that can bite hard with isTRUE.
+
 	unname( is_atomic(val) && length(val) == 1 && is.nan(val) )
 }
 
@@ -39,7 +41,7 @@ elem_is_na <- function (coll) {
 		is.na(coll) & !is.nan(coll)
 	else
 		vapply(coll, function (elem) {
-			is_atomic(elem) && length(elem) == 1 && unname(is.na(elem) && !is.nan(elem))
+			unname( is_atomic(elem) && length(elem) == 1 && unname(is.na(elem) && !is.nan(elem)) )
 		}, logical(1), USE.NAMES = True)
 
 }
@@ -50,7 +52,7 @@ elem_is_nan <- function (coll) {
 		is.nan(coll)
 	else
 		vapply(coll, function (elem) {
-			is_atomic(elem) && length(elem) == 1 && is.nan(elem)
+			unname( is_atomic(elem) && length(elem) == 1 && is.nan(elem) )
 		}, logical(1), USE.NAMES = True)
 
 }

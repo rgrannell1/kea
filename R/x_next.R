@@ -608,6 +608,7 @@ x_ <- MakeFun(function (val)
 	} else {
 		# -- cannot just be a val with a class label,
 		# -- as if val is null then x_ will fail.
+
 		structure(list(x = val), class = 'kea')
 	}
 )
