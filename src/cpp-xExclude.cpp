@@ -15,9 +15,24 @@ List cExclude (const List& coll1, const List& coll2) {
 	const bool has_names = coll2.attr("names") != R_NilValue;
 
 	if (coll1_size == 0) {
+
 		return coll2;
+
 	} else if (coll2_size == 0) {
-		return List::create();
+
+		if (has_names) {
+
+			List out = List::create();
+			out.attr("names") = CharacterVector::create();
+
+			return out;
+
+		} else {
+
+			return List::create();
+
+		}
+
 	} else {
 
 		std::vector<int> remaining_indices;
