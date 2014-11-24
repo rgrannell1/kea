@@ -98,10 +98,10 @@ suchThat <- ( function () {
 	this $ not_null             <- not(this $ is_null)
 
 	this $ is_nan               <- is_nan
-	this $ not_nan              <- not(is_nan)
+	this $ not_nan              <- not(this $ is_nan)
 
 	this $ is_na                <- is_na
-	this $ not_na               <- not(is_na)
+	this $ not_na               <- not(this $ is_na)
 
 	this $ contains_na          <- function (x) any(elem_is_na(x))
 	this $ without_na           <- not(this $ contains_na)

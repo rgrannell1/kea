@@ -17,7 +17,6 @@ fix <- function (fixed_function, coll) {
 
 		as.pairlist(fn_formals[ fn_params %not_in% names(coll) ]),
 		bquote({
-			.(paste0('a partially applied form of ', fn_sym))
 
 			.( as.call(c(fn_sym, lapply(fn_params, function (param) {
 

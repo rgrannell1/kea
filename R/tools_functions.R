@@ -354,6 +354,7 @@ load_test_dependencies <- function (envir) {
 			failsFor        = failsFor,
 
 			run             = run,
+			suchThat        = suchThat,
 
 			`+.xforall`     = `+.xforall`,
 
