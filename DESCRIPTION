@@ -208,6 +208,7 @@ Collate:
     'xGather.R'
     'xRecycle.R'
     'xInvoke.R'
+    'xExclude.R'
     'tools-lenses.R'
     'x_next.R'
     'x..R'

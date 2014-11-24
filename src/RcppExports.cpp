@@ -67,6 +67,22 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// cExclude
+List cExclude(const List& coll1, const List& coll2);
+RcppExport SEXP kea_cExclude(SEXP coll1SEXP, SEXP coll2SEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const List& >::type coll1(coll1SEXP );
+        Rcpp::traits::input_parameter< const List& >::type coll2(coll2SEXP );
+        List __result = cExclude(coll1, coll2);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // cFlatten
 List cFlatten(const NumericVector& num, const List coll);
 RcppExport SEXP kea_cFlatten(SEXP numSEXP, SEXP collSEXP) {

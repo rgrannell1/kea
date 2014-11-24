@@ -17,6 +17,10 @@ cDrop <- function(num, coll) {
     .Call('kea_cDrop', PACKAGE = 'kea', num, coll)
 }
 
+cExclude <- function(coll1, coll2) {
+    .Call('kea_cExclude', PACKAGE = 'kea', coll1, coll2)
+}
+
 cFlatten <- function(num, coll) {
     .Call('kea_cFlatten', PACKAGE = 'kea', num, coll)
 }

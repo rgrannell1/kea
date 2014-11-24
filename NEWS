@@ -1,4 +1,26 @@
 
+Kea 0.69.0
+------------------------------------------------------------------------------
+Date: 2014-11-8
+
+ENHANCEMENTS:
+
+* Added xExclude, which removes elements from a collection if they are not also in a
+second collection.
+
+* xIntersect now uses its first collection as a set, and draws values from its second. This
+is more in line with kea's tactic of using leftmost parametres for flags, control arguments,
+and specialising arguments and the later parametres for data. This is a breaking change.
+
+* xIntersect now preseves the names of its second collection.
+
+DOCUMENTATION:
+
+Fixed type signature for xIntersect.
+
+
+
+
 Kea 0.68.0
 ------------------------------------------------------------------------------
 Date: 2014-11-8
