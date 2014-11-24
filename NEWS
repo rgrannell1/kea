@@ -1,7 +1,7 @@
 
 Kea 0.69.0
 ------------------------------------------------------------------------------
-Date: 2014-11-8
+Date: 2014-11-24
 
 ENHANCEMENTS:
 
@@ -16,9 +16,11 @@ and specialising arguments and the later parametres for data. This is a breaking
 
 DOCUMENTATION:
 
-Fixed type signature for xIntersect.
+* Fixed type signature for xIntersect.
 
+PACKAGE-INTERNALS:
 
+* Improved the tests for xIntersect substantially.
 
 
 
@@ -29,7 +31,7 @@ Fixed type signature for xIntersect.
 
 Kea 0.68.0
 ------------------------------------------------------------------------------
-Date: 2014-11-8
+Date: 2014-11-24
 
 Added xInvoke, removed old adaptor functions.
 
