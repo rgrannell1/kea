@@ -5,14 +5,23 @@ Date: 2014-11-8
 
 ENHANCEMENTS:
 
-* Added xInvoke.
+* Added xInvoke, a function similar to xApply.
+
+* Removed xSpread and xUnspread; since kea became partially applied by default
+they became pretty useless. xApply and xInvoke cover all use cases of those
+two functions (and additional use cases) with no syntax overhead. Closes #54.
 
 * Removed xChop; it had an off-by-one error that was difficult to fix and it didn't
-have a well-defined use case.
+have a well-defined use case. Closes #68.
 
 * Slightly improved the performance of xCompose for large numbers of input functions.
 
+* Closed #70.
+
 BUG-FIXES:
+
+* Partial application now works as expected for variadic functions, instead of
+returning a partially applied version of the non-variadic form. Closes #51.
 
 * NaN and Na testing functions now never return named arguments.
 
@@ -20,9 +29,6 @@ PACKAGE-INTERNALS:
 
 * Internal NA and NaN checking functions now explicitely remove names from their
 output, making them safe for use with isTRUE.
-
-
-
 
 
 
