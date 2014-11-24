@@ -58,7 +58,6 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xFix}}, \code{\link{xFix_}};
   \code{\link{xJuxtapose}}, \code{\link{xJuxtapose_}};
-  \code{\link{xSpread}}; \code{\link{xThread}},
-  \code{\link{xThread_}}; \code{\link{xUnspread}}
+  \code{\link{xThread}}, \code{\link{xThread_}}
 }
 

@@ -95,8 +95,7 @@ Other function_application_functions: \code{\link{xDeepMap}},
   \code{\link{xDeepMap_}}; \code{\link{xFlatMap}},
   \code{\link{xFlatMap_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xRelate}},
-  \code{\link{xRelate_}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}
+  \code{\link{xRelate_}}; \code{\link{xThread}},
+  \code{\link{xThread_}}
 }
 

@@ -5,11 +5,12 @@ Date: 2014-11-8
 
 ENHANCEMENTS:
 
+* Added xInvoke.
+
 * Removed xChop; it had an off-by-one error that was difficult to fix and it didn't
 have a well-defined use case.
 
 * Slightly improved the performance of xCompose for large numbers of input functions.
-
 
 BUG-FIXES:
 
