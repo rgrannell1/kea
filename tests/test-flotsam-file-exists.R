@@ -76,7 +76,7 @@ message('checking that R file has an example file')
 
 	expected_examples_ <-
 		namespace_files_ $
-		xMap( xUnspread((base : abspath) := {
+		xMap( xApply((base : abspath) := {
 
 			list(
 				base,
@@ -85,7 +85,7 @@ message('checking that R file has an example file')
 					xFromChars_('example-', base, '.R')) )
 		}) )
 
-	expected_examples_ $ xDo( xUnspread((base : path) := {
+	expected_examples_ $ xDo( xApply((base : path) := {
 
 		if (!file.exists(path)) {
 			stop("no example existed for ", base)
@@ -111,7 +111,7 @@ message('checking that each example is non-empty')
 		)
 
 	example_lengths_ <-
-		expected_examples_ $ xMap( xUnspread((base : abspath) := {
+		expected_examples_ $ xMap( xApply((base : abspath) := {
 
 			length_summary <-
 				x_(xRead(abspath)) $ xToLines() $
