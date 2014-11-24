@@ -47,7 +47,7 @@ csv <- "Monaco,48.9,Japan,44.6,Italy,44.3,Germany,43.7,Jersey,43.4,Hong Kong,42.
 
 age_by_country <-
 	x_(csv) $ xExplode(',') $
-	xChunk(2) $ xMap( xUnspread((key : value) := {
+	xChunk(2) $ xMap( xApply((key : value) := {
 		list(key, as.numeric(value))
 	}) ) $
 	xZipKeys()
@@ -69,8 +69,7 @@ xMap(xAt(2))
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAppend}},
-  \code{\link{xAppend_}}; \code{\link{xChop}},
-  \code{\link{xChop_}}; \code{\link{xFlatten}},
+  \code{\link{xAppend_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},
   \code{\link{xGather_}}; \code{\link{xGroupBy}},
   \code{\link{xGroupBy_}}; \code{\link{xJoin}},

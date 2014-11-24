@@ -1,4 +1,5 @@
 
+
 kea ::: load_test_dependencies(environment())
 
 message("xVersion")
@@ -15,6 +16,7 @@ message("xVersion")
 	describe('xVersion always is an integer') +
 	holdsWhen(
 		True,
+
 		is.integer(xVersion(val))
 	) +
 

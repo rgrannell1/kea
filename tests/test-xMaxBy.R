@@ -7,14 +7,14 @@ message("xMaxBy")
 
 	describe("max of no elements fails") +
 	failsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
 
 		xMaxBy(identity, coll)
 	) +
 
 	describe("maxby of one element is that element") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 1,
+		suchThat $ is_collection(coll) && length(coll) == 1,
 
 		xMaxBy(identity, coll) %is% coll[[1]]
 	) +
@@ -23,9 +23,10 @@ message("xMaxBy")
 
 	describe("maxby a constant function is coll_1") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0 &&
+		suchThat $ not_empty_collection(coll) &&
 		is.numeric(num) && length(num) == 1 &&
 		!is.na(num),
+
 		xMaxBy(xCapture(num), coll) %is% coll[[1]]
 	) +
 

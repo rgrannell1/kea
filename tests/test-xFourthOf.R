@@ -7,7 +7,8 @@ message('xFourthOf')
 
 	describe('always returns the correct element') +
 	holdsWhen(
-		is_collection(coll) && length(coll) >= 4,
+		suchThat $ is_collection(coll) && length(coll) >= 4,
+
 		xFourthOf(coll) %is% coll[[4]]
 	) +
 	run()
@@ -18,7 +19,7 @@ message('xFourthOf')
 
 	describe('fails when the collection is too short') +
 	failsWhen(
-		is_collection(coll) && length(coll) < 4,
+		suchThat $ is_collection(coll) && length(coll) < 4,
 
 		xFourthOf(coll)
 	) +

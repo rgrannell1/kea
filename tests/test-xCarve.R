@@ -9,7 +9,7 @@ message('xCarve')
 	holdsWhen(
 		is_character(str) && length(str) == 1 &&
 		!is.na(str) &&
-		is_collection(nums) && length(nums) == 0,
+		suchThat $ is_empty_collection(nums),
 
 		xCarve(0, str) %is% character(0),
 		xCarve(nums, str) %is% character(0)

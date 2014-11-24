@@ -67,8 +67,7 @@ Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{xCompose}}, \code{\link{xCompose_}};
   \code{\link{xCapture}}, \code{\link{xK}};
   \code{\link{xFix}}, \code{\link{xFix_}};
-  \code{\link{xNegate}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}
+  \code{\link{xNegate}}; \code{\link{xThread}},
+  \code{\link{xThread_}}
 }
 

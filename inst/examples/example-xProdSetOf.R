@@ -3,7 +3,7 @@
 #    often a very nice replacements for loops.
 
 xMap(
-    xUnspread((ith : jth) := {
+    xApply((ith : jth) := {
         ith^2 + jth^2
     }),
     xProdSetOf_(1:4, 1:4)

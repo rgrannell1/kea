@@ -1,4 +1,138 @@
 
+# -------------------------------- predicate composition -------------------------------- #
+#
+# Much of the work in writing tests is selecting test cases. These predicates should be composed
+# to reduce repetition.
+
+not <- function (pred) {
+
+	if (!is.function(pred)) {
+		stop("not a function.")
+	}
+
+	function (x) {
+		!pred(x)
+	}
+}
+
+
+
+and <- function (preds) {
+
+	if (!all( vapply(preds, is.function, logical(1)) )) {
+		stop("not all functions.")
+	}
+
+	function (x) {
+
+		all( vapply(preds, function (pred) {
+			pred(x)
+		}, logical(1)) )
+
+	}
+}
+
+and_ <- function (...) {
+	and(list(...))
+}
+
+
+
+or <- function (preds) {
+
+	if (!all( vapply(preds, is.function, logical(1)) )) {
+		stop("not all functions.")
+	}
+
+	function (x) {
+
+		any( vapply(preds, function (pred) {
+			pred(x)
+		}, logical(1)) )
+
+	}
+}
+
+or_ <- function (...) {
+	or(list(...))
+}
+
+
+
+
+
+suchThat <- ( function () {
+
+	this <- list( )
+
+	this $ is_collection        <- is_collection
+	this $ is_empty             <- function (x) length(x) == 0
+	this $ is_empty_collection  <- and_(this $ is_collection, this $ is_empty)
+
+	this $ not_collection       <- not(this $ is_collection)
+	this $ not_empty_collection <- and_(is_collection, not(this $ is_empty))
+
+	this $ is_named             <- is_named
+	this $ not_named            <- not(this $ is_named)
+
+	this $ is_named_collection  <- and_(this $ is_collection, this $ is_named)
+	this $ not_named_collection <- and_(this $ is_collection, this $ not_named)
+
+	this $ is_logical           <- is_logical
+	this $ is_character         <- is_character
+
+	this $ is_function          <- is.function
+	this $ is_primitive         <- is.primitive
+	this $ is_pairlist          <- or_(is.pairlist, is.null)
+
+	this $ is_closure           <- and_(this $ is_function, not(this $ is_primitive))
+	this $ not_closure          <- not(this $ is_closure)
+
+	this $ is_true              <- isTRUE
+	this $ not_true             <- not(this $ is_true)
+
+	this $ is_false             <- function (x) identical(x, FALSE)
+	this $ not_false            <- not(this $ is_false)
+
+	this $ is_null              <- function (x) identical(x, NULL)
+	this $ not_null             <- not(this $ is_null)
+
+	this $ is_nan               <- is_nan
+	this $ not_nan              <- not(this $ is_nan)
+
+	this $ is_na                <- is_na
+	this $ not_na               <- not(this $ is_na)
+
+	this $ contains_na          <- function (x) any(elem_is_na(x))
+	this $ without_na           <- not(this $ contains_na)
+
+	this $ contains_nan         <- function (x) any(elem_is_nan(x))
+	this $ without_nan          <- not(this $ contains_nan)
+
+
+	# -- parametrised generators
+
+	this $ has_length           <- function (len) function (x) length(x) == len
+
+	this $ is_singleton         <- this $ has_length(1)
+
+	# -- over composing? probably still better to do this here; these assertions are needed.
+
+	this $ not_empty_character  <- and_(this $ is_character, not(this $ is_empty))
+
+
+
+
+
+	this
+
+} )()
+
+
+
+
+
+
 # -------------------------------- from_stream -------------------------------- #
 #
 # from_stream emits random values.

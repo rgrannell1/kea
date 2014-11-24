@@ -14,7 +14,7 @@ message('xFormalsOf')
 
 	describe("nullary yields empty list") +
 	holdsWhen(
-		is.function(fn) && !is.primitive(fn),
+		suchThat $ is_closure(fn),
 
 		xFormalsOf(fn) %is% as.list(formals(fn))
 	) +

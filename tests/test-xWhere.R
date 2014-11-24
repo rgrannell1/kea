@@ -7,21 +7,21 @@ message("xWhere")
 
 	describe("length one corner cases") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && !is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xWhere(coll) %is% integer(0)
 	) +
 
 	describe("length one corner cases") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0 && is_named(coll),
+		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xWhere(coll) %is% as_named(integer(0))
 	) +
 
 	describe("length one corner cases") +
 	holdsWhen(
-		TRUE,
+		True,
 
 		xWhere(TRUE) == 1,
 		xWhere(FALSE) %is% integer(0),
@@ -30,7 +30,7 @@ message("xWhere")
 
 	describe("names are preserved for true elements.") +
 	holdsWhen(
-		is_logical(coll),
+		suchThat $ is_logical(coll),
 
 		names(xWhere(coll)) %is% names(Filter(function (x) identical(x, True), coll))
 	) +

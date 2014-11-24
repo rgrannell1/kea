@@ -15,7 +15,7 @@ message("xNotPrefixOf")
 
 	describe("a collection is a prefix of itself.") +
 	holdsWhen(
-		is_collection(coll1) && length(coll1) > 0,
+		suchThat $ not_empty_collection(coll1),
 
 		!xNotPrefixOf(coll1, coll1)
 	) +

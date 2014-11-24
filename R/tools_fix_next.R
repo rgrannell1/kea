@@ -17,7 +17,6 @@ fix <- function (fixed_function, coll) {
 
 		as.pairlist(fn_formals[ fn_params %not_in% names(coll) ]),
 		bquote({
-			.(paste0('a partially applied form of ', fn_sym))
 
 			.( as.call(c(fn_sym, lapply(fn_params, function (param) {
 
@@ -130,7 +129,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 		lookup_expr <- if (is_variadic) {
 
 			quote( if (param == 'sym') substitute(param)
-			 else if (param == '...')
+			 else if (param == '...' || param == 'SPREAD_PARAMETRE')
 			 	list(...)
 			 else
 				frame[[param]] )
@@ -472,7 +471,7 @@ MakeVariadic <- function (fn, fixed) {
 		.(as.call( list(
 			as.symbol('Fix'),
 			# -- the Kea function to partially apply.
-			as.symbol(fn_sym),
+			as.symbol(varfn_sym),
 
 			# -- the parametre to the Kea function.
 			lapply(params, function (param) {

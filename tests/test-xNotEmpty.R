@@ -7,9 +7,17 @@ message("xNotEmpty")
 
 	describe('xNotEmpty correctly reports lengths.') +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_empty_collection(coll),
 
-		if (length(coll) == 0) !xNotEmpty(coll) else xNotEmpty(coll)
+		!xNotEmpty(coll)
 	) +
+
+	describe('xNotEmpty correctly reports lengths.') +
+	holdsWhen(
+		suchThat $ not_empty_collection(coll),
+
+		xNotEmpty(coll)
+	) +
+
 
 	run()

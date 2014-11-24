@@ -7,14 +7,16 @@ message("xAppend")
 
 	describe("joining with empty collection is list(val)") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
+
 		xAppend(val, coll) %is% list(val)
 	) +
 
 	describe("adds to end of collection") +
 	holdsWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		length(xAppend(val, coll)) == length(coll) + 1,
+
 		xAppend(val, coll)[[length(coll) + 1]] %is% val
 	) +
 
@@ -26,7 +28,8 @@ message("xAppend")
 
 	describe("fails if not a collection") +
 	failsWhen(
-		!is_collection(coll),
+		suchThat $ not_collection(coll),
+
 		xAppend(val, coll)
 	) +
 

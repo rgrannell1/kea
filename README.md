@@ -1,6 +1,7 @@
 
-Kea 0.67.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
+Kea 0.68.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rgrannell1/kea?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > *'By relieving the brain of all unnecessary work, a good notation sets it free to concentrate on more advanced problems, and, in effect, increases the mental power of the race.' -- Alfred N. Whitehead*
 
@@ -10,9 +11,11 @@ Kea is a functional programming library built to do three things:
 * be quick to write, debug, and run
 * make writing large programs easy
 
-### Installation
+In practice, Kea is a collection of higher-order functions and standard collection algorithms that abstracts over the difference between atomic vectors, lists and pairlists. In this way Kea resembles the STL for C++ or Underscore for JavaScript. 
 
-The best way to get Kea is through github. You must install from the releases branch. Kea is currently in rapid development, so breaking changes are frequently made.
+### 1. Installation
+
+The best way to get Kea is through github. You must install from the releases branch; Kea is in rapid development and breaking changes are frequently made.
 
 ```splus
 if (!require(devtools)) {
@@ -24,7 +27,7 @@ devtools::install_github("rgrannell1/kea", ref = 'releases')
 
 Go [here](https://github.com/rgrannell1/kea-snippets) for accompanying Sublime Text 3 snippets.
 
-### Usage
+### 2. Syntax
 
 #### - Partial Application
 
@@ -107,18 +110,20 @@ xSelect_(is.integer %or% is.double, 'a', 1, 2L, '3', 4)
 list(1, 2, 4)
 ```
 
-## Licensing
+## 5. Algorithms
+
+## 4. Licensing
 
 **Kea** is released under the terms of the GNU General Public License version 3.
 
 <img src="https://raw.githubusercontent.com/rgrannell1/kea/develop/gpl3.png" height = "120"> </img>
 
-## Versioning
+## 5. Versioning
 
 All versions post-release will be compliant with the Semantic Versioning 2.0.0 standard.
 
 http://semver.org/
 
-## Authors
+## 6. Authors
 
 Maintained and developed by Ryan Grannell.

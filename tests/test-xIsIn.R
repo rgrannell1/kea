@@ -7,14 +7,14 @@ message("xIsIn")
 
 	describe("empty set is logical-zero") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
 
 		xIsIn(val, coll) %is% logical(0)
 	) +
 
 	describe("an element in the set is always true") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		xIsIn(coll[[ sample.int(length(coll), 1) ]], coll)
 	) +

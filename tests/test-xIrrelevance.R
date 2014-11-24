@@ -8,6 +8,7 @@ message("xIrrelevance")
 	describe('xIrrelevance always yields false') +
 	holdsWhen(
 		True,
+
 		is.na(xIrrelevance(val))
 	) +
 

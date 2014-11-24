@@ -7,7 +7,8 @@ message("xUnzipKeys")
 
 	describe("the empty collection always yields the list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
+
 		xUnzipKeys(coll)  %is% list()
 	) +
 
@@ -19,7 +20,8 @@ message("xUnzipKeys")
 
 	describe("coll must always be a collection") +
 	failsWhen(
-		!is_collection(coll),
+		suchThat $ not_collection(coll),
+
 		xUnzipKeys(coll)
 	) +
 

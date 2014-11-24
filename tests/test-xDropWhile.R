@@ -7,21 +7,21 @@ message("xDropWhile")
 
 	describe("true predicates returns the collection") +
 	holdsWhen(
-		is_collection(coll) && !is_named(coll),
+		suchThat $ not_named_collection(coll),
 
 		xDropWhile(function (x) True,  coll) %is% list()
 	) +
 
 	describe("true predicates returns the collection (named)") +
 	holdsWhen(
-		is_collection(coll) && is_named(coll),
+		suchThat $ is_named_collection(coll),
 
 		xDropWhile(function (x) True,  coll) %is% as_named(list())
 	) +
 
 	describe("non true predicates return empty list") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		xDropWhile(function (x) False, coll) %is% as.list(coll),
 		xDropWhile(function (x) Na,    coll) %is% as.list(coll)
@@ -29,7 +29,7 @@ message("xDropWhile")
 
 	describe("dropwhile preserves names") +
 	holdsWhen(
-		is_collection(coll) && length(coll) > 0,
+		suchThat $ not_empty_collection(coll),
 
 		names(xDropWhile(function (x) False, coll)) %is% names(coll)
 	) +

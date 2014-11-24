@@ -7,7 +7,7 @@ message("xScan")
 
 	describe("scan with empty coll is list of val") +
 	holdsWhen(
-		is_collection(coll) && length(coll) == 0,
+		suchThat $ is_empty_collection(coll),
 
 		xScan(list, val, coll) %is% list(val)
 	) +

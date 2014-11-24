@@ -8,6 +8,7 @@ message("xTruth")
 	describe('xTruth always yields true') +
 	holdsWhen(
 		True,
+
 		xTruth(val)
 	) +
 

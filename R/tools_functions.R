@@ -335,6 +335,9 @@ ith_suffix <- function (num) {
 # -- load the internal tools needed for testing through assign.
 # -- used in all the testing functions.
 
+# -- envir cannot be defaulted to environment( ),
+# -- it will break the expected behaviour.
+
 load_test_dependencies <- function (envir) {
 
 	deps <-
@@ -351,6 +354,7 @@ load_test_dependencies <- function (envir) {
 			failsFor        = failsFor,
 
 			run             = run,
+			suchThat        = suchThat,
 
 			`+.xforall`     = `+.xforall`,
 

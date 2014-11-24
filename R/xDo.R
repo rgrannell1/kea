@@ -43,17 +43,16 @@ xDo <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
-	if (length(coll) == 0) {
-		invisible (NULL)
-	} else {
+	if (length(coll) != 0) {
 
 		MACRO( Try_Higher_Order_Function(
 			for ( ith in seq_len(length(coll)) ) fn( coll[[ith]] )
-
 		) )
 
-		invisible (NULL)
 	}
+
+	invisible (NULL)
+
 })
 
 #' @rdname xDo

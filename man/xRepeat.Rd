@@ -45,8 +45,7 @@ plot(unlist(wave), type = 'l')
 }
 \seealso{
 Other reshaping_functions: \code{\link{xAppend}},
-  \code{\link{xAppend_}}; \code{\link{xChop}},
-  \code{\link{xChop_}}; \code{\link{xChunk}},
+  \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},
   \code{\link{xGather_}}; \code{\link{xGroupBy}},

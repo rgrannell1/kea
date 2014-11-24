@@ -10,6 +10,7 @@ message("xCompose")
 	describe("compsing of identity is identity") +
 	holdsWhen(
 		True,
+
 		xCompose_(identity)(val) %is% val
 	) +
 
@@ -22,6 +23,7 @@ message("xCompose")
 	describe("fails with no functions") +
 	failsWhen(
 		True,
+
 		xCompose(list())
 	) +
 

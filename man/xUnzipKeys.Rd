@@ -54,7 +54,7 @@ irish_birds <- list(
 	'Giant Ibis'  = 'Ciconiiformes'
 )
 
-x_(irish_birds) $ xUnzipKeys() $ x_Map(xUnspread((key : val) := {
+x_(irish_birds) $ xUnzipKeys() $ x_Map(xApply((key : val) := {
 
 		xFromWords_('the', key, 'is of order', val)
 
@@ -78,8 +78,7 @@ Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xZipKeys_}}
 
 Other reshaping_functions: \code{\link{xAppend}},
-  \code{\link{xAppend_}}; \code{\link{xChop}},
-  \code{\link{xChop_}}; \code{\link{xChunk}},
+  \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},
   \code{\link{xGather_}}; \code{\link{xGroupBy}},

@@ -10,7 +10,7 @@ message("Must_Be_Equal_Length_To")
 
 	describe('a collection always has the same length as itself') +
 	worksWhen(
-		is_collection(coll),
+		suchThat $ is_collection(coll),
 		to_test(coll, coll)
 	) +
 

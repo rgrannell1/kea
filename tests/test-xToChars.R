@@ -8,6 +8,7 @@ message('xToChars')
 	describe("works of empty string is empty vector") +
 	holdsWhen(
 		True,
+
 		xToChars('') %is% character(0)
 	) +
 

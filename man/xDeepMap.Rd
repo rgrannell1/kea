@@ -69,10 +69,10 @@ xDeepMap(paste, tree)
 \seealso{
 Other function_application_functions: \code{\link{xApply}},
   \code{\link{xApply_}}; \code{\link{xFlatMap}},
-  \code{\link{xFlatMap_}}; \code{\link{xMap}},
+  \code{\link{xFlatMap_}}; \code{\link{xInvoke}},
+  \code{\link{xInvoke_}}; \code{\link{xMap}},
   \code{\link{xMap_}}; \code{\link{xRelate}},
-  \code{\link{xRelate_}}; \code{\link{xSpread}};
-  \code{\link{xThread}}, \code{\link{xThread_}};
-  \code{\link{xUnspread}}
+  \code{\link{xRelate_}}; \code{\link{xThread}},
+  \code{\link{xThread_}}
 }
 

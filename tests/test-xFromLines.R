@@ -7,7 +7,7 @@ message('xFromLines')
 
 	describe("xFromLines of character(0) is character(0)") +
 	holdsWhen(
-		is_collection(strs) && length(strs) == 0,
+		suchThat $ is_empty_collection(strs),
 
 		xFromLines(strs) %is% character(0)
 	) +

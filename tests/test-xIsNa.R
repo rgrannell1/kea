@@ -1,22 +1,22 @@
 
-	kea ::: load_test_dependencies(environment())
+kea ::: load_test_dependencies(environment())
 
-	message("xIsNa")
+message("xIsNa")
 
-		over(val) +
+	over(val) +
 
-		describe('xIsNa is true when the value is Na.') +
-		holdsWhen(
-			is_atomic(val) && is.na(val) && !is.nan(unlist(val)) && length(val) == 1,
+	describe('xIsNa is true when the value is Na.') +
+	holdsWhen(
+		suchThat $ is_na(val),
 
-			xIsNa(val)
-		) +
+		xIsNa(val)
+	) +
 
-		describe('xIsNa is false when the value isnt') +
-		holdsWhen(
-			is_atomic(val) && !is.na(val) && !is.nan(unlist(val)) && length(val) == 1,
+	describe('xIsNa is false when the value isnt') +
+	holdsWhen(
+		suchThat $ not_na(val),
 
-			!xIsNa(val)
-		) +
+		!xIsNa(val)
+	) +
 
-		run()
+	run()

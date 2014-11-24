@@ -7,13 +7,15 @@ message("xZipKeys")
 
 	describe('xZipKeys of the empty collection is list()') +
 	holdsWhen(
-		is_collection(colls) && length(colls) == 0,
+		suchThat $ is_empty_collection(colls),
+
 		xZipKeys(colls) %is% list()
 	) +
 
 	describe('xZipKeys zips names for pairs') +
 	holdsWhen(
-		is_collection(colls) && is.character(colls) && length(colls) > 0,
+		and_(suchThat $ is_empty_collection(colls), is.character)(colls),
+
 		{
 			pairs <- unname(lapply(colls, function (elem) list(elem, elem)))
 

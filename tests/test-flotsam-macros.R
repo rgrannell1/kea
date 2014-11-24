@@ -35,7 +35,7 @@ kea_fns <-
 		list( fn_name, kea_env[[fn_name]] )
 	})
 
-inner_calls <- kea_fns $ xMap( xUnspread((fn_name : fn) := {
+inner_calls <- kea_fns $ xMap( xApply((fn_name : fn) := {
 	list( fn_name, fn, fn_calls(body(fn)) )
 }) )
 
@@ -50,11 +50,11 @@ message(
 
 	error_message <-
 		inner_calls $
-		xSelect( xUnspread((fn_name : fn : calls) := {
+		xSelect( xApply((fn_name : fn : calls) := {
 			forbidden_calls(calls) $ x_NotEmpty()
 		}) ) $
 		# -- create the error message for the functions with dangerous calls.
-		xMap( xUnspread((fn_name : fn : calls) := {
+		xMap( xApply((fn_name : fn : calls) := {
 
 			xFromWords_(
 				"the function", fn_name,

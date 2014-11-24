@@ -7,19 +7,22 @@ message("xNotFalse")
 
 	describe('xNotFalse of false is false.') +
 	holdsWhen(
-		identical(val, FALSE),
+		suchThat $ is_false(val),
+
 		!xNotFalse(val)
 	) +
 
 	describe('xNotFalse of values is true.') +
 	holdsWhen(
-		!identical(val, FALSE),
+		suchThat $ not_false(val),
+
 		xNotFalse(val)
 	) +
 
 	describe('xNotFalse is always true or false') +
 	holdsWhen(
 		TRUE,
+
 		xNotFalse(val) || !xNotFalse(val)
 	) +
 
