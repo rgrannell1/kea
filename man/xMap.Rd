@@ -120,7 +120,8 @@ negate(1:3)
 Other function_application_functions: \code{\link{xApply}},
   \code{\link{xApply_}}; \code{\link{xDeepMap}},
   \code{\link{xDeepMap_}}; \code{\link{xFlatMap}},
-  \code{\link{xFlatMap_}}; \code{\link{xRelate}},
+  \code{\link{xFlatMap_}}; \code{\link{xInvoke}},
+  \code{\link{xInvoke_}}; \code{\link{xRelate}},
   \code{\link{xRelate_}}; \code{\link{xThread}},
   \code{\link{xThread_}}
 }
