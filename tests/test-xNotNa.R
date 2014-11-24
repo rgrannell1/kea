@@ -9,14 +9,14 @@ message("xNotNa")
 	holdsWhen(
 		suchThat $ is_na(val),
 
-		xNotNa(val)
+		!xNotNa(val)
 	) +
 
 	describe('xNotNa is false when the value isnt') +
 	holdsWhen(
 		suchThat $ not_na(val),
 
-		!xNotNa(val)
+		xNotNa(val)
 	) +
 
 	run()
