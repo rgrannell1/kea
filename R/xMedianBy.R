@@ -1,7 +1,7 @@
 
-#' xMeanBy
+#' xMedianBy
 #'
-#' Return the mean of a collection of numbers according to a measure function.
+#' Return the median of a collection of numbers according to a measure function.
 #'
 #' @section Type Signature:
 #'     (any -> <numeric>) -> |any| -> <double>
@@ -11,7 +11,7 @@
 #'     an element.
 #'
 #' @param
-#'    coll a collection. The collection to find the mean of.
+#'    coll a collection. The collection to find the median of.
 #'
 #' @param
 #'    ... see above.
@@ -20,7 +20,7 @@
 #'    A length-one double vector.
 #'
 #' @section Corner Cases:
-#'    If \bold{nums} is empty then \bold{double(0)} is returned. The mean
+#'    If \bold{nums} is empty then \bold{double(0)} is returned. The median
 #'    of vectors containing infinite values is infinite. The output of \bold{fn}
 #'    cannot contain NA or NaN values, as these values do not have a defined
 #'    magnitude.
@@ -29,14 +29,14 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xMeanBy.R
+#'    inst/examples/example-xMedianBy.R
 #'
 #' @family math_functions
 #'
-#' @rdname xMeanBy
+#' @rdname xMedianBy
 #' @export
 
-xMeanBy <- MakeFun(function (fn, coll) {
+xMedianBy <- MakeFun(function (fn, coll) {
 
 	if (length(coll) == 0)
 		double(0)
@@ -49,12 +49,12 @@ xMeanBy <- MakeFun(function (fn, coll) {
 		# -- throw an error for unsummables
 		MACRO(Must_Be_Orderable(`fn(coll)`))
 
-		mean(`fn(coll)`)
+		median(`fn(coll)`)
 	}
 
 })
 
-#' @rdname xMeanBy
+#' @rdname xMedianBy
 #' @export
 
-xMeanBy_ <- MakeVariadic(xMeanBy, 'coll')
+xMedianBy_ <- MakeVariadic(xMedianBy, 'coll')
