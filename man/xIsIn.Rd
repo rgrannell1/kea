@@ -59,7 +59,8 @@ is_primary_colour('magenta')
 \seealso{
 Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xExclude}},
+  \code{\link{xExclude_}}; \code{\link{xIntersect}},
   \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},

@@ -1,4 +1,22 @@
 
+Kea 0.70.0
+------------------------------------------------------------------------------
+Date: 2014-11-25
+
+ENHANCEMENTS:
+
+* Removed xAsDataFrame. While collection <=> dataframe conversions are needed in Kea,
+their current implementation is very poor.
+
+
+
+
+
+
+
+
+
+
 Kea 0.69.0
 ------------------------------------------------------------------------------
 Date: 2014-11-24
