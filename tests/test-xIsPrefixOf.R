@@ -7,8 +7,9 @@ message("xIsPrefixOf")
 
 	describe("a collection is a prefix of itself.") +
 	holdsWhen(
-		is_collection(coll1) && is_collection(coll2) &&
-		(length(coll1) == 0 || length(coll2) == 0),
+		suchThat $ is_collection(coll1) && suchThat $ is_collection(coll2) &&
+		suchThat $ is_empty_collection(coll1) ||
+		suchThat $ is_empty_collection(coll2)
 
 		xIsPrefixOf(coll1, coll2) %is% logical(0)
 	) +

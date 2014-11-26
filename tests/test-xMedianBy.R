@@ -14,8 +14,7 @@ message("xMedianBy")
 
 	describe('the median of one number is itself') +
 	holdsWhen(
-		is_numeric(nums) && length(nums) == 1 &&
-		!any(is.na(unlist(nums)) || is.nan(unlist(nums))),
+		and_(suchThat $ is_numeric, suchThat $ is_singleton, suchThat $ is_orderable)(nums),
 
 		xMedianBy(identity, nums) == unname(nums)
 	) +
@@ -26,7 +25,7 @@ message("xMedianBy")
 
 	describe('fails for na or nan values') +
 	failsWhen(
-		is_numeric(nums) && any(is.na(unlist(nums)) || is.nan(unlist(nums))),
+		and_(suchThat $ is_numeric, suchThat $ not_orderable)(nums),
 
 		xMedianBy(identity, nums)
 	) +

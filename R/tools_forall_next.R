@@ -80,6 +80,8 @@ suchThat <- ( function () {
 
 	this $ is_logical           <- is_logical
 	this $ is_character         <- is_character
+	this $ is_numeric           <- is_numeric
+	this $ is_integer           <- is_integer
 
 	this $ is_function          <- is.function
 	this $ is_primitive         <- is.primitive
@@ -109,6 +111,12 @@ suchThat <- ( function () {
 	this $ contains_nan         <- function (x) any(elem_is_nan(x))
 	this $ without_nan          <- not(this $ contains_nan)
 
+
+
+
+
+	this $ is_orderable         <- and_(this $ without_nan, this $ without_na)
+	this $ not_orderable        <- not(this $ is_orderable)
 
 	# -- parametrised generators
 
