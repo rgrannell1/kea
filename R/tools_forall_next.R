@@ -99,11 +99,22 @@ suchThat <- ( function () {
 	this $ is_null              <- function (x) identical(x, NULL)
 	this $ not_null             <- not(this $ is_null)
 
+
+
 	this $ is_nan               <- is_nan
 	this $ not_nan              <- not(this $ is_nan)
 
 	this $ is_na                <- is_na
 	this $ not_na               <- not(this $ is_na)
+
+
+
+	this $ is_nan_collection    <- function (x) this $ is_nan(unlist(x))
+	this $ not_nan_collection   <- function (x) this $ not_nan(unlist(x))
+
+	this $ is_na_collection     <- function (x) this $ is_na(unlist(x))
+	this $ not_na_collection    <- function (x) this $ not_na(unlist(x))
+
 
 	this $ contains_na          <- function (x) any(elem_is_na(x))
 	this $ without_na           <- not(this $ contains_na)
