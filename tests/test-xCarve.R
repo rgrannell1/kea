@@ -7,8 +7,7 @@ message('xCarve')
 
 	describe('selecting at zero is character(0)') +
 	holdsWhen(
-		is_character(str) && length(str) == 1 &&
-		!is.na(str) &&
+		and_(suchThat $ is_singleton_character, suchThat $ not_na)(str) &&
 		suchThat $ is_empty_collection(nums),
 
 		xCarve(0, str) %is% character(0),
@@ -17,7 +16,8 @@ message('xCarve')
 
 	describe('slicing with indices is identity') +
 	holdsWhen(
-		is_character(str) && length(str) == 1 && !is.na(str),
+		and_(suchThat $ is_singleton_character, suchThat $ not_na)(str),
+
 		{
 			indices <- seq_len(nchar( unlist(str) ))
 			xCarve(indices, str) %is% unlist(str)

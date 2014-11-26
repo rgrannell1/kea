@@ -28,13 +28,17 @@ message("xRiffle")
 
 	describe('the odd positions are the value') +
 	holdsWhen(
-		suchThat $ is_collection(coll) && length(coll) > 1,
+		suchThat $ is_collection(coll),
 
 		{
-			vals <- unname(xRiffle(val, coll)[seq_along(coll) %% 2 == 1])
+			map <- xRiffle(val, coll)
 
+			all( sapply(seq_along(map), function (ith) {
 
-			length(unique(vals)) == 1 && identical(unique(vals)[[1]], val)
+				ith %% 2 == 1 || identical( val, map[[ith]] )
+
+			}) )
+
 		}
 	) +
 
