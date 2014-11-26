@@ -8,7 +8,7 @@ unit_test('xIsMatch')
 	it("character 0 matches all strings") +
 	holdsWhen(
 		suchThat $ is_empty_collection(rexp) &&
-		and_(suchThat $ is_singleton_character, suchThat $ not_na)(str),
+		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str),
 
 		xIsMatch(rexp, str) %is% logical(0)
 	) +
@@ -16,7 +16,7 @@ unit_test('xIsMatch')
 	it("all strings match matchall regexps") +
 	holdsWhen(
 		suchThat $ is_empty_collection(rexp) &&
-		and_(suchThat $ is_singleton_character, suchThat $ not_na)(str),
+		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str),
 
 		xIsMatch('', str),
 		xIsMatch('.+', str)
