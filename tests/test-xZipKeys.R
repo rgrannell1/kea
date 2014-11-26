@@ -24,15 +24,3 @@ unit_test("xZipKeys")
 	) +
 
 	run()
-
-int_test("xZipKeys")
-
-	over(coll) +
-
-	it('is an inverse of xZipKeys') +
-	holdsWhen(
-		suchThat $ is_collection(coll)
-
-	) +
-
-	run()
