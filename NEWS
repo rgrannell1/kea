@@ -12,6 +12,26 @@ measure function.
 their current implementation is very poor. A well thought out replacement will be
 implemented in the future.
 
+BUG-FIXES:
+
+* Added xExclude_ as a package export; last release the documentation was
+not rebuild.
+
+* Actually fixed type signature for xIntersect, for the same reasons as above.
+
+PACKAGE-INTERNALS:
+
+* Added new testing predicates.
+
+* Renamed 'describe' to 'it'.
+
+* Added unit test and integration test labelling functions.
+
+* Added new benchmarks.
+
+* Moved more tests over to the new predicate style.
+
+* Added new unit tests and integration tests.
 
 
 

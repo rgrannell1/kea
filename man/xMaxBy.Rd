@@ -52,7 +52,8 @@ x_(GDP) $ x_MaxBy(xSecondOf)
 \seealso{
 Other math_functions: \code{\link{xLenOf}},
   \code{\link{xLenOf_}}; \code{\link{xMeanBy}},
-  \code{\link{xMeanBy_}}; \code{\link{xMinBy}},
+  \code{\link{xMeanBy_}}; \code{\link{xMedianBy}},
+  \code{\link{xMedianBy_}}; \code{\link{xMinBy}},
   \code{\link{xMinBy_}}; \code{\link{xOrderOf}},
   \code{\link{xOrderOf_}}; \code{\link{xPoll}},
   \code{\link{xPoll_}}; \code{\link{xProdBy}},

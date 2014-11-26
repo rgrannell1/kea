@@ -45,7 +45,8 @@ x_(xRepeat(1, 100)) $ xFlatMap(runif) $ x_MeanBy(xI)
 \seealso{
 Other math_functions: \code{\link{xLenOf}},
   \code{\link{xLenOf_}}; \code{\link{xMaxBy}},
-  \code{\link{xMaxBy_}}; \code{\link{xMinBy}},
+  \code{\link{xMaxBy_}}; \code{\link{xMedianBy}},
+  \code{\link{xMedianBy_}}; \code{\link{xMinBy}},
   \code{\link{xMinBy_}}; \code{\link{xOrderOf}},
   \code{\link{xOrderOf_}}; \code{\link{xPoll}},
   \code{\link{xPoll_}}; \code{\link{xProdBy}},
