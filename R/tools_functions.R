@@ -356,7 +356,7 @@ load_test_dependencies <- function (envir) {
 	deps <-
 		list(
 			over            = over,
-			describe        = describe,
+			it              = it,
 
 			holdsWhen       = holdsWhen,
 			worksWhen       = worksWhen,
