@@ -8,8 +8,7 @@ unit_test("xIsPrefixOf")
 	it("a collection is a prefix of itself.") +
 	holdsWhen(
 		suchThat $ is_collection(coll1) && suchThat $ is_collection(coll2) &&
-		suchThat $ is_empty_collection(coll1) ||
-		suchThat $ is_empty_collection(coll2)
+		(suchThat $ is_empty_collection(coll1) || suchThat $ is_empty_collection(coll2)),
 
 		xIsPrefixOf(coll1, coll2) %is% logical(0)
 	) +

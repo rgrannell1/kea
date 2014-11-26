@@ -10,3 +10,5 @@ signitures
 .SyncIgnore
 .SyncPart
 .SyncTemp
+.o
+.so
