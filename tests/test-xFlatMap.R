@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xFlatMap")
+unit_test("xFlatMap")
 
 	over(fn, coll) +
 

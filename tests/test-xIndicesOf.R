@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIndicesOf")
+unit_test("xIndicesOf")
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotEmpty")
+unit_test("xNotEmpty")
 
 	over(coll) +
 

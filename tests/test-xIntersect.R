@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIntersect")
+unit_test("xIntersect")
 
 	over(coll1, coll2) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xZip")
+unit_test("xZip")
 
 	over(coll) +
 

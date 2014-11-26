@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('normal functions can be partially applied')
+unit_test('normal functions can be partially applied')
 
 	over(val, coll) +
 

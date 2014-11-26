@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xDrop')
+unit_test('xDrop')
 
 	over(num, coll) +
 

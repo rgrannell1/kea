@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xKeysOf")
+unit_test("xKeysOf")
 
 	over(coll) +
 

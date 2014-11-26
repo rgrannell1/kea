@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRank")
+unit_test("xRank")
 
 	over(nums) +
 

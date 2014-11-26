@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xPowerSetOf")
+unit_test("xPowerSetOf")
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xThirdOf')
+unit_test('xThirdOf')
 
 	over(coll) +
 

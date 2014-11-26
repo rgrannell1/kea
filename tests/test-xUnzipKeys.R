@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xUnzipKeys")
+unit_test("xUnzipKeys")
 
 	over(coll) +
 

@@ -9,7 +9,8 @@ ENHANCEMENTS:
 measure function.
 
 * Removed xAsDataFrame. While collection <=> dataframe conversions are needed in Kea,
-their current implementation is very poor.
+their current implementation is very poor. A well thought out replacement will be
+implemented in the future.
 
 
 

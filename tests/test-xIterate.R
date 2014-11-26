@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIterate")
+unit_test("xIterate")
 
 	over(val) +
 

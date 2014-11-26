@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xJoin")
+unit_test("xJoin")
 
 	over(coll1, coll2) +
 

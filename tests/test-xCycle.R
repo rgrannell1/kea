@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xCycle')
+unit_test('xCycle')
 
 	over(num, coll) +
 

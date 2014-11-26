@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRiffle")
+unit_test("xRiffle")
 
 	over(val, coll) +
 

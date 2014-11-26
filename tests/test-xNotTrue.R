@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotTrue")
+unit_test("xNotTrue")
 
 	over(val) +
 

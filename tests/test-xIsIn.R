@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIsIn")
+unit_test("xIsIn")
 
 	over(val, coll) +
 

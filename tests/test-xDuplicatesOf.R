@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xDuplicatesOf")
+unit_test("xDuplicatesOf")
 
 	over(coll) +
 

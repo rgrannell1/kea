@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xDropWhile")
+unit_test("xDropWhile")
 
 	over(coll) +
 

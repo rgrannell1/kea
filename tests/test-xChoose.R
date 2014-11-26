@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xChoose")
+unit_test("xChoose")
 
 	over(coll) +
 

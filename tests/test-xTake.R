@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xTake')
+unit_test('xTake')
 
 	over(num, coll) +
 

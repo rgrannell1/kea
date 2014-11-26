@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotIn")
+unit_test("xNotIn")
 
 	over(val, coll) +
 

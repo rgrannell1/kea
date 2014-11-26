@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xArityOf")
+unit_test("xArityOf")
 
 	over(fn) +
 

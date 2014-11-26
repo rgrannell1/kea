@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("methods")
+unit_test("methods")
 
 	over(val) +
 

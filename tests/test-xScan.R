@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xScan")
+unit_test("xScan")
 
     over(val, coll) +
 

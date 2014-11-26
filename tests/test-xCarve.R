@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xCarve')
+unit_test('xCarve')
 
 	over(str, nums) +
 

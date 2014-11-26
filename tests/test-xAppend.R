@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xAppend")
+unit_test("xAppend")
 
 	over(val, coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xLastOf')
+unit_test('xLastOf')
 
 	over(coll) +
 

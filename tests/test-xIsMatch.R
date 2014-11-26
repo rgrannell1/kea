@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xIsMatch')
+unit_test('xIsMatch')
 
 	over(rexp, str) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('Kea Wildcard Lambda\'s')
+unit_test('Kea Wildcard Lambda\'s')
 
 	over(num0, num1) +
 

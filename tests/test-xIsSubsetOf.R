@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIsSubsetOf")
+unit_test("xIsSubsetOf")
 
 	over(coll1, coll2) +
 

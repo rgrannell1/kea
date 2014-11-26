@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xNotMatch')
+unit_test('xNotMatch')
 
 	over(coll, str) +
 

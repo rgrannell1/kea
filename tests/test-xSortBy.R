@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xSortBy")
+unit_test("xSortBy")
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xFix')
+unit_test('xFix')
 
 	over(val) +
 

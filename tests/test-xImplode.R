@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xImplode')
+unit_test('xImplode')
 
 	over(strs) +
 

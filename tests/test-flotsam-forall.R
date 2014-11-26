@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("holdsWhen")
+unit_test("holdsWhen")
 
 	over(a, b) +
 

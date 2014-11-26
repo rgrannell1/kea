@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRelate")
+unit_test("xRelate")
 
     over(coll) +
 

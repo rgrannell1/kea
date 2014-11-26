@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xSumBy")
+unit_test("xSumBy")
 
 over(coll) +
 

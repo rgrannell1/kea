@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotInfixOf")
+unit_test("xNotInfixOf")
 
 	over(coll1, coll2) +
 

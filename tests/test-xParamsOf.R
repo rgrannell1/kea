@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xParamsOf")
+unit_test("xParamsOf")
 
 	over(fn) +
 

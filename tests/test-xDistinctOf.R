@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xDistinctOf')
+unit_test('xDistinctOf')
 
 	over(coll) +
 

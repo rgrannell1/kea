@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xWhere")
+unit_test("xWhere")
 
 	over(coll) +
 

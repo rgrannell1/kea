@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRecycle")
+unit_test("xRecycle")
 
 	over(coll, num) +
 

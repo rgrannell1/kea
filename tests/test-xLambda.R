@@ -2,7 +2,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xLambda")
+unit_test("xLambda")
 
 	over(val) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xFalsity")
+unit_test("xFalsity")
 
 	over(val) +
 	it('falsity always yields false') +

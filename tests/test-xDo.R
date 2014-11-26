@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xDo")
+unit_test("xDo")
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xUnzipIndices")
+unit_test("xUnzipIndices")
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xSecondOf')
+unit_test('xSecondOf')
 
 	over(coll) +
 

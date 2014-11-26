@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIndicesTo")
+unit_test("xIndicesTo")
 
 	over(num) +
 

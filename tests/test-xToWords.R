@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xToWords')
+unit_test('xToWords')
 
 	over(str) +
 

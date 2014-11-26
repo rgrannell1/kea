@@ -338,6 +338,19 @@ ith_suffix <- function (num) {
 # -- envir cannot be defaulted to environment( ),
 # -- it will break the expected behaviour.
 
+test_type <- function (type) {
+	function (...) {
+		message(paste0(..., " - ", type, " tests", collapse = ''))
+	}
+}
+
+unit_test <- test_type('unit')
+int_test  <- test_type('integration')
+
+
+
+
+
 load_test_dependencies <- function (envir) {
 
 	deps <-
@@ -352,6 +365,9 @@ load_test_dependencies <- function (envir) {
 			holdsFor        = holdsFor,
 			worksFor        = worksFor,
 			failsFor        = failsFor,
+
+			unit_test       = unit_test,
+			int_test        = int_test,
 
 			run             = run,
 			suchThat        = suchThat,

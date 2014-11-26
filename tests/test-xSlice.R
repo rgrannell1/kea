@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xSlice")
+unit_test("xSlice")
 
 	over(coll, nums) +
 

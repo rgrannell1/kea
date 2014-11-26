@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xMap")
+unit_test("xMap")
 
 	over(coll) +
 

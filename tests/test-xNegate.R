@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xNegate')
+unit_test('xNegate')
 
 	over(bool, val) +
 

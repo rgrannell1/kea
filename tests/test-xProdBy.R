@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xProdBy")
+unit_test("xProdBy")
 
 over(coll) +
 

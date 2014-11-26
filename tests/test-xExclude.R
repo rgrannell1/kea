@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xExclude")
+unit_test("xExclude")
 
 	over(coll1, coll2) +
 

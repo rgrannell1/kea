@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRepeat")
+unit_test("xRepeat")
 
 	over(num, coll) +
 

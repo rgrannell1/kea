@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xFromLines')
+unit_test('xFromLines')
 
 	over(strs) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xAmend')
+unit_test('xAmend')
 
 	over(coll, str) +
 

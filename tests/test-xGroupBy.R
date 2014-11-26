@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xGroupBy")
+unit_test("xGroupBy")
 
 	over(val, coll) +
 

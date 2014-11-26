@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xFlatten")
+unit_test("xFlatten")
 
 	over(num, coll) +
 

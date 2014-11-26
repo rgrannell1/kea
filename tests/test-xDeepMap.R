@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xDeepMap")
+unit_test("xDeepMap")
 
 	over(coll) +
 

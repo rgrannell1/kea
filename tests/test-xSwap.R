@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xSwap")
+unit_test("xSwap")
 
 	over(coll, val1, val2) +
 

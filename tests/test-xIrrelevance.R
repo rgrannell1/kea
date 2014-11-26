@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIrrelevance")
+unit_test("xIrrelevance")
 
 	over(val) +
 

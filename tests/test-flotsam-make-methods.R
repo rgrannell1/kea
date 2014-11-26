@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("is_variadic")
+unit_test("is_variadic")
 
 	is_variadic <- kea ::: is_variadic
 

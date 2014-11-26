@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xPoll")
+unit_test("xPoll")
 
 	over(coll) +
 

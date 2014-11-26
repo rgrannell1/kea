@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xReverse")
+unit_test("xReverse")
 
 	over(coll) +
 

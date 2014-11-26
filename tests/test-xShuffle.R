@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xShuffle")
+unit_test("xShuffle")
 
 	over(coll) +
 

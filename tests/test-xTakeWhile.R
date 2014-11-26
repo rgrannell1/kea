@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xTakeWhile")
+unit_test("xTakeWhile")
 
 	over(coll) +
 

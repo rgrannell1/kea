@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xInitOf")
+unit_test("xInitOf")
 
 	over(coll) +
 

@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIsSuffixOf")
+unit_test("xIsSuffixOf")
 
 	over(coll1, coll2) +
 
