@@ -20,3 +20,21 @@ unit_test("xIsFalse")
 	) +
 
 	run()
+
+
+
+
+int_test("xIsFalse")
+
+	over(val) +
+
+	it('works with the constant logical predicates') +
+	holdsWhen(
+		True,
+
+		!xIsFalse(xTruth(val)),
+		xIsFalse(xFalsity(val)),
+		!xIsFalse(xIrrelevance(val))
+	) +
+
+	run()

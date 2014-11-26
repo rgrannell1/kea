@@ -5,7 +5,7 @@ unit_test('xThirdOf')
 
 	over(coll) +
 
-	it('always returns the correct element') +
+	it('always returns the third element') +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 3,
 
