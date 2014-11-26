@@ -5,21 +5,21 @@ message("xWhere")
 
 	over(coll) +
 
-	describe("length one corner cases") +
+	it("length one corner cases") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xWhere(coll) %is% integer(0)
 	) +
 
-	describe("length one corner cases") +
+	it("length one corner cases") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xWhere(coll) %is% as_named(integer(0))
 	) +
 
-	describe("length one corner cases") +
+	it("length one corner cases") +
 	holdsWhen(
 		True,
 
@@ -28,7 +28,7 @@ message("xWhere")
 		xWhere(NA)    %is% integer(0)
 	) +
 
-	describe("names are preserved for true elements.") +
+	it("names are preserved for true elements.") +
 	holdsWhen(
 		suchThat $ is_logical(coll),
 

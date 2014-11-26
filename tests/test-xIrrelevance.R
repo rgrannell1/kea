@@ -5,7 +5,7 @@ message("xIrrelevance")
 
 	over(val) +
 
-	describe('xIrrelevance always yields false') +
+	it('xIrrelevance always yields false') +
 	holdsWhen(
 		True,
 

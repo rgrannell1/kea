@@ -5,21 +5,21 @@ message("xTabulate")
 
 	over(coll) +
 
-	describe('tabulating an empty collection is empty list') +
+	it('tabulating an empty collection is empty list') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xTabulate(coll) %is% list()
 	) +
 
-	describe('the length of the table is the number of unique elements') +
+	it('the length of the table is the number of unique elements') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(xTabulate(coll)) == length(unique(coll))
 	) +
 
-	describe('the first values of the table-tuples is the set of coll') +
+	it('the first values of the table-tuples is the set of coll') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -31,14 +31,14 @@ message("xTabulate")
 		}
 	) +
 
-	describe('the first value of the table-tuples is unique') +
+	it('the first value of the table-tuples is unique') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(unique(lapply( xTabulate(coll), function (x) x[[1]] ) )) == length(unique(coll))
 	) +
 
-	describe('tabulating always runs') +
+	it('tabulating always runs') +
 	worksWhen(
 		suchThat $ is_collection(coll),
 

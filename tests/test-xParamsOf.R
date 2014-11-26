@@ -5,14 +5,14 @@ message("xParamsOf")
 
 	over(fn) +
 
-	describe("always returns character") +
+	it("always returns character") +
 	holdsWhen(
 		suchThat $ is_function(fn),
 
 		is.character(xParamsOf(fn))
 	) +
 
-	describe("works for non-primitive functions") +
+	it("works for non-primitive functions") +
 	holdsWhen(
 		suchThat $ is_closure(fn),
 

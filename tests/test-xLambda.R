@@ -6,7 +6,7 @@ message("xLambda")
 
 	over(val) +
 
-	describe("all forms of unary lambda work.") +
+	it("all forms of unary lambda work.") +
 	holdsWhen(
 		True,
 
@@ -31,7 +31,7 @@ message("xLambda")
 		}
 	) +
 
-	describe("all forms of binary lambdas work.") +
+	it("all forms of binary lambdas work.") +
 	holdsWhen(
 		True,
 
@@ -52,7 +52,7 @@ message("xLambda")
 		}
 	) +
 
-	describe("both the body (for the moment) and environment are identical.") +
+	it("both the body (for the moment) and environment are identical.") +
 	holdsWhen(
 		True,
 

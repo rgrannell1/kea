@@ -6,7 +6,7 @@ message('xInvoke')
 	over(coll) +
 
 	# unname since apply uses names as argument names.
-	describe("invoking preserves list") +
+	it("invoking preserves list") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

@@ -8,19 +8,19 @@ message("Must_All_Be_Indices")
 
 	over(coll) +
 
-	describe('positive indices are always indices of coll') +
+	it('positive indices are always indices of coll') +
 	worksWhen(
 		suchThat $ is_collection(coll),
 		to_test(seq_along(coll), coll)
 	) +
 
-	describe('negative indices are always indices of coll') +
+	it('negative indices are always indices of coll') +
 	worksWhen(
 		suchThat $ is_collection(coll),
 		to_test(-seq_along(coll), coll)
 	) +
 
-	describe('works for sampled indices') +
+	it('works for sampled indices') +
 	worksWhen(
 		suchThat $ is_collection(coll),
 		{
@@ -35,7 +35,7 @@ message("Must_All_Be_Indices")
 
 	over(nums, coll) +
 
-	describe('always fails for infinites') +
+	it('always fails for infinites') +
 	failsWhen(
 		suchThat $ is_collection(coll) && is_collection(nums) && any(is.infinite( unlist(nums) )),
 		to_test(nums, coll)

@@ -5,14 +5,14 @@ message('xUnite')
 
 	over(coll) +
 
-	describe('the union of an empty set is an empty set') +
+	it('the union of an empty set is an empty set') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xUnite(coll, coll) %is% list()
 	) +
 
-	describe('the union of two equals sets is the first set') +
+	it('the union of two equals sets is the first set') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

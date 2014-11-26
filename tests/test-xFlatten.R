@@ -5,7 +5,7 @@ message("xFlatten")
 
 	over(num, coll) +
 
-	describe("flattening empty collection is empty list") +
+	it("flattening empty collection is empty list") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(unlist(num)) == num && num > 0 &&
@@ -14,7 +14,7 @@ message("xFlatten")
 		xFlatten(num, coll) %is% list()
 	) +
 
-	describe("flattening to one is unlist") +
+	it("flattening to one is unlist") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -22,7 +22,7 @@ message("xFlatten")
 		xFlatten(1, xFlatten(1, coll)) %is% xFlatten(1, coll)
 	) +
 
-	describe("flattening atomic is as.list") +
+	it("flattening atomic is as.list") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(unlist(num)) == num && num > 0 &&
@@ -31,7 +31,7 @@ message("xFlatten")
 		xFlatten(num, coll) %is% unname(as.list(coll))
 	) +
 
-	describe("flattening to infinity is as list") +
+	it("flattening to infinity is as list") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 &&
 		!is.na(num) && round(unlist(num)) == num && num > 0 &&

@@ -5,21 +5,21 @@ message('xDistinctOf')
 
 	over(coll) +
 
-	describe('unique of empty coll is empty list') +
+	it('unique of empty coll is empty list') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xDistinctOf(coll) %is% list()
 	) +
 
-	describe('uniques + duplicates == set') +
+	it('uniques + duplicates == set') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(coll) == length(xDistinctOf(coll)) + length( which(duplicated(coll)) )
 	) +
 
-	describe('distinct is idempotent.')+
+	it('distinct is idempotent.')+
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

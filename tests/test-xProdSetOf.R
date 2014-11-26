@@ -3,7 +3,7 @@ kea ::: load_test_dependencies(environment())
 
 over(colls) +
 
-describe("product of an empty collection is an empty collection") +
+it("product of an empty collection is an empty collection") +
 holdsWhen(
 	suchThat $ is_empty_collection(colls),
 

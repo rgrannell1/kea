@@ -5,7 +5,7 @@ message("xScan")
 
     over(val, coll) +
 
-	describe("scan with empty coll is list of val") +
+	it("scan with empty coll is list of val") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 

@@ -1034,7 +1034,7 @@ execute_test <- function (test) {
 
 # -------------------------------- Grammar -------------------------------- #
 
-# describe(str)                 add a description to a property group. Printed
+# it(str)                 add a description to a property group. Printed
 #                                on error.
 #
 # over(...symbols)              give the parametres to be bound to random values
@@ -1062,9 +1062,9 @@ execute_test <- function (test) {
 #
 #
 
-describe <- function (info) {
+it <- function (info) {
 	out <- list(info = info)
-	class(out) <- c('xforall', 'xdescribe')
+	class(out) <- c('xforall', 'xit')
 	out
 }
 
@@ -1238,7 +1238,7 @@ run <- function (time = 2) {
 	}
 
 	responses <- list(
-		'xdescribe'  = join('info'),
+		'xit'        = join('info'),
 		'xover'      = override('params'),
 		'xholdswhen' = join('positives'),
 		'xfailsWhen' = join('negatives'),

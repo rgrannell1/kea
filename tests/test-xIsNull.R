@@ -5,14 +5,14 @@ message("xIsNull")
 
 	over(val) +
 
-	describe('xIsNull is true when the value is null.') +
+	it('xIsNull is true when the value is null.') +
 	holdsWhen(
 		suchThat $ is_null(val),
 
 		xIsNull(val)
 	) +
 
-	describe('xIsNull is false when the value isnt') +
+	it('xIsNull is false when the value isnt') +
 	holdsWhen(
 		suchThat $ not_null(val),
 

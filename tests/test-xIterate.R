@@ -5,7 +5,7 @@ message("xIterate")
 
 	over(val) +
 
-	describe("returning a val is val") +
+	it("returning a val is val") +
 	holdsWhen(
 		True,
 

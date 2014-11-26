@@ -5,7 +5,7 @@ message("xAddKeys")
 
 	over(coll0, coll1) +
 
-	describe("two empty collections is named empty") +
+	it("two empty collections is named empty") +
 	holdsWhen(
 		is_collection(coll0) && is_collection(coll1) &&
 		length(coll0) == 0 && length(coll1) == 0,
@@ -17,7 +17,7 @@ message("xAddKeys")
 
 	over(strs) +
 
-	describe("names of collection is strs") +
+	it("names of collection is strs") +
 	holdsWhen(
 		is_character(strs) && length(strs) > 0 && !anyNA(strs),
 

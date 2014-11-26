@@ -5,7 +5,7 @@ message("xSelect")
 
 	over(coll) +
 
-	describe("the empty collection always yields the list") +
+	it("the empty collection always yields the list") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
@@ -14,7 +14,7 @@ message("xSelect")
 		xSelect(function (x) Na,    coll) %is% list()
 	) +
 
-	describe("the empty collection always yields the list (named)") +
+	it("the empty collection always yields the list (named)") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
@@ -23,14 +23,14 @@ message("xSelect")
 		xSelect(function (x) Na,    coll) %is% as_named(list())
 	) +
 
-	describe("truth function acts as identity") +
+	it("truth function acts as identity") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		xSelect(function (x) True, coll) %is% as.list(coll)
 	) +
 
-	describe("false or na function acts as unit") +
+	it("false or na function acts as unit") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll) && !is_named(coll),
 
@@ -38,7 +38,7 @@ message("xSelect")
 		xSelect(function (x) Na,    coll) %is% list()
 	) +
 
-	describe("false or na function acts as unit (named)") +
+	it("false or na function acts as unit (named)") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll) && is_named(coll),
 

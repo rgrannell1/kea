@@ -5,7 +5,7 @@ message("xLocate")
 
 	over(coll) +
 
-	describe("the empty collection yields integer(0)") +
+	it("the empty collection yields integer(0)") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
@@ -14,7 +14,7 @@ message("xLocate")
 		xLocate(function (x) Na,    coll) %is% integer(0)
 	) +
 
-	describe("non-truth functions yield integer(0)") +
+	it("non-truth functions yield integer(0)") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -22,7 +22,7 @@ message("xLocate")
 		xLocate(function (x)    Na, coll) %is% integer(0)
 	) +
 
-	describe("truth function yields seq_along coll") +
+	it("truth function yields seq_along coll") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

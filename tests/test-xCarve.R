@@ -5,7 +5,7 @@ message('xCarve')
 
 	over(str, nums) +
 
-	describe('selecting at zero is character(0)') +
+	it('selecting at zero is character(0)') +
 	holdsWhen(
 		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str) &&
 		suchThat $ is_empty_collection(nums),
@@ -14,7 +14,7 @@ message('xCarve')
 		xCarve(nums, str) %is% character(0)
 	) +
 
-	describe('slicing with indices is identity') +
+	it('slicing with indices is identity') +
 	holdsWhen(
 		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str),
 

@@ -5,7 +5,7 @@ message('xTake')
 
 	over(num, coll) +
 
-	describe("taking from the empty collection is the empty collection") +
+	it("taking from the empty collection is the empty collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -14,7 +14,7 @@ message('xTake')
 		xTake(num, coll) %is% list()
 	) +
 
-	describe("taking from the empty collection is the empty collection") +
+	it("taking from the empty collection is the empty collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -23,7 +23,7 @@ message('xTake')
 		xTake(num, coll) %is% as_named(list())
 	) +
 
-	describe("taking yields the correct collection") +
+	it("taking yields the correct collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -35,7 +35,7 @@ message('xTake')
 		}
 	) +
 
-	describe("take works over all round positive integers") +
+	it("take works over all round positive integers") +
 	worksWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -44,7 +44,7 @@ message('xTake')
 		xTake(num, coll)
 	) +
 
-	describe("take preserves names") +
+	it("take preserves names") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&

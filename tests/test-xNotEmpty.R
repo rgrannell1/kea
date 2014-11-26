@@ -5,14 +5,14 @@ message("xNotEmpty")
 
 	over(coll) +
 
-	describe('xNotEmpty correctly reports lengths.') +
+	it('xNotEmpty correctly reports lengths.') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		!xNotEmpty(coll)
 	) +
 
-	describe('xNotEmpty correctly reports lengths.') +
+	it('xNotEmpty correctly reports lengths.') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

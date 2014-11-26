@@ -5,7 +5,7 @@ message("xIdentity")
 
 	over(val) +
 
-	describe('xIdentity always yields its input') +
+	it('xIdentity always yields its input') +
 	holdsWhen(
 		True,
 

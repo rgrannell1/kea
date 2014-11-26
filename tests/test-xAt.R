@@ -5,7 +5,7 @@ message("xAt")
 
 	over(coll) +
 
-	describe("xAt an index is the same as [[ index") +
+	it("xAt an index is the same as [[ index") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
@@ -21,7 +21,7 @@ message('xAt')
 
 	over(coll) +
 
-	describe('fails when index is too large') +
+	it('fails when index is too large') +
 	failsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 1,
 
@@ -29,7 +29,7 @@ message('xAt')
 		xAt(list(length(coll)) + 1, coll)
 	) +
 
-	describe('fails when index is too small') +
+	it('fails when index is too small') +
 	failsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 1,
 

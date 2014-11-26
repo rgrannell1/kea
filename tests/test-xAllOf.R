@@ -5,20 +5,20 @@ message("xAllOf")
 
 	over(coll) +
 
-	describe('xAllOf with identity is !any.') +
+	it('xAllOf with identity is !any.') +
 	holdsWhen(
 		is.logical(coll) && length(coll) > 0,
 		xAllOf(identity, coll) %is% length(which(!coll)) == 0
 	) +
 
-	describe('partially applying with true is false') +
+	it('partially applying with true is false') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		xAllOf(function (x) True, coll) == True
 	) +
 
-	describe('partially applying with false is true') +
+	it('partially applying with false is true') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

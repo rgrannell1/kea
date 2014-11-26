@@ -5,7 +5,7 @@ message("xDo")
 
 	over(coll) +
 
-	describe("xDo is always null") +
+	it("xDo is always null") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -18,7 +18,7 @@ message("xDo")
 
 	over(coll) +
 
-	describe("coll must always be a collection") +
+	it("coll must always be a collection") +
 	failsWhen(
 		suchThat $ not_collection(coll),
 

@@ -5,21 +5,21 @@ message("xNotFalse")
 
 	over(val) +
 
-	describe('xNotFalse of false is false.') +
+	it('xNotFalse of false is false.') +
 	holdsWhen(
 		suchThat $ is_false(val),
 
 		!xNotFalse(val)
 	) +
 
-	describe('xNotFalse of values is true.') +
+	it('xNotFalse of values is true.') +
 	holdsWhen(
 		suchThat $ not_false(val),
 
 		xNotFalse(val)
 	) +
 
-	describe('xNotFalse is always true or false') +
+	it('xNotFalse is always true or false') +
 	holdsWhen(
 		TRUE,
 

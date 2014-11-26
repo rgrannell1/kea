@@ -5,7 +5,7 @@ message('xToWords')
 
 	over(str) +
 
-	describe("works of empty string is empty vector") +
+	it("works of empty string is empty vector") +
 	holdsWhen(
 		True,
 

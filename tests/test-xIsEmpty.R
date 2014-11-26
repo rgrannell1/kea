@@ -5,7 +5,7 @@ message("xIsEmpty")
 
 	over(coll) +
 
-	describe('xIsEmpty correctly reports lengths.') +
+	it('xIsEmpty correctly reports lengths.') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

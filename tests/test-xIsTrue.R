@@ -5,14 +5,14 @@ message("xIsTrue")
 
 	over(val) +
 
-	describe('xIsTrue is true when the value is false.') +
+	it('xIsTrue is true when the value is false.') +
 	holdsWhen(
 		suchThat $ is_true(val),
 
 		xIsTrue(val)
 	) +
 
-	describe('xIsTrue is false when the value isnt') +
+	it('xIsTrue is false when the value isnt') +
 	holdsWhen(
 		suchThat $ is_false(val),
 

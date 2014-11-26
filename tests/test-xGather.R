@@ -5,14 +5,14 @@ message("xGather")
 
 	over(coll) +
 
-	describe("xGather always runs") +
+	it("xGather always runs") +
 	worksWhen(
 		suchThat $ is_collection(coll),
 
 		xGather(coll)
 	) +
 
-	describe("xGather returns a list of lists") +
+	it("xGather returns a list of lists") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

@@ -5,7 +5,7 @@ message('xLastOf')
 
 	over(coll) +
 
-	describe('always returns the correct element') +
+	it('always returns the correct element') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
@@ -18,7 +18,7 @@ message('xLastOf')
 
 	over(coll) +
 
-	describe('fails when the collection is too short') +
+	it('fails when the collection is too short') +
 	failsWhen(
 		suchThat $ is_empty_collection(coll),
 

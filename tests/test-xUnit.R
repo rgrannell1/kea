@@ -5,28 +5,28 @@ message("xUnit")
 
 	over(coll) +
 
-	describe("xUnit is length-zero") +
+	it("xUnit is length-zero") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(xUnit(coll)) == 0
 	) +
 
-	describe("xUnit preserves type") +
+	it("xUnit preserves type") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		typeof(xUnit(coll)) == typeof(coll)
 	) +
 
-	describe("xUnit of pairlist is null") +
+	it("xUnit of pairlist is null") +
 	holdsWhen(
 		suchThat $ is_pairlist(coll),
 
 		is.null(xUnit(coll))
 	) +
 
-	describe("xUnit . xUnit is xUnit") +
+	it("xUnit . xUnit is xUnit") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

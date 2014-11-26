@@ -5,7 +5,7 @@ message('xSecondOf')
 
 	over(coll) +
 
-	describe('always returns the correct element') +
+	it('always returns the correct element') +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 2,
 
@@ -17,7 +17,7 @@ message('xSecondOf')
 
 	over(coll) +
 
-	describe('fails when the collection is too short') +
+	it('fails when the collection is too short') +
 	failsWhen(
 		suchThat $ is_collection(coll) && length(coll) < 2,
 

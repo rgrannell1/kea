@@ -5,7 +5,7 @@ message('xAmend')
 
 	over(coll, str) +
 
-	describe("character 0 matches all strings") +
+	it("character 0 matches all strings") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll) &&
 		is_character(str) && length(str) == 1 && !is.na(str),
@@ -16,14 +16,14 @@ message('xAmend')
 		xAmend(coll, str, coll)  %is% character(0)
 	) +
 
-	describe("replacing each character with none is empty") +
+	it("replacing each character with none is empty") +
 	holdsWhen(
 		is_character(str) && length(str) == 1 && !is.na(str),
 
 		unname(xAmend('.', '', str)) == ''
 	) +
 
-	describe("at least for now, xAmend keeps the input name") +
+	it("at least for now, xAmend keeps the input name") +
 	holdsWhen(
 		is_character(str) && length(str) == 1 && !is.na(str),
 

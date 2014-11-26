@@ -6,14 +6,14 @@ message("xVersion")
 
 	over(val) +
 
-	describe('xVersion always gives the current version') +
+	it('xVersion always gives the current version') +
 	holdsWhen(
 		True,
 
 		paste0(xVersion(val), collapse = '.') == packageVersion("kea")
 	) +
 
-	describe('xVersion always is an integer') +
+	it('xVersion always is an integer') +
 	holdsWhen(
 		True,
 

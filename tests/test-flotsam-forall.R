@@ -5,7 +5,7 @@ message("holdsWhen")
 
 	over(a, b) +
 
-	describe("ordering partitions numbers") +
+	it("ordering partitions numbers") +
 	holdsWhen(
 		is.numeric(a)  && is.numeric(b)  &&
 		length(a) == 1 && length(b) == 1 &&
@@ -13,7 +13,7 @@ message("holdsWhen")
 		a > b || b >= a
 	) +
 
-	describe("multiplication by 1 is identity") +
+	it("multiplication by 1 is identity") +
 	holdsWhen(
 		is.numeric(a) && length(a) == 1 &&
 		is.finite(a) &&
@@ -49,7 +49,7 @@ message("holdsWhen failures")
 
 		over(a) +
 
-		describe('a is not a') +
+		it('a is not a') +
 		holdsWhen(
 			is.numeric(a) && length(a) == 1 &&
 			!is.nan(a) &&
@@ -65,7 +65,7 @@ message("worksWhen")
 
 	over(val) +
 
-	describe('identity should always work') +
+	it('identity should always work') +
 	worksWhen(
 		TRUE,
 		identity(val)
@@ -79,7 +79,7 @@ message("worksWhen failures")
 
 		over(str, val) +
 
-		describe('adding a string always fails') +
+		it('adding a string always fails') +
 		worksWhen(
 			is.character(str),
 			str + val,
@@ -94,7 +94,7 @@ message("failsWhen")
 
 	over(str, val) +
 
-	describe('adding a string always fails') +
+	it('adding a string always fails') +
 	failsWhen(
 		is.character(str),
 		str + val,
@@ -110,7 +110,7 @@ message("failsWhen failures")
 
 		over(val) +
 
-		describe('identity should always work') +
+		it('identity should always work') +
 		failsWhen(
 			TRUE,
 			identity(val)

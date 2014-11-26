@@ -5,7 +5,7 @@ message("xThread")
 
 	over(val) +
 
-	describe('threading with no function is that value') +
+	it('threading with no function is that value') +
 	holdsWhen(
 		True,
 

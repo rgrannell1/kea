@@ -5,21 +5,21 @@ message("xGroupBy")
 
 	over(val, coll) +
 
-	describe("grouping an empty collection is list()") +
+	it("grouping an empty collection is list()") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xGroupBy(identity, coll) %is% list()
 	) +
 
-	describe("grouping one value gives a group with that key, that val under identity") +
+	it("grouping one value gives a group with that key, that val under identity") +
 	holdsWhen(
 		True,
 
 		xGroupBy(identity, list(val)) %is% list( list(val, list(val)) )
 	) +
 
-	describe("a unique set groups as itself, with itself as keys under identity") +
+	it("a unique set groups as itself, with itself as keys under identity") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

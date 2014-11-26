@@ -5,7 +5,7 @@ message("xCharsOf")
 
 	over(str) +
 
-	describe("charsof is an integer") +
+	it("charsof is an integer") +
 	holdsWhen(
 		is_character(str) && length(str) == 1 && !is.na(str),
 
@@ -13,7 +13,7 @@ message("xCharsOf")
 		length(xCharsOf) == 1
 	) +
 
-	describe("charsof is an integer") +
+	it("charsof is an integer") +
 	holdsWhen(
 		is_character(str) && length(str) == 1 && !is.na(str),
 

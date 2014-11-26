@@ -5,14 +5,14 @@ message('xFromChars')
 
 	over(strs) +
 
-	describe("xFromChars of character(0) is character(0)") +
+	it("xFromChars of character(0) is character(0)") +
 	holdsWhen(
 		suchThat $ is_empty_collection(strs),
 
 		xFromChars(strs) %is% character(0)
 	) +
 
-	describe("xFromChars is length-one") +
+	it("xFromChars is length-one") +
 	holdsWhen(
 		is_character(strs) && !anyNA(strs) && length(strs) > 0,
 

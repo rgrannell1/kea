@@ -8,7 +8,7 @@ message('Must_Be_Flag')
 
 	over(bool) +
 
-	describe('works for true, false, na') +
+	it('works for true, false, na') +
 	worksWhen(
 		is.logical(bool) && length(bool) == 1,
 		to_test(bool)
@@ -18,7 +18,7 @@ message('Must_Be_Flag')
 
 	over(bool) +
 
-	describe('fails for anything else.') +
+	it('fails for anything else.') +
 	failsWhen(
 		!is.logical(bool) || length(bool) != 1,
 		to_test(bool)

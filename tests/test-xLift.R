@@ -5,7 +5,7 @@ message("xLift")
 
 	over(val1, val2) +
 
-	describe("%or% has the correct truth table") +
+	it("%or% has the correct truth table") +
 	holdsWhen(
 		True,
 
@@ -15,7 +15,7 @@ message("xLift")
 		!(xFalsity %or% xFalsity)(val1)
 	) +
 
-	describe("%and% has the correct truth table") +
+	it("%and% has the correct truth table") +
 	holdsWhen(
 		True,
 
@@ -25,7 +25,7 @@ message("xLift")
 		!(xFalsity %and% xFalsity)(val1)
 	) +
 
-	describe("%or% short-circuits evaluation.") +
+	it("%or% short-circuits evaluation.") +
 	holdsWhen(
 		True,
 

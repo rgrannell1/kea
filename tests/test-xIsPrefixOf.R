@@ -5,7 +5,7 @@ message("xIsPrefixOf")
 
 	over(coll1, coll2) +
 
-	describe("a collection is a prefix of itself.") +
+	it("a collection is a prefix of itself.") +
 	holdsWhen(
 		suchThat $ is_collection(coll1) && suchThat $ is_collection(coll2) &&
 		suchThat $ is_empty_collection(coll1) ||
@@ -14,14 +14,14 @@ message("xIsPrefixOf")
 		xIsPrefixOf(coll1, coll2) %is% logical(0)
 	) +
 
-	describe("a collection is a prefix of itself.") +
+	it("a collection is a prefix of itself.") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll1),
 
 		xIsPrefixOf(coll1, coll1)
 	) +
 
-	describe("continuous subsequences are always members.") +
+	it("continuous subsequences are always members.") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll1),
 

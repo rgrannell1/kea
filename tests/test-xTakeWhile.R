@@ -5,14 +5,14 @@ message("xTakeWhile")
 
 	over(coll) +
 
-	describe("true predicates returns the collection") +
+	it("true predicates returns the collection") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		xTakeWhile(function (x) True,  coll) %is% as.list(coll)
 	) +
 
-	describe("non true predicates return empty list") +
+	it("non true predicates return empty list") +
 	holdsWhen(
 		suchThat $ not_named_collection(coll),
 
@@ -20,7 +20,7 @@ message("xTakeWhile")
 		xTakeWhile(function (x) Na,    coll) %is% list()
 	) +
 
-	describe("non true predicates return empty list") +
+	it("non true predicates return empty list") +
 	holdsWhen(
 		suchThat $ is_named_collection(coll),
 

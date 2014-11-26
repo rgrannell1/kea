@@ -5,7 +5,7 @@ message('xFix')
 
 	over(val) +
 
-	describe("partially applying with no arguments is the original function") +
+	it("partially applying with no arguments is the original function") +
 	holdsWhen(
 		True,
 

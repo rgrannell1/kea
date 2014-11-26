@@ -7,14 +7,14 @@ message("is_variadic")
 
 	over(str) +
 
-	describe('variadic methods always end in _') +
+	it('variadic methods always end in _') +
 	holdsWhen(
 		is.character(str) && length(str) == 1 && nchar(str) > 0,
 
 		is.logical(is_variadic(str))
 	) +
 
-	describe('variadic methods always end in _') +
+	it('variadic methods always end in _') +
 	holdsWhen(
 		is.character(str) && length(str) == 1 &&
 		nchar(str) > 0 &&
@@ -23,7 +23,7 @@ message("is_variadic")
 		is_variadic(str)
 	) +
 
-	describe('as_variadic') +
+	it('as_variadic') +
 	holdsWhen(
 		is.character(str) && length(str) == 1 && nchar(str) > 0,
 

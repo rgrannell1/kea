@@ -5,7 +5,7 @@ message("xIs")
 
 	over(val) +
 
-	describe("a value is always equal to itself.") +
+	it("a value is always equal to itself.") +
 	holdsWhen(
 		True,
 
@@ -16,7 +16,7 @@ message("xIs")
 
 	over(val1, val2) +
 
-	describe("always returns a logical value.") +
+	it("always returns a logical value.") +
 	holdsWhen(
 		True,
 

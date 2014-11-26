@@ -5,7 +5,7 @@ message("methods")
 
 	over(val) +
 
-	describe("universal methods are available to all data types") +
+	it("universal methods are available to all data types") +
 	holdsWhen(
 		True,
 		x_(val) $ x_I() %is% val
@@ -13,7 +13,7 @@ message("methods")
 
 	over(val) +
 
-	describe("calling an unevaluated variable works") +
+	it("calling an unevaluated variable works") +
 	holdsWhen(
 		True,
 
@@ -26,7 +26,7 @@ message("methods")
 
 	over(val1, val2, val3) +
 
-	describe("variadic functions work") +
+	it("variadic functions work") +
 	holdsWhen(
 		True,
 
@@ -37,7 +37,7 @@ message("methods")
 
 	over(val) +
 
-	describe("lexical closure works") +
+	it("lexical closure works") +
 	worksWhen(
 		True,
 		{
