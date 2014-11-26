@@ -27,3 +27,20 @@ unit_test("xUnzipKeys")
 	) +
 
 	run()
+
+
+
+
+
+int_test("xUnzipKeys")
+
+	over(coll) +
+
+	it('is an inverse of xZipKeys') +
+	holdsWhen(
+		and_(suchThat $ is_named_collection, suchThat $ not_empty_collection)(coll),
+
+		xZipKeys(xUnzipKeys(coll)) %is% as.list(coll)
+	) +
+
+	run()
