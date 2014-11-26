@@ -126,9 +126,11 @@ suchThat <- ( function () {
 
 	# -- over composing? probably still better to do this here; these assertions are needed.
 
-	this $ is_singleton_character <- and_(this $ is_character, this $ is_singleton)
+	this $ is_singleton_collection <- and_(this $ is_collection, this $ is_singleton)
 
-	this $ not_empty_character    <- and_(this $ is_character, not(this $ is_empty))
+	this $ is_singleton_character  <- and_(this $ is_character, this $ is_singleton)
+
+	this $ not_empty_character     <- and_(this $ is_character, not(this $ is_empty))
 
 
 
@@ -1004,6 +1006,9 @@ execute_test <- function (test) {
 	)
 
 	state_sucess(states, info)
+
+	warnings()
+
 	invisible(Null)
 }
 
