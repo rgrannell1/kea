@@ -126,7 +126,9 @@ suchThat <- ( function () {
 
 	# -- over composing? probably still better to do this here; these assertions are needed.
 
-	this $ not_empty_character  <- and_(this $ is_character, not(this $ is_empty))
+	this $ is_singleton_character <- and_(this $ is_character, this $ is_singleton)
+
+	this $ not_empty_character    <- and_(this $ is_character, not(this $ is_empty))
 
 
 

@@ -19,7 +19,7 @@ message('xDistinctOf')
 		length(coll) == length(xDistinctOf(coll)) + length( which(duplicated(coll)) )
 	) +
 
-	describe('unique repeats')+
+	describe('distinct is idempotent.')+
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

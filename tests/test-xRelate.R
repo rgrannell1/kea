@@ -33,4 +33,20 @@ message("xRelate")
 		names(xRelate(identity, coll)) %is% names(coll)
 	) +
 
+	describe('operation returns 2-tuples') +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		all(vapply(xRelate(identity, coll), length, integer(1)) == 2)
+	) +
+
+	describe('identity repeats each input') +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		all( vapply(xRelate(identity, coll), function (pair) {
+			do.call(identical, pair)
+		}, logical(1)) )
+	) +
+
 	run()
