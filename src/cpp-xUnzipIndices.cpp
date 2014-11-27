@@ -9,7 +9,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cUnzipIndices (const List& coll) {
 
-	const int coll_len   = coll.size();
+	const R_len_t coll_len   = coll.size();
 	const bool has_names = coll.attr("names") != R_NilValue;
 
 	if (coll_len == 0) {
@@ -28,7 +28,7 @@ List cUnzipIndices (const List& coll) {
 
 		if (has_names) {
 
-			for (int ith = 0; ith < coll_len; ++ith) {
+			for (R_len_t ith = 0; ith < coll_len; ++ith) {
 				out[ith] = List::create( ith + 1, coll[ith] );
 			}
 
@@ -36,7 +36,7 @@ List cUnzipIndices (const List& coll) {
 
 		} else {
 
-			for (int ith = 0; ith < coll_len; ++ith) {
+			for (R_len_t ith = 0; ith < coll_len; ++ith) {
 				out[ith] = List::create(ith + 1, coll[ith]);
 			}
 		}

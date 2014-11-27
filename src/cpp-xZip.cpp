@@ -10,7 +10,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cZip (const List& colls) {
 
-	const int colls_size = colls.size();
+	const R_len_t colls_size = colls.size();
 
 	if (colls_size == 0) {
 		return List::create();
@@ -18,7 +18,7 @@ List cZip (const List& colls) {
 
 		Must_Be_Collection_Of_Equal_Length("colls", colls);
 
-		const int elem_size = ((List)colls[0]).size();
+		const R_len_t elem_size = ((List)colls[0]).size();
 
 		if (elem_size == 0) {
 			return List::create();
@@ -34,7 +34,7 @@ List cZip (const List& colls) {
 				colls_names = colls.attr("names");
 			}
 
-			for (int ith = 0; ith < elem_size; ++ith) {
+			for (R_len_t ith = 0; ith < elem_size; ++ith) {
 
 				List row(colls_size);
 
@@ -42,7 +42,7 @@ List cZip (const List& colls) {
 					row.attr("names") = colls_names;
 				}
 
-				for (int jth = 0; jth < colls_size; ++jth) {
+				for (R_len_t jth = 0; jth < colls_size; ++jth) {
 					row[jth]  = ((List)colls[jth])[ith];
 				}
 

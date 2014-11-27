@@ -8,8 +8,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cRecycle (const NumericVector& num, const List& coll) {
 
-	const int num_len    = num.size();
-	const int coll_len   = coll.size();
+	const R_len_t num_len    = num.size();
+	const R_len_t coll_len   = coll.size();
 
 	const bool has_names = coll.attr("names") != R_NilValue;
 
@@ -25,7 +25,7 @@ List cRecycle (const NumericVector& num, const List& coll) {
 
 	} else {
 
-		const int num_mag = num[0];
+		const R_len_t num_mag = num[0];
 
 
 		if (has_names) {
@@ -35,9 +35,9 @@ List cRecycle (const NumericVector& num, const List& coll) {
 
 			CharacterVector coll_names = coll.attr("names");
 
-			for (int ith = 0; ith < num_mag; ++ith) {
+			for (R_len_t ith = 0; ith < num_mag; ++ith) {
 
-				int index = ith % coll_len;
+				R_len_t index = ith % coll_len;
 
 				out[ith]       = coll[index];
 				out_names[ith] = coll_names[index];
@@ -51,7 +51,7 @@ List cRecycle (const NumericVector& num, const List& coll) {
 
 			List out(num_mag);
 
-			for (int ith = 0; ith < num_mag; ++ith) {
+			for (R_len_t ith = 0; ith < num_mag; ++ith) {
 				out[ith] = coll[ith % coll_len];
 			}
 

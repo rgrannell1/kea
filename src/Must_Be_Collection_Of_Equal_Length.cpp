@@ -8,18 +8,18 @@ using namespace Rcpp;
 
 void Must_Be_Collection_Of_Equal_Length (const std::string COLLS, const List colls) {
 
-	const int colls_size = colls.size();
+	const R_len_t colls_size = colls.size();
 
 	if (colls_size == 0) {
 		return;
 	}
 
 	const List &first    = colls[0];
-	const int elem_size  = first.size();
+	const R_len_t elem_size  = first.size();
 
 	bool all_equal = true;
 
-	for (int ith = 0; ith < colls_size; ++ith) {
+	for (R_len_t ith = 0; ith < colls_size; ++ith) {
 		const List &elem = colls[ith];
 
 		all_equal = all_equal && (elem.size() == elem_size);

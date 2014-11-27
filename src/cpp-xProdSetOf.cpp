@@ -13,16 +13,16 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cProdSetOf (const List& colls) {
 
-	int out_size         = 1;
-	const int colls_size = colls.size();
+	R_len_t out_size   = 1;
+	const R_len_t colls_size = colls.size();
 
-	std::vector<int> coll_sizes;
-	std::vector<int> tuple_index;
+	std::vector<R_len_t> coll_sizes;
+	std::vector<R_len_t> tuple_index;
 
 	// get the size of each collection, populate initial
 	// indices, and product of sizes.
 
-	for (int ith = 0; ith < colls_size; ++ith) {
+	for (R_len_t ith = 0; ith < colls_size; ++ith) {
 
 		List elem = colls[ith];
 
@@ -37,7 +37,7 @@ List cProdSetOf (const List& colls) {
 		return List::create();
 	}
 
-	int out_ith = 0;
+	R_len_t out_ith = 0;
 	List out(out_size);
 
 	while (out_size > out_ith) {
@@ -45,7 +45,7 @@ List cProdSetOf (const List& colls) {
 		List out_tuple(colls_size);
 
 		// add the current ordered tuple to the output.
-		for (int ith = 0; ith < colls_size; ++ith) {
+		for (R_len_t ith = 0; ith < colls_size; ++ith) {
 
 			List coll       = colls[ith];
 			out_tuple[ith]  = coll[tuple_index[ith]];
@@ -55,7 +55,7 @@ List cProdSetOf (const List& colls) {
 		out[out_ith] = out_tuple;
 		++out_ith;
 
-		int ith = colls_size - 1;
+		R_len_t ith = colls_size - 1;
 
 		// get the next product-set indices.
 		while (true) {

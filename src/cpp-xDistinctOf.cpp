@@ -11,18 +11,18 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cDistinctOf (const List& coll) {
 
-	const int coll_size = coll.size();
-	const int flags     = 1 + 2 + 4 + 8 + 0;
+	const R_len_t coll_size = coll.size();
+	const R_len_t flags     = 1 + 2 + 4 + 8 + 0;
 
 	std::vector<SEXP> unique;
 	unique.push_back(coll[0]);
 
-	for (int ith = 1; ith < coll_size; ++ith) {
+	for (R_len_t ith = 1; ith < coll_size; ++ith) {
 
 		bool match_found = false;
-		int unique_size  = unique.size();
+		R_len_t unique_size  = unique.size();
 
-		for (int jth = 0; jth < unique_size; ++jth) {
+		for (R_len_t jth = 0; jth < unique_size; ++jth) {
 			if ((bool)R_compute_identical(coll[ith], unique[jth], flags)) {
 				match_found = true;
 				break;

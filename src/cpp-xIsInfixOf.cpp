@@ -8,10 +8,10 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 LogicalVector cIsInfixOf (const List& coll1, const List& coll2) {
 
-	const int coll1_size = coll1.size();
-	const int coll2_size = coll2.size();
+	const R_len_t coll1_size = coll1.size();
+	const R_len_t coll2_size = coll2.size();
 
-	const int flags      = 1 + 2 + 4 + 8 + 0;
+	const R_len_t flags      = 1 + 2 + 4 + 8 + 0;
 
 	if (coll1_size == 0 || coll2_size == 0) {
 		return LogicalVector::create();
@@ -21,11 +21,11 @@ LogicalVector cIsInfixOf (const List& coll1, const List& coll2) {
 			return LogicalVector::create(false);
 		}
 
-		for (int lower = 0; lower < (coll2_size - coll1_size) + 1; ++lower) {
+		for (R_len_t lower = 0; lower < (coll2_size - coll1_size) + 1; ++lower) {
 
 			bool subseq_match = true;
 
-			for (int ith = 0; ith < coll1_size; ++ith) {
+			for (R_len_t ith = 0; ith < coll1_size; ++ith) {
 				if (!(bool) R_compute_identical(coll1[ith], coll2[ith + lower], flags)) {
 
 					subseq_match = false;

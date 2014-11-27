@@ -9,8 +9,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 CharacterVector cImplode (const CharacterVector str, const CharacterVector& strs) {
 
-	const int str_size  = str.size();
-	const int strs_size = strs.size();
+	const R_len_t str_size  = str.size();
+	const R_len_t strs_size = strs.size();
 
 	if (str_size == 0 || strs_size == 0) {
 		return CharacterVector::create();
@@ -19,7 +19,7 @@ CharacterVector cImplode (const CharacterVector str, const CharacterVector& strs
 		std::ostringstream os;
 		std::string delimiter = Rcpp::as<std::string>(str[0]);
 
-		for (int ith = 0; ith < strs_size; ++ith) {
+		for (R_len_t ith = 0; ith < strs_size; ++ith) {
 			ith != strs_size - 1 ? os << strs[ith] << delimiter: os << strs[ith];
 		}
 
