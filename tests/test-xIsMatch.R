@@ -5,7 +5,7 @@ unit_test('xIsMatch')
 
 	over(rexp, str) +
 
-	it("character 0 matches all strings") +
+	it("yields empty logical vector for empty regular expressions") +
 	holdsWhen(
 		suchThat $ is_empty_collection(rexp) &&
 		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str),
@@ -13,7 +13,7 @@ unit_test('xIsMatch')
 		xIsMatch(rexp, str) %is% logical(0)
 	) +
 
-	it("all strings match matchall regexps") +
+	it("yields true for match-all regular expressions") +
 	holdsWhen(
 		suchThat $ is_empty_collection(rexp) &&
 		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str),
