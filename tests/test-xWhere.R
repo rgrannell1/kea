@@ -9,7 +9,7 @@ unit_test("xWhere")
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
-		xWhere(coll) %is% keep_names(coll, integer(0))
+		xWhere(coll) %is% keep_names(integer(0), coll)
 	) +
 
 	it("returns 1 for a single true value") +

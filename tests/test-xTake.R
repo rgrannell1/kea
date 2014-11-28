@@ -5,25 +5,16 @@ unit_test('xTake')
 
 	over(num, coll) +
 
-	it("taking from the empty collection is the empty collection") +
+	it("returns the empty list when taking from the empty collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
-		xTake(num, coll) %is% list()
+		xTake(num, coll) %is% keep_names(list(), coll)
 	) +
 
-	it("taking from the empty collection is the empty collection") +
-	holdsWhen(
-		is_numeric(num) && !is.na(unlist(num)) &&
-		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
-
-		xTake(num, coll) %is% as_named(list())
-	) +
-
-	it("taking yields the correct collection") +
+	it("yields the head of a collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -35,7 +26,7 @@ unit_test('xTake')
 		}
 	) +
 
-	it("take works over all round positive integers") +
+	it("works for all positive numbers") +
 	worksWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -44,7 +35,7 @@ unit_test('xTake')
 		xTake(num, coll)
 	) +
 
-	it("take preserves names") +
+	it("preserves names") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
