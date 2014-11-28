@@ -17,8 +17,6 @@ unit_test("xAt")
 
 	run()
 
-message('xAt')
-
 	over(coll) +
 
 	it('fails when index is too large') +

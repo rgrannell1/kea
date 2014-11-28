@@ -9,9 +9,9 @@ unit_test("xLift")
 	holdsWhen(
 		True,
 
-		(xTruth %or% xTruth)(val1),
-		(xTruth %or% xFalsity)(val1),
-		(xFalsity %or% xTruth)(val1),
+		(xTruth    %or% xTruth)(val1),
+		(xTruth    %or% xFalsity)(val1),
+		(xFalsity  %or% xTruth)(val1),
 		!(xFalsity %or% xFalsity)(val1)
 	) +
 
@@ -19,8 +19,8 @@ unit_test("xLift")
 	holdsWhen(
 		True,
 
-		(xTruth %and% xTruth)(val1),
-		!(xTruth %and% xFalsity)(val1),
+		(xTruth    %and% xTruth)(val1),
+		!(xTruth   %and% xFalsity)(val1),
 		!(xFalsity %and% xTruth)(val1),
 		!(xFalsity %and% xFalsity)(val1)
 	) +
@@ -34,7 +34,3 @@ unit_test("xLift")
 	) +
 
 	run()
-
-
-
-
