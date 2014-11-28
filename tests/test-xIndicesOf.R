@@ -5,18 +5,25 @@ unit_test("xIndicesOf")
 
 	over(coll) +
 
-	it("the empty collection always yields the empty integer vector") +
+	it("keeps the empty input as an empty integer") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xIndicesOf(coll) %is% integer(0)
 	) +
 
-	it("the upper index is the length of the collection") +
+	it("keeps the length of its input") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		max(xIndicesOf(coll)) == length(coll)
+	) +
+
+	it("is idempotent") +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		xIndicesOf(xIndicesOf(coll)) %is% xIndicesOf(coll)
 	) +
 
 	run()

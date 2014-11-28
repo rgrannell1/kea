@@ -8,7 +8,7 @@ Must_Contain_Key <- function (STR, COLL) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(COLL) ) %+%
-			" did not contain the key matching " %+% ddquote(.( STR )) %+% "."
+			" did not contain a key matching " %+% ddquote(.( STR )) %+% "."
 
 		throw_exception $ key_error(sys.call(), message)
 	})

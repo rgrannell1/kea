@@ -21,3 +21,19 @@ unit_test("xTakeWhile")
 	) +
 
 	run()
+
+
+
+
+int_test("xTakeWhile")
+
+	over(coll) +
+
+	it("returns indices with <= length") +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		xTakeWhile(x. <= xLenOf(coll), xIndicesOf(coll)) %is% as.list(xIndicesOf(coll))
+	) +
+
+	run()
