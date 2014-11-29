@@ -47,12 +47,13 @@
 #' @rdname xInvoke
 #' @export
 
-xInvoke <- MakeFun(function (fn, coll)
+xInvoke <- MakeFun(function (fn, coll) {
 
 	MACRO( Must_Have_Arity(fn, 1) )
 
 	MACRO( Try_Higher_Order_Function( fn(coll) ) )
-)
+
+})
 
 #' @rdname xInvoke
 #' @export

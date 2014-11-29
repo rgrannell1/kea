@@ -1,4 +1,28 @@
 
+# -------------------------------- error message testing -------------------------------- #
+#
+# Errors are values, but values without many functions on them.
+#
+
+grasp <- function (expr, callback) {
+
+	tryCatch(
+		evalq(expr),
+		error = function (warn) {
+			callback(warn)
+		}
+	)
+
+}
+
+
+
+
+
+
+
+
+
 # -------------------------------- predicate composition -------------------------------- #
 #
 # Much of the work in writing tests is selecting test cases. These predicates should be composed
