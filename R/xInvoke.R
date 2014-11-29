@@ -41,17 +41,17 @@
 #' @template
 #'    Variadic
 #'
-#'
 #' @example
 #'    inst/examples/example-xInvoke.R
-#'
 #'
 #' @rdname xInvoke
 #' @export
 
 xInvoke <- MakeFun(function (fn, coll)
-	# -- serious algorithmic work here.
-	fn(coll)
+
+	MACRO( Must_Have_Arity(fn, 1) )
+
+	MACRO( Try_Higher_Order_Function( fn(coll) ) )
 )
 
 #' @rdname xInvoke

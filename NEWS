@@ -13,7 +13,7 @@ BUG-FIXES:
 * removes an accidentally included variable in a macro that checks for finiteness, so xCycle
 and similar functions will fail correctly when given an infinite value.
 
-
+* xInvoke now labels any errors thrown by its input function correctly.
 
 
 
