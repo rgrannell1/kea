@@ -132,7 +132,7 @@ throw_kea_condition <- function (exception) {
 			"\n" %+% message
 		}
 
-		exception(gsub('\n', '\n ', final_message))
+		exception(invoking_call, gsub('\n', '\n ', final_message))
 
 	}
 }
@@ -147,17 +147,17 @@ throw_kea_condition <- function (exception) {
 #
 #
 
-std_error <- function (message) {
+std_error <- function (call, message) {
 	structure(
 		class = c('condition', 'error'),
-		list(message = message)
+		list(message = message, rcall = call)
 	)
 }
 
-std_warning <- function (message) {
+std_warning <- function (call, message) {
 	structure(
 		class = c('condition', 'warning'),
-		list(message = message)
+		list(message = message, rcall = call)
 	)
 }
 
@@ -166,11 +166,14 @@ new_error_type <- function (...) {
 
 	classes <- c(...)
 
-	function (message) {
+	function (call, message) {
 
 		structure(
 			class = c(classes, 'condition', 'error'),
-			list(message = paste0(classes[length(classes)], ': ', message))
+			list(
+				message = paste0(classes[length(classes)], ': ', message),
+				rcall   = call
+			)
 		)
 
 	}
@@ -205,15 +208,15 @@ value_error      <- new_error_type('value_error')
 
 raise_error <- function (condition, colour) {
 
-	throw_kea_condition(function (message) {
-		stop( condition(colourise [[colour]](message) ))
+	throw_kea_condition(function (call, message) {
+		stop( condition(call, colourise [['red']](message) ))
 	})
 }
 
 raise_warning <- function (condition, colour) {
 
-	throw_kea_condition(function (message) {
-		warning( condition(colourise [[colour]](message) ))
+	throw_kea_condition(function (call, message) {
+		warning( condition(call, colourise [['yellow']](message) ))
 	})
 }
 
@@ -222,19 +225,19 @@ raise_warning <- function (condition, colour) {
 
 
 throw_exception <- list(
-	warning          = raise_warning(std_warning,    'yellow'),
-	error            = raise_error(std_error,        'red'),
+	warning          = raise_warning(std_warning),
+	error            = raise_error(std_error),
 
-	arithmetic_error = raise_error(arithmetic_error, 'red'),
+	arithmetic_error = raise_error(arithmetic_error),
 
-	lookup_error     = raise_error(lookup_error,     'red'),
-	index_error      = raise_error(index_error,      'red'),
-	key_error        = raise_error(key_error,        'red'),
-	io_error         = raise_error(io_error,         'red'),
-	name_error       = raise_error(name_error,       'red'),
-	syntax_error     = raise_error(syntax_error,     'red'),
-	type_error       = raise_error(type_error,       'red'),
-	value_error      = raise_error(value_error,      'red')
+	lookup_error     = raise_error(lookup_error),
+	index_error      = raise_error(index_error),
+	key_error        = raise_error(key_error),
+	io_error         = raise_error(io_error),
+	name_error       = raise_error(name_error),
+	syntax_error     = raise_error(syntax_error),
+	type_error       = raise_error(type_error),
+	value_error      = raise_error(value_error)
 )
 
 
