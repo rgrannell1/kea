@@ -44,10 +44,6 @@ stringify_call <- local({
 
 	}
 
-
-
-
-
 	function (call) {
 
 		if (length(call) == 0) {
@@ -144,7 +140,7 @@ KeaCondition <- function (...) {
 		# -- the erroneous call. Represented as is. Not printed; for
 		# -- programmatic use up the call stack.
 
-		fields $ ecall    <- ecall
+		fields $ ecall   <- ecall
 
 		# -- what the user sees. Highly processed error message.
 
@@ -197,7 +193,7 @@ exception $ Value      <- KeaCondition('error', 'value_error')
 
 
 
-# keaThrower
+# Thrower
 #
 # create equivalents of stop for each kea exception type.
 # the result takes a call from which the error was thrown,
@@ -206,7 +202,7 @@ exception $ Value      <- KeaCondition('error', 'value_error')
 # the constructor for kea errors nicely formats the error message
 # to be thrown and includes additional data for debuggin.
 
-keaThrower <- function (constructor) {
+Thrower <- function (constructor) {
 	function (invoking_call, message) {
 
 		# -- the kea warning or error to throw.
@@ -241,19 +237,19 @@ keaThrower <- function (constructor) {
 # called throws a lovely custom error.
 
 throw_exception <- list(
-	warning          = keaThrower(exception $ Warning),
-	error            = keaThrower(exception $ Error),
+	warning          = Thrower(exception $ Warning),
+	error            = Thrower(exception $ Error),
 
-	arithmetic_error = keaThrower(exception $ Arithmetic_error),
+	arithmetic_error = Thrower(exception $ Arithmetic_error),
 
-	lookup_error     = keaThrower(exception $ Lookup),
-	index_error      = keaThrower(exception $ Index),
-	key_error        = keaThrower(exception $ Key),
-	io_error         = keaThrower(exception $ Io),
-	name_error       = keaThrower(exception $ Name),
-	syntax_error     = keaThrower(exception $ Syntax),
-	type_error       = keaThrower(exception $ Type),
-	value_error      = keaThrower(exception $ Value)
+	lookup_error     = Thrower(exception $ Lookup),
+	index_error      = Thrower(exception $ Index),
+	key_error        = Thrower(exception $ Key),
+	io_error         = Thrower(exception $ Io),
+	name_error       = Thrower(exception $ Name),
+	syntax_error     = Thrower(exception $ Syntax),
+	type_error       = Thrower(exception $ Type),
+	value_error      = Thrower(exception $ Value)
 )
 
 
