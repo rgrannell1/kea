@@ -255,3 +255,28 @@ throw_exception <- list(
 	type_error       = keaThrower(exception $ Type),
 	value_error      = keaThrower(exception $ Value)
 )
+
+
+
+
+
+# check_regexp
+#
+# Intercept a message from R's internal regexp validation,
+# relabel as coming from top-level kea function.
+
+check_regexp <- function (rexp, ecall) {
+
+	tryCatch(
+		if (length(rexp) > 0) {
+			regexpr(rexp, text = '')
+		},
+		warning = function (n) {
+			throw_exception $ warning(ecall, warn $ message %+% '\n')
+		},
+		error = function (err) {
+			throw_exception $ error(ecall,   err $ message %+% '\n')
+		}
+	)
+
+}
