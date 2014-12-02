@@ -11,10 +11,16 @@
 
 
 
+# truncate
+#
+# string -> number -> string
+#
+# cut a string to a fixed length, and indicate that the string was truncated.
+
 truncate <- function (str, num) {
 
-	if (nchar(str) > 50) {
-		paste0(substring(str, 1, 50), '[truncated]', collapse = '')
+	if (nchar(str) > num) {
+		paste0(substring(str, 1, num), '[truncated]', collapse = '')
 	} else {
 		str
 	}
@@ -61,7 +67,7 @@ stringify_call <- local({
 		if (length(call) == 0) {
 			"[erroneous call not included]"
 		} else {
-			truncate( ddparse(expand_call(call)) )
+			truncate( ddparse(expand_call(call)) , 50)
 		}
 
 	}
@@ -85,7 +91,7 @@ throw_kea_condition <- local({
 		if (is.name( invoking_call[[1]] )) {
 			paste0( invoking_call[[1]] )
 		} else {
-			truncate(ddparse( invoking_call[[1]] ))
+			truncate(ddparse( invoking_call[[1]] ), 50)
 		}
 
 	}
