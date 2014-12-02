@@ -9,133 +9,129 @@
 
 
 
-expand_call <- function (call) {
-	# -- expand calls to := to their evaluated functions.
-	# -- refactor `:=`(a, {a + a}) to function (a) {a + a}
 
-	is_lambda <- function (term) {
-		is.call(term) && term[[1]] == as.symbol(':=')
-	}
 
-	as.call( lapply(call, function (term) {
-		if (is_lambda(term)) eval(term) else term
-	}) )
+truncate <- function (str, num) {
 
-}
-
-stringify_call <- function (call) {
-	# call -> string
-	# format the call nicely for printing, fixing the representation of ':='.
-
-	if (length(call) == 0) {
-		"[erroneous call not included]"
+	if (nchar(str) > 50) {
+		paste0(substring(str, 1, 50), '[truncated]', collapse = '')
 	} else {
+		str
+	}
 
-		calltext <- ddparse(expand_call(call))
+}
 
-		if (nchar(calltext) <= 50) {
-			calltext
+
+
+
+
+# stringify_call
+#
+# call -> string
+#
+# get the string representation of a call object.
+
+stringify_call <- local({
+
+	# expand_call
+	#
+	# call -> call
+	#
+	# expand calls to := to their evaluated functions.
+	# refactor `:=`(a, {a + a}) to function (a) {a + a}
+
+	expand_call <- function (call) {
+
+		is_lambda <- function (term) {
+			is.call(term) && term[[1]] == as.symbol(':=')
+		}
+
+		as.call( lapply(call, function (term) {
+			if (is_lambda(term)) eval(term) else term
+		}) )
+
+	}
+
+
+
+
+
+	function (call) {
+
+		if (length(call) == 0) {
+			"[erroneous call not included]"
 		} else {
-			paste0(substring(calltext, 1, 50), ' [truncated]', collapse = '')
+			truncate( ddparse(expand_call(call)) )
 		}
 
 	}
-}
 
-get_call_components <- function (invoking_call) {
-	# get the calling function and call text from a call.
+})
 
-	if (length(invoking_call) == 1 && any(class(invoking_call) == "call")) {
-		# -- is it a nullary call ( foo() )
 
-		fn <- invoking_call[[1]]
 
-		calltext <- paste0(invoking_call, "()", collapse = '')
-		fntext   <- if (is.name(fn)) {
-			paste(fn)
+
+
+
+
+
+
+
+
+throw_kea_condition <- local({
+
+	stringify_calling_function <- function (invoking_call) {
+
+		if (is.name( invoking_call[[1]] )) {
+			paste0( invoking_call[[1]] )
 		} else {
-			# -- calling position may be a function literal occasionally.
-			# -- can be quite large, so truncate
-
-			tmp <- ddparse(fn)
-
-			if (nchar(tmp) > 50) {
-				paste0(substring(tmp, 1, 50), ' [truncated]', collapse = '')
-			} else {
-				tmp
-			}
+			truncate(ddparse( invoking_call[[1]] ))
 		}
 
-		list(invoking_call = fntext, calltext = calltext)
+	}
 
-	} else if (any(class(invoking_call) == "call")) {
-		# -- the general case
-
-		fn <- invoking_call[[1]]
-
-		fn_text <- if (is.name(fn)) {
-			paste(fn)
-		} else {
-			# -- calling position may be a function literal occasionally.
-			# -- can be quite large, so truncate
-
-			tmp <- ddparse(fn)
-
-			if (nchar(tmp) > 50) {
-				paste0(substring(tmp, 1, 50), ' [truncated]', collapse = '')
-			} else {
-				tmp
-			}
-		}
+	get_call_components <- function (invoking_call) {
 
 		list(
-			invoking = fn_text,
-			calltext = stringify_call(invoking_call))
-
-	} else {
-		# -- internal error; something bad was passed in.
-
-		list(invoking = "", calltext = "")
+			call_text  = stringify_call(invoking_call),
+			calling_fn = stringify_calling_function(invoking_call))
 
 	}
-}
 
 
 
 
 
+	function (throw_exception) {
 
-# -------------------------------------------------------------------------
-#
-# The interface to
-#
+		function (invoking_call, message) {
 
-throw_kea_condition <- function (exception) {
+			if (length(message) != 1) {
+				stop('internal error in kea; a non-length one error message was produced.' %+%
+					' Please report this at https://github.com/rgrannell1/kea/issues')
+			}
 
-	function (invoking_call, message) {
+			# -- stringify the call, get the function name.
+			final_message <- if (!missing(invoking_call)) {
 
-		if (length(message) != 1) {
-			stop('internal error in kea; a non-length one error message was produced.' %+%
-				' Please report this at https://github.com/rgrannell1/kea/issues')
+				call_components <- get_call_components(invoking_call)
+
+				"\n" %+% message %+%
+				"\nThrown from " %+% call_components $ calling_fn %+% "\n" %+%
+				"In the call "   %+% call_components $ call_text
+
+			} else {
+				"\n" %+% message
+			}
+
+			throw_exception(invoking_call, gsub('\n', '\n ', final_message))
+
 		}
-
-		# -- stringify the call, get the function name.
-		final_message <- if (!missing(invoking_call)) {
-
-			call_components <- get_call_components(invoking_call)
-
-			"\n" %+% message %+%
-			"\nThrown from " %+% call_components $ invoking %+% "\n" %+%
-			"In the call "   %+% call_components $ calltext
-
-		} else {
-			"\n" %+% message
-		}
-
-		exception(invoking_call, gsub('\n', '\n ', final_message))
-
 	}
-}
+
+})
+
+
 
 
 
@@ -147,18 +143,28 @@ throw_kea_condition <- function (exception) {
 #
 #
 
-std_error <- function (call, message) {
+Error <- function (call, message) {
+
 	structure(
 		class = c('condition', 'error'),
-		list(message = message, rcall = call)
+		list(
+			message = message,
+			rcall    = call
+		)
 	)
+
 }
 
-std_warning <- function (call, message) {
+Warning <- function (call, message) {
+
 	structure(
 		class = c('condition', 'warning'),
-		list(message = message, rcall = call)
+		list(
+			message = message,
+			rcall   = call
+		)
 	)
+
 }
 
 
@@ -171,8 +177,10 @@ new_error_type <- function (...) {
 		structure(
 			class = c(classes, 'condition', 'error'),
 			list(
-				message = paste0(classes[length(classes)], ': ', message),
-				rcall   = call
+				message  = paste0(classes[length(classes)], ': ', message),
+
+				rmessage = message,
+				rcall    = call
 			)
 		)
 
@@ -180,43 +188,57 @@ new_error_type <- function (...) {
 
 }
 
+
+
+
+
+exception <- list()
+
+exception $ Error      <- Error
+exception $ Warning    <- Warning
+
 # -- new subclasses of error.
 
-arithmetic_error <- new_error_type('arithmetic_error')
+exception $ Arithmetic <- new_error_type('Arithmetic_error')
 
 # -- reference errors.
-lookup_error     <- new_error_type('lookup_error')
-index_error      <- new_error_type('lookup_error', 'index_error')
-key_error        <- new_error_type('lookup_error', 'key_error')
+exception $ Lookup     <- new_error_type('Lookup_error')
+exception $ Index      <- new_error_type('Lookup_error', 'Index_error')
+exception $ Key        <- new_error_type('Lookup_error', 'key_error')
 
 # -- read / write errors.
-io_error         <- new_error_type('lookup_error', 'io_error')
+exception $ Io         <- new_error_type('Lookup_error', 'io_error')
 
 # -- variable lookup fails.
-name_error       <- new_error_type('lookup_error', 'name_error')
+exception $ Name       <- new_error_type('Lookup_error', 'name_error')
 
 # -- throw an error for custom syntax.
-syntax_error     <- new_error_type('syntax_error')
+exception $ Syntax     <- new_error_type('syntax_error')
 
 # -- none specific error types.
-type_error       <- new_error_type('type_error')
-value_error      <- new_error_type('value_error')
+exception $ Type       <- new_error_type('type_error')
+exception $ Value      <- new_error_type('value_error')
 
 
 
 
 
-raise_error <- function (condition, colour) {
+# #
+
+raise_custom_error <- function (constructor) {
 
 	throw_kea_condition(function (call, message) {
-		stop( condition(call, colourise [['red']](message) ))
+		stop( constructor(call, colourise [['red']](message) ))
 	})
 }
 
-raise_warning <- function (condition, colour) {
+#
+#
+
+raise_custom_warning <- function (constructor) {
 
 	throw_kea_condition(function (call, message) {
-		warning( condition(call, colourise [['yellow']](message) ))
+		warning( constructor(call, colourise [['yellow']](message) ))
 	})
 }
 
@@ -225,19 +247,19 @@ raise_warning <- function (condition, colour) {
 
 
 throw_exception <- list(
-	warning          = raise_warning(std_warning),
-	error            = raise_error(std_error),
+	warning          = raise_custom_warning(exception $ Warning),
+	error            = raise_custom_error(  exception $ Error),
 
-	arithmetic_error = raise_error(arithmetic_error),
+	arithmetic_error = raise_custom_error(  exception $ Arithmetic_error),
 
-	lookup_error     = raise_error(lookup_error),
-	index_error      = raise_error(index_error),
-	key_error        = raise_error(key_error),
-	io_error         = raise_error(io_error),
-	name_error       = raise_error(name_error),
-	syntax_error     = raise_error(syntax_error),
-	type_error       = raise_error(type_error),
-	value_error      = raise_error(value_error)
+	lookup_error     = raise_custom_error(  exception $ Lookup),
+	index_error      = raise_custom_error(  exception $ Index),
+	key_error        = raise_custom_error(  exception $ Key),
+	io_error         = raise_custom_error(  exception $ Io),
+	name_error       = raise_custom_error(  exception $ Name),
+	syntax_error     = raise_custom_error(  exception $ Syntax),
+	type_error       = raise_custom_error(  exception $ Type),
+	value_error      = raise_custom_error(  exception $ Value)
 )
 
 
@@ -255,6 +277,7 @@ throw_exception <- list(
 #
 # There wrap dangerous tasks, like reading and writing.
 #
+# TODO FIX UP THIS REALLY OLD, CRAPPY CODE
 
 try_read <- local({
 	function (expr, path, invoking_call) {
@@ -313,7 +336,6 @@ try_write <- local({
 			expr,
 			warning = function (warn) {
 				# -- path is lexically scoped to here
-
 
 				warnmessage <-
 					paste0(warn $ message, collapse = '')
@@ -378,7 +400,6 @@ try_write <- local({
 #
 # Intercept a message from R's internal regexp validation,
 # relabel as comming from top-level kea function.
-#
 #
 
 check_regexp <- function (rexp, invoking_call) {
