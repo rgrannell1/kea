@@ -12,4 +12,4 @@ g: g for green snake.
 y: y for yapok.
 "
 
-x_(info) $ xToLines() $ x_Tap(sort)
+x_(info) $ xToLines() $ x_Invoke(sort)

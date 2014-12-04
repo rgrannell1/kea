@@ -43,7 +43,7 @@ unit_test("methods")
 		{
 
 			f <- function (x) {
-				x_(x) $ x_Tap(function (y) x)
+				x_(x) $ x_Invoke(function (y) x)
 			}
 
 			f(val)
