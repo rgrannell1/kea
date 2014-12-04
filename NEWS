@@ -19,7 +19,7 @@ and similar functions will fail correctly when given an infinite value.
 
 PACKAGE-INTERNALS:
 
-
+* Re-implemented Kea's exception handling system to aid testing.
 
 
 
