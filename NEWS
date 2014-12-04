@@ -8,6 +8,8 @@ ENHANCEMENTS:
 * All Kea's C++ now uses the R_len_t type instead of the int type, so functions
 are no longer necessarily tied to the 2^31 - 1 length limit imposed by integers.
 
+* Removed xTap; xInvoke now takes an arbitrary value instead of a collection.
+
 BUG-FIXES:
 
 * removes an accidentally included variable in a macro that checks for finiteness, so xCycle
@@ -15,7 +17,7 @@ and similar functions will fail correctly when given an infinite value.
 
 * xInvoke now labels any errors thrown by its input function correctly.
 
-
+PACKAGE-INTERNALS:
 
 
 

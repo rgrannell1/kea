@@ -59,7 +59,6 @@ Collate:
     'must-be-existing-ref.R'
     'tools_fix_next.R'
     'RcppExports.R'
-    'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'
     'xByLevels---.R'
