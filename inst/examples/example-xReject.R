@@ -16,8 +16,8 @@ is_outlier <- function (data_set) {
     data_quantile <- quantile(data_set)
 
     range <- list(
-        lower  = data_quantile $ `25%`,
-        higher = data_quantile $ `75%`
+        lower  = data_quantile['25%'],
+        higher = data_quantile['75%']
     )
 
     function (member) {
