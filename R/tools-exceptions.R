@@ -145,6 +145,7 @@ KeaCondition <- function (...) {
 		# -- what the user sees. Highly processed error message.
 
 		fields $ message <- kea_condition_message(ecall, message)
+		fields $ eclass  <- paste0(custom_classes[-1], collapse = '/')
 
 		# -- TODO more custom data to aid debugging.
 
@@ -169,18 +170,18 @@ exception <- list()
 exception $ Error      <- KeaCondition('error')
 exception $ Warning    <- KeaCondition('warning')
 
-exception $ Arithmetic <- KeaCondition('error', 'Arithmetic_error')
+exception $ Arithmetic <- KeaCondition('error', 'arithmetic_error')
 
 # -- reference errors.
-exception $ Lookup     <- KeaCondition('error', 'Lookup_error')
-exception $ Index      <- KeaCondition('error', 'Lookup_error', 'Index_error')
-exception $ Key        <- KeaCondition('error', 'Lookup_error', 'key_error')
+exception $ Lookup     <- KeaCondition('error', 'lookup_error')
+exception $ Index      <- KeaCondition('error', 'lookup_error', 'index_error')
+exception $ Key        <- KeaCondition('error', 'lookup_error', 'key_error')
 
 # -- read / write errors.
-exception $ Io         <- KeaCondition('error', 'Lookup_error', 'io_error')
+exception $ Io         <- KeaCondition('error', 'lookup_error', 'io_error')
 
 # -- variable lookup fails.
-exception $ Name       <- KeaCondition('error', 'Lookup_error', 'name_error')
+exception $ Name       <- KeaCondition('error', 'lookup_error', 'name_error')
 
 # -- throw an error for custom syntax.
 exception $ Syntax     <- KeaCondition('error', 'syntax_error')
