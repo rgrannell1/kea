@@ -19,7 +19,6 @@ unit_test('xCarve')
 		and_(suchThat $ is_singleton_character, suchThat $ not_na_collection)(str),
 
 		{
-
 			indices <- seq_len(nchar( unlist(str) ))
 			xCarve(indices, str) %is% unlist(str)
 		}

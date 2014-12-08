@@ -380,6 +380,8 @@ load_test_dependencies <- function (envir) {
 			# temporary
 			`%is_in%`       = '%in%',
 
+			MakeFun         = MakeFun,
+
 			is_atomic       = is_atomic,
 			is_generic      = is_generic,
 			as_named        = as_named,

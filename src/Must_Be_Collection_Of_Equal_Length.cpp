@@ -14,15 +14,13 @@ void Must_Be_Collection_Of_Equal_Length (const std::string COLLS, const List col
 		return;
 	}
 
-	const List &first    = colls[0];
-	const R_len_t elem_size  = first.size();
+	const List &first       = colls[0];
+	const R_len_t elem_size = first.size();
 
 	bool all_equal = true;
 
 	for (R_len_t ith = 0; ith < colls_size; ++ith) {
-		const List &elem = colls[ith];
-
-		all_equal = all_equal && (elem.size() == elem_size);
+		all_equal = all_equal && ( ((List)colls[ith]).size() == elem_size );
 	}
 
 	if (!all_equal) {
@@ -35,4 +33,5 @@ void Must_Be_Collection_Of_Equal_Length (const std::string COLLS, const List col
 		Function error_callback("error_callback");
 		error_callback(msg.str(), 1);
 	}
+
 }

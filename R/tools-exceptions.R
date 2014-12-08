@@ -137,15 +137,16 @@ KeaCondition <- function (...) {
 
 		fields <- list()
 
-		# -- the erroneous call. Represented as is. Not printed; for
-		# -- programmatic use up the call stack.
+		# -- custom fields.
+		# ---- ecall:  highly modified error call.
+		# ---- eclass: this error's subclass.
 
 		fields $ ecall   <- ecall
+		fields $ eclass  <- paste0(custom_classes[-1], collapse = '/')
 
 		# -- what the user sees. Highly processed error message.
 
 		fields $ message <- kea_condition_message(ecall, message)
-		fields $ eclass  <- paste0(custom_classes[-1], collapse = '/')
 
 		# -- TODO more custom data to aid debugging.
 
