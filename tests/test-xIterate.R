@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIterate")
+unit_test("xIterate")
 
 	over(val) +
 
-	describe("returning a val is val") +
+	it("returning a val is val") +
 	holdsWhen(
 		True,
 

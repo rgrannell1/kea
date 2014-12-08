@@ -1,25 +1,25 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xZip")
+unit_test("xZip")
 
 	over(coll) +
 
-	describe('xZip of the empty collection is list()') +
+	it('xZip of the empty collection is list()') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xZip(coll) %is% list()
 	) +
 
-	describe('xZip of a collection is list(coll)') +
+	it('xZip of a collection is list(coll)') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		xZip(coll) %is% list(as.list(coll))
 	) +
 
-	describe('xZip of two collection makes two-tuples') +
+	it('xZip of two collection makes two-tuples') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

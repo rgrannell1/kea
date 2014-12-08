@@ -106,7 +106,7 @@ When the input collections are very long this isn't always desirable.
 Sometimes it is possible - an more efficent - to return a result
 before checking every element of the input collection.
 
-A good demonstration of short circuiting is to improve the efficiency of
+A good use of short circuiting is to improve the efficiency of
 searching for a value. For example, if we want to check if a collection
 contains any na value we could (but shouldn't) use the following inefficient code.
 
@@ -115,7 +115,7 @@ contains any na value we could (but shouldn't) use the following inefficient cod
 \code{xFold((acc : elem) := acc || is.na(elem), False, coll)}
 
 \code{True}
-x
+
 The obvious problem is the fourth element of the very long collection is na,
 but the code searches though thousands of elements after finding a match. If
 we were searching the collection with a for loop we would use \bold{break} or \bold{return( )}

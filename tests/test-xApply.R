@@ -1,12 +1,12 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xApply')
+unit_test('xApply')
 
 	over(coll) +
 
 	# unname since apply uses names as argument names.
-	describe("apply to list yields list") +
+	it("apply to list yields list") +
 	holdsWhen(
 		suchThat $ not_named_collection(coll),
 

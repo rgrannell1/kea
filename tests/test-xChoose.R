@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xChoose")
+unit_test("xChoose")
 
 	over(coll) +
 
-	describe("choosing with empty collection is empty collection") +
+	it("choosing with empty collection is empty collection") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
@@ -14,7 +14,7 @@ message("xChoose")
 		xChoose(2, list()) %is% list()
 	) +
 
-	describe("choosing with 1 is as.list") +
+	it("choosing with 1 is as.list") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

@@ -1,25 +1,25 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xShuffle")
+unit_test("xShuffle")
 
 	over(coll) +
 
-	describe("shuffling the empty collection returns the empty list") +
+	it("shuffling the empty collection returns the empty list") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xShuffle(coll) %is% list()
 	) +
 
-	describe("shuffling the empty collection returns the empty list (named)") +
+	it("shuffling the empty collection returns the empty list (named)") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xShuffle(coll) %is% as_named(list())
 	) +
 
-	describe("length is preserved") +
+	it("length is preserved") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

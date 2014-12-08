@@ -9,8 +9,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cTake (const NumericVector& num, const List& coll) {
 
-	const int num_len    = num.size();
-	const int coll_len   = coll.size();
+	const R_len_t num_len    = num.size();
+	const R_len_t coll_len   = coll.size();
 
 	const bool has_names = coll.attr("names") != R_NilValue;
 
@@ -26,7 +26,7 @@ List cTake (const NumericVector& num, const List& coll) {
 
 	} else {
 
-		const int upper = num[0] > coll_len ? coll_len: num[0];
+		const R_len_t upper = num[0] > coll_len ? coll_len: num[0];
 
 		if (has_names) {
 

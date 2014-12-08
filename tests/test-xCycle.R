@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xCycle')
+unit_test('xCycle')
 
 	over(num, coll) +
 
-	describe("multiples of coll length are identity") +
+	it("multiples of coll length are identity") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -14,7 +14,7 @@ message('xCycle')
 		xCycle(+length(coll), coll) %is% as.list(coll)
 	) +
 
-	describe("names are preserved under inverse cycling") +
+	it("names are preserved under inverse cycling") +
 	holdsWhen(
 		is.numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num)) &&

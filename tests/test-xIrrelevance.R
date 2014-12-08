@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIrrelevance")
+unit_test("xIrrelevance")
 
 	over(val) +
 
-	describe('xIrrelevance always yields false') +
+	it('xIrrelevance always yields false') +
 	holdsWhen(
 		True,
 

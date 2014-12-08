@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('normal functions can be partially applied')
+unit_test('normal functions can be partially applied')
 
 	over(val, coll) +
 
-	describe('unary functions are partially appliable') +
+	it('unary functions are partially appliable') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -13,7 +13,7 @@ message('normal functions can be partially applied')
 		xIdentity(val) %is% xIdentity()(val)
 	) +
 
-	describe('binary functions are partially appliable') +
+	it('binary functions are partially appliable') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -27,7 +27,7 @@ message('normal functions can be partially applied')
 		xMap(identity, coll) %is% xMap()()(coll = coll)(identity)
 	) +
 
-	describe('trinary functions are partially appliable') +
+	it('trinary functions are partially appliable') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -51,14 +51,14 @@ message('variadic functions can be partially applied')
 
 	over(val, coll) +
 
-	describe('unary variadic functions are partially appliable') +
+	it('unary variadic functions are partially appliable') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 		xJoin_(coll) %is% as.list(coll),
 		xJoin_(coll) %is% xJoin_()(coll)
 	) +
 
-	describe('binary variadic functions work') +
+	it('binary variadic functions work') +
 	holdsWhen(
 		TRUE,
 		xIs(val, val),

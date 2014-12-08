@@ -9,8 +9,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cFlatten (const NumericVector& num, const List coll) {
 
-	const int coll_size = coll.size();
-	const int num_size  = num.size();
+	const R_len_t coll_size = coll.size();
+	const R_len_t num_size  = num.size();
 
 	if (coll_size == 0 || num_size == 0) {
 		return List::create();
@@ -22,7 +22,7 @@ List cFlatten (const NumericVector& num, const List coll) {
 		std::vector<SEXP> elements;
 
 		std::stack<SEXP> nodes;
-		std::stack<int> depths;
+		std::stack<R_len_t> depths;
 
 		nodes .push(coll);
 		depths.push(1);
@@ -31,19 +31,19 @@ List cFlatten (const NumericVector& num, const List coll) {
 			// recursive-nodes still unexplored.
 
 			Shield<SEXP> node( nodes.top() );
-			int depth = depths.top();
+			R_len_t depth = depths.top();
 
 			nodes .pop();
 			depths.pop();
 
-			int node_type = TYPEOF(node);
+			R_len_t node_type = TYPEOF(node);
 
 			if (node_type == VECSXP || node_type == LISTSXP) {
 				// the node is recursive.
 
 				List elem = as<List>(node);
 
-				for (int ith = 0; ith < elem.size(); ++ith) {
+				for (R_len_t ith = 0; ith < elem.size(); ++ith) {
 
 					nodes .push(elem[ith]);
 					depths.push(depth + 1);

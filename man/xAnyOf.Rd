@@ -47,7 +47,7 @@ xAnyOf_(xI, True, True, False, True)
 # 2. Does a function name with more that 25 characters exist
 #    in the base R libraries?
 
-xAnyOf(name := nchar(name) > 25, ls('package:base'))
+xAnyOf(xCharsOf \%then\% (x. > 25), ls('package:base'))
 
 # several matches exist, including the terse 'suppressPackageStartupMessages'
 }

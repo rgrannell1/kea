@@ -9,10 +9,10 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cChunk (NumericVector num, const List& coll) {
 
-	const int num_len  = num.size();
-	const int coll_len = coll.size();
+	const R_len_t num_len  = num.size();
+	const R_len_t coll_len = coll.size();
 
-	int num_mag;
+	R_len_t num_mag;
 
 	if (num[0] == INFINITY) {
 		num_mag = coll_len + 1;
@@ -30,14 +30,14 @@ List cChunk (NumericVector num, const List& coll) {
 		return List::create();
 	} else {
 
-		int lower   = 0;
-		int out_len = (coll_len / num_mag) + (coll_len % num_mag != 0);
+		R_len_t lower   = 0;
+		R_len_t out_len = (coll_len / num_mag) + (coll_len % num_mag != 0);
 
 		List out(out_len);
 
-		for (int ith = 0; ith < out_len; ++ith) {
+		for (R_len_t ith = 0; ith < out_len; ++ith) {
 
-			int upper;
+			R_len_t upper;
 
 			if (lower + num_mag < coll_len + 1) {
 				upper = num_mag;
@@ -48,9 +48,9 @@ List cChunk (NumericVector num, const List& coll) {
 			List chunk(upper);
 			CharacterVector chunk_names(upper);
 
-			for (int jth = 0; jth < upper; ++jth) {
+			for (R_len_t jth = 0; jth < upper; ++jth) {
 
-				int index  = lower + jth;
+				R_len_t index  = lower + jth;
 				chunk[jth] = coll[index];
 
 				if (has_names) {

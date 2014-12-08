@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xThirdOf')
+unit_test('xThirdOf')
 
 	over(coll) +
 
-	describe('always returns the correct element') +
+	it('always returns the third element') +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) >= 3,
 
@@ -17,7 +17,7 @@ message('xThirdOf')
 
 	over(coll) +
 
-	describe('fails when the collection is too short') +
+	it('fails when the collection is too short') +
 	failsWhen(
 		suchThat $ is_collection(coll) && length(coll) < 3,
 

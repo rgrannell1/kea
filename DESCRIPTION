@@ -2,7 +2,7 @@ Package: kea
 Type: Package
 Title: Kea
 Description: Kea is a complete functional programming library for R.
-Version: 0.69.0
+Version: 0.71.0
 Depends:
     R (>= 2.14.0)
 Date: 2013-02-03
@@ -22,6 +22,7 @@ Collate:
     'tools_as_typed_vector.R'
     'tools_colourise.R'
     'tools_assertion.R'
+    'tools-exceptions.R'
     'tools_macros.R'
     'tools-cpp.R'
     'tools_is_atom.R'
@@ -58,7 +59,6 @@ Collate:
     'must-be-existing-ref.R'
     'tools_fix_next.R'
     'RcppExports.R'
-    'xTap---.R'
     'xByCols---.R'
     'xByRows---.R'
     'xByLevels---.R'
@@ -154,7 +154,6 @@ Collate:
     'xDuplicatesOf.R'
     'xNotEmpty.R'
     'xNotIn.R'
-    'xAsDataFrame.R'
     'xRank.R'
     'xOrderOf.R'
     'xSlice.R'
@@ -209,6 +208,7 @@ Collate:
     'xRecycle.R'
     'xInvoke.R'
     'xExclude.R'
+    'xMedianBy.R'
     'tools-lenses.R'
     'x_next.R'
     'x..R'

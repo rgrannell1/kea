@@ -1,22 +1,40 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIsFalse")
+unit_test("xIsFalse")
 
 	over(val) +
 
-	describe('xIsFalse is true when the value is false.') +
+	it('is true when the value is false.') +
 	holdsWhen(
 		suchThat $ is_false(val),
 
 		xIsFalse(val)
 	) +
 
-	describe('xIsFalse is false when the value isnt') +
+	it('is false when the value isnt') +
 	holdsWhen(
 		suchThat $ not_false(val),
 
 		!xIsFalse(val)
+	) +
+
+	run()
+
+
+
+
+int_test("xIsFalse")
+
+	over(val) +
+
+	it('works with the constant logical predicates') +
+	holdsWhen(
+		True,
+
+		!xIsFalse(xTruth(val)),
+		xIsFalse(xFalsity(val)),
+		!xIsFalse(xIrrelevance(val))
 	) +
 
 	run()

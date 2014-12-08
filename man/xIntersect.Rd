@@ -9,9 +9,9 @@ xIntersect(coll1, coll2)
 xIntersect_(coll1, ...)
 }
 \arguments{
-\item{coll1}{a collection. The first collection to get the intersection of.}
+\item{coll1}{a collection. The collection to test for membership in.}
 
-\item{coll2}{a collection. The second collection to get the intersection of.}
+\item{coll2}{a collection. The collection to return elements from.}
 
 \item{...}{see above.}
 }
@@ -19,19 +19,17 @@ xIntersect_(coll1, ...)
 A list.
 }
 \description{
-Get the set intersection of two collections.
-}
-\details{
-The intersection of two sets is the collection of elements shared by both.
+Get the elements of a collection also in another.
 }
 \section{Type Signature}{
 
-    |any| -> [any]
+    |any| -> |any| -> [any]
 }
 
 \section{Corner Cases}{
 
-   Returns the empty list if \bold{coll} is length-zero.
+   Returns the empty list if \bold{coll1} or \bold{coll2} is length-zero. \bold{xIntersect}
+   preserves the names of \bold{coll2} where possible.
 }
 \examples{
 
@@ -41,7 +39,8 @@ NULL
 \seealso{
 Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
-  \code{\link{xDuplicatesOf_}}; \code{\link{xIsEmpty}},
+  \code{\link{xDuplicatesOf_}}; \code{\link{xExclude}},
+  \code{\link{xExclude_}}; \code{\link{xIsEmpty}},
   \code{\link{xIsEmpty_}}; \code{\link{xIsIn}},
   \code{\link{xIsIn_}}; \code{\link{xIsSubsetOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},

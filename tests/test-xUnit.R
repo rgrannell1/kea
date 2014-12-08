@@ -1,32 +1,32 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xUnit")
+unit_test("xUnit")
 
 	over(coll) +
 
-	describe("xUnit is length-zero") +
+	it("always returns a length-zero value") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(xUnit(coll)) == 0
 	) +
 
-	describe("xUnit preserves type") +
+	it("preserve its input type") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		typeof(xUnit(coll)) == typeof(coll)
 	) +
 
-	describe("xUnit of pairlist is null") +
+	it("returns null for a pairlist") +
 	holdsWhen(
 		suchThat $ is_pairlist(coll),
 
 		is.null(xUnit(coll))
 	) +
 
-	describe("xUnit . xUnit is xUnit") +
+	it("is idempotent") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

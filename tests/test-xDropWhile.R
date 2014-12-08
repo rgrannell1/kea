@@ -1,25 +1,25 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xDropWhile")
+unit_test("xDropWhile")
 
 	over(coll) +
 
-	describe("true predicates returns the collection") +
+	it("true predicates returns the collection") +
 	holdsWhen(
 		suchThat $ not_named_collection(coll),
 
 		xDropWhile(function (x) True,  coll) %is% list()
 	) +
 
-	describe("true predicates returns the collection (named)") +
+	it("true predicates returns the collection (named)") +
 	holdsWhen(
 		suchThat $ is_named_collection(coll),
 
 		xDropWhile(function (x) True,  coll) %is% as_named(list())
 	) +
 
-	describe("non true predicates return empty list") +
+	it("non true predicates return empty list") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
@@ -27,7 +27,7 @@ message("xDropWhile")
 		xDropWhile(function (x) Na,    coll) %is% as.list(coll)
 	) +
 
-	describe("dropwhile preserves names") +
+	it("dropwhile preserves names") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

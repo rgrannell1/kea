@@ -12,6 +12,6 @@ xThread_(matrix(1:4, 2, 2),
 # c(5, 25)
 # is conceptually similar to
 
-# x_(matrix(1:4, 2, 2)) $ xTap(t) $ xTap(X := X^2) $ x_Tap(rowSums)
+# x_(matrix(1:4, 2, 2)) $ xInvoke(t) $ xInvoke(X := X^2) $ x_Invoke(rowSums)
 #
-# but without all the tapping.
+# but without all the boilerplate.

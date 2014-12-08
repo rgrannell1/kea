@@ -1,4 +1,28 @@
 
+# -------------------------------- error message testing -------------------------------- #
+#
+# Errors are values, but values without many functions on them.
+#
+
+grasp <- function (expr, callback) {
+
+	tryCatch(
+		evalq(expr),
+		error = function (warn) {
+			callback(warn)
+		}
+	)
+
+}
+
+
+
+
+
+
+
+
+
 # -------------------------------- predicate composition -------------------------------- #
 #
 # Much of the work in writing tests is selecting test cases. These predicates should be composed
@@ -80,6 +104,8 @@ suchThat <- ( function () {
 
 	this $ is_logical           <- is_logical
 	this $ is_character         <- is_character
+	this $ is_numeric           <- is_numeric
+	this $ is_integer           <- is_integer
 
 	this $ is_function          <- is.function
 	this $ is_primitive         <- is.primitive
@@ -97,11 +123,22 @@ suchThat <- ( function () {
 	this $ is_null              <- function (x) identical(x, NULL)
 	this $ not_null             <- not(this $ is_null)
 
+
+
 	this $ is_nan               <- is_nan
 	this $ not_nan              <- not(this $ is_nan)
 
 	this $ is_na                <- is_na
 	this $ not_na               <- not(this $ is_na)
+
+
+
+	this $ is_nan_collection    <- function (x) this $ is_nan(unlist(x))
+	this $ not_nan_collection   <- function (x) this $ not_nan(unlist(x))
+
+	this $ is_na_collection     <- function (x) this $ is_na(unlist(x))
+	this $ not_na_collection    <- function (x) this $ not_na(unlist(x))
+
 
 	this $ contains_na          <- function (x) any(elem_is_na(x))
 	this $ without_na           <- not(this $ contains_na)
@@ -109,6 +146,12 @@ suchThat <- ( function () {
 	this $ contains_nan         <- function (x) any(elem_is_nan(x))
 	this $ without_nan          <- not(this $ contains_nan)
 
+
+
+
+
+	this $ is_orderable         <- and_(this $ without_nan, this $ without_na)
+	this $ not_orderable        <- not(this $ is_orderable)
 
 	# -- parametrised generators
 
@@ -118,7 +161,11 @@ suchThat <- ( function () {
 
 	# -- over composing? probably still better to do this here; these assertions are needed.
 
-	this $ not_empty_character  <- and_(this $ is_character, not(this $ is_empty))
+	this $ is_singleton_collection <- and_(this $ is_collection, this $ is_singleton)
+
+	this $ is_singleton_character  <- and_(this $ is_character, this $ is_singleton)
+
+	this $ not_empty_character     <- and_(this $ is_character, not(this $ is_empty))
 
 
 
@@ -994,6 +1041,9 @@ execute_test <- function (test) {
 	)
 
 	state_sucess(states, info)
+
+	warnings()
+
 	invisible(Null)
 }
 
@@ -1008,7 +1058,7 @@ execute_test <- function (test) {
 
 # -------------------------------- Grammar -------------------------------- #
 
-# describe(str)                 add a description to a property group. Printed
+# it(str)                 add a description to a property group. Printed
 #                                on error.
 #
 # over(...symbols)              give the parametres to be bound to random values
@@ -1036,9 +1086,9 @@ execute_test <- function (test) {
 #
 #
 
-describe <- function (info) {
+it <- function (info) {
 	out <- list(info = info)
-	class(out) <- c('xforall', 'xdescribe')
+	class(out) <- c('xforall', 'xit')
 	out
 }
 
@@ -1212,7 +1262,7 @@ run <- function (time = 2) {
 	}
 
 	responses <- list(
-		'xdescribe'  = join('info'),
+		'xit'        = join('info'),
 		'xover'      = override('params'),
 		'xholdswhen' = join('positives'),
 		'xfailsWhen' = join('negatives'),

@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xFix')
+unit_test('xFix')
 
 	over(val) +
 
-	describe("partially applying with no arguments is the original function") +
+	it("partially applying with no arguments is the original function") +
 	holdsWhen(
 		True,
 

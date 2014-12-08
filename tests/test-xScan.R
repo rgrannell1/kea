@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xScan")
+unit_test("xScan")
 
     over(val, coll) +
 
-	describe("scan with empty coll is list of val") +
+	it("scan with empty coll is list of val") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 

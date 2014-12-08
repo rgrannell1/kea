@@ -1,29 +1,45 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRiffle")
+unit_test("xRiffle")
 
 	over(val, coll) +
 
-	describe('the empty collection is always empty') +
+	it('the empty collection is always empty') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xRiffle(val, coll) %is% list()
 	) +
 
-	describe('the singleton list is unchanged') +
+	it('the singleton list is unchanged') +
 	holdsWhen(
-		suchThat $ is_collection(coll) && length(coll) == 1,
+		suchThat $ is_singleton_collection(coll),
 
 		xRiffle(val, coll) %is% unname(as.list(coll))
 	) +
 
-	describe('the length is 2*length(coll) + 1') +
+	it('the length is 2 * length(coll) + 1') +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) > 1,
 
 		length(xRiffle(val, coll)) == (2 * length(coll)) - 1
+	) +
+
+	it('the odd positions are the value') +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		{
+			map <- xRiffle(val, coll)
+
+			all( sapply(seq_along(map), function (ith) {
+
+				ith %% 2 == 1 || identical( val, map[[ith]] )
+
+			}) )
+
+		}
 	) +
 
 	run()

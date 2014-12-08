@@ -8,8 +8,8 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cDrop (const NumericVector num, const List& coll) {
 
-	const int num_len    = num.size();
-	const int coll_len   = coll.size();
+	const R_len_t num_len    = num.size();
+	const R_len_t coll_len   = coll.size();
 
 	const bool has_names = coll.attr("names") != R_NilValue;
 

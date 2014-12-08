@@ -8,12 +8,12 @@ using namespace Rcpp;
 
 void Must_Be_Of_Length (const std::string COLL, const List coll, const List lengths) {
 
-	const int coll_size    = coll.size();
-	const int lengths_size = lengths.size();
+	const R_len_t coll_size    = coll.size();
+	const R_len_t lengths_size = lengths.size();
 
 	bool match_found       = false;
 
-	for (int ith = 0; ith < lengths_size; ++ith) {
+	for (R_len_t ith = 0; ith < lengths_size; ++ith) {
 		if (coll_size == lengths[ith]) {
 			match_found = true;
 		}

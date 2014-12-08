@@ -7,14 +7,14 @@ message("xStopwatch")
 
 	over(num) +
 
-	describe('stopwatch with no time is false') +
+	it('stopwatch with no time is false') +
 	holdsWhen(
 		True,
 
 		!xStopwatch(0)()
 	) +
 
-	describe('creating with any number always works') +
+	it('creating with any number always works') +
 	worksWhen(
 		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
 		!is.nan(num) && num > 0,
@@ -30,7 +30,7 @@ message("xStopwatch")
 
 	over(num) +
 
-	describe('stopwatch returns true before its time, then false') +
+	it('stopwatch returns true before its time, then false') +
 	holdsWhen(
 		is.numeric(num) && length(num) == 1 && !is.infinite(num) &&
 		!is.nan(num) && num > 0,

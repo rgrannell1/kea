@@ -90,6 +90,6 @@ if (nchar(example_path) > 0 || nchar(inst_example_path) > 0) {
 			empty_examples $ xMap(xAt(2)) $ x_FromLines()
 		)
 
-		throw_exception $ warning(message = message)
+		throw_exception $ warning(call('null'), message)
 	}
 }

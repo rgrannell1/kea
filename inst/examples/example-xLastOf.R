@@ -1,8 +1,9 @@
 
 # 1. extract a filename from a full path-name
+#    .
 
-my_path <- '/home/ryan/Code/kea.R/xMap.R'
-
-x_(my_path) $ xExplode('/') $ x_LastOf()
+x_('/home/ryan/Code/kea.R/xMap.R') $
+xExplode(.Platform $ file.sep)     $
+x_LastOf()
 
 # xMap.R

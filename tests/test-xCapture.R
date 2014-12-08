@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xCapture")
+unit_test("xCapture")
 
 	over(val) +
 
-	describe('xCapture always yields the same value.') +
+	it('xCapture always yields the same value.') +
 	holdsWhen(
 		True,
 
@@ -16,7 +16,7 @@ message("xCapture")
 
 	over(val1, val2) +
 
-	describe('xCaptures result ignores input.') +
+	it('xCaptures result ignores input.') +
 	holdsWhen(
 		True,
 

@@ -1,7 +1,91 @@
 
+Kea 0.71.0
+------------------------------------------------------------------------------
+Date: 2014-12-8
+
+Improved xInvoke, fixed several bugs.
+
+ENHANCEMENTS:
+
+* All Kea's C++ now uses the R_len_t type instead of the int type, so functions
+are no longer necessarily tied to the 2^31 - 1 length limit imposed by integers. Closes #72.
+
+* Removed xTap; xInvoke now takes an arbitrary value instead of a collection, so xTap
+is no longer needed.
+
+* Functions that employ short-circuiting now explicitly inform the user if they
+attempt to use Return in an inner call. Closes #53.
+
+BUG-FIXES:
+
+* Removes an accidentally included variable in a macro that checks for finiteness, so xCycle
+and similar functions will fail correctly when given an infinite value.
+
+* xInvoke now labels any errors thrown by its input function correctly.
+
+PACKAGE-INTERNALS:
+
+* Re-implemented Kea's exception handling system to aid testing.
+
+
+
+
+
+
+
+
+
+
+Kea 0.70.0
+------------------------------------------------------------------------------
+Date: 2014-11-25
+
+Added xMedianBy, updated testing internals.
+
+ENHANCEMENTS:
+
+* Added xMedianBy, a function for getting the median of a collection by a
+measure function.
+
+* Removed xAsDataFrame. While collection <=> dataframe conversions are needed in Kea,
+their current implementation is very poor. A well thought out replacement will be
+implemented in the future.
+
+BUG-FIXES:
+
+* Added xExclude_ as a package export; last release the documentation was
+not rebuild.
+
+* Actually fixed type signature for xIntersect, for the same reasons as above.
+
+PACKAGE-INTERNALS:
+
+* Added new testing predicates.
+
+* Renamed 'describe' to 'it'.
+
+* Added unit test and integration test labelling functions.
+
+* Added new benchmarks.
+
+* Moved more tests over to the new predicate style.
+
+* Added new unit tests and integration tests.
+
+
+
+
+
+
+
+
+
+
 Kea 0.69.0
 ------------------------------------------------------------------------------
 Date: 2014-11-24
+
+Added xExclude, improved set functions.
 
 ENHANCEMENTS:
 

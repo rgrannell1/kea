@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotEmpty")
+unit_test("xNotEmpty")
 
 	over(coll) +
 
-	describe('xNotEmpty correctly reports lengths.') +
+	it('xNotEmpty correctly reports lengths.') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		!xNotEmpty(coll)
 	) +
 
-	describe('xNotEmpty correctly reports lengths.') +
+	it('xNotEmpty correctly reports lengths.') +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xIdentity")
+unit_test("xIdentity")
 
 	over(val) +
 
-	describe('xIdentity always yields its input') +
+	it('xIdentity always yields its input') +
 	holdsWhen(
 		True,
 

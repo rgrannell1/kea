@@ -338,12 +338,25 @@ ith_suffix <- function (num) {
 # -- envir cannot be defaulted to environment( ),
 # -- it will break the expected behaviour.
 
+test_type <- function (type) {
+	function (...) {
+		message(paste0(..., " - ", type, " tests", collapse = ''))
+	}
+}
+
+unit_test <- test_type('unit')
+int_test  <- test_type('integration')
+
+
+
+
+
 load_test_dependencies <- function (envir) {
 
 	deps <-
 		list(
 			over            = over,
-			describe        = describe,
+			it              = it,
 
 			holdsWhen       = holdsWhen,
 			worksWhen       = worksWhen,
@@ -353,8 +366,12 @@ load_test_dependencies <- function (envir) {
 			worksFor        = worksFor,
 			failsFor        = failsFor,
 
+			unit_test       = unit_test,
+			int_test        = int_test,
+
 			run             = run,
 			suchThat        = suchThat,
+			grasp           = grasp,
 
 			`+.xforall`     = `+.xforall`,
 
@@ -362,6 +379,8 @@ load_test_dependencies <- function (envir) {
 
 			# temporary
 			`%is_in%`       = '%in%',
+
+			MakeFun         = MakeFun,
 
 			is_atomic       = is_atomic,
 			is_generic      = is_generic,

@@ -7,7 +7,7 @@ message("xCompose")
 
 	over(val) +
 
-	describe("compsing of identity is identity") +
+	it("compsing of identity is identity") +
 	holdsWhen(
 		True,
 
@@ -20,7 +20,7 @@ message("xCompose")
 
 	over() +
 
-	describe("fails with no functions") +
+	it("fails with no functions") +
 	failsWhen(
 		True,
 

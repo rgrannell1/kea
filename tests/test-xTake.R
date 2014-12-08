@@ -1,29 +1,20 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xTake')
+unit_test('xTake')
 
 	over(num, coll) +
 
-	describe("taking from the empty collection is the empty collection") +
+	it("returns the empty list when taking from the empty collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
-		xTake(num, coll) %is% list()
+		xTake(num, coll) %is% keep_names(list(), coll)
 	) +
 
-	describe("taking from the empty collection is the empty collection") +
-	holdsWhen(
-		is_numeric(num) && !is.na(unlist(num)) &&
-		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
-		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
-
-		xTake(num, coll) %is% as_named(list())
-	) +
-
-	describe("taking yields the correct collection") +
+	it("yields the head of a collection") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -35,7 +26,7 @@ message('xTake')
 		}
 	) +
 
-	describe("take works over all round positive integers") +
+	it("works for all positive numbers") +
 	worksWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&
@@ -44,7 +35,7 @@ message('xTake')
 		xTake(num, coll)
 	) +
 
-	describe("take preserves names") +
+	it("preserves names") +
 	holdsWhen(
 		is_numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 0)) &&

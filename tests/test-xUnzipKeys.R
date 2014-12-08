@@ -1,28 +1,46 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xUnzipKeys")
+unit_test("xUnzipKeys")
 
 	over(coll) +
 
-	describe("the empty collection always yields the list") +
+	it("the empty collection always yields the list") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
-		xUnzipKeys(coll)  %is% list()
+		xUnzipKeys(coll) %is% list()
 	) +
 
-	run()
+	it("returns a 2-tuple") +
+	holdsWhen(
+		suchThat $ is_named_collection(coll),
 
-message("xUnzipKeys")
+		all(vapply(xUnzipKeys(coll), length, integer(1)) == 2)
+	) +
 
-	over(fn, coll) +
-
-	describe("coll must always be a collection") +
+	it("coll must always be a collection") +
 	failsWhen(
 		suchThat $ not_collection(coll),
 
 		xUnzipKeys(coll)
+	) +
+
+	run()
+
+
+
+
+
+int_test("xUnzipKeys")
+
+	over(coll) +
+
+	it('is an inverse of xZipKeys') +
+	holdsWhen(
+		and_(suchThat $ is_named_collection, suchThat $ not_empty_collection)(coll),
+
+		xZipKeys(xUnzipKeys(coll)) %is% as.list(coll)
 	) +
 
 	run()

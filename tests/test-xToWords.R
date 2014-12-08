@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xToWords')
+unit_test('xToWords')
 
 	over(str) +
 
-	describe("works of empty string is empty vector") +
+	it("works of empty string is empty vector") +
 	holdsWhen(
 		True,
 

@@ -1,49 +1,32 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xSelect")
+unit_test("xSelect")
 
 	over(coll) +
 
-	describe("the empty collection always yields the list") +
+	it("yields the empty collection for empty lists") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
-		xSelect(function (x) True, coll)  %is% list(),
-		xSelect(function (x) False, coll) %is% list(),
-		xSelect(function (x) Na,    coll) %is% list()
+		xSelect(function (x) True, coll)  %is% keep_names(list(), coll),
+		xSelect(function (x) False, coll) %is% keep_names(list(), coll),
+		xSelect(function (x) Na,    coll) %is% keep_names(list(), coll)
 	) +
 
-	describe("the empty collection always yields the list (named)") +
-	holdsWhen(
-		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
-
-		xSelect(function (x) True, coll)  %is% as_named(list()),
-		xSelect(function (x) False, coll) %is% as_named(list()),
-		xSelect(function (x) Na,    coll) %is% as_named(list())
-	) +
-
-	describe("truth function acts as identity") +
+	it("yields a collection with the truth function") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		xSelect(function (x) True, coll) %is% as.list(coll)
 	) +
 
-	describe("false or na function acts as unit") +
+	it("yields the empty list for other functions") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll) && !is_named(coll),
 
-		xSelect(function (x) False, coll) %is% list(),
-		xSelect(function (x) Na,    coll) %is% list()
-	) +
-
-	describe("false or na function acts as unit (named)") +
-	holdsWhen(
-		suchThat $ not_empty_collection(coll) && is_named(coll),
-
-		xSelect(function (x) False, coll) %is% as_named(list()),
-		xSelect(function (x) Na,    coll) %is% as_named(list())
+		xSelect(function (x) False, coll) %is% keep_names(list(), coll),
+		xSelect(function (x) Na,    coll) %is% keep_names(list(), coll)
 	) +
 
 	run()

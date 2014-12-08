@@ -8,7 +8,7 @@ message("Must_Be_Equal_Length_To")
 
 	over(coll) +
 
-	describe('a collection always has the same length as itself') +
+	it('a collection always has the same length as itself') +
 	worksWhen(
 		suchThat $ is_collection(coll),
 		to_test(coll, coll)
@@ -18,7 +18,7 @@ message("Must_Be_Equal_Length_To")
 
 	over(coll1, coll2) +
 
-	describe('fails when the lenghts arent equal') +
+	it('fails when the lenghts arent equal') +
 	failsWhen(
 		is_collection(coll1) && is_collection(coll2) &&
 		length(coll1) != length(coll2),

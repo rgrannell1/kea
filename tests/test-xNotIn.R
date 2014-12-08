@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xNotIn")
+unit_test("xNotIn")
 
 	over(val, coll) +
 
-	describe("empty set is logical-zero") +
+	it("empty set is logical-zero") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xNotIn(val, coll) %is% logical(0)
 	) +
 
-	describe("an element in the set is not true") +
+	it("an element in the set is not true") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

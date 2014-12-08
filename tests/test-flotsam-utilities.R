@@ -9,7 +9,7 @@ message("Values")
 
 	over(val) +
 
-	describe("logical values have expected values.") +
+	it("logical values have expected values.") +
 	holdsWhen(
 		TRUE,
 
@@ -31,13 +31,13 @@ message("summate")
 
 	over(val) +
 
-	describe("summate should never fail.") +
+	it("summate should never fail.") +
 	worksWhen(
 		True,
 		summate(val)
 	) +
 
-	describe("summate is always length-one") +
+	it("summate is always length-one") +
 	holdsWhen(
 		True,
 		length(summate(val)) == 1
@@ -54,7 +54,7 @@ message(" %+% ")
 
 	over(str1, str2) +
 
-	describe("string joining works") +
+	it("string joining works") +
 	holdsWhen(
 		is.character(str1) && is.character(str2) &&
 		length(str1) == 1 && length(str2) == 1,
@@ -74,7 +74,7 @@ message("ddquote")
 
 	over(val) +
 
-	describe("ddquote never crashes.") +
+	it("ddquote never crashes.") +
 	worksWhen(
 		True,
 		ddquote(val)
@@ -94,7 +94,7 @@ message("pluralise")
 
 	over(str, num) +
 
-	describe("pluralising adds an s") +
+	it("pluralising adds an s") +
 	holdsWhen(
 		is.numeric(num) && !is.na(unlist(num)) &&
 		(length(num) == 0 || (length(num) == 1 && round(unlist(num)) == num & num >= 1)),
@@ -112,7 +112,7 @@ message("is_na")
 
 	over(val) +
 
-	describe("na values are na.") +
+	it("na values are na.") +
 	holdsWhen(
 
 		is_na(NA),
@@ -122,13 +122,13 @@ message("is_na")
 		is_na(NA_character_)
 	) +
 
-	describe("is false for non-length ones") +
+	it("is false for non-length ones") +
 	holdsWhen(
 		length(val) != 1,
 		!is_na(val)
 	) +
 
-	describe("is_na whenever na") +
+	it("is_na whenever na") +
 	holdsWhen(
 		is_atomic(val) && length(val) == 1 && is.na(val) && !is.nan(val),
 		is_na(val)

@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xArityOf")
+unit_test("xArityOf")
 
 	over(fn) +
 
-	describe("xArityOf is always a nonnegative number") +
+	it("xArityOf is always a nonnegative number") +
 	holdsWhen(
 		suchThat $ is_function(fn),
 

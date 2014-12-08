@@ -8,7 +8,7 @@ message('Must_Be_Collection')
 
 	over(coll) +
 
-	describe('always passes for collections') +
+	it('always passes for collections') +
 	worksWhen(
 		suchThat $ is_collection(coll),
 		to_test(coll)
@@ -18,7 +18,7 @@ message('Must_Be_Collection')
 
 	over(coll) +
 
-	describe('always fails for non-collections') +
+	it('always fails for non-collections') +
 	failsWhen(
 		suchThat $ not_collection(coll),
 		to_test(coll)

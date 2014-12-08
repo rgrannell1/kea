@@ -9,7 +9,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cUnzipKeys (const List& coll) {
 
-	const int coll_len = coll.size();
+	const R_len_t coll_len = coll.size();
 
 	if (coll_len == 0) {
 		return List::create();
@@ -18,7 +18,7 @@ List cUnzipKeys (const List& coll) {
 		List out(coll_len);
 		CharacterVector coll_names = coll.attr("names");
 
-		for (int ith = 0; ith < coll_len; ++ith) {
+		for (R_len_t ith = 0; ith < coll_len; ++ith) {
 			out[ith] = List::create( (String)coll_names[ith], coll[ith] );
 		}
 

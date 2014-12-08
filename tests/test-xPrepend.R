@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xPrepend")
+unit_test("xPrepend")
 
 	over(val, coll) +
 
-	describe("joining with empty collection is list(val)") +
+	it("joining with empty collection is list(val)") +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xPrepend(val, coll) %is% list(val)
 	) +
 
-	describe("adds to front of collection") +
+	it("adds to front of collection") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

@@ -10,15 +10,15 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 IntegerVector cPoll (const Function& pred, const List& coll) {
 
-	const int coll_size = coll.size();
+	const R_len_t coll_size = coll.size();
 
 	if (coll_size == 0) {
 		return IntegerVector::create();
 	} else {
 
-		int count = 0;
+		R_len_t count = 0;
 
-		for (int ith = 0; ith < coll_size; ++ith) {
+		for (R_len_t ith = 0; ith < coll_size; ++ith) {
 
 			Shield<SEXP> is_match( pred(coll[ith]) );
 

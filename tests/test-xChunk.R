@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xChunk")
+unit_test("xChunk")
 
 	over(coll) +
 
-	describe("xChunking infinite times / length times creates one chunk") +
+	it("xChunking infinite times / length times creates one chunk") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
@@ -13,7 +13,7 @@ message("xChunk")
 		length(xChunk(length(coll), coll)) == 1
 	) +
 
-	describe("xChunk once is identity") +
+	it("xChunk once is identity") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 

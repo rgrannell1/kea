@@ -121,6 +121,7 @@ is_recursive <- function (val) {
 # -- and it adds leading spaces.
 
 str_split <- function (rexp, str) {
+
 	if (length(str) == 0 || nchar(str) == 0) {
 		character(0)
 	} else {

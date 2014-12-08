@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xRepeat")
+unit_test("xRepeat")
 
 	over(num, coll) +
 
-	describe("repeating a coll-0 times is length-zero") +
+	it("repeating a coll-0 times is length-zero") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(xRepeat(0, coll)) == 0
 	) +
 
-	describe("repeating an empty coll is length-zero") +
+	it("repeating an empty coll is length-zero") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 && !is.na(unlist(num)) &&
 		round(unlist(num)) == num && is.finite(unlist(num)) &&
@@ -22,7 +22,7 @@ message("xRepeat")
 		length(xRepeat(num, coll)) == 0
 	) +
 
-	describe("repeating num times is length(coll) x num") +
+	it("repeating num times is length(coll) x num") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 && !is.na(unlist(num)) &&
 		round(unlist(num)) == num && is.finite(unlist(num)) &&
@@ -32,7 +32,7 @@ message("xRepeat")
 		length(xRepeat(num, coll)) == length(coll) * num
 	) +
 
-	describe("repeating num times preserves & repeats names") +
+	it("repeating num times preserves & repeats names") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 && !is.na(unlist(num)) &&
 		round(unlist(num)) == num && is.finite(unlist(num)) &&

@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xMinBy")
+unit_test("xMinBy")
 
 	over(coll) +
 
-	describe("min of no elements fails") +
+	it("min of no elements fails") +
 	failsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xMinBy(identity, coll)
 	) +
 
-	describe("minby of one element is that element") +
+	it("minby of one element is that element") +
 	holdsWhen(
 		suchThat $ is_collection(coll) && length(coll) == 1,
 
@@ -21,7 +21,7 @@ message("xMinBy")
 
 	over(num, coll) +
 
-	describe("minby a constant function is coll_1") +
+	it("minby a constant function is coll_1") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll) &&
 		is.numeric(num) && length(num) == 1 &&

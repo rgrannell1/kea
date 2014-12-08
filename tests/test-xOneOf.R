@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xOneOf")
+unit_test("xOneOf")
 
 	over(coll) +
 
-	describe("oneof always selects an element from the list") +
+	it("oneof always selects an element from the list") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
@@ -18,7 +18,7 @@ message("xOneOf")
 
 	over(coll) +
 
-	describe("fails when empty collection") +
+	it("fails when empty collection") +
 	failsWhen(
 		suchThat $ is_empty_collection(coll),
 

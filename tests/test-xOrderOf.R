@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xOrderOf")
+unit_test("xOrderOf")
 
 	over(coll) +
 
-	describe("order of empty collection is integer(0)") +
+	it("order of empty collection is integer(0)") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xOrderOf(coll) %is% integer(0)
 	) +
 
-	describe("order of empty collection is integer(0)") +
+	it("order of empty collection is integer(0)") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
@@ -23,7 +23,7 @@ message("xOrderOf")
 
 	over(nums) +
 
-	describe("order of nums is seq along nums") +
+	it("order of nums is seq along nums") +
 	holdsWhen(
 		is_numeric(nums) && !is.na(unlist(nums)) && !is.nan(unlist(nums)),
 

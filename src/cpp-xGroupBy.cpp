@@ -9,28 +9,28 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cGroupBy (const Function fn, const List& coll) {
 
-	int coll_size   = coll.size();
-	const int flags = 1 + 2 + 4 + 8 + 0;
+	const R_len_t coll_size   = coll.size();
+	const R_len_t flags = 1 + 2 + 4 + 8 + 0;
 
 	if (coll_size == 0) {
 		return List::create();
 	} else {
 
-		std::vector< std::vector<int> > group_members;
+		std::vector< std::vector<R_len_t> > group_members;
 		std::vector<SEXP> group_maps;
 
-		for (int ith = 0; ith < coll_size; ++ith) {
+		for (R_len_t ith = 0; ith < coll_size; ++ith) {
 
 			bool group_found = false;
 
 			Shield<SEXP> map( fn(coll[ith]) );
 
-			int group_maps_size = group_maps.size();
+			R_len_t group_maps_size = group_maps.size();
 
-			for (int jth = 0; jth < group_maps_size; ++jth) {
+			for (R_len_t jth = 0; jth < group_maps_size; ++jth) {
 				if ((bool) R_compute_identical(map, group_maps[jth], flags)) {
 
-					std::vector<int> group_indices = group_members[jth];
+					std::vector<R_len_t> group_indices = group_members[jth];
 					group_indices.push_back(ith);
 					group_members[jth]             = group_indices;
 
@@ -40,7 +40,7 @@ List cGroupBy (const Function fn, const List& coll) {
 
 			if (!group_found) {
 
-				std::vector<int> group_indices;
+				std::vector<R_len_t> group_indices;
 				group_indices.push_back(ith);
 
 				group_members.push_back(group_indices);
@@ -48,17 +48,17 @@ List cGroupBy (const Function fn, const List& coll) {
 			}
 		}
 
-		int group_maps_size = group_maps.size();
+		R_len_t group_maps_size = group_maps.size();
 		List out(group_maps_size);
 
-		for (int ith = 0; ith < group_maps_size; ++ith) {
+		for (R_len_t ith = 0; ith < group_maps_size; ++ith) {
 
-			std::vector<int> group_indices = group_members[ith];
-			int group_indices_size         = group_indices.size();
+			std::vector<R_len_t> group_indices = group_members[ith];
+			R_len_t group_indices_size         = group_indices.size();
 
 			List elements(group_indices_size);
 
-			for (int jth = 0; jth < group_indices_size; ++jth) {
+			for (R_len_t jth = 0; jth < group_indices_size; ++jth) {
 				elements[jth] = coll[ (group_indices[jth]) ];
 			}
 

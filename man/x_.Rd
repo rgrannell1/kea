@@ -142,7 +142,6 @@ Other methods: \code{\link{xByColkeys}};
   \code{\link{xByCols}}; \code{\link{xByLevels}};
   \code{\link{xByRowkeys}}; \code{\link{xByRows}};
   \code{\link{xByValues}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}};
-  \code{\link{xTap}}
+  \code{\link{xElemsByRows}}; \code{\link{xExecute}}
 }
 

@@ -9,7 +9,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cScan (const Function& fn, const SEXP val, const List& coll) {
 
-	const int coll_size = coll.size();
+	const R_len_t coll_size = coll.size();
 
 	if (coll_size == 0) {
 		return List::create();
@@ -18,7 +18,7 @@ List cScan (const Function& fn, const SEXP val, const List& coll) {
 		List scanned(coll_size + 1);
 		scanned[0] = val;
 
-		for (int ith = 0; ith < coll_size; ++ith) {
+		for (R_len_t ith = 0; ith < coll_size; ++ith) {
 			scanned[ith + 1] = fn(scanned[ith], coll[ith]);
 		}
 

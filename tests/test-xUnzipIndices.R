@@ -1,32 +1,32 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xUnzipIndices")
+unit_test("xUnzipIndices")
 
 	over(coll) +
 
-	describe("the empty collection always yields the list") +
+	it("the empty collection always yields the list") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ not_named)(coll),
 
 		xUnzipIndices(coll)  %is% list()
 	) +
 
-	describe("the empty collection always yields the list (named)") +
+	it("the empty collection always yields the list (named)") +
 	holdsWhen(
 		and_(suchThat $ is_empty_collection, suchThat $ is_named)(coll),
 
 		xUnzipIndices(coll)  %is% as_named(list())
 	) +
 
-	describe("otherwise made of two-tuples") +
+	it("otherwise made of two-tuples") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		all(sapply( xUnzipIndices(coll), length ) == 2)
 	) +
 
-	describe("first elem is index") +
+	it("first elem is index") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -39,7 +39,7 @@ message("xUnzipIndices")
 		}
 	) +
 
-	describe("second elem is value") +
+	it("second elem is value") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
@@ -52,7 +52,7 @@ message("xUnzipIndices")
 		}
 	) +
 
-	describe("names are preserved") +
+	it("names are preserved") +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 

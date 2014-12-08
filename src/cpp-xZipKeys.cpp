@@ -9,7 +9,7 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cZipKeys (const List& colls) {
 
-	const int colls_size = colls.size();
+	const R_len_t colls_size = colls.size();
 
 	Must_Be_Collection_Of_Lengths_In_Range("colls", "2", "2", colls, 2, 2);
 
@@ -20,7 +20,7 @@ List cZipKeys (const List& colls) {
 		List out (colls_size);
 		CharacterVector keys(colls_size);
 
-		for (int ith = 0; ith < colls_size; ++ith) {
+		for (R_len_t ith = 0; ith < colls_size; ++ith) {
 
 			List coll  = colls[ith];
 

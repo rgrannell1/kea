@@ -1,11 +1,11 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xNegate')
+unit_test('xNegate')
 
 	over(bool, val) +
 
-	describe("negate negates") +
+	it("negate negates") +
 	holdsWhen(
 		is.logical(bool) && length(bool) == 1,
 

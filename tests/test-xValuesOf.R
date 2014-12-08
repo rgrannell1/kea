@@ -1,18 +1,18 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xValuesOf")
+unit_test("xValuesOf")
 
 	over(coll) +
 
-	describe("valuesof coll is identity") +
+	it("valuesof coll is identity") +
 	holdsWhen(
 		suchThat $ not_named_collection(coll),
 
 		xValuesOf(coll) %is% as.list(coll)
 	) +
 
-	describe("valuesof coll removes names (named)") +
+	it("valuesof coll removes names (named)") +
 	holdsWhen(
 		suchThat $ is_named_collection(coll),
 

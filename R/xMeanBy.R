@@ -51,6 +51,7 @@ xMeanBy <- MakeFun(function (fn, coll) {
 
 		mean(`fn(coll)`)
 	}
+
 })
 
 #' @rdname xMeanBy

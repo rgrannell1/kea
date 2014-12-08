@@ -1,31 +1,39 @@
 
 kea ::: load_test_dependencies(environment())
 
-message("xTakeWhile")
+unit_test("xTakeWhile")
 
 	over(coll) +
 
-	describe("true predicates returns the collection") +
+	it("returns the collection given a truth predicate") +
 	holdsWhen(
 		suchThat $ not_empty_collection(coll),
 
 		xTakeWhile(function (x) True,  coll) %is% as.list(coll)
 	) +
 
-	describe("non true predicates return empty list") +
+	it("returns the empty list otherwise") +
 	holdsWhen(
-		suchThat $ not_named_collection(coll),
+		suchThat $ is_collection(coll),
 
-		xTakeWhile(function (x) False, coll) %is% list(),
-		xTakeWhile(function (x) Na,    coll) %is% list()
+		xTakeWhile(function (x) False, coll) %is% keep_names(list(), coll),
+		xTakeWhile(function (x) Na,    coll) %is% keep_names(list(), coll)
 	) +
 
-	describe("non true predicates return empty list") +
-	holdsWhen(
-		suchThat $ is_named_collection(coll),
+	run()
 
-		xTakeWhile(function (x) False, coll) %is% as_named(list()),
-		xTakeWhile(function (x) Na,    coll) %is% as_named(list())
+
+
+
+int_test("xTakeWhile")
+
+	over(coll) +
+
+	it("returns indices with <= length") +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		xTakeWhile(x. <= xLenOf(coll), xIndicesOf(coll)) %is% as.list(xIndicesOf(coll))
 	) +
 
 	run()

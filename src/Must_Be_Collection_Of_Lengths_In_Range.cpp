@@ -5,15 +5,15 @@ using namespace Rcpp;
 
 
 // nasty.
-void Must_Be_Collection_Of_Lengths_In_Range (const std::string COLLS, const std::string LOWER, const std::string UPPER, const List& colls, const int lower, const int upper) {
+void Must_Be_Collection_Of_Lengths_In_Range (const std::string COLLS, const std::string LOWER, const std::string UPPER, const List& colls, const R_len_t lower, const R_len_t upper) {
 
 	bool all_correct_length = true;
-	const int colls_size    = colls.size();
+	const R_len_t colls_size    = colls.size();
 
-	for (int ith = 0; ith < colls_size; ++ith) {
+	for (R_len_t ith = 0; ith < colls_size; ++ith) {
 
 		List coll     = colls[ith];
-		int coll_size = coll.size();
+		R_len_t coll_size = coll.size();
 
 		if (lower > coll_size || coll_size > upper) {
 

@@ -7,14 +7,14 @@ message("xLimit")
 
 	over(val, num) +
 
-	describe("xLimit with zero is null function") +
+	it("xLimit with zero is null function") +
 	holdsWhen(
 		True,
 
 		is.null(xLimit(identity, 0)(val))
 	) +
 
-	describe("xLimit is null until it isnt") +
+	it("xLimit is null until it isnt") +
 	holdsWhen(
 		is_numeric(num) && length(num) == 1 &&
 		!is.na(unlist(num)) && round(unlist(num)) == num && num > 0 && is.finite(unlist(num)) && num < 1000000,

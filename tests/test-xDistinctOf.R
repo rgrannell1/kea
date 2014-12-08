@@ -1,25 +1,25 @@
 
 kea ::: load_test_dependencies(environment())
 
-message('xDistinctOf')
+unit_test('xDistinctOf')
 
 	over(coll) +
 
-	describe('unique of empty coll is empty list') +
+	it('unique of empty coll is empty list') +
 	holdsWhen(
 		suchThat $ is_empty_collection(coll),
 
 		xDistinctOf(coll) %is% list()
 	) +
 
-	describe('uniques + duplicates == set') +
+	it('uniques + duplicates == set') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
 		length(coll) == length(xDistinctOf(coll)) + length( which(duplicated(coll)) )
 	) +
 
-	describe('unique repeats')+
+	it('distinct is idempotent.')+
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
