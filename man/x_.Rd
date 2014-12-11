@@ -138,9 +138,8 @@ xTabulate(
 )
 }
 \seealso{
-Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByCols}}; \code{\link{xByLevels}};
-  \code{\link{xByRowkeys}}; \code{\link{xByRows}};
+Other methods: \code{\link{xByCols}};
+  \code{\link{xByLevels}}; \code{\link{xByRows}};
   \code{\link{xByValues}}; \code{\link{xElemsByCols}};
   \code{\link{xElemsByRows}}; \code{\link{xExecute}}
 }

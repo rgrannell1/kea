@@ -7,6 +7,13 @@ ENHANCEMENTS:
 
 * xLift had its uncertain status removed.
 
+* Removed xByColkeys and xByRowkeys; Kea's dataframe support is really
+bad and is being phased out in favour of an eventual new implementation.
+
+BUG-FIXES:
+
+* xExclude now has a roxygen export tag. Added a manual test to root out similar issues.
+
 DOCUMENTATION:
 
 * Moved an irrelevant example for reduce to other functions.
