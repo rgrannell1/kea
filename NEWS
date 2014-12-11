@@ -3,12 +3,19 @@ Kea 0.72.0
 ------------------------------------------------------------------------------
 Date: 2014-12-
 
+ENHANCEMENTS:
+
+* xLift had its uncertain status removed.
+
 DOCUMENTATION:
 
 * Moved an irrelevant example for reduce to other functions.
 
+* Improved the documentation for xLift.
+
 * Added example for xLift and xZip.
 
+* Modernised the palendrome example to use xIntersect instead of xSelect(xIsIn)
 
 
 

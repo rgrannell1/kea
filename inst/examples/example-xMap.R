@@ -11,6 +11,8 @@ LETTERS
 #    "S", "T", "U", "V", "W", "X",
 #    "Y", "Z")
 
+
+
 # 2. grab the second value in a collection
 #    of collections.
 
@@ -56,6 +58,8 @@ power_of_e <- x := {
 
 power_of_e(1)
 # 2.718282
+
+
 
 # 4. Partially apply map to create a vectorised function
 #

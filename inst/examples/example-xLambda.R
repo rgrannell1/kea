@@ -32,3 +32,13 @@ case <- p := a := b := p(a)(b)
 case( and(true)(false) )('case was true')('case was false')
 
 # 'case was false'
+
+
+
+
+
+# 3. A more practical example
+
+xMap(x := x^2, 1:3)
+
+# c(1, 4, 9)
