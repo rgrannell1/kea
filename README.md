@@ -1,5 +1,5 @@
 
-Kea 0.71.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
+Kea 0.72.0 [![Build Status](https://travis-ci.org/rgrannell1/kea.png)](https://travis-ci.org/rgrannell1/kea)
 -----------------------------------
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rgrannell1/kea?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -11,7 +11,7 @@ Kea is a functional programming library built to do three things:
 * be quick to write, debug, and run
 * make writing large programs easy
 
-In practice, Kea is a collection of higher-order functions and standard collection algorithms that abstracts over the difference between atomic vectors, lists and pairlists. In this way Kea resembles the STL for C++ or Underscore for JavaScript. 
+In practice, Kea is a collection of higher-order functions and standard collection algorithms that abstracts over the difference between atomic vectors, lists and pairlists. In this way Kea resembles the STL for C++ or Underscore for JavaScript.
 
 ### 1. Installation
 

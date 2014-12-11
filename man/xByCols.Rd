@@ -26,8 +26,7 @@ This feature may be removed or altered significantly in future versions.
 If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
 }
 \seealso{
-Other methods: \code{\link{xByColkeys}};
-  \code{\link{xByLevels}}; \code{\link{xByRowkeys}};
+Other methods: \code{\link{xByLevels}};
   \code{\link{xByRows}}; \code{\link{xByValues}};
   \code{\link{xElemsByCols}}; \code{\link{xElemsByRows}};
   \code{\link{xExecute}}; \code{\link{x_}},

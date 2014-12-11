@@ -8,3 +8,4 @@ list(
 xMinBy(identity, one_hundred)
 xMinBy(identity, one_thousand)
 xMinBy(identity, ten_thousand)
+

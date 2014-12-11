@@ -32,7 +32,9 @@ Get the elements of a collection not in another.
 }
 \examples{
 
-NULL
+# 1. a toy example.
+
+xExclude(c('a', 'c'), c('a', 'b', 'c'))
 }
 \seealso{
 Other set_functions: \code{\link{xDistinctOf}},

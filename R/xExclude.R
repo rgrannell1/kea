@@ -28,6 +28,9 @@
 #'
 #' @example
 #'    inst/examples/example-xExclude.R
+#'
+#' @rdname xExclude
+#' @export
 
 xExclude <- MakeFun(function (coll1, coll2)
 	cExclude(coll1, coll2)

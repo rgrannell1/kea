@@ -34,13 +34,15 @@ List cZip (const List& colls) {
 				colls_names = colls.attr("names");
 			}
 
+			List row_template(colls_size);
+
+			if (has_names) {
+				row_template.attr("names") = colls_names;
+			}
+
 			for (R_len_t ith = 0; ith < elem_size; ++ith) {
 
-				List row(colls_size);
-
-				if (has_names) {
-					row.attr("names") = colls_names;
-				}
+				List row = clone(row_template);
 
 				for (R_len_t jth = 0; jth < colls_size; ++jth) {
 					row[jth]  = ((List)colls[jth])[ith];

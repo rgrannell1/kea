@@ -12,4 +12,11 @@ unit_test("xScan")
 		xScan(list, val, coll) %is% list(val)
 	) +
 
+	it("returns a collection as long as both inputs") +
+	holdsWhen(
+		suchThat $ is_collection(coll),
+
+		length(xScan(function (...) val, val, coll)) == length(coll) + 1
+	) +
+
 	run()

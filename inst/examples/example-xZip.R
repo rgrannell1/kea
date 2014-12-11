@@ -27,3 +27,21 @@ x_(csv) $ xExplode(',') $ xChunk(2) $ xZip() $ x_AddKeys(c('country', 'age'))
 #         "43.4"
 # ))
 
+
+
+
+# 2. is a string a palindrome?
+
+palindromic <- "Marge let a moody baby doom a telegram."
+
+# the letters in the string, right to left.
+left_to_right <-
+	x_(palindromic) $ xToChars() $ xMap(tolower) $ x_Intersect(coll1 = letters)
+
+# the same string, reversed.
+right_to_left <- x_(left_to_right) $ x_Reverse()
+
+# or simply zip the two lists next to each other, and check
+# if both elements of the pair are equal.
+
+x_(xZip_(left_to_right, right_to_left)) $ xMap(xApply(xIs)) $ x_AllOf(xI)

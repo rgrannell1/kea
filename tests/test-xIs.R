@@ -9,7 +9,8 @@ unit_test("xIs")
 	holdsWhen(
 		True,
 
-		xIs(val, val)
+		xIs(val, val),
+		xIs(val)(val)
 	) +
 
 	run()

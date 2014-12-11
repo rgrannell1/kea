@@ -15,15 +15,16 @@ fn1 \%or\% fn2
 fn1 \%and\% fn2
 }
 \arguments{
-\item{fn}{a binary function.}
+\item{fn}{a binary function. The function to lift.}
 
-\item{fns}{a collection of functions.}
+\item{fns}{a collection of functions. The functions to transform each argument with before
+   passing the result to \bold{fn}}
 
 \item{...}{see above.}
 
 \item{fn1}{a function. The left function to compose with logical and or logical or.}
 
-\item{fn2}{a function. The right function to compose with locical and or logical or.}
+\item{fn2}{a function. The right function to compose with logical and or logical or.}
 }
 \value{
 Returns a unary function of x.
@@ -35,12 +36,13 @@ Compose a function with the outputs of other functions.
 \bold{xLift} takes a function that works on some type of value, and makes that
    function work on functions of those values.
 
-   \bold{xLift} is a fairly abstract operator, best explained by looking at examples.
+   \bold{xLift} is a fairly abstract operator and is best explained by looking at examples.
    The most obvious use for \bold{xLift} is to take normally binary functions like \bold{+},
    and \bold{max} that take numbers, and 'lift' it to work on functions of numbers.
 
-   A function that multiplies a number can be defined in a function that adds the output of
-   double that number and triple that number.
+   Here the numeric functions "double" and "triple" are used to define a new function
+   "sextuple". Addition usually takes two numbers, but when lifted it adds the result of
+   numeric functions.
 
    \code{double <- x := 2*x}
    \code{triple <- x := 3*x}
@@ -51,7 +53,9 @@ Compose a function with the outputs of other functions.
    This can be viewed as 'adding' the double and triple function, or composing them
    with addition.
 
-   Similarily, a function to check if a value is a complex number or an integer can be
+   \code{sextuple <- xLift_(`+`, double, triple)}
+'
+   Similarily, a function to check if a value is positive and a whole number can be
    defined by
 
    \code{is_positive <- x := x > 0}
@@ -68,8 +72,8 @@ Compose a function with the outputs of other functions.
    \code{sextuple <- xLift_('+', double, triple)}
    \code{is_positive_and_whole <- xLift_('&&', is_positive, is_whole)}
 
-  Two partially applied forms of xLift are included in kea, which are useful for cutting down
-  on the amount of anonymous functions you need to pass to higher-order functions.
+  Two partially applied forms of xLift are included in kea; 'and' and 'or', which lifts two functions with
+  a boolean operator.
 
   \code{xSelect(is_positive \%and\% is_whole, seq(1, 3, by = 0.1))}
   \code{list(1, 2, 3)}
@@ -83,18 +87,37 @@ Compose a function with the outputs of other functions.
 
    Calls \bold{fn} with no arguments when \bold{fns} is empty.
 }
-
-\section{Stability - \bold{Uncertain}}{
-
-
-This feature may be removed or altered significantly in future versions.
-If you find this feature useful, please leave an issue at https://github.com/rgrannell1/kea/issues.
-}
 \examples{
 
 # 1. Join multiple predicates into one predicate with '\%or\%'
 
 is_recursive <- is.list \%or\% is.pairlist
+
+
+
+
+
+
+# 2. is a string a palindrome?
+
+palindromic <- "Marge let a moody baby doom a telegram."
+
+# the letters in the string, right to left.
+left_to_right <-
+	x_(palindromic) $ xToChars() $ xMap(tolower) $ x_Intersect(coll1 = letters)
+
+# the same string, reversed.
+right_to_left <- x_(left_to_right) $ x_Reverse()
+
+# using lift. Inner function roughly transforms
+# to xIs( ith := left_to_right[ith], ith := right_to_left[ith] )
+# then this property is checked for each index.
+
+xAllOf(
+	xLift_(xIs,
+		xAt(coll = left_to_right),
+		xAt(coll = right_to_left)),
+	xIndicesOf(left_to_right))
 }
 \seealso{
 Other function_combining_functions: \code{\link{\%then\%}},
