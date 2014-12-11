@@ -3,7 +3,11 @@ Kea 0.72.0
 ------------------------------------------------------------------------------
 Date: 2014-12-11
 
+Improved documentation, lambda function performance.
+
 ENHANCEMENTS:
+
+* Improved the performance of xLambda.
 
 * xLift had its uncertain status removed.
 
@@ -22,7 +26,7 @@ DOCUMENTATION:
 
 * Added example for xLift and xZip.
 
-* Modernised the palendrome example to use xIntersect instead of xSelect(xIsIn)
+* Modernised the palindrome example to use xIntersect instead of xSelect(xIsIn)
 
 
 
