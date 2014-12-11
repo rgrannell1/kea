@@ -136,7 +136,7 @@ lambda_call <- function () {
 
 xLambda <- local({
 
-	LAMBDA              <- function () {}
+	LAMBDA        <- function () {}
 	SINGLE_FORMAL <- list(quote(expr=))
 
 	function (sym, val) {
@@ -191,15 +191,10 @@ xLambda <- local({
 			sexp                <- relist( PARAM[[2]] )
 			validate(sexp)
 
-			parametres          <- extract(sexp)
+			formals(LAMBDA)     <- as_formals(extract(sexp))
+			body(LAMBDA)        <- BODY
 
-			lambda              <- function () {}
-
-			formals(lambda)     <- as_formals(parametres)
-			body(lambda)        <- BODY
-			environment(lambda) <- parent.frame()
-
-			lambda
+			LAMBDA
 
 		} else {
 
