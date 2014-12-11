@@ -152,6 +152,7 @@ xLambda <- local({
 
 			formals(LAMBDA)      <- SINGLE_FORMAL
 			body(LAMBDA)         <- BODY
+			environment(LAMBDA)  <- parent.frame()
 
 			LAMBDA
 
@@ -183,6 +184,7 @@ xLambda <- local({
 
 				formals(LAMBDA)      <- SINGLE_FORMAL
 				body(LAMBDA)         <- BODY
+				environment(LAMBDA)  <- parent.frame()
 
 				return(LAMBDA)
 
@@ -193,6 +195,7 @@ xLambda <- local({
 
 			formals(LAMBDA)     <- as_formals(extract(sexp))
 			body(LAMBDA)        <- BODY
+			environment(LAMBDA) <- parent.frame()
 
 			LAMBDA
 
