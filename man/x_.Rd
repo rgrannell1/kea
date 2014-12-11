@@ -52,7 +52,7 @@ Kea allows functions to be used in both nested form - \bold{xLenOf(xRepeat(3, 'a
     \code{x_(sqrt) $ xRead()}
 
     Which parametre is the kea object given to? That depends on the particular method being called; if there is only one parametre that
-    a value can be used for is used as that parametre. For example, these following two calls are unambigious and identical.
+    a value fits is used as that parametre. For example, these following two calls are unambigious and identical.
 
     \code{x_(sqrt) $ xMap(1:10)}
     \code{x_(1:10) $ xMap(sqrt)}
