@@ -1,7 +1,7 @@
 
 kea ::: load_test_dependencies(environment())
 
-unit_test('x_(+)')
+unit_test('x_')
 
 	over(val) +
 
@@ -14,6 +14,7 @@ unit_test('x_(+)')
 	it('x_(x_(val)) flattens.') +
 	holdsWhen(
 		True,
+
 		x_(x_(val)) %is% x_(val)
 	) +
 
