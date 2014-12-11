@@ -52,6 +52,10 @@
 #'
 #' @rdname xLambda
 
+# relist
+#
+#
+
 relist <- function (expr) {
 
 	if (is.name(expr)) {
@@ -99,6 +103,7 @@ extract <- function (coll, params = character(0)) {
 	if (is.list( coll[[2]] )) {
 		extract( coll[[2]], c(paste( coll[[3]] ), params) )
 	} else {
+
 		parametres <- c(paste( coll[[2]] ), paste( coll[[3]] ), params)
 
 		if (length( which(duplicated(parametres)) ) != 0) {
@@ -129,73 +134,82 @@ lambda_call <- function () {
 
 
 
-xLambda <- function (sym, val) {
+xLambda <- local({
 
-	param_expr <- substitute(sym)
-	body_expr  <- substitute(val)
+	LAMBDA              <- function () {}
+	SINGLE_FORMAL <- list(quote(expr=))
 
-	if (is.name(param_expr)) {
-		# -- creating a unary function (more efficient).
+	function (sym, val) {
 
-		lambda              <- do.call('function', list(as_formals(paste(param_expr)), body_expr))
-		environment(lambda) <- parent.frame()
+		PARAM <- substitute(sym)
+		BODY  <- substitute(val)
 
-		#MakeFun(lambda)
-		lambda
+		if (is.name(PARAM)) {
+			# -- creating a unary function (fast parentheses).
+			# -- much more efficient than calling `function` with do.call.
 
-	} else if (is.call(param_expr)) {
-		# -- need to crawl through the expression and pull out symbols.
+			names(SINGLE_FORMAL) <- paste0(PARAM)
 
-		if ( param_expr[[1]] != '(') {
+			formals(LAMBDA)      <- SINGLE_FORMAL
+			body(LAMBDA)         <- BODY
 
-			message <- "the formals for non-unary functions " %+%
-				"must be enclosed in parentheses."
+			LAMBDA
 
-			throw_exception $ syntax_error(lambda_call(), message)
+		} else if (is.call(PARAM)) {
+			# -- need to crawl through the expression and pull out symbols.
 
-		}
+			if ( PARAM[[1]] != '(') {
 
-		if (length( param_expr[[2]] ) == 1) {
-			# -- unary function in braces.
-			# -- this path should be factored out in the future.
-
-			if (!is.name( param_expr[[2]] )) {
-
-				message <- "invalid parametre."
+				message <- "the formals for non-unary functions " %+%
+					"must be enclosed in parentheses."
 
 				throw_exception $ syntax_error(lambda_call(), message)
 
 			}
 
-			lambda              <- do.call('function', list(as_formals(paste( param_expr[[2]] )), body_expr))
+			if (length( PARAM[[2]] ) == 1) {
+				# -- unary function in braces.
+				# -- this path should be factored out in the future.
+
+				if (!is.name( PARAM[[2]] )) {
+
+					message <- "invalid parametre."
+
+					throw_exception $ syntax_error(lambda_call(), message)
+
+				}
+
+				names(SINGLE_FORMAL) <- paste0( PARAM[[2]] )
+
+				formals(LAMBDA)      <- SINGLE_FORMAL
+				body(LAMBDA)         <- BODY
+
+				return(LAMBDA)
+
+			}
+
+			sexp                <- relist( PARAM[[2]] )
+			validate(sexp)
+
+			parametres          <- extract(sexp)
+
+			lambda              <- function () {}
+
+			formals(lambda)     <- as_formals(parametres)
+			body(lambda)        <- BODY
 			environment(lambda) <- parent.frame()
 
-			#MakeFun(lambda)
-			return (lambda)
+			lambda
+
+		} else {
+
+			message <- "invalid syntax."
+			throw_exception $ syntax_error(lambda_call(), message)
 
 		}
-
-		sexp                <- relist( param_expr[[2]] )
-		validate(sexp)
-
-		parametres          <- extract(sexp)
-
-		lambda              <- function () {}
-
-		formals(lambda)     <- as_formals(parametres)
-		body(lambda)        <- body_expr
-		environment(lambda) <- parent.frame()
-
-		#MakeFun(lambda)
-		lambda
-
-	} else {
-
-		message <- "invalid syntax."
-		throw_exception $ syntax_error(lambda_call(), message)
-
 	}
-}
+
+})
 
 #' @rdname xLambda
 #' @export
