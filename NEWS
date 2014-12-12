@@ -8,7 +8,11 @@ Fixed performance bug in xZip.
 BUG-FIXES:
 
 * More thorough benchmarking showed that rewriting xZip in C++ slowed it down
-significantly. This version reverts to the original R version, increasing performance by over an order of magnitude.
+significantly. This version reverts to the original R version, increasing performance by over an order of magnitude. Closes #74.
+
+
+
+
 
 
 
