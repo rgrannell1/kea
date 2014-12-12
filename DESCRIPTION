@@ -14,6 +14,7 @@ Roxygen: list(wrap = FALSE)
 LinkingTo: Rcpp
 Imports: Rcpp
 Collate:
+    'kea.R'
     'zzz.R'
     'values.R'
     'tools_functions.R'

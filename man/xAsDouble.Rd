@@ -18,10 +18,10 @@ xAsDouble_(...)
 A double vector.
 }
 \description{
-Convert a collection of doubles or integers to a double vector.
+Unbox a collection of doubles or integers to a double vector.
 }
 \details{
-\bold{xAsDouble} converts a list, pairlist or vector of
+\bold{xAsDouble} unboxes a list, pairlist or vector of
    length-one double precision numbers to a double vector. It does not attempt
    to convert non-double collections to double vectors.
 }
@@ -33,7 +33,7 @@ Convert a collection of doubles or integers to a double vector.
 \section{Corner Cases}{
 
    Integer vectors are coerced to double vectors freely, since the
-   difference is predominantly internal.
+   difference is predominantly internal. NA values can always be unboxed to any type.
 }
 
 \section{Stability - \bold{Uncertain}}{
@@ -59,6 +59,13 @@ Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsComplex_}}; \code{\link{xAsInteger}},
   \code{\link{xAsInteger_}}; \code{\link{xAsList}},
   \code{\link{xAsList_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
+  \code{\link{xAsRaw_}}
+
+Other unboxing_functions: \code{\link{xAsCharacter}},
+  \code{\link{xAsCharacter_}}; \code{\link{xAsComplex}},
+  \code{\link{xAsComplex_}}; \code{\link{xAsInteger}},
+  \code{\link{xAsInteger_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
 }

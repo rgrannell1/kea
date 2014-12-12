@@ -18,10 +18,10 @@ xAsRaw_(...)
 A raw vector.
 }
 \description{
-Convert a collection of raw values to a raw vector.
+Unbox a collection of raw values to a raw vector.
 }
 \details{
-\bold{xAsRaw} converts a list, pairlist or vector of
+\bold{xAsRaw} unboxes a list, pairlist or vector of
    length-one raw numbers to a raw vector. It does not attempt
    to convert non-raw collections to raw vectors.
 }
@@ -32,7 +32,7 @@ Convert a collection of raw values to a raw vector.
 
 \section{Corner Cases}{
 
-   Numbers are not coerced to raw.
+   Numbers are not coerced to raw. NA values can always be unboxed to any type.
 }
 
 \section{Stability - \bold{Uncertain}}{
@@ -56,6 +56,13 @@ Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
   \code{\link{xAsInteger_}}; \code{\link{xAsList}},
   \code{\link{xAsList_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsLogical_}}
+
+Other unboxing_functions: \code{\link{xAsCharacter}},
+  \code{\link{xAsCharacter_}}; \code{\link{xAsComplex}},
+  \code{\link{xAsComplex_}}; \code{\link{xAsDouble}},
+  \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
+  \code{\link{xAsInteger_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}
 }
 

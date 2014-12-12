@@ -17,10 +17,10 @@ xAsLogical_(...)
 A logical vector.
 }
 \description{
-Convert a collection of logicals to a logical vector.
+Unbox a collection of logicals to a logical vector.
 }
 \details{
-\bold{xAsLogical} converts a list, pairlist or vector of
+\bold{xAsLogical} unboxes a list, pairlist or vector of
    length-one logical values to a logical vector. It does not attempt
    to convert non-logical collections to logical vectors.
 }
@@ -31,7 +31,7 @@ Convert a collection of logicals to a logical vector.
 
 \section{Corner Cases}{
 
-   Numbers are not coerced to logical.
+   Numbers are not coerced to logical. NA values can always be unboxed to any type.
 }
 
 \section{Stability - \bold{Uncertain}}{
@@ -55,6 +55,13 @@ Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
   \code{\link{xAsInteger_}}; \code{\link{xAsList}},
   \code{\link{xAsList_}}; \code{\link{xAsRaw}},
+  \code{\link{xAsRaw_}}
+
+Other unboxing_functions: \code{\link{xAsCharacter}},
+  \code{\link{xAsCharacter_}}; \code{\link{xAsComplex}},
+  \code{\link{xAsComplex_}}; \code{\link{xAsDouble}},
+  \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
+  \code{\link{xAsInteger_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
 }
 

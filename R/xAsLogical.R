@@ -1,13 +1,13 @@
 
 #' xAsLogical
 #'
-#' Convert a collection of logicals to a logical vector.
+#' Unbox a collection of logicals to a logical vector.
 #'
 #' @section Type Signature:
 #'     |logical| -> <logical>
 #'
 #' @details
-#'    \bold{xAsLogical} converts a list, pairlist or vector of
+#'    \bold{xAsLogical} unboxes a list, pairlist or vector of
 #'    length-one logical values to a logical vector. It does not attempt
 #'    to convert non-logical collections to logical vectors.
 #'
@@ -21,12 +21,13 @@
 #'    A logical vector.
 #'
 #' @section Corner Cases:
-#'    Numbers are not coerced to logical.
+#'    Numbers are not coerced to logical. NA values can always be unboxed to any type.
 #'
 #' @template
 #'    Variadic
 #'
 #' @family container_conversion_functions
+#' @family unboxing_functions
 #'
 #' @example
 #'    inst/examples/example-xAsLogical.R

@@ -1,13 +1,13 @@
 
 #' xAsRaw
 #'
-#' Convert a collection of raw values to a raw vector.
+#' Unbox a collection of raw values to a raw vector.
 #'
 #' @section Type Signature:
 #'     |raw| -> <raw>
 #'
 #' @details
-#'    \bold{xAsRaw} converts a list, pairlist or vector of
+#'    \bold{xAsRaw} unboxes a list, pairlist or vector of
 #'    length-one raw numbers to a raw vector. It does not attempt
 #'    to convert non-raw collections to raw vectors.
 #'
@@ -22,12 +22,13 @@
 #'    A raw vector.
 #'
 #' @section Corner Cases:
-#'    Numbers are not coerced to raw.
+#'    Numbers are not coerced to raw. NA values can always be unboxed to any type.
 #'
 #' @template
 #'    Variadic
 #'
 #' @family container_conversion_functions
+#' @family unboxing_functions
 #'
 #' @example
 #'    inst/examples/example-xAsRaw.R
