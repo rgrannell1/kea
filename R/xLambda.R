@@ -166,7 +166,10 @@ xLambda <- function (sym, val) {
 
 			}
 
-			return( eval(call("function", as_formals(paste( param_expr[[2]] )), body_expr), parent.frame()) )
+			formal              <- EMPTY_PARAM
+			names(formal)       <- as.character( param_expr[[2]] )
+
+			return ( eval(call("function", as.pairlist(formal), body_expr), parent.frame()) )
 
 		}
 
