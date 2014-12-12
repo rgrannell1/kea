@@ -138,9 +138,9 @@ xLambda <- function (sym, val) {
 		# -- creating a unary function (more efficient).
 
 		formal              <- EMPTY_PARAM
-		names(formal)       <- as.pairlist(as.character(param_expr)) # as character take 100ns, paste.
+		names(formal)       <- as.character(param_expr) # as character take 100ns, paste.
 
-		eval("function"(formal, body_expr), parent.frame())
+		eval(call("function", as.pairlist(formal), body_expr), parent.frame())
 
 	} else if (is.call(param_expr)) {
 		# -- need to crawl through the expression and pull out symbols.
@@ -173,7 +173,7 @@ xLambda <- function (sym, val) {
 
 		}
 
-		# TODO: this code is slow and awful.
+		# TODO: this code is slow and awful
 
 		sexp                <- relist( param_expr[[2]] )
 		validate(sexp)
