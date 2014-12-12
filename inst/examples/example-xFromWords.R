@@ -19,11 +19,13 @@ xToWords() $
 xMap(word := {
 
     chars <- xToChars(word)
-    if (chars[1] %in% letters) {
-        c(toupper(chars[1]), xRestOf(chars))
+
+    if (xIsIn(xFirstOf(chars), letters)) {
+        c(toupper(xFirstOf(1)), xRestOf(chars))
     } else {
         chars
     }
+
 }) $
 xMap(xFromChars) $
 x_FromWords()

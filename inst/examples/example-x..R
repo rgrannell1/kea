@@ -38,6 +38,11 @@ xMap(x. $ `rain (ml)`, rain_data)
 #     2.1, 2.6, 2.9
 # )
 
+
+
+
+
+
 # 2. Convert the column to proportions of
 # the largest value.
 
@@ -66,6 +71,11 @@ prop_rain_data <- x_(rain_data) $ x_Map(row := {
 #    list(month = "June",       `rain (ml)` = 0.9)
 #    list(month = "July",       `rain (ml)` = 1.0)
 # )
+
+
+
+
+
 
 # 3. modulo 6 every element of an atomic vector.
 

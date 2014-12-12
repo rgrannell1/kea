@@ -42,4 +42,3 @@ unit_test("xRank")
 	) +
 
 	run()
-2

@@ -10,6 +10,6 @@ xMaxBy_(xI, 1, 2, 3, 4, 5, 6)
 
 # 6
 
-xSumBy_(xIdentity, 1, 2, 3)
+xSumBy_(xI 1, 2, 3)
 
 # 6
