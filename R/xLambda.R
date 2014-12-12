@@ -138,7 +138,7 @@ xLambda <- function (sym, val) {
 		# -- creating a unary function (more efficient).
 
 		formal              <- EMPTY_PARAM
-		names(formal)       <- as.character(param_expr) # 100ns. efficient
+		names(formal)       <- as.character(param_expr) # as character take 100ns, paste.
 
 		eval(call("function", as.pairlist(formal), body_expr), parent.frame())
 
@@ -166,15 +166,12 @@ xLambda <- function (sym, val) {
 
 			}
 
-			lambda              <- do.call('function', list(as_formals(paste( param_expr[[2]] )), body_expr))
-			environment(lambda) <- parent.frame()
-
-			#MakeFun(lambda)
-			return (lambda)
+			return( eval(call("function", as_formals(paste( param_expr[[2]] )), body_expr), parent.frame()) )
 
 		}
 
-		sexp                <- validate(relist( param_expr[[2]] ))
+		sexp                <- relist( param_expr[[2]] )
+		validate(sexp)
 
 		lambda              <- function () {}
 
