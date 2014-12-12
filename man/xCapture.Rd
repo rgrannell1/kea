@@ -48,7 +48,7 @@ ten()
 Other basic_functions: \code{\link{xFalsity}};
   \code{\link{xIrrelevance}}; \code{\link{xI}},
   \code{\link{xIdentity}}; \code{\link{xTruth}};
-  \code{\link{xUnit}}, \code{\link{xUnit_}}
+  \code{\link{xClear}}, \code{\link{xClear_}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},

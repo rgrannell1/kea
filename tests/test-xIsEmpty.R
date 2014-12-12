@@ -18,11 +18,11 @@ int_test("xIsEmpty")
 
 	over(coll) +
 
-	it('is always true with xUnit') +
+	it('is always true with xClear') +
 	holdsWhen(
 		suchThat $ is_collection(coll),
 
-		xIsEmpty(xUnit(coll))
+		xIsEmpty(xClear(coll))
 	) +
 
 
