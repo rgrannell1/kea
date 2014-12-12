@@ -5,7 +5,7 @@ using namespace Rcpp;
 
 
 
-
+// far too slow to use! 20 times slower than R implementation.
 
 // [[Rcpp::export]]
 List cZip (const List& colls) {

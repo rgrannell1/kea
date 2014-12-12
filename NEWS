@@ -1,4 +1,23 @@
 
+Kea 0.73.0
+------------------------------------------------------------------------------
+Date: 2014-12-12
+
+Fixed performance bug in xZip.
+
+BUG-FIXES:
+
+* More thorough benchmarking showed that rewriting xZip in C++ slowed it down
+significantly. This version reverts to the original R version, increasing performance by over an order of magnitude. Closes #74.
+
+
+
+
+
+
+
+
+
 Kea 0.72.0
 ------------------------------------------------------------------------------
 Date: 2014-12-11
