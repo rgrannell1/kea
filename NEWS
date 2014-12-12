@@ -5,6 +5,8 @@ Date: 2014-12-12
 
 ENHANCEMENTS:
 
+* Improved the efficiency
+
 * Renamed xUnit to xClear; xClear is a verb, a standard name for the operation
 in other languages, and isn't confused with the unit of the values in a collection.
 
