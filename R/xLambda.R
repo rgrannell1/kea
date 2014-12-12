@@ -127,7 +127,7 @@ lambda_call <- function () {
 
 
 
-
+EMPTY_PARAM = list(quote(expr=))
 
 xLambda <- function (sym, val) {
 
@@ -137,13 +137,10 @@ xLambda <- function (sym, val) {
 	if (is.name(param_expr)) {
 		# -- creating a unary function (more efficient).
 
-		formal        <- list(quote(expr=))
-		names(formal) <- paste(param_expr)
+		formal              <- EMPTY_PARAM
+		names(formal)       <- as.character(param_expr) # 100ns. efficient
 
-		lambda              <- do.call('function', list(as.pairlist(formal), body_expr))
-		environment(lambda) <- parent.frame()
-
-		lambda
+		eval(call("function", as.pairlist(formal), body_expr), parent.frame())
 
 	} else if (is.call(param_expr)) {
 		# -- need to crawl through the expression and pull out symbols.
@@ -177,14 +174,11 @@ xLambda <- function (sym, val) {
 
 		}
 
-		sexp                <- relist( param_expr[[2]] )
-		validate(sexp)
-
-		parametres          <- extract(sexp)
+		sexp                <- validate(relist( param_expr[[2]] ))
 
 		lambda              <- function () {}
 
-		formals(lambda)     <- as_formals(parametres)
+		formals(lambda)     <- as_formals(extract(sexp))
 		body(lambda)        <- body_expr
 		environment(lambda) <- parent.frame()
 
