@@ -5,5 +5,6 @@
 # information loss (all values can be coerced without failure).
 
 xAsDouble(list(1, 2, 3, 4L, 5L))
+xAsDouble_(1, 2, 3, 4L, 5L)
 
 # c(1, 2, 3, 4, 5)

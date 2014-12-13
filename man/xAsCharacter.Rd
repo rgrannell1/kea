@@ -18,10 +18,10 @@ xAsCharacter_(...)
 A character vector.
 }
 \description{
-Convert a collection of characters to a character vector.
+Unbox a collection of characters to a character vector.
 }
 \details{
-\bold{xAsCharacter} converts a list, pairlist or vector of
+\bold{xAsCharacter} unboxes a list, pairlist or vector of
    length-one strings to a character vector. It does not attempt
    to convert non-character collections to character vectors - it
    simply converts character lists to character typed vectors.
@@ -35,7 +35,7 @@ Convert a collection of characters to a character vector.
 
     xAsCharacter will throw an error if its input is
     not a collection of characters. All length-zero collections
-    can be converted to character.
+    can be converted to character. NA values can always be unboxed to any type.
 }
 
 \section{Stability - \bold{Uncertain}}{
@@ -65,6 +65,13 @@ Other container_conversion_functions: \code{\link{xAsComplex}},
   \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
   \code{\link{xAsInteger_}}; \code{\link{xAsList}},
   \code{\link{xAsList_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
+  \code{\link{xAsRaw_}}
+
+Other unboxing_functions: \code{\link{xAsComplex}},
+  \code{\link{xAsComplex_}}; \code{\link{xAsDouble}},
+  \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
+  \code{\link{xAsInteger_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
 }

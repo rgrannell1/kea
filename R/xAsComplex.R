@@ -29,6 +29,7 @@
 #'     can be converted to complex.
 #'
 #' @family container_conversion_functions
+#' @family unboxing_functions
 #'
 #' @example
 #'    inst/examples/example-xAsComplex.R

@@ -18,6 +18,14 @@ sum(a, b, c, d)
 
 # which cannot be changed at runtime.
 
+# (in this case to can use)
+
+xSumBy_(xI, a, b, c, d)
+
+
+
+
+
 # 2. Reduce and xApply can often be used to solve the
 #    same problems.
 

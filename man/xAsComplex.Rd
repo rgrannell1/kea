@@ -58,5 +58,12 @@ Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsList_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
+
+Other unboxing_functions: \code{\link{xAsCharacter}},
+  \code{\link{xAsCharacter_}}; \code{\link{xAsDouble}},
+  \code{\link{xAsDouble_}}; \code{\link{xAsInteger}},
+  \code{\link{xAsInteger_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
+  \code{\link{xAsRaw_}}
 }
 

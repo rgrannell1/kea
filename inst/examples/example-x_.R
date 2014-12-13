@@ -7,6 +7,11 @@ class(x_(letters))
 
 # "kea"
 
+
+
+
+
+
 # 2. Get data back out of an kea object.
 #
 # all methods are available in the form
@@ -18,6 +23,11 @@ class(x_(letters))
 # kea object containing the letters, and just returns the letters.
 
 x_(letters) $ x_I()
+
+
+
+
+
 
 # 3. Call methods off an kea object.
 #
@@ -32,6 +42,11 @@ parsed_ <- x_(csv_string) $ xExplode(", ")
 freqs  <- parsed_ $ x_Tabulate()
 
 # list(list("swiss", 2), list("german", 2), list("irish", 1), list("french", 1))
+
+
+
+
+
 
 # 4. Chaining methods.
 #

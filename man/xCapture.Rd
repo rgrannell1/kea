@@ -45,10 +45,10 @@ ten()
 # 10
 }
 \seealso{
-Other basic_functions: \code{\link{xFalsity}};
+Other basic_functions: \code{\link{xClear}},
+  \code{\link{xClear_}}; \code{\link{xFalsity}};
   \code{\link{xIrrelevance}}; \code{\link{xI}},
-  \code{\link{xIdentity}}; \code{\link{xTruth}};
-  \code{\link{xUnit}}, \code{\link{xUnit_}}
+  \code{\link{xIdentity}}; \code{\link{xTruth}}
 
 Other function_modifying_functions: \code{\link{\%and\%}},
   \code{\link{\%or\%}}, \code{\link{xLift}},

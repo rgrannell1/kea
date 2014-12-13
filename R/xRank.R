@@ -42,6 +42,8 @@ xRank <- MakeFun(function (nums) {
 		ranked        <- rank(nums, ties.method = 'first')
 
 		rank_names    <- names(ranked)
+
+		# -- dont try move this line.
 		ranked        <- as.integer(ranked)
 		names(ranked) <- rank_names
 

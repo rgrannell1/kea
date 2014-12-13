@@ -25,9 +25,9 @@ kmers <- (k : string) := {
 	xMap(
 		ith := {
 			# subset the string.
-			xCarve((1:k) + ith, string)
+			xCarve(xIndicesTo(k) + ith, string)
 		},
-		0:(nchar(string) - k)
+		0:(xCharsOf(string) - k)
 	)
 
 }

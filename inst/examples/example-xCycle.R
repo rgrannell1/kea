@@ -5,7 +5,7 @@
 all_cyclic_permutations <- coll := {
     xMap(
     	xCycle(coll = coll),
-        seq_along(coll) - 1
+        xIndicesOf(coll) - 1
     )
 }
 

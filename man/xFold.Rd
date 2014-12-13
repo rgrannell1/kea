@@ -238,7 +238,7 @@ remove_odds <- coll := {
                 acc
             }
         },
-        xUnit(coll),
+        xClear(coll),
         seq_along(coll)
     )
 

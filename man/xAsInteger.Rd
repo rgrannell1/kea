@@ -18,10 +18,10 @@ xAsInteger_(...)
 An integer vector.
 }
 \description{
-Convert a collection of integers to a integer vector.
+Unbox a collection of integers to a integer vector.
 }
 \details{
-\bold{xAsInteger} converts a list, pairlist or vector of
+\bold{xAsInteger} unboxes a list, pairlist or vector of
    length-one integers to a integer vector. It does not attempt
    to convert non-integer collections to integer vectors.
 }
@@ -34,7 +34,7 @@ Convert a collection of integers to a integer vector.
 
    Double vectors are not coerced to integer vectors:
    doubles can be decimal or infinite numbers, which
-   would be lost upon coercion.
+   would be lost upon coercion. NA values can always be unboxed to any type.
 }
 
 \section{Stability - \bold{Uncertain}}{
@@ -57,6 +57,13 @@ Other container_conversion_functions: \code{\link{xAsCharacter}},
   \code{\link{xAsComplex_}}; \code{\link{xAsDouble}},
   \code{\link{xAsDouble_}}; \code{\link{xAsList}},
   \code{\link{xAsList_}}; \code{\link{xAsLogical}},
+  \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
+  \code{\link{xAsRaw_}}
+
+Other unboxing_functions: \code{\link{xAsCharacter}},
+  \code{\link{xAsCharacter_}}; \code{\link{xAsComplex}},
+  \code{\link{xAsComplex_}}; \code{\link{xAsDouble}},
+  \code{\link{xAsDouble_}}; \code{\link{xAsLogical}},
   \code{\link{xAsLogical_}}; \code{\link{xAsRaw}},
   \code{\link{xAsRaw_}}
 }

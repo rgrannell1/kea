@@ -45,8 +45,8 @@ xSumBy_(xIdentity, 1, 2, 3)
 }
 \seealso{
 Other basic_functions: \code{\link{xCapture}},
-  \code{\link{xK}}; \code{\link{xFalsity}};
-  \code{\link{xIrrelevance}}; \code{\link{xTruth}};
-  \code{\link{xUnit}}, \code{\link{xUnit_}}
+  \code{\link{xK}}; \code{\link{xClear}},
+  \code{\link{xClear_}}; \code{\link{xFalsity}};
+  \code{\link{xIrrelevance}}; \code{\link{xTruth}}
 }
 
