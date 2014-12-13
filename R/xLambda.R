@@ -165,13 +165,13 @@ xLambda <- function (sym, val) {
 
 			}
 
-			names(EMPTY_PARAM)       <- as.character( param_expr[[2]] )
+			names(EMPTY_PARAM) <- as.character( param_expr[[2]] )
 
 			return ( eval(call("function", as.pairlist(EMPTY_PARAM), body_expr), parent.frame()) )
 
 		}
 
-		# TODO: this code is slow and awful
+		# -- TODO: this code is slow and awful
 
 		sexp                <- relist( param_expr[[2]] )
 		validate(sexp)
