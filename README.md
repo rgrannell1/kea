@@ -32,268 +32,269 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for accompanying Sublime T
 Kea is first and foremost an algorithms library.
 
 
-**xAddKeys**
-**xAllOf:**
+* **xAddKeys**
 
-**xAmend:**
+* **xAllOf:**
 
-**xAnyOf:**
+* **xAmend:**
 
-**xAppend:**
+* **xAnyOf:**
 
-**xApply:**
+* **xAppend:**
 
-**xArityOf:**
+* **xApply:**
 
-**xAsCharacter, xAsComplex, xAsDouble, xAsInteger, xAsLogical, xAsRaw:**
+* **xArityOf:**
 
-**xAsList:**
+* **xAsCharacter, xAsComplex, xAsDouble, xAsInteger, xAsLogical, xAsRaw:**
 
-**xAt:**
+* **xAsList:**
 
-**xAtKey:**
+* **xAt:**
 
-**xCapture:**
+* **xAtKey:**
 
-**xCarve:**
+* **xCapture:**
 
-**xCharsOf:**
+* **xCarve:**
 
-**xChoose:**
+* **xCharsOf:**
 
-**xChunk:**
+* **xChoose:**
 
-**xClear:**
+* **xChunk:**
 
-**xCompose:**
+* **xClear:**
 
-**xCycle:**
+* **xCompose:**
 
-**xDeepMap:**
+* **xCycle:**
 
-**xDistinctOf:**
+* **xDeepMap:**
 
-**xDo:**
+* **xDistinctOf:**
 
-**xDrop:**
+* **xDo:**
 
-**xDropWhile:**
+* **xDrop:**
 
-**xDuplicatesOf:**
+* **xDropWhile:**
 
-**xExclude:**
+* **xDuplicatesOf:**
 
-**xExplode:**
+* **xExclude:**
 
-**xFalsity:**
+* **xExplode:**
 
-**xFirstOf:**
+* **xFalsity:**
 
-**xFix:**
+* **xFirstOf:**
 
-**xFlatMap:**
+* **xFix:**
 
-**xFlatten:**
+* **xFlatMap:**
 
-**xFold:**
+* **xFlatten:**
 
-**xFormalsOf:**
+* **xFold:**
 
-**xFourthOf:**
+* **xFormalsOf:**
 
-**xFromChars, xFromLines, xFromWords:**
+* **xFourthOf:**
 
-**xGather:**
+* **xFromChars, xFromLines, xFromWords:**
 
-**xGroupBy:**
+* **xGather:**
 
-**xI:**
+* **xGroupBy:**
 
-**xIdentity:**
+* **xI:**
 
-**xImplode:**
+* **xIdentity:**
 
-**xIndicesOf:**
+* **xImplode:**
 
-**xIndicesTo:**
+* **xIndicesOf:**
 
-**xInitOf:**
+* **xIndicesTo:**
 
-**xIntersect:**
+* **xInitOf:**
 
-**xInvoke:**
+* **xIntersect:**
 
-**xIrrelevance:**
+* **xInvoke:**
 
-**xIs:**
+* **xIrrelevance:**
 
-**xIsEmpty:**
+* **xIs:**
 
-**xIsFalse:**
+* **xIsEmpty:**
 
-**xIsIn:**
+* **xIsFalse:**
 
-**xIsInfixOf:**
+* **xIsIn:**
 
-**xIsMatch:**
+* **xIsInfixOf:**
 
-**xIsNa:**
+* **xIsMatch:**
 
-**xIsNan:**
+* **xIsNa:**
 
-**xIsNull:**
+* **xIsNan:**
 
-**xIsPrefixOf:**
+* **xIsNull:**
 
-**xIsSubsetOf:**
+* **xIsPrefixOf:**
 
-**xIsSuffixOf:**
+* **xIsSubsetOf:**
 
-**xIsTrue:**
+* **xIsSuffixOf:**
 
-**xIterate:**
+* **xIsTrue:**
 
-**xJoin:**
+* **xIterate:**
 
-**xJuxtapose:**
+* **xJoin:**
 
-**xK:**
+* **xJuxtapose:**
 
-**xKeysOf:**
+* **xK:**
 
-**xLastOf:**
+* **xKeysOf:**
 
-**xLenOf:**
+* **xLastOf:**
 
-**xLift:**
+* **xLenOf:**
 
-**xLimit:**
+* **xLift:**
 
-**xLocate:**
+* **xLimit:**
 
-**xMap:**
+* **xLocate:**
 
-**xMaxBy:**
+* **xMap:**
 
-**xMeanBy:**
+* **xMaxBy:**
 
-**xMedianBy:**
+* **xMeanBy:**
 
-**xMinBy:**
+* **xMedianBy:**
 
-**xNegate:**
+* **xMinBy:**
 
-**xNoneOf:**
+* **xNegate:**
 
-**xNot:**
+* **xNoneOf:**
 
-**xNotEmpty:**
+* **xNot:**
 
-**xNotFalse:**
+* **xNotEmpty:**
 
-**xNotIn:**
+* **xNotFalse:**
 
-**xNotInfixOf:**
+* **xNotIn:**
 
-**xNotMatch:**
+* **xNotInfixOf:**
 
-**xNotNa:**
+* **xNotMatch:**
 
-**xNotNan:**
+* **xNotNa:**
 
-**xNotNull:**
+* **xNotNan:**
 
-**xNotPrefixOf:**
+* **xNotNull:**
 
-**xNotSubsetOf:**
+* **xNotPrefixOf:**
 
-**xNotSuffixOf:**
+* **xNotSubsetOf:**
 
-**xNotTrue:**
+* **xNotSuffixOf:**
 
-**xOneOf:**
+* **xNotTrue:**
 
-**xOrderOf:**
+* **xOneOf:**
 
-**xParamsOf:**
+* **xOrderOf:**
 
-**xPoll:**
+* **xParamsOf:**
 
-**xPowerSetOf:**
+* **xPoll:**
 
-**xPrepend:**
+* **xPowerSetOf:**
 
-**xProdBy:**
+* **xPrepend:**
 
-**xProdSetOf:**
+* **xProdBy:**
 
-**xRank:**
+* **xProdSetOf:**
 
-**xRead:**
+* **xRank:**
 
-**xRecycle:**
+* **xRead:**
 
-**xReduce:**
+* **xRecycle:**
 
-**xRelate:**
+* **xReduce:**
 
-**xRepeat:**
+* **xRelate:**
 
-**xRestOf:**
+* **xRepeat:**
 
-**xReverse:**
+* **xRestOf:**
 
-**xRiffle:**
+* **xReverse:**
 
-**xScan:**
+* **xRiffle:**
 
-**xSecondOf:**
+* **xScan:**
 
-**xSelect, xReject:**
+* **xSecondOf:**
 
-**xShuffle:**
+* **xSelect, xReject:**
 
-**xSlice:**
+* **xShuffle:**
 
-**xSortBy:**
+* **xSlice:**
 
-**xStopwatch:**
+* **xSortBy:**
 
-**xSumBy:**
+* **xStopwatch:**
 
-**xSwap:**
+* **xSumBy:**
 
-**xTabulate:**
+* **xSwap:**
 
-**xTake:**
+* **xTabulate:**
 
-**xTakeWhile:**
+* **xTake:**
 
-**xThirdOf:**
+* **xTakeWhile:**
 
-**xThread:**
+* **xThirdOf:**
 
-**xToChars, xToLines, xToWords:**
+* **xThread:**
 
-**xTruth:**
+* **xToChars, xToLines, xToWords:**
 
-**xUnite:**
+* **xTruth:**
 
-**xUnzipIndices:**
+* **xUnite:**
 
-**xUnzipKeys:**
+* **xUnzipIndices:**
 
-**xValuesOf:**
+* **xUnzipKeys:**
 
-**xVersion:**
+* **xValuesOf:**
 
-**xWhere:**
+* **xVersion:**
 
-**xWrite:**
+* **xWhere:**
 
-**xZip:**
+* **xWrite:**
 
-**xZipKeys:**
+* **xZip:**
+
+* **xZipKeys:**
 
 
 
