@@ -32,17 +32,17 @@ Go [here](https://github.com/rgrannell1/kea-snippets) for accompanying Sublime T
 Kea is first and foremost an algorithms library.
 
 
-* **xAddKeys**
+* **xAddKeys:** Add names to a collection.
 
-* **xAmend:**
+* **xAmend:** Replace regular expression matches in a string with another string.
 
 * **xAnyOf, xAllOf, xNoneOf:**
 
-* **xAppend, xPrepend:**
+* **xAppend, xPrepend:** Add a value to the start or end of a collection.
 
-* **xApply:**
+* **xApply:** Invoke a function with a collection of arguments.
 
-* **xArityOf:**
+* **xArityOf:** Return the number of arguments a function can accept.
 
 * **xAsCharacter, xAsComplex, xAsDouble, xAsInteger, xAsLogical, xAsRaw:**
 
@@ -94,7 +94,7 @@ Kea is first and foremost an algorithms library.
 
 * **xFold, xReduce:**
 
-* **xFormalsOf:**
+* **xFormalsOf, xParamsOf:**
 
 * **xFromChars, xFromLines, xFromWords:**
 
@@ -169,8 +169,6 @@ Kea is first and foremost an algorithms library.
 * **xOneOf:**
 
 * **xOrderOf:**
-
-* **xParamsOf:**
 
 * **xPoll:**
 
