@@ -27,7 +27,149 @@ devtools::install_github("rgrannell1/kea", ref = 'releases')
 
 Go [here](https://github.com/rgrannell1/kea-snippets) for accompanying Sublime Text 3 snippets.
 
-### 2. Syntax
+### 2. Algorithms
+
+Kea is first and foremost an algorithms library.
+
+
+**xAddKeys**
+**xAllOf**
+**xAmend**
+**xAnyOf**
+**xAppend**
+**xApply**
+**xArityOf**
+**xAsCharacter, xAsComplex, xAsDouble, xAsInteger, xAsLogical, xAsRaw**
+**xAsList**
+**xAt**
+**xAtKey**
+**xCapture**
+**xCarve**
+**xCharsOf**
+**xChoose**
+**xChunk**
+**xClear**
+**xCompose**
+**xCycle**
+**xDeepMap**
+**xDistinctOf**
+**xDo**
+**xDrop**
+**xDropWhile**
+**xDuplicatesOf**
+**xExclude**
+**xExplode**
+**xFalsity**
+**xFirstOf**
+**xFix**
+**xFlatMap**
+**xFlatten**
+**xFold**
+**xFormalsOf**
+**xFourthOf**
+**xFromChars, xFromLines, xFromWords**
+**xGather**
+**xGroupBy**
+**xI**
+**xIdentity**
+**xImplode**
+**xIndicesOf**
+**xIndicesTo**
+**xInitOf**
+**xIntersect**
+**xInvoke**
+**xIrrelevance**
+**xIs**
+**xIsEmpty**
+**xIsFalse**
+**xIsIn**
+**xIsInfixOf**
+**xIsMatch**
+**xIsNa**
+**xIsNan**
+**xIsNull**
+**xIsPrefixOf**
+**xIsSubsetOf**
+**xIsSuffixOf**
+**xIsTrue**
+**xIterate**
+**xJoin**
+**xJuxtapose**
+**xK**
+**xKeysOf**
+**xLastOf**
+**xLenOf**
+**xLift**
+**xLimit**
+**xLocate**
+**xMap**
+**xMaxBy**
+**xMeanBy**
+**xMedianBy**
+**xMinBy**
+**xNegate**
+**xNoneOf**
+**xNot**
+**xNotEmpty**
+**xNotFalse**
+**xNotIn**
+**xNotInfixOf**
+**xNotMatch**
+**xNotNa**
+**xNotNan**
+**xNotNull**
+**xNotPrefixOf**
+**xNotSubsetOf**
+**xNotSuffixOf**
+**xNotTrue**
+**xOneOf**
+**xOrderOf**
+**xParamsOf**
+**xPoll**
+**xPowerSetOf**
+**xPrepend**
+**xProdBy**
+**xProdSetOf**
+**xRank**
+**xRead**
+**xRecycle**
+**xReduce**
+**xRelate**
+**xRepeat**
+**xRestOf**
+**xReverse**
+**xRiffle**
+**xScan**
+**xSecondOf**
+**xSelect, xReject**
+**xShuffle**
+**xSlice**
+**xSortBy**
+**xStopwatch**
+**xSumBy**
+**xSwap**
+**xTabulate**
+**xTake**
+**xTakeWhile**
+**xThirdOf**
+**xThread**
+**xToChars, xToLines, xToWords**
+**xTruth**
+**xUnite**
+**xUnzipIndices**
+**xUnzipKeys**
+**xValuesOf**
+**xVersion**
+**xWhere**
+**xWrite**
+**xZip**
+**xZipKeys**
+
+
+
+
+
+### 3. Syntax
 
 #### - Partial Application
 
@@ -109,8 +251,6 @@ Special operators are also available for combining predicate functions.
 xSelect_(is.integer %or% is.double, 'a', 1, 2L, '3', 4)
 list(1, 2, 4)
 ```
-
-## 5. Algorithms
 
 ## 4. Licensing
 
