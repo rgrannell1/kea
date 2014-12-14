@@ -34,11 +34,9 @@ Kea is first and foremost an algorithms library.
 
 * **xAddKeys**
 
-* **xAllOf:**
-
 * **xAmend:**
 
-* **xAnyOf:**
+* **xAnyOf, xAllOf, xNoneOf:**
 
 * **xAppend:**
 
@@ -122,31 +120,31 @@ Kea is first and foremost an algorithms library.
 
 * **xIrrelevance:**
 
-* **xIs:**
+* **xIs, xNot:**
 
-* **xIsEmpty:**
+* **xIsEmpty, xNotFalse:**
 
-* **xIsFalse:**
+* **xIsFalse, xIsFalse:**
 
-* **xIsIn:**
+* **xIsIn, xNotIn:**
 
-* **xIsInfixOf:**
+* **xIsInfixOf, xNotInfixOf:**
 
-* **xIsMatch:**
+* **xIsMatch, xNotMatch:**
 
-* **xIsNa:**
+* **xIsNa, xNotNa:**
 
-* **xIsNan:**
+* **xIsNan, xNotNan:**
 
-* **xIsNull:**
+* **xIsNull, xNotNull:**
 
-* **xIsPrefixOf:**
+* **xIsPrefixOf, xNotPrefixOf:**
 
-* **xIsSubsetOf:**
+* **xIsSubsetOf, xNotSubsetOf:**
 
-* **xIsSuffixOf:**
+* **xIsSuffixOf, xNotSuffixOf:**
 
-* **xIsTrue:**
+* **xIsTrue, xNotTrue:**
 
 * **xIterate:**
 
@@ -166,43 +164,11 @@ Kea is first and foremost an algorithms library.
 
 * **xMap:**
 
-* **xMaxBy:**
+* **xMaxBy, xMaxBy:**
 
-* **xMeanBy:**
-
-* **xMedianBy:**
-
-* **xMinBy:**
+* **xMeanBy, xMedianBy:**
 
 * **xNegate:**
-
-* **xNoneOf:**
-
-* **xNot:**
-
-* **xNotEmpty:**
-
-* **xNotFalse:**
-
-* **xNotIn:**
-
-* **xNotInfixOf:**
-
-* **xNotMatch:**
-
-* **xNotNa:**
-
-* **xNotNan:**
-
-* **xNotNull:**
-
-* **xNotPrefixOf:**
-
-* **xNotSubsetOf:**
-
-* **xNotSuffixOf:**
-
-* **xNotTrue:**
 
 * **xOneOf:**
 
@@ -216,7 +182,7 @@ Kea is first and foremost an algorithms library.
 
 * **xPrepend:**
 
-* **xProdBy:**
+* **xProdBy, xSumBy:**
 
 * **xProdSetOf:**
 
@@ -245,8 +211,6 @@ Kea is first and foremost an algorithms library.
 * **xSortBy:**
 
 * **xStopwatch:**
-
-* **xSumBy:**
 
 * **xSwap:**
 
