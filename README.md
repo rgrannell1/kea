@@ -38,7 +38,7 @@ Kea is first and foremost an algorithms library.
 
 * **xAnyOf, xAllOf, xNoneOf:**
 
-* **xAppend:**
+* **xAppend, xPrepend:**
 
 * **xApply:**
 
@@ -74,17 +74,17 @@ Kea is first and foremost an algorithms library.
 
 * **xDo:**
 
-* **xDrop:**
+* **xDrop, xTake:**
 
-* **xDropWhile:**
+* **xDropWhile, xTakeWhile:**
 
 * **xDuplicatesOf:**
 
 * **xExclude:**
 
-* **xExplode:**
+* **xExplode, xImplode:**
 
-* **xFalsity:**
+* **xFalsity, xIrrelevance, xTruth:**
 
 * **xFix:**
 
@@ -106,8 +106,6 @@ Kea is first and foremost an algorithms library.
 
 * **xIdentity:**
 
-* **xImplode:**
-
 * **xIndicesOf:**
 
 * **xIndicesTo:**
@@ -117,8 +115,6 @@ Kea is first and foremost an algorithms library.
 * **xIntersect:**
 
 * **xInvoke:**
-
-* **xIrrelevance:**
 
 * **xIs, xNot:**
 
@@ -180,15 +176,13 @@ Kea is first and foremost an algorithms library.
 
 * **xPowerSetOf:**
 
-* **xPrepend:**
-
 * **xProdBy, xSumBy:**
 
 * **xProdSetOf:**
 
 * **xRank:**
 
-* **xRead:**
+* **xRead, xWrite:**
 
 * **xRecycle:**
 
@@ -216,15 +210,9 @@ Kea is first and foremost an algorithms library.
 
 * **xTabulate:**
 
-* **xTake:**
-
-* **xTakeWhile:**
-
 * **xThread:**
 
 * **xToChars, xToLines, xToWords:**
-
-* **xTruth:**
 
 * **xUnite:**
 
@@ -235,8 +223,6 @@ Kea is first and foremost an algorithms library.
 * **xVersion:**
 
 * **xWhere:**
-
-* **xWrite:**
 
 * **xZip:**
 
