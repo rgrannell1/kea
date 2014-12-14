@@ -88,19 +88,15 @@ Kea is first and foremost an algorithms library.
 
 * **xFalsity:**
 
-* **xFirstOf:**
-
 * **xFix:**
 
 * **xFlatMap:**
 
 * **xFlatten:**
 
-* **xFold:**
+* **xFold, xReduce:**
 
 * **xFormalsOf:**
-
-* **xFourthOf:**
 
 * **xFromChars, xFromLines, xFromWords:**
 
@@ -118,7 +114,7 @@ Kea is first and foremost an algorithms library.
 
 * **xIndicesTo:**
 
-* **xInitOf:**
+* **xInitOf, xRestOf:**
 
 * **xIntersect:**
 
@@ -158,11 +154,7 @@ Kea is first and foremost an algorithms library.
 
 * **xJuxtapose:**
 
-* **xK:**
-
-* **xKeysOf:**
-
-* **xLastOf:**
+* **xFirstOf, xSecondOf, xThirdOf, xFourthOf, xLastOf:**
 
 * **xLenOf:**
 
@@ -234,21 +226,15 @@ Kea is first and foremost an algorithms library.
 
 * **xRecycle:**
 
-* **xReduce:**
-
 * **xRelate:**
 
 * **xRepeat:**
-
-* **xRestOf:**
 
 * **xReverse:**
 
 * **xRiffle:**
 
 * **xScan:**
-
-* **xSecondOf:**
 
 * **xSelect, xReject:**
 
@@ -270,8 +256,6 @@ Kea is first and foremost an algorithms library.
 
 * **xTakeWhile:**
 
-* **xThirdOf:**
-
 * **xThread:**
 
 * **xToChars, xToLines, xToWords:**
@@ -282,9 +266,7 @@ Kea is first and foremost an algorithms library.
 
 * **xUnzipIndices:**
 
-* **xUnzipKeys:**
-
-* **xValuesOf:**
+* **xKeysOf, xValuesOf:**
 
 * **xVersion:**
 
@@ -294,7 +276,7 @@ Kea is first and foremost an algorithms library.
 
 * **xZip:**
 
-* **xZipKeys:**
+* **xZipKeys, xUnzipKeys:**
 
 
 
