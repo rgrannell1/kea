@@ -12,7 +12,7 @@ fix <- function (fixed_function, coll) {
 
 	fn_sym      <- substitute(fixed_function)
 
-	lower_arity <- do.call('function', list(
+	eval( call("function",
 		# -- select each unused parametre.
 
 		as.pairlist(fn_formals[ fn_params %not_in% names(coll) ]),
@@ -31,11 +31,8 @@ fix <- function (fixed_function, coll) {
 			}) )) )
 
 		})
-	))
+	), new.env(parent = environment(fixed_function)) )
 
-	# copy the environment from the parent.
-	environment(lower_arity) <- new.env(parent = environment(fixed_function))
-	lower_arity
 }
 
 

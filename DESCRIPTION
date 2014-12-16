@@ -139,7 +139,6 @@ Collate:
     'xAddKeys.R'
     'xJuxtapose.R'
     'xShuffle.R'
-    'xLimit.R'
     'xLenOf.R'
     'xChoose.R'
     'xIsIn.R'
