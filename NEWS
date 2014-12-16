@@ -14,7 +14,9 @@ ENHANCEMENTS:
 * Removed xLimit, since it was at odds with Kea's focus as a collection library,
 was side effectual, and had a rare use-case.
 
+PACKAGE INTERNALS:
 
+* Added a much improved docopt buildscript, which should aid future development.
 
 
 

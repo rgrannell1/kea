@@ -11,12 +11,15 @@ docs <- list()
 "
 Name:
     build: a hacky build script.
+
 Usage:
+
     build profile [--previous=<num>] [--time=<time>]
     build redocument
     build install
     build parse
     build test
+
 Tasks:
 
     redocument - roxygenise (roxygenate surely?) the documentation. Currently
@@ -25,6 +28,8 @@ Tasks:
     parse      - test that the code parses. Faster than rebuilding.
 
     install    - build the package and redocument.
+
+    test       - run the tests.
 
 Options:
     --previous=<num>     the maximum number of previous releases to examine [default: Inf]
