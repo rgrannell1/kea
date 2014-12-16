@@ -6,7 +6,7 @@ xIs(NaN, NaN)
 
 # better done with
 
-xIsNan(NaN, NaN)
+xIsNan(NaN)
 
 # true
 

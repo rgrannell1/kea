@@ -1,4 +1,30 @@
 
+Kea 0.75.0
+------------------------------------------------------------------------------
+Date: 2014-12-16
+
+Renamed xProdSetOf to xCross, removed xLimitss.
+
+ENHANCEMENTS:
+
+* Renamed xProdSetOf to xCross, closing #80.
+
+* Improved the efficiency of partial application. Closes #79.
+
+* Removed xLimit, since it was at odds with Kea's focus as a collection library,
+was side effectual, and had a rare use-case.
+
+PACKAGE INTERNALS:
+
+* Added a much improved docopt buildscript, which should aid future development.
+
+
+
+
+
+
+
+
 Kea 0.74.0
 ------------------------------------------------------------------------------
 Date: 2014-12-13

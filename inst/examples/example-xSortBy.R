@@ -77,7 +77,7 @@ x_(paragraph) $ xToLines() $ xSortBy(nchar) $ xReverse() $ x_Take(3)
 
 nums <- c(-2, 2, -4, 2, -2, -6)
 
-x_(xProdSetOf_(nums, nums, nums, nums)) $
+x_(xCross_(nums, nums, nums, nums)) $
 xSelect(
 	xs := {
 		(unlist %then% sum)(xs) == 0
