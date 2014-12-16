@@ -80,7 +80,5 @@ Other inpure_functions: \code{\link{xDo}},
   \code{\link{xRead}}; \code{\link{xShuffle}},
   \code{\link{xShuffle_}}; \code{\link{xVersion}};
   \code{\link{xWrite}}
-
-Other time_functions: \code{\link{xLimit}}
 }
 
