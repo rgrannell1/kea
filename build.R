@@ -10,25 +10,27 @@ docs <- list()
 
 "
 Name:
-	build: a hacky build script.
+    build: a hacky build script.
 Usage:
-	build profile [--previous=<num>] [--time=<time>]
+    build profile [--previous=<num>] [--time=<time>]
+    build redocument
+    build install
+    build parse
+    build test
 Tasks:
-	redocument - roxygenise (roxygenate surely?) the documentation.
-	parse      - test that the code parses.
-	install    - build the package
+
+    redocument - roxygenise (roxygenate surely?) the documentation. Currently
+                 fixes an issue I'm having where Rcpp's dependencies is stripped from the NS on rebuild.
+
+    parse      - test that the code parses. Faster than rebuilding.
+
+    install    - build the package and redocument.
 
 Options:
-	--previous=<num>     the maximum number of previous releases to examine [default: Inf]
-	--time=<time>        the total time to run benchmarks for, in seconds [default: 600]
-
+    --previous=<num>     the maximum number of previous releases to examine [default: Inf]
+    --time=<time>        the total time to run benchmarks for, in seconds [default: 600]
 
 " -> docs $ master
-
-
-
-
-
 
 
 
@@ -38,6 +40,9 @@ tasks <- local({
 
 	self <- list()
 
+	sh <- function (...) {
+		system(paste0(...))
+	}
 
 
 
@@ -87,7 +92,7 @@ tasks <- local({
 
 	self $ install <- function () {
 
-		system( paste('R CMD INSTALL', getwd()) )
+		sh('R CMD INSTALL ', getwd())
 		self $ redocument()
 
 	}
@@ -99,8 +104,15 @@ tasks <- local({
 	self $ profile <- function (previous, time) {
 
 		profile <- file.path(getwd(), 'inst/profile_all_versions.R')
-		system(paste0(profile, ' --previous=', previous, ' --time=', time))
+		sh(profile, ' --previous=', previous, ' --time=', time)
 
+	}
+
+
+
+
+	self $ test <- function () {
+		devtools::check(document = FALSE)
 	}
 
 
@@ -131,6 +143,10 @@ main <- function (args) {
 
 	if (args $ profile) {
 		tasks $ profile(args $ `--previous`, args $ `--time`)
+	}
+
+	if (args $ test) {
+		tasks $ test()
 	}
 
 }
