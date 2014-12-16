@@ -1,3 +1,31 @@
+#!/usr/bin/env Rscript
+
+require(docopt, quietly = TRUE, warn.conflicts = FALSE)
+require(methods, quietly = TRUE, warn.conflicts = FALSE)
+
+
+
+
+"
+Name:
+	prof: examine kea's performance.
+Usage:
+	prof [--previous=<num>] [--time=<time>]
+
+Options:
+	--previous=<num>     the maximum number of previous releases to examine [default: Inf]
+	--time=<time>        the total time to run benchmarks for, in minutes [default: 10]
+
+" -> doc
+
+
+
+
+args <- docopt(doc)
+
+
+
+
 
 require(git2r,          quietly = TRUE, warn.conflicts = FALSE)
 require(devtools,       quietly = TRUE, warn.conflicts = FALSE)
@@ -41,11 +69,9 @@ config <- list(
 	graph_path = "~/Desktop/benchmark",
 
 	benchmarks = get_path("inst/benchmarks"),
-	total_time = 35 * 60,
-	limit      = Inf
+	total_time = as.numeric(args $ time),
+	limit      = as.numeric(args $ previous)
 )
-
-
 
 
 
@@ -158,7 +184,7 @@ number_of_benchmarks <-
 
 run_time       <- config $ total_time / (number_of_releases * number_of_benchmarks)
 
-message("-- running for ", run_time, " seconds \n.")
+message("-- running for ", round(run_time, 3), " seconds \n.")
 
 
 

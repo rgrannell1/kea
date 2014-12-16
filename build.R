@@ -6,19 +6,29 @@ require(methods, quietly = TRUE, warn.conflicts = FALSE)
 
 
 
+docs <- list()
+
 "
 Name:
 	build: a hacky build script.
 Usage:
-	build <task> [<args>...]
+	build profile [--previous=<num>] [--time=<time>]
 Tasks:
 	redocument - roxygenise (roxygenate surely?) the documentation.
 	parse      - test that the code parses.
 	install    - build the package
 
+Options:
+	--previous=<num>     the maximum number of previous releases to examine [default: Inf]
+	--time=<time>        the total time to run benchmarks for, in seconds [default: 600]
 
 
-" -> doc
+" -> docs $ master
+
+
+
+
+
 
 
 
@@ -33,7 +43,7 @@ tasks <- local({
 
 
 
-	self $ redocument <- function (args) {
+	self $ redocument <- function () {
 
 		devtools :: document(roclets = c('rd', 'collate', 'namespace'))
 
@@ -44,7 +54,11 @@ tasks <- local({
 
 	}
 
-	self $ parse <- function (args) {
+
+
+
+
+	self $ parse <- function () {
 
 		r_paths <- list.files(getwd(),
 			pattern    = '[.]R$|[.]r',
@@ -67,10 +81,25 @@ tasks <- local({
 
 	}
 
-	self $ install <- function (args) {
+
+
+
+
+	self $ install <- function () {
 
 		system( paste('R CMD INSTALL', getwd()) )
-		self $ redocument(args)
+		self $ redocument()
+
+	}
+
+
+
+
+
+	self $ profile <- function (previous, time) {
+
+		profile <- file.path(getwd(), 'inst/profile_all_versions.R')
+		system(paste0(profile, ' --previous=', previous, ' --time=', time))
 
 	}
 
@@ -88,20 +117,25 @@ tasks <- local({
 
 main <- function (args) {
 
-	task <- args[['task']]
-
-	if ( is.null( tasks[[task]] )) {
-
-		write(paste(task, 'not found.'), stderr())
-		quit('no', 1)
-
+	if (args $ redocument) {
+		tasks $ redocument()
 	}
 
-	tasks[[task]](args $ args)
+	if (args $ parse) {
+		tasks $ parse()
+	}
+
+	if (args $ install) {
+		tasks $ install()
+	}
+
+	if (args $ profile) {
+		tasks $ profile(args $ `--previous`, args $ `--time`)
+	}
 
 }
 
 
 
 
-main(docopt(doc))
+main(docopt(docs $ master))
