@@ -10,7 +10,13 @@ require(methods, quietly = TRUE, warn.conflicts = FALSE)
 Name:
 	build: a hacky build script.
 Usage:
-	build <task>
+	build <task> [<args>...]
+Tasks:
+	redocument - roxygenise (roxygenate surely?) the documentation.
+	parse      - test that the code parses.
+	install    - build the package
+
+
 
 " -> doc
 
@@ -27,7 +33,7 @@ tasks <- local({
 
 
 
-	self $ redocument <- function () {
+	self $ redocument <- function (args) {
 
 		devtools :: document(roclets = c('rd', 'collate', 'namespace'))
 
@@ -38,9 +44,13 @@ tasks <- local({
 
 	}
 
-	self $ parse <- function () {
+	self $ parse <- function (args) {
 
-		r_paths <- list.files(getwd(), pattern = '[.]R$|[.]r', recursive = TRUE, full.names = TRUE)
+		r_paths <- list.files(getwd(),
+			pattern    = '[.]R$|[.]r',
+			recursive  = TRUE,
+			full.names = TRUE
+		)
 
 		sapply(r_paths, function (fpath) {
 
@@ -56,6 +66,14 @@ tasks <- local({
 		invisible(NULL)
 
 	}
+
+	self $ install <- function (args) {
+
+		system( paste('R CMD INSTALL', getwd()) )
+		self $ redocument(args)
+
+	}
+
 
 
 
@@ -79,7 +97,7 @@ main <- function (args) {
 
 	}
 
-	tasks[[task]]()
+	tasks[[task]](args $ args)
 
 }
 
