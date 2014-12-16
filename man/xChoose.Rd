@@ -52,7 +52,7 @@ cards_ $ xChoose(2) $ xPoll(xAnyOf(is_royal))
 \seealso{
 Other combinatoric_functions: \code{\link{xCycle}},
   \code{\link{xCycle_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}
+  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
+  \code{\link{xCross_}}
 }
 

@@ -59,8 +59,8 @@ Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xUnite}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xUnite}},
   \code{\link{xUnite_}}
 }
 

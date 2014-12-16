@@ -55,7 +55,7 @@ Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}
+  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
+  \code{\link{xCross_}}
 }
 

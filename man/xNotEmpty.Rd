@@ -65,8 +65,8 @@ Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xProdSetOf}},
-  \code{\link{xProdSetOf_}}; \code{\link{xUnite}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xUnite}},
   \code{\link{xUnite_}}
 
 Other value_testing_functions: \code{\link{xIsEmpty}},

@@ -1,5 +1,5 @@
 
-#' xProdSetOf
+#' xCross
 #'
 #' Get the cartesian product of several collections.
 #'
@@ -28,12 +28,12 @@
 #'    Variadic
 #'
 #' @example
-#'    inst/examples/example-xProdSetOf.R
+#'    inst/examples/example-xCross.R
 #'
-#' @rdname xProdSetOf
+#' @rdname xCross
 #' @export
 
-xProdSetOf <- local({
+xCross <- local({
 
 	modulo_iths <- function (num, mods) {
 		as.numeric(arrayInd(num, .dim = mods))
@@ -66,7 +66,7 @@ xProdSetOf <- local({
 })
 
 
-#' @rdname xProdSetOf
+#' @rdname xCross
 #' @export
 
-xProdSetOf_ <- MakeVariadic(xProdSetOf, 'colls')
+xCross_ <- MakeVariadic(xCross, 'colls')

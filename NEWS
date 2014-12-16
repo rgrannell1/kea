@@ -596,7 +596,7 @@ NOTE:
 
 PACKAGE-INTERNALS:
 
-* Implemented xProdSetOf in C++, closing #32. Currently too slow to use.
+* Implemented xCross in C++, closing #32. Currently too slow to use.
 
 
 
@@ -1421,7 +1421,7 @@ unneeded names are added to outputs.
 
 PACKAGE INTERNALS:
 
-* added forall-next tests for xNotMatch, xNotTrue, xProdSetOf, xSliceString.
+* added forall-next tests for xNotMatch, xNotTrue, xCross, xSliceString.
 
 
 
@@ -2340,7 +2340,7 @@ ENHANCEMENTS:
 * Added x__, the variadic form of x_.
 
 * Removed xExists and xForall; the addition of xAnyOf and xAnyOf is equivalent
-for most cases, and for the remaining cases (polyadic functions) using xProdSetOf
+for most cases, and for the remaining cases (polyadic functions) using xCross
 and a quantifier is identical, and favours composition.
 
 DOCUMENTATION:
@@ -2839,7 +2839,7 @@ A bug-fix release.
 
 ENHANCEMENTS:
 
-* Very slightly improved xProdSetOf's efficiency by changing an inner Map
+* Very slightly improved xCross's efficiency by changing an inner Map
 to lapply.
 
 BUG FIXES:
@@ -3267,7 +3267,7 @@ unneeded names are added to outputs.
 
 PACKAGE INTERNALS:
 
-* added forall-next tests for xNotMatch, xNotTrue, xProdSetOf, xSliceString.
+* added forall-next tests for xNotMatch, xNotTrue, xCross, xSliceString.
 
 
 
@@ -4186,7 +4186,7 @@ ENHANCEMENTS:
 * Added x__, the variadic form of x_.
 
 * Removed xExists and xForall; the addition of xAnyOf and xAnyOf is equivalent
-for most cases, and for the remaining cases (polyadic functions) using xProdSetOf
+for most cases, and for the remaining cases (polyadic functions) using xCross
 and a quantifier is identical, and favours composition.
 
 DOCUMENTATION:
@@ -4685,7 +4685,7 @@ A bug-fix release.
 
 ENHANCEMENTS:
 
-* Very slightly improved xProdSetOf's efficiency by changing an inner Map
+* Very slightly improved xCross's efficiency by changing an inner Map
 to lapply.
 
 BUG FIXES:

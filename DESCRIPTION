@@ -133,7 +133,7 @@ Collate:
     'xUnzipKeys.R'
     'xFlatten.R'
     'xStopwatch.R'
-    'xProdSetOf.R'
+    'xCross.R'
     'xCycle.R'
     'xDo.R'
     'xAddKeys.R'

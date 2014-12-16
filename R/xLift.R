@@ -14,8 +14,8 @@
 #'    The most obvious use for \bold{xLift} is to take normally binary functions like \bold{+},
 #'    and \bold{max} that take numbers, and 'lift' it to work on functions of numbers.
 #'
-#'    Here the numeric functions "double" and "triple" are used to define a new function 
-#'    "sextuple". Addition usually takes two numbers, but when lifted it adds the result of 
+#'    Here the numeric functions "double" and "triple" are used to define a new function
+#'    "sextuple". Addition usually takes two numbers, but when lifted it adds the result of
 #'    numeric functions.
 #'
 #'    \code{double <- x := 2*x}
@@ -28,7 +28,7 @@
 #'    with addition.
 #'
 #'    \code{sextuple <- xLift_(`+`, double, triple)}
-#''    
+#''
 #'    Similarily, a function to check if a value is positive and a whole number can be
 #'    defined by
 #'
@@ -62,7 +62,7 @@
 #'    fn a binary function. The function to lift.
 #'
 #' @param
-#'    fns a collection of functions. The functions to transform each argument with before 
+#'    fns a collection of functions. The functions to transform each argument with before
 #'    passing the result to \bold{fn}
 #'
 #' @param

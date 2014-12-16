@@ -1,12 +1,12 @@
 
-# 1. xProdSetOf with xMap or xReduce is
+# 1. xCross with xMap or xReduce is
 #    often a very nice replacements for loops.
 
 xMap(
     xApply((ith : jth) := {
         ith^2 + jth^2
     }),
-    xProdSetOf_(1:4, 1:4)
+    xCross_(1:4, 1:4)
 )
 
 # is roughly the same as base R's_
@@ -24,4 +24,4 @@ res
 # 2. Compute the standard childhood multiplication
 #    table.
 
-xProdSetOf_(1:12, 1:12)
+xCross_(1:12, 1:12)
