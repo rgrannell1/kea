@@ -50,9 +50,9 @@ cards_ $ xChoose(2) $ xPoll(xAnyOf(is_royal))
 # 546 different ways
 }
 \seealso{
-Other combinatoric_functions: \code{\link{xCycle}},
+Other combinatoric_functions: \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xCycle}},
   \code{\link{xCycle_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}
+  \code{\link{xPowerSetOf_}}
 }
 

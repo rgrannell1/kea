@@ -9,6 +9,10 @@ cChunk <- function(num, coll) {
     .Call('kea_cChunk', PACKAGE = 'kea', num, coll)
 }
 
+cProdSetOf <- function(colls) {
+    .Call('kea_cProdSetOf', PACKAGE = 'kea', colls)
+}
+
 cDistinctOf <- function(coll) {
     .Call('kea_cDistinctOf', PACKAGE = 'kea', coll)
 }
@@ -83,10 +87,6 @@ cPoll <- function(pred, coll) {
 
 cPowerSetOf <- function(coll) {
     .Call('kea_cPowerSetOf', PACKAGE = 'kea', coll)
-}
-
-cProdSetOf <- function(colls) {
-    .Call('kea_cProdSetOf', PACKAGE = 'kea', colls)
 }
 
 cRecycle <- function(num, coll) {

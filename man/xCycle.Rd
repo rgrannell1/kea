@@ -79,8 +79,8 @@ all_cyclic_permutations(letters[1:3])
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xChoose}},
-  \code{\link{xChoose_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}
+  \code{\link{xChoose_}}; \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xPowerSetOf}},
+  \code{\link{xPowerSetOf_}}
 }
 

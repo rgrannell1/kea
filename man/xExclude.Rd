@@ -38,7 +38,8 @@ Get the elements of a collection not in another.
 xExclude(c('a', 'c'), c('a', 'b', 'c'))
 }
 \seealso{
-Other set_functions: \code{\link{xDistinctOf}},
+Other set_functions: \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xDistinctOf}},
   \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xIntersect}},
   \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
@@ -48,8 +49,7 @@ Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}; \code{\link{xUnite}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xUnite}},
   \code{\link{xUnite_}}
 }
 

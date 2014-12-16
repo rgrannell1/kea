@@ -71,11 +71,12 @@ xSelect(nums := {
 }
 \seealso{
 Other combinatoric_functions: \code{\link{xChoose}},
-  \code{\link{xChoose_}}; \code{\link{xCycle}},
-  \code{\link{xCycle_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}
+  \code{\link{xChoose_}}; \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xCycle}},
+  \code{\link{xCycle_}}
 
-Other set_functions: \code{\link{xDistinctOf}},
+Other set_functions: \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xDistinctOf}},
   \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xExclude}},
   \code{\link{xExclude_}}; \code{\link{xIntersect}},
@@ -85,8 +86,7 @@ Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xIsSubsetOf_}}; \code{\link{xNotEmpty}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
-  \code{\link{xNotSubsetOf_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}; \code{\link{xUnite}},
+  \code{\link{xNotSubsetOf_}}; \code{\link{xUnite}},
   \code{\link{xUnite_}}
 }
 

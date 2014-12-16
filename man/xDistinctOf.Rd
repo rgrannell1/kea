@@ -54,7 +54,8 @@ is_pangram('not pangramic thank you mam.')
 # False
 }
 \seealso{
-Other set_functions: \code{\link{xDuplicatesOf}},
+Other set_functions: \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xExclude}},
   \code{\link{xExclude_}}; \code{\link{xIntersect}},
   \code{\link{xIntersect_}}; \code{\link{xIsEmpty}},
@@ -64,8 +65,7 @@ Other set_functions: \code{\link{xDuplicatesOf}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}; \code{\link{xUnite}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xUnite}},
   \code{\link{xUnite_}}
 }
 

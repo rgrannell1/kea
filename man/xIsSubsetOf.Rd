@@ -42,7 +42,8 @@ Test if a collection is a subset of a second collection.
 NULL
 }
 \seealso{
-Other set_functions: \code{\link{xDistinctOf}},
+Other set_functions: \code{\link{xCross}},
+  \code{\link{xCross_}}; \code{\link{xDistinctOf}},
   \code{\link{xDistinctOf_}}; \code{\link{xDuplicatesOf}},
   \code{\link{xDuplicatesOf_}}; \code{\link{xExclude}},
   \code{\link{xExclude_}}; \code{\link{xIntersect}},
@@ -52,8 +53,7 @@ Other set_functions: \code{\link{xDistinctOf}},
   \code{\link{xNotEmpty_}}; \code{\link{xNotIn}},
   \code{\link{xNotIn_}}; \code{\link{xNotSubsetOf}},
   \code{\link{xNotSubsetOf_}}; \code{\link{xPowerSetOf}},
-  \code{\link{xPowerSetOf_}}; \code{\link{xCross}},
-  \code{\link{xCross_}}; \code{\link{xUnite}},
+  \code{\link{xPowerSetOf_}}; \code{\link{xUnite}},
   \code{\link{xUnite_}}
 }
 
