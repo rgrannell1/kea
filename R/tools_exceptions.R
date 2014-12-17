@@ -35,7 +35,7 @@ stringify_call <- local({
 	expand_call <- function (call) {
 
 		is_lambda <- function (term) {
-			is.call(term) && term[[1]] == as.symbol(':=')
+			is.call(term) && term[[1]] == ':='
 		}
 
 		as.call( lapply(call, function (term) {

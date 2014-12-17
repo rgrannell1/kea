@@ -4,15 +4,8 @@
 # Errors are values, but values without many functions on them.
 #
 
-grasp <- function (expr, callback) {
-
-	tryCatch(
-		evalq(expr),
-		error = function (warn) {
-			callback(warn)
-		}
-	)
-
+grasp <- function (expr) {
+	tryCatch(evalq(expr), error = identity)
 }
 
 

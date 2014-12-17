@@ -18,6 +18,14 @@ Must_Be_Fn_Matchable <- function (VAL) {
 
 				throw_exception $ error(sys.call(), message)
 
+			} else if (nchar(.(VAL), type = 'bytes') >= 10000) {
+
+				message <-
+					"The argument matching " %+% ddquote( .(VAL) ) %+%
+					" cannot be a string with more than ten thousand bytes." %+%
+					summate(.(VAL))
+
+				throw_exception $ lookup(sys.call(), message)
 			}
 
 		} else if (!is.function(.(VAL)) && !is.name(.(VAL))) {
