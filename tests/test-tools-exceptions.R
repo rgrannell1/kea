@@ -21,4 +21,11 @@ int_test('function handling')
 		id $ fn(fn)
 	) +
 
+	it('throws a type error otherwise') +
+	holdsWhen(
+		!is.function(fn) && !is.symbol(fn) && !is.character(fn),
+
+		inherits(grasp(id $ fn(fn)), 'type_error')
+	) +
+
 	run()
