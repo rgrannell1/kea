@@ -350,43 +350,68 @@ int_test  <- test_type('integration')
 
 
 
+throws_error <- function (expr) {
+	tryDefault({
+		eval(expr)
+		False
+	}, True)
+}
+
+throws_kea_error <- function (expr) {
+
+	tryCatch({
+		eval(expr)
+		False
+	}, error = function (err) {
+		inherits(err, 'kea_condition') && inherits(err, 'error')
+	})
+
+}
+
+
+
+
+
 
 load_test_dependencies <- function (envir) {
 
 	deps <-
 		list(
-			over            = over,
-			it              = it,
+			over             = over,
+			it               = it,
 
-			holdsWhen       = holdsWhen,
-			worksWhen       = worksWhen,
-			failsWhen       = failsWhen,
+			throws_error     = throws_error,
+			throws_kea_error = throws_kea_error,
 
-			holdsFor        = holdsFor,
-			worksFor        = worksFor,
-			failsFor        = failsFor,
+			holdsWhen        = holdsWhen,
+			worksWhen        = worksWhen,
+			failsWhen        = failsWhen,
 
-			unit_test       = unit_test,
-			int_test        = int_test,
+			holdsFor         = holdsFor,
+			worksFor         = worksFor,
+			failsFor         = failsFor,
 
-			run             = run,
-			suchThat        = suchThat,
-			grasp           = grasp,
+			unit_test        = unit_test,
+			int_test         = int_test,
 
-			`+.xforall`     = `+.xforall`,
+			run              = run,
+			suchThat         = suchThat,
+			grasp            = grasp,
 
-			is_collection   = is_collection,
+			`+.xforall`      = `+.xforall`,
+
+			is_collection    = is_collection,
 
 			# temporary
-			`%is_in%`       = '%in%',
+			`%is_in%`        = '%in%',
 
-			MakeFun         = MakeFun,
+			MakeFun          = MakeFun,
 
-			is_atomic       = is_atomic,
-			is_generic      = is_generic,
-			as_named        = as_named,
-			is_named        = is_named,
-			is_alphanumeric = function (str) {
+			is_atomic        = is_atomic,
+			is_generic       = is_generic,
+			as_named         = as_named,
+			is_named         = is_named,
+			is_alphanumeric  = function (str) {
 				chars <- strsplit(str, '')[[1]]
 
 				length(setdiff(chars, c(

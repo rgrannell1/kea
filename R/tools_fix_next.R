@@ -162,7 +162,6 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				# -- get the arguments.
 				# -- expand.dots not needed (not dot arguments).
 				params <- names(is_missing[!is_missing])
-				frame  <- environment()
 				args   <- lapply(params, function (param) .(lookup_expr))
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
@@ -172,11 +171,12 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 					return (.(substitute(FN)))
 
-				else if ( length(args) != .(arity) )
+				else if ( length(args) != .(arity) ) {
 					# -- return the function with some arguments fixed.
 
 					names(args) <- params
 					return (fix(.(substitute(FN)), args))
+				}
 
 			}
 			# -- else fast-track non-partial application.
