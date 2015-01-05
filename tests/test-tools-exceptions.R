@@ -67,18 +67,53 @@ int_test('string handling')
 
 int_test('always returns kea-specific errors. Should catch any unhandled errors.')
 
-	over(val1) +
+	local({
 
-	it('never throws a non-kea error.') +
+		fns <- Map(
+			function (fn) {
+				list( fn, getNamespace('kea')[[fn]] )
+			},
+			Filter(
+				function (fn_name) {
+					!any(fn_name == c('xRead', 'xWrite'))
+				},
+				ls('package:kea', pattern = '^x[A-Z]')
+			)
+		)
 
-	holdsWhen(
-		throws_error(xLenOf(val1)),
 
-		throws_kea_error(xLenOf(val1)),
-		throws_kea_error(xToWords(val1)),
-		throws_kea_error(xRepeat(val1, val2)),
-		throws_kea_error(xFromWords(val1)),
-		throws_kea_error(xLift(val1))
-	) +
+		lapply(fns, function (fn_info) {
 
-	run(60)
+			fn_name <- fn_info[[1]]
+			fn      <- fn_info[[2]]
+
+			FN      <- as.symbol(fn_name)
+
+			number_of_params <- length(formals(fn))
+			number_of_args   <- sample.int(number_of_params, 1)
+
+			expr <- bquote({
+
+				over(val) +
+
+				it(paste('never throws a naked error for ', fn_name)) +
+
+				holdsWhen(
+					throws_error(do.call( .(FN), rep(list(val), .(number_of_args)) )),
+
+					throws_kea_error(do.call( .(FN), rep(list(val), .(number_of_args)) ))
+				) +
+
+				run(5)
+
+			})
+
+
+
+
+
+			eval(expr)
+
+		})
+
+	})

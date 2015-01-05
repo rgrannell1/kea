@@ -351,10 +351,14 @@ int_test  <- test_type('integration')
 
 
 throws_error <- function (expr) {
-	tryDefault({
+
+	tryCatch({
 		eval(expr)
 		False
-	}, True)
+	}, error = function (err) {
+		True
+	})
+
 }
 
 throws_kea_error <- function (expr) {
