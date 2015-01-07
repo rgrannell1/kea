@@ -1,9 +1,36 @@
 
+Kea 0.76.0
+------------------------------------------------------------------------------
+Date: 2015-01-7
+
+Renamed xProdSetOf to xCross, removed xLimits.
+
+ENHANCEMENTS:
+
+* Renamed xProdSetOf to xCross, closing #80.
+
+BUG-FIXES:
+
+* Vector type errors are now labelled as type errors.
+
+PACKAGE INTERNALS:
+
+* Added a much improved docopt buildscript, which should aid future development.
+
+
+
+
+
+
+
+
+
+
 Kea 0.75.0
 ------------------------------------------------------------------------------
 Date: 2014-12-16
 
-Renamed xProdSetOf to xCross, removed xLimitss.
+Renamed xProdSetOf to xCross, removed xLimits.
 
 ENHANCEMENTS:
 

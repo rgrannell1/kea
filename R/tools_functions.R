@@ -212,7 +212,17 @@ call_with_params <- function (fnname, fn) {
 }
 
 # to dedottify my code.
-match_fn <- match.fun
+match_fn <- function (fn) {
+
+	if (is.function(fn))
+		return(fn)
+	else if ( !(is.character(fn) && length(fn) == 1 || is.symbol(fn)) ) {
+		fn <- eval.parent( substitute(substitute(fn)) )
+	}
+
+	get(as.character(fn), mode = "function", envir = parent.frame(2))
+
+}
 
 # -- evaluate a dangerous expression, on error return a default value.
 tryDefault <- function (expr, val) {
