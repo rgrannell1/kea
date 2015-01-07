@@ -63,7 +63,7 @@ as_typed_vector <- local({
 					message <- "the collection " %+% dQuote(coll_sym) %+%
 						" must be a collection of values of type " %+% mode %+% "."
 
-					throw_exception $ error(invoking_call, message)
+					throw_exception $ type_error(invoking_call, message)
 				}
 
 			} else if (mode == 'raw' && type != 'raw') {
@@ -74,7 +74,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_exception $ error(invoking_call, message)
+				throw_exception $ type_error(invoking_call, message)
 
 			} else if (!typecheck [[mode]] (coll) && !all_is_na) {
 				# -- other types pathway.
@@ -84,7 +84,7 @@ as_typed_vector <- local({
 				message <- "the collection " %+% dQuote(coll_sym) %+%
 					" must be a collection of values of type " %+% mode %+% "."
 
-				throw_exception $ error(invoking_call, message)
+				throw_exception $ type_error(invoking_call, message)
 			}
 
 			# -- convert in case vector was all NA values.
@@ -135,7 +135,7 @@ as_typed_vector <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_exception $ error(invoking_call, message)
+					throw_exception $ type_error(invoking_call, message)
 				}
 			}
 
@@ -231,8 +231,8 @@ as_atom <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_exception $ error(
-						invoking_call, message)
+					throw_exception $ type_error(invoking_call, message)
+
 				}
 
 				coll
@@ -254,8 +254,8 @@ as_atom <- local({
 					message <- message %+% summate(coll)
 				}
 
-				throw_exception $ error(
-					invoking_call, message)
+				throw_exception $ type_error(invoking_call, message)
+
 			}
 
 			coll
@@ -280,8 +280,8 @@ as_atom <- local({
 
 					coll_sym <- substitute(coll)
 
-				message <- "the collection " %+% dQuote(coll_sym) %+%
-						" must be a collection of values of type " %+% mode %+% "."
+					message <- "the collection " %+% dQuote(coll_sym) %+%
+							" must be a collection of values of type " %+% mode %+% "."
 
 					if (any(class(coll) == 'kea')) {
 						message <- message %+%
@@ -292,8 +292,8 @@ as_atom <- local({
 						message <- message %+% summate(coll)
 					}
 
-					throw_exception $ error(
-						invoking_call, message)
+					throw_exception $ type_error(invoking_call, message)
+
 				}
 			}
 
