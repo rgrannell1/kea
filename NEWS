@@ -3,11 +3,10 @@ Kea 0.76.0
 ------------------------------------------------------------------------------
 Date: 2015-01-7
 
-Renamed xProdSetOf to xCross, removed xLimits.
-
 ENHANCEMENTS:
 
-* Renamed xProdSetOf to xCross, closing #80.
+* Failed attempts to lookup a function by string name or symbol now produce
+more precise, idiomatic error messages.
 
 BUG-FIXES:
 
@@ -15,7 +14,6 @@ BUG-FIXES:
 
 PACKAGE INTERNALS:
 
-* Added a much improved docopt buildscript, which should aid future development.
 
 
 

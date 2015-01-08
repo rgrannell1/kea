@@ -230,7 +230,7 @@ write_type_checks <- ( function () {
 		Must_Be_Matchable(substitute(sym))
 
 	# -- these parametres are always collections.
-	for (param in c('coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums')) {
+	for (param in c('coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums', 'ints', 'strs')) {
 
 		self[[param]] <-
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
@@ -271,9 +271,6 @@ write_type_checks <- ( function () {
 		Must_Be_Collection(str2),
 		Must_Be_Non_Na(str2)
 	)
-
-	self $ strs <-
-		Must_Be_Collection(strs)
 
 	function (params) {
 
