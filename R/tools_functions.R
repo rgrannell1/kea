@@ -211,7 +211,10 @@ call_with_params <- function (fnname, fn) {
 	}
 }
 
-# to dedottify my code.
+
+
+# type errors are handled by Must_Be_Fn_Matcheable
+
 match_fn <- function (fn) {
 
 	if (is.function(fn))
@@ -220,9 +223,37 @@ match_fn <- function (fn) {
 		fn <- eval.parent( substitute(substitute(fn)) )
 	}
 
-	get(as.character(fn), mode = "function", envir = parent.frame(2))
+	if (!exists(fn)) {
+
+		message <-
+			"The argument matching " %+% ddquote(fn) %+%
+			" could not be found upon lookup."
+
+		throw_exception $ lookup_error(sys.call(), message)
+
+	} else {
+
+		matched <- get(fn, envir = parent.frame(2))
+
+		if (!is.function(matched)) {
+
+			message <-
+				"The argument matching " %+% ddquote(fn) %+% " was looked up, did exist, but was " %+%
+				"not a function." %+% summate(fn)
+
+			throw_exception $ type_error(sys.call(), message)
+
+		}
+
+		matched
+
+	}
 
 }
+
+
+
+
 
 # -- evaluate a dangerous expression, on error return a default value.
 tryDefault <- function (expr, val) {
