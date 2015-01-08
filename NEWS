@@ -12,6 +12,10 @@ BUG-FIXES:
 
 * Vector type errors are now labelled as type errors.
 
+* xAsInteger now throws a properly labelled error for integers.
+
+* xAt now gives more information about bounds errors.
+
 PACKAGE INTERNALS:
 
 

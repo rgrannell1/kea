@@ -37,6 +37,7 @@ Collate:
     'must_have_arity.R'
     'must_be_non_nan.R'
     'must_be_between.R'
+    'must_be_index_of.R'
     'must_contain_key.R'
     'must_be_of_length.R'
     'must_all_be_whole.R'
