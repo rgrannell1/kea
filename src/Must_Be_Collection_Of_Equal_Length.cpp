@@ -31,7 +31,7 @@ void Must_Be_Collection_Of_Equal_Length (const std::string COLLS, const List col
 			<< " must be a collection of collections with equal lengths.";
 
 		Function error_callback("error_callback");
-		error_callback(msg.str(), 1);
+		error_callback(msg.str(), "value_error", 1);
 	}
 
 }

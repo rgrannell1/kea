@@ -35,7 +35,7 @@ void Must_Be_Collection_Of_Lengths_In_Range (const std::string COLLS, const std:
 			<< "}.\n";
 
 		Function error_callback("error_callback");
-		error_callback(msg.str(), 1);
+		error_callback(msg.str(), "type_error", 1);
 
 	}
 

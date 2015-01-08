@@ -15,7 +15,7 @@ void Must_Be_Flag (const std::string PRED, const SEXP flag) {
 			" produced a non-{True, False, Na} value.\n";
 
 		Function error_callback("error_callback");
-		error_callback(message, 1);
+		error_callback(message, "type_error", 1);
 	}
 
 	const LogicalVector logical_flag = as<LogicalVector>(flag);
@@ -28,7 +28,7 @@ void Must_Be_Flag (const std::string PRED, const SEXP flag) {
 			<< " produced a non-{True, False, Na} value.\n";
 
 		Function error_callback("error_callback");
-		error_callback(msg.str(), 1);
+		error_callback(msg.str(), "type_error", 1);
 
 	}
 }
