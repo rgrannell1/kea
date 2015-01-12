@@ -9,7 +9,6 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cChunk (NumericVector num, const List& coll) {
 
-	const R_len_t num_len  = num.size();
 	const R_len_t coll_len = coll.size();
 
 	R_len_t num_mag;
@@ -26,7 +25,7 @@ List cChunk (NumericVector num, const List& coll) {
 		coll.attr("names"):
 		CharacterVector::create();
 
-	if (coll_len == 0 || num_len == 0) {
+	if (coll_len == 0) {
 		return List::create();
 	} else {
 

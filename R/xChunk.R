@@ -40,10 +40,17 @@
 
 xChunk <- MakeFun(function (num, coll) {
 
-	MACRO( Must_Be_Whole(num) )
-	MACRO( Must_Be_Between(num, 1, Inf))
+	if (length(num) == 0) {
+		list()
+	} else {
 
-	cChunk(num, coll)
+		MACRO( Must_Be_Whole(num) )
+		MACRO( Must_Be_Between(num, 1, Inf))
+
+		cChunk(num, coll)
+
+	}
+
 })
 
 #' @rdname xChunk

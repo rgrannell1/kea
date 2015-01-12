@@ -35,6 +35,7 @@
 xStopwatch <- MakeFun(function (num) {
 
 	MACRO( Must_Be_Longer_Than(0, num) )
+	MACRO( Must_Be_Orderable(num) )
 	MACRO( Must_Be_Between(num, 0, Inf))
 
 	num     <- unname(num)
