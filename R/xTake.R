@@ -39,8 +39,8 @@
 
 xTake <- MakeFun(function (num, coll) {
 
-	MACRO( Must_Be_Between(num, 0, Inf))
 	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 0, Inf))
 
 	cTake(num, coll)
 
