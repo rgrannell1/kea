@@ -38,6 +38,8 @@
 
 xDrop <- MakeFun(function (num, coll) {
 
+	MACRO( Must_Be_Non_Nan(num) )
+
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Between(num, 0, Inf))
 
