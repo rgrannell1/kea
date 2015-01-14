@@ -61,8 +61,6 @@ Collate:
     'must_be_existing_ref.R'
     'tools_fix_next.R'
     'RcppExports.R'
-    'xByCols---.R'
-    'xByRows---.R'
     'xByLevels---.R'
     'xByValues---.R'
     'xElemsByCols---.R'
