@@ -62,7 +62,6 @@ Collate:
     'tools_fix_next.R'
     'RcppExports.R'
     'xByLevels---.R'
-    'xByValues---.R'
     'xElemsByCols---.R'
     'xElemsByRows---.R'
     'xExecute---.R'
