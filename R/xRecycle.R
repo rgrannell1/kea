@@ -39,8 +39,6 @@ xRecycle <- MakeFun(function (num, coll) {
 		list()
 	} else {
 
-		MACRO( Must_Be_Non_Nan(num) )
-
 		MACRO( Must_Be_Whole(num) )
 		MACRO( Must_Be_Between(num, 0, Inf))
 
