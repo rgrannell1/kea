@@ -51,7 +51,6 @@
 
 xFix <- MakeFun(function (fn, coll) {
 
-	fn <- match_fn(fn)
 	names_of_coll <- names(coll)
 
 	MACRO( Must_Be_Parametres_Of(names_of_coll, fn) )

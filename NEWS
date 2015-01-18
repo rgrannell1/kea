@@ -5,6 +5,10 @@ Date: 2015-01-18
 
 Major reduction in number of unhandled exceptions thrown by Kea for unusual input.
 
+NOTE:
+
+* The version number for v0.75.0 seems to be erroneously set to v0.74.0.
+
 ENHANCEMENTS:
 
 * Removed xByCols, xByRows, and xByValues, closing #100. These functions were flagged
