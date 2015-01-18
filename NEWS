@@ -1,7 +1,9 @@
 
 Kea 0.76.0
 ------------------------------------------------------------------------------
-Date: 2015-01-7
+Date: 2015-01-18
+
+Major reduction in number of unhandled exceptions thrown by Kea for unusual input.
 
 ENHANCEMENTS:
 
@@ -10,7 +12,7 @@ more precise, idiomatic error messages.
 
 BUG-FIXES:
 
-* Vector type errors are now labelled as type errors.
+* Vector-related type errors are now labelled as type errors.
 
 * xAsInteger now throws a properly labelled error for integers.
 
