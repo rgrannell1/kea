@@ -7,6 +7,10 @@ Major reduction in number of unhandled exceptions thrown by Kea for unusual inpu
 
 ENHANCEMENTS:
 
+* Removed xByCols, xByRows, and xByValues, closing #100. These functions were flagged
+for deletion a long time ago, as were most functions that operate on dataframes and
+matrices.
+
 * Failed attempts to lookup a function by string name or symbol now produce
 more precise, idiomatic error messages.
 
@@ -14,12 +18,37 @@ BUG-FIXES:
 
 * Vector-related type errors are now labelled as type errors.
 
-* xAsInteger now throws a properly labelled error for integers.
+* Functions that have the parametre 'ints' or 'strs' now check that argument to see if
+it is a collection, closing #85.
 
-* xAt now gives more information about bounds errors.
+* xAt now explicitly checks its index is in bounds of the input collection, closing #87.
+
+* xAt no longer throws errors for list(NaN) due to the improved Must_Be_Whole macro,
+closing #86.
+
+* Closed #84 (no actual associated bug).
+
+* Failures to lookup a function name as an actual function will now throw an explicit
+error, closing #83.
+
+* A serious bug in partial application - where examples like xLift(.Primitive('<')) would
+fail - is now fixed, closing #82.
+
+* Kea now explicitely throws an exception when looking up a variable name
+with more than ten-thousand bytes, closing #81.
 
 PACKAGE INTERNALS:
 
+* Added Must_Be_Index_Of macro, to check if a number is an index of a collection.
+
+* Must_Be_Whole now performs a NaN check.
+
+* The rcpp error handler can now throw exceptions of any kea subclass.
+
+* grasp no longer takes a callback, as R is not JavaScript and there was no
+advantage to this behaviour.
+
+* Added match_fn, which performs the lookup step for function names in Kea.
 
 
 
