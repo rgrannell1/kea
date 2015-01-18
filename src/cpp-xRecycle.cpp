@@ -8,12 +8,11 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 List cRecycle (const NumericVector& num, const List& coll) {
 
-	const R_len_t num_len    = num.size();
 	const R_len_t coll_len   = coll.size();
 
 	const bool has_names = coll.attr("names") != R_NilValue;
 
-	if (coll_len == 0 || num_len == 0 || num[0] == 0) {
+	if (coll_len == 0 || num[0] == 0) {
 
 		List out(0);
 

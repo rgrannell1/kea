@@ -35,7 +35,7 @@ stringify_call <- local({
 	expand_call <- function (call) {
 
 		is_lambda <- function (term) {
-			is.call(term) && term[[1]] == as.symbol(':=')
+			is.call(term) && term[[1]] == ':='
 		}
 
 		as.call( lapply(call, function (term) {
@@ -123,6 +123,20 @@ kea_condition_message <- local({
 
 
 
+add_error_class <- function (classes, message) {
+	subclasses <- classes[classes != 'error' & classes != 'warning']
+
+	if (length(subclasses) > 0) {
+		paste0(paste0(subclasses, collapse = '/'), message, collapse = ':')
+	} else {
+		message
+	}
+
+}
+
+
+
+
 
 
 # KeaCondition
@@ -146,7 +160,7 @@ KeaCondition <- function (...) {
 
 		# -- what the user sees. Highly processed error message.
 
-		fields $ message <- kea_condition_message(ecall, message)
+		fields $ message <- add_error_class(custom_classes, kea_condition_message(ecall, message))
 
 		# -- TODO more custom data to aid debugging.
 

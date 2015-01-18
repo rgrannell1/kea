@@ -211,8 +211,49 @@ call_with_params <- function (fnname, fn) {
 	}
 }
 
-# to dedottify my code.
-match_fn <- match.fun
+
+
+# type errors are handled by Must_Be_Fn_Matcheable
+
+match_fn <- function (fn) {
+
+	if (is.function(fn))
+		return(fn)
+	else if ( !(is.character(fn) && length(fn) == 1 || is.symbol(fn)) ) {
+		fn <- eval.parent( substitute(substitute(fn)) )
+	}
+
+	if (!exists(fn)) {
+
+		message <-
+			"The argument matching " %+% ddquote(fn) %+%
+			" could not be found upon lookup."
+
+		throw_exception $ lookup_error(sys.call(), message)
+
+	} else {
+
+		matched <- get(fn, envir = parent.frame(2))
+
+		if (!is.function(matched)) {
+
+			message <-
+				"The argument matching " %+% ddquote(fn) %+% " was looked up, did exist, but was " %+%
+				"not a function." %+% summate(fn)
+
+			throw_exception $ type_error(sys.call(), message)
+
+		}
+
+		matched
+
+	}
+
+}
+
+
+
+
 
 # -- evaluate a dangerous expression, on error return a default value.
 tryDefault <- function (expr, val) {
@@ -350,43 +391,72 @@ int_test  <- test_type('integration')
 
 
 
+throws_error <- function (expr) {
+
+	tryCatch({
+		eval(expr)
+		False
+	}, error = function (err) {
+		True
+	})
+
+}
+
+throws_kea_error <- function (expr) {
+
+	tryCatch({
+		eval(expr)
+		False
+	}, error = function (err) {
+		inherits(err, 'kea_condition') && inherits(err, 'error')
+	})
+
+}
+
+
+
+
+
 
 load_test_dependencies <- function (envir) {
 
 	deps <-
 		list(
-			over            = over,
-			it              = it,
+			over             = over,
+			it               = it,
 
-			holdsWhen       = holdsWhen,
-			worksWhen       = worksWhen,
-			failsWhen       = failsWhen,
+			throws_error     = throws_error,
+			throws_kea_error = throws_kea_error,
 
-			holdsFor        = holdsFor,
-			worksFor        = worksFor,
-			failsFor        = failsFor,
+			holdsWhen        = holdsWhen,
+			worksWhen        = worksWhen,
+			failsWhen        = failsWhen,
 
-			unit_test       = unit_test,
-			int_test        = int_test,
+			holdsFor         = holdsFor,
+			worksFor         = worksFor,
+			failsFor         = failsFor,
 
-			run             = run,
-			suchThat        = suchThat,
-			grasp           = grasp,
+			unit_test        = unit_test,
+			int_test         = int_test,
 
-			`+.xforall`     = `+.xforall`,
+			run              = run,
+			suchThat         = suchThat,
+			grasp            = grasp,
 
-			is_collection   = is_collection,
+			`+.xforall`      = `+.xforall`,
+
+			is_collection    = is_collection,
 
 			# temporary
-			`%is_in%`       = '%in%',
+			`%is_in%`        = '%in%',
 
-			MakeFun         = MakeFun,
+			MakeFun          = MakeFun,
 
-			is_atomic       = is_atomic,
-			is_generic      = is_generic,
-			as_named        = as_named,
-			is_named        = is_named,
-			is_alphanumeric = function (str) {
+			is_atomic        = is_atomic,
+			is_generic       = is_generic,
+			as_named         = as_named,
+			is_named         = is_named,
+			is_alphanumeric  = function (str) {
 				chars <- strsplit(str, '')[[1]]
 
 				length(setdiff(chars, c(

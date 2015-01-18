@@ -26,8 +26,9 @@
 
 xIndicesTo <- MakeFun(function (num) {
 
-	MACRO( Must_Be_Between(num, 0, Inf))
 	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 0, Inf))
+
 	MACRO( Must_Be_Finite(num) )
 
 	# do not rewrite in C++

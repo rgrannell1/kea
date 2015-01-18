@@ -34,7 +34,11 @@ xToWords <- MakeFun(function (str) {
 
 	if (nchar(str) == 0 || length(str) == 0)
 		character(0)
-	else
+	else {
+
+		MACRO( Must_Be_Non_Na(str) )
 		str_split('[ \n\t]+', str)
+
+	}
 
 })

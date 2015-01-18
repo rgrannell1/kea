@@ -33,7 +33,11 @@ xToLines <- MakeFun(function (str) {
 
 	if (length(str) == 0 || nchar(str) == 0)
 		character(0)
-	else
+	else {
+
+		MACRO( Must_Be_Non_Na(str) )
 		str_split("\n+", str)
+
+	}
 
 })

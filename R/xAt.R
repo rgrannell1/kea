@@ -46,8 +46,10 @@ xAt <- MakeFun(function (num, coll) {
 
 	MACRO( Must_Be_Whole(num) )
 	MACRO( Must_Be_Positive_Index(num, coll) )
+	MACRO( Must_Be_Index_Of(num, coll) )
 
 	coll[[num]]
+
 })
 
 #' @rdname xAt

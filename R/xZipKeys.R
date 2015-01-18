@@ -39,7 +39,14 @@
 #' @export
 
 xZipKeys <- MakeFun(function (colls) {
-	cZipKeys(colls)
+
+	tryCatch(
+		cZipKeys(colls),
+		error = function (err) {
+			err
+		}
+	)
+
 })
 
 #' @rdname xZipKeys

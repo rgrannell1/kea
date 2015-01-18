@@ -162,7 +162,7 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 				# -- get the arguments.
 				# -- expand.dots not needed (not dot arguments).
 				params <- names(is_missing[!is_missing])
-				frame  <- environment()
+				frame <- environment()
 				args   <- lapply(params, function (param) .(lookup_expr))
 
 				# THE EXCLUSION OF BRACES IS VERY DELIBERATE.
@@ -172,11 +172,12 @@ Fix <- function (FN, SYMS, PRES, FINAL) {
 
 					return (.(substitute(FN)))
 
-				else if ( length(args) != .(arity) )
+				else if ( length(args) != .(arity) ) {
 					# -- return the function with some arguments fixed.
 
 					names(args) <- params
 					return (fix(.(substitute(FN)), args))
+				}
 
 			}
 			# -- else fast-track non-partial application.
@@ -229,7 +230,7 @@ write_type_checks <- ( function () {
 		Must_Be_Matchable(substitute(sym))
 
 	# -- these parametres are always collections.
-	for (param in c('coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums')) {
+	for (param in c('coll', 'coll1', 'coll2', 'bools', 'ims', 'raws', 'nums', 'ints', 'strs')) {
 
 		self[[param]] <-
 			do.call( Must_Be_Collection, list(as.symbol(param)) )
@@ -270,9 +271,6 @@ write_type_checks <- ( function () {
 		Must_Be_Collection(str2),
 		Must_Be_Non_Na(str2)
 	)
-
-	self $ strs <-
-		Must_Be_Collection(strs)
 
 	function (params) {
 

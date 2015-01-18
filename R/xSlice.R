@@ -42,7 +42,6 @@
 
 xSlice <- MakeFun(function (nums, coll) {
 
-	# -- handles Na and NaN
 	MACRO( Must_All_Be_Whole(nums) )
 	MACRO( Must_All_Be_Indices(nums, coll) )
 

@@ -51,8 +51,8 @@
 
 xFlatten <- MakeFun(function (num, coll) {
 
-	MACRO( Must_Be_Between(num, 1, Inf))
 	MACRO( Must_Be_Whole(num) )
+	MACRO( Must_Be_Between(num, 1, Inf))
 
 	# -- this makes the C++ implementation much easier.
 	if (is_atomic(coll))
