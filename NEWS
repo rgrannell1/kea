@@ -16,15 +16,38 @@ more precise, idiomatic error messages.
 
 BUG-FIXES:
 
+* xChoose now checks for NA inputs, closing #99.
+
+* xChunk now checks for length-zero inputs, closing #98.
+
+* xFlatten now checks for na inputs, closing #97.
+
 * Vector-related type errors are now labelled as type errors.
 
-* Functions that have the parametre 'ints' or 'strs' now check that argument to see if
-it is a collection, closing #85.
+* xIndicesTo now checks that its argument is non-na, non-nan, closing #96.
+
+* xRecycle now fails properly for length-zero arguments, closing #95.
+
+* xSlice now fails cleanly for NaN values due to the improved Must_Be_Whole macro,
+closing #94.
+
+* xStopwatch now checks to see if its argument is NaN, closing #93.
+
+* xTake now checks to see if its argument is NA, closing #92.
+
+* xToWords, xToLines, xToChars now check if their argument is non-nan, closing #91.
+
+* xZipKeys now adds text labels to its errors, closing #90.
+
+* xAtKey now checks that its key argument is non-na, closing #88.
 
 * xAt now explicitly checks its index is in bounds of the input collection, closing #87.
 
 * xAt no longer throws errors for list(NaN) due to the improved Must_Be_Whole macro,
 closing #86.
+
+* Functions that have the parametre 'ints' or 'strs' now check that argument to see if
+it is a collection, closing #85.
 
 * Closed #84 (no actual associated bug).
 
