@@ -61,7 +61,7 @@ Collate:
     'must_be_existing_ref.R'
     'tools_fix_next.R'
     'RcppExports.R'
-    'xExecute---.R'
+    'xExecute.R'
     'xLambda.R'
     'xApply.R'
     'xAsLogical.R'

@@ -17,7 +17,6 @@
 \alias{==.xlambda_builder}
 \alias{>.xlambda_builder}
 \alias{>=.xlambda_builder}
-\alias{@.xlambda_builder}
 \alias{[.xlambda_builder}
 \alias{[[.xlambda_builder}
 \alias{\%/\%.xlambda_builder}
@@ -29,7 +28,7 @@
 \title{x.}
 \format{\preformatted{function (...)  
  - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 41 2 48 2 9 9 41 48
-  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4bbdac0> 
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x40c5420> 
  - attr(*, "class")= chr "xlambda_builder"
 }}
 \usage{
@@ -44,8 +43,6 @@ x.
 \\method{[}{xlambda_builder}(...)
 
 \\method{$}{xlambda_builder}(...)
-
-"@.xlambda_builder"(...)
 
 \\method{^}{xlambda_builder}(...)
 
@@ -89,8 +86,6 @@ an arbitrary value.
 }
 \description{
 Partially apply an infix function.
-
-
 
 
 
