@@ -13,7 +13,8 @@ a $ b $ c $ d <- a $ b $ c $ d + 1
 Nested edits are unpleasant, but with use of function composition can be done effectively.
 ```r
 a <- list( b = list(c = list(d = 0)) )
-x_(a) $ xInvoke(xatKey(xI, 'b') %then% xatKey(xI, 'c') %then% .xatKey('d') %then% (x. + 1))
+x_(a) $ xInvoke(
+    xatKey(xI, 'b') %then% xatKey(xI, 'c') %then% .xatKey('d', x. + 1))
 ```
 
 
@@ -38,7 +39,7 @@ x_(10) $ xIndicesTo()  $ xMap(xIndicesTo %then% xfirstOf(x. * 2))
 Here the first element is set to 10, then retrieved. It returns 10, as expected.
 
 ```r
-.xfirstOf(xfirstOf(xK(10), 1:3))
+.xfirstOf(xI, xfirstOf(xK(10), 1:3))
 # 10
 ````
 
@@ -49,7 +50,7 @@ This law also restricts multiple-replacement to being one-to-one. For example, r
 This law seems to be the most easily violated of the three, and should be tested for each lens.
 
 ```r
-.xodds(xodds(xK(1), 1:4))
+.xodds(xI, xodds(xK(1), 1:4))
 # 1
 ```
 
@@ -59,7 +60,7 @@ The reset identity states that the subject extracted with a lens can be put back
 
 ```r
 coll <- 1:3
-xfirstOf(x := .xfirstOf(coll), coll)
+xfirstOf(x := .xfirstOf(xI, coll), coll)
 #1:3
 ```
 
@@ -79,29 +80,21 @@ Lens components will use a lowercase letter after their x-prefix to avoid maskin
 #### 2.1 Getters
 
 The getter component of the lens is denoted with a dot-prefix. They have the general type signature
-~~`(any -> any) -> any -> any`~~. `any -> any`. Functions that (when partially applied) produce lenses will also use this notation.
+`(any -> any) -> any -> any`. Functions that (when partially applied) produce lenses will also use this notation.
 
 ```r
 # -- getters
 
-.xfirstOf(1:3)
-# 1
+.xfirstOf(x. + 1, 1:3)
+# 2
 
-.xfirstOf_(1, 2, 3)
-# 1
+.xfirstOf_(x. + 1, 1, 2, 3)
+# 2
 ```
-~~The function argument takes the subject of the lens as an argument, and returns a transformation of value. Getters are only really getters when called with an identity function, but this complection will reduce calls to `xInvoke`.~~
-
-To keep the lens definition pure, getters do not take a function argument. To modify a value, you need to write
+The function argument takes the subject of the lens as an argument, and returns a transformation of value. Getters are formulated this way to make them compose without chaining:
 
 ```
-func(.xlens(data)
-```
-
-or
-
-```
-(.xlens %then% func)(data)
+.xfirstOf(.firstOf, 1:10)
 ```
 
 #### 2.2 Setters
