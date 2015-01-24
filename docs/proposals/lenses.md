@@ -79,18 +79,30 @@ Lens components will use a lowercase letter after their x-prefix to avoid maskin
 #### 2.1 Getters
 
 The getter component of the lens is denoted with a dot-prefix. They have the general type signature
-~~`(any -> any) -> any -> any`~~. any -> any. Functions that (when partially applied) produce lenses will also use this notation.
+~~`(any -> any) -> any -> any`~~. `any -> any`. Functions that (when partially applied) produce lenses will also use this notation.
 
 ```r
 # -- getters
 
-.xfirstOf(x. + 1, 1:3)
-# 2
+.xfirstOf(1:3)
+# 1
 
-.xfirstOf_(x. + 1, 1, 2, 3)
-# 2
+.xfirstOf_(1, 2, 3)
+# 1
 ```
-The function argument takes the subject of the lens as an argument, and returns a transformation of value. Getters are only really getters when called with an identity function, but this complection will reduce calls to `xInvoke`.
+~~The function argument takes the subject of the lens as an argument, and returns a transformation of value. Getters are only really getters when called with an identity function, but this complection will reduce calls to `xInvoke`.~~
+
+To keep the lens definition pure, getters do not take a function argument. To modify a value, you need to write
+
+```
+func(.xlens(data)
+```
+
+or
+
+```
+(.xlens %then% func)(data)
+```
 
 #### 2.2 Setters
 
