@@ -13,8 +13,7 @@ a $ b $ c $ d <- a $ b $ c $ d + 1
 Nested edits are unpleasant, but with use of function composition can be done effectively.
 ```r
 a <- list( b = list(c = list(d = 0)) )
-x_(a) $ xInvoke(
-    xatKey(xI, 'b') %then% xatKey(xI, 'c') %then% .xatKey('d', x. + 1))
+x_(a) $ xInvoke(xatKey(xI, 'b') %then% xatKey(xI, 'c') %then% .xatKey('d') %then% (x. + 1))
 ```
 
 
@@ -39,7 +38,7 @@ x_(10) $ xIndicesTo()  $ xMap(xIndicesTo %then% xfirstOf(x. * 2))
 Here the first element is set to 10, then retrieved. It returns 10, as expected.
 
 ```r
-.xfirstOf(xI, xfirstOf(xK(10), 1:3))
+.xfirstOf(xfirstOf(xK(10), 1:3))
 # 10
 ````
 
@@ -50,7 +49,7 @@ This law also restricts multiple-replacement to being one-to-one. For example, r
 This law seems to be the most easily violated of the three, and should be tested for each lens.
 
 ```r
-.xodds(xI, xodds(xK(1), 1:4))
+.xodds(xodds(xK(1), 1:4))
 # 1
 ```
 
@@ -60,7 +59,7 @@ The reset identity states that the subject extracted with a lens can be put back
 
 ```r
 coll <- 1:3
-xfirstOf(x := .xfirstOf(xI, coll), coll)
+xfirstOf(x := .xfirstOf(coll), coll)
 #1:3
 ```
 
@@ -80,7 +79,7 @@ Lens components will use a lowercase letter after their x-prefix to avoid maskin
 #### 2.1 Getters
 
 The getter component of the lens is denoted with a dot-prefix. They have the general type signature
-`(any -> any) -> any -> any`. Functions that (when partially applied) produce lenses will also use this notation.
+~~`(any -> any) -> any -> any`~~. any -> any. Functions that (when partially applied) produce lenses will also use this notation.
 
 ```r
 # -- getters
