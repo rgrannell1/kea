@@ -91,7 +91,11 @@ The getter component of the lens is denoted with a dot-prefix. They have the gen
 .xfirstOf_(x. + 1, 1, 2, 3)
 # 2
 ```
-The function argument takes the subject of the lens as an argument, and returns a transformation of value. Getters are only really getters when called with an identity function, but this complection will reduce calls to `xInvoke`.
+The function argument takes the subject of the lens as an argument, and returns a transformation of value. Getters are formulated this way to make them compose without chaining:
+
+```
+.xfirstOf(.firstOf, 1:10)
+```
 
 #### 2.2 Setters
 
