@@ -1,4 +1,24 @@
 
+Kea 0.77.0
+------------------------------------------------------------------------------
+Date: 2015-01-24
+
+Removed xByLevels, xElemsByRows, xElemsByCols.
+
+ENHANCEMENTS:
+
+* Removed xByLevels, xElemsByRows, xElemsByCols; they were flagged for removal, as
+kea's data frame functions don't work well.
+
+
+
+
+
+
+
+
+
+
 Kea 0.76.0
 ------------------------------------------------------------------------------
 Date: 2015-01-18
