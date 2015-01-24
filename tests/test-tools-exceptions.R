@@ -20,7 +20,7 @@ int_test(paste(
 				function (fn_name) {
 					!any(fn_name == c('xRead', 'xWrite', 'xLambda'))
 				},
-				ls('package:kea', pattern = '^x[A-Z]')
+				ls(envir = getNamespace('kea'), pattern = '^x[A-Z]')
 			)
 		)
 
