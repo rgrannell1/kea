@@ -154,9 +154,6 @@ xTabulate(
 )
 }
 \seealso{
-Other methods: \code{\link{xByCols}};
-  \code{\link{xByLevels}}; \code{\link{xByRows}};
-  \code{\link{xByValues}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{xExecute}}
+Other methods: \code{\link{xExecute}}
 }
 

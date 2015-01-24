@@ -45,10 +45,6 @@ Other inpure_functions: \code{\link{xDo}},
   \code{\link{xStopwatch}}; \code{\link{xVersion}};
   \code{\link{xWrite}}
 
-Other methods: \code{\link{xByCols}};
-  \code{\link{xByLevels}}; \code{\link{xByRows}};
-  \code{\link{xByValues}}; \code{\link{xElemsByCols}};
-  \code{\link{xElemsByRows}}; \code{\link{x_}},
-  \code{\link{x__}}
+Other methods: \code{\link{x_}}, \code{\link{x__}}
 }
 
