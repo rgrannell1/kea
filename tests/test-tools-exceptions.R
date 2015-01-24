@@ -18,7 +18,7 @@ int_test(paste(
 			},
 			Filter(
 				function (fn_name) {
-					!any(fn_name == c('xRead', 'xWrite'))
+					!any(fn_name == c('xRead', 'xWrite', 'xLambda'))
 				},
 				ls('package:kea', pattern = '^x[A-Z]')
 			)
