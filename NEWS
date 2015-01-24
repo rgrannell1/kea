@@ -13,6 +13,14 @@ kea's data frame functions don't work well.
 * Removed x. @ <value>, as it didn't work correctly. All other wildcard methods should
 work.
 
+BUG-FIXES:
+
+* xFix now throws an explicit error for primitive functions, closing #102.
+
+* xCycle no longer fails for length-zero number, closing #101.
+
+
+
 
 
 

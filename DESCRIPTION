@@ -34,6 +34,7 @@ Collate:
     'must_be_named.R'
     'must_be_non_na.R'
     'must_be_finite.R'
+    'must_be_closure.R'
     'must_have_arity.R'
     'must_be_non_nan.R'
     'must_be_between.R'
