@@ -34,7 +34,7 @@
 
 xCarve <- MakeFun(function (nums, str) {
 
-	# -- handles Na and NaN
+	MACRO( Must_Be_Orderable(nums) )
 	MACRO( Must_All_Be_Whole(nums) )
 
 	if (length(str) == 0 || (length(nums) == 1 && nums == 0)) {
