@@ -15,6 +15,13 @@ work.
 
 BUG-FIXES:
 
+* xChoose now fails cleanly for NaN values, closing #105.
+
+* xJuxtapose and xCompose now warn explicitely if they are given a function
+name longer than 10,000 bytes, closing #104.
+
+* xSlice now throws a clear error for named NaN values, closing #103.
+
 * xFix now throws an explicit error for primitive functions, closing #102.
 
 * xCycle no longer fails for length-zero number, closing #101.
