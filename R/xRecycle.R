@@ -35,11 +35,12 @@
 
 xRecycle <- MakeFun(function (num, coll) {
 
+	MACRO( Must_Be_Whole(num) )
+
 	if (length(num) == 0) {
 		list()
 	} else {
 
-		MACRO( Must_Be_Whole(num) )
 		MACRO( Must_Be_Between(num, 0, Inf))
 
 		cRecycle(num, coll)
