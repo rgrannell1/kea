@@ -42,6 +42,8 @@
 
 xSlice <- MakeFun(function (nums, coll) {
 
+	MACRO( Must_Be_Orderable(nums) )
+
 	MACRO( Must_All_Be_Whole(nums) )
 	MACRO( Must_All_Be_Indices(nums, coll) )
 

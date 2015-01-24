@@ -5,6 +5,10 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 
 	bquote({
 
+
+
+
+
 		# -- is every element of the collection a function?
 		.all_match <- all( vapply( .(COLL) , function (val) {
 
@@ -32,11 +36,27 @@ Must_Be_Collection_Of_Fn_Matchable <- function (COLL) {
 					"Did you use the wrong form of kea method (xMethod vs xMethod_)?" %+%
 					summate( .(COLL) )
 
-			} else {
-				message <- message %+% summate( .(COLL) )
 			}
 
 			throw_exception $ type_error(sys.call(), message)
+
+		} else {
+
+			too_long <- .(COLL)[ vapply(.(COLL), function (val) {
+				is.character(val) && nchar(val, type = 'bytes') >= 10000
+			}, logical(1)) ]
+
+			if (length(too_long) > 0) {
+
+				message <-
+					"The argument matching " %+% ddquote( .(COLL) ) %+%
+					" cannot contain function names with more than ten thousand bytes." %+%
+					summate(.(COLL))
+
+				throw_exception $ lookup(sys.call(), message)
+
+			}
+
 		}
 
 	})

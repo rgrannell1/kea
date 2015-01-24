@@ -117,22 +117,6 @@ x. <- structure(
 #' @export
 #' @rdname x.
 
-"@.xlambda_builder" <- function (...) {
-
-	..2 <- substitute(..2)
-
-	function (val) {
-		"a function created by x. @"
-
-		do.call('@', list(val, ..2))
-	}
-}
-
-#'
-
-#' @export
-#' @rdname x.
-
 "^.xlambda_builder" <- '**.xlambda_builder' <- function (...) {
 	function (val) {
 		"a function created by x. ^"

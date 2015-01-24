@@ -32,3 +32,5 @@ inst/vignettes/kea.Rnw
 
 x_lenses.R
 build.sh
+
+docs

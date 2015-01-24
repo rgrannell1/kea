@@ -40,6 +40,7 @@
 
 xChoose <- MakeFun(function (num, coll) {
 
+	MACRO( Must_Be_Whole(num) )
 
 	if (length(num) == 0 || num == 0) {
 		list()
@@ -49,7 +50,6 @@ xChoose <- MakeFun(function (num, coll) {
 		as.list(coll)
 	} else {
 
-		MACRO( Must_Be_Whole(num) )
 		MACRO( Must_Be_Between(num, 0, Inf))
 
 		if (is.pairlist(coll)) {

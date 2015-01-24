@@ -20,7 +20,7 @@ Must_Be_Whole <- function (NUM) {
 
 		throw_exception $ value_error(sys.call(), message)
 
-	} else if (round( .(NUM) ) != .( NUM )) {
+	} else if (length( .(NUM) ) != 0 && round( .(NUM) ) != .( NUM )) {
 
 		message <-
 			"The argument matching " %+% ddquote( .(NUM) ) %+% " must be a round number.\n\n" %+%

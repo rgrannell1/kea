@@ -54,6 +54,7 @@ xFix <- MakeFun(function (fn, coll) {
 	names_of_coll <- names(coll)
 
 	MACRO( Must_Be_Parametres_Of(names_of_coll, fn) )
+	MACRO( Must_Be_Closure(fn) )
 
 	names(coll) <- local({
 
@@ -63,6 +64,7 @@ xFix <- MakeFun(function (fn, coll) {
 		matched_call <- match.call(fn, call = dummy_call)
 		names(matched_call[-1])
 	})
+
 
 	if (length(coll) == 0) {
 		fn
