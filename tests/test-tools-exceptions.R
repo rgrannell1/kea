@@ -20,7 +20,7 @@ notrun <- function () {
 				},
 				Filter(
 					function (fn_name) {
-						!any(fn_name == c('xRead', 'xWrite', 'xLambda'))
+						!any(fn_name == c('xRepeat', 'xRead', 'xWrite', 'xLambda'))
 					},
 					ls(envir = getNamespace('kea'), pattern = '^x[A-Z]')
 				)

@@ -80,7 +80,8 @@ xSelect(
 x_Map(xAt(2))
 }
 \seealso{
-Other reshaping_functions: \code{\link{xAppend}},
+Other reshaping_functions: \code{\link{xAmassBy}},
+  \code{\link{xAmassBy_}}; \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},
   \code{\link{xGather_}}; \code{\link{xGroupBy}},

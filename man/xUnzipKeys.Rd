@@ -78,7 +78,8 @@ Other key_functions: \code{\link{xAddKeys}},
   \code{\link{xValuesOf_}}; \code{\link{xZipKeys}},
   \code{\link{xZipKeys_}}
 
-Other reshaping_functions: \code{\link{xAppend}},
+Other reshaping_functions: \code{\link{xAmassBy}},
+  \code{\link{xAmassBy_}}; \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},

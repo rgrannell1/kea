@@ -45,7 +45,8 @@ Other inpure_functions: \code{\link{xDo}},
   \code{\link{xRead}}; \code{\link{xStopwatch}};
   \code{\link{xVersion}}; \code{\link{xWrite}}
 
-Other reshaping_functions: \code{\link{xAppend}},
+Other reshaping_functions: \code{\link{xAmassBy}},
+  \code{\link{xAmassBy_}}; \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},

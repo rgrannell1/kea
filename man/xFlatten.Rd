@@ -74,7 +74,8 @@ xFlatten(1, tree)
 # list(3, 4, 9)
 }
 \seealso{
-Other reshaping_functions: \code{\link{xAppend}},
+Other reshaping_functions: \code{\link{xAmassBy}},
+  \code{\link{xAmassBy_}}; \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xGather}},
   \code{\link{xGather_}}; \code{\link{xGroupBy}},

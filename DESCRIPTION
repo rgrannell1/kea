@@ -203,6 +203,7 @@ Collate:
     'xInvoke.R'
     'xExclude.R'
     'xMedianBy.R'
+    'xAmassBy.R'
     'tools_lenses.R'
     'x_next.R'
     'x..R'
