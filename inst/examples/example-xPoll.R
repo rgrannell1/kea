@@ -10,7 +10,7 @@
 # xK(TRUE) returns a function that always returns TRUE. If we partially apply
 # xPoll with this predicate we have a new length function.
 
-lenof <- xFix_(xPoll, pred = xK(TRUE))
+lenof <- xPoll(xK(TRUE))
 
 lenof(c(1,2,3,4))
 # 4

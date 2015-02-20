@@ -60,9 +60,9 @@ xMap(party := {
 
 	list(
 		perjury =
-			x_(party) $ xMap(xAt(2)) $ xTabulate() $ x_ZipKeys(),
+			x_(party) $ xMap(xSecondOf) $ xTabulate() $ x_ZipKeys(),
 		obstruction =
-			x_(party) $ xMap(xAt(3)) $ xTabulate() $ x_ZipKeys()
+			x_(party) $ xMap(xFirstOf)  $ xTabulate() $ x_ZipKeys()
 	)
 
 }) $
