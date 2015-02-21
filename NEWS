@@ -1,7 +1,7 @@
 
 Kea 0.78.0
 ------------------------------------------------------------------------------
-Date: 2015-02-20
+Date: 2015-02-21
 
 Added xAmassBy.
 
@@ -9,9 +9,15 @@ ENHANCEMENTS:
 
 * Added xAmassBy, a less complicated complement to xGroupBy, closing #57.
 
+DOCUMENTATION:
+
+* Added examples for xDropWhile, xInitOf, xIntersect, xInvoke, xIsInfixOf,
+xNotInfixOf, xPoll, xRelate, xTakeWhile, xUnite, xWrite.
+
 PROPOSALS:
 
-* Decided against implementing the first lens proposal.
+* Decided against implementing the first lens proposal as it was too untidy,
+closing #75.
 
 
 
