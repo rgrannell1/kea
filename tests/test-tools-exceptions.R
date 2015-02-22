@@ -1,10 +1,6 @@
 
 kea ::: load_test_dependencies(environment())
 
-# -- commented out to allow v0.76.0 to be shipped.
-# -- this test produced so many new issues that they can't all be fixed in one
-# -- release.
-
 notrun <- function () {
 
 	int_test(paste(
@@ -20,7 +16,7 @@ notrun <- function () {
 				},
 				Filter(
 					function (fn_name) {
-						!any(fn_name == c('xRead', 'xWrite', 'xLambda'))
+						!any(fn_name == c('xRepeat', 'xRead', 'xWrite', 'xLambda'))
 					},
 					ls(envir = getNamespace('kea'), pattern = '^x[A-Z]')
 				)
@@ -42,13 +38,22 @@ notrun <- function () {
 
 					it(paste('never throws a naked error for ', fn_name)) +
 
-					holdsWhen(
-						throws_error(do.call( .(FN), rep(list(val), .(number_of_args)) )),
+					holdsWhen({
 
+							is_large_number <- is.numeric(unlist(val)) && length(val) == 1 && val > 1000
+
+							length(val) < 1000 &&
+
+							!is_large_number &&
+
+							!is.function(val) && # -- stops random functions playing.
+
+							throws_error(do.call( .(FN), rep(list(val), .(number_of_args)) ))
+						},
 						throws_kea_error(do.call( .(FN), rep(list(val), .(number_of_args)) ))
 					) +
 
-					run(5)
+					run(1)
 
 				})
 

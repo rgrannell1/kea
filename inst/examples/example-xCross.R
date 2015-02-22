@@ -1,6 +1,6 @@
 
 # 1. xCross with xMap or xReduce is
-#    often a very nice replacements for loops.
+#    often a very nice replacements for looping.
 
 xMap(
     xApply((ith : jth) := {

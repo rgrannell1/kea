@@ -23,6 +23,8 @@ right_to_left <- x_(left_to_right) $ x_Reverse()
 # to xIs( ith := left_to_right[ith], ith := right_to_left[ith] )
 # then this property is checked for each index.
 
+# this is very terse, but is probably a tasteful use of xLift.
+
 xAllOf(
 	xLift_(xIs,
 		xAt(coll = left_to_right),

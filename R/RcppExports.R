@@ -5,6 +5,10 @@ cGather <- function(coll) {
     .Call('kea_cGather', PACKAGE = 'kea', coll)
 }
 
+cAmassBy <- function(fn, coll) {
+    .Call('kea_cAmassBy', PACKAGE = 'kea', fn, coll)
+}
+
 cChunk <- function(num, coll) {
     .Call('kea_cChunk', PACKAGE = 'kea', num, coll)
 }

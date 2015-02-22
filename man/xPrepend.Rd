@@ -55,7 +55,8 @@ fibs <-
 # list(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)
 }
 \seealso{
-Other reshaping_functions: \code{\link{xAppend}},
+Other reshaping_functions: \code{\link{xAmassBy}},
+  \code{\link{xAmassBy_}}; \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},

@@ -39,7 +39,8 @@ Reuse elements of a collection in order until the collection is a certain length
 NULL
 }
 \seealso{
-Other reshaping_functions: \code{\link{xAppend}},
+Other reshaping_functions: \code{\link{xAmassBy}},
+  \code{\link{xAmassBy_}}; \code{\link{xAppend}},
   \code{\link{xAppend_}}; \code{\link{xChunk}},
   \code{\link{xChunk_}}; \code{\link{xFlatten}},
   \code{\link{xFlatten_}}; \code{\link{xGather}},

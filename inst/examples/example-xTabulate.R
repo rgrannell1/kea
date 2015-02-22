@@ -54,16 +54,15 @@ clinton_vote $ xAtKey('obstruction') $ x_Tabulate()
 # An advanced example;
 # get the overall vote within each party.
 
-clinton_vote $ xZip () $ xGroupBy(xFirstOf) $ # -- group by party
-xMap(xAt(2)) $ # -- select the groups
+clinton_vote $ xZip () $ xAmassBy(xFirstOf) $ # -- group by party
 xMap(party := {
 	# get the perjury and obstruction votes by party.
 
 	list(
 		perjury =
-			x_(party) $ xMap(xAt(2)) $ xTabulate() $ x_ZipKeys(),
+			x_(party) $ xMap(xSecondOf) $ xTabulate() $ x_ZipKeys(),
 		obstruction =
-			x_(party) $ xMap(xAt(3)) $ xTabulate() $ x_ZipKeys()
+			x_(party) $ xMap(xFirstOf)  $ xTabulate() $ x_ZipKeys()
 	)
 
 }) $
