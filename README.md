@@ -126,6 +126,3 @@ All versions post-release will be compliant with the Semantic Versioning 2.0.0 s
 
 http://semver.org/
 
-## 6. Authors
-
-Maintained and developed by Ryan Grannell.
